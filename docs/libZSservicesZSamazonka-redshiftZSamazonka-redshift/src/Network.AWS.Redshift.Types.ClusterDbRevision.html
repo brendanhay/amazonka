@@ -28,22 +28,22 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a @ClusterDbRevision@.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newClusterDbRevision' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679495855"><span id="local-6989586621679495856"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClusterDbRevision"><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-var">ClusterDbRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterDbRevision%27"><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-var">ClusterDbRevision'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string representing the current cluster version.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcurrentDatabaseRevision%3AClusterDbRevision%27"><span class="annot"><span class="annottext">ClusterDbRevision -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3AcurrentDatabaseRevision%3AClusterDbRevision%27"><span class="hs-identifier hs-var hs-var">currentDatabaseRevision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A list of @RevisionTarget@ objects, where each object describes the</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- database revision that a cluster can be updated to.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3ArevisionTargets%3AClusterDbRevision%27"><span class="annot"><span class="annottext">ClusterDbRevision -&gt; Maybe [RevisionTarget]
-</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3ArevisionTargets%3AClusterDbRevision%27"><span class="hs-identifier hs-var hs-var">revisionTargets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.RevisionTarget.html#RevisionTarget"><span class="hs-identifier hs-type">RevisionTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the cluster.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3AClusterDbRevision%27"><span class="annot"><span class="annottext">ClusterDbRevision -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621679496505"><span id="local-6989586621679496506"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClusterDbRevision"><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-var">ClusterDbRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterDbRevision%27"><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-var">ClusterDbRevision'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date on which the database revision was released.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AdatabaseRevisionReleaseDate%3AClusterDbRevision%27"><span class="annot"><span class="annottext">ClusterDbRevision -&gt; Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3AdatabaseRevisionReleaseDate%3AClusterDbRevision%27"><span class="hs-identifier hs-var hs-var">databaseRevisionReleaseDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the cluster.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3AClusterDbRevision%27"><span class="annot"><span class="annottext">ClusterDbRevision -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3AclusterIdentifier%3AClusterDbRevision%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The date on which the database revision was released.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdatabaseRevisionReleaseDate%3AClusterDbRevision%27"><span class="annot"><span class="annottext">ClusterDbRevision -&gt; Maybe ISO8601
-</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3AdatabaseRevisionReleaseDate%3AClusterDbRevision%27"><span class="hs-identifier hs-var hs-var">databaseRevisionReleaseDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A string representing the current cluster version.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcurrentDatabaseRevision%3AClusterDbRevision%27"><span class="annot"><span class="annottext">ClusterDbRevision -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3AcurrentDatabaseRevision%3AClusterDbRevision%27"><span class="hs-identifier hs-var hs-var">currentDatabaseRevision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A list of @RevisionTarget@ objects, where each object describes the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- database revision that a cluster can be updated to.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3ArevisionTargets%3AClusterDbRevision%27"><span class="annot"><span class="annottext">ClusterDbRevision -&gt; Maybe [RevisionTarget]
+</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3ArevisionTargets%3AClusterDbRevision%27"><span class="hs-identifier hs-var hs-var">revisionTargets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.RevisionTarget.html#RevisionTarget"><span class="hs-identifier hs-type">RevisionTarget</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679495846"><span id="local-6989586621679495848"><span class="annot"><span class="annottext">ClusterDbRevision -&gt; ClusterDbRevision -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679496496"><span id="local-6989586621679496498"><span class="annot"><span class="annottext">ClusterDbRevision -&gt; ClusterDbRevision -&gt; Bool
 (ClusterDbRevision -&gt; ClusterDbRevision -&gt; Bool)
 -&gt; (ClusterDbRevision -&gt; ClusterDbRevision -&gt; Bool)
 -&gt; Eq ClusterDbRevision
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ClusterDbRevision -&gt; ClusterDbRevision -&gt; Bool
 == :: ClusterDbRevision -&gt; ClusterDbRevision -&gt; Bool
 $c== :: ClusterDbRevision -&gt; ClusterDbRevision -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679495837"><span id="local-6989586621679495839"><span id="local-6989586621679495841"><span id="local-6989586621679495843"><span class="annot"><span class="annottext">ReadPrec [ClusterDbRevision]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679496487"><span id="local-6989586621679496489"><span id="local-6989586621679496491"><span id="local-6989586621679496493"><span class="annot"><span class="annottext">ReadPrec [ClusterDbRevision]
 ReadPrec ClusterDbRevision
 Int -&gt; ReadS ClusterDbRevision
 ReadS [ClusterDbRevision]
@@ -72,7 +72,7 @@ readList :: ReadS [ClusterDbRevision]
 $creadList :: ReadS [ClusterDbRevision]
 readsPrec :: Int -&gt; ReadS ClusterDbRevision
 $creadsPrec :: Int -&gt; ReadS ClusterDbRevision
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679495830"><span id="local-6989586621679495832"><span id="local-6989586621679495834"><span class="annot"><span class="annottext">Int -&gt; ClusterDbRevision -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679496480"><span id="local-6989586621679496482"><span id="local-6989586621679496484"><span class="annot"><span class="annottext">Int -&gt; ClusterDbRevision -&gt; ShowS
 [ClusterDbRevision] -&gt; ShowS
 ClusterDbRevision -&gt; String
 (Int -&gt; ClusterDbRevision -&gt; ShowS)
@@ -106,67 +106,123 @@ $cfrom :: forall x. ClusterDbRevision -&gt; Rep ClusterDbRevision x
 </span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'currentDatabaseRevision', 'clusterDbRevision_currentDatabaseRevision' - A string representing the current cluster version.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'databaseRevisionReleaseDate', 'clusterDbRevision_databaseRevisionReleaseDate' - The date on which the database revision was released.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'revisionTargets', 'clusterDbRevision_revisionTargets' - A list of @RevisionTarget@ objects, where each object describes the</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- database revision that a cluster can be updated to.</span><span>
-</span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'clusterIdentifier', 'clusterDbRevision_clusterIdentifier' - The unique identifier of the cluster.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'databaseRevisionReleaseDate', 'clusterDbRevision_databaseRevisionReleaseDate' - The date on which the database revision was released.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'clusterIdentifier', 'clusterDbRevision_clusterIdentifier' - The unique identifier of the cluster.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'currentDatabaseRevision', 'clusterDbRevision_currentDatabaseRevision' - A string representing the current cluster version.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'revisionTargets', 'clusterDbRevision_revisionTargets' - A list of @RevisionTarget@ objects, where each object describes the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- database revision that a cluster can be updated to.</span><span>
 </span><span id="line-60"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#newClusterDbRevision"><span class="hs-identifier hs-type">newClusterDbRevision</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span><span>
 </span><span id="line-62"></span><span id="newClusterDbRevision"><span class="annot"><span class="annottext">newClusterDbRevision :: ClusterDbRevision
 </span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#newClusterDbRevision"><span class="hs-identifier hs-var hs-var">newClusterDbRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">ClusterDbRevision' :: Maybe Text
--&gt; Maybe [RevisionTarget]
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">ClusterDbRevision' :: Maybe ISO8601
 -&gt; Maybe Text
--&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe [RevisionTarget]
 -&gt; ClusterDbRevision
 </span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-type">ClusterDbRevision'</span></a></span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:currentDatabaseRevision:ClusterDbRevision' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3AcurrentDatabaseRevision%3AClusterDbRevision%27"><span class="hs-identifier hs-var">currentDatabaseRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:databaseRevisionReleaseDate:ClusterDbRevision' :: Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3AdatabaseRevisionReleaseDate%3AClusterDbRevision%27"><span class="hs-identifier hs-var">databaseRevisionReleaseDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:revisionTargets:ClusterDbRevision' :: Maybe [RevisionTarget]
-</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3ArevisionTargets%3AClusterDbRevision%27"><span class="hs-identifier hs-var">revisionTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RevisionTarget]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:ClusterDbRevision' :: Maybe Text
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:ClusterDbRevision' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3AclusterIdentifier%3AClusterDbRevision%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseRevisionReleaseDate:ClusterDbRevision' :: Maybe ISO8601
-</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3AdatabaseRevisionReleaseDate%3AClusterDbRevision%27"><span class="hs-identifier hs-var">databaseRevisionReleaseDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:currentDatabaseRevision:ClusterDbRevision' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3AcurrentDatabaseRevision%3AClusterDbRevision%27"><span class="hs-identifier hs-var">currentDatabaseRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:revisionTargets:ClusterDbRevision' :: Maybe [RevisionTarget]
+</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3ArevisionTargets%3AClusterDbRevision%27"><span class="hs-identifier hs-var">revisionTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RevisionTarget]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | A string representing the current cluster version.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#clusterDbRevision_currentDatabaseRevision"><span class="hs-identifier hs-type">clusterDbRevision_currentDatabaseRevision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="clusterDbRevision_currentDatabaseRevision"><span class="annot"><span class="annottext">clusterDbRevision_currentDatabaseRevision :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-71"></span><span class="hs-comment">-- | The date on which the database revision was released.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#clusterDbRevision_databaseRevisionReleaseDate"><span class="hs-identifier hs-type">clusterDbRevision_databaseRevisionReleaseDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="clusterDbRevision_databaseRevisionReleaseDate"><span class="annot"><span class="annottext">clusterDbRevision_databaseRevisionReleaseDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ClusterDbRevision -&gt; f ClusterDbRevision
+</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#clusterDbRevision_databaseRevisionReleaseDate"><span class="hs-identifier hs-var hs-var">clusterDbRevision_databaseRevisionReleaseDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterDbRevision -&gt; Maybe ISO8601)
+-&gt; (ClusterDbRevision -&gt; Maybe ISO8601 -&gt; ClusterDbRevision)
+-&gt; Lens
+     ClusterDbRevision ClusterDbRevision (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-type">ClusterDbRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679496471"><span class="annot"><span class="annottext">Maybe ISO8601
+databaseRevisionReleaseDate :: Maybe ISO8601
+$sel:databaseRevisionReleaseDate:ClusterDbRevision' :: ClusterDbRevision -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679496471"><span class="hs-identifier hs-var hs-var">databaseRevisionReleaseDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679496471"><span class="hs-identifier hs-var">databaseRevisionReleaseDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679496470"><span class="annot"><span class="annottext">s :: ClusterDbRevision
+</span><a href="#local-6989586621679496470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-type">ClusterDbRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679496469"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679496469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterDbRevision
+</span><a href="#local-6989586621679496470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseRevisionReleaseDate:ClusterDbRevision' :: Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3AdatabaseRevisionReleaseDate%3AClusterDbRevision%27"><span class="hs-identifier hs-var">databaseRevisionReleaseDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679496469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; ClusterDbRevision -&gt; f ClusterDbRevision)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ClusterDbRevision
+-&gt; f ClusterDbRevision
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The unique identifier of the cluster.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#clusterDbRevision_clusterIdentifier"><span class="hs-identifier hs-type">clusterDbRevision_clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="clusterDbRevision_clusterIdentifier"><span class="annot"><span class="annottext">clusterDbRevision_clusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClusterDbRevision -&gt; f ClusterDbRevision
+</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#clusterDbRevision_clusterIdentifier"><span class="hs-identifier hs-var hs-var">clusterDbRevision_clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterDbRevision -&gt; Maybe Text)
+-&gt; (ClusterDbRevision -&gt; Maybe Text -&gt; ClusterDbRevision)
+-&gt; Lens
+     ClusterDbRevision ClusterDbRevision (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-type">ClusterDbRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679496464"><span class="annot"><span class="annottext">Maybe Text
+clusterIdentifier :: Maybe Text
+$sel:clusterIdentifier:ClusterDbRevision' :: ClusterDbRevision -&gt; Maybe Text
+</span><a href="#local-6989586621679496464"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679496464"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679496463"><span class="annot"><span class="annottext">s :: ClusterDbRevision
+</span><a href="#local-6989586621679496463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-type">ClusterDbRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679496462"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679496462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterDbRevision
+</span><a href="#local-6989586621679496463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:ClusterDbRevision' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3AclusterIdentifier%3AClusterDbRevision%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679496462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | A string representing the current cluster version.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#clusterDbRevision_currentDatabaseRevision"><span class="hs-identifier hs-type">clusterDbRevision_currentDatabaseRevision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="clusterDbRevision_currentDatabaseRevision"><span class="annot"><span class="annottext">clusterDbRevision_currentDatabaseRevision :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ClusterDbRevision -&gt; f ClusterDbRevision
 </span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#clusterDbRevision_currentDatabaseRevision"><span class="hs-identifier hs-var hs-var">clusterDbRevision_currentDatabaseRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterDbRevision -&gt; Maybe Text)
 -&gt; (ClusterDbRevision -&gt; Maybe Text -&gt; ClusterDbRevision)
 -&gt; Lens
      ClusterDbRevision ClusterDbRevision (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-type">ClusterDbRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495821"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-type">ClusterDbRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679496460"><span class="annot"><span class="annottext">Maybe Text
 currentDatabaseRevision :: Maybe Text
 $sel:currentDatabaseRevision:ClusterDbRevision' :: ClusterDbRevision -&gt; Maybe Text
-</span><a href="#local-6989586621679495821"><span class="hs-identifier hs-var hs-var">currentDatabaseRevision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679495821"><span class="hs-identifier hs-var">currentDatabaseRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495820"><span class="annot"><span class="annottext">s :: ClusterDbRevision
-</span><a href="#local-6989586621679495820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-type">ClusterDbRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495819"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679495819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterDbRevision
-</span><a href="#local-6989586621679495820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentDatabaseRevision:ClusterDbRevision' :: Maybe Text
+</span><a href="#local-6989586621679496460"><span class="hs-identifier hs-var hs-var">currentDatabaseRevision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679496460"><span class="hs-identifier hs-var">currentDatabaseRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679496459"><span class="annot"><span class="annottext">s :: ClusterDbRevision
+</span><a href="#local-6989586621679496459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-type">ClusterDbRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679496458"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679496458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterDbRevision
+</span><a href="#local-6989586621679496459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentDatabaseRevision:ClusterDbRevision' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3AcurrentDatabaseRevision%3AClusterDbRevision%27"><span class="hs-identifier hs-var">currentDatabaseRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679495819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | A list of @RevisionTarget@ objects, where each object describes the</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- database revision that a cluster can be updated to.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#clusterDbRevision_revisionTargets"><span class="hs-identifier hs-type">clusterDbRevision_revisionTargets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.RevisionTarget.html#RevisionTarget"><span class="hs-identifier hs-type">RevisionTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="clusterDbRevision_revisionTargets"><span class="annot"><span class="annottext">clusterDbRevision_revisionTargets :: (Maybe [RevisionTarget] -&gt; f (Maybe [RevisionTarget]))
+</span><a href="#local-6989586621679496458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | A list of @RevisionTarget@ objects, where each object describes the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- database revision that a cluster can be updated to.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#clusterDbRevision_revisionTargets"><span class="hs-identifier hs-type">clusterDbRevision_revisionTargets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.RevisionTarget.html#RevisionTarget"><span class="hs-identifier hs-type">RevisionTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="clusterDbRevision_revisionTargets"><span class="annot"><span class="annottext">clusterDbRevision_revisionTargets :: (Maybe [RevisionTarget] -&gt; f (Maybe [RevisionTarget]))
 -&gt; ClusterDbRevision -&gt; f ClusterDbRevision
 </span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#clusterDbRevision_revisionTargets"><span class="hs-identifier hs-var hs-var">clusterDbRevision_revisionTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterDbRevision -&gt; Maybe [RevisionTarget])
 -&gt; (ClusterDbRevision
@@ -177,16 +233,16 @@ $sel:currentDatabaseRevision:ClusterDbRevision' :: ClusterDbRevision -&gt; Maybe
      (Maybe [RevisionTarget])
      (Maybe [RevisionTarget])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-type">ClusterDbRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495817"><span class="annot"><span class="annottext">Maybe [RevisionTarget]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-type">ClusterDbRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679496456"><span class="annot"><span class="annottext">Maybe [RevisionTarget]
 revisionTargets :: Maybe [RevisionTarget]
 $sel:revisionTargets:ClusterDbRevision' :: ClusterDbRevision -&gt; Maybe [RevisionTarget]
-</span><a href="#local-6989586621679495817"><span class="hs-identifier hs-var hs-var">revisionTargets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RevisionTarget]
-</span><a href="#local-6989586621679495817"><span class="hs-identifier hs-var">revisionTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495816"><span class="annot"><span class="annottext">s :: ClusterDbRevision
-</span><a href="#local-6989586621679495816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-type">ClusterDbRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495815"><span class="annot"><span class="annottext">Maybe [RevisionTarget]
-</span><a href="#local-6989586621679495815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterDbRevision
-</span><a href="#local-6989586621679495816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionTargets:ClusterDbRevision' :: Maybe [RevisionTarget]
+</span><a href="#local-6989586621679496456"><span class="hs-identifier hs-var hs-var">revisionTargets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RevisionTarget]
+</span><a href="#local-6989586621679496456"><span class="hs-identifier hs-var">revisionTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679496455"><span class="annot"><span class="annottext">s :: ClusterDbRevision
+</span><a href="#local-6989586621679496455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-type">ClusterDbRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679496454"><span class="annot"><span class="annottext">Maybe [RevisionTarget]
+</span><a href="#local-6989586621679496454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterDbRevision
+</span><a href="#local-6989586621679496455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionTargets:ClusterDbRevision' :: Maybe [RevisionTarget]
 </span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3ArevisionTargets%3AClusterDbRevision%27"><span class="hs-identifier hs-var">revisionTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RevisionTarget]
-</span><a href="#local-6989586621679495815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RevisionTarget] -&gt; f (Maybe [RevisionTarget]))
+</span><a href="#local-6989586621679496454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RevisionTarget] -&gt; f (Maybe [RevisionTarget]))
  -&gt; ClusterDbRevision -&gt; f ClusterDbRevision)
 -&gt; ((Maybe [RevisionTarget] -&gt; f (Maybe [RevisionTarget]))
     -&gt; Maybe [RevisionTarget] -&gt; f (Maybe [RevisionTarget]))
@@ -206,100 +262,64 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [RevisionTarget] [RevisionTarget] [RevisionTarget] [RevisionTarget]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The unique identifier of the cluster.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#clusterDbRevision_clusterIdentifier"><span class="hs-identifier hs-type">clusterDbRevision_clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="clusterDbRevision_clusterIdentifier"><span class="annot"><span class="annottext">clusterDbRevision_clusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ClusterDbRevision -&gt; f ClusterDbRevision
-</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#clusterDbRevision_clusterIdentifier"><span class="hs-identifier hs-var hs-var">clusterDbRevision_clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterDbRevision -&gt; Maybe Text)
--&gt; (ClusterDbRevision -&gt; Maybe Text -&gt; ClusterDbRevision)
--&gt; Lens
-     ClusterDbRevision ClusterDbRevision (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-type">ClusterDbRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495810"><span class="annot"><span class="annottext">Maybe Text
-clusterIdentifier :: Maybe Text
-$sel:clusterIdentifier:ClusterDbRevision' :: ClusterDbRevision -&gt; Maybe Text
-</span><a href="#local-6989586621679495810"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679495810"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495809"><span class="annot"><span class="annottext">s :: ClusterDbRevision
-</span><a href="#local-6989586621679495809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-type">ClusterDbRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495808"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679495808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterDbRevision
-</span><a href="#local-6989586621679495809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:ClusterDbRevision' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3AclusterIdentifier%3AClusterDbRevision%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679495808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The date on which the database revision was released.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#clusterDbRevision_databaseRevisionReleaseDate"><span class="hs-identifier hs-type">clusterDbRevision_databaseRevisionReleaseDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="clusterDbRevision_databaseRevisionReleaseDate"><span class="annot"><span class="annottext">clusterDbRevision_databaseRevisionReleaseDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ClusterDbRevision -&gt; f ClusterDbRevision
-</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#clusterDbRevision_databaseRevisionReleaseDate"><span class="hs-identifier hs-var hs-var">clusterDbRevision_databaseRevisionReleaseDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClusterDbRevision -&gt; Maybe ISO8601)
--&gt; (ClusterDbRevision -&gt; Maybe ISO8601 -&gt; ClusterDbRevision)
--&gt; Lens
-     ClusterDbRevision ClusterDbRevision (Maybe ISO8601) (Maybe ISO8601)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-type">ClusterDbRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679495806"><span class="annot"><span class="annottext">Maybe ISO8601
-databaseRevisionReleaseDate :: Maybe ISO8601
-$sel:databaseRevisionReleaseDate:ClusterDbRevision' :: ClusterDbRevision -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679495806"><span class="hs-identifier hs-var hs-var">databaseRevisionReleaseDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679495806"><span class="hs-identifier hs-var">databaseRevisionReleaseDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679495805"><span class="annot"><span class="annottext">s :: ClusterDbRevision
-</span><a href="#local-6989586621679495805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-type">ClusterDbRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679495804"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679495804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterDbRevision
-</span><a href="#local-6989586621679495805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseRevisionReleaseDate:ClusterDbRevision' :: Maybe ISO8601
-</span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#%24sel%3AdatabaseRevisionReleaseDate%3AClusterDbRevision%27"><span class="hs-identifier hs-var">databaseRevisionReleaseDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679495804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
- -&gt; ClusterDbRevision -&gt; f ClusterDbRevision)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ClusterDbRevision
--&gt; f ClusterDbRevision
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
--&gt; Iso
-     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679495800"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ClusterDbRevision
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679495798"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679495798"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [RevisionTarget]
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679496450"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ClusterDbRevision
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679496448"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679496448"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
 -&gt; Maybe Text
--&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe [RevisionTarget]
 -&gt; ClusterDbRevision
 </span><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision%27"><span class="hs-identifier hs-var">ClusterDbRevision'</span></a></span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [RevisionTarget]
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601
  -&gt; Maybe Text
- -&gt; Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe [RevisionTarget]
  -&gt; ClusterDbRevision)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe ISO8601)
 -&gt; Either
      String
-     (Maybe [RevisionTarget]
-      -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; ClusterDbRevision)
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe [RevisionTarget] -&gt; ClusterDbRevision)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679495798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679496448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatabaseRevisionReleaseDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe [RevisionTarget] -&gt; ClusterDbRevision)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe [RevisionTarget] -&gt; ClusterDbRevision)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679496448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe [RevisionTarget] -&gt; ClusterDbRevision)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [RevisionTarget] -&gt; ClusterDbRevision)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679496448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CurrentDatabaseRevision&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [RevisionTarget]
-   -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; ClusterDbRevision)
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [RevisionTarget] -&gt; ClusterDbRevision)
 -&gt; Either String (Maybe [RevisionTarget])
--&gt; Either String (Maybe Text -&gt; Maybe ISO8601 -&gt; ClusterDbRevision)
+-&gt; Either String ClusterDbRevision
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679495798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679496448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RevisionTargets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -307,7 +327,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-93"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-95"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [RevisionTarget]))
 -&gt; Either String (Maybe [RevisionTarget])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -320,26 +340,9 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RevisionTarget&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe ISO8601 -&gt; ClusterDbRevision)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe ISO8601 -&gt; ClusterDbRevision)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679495798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; ClusterDbRevision)
--&gt; Either String (Maybe ISO8601) -&gt; Either String ClusterDbRevision
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679495798"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DatabaseRevisionReleaseDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679495789"><span id="local-6989586621679495791"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679496439"><span id="local-6989586621679496441"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679495786"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679496436"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ClusterDbRevision.html#ClusterDbRevision"><span class="hs-identifier hs-type">ClusterDbRevision</span></a></span></span><span>
 </span><span id="line-101"></span></pre></body></html>

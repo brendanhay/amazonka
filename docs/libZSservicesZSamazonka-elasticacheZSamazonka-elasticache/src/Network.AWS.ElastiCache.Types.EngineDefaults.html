@@ -28,27 +28,27 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Represents the output of a @DescribeEngineDefaultParameters@ operation.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEngineDefaults' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679402882"><span id="local-6989586621679402883"></span></span><span class="hs-keyword">data</span><span> </span><span id="EngineDefaults"><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-var">EngineDefaults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EngineDefaults%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-var">EngineDefaults'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of parameters specific to a particular cache node type. Each</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- element in the list contains detailed information about one parameter.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcacheNodeTypeSpecificParameters%3AEngineDefaults%27"><span class="annot"><span class="annottext">EngineDefaults -&gt; Maybe [CacheNodeTypeSpecificParameter]
-</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3AcacheNodeTypeSpecificParameters%3AEngineDefaults%27"><span class="hs-identifier hs-var hs-var">cacheNodeTypeSpecificParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificParameter.html#CacheNodeTypeSpecificParameter"><span class="hs-identifier hs-type">CacheNodeTypeSpecificParameter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Specifies the name of the cache parameter group family to which the</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- engine default parameters apply.</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- @redis6.x@ |</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcacheParameterGroupFamily%3AEngineDefaults%27"><span class="annot"><span class="annottext">EngineDefaults -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621679403407"><span id="local-6989586621679403408"></span></span><span class="hs-keyword">data</span><span> </span><span id="EngineDefaults"><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-var">EngineDefaults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EngineDefaults%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-var">EngineDefaults'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the name of the cache parameter group family to which the</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- engine default parameters apply.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @redis6.x@ |</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcacheParameterGroupFamily%3AEngineDefaults%27"><span class="annot"><span class="annottext">EngineDefaults -&gt; Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3AcacheParameterGroupFamily%3AEngineDefaults%27"><span class="hs-identifier hs-var hs-var">cacheParameterGroupFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Contains a list of engine default parameters.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aparameters%3AEngineDefaults%27"><span class="annot"><span class="annottext">EngineDefaults -&gt; Maybe [Parameter]
-</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3Aparameters%3AEngineDefaults%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Provides an identifier to allow retrieval of paginated results.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Amarker%3AEngineDefaults%27"><span class="annot"><span class="annottext">EngineDefaults -&gt; Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3Amarker%3AEngineDefaults%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A list of parameters specific to a particular cache node type. Each</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- element in the list contains detailed information about one parameter.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcacheNodeTypeSpecificParameters%3AEngineDefaults%27"><span class="annot"><span class="annottext">EngineDefaults -&gt; Maybe [CacheNodeTypeSpecificParameter]
+</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3AcacheNodeTypeSpecificParameters%3AEngineDefaults%27"><span class="hs-identifier hs-var hs-var">cacheNodeTypeSpecificParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificParameter.html#CacheNodeTypeSpecificParameter"><span class="hs-identifier hs-type">CacheNodeTypeSpecificParameter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Provides an identifier to allow retrieval of paginated results.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Amarker%3AEngineDefaults%27"><span class="annot"><span class="annottext">EngineDefaults -&gt; Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3Amarker%3AEngineDefaults%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Contains a list of engine default parameters.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aparameters%3AEngineDefaults%27"><span class="annot"><span class="annottext">EngineDefaults -&gt; Maybe [Parameter]
+</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3Aparameters%3AEngineDefaults%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402873"><span id="local-6989586621679402875"><span class="annot"><span class="annottext">EngineDefaults -&gt; EngineDefaults -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679403398"><span id="local-6989586621679403400"><span class="annot"><span class="annottext">EngineDefaults -&gt; EngineDefaults -&gt; Bool
 (EngineDefaults -&gt; EngineDefaults -&gt; Bool)
 -&gt; (EngineDefaults -&gt; EngineDefaults -&gt; Bool) -&gt; Eq EngineDefaults
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EngineDefaults -&gt; EngineDefaults -&gt; Bool
 == :: EngineDefaults -&gt; EngineDefaults -&gt; Bool
 $c== :: EngineDefaults -&gt; EngineDefaults -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402864"><span id="local-6989586621679402866"><span id="local-6989586621679402868"><span id="local-6989586621679402870"><span class="annot"><span class="annottext">ReadPrec [EngineDefaults]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403389"><span id="local-6989586621679403391"><span id="local-6989586621679403393"><span id="local-6989586621679403395"><span class="annot"><span class="annottext">ReadPrec [EngineDefaults]
 ReadPrec EngineDefaults
 Int -&gt; ReadS EngineDefaults
 ReadS [EngineDefaults]
@@ -76,7 +76,7 @@ readList :: ReadS [EngineDefaults]
 $creadList :: ReadS [EngineDefaults]
 readsPrec :: Int -&gt; ReadS EngineDefaults
 $creadsPrec :: Int -&gt; ReadS EngineDefaults
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402857"><span id="local-6989586621679402859"><span id="local-6989586621679402861"><span class="annot"><span class="annottext">Int -&gt; EngineDefaults -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403382"><span id="local-6989586621679403384"><span id="local-6989586621679403386"><span class="annot"><span class="annottext">Int -&gt; EngineDefaults -&gt; ShowS
 [EngineDefaults] -&gt; ShowS
 EngineDefaults -&gt; String
 (Int -&gt; EngineDefaults -&gt; ShowS)
@@ -110,49 +110,76 @@ $cfrom :: forall x. EngineDefaults -&gt; Rep EngineDefaults x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'cacheNodeTypeSpecificParameters', 'engineDefaults_cacheNodeTypeSpecificParameters' - A list of parameters specific to a particular cache node type. Each</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- element in the list contains detailed information about one parameter.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'cacheParameterGroupFamily', 'engineDefaults_cacheParameterGroupFamily' - Specifies the name of the cache parameter group family to which the</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- engine default parameters apply.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'cacheParameterGroupFamily', 'engineDefaults_cacheParameterGroupFamily' - Specifies the name of the cache parameter group family to which the</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- engine default parameters apply.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- @redis6.x@ |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- @redis6.x@ |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'cacheNodeTypeSpecificParameters', 'engineDefaults_cacheNodeTypeSpecificParameters' - A list of parameters specific to a particular cache node type. Each</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- element in the list contains detailed information about one parameter.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'parameters', 'engineDefaults_parameters' - Contains a list of engine default parameters.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'marker', 'engineDefaults_marker' - Provides an identifier to allow retrieval of paginated results.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'marker', 'engineDefaults_marker' - Provides an identifier to allow retrieval of paginated results.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'parameters', 'engineDefaults_parameters' - Contains a list of engine default parameters.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#newEngineDefaults"><span class="hs-identifier hs-type">newEngineDefaults</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span>
 </span><span id="line-72"></span><span id="newEngineDefaults"><span class="annot"><span class="annottext">newEngineDefaults :: EngineDefaults
 </span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#newEngineDefaults"><span class="hs-identifier hs-var hs-var">newEngineDefaults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">EngineDefaults' :: Maybe [CacheNodeTypeSpecificParameter]
--&gt; Maybe Text -&gt; Maybe [Parameter] -&gt; Maybe Text -&gt; EngineDefaults
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">EngineDefaults' :: Maybe Text
+-&gt; Maybe [CacheNodeTypeSpecificParameter]
+-&gt; Maybe Text
+-&gt; Maybe [Parameter]
+-&gt; EngineDefaults
 </span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cacheNodeTypeSpecificParameters:EngineDefaults' :: Maybe [CacheNodeTypeSpecificParameter]
-</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3AcacheNodeTypeSpecificParameters%3AEngineDefaults%27"><span class="hs-identifier hs-var">cacheNodeTypeSpecificParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe [CacheNodeTypeSpecificParameter]
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cacheParameterGroupFamily:EngineDefaults' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3AcacheParameterGroupFamily%3AEngineDefaults%27"><span class="hs-identifier hs-var">cacheParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheParameterGroupFamily:EngineDefaults' :: Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3AcacheParameterGroupFamily%3AEngineDefaults%27"><span class="hs-identifier hs-var">cacheParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheNodeTypeSpecificParameters:EngineDefaults' :: Maybe [CacheNodeTypeSpecificParameter]
+</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3AcacheNodeTypeSpecificParameters%3AEngineDefaults%27"><span class="hs-identifier hs-var">cacheNodeTypeSpecificParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CacheNodeTypeSpecificParameter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameters:EngineDefaults' :: Maybe [Parameter]
-</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3Aparameters%3AEngineDefaults%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:EngineDefaults' :: Maybe Text
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:EngineDefaults' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3Amarker%3AEngineDefaults%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameters:EngineDefaults' :: Maybe [Parameter]
+</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3Aparameters%3AEngineDefaults%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | A list of parameters specific to a particular cache node type. Each</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- element in the list contains detailed information about one parameter.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#engineDefaults_cacheNodeTypeSpecificParameters"><span class="hs-identifier hs-type">engineDefaults_cacheNodeTypeSpecificParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificParameter.html#CacheNodeTypeSpecificParameter"><span class="hs-identifier hs-type">CacheNodeTypeSpecificParameter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="engineDefaults_cacheNodeTypeSpecificParameters"><span class="annot"><span class="annottext">engineDefaults_cacheNodeTypeSpecificParameters :: (Maybe [CacheNodeTypeSpecificParameter]
+</span><span id="line-81"></span><span class="hs-comment">-- | Specifies the name of the cache parameter group family to which the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- engine default parameters apply.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- @redis6.x@ |</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#engineDefaults_cacheParameterGroupFamily"><span class="hs-identifier hs-type">engineDefaults_cacheParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="engineDefaults_cacheParameterGroupFamily"><span class="annot"><span class="annottext">engineDefaults_cacheParameterGroupFamily :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EngineDefaults -&gt; f EngineDefaults
+</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#engineDefaults_cacheParameterGroupFamily"><span class="hs-identifier hs-var hs-var">engineDefaults_cacheParameterGroupFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineDefaults -&gt; Maybe Text)
+-&gt; (EngineDefaults -&gt; Maybe Text -&gt; EngineDefaults)
+-&gt; Lens EngineDefaults EngineDefaults (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403373"><span class="annot"><span class="annottext">Maybe Text
+cacheParameterGroupFamily :: Maybe Text
+$sel:cacheParameterGroupFamily:EngineDefaults' :: EngineDefaults -&gt; Maybe Text
+</span><a href="#local-6989586621679403373"><span class="hs-identifier hs-var hs-var">cacheParameterGroupFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403373"><span class="hs-identifier hs-var">cacheParameterGroupFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403372"><span class="annot"><span class="annottext">s :: EngineDefaults
+</span><a href="#local-6989586621679403372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403371"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineDefaults
+</span><a href="#local-6989586621679403372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheParameterGroupFamily:EngineDefaults' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3AcacheParameterGroupFamily%3AEngineDefaults%27"><span class="hs-identifier hs-var">cacheParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | A list of parameters specific to a particular cache node type. Each</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- element in the list contains detailed information about one parameter.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#engineDefaults_cacheNodeTypeSpecificParameters"><span class="hs-identifier hs-type">engineDefaults_cacheNodeTypeSpecificParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificParameter.html#CacheNodeTypeSpecificParameter"><span class="hs-identifier hs-type">CacheNodeTypeSpecificParameter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="engineDefaults_cacheNodeTypeSpecificParameters"><span class="annot"><span class="annottext">engineDefaults_cacheNodeTypeSpecificParameters :: (Maybe [CacheNodeTypeSpecificParameter]
  -&gt; f (Maybe [CacheNodeTypeSpecificParameter]))
 -&gt; EngineDefaults -&gt; f EngineDefaults
 </span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#engineDefaults_cacheNodeTypeSpecificParameters"><span class="hs-identifier hs-var hs-var">engineDefaults_cacheNodeTypeSpecificParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineDefaults -&gt; Maybe [CacheNodeTypeSpecificParameter])
@@ -164,16 +191,16 @@ forall a. Maybe a
      (Maybe [CacheNodeTypeSpecificParameter])
      (Maybe [CacheNodeTypeSpecificParameter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402848"><span class="annot"><span class="annottext">Maybe [CacheNodeTypeSpecificParameter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403369"><span class="annot"><span class="annottext">Maybe [CacheNodeTypeSpecificParameter]
 cacheNodeTypeSpecificParameters :: Maybe [CacheNodeTypeSpecificParameter]
 $sel:cacheNodeTypeSpecificParameters:EngineDefaults' :: EngineDefaults -&gt; Maybe [CacheNodeTypeSpecificParameter]
-</span><a href="#local-6989586621679402848"><span class="hs-identifier hs-var hs-var">cacheNodeTypeSpecificParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CacheNodeTypeSpecificParameter]
-</span><a href="#local-6989586621679402848"><span class="hs-identifier hs-var">cacheNodeTypeSpecificParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402847"><span class="annot"><span class="annottext">s :: EngineDefaults
-</span><a href="#local-6989586621679402847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402846"><span class="annot"><span class="annottext">Maybe [CacheNodeTypeSpecificParameter]
-</span><a href="#local-6989586621679402846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineDefaults
-</span><a href="#local-6989586621679402847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheNodeTypeSpecificParameters:EngineDefaults' :: Maybe [CacheNodeTypeSpecificParameter]
+</span><a href="#local-6989586621679403369"><span class="hs-identifier hs-var hs-var">cacheNodeTypeSpecificParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CacheNodeTypeSpecificParameter]
+</span><a href="#local-6989586621679403369"><span class="hs-identifier hs-var">cacheNodeTypeSpecificParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403368"><span class="annot"><span class="annottext">s :: EngineDefaults
+</span><a href="#local-6989586621679403368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403367"><span class="annot"><span class="annottext">Maybe [CacheNodeTypeSpecificParameter]
+</span><a href="#local-6989586621679403367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineDefaults
+</span><a href="#local-6989586621679403368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheNodeTypeSpecificParameters:EngineDefaults' :: Maybe [CacheNodeTypeSpecificParameter]
 </span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3AcacheNodeTypeSpecificParameters%3AEngineDefaults%27"><span class="hs-identifier hs-var">cacheNodeTypeSpecificParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CacheNodeTypeSpecificParameter]
-</span><a href="#local-6989586621679402846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CacheNodeTypeSpecificParameter]
+</span><a href="#local-6989586621679403367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CacheNodeTypeSpecificParameter]
   -&gt; f (Maybe [CacheNodeTypeSpecificParameter]))
  -&gt; EngineDefaults -&gt; f EngineDefaults)
 -&gt; ((Maybe [CacheNodeTypeSpecificParameter]
@@ -203,36 +230,31 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [CacheNodeTypeSpecificParameter]
   [CacheNodeTypeSpecificParameter]
   [CacheNodeTypeSpecificParameter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | Specifies the name of the cache parameter group family to which the</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- engine default parameters apply.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ |</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ |</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- @redis6.x@ |</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#engineDefaults_cacheParameterGroupFamily"><span class="hs-identifier hs-type">engineDefaults_cacheParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="engineDefaults_cacheParameterGroupFamily"><span class="annot"><span class="annottext">engineDefaults_cacheParameterGroupFamily :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Provides an identifier to allow retrieval of paginated results.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#engineDefaults_marker"><span class="hs-identifier hs-type">engineDefaults_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="engineDefaults_marker"><span class="annot"><span class="annottext">engineDefaults_marker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; EngineDefaults -&gt; f EngineDefaults
-</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#engineDefaults_cacheParameterGroupFamily"><span class="hs-identifier hs-var hs-var">engineDefaults_cacheParameterGroupFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineDefaults -&gt; Maybe Text)
+</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#engineDefaults_marker"><span class="hs-identifier hs-var hs-var">engineDefaults_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineDefaults -&gt; Maybe Text)
 -&gt; (EngineDefaults -&gt; Maybe Text -&gt; EngineDefaults)
 -&gt; Lens EngineDefaults EngineDefaults (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402841"><span class="annot"><span class="annottext">Maybe Text
-cacheParameterGroupFamily :: Maybe Text
-$sel:cacheParameterGroupFamily:EngineDefaults' :: EngineDefaults -&gt; Maybe Text
-</span><a href="#local-6989586621679402841"><span class="hs-identifier hs-var hs-var">cacheParameterGroupFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679402841"><span class="hs-identifier hs-var">cacheParameterGroupFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402840"><span class="annot"><span class="annottext">s :: EngineDefaults
-</span><a href="#local-6989586621679402840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402839"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679402839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineDefaults
-</span><a href="#local-6989586621679402840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheParameterGroupFamily:EngineDefaults' :: Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3AcacheParameterGroupFamily%3AEngineDefaults%27"><span class="hs-identifier hs-var">cacheParameterGroupFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679402839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | Contains a list of engine default parameters.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#engineDefaults_parameters"><span class="hs-identifier hs-type">engineDefaults_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="engineDefaults_parameters"><span class="annot"><span class="annottext">engineDefaults_parameters :: (Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403362"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:EngineDefaults' :: EngineDefaults -&gt; Maybe Text
+</span><a href="#local-6989586621679403362"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403362"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403361"><span class="annot"><span class="annottext">s :: EngineDefaults
+</span><a href="#local-6989586621679403361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403360"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineDefaults
+</span><a href="#local-6989586621679403361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:EngineDefaults' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3Amarker%3AEngineDefaults%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679403360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | Contains a list of engine default parameters.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#engineDefaults_parameters"><span class="hs-identifier hs-type">engineDefaults_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="engineDefaults_parameters"><span class="annot"><span class="annottext">engineDefaults_parameters :: (Maybe [Parameter] -&gt; f (Maybe [Parameter]))
 -&gt; EngineDefaults -&gt; f EngineDefaults
 </span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#engineDefaults_parameters"><span class="hs-identifier hs-var hs-var">engineDefaults_parameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineDefaults -&gt; Maybe [Parameter])
 -&gt; (EngineDefaults -&gt; Maybe [Parameter] -&gt; EngineDefaults)
@@ -242,16 +264,16 @@ $sel:cacheParameterGroupFamily:EngineDefaults' :: EngineDefaults -&gt; Maybe Tex
      (Maybe [Parameter])
      (Maybe [Parameter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402837"><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403358"><span class="annot"><span class="annottext">Maybe [Parameter]
 parameters :: Maybe [Parameter]
 $sel:parameters:EngineDefaults' :: EngineDefaults -&gt; Maybe [Parameter]
-</span><a href="#local-6989586621679402837"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
-</span><a href="#local-6989586621679402837"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402836"><span class="annot"><span class="annottext">s :: EngineDefaults
-</span><a href="#local-6989586621679402836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402835"><span class="annot"><span class="annottext">Maybe [Parameter]
-</span><a href="#local-6989586621679402835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineDefaults
-</span><a href="#local-6989586621679402836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:EngineDefaults' :: Maybe [Parameter]
+</span><a href="#local-6989586621679403358"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><a href="#local-6989586621679403358"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403357"><span class="annot"><span class="annottext">s :: EngineDefaults
+</span><a href="#local-6989586621679403357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403356"><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><a href="#local-6989586621679403356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineDefaults
+</span><a href="#local-6989586621679403357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:EngineDefaults' :: Maybe [Parameter]
 </span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3Aparameters%3AEngineDefaults%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
-</span><a href="#local-6989586621679402835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+</span><a href="#local-6989586621679403356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Parameter] -&gt; f (Maybe [Parameter]))
  -&gt; EngineDefaults -&gt; f EngineDefaults)
 -&gt; ((Maybe [Parameter] -&gt; f (Maybe [Parameter]))
     -&gt; Maybe [Parameter] -&gt; f (Maybe [Parameter]))
@@ -269,53 +291,54 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Parameter] [Parameter] [Parameter] [Parameter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | Provides an identifier to allow retrieval of paginated results.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#engineDefaults_marker"><span class="hs-identifier hs-type">engineDefaults_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="engineDefaults_marker"><span class="annot"><span class="annottext">engineDefaults_marker :: (Maybe Text -&gt; f (Maybe Text))
--&gt; EngineDefaults -&gt; f EngineDefaults
-</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#engineDefaults_marker"><span class="hs-identifier hs-var hs-var">engineDefaults_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EngineDefaults -&gt; Maybe Text)
--&gt; (EngineDefaults -&gt; Maybe Text -&gt; EngineDefaults)
--&gt; Lens EngineDefaults EngineDefaults (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402833"><span class="annot"><span class="annottext">Maybe Text
-marker :: Maybe Text
-$sel:marker:EngineDefaults' :: EngineDefaults -&gt; Maybe Text
-</span><a href="#local-6989586621679402833"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679402833"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402832"><span class="annot"><span class="annottext">s :: EngineDefaults
-</span><a href="#local-6989586621679402832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-type">EngineDefaults'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402831"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679402831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineDefaults
-</span><a href="#local-6989586621679402832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:EngineDefaults' :: Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#%24sel%3Amarker%3AEngineDefaults%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679402831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679402828"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EngineDefaults
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679402826"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402826"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">Maybe [CacheNodeTypeSpecificParameter]
--&gt; Maybe Text -&gt; Maybe [Parameter] -&gt; Maybe Text -&gt; EngineDefaults
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679403353"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EngineDefaults
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679403351"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679403351"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [CacheNodeTypeSpecificParameter]
+-&gt; Maybe Text
+-&gt; Maybe [Parameter]
+-&gt; EngineDefaults
 </span><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults%27"><span class="hs-identifier hs-var">EngineDefaults'</span></a></span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [CacheNodeTypeSpecificParameter]
- -&gt; Maybe Text -&gt; Maybe [Parameter] -&gt; Maybe Text -&gt; EngineDefaults)
--&gt; Either String (Maybe [CacheNodeTypeSpecificParameter])
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [CacheNodeTypeSpecificParameter]
+ -&gt; Maybe Text
+ -&gt; Maybe [Parameter]
+ -&gt; EngineDefaults)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text -&gt; Maybe [Parameter] -&gt; Maybe Text -&gt; EngineDefaults)
+     (Maybe [CacheNodeTypeSpecificParameter]
+      -&gt; Maybe Text -&gt; Maybe [Parameter] -&gt; EngineDefaults)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402826"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679403351"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CacheParameterGroupFamily&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [CacheNodeTypeSpecificParameter]
+   -&gt; Maybe Text -&gt; Maybe [Parameter] -&gt; EngineDefaults)
+-&gt; Either String (Maybe [CacheNodeTypeSpecificParameter])
+-&gt; Either
+     String (Maybe Text -&gt; Maybe [Parameter] -&gt; EngineDefaults)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679403351"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CacheNodeTypeSpecificParameters&quot;</span></span><span>
-</span><span id="line-107"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-108"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-108"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-109"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node]
     -&gt; Either String (Maybe [CacheNodeTypeSpecificParameter]))
 -&gt; Either String (Maybe [CacheNodeTypeSpecificParameter])
@@ -326,29 +349,26 @@ forall (f :: * -&gt; *) a b.
 Applicative f =&gt;
 ([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
 </span><span class="hs-identifier hs-var">Core.may</span></span><span>
-</span><span id="line-109"></span><span>                        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [CacheNodeTypeSpecificParameter]
+</span><span id="line-110"></span><span>                        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [CacheNodeTypeSpecificParameter]
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CacheNodeTypeSpecificParameter&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text -&gt; Maybe [Parameter] -&gt; Maybe Text -&gt; EngineDefaults)
+</span><span id="line-111"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe [Parameter] -&gt; EngineDefaults)
 -&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe [Parameter] -&gt; Maybe Text -&gt; EngineDefaults)
+-&gt; Either String (Maybe [Parameter] -&gt; EngineDefaults)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402826"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679403351"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CacheParameterGroupFamily&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Parameter] -&gt; Maybe Text -&gt; EngineDefaults)
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Parameter] -&gt; EngineDefaults)
 -&gt; Either String (Maybe [Parameter])
--&gt; Either String (Maybe Text -&gt; EngineDefaults)
+-&gt; Either String EngineDefaults
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402826"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679403351"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -356,7 +376,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-113"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-114"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Parameter]))
 -&gt; Either String (Maybe [Parameter])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -369,17 +389,9 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parameter&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; EngineDefaults)
--&gt; Either String (Maybe Text) -&gt; Either String EngineDefaults
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402826"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402817"><span id="local-6989586621679402819"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403342"><span id="local-6989586621679403344"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402814"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403339"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.EngineDefaults.html#EngineDefaults"><span class="hs-identifier hs-type">EngineDefaults</span></a></span></span><span>
 </span><span id="line-120"></span></pre></body></html>

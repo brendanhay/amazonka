@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | Specify whether your DRM encryption key is static or from a key provider</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- that follows the SPEKE standard. For more information about SPEKE, see</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/speke\/latest\/documentation\/what-is-speke.html.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679943673"><span id="local-6989586621679943674"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafKeyProviderType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafKeyProviderType.html#CmafKeyProviderType"><span class="hs-identifier hs-var">CmafKeyProviderType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafKeyProviderType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafKeyProviderType.html#CmafKeyProviderType%27"><span class="hs-identifier hs-var">CmafKeyProviderType'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679948296"><span id="local-6989586621679948297"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CmafKeyProviderType"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafKeyProviderType.html#CmafKeyProviderType"><span class="hs-identifier hs-var">CmafKeyProviderType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CmafKeyProviderType%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.CmafKeyProviderType.html#CmafKeyProviderType%27"><span class="hs-identifier hs-var">CmafKeyProviderType'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCmafKeyProviderType"><span class="annot"><span class="annottext">CmafKeyProviderType -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.CmafKeyProviderType.html#fromCmafKeyProviderType"><span class="hs-identifier hs-var hs-var">fromCmafKeyProviderType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943665"><span id="local-6989586621679943667"><span id="local-6989586621679943669"><span class="annot"><span class="annottext">Int -&gt; CmafKeyProviderType -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679948288"><span id="local-6989586621679948290"><span id="local-6989586621679948292"><span class="annot"><span class="annottext">Int -&gt; CmafKeyProviderType -&gt; ShowS
 [CmafKeyProviderType] -&gt; ShowS
 CmafKeyProviderType -&gt; String
 (Int -&gt; CmafKeyProviderType -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: CmafKeyProviderType -&gt; String
 showsPrec :: Int -&gt; CmafKeyProviderType -&gt; ShowS
 $cshowsPrec :: Int -&gt; CmafKeyProviderType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679943656"><span id="local-6989586621679943658"><span id="local-6989586621679943660"><span id="local-6989586621679943662"><span class="annot"><span class="annottext">ReadPrec [CmafKeyProviderType]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679948279"><span id="local-6989586621679948281"><span id="local-6989586621679948283"><span id="local-6989586621679948285"><span class="annot"><span class="annottext">ReadPrec [CmafKeyProviderType]
 ReadPrec CmafKeyProviderType
 Int -&gt; ReadS CmafKeyProviderType
 ReadS [CmafKeyProviderType]
@@ -75,7 +75,7 @@ $creadList :: ReadS [CmafKeyProviderType]
 readsPrec :: Int -&gt; ReadS CmafKeyProviderType
 $creadsPrec :: Int -&gt; ReadS CmafKeyProviderType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679943651"><span id="local-6989586621679943653"><span class="annot"><span class="annottext">CmafKeyProviderType -&gt; CmafKeyProviderType -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679948274"><span id="local-6989586621679948276"><span class="annot"><span class="annottext">CmafKeyProviderType -&gt; CmafKeyProviderType -&gt; Bool
 (CmafKeyProviderType -&gt; CmafKeyProviderType -&gt; Bool)
 -&gt; (CmafKeyProviderType -&gt; CmafKeyProviderType -&gt; Bool)
 -&gt; Eq CmafKeyProviderType
@@ -85,7 +85,7 @@ $c/= :: CmafKeyProviderType -&gt; CmafKeyProviderType -&gt; Bool
 == :: CmafKeyProviderType -&gt; CmafKeyProviderType -&gt; Bool
 $c== :: CmafKeyProviderType -&gt; CmafKeyProviderType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679943635"><span id="local-6989586621679943637"><span id="local-6989586621679943639"><span id="local-6989586621679943641"><span id="local-6989586621679943643"><span id="local-6989586621679943645"><span id="local-6989586621679943647"><span class="annot"><span class="annottext">Eq CmafKeyProviderType
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679948258"><span id="local-6989586621679948260"><span id="local-6989586621679948262"><span id="local-6989586621679948264"><span id="local-6989586621679948266"><span id="local-6989586621679948268"><span id="local-6989586621679948270"><span class="annot"><span class="annottext">Eq CmafKeyProviderType
 Eq CmafKeyProviderType
 -&gt; (CmafKeyProviderType -&gt; CmafKeyProviderType -&gt; Ordering)
 -&gt; (CmafKeyProviderType -&gt; CmafKeyProviderType -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. CmafKeyProviderType -&gt; Rep CmafKeyProviderType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943627"><span id="local-6989586621679943629"><span class="annot"><span class="annottext">Int -&gt; CmafKeyProviderType -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679948250"><span id="local-6989586621679948252"><span class="annot"><span class="annottext">Int -&gt; CmafKeyProviderType -&gt; Int
 CmafKeyProviderType -&gt; Int
 (Int -&gt; CmafKeyProviderType -&gt; Int)
 -&gt; (CmafKeyProviderType -&gt; Int) -&gt; Hashable CmafKeyProviderType
@@ -148,53 +148,53 @@ $chash :: CmafKeyProviderType -&gt; Int
 hashWithSalt :: Int -&gt; CmafKeyProviderType -&gt; Int
 $chashWithSalt :: Int -&gt; CmafKeyProviderType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679943624"><span class="annot"><span class="annottext">CmafKeyProviderType -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679948247"><span class="annot"><span class="annottext">CmafKeyProviderType -&gt; ()
 (CmafKeyProviderType -&gt; ()) -&gt; NFData CmafKeyProviderType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CmafKeyProviderType -&gt; ()
 $crnf :: CmafKeyProviderType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679943621"><span class="annot"><span class="annottext">Text -&gt; Either String CmafKeyProviderType
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679948244"><span class="annot"><span class="annottext">Text -&gt; Either String CmafKeyProviderType
 (Text -&gt; Either String CmafKeyProviderType)
 -&gt; FromText CmafKeyProviderType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CmafKeyProviderType
 $cfromText :: Text -&gt; Either String CmafKeyProviderType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679943618"><span class="annot"><span class="annottext">CmafKeyProviderType -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679948241"><span class="annot"><span class="annottext">CmafKeyProviderType -&gt; Text
 (CmafKeyProviderType -&gt; Text) -&gt; ToText CmafKeyProviderType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CmafKeyProviderType -&gt; Text
 $ctoText :: CmafKeyProviderType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679943615"><span class="annot"><span class="annottext">CmafKeyProviderType -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679948238"><span class="annot"><span class="annottext">CmafKeyProviderType -&gt; ByteString
 (CmafKeyProviderType -&gt; ByteString)
 -&gt; ToByteString CmafKeyProviderType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CmafKeyProviderType -&gt; ByteString
 $ctoBS :: CmafKeyProviderType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679943612"><span class="annot"><span class="annottext">CmafKeyProviderType -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679948235"><span class="annot"><span class="annottext">CmafKeyProviderType -&gt; ByteStringBuilder
 (CmafKeyProviderType -&gt; ByteStringBuilder)
 -&gt; ToLog CmafKeyProviderType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CmafKeyProviderType -&gt; ByteStringBuilder
 $cbuild :: CmafKeyProviderType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679943609"><span class="annot"><span class="annottext">HeaderName -&gt; CmafKeyProviderType -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679948232"><span class="annot"><span class="annottext">HeaderName -&gt; CmafKeyProviderType -&gt; [Header]
 (HeaderName -&gt; CmafKeyProviderType -&gt; [Header])
 -&gt; ToHeader CmafKeyProviderType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CmafKeyProviderType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CmafKeyProviderType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679943606"><span class="annot"><span class="annottext">CmafKeyProviderType -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679948229"><span class="annot"><span class="annottext">CmafKeyProviderType -&gt; QueryString
 (CmafKeyProviderType -&gt; QueryString) -&gt; ToQuery CmafKeyProviderType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CmafKeyProviderType -&gt; QueryString
 $ctoQuery :: CmafKeyProviderType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679943601"><span id="local-6989586621679943603"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafKeyProviderType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679948224"><span id="local-6989586621679948226"><span class="annot"><span class="annottext">Value -&gt; Parser [CmafKeyProviderType]
 Value -&gt; Parser CmafKeyProviderType
 (Value -&gt; Parser CmafKeyProviderType)
 -&gt; (Value -&gt; Parser [CmafKeyProviderType])
@@ -206,7 +206,7 @@ $cparseJSONList :: Value -&gt; Parser [CmafKeyProviderType]
 parseJSON :: Value -&gt; Parser CmafKeyProviderType
 $cparseJSON :: Value -&gt; Parser CmafKeyProviderType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679943596"><span id="local-6989586621679943598"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafKeyProviderType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679948219"><span id="local-6989586621679948221"><span class="annot"><span class="annottext">FromJSONKeyFunction [CmafKeyProviderType]
 FromJSONKeyFunction CmafKeyProviderType
 FromJSONKeyFunction CmafKeyProviderType
 -&gt; FromJSONKeyFunction [CmafKeyProviderType]
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CmafKeyProviderType]
 fromJSONKey :: FromJSONKeyFunction CmafKeyProviderType
 $cfromJSONKey :: FromJSONKeyFunction CmafKeyProviderType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679943587"><span id="local-6989586621679943589"><span id="local-6989586621679943591"><span id="local-6989586621679943593"><span class="annot"><span class="annottext">[CmafKeyProviderType] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679948210"><span id="local-6989586621679948212"><span id="local-6989586621679948214"><span id="local-6989586621679948216"><span class="annot"><span class="annottext">[CmafKeyProviderType] -&gt; Encoding
 [CmafKeyProviderType] -&gt; Value
 CmafKeyProviderType -&gt; Encoding
 CmafKeyProviderType -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: CmafKeyProviderType -&gt; Encoding
 toJSON :: CmafKeyProviderType -&gt; Value
 $ctoJSON :: CmafKeyProviderType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679943582"><span id="local-6989586621679943584"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafKeyProviderType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679948205"><span id="local-6989586621679948207"><span class="annot"><span class="annottext">ToJSONKeyFunction [CmafKeyProviderType]
 ToJSONKeyFunction CmafKeyProviderType
 ToJSONKeyFunction CmafKeyProviderType
 -&gt; ToJSONKeyFunction [CmafKeyProviderType]
@@ -254,14 +254,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CmafKeyProviderType]
 toJSONKey :: ToJSONKeyFunction CmafKeyProviderType
 $ctoJSONKey :: ToJSONKeyFunction CmafKeyProviderType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679943579"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafKeyProviderType
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679948202"><span class="annot"><span class="annottext">[Node] -&gt; Either String CmafKeyProviderType
 ([Node] -&gt; Either String CmafKeyProviderType)
 -&gt; FromXML CmafKeyProviderType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CmafKeyProviderType
 $cparseXML :: [Node] -&gt; Either String CmafKeyProviderType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679943576"><span class="annot"><span class="annottext">CmafKeyProviderType -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679948199"><span class="annot"><span class="annottext">CmafKeyProviderType -&gt; XML
 (CmafKeyProviderType -&gt; XML) -&gt; ToXML CmafKeyProviderType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CmafKeyProviderType -&gt; XML

@@ -27,19 +27,19 @@
 </span><span id="line-27"></span><span class="hs-comment">-- namespace.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSOA' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679222668"><span id="local-6989586621679222669"></span></span><span class="hs-keyword">data</span><span> </span><span id="SOA"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA"><span class="hs-identifier hs-var">SOA</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SOA%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA%27"><span class="hs-identifier hs-var">SOA'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679222808"><span id="local-6989586621679222809"></span></span><span class="hs-keyword">data</span><span> </span><span id="SOA"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA"><span class="hs-identifier hs-var">SOA</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SOA%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA%27"><span class="hs-identifier hs-var">SOA'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time to live (TTL) for purposes of negative caching.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Attl%3ASOA%27"><span class="annot"><span class="annottext">SOA -&gt; Natural
 </span><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#%24sel%3Attl%3ASOA%27"><span class="hs-identifier hs-var hs-var">ttl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222662"><span id="local-6989586621679222664"><span class="annot"><span class="annottext">SOA -&gt; SOA -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222802"><span id="local-6989586621679222804"><span class="annot"><span class="annottext">SOA -&gt; SOA -&gt; Bool
 (SOA -&gt; SOA -&gt; Bool) -&gt; (SOA -&gt; SOA -&gt; Bool) -&gt; Eq SOA
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: SOA -&gt; SOA -&gt; Bool
 $c/= :: SOA -&gt; SOA -&gt; Bool
 == :: SOA -&gt; SOA -&gt; Bool
 $c== :: SOA -&gt; SOA -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222653"><span id="local-6989586621679222655"><span id="local-6989586621679222657"><span id="local-6989586621679222659"><span class="annot"><span class="annottext">ReadPrec [SOA]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222793"><span id="local-6989586621679222795"><span id="local-6989586621679222797"><span id="local-6989586621679222799"><span class="annot"><span class="annottext">ReadPrec [SOA]
 ReadPrec SOA
 Int -&gt; ReadS SOA
 ReadS [SOA]
@@ -56,7 +56,7 @@ readList :: ReadS [SOA]
 $creadList :: ReadS [SOA]
 readsPrec :: Int -&gt; ReadS SOA
 $creadsPrec :: Int -&gt; ReadS SOA
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222646"><span id="local-6989586621679222648"><span id="local-6989586621679222650"><span class="annot"><span class="annottext">Int -&gt; SOA -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222786"><span id="local-6989586621679222788"><span id="local-6989586621679222790"><span class="annot"><span class="annottext">Int -&gt; SOA -&gt; ShowS
 [SOA] -&gt; ShowS
 SOA -&gt; String
 (Int -&gt; SOA -&gt; ShowS)
@@ -93,11 +93,11 @@ $cfrom :: forall x. SOA -&gt; Rep SOA x
 </span><span id="line-47"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA"><span class="hs-identifier hs-type">SOA</span></a></span><span>
 </span><span id="line-49"></span><span id="newSOA"><span class="annot"><span class="annottext">newSOA :: Natural -&gt; SOA
-</span><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#newSOA"><span class="hs-identifier hs-var hs-var">newSOA</span></a></span></span><span> </span><span id="local-6989586621679222640"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679222640"><span class="hs-identifier hs-var">pTTL_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SOA' :: Natural -&gt; SOA
+</span><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#newSOA"><span class="hs-identifier hs-var hs-var">newSOA</span></a></span></span><span> </span><span id="local-6989586621679222780"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679222780"><span class="hs-identifier hs-var">pTTL_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SOA' :: Natural -&gt; SOA
 </span><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA%27"><span class="hs-identifier hs-type">SOA'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ttl:SOA' :: Natural
 </span><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#%24sel%3Attl%3ASOA%27"><span class="hs-identifier hs-var">ttl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679222640"><span class="hs-identifier hs-var">pTTL_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679222780"><span class="hs-identifier hs-var">pTTL_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | The time to live (TTL) for purposes of negative caching.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#soa_ttl"><span class="hs-identifier hs-type">soa_ttl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA"><span class="hs-identifier hs-type">SOA</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -105,45 +105,45 @@ $cfrom :: forall x. SOA -&gt; Rep SOA x
 </span><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#soa_ttl"><span class="hs-identifier hs-var hs-var">soa_ttl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SOA -&gt; Natural)
 -&gt; (SOA -&gt; Natural -&gt; SOA) -&gt; Lens SOA SOA Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA%27"><span class="hs-identifier hs-type">SOA'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222636"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA%27"><span class="hs-identifier hs-type">SOA'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222776"><span class="annot"><span class="annottext">Natural
 ttl :: Natural
 $sel:ttl:SOA' :: SOA -&gt; Natural
-</span><a href="#local-6989586621679222636"><span class="hs-identifier hs-var hs-var">ttl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679222636"><span class="hs-identifier hs-var">ttl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222635"><span class="annot"><span class="annottext">s :: SOA
-</span><a href="#local-6989586621679222635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA%27"><span class="hs-identifier hs-type">SOA'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222634"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679222634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SOA
-</span><a href="#local-6989586621679222635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ttl:SOA' :: Natural
+</span><a href="#local-6989586621679222776"><span class="hs-identifier hs-var hs-var">ttl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679222776"><span class="hs-identifier hs-var">ttl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222775"><span class="annot"><span class="annottext">s :: SOA
+</span><a href="#local-6989586621679222775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA%27"><span class="hs-identifier hs-type">SOA'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222774"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679222774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SOA
+</span><a href="#local-6989586621679222775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ttl:SOA' :: Natural
 </span><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#%24sel%3Attl%3ASOA%27"><span class="hs-identifier hs-var">ttl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679222634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA"><span class="hs-identifier hs-type">SOA</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA"><span class="hs-identifier hs-type">SOA</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222631"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA"><span class="hs-identifier hs-type">SOA</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-56"></span><span>  </span><span id="local-6989586621679222629"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SOA
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222771"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA"><span class="hs-identifier hs-type">SOA</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679222769"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SOA
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser SOA) -&gt; Value -&gt; Parser SOA
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SOA&quot;</span></span><span>
-</span><span id="line-59"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222626"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222626"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural -&gt; SOA
+</span><span id="line-59"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222766"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222766"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural -&gt; SOA
 </span><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA%27"><span class="hs-identifier hs-var">SOA'</span></a></span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; SOA) -&gt; Parser Natural -&gt; Parser SOA
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222626"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679222766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TTL&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222620"><span id="local-6989586621679222622"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA"><span class="hs-identifier hs-type">SOA</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222760"><span id="local-6989586621679222762"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA"><span class="hs-identifier hs-type">SOA</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222617"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA"><span class="hs-identifier hs-type">SOA</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222757"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA"><span class="hs-identifier hs-type">SOA</span></a></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222609"><span id="local-6989586621679222611"><span id="local-6989586621679222613"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA"><span class="hs-identifier hs-type">SOA</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679222607"><span class="annot"><span class="annottext">toJSON :: SOA -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA%27"><span class="hs-identifier hs-type">SOA'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222605"><span class="annot"><span class="annottext">Natural
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222749"><span id="local-6989586621679222751"><span id="local-6989586621679222753"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA"><span class="hs-identifier hs-type">SOA</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679222747"><span class="annot"><span class="annottext">toJSON :: SOA -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.SOA.html#SOA%27"><span class="hs-identifier hs-type">SOA'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222745"><span class="annot"><span class="annottext">Natural
 ttl :: Natural
 $sel:ttl:SOA' :: SOA -&gt; Natural
-</span><a href="#local-6989586621679222605"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679222745"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -155,6 +155,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TTL&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679222605"><span class="hs-identifier hs-var">ttl</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679222745"><span class="hs-identifier hs-var">ttl</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span></pre></body></html>

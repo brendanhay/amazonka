@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains information about the origins for this distribution.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOrigins' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679402556"><span id="local-6989586621679402557"></span></span><span class="hs-keyword">data</span><span> </span><span id="Origins"><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins"><span class="hs-identifier hs-var">Origins</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Origins%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins%27"><span class="hs-identifier hs-var">Origins'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679402821"><span id="local-6989586621679402822"></span></span><span class="hs-keyword">data</span><span> </span><span id="Origins"><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins"><span class="hs-identifier hs-var">Origins</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Origins%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins%27"><span class="hs-identifier hs-var">Origins'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of origins for this distribution.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aquantity%3AOrigins%27"><span class="annot"><span class="annottext">Origins -&gt; Int
 </span><a href="Network.AWS.CloudFront.Types.Origins.html#%24sel%3Aquantity%3AOrigins%27"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aitems%3AOrigins%27"><span class="annot"><span class="annottext">Origins -&gt; NonEmpty Origin
 </span><a href="Network.AWS.CloudFront.Types.Origins.html#%24sel%3Aitems%3AOrigins%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402549"><span id="local-6989586621679402551"><span class="annot"><span class="annottext">Origins -&gt; Origins -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402814"><span id="local-6989586621679402816"><span class="annot"><span class="annottext">Origins -&gt; Origins -&gt; Bool
 (Origins -&gt; Origins -&gt; Bool)
 -&gt; (Origins -&gt; Origins -&gt; Bool) -&gt; Eq Origins
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Origins -&gt; Origins -&gt; Bool
 == :: Origins -&gt; Origins -&gt; Bool
 $c== :: Origins -&gt; Origins -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402540"><span id="local-6989586621679402542"><span id="local-6989586621679402544"><span id="local-6989586621679402546"><span class="annot"><span class="annottext">ReadPrec [Origins]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402805"><span id="local-6989586621679402807"><span id="local-6989586621679402809"><span id="local-6989586621679402811"><span class="annot"><span class="annottext">ReadPrec [Origins]
 ReadPrec Origins
 Int -&gt; ReadS Origins
 ReadS [Origins]
@@ -63,7 +63,7 @@ readList :: ReadS [Origins]
 $creadList :: ReadS [Origins]
 readsPrec :: Int -&gt; ReadS Origins
 $creadsPrec :: Int -&gt; ReadS Origins
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402533"><span id="local-6989586621679402535"><span id="local-6989586621679402537"><span class="annot"><span class="annottext">Int -&gt; Origins -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402798"><span id="local-6989586621679402800"><span id="local-6989586621679402802"><span class="annot"><span class="annottext">Int -&gt; Origins -&gt; ShowS
 [Origins] -&gt; ShowS
 Origins -&gt; String
 (Int -&gt; Origins -&gt; ShowS)
@@ -104,24 +104,24 @@ $cfrom :: forall x. Origins -&gt; Rep Origins x
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins"><span class="hs-identifier hs-type">Origins</span></a></span><span>
 </span><span id="line-55"></span><span id="newOrigins"><span class="annot"><span class="annottext">newOrigins :: Int -&gt; NonEmpty Origin -&gt; Origins
-</span><a href="Network.AWS.CloudFront.Types.Origins.html#newOrigins"><span class="hs-identifier hs-var hs-var">newOrigins</span></a></span></span><span> </span><span id="local-6989586621679402527"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402527"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span id="local-6989586621679402526"><span class="annot"><span class="annottext">NonEmpty Origin
-</span><a href="#local-6989586621679402526"><span class="hs-identifier hs-var">pItems_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.Origins.html#newOrigins"><span class="hs-identifier hs-var hs-var">newOrigins</span></a></span></span><span> </span><span id="local-6989586621679402792"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402792"><span class="hs-identifier hs-var">pQuantity_</span></a></span></span><span> </span><span id="local-6989586621679402791"><span class="annot"><span class="annottext">NonEmpty Origin
+</span><a href="#local-6989586621679402791"><span class="hs-identifier hs-var">pItems_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">Origins' :: Int -&gt; NonEmpty Origin -&gt; Origins
 </span><a href="Network.AWS.CloudFront.Types.Origins.html#Origins%27"><span class="hs-identifier hs-type">Origins'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:quantity:Origins' :: Int
 </span><a href="Network.AWS.CloudFront.Types.Origins.html#%24sel%3Aquantity%3AOrigins%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402527"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402792"><span class="hs-identifier hs-var">pQuantity_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:items:Origins' :: NonEmpty Origin
 </span><a href="Network.AWS.CloudFront.Types.Origins.html#%24sel%3Aitems%3AOrigins%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Origin) (Identity (NonEmpty Origin))
 -&gt; Tagged (NonEmpty Origin) (Identity (NonEmpty Origin))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Origin) (Identity (NonEmpty Origin))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Origin) (Identity (NonEmpty Origin))
  -&gt; Tagged (NonEmpty Origin) (Identity (NonEmpty Origin)))
 -&gt; NonEmpty Origin -&gt; NonEmpty Origin
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Origin
-</span><a href="#local-6989586621679402526"><span class="hs-identifier hs-var">pItems_</span></a></span><span>
+</span><a href="#local-6989586621679402791"><span class="hs-identifier hs-var">pItems_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The number of origins for this distribution.</span><span>
@@ -130,16 +130,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 </span><a href="Network.AWS.CloudFront.Types.Origins.html#origins_quantity"><span class="hs-identifier hs-var hs-var">origins_quantity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Origins -&gt; Int)
 -&gt; (Origins -&gt; Int -&gt; Origins) -&gt; Lens Origins Origins Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins%27"><span class="hs-identifier hs-type">Origins'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402520"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins%27"><span class="hs-identifier hs-type">Origins'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402785"><span class="annot"><span class="annottext">Int
 quantity :: Int
 $sel:quantity:Origins' :: Origins -&gt; Int
-</span><a href="#local-6989586621679402520"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402520"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402519"><span class="annot"><span class="annottext">s :: Origins
-</span><a href="#local-6989586621679402519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins%27"><span class="hs-identifier hs-type">Origins'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402518"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origins
-</span><a href="#local-6989586621679402519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:Origins' :: Int
+</span><a href="#local-6989586621679402785"><span class="hs-identifier hs-var hs-var">quantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402785"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402784"><span class="annot"><span class="annottext">s :: Origins
+</span><a href="#local-6989586621679402784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins%27"><span class="hs-identifier hs-type">Origins'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402783"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679402783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origins
+</span><a href="#local-6989586621679402784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quantity:Origins' :: Int
 </span><a href="Network.AWS.CloudFront.Types.Origins.html#%24sel%3Aquantity%3AOrigins%27"><span class="hs-identifier hs-var">quantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins"><span class="hs-identifier hs-type">Origins</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins"><span class="hs-identifier hs-type">Origins</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | A list of origins.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#origins_items"><span class="hs-identifier hs-type">origins_items</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins"><span class="hs-identifier hs-type">Origins</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origin.html#Origin"><span class="hs-identifier hs-type">Origin</span></a></span><span class="hs-special">)</span><span>
@@ -148,16 +148,16 @@ $sel:quantity:Origins' :: Origins -&gt; Int
 -&gt; (Origins -&gt; NonEmpty Origin -&gt; Origins)
 -&gt; Lens Origins Origins (NonEmpty Origin) (NonEmpty Origin)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins%27"><span class="hs-identifier hs-type">Origins'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402516"><span class="annot"><span class="annottext">NonEmpty Origin
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins%27"><span class="hs-identifier hs-type">Origins'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402781"><span class="annot"><span class="annottext">NonEmpty Origin
 items :: NonEmpty Origin
 $sel:items:Origins' :: Origins -&gt; NonEmpty Origin
-</span><a href="#local-6989586621679402516"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Origin
-</span><a href="#local-6989586621679402516"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402515"><span class="annot"><span class="annottext">s :: Origins
-</span><a href="#local-6989586621679402515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins%27"><span class="hs-identifier hs-type">Origins'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402514"><span class="annot"><span class="annottext">NonEmpty Origin
-</span><a href="#local-6989586621679402514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origins
-</span><a href="#local-6989586621679402515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:Origins' :: NonEmpty Origin
+</span><a href="#local-6989586621679402781"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Origin
+</span><a href="#local-6989586621679402781"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402780"><span class="annot"><span class="annottext">s :: Origins
+</span><a href="#local-6989586621679402780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins%27"><span class="hs-identifier hs-type">Origins'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402779"><span class="annot"><span class="annottext">NonEmpty Origin
+</span><a href="#local-6989586621679402779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Origins
+</span><a href="#local-6989586621679402780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:Origins' :: NonEmpty Origin
 </span><a href="Network.AWS.CloudFront.Types.Origins.html#%24sel%3Aitems%3AOrigins%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Origin
-</span><a href="#local-6989586621679402514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins"><span class="hs-identifier hs-type">Origins</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Origin -&gt; f (NonEmpty Origin)) -&gt; Origins -&gt; f Origins)
+</span><a href="#local-6989586621679402779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins"><span class="hs-identifier hs-type">Origins</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Origin -&gt; f (NonEmpty Origin)) -&gt; Origins -&gt; f Origins)
 -&gt; ((NonEmpty Origin -&gt; f (NonEmpty Origin))
     -&gt; NonEmpty Origin -&gt; f (NonEmpty Origin))
 -&gt; (NonEmpty Origin -&gt; f (NonEmpty Origin))
@@ -166,20 +166,20 @@ $sel:items:Origins' :: Origins -&gt; NonEmpty Origin
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Origin -&gt; f (NonEmpty Origin))
 -&gt; NonEmpty Origin -&gt; f (NonEmpty Origin)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins"><span class="hs-identifier hs-type">Origins</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679402510"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Origins
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679402508"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402508"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679402775"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Origins
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679402773"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402773"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">Int -&gt; NonEmpty Origin -&gt; Origins
 </span><a href="Network.AWS.CloudFront.Types.Origins.html#Origins%27"><span class="hs-identifier hs-var">Origins'</span></a></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">(Int -&gt; NonEmpty Origin -&gt; Origins)
 -&gt; Either String Int -&gt; Either String (NonEmpty Origin -&gt; Origins)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679402773"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span class="hs-special">)</span><span>
@@ -187,7 +187,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (NonEmpty Origin) -&gt; Either String Origins
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679402508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679402773"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -205,19 +205,19 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String (NonEmpty a)
 </span><span class="hs-string">&quot;Origin&quot;</span></span><span>
 </span><span id="line-75"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402499"><span id="local-6989586621679402501"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins"><span class="hs-identifier hs-type">Origins</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402764"><span id="local-6989586621679402766"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins"><span class="hs-identifier hs-type">Origins</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402496"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins"><span class="hs-identifier hs-type">Origins</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402761"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins"><span class="hs-identifier hs-type">Origins</span></a></span></span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins"><span class="hs-identifier hs-type">Origins</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679402492"><span class="annot"><span class="annottext">toXML :: Origins -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins%27"><span class="hs-identifier hs-type">Origins'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402489"><span id="local-6989586621679402490"><span class="annot"><span class="annottext">Int
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679402757"><span class="annot"><span class="annottext">toXML :: Origins -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Origins.html#Origins%27"><span class="hs-identifier hs-type">Origins'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402754"><span id="local-6989586621679402755"><span class="annot"><span class="annottext">Int
 NonEmpty Origin
 items :: NonEmpty Origin
 quantity :: Int
 $sel:items:Origins' :: Origins -&gt; NonEmpty Origin
 $sel:quantity:Origins' :: Origins -&gt; Int
-</span><a href="#local-6989586621679402489"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679402754"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -225,7 +225,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Quantity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679402490"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679402755"><span class="hs-identifier hs-var">quantity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
@@ -233,6 +233,6 @@ forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Origin&quot;</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Origin
-</span><a href="#local-6989586621679402489"><span class="hs-identifier hs-var">items</span></a></span><span>
+</span><a href="#local-6989586621679402754"><span class="hs-identifier hs-var">items</span></a></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-87"></span></pre></body></html>

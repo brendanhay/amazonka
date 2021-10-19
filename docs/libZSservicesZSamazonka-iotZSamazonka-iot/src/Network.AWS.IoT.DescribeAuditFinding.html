@@ -53,13 +53,13 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDescribeAuditFinding' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679840216"><span id="local-6989586621679840217"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAuditFinding"><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding"><span class="hs-identifier hs-var">DescribeAuditFinding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAuditFinding%27"><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding%27"><span class="hs-identifier hs-var">DescribeAuditFinding'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679841203"><span id="local-6989586621679841204"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAuditFinding"><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding"><span class="hs-identifier hs-var">DescribeAuditFinding</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAuditFinding%27"><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding%27"><span class="hs-identifier hs-var">DescribeAuditFinding'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for a single audit finding. You can use this</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- identifier to apply mitigation actions to the finding.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AfindingId%3ADescribeAuditFinding%27"><span class="annot"><span class="annottext">DescribeAuditFinding -&gt; Text
 </span><a href="Network.AWS.IoT.DescribeAuditFinding.html#%24sel%3AfindingId%3ADescribeAuditFinding%27"><span class="hs-identifier hs-var hs-var">findingId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679840210"><span id="local-6989586621679840212"><span class="annot"><span class="annottext">DescribeAuditFinding -&gt; DescribeAuditFinding -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679841197"><span id="local-6989586621679841199"><span class="annot"><span class="annottext">DescribeAuditFinding -&gt; DescribeAuditFinding -&gt; Bool
 (DescribeAuditFinding -&gt; DescribeAuditFinding -&gt; Bool)
 -&gt; (DescribeAuditFinding -&gt; DescribeAuditFinding -&gt; Bool)
 -&gt; Eq DescribeAuditFinding
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeAuditFinding -&gt; DescribeAuditFinding -&gt; Bool
 == :: DescribeAuditFinding -&gt; DescribeAuditFinding -&gt; Bool
 $c== :: DescribeAuditFinding -&gt; DescribeAuditFinding -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679840201"><span id="local-6989586621679840203"><span id="local-6989586621679840205"><span id="local-6989586621679840207"><span class="annot"><span class="annottext">ReadPrec [DescribeAuditFinding]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679841188"><span id="local-6989586621679841190"><span id="local-6989586621679841192"><span id="local-6989586621679841194"><span class="annot"><span class="annottext">ReadPrec [DescribeAuditFinding]
 ReadPrec DescribeAuditFinding
 Int -&gt; ReadS DescribeAuditFinding
 ReadS [DescribeAuditFinding]
@@ -88,7 +88,7 @@ readList :: ReadS [DescribeAuditFinding]
 $creadList :: ReadS [DescribeAuditFinding]
 readsPrec :: Int -&gt; ReadS DescribeAuditFinding
 $creadsPrec :: Int -&gt; ReadS DescribeAuditFinding
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679840194"><span id="local-6989586621679840196"><span id="local-6989586621679840198"><span class="annot"><span class="annottext">Int -&gt; DescribeAuditFinding -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679841181"><span id="local-6989586621679841183"><span id="local-6989586621679841185"><span class="annot"><span class="annottext">Int -&gt; DescribeAuditFinding -&gt; ShowS
 [DescribeAuditFinding] -&gt; ShowS
 DescribeAuditFinding -&gt; String
 (Int -&gt; DescribeAuditFinding -&gt; ShowS)
@@ -129,12 +129,12 @@ $cfrom :: forall x. DescribeAuditFinding -&gt; Rep DescribeAuditFinding x
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding"><span class="hs-identifier hs-type">DescribeAuditFinding</span></a></span><span>
 </span><span id="line-77"></span><span id="newDescribeAuditFinding"><span class="annot"><span class="annottext">newDescribeAuditFinding :: Text -&gt; DescribeAuditFinding
-</span><a href="Network.AWS.IoT.DescribeAuditFinding.html#newDescribeAuditFinding"><span class="hs-identifier hs-var hs-var">newDescribeAuditFinding</span></a></span></span><span> </span><span id="local-6989586621679840189"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679840189"><span class="hs-identifier hs-var">pFindingId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DescribeAuditFinding.html#newDescribeAuditFinding"><span class="hs-identifier hs-var hs-var">newDescribeAuditFinding</span></a></span></span><span> </span><span id="local-6989586621679841176"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679841176"><span class="hs-identifier hs-var">pFindingId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DescribeAuditFinding' :: Text -&gt; DescribeAuditFinding
 </span><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding%27"><span class="hs-identifier hs-type">DescribeAuditFinding'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingId:DescribeAuditFinding' :: Text
 </span><a href="Network.AWS.IoT.DescribeAuditFinding.html#%24sel%3AfindingId%3ADescribeAuditFinding%27"><span class="hs-identifier hs-var">findingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679840189"><span class="hs-identifier hs-var">pFindingId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679841176"><span class="hs-identifier hs-var">pFindingId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | A unique identifier for a single audit finding. You can use this</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- identifier to apply mitigation actions to the finding.</span><span>
@@ -144,27 +144,27 @@ $cfrom :: forall x. DescribeAuditFinding -&gt; Rep DescribeAuditFinding x
 -&gt; (DescribeAuditFinding -&gt; Text -&gt; DescribeAuditFinding)
 -&gt; Lens DescribeAuditFinding DescribeAuditFinding Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding%27"><span class="hs-identifier hs-type">DescribeAuditFinding'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840186"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding%27"><span class="hs-identifier hs-type">DescribeAuditFinding'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679841173"><span class="annot"><span class="annottext">Text
 findingId :: Text
 $sel:findingId:DescribeAuditFinding' :: DescribeAuditFinding -&gt; Text
-</span><a href="#local-6989586621679840186"><span class="hs-identifier hs-var hs-var">findingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679840186"><span class="hs-identifier hs-var">findingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840185"><span class="annot"><span class="annottext">s :: DescribeAuditFinding
-</span><a href="#local-6989586621679840185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding%27"><span class="hs-identifier hs-type">DescribeAuditFinding'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840184"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679840184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditFinding
-</span><a href="#local-6989586621679840185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingId:DescribeAuditFinding' :: Text
+</span><a href="#local-6989586621679841173"><span class="hs-identifier hs-var hs-var">findingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679841173"><span class="hs-identifier hs-var">findingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679841172"><span class="annot"><span class="annottext">s :: DescribeAuditFinding
+</span><a href="#local-6989586621679841172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding%27"><span class="hs-identifier hs-type">DescribeAuditFinding'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679841171"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679841171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditFinding
+</span><a href="#local-6989586621679841172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingId:DescribeAuditFinding' :: Text
 </span><a href="Network.AWS.IoT.DescribeAuditFinding.html#%24sel%3AfindingId%3ADescribeAuditFinding%27"><span class="hs-identifier hs-var">findingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679840184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding"><span class="hs-identifier hs-type">DescribeAuditFinding</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679841171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding"><span class="hs-identifier hs-type">DescribeAuditFinding</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding"><span class="hs-identifier hs-type">DescribeAuditFinding</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding"><span class="hs-identifier hs-type">DescribeAuditFinding</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse"><span class="hs-identifier hs-type">DescribeAuditFindingResponse</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679840180"><span class="annot"><span class="annottext">request :: DescribeAuditFinding -&gt; Request DescribeAuditFinding
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679841167"><span class="annot"><span class="annottext">request :: DescribeAuditFinding -&gt; Request DescribeAuditFinding
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeAuditFinding -&gt; Request DescribeAuditFinding
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679840176"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679841163"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeAuditFinding
 -&gt; ClientResponse ClientBody
@@ -190,10 +190,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679840173"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840173"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679840172"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679840172"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679840171"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679840171"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679841160"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679841160"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679841159"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679841159"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679841158"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679841158"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe AuditFinding -&gt; Int -&gt; DescribeAuditFindingResponse
 </span><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse%27"><span class="hs-identifier hs-var">DescribeAuditFindingResponse'</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AuditFinding -&gt; Int -&gt; DescribeAuditFindingResponse)
@@ -201,7 +201,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeAuditFindingResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679840171"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AuditFinding)
+</span><a href="#local-6989586621679841158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AuditFinding)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;finding&quot;</span></span><span class="hs-special">)</span><span>
@@ -213,15 +213,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840173"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679841160"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679840163"><span id="local-6989586621679840165"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding"><span class="hs-identifier hs-type">DescribeAuditFinding</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679841150"><span id="local-6989586621679841152"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding"><span class="hs-identifier hs-type">DescribeAuditFinding</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679840160"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding"><span class="hs-identifier hs-type">DescribeAuditFinding</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679841147"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding"><span class="hs-identifier hs-type">DescribeAuditFinding</span></a></span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding"><span class="hs-identifier hs-type">DescribeAuditFinding</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679840156"><span class="annot"><span class="annottext">toHeaders :: DescribeAuditFinding -&gt; ResponseHeaders
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679841143"><span class="annot"><span class="annottext">toHeaders :: DescribeAuditFinding -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAuditFinding -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -229,11 +229,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding"><span class="hs-identifier hs-type">DescribeAuditFinding</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679840151"><span class="annot"><span class="annottext">toPath :: DescribeAuditFinding -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding%27"><span class="hs-identifier hs-type">DescribeAuditFinding'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840149"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679841138"><span class="annot"><span class="annottext">toPath :: DescribeAuditFinding -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding%27"><span class="hs-identifier hs-type">DescribeAuditFinding'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679841136"><span class="annot"><span class="annottext">Text
 findingId :: Text
 $sel:findingId:DescribeAuditFinding' :: DescribeAuditFinding -&gt; Text
-</span><a href="#local-6989586621679840149"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679841136"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -241,10 +241,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/audit/findings/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679840149"><span class="hs-identifier hs-var">findingId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679841136"><span class="hs-identifier hs-var">findingId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFinding"><span class="hs-identifier hs-type">DescribeAuditFinding</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679840145"><span class="annot"><span class="annottext">toQuery :: DescribeAuditFinding -&gt; QueryString
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679841132"><span class="annot"><span class="annottext">toQuery :: DescribeAuditFinding -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeAuditFinding -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -252,14 +252,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | /See:/ 'newDescribeAuditFindingResponse' smart constructor.</span><span>
-</span><span id="line-114"></span><span id="local-6989586621679840142"><span id="local-6989586621679840143"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAuditFindingResponse"><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse"><span class="hs-identifier hs-var">DescribeAuditFindingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAuditFindingResponse%27"><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse%27"><span class="hs-identifier hs-var">DescribeAuditFindingResponse'</span></a></span></span><span>
+</span><span id="line-114"></span><span id="local-6989586621679841129"><span id="local-6989586621679841130"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAuditFindingResponse"><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse"><span class="hs-identifier hs-var">DescribeAuditFindingResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAuditFindingResponse%27"><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse%27"><span class="hs-identifier hs-var">DescribeAuditFindingResponse'</span></a></span></span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Afinding%3ADescribeAuditFindingResponse%27"><span class="annot"><span class="annottext">DescribeAuditFindingResponse -&gt; Maybe AuditFinding
 </span><a href="Network.AWS.IoT.DescribeAuditFinding.html#%24sel%3Afinding%3ADescribeAuditFindingResponse%27"><span class="hs-identifier hs-var hs-var">finding</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuditFinding.html#AuditFinding"><span class="hs-identifier hs-type">AuditFinding</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-117"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAuditFindingResponse%27"><span class="annot"><span class="annottext">DescribeAuditFindingResponse -&gt; Int
 </span><a href="Network.AWS.IoT.DescribeAuditFinding.html#%24sel%3AhttpStatus%3ADescribeAuditFindingResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679840136"><span id="local-6989586621679840138"><span class="annot"><span class="annottext">DescribeAuditFindingResponse
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679841123"><span id="local-6989586621679841125"><span class="annot"><span class="annottext">DescribeAuditFindingResponse
 -&gt; DescribeAuditFindingResponse -&gt; Bool
 (DescribeAuditFindingResponse
  -&gt; DescribeAuditFindingResponse -&gt; Bool)
@@ -275,7 +275,7 @@ $c/= :: DescribeAuditFindingResponse
 -&gt; DescribeAuditFindingResponse -&gt; Bool
 $c== :: DescribeAuditFindingResponse
 -&gt; DescribeAuditFindingResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679840128"><span id="local-6989586621679840130"><span id="local-6989586621679840132"><span id="local-6989586621679840134"><span class="annot"><span class="annottext">ReadPrec [DescribeAuditFindingResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679841115"><span id="local-6989586621679841117"><span id="local-6989586621679841119"><span id="local-6989586621679841121"><span class="annot"><span class="annottext">ReadPrec [DescribeAuditFindingResponse]
 ReadPrec DescribeAuditFindingResponse
 Int -&gt; ReadS DescribeAuditFindingResponse
 ReadS [DescribeAuditFindingResponse]
@@ -295,7 +295,7 @@ readList :: ReadS [DescribeAuditFindingResponse]
 $creadList :: ReadS [DescribeAuditFindingResponse]
 readsPrec :: Int -&gt; ReadS DescribeAuditFindingResponse
 $creadsPrec :: Int -&gt; ReadS DescribeAuditFindingResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679840122"><span id="local-6989586621679840124"><span id="local-6989586621679840126"><span class="annot"><span class="annottext">Int -&gt; DescribeAuditFindingResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679841109"><span id="local-6989586621679841111"><span id="local-6989586621679841113"><span class="annot"><span class="annottext">Int -&gt; DescribeAuditFindingResponse -&gt; ShowS
 [DescribeAuditFindingResponse] -&gt; ShowS
 DescribeAuditFindingResponse -&gt; String
 (Int -&gt; DescribeAuditFindingResponse -&gt; ShowS)
@@ -343,8 +343,8 @@ DescribeAuditFindingResponse -&gt; Rep DescribeAuditFindingResponse x
 </span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-135"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse"><span class="hs-identifier hs-type">DescribeAuditFindingResponse</span></a></span><span>
 </span><span id="line-136"></span><span id="newDescribeAuditFindingResponse"><span class="annot"><span class="annottext">newDescribeAuditFindingResponse :: Int -&gt; DescribeAuditFindingResponse
-</span><a href="Network.AWS.IoT.DescribeAuditFinding.html#newDescribeAuditFindingResponse"><span class="hs-identifier hs-var hs-var">newDescribeAuditFindingResponse</span></a></span></span><span> </span><span id="local-6989586621679840119"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840119"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DescribeAuditFinding.html#newDescribeAuditFindingResponse"><span class="hs-identifier hs-var hs-var">newDescribeAuditFindingResponse</span></a></span></span><span> </span><span id="local-6989586621679841106"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679841106"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="annottext">DescribeAuditFindingResponse' :: Maybe AuditFinding -&gt; Int -&gt; DescribeAuditFindingResponse
 </span><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse%27"><span class="hs-identifier hs-type">DescribeAuditFindingResponse'</span></a></span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:finding:DescribeAuditFindingResponse' :: Maybe AuditFinding
@@ -354,7 +354,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAuditFindingResponse' :: Int
 </span><a href="Network.AWS.IoT.DescribeAuditFinding.html#%24sel%3AhttpStatus%3ADescribeAuditFindingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840119"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679841106"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -370,16 +370,16 @@ forall a. Maybe a
      (Maybe AuditFinding)
      (Maybe AuditFinding)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse%27"><span class="hs-identifier hs-type">DescribeAuditFindingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840118"><span class="annot"><span class="annottext">Maybe AuditFinding
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse%27"><span class="hs-identifier hs-type">DescribeAuditFindingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679841105"><span class="annot"><span class="annottext">Maybe AuditFinding
 finding :: Maybe AuditFinding
 $sel:finding:DescribeAuditFindingResponse' :: DescribeAuditFindingResponse -&gt; Maybe AuditFinding
-</span><a href="#local-6989586621679840118"><span class="hs-identifier hs-var hs-var">finding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuditFinding
-</span><a href="#local-6989586621679840118"><span class="hs-identifier hs-var">finding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840117"><span class="annot"><span class="annottext">s :: DescribeAuditFindingResponse
-</span><a href="#local-6989586621679840117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse%27"><span class="hs-identifier hs-type">DescribeAuditFindingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840116"><span class="annot"><span class="annottext">Maybe AuditFinding
-</span><a href="#local-6989586621679840116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditFindingResponse
-</span><a href="#local-6989586621679840117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finding:DescribeAuditFindingResponse' :: Maybe AuditFinding
+</span><a href="#local-6989586621679841105"><span class="hs-identifier hs-var hs-var">finding</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuditFinding
+</span><a href="#local-6989586621679841105"><span class="hs-identifier hs-var">finding</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679841104"><span class="annot"><span class="annottext">s :: DescribeAuditFindingResponse
+</span><a href="#local-6989586621679841104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse%27"><span class="hs-identifier hs-type">DescribeAuditFindingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679841103"><span class="annot"><span class="annottext">Maybe AuditFinding
+</span><a href="#local-6989586621679841103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditFindingResponse
+</span><a href="#local-6989586621679841104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finding:DescribeAuditFindingResponse' :: Maybe AuditFinding
 </span><a href="Network.AWS.IoT.DescribeAuditFinding.html#%24sel%3Afinding%3ADescribeAuditFindingResponse%27"><span class="hs-identifier hs-var">finding</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuditFinding
-</span><a href="#local-6989586621679840116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse"><span class="hs-identifier hs-type">DescribeAuditFindingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679841103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse"><span class="hs-identifier hs-type">DescribeAuditFindingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-148"></span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#describeAuditFindingResponse_httpStatus"><span class="hs-identifier hs-type">describeAuditFindingResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse"><span class="hs-identifier hs-type">DescribeAuditFindingResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -391,16 +391,16 @@ $sel:finding:DescribeAuditFindingResponse' :: DescribeAuditFindingResponse -&gt;
 -&gt; Lens
      DescribeAuditFindingResponse DescribeAuditFindingResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse%27"><span class="hs-identifier hs-type">DescribeAuditFindingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840115"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse%27"><span class="hs-identifier hs-type">DescribeAuditFindingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679841102"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeAuditFindingResponse' :: DescribeAuditFindingResponse -&gt; Int
-</span><a href="#local-6989586621679840115"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840115"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840114"><span class="annot"><span class="annottext">s :: DescribeAuditFindingResponse
-</span><a href="#local-6989586621679840114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse%27"><span class="hs-identifier hs-type">DescribeAuditFindingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840113"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditFindingResponse
-</span><a href="#local-6989586621679840114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAuditFindingResponse' :: Int
+</span><a href="#local-6989586621679841102"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679841102"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679841101"><span class="annot"><span class="annottext">s :: DescribeAuditFindingResponse
+</span><a href="#local-6989586621679841101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse%27"><span class="hs-identifier hs-type">DescribeAuditFindingResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679841100"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679841100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAuditFindingResponse
+</span><a href="#local-6989586621679841101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAuditFindingResponse' :: Int
 </span><a href="Network.AWS.IoT.DescribeAuditFinding.html#%24sel%3AhttpStatus%3ADescribeAuditFindingResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse"><span class="hs-identifier hs-type">DescribeAuditFindingResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679841100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse"><span class="hs-identifier hs-type">DescribeAuditFindingResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679840111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse"><span class="hs-identifier hs-type">DescribeAuditFindingResponse</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679841098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DescribeAuditFinding.html#DescribeAuditFindingResponse"><span class="hs-identifier hs-type">DescribeAuditFindingResponse</span></a></span></span><span>
 </span><span id="line-152"></span></pre></body></html>

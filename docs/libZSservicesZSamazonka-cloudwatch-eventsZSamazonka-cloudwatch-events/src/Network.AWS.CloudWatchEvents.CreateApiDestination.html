@@ -28,8 +28,8 @@
 </span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#newCreateApiDestination"><span class="hs-identifier">newCreateApiDestination</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-29"></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestination_description"><span class="hs-identifier">createApiDestination_description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestination_invocationRateLimitPerSecond"><span class="hs-identifier">createApiDestination_invocationRateLimitPerSecond</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestination_invocationRateLimitPerSecond"><span class="hs-identifier">createApiDestination_invocationRateLimitPerSecond</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestination_description"><span class="hs-identifier">createApiDestination_description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestination_name"><span class="hs-identifier">createApiDestination_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestination_connectionArn"><span class="hs-identifier">createApiDestination_connectionArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestination_invocationEndpoint"><span class="hs-identifier">createApiDestination_invocationEndpoint</span></a></span><span class="hs-special">,</span><span>
@@ -41,9 +41,9 @@
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_creationTime"><span class="hs-identifier">createApiDestinationResponse_creationTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_apiDestinationArn"><span class="hs-identifier">createApiDestinationResponse_apiDestinationArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_lastModifiedTime"><span class="hs-identifier">createApiDestinationResponse_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_apiDestinationState"><span class="hs-identifier">createApiDestinationResponse_apiDestinationState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_lastModifiedTime"><span class="hs-identifier">createApiDestinationResponse_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_apiDestinationArn"><span class="hs-identifier">createApiDestinationResponse_apiDestinationArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_httpStatus"><span class="hs-identifier">createApiDestinationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span class="hs-keyword">where</span><span>
@@ -56,14 +56,14 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newCreateApiDestination' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679319278"><span id="local-6989586621679319279"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateApiDestination"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-var">CreateApiDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateApiDestination%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-var">CreateApiDestination'</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description for the API destination to create.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3Adescription%3ACreateApiDestination%27"><span class="annot"><span class="annottext">CreateApiDestination -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3Adescription%3ACreateApiDestination%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The maximum number of requests per second to send to the HTTP invocation</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- endpoint.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AinvocationRateLimitPerSecond%3ACreateApiDestination%27"><span class="annot"><span class="annottext">CreateApiDestination -&gt; Maybe Natural
+</span><span id="line-59"></span><span id="local-6989586621679319491"><span id="local-6989586621679319492"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateApiDestination"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-var">CreateApiDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateApiDestination%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-var">CreateApiDestination'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of requests per second to send to the HTTP invocation</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AinvocationRateLimitPerSecond%3ACreateApiDestination%27"><span class="annot"><span class="annottext">CreateApiDestination -&gt; Maybe Natural
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AinvocationRateLimitPerSecond%3ACreateApiDestination%27"><span class="hs-identifier hs-var hs-var">invocationRateLimitPerSecond</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | A description for the API destination to create.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Adescription%3ACreateApiDestination%27"><span class="annot"><span class="annottext">CreateApiDestination -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3Adescription%3ACreateApiDestination%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The name for the API destination to create.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3Aname%3ACreateApiDestination%27"><span class="annot"><span class="annottext">CreateApiDestination -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3Aname%3ACreateApiDestination%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -79,7 +79,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AhttpMethod%3ACreateApiDestination%27"><span class="annot"><span class="annottext">CreateApiDestination -&gt; ApiDestinationHttpMethod
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AhttpMethod%3ACreateApiDestination%27"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ApiDestinationHttpMethod.html#ApiDestinationHttpMethod"><span class="hs-identifier hs-type">ApiDestinationHttpMethod</span></a></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319267"><span id="local-6989586621679319269"><span class="annot"><span class="annottext">CreateApiDestination -&gt; CreateApiDestination -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319480"><span id="local-6989586621679319482"><span class="annot"><span class="annottext">CreateApiDestination -&gt; CreateApiDestination -&gt; Bool
 (CreateApiDestination -&gt; CreateApiDestination -&gt; Bool)
 -&gt; (CreateApiDestination -&gt; CreateApiDestination -&gt; Bool)
 -&gt; Eq CreateApiDestination
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateApiDestination -&gt; CreateApiDestination -&gt; Bool
 == :: CreateApiDestination -&gt; CreateApiDestination -&gt; Bool
 $c== :: CreateApiDestination -&gt; CreateApiDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319258"><span id="local-6989586621679319260"><span id="local-6989586621679319262"><span id="local-6989586621679319264"><span class="annot"><span class="annottext">ReadPrec [CreateApiDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319471"><span id="local-6989586621679319473"><span id="local-6989586621679319475"><span id="local-6989586621679319477"><span class="annot"><span class="annottext">ReadPrec [CreateApiDestination]
 ReadPrec CreateApiDestination
 Int -&gt; ReadS CreateApiDestination
 ReadS [CreateApiDestination]
@@ -108,7 +108,7 @@ readList :: ReadS [CreateApiDestination]
 $creadList :: ReadS [CreateApiDestination]
 readsPrec :: Int -&gt; ReadS CreateApiDestination
 $creadsPrec :: Int -&gt; ReadS CreateApiDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319251"><span id="local-6989586621679319253"><span id="local-6989586621679319255"><span class="annot"><span class="annottext">Int -&gt; CreateApiDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319464"><span id="local-6989586621679319466"><span id="local-6989586621679319468"><span class="annot"><span class="annottext">Int -&gt; CreateApiDestination -&gt; ShowS
 [CreateApiDestination] -&gt; ShowS
 CreateApiDestination -&gt; String
 (Int -&gt; CreateApiDestination -&gt; ShowS)
@@ -142,10 +142,10 @@ $cfrom :: forall x. CreateApiDestination -&gt; Rep CreateApiDestination x
 </span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'description', 'createApiDestination_description' - A description for the API destination to create.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'invocationRateLimitPerSecond', 'createApiDestination_invocationRateLimitPerSecond' - The maximum number of requests per second to send to the HTTP invocation</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'invocationRateLimitPerSecond', 'createApiDestination_invocationRateLimitPerSecond' - The maximum number of requests per second to send to the HTTP invocation</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'description', 'createApiDestination_description' - A description for the API destination to create.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- 'name', 'createApiDestination_name' - The name for the API destination to create.</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
@@ -169,69 +169,49 @@ $cfrom :: forall x. CreateApiDestination -&gt; Rep CreateApiDestination x
 </span><span id="line-110"></span><span id="newCreateApiDestination"><span class="annot"><span class="annottext">newCreateApiDestination :: Text
 -&gt; Text -&gt; Text -&gt; ApiDestinationHttpMethod -&gt; CreateApiDestination
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#newCreateApiDestination"><span class="hs-identifier hs-var hs-var">newCreateApiDestination</span></a></span></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679319246"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319246"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679319245"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319245"><span class="hs-identifier hs-var">pConnectionArn_</span></a></span></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679319244"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319244"><span class="hs-identifier hs-var">pInvocationEndpoint_</span></a></span></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679319243"><span class="annot"><span class="annottext">ApiDestinationHttpMethod
-</span><a href="#local-6989586621679319243"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">CreateApiDestination' :: Maybe Text
--&gt; Maybe Natural
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679319459"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319459"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679319458"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319458"><span class="hs-identifier hs-var">pConnectionArn_</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679319457"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319457"><span class="hs-identifier hs-var">pInvocationEndpoint_</span></a></span></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679319456"><span class="annot"><span class="annottext">ApiDestinationHttpMethod
+</span><a href="#local-6989586621679319456"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">CreateApiDestination' :: Maybe Natural
+-&gt; Maybe Text
 -&gt; Text
 -&gt; Text
 -&gt; Text
 -&gt; ApiDestinationHttpMethod
 -&gt; CreateApiDestination
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:CreateApiDestination' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3Adescription%3ACreateApiDestination%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-116"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:invocationRateLimitPerSecond:CreateApiDestination' :: Maybe Natural
+</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AinvocationRateLimitPerSecond%3ACreateApiDestination%27"><span class="hs-identifier hs-var">invocationRateLimitPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:invocationRateLimitPerSecond:CreateApiDestination' :: Maybe Natural
-</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AinvocationRateLimitPerSecond%3ACreateApiDestination%27"><span class="hs-identifier hs-var">invocationRateLimitPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:CreateApiDestination' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3Adescription%3ACreateApiDestination%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CreateApiDestination' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3Aname%3ACreateApiDestination%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319246"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679319459"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:connectionArn:CreateApiDestination' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AconnectionArn%3ACreateApiDestination%27"><span class="hs-identifier hs-var">connectionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319245"><span class="hs-identifier hs-var">pConnectionArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679319458"><span class="hs-identifier hs-var">pConnectionArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:invocationEndpoint:CreateApiDestination' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AinvocationEndpoint%3ACreateApiDestination%27"><span class="hs-identifier hs-var">invocationEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319244"><span class="hs-identifier hs-var">pInvocationEndpoint_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679319457"><span class="hs-identifier hs-var">pInvocationEndpoint_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpMethod:CreateApiDestination' :: ApiDestinationHttpMethod
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AhttpMethod%3ACreateApiDestination%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ApiDestinationHttpMethod
-</span><a href="#local-6989586621679319243"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span><span>
+</span><a href="#local-6989586621679319456"><span class="hs-identifier hs-var">pHttpMethod_</span></a></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | A description for the API destination to create.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestination_description"><span class="hs-identifier hs-type">createApiDestination_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="createApiDestination_description"><span class="annot"><span class="annottext">createApiDestination_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreateApiDestination -&gt; f CreateApiDestination
-</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestination_description"><span class="hs-identifier hs-var hs-var">createApiDestination_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApiDestination -&gt; Maybe Text)
--&gt; (CreateApiDestination -&gt; Maybe Text -&gt; CreateApiDestination)
--&gt; Lens
-     CreateApiDestination CreateApiDestination (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319240"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:CreateApiDestination' :: CreateApiDestination -&gt; Maybe Text
-</span><a href="#local-6989586621679319240"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679319240"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319239"><span class="annot"><span class="annottext">s :: CreateApiDestination
-</span><a href="#local-6989586621679319239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319238"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679319238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestination
-</span><a href="#local-6989586621679319239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateApiDestination' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3Adescription%3ACreateApiDestination%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679319238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The maximum number of requests per second to send to the HTTP invocation</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- endpoint.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestination_invocationRateLimitPerSecond"><span class="hs-identifier hs-type">createApiDestination_invocationRateLimitPerSecond</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="createApiDestination_invocationRateLimitPerSecond"><span class="annot"><span class="annottext">createApiDestination_invocationRateLimitPerSecond :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-125"></span><span class="hs-comment">-- | The maximum number of requests per second to send to the HTTP invocation</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- endpoint.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestination_invocationRateLimitPerSecond"><span class="hs-identifier hs-type">createApiDestination_invocationRateLimitPerSecond</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="createApiDestination_invocationRateLimitPerSecond"><span class="annot"><span class="annottext">createApiDestination_invocationRateLimitPerSecond :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; CreateApiDestination -&gt; f CreateApiDestination
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestination_invocationRateLimitPerSecond"><span class="hs-identifier hs-var hs-var">createApiDestination_invocationRateLimitPerSecond</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApiDestination -&gt; Maybe Natural)
 -&gt; (CreateApiDestination -&gt; Maybe Natural -&gt; CreateApiDestination)
@@ -241,16 +221,36 @@ $sel:description:CreateApiDestination' :: CreateApiDestination -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319237"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319453"><span class="annot"><span class="annottext">Maybe Natural
 invocationRateLimitPerSecond :: Maybe Natural
 $sel:invocationRateLimitPerSecond:CreateApiDestination' :: CreateApiDestination -&gt; Maybe Natural
-</span><a href="#local-6989586621679319237"><span class="hs-identifier hs-var hs-var">invocationRateLimitPerSecond</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679319237"><span class="hs-identifier hs-var">invocationRateLimitPerSecond</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319236"><span class="annot"><span class="annottext">s :: CreateApiDestination
-</span><a href="#local-6989586621679319236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319235"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679319235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestination
-</span><a href="#local-6989586621679319236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invocationRateLimitPerSecond:CreateApiDestination' :: Maybe Natural
+</span><a href="#local-6989586621679319453"><span class="hs-identifier hs-var hs-var">invocationRateLimitPerSecond</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679319453"><span class="hs-identifier hs-var">invocationRateLimitPerSecond</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319452"><span class="annot"><span class="annottext">s :: CreateApiDestination
+</span><a href="#local-6989586621679319452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319451"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679319451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestination
+</span><a href="#local-6989586621679319452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invocationRateLimitPerSecond:CreateApiDestination' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AinvocationRateLimitPerSecond%3ACreateApiDestination%27"><span class="hs-identifier hs-var">invocationRateLimitPerSecond</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679319235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | A description for the API destination to create.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestination_description"><span class="hs-identifier hs-type">createApiDestination_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="createApiDestination_description"><span class="annot"><span class="annottext">createApiDestination_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateApiDestination -&gt; f CreateApiDestination
+</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestination_description"><span class="hs-identifier hs-var hs-var">createApiDestination_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApiDestination -&gt; Maybe Text)
+-&gt; (CreateApiDestination -&gt; Maybe Text -&gt; CreateApiDestination)
+-&gt; Lens
+     CreateApiDestination CreateApiDestination (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319450"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateApiDestination' :: CreateApiDestination -&gt; Maybe Text
+</span><a href="#local-6989586621679319450"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319450"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319449"><span class="annot"><span class="annottext">s :: CreateApiDestination
+</span><a href="#local-6989586621679319449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319448"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestination
+</span><a href="#local-6989586621679319449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateApiDestination' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3Adescription%3ACreateApiDestination%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The name for the API destination to create.</span><span>
 </span><span id="line-135"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestination_name"><span class="hs-identifier hs-type">createApiDestination_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -259,16 +259,16 @@ $sel:invocationRateLimitPerSecond:CreateApiDestination' :: CreateApiDestination 
 -&gt; (CreateApiDestination -&gt; Text -&gt; CreateApiDestination)
 -&gt; Lens CreateApiDestination CreateApiDestination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319234"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319447"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CreateApiDestination' :: CreateApiDestination -&gt; Text
-</span><a href="#local-6989586621679319234"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319234"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319233"><span class="annot"><span class="annottext">s :: CreateApiDestination
-</span><a href="#local-6989586621679319233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319232"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestination
-</span><a href="#local-6989586621679319233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateApiDestination' :: Text
+</span><a href="#local-6989586621679319447"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319447"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319446"><span class="annot"><span class="annottext">s :: CreateApiDestination
+</span><a href="#local-6989586621679319446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319445"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestination
+</span><a href="#local-6989586621679319446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateApiDestination' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3Aname%3ACreateApiDestination%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The ARN of the connection to use for the API destination. The</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- destination endpoint must support the authorization type specified for</span><span>
@@ -279,16 +279,16 @@ $sel:name:CreateApiDestination' :: CreateApiDestination -&gt; Text
 -&gt; (CreateApiDestination -&gt; Text -&gt; CreateApiDestination)
 -&gt; Lens CreateApiDestination CreateApiDestination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319231"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319444"><span class="annot"><span class="annottext">Text
 connectionArn :: Text
 $sel:connectionArn:CreateApiDestination' :: CreateApiDestination -&gt; Text
-</span><a href="#local-6989586621679319231"><span class="hs-identifier hs-var hs-var">connectionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319231"><span class="hs-identifier hs-var">connectionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319230"><span class="annot"><span class="annottext">s :: CreateApiDestination
-</span><a href="#local-6989586621679319230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319229"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestination
-</span><a href="#local-6989586621679319230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionArn:CreateApiDestination' :: Text
+</span><a href="#local-6989586621679319444"><span class="hs-identifier hs-var hs-var">connectionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319444"><span class="hs-identifier hs-var">connectionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319443"><span class="annot"><span class="annottext">s :: CreateApiDestination
+</span><a href="#local-6989586621679319443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319442"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestination
+</span><a href="#local-6989586621679319443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionArn:CreateApiDestination' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AconnectionArn%3ACreateApiDestination%27"><span class="hs-identifier hs-var">connectionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | The URL to the HTTP invocation endpoint for the API destination.</span><span>
 </span><span id="line-145"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestination_invocationEndpoint"><span class="hs-identifier hs-type">createApiDestination_invocationEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -297,16 +297,16 @@ $sel:connectionArn:CreateApiDestination' :: CreateApiDestination -&gt; Text
 -&gt; (CreateApiDestination -&gt; Text -&gt; CreateApiDestination)
 -&gt; Lens CreateApiDestination CreateApiDestination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319228"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319441"><span class="annot"><span class="annottext">Text
 invocationEndpoint :: Text
 $sel:invocationEndpoint:CreateApiDestination' :: CreateApiDestination -&gt; Text
-</span><a href="#local-6989586621679319228"><span class="hs-identifier hs-var hs-var">invocationEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319228"><span class="hs-identifier hs-var">invocationEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319227"><span class="annot"><span class="annottext">s :: CreateApiDestination
-</span><a href="#local-6989586621679319227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319226"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestination
-</span><a href="#local-6989586621679319227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invocationEndpoint:CreateApiDestination' :: Text
+</span><a href="#local-6989586621679319441"><span class="hs-identifier hs-var hs-var">invocationEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319441"><span class="hs-identifier hs-var">invocationEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319440"><span class="annot"><span class="annottext">s :: CreateApiDestination
+</span><a href="#local-6989586621679319440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319439"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679319439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestination
+</span><a href="#local-6989586621679319440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invocationEndpoint:CreateApiDestination' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AinvocationEndpoint%3ACreateApiDestination%27"><span class="hs-identifier hs-var">invocationEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The method to use for the request to the HTTP invocation endpoint.</span><span>
 </span><span id="line-149"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestination_httpMethod"><span class="hs-identifier hs-type">createApiDestination_httpMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ApiDestinationHttpMethod.html#ApiDestinationHttpMethod"><span class="hs-identifier hs-type">ApiDestinationHttpMethod</span></a></span><span>
@@ -321,27 +321,27 @@ $sel:invocationEndpoint:CreateApiDestination' :: CreateApiDestination -&gt; Text
      ApiDestinationHttpMethod
      ApiDestinationHttpMethod
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319225"><span class="annot"><span class="annottext">ApiDestinationHttpMethod
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319438"><span class="annot"><span class="annottext">ApiDestinationHttpMethod
 httpMethod :: ApiDestinationHttpMethod
 $sel:httpMethod:CreateApiDestination' :: CreateApiDestination -&gt; ApiDestinationHttpMethod
-</span><a href="#local-6989586621679319225"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiDestinationHttpMethod
-</span><a href="#local-6989586621679319225"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319224"><span class="annot"><span class="annottext">s :: CreateApiDestination
-</span><a href="#local-6989586621679319224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319223"><span class="annot"><span class="annottext">ApiDestinationHttpMethod
-</span><a href="#local-6989586621679319223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestination
-</span><a href="#local-6989586621679319224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpMethod:CreateApiDestination' :: ApiDestinationHttpMethod
+</span><a href="#local-6989586621679319438"><span class="hs-identifier hs-var hs-var">httpMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApiDestinationHttpMethod
+</span><a href="#local-6989586621679319438"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319437"><span class="annot"><span class="annottext">s :: CreateApiDestination
+</span><a href="#local-6989586621679319437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319436"><span class="annot"><span class="annottext">ApiDestinationHttpMethod
+</span><a href="#local-6989586621679319436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestination
+</span><a href="#local-6989586621679319437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpMethod:CreateApiDestination' :: ApiDestinationHttpMethod
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AhttpMethod%3ACreateApiDestination%27"><span class="hs-identifier hs-var">httpMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ApiDestinationHttpMethod
-</span><a href="#local-6989586621679319223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-154"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679319219"><span class="annot"><span class="annottext">request :: CreateApiDestination -&gt; Request CreateApiDestination
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679319432"><span class="annot"><span class="annottext">request :: CreateApiDestination -&gt; Request CreateApiDestination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateApiDestination -&gt; Request CreateApiDestination
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679319215"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679319428"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateApiDestination
 -&gt; ClientResponse ClientBody
@@ -367,77 +367,77 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679319212"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679319212"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679319211"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679319211"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679319210"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679319210"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679319425"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319425"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679319424"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679319424"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679319423"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319423"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe ApiDestinationState
 -&gt; Maybe POSIX
+-&gt; Maybe ApiDestinationState
+-&gt; Maybe Text
 -&gt; Int
 -&gt; CreateApiDestinationResponse
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-var">CreateApiDestinationResponse'</span></a></span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe Text
- -&gt; Maybe ApiDestinationState
  -&gt; Maybe POSIX
+ -&gt; Maybe ApiDestinationState
+ -&gt; Maybe Text
  -&gt; Int
  -&gt; CreateApiDestinationResponse)
 -&gt; Either String (Maybe POSIX)
 -&gt; Either
      String
-     (Maybe Text
+     (Maybe POSIX
       -&gt; Maybe ApiDestinationState
-      -&gt; Maybe POSIX
+      -&gt; Maybe Text
       -&gt; Int
       -&gt; CreateApiDestinationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679319210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679319423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
+  (Maybe POSIX
    -&gt; Maybe ApiDestinationState
-   -&gt; Maybe POSIX
+   -&gt; Maybe Text
    -&gt; Int
    -&gt; CreateApiDestinationResponse)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe POSIX)
 -&gt; Either
      String
      (Maybe ApiDestinationState
-      -&gt; Maybe POSIX -&gt; Int -&gt; CreateApiDestinationResponse)
+      -&gt; Maybe Text -&gt; Int -&gt; CreateApiDestinationResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679319210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ApiDestinationArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ApiDestinationState
-   -&gt; Maybe POSIX -&gt; Int -&gt; CreateApiDestinationResponse)
--&gt; Either String (Maybe ApiDestinationState)
--&gt; Either
-     String (Maybe POSIX -&gt; Int -&gt; CreateApiDestinationResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679319210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ApiDestinationState)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ApiDestinationState&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe POSIX -&gt; Int -&gt; CreateApiDestinationResponse)
--&gt; Either String (Maybe POSIX)
--&gt; Either String (Int -&gt; CreateApiDestinationResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679319210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679319423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ApiDestinationState
+   -&gt; Maybe Text -&gt; Int -&gt; CreateApiDestinationResponse)
+-&gt; Either String (Maybe ApiDestinationState)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; CreateApiDestinationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ApiDestinationState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApiDestinationState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CreateApiDestinationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateApiDestinationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679319423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApiDestinationArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateApiDestinationResponse)
 -&gt; Either String Int -&gt; Either String CreateApiDestinationResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -446,15 +446,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679319212"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319425"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319202"><span id="local-6989586621679319204"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319415"><span id="local-6989586621679319417"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span></span></span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319199"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319412"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span></span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679319195"><span class="annot"><span class="annottext">toHeaders :: CreateApiDestination -&gt; ResponseHeaders
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679319408"><span class="annot"><span class="annottext">toHeaders :: CreateApiDestination -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateApiDestination -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -481,9 +481,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319185"><span id="local-6989586621679319187"><span id="local-6989586621679319189"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679319183"><span class="annot"><span class="annottext">toJSON :: CreateApiDestination -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319176"><span id="local-6989586621679319177"><span id="local-6989586621679319178"><span id="local-6989586621679319179"><span id="local-6989586621679319180"><span id="local-6989586621679319181"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319398"><span id="local-6989586621679319400"><span id="local-6989586621679319402"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679319396"><span class="annot"><span class="annottext">toJSON :: CreateApiDestination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination%27"><span class="hs-identifier hs-type">CreateApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319389"><span id="local-6989586621679319390"><span id="local-6989586621679319391"><span id="local-6989586621679319392"><span id="local-6989586621679319393"><span id="local-6989586621679319394"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 ApiDestinationHttpMethod
@@ -491,49 +491,49 @@ httpMethod :: ApiDestinationHttpMethod
 invocationEndpoint :: Text
 connectionArn :: Text
 name :: Text
-invocationRateLimitPerSecond :: Maybe Natural
 description :: Maybe Text
+invocationRateLimitPerSecond :: Maybe Natural
 $sel:httpMethod:CreateApiDestination' :: CreateApiDestination -&gt; ApiDestinationHttpMethod
 $sel:invocationEndpoint:CreateApiDestination' :: CreateApiDestination -&gt; Text
 $sel:connectionArn:CreateApiDestination' :: CreateApiDestination -&gt; Text
 $sel:name:CreateApiDestination' :: CreateApiDestination -&gt; Text
-$sel:invocationRateLimitPerSecond:CreateApiDestination' :: CreateApiDestination -&gt; Maybe Natural
 $sel:description:CreateApiDestination' :: CreateApiDestination -&gt; Maybe Text
-</span><a href="#local-6989586621679319176"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:invocationRateLimitPerSecond:CreateApiDestination' :: CreateApiDestination -&gt; Maybe Natural
+</span><a href="#local-6989586621679319389"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-191"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InvocationRateLimitPerSecond&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679319394"><span class="hs-identifier hs-var">invocationRateLimitPerSecond</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679319181"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InvocationRateLimitPerSecond&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-193"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679319180"><span class="hs-identifier hs-var">invocationRateLimitPerSecond</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679319393"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319179"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679319392"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConnectionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319178"><span class="hs-identifier hs-var">connectionArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679319391"><span class="hs-identifier hs-var">connectionArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -541,26 +541,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;InvocationEndpoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679319177"><span class="hs-identifier hs-var">invocationEndpoint</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679319390"><span class="hs-identifier hs-var">invocationEndpoint</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HttpMethod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ApiDestinationHttpMethod -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ApiDestinationHttpMethod
-</span><a href="#local-6989586621679319176"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319389"><span class="hs-identifier hs-var">httpMethod</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-200"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679319170"><span class="annot"><span class="annottext">toPath :: CreateApiDestination -&gt; ByteString
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679319383"><span class="annot"><span class="annottext">toPath :: CreateApiDestination -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateApiDestination -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestination"><span class="hs-identifier hs-type">CreateApiDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621679319166"><span class="annot"><span class="annottext">toQuery :: CreateApiDestination -&gt; QueryString
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679319379"><span class="annot"><span class="annottext">toQuery :: CreateApiDestination -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateApiDestination -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -568,25 +568,25 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- | /See:/ 'newCreateApiDestinationResponse' smart constructor.</span><span>
-</span><span id="line-209"></span><span id="local-6989586621679319163"><span id="local-6989586621679319164"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateApiDestinationResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-var">CreateApiDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateApiDestinationResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-var">CreateApiDestinationResponse'</span></a></span></span><span>
+</span><span id="line-209"></span><span id="local-6989586621679319376"><span id="local-6989586621679319377"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateApiDestinationResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-var">CreateApiDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateApiDestinationResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-var">CreateApiDestinationResponse'</span></a></span></span><span>
 </span><span id="line-210"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A time stamp indicating the time that the API destination was created.</span><span>
 </span><span id="line-211"></span><span>    </span><span id="%24sel%3AcreationTime%3ACreateApiDestinationResponse%27"><span class="annot"><span class="annottext">CreateApiDestinationResponse -&gt; Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AcreationTime%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- | The ARN of the API destination that was created by the request.</span><span>
-</span><span id="line-213"></span><span>    </span><span id="%24sel%3AapiDestinationArn%3ACreateApiDestinationResponse%27"><span class="annot"><span class="annottext">CreateApiDestinationResponse -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AapiDestinationArn%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var hs-var">apiDestinationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- | The state of the API destination that was created by the request.</span><span>
-</span><span id="line-215"></span><span>    </span><span id="%24sel%3AapiDestinationState%3ACreateApiDestinationResponse%27"><span class="annot"><span class="annottext">CreateApiDestinationResponse -&gt; Maybe ApiDestinationState
-</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AapiDestinationState%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var hs-var">apiDestinationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ApiDestinationState.html#ApiDestinationState"><span class="hs-identifier hs-type">ApiDestinationState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- | A time stamp indicating the time that the API destination was last</span><span>
-</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- modified.</span><span>
-</span><span id="line-218"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3ACreateApiDestinationResponse%27"><span class="annot"><span class="annottext">CreateApiDestinationResponse -&gt; Maybe POSIX
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- | A time stamp indicating the time that the API destination was last</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- modified.</span><span>
+</span><span id="line-214"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3ACreateApiDestinationResponse%27"><span class="annot"><span class="annottext">CreateApiDestinationResponse -&gt; Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AlastModifiedTime%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-comment">-- | The state of the API destination that was created by the request.</span><span>
+</span><span id="line-216"></span><span>    </span><span id="%24sel%3AapiDestinationState%3ACreateApiDestinationResponse%27"><span class="annot"><span class="annottext">CreateApiDestinationResponse -&gt; Maybe ApiDestinationState
+</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AapiDestinationState%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var hs-var">apiDestinationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ApiDestinationState.html#ApiDestinationState"><span class="hs-identifier hs-type">ApiDestinationState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- | The ARN of the API destination that was created by the request.</span><span>
+</span><span id="line-218"></span><span>    </span><span id="%24sel%3AapiDestinationArn%3ACreateApiDestinationResponse%27"><span class="annot"><span class="annottext">CreateApiDestinationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AapiDestinationArn%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var hs-var">apiDestinationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-220"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateApiDestinationResponse%27"><span class="annot"><span class="annottext">CreateApiDestinationResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AhttpStatus%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-221"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-222"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319154"><span id="local-6989586621679319156"><span class="annot"><span class="annottext">CreateApiDestinationResponse
+</span><span id="line-222"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679319367"><span id="local-6989586621679319369"><span class="annot"><span class="annottext">CreateApiDestinationResponse
 -&gt; CreateApiDestinationResponse -&gt; Bool
 (CreateApiDestinationResponse
  -&gt; CreateApiDestinationResponse -&gt; Bool)
@@ -602,7 +602,7 @@ $c/= :: CreateApiDestinationResponse
 -&gt; CreateApiDestinationResponse -&gt; Bool
 $c== :: CreateApiDestinationResponse
 -&gt; CreateApiDestinationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319146"><span id="local-6989586621679319148"><span id="local-6989586621679319150"><span id="local-6989586621679319152"><span class="annot"><span class="annottext">ReadPrec [CreateApiDestinationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319359"><span id="local-6989586621679319361"><span id="local-6989586621679319363"><span id="local-6989586621679319365"><span class="annot"><span class="annottext">ReadPrec [CreateApiDestinationResponse]
 ReadPrec CreateApiDestinationResponse
 Int -&gt; ReadS CreateApiDestinationResponse
 ReadS [CreateApiDestinationResponse]
@@ -622,7 +622,7 @@ readList :: ReadS [CreateApiDestinationResponse]
 $creadList :: ReadS [CreateApiDestinationResponse]
 readsPrec :: Int -&gt; ReadS CreateApiDestinationResponse
 $creadsPrec :: Int -&gt; ReadS CreateApiDestinationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319140"><span id="local-6989586621679319142"><span id="local-6989586621679319144"><span class="annot"><span class="annottext">Int -&gt; CreateApiDestinationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679319353"><span id="local-6989586621679319355"><span id="local-6989586621679319357"><span class="annot"><span class="annottext">Int -&gt; CreateApiDestinationResponse -&gt; ShowS
 [CreateApiDestinationResponse] -&gt; ShowS
 CreateApiDestinationResponse -&gt; String
 (Int -&gt; CreateApiDestinationResponse -&gt; ShowS)
@@ -664,12 +664,12 @@ CreateApiDestinationResponse -&gt; Rep CreateApiDestinationResponse x
 </span><span id="line-231"></span><span class="hs-comment">--</span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- 'creationTime', 'createApiDestinationResponse_creationTime' - A time stamp indicating the time that the API destination was created.</span><span>
 </span><span id="line-233"></span><span class="hs-comment">--</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- 'apiDestinationArn', 'createApiDestinationResponse_apiDestinationArn' - The ARN of the API destination that was created by the request.</span><span>
-</span><span id="line-235"></span><span class="hs-comment">--</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- 'apiDestinationState', 'createApiDestinationResponse_apiDestinationState' - The state of the API destination that was created by the request.</span><span>
-</span><span id="line-237"></span><span class="hs-comment">--</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- 'lastModifiedTime', 'createApiDestinationResponse_lastModifiedTime' - A time stamp indicating the time that the API destination was last</span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- modified.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'lastModifiedTime', 'createApiDestinationResponse_lastModifiedTime' - A time stamp indicating the time that the API destination was last</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- modified.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- 'apiDestinationState', 'createApiDestinationResponse_apiDestinationState' - The state of the API destination that was created by the request.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'apiDestinationArn', 'createApiDestinationResponse_apiDestinationArn' - The ARN of the API destination that was created by the request.</span><span>
 </span><span id="line-240"></span><span class="hs-comment">--</span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- 'httpStatus', 'createApiDestinationResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-242"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#newCreateApiDestinationResponse"><span class="hs-identifier hs-type">newCreateApiDestinationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -677,12 +677,12 @@ CreateApiDestinationResponse -&gt; Rep CreateApiDestinationResponse x
 </span><span id="line-244"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-245"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span>
 </span><span id="line-246"></span><span id="newCreateApiDestinationResponse"><span class="annot"><span class="annottext">newCreateApiDestinationResponse :: Int -&gt; CreateApiDestinationResponse
-</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#newCreateApiDestinationResponse"><span class="hs-identifier hs-var hs-var">newCreateApiDestinationResponse</span></a></span></span><span> </span><span id="local-6989586621679319137"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679319137"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#newCreateApiDestinationResponse"><span class="hs-identifier hs-var hs-var">newCreateApiDestinationResponse</span></a></span></span><span> </span><span id="local-6989586621679319350"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319350"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-247"></span><span>  </span><span class="annot"><span class="annottext">CreateApiDestinationResponse' :: Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe ApiDestinationState
 -&gt; Maybe POSIX
+-&gt; Maybe ApiDestinationState
+-&gt; Maybe Text
 -&gt; Int
 -&gt; CreateApiDestinationResponse
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span>
@@ -691,21 +691,21 @@ CreateApiDestinationResponse -&gt; Rep CreateApiDestinationResponse x
 </span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiDestinationArn:CreateApiDestinationResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AapiDestinationArn%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var">apiDestinationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:CreateApiDestinationResponse' :: Maybe POSIX
+</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AlastModifiedTime%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiDestinationState:CreateApiDestinationResponse' :: Maybe ApiDestinationState
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AapiDestinationState%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var">apiDestinationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApiDestinationState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:CreateApiDestinationResponse' :: Maybe POSIX
-</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AlastModifiedTime%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiDestinationArn:CreateApiDestinationResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AapiDestinationArn%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var">apiDestinationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateApiDestinationResponse' :: Int
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AhttpStatus%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679319137"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679319350"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-254"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- | A time stamp indicating the time that the API destination was created.</span><span>
@@ -721,16 +721,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319136"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319349"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:CreateApiDestinationResponse' :: CreateApiDestinationResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679319136"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679319136"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319135"><span class="annot"><span class="annottext">s :: CreateApiDestinationResponse
-</span><a href="#local-6989586621679319135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319134"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679319134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestinationResponse
-</span><a href="#local-6989586621679319135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:CreateApiDestinationResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679319349"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679319349"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319348"><span class="annot"><span class="annottext">s :: CreateApiDestinationResponse
+</span><a href="#local-6989586621679319348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319347"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679319347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestinationResponse
+</span><a href="#local-6989586621679319348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:CreateApiDestinationResponse' :: Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AcreationTime%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679319134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679319347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; CreateApiDestinationResponse -&gt; f CreateApiDestinationResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -747,58 +747,10 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-259"></span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- | The ARN of the API destination that was created by the request.</span><span>
-</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_apiDestinationArn"><span class="hs-identifier hs-type">createApiDestinationResponse_apiDestinationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-262"></span><span id="createApiDestinationResponse_apiDestinationArn"><span class="annot"><span class="annottext">createApiDestinationResponse_apiDestinationArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreateApiDestinationResponse -&gt; f CreateApiDestinationResponse
-</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_apiDestinationArn"><span class="hs-identifier hs-var hs-var">createApiDestinationResponse_apiDestinationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApiDestinationResponse -&gt; Maybe Text)
--&gt; (CreateApiDestinationResponse
-    -&gt; Maybe Text -&gt; CreateApiDestinationResponse)
--&gt; Lens
-     CreateApiDestinationResponse
-     CreateApiDestinationResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319130"><span class="annot"><span class="annottext">Maybe Text
-apiDestinationArn :: Maybe Text
-$sel:apiDestinationArn:CreateApiDestinationResponse' :: CreateApiDestinationResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679319130"><span class="hs-identifier hs-var hs-var">apiDestinationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679319130"><span class="hs-identifier hs-var">apiDestinationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319129"><span class="annot"><span class="annottext">s :: CreateApiDestinationResponse
-</span><a href="#local-6989586621679319129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319128"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679319128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestinationResponse
-</span><a href="#local-6989586621679319129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiDestinationArn:CreateApiDestinationResponse' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AapiDestinationArn%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var">apiDestinationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679319128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-263"></span><span>
-</span><span id="line-264"></span><span class="hs-comment">-- | The state of the API destination that was created by the request.</span><span>
-</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_apiDestinationState"><span class="hs-identifier hs-type">createApiDestinationResponse_apiDestinationState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ApiDestinationState.html#ApiDestinationState"><span class="hs-identifier hs-type">ApiDestinationState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-266"></span><span id="createApiDestinationResponse_apiDestinationState"><span class="annot"><span class="annottext">createApiDestinationResponse_apiDestinationState :: (Maybe ApiDestinationState -&gt; f (Maybe ApiDestinationState))
--&gt; CreateApiDestinationResponse -&gt; f CreateApiDestinationResponse
-</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_apiDestinationState"><span class="hs-identifier hs-var hs-var">createApiDestinationResponse_apiDestinationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApiDestinationResponse -&gt; Maybe ApiDestinationState)
--&gt; (CreateApiDestinationResponse
-    -&gt; Maybe ApiDestinationState -&gt; CreateApiDestinationResponse)
--&gt; Lens
-     CreateApiDestinationResponse
-     CreateApiDestinationResponse
-     (Maybe ApiDestinationState)
-     (Maybe ApiDestinationState)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319127"><span class="annot"><span class="annottext">Maybe ApiDestinationState
-apiDestinationState :: Maybe ApiDestinationState
-$sel:apiDestinationState:CreateApiDestinationResponse' :: CreateApiDestinationResponse -&gt; Maybe ApiDestinationState
-</span><a href="#local-6989586621679319127"><span class="hs-identifier hs-var hs-var">apiDestinationState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApiDestinationState
-</span><a href="#local-6989586621679319127"><span class="hs-identifier hs-var">apiDestinationState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319126"><span class="annot"><span class="annottext">s :: CreateApiDestinationResponse
-</span><a href="#local-6989586621679319126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319125"><span class="annot"><span class="annottext">Maybe ApiDestinationState
-</span><a href="#local-6989586621679319125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestinationResponse
-</span><a href="#local-6989586621679319126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiDestinationState:CreateApiDestinationResponse' :: Maybe ApiDestinationState
-</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AapiDestinationState%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var">apiDestinationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApiDestinationState
-</span><a href="#local-6989586621679319125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-267"></span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- | A time stamp indicating the time that the API destination was last</span><span>
-</span><span id="line-269"></span><span class="hs-comment">-- modified.</span><span>
-</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_lastModifiedTime"><span class="hs-identifier hs-type">createApiDestinationResponse_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-271"></span><span id="createApiDestinationResponse_lastModifiedTime"><span class="annot"><span class="annottext">createApiDestinationResponse_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-260"></span><span class="hs-comment">-- | A time stamp indicating the time that the API destination was last</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- modified.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_lastModifiedTime"><span class="hs-identifier hs-type">createApiDestinationResponse_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="createApiDestinationResponse_lastModifiedTime"><span class="annot"><span class="annottext">createApiDestinationResponse_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; CreateApiDestinationResponse -&gt; f CreateApiDestinationResponse
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_lastModifiedTime"><span class="hs-identifier hs-var hs-var">createApiDestinationResponse_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApiDestinationResponse -&gt; Maybe POSIX)
 -&gt; (CreateApiDestinationResponse
@@ -809,16 +761,16 @@ $sel:apiDestinationState:CreateApiDestinationResponse' :: CreateApiDestinationRe
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319124"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319343"><span class="annot"><span class="annottext">Maybe POSIX
 lastModifiedTime :: Maybe POSIX
 $sel:lastModifiedTime:CreateApiDestinationResponse' :: CreateApiDestinationResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679319124"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679319124"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319123"><span class="annot"><span class="annottext">s :: CreateApiDestinationResponse
-</span><a href="#local-6989586621679319123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319122"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679319122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestinationResponse
-</span><a href="#local-6989586621679319123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:CreateApiDestinationResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679319343"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679319343"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319342"><span class="annot"><span class="annottext">s :: CreateApiDestinationResponse
+</span><a href="#local-6989586621679319342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319341"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679319341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestinationResponse
+</span><a href="#local-6989586621679319342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:CreateApiDestinationResponse' :: Maybe POSIX
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AlastModifiedTime%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679319122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679319341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; CreateApiDestinationResponse -&gt; f CreateApiDestinationResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -834,6 +786,54 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | The state of the API destination that was created by the request.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_apiDestinationState"><span class="hs-identifier hs-type">createApiDestinationResponse_apiDestinationState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ApiDestinationState.html#ApiDestinationState"><span class="hs-identifier hs-type">ApiDestinationState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="createApiDestinationResponse_apiDestinationState"><span class="annot"><span class="annottext">createApiDestinationResponse_apiDestinationState :: (Maybe ApiDestinationState -&gt; f (Maybe ApiDestinationState))
+-&gt; CreateApiDestinationResponse -&gt; f CreateApiDestinationResponse
+</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_apiDestinationState"><span class="hs-identifier hs-var hs-var">createApiDestinationResponse_apiDestinationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApiDestinationResponse -&gt; Maybe ApiDestinationState)
+-&gt; (CreateApiDestinationResponse
+    -&gt; Maybe ApiDestinationState -&gt; CreateApiDestinationResponse)
+-&gt; Lens
+     CreateApiDestinationResponse
+     CreateApiDestinationResponse
+     (Maybe ApiDestinationState)
+     (Maybe ApiDestinationState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319340"><span class="annot"><span class="annottext">Maybe ApiDestinationState
+apiDestinationState :: Maybe ApiDestinationState
+$sel:apiDestinationState:CreateApiDestinationResponse' :: CreateApiDestinationResponse -&gt; Maybe ApiDestinationState
+</span><a href="#local-6989586621679319340"><span class="hs-identifier hs-var hs-var">apiDestinationState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApiDestinationState
+</span><a href="#local-6989586621679319340"><span class="hs-identifier hs-var">apiDestinationState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319339"><span class="annot"><span class="annottext">s :: CreateApiDestinationResponse
+</span><a href="#local-6989586621679319339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319338"><span class="annot"><span class="annottext">Maybe ApiDestinationState
+</span><a href="#local-6989586621679319338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestinationResponse
+</span><a href="#local-6989586621679319339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiDestinationState:CreateApiDestinationResponse' :: Maybe ApiDestinationState
+</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AapiDestinationState%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var">apiDestinationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApiDestinationState
+</span><a href="#local-6989586621679319338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | The ARN of the API destination that was created by the request.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_apiDestinationArn"><span class="hs-identifier hs-type">createApiDestinationResponse_apiDestinationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span id="createApiDestinationResponse_apiDestinationArn"><span class="annot"><span class="annottext">createApiDestinationResponse_apiDestinationArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateApiDestinationResponse -&gt; f CreateApiDestinationResponse
+</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_apiDestinationArn"><span class="hs-identifier hs-var hs-var">createApiDestinationResponse_apiDestinationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateApiDestinationResponse -&gt; Maybe Text)
+-&gt; (CreateApiDestinationResponse
+    -&gt; Maybe Text -&gt; CreateApiDestinationResponse)
+-&gt; Lens
+     CreateApiDestinationResponse
+     CreateApiDestinationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319337"><span class="annot"><span class="annottext">Maybe Text
+apiDestinationArn :: Maybe Text
+$sel:apiDestinationArn:CreateApiDestinationResponse' :: CreateApiDestinationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679319337"><span class="hs-identifier hs-var hs-var">apiDestinationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319337"><span class="hs-identifier hs-var">apiDestinationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319336"><span class="annot"><span class="annottext">s :: CreateApiDestinationResponse
+</span><a href="#local-6989586621679319336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319335"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestinationResponse
+</span><a href="#local-6989586621679319336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiDestinationArn:CreateApiDestinationResponse' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AapiDestinationArn%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var">apiDestinationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679319335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-272"></span><span>
 </span><span id="line-273"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-274"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#createApiDestinationResponse_httpStatus"><span class="hs-identifier hs-type">createApiDestinationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -845,16 +845,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      CreateApiDestinationResponse CreateApiDestinationResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319121"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679319334"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateApiDestinationResponse' :: CreateApiDestinationResponse -&gt; Int
-</span><a href="#local-6989586621679319121"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679319121"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319120"><span class="annot"><span class="annottext">s :: CreateApiDestinationResponse
-</span><a href="#local-6989586621679319120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319119"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679319119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestinationResponse
-</span><a href="#local-6989586621679319120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateApiDestinationResponse' :: Int
+</span><a href="#local-6989586621679319334"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319334"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679319333"><span class="annot"><span class="annottext">s :: CreateApiDestinationResponse
+</span><a href="#local-6989586621679319333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse%27"><span class="hs-identifier hs-type">CreateApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679319332"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679319332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateApiDestinationResponse
+</span><a href="#local-6989586621679319333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateApiDestinationResponse' :: Int
 </span><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#%24sel%3AhttpStatus%3ACreateApiDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679319119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679319332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-276"></span><span>
-</span><span id="line-277"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319117"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span></span><span>
+</span><span id="line-277"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679319330"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.CreateApiDestination.html#CreateApiDestinationResponse"><span class="hs-identifier hs-type">CreateApiDestinationResponse</span></a></span></span><span>
 </span><span id="line-278"></span></pre></body></html>

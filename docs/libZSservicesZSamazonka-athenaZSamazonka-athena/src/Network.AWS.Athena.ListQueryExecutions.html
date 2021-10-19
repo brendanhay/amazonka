@@ -37,16 +37,16 @@
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutions_nextToken"><span class="hs-identifier">listQueryExecutions_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutions_maxResults"><span class="hs-identifier">listQueryExecutions_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutions_workGroup"><span class="hs-identifier">listQueryExecutions_workGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutions_workGroup"><span class="hs-identifier">listQueryExecutions_workGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutions_maxResults"><span class="hs-identifier">listQueryExecutions_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse"><span class="hs-identifier">ListQueryExecutionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#newListQueryExecutionsResponse"><span class="hs-identifier">newListQueryExecutionsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutionsResponse_nextToken"><span class="hs-identifier">listQueryExecutionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutionsResponse_queryExecutionIds"><span class="hs-identifier">listQueryExecutionsResponse_queryExecutionIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutionsResponse_queryExecutionIds"><span class="hs-identifier">listQueryExecutionsResponse_queryExecutionIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutionsResponse_nextToken"><span class="hs-identifier">listQueryExecutionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutionsResponse_httpStatus"><span class="hs-identifier">listQueryExecutionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span class="hs-keyword">where</span><span>
@@ -59,23 +59,23 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newListQueryExecutions' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679221979"><span id="local-6989586621679221980"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListQueryExecutions"><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-var">ListQueryExecutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListQueryExecutions%27"><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions%27"><span class="hs-identifier hs-var">ListQueryExecutions'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679222148"><span id="local-6989586621679222149"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListQueryExecutions"><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-var">ListQueryExecutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListQueryExecutions%27"><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions%27"><span class="hs-identifier hs-var">ListQueryExecutions'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token generated by the Athena service that specifies where to continue</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- pagination if a previous request was truncated. To obtain the next set</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- of pages, pass in the @NextToken@ from the response object of the</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- previous page call.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AnextToken%3AListQueryExecutions%27"><span class="annot"><span class="annottext">ListQueryExecutions -&gt; Maybe Text
 </span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AnextToken%3AListQueryExecutions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The maximum number of query executions to return in this request.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AmaxResults%3AListQueryExecutions%27"><span class="annot"><span class="annottext">ListQueryExecutions -&gt; Maybe Natural
-</span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AmaxResults%3AListQueryExecutions%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The name of the workgroup from which queries are being returned. If a</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- workgroup is not specified, a list of available query execution IDs for</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- the queries in the primary workgroup is returned.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AworkGroup%3AListQueryExecutions%27"><span class="annot"><span class="annottext">ListQueryExecutions -&gt; Maybe Text
-</span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AworkGroup%3AListQueryExecutions%27"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The name of the workgroup from which queries are being returned. If a</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- workgroup is not specified, a list of available query execution IDs for</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- the queries in the primary workgroup is returned.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AworkGroup%3AListQueryExecutions%27"><span class="annot"><span class="annottext">ListQueryExecutions -&gt; Maybe Text
+</span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AworkGroup%3AListQueryExecutions%27"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The maximum number of query executions to return in this request.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AmaxResults%3AListQueryExecutions%27"><span class="annot"><span class="annottext">ListQueryExecutions -&gt; Maybe Natural
+</span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AmaxResults%3AListQueryExecutions%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221971"><span id="local-6989586621679221973"><span class="annot"><span class="annottext">ListQueryExecutions -&gt; ListQueryExecutions -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222140"><span id="local-6989586621679222142"><span class="annot"><span class="annottext">ListQueryExecutions -&gt; ListQueryExecutions -&gt; Bool
 (ListQueryExecutions -&gt; ListQueryExecutions -&gt; Bool)
 -&gt; (ListQueryExecutions -&gt; ListQueryExecutions -&gt; Bool)
 -&gt; Eq ListQueryExecutions
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListQueryExecutions -&gt; ListQueryExecutions -&gt; Bool
 == :: ListQueryExecutions -&gt; ListQueryExecutions -&gt; Bool
 $c== :: ListQueryExecutions -&gt; ListQueryExecutions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221962"><span id="local-6989586621679221964"><span id="local-6989586621679221966"><span id="local-6989586621679221968"><span class="annot"><span class="annottext">ReadPrec [ListQueryExecutions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222131"><span id="local-6989586621679222133"><span id="local-6989586621679222135"><span id="local-6989586621679222137"><span class="annot"><span class="annottext">ReadPrec [ListQueryExecutions]
 ReadPrec ListQueryExecutions
 Int -&gt; ReadS ListQueryExecutions
 ReadS [ListQueryExecutions]
@@ -104,7 +104,7 @@ readList :: ReadS [ListQueryExecutions]
 $creadList :: ReadS [ListQueryExecutions]
 readsPrec :: Int -&gt; ReadS ListQueryExecutions
 $creadsPrec :: Int -&gt; ReadS ListQueryExecutions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221955"><span id="local-6989586621679221957"><span id="local-6989586621679221959"><span class="annot"><span class="annottext">Int -&gt; ListQueryExecutions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222124"><span id="local-6989586621679222126"><span id="local-6989586621679222128"><span class="annot"><span class="annottext">Int -&gt; ListQueryExecutions -&gt; ShowS
 [ListQueryExecutions] -&gt; ShowS
 ListQueryExecutions -&gt; String
 (Int -&gt; ListQueryExecutions -&gt; ShowS)
@@ -143,27 +143,27 @@ $cfrom :: forall x. ListQueryExecutions -&gt; Rep ListQueryExecutions x
 </span><span id="line-87"></span><span class="hs-comment">-- of pages, pass in the @NextToken@ from the response object of the</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- previous page call.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'maxResults', 'listQueryExecutions_maxResults' - The maximum number of query executions to return in this request.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'workGroup', 'listQueryExecutions_workGroup' - The name of the workgroup from which queries are being returned. If a</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- workgroup is not specified, a list of available query execution IDs for</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- the queries in the primary workgroup is returned.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'workGroup', 'listQueryExecutions_workGroup' - The name of the workgroup from which queries are being returned. If a</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- workgroup is not specified, a list of available query execution IDs for</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- the queries in the primary workgroup is returned.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'maxResults', 'listQueryExecutions_maxResults' - The maximum number of query executions to return in this request.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#newListQueryExecutions"><span class="hs-identifier hs-type">newListQueryExecutions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span><span>
 </span><span id="line-97"></span><span id="newListQueryExecutions"><span class="annot"><span class="annottext">newListQueryExecutions :: ListQueryExecutions
 </span><a href="Network.AWS.Athena.ListQueryExecutions.html#newListQueryExecutions"><span class="hs-identifier hs-var hs-var">newListQueryExecutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">ListQueryExecutions' :: Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; ListQueryExecutions
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">ListQueryExecutions' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; ListQueryExecutions
 </span><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions%27"><span class="hs-identifier hs-type">ListQueryExecutions'</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListQueryExecutions' :: Maybe Text
 </span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AnextToken%3AListQueryExecutions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListQueryExecutions' :: Maybe Natural
-</span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AmaxResults%3AListQueryExecutions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:workGroup:ListQueryExecutions' :: Maybe Text
+</span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AworkGroup%3AListQueryExecutions%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:workGroup:ListQueryExecutions' :: Maybe Text
-</span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AworkGroup%3AListQueryExecutions%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListQueryExecutions' :: Maybe Natural
+</span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AmaxResults%3AListQueryExecutions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
@@ -180,20 +180,42 @@ forall a. Maybe a
 -&gt; Lens
      ListQueryExecutions ListQueryExecutions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions%27"><span class="hs-identifier hs-type">ListQueryExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221949"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions%27"><span class="hs-identifier hs-type">ListQueryExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222118"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListQueryExecutions' :: ListQueryExecutions -&gt; Maybe Text
-</span><a href="#local-6989586621679221949"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221949"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221948"><span class="annot"><span class="annottext">s :: ListQueryExecutions
-</span><a href="#local-6989586621679221948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions%27"><span class="hs-identifier hs-type">ListQueryExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221947"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueryExecutions
-</span><a href="#local-6989586621679221948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListQueryExecutions' :: Maybe Text
+</span><a href="#local-6989586621679222118"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222118"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222117"><span class="annot"><span class="annottext">s :: ListQueryExecutions
+</span><a href="#local-6989586621679222117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions%27"><span class="hs-identifier hs-type">ListQueryExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222116"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueryExecutions
+</span><a href="#local-6989586621679222117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListQueryExecutions' :: Maybe Text
 </span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AnextToken%3AListQueryExecutions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The maximum number of query executions to return in this request.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutions_maxResults"><span class="hs-identifier hs-type">listQueryExecutions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="listQueryExecutions_maxResults"><span class="annot"><span class="annottext">listQueryExecutions_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-111"></span><span class="hs-comment">-- | The name of the workgroup from which queries are being returned. If a</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- workgroup is not specified, a list of available query execution IDs for</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- the queries in the primary workgroup is returned.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutions_workGroup"><span class="hs-identifier hs-type">listQueryExecutions_workGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="listQueryExecutions_workGroup"><span class="annot"><span class="annottext">listQueryExecutions_workGroup :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListQueryExecutions -&gt; f ListQueryExecutions
+</span><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutions_workGroup"><span class="hs-identifier hs-var hs-var">listQueryExecutions_workGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListQueryExecutions -&gt; Maybe Text)
+-&gt; (ListQueryExecutions -&gt; Maybe Text -&gt; ListQueryExecutions)
+-&gt; Lens
+     ListQueryExecutions ListQueryExecutions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions%27"><span class="hs-identifier hs-type">ListQueryExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222115"><span class="annot"><span class="annottext">Maybe Text
+workGroup :: Maybe Text
+$sel:workGroup:ListQueryExecutions' :: ListQueryExecutions -&gt; Maybe Text
+</span><a href="#local-6989586621679222115"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222115"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222114"><span class="annot"><span class="annottext">s :: ListQueryExecutions
+</span><a href="#local-6989586621679222114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions%27"><span class="hs-identifier hs-type">ListQueryExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222113"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueryExecutions
+</span><a href="#local-6989586621679222114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workGroup:ListQueryExecutions' :: Maybe Text
+</span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AworkGroup%3AListQueryExecutions%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The maximum number of query executions to return in this request.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutions_maxResults"><span class="hs-identifier hs-type">listQueryExecutions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="listQueryExecutions_maxResults"><span class="annot"><span class="annottext">listQueryExecutions_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; ListQueryExecutions -&gt; f ListQueryExecutions
 </span><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutions_maxResults"><span class="hs-identifier hs-var hs-var">listQueryExecutions_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListQueryExecutions -&gt; Maybe Natural)
 -&gt; (ListQueryExecutions -&gt; Maybe Natural -&gt; ListQueryExecutions)
@@ -203,51 +225,29 @@ $sel:nextToken:ListQueryExecutions' :: ListQueryExecutions -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions%27"><span class="hs-identifier hs-type">ListQueryExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221946"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions%27"><span class="hs-identifier hs-type">ListQueryExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222112"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListQueryExecutions' :: ListQueryExecutions -&gt; Maybe Natural
-</span><a href="#local-6989586621679221946"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679221946"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221945"><span class="annot"><span class="annottext">s :: ListQueryExecutions
-</span><a href="#local-6989586621679221945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions%27"><span class="hs-identifier hs-type">ListQueryExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221944"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679221944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueryExecutions
-</span><a href="#local-6989586621679221945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListQueryExecutions' :: Maybe Natural
+</span><a href="#local-6989586621679222112"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679222112"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222111"><span class="annot"><span class="annottext">s :: ListQueryExecutions
+</span><a href="#local-6989586621679222111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions%27"><span class="hs-identifier hs-type">ListQueryExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222110"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679222110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueryExecutions
+</span><a href="#local-6989586621679222111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListQueryExecutions' :: Maybe Natural
 </span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AmaxResults%3AListQueryExecutions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679221944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The name of the workgroup from which queries are being returned. If a</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- workgroup is not specified, a list of available query execution IDs for</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- the queries in the primary workgroup is returned.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutions_workGroup"><span class="hs-identifier hs-type">listQueryExecutions_workGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="listQueryExecutions_workGroup"><span class="annot"><span class="annottext">listQueryExecutions_workGroup :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListQueryExecutions -&gt; f ListQueryExecutions
-</span><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutions_workGroup"><span class="hs-identifier hs-var hs-var">listQueryExecutions_workGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListQueryExecutions -&gt; Maybe Text)
--&gt; (ListQueryExecutions -&gt; Maybe Text -&gt; ListQueryExecutions)
--&gt; Lens
-     ListQueryExecutions ListQueryExecutions (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions%27"><span class="hs-identifier hs-type">ListQueryExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221943"><span class="annot"><span class="annottext">Maybe Text
-workGroup :: Maybe Text
-$sel:workGroup:ListQueryExecutions' :: ListQueryExecutions -&gt; Maybe Text
-</span><a href="#local-6989586621679221943"><span class="hs-identifier hs-var hs-var">workGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221943"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221942"><span class="annot"><span class="annottext">s :: ListQueryExecutions
-</span><a href="#local-6989586621679221942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions%27"><span class="hs-identifier hs-type">ListQueryExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221941"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueryExecutions
-</span><a href="#local-6989586621679221942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workGroup:ListQueryExecutions' :: Maybe Text
-</span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AworkGroup%3AListQueryExecutions%27"><span class="hs-identifier hs-var">workGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679221937"><span class="annot"><span class="annottext">page :: ListQueryExecutions
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679222106"><span class="annot"><span class="annottext">page :: ListQueryExecutions
 -&gt; AWSResponse ListQueryExecutions -&gt; Maybe ListQueryExecutions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679221935"><span class="annot"><span class="annottext">ListQueryExecutions
-</span><a href="#local-6989586621679221935"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679221934"><span class="annot"><span class="annottext">AWSResponse ListQueryExecutions
-</span><a href="#local-6989586621679221934"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679222104"><span class="annot"><span class="annottext">ListQueryExecutions
+</span><a href="#local-6989586621679222104"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679222103"><span class="annot"><span class="annottext">AWSResponse ListQueryExecutions
+</span><a href="#local-6989586621679222103"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-123"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-124"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListQueryExecutions
 ListQueryExecutionsResponse
-</span><a href="#local-6989586621679221934"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679222103"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">ListQueryExecutionsResponse
 -&gt; Getting (First Text) ListQueryExecutionsResponse Text
 -&gt; Maybe Text
@@ -277,7 +277,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-130"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListQueryExecutions
 ListQueryExecutionsResponse
-</span><a href="#local-6989586621679221934"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679222103"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">ListQueryExecutionsResponse
 -&gt; Getting (First [Text]) ListQueryExecutionsResponse [Text]
 -&gt; Maybe [Text]
@@ -334,7 +334,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">ListQueryExecutions
-</span><a href="#local-6989586621679221935"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679222104"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">ListQueryExecutions
 -&gt; (ListQueryExecutions -&gt; ListQueryExecutions)
 -&gt; ListQueryExecutions
@@ -350,7 +350,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListQueryExecutions
 ListQueryExecutionsResponse
-</span><a href="#local-6989586621679221934"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679222103"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">ListQueryExecutionsResponse
 -&gt; Getting (First Text) ListQueryExecutionsResponse Text
 -&gt; Maybe Text
@@ -376,12 +376,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-145"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-146"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>      </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse"><span class="hs-identifier hs-type">ListQueryExecutionsResponse</span></a></span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679221923"><span class="annot"><span class="annottext">request :: ListQueryExecutions -&gt; Request ListQueryExecutions
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679222092"><span class="annot"><span class="annottext">request :: ListQueryExecutions -&gt; Request ListQueryExecutions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListQueryExecutions -&gt; Request ListQueryExecutions
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Athena.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679221919"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679222088"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListQueryExecutions
 -&gt; ClientResponse ClientBody
@@ -407,36 +407,32 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221916"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221916"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679221915"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679221915"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679221914"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221914"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; ListQueryExecutionsResponse
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222085"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222085"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679222084"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679222084"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679222083"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222083"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+-&gt; Maybe Text -&gt; Int -&gt; ListQueryExecutionsResponse
 </span><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse%27"><span class="hs-identifier hs-var">ListQueryExecutionsResponse'</span></a></span><span>
-</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; ListQueryExecutionsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe (NonEmpty Text) -&gt; Int -&gt; ListQueryExecutionsResponse)
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Text)
+ -&gt; Maybe Text -&gt; Int -&gt; ListQueryExecutionsResponse)
+-&gt; Either String (Maybe (NonEmpty Text))
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListQueryExecutionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe (NonEmpty Text) -&gt; Int -&gt; ListQueryExecutionsResponse)
--&gt; Either String (Maybe (NonEmpty Text))
--&gt; Either String (Int -&gt; ListQueryExecutionsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221914"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679222083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QueryExecutionIds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListQueryExecutionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListQueryExecutionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListQueryExecutionsResponse)
 -&gt; Either String Int -&gt; Either String ListQueryExecutionsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -445,15 +441,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221916"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222085"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221906"><span id="local-6989586621679221908"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222075"><span id="local-6989586621679222077"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221903"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222072"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679221899"><span class="annot"><span class="annottext">toHeaders :: ListQueryExecutions -&gt; ResponseHeaders
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679222068"><span class="annot"><span class="annottext">toHeaders :: ListQueryExecutions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListQueryExecutions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -480,17 +476,17 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221889"><span id="local-6989586621679221891"><span id="local-6989586621679221893"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679221887"><span class="annot"><span class="annottext">toJSON :: ListQueryExecutions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions%27"><span class="hs-identifier hs-type">ListQueryExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221883"><span id="local-6989586621679221884"><span id="local-6989586621679221885"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222058"><span id="local-6989586621679222060"><span id="local-6989586621679222062"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679222056"><span class="annot"><span class="annottext">toJSON :: ListQueryExecutions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions%27"><span class="hs-identifier hs-type">ListQueryExecutions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222052"><span id="local-6989586621679222053"><span id="local-6989586621679222054"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
-workGroup :: Maybe Text
 maxResults :: Maybe Natural
+workGroup :: Maybe Text
 nextToken :: Maybe Text
-$sel:workGroup:ListQueryExecutions' :: ListQueryExecutions -&gt; Maybe Text
 $sel:maxResults:ListQueryExecutions' :: ListQueryExecutions -&gt; Maybe Natural
+$sel:workGroup:ListQueryExecutions' :: ListQueryExecutions -&gt; Maybe Text
 $sel:nextToken:ListQueryExecutions' :: ListQueryExecutions -&gt; Maybe Text
-</span><a href="#local-6989586621679221883"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679222052"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -502,33 +498,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221885"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222054"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679221884"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WorkGroup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221883"><span class="hs-identifier hs-var">workGroup</span></a></span><span>
+</span><a href="#local-6989586621679222053"><span class="hs-identifier hs-var">workGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679222052"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679221877"><span class="annot"><span class="annottext">toPath :: ListQueryExecutions -&gt; ByteString
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679222046"><span class="annot"><span class="annottext">toPath :: ListQueryExecutions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListQueryExecutions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutions"><span class="hs-identifier hs-type">ListQueryExecutions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679221873"><span class="annot"><span class="annottext">toQuery :: ListQueryExecutions -&gt; QueryString
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679222042"><span class="annot"><span class="annottext">toQuery :: ListQueryExecutions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListQueryExecutions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -536,18 +532,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | /See:/ 'newListQueryExecutionsResponse' smart constructor.</span><span>
-</span><span id="line-194"></span><span id="local-6989586621679221870"><span id="local-6989586621679221871"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListQueryExecutionsResponse"><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse"><span class="hs-identifier hs-var">ListQueryExecutionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListQueryExecutionsResponse%27"><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse%27"><span class="hs-identifier hs-var">ListQueryExecutionsResponse'</span></a></span></span><span>
-</span><span id="line-195"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to be used by the next request if this request is truncated.</span><span>
-</span><span id="line-196"></span><span>    </span><span id="%24sel%3AnextToken%3AListQueryExecutionsResponse%27"><span class="annot"><span class="annottext">ListQueryExecutionsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AnextToken%3AListQueryExecutionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | The unique IDs of each query execution as an array of strings.</span><span>
-</span><span id="line-198"></span><span>    </span><span id="%24sel%3AqueryExecutionIds%3AListQueryExecutionsResponse%27"><span class="annot"><span class="annottext">ListQueryExecutionsResponse -&gt; Maybe (NonEmpty Text)
+</span><span id="line-194"></span><span id="local-6989586621679222039"><span id="local-6989586621679222040"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListQueryExecutionsResponse"><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse"><span class="hs-identifier hs-var">ListQueryExecutionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListQueryExecutionsResponse%27"><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse%27"><span class="hs-identifier hs-var">ListQueryExecutionsResponse'</span></a></span></span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique IDs of each query execution as an array of strings.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3AqueryExecutionIds%3AListQueryExecutionsResponse%27"><span class="annot"><span class="annottext">ListQueryExecutionsResponse -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AqueryExecutionIds%3AListQueryExecutionsResponse%27"><span class="hs-identifier hs-var hs-var">queryExecutionIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | A token to be used by the next request if this request is truncated.</span><span>
+</span><span id="line-198"></span><span>    </span><span id="%24sel%3AnextToken%3AListQueryExecutionsResponse%27"><span class="annot"><span class="annottext">ListQueryExecutionsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AnextToken%3AListQueryExecutionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-200"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListQueryExecutionsResponse%27"><span class="annot"><span class="annottext">ListQueryExecutionsResponse -&gt; Int
 </span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AhttpStatus%3AListQueryExecutionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-201"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221863"><span id="local-6989586621679221865"><span class="annot"><span class="annottext">ListQueryExecutionsResponse -&gt; ListQueryExecutionsResponse -&gt; Bool
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222032"><span id="local-6989586621679222034"><span class="annot"><span class="annottext">ListQueryExecutionsResponse -&gt; ListQueryExecutionsResponse -&gt; Bool
 (ListQueryExecutionsResponse
  -&gt; ListQueryExecutionsResponse -&gt; Bool)
 -&gt; (ListQueryExecutionsResponse
@@ -558,7 +554,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListQueryExecutionsResponse -&gt; ListQueryExecutionsResponse -&gt; Bool
 == :: ListQueryExecutionsResponse -&gt; ListQueryExecutionsResponse -&gt; Bool
 $c== :: ListQueryExecutionsResponse -&gt; ListQueryExecutionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221855"><span id="local-6989586621679221857"><span id="local-6989586621679221859"><span id="local-6989586621679221861"><span class="annot"><span class="annottext">ReadPrec [ListQueryExecutionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222024"><span id="local-6989586621679222026"><span id="local-6989586621679222028"><span id="local-6989586621679222030"><span class="annot"><span class="annottext">ReadPrec [ListQueryExecutionsResponse]
 ReadPrec ListQueryExecutionsResponse
 Int -&gt; ReadS ListQueryExecutionsResponse
 ReadS [ListQueryExecutionsResponse]
@@ -578,7 +574,7 @@ readList :: ReadS [ListQueryExecutionsResponse]
 $creadList :: ReadS [ListQueryExecutionsResponse]
 readsPrec :: Int -&gt; ReadS ListQueryExecutionsResponse
 $creadsPrec :: Int -&gt; ReadS ListQueryExecutionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221849"><span id="local-6989586621679221851"><span id="local-6989586621679221853"><span class="annot"><span class="annottext">Int -&gt; ListQueryExecutionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222018"><span id="local-6989586621679222020"><span id="local-6989586621679222022"><span class="annot"><span class="annottext">Int -&gt; ListQueryExecutionsResponse -&gt; ShowS
 [ListQueryExecutionsResponse] -&gt; ShowS
 ListQueryExecutionsResponse -&gt; String
 (Int -&gt; ListQueryExecutionsResponse -&gt; ShowS)
@@ -618,9 +614,9 @@ ListQueryExecutionsResponse -&gt; Rep ListQueryExecutionsResponse x
 </span><span id="line-209"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-211"></span><span class="hs-comment">--</span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- 'nextToken', 'listQueryExecutionsResponse_nextToken' - A token to be used by the next request if this request is truncated.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'queryExecutionIds', 'listQueryExecutionsResponse_queryExecutionIds' - The unique IDs of each query execution as an array of strings.</span><span>
 </span><span id="line-213"></span><span class="hs-comment">--</span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- 'queryExecutionIds', 'listQueryExecutionsResponse_queryExecutionIds' - The unique IDs of each query execution as an array of strings.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- 'nextToken', 'listQueryExecutionsResponse_nextToken' - A token to be used by the next request if this request is truncated.</span><span>
 </span><span id="line-215"></span><span class="hs-comment">--</span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- 'httpStatus', 'listQueryExecutionsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-217"></span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#newListQueryExecutionsResponse"><span class="hs-identifier hs-type">newListQueryExecutionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -628,64 +624,44 @@ ListQueryExecutionsResponse -&gt; Rep ListQueryExecutionsResponse x
 </span><span id="line-219"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-220"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse"><span class="hs-identifier hs-type">ListQueryExecutionsResponse</span></a></span><span>
 </span><span id="line-221"></span><span id="newListQueryExecutionsResponse"><span class="annot"><span class="annottext">newListQueryExecutionsResponse :: Int -&gt; ListQueryExecutionsResponse
-</span><a href="Network.AWS.Athena.ListQueryExecutions.html#newListQueryExecutionsResponse"><span class="hs-identifier hs-var hs-var">newListQueryExecutionsResponse</span></a></span></span><span> </span><span id="local-6989586621679221846"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221846"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-222"></span><span>  </span><span class="annot"><span class="annottext">ListQueryExecutionsResponse' :: Maybe Text
--&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; ListQueryExecutionsResponse
+</span><a href="Network.AWS.Athena.ListQueryExecutions.html#newListQueryExecutionsResponse"><span class="hs-identifier hs-var hs-var">newListQueryExecutionsResponse</span></a></span></span><span> </span><span id="local-6989586621679222015"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222015"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><span class="annottext">ListQueryExecutionsResponse' :: Maybe (NonEmpty Text)
+-&gt; Maybe Text -&gt; Int -&gt; ListQueryExecutionsResponse
 </span><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse%27"><span class="hs-identifier hs-type">ListQueryExecutionsResponse'</span></a></span><span>
-</span><span id="line-223"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListQueryExecutionsResponse' :: Maybe Text
-</span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AnextToken%3AListQueryExecutionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-223"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queryExecutionIds:ListQueryExecutionsResponse' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AqueryExecutionIds%3AListQueryExecutionsResponse%27"><span class="hs-identifier hs-var">queryExecutionIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:queryExecutionIds:ListQueryExecutionsResponse' :: Maybe (NonEmpty Text)
-</span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AqueryExecutionIds%3AListQueryExecutionsResponse%27"><span class="hs-identifier hs-var">queryExecutionIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListQueryExecutionsResponse' :: Maybe Text
+</span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AnextToken%3AListQueryExecutionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListQueryExecutionsResponse' :: Int
 </span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AhttpStatus%3AListQueryExecutionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221846"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679222015"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-227"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- | A token to be used by the next request if this request is truncated.</span><span>
-</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutionsResponse_nextToken"><span class="hs-identifier hs-type">listQueryExecutionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse"><span class="hs-identifier hs-type">ListQueryExecutionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-231"></span><span id="listQueryExecutionsResponse_nextToken"><span class="annot"><span class="annottext">listQueryExecutionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListQueryExecutionsResponse -&gt; f ListQueryExecutionsResponse
-</span><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listQueryExecutionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListQueryExecutionsResponse -&gt; Maybe Text)
--&gt; (ListQueryExecutionsResponse
-    -&gt; Maybe Text -&gt; ListQueryExecutionsResponse)
--&gt; Lens' ListQueryExecutionsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse%27"><span class="hs-identifier hs-type">ListQueryExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221845"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListQueryExecutionsResponse' :: ListQueryExecutionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679221845"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221845"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221844"><span class="annot"><span class="annottext">s :: ListQueryExecutionsResponse
-</span><a href="#local-6989586621679221844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse%27"><span class="hs-identifier hs-type">ListQueryExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221843"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueryExecutionsResponse
-</span><a href="#local-6989586621679221844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListQueryExecutionsResponse' :: Maybe Text
-</span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AnextToken%3AListQueryExecutionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679221843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse"><span class="hs-identifier hs-type">ListQueryExecutionsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- | The unique IDs of each query execution as an array of strings.</span><span>
-</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutionsResponse_queryExecutionIds"><span class="hs-identifier hs-type">listQueryExecutionsResponse_queryExecutionIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse"><span class="hs-identifier hs-type">ListQueryExecutionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-235"></span><span id="listQueryExecutionsResponse_queryExecutionIds"><span class="annot"><span class="annottext">listQueryExecutionsResponse_queryExecutionIds :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><span id="line-229"></span><span class="hs-comment">-- | The unique IDs of each query execution as an array of strings.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutionsResponse_queryExecutionIds"><span class="hs-identifier hs-type">listQueryExecutionsResponse_queryExecutionIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse"><span class="hs-identifier hs-type">ListQueryExecutionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="listQueryExecutionsResponse_queryExecutionIds"><span class="annot"><span class="annottext">listQueryExecutionsResponse_queryExecutionIds :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
 -&gt; ListQueryExecutionsResponse -&gt; f ListQueryExecutionsResponse
 </span><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutionsResponse_queryExecutionIds"><span class="hs-identifier hs-var hs-var">listQueryExecutionsResponse_queryExecutionIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListQueryExecutionsResponse -&gt; Maybe (NonEmpty Text))
 -&gt; (ListQueryExecutionsResponse
     -&gt; Maybe (NonEmpty Text) -&gt; ListQueryExecutionsResponse)
 -&gt; Lens' ListQueryExecutionsResponse (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse%27"><span class="hs-identifier hs-type">ListQueryExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221842"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse%27"><span class="hs-identifier hs-type">ListQueryExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222014"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 queryExecutionIds :: Maybe (NonEmpty Text)
 $sel:queryExecutionIds:ListQueryExecutionsResponse' :: ListQueryExecutionsResponse -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679221842"><span class="hs-identifier hs-var hs-var">queryExecutionIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679221842"><span class="hs-identifier hs-var">queryExecutionIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221841"><span class="annot"><span class="annottext">s :: ListQueryExecutionsResponse
-</span><a href="#local-6989586621679221841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse%27"><span class="hs-identifier hs-type">ListQueryExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221840"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679221840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueryExecutionsResponse
-</span><a href="#local-6989586621679221841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryExecutionIds:ListQueryExecutionsResponse' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679222014"><span class="hs-identifier hs-var hs-var">queryExecutionIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679222014"><span class="hs-identifier hs-var">queryExecutionIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222013"><span class="annot"><span class="annottext">s :: ListQueryExecutionsResponse
+</span><a href="#local-6989586621679222013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse%27"><span class="hs-identifier hs-type">ListQueryExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222012"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679222012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueryExecutionsResponse
+</span><a href="#local-6989586621679222013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryExecutionIds:ListQueryExecutionsResponse' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AqueryExecutionIds%3AListQueryExecutionsResponse%27"><span class="hs-identifier hs-var">queryExecutionIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679221840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse"><span class="hs-identifier hs-type">ListQueryExecutionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679222012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse"><span class="hs-identifier hs-type">ListQueryExecutionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; ListQueryExecutionsResponse -&gt; f ListQueryExecutionsResponse)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -705,8 +681,28 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | A token to be used by the next request if this request is truncated.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutionsResponse_nextToken"><span class="hs-identifier hs-type">listQueryExecutionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse"><span class="hs-identifier hs-type">ListQueryExecutionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="listQueryExecutionsResponse_nextToken"><span class="annot"><span class="annottext">listQueryExecutionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListQueryExecutionsResponse -&gt; f ListQueryExecutionsResponse
+</span><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listQueryExecutionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListQueryExecutionsResponse -&gt; Maybe Text)
+-&gt; (ListQueryExecutionsResponse
+    -&gt; Maybe Text -&gt; ListQueryExecutionsResponse)
+-&gt; Lens' ListQueryExecutionsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse%27"><span class="hs-identifier hs-type">ListQueryExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222009"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListQueryExecutionsResponse' :: ListQueryExecutionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679222009"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222009"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222008"><span class="annot"><span class="annottext">s :: ListQueryExecutionsResponse
+</span><a href="#local-6989586621679222008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse%27"><span class="hs-identifier hs-type">ListQueryExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222007"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueryExecutionsResponse
+</span><a href="#local-6989586621679222008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListQueryExecutionsResponse' :: Maybe Text
+</span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AnextToken%3AListQueryExecutionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse"><span class="hs-identifier hs-type">ListQueryExecutionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-238"></span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#listQueryExecutionsResponse_httpStatus"><span class="hs-identifier hs-type">listQueryExecutionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse"><span class="hs-identifier hs-type">ListQueryExecutionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -718,16 +714,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      ListQueryExecutionsResponse ListQueryExecutionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse%27"><span class="hs-identifier hs-type">ListQueryExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221837"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse%27"><span class="hs-identifier hs-type">ListQueryExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222006"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListQueryExecutionsResponse' :: ListQueryExecutionsResponse -&gt; Int
-</span><a href="#local-6989586621679221837"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221837"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221836"><span class="annot"><span class="annottext">s :: ListQueryExecutionsResponse
-</span><a href="#local-6989586621679221836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse%27"><span class="hs-identifier hs-type">ListQueryExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221835"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueryExecutionsResponse
-</span><a href="#local-6989586621679221836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListQueryExecutionsResponse' :: Int
+</span><a href="#local-6989586621679222006"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222006"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222005"><span class="annot"><span class="annottext">s :: ListQueryExecutionsResponse
+</span><a href="#local-6989586621679222005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse%27"><span class="hs-identifier hs-type">ListQueryExecutionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222004"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQueryExecutionsResponse
+</span><a href="#local-6989586621679222005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListQueryExecutionsResponse' :: Int
 </span><a href="Network.AWS.Athena.ListQueryExecutions.html#%24sel%3AhttpStatus%3AListQueryExecutionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse"><span class="hs-identifier hs-type">ListQueryExecutionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse"><span class="hs-identifier hs-type">ListQueryExecutionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
-</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221833"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse"><span class="hs-identifier hs-type">ListQueryExecutionsResponse</span></a></span></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222002"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.ListQueryExecutions.html#ListQueryExecutionsResponse"><span class="hs-identifier hs-type">ListQueryExecutionsResponse</span></a></span></span><span>
 </span><span id="line-242"></span></pre></body></html>

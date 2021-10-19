@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- image builders to Microsoft Active Directory domains.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDomainJoinInfo' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679285501"><span id="local-6989586621679285502"></span></span><span class="hs-keyword">data</span><span> </span><span id="DomainJoinInfo"><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo"><span class="hs-identifier hs-var">DomainJoinInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainJoinInfo%27"><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo%27"><span class="hs-identifier hs-var">DomainJoinInfo'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679285749"><span id="local-6989586621679285750"></span></span><span class="hs-keyword">data</span><span> </span><span id="DomainJoinInfo"><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo"><span class="hs-identifier hs-var">DomainJoinInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainJoinInfo%27"><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo%27"><span class="hs-identifier hs-var">DomainJoinInfo'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The distinguished name of the organizational unit for computer accounts.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AorganizationalUnitDistinguishedName%3ADomainJoinInfo%27"><span class="annot"><span class="annottext">DomainJoinInfo -&gt; Maybe Text
 </span><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#%24sel%3AorganizationalUnitDistinguishedName%3ADomainJoinInfo%27"><span class="hs-identifier hs-var hs-var">organizationalUnitDistinguishedName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AdirectoryName%3ADomainJoinInfo%27"><span class="annot"><span class="annottext">DomainJoinInfo -&gt; Maybe Text
 </span><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#%24sel%3AdirectoryName%3ADomainJoinInfo%27"><span class="hs-identifier hs-var hs-var">directoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679285494"><span id="local-6989586621679285496"><span class="annot"><span class="annottext">DomainJoinInfo -&gt; DomainJoinInfo -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679285742"><span id="local-6989586621679285744"><span class="annot"><span class="annottext">DomainJoinInfo -&gt; DomainJoinInfo -&gt; Bool
 (DomainJoinInfo -&gt; DomainJoinInfo -&gt; Bool)
 -&gt; (DomainJoinInfo -&gt; DomainJoinInfo -&gt; Bool) -&gt; Eq DomainJoinInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DomainJoinInfo -&gt; DomainJoinInfo -&gt; Bool
 == :: DomainJoinInfo -&gt; DomainJoinInfo -&gt; Bool
 $c== :: DomainJoinInfo -&gt; DomainJoinInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285485"><span id="local-6989586621679285487"><span id="local-6989586621679285489"><span id="local-6989586621679285491"><span class="annot"><span class="annottext">ReadPrec [DomainJoinInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285733"><span id="local-6989586621679285735"><span id="local-6989586621679285737"><span id="local-6989586621679285739"><span class="annot"><span class="annottext">ReadPrec [DomainJoinInfo]
 ReadPrec DomainJoinInfo
 Int -&gt; ReadS DomainJoinInfo
 ReadS [DomainJoinInfo]
@@ -64,7 +64,7 @@ readList :: ReadS [DomainJoinInfo]
 $creadList :: ReadS [DomainJoinInfo]
 readsPrec :: Int -&gt; ReadS DomainJoinInfo
 $creadsPrec :: Int -&gt; ReadS DomainJoinInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285478"><span id="local-6989586621679285480"><span id="local-6989586621679285482"><span class="annot"><span class="annottext">Int -&gt; DomainJoinInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285726"><span id="local-6989586621679285728"><span id="local-6989586621679285730"><span class="annot"><span class="annottext">Int -&gt; DomainJoinInfo -&gt; ShowS
 [DomainJoinInfo] -&gt; ShowS
 DomainJoinInfo -&gt; String
 (Int -&gt; DomainJoinInfo -&gt; ShowS)
@@ -127,16 +127,16 @@ forall a. Maybe a
 -&gt; (DomainJoinInfo -&gt; Maybe Text -&gt; DomainJoinInfo)
 -&gt; Lens DomainJoinInfo DomainJoinInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo%27"><span class="hs-identifier hs-type">DomainJoinInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285469"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo%27"><span class="hs-identifier hs-type">DomainJoinInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285717"><span class="annot"><span class="annottext">Maybe Text
 organizationalUnitDistinguishedName :: Maybe Text
 $sel:organizationalUnitDistinguishedName:DomainJoinInfo' :: DomainJoinInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679285469"><span class="hs-identifier hs-var hs-var">organizationalUnitDistinguishedName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285469"><span class="hs-identifier hs-var">organizationalUnitDistinguishedName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285468"><span class="annot"><span class="annottext">s :: DomainJoinInfo
-</span><a href="#local-6989586621679285468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo%27"><span class="hs-identifier hs-type">DomainJoinInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285467"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainJoinInfo
-</span><a href="#local-6989586621679285468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationalUnitDistinguishedName:DomainJoinInfo' :: Maybe Text
+</span><a href="#local-6989586621679285717"><span class="hs-identifier hs-var hs-var">organizationalUnitDistinguishedName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679285717"><span class="hs-identifier hs-var">organizationalUnitDistinguishedName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285716"><span class="annot"><span class="annottext">s :: DomainJoinInfo
+</span><a href="#local-6989586621679285716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo%27"><span class="hs-identifier hs-type">DomainJoinInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285715"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679285715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainJoinInfo
+</span><a href="#local-6989586621679285716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationalUnitDistinguishedName:DomainJoinInfo' :: Maybe Text
 </span><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#%24sel%3AorganizationalUnitDistinguishedName%3ADomainJoinInfo%27"><span class="hs-identifier hs-var">organizationalUnitDistinguishedName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo"><span class="hs-identifier hs-type">DomainJoinInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679285715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo"><span class="hs-identifier hs-type">DomainJoinInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The fully qualified name of the directory (for example,</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- corp.example.com).</span><span>
@@ -147,19 +147,19 @@ $sel:organizationalUnitDistinguishedName:DomainJoinInfo' :: DomainJoinInfo -&gt;
 -&gt; (DomainJoinInfo -&gt; Maybe Text -&gt; DomainJoinInfo)
 -&gt; Lens DomainJoinInfo DomainJoinInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo%27"><span class="hs-identifier hs-type">DomainJoinInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285465"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo%27"><span class="hs-identifier hs-type">DomainJoinInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285713"><span class="annot"><span class="annottext">Maybe Text
 directoryName :: Maybe Text
 $sel:directoryName:DomainJoinInfo' :: DomainJoinInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679285465"><span class="hs-identifier hs-var hs-var">directoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285465"><span class="hs-identifier hs-var">directoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285464"><span class="annot"><span class="annottext">s :: DomainJoinInfo
-</span><a href="#local-6989586621679285464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo%27"><span class="hs-identifier hs-type">DomainJoinInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285463"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainJoinInfo
-</span><a href="#local-6989586621679285464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryName:DomainJoinInfo' :: Maybe Text
+</span><a href="#local-6989586621679285713"><span class="hs-identifier hs-var hs-var">directoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679285713"><span class="hs-identifier hs-var">directoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285712"><span class="annot"><span class="annottext">s :: DomainJoinInfo
+</span><a href="#local-6989586621679285712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo%27"><span class="hs-identifier hs-type">DomainJoinInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285711"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679285711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainJoinInfo
+</span><a href="#local-6989586621679285712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryName:DomainJoinInfo' :: Maybe Text
 </span><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#%24sel%3AdirectoryName%3ADomainJoinInfo%27"><span class="hs-identifier hs-var">directoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo"><span class="hs-identifier hs-type">DomainJoinInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679285711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo"><span class="hs-identifier hs-type">DomainJoinInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285460"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo"><span class="hs-identifier hs-type">DomainJoinInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679285458"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DomainJoinInfo
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285708"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo"><span class="hs-identifier hs-type">DomainJoinInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679285706"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DomainJoinInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DomainJoinInfo)
@@ -169,15 +169,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DomainJoinInfo&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679285455"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679285455"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679285703"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679285703"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; DomainJoinInfo
 </span><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo%27"><span class="hs-identifier hs-var">DomainJoinInfo'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; DomainJoinInfo)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; DomainJoinInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679285455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679285703"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OrganizationalUnitDistinguishedName&quot;</span></span><span class="hs-special">)</span><span>
@@ -185,24 +185,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser DomainJoinInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679285455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679285703"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DirectoryName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285449"><span id="local-6989586621679285451"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo"><span class="hs-identifier hs-type">DomainJoinInfo</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285697"><span id="local-6989586621679285699"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo"><span class="hs-identifier hs-type">DomainJoinInfo</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285446"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo"><span class="hs-identifier hs-type">DomainJoinInfo</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285694"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo"><span class="hs-identifier hs-type">DomainJoinInfo</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285438"><span id="local-6989586621679285440"><span id="local-6989586621679285442"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo"><span class="hs-identifier hs-type">DomainJoinInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679285436"><span class="annot"><span class="annottext">toJSON :: DomainJoinInfo -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo%27"><span class="hs-identifier hs-type">DomainJoinInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285433"><span id="local-6989586621679285434"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285686"><span id="local-6989586621679285688"><span id="local-6989586621679285690"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo"><span class="hs-identifier hs-type">DomainJoinInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679285684"><span class="annot"><span class="annottext">toJSON :: DomainJoinInfo -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DomainJoinInfo.html#DomainJoinInfo%27"><span class="hs-identifier hs-type">DomainJoinInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285681"><span id="local-6989586621679285682"><span class="annot"><span class="annottext">Maybe Text
 directoryName :: Maybe Text
 organizationalUnitDistinguishedName :: Maybe Text
 $sel:directoryName:DomainJoinInfo' :: DomainJoinInfo -&gt; Maybe Text
 $sel:organizationalUnitDistinguishedName:DomainJoinInfo' :: DomainJoinInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679285433"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679285681"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -215,14 +215,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-88"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285434"><span class="hs-identifier hs-var">organizationalUnitDistinguishedName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679285682"><span class="hs-identifier hs-var">organizationalUnitDistinguishedName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DirectoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285433"><span class="hs-identifier hs-var">directoryName</span></a></span><span>
+</span><a href="#local-6989586621679285681"><span class="hs-identifier hs-var">directoryName</span></a></span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

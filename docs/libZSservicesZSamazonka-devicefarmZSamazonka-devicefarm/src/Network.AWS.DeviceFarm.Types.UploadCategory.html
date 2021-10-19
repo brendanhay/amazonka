@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679371078"><span id="local-6989586621679371079"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UploadCategory"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UploadCategory.html#UploadCategory"><span class="hs-identifier hs-var">UploadCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadCategory%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UploadCategory.html#UploadCategory%27"><span class="hs-identifier hs-var">UploadCategory'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679371330"><span id="local-6989586621679371331"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UploadCategory"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UploadCategory.html#UploadCategory"><span class="hs-identifier hs-var">UploadCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UploadCategory%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.UploadCategory.html#UploadCategory%27"><span class="hs-identifier hs-var">UploadCategory'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUploadCategory"><span class="annot"><span class="annottext">UploadCategory -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.Types.UploadCategory.html#fromUploadCategory"><span class="hs-identifier hs-var hs-var">fromUploadCategory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371070"><span id="local-6989586621679371072"><span id="local-6989586621679371074"><span class="annot"><span class="annottext">Int -&gt; UploadCategory -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371322"><span id="local-6989586621679371324"><span id="local-6989586621679371326"><span class="annot"><span class="annottext">Int -&gt; UploadCategory -&gt; ShowS
 [UploadCategory] -&gt; ShowS
 UploadCategory -&gt; String
 (Int -&gt; UploadCategory -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: UploadCategory -&gt; String
 showsPrec :: Int -&gt; UploadCategory -&gt; ShowS
 $cshowsPrec :: Int -&gt; UploadCategory -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679371061"><span id="local-6989586621679371063"><span id="local-6989586621679371065"><span id="local-6989586621679371067"><span class="annot"><span class="annottext">ReadPrec [UploadCategory]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679371313"><span id="local-6989586621679371315"><span id="local-6989586621679371317"><span id="local-6989586621679371319"><span class="annot"><span class="annottext">ReadPrec [UploadCategory]
 ReadPrec UploadCategory
 Int -&gt; ReadS UploadCategory
 ReadS [UploadCategory]
@@ -72,7 +72,7 @@ $creadList :: ReadS [UploadCategory]
 readsPrec :: Int -&gt; ReadS UploadCategory
 $creadsPrec :: Int -&gt; ReadS UploadCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679371056"><span id="local-6989586621679371058"><span class="annot"><span class="annottext">UploadCategory -&gt; UploadCategory -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679371308"><span id="local-6989586621679371310"><span class="annot"><span class="annottext">UploadCategory -&gt; UploadCategory -&gt; Bool
 (UploadCategory -&gt; UploadCategory -&gt; Bool)
 -&gt; (UploadCategory -&gt; UploadCategory -&gt; Bool) -&gt; Eq UploadCategory
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: UploadCategory -&gt; UploadCategory -&gt; Bool
 == :: UploadCategory -&gt; UploadCategory -&gt; Bool
 $c== :: UploadCategory -&gt; UploadCategory -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679371040"><span id="local-6989586621679371042"><span id="local-6989586621679371044"><span id="local-6989586621679371046"><span id="local-6989586621679371048"><span id="local-6989586621679371050"><span id="local-6989586621679371052"><span class="annot"><span class="annottext">Eq UploadCategory
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679371292"><span id="local-6989586621679371294"><span id="local-6989586621679371296"><span id="local-6989586621679371298"><span id="local-6989586621679371300"><span id="local-6989586621679371302"><span id="local-6989586621679371304"><span class="annot"><span class="annottext">Eq UploadCategory
 Eq UploadCategory
 -&gt; (UploadCategory -&gt; UploadCategory -&gt; Ordering)
 -&gt; (UploadCategory -&gt; UploadCategory -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. UploadCategory -&gt; Rep UploadCategory x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371032"><span id="local-6989586621679371034"><span class="annot"><span class="annottext">Int -&gt; UploadCategory -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371284"><span id="local-6989586621679371286"><span class="annot"><span class="annottext">Int -&gt; UploadCategory -&gt; Int
 UploadCategory -&gt; Int
 (Int -&gt; UploadCategory -&gt; Int)
 -&gt; (UploadCategory -&gt; Int) -&gt; Hashable UploadCategory
@@ -142,50 +142,50 @@ $chash :: UploadCategory -&gt; Int
 hashWithSalt :: Int -&gt; UploadCategory -&gt; Int
 $chashWithSalt :: Int -&gt; UploadCategory -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679371029"><span class="annot"><span class="annottext">UploadCategory -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679371281"><span class="annot"><span class="annottext">UploadCategory -&gt; ()
 (UploadCategory -&gt; ()) -&gt; NFData UploadCategory
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UploadCategory -&gt; ()
 $crnf :: UploadCategory -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679371026"><span class="annot"><span class="annottext">Text -&gt; Either String UploadCategory
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679371278"><span class="annot"><span class="annottext">Text -&gt; Either String UploadCategory
 (Text -&gt; Either String UploadCategory) -&gt; FromText UploadCategory
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UploadCategory
 $cfromText :: Text -&gt; Either String UploadCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679371023"><span class="annot"><span class="annottext">UploadCategory -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679371275"><span class="annot"><span class="annottext">UploadCategory -&gt; Text
 (UploadCategory -&gt; Text) -&gt; ToText UploadCategory
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UploadCategory -&gt; Text
 $ctoText :: UploadCategory -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679371020"><span class="annot"><span class="annottext">UploadCategory -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679371272"><span class="annot"><span class="annottext">UploadCategory -&gt; ByteString
 (UploadCategory -&gt; ByteString) -&gt; ToByteString UploadCategory
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UploadCategory -&gt; ByteString
 $ctoBS :: UploadCategory -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679371017"><span class="annot"><span class="annottext">UploadCategory -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679371269"><span class="annot"><span class="annottext">UploadCategory -&gt; ByteStringBuilder
 (UploadCategory -&gt; ByteStringBuilder) -&gt; ToLog UploadCategory
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UploadCategory -&gt; ByteStringBuilder
 $cbuild :: UploadCategory -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679371014"><span class="annot"><span class="annottext">HeaderName -&gt; UploadCategory -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679371266"><span class="annot"><span class="annottext">HeaderName -&gt; UploadCategory -&gt; [Header]
 (HeaderName -&gt; UploadCategory -&gt; [Header])
 -&gt; ToHeader UploadCategory
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UploadCategory -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UploadCategory -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679371011"><span class="annot"><span class="annottext">UploadCategory -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679371263"><span class="annot"><span class="annottext">UploadCategory -&gt; QueryString
 (UploadCategory -&gt; QueryString) -&gt; ToQuery UploadCategory
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UploadCategory -&gt; QueryString
 $ctoQuery :: UploadCategory -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679371006"><span id="local-6989586621679371008"><span class="annot"><span class="annottext">Value -&gt; Parser [UploadCategory]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679371258"><span id="local-6989586621679371260"><span class="annot"><span class="annottext">Value -&gt; Parser [UploadCategory]
 Value -&gt; Parser UploadCategory
 (Value -&gt; Parser UploadCategory)
 -&gt; (Value -&gt; Parser [UploadCategory]) -&gt; FromJSON UploadCategory
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [UploadCategory]
 parseJSON :: Value -&gt; Parser UploadCategory
 $cparseJSON :: Value -&gt; Parser UploadCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679371001"><span id="local-6989586621679371003"><span class="annot"><span class="annottext">FromJSONKeyFunction [UploadCategory]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679371253"><span id="local-6989586621679371255"><span class="annot"><span class="annottext">FromJSONKeyFunction [UploadCategory]
 FromJSONKeyFunction UploadCategory
 FromJSONKeyFunction UploadCategory
 -&gt; FromJSONKeyFunction [UploadCategory]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UploadCategory]
 fromJSONKey :: FromJSONKeyFunction UploadCategory
 $cfromJSONKey :: FromJSONKeyFunction UploadCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679370992"><span id="local-6989586621679370994"><span id="local-6989586621679370996"><span id="local-6989586621679370998"><span class="annot"><span class="annottext">[UploadCategory] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679371244"><span id="local-6989586621679371246"><span id="local-6989586621679371248"><span id="local-6989586621679371250"><span class="annot"><span class="annottext">[UploadCategory] -&gt; Encoding
 [UploadCategory] -&gt; Value
 UploadCategory -&gt; Encoding
 UploadCategory -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: UploadCategory -&gt; Encoding
 toJSON :: UploadCategory -&gt; Value
 $ctoJSON :: UploadCategory -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679370987"><span id="local-6989586621679370989"><span class="annot"><span class="annottext">ToJSONKeyFunction [UploadCategory]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679371239"><span id="local-6989586621679371241"><span class="annot"><span class="annottext">ToJSONKeyFunction [UploadCategory]
 ToJSONKeyFunction UploadCategory
 ToJSONKeyFunction UploadCategory
 -&gt; ToJSONKeyFunction [UploadCategory] -&gt; ToJSONKey UploadCategory
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UploadCategory]
 toJSONKey :: ToJSONKeyFunction UploadCategory
 $ctoJSONKey :: ToJSONKeyFunction UploadCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679370984"><span class="annot"><span class="annottext">[Node] -&gt; Either String UploadCategory
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679371236"><span class="annot"><span class="annottext">[Node] -&gt; Either String UploadCategory
 ([Node] -&gt; Either String UploadCategory) -&gt; FromXML UploadCategory
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UploadCategory
 $cparseXML :: [Node] -&gt; Either String UploadCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679370981"><span class="annot"><span class="annottext">UploadCategory -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679371233"><span class="annot"><span class="annottext">UploadCategory -&gt; XML
 (UploadCategory -&gt; XML) -&gt; ToXML UploadCategory
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: UploadCategory -&gt; XML

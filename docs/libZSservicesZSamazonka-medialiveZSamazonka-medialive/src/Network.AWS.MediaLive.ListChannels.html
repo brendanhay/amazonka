@@ -37,8 +37,8 @@
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#newListChannelsResponse"><span class="hs-identifier">newListChannelsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#listChannelsResponse_nextToken"><span class="hs-identifier">listChannelsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#listChannelsResponse_channels"><span class="hs-identifier">listChannelsResponse_channels</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#listChannelsResponse_channels"><span class="hs-identifier">listChannelsResponse_channels</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#listChannelsResponse_nextToken"><span class="hs-identifier">listChannelsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#listChannelsResponse_httpStatus"><span class="hs-identifier">listChannelsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span class="hs-keyword">where</span><span>
@@ -53,13 +53,13 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Placeholder documentation for ListChannelsRequest</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newListChannels' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679934602"><span id="local-6989586621679934603"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListChannels"><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels"><span class="hs-identifier hs-var">ListChannels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListChannels%27"><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-var">ListChannels'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679942188"><span id="local-6989586621679942189"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListChannels"><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels"><span class="hs-identifier hs-var">ListChannels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListChannels%27"><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-var">ListChannels'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AnextToken%3AListChannels%27"><span class="annot"><span class="annottext">ListChannels -&gt; Maybe Text
 </span><a href="Network.AWS.MediaLive.ListChannels.html#%24sel%3AnextToken%3AListChannels%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AmaxResults%3AListChannels%27"><span class="annot"><span class="annottext">ListChannels -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaLive.ListChannels.html#%24sel%3AmaxResults%3AListChannels%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679934595"><span id="local-6989586621679934597"><span class="annot"><span class="annottext">ListChannels -&gt; ListChannels -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679942181"><span id="local-6989586621679942183"><span class="annot"><span class="annottext">ListChannels -&gt; ListChannels -&gt; Bool
 (ListChannels -&gt; ListChannels -&gt; Bool)
 -&gt; (ListChannels -&gt; ListChannels -&gt; Bool) -&gt; Eq ListChannels
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListChannels -&gt; ListChannels -&gt; Bool
 == :: ListChannels -&gt; ListChannels -&gt; Bool
 $c== :: ListChannels -&gt; ListChannels -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679934586"><span id="local-6989586621679934588"><span id="local-6989586621679934590"><span id="local-6989586621679934592"><span class="annot"><span class="annottext">ReadPrec [ListChannels]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679942172"><span id="local-6989586621679942174"><span id="local-6989586621679942176"><span id="local-6989586621679942178"><span class="annot"><span class="annottext">ReadPrec [ListChannels]
 ReadPrec ListChannels
 Int -&gt; ReadS ListChannels
 ReadS [ListChannels]
@@ -87,7 +87,7 @@ readList :: ReadS [ListChannels]
 $creadList :: ReadS [ListChannels]
 readsPrec :: Int -&gt; ReadS ListChannels
 $creadsPrec :: Int -&gt; ReadS ListChannels
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679934579"><span id="local-6989586621679934581"><span id="local-6989586621679934583"><span class="annot"><span class="annottext">Int -&gt; ListChannels -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679942165"><span id="local-6989586621679942167"><span id="local-6989586621679942169"><span class="annot"><span class="annottext">Int -&gt; ListChannels -&gt; ShowS
 [ListChannels] -&gt; ShowS
 ListChannels -&gt; String
 (Int -&gt; ListChannels -&gt; ShowS)
@@ -147,16 +147,16 @@ forall a. Maybe a
 -&gt; (ListChannels -&gt; Maybe Text -&gt; ListChannels)
 -&gt; Lens ListChannels ListChannels (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679934573"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942159"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListChannels' :: ListChannels -&gt; Maybe Text
-</span><a href="#local-6989586621679934573"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679934573"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679934572"><span class="annot"><span class="annottext">s :: ListChannels
-</span><a href="#local-6989586621679934572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679934571"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679934571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannels
-</span><a href="#local-6989586621679934572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListChannels' :: Maybe Text
+</span><a href="#local-6989586621679942159"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679942159"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942158"><span class="annot"><span class="annottext">s :: ListChannels
+</span><a href="#local-6989586621679942158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942157"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679942157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannels
+</span><a href="#local-6989586621679942158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListChannels' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.ListChannels.html#%24sel%3AnextToken%3AListChannels%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679934571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679942157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#listChannels_maxResults"><span class="hs-identifier hs-type">listChannels_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -166,28 +166,28 @@ $sel:nextToken:ListChannels' :: ListChannels -&gt; Maybe Text
 -&gt; (ListChannels -&gt; Maybe Natural -&gt; ListChannels)
 -&gt; Lens ListChannels ListChannels (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679934570"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942156"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListChannels' :: ListChannels -&gt; Maybe Natural
-</span><a href="#local-6989586621679934570"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679934570"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679934569"><span class="annot"><span class="annottext">s :: ListChannels
-</span><a href="#local-6989586621679934569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679934568"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679934568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannels
-</span><a href="#local-6989586621679934569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListChannels' :: Maybe Natural
+</span><a href="#local-6989586621679942156"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679942156"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942155"><span class="annot"><span class="annottext">s :: ListChannels
+</span><a href="#local-6989586621679942155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942154"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679942154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannels
+</span><a href="#local-6989586621679942155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListChannels' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.ListChannels.html#%24sel%3AmaxResults%3AListChannels%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679934568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679942154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679934564"><span class="annot"><span class="annottext">page :: ListChannels -&gt; AWSResponse ListChannels -&gt; Maybe ListChannels
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679934562"><span class="annot"><span class="annottext">ListChannels
-</span><a href="#local-6989586621679934562"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679934561"><span class="annot"><span class="annottext">AWSResponse ListChannels
-</span><a href="#local-6989586621679934561"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679942150"><span class="annot"><span class="annottext">page :: ListChannels -&gt; AWSResponse ListChannels -&gt; Maybe ListChannels
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679942148"><span class="annot"><span class="annottext">ListChannels
+</span><a href="#local-6989586621679942148"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679942147"><span class="annot"><span class="annottext">AWSResponse ListChannels
+</span><a href="#local-6989586621679942147"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-92"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListChannels
 ListChannelsResponse
-</span><a href="#local-6989586621679934561"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679942147"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">ListChannelsResponse
 -&gt; Getting (First Text) ListChannelsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -213,7 +213,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-97"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListChannels
 ListChannelsResponse
-</span><a href="#local-6989586621679934561"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679942147"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">ListChannelsResponse
 -&gt; Getting
      (First [ChannelSummary]) ListChannelsResponse [ChannelSummary]
@@ -254,7 +254,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">ListChannels
-</span><a href="#local-6989586621679934562"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679942148"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">ListChannels -&gt; (ListChannels -&gt; ListChannels) -&gt; ListChannels
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -267,7 +267,7 @@ Lens ListChannels ListChannels (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListChannels
 ListChannelsResponse
-</span><a href="#local-6989586621679934561"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679942147"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">ListChannelsResponse
 -&gt; Getting (First Text) ListChannelsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -287,12 +287,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679934551"><span class="annot"><span class="annottext">request :: ListChannels -&gt; Request ListChannels
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679942137"><span class="annot"><span class="annottext">request :: ListChannels -&gt; Request ListChannels
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListChannels -&gt; Request ListChannels
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaLive.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679934547"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679942133"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListChannels
 -&gt; ClientResponse ClientBody
@@ -316,30 +316,19 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679934544"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679934544"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679934543"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679934543"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679934542"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679934542"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [ChannelSummary] -&gt; Int -&gt; ListChannelsResponse
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679942130"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679942130"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679942129"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679942129"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679942128"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679942128"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ChannelSummary] -&gt; Maybe Text -&gt; Int -&gt; ListChannelsResponse
 </span><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-var">ListChannelsResponse'</span></a></span><span>
-</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [ChannelSummary] -&gt; Int -&gt; ListChannelsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe [ChannelSummary] -&gt; Int -&gt; ListChannelsResponse)
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ChannelSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListChannelsResponse)
+-&gt; Either String (Maybe [ChannelSummary])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListChannelsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679934542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe [ChannelSummary] -&gt; Int -&gt; ListChannelsResponse)
--&gt; Either String (Maybe [ChannelSummary])
--&gt; Either String (Int -&gt; ListChannelsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679934542"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ChannelSummary]))
+</span><a href="#local-6989586621679942128"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ChannelSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;channels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ChannelSummary]))
@@ -348,6 +337,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ChannelSummary]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListChannelsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListChannelsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679942128"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListChannelsResponse)
 -&gt; Either String Int -&gt; Either String ListChannelsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -356,15 +354,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679934544"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679942130"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679934533"><span id="local-6989586621679934535"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942119"><span id="local-6989586621679942121"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679934530"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942116"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679934526"><span class="annot"><span class="annottext">toHeaders :: ListChannels -&gt; ResponseHeaders
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679942112"><span class="annot"><span class="annottext">toHeaders :: ListChannels -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListChannels -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -384,21 +382,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679934520"><span class="annot"><span class="annottext">toPath :: ListChannels -&gt; ByteString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679942106"><span class="annot"><span class="annottext">toPath :: ListChannels -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListChannels -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/prod/channels&quot;</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels"><span class="hs-identifier hs-type">ListChannels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679934516"><span class="annot"><span class="annottext">toQuery :: ListChannels -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679934513"><span id="local-6989586621679934514"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679942102"><span class="annot"><span class="annottext">toQuery :: ListChannels -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannels%27"><span class="hs-identifier hs-type">ListChannels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942099"><span id="local-6989586621679942100"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListChannels' :: ListChannels -&gt; Maybe Natural
 $sel:nextToken:ListChannels' :: ListChannels -&gt; Maybe Text
-</span><a href="#local-6989586621679934513"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679942099"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -406,27 +404,27 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679934514"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679942100"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679934513"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679942099"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | Placeholder documentation for ListChannelsResponse</span><span>
 </span><span id="line-146"></span><span class="hs-comment">--</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- /See:/ 'newListChannelsResponse' smart constructor.</span><span>
-</span><span id="line-148"></span><span id="local-6989586621679934510"><span id="local-6989586621679934511"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListChannelsResponse"><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-var">ListChannelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListChannelsResponse%27"><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-var">ListChannelsResponse'</span></a></span></span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AnextToken%3AListChannelsResponse%27"><span class="annot"><span class="annottext">ListChannelsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.MediaLive.ListChannels.html#%24sel%3AnextToken%3AListChannelsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-150"></span><span>    </span><span id="%24sel%3Achannels%3AListChannelsResponse%27"><span class="annot"><span class="annottext">ListChannelsResponse -&gt; Maybe [ChannelSummary]
+</span><span id="line-148"></span><span id="local-6989586621679942096"><span id="local-6989586621679942097"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListChannelsResponse"><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-var">ListChannelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListChannelsResponse%27"><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-var">ListChannelsResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Achannels%3AListChannelsResponse%27"><span class="annot"><span class="annottext">ListChannelsResponse -&gt; Maybe [ChannelSummary]
 </span><a href="Network.AWS.MediaLive.ListChannels.html#%24sel%3Achannels%3AListChannelsResponse%27"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AnextToken%3AListChannelsResponse%27"><span class="annot"><span class="annottext">ListChannelsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.ListChannels.html#%24sel%3AnextToken%3AListChannelsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListChannelsResponse%27"><span class="annot"><span class="annottext">ListChannelsResponse -&gt; Int
 </span><a href="Network.AWS.MediaLive.ListChannels.html#%24sel%3AhttpStatus%3AListChannelsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679934503"><span id="local-6989586621679934505"><span class="annot"><span class="annottext">ListChannelsResponse -&gt; ListChannelsResponse -&gt; Bool
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679942089"><span id="local-6989586621679942091"><span class="annot"><span class="annottext">ListChannelsResponse -&gt; ListChannelsResponse -&gt; Bool
 (ListChannelsResponse -&gt; ListChannelsResponse -&gt; Bool)
 -&gt; (ListChannelsResponse -&gt; ListChannelsResponse -&gt; Bool)
 -&gt; Eq ListChannelsResponse
@@ -435,7 +433,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListChannelsResponse -&gt; ListChannelsResponse -&gt; Bool
 == :: ListChannelsResponse -&gt; ListChannelsResponse -&gt; Bool
 $c== :: ListChannelsResponse -&gt; ListChannelsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679934495"><span id="local-6989586621679934497"><span id="local-6989586621679934499"><span id="local-6989586621679934501"><span class="annot"><span class="annottext">ReadPrec [ListChannelsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679942081"><span id="local-6989586621679942083"><span id="local-6989586621679942085"><span id="local-6989586621679942087"><span class="annot"><span class="annottext">ReadPrec [ListChannelsResponse]
 ReadPrec ListChannelsResponse
 Int -&gt; ReadS ListChannelsResponse
 ReadS [ListChannelsResponse]
@@ -455,7 +453,7 @@ readList :: ReadS [ListChannelsResponse]
 $creadList :: ReadS [ListChannelsResponse]
 readsPrec :: Int -&gt; ReadS ListChannelsResponse
 $creadsPrec :: Int -&gt; ReadS ListChannelsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679934489"><span id="local-6989586621679934491"><span id="local-6989586621679934493"><span class="annot"><span class="annottext">Int -&gt; ListChannelsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679942075"><span id="local-6989586621679942077"><span id="local-6989586621679942079"><span class="annot"><span class="annottext">Int -&gt; ListChannelsResponse -&gt; ShowS
 [ListChannelsResponse] -&gt; ShowS
 ListChannelsResponse -&gt; String
 (Int -&gt; ListChannelsResponse -&gt; ShowS)
@@ -489,9 +487,9 @@ $cfrom :: forall x. ListChannelsResponse -&gt; Rep ListChannelsResponse x
 </span><span id="line-161"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-163"></span><span class="hs-comment">--</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- 'nextToken', 'listChannelsResponse_nextToken' - Undocumented member.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'channels', 'listChannelsResponse_channels' - Undocumented member.</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- 'channels', 'listChannelsResponse_channels' - Undocumented member.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'nextToken', 'listChannelsResponse_nextToken' - Undocumented member.</span><span>
 </span><span id="line-167"></span><span class="hs-comment">--</span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- 'httpStatus', 'listChannelsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-169"></span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#newListChannelsResponse"><span class="hs-identifier hs-type">newListChannelsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -499,61 +497,42 @@ $cfrom :: forall x. ListChannelsResponse -&gt; Rep ListChannelsResponse x
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span>
 </span><span id="line-173"></span><span id="newListChannelsResponse"><span class="annot"><span class="annottext">newListChannelsResponse :: Int -&gt; ListChannelsResponse
-</span><a href="Network.AWS.MediaLive.ListChannels.html#newListChannelsResponse"><span class="hs-identifier hs-var hs-var">newListChannelsResponse</span></a></span></span><span> </span><span id="local-6989586621679934486"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679934486"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">ListChannelsResponse' :: Maybe Text -&gt; Maybe [ChannelSummary] -&gt; Int -&gt; ListChannelsResponse
+</span><a href="Network.AWS.MediaLive.ListChannels.html#newListChannelsResponse"><span class="hs-identifier hs-var hs-var">newListChannelsResponse</span></a></span></span><span> </span><span id="local-6989586621679942072"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679942072"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">ListChannelsResponse' :: Maybe [ChannelSummary] -&gt; Maybe Text -&gt; Int -&gt; ListChannelsResponse
 </span><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span>
-</span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListChannelsResponse' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.ListChannels.html#%24sel%3AnextToken%3AListChannelsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:channels:ListChannelsResponse' :: Maybe [ChannelSummary]
+</span><a href="Network.AWS.MediaLive.ListChannels.html#%24sel%3Achannels%3AListChannelsResponse%27"><span class="hs-identifier hs-var">channels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ChannelSummary]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:channels:ListChannelsResponse' :: Maybe [ChannelSummary]
-</span><a href="Network.AWS.MediaLive.ListChannels.html#%24sel%3Achannels%3AListChannelsResponse%27"><span class="hs-identifier hs-var">channels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ChannelSummary]
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListChannelsResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListChannels.html#%24sel%3AnextToken%3AListChannelsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListChannelsResponse' :: Int
 </span><a href="Network.AWS.MediaLive.ListChannels.html#%24sel%3AhttpStatus%3AListChannelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679934486"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679942072"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#listChannelsResponse_nextToken"><span class="hs-identifier hs-type">listChannelsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span id="listChannelsResponse_nextToken"><span class="annot"><span class="annottext">listChannelsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListChannelsResponse -&gt; f ListChannelsResponse
-</span><a href="Network.AWS.MediaLive.ListChannels.html#listChannelsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listChannelsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListChannelsResponse -&gt; Maybe Text)
--&gt; (ListChannelsResponse -&gt; Maybe Text -&gt; ListChannelsResponse)
--&gt; Lens' ListChannelsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679934485"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListChannelsResponse' :: ListChannelsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679934485"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679934485"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679934484"><span class="annot"><span class="annottext">s :: ListChannelsResponse
-</span><a href="#local-6989586621679934484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679934483"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679934483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannelsResponse
-</span><a href="#local-6989586621679934484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListChannelsResponse' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.ListChannels.html#%24sel%3AnextToken%3AListChannelsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679934483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#listChannelsResponse_channels"><span class="hs-identifier hs-type">listChannelsResponse_channels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span id="listChannelsResponse_channels"><span class="annot"><span class="annottext">listChannelsResponse_channels :: (Maybe [ChannelSummary] -&gt; f (Maybe [ChannelSummary]))
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#listChannelsResponse_channels"><span class="hs-identifier hs-type">listChannelsResponse_channels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier hs-type">ChannelSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="listChannelsResponse_channels"><span class="annot"><span class="annottext">listChannelsResponse_channels :: (Maybe [ChannelSummary] -&gt; f (Maybe [ChannelSummary]))
 -&gt; ListChannelsResponse -&gt; f ListChannelsResponse
 </span><a href="Network.AWS.MediaLive.ListChannels.html#listChannelsResponse_channels"><span class="hs-identifier hs-var hs-var">listChannelsResponse_channels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListChannelsResponse -&gt; Maybe [ChannelSummary])
 -&gt; (ListChannelsResponse
     -&gt; Maybe [ChannelSummary] -&gt; ListChannelsResponse)
 -&gt; Lens' ListChannelsResponse (Maybe [ChannelSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679934482"><span class="annot"><span class="annottext">Maybe [ChannelSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942071"><span class="annot"><span class="annottext">Maybe [ChannelSummary]
 channels :: Maybe [ChannelSummary]
 $sel:channels:ListChannelsResponse' :: ListChannelsResponse -&gt; Maybe [ChannelSummary]
-</span><a href="#local-6989586621679934482"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ChannelSummary]
-</span><a href="#local-6989586621679934482"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679934481"><span class="annot"><span class="annottext">s :: ListChannelsResponse
-</span><a href="#local-6989586621679934481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679934480"><span class="annot"><span class="annottext">Maybe [ChannelSummary]
-</span><a href="#local-6989586621679934480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannelsResponse
-</span><a href="#local-6989586621679934481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channels:ListChannelsResponse' :: Maybe [ChannelSummary]
+</span><a href="#local-6989586621679942071"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ChannelSummary]
+</span><a href="#local-6989586621679942071"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942070"><span class="annot"><span class="annottext">s :: ListChannelsResponse
+</span><a href="#local-6989586621679942070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942069"><span class="annot"><span class="annottext">Maybe [ChannelSummary]
+</span><a href="#local-6989586621679942069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannelsResponse
+</span><a href="#local-6989586621679942070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channels:ListChannelsResponse' :: Maybe [ChannelSummary]
 </span><a href="Network.AWS.MediaLive.ListChannels.html#%24sel%3Achannels%3AListChannelsResponse%27"><span class="hs-identifier hs-var">channels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ChannelSummary]
-</span><a href="#local-6989586621679934480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ChannelSummary] -&gt; f (Maybe [ChannelSummary]))
+</span><a href="#local-6989586621679942069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ChannelSummary] -&gt; f (Maybe [ChannelSummary]))
  -&gt; ListChannelsResponse -&gt; f ListChannelsResponse)
 -&gt; ((Maybe [ChannelSummary] -&gt; f (Maybe [ChannelSummary]))
     -&gt; Maybe [ChannelSummary] -&gt; f (Maybe [ChannelSummary]))
@@ -573,8 +552,27 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [ChannelSummary] [ChannelSummary] [ChannelSummary] [ChannelSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#listChannelsResponse_nextToken"><span class="hs-identifier hs-type">listChannelsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="listChannelsResponse_nextToken"><span class="annot"><span class="annottext">listChannelsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListChannelsResponse -&gt; f ListChannelsResponse
+</span><a href="Network.AWS.MediaLive.ListChannels.html#listChannelsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listChannelsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListChannelsResponse -&gt; Maybe Text)
+-&gt; (ListChannelsResponse -&gt; Maybe Text -&gt; ListChannelsResponse)
+-&gt; Lens' ListChannelsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942066"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListChannelsResponse' :: ListChannelsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679942066"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679942066"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942065"><span class="annot"><span class="annottext">s :: ListChannelsResponse
+</span><a href="#local-6989586621679942065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942064"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679942064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannelsResponse
+</span><a href="#local-6989586621679942065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListChannelsResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.ListChannels.html#%24sel%3AnextToken%3AListChannelsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679942064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-189"></span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#listChannelsResponse_httpStatus"><span class="hs-identifier hs-type">listChannelsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -583,16 +581,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListChannelsResponse -&gt; Int -&gt; ListChannelsResponse)
 -&gt; Lens ListChannelsResponse ListChannelsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679934477"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679942063"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListChannelsResponse' :: ListChannelsResponse -&gt; Int
-</span><a href="#local-6989586621679934477"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679934477"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679934476"><span class="annot"><span class="annottext">s :: ListChannelsResponse
-</span><a href="#local-6989586621679934476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679934475"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679934475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannelsResponse
-</span><a href="#local-6989586621679934476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListChannelsResponse' :: Int
+</span><a href="#local-6989586621679942063"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679942063"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679942062"><span class="annot"><span class="annottext">s :: ListChannelsResponse
+</span><a href="#local-6989586621679942062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse%27"><span class="hs-identifier hs-type">ListChannelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679942061"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679942061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChannelsResponse
+</span><a href="#local-6989586621679942062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListChannelsResponse' :: Int
 </span><a href="Network.AWS.MediaLive.ListChannels.html#%24sel%3AhttpStatus%3AListChannelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679934475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679942061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679934473"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679942059"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.ListChannels.html#ListChannelsResponse"><span class="hs-identifier hs-type">ListChannelsResponse</span></a></span></span><span>
 </span><span id="line-193"></span></pre></body></html>

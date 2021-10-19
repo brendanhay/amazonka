@@ -32,38 +32,38 @@
 </span><span id="line-32"></span><span class="hs-comment">-- which can be retrieved by calling DescribeMatchmaking.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newGameSessionConnectionInfo' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679435169"><span id="local-6989586621679435170"></span></span><span class="hs-keyword">data</span><span> </span><span id="GameSessionConnectionInfo"><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-var">GameSessionConnectionInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameSessionConnectionInfo%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-var">GameSessionConnectionInfo'</span></a></span></span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the game session. Use the game session ID.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AgameSessionArn%3AGameSessionConnectionInfo%27"><span class="annot"><span class="annottext">GameSessionConnectionInfo -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AgameSessionArn%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var hs-var">gameSessionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The IP address of the game session. To connect to a GameLift game</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- server, an app needs both the IP address and port number.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AipAddress%3AGameSessionConnectionInfo%27"><span class="annot"><span class="annottext">GameSessionConnectionInfo -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AipAddress%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A collection of player session IDs, one for each player ID that was</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- included in the original matchmaking request.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AmatchedPlayerSessions%3AGameSessionConnectionInfo%27"><span class="annot"><span class="annottext">GameSessionConnectionInfo -&gt; Maybe [MatchedPlayerSession]
+</span><span id="line-35"></span><span id="local-6989586621679435617"><span id="local-6989586621679435618"></span></span><span class="hs-keyword">data</span><span> </span><span id="GameSessionConnectionInfo"><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-var">GameSessionConnectionInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameSessionConnectionInfo%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-var">GameSessionConnectionInfo'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A collection of player session IDs, one for each player ID that was</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- included in the original matchmaking request.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmatchedPlayerSessions%3AGameSessionConnectionInfo%27"><span class="annot"><span class="annottext">GameSessionConnectionInfo -&gt; Maybe [MatchedPlayerSession]
 </span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AmatchedPlayerSessions%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var hs-var">matchedPlayerSessions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchedPlayerSession.html#MatchedPlayerSession"><span class="hs-identifier hs-type">MatchedPlayerSession</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The port number for the game session. To connect to a GameLift game</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- server, an app needs both the IP address and port number.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aport%3AGameSessionConnectionInfo%27"><span class="annot"><span class="annottext">GameSessionConnectionInfo -&gt; Maybe Natural
-</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3Aport%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The DNS identifier assigned to the instance that is running the game</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- session. Values have the following format:</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The IP address of the game session. To connect to a GameLift game</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- server, an app needs both the IP address and port number.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AipAddress%3AGameSessionConnectionInfo%27"><span class="annot"><span class="annottext">GameSessionConnectionInfo -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AipAddress%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the game session. Use the game session ID.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AgameSessionArn%3AGameSessionConnectionInfo%27"><span class="annot"><span class="annottext">GameSessionConnectionInfo -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AgameSessionArn%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var hs-var">gameSessionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The DNS identifier assigned to the instance that is running the game</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- session. Values have the following format:</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   TLS-enabled fleets:</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     @\&lt;unique identifier&gt;.\&lt;region identifier&gt;.amazongamelift.com@.</span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   TLS-enabled fleets:</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     @\&lt;unique identifier&gt;.\&lt;region identifier&gt;.amazongamelift.com@.</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   Non-TLS-enabled fleets:</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     @ec2-\&lt;unique identifier&gt;.compute.amazonaws.com@. (See</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing&gt;.)</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- When connecting to a game session that is running on a TLS-enabled</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- fleet, you must use the DNS name, not the IP address.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdnsName%3AGameSessionConnectionInfo%27"><span class="annot"><span class="annottext">GameSessionConnectionInfo -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AdnsName%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var hs-var">dnsName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   Non-TLS-enabled fleets:</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     @ec2-\&lt;unique identifier&gt;.compute.amazonaws.com@. (See</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing&gt;.)</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- When connecting to a game session that is running on a TLS-enabled</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- fleet, you must use the DNS name, not the IP address.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AdnsName%3AGameSessionConnectionInfo%27"><span class="annot"><span class="annottext">GameSessionConnectionInfo -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AdnsName%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var hs-var">dnsName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The port number for the game session. To connect to a GameLift game</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- server, an app needs both the IP address and port number.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aport%3AGameSessionConnectionInfo%27"><span class="annot"><span class="annottext">GameSessionConnectionInfo -&gt; Maybe Natural
+</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3Aport%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435159"><span id="local-6989586621679435161"><span class="annot"><span class="annottext">GameSessionConnectionInfo -&gt; GameSessionConnectionInfo -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435607"><span id="local-6989586621679435609"><span class="annot"><span class="annottext">GameSessionConnectionInfo -&gt; GameSessionConnectionInfo -&gt; Bool
 (GameSessionConnectionInfo -&gt; GameSessionConnectionInfo -&gt; Bool)
 -&gt; (GameSessionConnectionInfo -&gt; GameSessionConnectionInfo -&gt; Bool)
 -&gt; Eq GameSessionConnectionInfo
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GameSessionConnectionInfo -&gt; GameSessionConnectionInfo -&gt; Bool
 == :: GameSessionConnectionInfo -&gt; GameSessionConnectionInfo -&gt; Bool
 $c== :: GameSessionConnectionInfo -&gt; GameSessionConnectionInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435150"><span id="local-6989586621679435152"><span id="local-6989586621679435154"><span id="local-6989586621679435156"><span class="annot"><span class="annottext">ReadPrec [GameSessionConnectionInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435598"><span id="local-6989586621679435600"><span id="local-6989586621679435602"><span id="local-6989586621679435604"><span class="annot"><span class="annottext">ReadPrec [GameSessionConnectionInfo]
 ReadPrec GameSessionConnectionInfo
 Int -&gt; ReadS GameSessionConnectionInfo
 ReadS [GameSessionConnectionInfo]
@@ -92,7 +92,7 @@ readList :: ReadS [GameSessionConnectionInfo]
 $creadList :: ReadS [GameSessionConnectionInfo]
 readsPrec :: Int -&gt; ReadS GameSessionConnectionInfo
 $creadsPrec :: Int -&gt; ReadS GameSessionConnectionInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435143"><span id="local-6989586621679435145"><span id="local-6989586621679435147"><span class="annot"><span class="annottext">Int -&gt; GameSessionConnectionInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435591"><span id="local-6989586621679435593"><span id="local-6989586621679435595"><span class="annot"><span class="annottext">Int -&gt; GameSessionConnectionInfo -&gt; ShowS
 [GameSessionConnectionInfo] -&gt; ShowS
 GameSessionConnectionInfo -&gt; String
 (Int -&gt; GameSessionConnectionInfo -&gt; ShowS)
@@ -132,116 +132,67 @@ GameSessionConnectionInfo -&gt; Rep GameSessionConnectionInfo x
 </span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'gameSessionArn', 'gameSessionConnectionInfo_gameSessionArn' - A unique identifier for the game session. Use the game session ID.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'ipAddress', 'gameSessionConnectionInfo_ipAddress' - The IP address of the game session. To connect to a GameLift game</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- server, an app needs both the IP address and port number.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'matchedPlayerSessions', 'gameSessionConnectionInfo_matchedPlayerSessions' - A collection of player session IDs, one for each player ID that was</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- included in the original matchmaking request.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'matchedPlayerSessions', 'gameSessionConnectionInfo_matchedPlayerSessions' - A collection of player session IDs, one for each player ID that was</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- included in the original matchmaking request.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'ipAddress', 'gameSessionConnectionInfo_ipAddress' - The IP address of the game session. To connect to a GameLift game</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- server, an app needs both the IP address and port number.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'gameSessionArn', 'gameSessionConnectionInfo_gameSessionArn' - A unique identifier for the game session. Use the game session ID.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'port', 'gameSessionConnectionInfo_port' - The port number for the game session. To connect to a GameLift game</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- server, an app needs both the IP address and port number.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'dnsName', 'gameSessionConnectionInfo_dnsName' - The DNS identifier assigned to the instance that is running the game</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- session. Values have the following format:</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'dnsName', 'gameSessionConnectionInfo_dnsName' - The DNS identifier assigned to the instance that is running the game</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- session. Values have the following format:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- -   TLS-enabled fleets:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--     @\&lt;unique identifier&gt;.\&lt;region identifier&gt;.amazongamelift.com@.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- -   TLS-enabled fleets:</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--     @\&lt;unique identifier&gt;.\&lt;region identifier&gt;.amazongamelift.com@.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- -   Non-TLS-enabled fleets:</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--     @ec2-\&lt;unique identifier&gt;.compute.amazonaws.com@. (See</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing&gt;.)</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- -   Non-TLS-enabled fleets:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--     @ec2-\&lt;unique identifier&gt;.compute.amazonaws.com@. (See</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing&gt;.)</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- When connecting to a game session that is running on a TLS-enabled</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- fleet, you must use the DNS name, not the IP address.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- When connecting to a game session that is running on a TLS-enabled</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- fleet, you must use the DNS name, not the IP address.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'port', 'gameSessionConnectionInfo_port' - The port number for the game session. To connect to a GameLift game</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- server, an app needs both the IP address and port number.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#newGameSessionConnectionInfo"><span class="hs-identifier hs-type">newGameSessionConnectionInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span>
 </span><span id="line-96"></span><span id="newGameSessionConnectionInfo"><span class="annot"><span class="annottext">newGameSessionConnectionInfo :: GameSessionConnectionInfo
 </span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#newGameSessionConnectionInfo"><span class="hs-identifier hs-var hs-var">newGameSessionConnectionInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">GameSessionConnectionInfo' :: Maybe Text
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">GameSessionConnectionInfo' :: Maybe [MatchedPlayerSession]
 -&gt; Maybe Text
--&gt; Maybe [MatchedPlayerSession]
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Natural
--&gt; Maybe Text
 -&gt; GameSessionConnectionInfo
 </span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gameSessionArn:GameSessionConnectionInfo' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AgameSessionArn%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var">gameSessionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:matchedPlayerSessions:GameSessionConnectionInfo' :: Maybe [MatchedPlayerSession]
+</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AmatchedPlayerSessions%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var">matchedPlayerSessions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Maybe [MatchedPlayerSession]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipAddress:GameSessionConnectionInfo' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AipAddress%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:matchedPlayerSessions:GameSessionConnectionInfo' :: Maybe [MatchedPlayerSession]
-</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AmatchedPlayerSessions%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var">matchedPlayerSessions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MatchedPlayerSession]
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:gameSessionArn:GameSessionConnectionInfo' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AgameSessionArn%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var">gameSessionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:port:GameSessionConnectionInfo' :: Maybe Natural
-</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3Aport%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:dnsName:GameSessionConnectionInfo' :: Maybe Text
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:dnsName:GameSessionConnectionInfo' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AdnsName%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var">dnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:port:GameSessionConnectionInfo' :: Maybe Natural
+</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3Aport%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | A unique identifier for the game session. Use the game session ID.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#gameSessionConnectionInfo_gameSessionArn"><span class="hs-identifier hs-type">gameSessionConnectionInfo_gameSessionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="gameSessionConnectionInfo_gameSessionArn"><span class="annot"><span class="annottext">gameSessionConnectionInfo_gameSessionArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GameSessionConnectionInfo -&gt; f GameSessionConnectionInfo
-</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#gameSessionConnectionInfo_gameSessionArn"><span class="hs-identifier hs-var hs-var">gameSessionConnectionInfo_gameSessionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GameSessionConnectionInfo -&gt; Maybe Text)
--&gt; (GameSessionConnectionInfo
-    -&gt; Maybe Text -&gt; GameSessionConnectionInfo)
--&gt; Lens
-     GameSessionConnectionInfo
-     GameSessionConnectionInfo
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435134"><span class="annot"><span class="annottext">Maybe Text
-gameSessionArn :: Maybe Text
-$sel:gameSessionArn:GameSessionConnectionInfo' :: GameSessionConnectionInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679435134"><span class="hs-identifier hs-var hs-var">gameSessionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679435134"><span class="hs-identifier hs-var">gameSessionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435133"><span class="annot"><span class="annottext">s :: GameSessionConnectionInfo
-</span><a href="#local-6989586621679435133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435132"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679435132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GameSessionConnectionInfo
-</span><a href="#local-6989586621679435133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionArn:GameSessionConnectionInfo' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AgameSessionArn%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var">gameSessionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679435132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The IP address of the game session. To connect to a GameLift game</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- server, an app needs both the IP address and port number.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#gameSessionConnectionInfo_ipAddress"><span class="hs-identifier hs-type">gameSessionConnectionInfo_ipAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="gameSessionConnectionInfo_ipAddress"><span class="annot"><span class="annottext">gameSessionConnectionInfo_ipAddress :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GameSessionConnectionInfo -&gt; f GameSessionConnectionInfo
-</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#gameSessionConnectionInfo_ipAddress"><span class="hs-identifier hs-var hs-var">gameSessionConnectionInfo_ipAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GameSessionConnectionInfo -&gt; Maybe Text)
--&gt; (GameSessionConnectionInfo
-    -&gt; Maybe Text -&gt; GameSessionConnectionInfo)
--&gt; Lens
-     GameSessionConnectionInfo
-     GameSessionConnectionInfo
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435130"><span class="annot"><span class="annottext">Maybe Text
-ipAddress :: Maybe Text
-$sel:ipAddress:GameSessionConnectionInfo' :: GameSessionConnectionInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679435130"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679435130"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435129"><span class="annot"><span class="annottext">s :: GameSessionConnectionInfo
-</span><a href="#local-6989586621679435129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435128"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679435128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GameSessionConnectionInfo
-</span><a href="#local-6989586621679435129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:GameSessionConnectionInfo' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AipAddress%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679435128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | A collection of player session IDs, one for each player ID that was</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- included in the original matchmaking request.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#gameSessionConnectionInfo_matchedPlayerSessions"><span class="hs-identifier hs-type">gameSessionConnectionInfo_matchedPlayerSessions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchedPlayerSession.html#MatchedPlayerSession"><span class="hs-identifier hs-type">MatchedPlayerSession</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="gameSessionConnectionInfo_matchedPlayerSessions"><span class="annot"><span class="annottext">gameSessionConnectionInfo_matchedPlayerSessions :: (Maybe [MatchedPlayerSession] -&gt; f (Maybe [MatchedPlayerSession]))
+</span><span id="line-106"></span><span class="hs-comment">-- | A collection of player session IDs, one for each player ID that was</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- included in the original matchmaking request.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#gameSessionConnectionInfo_matchedPlayerSessions"><span class="hs-identifier hs-type">gameSessionConnectionInfo_matchedPlayerSessions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.MatchedPlayerSession.html#MatchedPlayerSession"><span class="hs-identifier hs-type">MatchedPlayerSession</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="gameSessionConnectionInfo_matchedPlayerSessions"><span class="annot"><span class="annottext">gameSessionConnectionInfo_matchedPlayerSessions :: (Maybe [MatchedPlayerSession] -&gt; f (Maybe [MatchedPlayerSession]))
 -&gt; GameSessionConnectionInfo -&gt; f GameSessionConnectionInfo
 </span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#gameSessionConnectionInfo_matchedPlayerSessions"><span class="hs-identifier hs-var hs-var">gameSessionConnectionInfo_matchedPlayerSessions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GameSessionConnectionInfo -&gt; Maybe [MatchedPlayerSession])
 -&gt; (GameSessionConnectionInfo
@@ -252,16 +203,16 @@ $sel:ipAddress:GameSessionConnectionInfo' :: GameSessionConnectionInfo -&gt; May
      (Maybe [MatchedPlayerSession])
      (Maybe [MatchedPlayerSession])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435126"><span class="annot"><span class="annottext">Maybe [MatchedPlayerSession]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435582"><span class="annot"><span class="annottext">Maybe [MatchedPlayerSession]
 matchedPlayerSessions :: Maybe [MatchedPlayerSession]
 $sel:matchedPlayerSessions:GameSessionConnectionInfo' :: GameSessionConnectionInfo -&gt; Maybe [MatchedPlayerSession]
-</span><a href="#local-6989586621679435126"><span class="hs-identifier hs-var hs-var">matchedPlayerSessions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MatchedPlayerSession]
-</span><a href="#local-6989586621679435126"><span class="hs-identifier hs-var">matchedPlayerSessions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435125"><span class="annot"><span class="annottext">s :: GameSessionConnectionInfo
-</span><a href="#local-6989586621679435125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435124"><span class="annot"><span class="annottext">Maybe [MatchedPlayerSession]
-</span><a href="#local-6989586621679435124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GameSessionConnectionInfo
-</span><a href="#local-6989586621679435125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchedPlayerSessions:GameSessionConnectionInfo' :: Maybe [MatchedPlayerSession]
+</span><a href="#local-6989586621679435582"><span class="hs-identifier hs-var hs-var">matchedPlayerSessions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MatchedPlayerSession]
+</span><a href="#local-6989586621679435582"><span class="hs-identifier hs-var">matchedPlayerSessions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435581"><span class="annot"><span class="annottext">s :: GameSessionConnectionInfo
+</span><a href="#local-6989586621679435581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435580"><span class="annot"><span class="annottext">Maybe [MatchedPlayerSession]
+</span><a href="#local-6989586621679435580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GameSessionConnectionInfo
+</span><a href="#local-6989586621679435581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:matchedPlayerSessions:GameSessionConnectionInfo' :: Maybe [MatchedPlayerSession]
 </span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AmatchedPlayerSessions%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var">matchedPlayerSessions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MatchedPlayerSession]
-</span><a href="#local-6989586621679435124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MatchedPlayerSession] -&gt; f (Maybe [MatchedPlayerSession]))
+</span><a href="#local-6989586621679435580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MatchedPlayerSession] -&gt; f (Maybe [MatchedPlayerSession]))
  -&gt; GameSessionConnectionInfo -&gt; f GameSessionConnectionInfo)
 -&gt; ((Maybe [MatchedPlayerSession]
      -&gt; f (Maybe [MatchedPlayerSession]))
@@ -290,48 +241,72 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [MatchedPlayerSession]
   [MatchedPlayerSession]
   [MatchedPlayerSession]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | The port number for the game session. To connect to a GameLift game</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- server, an app needs both the IP address and port number.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#gameSessionConnectionInfo_port"><span class="hs-identifier hs-type">gameSessionConnectionInfo_port</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="gameSessionConnectionInfo_port"><span class="annot"><span class="annottext">gameSessionConnectionInfo_port :: (Maybe Natural -&gt; f (Maybe Natural))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The IP address of the game session. To connect to a GameLift game</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- server, an app needs both the IP address and port number.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#gameSessionConnectionInfo_ipAddress"><span class="hs-identifier hs-type">gameSessionConnectionInfo_ipAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="gameSessionConnectionInfo_ipAddress"><span class="annot"><span class="annottext">gameSessionConnectionInfo_ipAddress :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GameSessionConnectionInfo -&gt; f GameSessionConnectionInfo
-</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#gameSessionConnectionInfo_port"><span class="hs-identifier hs-var hs-var">gameSessionConnectionInfo_port</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GameSessionConnectionInfo -&gt; Maybe Natural)
+</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#gameSessionConnectionInfo_ipAddress"><span class="hs-identifier hs-var hs-var">gameSessionConnectionInfo_ipAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GameSessionConnectionInfo -&gt; Maybe Text)
 -&gt; (GameSessionConnectionInfo
-    -&gt; Maybe Natural -&gt; GameSessionConnectionInfo)
+    -&gt; Maybe Text -&gt; GameSessionConnectionInfo)
 -&gt; Lens
      GameSessionConnectionInfo
      GameSessionConnectionInfo
-     (Maybe Natural)
-     (Maybe Natural)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435119"><span class="annot"><span class="annottext">Maybe Natural
-port :: Maybe Natural
-$sel:port:GameSessionConnectionInfo' :: GameSessionConnectionInfo -&gt; Maybe Natural
-</span><a href="#local-6989586621679435119"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679435119"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435118"><span class="annot"><span class="annottext">s :: GameSessionConnectionInfo
-</span><a href="#local-6989586621679435118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435117"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679435117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GameSessionConnectionInfo
-</span><a href="#local-6989586621679435118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:GameSessionConnectionInfo' :: Maybe Natural
-</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3Aport%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679435117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | The DNS identifier assigned to the instance that is running the game</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- session. Values have the following format:</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- -   TLS-enabled fleets:</span><span>
-</span><span id="line-129"></span><span class="hs-comment">--     @\&lt;unique identifier&gt;.\&lt;region identifier&gt;.amazongamelift.com@.</span><span>
-</span><span id="line-130"></span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- -   Non-TLS-enabled fleets:</span><span>
-</span><span id="line-132"></span><span class="hs-comment">--     @ec2-\&lt;unique identifier&gt;.compute.amazonaws.com@. (See</span><span>
-</span><span id="line-133"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing&gt;.)</span><span>
-</span><span id="line-134"></span><span class="hs-comment">--</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- When connecting to a game session that is running on a TLS-enabled</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- fleet, you must use the DNS name, not the IP address.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#gameSessionConnectionInfo_dnsName"><span class="hs-identifier hs-type">gameSessionConnectionInfo_dnsName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="gameSessionConnectionInfo_dnsName"><span class="annot"><span class="annottext">gameSessionConnectionInfo_dnsName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435575"><span class="annot"><span class="annottext">Maybe Text
+ipAddress :: Maybe Text
+$sel:ipAddress:GameSessionConnectionInfo' :: GameSessionConnectionInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679435575"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679435575"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435574"><span class="annot"><span class="annottext">s :: GameSessionConnectionInfo
+</span><a href="#local-6989586621679435574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435573"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679435573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GameSessionConnectionInfo
+</span><a href="#local-6989586621679435574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:GameSessionConnectionInfo' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AipAddress%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679435573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | A unique identifier for the game session. Use the game session ID.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#gameSessionConnectionInfo_gameSessionArn"><span class="hs-identifier hs-type">gameSessionConnectionInfo_gameSessionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="gameSessionConnectionInfo_gameSessionArn"><span class="annot"><span class="annottext">gameSessionConnectionInfo_gameSessionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GameSessionConnectionInfo -&gt; f GameSessionConnectionInfo
+</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#gameSessionConnectionInfo_gameSessionArn"><span class="hs-identifier hs-var hs-var">gameSessionConnectionInfo_gameSessionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GameSessionConnectionInfo -&gt; Maybe Text)
+-&gt; (GameSessionConnectionInfo
+    -&gt; Maybe Text -&gt; GameSessionConnectionInfo)
+-&gt; Lens
+     GameSessionConnectionInfo
+     GameSessionConnectionInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435571"><span class="annot"><span class="annottext">Maybe Text
+gameSessionArn :: Maybe Text
+$sel:gameSessionArn:GameSessionConnectionInfo' :: GameSessionConnectionInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679435571"><span class="hs-identifier hs-var hs-var">gameSessionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679435571"><span class="hs-identifier hs-var">gameSessionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435570"><span class="annot"><span class="annottext">s :: GameSessionConnectionInfo
+</span><a href="#local-6989586621679435570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435569"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679435569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GameSessionConnectionInfo
+</span><a href="#local-6989586621679435570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionArn:GameSessionConnectionInfo' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AgameSessionArn%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var">gameSessionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679435569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The DNS identifier assigned to the instance that is running the game</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- session. Values have the following format:</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- -   TLS-enabled fleets:</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--     @\&lt;unique identifier&gt;.\&lt;region identifier&gt;.amazongamelift.com@.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   Non-TLS-enabled fleets:</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--     @ec2-\&lt;unique identifier&gt;.compute.amazonaws.com@. (See</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses Amazon EC2 Instance IP Addressing&gt;.)</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- When connecting to a game session that is running on a TLS-enabled</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- fleet, you must use the DNS name, not the IP address.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#gameSessionConnectionInfo_dnsName"><span class="hs-identifier hs-type">gameSessionConnectionInfo_dnsName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="gameSessionConnectionInfo_dnsName"><span class="annot"><span class="annottext">gameSessionConnectionInfo_dnsName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GameSessionConnectionInfo -&gt; f GameSessionConnectionInfo
 </span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#gameSessionConnectionInfo_dnsName"><span class="hs-identifier hs-var hs-var">gameSessionConnectionInfo_dnsName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GameSessionConnectionInfo -&gt; Maybe Text)
 -&gt; (GameSessionConnectionInfo
@@ -342,19 +317,44 @@ $sel:port:GameSessionConnectionInfo' :: GameSessionConnectionInfo -&gt; Maybe Na
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435115"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435567"><span class="annot"><span class="annottext">Maybe Text
 dnsName :: Maybe Text
 $sel:dnsName:GameSessionConnectionInfo' :: GameSessionConnectionInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679435115"><span class="hs-identifier hs-var hs-var">dnsName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679435115"><span class="hs-identifier hs-var">dnsName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435114"><span class="annot"><span class="annottext">s :: GameSessionConnectionInfo
-</span><a href="#local-6989586621679435114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435113"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679435113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GameSessionConnectionInfo
-</span><a href="#local-6989586621679435114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsName:GameSessionConnectionInfo' :: Maybe Text
+</span><a href="#local-6989586621679435567"><span class="hs-identifier hs-var hs-var">dnsName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679435567"><span class="hs-identifier hs-var">dnsName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435566"><span class="annot"><span class="annottext">s :: GameSessionConnectionInfo
+</span><a href="#local-6989586621679435566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435565"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679435565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GameSessionConnectionInfo
+</span><a href="#local-6989586621679435566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsName:GameSessionConnectionInfo' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3AdnsName%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var">dnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679435113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679435565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The port number for the game session. To connect to a GameLift game</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- server, an app needs both the IP address and port number.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#gameSessionConnectionInfo_port"><span class="hs-identifier hs-type">gameSessionConnectionInfo_port</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="gameSessionConnectionInfo_port"><span class="annot"><span class="annottext">gameSessionConnectionInfo_port :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GameSessionConnectionInfo -&gt; f GameSessionConnectionInfo
+</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#gameSessionConnectionInfo_port"><span class="hs-identifier hs-var hs-var">gameSessionConnectionInfo_port</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GameSessionConnectionInfo -&gt; Maybe Natural)
+-&gt; (GameSessionConnectionInfo
+    -&gt; Maybe Natural -&gt; GameSessionConnectionInfo)
+-&gt; Lens
+     GameSessionConnectionInfo
+     GameSessionConnectionInfo
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435563"><span class="annot"><span class="annottext">Maybe Natural
+port :: Maybe Natural
+$sel:port:GameSessionConnectionInfo' :: GameSessionConnectionInfo -&gt; Maybe Natural
+</span><a href="#local-6989586621679435563"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679435563"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435562"><span class="annot"><span class="annottext">s :: GameSessionConnectionInfo
+</span><a href="#local-6989586621679435562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-type">GameSessionConnectionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435561"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679435561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GameSessionConnectionInfo
+</span><a href="#local-6989586621679435562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:GameSessionConnectionInfo' :: Maybe Natural
+</span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#%24sel%3Aport%3AGameSessionConnectionInfo%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679435561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435110"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679435108"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GameSessionConnectionInfo
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435558"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679435556"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GameSessionConnectionInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser GameSessionConnectionInfo)
@@ -364,90 +364,90 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;GameSessionConnectionInfo&quot;</span></span><span>
-</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679435105"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679435105"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679435553"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679435553"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe [MatchedPlayerSession]
 -&gt; Maybe Text
--&gt; Maybe [MatchedPlayerSession]
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Natural
--&gt; Maybe Text
 -&gt; GameSessionConnectionInfo
 </span><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo%27"><span class="hs-identifier hs-var">GameSessionConnectionInfo'</span></a></span><span>
-</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [MatchedPlayerSession]
  -&gt; Maybe Text
- -&gt; Maybe [MatchedPlayerSession]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Natural
- -&gt; Maybe Text
  -&gt; GameSessionConnectionInfo)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe [MatchedPlayerSession]
-      -&gt; Maybe Natural
-      -&gt; Maybe Text
-      -&gt; GameSessionConnectionInfo)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679435105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;GameSessionArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe [MatchedPlayerSession]
-   -&gt; Maybe Natural
-   -&gt; Maybe Text
-   -&gt; GameSessionConnectionInfo)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe [MatchedPlayerSession]
-      -&gt; Maybe Natural -&gt; Maybe Text -&gt; GameSessionConnectionInfo)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679435105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IpAddress&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [MatchedPlayerSession]
-   -&gt; Maybe Natural -&gt; Maybe Text -&gt; GameSessionConnectionInfo)
 -&gt; Parser (Maybe [MatchedPlayerSession])
 -&gt; Parser
-     (Maybe Natural -&gt; Maybe Text -&gt; GameSessionConnectionInfo)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679435105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MatchedPlayerSession]))
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; GameSessionConnectionInfo)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679435553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MatchedPlayerSession]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MatchedPlayerSessions&quot;</span></span><span>
-</span><span id="line-149"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [MatchedPlayerSession]))
+</span><span id="line-147"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [MatchedPlayerSession]))
 -&gt; Maybe [MatchedPlayerSession]
 -&gt; Parser (Maybe [MatchedPlayerSession])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MatchedPlayerSession]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-150"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Text -&gt; GameSessionConnectionInfo)
--&gt; Parser (Maybe Natural)
--&gt; Parser (Maybe Text -&gt; GameSessionConnectionInfo)
+</span><span id="line-148"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; GameSessionConnectionInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Natural -&gt; GameSessionConnectionInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679435105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679435553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Port&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; GameSessionConnectionInfo)
--&gt; Parser (Maybe Text) -&gt; Parser GameSessionConnectionInfo
+</span><span class="hs-string">&quot;IpAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Natural -&gt; GameSessionConnectionInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Natural -&gt; GameSessionConnectionInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679435105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679435553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GameSessionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Natural -&gt; GameSessionConnectionInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Natural -&gt; GameSessionConnectionInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679435553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DnsName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; GameSessionConnectionInfo)
+-&gt; Parser (Maybe Natural) -&gt; Parser GameSessionConnectionInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679435553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Port&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435098"><span id="local-6989586621679435100"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435546"><span id="local-6989586621679435548"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span></span></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435543"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionConnectionInfo.html#GameSessionConnectionInfo"><span class="hs-identifier hs-type">GameSessionConnectionInfo</span></a></span></span><span>
 </span><span id="line-158"></span></pre></body></html>

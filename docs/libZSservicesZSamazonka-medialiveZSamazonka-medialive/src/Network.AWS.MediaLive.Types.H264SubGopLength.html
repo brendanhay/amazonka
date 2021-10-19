@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | H264 Sub Gop Length</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679875317"><span id="local-6989586621679875318"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264SubGopLength"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264SubGopLength.html#H264SubGopLength"><span class="hs-identifier hs-var">H264SubGopLength</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264SubGopLength%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264SubGopLength.html#H264SubGopLength%27"><span class="hs-identifier hs-var">H264SubGopLength'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679881978"><span id="local-6989586621679881979"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264SubGopLength"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264SubGopLength.html#H264SubGopLength"><span class="hs-identifier hs-var">H264SubGopLength</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264SubGopLength%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264SubGopLength.html#H264SubGopLength%27"><span class="hs-identifier hs-var">H264SubGopLength'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264SubGopLength"><span class="annot"><span class="annottext">H264SubGopLength -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.H264SubGopLength.html#fromH264SubGopLength"><span class="hs-identifier hs-var hs-var">fromH264SubGopLength</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679875309"><span id="local-6989586621679875311"><span id="local-6989586621679875313"><span class="annot"><span class="annottext">Int -&gt; H264SubGopLength -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679881970"><span id="local-6989586621679881972"><span id="local-6989586621679881974"><span class="annot"><span class="annottext">Int -&gt; H264SubGopLength -&gt; ShowS
 [H264SubGopLength] -&gt; ShowS
 H264SubGopLength -&gt; String
 (Int -&gt; H264SubGopLength -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: H264SubGopLength -&gt; String
 showsPrec :: Int -&gt; H264SubGopLength -&gt; ShowS
 $cshowsPrec :: Int -&gt; H264SubGopLength -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679875300"><span id="local-6989586621679875302"><span id="local-6989586621679875304"><span id="local-6989586621679875306"><span class="annot"><span class="annottext">ReadPrec [H264SubGopLength]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679881961"><span id="local-6989586621679881963"><span id="local-6989586621679881965"><span id="local-6989586621679881967"><span class="annot"><span class="annottext">ReadPrec [H264SubGopLength]
 ReadPrec H264SubGopLength
 Int -&gt; ReadS H264SubGopLength
 ReadS [H264SubGopLength]
@@ -73,7 +73,7 @@ $creadList :: ReadS [H264SubGopLength]
 readsPrec :: Int -&gt; ReadS H264SubGopLength
 $creadsPrec :: Int -&gt; ReadS H264SubGopLength
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679875295"><span id="local-6989586621679875297"><span class="annot"><span class="annottext">H264SubGopLength -&gt; H264SubGopLength -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679881956"><span id="local-6989586621679881958"><span class="annot"><span class="annottext">H264SubGopLength -&gt; H264SubGopLength -&gt; Bool
 (H264SubGopLength -&gt; H264SubGopLength -&gt; Bool)
 -&gt; (H264SubGopLength -&gt; H264SubGopLength -&gt; Bool)
 -&gt; Eq H264SubGopLength
@@ -83,7 +83,7 @@ $c/= :: H264SubGopLength -&gt; H264SubGopLength -&gt; Bool
 == :: H264SubGopLength -&gt; H264SubGopLength -&gt; Bool
 $c== :: H264SubGopLength -&gt; H264SubGopLength -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679875279"><span id="local-6989586621679875281"><span id="local-6989586621679875283"><span id="local-6989586621679875285"><span id="local-6989586621679875287"><span id="local-6989586621679875289"><span id="local-6989586621679875291"><span class="annot"><span class="annottext">Eq H264SubGopLength
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679881940"><span id="local-6989586621679881942"><span id="local-6989586621679881944"><span id="local-6989586621679881946"><span id="local-6989586621679881948"><span id="local-6989586621679881950"><span id="local-6989586621679881952"><span class="annot"><span class="annottext">Eq H264SubGopLength
 Eq H264SubGopLength
 -&gt; (H264SubGopLength -&gt; H264SubGopLength -&gt; Ordering)
 -&gt; (H264SubGopLength -&gt; H264SubGopLength -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. H264SubGopLength -&gt; Rep H264SubGopLength x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679875271"><span id="local-6989586621679875273"><span class="annot"><span class="annottext">Int -&gt; H264SubGopLength -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679881932"><span id="local-6989586621679881934"><span class="annot"><span class="annottext">Int -&gt; H264SubGopLength -&gt; Int
 H264SubGopLength -&gt; Int
 (Int -&gt; H264SubGopLength -&gt; Int)
 -&gt; (H264SubGopLength -&gt; Int) -&gt; Hashable H264SubGopLength
@@ -144,51 +144,51 @@ $chash :: H264SubGopLength -&gt; Int
 hashWithSalt :: Int -&gt; H264SubGopLength -&gt; Int
 $chashWithSalt :: Int -&gt; H264SubGopLength -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679875268"><span class="annot"><span class="annottext">H264SubGopLength -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679881929"><span class="annot"><span class="annottext">H264SubGopLength -&gt; ()
 (H264SubGopLength -&gt; ()) -&gt; NFData H264SubGopLength
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H264SubGopLength -&gt; ()
 $crnf :: H264SubGopLength -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679875265"><span class="annot"><span class="annottext">Text -&gt; Either String H264SubGopLength
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679881926"><span class="annot"><span class="annottext">Text -&gt; Either String H264SubGopLength
 (Text -&gt; Either String H264SubGopLength)
 -&gt; FromText H264SubGopLength
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H264SubGopLength
 $cfromText :: Text -&gt; Either String H264SubGopLength
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679875262"><span class="annot"><span class="annottext">H264SubGopLength -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679881923"><span class="annot"><span class="annottext">H264SubGopLength -&gt; Text
 (H264SubGopLength -&gt; Text) -&gt; ToText H264SubGopLength
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H264SubGopLength -&gt; Text
 $ctoText :: H264SubGopLength -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679875259"><span class="annot"><span class="annottext">H264SubGopLength -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679881920"><span class="annot"><span class="annottext">H264SubGopLength -&gt; ByteString
 (H264SubGopLength -&gt; ByteString) -&gt; ToByteString H264SubGopLength
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H264SubGopLength -&gt; ByteString
 $ctoBS :: H264SubGopLength -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679875256"><span class="annot"><span class="annottext">H264SubGopLength -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679881917"><span class="annot"><span class="annottext">H264SubGopLength -&gt; ByteStringBuilder
 (H264SubGopLength -&gt; ByteStringBuilder) -&gt; ToLog H264SubGopLength
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H264SubGopLength -&gt; ByteStringBuilder
 $cbuild :: H264SubGopLength -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679875253"><span class="annot"><span class="annottext">HeaderName -&gt; H264SubGopLength -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679881914"><span class="annot"><span class="annottext">HeaderName -&gt; H264SubGopLength -&gt; [Header]
 (HeaderName -&gt; H264SubGopLength -&gt; [Header])
 -&gt; ToHeader H264SubGopLength
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H264SubGopLength -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H264SubGopLength -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679875250"><span class="annot"><span class="annottext">H264SubGopLength -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679881911"><span class="annot"><span class="annottext">H264SubGopLength -&gt; QueryString
 (H264SubGopLength -&gt; QueryString) -&gt; ToQuery H264SubGopLength
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H264SubGopLength -&gt; QueryString
 $ctoQuery :: H264SubGopLength -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679875245"><span id="local-6989586621679875247"><span class="annot"><span class="annottext">Value -&gt; Parser [H264SubGopLength]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679881906"><span id="local-6989586621679881908"><span class="annot"><span class="annottext">Value -&gt; Parser [H264SubGopLength]
 Value -&gt; Parser H264SubGopLength
 (Value -&gt; Parser H264SubGopLength)
 -&gt; (Value -&gt; Parser [H264SubGopLength])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [H264SubGopLength]
 parseJSON :: Value -&gt; Parser H264SubGopLength
 $cparseJSON :: Value -&gt; Parser H264SubGopLength
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679875240"><span id="local-6989586621679875242"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264SubGopLength]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679881901"><span id="local-6989586621679881903"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264SubGopLength]
 FromJSONKeyFunction H264SubGopLength
 FromJSONKeyFunction H264SubGopLength
 -&gt; FromJSONKeyFunction [H264SubGopLength]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H264SubGopLength]
 fromJSONKey :: FromJSONKeyFunction H264SubGopLength
 $cfromJSONKey :: FromJSONKeyFunction H264SubGopLength
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679875231"><span id="local-6989586621679875233"><span id="local-6989586621679875235"><span id="local-6989586621679875237"><span class="annot"><span class="annottext">[H264SubGopLength] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679881892"><span id="local-6989586621679881894"><span id="local-6989586621679881896"><span id="local-6989586621679881898"><span class="annot"><span class="annottext">[H264SubGopLength] -&gt; Encoding
 [H264SubGopLength] -&gt; Value
 H264SubGopLength -&gt; Encoding
 H264SubGopLength -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: H264SubGopLength -&gt; Encoding
 toJSON :: H264SubGopLength -&gt; Value
 $ctoJSON :: H264SubGopLength -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679875226"><span id="local-6989586621679875228"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264SubGopLength]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679881887"><span id="local-6989586621679881889"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264SubGopLength]
 ToJSONKeyFunction H264SubGopLength
 ToJSONKeyFunction H264SubGopLength
 -&gt; ToJSONKeyFunction [H264SubGopLength]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H264SubGopLength]
 toJSONKey :: ToJSONKeyFunction H264SubGopLength
 $ctoJSONKey :: ToJSONKeyFunction H264SubGopLength
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679875223"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264SubGopLength
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679881884"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264SubGopLength
 ([Node] -&gt; Either String H264SubGopLength)
 -&gt; FromXML H264SubGopLength
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H264SubGopLength
 $cparseXML :: [Node] -&gt; Either String H264SubGopLength
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679875220"><span class="annot"><span class="annottext">H264SubGopLength -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679881881"><span class="annot"><span class="annottext">H264SubGopLength -&gt; XML
 (H264SubGopLength -&gt; XML) -&gt; ToXML H264SubGopLength
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H264SubGopLength -&gt; XML

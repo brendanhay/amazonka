@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679402618"><span id="local-6989586621679402619"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OutpostMode"><span class="annot"><a href="Network.AWS.ElastiCache.Types.OutpostMode.html#OutpostMode"><span class="hs-identifier hs-var">OutpostMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutpostMode%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.OutpostMode.html#OutpostMode%27"><span class="hs-identifier hs-var">OutpostMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679403143"><span id="local-6989586621679403144"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OutpostMode"><span class="annot"><a href="Network.AWS.ElastiCache.Types.OutpostMode.html#OutpostMode"><span class="hs-identifier hs-var">OutpostMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutpostMode%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.OutpostMode.html#OutpostMode%27"><span class="hs-identifier hs-var">OutpostMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOutpostMode"><span class="annot"><span class="annottext">OutpostMode -&gt; Text
 </span><a href="Network.AWS.ElastiCache.Types.OutpostMode.html#fromOutpostMode"><span class="hs-identifier hs-var hs-var">fromOutpostMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679402610"><span id="local-6989586621679402612"><span id="local-6989586621679402614"><span class="annot"><span class="annottext">Int -&gt; OutpostMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679403135"><span id="local-6989586621679403137"><span id="local-6989586621679403139"><span class="annot"><span class="annottext">Int -&gt; OutpostMode -&gt; ShowS
 [OutpostMode] -&gt; ShowS
 OutpostMode -&gt; String
 (Int -&gt; OutpostMode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: OutpostMode -&gt; String
 showsPrec :: Int -&gt; OutpostMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; OutpostMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679402601"><span id="local-6989586621679402603"><span id="local-6989586621679402605"><span id="local-6989586621679402607"><span class="annot"><span class="annottext">ReadPrec [OutpostMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679403126"><span id="local-6989586621679403128"><span id="local-6989586621679403130"><span id="local-6989586621679403132"><span class="annot"><span class="annottext">ReadPrec [OutpostMode]
 ReadPrec OutpostMode
 Int -&gt; ReadS OutpostMode
 ReadS [OutpostMode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [OutpostMode]
 readsPrec :: Int -&gt; ReadS OutpostMode
 $creadsPrec :: Int -&gt; ReadS OutpostMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679402596"><span id="local-6989586621679402598"><span class="annot"><span class="annottext">OutpostMode -&gt; OutpostMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679403121"><span id="local-6989586621679403123"><span class="annot"><span class="annottext">OutpostMode -&gt; OutpostMode -&gt; Bool
 (OutpostMode -&gt; OutpostMode -&gt; Bool)
 -&gt; (OutpostMode -&gt; OutpostMode -&gt; Bool) -&gt; Eq OutpostMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: OutpostMode -&gt; OutpostMode -&gt; Bool
 == :: OutpostMode -&gt; OutpostMode -&gt; Bool
 $c== :: OutpostMode -&gt; OutpostMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679402580"><span id="local-6989586621679402582"><span id="local-6989586621679402584"><span id="local-6989586621679402586"><span id="local-6989586621679402588"><span id="local-6989586621679402590"><span id="local-6989586621679402592"><span class="annot"><span class="annottext">Eq OutpostMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679403105"><span id="local-6989586621679403107"><span id="local-6989586621679403109"><span id="local-6989586621679403111"><span id="local-6989586621679403113"><span id="local-6989586621679403115"><span id="local-6989586621679403117"><span class="annot"><span class="annottext">Eq OutpostMode
 Eq OutpostMode
 -&gt; (OutpostMode -&gt; OutpostMode -&gt; Ordering)
 -&gt; (OutpostMode -&gt; OutpostMode -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. OutpostMode -&gt; Rep OutpostMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679402572"><span id="local-6989586621679402574"><span class="annot"><span class="annottext">Int -&gt; OutpostMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679403097"><span id="local-6989586621679403099"><span class="annot"><span class="annottext">Int -&gt; OutpostMode -&gt; Int
 OutpostMode -&gt; Int
 (Int -&gt; OutpostMode -&gt; Int)
 -&gt; (OutpostMode -&gt; Int) -&gt; Hashable OutpostMode
@@ -142,49 +142,49 @@ $chash :: OutpostMode -&gt; Int
 hashWithSalt :: Int -&gt; OutpostMode -&gt; Int
 $chashWithSalt :: Int -&gt; OutpostMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679402569"><span class="annot"><span class="annottext">OutpostMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679403094"><span class="annot"><span class="annottext">OutpostMode -&gt; ()
 (OutpostMode -&gt; ()) -&gt; NFData OutpostMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OutpostMode -&gt; ()
 $crnf :: OutpostMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679402566"><span class="annot"><span class="annottext">Text -&gt; Either String OutpostMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679403091"><span class="annot"><span class="annottext">Text -&gt; Either String OutpostMode
 (Text -&gt; Either String OutpostMode) -&gt; FromText OutpostMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OutpostMode
 $cfromText :: Text -&gt; Either String OutpostMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679402563"><span class="annot"><span class="annottext">OutpostMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679403088"><span class="annot"><span class="annottext">OutpostMode -&gt; Text
 (OutpostMode -&gt; Text) -&gt; ToText OutpostMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OutpostMode -&gt; Text
 $ctoText :: OutpostMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679402560"><span class="annot"><span class="annottext">OutpostMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679403085"><span class="annot"><span class="annottext">OutpostMode -&gt; ByteString
 (OutpostMode -&gt; ByteString) -&gt; ToByteString OutpostMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OutpostMode -&gt; ByteString
 $ctoBS :: OutpostMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679402557"><span class="annot"><span class="annottext">OutpostMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679403082"><span class="annot"><span class="annottext">OutpostMode -&gt; ByteStringBuilder
 (OutpostMode -&gt; ByteStringBuilder) -&gt; ToLog OutpostMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OutpostMode -&gt; ByteStringBuilder
 $cbuild :: OutpostMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679402554"><span class="annot"><span class="annottext">HeaderName -&gt; OutpostMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679403079"><span class="annot"><span class="annottext">HeaderName -&gt; OutpostMode -&gt; [Header]
 (HeaderName -&gt; OutpostMode -&gt; [Header]) -&gt; ToHeader OutpostMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OutpostMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OutpostMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679402551"><span class="annot"><span class="annottext">OutpostMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679403076"><span class="annot"><span class="annottext">OutpostMode -&gt; QueryString
 (OutpostMode -&gt; QueryString) -&gt; ToQuery OutpostMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OutpostMode -&gt; QueryString
 $ctoQuery :: OutpostMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679402546"><span id="local-6989586621679402548"><span class="annot"><span class="annottext">Value -&gt; Parser [OutpostMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679403071"><span id="local-6989586621679403073"><span class="annot"><span class="annottext">Value -&gt; Parser [OutpostMode]
 Value -&gt; Parser OutpostMode
 (Value -&gt; Parser OutpostMode)
 -&gt; (Value -&gt; Parser [OutpostMode]) -&gt; FromJSON OutpostMode
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [OutpostMode]
 parseJSON :: Value -&gt; Parser OutpostMode
 $cparseJSON :: Value -&gt; Parser OutpostMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679402541"><span id="local-6989586621679402543"><span class="annot"><span class="annottext">FromJSONKeyFunction [OutpostMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679403066"><span id="local-6989586621679403068"><span class="annot"><span class="annottext">FromJSONKeyFunction [OutpostMode]
 FromJSONKeyFunction OutpostMode
 FromJSONKeyFunction OutpostMode
 -&gt; FromJSONKeyFunction [OutpostMode] -&gt; FromJSONKey OutpostMode
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OutpostMode]
 fromJSONKey :: FromJSONKeyFunction OutpostMode
 $cfromJSONKey :: FromJSONKeyFunction OutpostMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679402532"><span id="local-6989586621679402534"><span id="local-6989586621679402536"><span id="local-6989586621679402538"><span class="annot"><span class="annottext">[OutpostMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679403057"><span id="local-6989586621679403059"><span id="local-6989586621679403061"><span id="local-6989586621679403063"><span class="annot"><span class="annottext">[OutpostMode] -&gt; Encoding
 [OutpostMode] -&gt; Value
 OutpostMode -&gt; Encoding
 OutpostMode -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: OutpostMode -&gt; Encoding
 toJSON :: OutpostMode -&gt; Value
 $ctoJSON :: OutpostMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679402527"><span id="local-6989586621679402529"><span class="annot"><span class="annottext">ToJSONKeyFunction [OutpostMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679403052"><span id="local-6989586621679403054"><span class="annot"><span class="annottext">ToJSONKeyFunction [OutpostMode]
 ToJSONKeyFunction OutpostMode
 ToJSONKeyFunction OutpostMode
 -&gt; ToJSONKeyFunction [OutpostMode] -&gt; ToJSONKey OutpostMode
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OutpostMode]
 toJSONKey :: ToJSONKeyFunction OutpostMode
 $ctoJSONKey :: ToJSONKeyFunction OutpostMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679402524"><span class="annot"><span class="annottext">[Node] -&gt; Either String OutpostMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679403049"><span class="annot"><span class="annottext">[Node] -&gt; Either String OutpostMode
 ([Node] -&gt; Either String OutpostMode) -&gt; FromXML OutpostMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OutpostMode
 $cparseXML :: [Node] -&gt; Either String OutpostMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679402521"><span class="annot"><span class="annottext">OutpostMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679403046"><span class="annot"><span class="annottext">OutpostMode -&gt; XML
 (OutpostMode -&gt; XML) -&gt; ToXML OutpostMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: OutpostMode -&gt; XML

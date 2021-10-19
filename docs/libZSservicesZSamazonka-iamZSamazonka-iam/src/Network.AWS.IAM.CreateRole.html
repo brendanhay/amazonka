@@ -34,10 +34,10 @@
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRole_maxSessionDuration"><span class="hs-identifier">createRole_maxSessionDuration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRole_permissionsBoundary"><span class="hs-identifier">createRole_permissionsBoundary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRole_tags"><span class="hs-identifier">createRole_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRole_path"><span class="hs-identifier">createRole_path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRole_permissionsBoundary"><span class="hs-identifier">createRole_permissionsBoundary</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRole_description"><span class="hs-identifier">createRole_description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRole_path"><span class="hs-identifier">createRole_path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRole_tags"><span class="hs-identifier">createRole_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRole_roleName"><span class="hs-identifier">createRole_roleName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRole_assumeRolePolicyDocument"><span class="hs-identifier">createRole_assumeRolePolicyDocument</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newCreateRole' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679458284"><span id="local-6989586621679458285"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRole"><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-var">CreateRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRole%27"><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-var">CreateRole'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679458914"><span id="local-6989586621679458915"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRole"><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-var">CreateRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRole%27"><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-var">CreateRole'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum session duration (in seconds) that you want to set for the</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- specified role. If you do not specify a value for this setting, the</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- default maximum of one hour is applied. This setting can have a value</span><span>
@@ -78,40 +78,40 @@
 </span><span id="line-78"></span><span>    </span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3AmaxSessionDuration%3ACreateRole%27"><span class="annot"><span class="annottext">CreateRole -&gt; Maybe Natural
 </span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3AmaxSessionDuration%3ACreateRole%27"><span class="hs-identifier hs-var hs-var">maxSessionDuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The ARN of the policy that is used to set the permissions boundary for</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- the role.</span><span>
-</span><span id="line-82"></span><span>    </span><span id="%24sel%3ApermissionsBoundary%3ACreateRole%27"><span class="annot"><span class="annottext">CreateRole -&gt; Maybe Text
-</span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3ApermissionsBoundary%3ACreateRole%27"><span class="hs-identifier hs-var hs-var">permissionsBoundary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | A list of tags that you want to attach to the new role. Each tag</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- consists of a key name and an associated value. For more information</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- about tagging, see</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- If any one of the tags is invalid or if you exceed the allowed maximum</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- number of tags, then the entire request fails and the resource is not</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- created.</span><span>
-</span><span id="line-92"></span><span>    </span><span id="%24sel%3Atags%3ACreateRole%27"><span class="annot"><span class="annottext">CreateRole -&gt; Maybe [Tag]
-</span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3Atags%3ACreateRole%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | A description of the role.</span><span>
-</span><span id="line-94"></span><span>    </span><span id="%24sel%3Adescription%3ACreateRole%27"><span class="annot"><span class="annottext">CreateRole -&gt; Maybe Text
-</span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3Adescription%3ACreateRole%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The path to the role. For more information about paths, see</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers&gt;</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- This parameter is optional. If it is not included, it defaults to a</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- slash (\/).</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- consisting of either a forward slash (\/) by itself or a string that</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- must begin and end with forward slashes. In addition, it can contain any</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- ASCII character from the ! (@\\u0021@) through the DEL character</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- (@\\u007F@), including most punctuation characters, digits, and upper</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- and lowercased letters.</span><span>
-</span><span id="line-109"></span><span>    </span><span id="%24sel%3Apath%3ACreateRole%27"><span class="annot"><span class="annottext">CreateRole -&gt; Maybe Text
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The path to the role. For more information about paths, see</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers&gt;</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- This parameter is optional. If it is not included, it defaults to a</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- slash (\/).</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- consisting of either a forward slash (\/) by itself or a string that</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- must begin and end with forward slashes. In addition, it can contain any</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- ASCII character from the ! (@\\u0021@) through the DEL character</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- (@\\u007F@), including most punctuation characters, digits, and upper</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- and lowercased letters.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3Apath%3ACreateRole%27"><span class="annot"><span class="annottext">CreateRole -&gt; Maybe Text
 </span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3Apath%3ACreateRole%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The ARN of the policy that is used to set the permissions boundary for</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- the role.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3ApermissionsBoundary%3ACreateRole%27"><span class="annot"><span class="annottext">CreateRole -&gt; Maybe Text
+</span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3ApermissionsBoundary%3ACreateRole%27"><span class="hs-identifier hs-var hs-var">permissionsBoundary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | A description of the role.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3Adescription%3ACreateRole%27"><span class="annot"><span class="annottext">CreateRole -&gt; Maybe Text
+</span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3Adescription%3ACreateRole%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | A list of tags that you want to attach to the new role. Each tag</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- consists of a key name and an associated value. For more information</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- about tagging, see</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- If any one of the tags is invalid or if you exceed the allowed maximum</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- number of tags, then the entire request fails and the resource is not</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3Atags%3ACreateRole%27"><span class="annot"><span class="annottext">CreateRole -&gt; Maybe [Tag]
+</span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3Atags%3ACreateRole%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The name of the role to create.</span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-comment">-- IAM user, group, role, and policy names must be unique within the</span><span>
@@ -144,7 +144,7 @@
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3AassumeRolePolicyDocument%3ACreateRole%27"><span class="annot"><span class="annottext">CreateRole -&gt; Text
 </span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3AassumeRolePolicyDocument%3ACreateRole%27"><span class="hs-identifier hs-var hs-var">assumeRolePolicyDocument</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679458272"><span id="local-6989586621679458274"><span class="annot"><span class="annottext">CreateRole -&gt; CreateRole -&gt; Bool
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679458902"><span id="local-6989586621679458904"><span class="annot"><span class="annottext">CreateRole -&gt; CreateRole -&gt; Bool
 (CreateRole -&gt; CreateRole -&gt; Bool)
 -&gt; (CreateRole -&gt; CreateRole -&gt; Bool) -&gt; Eq CreateRole
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -152,7 +152,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateRole -&gt; CreateRole -&gt; Bool
 == :: CreateRole -&gt; CreateRole -&gt; Bool
 $c== :: CreateRole -&gt; CreateRole -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458263"><span id="local-6989586621679458265"><span id="local-6989586621679458267"><span id="local-6989586621679458269"><span class="annot"><span class="annottext">ReadPrec [CreateRole]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458893"><span id="local-6989586621679458895"><span id="local-6989586621679458897"><span id="local-6989586621679458899"><span class="annot"><span class="annottext">ReadPrec [CreateRole]
 ReadPrec CreateRole
 Int -&gt; ReadS CreateRole
 ReadS [CreateRole]
@@ -172,7 +172,7 @@ readList :: ReadS [CreateRole]
 $creadList :: ReadS [CreateRole]
 readsPrec :: Int -&gt; ReadS CreateRole
 $creadsPrec :: Int -&gt; ReadS CreateRole
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458256"><span id="local-6989586621679458258"><span id="local-6989586621679458260"><span class="annot"><span class="annottext">Int -&gt; CreateRole -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458886"><span id="local-6989586621679458888"><span id="local-6989586621679458890"><span class="annot"><span class="annottext">Int -&gt; CreateRole -&gt; ShowS
 [CreateRole] -&gt; ShowS
 CreateRole -&gt; String
 (Int -&gt; CreateRole -&gt; ShowS)
@@ -222,35 +222,35 @@ $cfrom :: forall x. CreateRole -&gt; Rep CreateRole x
 </span><span id="line-164"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html Using IAM roles&gt;</span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
 </span><span id="line-166"></span><span class="hs-comment">--</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- 'permissionsBoundary', 'createRole_permissionsBoundary' - The ARN of the policy that is used to set the permissions boundary for</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- the role.</span><span>
-</span><span id="line-169"></span><span class="hs-comment">--</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- 'tags', 'createRole_tags' - A list of tags that you want to attach to the new role. Each tag</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- consists of a key name and an associated value. For more information</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- about tagging, see</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
-</span><span id="line-175"></span><span class="hs-comment">--</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- If any one of the tags is invalid or if you exceed the allowed maximum</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- number of tags, then the entire request fails and the resource is not</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- created.</span><span>
-</span><span id="line-179"></span><span class="hs-comment">--</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- 'description', 'createRole_description' - A description of the role.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'path', 'createRole_path' - The path to the role. For more information about paths, see</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers&gt;</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- This parameter is optional. If it is not included, it defaults to a</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- slash (\/).</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- consisting of either a forward slash (\/) by itself or a string that</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- must begin and end with forward slashes. In addition, it can contain any</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- ASCII character from the ! (@\\u0021@) through the DEL character</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- (@\\u007F@), including most punctuation characters, digits, and upper</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- and lowercased letters.</span><span>
 </span><span id="line-181"></span><span class="hs-comment">--</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- 'path', 'createRole_path' - The path to the role. For more information about paths, see</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers&gt;</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
-</span><span id="line-185"></span><span class="hs-comment">--</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- This parameter is optional. If it is not included, it defaults to a</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- slash (\/).</span><span>
-</span><span id="line-188"></span><span class="hs-comment">--</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- This parameter allows (through its</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- consisting of either a forward slash (\/) by itself or a string that</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- must begin and end with forward slashes. In addition, it can contain any</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- ASCII character from the ! (@\\u0021@) through the DEL character</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- (@\\u007F@), including most punctuation characters, digits, and upper</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- and lowercased letters.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'permissionsBoundary', 'createRole_permissionsBoundary' - The ARN of the policy that is used to set the permissions boundary for</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- the role.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'description', 'createRole_description' - A description of the role.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'tags', 'createRole_tags' - A list of tags that you want to attach to the new role. Each tag</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- consists of a key name and an associated value. For more information</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- about tagging, see</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- If any one of the tags is invalid or if you exceed the allowed maximum</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- number of tags, then the entire request fails and the resource is not</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- created.</span><span>
 </span><span id="line-196"></span><span class="hs-comment">--</span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- 'roleName', 'createRole_roleName' - The name of the role to create.</span><span>
 </span><span id="line-198"></span><span class="hs-comment">--</span><span>
@@ -287,14 +287,14 @@ $cfrom :: forall x. CreateRole -&gt; Rep CreateRole x
 </span><span id="line-229"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-230"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span>
 </span><span id="line-231"></span><span id="newCreateRole"><span class="annot"><span class="annottext">newCreateRole :: Text -&gt; Text -&gt; CreateRole
-</span><a href="Network.AWS.IAM.CreateRole.html#newCreateRole"><span class="hs-identifier hs-var hs-var">newCreateRole</span></a></span></span><span> </span><span id="local-6989586621679458251"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458251"><span class="hs-identifier hs-var">pRoleName_</span></a></span></span><span> </span><span id="local-6989586621679458250"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458250"><span class="hs-identifier hs-var">pAssumeRolePolicyDocument_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.CreateRole.html#newCreateRole"><span class="hs-identifier hs-var hs-var">newCreateRole</span></a></span></span><span> </span><span id="local-6989586621679458881"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458881"><span class="hs-identifier hs-var">pRoleName_</span></a></span></span><span> </span><span id="local-6989586621679458880"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458880"><span class="hs-identifier hs-var">pAssumeRolePolicyDocument_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-232"></span><span>  </span><span class="annot"><span class="annottext">CreateRole' :: Maybe Natural
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe [Tag]
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Text
 -&gt; Text
 -&gt; CreateRole
@@ -303,29 +303,29 @@ $cfrom :: forall x. CreateRole -&gt; Rep CreateRole x
 </span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3AmaxSessionDuration%3ACreateRole%27"><span class="hs-identifier hs-var">maxSessionDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:permissionsBoundary:CreateRole' :: Maybe Text
-</span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3ApermissionsBoundary%3ACreateRole%27"><span class="hs-identifier hs-var">permissionsBoundary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:path:CreateRole' :: Maybe Text
+</span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3Apath%3ACreateRole%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateRole' :: Maybe [Tag]
-</span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3Atags%3ACreateRole%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:permissionsBoundary:CreateRole' :: Maybe Text
+</span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3ApermissionsBoundary%3ACreateRole%27"><span class="hs-identifier hs-var">permissionsBoundary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateRole' :: Maybe Text
 </span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3Adescription%3ACreateRole%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:path:CreateRole' :: Maybe Text
-</span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3Apath%3ACreateRole%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateRole' :: Maybe [Tag]
+</span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3Atags%3ACreateRole%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleName:CreateRole' :: Text
 </span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3AroleName%3ACreateRole%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458251"><span class="hs-identifier hs-var">pRoleName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679458881"><span class="hs-identifier hs-var">pRoleName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-239"></span><span>      </span><span class="annot"><span class="annottext">$sel:assumeRolePolicyDocument:CreateRole' :: Text
 </span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3AassumeRolePolicyDocument%3ACreateRole%27"><span class="hs-identifier hs-var">assumeRolePolicyDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458250"><span class="hs-identifier hs-var">pAssumeRolePolicyDocument_</span></a></span><span>
+</span><a href="#local-6989586621679458880"><span class="hs-identifier hs-var">pAssumeRolePolicyDocument_</span></a></span><span>
 </span><span id="line-241"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-242"></span><span>
 </span><span id="line-243"></span><span class="hs-comment">-- | The maximum session duration (in seconds) that you want to set for the</span><span>
@@ -350,61 +350,110 @@ forall a. Maybe a
 -&gt; (CreateRole -&gt; Maybe Natural -&gt; CreateRole)
 -&gt; Lens CreateRole CreateRole (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458247"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458877"><span class="annot"><span class="annottext">Maybe Natural
 maxSessionDuration :: Maybe Natural
 $sel:maxSessionDuration:CreateRole' :: CreateRole -&gt; Maybe Natural
-</span><a href="#local-6989586621679458247"><span class="hs-identifier hs-var hs-var">maxSessionDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679458247"><span class="hs-identifier hs-var">maxSessionDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458246"><span class="annot"><span class="annottext">s :: CreateRole
-</span><a href="#local-6989586621679458246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458245"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679458245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRole
-</span><a href="#local-6989586621679458246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSessionDuration:CreateRole' :: Maybe Natural
+</span><a href="#local-6989586621679458877"><span class="hs-identifier hs-var hs-var">maxSessionDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679458877"><span class="hs-identifier hs-var">maxSessionDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458876"><span class="annot"><span class="annottext">s :: CreateRole
+</span><a href="#local-6989586621679458876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458875"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679458875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRole
+</span><a href="#local-6989586621679458876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSessionDuration:CreateRole' :: Maybe Natural
 </span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3AmaxSessionDuration%3ACreateRole%27"><span class="hs-identifier hs-var">maxSessionDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679458245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- | The ARN of the policy that is used to set the permissions boundary for</span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- the role.</span><span>
-</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRole_permissionsBoundary"><span class="hs-identifier hs-type">createRole_permissionsBoundary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-265"></span><span id="createRole_permissionsBoundary"><span class="annot"><span class="annottext">createRole_permissionsBoundary :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRole -&gt; f CreateRole
+</span><span id="line-262"></span><span class="hs-comment">-- | The path to the role. For more information about paths, see</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers&gt;</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- This parameter is optional. If it is not included, it defaults to a</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- slash (\/).</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- consisting of either a forward slash (\/) by itself or a string that</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- must begin and end with forward slashes. In addition, it can contain any</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- ASCII character from the ! (@\\u0021@) through the DEL character</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- (@\\u007F@), including most punctuation characters, digits, and upper</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- and lowercased letters.</span><span>
+</span><span id="line-276"></span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRole_path"><span class="hs-identifier hs-type">createRole_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span id="createRole_path"><span class="annot"><span class="annottext">createRole_path :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRole -&gt; f CreateRole
+</span><a href="Network.AWS.IAM.CreateRole.html#createRole_path"><span class="hs-identifier hs-var hs-var">createRole_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRole -&gt; Maybe Text)
+-&gt; (CreateRole -&gt; Maybe Text -&gt; CreateRole)
+-&gt; Lens CreateRole CreateRole (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458874"><span class="annot"><span class="annottext">Maybe Text
+path :: Maybe Text
+$sel:path:CreateRole' :: CreateRole -&gt; Maybe Text
+</span><a href="#local-6989586621679458874"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679458874"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458873"><span class="annot"><span class="annottext">s :: CreateRole
+</span><a href="#local-6989586621679458873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458872"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679458872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRole
+</span><a href="#local-6989586621679458873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:CreateRole' :: Maybe Text
+</span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3Apath%3ACreateRole%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679458872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- | The ARN of the policy that is used to set the permissions boundary for</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- the role.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRole_permissionsBoundary"><span class="hs-identifier hs-type">createRole_permissionsBoundary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span id="createRole_permissionsBoundary"><span class="annot"><span class="annottext">createRole_permissionsBoundary :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRole -&gt; f CreateRole
 </span><a href="Network.AWS.IAM.CreateRole.html#createRole_permissionsBoundary"><span class="hs-identifier hs-var hs-var">createRole_permissionsBoundary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRole -&gt; Maybe Text)
 -&gt; (CreateRole -&gt; Maybe Text -&gt; CreateRole)
 -&gt; Lens CreateRole CreateRole (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458244"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458871"><span class="annot"><span class="annottext">Maybe Text
 permissionsBoundary :: Maybe Text
 $sel:permissionsBoundary:CreateRole' :: CreateRole -&gt; Maybe Text
-</span><a href="#local-6989586621679458244"><span class="hs-identifier hs-var hs-var">permissionsBoundary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679458244"><span class="hs-identifier hs-var">permissionsBoundary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458243"><span class="annot"><span class="annottext">s :: CreateRole
-</span><a href="#local-6989586621679458243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458242"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679458242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRole
-</span><a href="#local-6989586621679458243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionsBoundary:CreateRole' :: Maybe Text
+</span><a href="#local-6989586621679458871"><span class="hs-identifier hs-var hs-var">permissionsBoundary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679458871"><span class="hs-identifier hs-var">permissionsBoundary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458870"><span class="annot"><span class="annottext">s :: CreateRole
+</span><a href="#local-6989586621679458870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458869"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679458869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRole
+</span><a href="#local-6989586621679458870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissionsBoundary:CreateRole' :: Maybe Text
 </span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3ApermissionsBoundary%3ACreateRole%27"><span class="hs-identifier hs-var">permissionsBoundary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679458242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-266"></span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- | A list of tags that you want to attach to the new role. Each tag</span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- consists of a key name and an associated value. For more information</span><span>
-</span><span id="line-269"></span><span class="hs-comment">-- about tagging, see</span><span>
-</span><span id="line-270"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
-</span><span id="line-271"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
-</span><span id="line-272"></span><span class="hs-comment">--</span><span>
-</span><span id="line-273"></span><span class="hs-comment">-- If any one of the tags is invalid or if you exceed the allowed maximum</span><span>
-</span><span id="line-274"></span><span class="hs-comment">-- number of tags, then the entire request fails and the resource is not</span><span>
-</span><span id="line-275"></span><span class="hs-comment">-- created.</span><span>
-</span><span id="line-276"></span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRole_tags"><span class="hs-identifier hs-type">createRole_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-277"></span><span id="createRole_tags"><span class="annot"><span class="annottext">createRole_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateRole -&gt; f CreateRole
+</span><a href="#local-6989586621679458869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | A description of the role.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRole_description"><span class="hs-identifier hs-type">createRole_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="createRole_description"><span class="annot"><span class="annottext">createRole_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRole -&gt; f CreateRole
+</span><a href="Network.AWS.IAM.CreateRole.html#createRole_description"><span class="hs-identifier hs-var hs-var">createRole_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRole -&gt; Maybe Text)
+-&gt; (CreateRole -&gt; Maybe Text -&gt; CreateRole)
+-&gt; Lens CreateRole CreateRole (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458868"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateRole' :: CreateRole -&gt; Maybe Text
+</span><a href="#local-6989586621679458868"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679458868"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458867"><span class="annot"><span class="annottext">s :: CreateRole
+</span><a href="#local-6989586621679458867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458866"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679458866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRole
+</span><a href="#local-6989586621679458867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateRole' :: Maybe Text
+</span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3Adescription%3ACreateRole%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679458866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | A list of tags that you want to attach to the new role. Each tag</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- consists of a key name and an associated value. For more information</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- about tagging, see</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- If any one of the tags is invalid or if you exceed the allowed maximum</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- number of tags, then the entire request fails and the resource is not</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-297"></span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRole_tags"><span class="hs-identifier hs-type">createRole_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span id="createRole_tags"><span class="annot"><span class="annottext">createRole_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateRole -&gt; f CreateRole
 </span><a href="Network.AWS.IAM.CreateRole.html#createRole_tags"><span class="hs-identifier hs-var hs-var">createRole_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRole -&gt; Maybe [Tag])
 -&gt; (CreateRole -&gt; Maybe [Tag] -&gt; CreateRole)
 -&gt; Lens CreateRole CreateRole (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458241"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458865"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateRole' :: CreateRole -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679458241"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679458241"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458240"><span class="annot"><span class="annottext">s :: CreateRole
-</span><a href="#local-6989586621679458240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458239"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679458239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRole
-</span><a href="#local-6989586621679458240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateRole' :: Maybe [Tag]
+</span><a href="#local-6989586621679458865"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679458865"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458864"><span class="annot"><span class="annottext">s :: CreateRole
+</span><a href="#local-6989586621679458864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458863"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679458863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRole
+</span><a href="#local-6989586621679458864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateRole' :: Maybe [Tag]
 </span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3Atags%3ACreateRole%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679458239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateRole -&gt; f CreateRole)
+</span><a href="#local-6989586621679458863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateRole -&gt; f CreateRole)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -417,57 +466,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-278"></span><span>
-</span><span id="line-279"></span><span class="hs-comment">-- | A description of the role.</span><span>
-</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRole_description"><span class="hs-identifier hs-type">createRole_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-281"></span><span id="createRole_description"><span class="annot"><span class="annottext">createRole_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRole -&gt; f CreateRole
-</span><a href="Network.AWS.IAM.CreateRole.html#createRole_description"><span class="hs-identifier hs-var hs-var">createRole_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRole -&gt; Maybe Text)
--&gt; (CreateRole -&gt; Maybe Text -&gt; CreateRole)
--&gt; Lens CreateRole CreateRole (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458235"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:CreateRole' :: CreateRole -&gt; Maybe Text
-</span><a href="#local-6989586621679458235"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679458235"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458234"><span class="annot"><span class="annottext">s :: CreateRole
-</span><a href="#local-6989586621679458234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458233"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679458233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRole
-</span><a href="#local-6989586621679458234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateRole' :: Maybe Text
-</span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3Adescription%3ACreateRole%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679458233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-282"></span><span>
-</span><span id="line-283"></span><span class="hs-comment">-- | The path to the role. For more information about paths, see</span><span>
-</span><span id="line-284"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers&gt;</span><span>
-</span><span id="line-285"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
-</span><span id="line-286"></span><span class="hs-comment">--</span><span>
-</span><span id="line-287"></span><span class="hs-comment">-- This parameter is optional. If it is not included, it defaults to a</span><span>
-</span><span id="line-288"></span><span class="hs-comment">-- slash (\/).</span><span>
-</span><span id="line-289"></span><span class="hs-comment">--</span><span>
-</span><span id="line-290"></span><span class="hs-comment">-- This parameter allows (through its</span><span>
-</span><span id="line-291"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
-</span><span id="line-292"></span><span class="hs-comment">-- consisting of either a forward slash (\/) by itself or a string that</span><span>
-</span><span id="line-293"></span><span class="hs-comment">-- must begin and end with forward slashes. In addition, it can contain any</span><span>
-</span><span id="line-294"></span><span class="hs-comment">-- ASCII character from the ! (@\\u0021@) through the DEL character</span><span>
-</span><span id="line-295"></span><span class="hs-comment">-- (@\\u007F@), including most punctuation characters, digits, and upper</span><span>
-</span><span id="line-296"></span><span class="hs-comment">-- and lowercased letters.</span><span>
-</span><span id="line-297"></span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRole_path"><span class="hs-identifier hs-type">createRole_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-298"></span><span id="createRole_path"><span class="annot"><span class="annottext">createRole_path :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateRole -&gt; f CreateRole
-</span><a href="Network.AWS.IAM.CreateRole.html#createRole_path"><span class="hs-identifier hs-var hs-var">createRole_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRole -&gt; Maybe Text)
--&gt; (CreateRole -&gt; Maybe Text -&gt; CreateRole)
--&gt; Lens CreateRole CreateRole (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458232"><span class="annot"><span class="annottext">Maybe Text
-path :: Maybe Text
-$sel:path:CreateRole' :: CreateRole -&gt; Maybe Text
-</span><a href="#local-6989586621679458232"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679458232"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458231"><span class="annot"><span class="annottext">s :: CreateRole
-</span><a href="#local-6989586621679458231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458230"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679458230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRole
-</span><a href="#local-6989586621679458231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:CreateRole' :: Maybe Text
-</span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3Apath%3ACreateRole%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679458230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-299"></span><span>
 </span><span id="line-300"></span><span class="hs-comment">-- | The name of the role to create.</span><span>
 </span><span id="line-301"></span><span class="hs-comment">--</span><span>
@@ -480,16 +480,16 @@ $sel:path:CreateRole' :: CreateRole -&gt; Maybe Text
 -&gt; (CreateRole -&gt; Text -&gt; CreateRole)
 -&gt; Lens CreateRole CreateRole Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458229"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458859"><span class="annot"><span class="annottext">Text
 roleName :: Text
 $sel:roleName:CreateRole' :: CreateRole -&gt; Text
-</span><a href="#local-6989586621679458229"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458229"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458228"><span class="annot"><span class="annottext">s :: CreateRole
-</span><a href="#local-6989586621679458228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458227"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRole
-</span><a href="#local-6989586621679458228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:CreateRole' :: Text
+</span><a href="#local-6989586621679458859"><span class="hs-identifier hs-var hs-var">roleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458859"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458858"><span class="annot"><span class="annottext">s :: CreateRole
+</span><a href="#local-6989586621679458858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458857"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRole
+</span><a href="#local-6989586621679458858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleName:CreateRole' :: Text
 </span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3AroleName%3ACreateRole%27"><span class="hs-identifier hs-var">roleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-307"></span><span>
 </span><span id="line-308"></span><span class="hs-comment">-- | The trust relationship policy document that grants an entity permission</span><span>
 </span><span id="line-309"></span><span class="hs-comment">-- to assume the role.</span><span>
@@ -519,25 +519,25 @@ $sel:roleName:CreateRole' :: CreateRole -&gt; Text
 -&gt; (CreateRole -&gt; Text -&gt; CreateRole)
 -&gt; Lens CreateRole CreateRole Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458226"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458856"><span class="annot"><span class="annottext">Text
 assumeRolePolicyDocument :: Text
 $sel:assumeRolePolicyDocument:CreateRole' :: CreateRole -&gt; Text
-</span><a href="#local-6989586621679458226"><span class="hs-identifier hs-var hs-var">assumeRolePolicyDocument</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458226"><span class="hs-identifier hs-var">assumeRolePolicyDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458225"><span class="annot"><span class="annottext">s :: CreateRole
-</span><a href="#local-6989586621679458225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458224"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRole
-</span><a href="#local-6989586621679458225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assumeRolePolicyDocument:CreateRole' :: Text
+</span><a href="#local-6989586621679458856"><span class="hs-identifier hs-var hs-var">assumeRolePolicyDocument</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458856"><span class="hs-identifier hs-var">assumeRolePolicyDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458855"><span class="annot"><span class="annottext">s :: CreateRole
+</span><a href="#local-6989586621679458855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458854"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679458854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRole
+</span><a href="#local-6989586621679458855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assumeRolePolicyDocument:CreateRole' :: Text
 </span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3AassumeRolePolicyDocument%3ACreateRole%27"><span class="hs-identifier hs-var">assumeRolePolicyDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-332"></span><span>
 </span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-334"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse"><span class="hs-identifier hs-type">CreateRoleResponse</span></a></span><span>
-</span><span id="line-335"></span><span>  </span><span id="local-6989586621679458220"><span class="annot"><span class="annottext">request :: CreateRole -&gt; Request CreateRole
+</span><span id="line-335"></span><span>  </span><span id="local-6989586621679458850"><span class="annot"><span class="annottext">request :: CreateRole -&gt; Request CreateRole
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateRole -&gt; Request CreateRole
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-336"></span><span>  </span><span id="local-6989586621679458216"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-336"></span><span>  </span><span id="local-6989586621679458846"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateRole
 -&gt; ClientResponse ClientBody
@@ -566,10 +566,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-338"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateRoleResult&quot;</span></span><span>
-</span><span id="line-339"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679458213"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458213"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679458212"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679458212"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679458211"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679458211"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-339"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679458843"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679458843"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679458842"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679458842"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679458841"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679458841"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-340"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Role -&gt; CreateRoleResponse
 </span><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse%27"><span class="hs-identifier hs-var">CreateRoleResponse'</span></a></span><span>
 </span><span id="line-341"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Role -&gt; CreateRoleResponse)
@@ -580,23 +580,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458213"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458843"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-342"></span><span>            </span><span class="annot"><span class="annottext">Either String (Role -&gt; CreateRoleResponse)
 -&gt; Either String Role -&gt; Either String CreateRoleResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679458211"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Role
+</span><a href="#local-6989586621679458841"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Role
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Role&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-343"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-344"></span><span>
-</span><span id="line-345"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458203"><span id="local-6989586621679458205"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span></span></span><span>
+</span><span id="line-345"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458833"><span id="local-6989586621679458835"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span></span></span><span>
 </span><span id="line-346"></span><span>
-</span><span id="line-347"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458200"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span></span><span>
+</span><span id="line-347"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span></span><span>
 </span><span id="line-348"></span><span>
 </span><span id="line-349"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-350"></span><span>  </span><span id="local-6989586621679458196"><span class="annot"><span class="annottext">toHeaders :: CreateRole -&gt; ResponseHeaders
+</span><span id="line-350"></span><span>  </span><span id="local-6989586621679458826"><span class="annot"><span class="annottext">toHeaders :: CreateRole -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateRole -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -604,33 +604,33 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-351"></span><span>
 </span><span id="line-352"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-353"></span><span>  </span><span id="local-6989586621679458191"><span class="annot"><span class="annottext">toPath :: CreateRole -&gt; ByteString
+</span><span id="line-353"></span><span>  </span><span id="local-6989586621679458821"><span class="annot"><span class="annottext">toPath :: CreateRole -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateRole -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-354"></span><span>
 </span><span id="line-355"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole"><span class="hs-identifier hs-type">CreateRole</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-356"></span><span>  </span><span id="local-6989586621679458187"><span class="annot"><span class="annottext">toQuery :: CreateRole -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458179"><span id="local-6989586621679458180"><span id="local-6989586621679458181"><span id="local-6989586621679458182"><span id="local-6989586621679458183"><span id="local-6989586621679458184"><span id="local-6989586621679458185"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-356"></span><span>  </span><span id="local-6989586621679458817"><span class="annot"><span class="annottext">toQuery :: CreateRole -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRole%27"><span class="hs-identifier hs-type">CreateRole'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458809"><span id="local-6989586621679458810"><span id="local-6989586621679458811"><span id="local-6989586621679458812"><span id="local-6989586621679458813"><span id="local-6989586621679458814"><span id="local-6989586621679458815"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [Tag]
 Maybe Text
 Text
 assumeRolePolicyDocument :: Text
 roleName :: Text
-path :: Maybe Text
-description :: Maybe Text
 tags :: Maybe [Tag]
+description :: Maybe Text
 permissionsBoundary :: Maybe Text
+path :: Maybe Text
 maxSessionDuration :: Maybe Natural
 $sel:assumeRolePolicyDocument:CreateRole' :: CreateRole -&gt; Text
 $sel:roleName:CreateRole' :: CreateRole -&gt; Text
-$sel:path:CreateRole' :: CreateRole -&gt; Maybe Text
-$sel:description:CreateRole' :: CreateRole -&gt; Maybe Text
 $sel:tags:CreateRole' :: CreateRole -&gt; Maybe [Tag]
+$sel:description:CreateRole' :: CreateRole -&gt; Maybe Text
 $sel:permissionsBoundary:CreateRole' :: CreateRole -&gt; Maybe Text
+$sel:path:CreateRole' :: CreateRole -&gt; Maybe Text
 $sel:maxSessionDuration:CreateRole' :: CreateRole -&gt; Maybe Natural
-</span><a href="#local-6989586621679458179"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679458809"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-357"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -650,20 +650,30 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;MaxSessionDuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679458185"><span class="hs-identifier hs-var">maxSessionDuration</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679458815"><span class="hs-identifier hs-var">maxSessionDuration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-363"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Path&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679458814"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PermissionsBoundary&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679458184"><span class="hs-identifier hs-var">permissionsBoundary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-364"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679458813"><span class="hs-identifier hs-var">permissionsBoundary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-365"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679458812"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-366"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span>
-</span><span id="line-365"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+</span><span id="line-367"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-366"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Tag] -&gt; QueryString
+</span><span id="line-368"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Tag] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
@@ -671,34 +681,24 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679458183"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-367"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679458182"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-368"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Path&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679458181"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679458811"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-369"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;RoleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458180"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679458810"><span class="hs-identifier hs-var">roleName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-370"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AssumeRolePolicyDocument&quot;</span></span><span>
 </span><span id="line-371"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679458179"><span class="hs-identifier hs-var">assumeRolePolicyDocument</span></a></span><span>
+</span><a href="#local-6989586621679458809"><span class="hs-identifier hs-var">assumeRolePolicyDocument</span></a></span><span>
 </span><span id="line-372"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-373"></span><span>
 </span><span id="line-374"></span><span class="hs-comment">-- | Contains the response to a successful CreateRole request.</span><span>
 </span><span id="line-375"></span><span class="hs-comment">--</span><span>
 </span><span id="line-376"></span><span class="hs-comment">-- /See:/ 'newCreateRoleResponse' smart constructor.</span><span>
-</span><span id="line-377"></span><span id="local-6989586621679458175"><span id="local-6989586621679458176"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRoleResponse"><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse"><span class="hs-identifier hs-var">CreateRoleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRoleResponse%27"><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse%27"><span class="hs-identifier hs-var">CreateRoleResponse'</span></a></span></span><span>
+</span><span id="line-377"></span><span id="local-6989586621679458805"><span id="local-6989586621679458806"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRoleResponse"><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse"><span class="hs-identifier hs-var">CreateRoleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRoleResponse%27"><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse%27"><span class="hs-identifier hs-var">CreateRoleResponse'</span></a></span></span><span>
 </span><span id="line-378"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-379"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateRoleResponse%27"><span class="annot"><span class="annottext">CreateRoleResponse -&gt; Int
 </span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3AhttpStatus%3ACreateRoleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -706,7 +706,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-381"></span><span>    </span><span id="%24sel%3Arole%27%3ACreateRoleResponse%27"><span class="annot"><span class="annottext">CreateRoleResponse -&gt; Role
 </span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3Arole%27%3ACreateRoleResponse%27"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Role.html#Role"><span class="hs-identifier hs-type">Role</span></a></span><span>
 </span><span id="line-382"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-383"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679458169"><span id="local-6989586621679458171"><span class="annot"><span class="annottext">CreateRoleResponse -&gt; CreateRoleResponse -&gt; Bool
+</span><span id="line-383"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679458799"><span id="local-6989586621679458801"><span class="annot"><span class="annottext">CreateRoleResponse -&gt; CreateRoleResponse -&gt; Bool
 (CreateRoleResponse -&gt; CreateRoleResponse -&gt; Bool)
 -&gt; (CreateRoleResponse -&gt; CreateRoleResponse -&gt; Bool)
 -&gt; Eq CreateRoleResponse
@@ -715,7 +715,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateRoleResponse -&gt; CreateRoleResponse -&gt; Bool
 == :: CreateRoleResponse -&gt; CreateRoleResponse -&gt; Bool
 $c== :: CreateRoleResponse -&gt; CreateRoleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458161"><span id="local-6989586621679458163"><span id="local-6989586621679458165"><span id="local-6989586621679458167"><span class="annot"><span class="annottext">ReadPrec [CreateRoleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458791"><span id="local-6989586621679458793"><span id="local-6989586621679458795"><span id="local-6989586621679458797"><span class="annot"><span class="annottext">ReadPrec [CreateRoleResponse]
 ReadPrec CreateRoleResponse
 Int -&gt; ReadS CreateRoleResponse
 ReadS [CreateRoleResponse]
@@ -735,7 +735,7 @@ readList :: ReadS [CreateRoleResponse]
 $creadList :: ReadS [CreateRoleResponse]
 readsPrec :: Int -&gt; ReadS CreateRoleResponse
 $creadsPrec :: Int -&gt; ReadS CreateRoleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458155"><span id="local-6989586621679458157"><span id="local-6989586621679458159"><span class="annot"><span class="annottext">Int -&gt; CreateRoleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679458785"><span id="local-6989586621679458787"><span id="local-6989586621679458789"><span class="annot"><span class="annottext">Int -&gt; CreateRoleResponse -&gt; ShowS
 [CreateRoleResponse] -&gt; ShowS
 CreateRoleResponse -&gt; String
 (Int -&gt; CreateRoleResponse -&gt; ShowS)
@@ -779,17 +779,17 @@ $cfrom :: forall x. CreateRoleResponse -&gt; Rep CreateRoleResponse x
 </span><span id="line-400"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.Role.html#Role"><span class="hs-identifier hs-type">Role</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-401"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse"><span class="hs-identifier hs-type">CreateRoleResponse</span></a></span><span>
 </span><span id="line-402"></span><span id="newCreateRoleResponse"><span class="annot"><span class="annottext">newCreateRoleResponse :: Int -&gt; Role -&gt; CreateRoleResponse
-</span><a href="Network.AWS.IAM.CreateRole.html#newCreateRoleResponse"><span class="hs-identifier hs-var hs-var">newCreateRoleResponse</span></a></span></span><span> </span><span id="local-6989586621679458152"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458152"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679458151"><span class="annot"><span class="annottext">Role
-</span><a href="#local-6989586621679458151"><span class="hs-identifier hs-var">pRole_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.CreateRole.html#newCreateRoleResponse"><span class="hs-identifier hs-var hs-var">newCreateRoleResponse</span></a></span></span><span> </span><span id="local-6989586621679458782"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679458782"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679458781"><span class="annot"><span class="annottext">Role
+</span><a href="#local-6989586621679458781"><span class="hs-identifier hs-var">pRole_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-403"></span><span>  </span><span class="annot"><span class="annottext">CreateRoleResponse' :: Int -&gt; Role -&gt; CreateRoleResponse
 </span><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse%27"><span class="hs-identifier hs-type">CreateRoleResponse'</span></a></span><span>
 </span><span id="line-404"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRoleResponse' :: Int
 </span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3AhttpStatus%3ACreateRoleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458152"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679458782"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-405"></span><span>      </span><span class="annot"><span class="annottext">$sel:role':CreateRoleResponse' :: Role
 </span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3Arole%27%3ACreateRoleResponse%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Role
-</span><a href="#local-6989586621679458151"><span class="hs-identifier hs-var">pRole_</span></a></span><span>
+</span><a href="#local-6989586621679458781"><span class="hs-identifier hs-var">pRole_</span></a></span><span>
 </span><span id="line-406"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-407"></span><span>
 </span><span id="line-408"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -799,16 +799,16 @@ $cfrom :: forall x. CreateRoleResponse -&gt; Rep CreateRoleResponse x
 -&gt; (CreateRoleResponse -&gt; Int -&gt; CreateRoleResponse)
 -&gt; Lens CreateRoleResponse CreateRoleResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse%27"><span class="hs-identifier hs-type">CreateRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458150"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse%27"><span class="hs-identifier hs-type">CreateRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458780"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateRoleResponse' :: CreateRoleResponse -&gt; Int
-</span><a href="#local-6989586621679458150"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458150"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458149"><span class="annot"><span class="annottext">s :: CreateRoleResponse
-</span><a href="#local-6989586621679458149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse%27"><span class="hs-identifier hs-type">CreateRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458148"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoleResponse
-</span><a href="#local-6989586621679458149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRoleResponse' :: Int
+</span><a href="#local-6989586621679458780"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679458780"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458779"><span class="annot"><span class="annottext">s :: CreateRoleResponse
+</span><a href="#local-6989586621679458779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse%27"><span class="hs-identifier hs-type">CreateRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458778"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679458778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoleResponse
+</span><a href="#local-6989586621679458779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRoleResponse' :: Int
 </span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3AhttpStatus%3ACreateRoleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679458148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse"><span class="hs-identifier hs-type">CreateRoleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse"><span class="hs-identifier hs-type">CreateRoleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-411"></span><span>
 </span><span id="line-412"></span><span class="hs-comment">-- | A structure containing details about the new role.</span><span>
 </span><span id="line-413"></span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#createRoleResponse_role"><span class="hs-identifier hs-type">createRoleResponse_role</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse"><span class="hs-identifier hs-type">CreateRoleResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Role.html#Role"><span class="hs-identifier hs-type">Role</span></a></span><span>
@@ -817,16 +817,16 @@ $sel:httpStatus:CreateRoleResponse' :: CreateRoleResponse -&gt; Int
 -&gt; (CreateRoleResponse -&gt; Role -&gt; CreateRoleResponse)
 -&gt; Lens CreateRoleResponse CreateRoleResponse Role Role
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse%27"><span class="hs-identifier hs-type">CreateRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458147"><span class="annot"><span class="annottext">Role
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse%27"><span class="hs-identifier hs-type">CreateRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679458777"><span class="annot"><span class="annottext">Role
 role' :: Role
 $sel:role':CreateRoleResponse' :: CreateRoleResponse -&gt; Role
-</span><a href="#local-6989586621679458147"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Role
-</span><a href="#local-6989586621679458147"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458146"><span class="annot"><span class="annottext">s :: CreateRoleResponse
-</span><a href="#local-6989586621679458146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse%27"><span class="hs-identifier hs-type">CreateRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458145"><span class="annot"><span class="annottext">Role
-</span><a href="#local-6989586621679458145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoleResponse
-</span><a href="#local-6989586621679458146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:role':CreateRoleResponse' :: Role
+</span><a href="#local-6989586621679458777"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Role
+</span><a href="#local-6989586621679458777"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679458776"><span class="annot"><span class="annottext">s :: CreateRoleResponse
+</span><a href="#local-6989586621679458776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse%27"><span class="hs-identifier hs-type">CreateRoleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679458775"><span class="annot"><span class="annottext">Role
+</span><a href="#local-6989586621679458775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRoleResponse
+</span><a href="#local-6989586621679458776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:role':CreateRoleResponse' :: Role
 </span><a href="Network.AWS.IAM.CreateRole.html#%24sel%3Arole%27%3ACreateRoleResponse%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Role
-</span><a href="#local-6989586621679458145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse"><span class="hs-identifier hs-type">CreateRoleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679458775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse"><span class="hs-identifier hs-type">CreateRoleResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-415"></span><span>
-</span><span id="line-416"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458143"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse"><span class="hs-identifier hs-type">CreateRoleResponse</span></a></span></span><span>
+</span><span id="line-416"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679458773"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateRole.html#CreateRoleResponse"><span class="hs-identifier hs-type">CreateRoleResponse</span></a></span></span><span>
 </span><span id="line-417"></span></pre></body></html>

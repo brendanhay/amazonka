@@ -32,27 +32,27 @@
 </span><span id="line-32"></span><span class="hs-comment">-- a control structure, such as an @if@ or @case@ statement.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newCodeCoverageReportSummary' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679368645"><span id="local-6989586621679368646"></span></span><span class="hs-keyword">data</span><span> </span><span id="CodeCoverageReportSummary"><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-var">CodeCoverageReportSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeCoverageReportSummary%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-var">CodeCoverageReportSummary'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679370515"><span id="local-6989586621679370516"></span></span><span class="hs-keyword">data</span><span> </span><span id="CodeCoverageReportSummary"><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-var">CodeCoverageReportSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeCoverageReportSummary%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-var">CodeCoverageReportSummary'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of conditional branches that are not covered by your tests.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AbranchesMissed%3ACodeCoverageReportSummary%27"><span class="annot"><span class="annottext">CodeCoverageReportSummary -&gt; Maybe Natural
 </span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AbranchesMissed%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var hs-var">branchesMissed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The number of lines that are covered by your tests.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlinesCovered%3ACodeCoverageReportSummary%27"><span class="annot"><span class="annottext">CodeCoverageReportSummary -&gt; Maybe Natural
-</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AlinesCovered%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var hs-var">linesCovered</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The number of lines that are not covered by your tests.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlinesMissed%3ACodeCoverageReportSummary%27"><span class="annot"><span class="annottext">CodeCoverageReportSummary -&gt; Maybe Natural
+</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AlinesMissed%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var hs-var">linesMissed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The number of conditional branches that are covered by your tests.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AbranchesCovered%3ACodeCoverageReportSummary%27"><span class="annot"><span class="annottext">CodeCoverageReportSummary -&gt; Maybe Natural
 </span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AbranchesCovered%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var hs-var">branchesCovered</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The percentage of lines that are covered by your tests.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlineCoveragePercentage%3ACodeCoverageReportSummary%27"><span class="annot"><span class="annottext">CodeCoverageReportSummary -&gt; Maybe Double
-</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AlineCoveragePercentage%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var hs-var">lineCoveragePercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The number of lines that are not covered by your tests.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AlinesMissed%3ACodeCoverageReportSummary%27"><span class="annot"><span class="annottext">CodeCoverageReportSummary -&gt; Maybe Natural
-</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AlinesMissed%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var hs-var">linesMissed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The percentage of branches that are covered by your tests.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AbranchCoveragePercentage%3ACodeCoverageReportSummary%27"><span class="annot"><span class="annottext">CodeCoverageReportSummary -&gt; Maybe Double
-</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AbranchCoveragePercentage%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var hs-var">branchCoveragePercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The number of lines that are covered by your tests.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlinesCovered%3ACodeCoverageReportSummary%27"><span class="annot"><span class="annottext">CodeCoverageReportSummary -&gt; Maybe Natural
+</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AlinesCovered%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var hs-var">linesCovered</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The percentage of branches that are covered by your tests.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AbranchCoveragePercentage%3ACodeCoverageReportSummary%27"><span class="annot"><span class="annottext">CodeCoverageReportSummary -&gt; Maybe Double
+</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AbranchCoveragePercentage%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var hs-var">branchCoveragePercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The percentage of lines that are covered by your tests.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AlineCoveragePercentage%3ACodeCoverageReportSummary%27"><span class="annot"><span class="annottext">CodeCoverageReportSummary -&gt; Maybe Double
+</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AlineCoveragePercentage%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var hs-var">lineCoveragePercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368634"><span id="local-6989586621679368636"><span class="annot"><span class="annottext">CodeCoverageReportSummary -&gt; CodeCoverageReportSummary -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370504"><span id="local-6989586621679370506"><span class="annot"><span class="annottext">CodeCoverageReportSummary -&gt; CodeCoverageReportSummary -&gt; Bool
 (CodeCoverageReportSummary -&gt; CodeCoverageReportSummary -&gt; Bool)
 -&gt; (CodeCoverageReportSummary -&gt; CodeCoverageReportSummary -&gt; Bool)
 -&gt; Eq CodeCoverageReportSummary
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CodeCoverageReportSummary -&gt; CodeCoverageReportSummary -&gt; Bool
 == :: CodeCoverageReportSummary -&gt; CodeCoverageReportSummary -&gt; Bool
 $c== :: CodeCoverageReportSummary -&gt; CodeCoverageReportSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368625"><span id="local-6989586621679368627"><span id="local-6989586621679368629"><span id="local-6989586621679368631"><span class="annot"><span class="annottext">ReadPrec [CodeCoverageReportSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370495"><span id="local-6989586621679370497"><span id="local-6989586621679370499"><span id="local-6989586621679370501"><span class="annot"><span class="annottext">ReadPrec [CodeCoverageReportSummary]
 ReadPrec CodeCoverageReportSummary
 Int -&gt; ReadS CodeCoverageReportSummary
 ReadS [CodeCoverageReportSummary]
@@ -81,7 +81,7 @@ readList :: ReadS [CodeCoverageReportSummary]
 $creadList :: ReadS [CodeCoverageReportSummary]
 readsPrec :: Int -&gt; ReadS CodeCoverageReportSummary
 $creadsPrec :: Int -&gt; ReadS CodeCoverageReportSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368618"><span id="local-6989586621679368620"><span id="local-6989586621679368622"><span class="annot"><span class="annottext">Int -&gt; CodeCoverageReportSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370488"><span id="local-6989586621679370490"><span id="local-6989586621679370492"><span class="annot"><span class="annottext">Int -&gt; CodeCoverageReportSummary -&gt; ShowS
 [CodeCoverageReportSummary] -&gt; ShowS
 CodeCoverageReportSummary -&gt; String
 (Int -&gt; CodeCoverageReportSummary -&gt; ShowS)
@@ -123,15 +123,15 @@ CodeCoverageReportSummary -&gt; Rep CodeCoverageReportSummary x
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- 'branchesMissed', 'codeCoverageReportSummary_branchesMissed' - The number of conditional branches that are not covered by your tests.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'linesCovered', 'codeCoverageReportSummary_linesCovered' - The number of lines that are covered by your tests.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'linesMissed', 'codeCoverageReportSummary_linesMissed' - The number of lines that are not covered by your tests.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- 'branchesCovered', 'codeCoverageReportSummary_branchesCovered' - The number of conditional branches that are covered by your tests.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'lineCoveragePercentage', 'codeCoverageReportSummary_lineCoveragePercentage' - The percentage of lines that are covered by your tests.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'linesCovered', 'codeCoverageReportSummary_linesCovered' - The number of lines that are covered by your tests.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'linesMissed', 'codeCoverageReportSummary_linesMissed' - The number of lines that are not covered by your tests.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'branchCoveragePercentage', 'codeCoverageReportSummary_branchCoveragePercentage' - The percentage of branches that are covered by your tests.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'branchCoveragePercentage', 'codeCoverageReportSummary_branchCoveragePercentage' - The percentage of branches that are covered by your tests.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'lineCoveragePercentage', 'codeCoverageReportSummary_lineCoveragePercentage' - The percentage of lines that are covered by your tests.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#newCodeCoverageReportSummary"><span class="hs-identifier hs-type">newCodeCoverageReportSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span>
 </span><span id="line-72"></span><span id="newCodeCoverageReportSummary"><span class="annot"><span class="annottext">newCodeCoverageReportSummary :: CodeCoverageReportSummary
@@ -139,8 +139,8 @@ CodeCoverageReportSummary -&gt; Rep CodeCoverageReportSummary x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">CodeCoverageReportSummary' :: Maybe Natural
 -&gt; Maybe Natural
 -&gt; Maybe Natural
--&gt; Maybe Double
 -&gt; Maybe Natural
+-&gt; Maybe Double
 -&gt; Maybe Double
 -&gt; CodeCoverageReportSummary
 </span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span>
@@ -149,24 +149,24 @@ CodeCoverageReportSummary -&gt; Rep CodeCoverageReportSummary x
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:linesCovered:CodeCoverageReportSummary' :: Maybe Natural
-</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AlinesCovered%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var">linesCovered</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:linesMissed:CodeCoverageReportSummary' :: Maybe Natural
+</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AlinesMissed%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var">linesMissed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:branchesCovered:CodeCoverageReportSummary' :: Maybe Natural
 </span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AbranchesCovered%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var">branchesCovered</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:lineCoveragePercentage:CodeCoverageReportSummary' :: Maybe Double
-</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AlineCoveragePercentage%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var">lineCoveragePercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:linesCovered:CodeCoverageReportSummary' :: Maybe Natural
+</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AlinesCovered%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var">linesCovered</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:linesMissed:CodeCoverageReportSummary' :: Maybe Natural
-</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AlinesMissed%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var">linesMissed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:branchCoveragePercentage:CodeCoverageReportSummary' :: Maybe Double
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:branchCoveragePercentage:CodeCoverageReportSummary' :: Maybe Double
 </span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AbranchCoveragePercentage%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var">branchCoveragePercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:lineCoveragePercentage:CodeCoverageReportSummary' :: Maybe Double
+</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AlineCoveragePercentage%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var">lineCoveragePercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
@@ -184,22 +184,22 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368609"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370479"><span class="annot"><span class="annottext">Maybe Natural
 branchesMissed :: Maybe Natural
 $sel:branchesMissed:CodeCoverageReportSummary' :: CodeCoverageReportSummary -&gt; Maybe Natural
-</span><a href="#local-6989586621679368609"><span class="hs-identifier hs-var hs-var">branchesMissed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679368609"><span class="hs-identifier hs-var">branchesMissed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368608"><span class="annot"><span class="annottext">s :: CodeCoverageReportSummary
-</span><a href="#local-6989586621679368608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368607"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679368607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeCoverageReportSummary
-</span><a href="#local-6989586621679368608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchesMissed:CodeCoverageReportSummary' :: Maybe Natural
+</span><a href="#local-6989586621679370479"><span class="hs-identifier hs-var hs-var">branchesMissed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679370479"><span class="hs-identifier hs-var">branchesMissed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370478"><span class="annot"><span class="annottext">s :: CodeCoverageReportSummary
+</span><a href="#local-6989586621679370478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370477"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679370477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeCoverageReportSummary
+</span><a href="#local-6989586621679370478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchesMissed:CodeCoverageReportSummary' :: Maybe Natural
 </span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AbranchesMissed%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var">branchesMissed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679368607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The number of lines that are covered by your tests.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#codeCoverageReportSummary_linesCovered"><span class="hs-identifier hs-type">codeCoverageReportSummary_linesCovered</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="codeCoverageReportSummary_linesCovered"><span class="annot"><span class="annottext">codeCoverageReportSummary_linesCovered :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-87"></span><span class="hs-comment">-- | The number of lines that are not covered by your tests.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#codeCoverageReportSummary_linesMissed"><span class="hs-identifier hs-type">codeCoverageReportSummary_linesMissed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="codeCoverageReportSummary_linesMissed"><span class="annot"><span class="annottext">codeCoverageReportSummary_linesMissed :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; CodeCoverageReportSummary -&gt; f CodeCoverageReportSummary
-</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#codeCoverageReportSummary_linesCovered"><span class="hs-identifier hs-var hs-var">codeCoverageReportSummary_linesCovered</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeCoverageReportSummary -&gt; Maybe Natural)
+</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#codeCoverageReportSummary_linesMissed"><span class="hs-identifier hs-var hs-var">codeCoverageReportSummary_linesMissed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeCoverageReportSummary -&gt; Maybe Natural)
 -&gt; (CodeCoverageReportSummary
     -&gt; Maybe Natural -&gt; CodeCoverageReportSummary)
 -&gt; Lens
@@ -208,16 +208,16 @@ $sel:branchesMissed:CodeCoverageReportSummary' :: CodeCoverageReportSummary -&gt
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368605"><span class="annot"><span class="annottext">Maybe Natural
-linesCovered :: Maybe Natural
-$sel:linesCovered:CodeCoverageReportSummary' :: CodeCoverageReportSummary -&gt; Maybe Natural
-</span><a href="#local-6989586621679368605"><span class="hs-identifier hs-var hs-var">linesCovered</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679368605"><span class="hs-identifier hs-var">linesCovered</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368604"><span class="annot"><span class="annottext">s :: CodeCoverageReportSummary
-</span><a href="#local-6989586621679368604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368603"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679368603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeCoverageReportSummary
-</span><a href="#local-6989586621679368604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linesCovered:CodeCoverageReportSummary' :: Maybe Natural
-</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AlinesCovered%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var">linesCovered</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679368603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370475"><span class="annot"><span class="annottext">Maybe Natural
+linesMissed :: Maybe Natural
+$sel:linesMissed:CodeCoverageReportSummary' :: CodeCoverageReportSummary -&gt; Maybe Natural
+</span><a href="#local-6989586621679370475"><span class="hs-identifier hs-var hs-var">linesMissed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679370475"><span class="hs-identifier hs-var">linesMissed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370474"><span class="annot"><span class="annottext">s :: CodeCoverageReportSummary
+</span><a href="#local-6989586621679370474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370473"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679370473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeCoverageReportSummary
+</span><a href="#local-6989586621679370474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linesMissed:CodeCoverageReportSummary' :: Maybe Natural
+</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AlinesMissed%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var">linesMissed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679370473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The number of conditional branches that are covered by your tests.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#codeCoverageReportSummary_branchesCovered"><span class="hs-identifier hs-type">codeCoverageReportSummary_branchesCovered</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -232,46 +232,22 @@ $sel:linesCovered:CodeCoverageReportSummary' :: CodeCoverageReportSummary -&gt; 
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368601"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370471"><span class="annot"><span class="annottext">Maybe Natural
 branchesCovered :: Maybe Natural
 $sel:branchesCovered:CodeCoverageReportSummary' :: CodeCoverageReportSummary -&gt; Maybe Natural
-</span><a href="#local-6989586621679368601"><span class="hs-identifier hs-var hs-var">branchesCovered</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679368601"><span class="hs-identifier hs-var">branchesCovered</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368600"><span class="annot"><span class="annottext">s :: CodeCoverageReportSummary
-</span><a href="#local-6989586621679368600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368599"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679368599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeCoverageReportSummary
-</span><a href="#local-6989586621679368600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchesCovered:CodeCoverageReportSummary' :: Maybe Natural
+</span><a href="#local-6989586621679370471"><span class="hs-identifier hs-var hs-var">branchesCovered</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679370471"><span class="hs-identifier hs-var">branchesCovered</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370470"><span class="annot"><span class="annottext">s :: CodeCoverageReportSummary
+</span><a href="#local-6989586621679370470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370469"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679370469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeCoverageReportSummary
+</span><a href="#local-6989586621679370470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchesCovered:CodeCoverageReportSummary' :: Maybe Natural
 </span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AbranchesCovered%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var">branchesCovered</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679368599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | The percentage of lines that are covered by your tests.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#codeCoverageReportSummary_lineCoveragePercentage"><span class="hs-identifier hs-type">codeCoverageReportSummary_lineCoveragePercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="codeCoverageReportSummary_lineCoveragePercentage"><span class="annot"><span class="annottext">codeCoverageReportSummary_lineCoveragePercentage :: (Maybe Double -&gt; f (Maybe Double))
+</span><span id="line-95"></span><span class="hs-comment">-- | The number of lines that are covered by your tests.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#codeCoverageReportSummary_linesCovered"><span class="hs-identifier hs-type">codeCoverageReportSummary_linesCovered</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="codeCoverageReportSummary_linesCovered"><span class="annot"><span class="annottext">codeCoverageReportSummary_linesCovered :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; CodeCoverageReportSummary -&gt; f CodeCoverageReportSummary
-</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#codeCoverageReportSummary_lineCoveragePercentage"><span class="hs-identifier hs-var hs-var">codeCoverageReportSummary_lineCoveragePercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeCoverageReportSummary -&gt; Maybe Double)
--&gt; (CodeCoverageReportSummary
-    -&gt; Maybe Double -&gt; CodeCoverageReportSummary)
--&gt; Lens
-     CodeCoverageReportSummary
-     CodeCoverageReportSummary
-     (Maybe Double)
-     (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368597"><span class="annot"><span class="annottext">Maybe Double
-lineCoveragePercentage :: Maybe Double
-$sel:lineCoveragePercentage:CodeCoverageReportSummary' :: CodeCoverageReportSummary -&gt; Maybe Double
-</span><a href="#local-6989586621679368597"><span class="hs-identifier hs-var hs-var">lineCoveragePercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679368597"><span class="hs-identifier hs-var">lineCoveragePercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368596"><span class="annot"><span class="annottext">s :: CodeCoverageReportSummary
-</span><a href="#local-6989586621679368596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368595"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679368595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeCoverageReportSummary
-</span><a href="#local-6989586621679368596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lineCoveragePercentage:CodeCoverageReportSummary' :: Maybe Double
-</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AlineCoveragePercentage%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var">lineCoveragePercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679368595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | The number of lines that are not covered by your tests.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#codeCoverageReportSummary_linesMissed"><span class="hs-identifier hs-type">codeCoverageReportSummary_linesMissed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="codeCoverageReportSummary_linesMissed"><span class="annot"><span class="annottext">codeCoverageReportSummary_linesMissed :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; CodeCoverageReportSummary -&gt; f CodeCoverageReportSummary
-</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#codeCoverageReportSummary_linesMissed"><span class="hs-identifier hs-var hs-var">codeCoverageReportSummary_linesMissed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeCoverageReportSummary -&gt; Maybe Natural)
+</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#codeCoverageReportSummary_linesCovered"><span class="hs-identifier hs-var hs-var">codeCoverageReportSummary_linesCovered</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeCoverageReportSummary -&gt; Maybe Natural)
 -&gt; (CodeCoverageReportSummary
     -&gt; Maybe Natural -&gt; CodeCoverageReportSummary)
 -&gt; Lens
@@ -280,20 +256,20 @@ $sel:lineCoveragePercentage:CodeCoverageReportSummary' :: CodeCoverageReportSumm
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368593"><span class="annot"><span class="annottext">Maybe Natural
-linesMissed :: Maybe Natural
-$sel:linesMissed:CodeCoverageReportSummary' :: CodeCoverageReportSummary -&gt; Maybe Natural
-</span><a href="#local-6989586621679368593"><span class="hs-identifier hs-var hs-var">linesMissed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679368593"><span class="hs-identifier hs-var">linesMissed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368592"><span class="annot"><span class="annottext">s :: CodeCoverageReportSummary
-</span><a href="#local-6989586621679368592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368591"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679368591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeCoverageReportSummary
-</span><a href="#local-6989586621679368592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linesMissed:CodeCoverageReportSummary' :: Maybe Natural
-</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AlinesMissed%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var">linesMissed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679368591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | The percentage of branches that are covered by your tests.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#codeCoverageReportSummary_branchCoveragePercentage"><span class="hs-identifier hs-type">codeCoverageReportSummary_branchCoveragePercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="codeCoverageReportSummary_branchCoveragePercentage"><span class="annot"><span class="annottext">codeCoverageReportSummary_branchCoveragePercentage :: (Maybe Double -&gt; f (Maybe Double))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370467"><span class="annot"><span class="annottext">Maybe Natural
+linesCovered :: Maybe Natural
+$sel:linesCovered:CodeCoverageReportSummary' :: CodeCoverageReportSummary -&gt; Maybe Natural
+</span><a href="#local-6989586621679370467"><span class="hs-identifier hs-var hs-var">linesCovered</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679370467"><span class="hs-identifier hs-var">linesCovered</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370466"><span class="annot"><span class="annottext">s :: CodeCoverageReportSummary
+</span><a href="#local-6989586621679370466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370465"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679370465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeCoverageReportSummary
+</span><a href="#local-6989586621679370466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linesCovered:CodeCoverageReportSummary' :: Maybe Natural
+</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AlinesCovered%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var">linesCovered</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679370465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The percentage of branches that are covered by your tests.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#codeCoverageReportSummary_branchCoveragePercentage"><span class="hs-identifier hs-type">codeCoverageReportSummary_branchCoveragePercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="codeCoverageReportSummary_branchCoveragePercentage"><span class="annot"><span class="annottext">codeCoverageReportSummary_branchCoveragePercentage :: (Maybe Double -&gt; f (Maybe Double))
 -&gt; CodeCoverageReportSummary -&gt; f CodeCoverageReportSummary
 </span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#codeCoverageReportSummary_branchCoveragePercentage"><span class="hs-identifier hs-var hs-var">codeCoverageReportSummary_branchCoveragePercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeCoverageReportSummary -&gt; Maybe Double)
 -&gt; (CodeCoverageReportSummary
@@ -304,19 +280,43 @@ $sel:linesMissed:CodeCoverageReportSummary' :: CodeCoverageReportSummary -&gt; M
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368589"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370463"><span class="annot"><span class="annottext">Maybe Double
 branchCoveragePercentage :: Maybe Double
 $sel:branchCoveragePercentage:CodeCoverageReportSummary' :: CodeCoverageReportSummary -&gt; Maybe Double
-</span><a href="#local-6989586621679368589"><span class="hs-identifier hs-var hs-var">branchCoveragePercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679368589"><span class="hs-identifier hs-var">branchCoveragePercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368588"><span class="annot"><span class="annottext">s :: CodeCoverageReportSummary
-</span><a href="#local-6989586621679368588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368587"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679368587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeCoverageReportSummary
-</span><a href="#local-6989586621679368588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchCoveragePercentage:CodeCoverageReportSummary' :: Maybe Double
+</span><a href="#local-6989586621679370463"><span class="hs-identifier hs-var hs-var">branchCoveragePercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679370463"><span class="hs-identifier hs-var">branchCoveragePercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370462"><span class="annot"><span class="annottext">s :: CodeCoverageReportSummary
+</span><a href="#local-6989586621679370462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370461"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679370461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeCoverageReportSummary
+</span><a href="#local-6989586621679370462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:branchCoveragePercentage:CodeCoverageReportSummary' :: Maybe Double
 </span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AbranchCoveragePercentage%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var">branchCoveragePercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679368587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The percentage of lines that are covered by your tests.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#codeCoverageReportSummary_lineCoveragePercentage"><span class="hs-identifier hs-type">codeCoverageReportSummary_lineCoveragePercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="codeCoverageReportSummary_lineCoveragePercentage"><span class="annot"><span class="annottext">codeCoverageReportSummary_lineCoveragePercentage :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; CodeCoverageReportSummary -&gt; f CodeCoverageReportSummary
+</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#codeCoverageReportSummary_lineCoveragePercentage"><span class="hs-identifier hs-var hs-var">codeCoverageReportSummary_lineCoveragePercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CodeCoverageReportSummary -&gt; Maybe Double)
+-&gt; (CodeCoverageReportSummary
+    -&gt; Maybe Double -&gt; CodeCoverageReportSummary)
+-&gt; Lens
+     CodeCoverageReportSummary
+     CodeCoverageReportSummary
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370459"><span class="annot"><span class="annottext">Maybe Double
+lineCoveragePercentage :: Maybe Double
+$sel:lineCoveragePercentage:CodeCoverageReportSummary' :: CodeCoverageReportSummary -&gt; Maybe Double
+</span><a href="#local-6989586621679370459"><span class="hs-identifier hs-var hs-var">lineCoveragePercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679370459"><span class="hs-identifier hs-var">lineCoveragePercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370458"><span class="annot"><span class="annottext">s :: CodeCoverageReportSummary
+</span><a href="#local-6989586621679370458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-type">CodeCoverageReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370457"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679370457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeCoverageReportSummary
+</span><a href="#local-6989586621679370458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lineCoveragePercentage:CodeCoverageReportSummary' :: Maybe Double
+</span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#%24sel%3AlineCoveragePercentage%3ACodeCoverageReportSummary%27"><span class="hs-identifier hs-var">lineCoveragePercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679370457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368584"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679368582"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CodeCoverageReportSummary
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370454"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679370452"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CodeCoverageReportSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CodeCoverageReportSummary)
@@ -326,105 +326,105 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CodeCoverageReportSummary&quot;</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368579"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368579"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370449"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370449"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Natural
 -&gt; Maybe Natural
--&gt; Maybe Double
 -&gt; Maybe Natural
+-&gt; Maybe Double
 -&gt; Maybe Double
 -&gt; CodeCoverageReportSummary
 </span><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary%27"><span class="hs-identifier hs-var">CodeCoverageReportSummary'</span></a></span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
  -&gt; Maybe Natural
  -&gt; Maybe Natural
- -&gt; Maybe Double
  -&gt; Maybe Natural
+ -&gt; Maybe Double
  -&gt; Maybe Double
  -&gt; CodeCoverageReportSummary)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser
      (Maybe Natural
       -&gt; Maybe Natural
-      -&gt; Maybe Double
       -&gt; Maybe Natural
+      -&gt; Maybe Double
       -&gt; Maybe Double
       -&gt; CodeCoverageReportSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679370449"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;branchesMissed&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Natural
    -&gt; Maybe Natural
-   -&gt; Maybe Double
    -&gt; Maybe Natural
+   -&gt; Maybe Double
    -&gt; Maybe Double
    -&gt; CodeCoverageReportSummary)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser
      (Maybe Natural
-      -&gt; Maybe Double
       -&gt; Maybe Natural
+      -&gt; Maybe Double
       -&gt; Maybe Double
       -&gt; CodeCoverageReportSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679370449"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;linesCovered&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;linesMissed&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Natural
-   -&gt; Maybe Double
    -&gt; Maybe Natural
+   -&gt; Maybe Double
    -&gt; Maybe Double
    -&gt; CodeCoverageReportSummary)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser
-     (Maybe Double
-      -&gt; Maybe Natural -&gt; Maybe Double -&gt; CodeCoverageReportSummary)
+     (Maybe Natural
+      -&gt; Maybe Double -&gt; Maybe Double -&gt; CodeCoverageReportSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679370449"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;branchesCovered&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Double
-   -&gt; Maybe Natural -&gt; Maybe Double -&gt; CodeCoverageReportSummary)
--&gt; Parser (Maybe Double)
+  (Maybe Natural
+   -&gt; Maybe Double -&gt; Maybe Double -&gt; CodeCoverageReportSummary)
+-&gt; Parser (Maybe Natural)
 -&gt; Parser
-     (Maybe Natural -&gt; Maybe Double -&gt; CodeCoverageReportSummary)
+     (Maybe Double -&gt; Maybe Double -&gt; CodeCoverageReportSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679370449"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lineCoveragePercentage&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Double -&gt; CodeCoverageReportSummary)
--&gt; Parser (Maybe Natural)
+</span><span class="hs-string">&quot;linesCovered&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Maybe Double -&gt; CodeCoverageReportSummary)
+-&gt; Parser (Maybe Double)
 -&gt; Parser (Maybe Double -&gt; CodeCoverageReportSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679370449"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;linesMissed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;branchCoveragePercentage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; CodeCoverageReportSummary)
 -&gt; Parser (Maybe Double) -&gt; Parser CodeCoverageReportSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368579"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679370449"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;branchCoveragePercentage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;lineCoveragePercentage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368573"><span id="local-6989586621679368575"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370443"><span id="local-6989586621679370445"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370440"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.CodeCoverageReportSummary.html#CodeCoverageReportSummary"><span class="hs-identifier hs-type">CodeCoverageReportSummary</span></a></span></span><span>
 </span><span id="line-124"></span></pre></body></html>

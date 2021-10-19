@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- with the Amazon FSx file system.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEndpointNetworkConfiguration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679367400"><span id="local-6989586621679367401"></span></span><span class="hs-keyword">data</span><span> </span><span id="EndpointNetworkConfiguration"><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration"><span class="hs-identifier hs-var">EndpointNetworkConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointNetworkConfiguration%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration%27"><span class="hs-identifier hs-var">EndpointNetworkConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679371660"><span id="local-6989586621679371661"></span></span><span class="hs-keyword">data</span><span> </span><span id="EndpointNetworkConfiguration"><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration"><span class="hs-identifier hs-var">EndpointNetworkConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointNetworkConfiguration%27"><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration%27"><span class="hs-identifier hs-var">EndpointNetworkConfiguration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of gateway IP addresses on which the associated Amazon FSx file</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- system is available.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AipAddresses%3AEndpointNetworkConfiguration%27"><span class="annot"><span class="annottext">EndpointNetworkConfiguration -&gt; Maybe [Text]
 </span><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#%24sel%3AipAddresses%3AEndpointNetworkConfiguration%27"><span class="hs-identifier hs-var hs-var">ipAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367394"><span id="local-6989586621679367396"><span class="annot"><span class="annottext">EndpointNetworkConfiguration
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371654"><span id="local-6989586621679371656"><span class="annot"><span class="annottext">EndpointNetworkConfiguration
 -&gt; EndpointNetworkConfiguration -&gt; Bool
 (EndpointNetworkConfiguration
  -&gt; EndpointNetworkConfiguration -&gt; Bool)
@@ -52,7 +52,7 @@ $c/= :: EndpointNetworkConfiguration
 -&gt; EndpointNetworkConfiguration -&gt; Bool
 $c== :: EndpointNetworkConfiguration
 -&gt; EndpointNetworkConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367385"><span id="local-6989586621679367387"><span id="local-6989586621679367389"><span id="local-6989586621679367391"><span class="annot"><span class="annottext">ReadPrec [EndpointNetworkConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371645"><span id="local-6989586621679371647"><span id="local-6989586621679371649"><span id="local-6989586621679371651"><span class="annot"><span class="annottext">ReadPrec [EndpointNetworkConfiguration]
 ReadPrec EndpointNetworkConfiguration
 Int -&gt; ReadS EndpointNetworkConfiguration
 ReadS [EndpointNetworkConfiguration]
@@ -72,7 +72,7 @@ readList :: ReadS [EndpointNetworkConfiguration]
 $creadList :: ReadS [EndpointNetworkConfiguration]
 readsPrec :: Int -&gt; ReadS EndpointNetworkConfiguration
 $creadsPrec :: Int -&gt; ReadS EndpointNetworkConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367378"><span id="local-6989586621679367380"><span id="local-6989586621679367382"><span class="annot"><span class="annottext">Int -&gt; EndpointNetworkConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371638"><span id="local-6989586621679371640"><span id="local-6989586621679371642"><span class="annot"><span class="annottext">Int -&gt; EndpointNetworkConfiguration -&gt; ShowS
 [EndpointNetworkConfiguration] -&gt; ShowS
 EndpointNetworkConfiguration -&gt; String
 (Int -&gt; EndpointNetworkConfiguration -&gt; ShowS)
@@ -147,16 +147,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration%27"><span class="hs-identifier hs-type">EndpointNetworkConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367369"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration%27"><span class="hs-identifier hs-type">EndpointNetworkConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371629"><span class="annot"><span class="annottext">Maybe [Text]
 ipAddresses :: Maybe [Text]
 $sel:ipAddresses:EndpointNetworkConfiguration' :: EndpointNetworkConfiguration -&gt; Maybe [Text]
-</span><a href="#local-6989586621679367369"><span class="hs-identifier hs-var hs-var">ipAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679367369"><span class="hs-identifier hs-var">ipAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367368"><span class="annot"><span class="annottext">s :: EndpointNetworkConfiguration
-</span><a href="#local-6989586621679367368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration%27"><span class="hs-identifier hs-type">EndpointNetworkConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367367"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679367367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointNetworkConfiguration
-</span><a href="#local-6989586621679367368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddresses:EndpointNetworkConfiguration' :: Maybe [Text]
+</span><a href="#local-6989586621679371629"><span class="hs-identifier hs-var hs-var">ipAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679371629"><span class="hs-identifier hs-var">ipAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371628"><span class="annot"><span class="annottext">s :: EndpointNetworkConfiguration
+</span><a href="#local-6989586621679371628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration%27"><span class="hs-identifier hs-type">EndpointNetworkConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371627"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679371627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointNetworkConfiguration
+</span><a href="#local-6989586621679371628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddresses:EndpointNetworkConfiguration' :: Maybe [Text]
 </span><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#%24sel%3AipAddresses%3AEndpointNetworkConfiguration%27"><span class="hs-identifier hs-var">ipAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679367367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration"><span class="hs-identifier hs-type">EndpointNetworkConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679371627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration"><span class="hs-identifier hs-type">EndpointNetworkConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; EndpointNetworkConfiguration -&gt; f EndpointNetworkConfiguration)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -170,11 +170,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367361"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration"><span class="hs-identifier hs-type">EndpointNetworkConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679367359"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EndpointNetworkConfiguration
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371621"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration"><span class="hs-identifier hs-type">EndpointNetworkConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679371619"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EndpointNetworkConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EndpointNetworkConfiguration)
@@ -184,15 +184,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EndpointNetworkConfiguration&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367356"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367356"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371616"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371616"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; EndpointNetworkConfiguration
 </span><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration%27"><span class="hs-identifier hs-var">EndpointNetworkConfiguration'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; EndpointNetworkConfiguration)
 -&gt; Parser (Maybe [Text]) -&gt; Parser EndpointNetworkConfiguration
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679371616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IpAddresses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -204,17 +204,17 @@ forall a. Monoid a =&gt; a
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679367349"><span id="local-6989586621679367351"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679371609"><span id="local-6989586621679371611"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration"><span class="hs-identifier hs-type">EndpointNetworkConfiguration</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367346"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration"><span class="hs-identifier hs-type">EndpointNetworkConfiguration</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371606"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration"><span class="hs-identifier hs-type">EndpointNetworkConfiguration</span></a></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367338"><span id="local-6989586621679367340"><span id="local-6989586621679367342"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration"><span class="hs-identifier hs-type">EndpointNetworkConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679367336"><span class="annot"><span class="annottext">toJSON :: EndpointNetworkConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration%27"><span class="hs-identifier hs-type">EndpointNetworkConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367334"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371598"><span id="local-6989586621679371600"><span id="local-6989586621679371602"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration"><span class="hs-identifier hs-type">EndpointNetworkConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679371596"><span class="annot"><span class="annottext">toJSON :: EndpointNetworkConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.Types.EndpointNetworkConfiguration.html#EndpointNetworkConfiguration%27"><span class="hs-identifier hs-type">EndpointNetworkConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371594"><span class="annot"><span class="annottext">Maybe [Text]
 ipAddresses :: Maybe [Text]
 $sel:ipAddresses:EndpointNetworkConfiguration' :: EndpointNetworkConfiguration -&gt; Maybe [Text]
-</span><a href="#local-6989586621679367334"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679371594"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -226,6 +226,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679367334"><span class="hs-identifier hs-var">ipAddresses</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679371594"><span class="hs-identifier hs-var">ipAddresses</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

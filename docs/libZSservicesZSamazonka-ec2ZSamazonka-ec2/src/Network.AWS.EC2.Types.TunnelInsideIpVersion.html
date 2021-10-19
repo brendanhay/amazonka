@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681140690"><span id="local-6989586621681140691"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TunnelInsideIpVersion"><span class="annot"><a href="Network.AWS.EC2.Types.TunnelInsideIpVersion.html#TunnelInsideIpVersion"><span class="hs-identifier hs-var">TunnelInsideIpVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TunnelInsideIpVersion%27"><span class="annot"><a href="Network.AWS.EC2.Types.TunnelInsideIpVersion.html#TunnelInsideIpVersion%27"><span class="hs-identifier hs-var">TunnelInsideIpVersion'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681175841"><span id="local-6989586621681175842"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TunnelInsideIpVersion"><span class="annot"><a href="Network.AWS.EC2.Types.TunnelInsideIpVersion.html#TunnelInsideIpVersion"><span class="hs-identifier hs-var">TunnelInsideIpVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TunnelInsideIpVersion%27"><span class="annot"><a href="Network.AWS.EC2.Types.TunnelInsideIpVersion.html#TunnelInsideIpVersion%27"><span class="hs-identifier hs-var">TunnelInsideIpVersion'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTunnelInsideIpVersion"><span class="annot"><span class="annottext">TunnelInsideIpVersion -&gt; Text
 </span><a href="Network.AWS.EC2.Types.TunnelInsideIpVersion.html#fromTunnelInsideIpVersion"><span class="hs-identifier hs-var hs-var">fromTunnelInsideIpVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681140682"><span id="local-6989586621681140684"><span id="local-6989586621681140686"><span class="annot"><span class="annottext">Int -&gt; TunnelInsideIpVersion -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681175833"><span id="local-6989586621681175835"><span id="local-6989586621681175837"><span class="annot"><span class="annottext">Int -&gt; TunnelInsideIpVersion -&gt; ShowS
 [TunnelInsideIpVersion] -&gt; ShowS
 TunnelInsideIpVersion -&gt; String
 (Int -&gt; TunnelInsideIpVersion -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: TunnelInsideIpVersion -&gt; String
 showsPrec :: Int -&gt; TunnelInsideIpVersion -&gt; ShowS
 $cshowsPrec :: Int -&gt; TunnelInsideIpVersion -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681140673"><span id="local-6989586621681140675"><span id="local-6989586621681140677"><span id="local-6989586621681140679"><span class="annot"><span class="annottext">ReadPrec [TunnelInsideIpVersion]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681175824"><span id="local-6989586621681175826"><span id="local-6989586621681175828"><span id="local-6989586621681175830"><span class="annot"><span class="annottext">ReadPrec [TunnelInsideIpVersion]
 ReadPrec TunnelInsideIpVersion
 Int -&gt; ReadS TunnelInsideIpVersion
 ReadS [TunnelInsideIpVersion]
@@ -73,7 +73,7 @@ $creadList :: ReadS [TunnelInsideIpVersion]
 readsPrec :: Int -&gt; ReadS TunnelInsideIpVersion
 $creadsPrec :: Int -&gt; ReadS TunnelInsideIpVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681140668"><span id="local-6989586621681140670"><span class="annot"><span class="annottext">TunnelInsideIpVersion -&gt; TunnelInsideIpVersion -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681175819"><span id="local-6989586621681175821"><span class="annot"><span class="annottext">TunnelInsideIpVersion -&gt; TunnelInsideIpVersion -&gt; Bool
 (TunnelInsideIpVersion -&gt; TunnelInsideIpVersion -&gt; Bool)
 -&gt; (TunnelInsideIpVersion -&gt; TunnelInsideIpVersion -&gt; Bool)
 -&gt; Eq TunnelInsideIpVersion
@@ -83,7 +83,7 @@ $c/= :: TunnelInsideIpVersion -&gt; TunnelInsideIpVersion -&gt; Bool
 == :: TunnelInsideIpVersion -&gt; TunnelInsideIpVersion -&gt; Bool
 $c== :: TunnelInsideIpVersion -&gt; TunnelInsideIpVersion -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681140652"><span id="local-6989586621681140654"><span id="local-6989586621681140656"><span id="local-6989586621681140658"><span id="local-6989586621681140660"><span id="local-6989586621681140662"><span id="local-6989586621681140664"><span class="annot"><span class="annottext">Eq TunnelInsideIpVersion
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681175803"><span id="local-6989586621681175805"><span id="local-6989586621681175807"><span id="local-6989586621681175809"><span id="local-6989586621681175811"><span id="local-6989586621681175813"><span id="local-6989586621681175815"><span class="annot"><span class="annottext">Eq TunnelInsideIpVersion
 Eq TunnelInsideIpVersion
 -&gt; (TunnelInsideIpVersion -&gt; TunnelInsideIpVersion -&gt; Ordering)
 -&gt; (TunnelInsideIpVersion -&gt; TunnelInsideIpVersion -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. TunnelInsideIpVersion -&gt; Rep TunnelInsideIpVersion x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681140644"><span id="local-6989586621681140646"><span class="annot"><span class="annottext">Int -&gt; TunnelInsideIpVersion -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681175795"><span id="local-6989586621681175797"><span class="annot"><span class="annottext">Int -&gt; TunnelInsideIpVersion -&gt; Int
 TunnelInsideIpVersion -&gt; Int
 (Int -&gt; TunnelInsideIpVersion -&gt; Int)
 -&gt; (TunnelInsideIpVersion -&gt; Int) -&gt; Hashable TunnelInsideIpVersion
@@ -151,54 +151,54 @@ $chash :: TunnelInsideIpVersion -&gt; Int
 hashWithSalt :: Int -&gt; TunnelInsideIpVersion -&gt; Int
 $chashWithSalt :: Int -&gt; TunnelInsideIpVersion -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681140641"><span class="annot"><span class="annottext">TunnelInsideIpVersion -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681175792"><span class="annot"><span class="annottext">TunnelInsideIpVersion -&gt; ()
 (TunnelInsideIpVersion -&gt; ()) -&gt; NFData TunnelInsideIpVersion
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TunnelInsideIpVersion -&gt; ()
 $crnf :: TunnelInsideIpVersion -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681140638"><span class="annot"><span class="annottext">Text -&gt; Either String TunnelInsideIpVersion
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681175789"><span class="annot"><span class="annottext">Text -&gt; Either String TunnelInsideIpVersion
 (Text -&gt; Either String TunnelInsideIpVersion)
 -&gt; FromText TunnelInsideIpVersion
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TunnelInsideIpVersion
 $cfromText :: Text -&gt; Either String TunnelInsideIpVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681140635"><span class="annot"><span class="annottext">TunnelInsideIpVersion -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681175786"><span class="annot"><span class="annottext">TunnelInsideIpVersion -&gt; Text
 (TunnelInsideIpVersion -&gt; Text) -&gt; ToText TunnelInsideIpVersion
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TunnelInsideIpVersion -&gt; Text
 $ctoText :: TunnelInsideIpVersion -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681140632"><span class="annot"><span class="annottext">TunnelInsideIpVersion -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681175783"><span class="annot"><span class="annottext">TunnelInsideIpVersion -&gt; ByteString
 (TunnelInsideIpVersion -&gt; ByteString)
 -&gt; ToByteString TunnelInsideIpVersion
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TunnelInsideIpVersion -&gt; ByteString
 $ctoBS :: TunnelInsideIpVersion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681140629"><span class="annot"><span class="annottext">TunnelInsideIpVersion -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681175780"><span class="annot"><span class="annottext">TunnelInsideIpVersion -&gt; ByteStringBuilder
 (TunnelInsideIpVersion -&gt; ByteStringBuilder)
 -&gt; ToLog TunnelInsideIpVersion
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TunnelInsideIpVersion -&gt; ByteStringBuilder
 $cbuild :: TunnelInsideIpVersion -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681140626"><span class="annot"><span class="annottext">HeaderName -&gt; TunnelInsideIpVersion -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681175777"><span class="annot"><span class="annottext">HeaderName -&gt; TunnelInsideIpVersion -&gt; [Header]
 (HeaderName -&gt; TunnelInsideIpVersion -&gt; [Header])
 -&gt; ToHeader TunnelInsideIpVersion
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TunnelInsideIpVersion -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TunnelInsideIpVersion -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681140623"><span class="annot"><span class="annottext">TunnelInsideIpVersion -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681175774"><span class="annot"><span class="annottext">TunnelInsideIpVersion -&gt; QueryString
 (TunnelInsideIpVersion -&gt; QueryString)
 -&gt; ToQuery TunnelInsideIpVersion
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TunnelInsideIpVersion -&gt; QueryString
 $ctoQuery :: TunnelInsideIpVersion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681140618"><span id="local-6989586621681140620"><span class="annot"><span class="annottext">Value -&gt; Parser [TunnelInsideIpVersion]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681175769"><span id="local-6989586621681175771"><span class="annot"><span class="annottext">Value -&gt; Parser [TunnelInsideIpVersion]
 Value -&gt; Parser TunnelInsideIpVersion
 (Value -&gt; Parser TunnelInsideIpVersion)
 -&gt; (Value -&gt; Parser [TunnelInsideIpVersion])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [TunnelInsideIpVersion]
 parseJSON :: Value -&gt; Parser TunnelInsideIpVersion
 $cparseJSON :: Value -&gt; Parser TunnelInsideIpVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681140613"><span id="local-6989586621681140615"><span class="annot"><span class="annottext">FromJSONKeyFunction [TunnelInsideIpVersion]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681175764"><span id="local-6989586621681175766"><span class="annot"><span class="annottext">FromJSONKeyFunction [TunnelInsideIpVersion]
 FromJSONKeyFunction TunnelInsideIpVersion
 FromJSONKeyFunction TunnelInsideIpVersion
 -&gt; FromJSONKeyFunction [TunnelInsideIpVersion]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TunnelInsideIpVersion]
 fromJSONKey :: FromJSONKeyFunction TunnelInsideIpVersion
 $cfromJSONKey :: FromJSONKeyFunction TunnelInsideIpVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681140604"><span id="local-6989586621681140606"><span id="local-6989586621681140608"><span id="local-6989586621681140610"><span class="annot"><span class="annottext">[TunnelInsideIpVersion] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681175755"><span id="local-6989586621681175757"><span id="local-6989586621681175759"><span id="local-6989586621681175761"><span class="annot"><span class="annottext">[TunnelInsideIpVersion] -&gt; Encoding
 [TunnelInsideIpVersion] -&gt; Value
 TunnelInsideIpVersion -&gt; Encoding
 TunnelInsideIpVersion -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: TunnelInsideIpVersion -&gt; Encoding
 toJSON :: TunnelInsideIpVersion -&gt; Value
 $ctoJSON :: TunnelInsideIpVersion -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681140599"><span id="local-6989586621681140601"><span class="annot"><span class="annottext">ToJSONKeyFunction [TunnelInsideIpVersion]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681175750"><span id="local-6989586621681175752"><span class="annot"><span class="annottext">ToJSONKeyFunction [TunnelInsideIpVersion]
 ToJSONKeyFunction TunnelInsideIpVersion
 ToJSONKeyFunction TunnelInsideIpVersion
 -&gt; ToJSONKeyFunction [TunnelInsideIpVersion]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TunnelInsideIpVersion]
 toJSONKey :: ToJSONKeyFunction TunnelInsideIpVersion
 $ctoJSONKey :: ToJSONKeyFunction TunnelInsideIpVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681140596"><span class="annot"><span class="annottext">[Node] -&gt; Either String TunnelInsideIpVersion
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681175747"><span class="annot"><span class="annottext">[Node] -&gt; Either String TunnelInsideIpVersion
 ([Node] -&gt; Either String TunnelInsideIpVersion)
 -&gt; FromXML TunnelInsideIpVersion
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TunnelInsideIpVersion
 $cparseXML :: [Node] -&gt; Either String TunnelInsideIpVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681140593"><span class="annot"><span class="annottext">TunnelInsideIpVersion -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681175744"><span class="annot"><span class="annottext">TunnelInsideIpVersion -&gt; XML
 (TunnelInsideIpVersion -&gt; XML) -&gt; ToXML TunnelInsideIpVersion
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TunnelInsideIpVersion -&gt; XML

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679693508"><span id="local-6989586621679693509"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RegistryStatus"><span class="annot"><a href="Network.AWS.Glue.Types.RegistryStatus.html#RegistryStatus"><span class="hs-identifier hs-var">RegistryStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegistryStatus%27"><span class="annot"><a href="Network.AWS.Glue.Types.RegistryStatus.html#RegistryStatus%27"><span class="hs-identifier hs-var">RegistryStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679695184"><span id="local-6989586621679695185"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RegistryStatus"><span class="annot"><a href="Network.AWS.Glue.Types.RegistryStatus.html#RegistryStatus"><span class="hs-identifier hs-var">RegistryStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegistryStatus%27"><span class="annot"><a href="Network.AWS.Glue.Types.RegistryStatus.html#RegistryStatus%27"><span class="hs-identifier hs-var">RegistryStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRegistryStatus"><span class="annot"><span class="annottext">RegistryStatus -&gt; Text
 </span><a href="Network.AWS.Glue.Types.RegistryStatus.html#fromRegistryStatus"><span class="hs-identifier hs-var hs-var">fromRegistryStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679693500"><span id="local-6989586621679693502"><span id="local-6989586621679693504"><span class="annot"><span class="annottext">Int -&gt; RegistryStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679695176"><span id="local-6989586621679695178"><span id="local-6989586621679695180"><span class="annot"><span class="annottext">Int -&gt; RegistryStatus -&gt; ShowS
 [RegistryStatus] -&gt; ShowS
 RegistryStatus -&gt; String
 (Int -&gt; RegistryStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: RegistryStatus -&gt; String
 showsPrec :: Int -&gt; RegistryStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; RegistryStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679693491"><span id="local-6989586621679693493"><span id="local-6989586621679693495"><span id="local-6989586621679693497"><span class="annot"><span class="annottext">ReadPrec [RegistryStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679695167"><span id="local-6989586621679695169"><span id="local-6989586621679695171"><span id="local-6989586621679695173"><span class="annot"><span class="annottext">ReadPrec [RegistryStatus]
 ReadPrec RegistryStatus
 Int -&gt; ReadS RegistryStatus
 ReadS [RegistryStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [RegistryStatus]
 readsPrec :: Int -&gt; ReadS RegistryStatus
 $creadsPrec :: Int -&gt; ReadS RegistryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679693486"><span id="local-6989586621679693488"><span class="annot"><span class="annottext">RegistryStatus -&gt; RegistryStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679695162"><span id="local-6989586621679695164"><span class="annot"><span class="annottext">RegistryStatus -&gt; RegistryStatus -&gt; Bool
 (RegistryStatus -&gt; RegistryStatus -&gt; Bool)
 -&gt; (RegistryStatus -&gt; RegistryStatus -&gt; Bool) -&gt; Eq RegistryStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: RegistryStatus -&gt; RegistryStatus -&gt; Bool
 == :: RegistryStatus -&gt; RegistryStatus -&gt; Bool
 $c== :: RegistryStatus -&gt; RegistryStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679693470"><span id="local-6989586621679693472"><span id="local-6989586621679693474"><span id="local-6989586621679693476"><span id="local-6989586621679693478"><span id="local-6989586621679693480"><span id="local-6989586621679693482"><span class="annot"><span class="annottext">Eq RegistryStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679695146"><span id="local-6989586621679695148"><span id="local-6989586621679695150"><span id="local-6989586621679695152"><span id="local-6989586621679695154"><span id="local-6989586621679695156"><span id="local-6989586621679695158"><span class="annot"><span class="annottext">Eq RegistryStatus
 Eq RegistryStatus
 -&gt; (RegistryStatus -&gt; RegistryStatus -&gt; Ordering)
 -&gt; (RegistryStatus -&gt; RegistryStatus -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. RegistryStatus -&gt; Rep RegistryStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679693462"><span id="local-6989586621679693464"><span class="annot"><span class="annottext">Int -&gt; RegistryStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679695138"><span id="local-6989586621679695140"><span class="annot"><span class="annottext">Int -&gt; RegistryStatus -&gt; Int
 RegistryStatus -&gt; Int
 (Int -&gt; RegistryStatus -&gt; Int)
 -&gt; (RegistryStatus -&gt; Int) -&gt; Hashable RegistryStatus
@@ -142,50 +142,50 @@ $chash :: RegistryStatus -&gt; Int
 hashWithSalt :: Int -&gt; RegistryStatus -&gt; Int
 $chashWithSalt :: Int -&gt; RegistryStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679693459"><span class="annot"><span class="annottext">RegistryStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679695135"><span class="annot"><span class="annottext">RegistryStatus -&gt; ()
 (RegistryStatus -&gt; ()) -&gt; NFData RegistryStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RegistryStatus -&gt; ()
 $crnf :: RegistryStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679693456"><span class="annot"><span class="annottext">Text -&gt; Either String RegistryStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679695132"><span class="annot"><span class="annottext">Text -&gt; Either String RegistryStatus
 (Text -&gt; Either String RegistryStatus) -&gt; FromText RegistryStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RegistryStatus
 $cfromText :: Text -&gt; Either String RegistryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679693453"><span class="annot"><span class="annottext">RegistryStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679695129"><span class="annot"><span class="annottext">RegistryStatus -&gt; Text
 (RegistryStatus -&gt; Text) -&gt; ToText RegistryStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RegistryStatus -&gt; Text
 $ctoText :: RegistryStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679693450"><span class="annot"><span class="annottext">RegistryStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679695126"><span class="annot"><span class="annottext">RegistryStatus -&gt; ByteString
 (RegistryStatus -&gt; ByteString) -&gt; ToByteString RegistryStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RegistryStatus -&gt; ByteString
 $ctoBS :: RegistryStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679693447"><span class="annot"><span class="annottext">RegistryStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679695123"><span class="annot"><span class="annottext">RegistryStatus -&gt; ByteStringBuilder
 (RegistryStatus -&gt; ByteStringBuilder) -&gt; ToLog RegistryStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RegistryStatus -&gt; ByteStringBuilder
 $cbuild :: RegistryStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679693444"><span class="annot"><span class="annottext">HeaderName -&gt; RegistryStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679695120"><span class="annot"><span class="annottext">HeaderName -&gt; RegistryStatus -&gt; [Header]
 (HeaderName -&gt; RegistryStatus -&gt; [Header])
 -&gt; ToHeader RegistryStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RegistryStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RegistryStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679693441"><span class="annot"><span class="annottext">RegistryStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679695117"><span class="annot"><span class="annottext">RegistryStatus -&gt; QueryString
 (RegistryStatus -&gt; QueryString) -&gt; ToQuery RegistryStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RegistryStatus -&gt; QueryString
 $ctoQuery :: RegistryStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679693436"><span id="local-6989586621679693438"><span class="annot"><span class="annottext">Value -&gt; Parser [RegistryStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679695112"><span id="local-6989586621679695114"><span class="annot"><span class="annottext">Value -&gt; Parser [RegistryStatus]
 Value -&gt; Parser RegistryStatus
 (Value -&gt; Parser RegistryStatus)
 -&gt; (Value -&gt; Parser [RegistryStatus]) -&gt; FromJSON RegistryStatus
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [RegistryStatus]
 parseJSON :: Value -&gt; Parser RegistryStatus
 $cparseJSON :: Value -&gt; Parser RegistryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679693431"><span id="local-6989586621679693433"><span class="annot"><span class="annottext">FromJSONKeyFunction [RegistryStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679695107"><span id="local-6989586621679695109"><span class="annot"><span class="annottext">FromJSONKeyFunction [RegistryStatus]
 FromJSONKeyFunction RegistryStatus
 FromJSONKeyFunction RegistryStatus
 -&gt; FromJSONKeyFunction [RegistryStatus]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RegistryStatus]
 fromJSONKey :: FromJSONKeyFunction RegistryStatus
 $cfromJSONKey :: FromJSONKeyFunction RegistryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679693422"><span id="local-6989586621679693424"><span id="local-6989586621679693426"><span id="local-6989586621679693428"><span class="annot"><span class="annottext">[RegistryStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679695098"><span id="local-6989586621679695100"><span id="local-6989586621679695102"><span id="local-6989586621679695104"><span class="annot"><span class="annottext">[RegistryStatus] -&gt; Encoding
 [RegistryStatus] -&gt; Value
 RegistryStatus -&gt; Encoding
 RegistryStatus -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: RegistryStatus -&gt; Encoding
 toJSON :: RegistryStatus -&gt; Value
 $ctoJSON :: RegistryStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679693417"><span id="local-6989586621679693419"><span class="annot"><span class="annottext">ToJSONKeyFunction [RegistryStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679695093"><span id="local-6989586621679695095"><span class="annot"><span class="annottext">ToJSONKeyFunction [RegistryStatus]
 ToJSONKeyFunction RegistryStatus
 ToJSONKeyFunction RegistryStatus
 -&gt; ToJSONKeyFunction [RegistryStatus] -&gt; ToJSONKey RegistryStatus
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RegistryStatus]
 toJSONKey :: ToJSONKeyFunction RegistryStatus
 $ctoJSONKey :: ToJSONKeyFunction RegistryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679693414"><span class="annot"><span class="annottext">[Node] -&gt; Either String RegistryStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679695090"><span class="annot"><span class="annottext">[Node] -&gt; Either String RegistryStatus
 ([Node] -&gt; Either String RegistryStatus) -&gt; FromXML RegistryStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RegistryStatus
 $cparseXML :: [Node] -&gt; Either String RegistryStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679693411"><span class="annot"><span class="annottext">RegistryStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679695087"><span class="annot"><span class="annottext">RegistryStatus -&gt; XML
 (RegistryStatus -&gt; XML) -&gt; ToXML RegistryStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RegistryStatus -&gt; XML

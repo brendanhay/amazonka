@@ -54,12 +54,12 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | A request for a list of the configured Cognito Events</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newGetCognitoEvents' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679177499"><span id="local-6989586621679177500"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCognitoEvents"><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents"><span class="hs-identifier hs-var">GetCognitoEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCognitoEvents%27"><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents%27"><span class="hs-identifier hs-var">GetCognitoEvents'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679177544"><span id="local-6989586621679177545"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCognitoEvents"><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents"><span class="hs-identifier hs-var">GetCognitoEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCognitoEvents%27"><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents%27"><span class="hs-identifier hs-var">GetCognitoEvents'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Cognito Identity Pool ID for the request</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AidentityPoolId%3AGetCognitoEvents%27"><span class="annot"><span class="annottext">GetCognitoEvents -&gt; Text
 </span><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#%24sel%3AidentityPoolId%3AGetCognitoEvents%27"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177493"><span id="local-6989586621679177495"><span class="annot"><span class="annottext">GetCognitoEvents -&gt; GetCognitoEvents -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177538"><span id="local-6989586621679177540"><span class="annot"><span class="annottext">GetCognitoEvents -&gt; GetCognitoEvents -&gt; Bool
 (GetCognitoEvents -&gt; GetCognitoEvents -&gt; Bool)
 -&gt; (GetCognitoEvents -&gt; GetCognitoEvents -&gt; Bool)
 -&gt; Eq GetCognitoEvents
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetCognitoEvents -&gt; GetCognitoEvents -&gt; Bool
 == :: GetCognitoEvents -&gt; GetCognitoEvents -&gt; Bool
 $c== :: GetCognitoEvents -&gt; GetCognitoEvents -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177484"><span id="local-6989586621679177486"><span id="local-6989586621679177488"><span id="local-6989586621679177490"><span class="annot"><span class="annottext">ReadPrec [GetCognitoEvents]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177529"><span id="local-6989586621679177531"><span id="local-6989586621679177533"><span id="local-6989586621679177535"><span class="annot"><span class="annottext">ReadPrec [GetCognitoEvents]
 ReadPrec GetCognitoEvents
 Int -&gt; ReadS GetCognitoEvents
 ReadS [GetCognitoEvents]
@@ -88,7 +88,7 @@ readList :: ReadS [GetCognitoEvents]
 $creadList :: ReadS [GetCognitoEvents]
 readsPrec :: Int -&gt; ReadS GetCognitoEvents
 $creadsPrec :: Int -&gt; ReadS GetCognitoEvents
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177477"><span id="local-6989586621679177479"><span id="local-6989586621679177481"><span class="annot"><span class="annottext">Int -&gt; GetCognitoEvents -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177522"><span id="local-6989586621679177524"><span id="local-6989586621679177526"><span class="annot"><span class="annottext">Int -&gt; GetCognitoEvents -&gt; ShowS
 [GetCognitoEvents] -&gt; ShowS
 GetCognitoEvents -&gt; String
 (Int -&gt; GetCognitoEvents -&gt; ShowS)
@@ -128,14 +128,14 @@ $cfrom :: forall x. GetCognitoEvents -&gt; Rep GetCognitoEvents x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents"><span class="hs-identifier hs-type">GetCognitoEvents</span></a></span><span>
 </span><span id="line-76"></span><span id="newGetCognitoEvents"><span class="annot"><span class="annottext">newGetCognitoEvents :: Text -&gt; GetCognitoEvents
-</span><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#newGetCognitoEvents"><span class="hs-identifier hs-var hs-var">newGetCognitoEvents</span></a></span></span><span> </span><span id="local-6989586621679177472"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177472"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#newGetCognitoEvents"><span class="hs-identifier hs-var hs-var">newGetCognitoEvents</span></a></span></span><span> </span><span id="local-6989586621679177517"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177517"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">GetCognitoEvents' :: Text -&gt; GetCognitoEvents
 </span><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents%27"><span class="hs-identifier hs-type">GetCognitoEvents'</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityPoolId:GetCognitoEvents' :: Text
 </span><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#%24sel%3AidentityPoolId%3AGetCognitoEvents%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177472"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span>
+</span><a href="#local-6989586621679177517"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The Cognito Identity Pool ID for the request</span><span>
@@ -145,27 +145,27 @@ $cfrom :: forall x. GetCognitoEvents -&gt; Rep GetCognitoEvents x
 -&gt; (GetCognitoEvents -&gt; Text -&gt; GetCognitoEvents)
 -&gt; Lens GetCognitoEvents GetCognitoEvents Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents%27"><span class="hs-identifier hs-type">GetCognitoEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177469"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents%27"><span class="hs-identifier hs-type">GetCognitoEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177514"><span class="annot"><span class="annottext">Text
 identityPoolId :: Text
 $sel:identityPoolId:GetCognitoEvents' :: GetCognitoEvents -&gt; Text
-</span><a href="#local-6989586621679177469"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177469"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177468"><span class="annot"><span class="annottext">s :: GetCognitoEvents
-</span><a href="#local-6989586621679177468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents%27"><span class="hs-identifier hs-type">GetCognitoEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177467"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCognitoEvents
-</span><a href="#local-6989586621679177468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:GetCognitoEvents' :: Text
+</span><a href="#local-6989586621679177514"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177514"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177513"><span class="annot"><span class="annottext">s :: GetCognitoEvents
+</span><a href="#local-6989586621679177513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents%27"><span class="hs-identifier hs-type">GetCognitoEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177512"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCognitoEvents
+</span><a href="#local-6989586621679177513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:GetCognitoEvents' :: Text
 </span><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#%24sel%3AidentityPoolId%3AGetCognitoEvents%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents"><span class="hs-identifier hs-type">GetCognitoEvents</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents"><span class="hs-identifier hs-type">GetCognitoEvents</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents"><span class="hs-identifier hs-type">GetCognitoEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents"><span class="hs-identifier hs-type">GetCognitoEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse"><span class="hs-identifier hs-type">GetCognitoEventsResponse</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679177463"><span class="annot"><span class="annottext">request :: GetCognitoEvents -&gt; Request GetCognitoEvents
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679177508"><span class="annot"><span class="annottext">request :: GetCognitoEvents -&gt; Request GetCognitoEvents
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetCognitoEvents -&gt; Request GetCognitoEvents
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679177459"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679177504"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetCognitoEvents
 -&gt; ClientResponse ClientBody
@@ -189,10 +189,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177456"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177456"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679177455"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679177455"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679177454"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177454"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177501"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177501"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679177500"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679177500"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679177499"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177499"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text) -&gt; Int -&gt; GetCognitoEventsResponse
 </span><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse%27"><span class="hs-identifier hs-var">GetCognitoEventsResponse'</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text) -&gt; Int -&gt; GetCognitoEventsResponse)
@@ -200,7 +200,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetCognitoEventsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679177499"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Events&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
@@ -218,15 +218,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177456"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177501"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177445"><span id="local-6989586621679177447"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents"><span class="hs-identifier hs-type">GetCognitoEvents</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177490"><span id="local-6989586621679177492"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents"><span class="hs-identifier hs-type">GetCognitoEvents</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177442"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents"><span class="hs-identifier hs-type">GetCognitoEvents</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177487"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents"><span class="hs-identifier hs-type">GetCognitoEvents</span></a></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents"><span class="hs-identifier hs-type">GetCognitoEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679177438"><span class="annot"><span class="annottext">toHeaders :: GetCognitoEvents -&gt; ResponseHeaders
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679177483"><span class="annot"><span class="annottext">toHeaders :: GetCognitoEvents -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCognitoEvents -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -246,11 +246,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents"><span class="hs-identifier hs-type">GetCognitoEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679177432"><span class="annot"><span class="annottext">toPath :: GetCognitoEvents -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents%27"><span class="hs-identifier hs-type">GetCognitoEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177430"><span class="annot"><span class="annottext">Text
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679177477"><span class="annot"><span class="annottext">toPath :: GetCognitoEvents -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents%27"><span class="hs-identifier hs-type">GetCognitoEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177475"><span class="annot"><span class="annottext">Text
 identityPoolId :: Text
 $sel:identityPoolId:GetCognitoEvents' :: GetCognitoEvents -&gt; Text
-</span><a href="#local-6989586621679177430"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679177475"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -259,13 +259,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679177430"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679177475"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/events&quot;</span></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEvents"><span class="hs-identifier hs-type">GetCognitoEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679177426"><span class="annot"><span class="annottext">toQuery :: GetCognitoEvents -&gt; QueryString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679177471"><span class="annot"><span class="annottext">toQuery :: GetCognitoEvents -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetCognitoEvents -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -275,7 +275,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-125"></span><span class="hs-comment">-- | The response from the GetCognitoEvents request</span><span>
 </span><span id="line-126"></span><span class="hs-comment">--</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- /See:/ 'newGetCognitoEventsResponse' smart constructor.</span><span>
-</span><span id="line-128"></span><span id="local-6989586621679177423"><span id="local-6989586621679177424"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCognitoEventsResponse"><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse"><span class="hs-identifier hs-var">GetCognitoEventsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCognitoEventsResponse%27"><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse%27"><span class="hs-identifier hs-var">GetCognitoEventsResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span id="local-6989586621679177468"><span id="local-6989586621679177469"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCognitoEventsResponse"><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse"><span class="hs-identifier hs-var">GetCognitoEventsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCognitoEventsResponse%27"><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse%27"><span class="hs-identifier hs-var">GetCognitoEventsResponse'</span></a></span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Cognito Events returned from the GetCognitoEvents request</span><span>
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3Aevents%3AGetCognitoEventsResponse%27"><span class="annot"><span class="annottext">GetCognitoEventsResponse -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#%24sel%3Aevents%3AGetCognitoEventsResponse%27"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -283,7 +283,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCognitoEventsResponse%27"><span class="annot"><span class="annottext">GetCognitoEventsResponse -&gt; Int
 </span><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#%24sel%3AhttpStatus%3AGetCognitoEventsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177417"><span id="local-6989586621679177419"><span class="annot"><span class="annottext">GetCognitoEventsResponse -&gt; GetCognitoEventsResponse -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177462"><span id="local-6989586621679177464"><span class="annot"><span class="annottext">GetCognitoEventsResponse -&gt; GetCognitoEventsResponse -&gt; Bool
 (GetCognitoEventsResponse -&gt; GetCognitoEventsResponse -&gt; Bool)
 -&gt; (GetCognitoEventsResponse -&gt; GetCognitoEventsResponse -&gt; Bool)
 -&gt; Eq GetCognitoEventsResponse
@@ -292,7 +292,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetCognitoEventsResponse -&gt; GetCognitoEventsResponse -&gt; Bool
 == :: GetCognitoEventsResponse -&gt; GetCognitoEventsResponse -&gt; Bool
 $c== :: GetCognitoEventsResponse -&gt; GetCognitoEventsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177409"><span id="local-6989586621679177411"><span id="local-6989586621679177413"><span id="local-6989586621679177415"><span class="annot"><span class="annottext">ReadPrec [GetCognitoEventsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177454"><span id="local-6989586621679177456"><span id="local-6989586621679177458"><span id="local-6989586621679177460"><span class="annot"><span class="annottext">ReadPrec [GetCognitoEventsResponse]
 ReadPrec GetCognitoEventsResponse
 Int -&gt; ReadS GetCognitoEventsResponse
 ReadS [GetCognitoEventsResponse]
@@ -312,7 +312,7 @@ readList :: ReadS [GetCognitoEventsResponse]
 $creadList :: ReadS [GetCognitoEventsResponse]
 readsPrec :: Int -&gt; ReadS GetCognitoEventsResponse
 $creadsPrec :: Int -&gt; ReadS GetCognitoEventsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177403"><span id="local-6989586621679177405"><span id="local-6989586621679177407"><span class="annot"><span class="annottext">Int -&gt; GetCognitoEventsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177448"><span id="local-6989586621679177450"><span id="local-6989586621679177452"><span class="annot"><span class="annottext">Int -&gt; GetCognitoEventsResponse -&gt; ShowS
 [GetCognitoEventsResponse] -&gt; ShowS
 GetCognitoEventsResponse -&gt; String
 (Int -&gt; GetCognitoEventsResponse -&gt; ShowS)
@@ -360,8 +360,8 @@ GetCognitoEventsResponse -&gt; Rep GetCognitoEventsResponse x
 </span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse"><span class="hs-identifier hs-type">GetCognitoEventsResponse</span></a></span><span>
 </span><span id="line-151"></span><span id="newGetCognitoEventsResponse"><span class="annot"><span class="annottext">newGetCognitoEventsResponse :: Int -&gt; GetCognitoEventsResponse
-</span><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#newGetCognitoEventsResponse"><span class="hs-identifier hs-var hs-var">newGetCognitoEventsResponse</span></a></span></span><span> </span><span id="local-6989586621679177400"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177400"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#newGetCognitoEventsResponse"><span class="hs-identifier hs-var hs-var">newGetCognitoEventsResponse</span></a></span></span><span> </span><span id="local-6989586621679177445"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177445"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">GetCognitoEventsResponse' :: Maybe (HashMap Text Text) -&gt; Int -&gt; GetCognitoEventsResponse
 </span><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse%27"><span class="hs-identifier hs-type">GetCognitoEventsResponse'</span></a></span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:events:GetCognitoEventsResponse' :: Maybe (HashMap Text Text)
@@ -370,7 +370,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCognitoEventsResponse' :: Int
 </span><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#%24sel%3AhttpStatus%3AGetCognitoEventsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177400"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679177445"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | The Cognito Events returned from the GetCognitoEvents request</span><span>
@@ -386,16 +386,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse%27"><span class="hs-identifier hs-type">GetCognitoEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177399"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse%27"><span class="hs-identifier hs-type">GetCognitoEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177444"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 events :: Maybe (HashMap Text Text)
 $sel:events:GetCognitoEventsResponse' :: GetCognitoEventsResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679177399"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679177399"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177398"><span class="annot"><span class="annottext">s :: GetCognitoEventsResponse
-</span><a href="#local-6989586621679177398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse%27"><span class="hs-identifier hs-type">GetCognitoEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177397"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679177397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCognitoEventsResponse
-</span><a href="#local-6989586621679177398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:GetCognitoEventsResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679177444"><span class="hs-identifier hs-var hs-var">events</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679177444"><span class="hs-identifier hs-var">events</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177443"><span class="annot"><span class="annottext">s :: GetCognitoEventsResponse
+</span><a href="#local-6989586621679177443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse%27"><span class="hs-identifier hs-type">GetCognitoEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177442"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679177442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCognitoEventsResponse
+</span><a href="#local-6989586621679177443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:events:GetCognitoEventsResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#%24sel%3Aevents%3AGetCognitoEventsResponse%27"><span class="hs-identifier hs-var">events</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679177397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse"><span class="hs-identifier hs-type">GetCognitoEventsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679177442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse"><span class="hs-identifier hs-type">GetCognitoEventsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; GetCognitoEventsResponse -&gt; f GetCognitoEventsResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -421,8 +421,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-162"></span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#getCognitoEventsResponse_httpStatus"><span class="hs-identifier hs-type">getCognitoEventsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse"><span class="hs-identifier hs-type">GetCognitoEventsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -432,16 +432,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetCognitoEventsResponse -&gt; Int -&gt; GetCognitoEventsResponse)
 -&gt; Lens GetCognitoEventsResponse GetCognitoEventsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse%27"><span class="hs-identifier hs-type">GetCognitoEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177393"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse%27"><span class="hs-identifier hs-type">GetCognitoEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177438"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetCognitoEventsResponse' :: GetCognitoEventsResponse -&gt; Int
-</span><a href="#local-6989586621679177393"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177393"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177392"><span class="annot"><span class="annottext">s :: GetCognitoEventsResponse
-</span><a href="#local-6989586621679177392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse%27"><span class="hs-identifier hs-type">GetCognitoEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177391"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCognitoEventsResponse
-</span><a href="#local-6989586621679177392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCognitoEventsResponse' :: Int
+</span><a href="#local-6989586621679177438"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177438"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177437"><span class="annot"><span class="annottext">s :: GetCognitoEventsResponse
+</span><a href="#local-6989586621679177437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse%27"><span class="hs-identifier hs-type">GetCognitoEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177436"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCognitoEventsResponse
+</span><a href="#local-6989586621679177437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCognitoEventsResponse' :: Int
 </span><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#%24sel%3AhttpStatus%3AGetCognitoEventsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679177391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse"><span class="hs-identifier hs-type">GetCognitoEventsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse"><span class="hs-identifier hs-type">GetCognitoEventsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177389"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse"><span class="hs-identifier hs-type">GetCognitoEventsResponse</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177434"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoSync.GetCognitoEvents.html#GetCognitoEventsResponse"><span class="hs-identifier hs-type">GetCognitoEventsResponse</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

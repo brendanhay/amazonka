@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- messages are only delivered if a TLS connection can be established. If</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- the value is @Optional@, messages can be delivered in plain text if a</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- TLS connection can\'t be established.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679331708"><span id="local-6989586621679331709"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TlsPolicy"><span class="annot"><a href="Network.AWS.SESv2.Types.TlsPolicy.html#TlsPolicy"><span class="hs-identifier hs-var">TlsPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TlsPolicy%27"><span class="annot"><a href="Network.AWS.SESv2.Types.TlsPolicy.html#TlsPolicy%27"><span class="hs-identifier hs-var">TlsPolicy'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679334224"><span id="local-6989586621679334225"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TlsPolicy"><span class="annot"><a href="Network.AWS.SESv2.Types.TlsPolicy.html#TlsPolicy"><span class="hs-identifier hs-var">TlsPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TlsPolicy%27"><span class="annot"><a href="Network.AWS.SESv2.Types.TlsPolicy.html#TlsPolicy%27"><span class="hs-identifier hs-var">TlsPolicy'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTlsPolicy"><span class="annot"><span class="annottext">TlsPolicy -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.TlsPolicy.html#fromTlsPolicy"><span class="hs-identifier hs-var hs-var">fromTlsPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679331700"><span id="local-6989586621679331702"><span id="local-6989586621679331704"><span class="annot"><span class="annottext">Int -&gt; TlsPolicy -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679334216"><span id="local-6989586621679334218"><span id="local-6989586621679334220"><span class="annot"><span class="annottext">Int -&gt; TlsPolicy -&gt; ShowS
 [TlsPolicy] -&gt; ShowS
 TlsPolicy -&gt; String
 (Int -&gt; TlsPolicy -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: TlsPolicy -&gt; String
 showsPrec :: Int -&gt; TlsPolicy -&gt; ShowS
 $cshowsPrec :: Int -&gt; TlsPolicy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679331691"><span id="local-6989586621679331693"><span id="local-6989586621679331695"><span id="local-6989586621679331697"><span class="annot"><span class="annottext">ReadPrec [TlsPolicy]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679334207"><span id="local-6989586621679334209"><span id="local-6989586621679334211"><span id="local-6989586621679334213"><span class="annot"><span class="annottext">ReadPrec [TlsPolicy]
 ReadPrec TlsPolicy
 Int -&gt; ReadS TlsPolicy
 ReadS [TlsPolicy]
@@ -77,7 +77,7 @@ $creadList :: ReadS [TlsPolicy]
 readsPrec :: Int -&gt; ReadS TlsPolicy
 $creadsPrec :: Int -&gt; ReadS TlsPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679331686"><span id="local-6989586621679331688"><span class="annot"><span class="annottext">TlsPolicy -&gt; TlsPolicy -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679334202"><span id="local-6989586621679334204"><span class="annot"><span class="annottext">TlsPolicy -&gt; TlsPolicy -&gt; Bool
 (TlsPolicy -&gt; TlsPolicy -&gt; Bool)
 -&gt; (TlsPolicy -&gt; TlsPolicy -&gt; Bool) -&gt; Eq TlsPolicy
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: TlsPolicy -&gt; TlsPolicy -&gt; Bool
 == :: TlsPolicy -&gt; TlsPolicy -&gt; Bool
 $c== :: TlsPolicy -&gt; TlsPolicy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679331670"><span id="local-6989586621679331672"><span id="local-6989586621679331674"><span id="local-6989586621679331676"><span id="local-6989586621679331678"><span id="local-6989586621679331680"><span id="local-6989586621679331682"><span class="annot"><span class="annottext">Eq TlsPolicy
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679334186"><span id="local-6989586621679334188"><span id="local-6989586621679334190"><span id="local-6989586621679334192"><span id="local-6989586621679334194"><span id="local-6989586621679334196"><span id="local-6989586621679334198"><span class="annot"><span class="annottext">Eq TlsPolicy
 Eq TlsPolicy
 -&gt; (TlsPolicy -&gt; TlsPolicy -&gt; Ordering)
 -&gt; (TlsPolicy -&gt; TlsPolicy -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. TlsPolicy -&gt; Rep TlsPolicy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679331662"><span id="local-6989586621679331664"><span class="annot"><span class="annottext">Int -&gt; TlsPolicy -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679334178"><span id="local-6989586621679334180"><span class="annot"><span class="annottext">Int -&gt; TlsPolicy -&gt; Int
 TlsPolicy -&gt; Int
 (Int -&gt; TlsPolicy -&gt; Int)
 -&gt; (TlsPolicy -&gt; Int) -&gt; Hashable TlsPolicy
@@ -146,49 +146,49 @@ $chash :: TlsPolicy -&gt; Int
 hashWithSalt :: Int -&gt; TlsPolicy -&gt; Int
 $chashWithSalt :: Int -&gt; TlsPolicy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679331659"><span class="annot"><span class="annottext">TlsPolicy -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679334175"><span class="annot"><span class="annottext">TlsPolicy -&gt; ()
 (TlsPolicy -&gt; ()) -&gt; NFData TlsPolicy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TlsPolicy -&gt; ()
 $crnf :: TlsPolicy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679331656"><span class="annot"><span class="annottext">Text -&gt; Either String TlsPolicy
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679334172"><span class="annot"><span class="annottext">Text -&gt; Either String TlsPolicy
 (Text -&gt; Either String TlsPolicy) -&gt; FromText TlsPolicy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TlsPolicy
 $cfromText :: Text -&gt; Either String TlsPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679331653"><span class="annot"><span class="annottext">TlsPolicy -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679334169"><span class="annot"><span class="annottext">TlsPolicy -&gt; Text
 (TlsPolicy -&gt; Text) -&gt; ToText TlsPolicy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TlsPolicy -&gt; Text
 $ctoText :: TlsPolicy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679331650"><span class="annot"><span class="annottext">TlsPolicy -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679334166"><span class="annot"><span class="annottext">TlsPolicy -&gt; ByteString
 (TlsPolicy -&gt; ByteString) -&gt; ToByteString TlsPolicy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TlsPolicy -&gt; ByteString
 $ctoBS :: TlsPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679331647"><span class="annot"><span class="annottext">TlsPolicy -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679334163"><span class="annot"><span class="annottext">TlsPolicy -&gt; ByteStringBuilder
 (TlsPolicy -&gt; ByteStringBuilder) -&gt; ToLog TlsPolicy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TlsPolicy -&gt; ByteStringBuilder
 $cbuild :: TlsPolicy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679331644"><span class="annot"><span class="annottext">HeaderName -&gt; TlsPolicy -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679334160"><span class="annot"><span class="annottext">HeaderName -&gt; TlsPolicy -&gt; [Header]
 (HeaderName -&gt; TlsPolicy -&gt; [Header]) -&gt; ToHeader TlsPolicy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TlsPolicy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TlsPolicy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679331641"><span class="annot"><span class="annottext">TlsPolicy -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679334157"><span class="annot"><span class="annottext">TlsPolicy -&gt; QueryString
 (TlsPolicy -&gt; QueryString) -&gt; ToQuery TlsPolicy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TlsPolicy -&gt; QueryString
 $ctoQuery :: TlsPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679331636"><span id="local-6989586621679331638"><span class="annot"><span class="annottext">Value -&gt; Parser [TlsPolicy]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679334152"><span id="local-6989586621679334154"><span class="annot"><span class="annottext">Value -&gt; Parser [TlsPolicy]
 Value -&gt; Parser TlsPolicy
 (Value -&gt; Parser TlsPolicy)
 -&gt; (Value -&gt; Parser [TlsPolicy]) -&gt; FromJSON TlsPolicy
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [TlsPolicy]
 parseJSON :: Value -&gt; Parser TlsPolicy
 $cparseJSON :: Value -&gt; Parser TlsPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679331631"><span id="local-6989586621679331633"><span class="annot"><span class="annottext">FromJSONKeyFunction [TlsPolicy]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679334147"><span id="local-6989586621679334149"><span class="annot"><span class="annottext">FromJSONKeyFunction [TlsPolicy]
 FromJSONKeyFunction TlsPolicy
 FromJSONKeyFunction TlsPolicy
 -&gt; FromJSONKeyFunction [TlsPolicy] -&gt; FromJSONKey TlsPolicy
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TlsPolicy]
 fromJSONKey :: FromJSONKeyFunction TlsPolicy
 $cfromJSONKey :: FromJSONKeyFunction TlsPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679331622"><span id="local-6989586621679331624"><span id="local-6989586621679331626"><span id="local-6989586621679331628"><span class="annot"><span class="annottext">[TlsPolicy] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679334138"><span id="local-6989586621679334140"><span id="local-6989586621679334142"><span id="local-6989586621679334144"><span class="annot"><span class="annottext">[TlsPolicy] -&gt; Encoding
 [TlsPolicy] -&gt; Value
 TlsPolicy -&gt; Encoding
 TlsPolicy -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: TlsPolicy -&gt; Encoding
 toJSON :: TlsPolicy -&gt; Value
 $ctoJSON :: TlsPolicy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679331617"><span id="local-6989586621679331619"><span class="annot"><span class="annottext">ToJSONKeyFunction [TlsPolicy]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679334133"><span id="local-6989586621679334135"><span class="annot"><span class="annottext">ToJSONKeyFunction [TlsPolicy]
 ToJSONKeyFunction TlsPolicy
 ToJSONKeyFunction TlsPolicy
 -&gt; ToJSONKeyFunction [TlsPolicy] -&gt; ToJSONKey TlsPolicy
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TlsPolicy]
 toJSONKey :: ToJSONKeyFunction TlsPolicy
 $ctoJSONKey :: ToJSONKeyFunction TlsPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679331614"><span class="annot"><span class="annottext">[Node] -&gt; Either String TlsPolicy
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679334130"><span class="annot"><span class="annottext">[Node] -&gt; Either String TlsPolicy
 ([Node] -&gt; Either String TlsPolicy) -&gt; FromXML TlsPolicy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TlsPolicy
 $cparseXML :: [Node] -&gt; Either String TlsPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679331611"><span class="annot"><span class="annottext">TlsPolicy -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679334127"><span class="annot"><span class="annottext">TlsPolicy -&gt; XML
 (TlsPolicy -&gt; XML) -&gt; ToXML TlsPolicy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TlsPolicy -&gt; XML

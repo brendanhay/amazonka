@@ -51,12 +51,12 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newGetJobDocument' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679831237"><span id="local-6989586621679831238"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobDocument"><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument"><span class="hs-identifier hs-var">GetJobDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobDocument%27"><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument%27"><span class="hs-identifier hs-var">GetJobDocument'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679832207"><span id="local-6989586621679832208"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobDocument"><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument"><span class="hs-identifier hs-var">GetJobDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobDocument%27"><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument%27"><span class="hs-identifier hs-var">GetJobDocument'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier you assigned to this job when it was created.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AjobId%3AGetJobDocument%27"><span class="annot"><span class="annottext">GetJobDocument -&gt; Text
 </span><a href="Network.AWS.IoT.GetJobDocument.html#%24sel%3AjobId%3AGetJobDocument%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679831231"><span id="local-6989586621679831233"><span class="annot"><span class="annottext">GetJobDocument -&gt; GetJobDocument -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679832201"><span id="local-6989586621679832203"><span class="annot"><span class="annottext">GetJobDocument -&gt; GetJobDocument -&gt; Bool
 (GetJobDocument -&gt; GetJobDocument -&gt; Bool)
 -&gt; (GetJobDocument -&gt; GetJobDocument -&gt; Bool) -&gt; Eq GetJobDocument
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetJobDocument -&gt; GetJobDocument -&gt; Bool
 == :: GetJobDocument -&gt; GetJobDocument -&gt; Bool
 $c== :: GetJobDocument -&gt; GetJobDocument -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831222"><span id="local-6989586621679831224"><span id="local-6989586621679831226"><span id="local-6989586621679831228"><span class="annot"><span class="annottext">ReadPrec [GetJobDocument]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832192"><span id="local-6989586621679832194"><span id="local-6989586621679832196"><span id="local-6989586621679832198"><span class="annot"><span class="annottext">ReadPrec [GetJobDocument]
 ReadPrec GetJobDocument
 Int -&gt; ReadS GetJobDocument
 ReadS [GetJobDocument]
@@ -84,7 +84,7 @@ readList :: ReadS [GetJobDocument]
 $creadList :: ReadS [GetJobDocument]
 readsPrec :: Int -&gt; ReadS GetJobDocument
 $creadsPrec :: Int -&gt; ReadS GetJobDocument
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831215"><span id="local-6989586621679831217"><span id="local-6989586621679831219"><span class="annot"><span class="annottext">Int -&gt; GetJobDocument -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832185"><span id="local-6989586621679832187"><span id="local-6989586621679832189"><span class="annot"><span class="annottext">Int -&gt; GetJobDocument -&gt; ShowS
 [GetJobDocument] -&gt; ShowS
 GetJobDocument -&gt; String
 (Int -&gt; GetJobDocument -&gt; ShowS)
@@ -124,12 +124,12 @@ $cfrom :: forall x. GetJobDocument -&gt; Rep GetJobDocument x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument"><span class="hs-identifier hs-type">GetJobDocument</span></a></span><span>
 </span><span id="line-73"></span><span id="newGetJobDocument"><span class="annot"><span class="annottext">newGetJobDocument :: Text -&gt; GetJobDocument
-</span><a href="Network.AWS.IoT.GetJobDocument.html#newGetJobDocument"><span class="hs-identifier hs-var hs-var">newGetJobDocument</span></a></span></span><span> </span><span id="local-6989586621679831210"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679831210"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.GetJobDocument.html#newGetJobDocument"><span class="hs-identifier hs-var hs-var">newGetJobDocument</span></a></span></span><span> </span><span id="local-6989586621679832180"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679832180"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">GetJobDocument' :: Text -&gt; GetJobDocument
 </span><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument%27"><span class="hs-identifier hs-type">GetJobDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetJobDocument' :: Text
 </span><a href="Network.AWS.IoT.GetJobDocument.html#%24sel%3AjobId%3AGetJobDocument%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679831210"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679832180"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The unique identifier you assigned to this job when it was created.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#getJobDocument_jobId"><span class="hs-identifier hs-type">getJobDocument_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument"><span class="hs-identifier hs-type">GetJobDocument</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -138,27 +138,27 @@ $cfrom :: forall x. GetJobDocument -&gt; Rep GetJobDocument x
 -&gt; (GetJobDocument -&gt; Text -&gt; GetJobDocument)
 -&gt; Lens GetJobDocument GetJobDocument Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument%27"><span class="hs-identifier hs-type">GetJobDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831207"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument%27"><span class="hs-identifier hs-type">GetJobDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832177"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:GetJobDocument' :: GetJobDocument -&gt; Text
-</span><a href="#local-6989586621679831207"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679831207"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831206"><span class="annot"><span class="annottext">s :: GetJobDocument
-</span><a href="#local-6989586621679831206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument%27"><span class="hs-identifier hs-type">GetJobDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831205"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679831205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobDocument
-</span><a href="#local-6989586621679831206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetJobDocument' :: Text
+</span><a href="#local-6989586621679832177"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679832177"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832176"><span class="annot"><span class="annottext">s :: GetJobDocument
+</span><a href="#local-6989586621679832176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument%27"><span class="hs-identifier hs-type">GetJobDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832175"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679832175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobDocument
+</span><a href="#local-6989586621679832176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetJobDocument' :: Text
 </span><a href="Network.AWS.IoT.GetJobDocument.html#%24sel%3AjobId%3AGetJobDocument%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679831205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument"><span class="hs-identifier hs-type">GetJobDocument</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679832175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument"><span class="hs-identifier hs-type">GetJobDocument</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument"><span class="hs-identifier hs-type">GetJobDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument"><span class="hs-identifier hs-type">GetJobDocument</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse"><span class="hs-identifier hs-type">GetJobDocumentResponse</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679831201"><span class="annot"><span class="annottext">request :: GetJobDocument -&gt; Request GetJobDocument
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679832171"><span class="annot"><span class="annottext">request :: GetJobDocument -&gt; Request GetJobDocument
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetJobDocument -&gt; Request GetJobDocument
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679831197"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679832167"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetJobDocument
 -&gt; ClientResponse ClientBody
@@ -182,10 +182,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679831194"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831194"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679831193"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679831193"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679831192"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679831192"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679832164"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679832164"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679832163"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679832163"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679832162"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679832162"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; GetJobDocumentResponse
 </span><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse%27"><span class="hs-identifier hs-var">GetJobDocumentResponse'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; GetJobDocumentResponse)
@@ -193,7 +193,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetJobDocumentResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679831192"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679832162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;document&quot;</span></span><span class="hs-special">)</span><span>
@@ -205,15 +205,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831194"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679832164"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831184"><span id="local-6989586621679831186"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument"><span class="hs-identifier hs-type">GetJobDocument</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832154"><span id="local-6989586621679832156"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument"><span class="hs-identifier hs-type">GetJobDocument</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831181"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument"><span class="hs-identifier hs-type">GetJobDocument</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832151"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument"><span class="hs-identifier hs-type">GetJobDocument</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument"><span class="hs-identifier hs-type">GetJobDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679831177"><span class="annot"><span class="annottext">toHeaders :: GetJobDocument -&gt; ResponseHeaders
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679832147"><span class="annot"><span class="annottext">toHeaders :: GetJobDocument -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetJobDocument -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -221,11 +221,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument"><span class="hs-identifier hs-type">GetJobDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679831172"><span class="annot"><span class="annottext">toPath :: GetJobDocument -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument%27"><span class="hs-identifier hs-type">GetJobDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831170"><span class="annot"><span class="annottext">Text
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679832142"><span class="annot"><span class="annottext">toPath :: GetJobDocument -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument%27"><span class="hs-identifier hs-type">GetJobDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832140"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:GetJobDocument' :: GetJobDocument -&gt; Text
-</span><a href="#local-6989586621679831170"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679832140"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -233,11 +233,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/jobs/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679831170"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679832140"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/job-document&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocument"><span class="hs-identifier hs-type">GetJobDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679831166"><span class="annot"><span class="annottext">toQuery :: GetJobDocument -&gt; QueryString
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679832136"><span class="annot"><span class="annottext">toQuery :: GetJobDocument -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetJobDocument -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -245,7 +245,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | /See:/ 'newGetJobDocumentResponse' smart constructor.</span><span>
-</span><span id="line-109"></span><span id="local-6989586621679831163"><span id="local-6989586621679831164"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobDocumentResponse"><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse"><span class="hs-identifier hs-var">GetJobDocumentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobDocumentResponse%27"><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse%27"><span class="hs-identifier hs-var">GetJobDocumentResponse'</span></a></span></span><span>
+</span><span id="line-109"></span><span id="local-6989586621679832133"><span id="local-6989586621679832134"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetJobDocumentResponse"><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse"><span class="hs-identifier hs-var">GetJobDocumentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetJobDocumentResponse%27"><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse%27"><span class="hs-identifier hs-var">GetJobDocumentResponse'</span></a></span></span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The job document content.</span><span>
 </span><span id="line-111"></span><span>    </span><span id="%24sel%3Adocument%3AGetJobDocumentResponse%27"><span class="annot"><span class="annottext">GetJobDocumentResponse -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.GetJobDocument.html#%24sel%3Adocument%3AGetJobDocumentResponse%27"><span class="hs-identifier hs-var hs-var">document</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -253,7 +253,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-113"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetJobDocumentResponse%27"><span class="annot"><span class="annottext">GetJobDocumentResponse -&gt; Int
 </span><a href="Network.AWS.IoT.GetJobDocument.html#%24sel%3AhttpStatus%3AGetJobDocumentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679831157"><span id="local-6989586621679831159"><span class="annot"><span class="annottext">GetJobDocumentResponse -&gt; GetJobDocumentResponse -&gt; Bool
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679832127"><span id="local-6989586621679832129"><span class="annot"><span class="annottext">GetJobDocumentResponse -&gt; GetJobDocumentResponse -&gt; Bool
 (GetJobDocumentResponse -&gt; GetJobDocumentResponse -&gt; Bool)
 -&gt; (GetJobDocumentResponse -&gt; GetJobDocumentResponse -&gt; Bool)
 -&gt; Eq GetJobDocumentResponse
@@ -262,7 +262,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetJobDocumentResponse -&gt; GetJobDocumentResponse -&gt; Bool
 == :: GetJobDocumentResponse -&gt; GetJobDocumentResponse -&gt; Bool
 $c== :: GetJobDocumentResponse -&gt; GetJobDocumentResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831149"><span id="local-6989586621679831151"><span id="local-6989586621679831153"><span id="local-6989586621679831155"><span class="annot"><span class="annottext">ReadPrec [GetJobDocumentResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832119"><span id="local-6989586621679832121"><span id="local-6989586621679832123"><span id="local-6989586621679832125"><span class="annot"><span class="annottext">ReadPrec [GetJobDocumentResponse]
 ReadPrec GetJobDocumentResponse
 Int -&gt; ReadS GetJobDocumentResponse
 ReadS [GetJobDocumentResponse]
@@ -282,7 +282,7 @@ readList :: ReadS [GetJobDocumentResponse]
 $creadList :: ReadS [GetJobDocumentResponse]
 readsPrec :: Int -&gt; ReadS GetJobDocumentResponse
 $creadsPrec :: Int -&gt; ReadS GetJobDocumentResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831143"><span id="local-6989586621679831145"><span id="local-6989586621679831147"><span class="annot"><span class="annottext">Int -&gt; GetJobDocumentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832113"><span id="local-6989586621679832115"><span id="local-6989586621679832117"><span class="annot"><span class="annottext">Int -&gt; GetJobDocumentResponse -&gt; ShowS
 [GetJobDocumentResponse] -&gt; ShowS
 GetJobDocumentResponse -&gt; String
 (Int -&gt; GetJobDocumentResponse -&gt; ShowS)
@@ -325,8 +325,8 @@ $cfrom :: forall x. GetJobDocumentResponse -&gt; Rep GetJobDocumentResponse x
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse"><span class="hs-identifier hs-type">GetJobDocumentResponse</span></a></span><span>
 </span><span id="line-132"></span><span id="newGetJobDocumentResponse"><span class="annot"><span class="annottext">newGetJobDocumentResponse :: Int -&gt; GetJobDocumentResponse
-</span><a href="Network.AWS.IoT.GetJobDocument.html#newGetJobDocumentResponse"><span class="hs-identifier hs-var hs-var">newGetJobDocumentResponse</span></a></span></span><span> </span><span id="local-6989586621679831140"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831140"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.GetJobDocument.html#newGetJobDocumentResponse"><span class="hs-identifier hs-var hs-var">newGetJobDocumentResponse</span></a></span></span><span> </span><span id="local-6989586621679832110"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679832110"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="annottext">GetJobDocumentResponse' :: Maybe Text -&gt; Int -&gt; GetJobDocumentResponse
 </span><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse%27"><span class="hs-identifier hs-type">GetJobDocumentResponse'</span></a></span><span>
 </span><span id="line-134"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:document:GetJobDocumentResponse' :: Maybe Text
@@ -335,7 +335,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetJobDocumentResponse' :: Int
 </span><a href="Network.AWS.IoT.GetJobDocument.html#%24sel%3AhttpStatus%3AGetJobDocumentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831140"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679832110"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The job document content.</span><span>
@@ -350,16 +350,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse%27"><span class="hs-identifier hs-type">GetJobDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831139"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse%27"><span class="hs-identifier hs-type">GetJobDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832109"><span class="annot"><span class="annottext">Maybe Text
 document :: Maybe Text
 $sel:document:GetJobDocumentResponse' :: GetJobDocumentResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679831139"><span class="hs-identifier hs-var hs-var">document</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831139"><span class="hs-identifier hs-var">document</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831138"><span class="annot"><span class="annottext">s :: GetJobDocumentResponse
-</span><a href="#local-6989586621679831138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse%27"><span class="hs-identifier hs-type">GetJobDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831137"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobDocumentResponse
-</span><a href="#local-6989586621679831138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:document:GetJobDocumentResponse' :: Maybe Text
+</span><a href="#local-6989586621679832109"><span class="hs-identifier hs-var hs-var">document</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832109"><span class="hs-identifier hs-var">document</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832108"><span class="annot"><span class="annottext">s :: GetJobDocumentResponse
+</span><a href="#local-6989586621679832108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse%27"><span class="hs-identifier hs-type">GetJobDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832107"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobDocumentResponse
+</span><a href="#local-6989586621679832108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:document:GetJobDocumentResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.GetJobDocument.html#%24sel%3Adocument%3AGetJobDocumentResponse%27"><span class="hs-identifier hs-var">document</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679831137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse"><span class="hs-identifier hs-type">GetJobDocumentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679832107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse"><span class="hs-identifier hs-type">GetJobDocumentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-143"></span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#getJobDocumentResponse_httpStatus"><span class="hs-identifier hs-type">getJobDocumentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse"><span class="hs-identifier hs-type">GetJobDocumentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -369,16 +369,16 @@ $sel:document:GetJobDocumentResponse' :: GetJobDocumentResponse -&gt; Maybe Text
 -&gt; (GetJobDocumentResponse -&gt; Int -&gt; GetJobDocumentResponse)
 -&gt; Lens GetJobDocumentResponse GetJobDocumentResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse%27"><span class="hs-identifier hs-type">GetJobDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831136"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse%27"><span class="hs-identifier hs-type">GetJobDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832106"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetJobDocumentResponse' :: GetJobDocumentResponse -&gt; Int
-</span><a href="#local-6989586621679831136"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831136"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831135"><span class="annot"><span class="annottext">s :: GetJobDocumentResponse
-</span><a href="#local-6989586621679831135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse%27"><span class="hs-identifier hs-type">GetJobDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831134"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobDocumentResponse
-</span><a href="#local-6989586621679831135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetJobDocumentResponse' :: Int
+</span><a href="#local-6989586621679832106"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679832106"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832105"><span class="annot"><span class="annottext">s :: GetJobDocumentResponse
+</span><a href="#local-6989586621679832105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse%27"><span class="hs-identifier hs-type">GetJobDocumentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832104"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679832104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetJobDocumentResponse
+</span><a href="#local-6989586621679832105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetJobDocumentResponse' :: Int
 </span><a href="Network.AWS.IoT.GetJobDocument.html#%24sel%3AhttpStatus%3AGetJobDocumentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679831134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse"><span class="hs-identifier hs-type">GetJobDocumentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679832104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse"><span class="hs-identifier hs-type">GetJobDocumentResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831132"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse"><span class="hs-identifier hs-type">GetJobDocumentResponse</span></a></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832102"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.GetJobDocument.html#GetJobDocumentResponse"><span class="hs-identifier hs-type">GetJobDocumentResponse</span></a></span></span><span>
 </span><span id="line-147"></span></pre></body></html>

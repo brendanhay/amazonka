@@ -71,16 +71,16 @@
 </span><span id="line-71"></span><span class="hs-comment">-- in the /Amazon RDS User Guide./</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- /See:/ 'newProcessorFeature' smart constructor.</span><span>
-</span><span id="line-74"></span><span id="local-6989586621679763400"><span id="local-6989586621679763401"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProcessorFeature"><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature"><span class="hs-identifier hs-var">ProcessorFeature</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessorFeature%27"><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature%27"><span class="hs-identifier hs-var">ProcessorFeature'</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the processor feature. Valid names are @coreCount@ and</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- @threadsPerCore@.</span><span>
-</span><span id="line-77"></span><span>    </span><span id="%24sel%3Aname%3AProcessorFeature%27"><span class="annot"><span class="annottext">ProcessorFeature -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.ProcessorFeature.html#%24sel%3Aname%3AProcessorFeature%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The value of a processor feature name.</span><span>
-</span><span id="line-79"></span><span>    </span><span id="%24sel%3Avalue%3AProcessorFeature%27"><span class="annot"><span class="annottext">ProcessorFeature -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.ProcessorFeature.html#%24sel%3Avalue%3AProcessorFeature%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span id="local-6989586621679764457"><span id="local-6989586621679764458"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProcessorFeature"><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature"><span class="hs-identifier hs-var">ProcessorFeature</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessorFeature%27"><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature%27"><span class="hs-identifier hs-var">ProcessorFeature'</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of a processor feature name.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Avalue%3AProcessorFeature%27"><span class="annot"><span class="annottext">ProcessorFeature -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.ProcessorFeature.html#%24sel%3Avalue%3AProcessorFeature%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The name of the processor feature. Valid names are @coreCount@ and</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- @threadsPerCore@.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Aname%3AProcessorFeature%27"><span class="annot"><span class="annottext">ProcessorFeature -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.ProcessorFeature.html#%24sel%3Aname%3AProcessorFeature%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679763393"><span id="local-6989586621679763395"><span class="annot"><span class="annottext">ProcessorFeature -&gt; ProcessorFeature -&gt; Bool
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679764450"><span id="local-6989586621679764452"><span class="annot"><span class="annottext">ProcessorFeature -&gt; ProcessorFeature -&gt; Bool
 (ProcessorFeature -&gt; ProcessorFeature -&gt; Bool)
 -&gt; (ProcessorFeature -&gt; ProcessorFeature -&gt; Bool)
 -&gt; Eq ProcessorFeature
@@ -89,7 +89,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProcessorFeature -&gt; ProcessorFeature -&gt; Bool
 == :: ProcessorFeature -&gt; ProcessorFeature -&gt; Bool
 $c== :: ProcessorFeature -&gt; ProcessorFeature -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679763384"><span id="local-6989586621679763386"><span id="local-6989586621679763388"><span id="local-6989586621679763390"><span class="annot"><span class="annottext">ReadPrec [ProcessorFeature]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679764441"><span id="local-6989586621679764443"><span id="local-6989586621679764445"><span id="local-6989586621679764447"><span class="annot"><span class="annottext">ReadPrec [ProcessorFeature]
 ReadPrec ProcessorFeature
 Int -&gt; ReadS ProcessorFeature
 ReadS [ProcessorFeature]
@@ -109,7 +109,7 @@ readList :: ReadS [ProcessorFeature]
 $creadList :: ReadS [ProcessorFeature]
 readsPrec :: Int -&gt; ReadS ProcessorFeature
 $creadsPrec :: Int -&gt; ReadS ProcessorFeature
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679763377"><span id="local-6989586621679763379"><span id="local-6989586621679763381"><span class="annot"><span class="annottext">Int -&gt; ProcessorFeature -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679764434"><span id="local-6989586621679764436"><span id="local-6989586621679764438"><span class="annot"><span class="annottext">Int -&gt; ProcessorFeature -&gt; ShowS
 [ProcessorFeature] -&gt; ShowS
 ProcessorFeature -&gt; String
 (Int -&gt; ProcessorFeature -&gt; ShowS)
@@ -143,69 +143,69 @@ $cfrom :: forall x. ProcessorFeature -&gt; Rep ProcessorFeature x
 </span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'name', 'processorFeature_name' - The name of the processor feature. Valid names are @coreCount@ and</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- @threadsPerCore@.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'value', 'processorFeature_value' - The value of a processor feature name.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'value', 'processorFeature_value' - The value of a processor feature name.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'name', 'processorFeature_name' - The name of the processor feature. Valid names are @coreCount@ and</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- @threadsPerCore@.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#newProcessorFeature"><span class="hs-identifier hs-type">newProcessorFeature</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature"><span class="hs-identifier hs-type">ProcessorFeature</span></a></span><span>
 </span><span id="line-97"></span><span id="newProcessorFeature"><span class="annot"><span class="annottext">newProcessorFeature :: ProcessorFeature
 </span><a href="Network.AWS.RDS.Types.ProcessorFeature.html#newProcessorFeature"><span class="hs-identifier hs-var hs-var">newProcessorFeature</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">ProcessorFeature' :: Maybe Text -&gt; Maybe Text -&gt; ProcessorFeature
 </span><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature%27"><span class="hs-identifier hs-type">ProcessorFeature'</span></a></span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:ProcessorFeature' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.ProcessorFeature.html#%24sel%3Aname%3AProcessorFeature%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:ProcessorFeature' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.ProcessorFeature.html#%24sel%3Avalue%3AProcessorFeature%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:ProcessorFeature' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.ProcessorFeature.html#%24sel%3Avalue%3AProcessorFeature%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ProcessorFeature' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.ProcessorFeature.html#%24sel%3Aname%3AProcessorFeature%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | The name of the processor feature. Valid names are @coreCount@ and</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- @threadsPerCore@.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#processorFeature_name"><span class="hs-identifier hs-type">processorFeature_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature"><span class="hs-identifier hs-type">ProcessorFeature</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="processorFeature_name"><span class="annot"><span class="annottext">processorFeature_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ProcessorFeature -&gt; f ProcessorFeature
-</span><a href="Network.AWS.RDS.Types.ProcessorFeature.html#processorFeature_name"><span class="hs-identifier hs-var hs-var">processorFeature_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProcessorFeature -&gt; Maybe Text)
--&gt; (ProcessorFeature -&gt; Maybe Text -&gt; ProcessorFeature)
--&gt; Lens ProcessorFeature ProcessorFeature (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature%27"><span class="hs-identifier hs-type">ProcessorFeature'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679763368"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:ProcessorFeature' :: ProcessorFeature -&gt; Maybe Text
-</span><a href="#local-6989586621679763368"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679763368"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679763367"><span class="annot"><span class="annottext">s :: ProcessorFeature
-</span><a href="#local-6989586621679763367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature%27"><span class="hs-identifier hs-type">ProcessorFeature'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679763366"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679763366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessorFeature
-</span><a href="#local-6989586621679763367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ProcessorFeature' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.ProcessorFeature.html#%24sel%3Aname%3AProcessorFeature%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679763366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature"><span class="hs-identifier hs-type">ProcessorFeature</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The value of a processor feature name.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#processorFeature_value"><span class="hs-identifier hs-type">processorFeature_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature"><span class="hs-identifier hs-type">ProcessorFeature</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="processorFeature_value"><span class="annot"><span class="annottext">processorFeature_value :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-103"></span><span class="hs-comment">-- | The value of a processor feature name.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#processorFeature_value"><span class="hs-identifier hs-type">processorFeature_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature"><span class="hs-identifier hs-type">ProcessorFeature</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="processorFeature_value"><span class="annot"><span class="annottext">processorFeature_value :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ProcessorFeature -&gt; f ProcessorFeature
 </span><a href="Network.AWS.RDS.Types.ProcessorFeature.html#processorFeature_value"><span class="hs-identifier hs-var hs-var">processorFeature_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProcessorFeature -&gt; Maybe Text)
 -&gt; (ProcessorFeature -&gt; Maybe Text -&gt; ProcessorFeature)
 -&gt; Lens ProcessorFeature ProcessorFeature (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature%27"><span class="hs-identifier hs-type">ProcessorFeature'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679763364"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature%27"><span class="hs-identifier hs-type">ProcessorFeature'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679764425"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:ProcessorFeature' :: ProcessorFeature -&gt; Maybe Text
-</span><a href="#local-6989586621679763364"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679763364"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679763363"><span class="annot"><span class="annottext">s :: ProcessorFeature
-</span><a href="#local-6989586621679763363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature%27"><span class="hs-identifier hs-type">ProcessorFeature'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679763362"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679763362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessorFeature
-</span><a href="#local-6989586621679763363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ProcessorFeature' :: Maybe Text
+</span><a href="#local-6989586621679764425"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679764425"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679764424"><span class="annot"><span class="annottext">s :: ProcessorFeature
+</span><a href="#local-6989586621679764424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature%27"><span class="hs-identifier hs-type">ProcessorFeature'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679764423"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679764423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessorFeature
+</span><a href="#local-6989586621679764424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ProcessorFeature' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.ProcessorFeature.html#%24sel%3Avalue%3AProcessorFeature%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679763362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature"><span class="hs-identifier hs-type">ProcessorFeature</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679764423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature"><span class="hs-identifier hs-type">ProcessorFeature</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The name of the processor feature. Valid names are @coreCount@ and</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @threadsPerCore@.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#processorFeature_name"><span class="hs-identifier hs-type">processorFeature_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature"><span class="hs-identifier hs-type">ProcessorFeature</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="processorFeature_name"><span class="annot"><span class="annottext">processorFeature_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProcessorFeature -&gt; f ProcessorFeature
+</span><a href="Network.AWS.RDS.Types.ProcessorFeature.html#processorFeature_name"><span class="hs-identifier hs-var hs-var">processorFeature_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProcessorFeature -&gt; Maybe Text)
+-&gt; (ProcessorFeature -&gt; Maybe Text -&gt; ProcessorFeature)
+-&gt; Lens ProcessorFeature ProcessorFeature (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature%27"><span class="hs-identifier hs-type">ProcessorFeature'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679764421"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ProcessorFeature' :: ProcessorFeature -&gt; Maybe Text
+</span><a href="#local-6989586621679764421"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679764421"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679764420"><span class="annot"><span class="annottext">s :: ProcessorFeature
+</span><a href="#local-6989586621679764420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature%27"><span class="hs-identifier hs-type">ProcessorFeature'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679764419"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679764419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProcessorFeature
+</span><a href="#local-6989586621679764420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ProcessorFeature' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.ProcessorFeature.html#%24sel%3Aname%3AProcessorFeature%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679764419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature"><span class="hs-identifier hs-type">ProcessorFeature</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature"><span class="hs-identifier hs-type">ProcessorFeature</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679763359"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ProcessorFeature
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679763357"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679763357"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679764416"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ProcessorFeature
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679764414"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679764414"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; ProcessorFeature
 </span><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature%27"><span class="hs-identifier hs-var">ProcessorFeature'</span></a></span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; ProcessorFeature)
@@ -213,40 +213,40 @@ $sel:value:ProcessorFeature' :: ProcessorFeature -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; ProcessorFeature)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679763357"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679764414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ProcessorFeature)
+</span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ProcessorFeature)
 -&gt; Either String (Maybe Text) -&gt; Either String ProcessorFeature
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679763357"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679764414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679763351"><span id="local-6989586621679763353"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature"><span class="hs-identifier hs-type">ProcessorFeature</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679764408"><span id="local-6989586621679764410"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature"><span class="hs-identifier hs-type">ProcessorFeature</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679763348"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature"><span class="hs-identifier hs-type">ProcessorFeature</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679764405"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature"><span class="hs-identifier hs-type">ProcessorFeature</span></a></span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature"><span class="hs-identifier hs-type">ProcessorFeature</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679763344"><span class="annot"><span class="annottext">toQuery :: ProcessorFeature -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature%27"><span class="hs-identifier hs-type">ProcessorFeature'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679763341"><span id="local-6989586621679763342"><span class="annot"><span class="annottext">Maybe Text
-value :: Maybe Text
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679764401"><span class="annot"><span class="annottext">toQuery :: ProcessorFeature -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ProcessorFeature.html#ProcessorFeature%27"><span class="hs-identifier hs-type">ProcessorFeature'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679764398"><span id="local-6989586621679764399"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
-$sel:value:ProcessorFeature' :: ProcessorFeature -&gt; Maybe Text
+value :: Maybe Text
 $sel:name:ProcessorFeature' :: ProcessorFeature -&gt; Maybe Text
-</span><a href="#local-6989586621679763341"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:value:ProcessorFeature' :: ProcessorFeature -&gt; Maybe Text
+</span><a href="#local-6989586621679764398"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679763342"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679763341"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679764399"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679764398"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span></pre></body></html>

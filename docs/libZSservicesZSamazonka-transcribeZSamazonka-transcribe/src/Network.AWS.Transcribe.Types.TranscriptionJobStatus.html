@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679276340"><span id="local-6989586621679276341"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TranscriptionJobStatus"><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus"><span class="hs-identifier hs-var">TranscriptionJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TranscriptionJobStatus%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus%27"><span class="hs-identifier hs-var">TranscriptionJobStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679276511"><span id="local-6989586621679276512"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TranscriptionJobStatus"><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus"><span class="hs-identifier hs-var">TranscriptionJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TranscriptionJobStatus%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus%27"><span class="hs-identifier hs-var">TranscriptionJobStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTranscriptionJobStatus"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; Text
 </span><a href="Network.AWS.Transcribe.Types.TranscriptionJobStatus.html#fromTranscriptionJobStatus"><span class="hs-identifier hs-var hs-var">fromTranscriptionJobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276332"><span id="local-6989586621679276334"><span id="local-6989586621679276336"><span class="annot"><span class="annottext">Int -&gt; TranscriptionJobStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276503"><span id="local-6989586621679276505"><span id="local-6989586621679276507"><span class="annot"><span class="annottext">Int -&gt; TranscriptionJobStatus -&gt; ShowS
 [TranscriptionJobStatus] -&gt; ShowS
 TranscriptionJobStatus -&gt; String
 (Int -&gt; TranscriptionJobStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: TranscriptionJobStatus -&gt; String
 showsPrec :: Int -&gt; TranscriptionJobStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; TranscriptionJobStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679276323"><span id="local-6989586621679276325"><span id="local-6989586621679276327"><span id="local-6989586621679276329"><span class="annot"><span class="annottext">ReadPrec [TranscriptionJobStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679276494"><span id="local-6989586621679276496"><span id="local-6989586621679276498"><span id="local-6989586621679276500"><span class="annot"><span class="annottext">ReadPrec [TranscriptionJobStatus]
 ReadPrec TranscriptionJobStatus
 Int -&gt; ReadS TranscriptionJobStatus
 ReadS [TranscriptionJobStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [TranscriptionJobStatus]
 readsPrec :: Int -&gt; ReadS TranscriptionJobStatus
 $creadsPrec :: Int -&gt; ReadS TranscriptionJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679276318"><span id="local-6989586621679276320"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679276489"><span id="local-6989586621679276491"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
 (TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool)
 -&gt; (TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool)
 -&gt; Eq TranscriptionJobStatus
@@ -84,7 +84,7 @@ $c/= :: TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
 == :: TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
 $c== :: TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679276302"><span id="local-6989586621679276304"><span id="local-6989586621679276306"><span id="local-6989586621679276308"><span id="local-6989586621679276310"><span id="local-6989586621679276312"><span id="local-6989586621679276314"><span class="annot"><span class="annottext">Eq TranscriptionJobStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679276473"><span id="local-6989586621679276475"><span id="local-6989586621679276477"><span id="local-6989586621679276479"><span id="local-6989586621679276481"><span id="local-6989586621679276483"><span id="local-6989586621679276485"><span class="annot"><span class="annottext">Eq TranscriptionJobStatus
 Eq TranscriptionJobStatus
 -&gt; (TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Ordering)
 -&gt; (TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. TranscriptionJobStatus -&gt; Rep TranscriptionJobStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276294"><span id="local-6989586621679276296"><span class="annot"><span class="annottext">Int -&gt; TranscriptionJobStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276465"><span id="local-6989586621679276467"><span class="annot"><span class="annottext">Int -&gt; TranscriptionJobStatus -&gt; Int
 TranscriptionJobStatus -&gt; Int
 (Int -&gt; TranscriptionJobStatus -&gt; Int)
 -&gt; (TranscriptionJobStatus -&gt; Int)
@@ -154,54 +154,54 @@ $chash :: TranscriptionJobStatus -&gt; Int
 hashWithSalt :: Int -&gt; TranscriptionJobStatus -&gt; Int
 $chashWithSalt :: Int -&gt; TranscriptionJobStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679276291"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679276462"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; ()
 (TranscriptionJobStatus -&gt; ()) -&gt; NFData TranscriptionJobStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TranscriptionJobStatus -&gt; ()
 $crnf :: TranscriptionJobStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679276288"><span class="annot"><span class="annottext">Text -&gt; Either String TranscriptionJobStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679276459"><span class="annot"><span class="annottext">Text -&gt; Either String TranscriptionJobStatus
 (Text -&gt; Either String TranscriptionJobStatus)
 -&gt; FromText TranscriptionJobStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TranscriptionJobStatus
 $cfromText :: Text -&gt; Either String TranscriptionJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679276285"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679276456"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; Text
 (TranscriptionJobStatus -&gt; Text) -&gt; ToText TranscriptionJobStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TranscriptionJobStatus -&gt; Text
 $ctoText :: TranscriptionJobStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679276282"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679276453"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; ByteString
 (TranscriptionJobStatus -&gt; ByteString)
 -&gt; ToByteString TranscriptionJobStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TranscriptionJobStatus -&gt; ByteString
 $ctoBS :: TranscriptionJobStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679276279"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679276450"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; ByteStringBuilder
 (TranscriptionJobStatus -&gt; ByteStringBuilder)
 -&gt; ToLog TranscriptionJobStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TranscriptionJobStatus -&gt; ByteStringBuilder
 $cbuild :: TranscriptionJobStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679276276"><span class="annot"><span class="annottext">HeaderName -&gt; TranscriptionJobStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679276447"><span class="annot"><span class="annottext">HeaderName -&gt; TranscriptionJobStatus -&gt; [Header]
 (HeaderName -&gt; TranscriptionJobStatus -&gt; [Header])
 -&gt; ToHeader TranscriptionJobStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TranscriptionJobStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TranscriptionJobStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679276273"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679276444"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; QueryString
 (TranscriptionJobStatus -&gt; QueryString)
 -&gt; ToQuery TranscriptionJobStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TranscriptionJobStatus -&gt; QueryString
 $ctoQuery :: TranscriptionJobStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679276268"><span id="local-6989586621679276270"><span class="annot"><span class="annottext">Value -&gt; Parser [TranscriptionJobStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679276439"><span id="local-6989586621679276441"><span class="annot"><span class="annottext">Value -&gt; Parser [TranscriptionJobStatus]
 Value -&gt; Parser TranscriptionJobStatus
 (Value -&gt; Parser TranscriptionJobStatus)
 -&gt; (Value -&gt; Parser [TranscriptionJobStatus])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [TranscriptionJobStatus]
 parseJSON :: Value -&gt; Parser TranscriptionJobStatus
 $cparseJSON :: Value -&gt; Parser TranscriptionJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679276263"><span id="local-6989586621679276265"><span class="annot"><span class="annottext">FromJSONKeyFunction [TranscriptionJobStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679276434"><span id="local-6989586621679276436"><span class="annot"><span class="annottext">FromJSONKeyFunction [TranscriptionJobStatus]
 FromJSONKeyFunction TranscriptionJobStatus
 FromJSONKeyFunction TranscriptionJobStatus
 -&gt; FromJSONKeyFunction [TranscriptionJobStatus]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TranscriptionJobStatus]
 fromJSONKey :: FromJSONKeyFunction TranscriptionJobStatus
 $cfromJSONKey :: FromJSONKeyFunction TranscriptionJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679276254"><span id="local-6989586621679276256"><span id="local-6989586621679276258"><span id="local-6989586621679276260"><span class="annot"><span class="annottext">[TranscriptionJobStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679276425"><span id="local-6989586621679276427"><span id="local-6989586621679276429"><span id="local-6989586621679276431"><span class="annot"><span class="annottext">[TranscriptionJobStatus] -&gt; Encoding
 [TranscriptionJobStatus] -&gt; Value
 TranscriptionJobStatus -&gt; Encoding
 TranscriptionJobStatus -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: TranscriptionJobStatus -&gt; Encoding
 toJSON :: TranscriptionJobStatus -&gt; Value
 $ctoJSON :: TranscriptionJobStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679276249"><span id="local-6989586621679276251"><span class="annot"><span class="annottext">ToJSONKeyFunction [TranscriptionJobStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679276420"><span id="local-6989586621679276422"><span class="annot"><span class="annottext">ToJSONKeyFunction [TranscriptionJobStatus]
 ToJSONKeyFunction TranscriptionJobStatus
 ToJSONKeyFunction TranscriptionJobStatus
 -&gt; ToJSONKeyFunction [TranscriptionJobStatus]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TranscriptionJobStatus]
 toJSONKey :: ToJSONKeyFunction TranscriptionJobStatus
 $ctoJSONKey :: ToJSONKeyFunction TranscriptionJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679276246"><span class="annot"><span class="annottext">[Node] -&gt; Either String TranscriptionJobStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679276417"><span class="annot"><span class="annottext">[Node] -&gt; Either String TranscriptionJobStatus
 ([Node] -&gt; Either String TranscriptionJobStatus)
 -&gt; FromXML TranscriptionJobStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TranscriptionJobStatus
 $cparseXML :: [Node] -&gt; Either String TranscriptionJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679276243"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679276414"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; XML
 (TranscriptionJobStatus -&gt; XML) -&gt; ToXML TranscriptionJobStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TranscriptionJobStatus -&gt; XML

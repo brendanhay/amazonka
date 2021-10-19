@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679684036"><span id="local-6989586621679684037"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EnableHybridValues"><span class="annot"><a href="Network.AWS.Glue.Types.EnableHybridValues.html#EnableHybridValues"><span class="hs-identifier hs-var">EnableHybridValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableHybridValues%27"><span class="annot"><a href="Network.AWS.Glue.Types.EnableHybridValues.html#EnableHybridValues%27"><span class="hs-identifier hs-var">EnableHybridValues'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679685686"><span id="local-6989586621679685687"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EnableHybridValues"><span class="annot"><a href="Network.AWS.Glue.Types.EnableHybridValues.html#EnableHybridValues"><span class="hs-identifier hs-var">EnableHybridValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableHybridValues%27"><span class="annot"><a href="Network.AWS.Glue.Types.EnableHybridValues.html#EnableHybridValues%27"><span class="hs-identifier hs-var">EnableHybridValues'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEnableHybridValues"><span class="annot"><span class="annottext">EnableHybridValues -&gt; Text
 </span><a href="Network.AWS.Glue.Types.EnableHybridValues.html#fromEnableHybridValues"><span class="hs-identifier hs-var hs-var">fromEnableHybridValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679684028"><span id="local-6989586621679684030"><span id="local-6989586621679684032"><span class="annot"><span class="annottext">Int -&gt; EnableHybridValues -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679685678"><span id="local-6989586621679685680"><span id="local-6989586621679685682"><span class="annot"><span class="annottext">Int -&gt; EnableHybridValues -&gt; ShowS
 [EnableHybridValues] -&gt; ShowS
 EnableHybridValues -&gt; String
 (Int -&gt; EnableHybridValues -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: EnableHybridValues -&gt; String
 showsPrec :: Int -&gt; EnableHybridValues -&gt; ShowS
 $cshowsPrec :: Int -&gt; EnableHybridValues -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679684019"><span id="local-6989586621679684021"><span id="local-6989586621679684023"><span id="local-6989586621679684025"><span class="annot"><span class="annottext">ReadPrec [EnableHybridValues]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679685669"><span id="local-6989586621679685671"><span id="local-6989586621679685673"><span id="local-6989586621679685675"><span class="annot"><span class="annottext">ReadPrec [EnableHybridValues]
 ReadPrec EnableHybridValues
 Int -&gt; ReadS EnableHybridValues
 ReadS [EnableHybridValues]
@@ -72,7 +72,7 @@ $creadList :: ReadS [EnableHybridValues]
 readsPrec :: Int -&gt; ReadS EnableHybridValues
 $creadsPrec :: Int -&gt; ReadS EnableHybridValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679684014"><span id="local-6989586621679684016"><span class="annot"><span class="annottext">EnableHybridValues -&gt; EnableHybridValues -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679685664"><span id="local-6989586621679685666"><span class="annot"><span class="annottext">EnableHybridValues -&gt; EnableHybridValues -&gt; Bool
 (EnableHybridValues -&gt; EnableHybridValues -&gt; Bool)
 -&gt; (EnableHybridValues -&gt; EnableHybridValues -&gt; Bool)
 -&gt; Eq EnableHybridValues
@@ -82,7 +82,7 @@ $c/= :: EnableHybridValues -&gt; EnableHybridValues -&gt; Bool
 == :: EnableHybridValues -&gt; EnableHybridValues -&gt; Bool
 $c== :: EnableHybridValues -&gt; EnableHybridValues -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679683998"><span id="local-6989586621679684000"><span id="local-6989586621679684002"><span id="local-6989586621679684004"><span id="local-6989586621679684006"><span id="local-6989586621679684008"><span id="local-6989586621679684010"><span class="annot"><span class="annottext">Eq EnableHybridValues
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679685648"><span id="local-6989586621679685650"><span id="local-6989586621679685652"><span id="local-6989586621679685654"><span id="local-6989586621679685656"><span id="local-6989586621679685658"><span id="local-6989586621679685660"><span class="annot"><span class="annottext">Eq EnableHybridValues
 Eq EnableHybridValues
 -&gt; (EnableHybridValues -&gt; EnableHybridValues -&gt; Ordering)
 -&gt; (EnableHybridValues -&gt; EnableHybridValues -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. EnableHybridValues -&gt; Rep EnableHybridValues x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679683990"><span id="local-6989586621679683992"><span class="annot"><span class="annottext">Int -&gt; EnableHybridValues -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679685640"><span id="local-6989586621679685642"><span class="annot"><span class="annottext">Int -&gt; EnableHybridValues -&gt; Int
 EnableHybridValues -&gt; Int
 (Int -&gt; EnableHybridValues -&gt; Int)
 -&gt; (EnableHybridValues -&gt; Int) -&gt; Hashable EnableHybridValues
@@ -143,53 +143,53 @@ $chash :: EnableHybridValues -&gt; Int
 hashWithSalt :: Int -&gt; EnableHybridValues -&gt; Int
 $chashWithSalt :: Int -&gt; EnableHybridValues -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679683987"><span class="annot"><span class="annottext">EnableHybridValues -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679685637"><span class="annot"><span class="annottext">EnableHybridValues -&gt; ()
 (EnableHybridValues -&gt; ()) -&gt; NFData EnableHybridValues
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EnableHybridValues -&gt; ()
 $crnf :: EnableHybridValues -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679683984"><span class="annot"><span class="annottext">Text -&gt; Either String EnableHybridValues
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679685634"><span class="annot"><span class="annottext">Text -&gt; Either String EnableHybridValues
 (Text -&gt; Either String EnableHybridValues)
 -&gt; FromText EnableHybridValues
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EnableHybridValues
 $cfromText :: Text -&gt; Either String EnableHybridValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679683981"><span class="annot"><span class="annottext">EnableHybridValues -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679685631"><span class="annot"><span class="annottext">EnableHybridValues -&gt; Text
 (EnableHybridValues -&gt; Text) -&gt; ToText EnableHybridValues
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EnableHybridValues -&gt; Text
 $ctoText :: EnableHybridValues -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679683978"><span class="annot"><span class="annottext">EnableHybridValues -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679685628"><span class="annot"><span class="annottext">EnableHybridValues -&gt; ByteString
 (EnableHybridValues -&gt; ByteString)
 -&gt; ToByteString EnableHybridValues
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EnableHybridValues -&gt; ByteString
 $ctoBS :: EnableHybridValues -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679683975"><span class="annot"><span class="annottext">EnableHybridValues -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679685625"><span class="annot"><span class="annottext">EnableHybridValues -&gt; ByteStringBuilder
 (EnableHybridValues -&gt; ByteStringBuilder)
 -&gt; ToLog EnableHybridValues
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EnableHybridValues -&gt; ByteStringBuilder
 $cbuild :: EnableHybridValues -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679683972"><span class="annot"><span class="annottext">HeaderName -&gt; EnableHybridValues -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679685622"><span class="annot"><span class="annottext">HeaderName -&gt; EnableHybridValues -&gt; [Header]
 (HeaderName -&gt; EnableHybridValues -&gt; [Header])
 -&gt; ToHeader EnableHybridValues
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EnableHybridValues -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EnableHybridValues -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679683969"><span class="annot"><span class="annottext">EnableHybridValues -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679685619"><span class="annot"><span class="annottext">EnableHybridValues -&gt; QueryString
 (EnableHybridValues -&gt; QueryString) -&gt; ToQuery EnableHybridValues
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EnableHybridValues -&gt; QueryString
 $ctoQuery :: EnableHybridValues -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679683964"><span id="local-6989586621679683966"><span class="annot"><span class="annottext">Value -&gt; Parser [EnableHybridValues]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679685614"><span id="local-6989586621679685616"><span class="annot"><span class="annottext">Value -&gt; Parser [EnableHybridValues]
 Value -&gt; Parser EnableHybridValues
 (Value -&gt; Parser EnableHybridValues)
 -&gt; (Value -&gt; Parser [EnableHybridValues])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [EnableHybridValues]
 parseJSON :: Value -&gt; Parser EnableHybridValues
 $cparseJSON :: Value -&gt; Parser EnableHybridValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679683959"><span id="local-6989586621679683961"><span class="annot"><span class="annottext">FromJSONKeyFunction [EnableHybridValues]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679685609"><span id="local-6989586621679685611"><span class="annot"><span class="annottext">FromJSONKeyFunction [EnableHybridValues]
 FromJSONKeyFunction EnableHybridValues
 FromJSONKeyFunction EnableHybridValues
 -&gt; FromJSONKeyFunction [EnableHybridValues]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EnableHybridValues]
 fromJSONKey :: FromJSONKeyFunction EnableHybridValues
 $cfromJSONKey :: FromJSONKeyFunction EnableHybridValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679683950"><span id="local-6989586621679683952"><span id="local-6989586621679683954"><span id="local-6989586621679683956"><span class="annot"><span class="annottext">[EnableHybridValues] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679685600"><span id="local-6989586621679685602"><span id="local-6989586621679685604"><span id="local-6989586621679685606"><span class="annot"><span class="annottext">[EnableHybridValues] -&gt; Encoding
 [EnableHybridValues] -&gt; Value
 EnableHybridValues -&gt; Encoding
 EnableHybridValues -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: EnableHybridValues -&gt; Encoding
 toJSON :: EnableHybridValues -&gt; Value
 $ctoJSON :: EnableHybridValues -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679683945"><span id="local-6989586621679683947"><span class="annot"><span class="annottext">ToJSONKeyFunction [EnableHybridValues]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679685595"><span id="local-6989586621679685597"><span class="annot"><span class="annottext">ToJSONKeyFunction [EnableHybridValues]
 ToJSONKeyFunction EnableHybridValues
 ToJSONKeyFunction EnableHybridValues
 -&gt; ToJSONKeyFunction [EnableHybridValues]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EnableHybridValues]
 toJSONKey :: ToJSONKeyFunction EnableHybridValues
 $ctoJSONKey :: ToJSONKeyFunction EnableHybridValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679683942"><span class="annot"><span class="annottext">[Node] -&gt; Either String EnableHybridValues
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679685592"><span class="annot"><span class="annottext">[Node] -&gt; Either String EnableHybridValues
 ([Node] -&gt; Either String EnableHybridValues)
 -&gt; FromXML EnableHybridValues
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EnableHybridValues
 $cparseXML :: [Node] -&gt; Either String EnableHybridValues
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679683939"><span class="annot"><span class="annottext">EnableHybridValues -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679685589"><span class="annot"><span class="annottext">EnableHybridValues -&gt; XML
 (EnableHybridValues -&gt; XML) -&gt; ToXML EnableHybridValues
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EnableHybridValues -&gt; XML

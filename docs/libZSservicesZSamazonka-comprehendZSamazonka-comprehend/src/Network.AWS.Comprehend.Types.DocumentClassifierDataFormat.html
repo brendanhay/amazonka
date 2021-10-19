@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679340195"><span id="local-6989586621679340196"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentClassifierDataFormat"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierDataFormat.html#DocumentClassifierDataFormat"><span class="hs-identifier hs-var">DocumentClassifierDataFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentClassifierDataFormat%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierDataFormat.html#DocumentClassifierDataFormat%27"><span class="hs-identifier hs-var">DocumentClassifierDataFormat'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679340457"><span id="local-6989586621679340458"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentClassifierDataFormat"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierDataFormat.html#DocumentClassifierDataFormat"><span class="hs-identifier hs-var">DocumentClassifierDataFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentClassifierDataFormat%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierDataFormat.html#DocumentClassifierDataFormat%27"><span class="hs-identifier hs-var">DocumentClassifierDataFormat'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDocumentClassifierDataFormat"><span class="annot"><span class="annottext">DocumentClassifierDataFormat -&gt; Text
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierDataFormat.html#fromDocumentClassifierDataFormat"><span class="hs-identifier hs-var hs-var">fromDocumentClassifierDataFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679340187"><span id="local-6989586621679340189"><span id="local-6989586621679340191"><span class="annot"><span class="annottext">Int -&gt; DocumentClassifierDataFormat -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679340449"><span id="local-6989586621679340451"><span id="local-6989586621679340453"><span class="annot"><span class="annottext">Int -&gt; DocumentClassifierDataFormat -&gt; ShowS
 [DocumentClassifierDataFormat] -&gt; ShowS
 DocumentClassifierDataFormat -&gt; String
 (Int -&gt; DocumentClassifierDataFormat -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DocumentClassifierDataFormat -&gt; String
 showsPrec :: Int -&gt; DocumentClassifierDataFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; DocumentClassifierDataFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679340178"><span id="local-6989586621679340180"><span id="local-6989586621679340182"><span id="local-6989586621679340184"><span class="annot"><span class="annottext">ReadPrec [DocumentClassifierDataFormat]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679340440"><span id="local-6989586621679340442"><span id="local-6989586621679340444"><span id="local-6989586621679340446"><span class="annot"><span class="annottext">ReadPrec [DocumentClassifierDataFormat]
 ReadPrec DocumentClassifierDataFormat
 Int -&gt; ReadS DocumentClassifierDataFormat
 ReadS [DocumentClassifierDataFormat]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DocumentClassifierDataFormat]
 readsPrec :: Int -&gt; ReadS DocumentClassifierDataFormat
 $creadsPrec :: Int -&gt; ReadS DocumentClassifierDataFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679340173"><span id="local-6989586621679340175"><span class="annot"><span class="annottext">DocumentClassifierDataFormat
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679340435"><span id="local-6989586621679340437"><span class="annot"><span class="annottext">DocumentClassifierDataFormat
 -&gt; DocumentClassifierDataFormat -&gt; Bool
 (DocumentClassifierDataFormat
  -&gt; DocumentClassifierDataFormat -&gt; Bool)
@@ -89,7 +89,7 @@ $c/= :: DocumentClassifierDataFormat
 $c== :: DocumentClassifierDataFormat
 -&gt; DocumentClassifierDataFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679340157"><span id="local-6989586621679340159"><span id="local-6989586621679340161"><span id="local-6989586621679340163"><span id="local-6989586621679340165"><span id="local-6989586621679340167"><span id="local-6989586621679340169"><span class="annot"><span class="annottext">Eq DocumentClassifierDataFormat
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679340419"><span id="local-6989586621679340421"><span id="local-6989586621679340423"><span id="local-6989586621679340425"><span id="local-6989586621679340427"><span id="local-6989586621679340429"><span id="local-6989586621679340431"><span class="annot"><span class="annottext">Eq DocumentClassifierDataFormat
 Eq DocumentClassifierDataFormat
 -&gt; (DocumentClassifierDataFormat
     -&gt; DocumentClassifierDataFormat -&gt; Ordering)
@@ -170,7 +170,7 @@ DocumentClassifierDataFormat -&gt; Rep DocumentClassifierDataFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679340149"><span id="local-6989586621679340151"><span class="annot"><span class="annottext">Int -&gt; DocumentClassifierDataFormat -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679340411"><span id="local-6989586621679340413"><span class="annot"><span class="annottext">Int -&gt; DocumentClassifierDataFormat -&gt; Int
 DocumentClassifierDataFormat -&gt; Int
 (Int -&gt; DocumentClassifierDataFormat -&gt; Int)
 -&gt; (DocumentClassifierDataFormat -&gt; Int)
@@ -181,56 +181,56 @@ $chash :: DocumentClassifierDataFormat -&gt; Int
 hashWithSalt :: Int -&gt; DocumentClassifierDataFormat -&gt; Int
 $chashWithSalt :: Int -&gt; DocumentClassifierDataFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679340146"><span class="annot"><span class="annottext">DocumentClassifierDataFormat -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679340408"><span class="annot"><span class="annottext">DocumentClassifierDataFormat -&gt; ()
 (DocumentClassifierDataFormat -&gt; ())
 -&gt; NFData DocumentClassifierDataFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DocumentClassifierDataFormat -&gt; ()
 $crnf :: DocumentClassifierDataFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679340143"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentClassifierDataFormat
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679340405"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentClassifierDataFormat
 (Text -&gt; Either String DocumentClassifierDataFormat)
 -&gt; FromText DocumentClassifierDataFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DocumentClassifierDataFormat
 $cfromText :: Text -&gt; Either String DocumentClassifierDataFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679340140"><span class="annot"><span class="annottext">DocumentClassifierDataFormat -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679340402"><span class="annot"><span class="annottext">DocumentClassifierDataFormat -&gt; Text
 (DocumentClassifierDataFormat -&gt; Text)
 -&gt; ToText DocumentClassifierDataFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DocumentClassifierDataFormat -&gt; Text
 $ctoText :: DocumentClassifierDataFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679340137"><span class="annot"><span class="annottext">DocumentClassifierDataFormat -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679340399"><span class="annot"><span class="annottext">DocumentClassifierDataFormat -&gt; ByteString
 (DocumentClassifierDataFormat -&gt; ByteString)
 -&gt; ToByteString DocumentClassifierDataFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DocumentClassifierDataFormat -&gt; ByteString
 $ctoBS :: DocumentClassifierDataFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679340134"><span class="annot"><span class="annottext">DocumentClassifierDataFormat -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679340396"><span class="annot"><span class="annottext">DocumentClassifierDataFormat -&gt; ByteStringBuilder
 (DocumentClassifierDataFormat -&gt; ByteStringBuilder)
 -&gt; ToLog DocumentClassifierDataFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DocumentClassifierDataFormat -&gt; ByteStringBuilder
 $cbuild :: DocumentClassifierDataFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679340131"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentClassifierDataFormat -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679340393"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentClassifierDataFormat -&gt; [Header]
 (HeaderName -&gt; DocumentClassifierDataFormat -&gt; [Header])
 -&gt; ToHeader DocumentClassifierDataFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DocumentClassifierDataFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DocumentClassifierDataFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679340128"><span class="annot"><span class="annottext">DocumentClassifierDataFormat -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679340390"><span class="annot"><span class="annottext">DocumentClassifierDataFormat -&gt; QueryString
 (DocumentClassifierDataFormat -&gt; QueryString)
 -&gt; ToQuery DocumentClassifierDataFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DocumentClassifierDataFormat -&gt; QueryString
 $ctoQuery :: DocumentClassifierDataFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679340123"><span id="local-6989586621679340125"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentClassifierDataFormat]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679340385"><span id="local-6989586621679340387"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentClassifierDataFormat]
 Value -&gt; Parser DocumentClassifierDataFormat
 (Value -&gt; Parser DocumentClassifierDataFormat)
 -&gt; (Value -&gt; Parser [DocumentClassifierDataFormat])
@@ -242,7 +242,7 @@ $cparseJSONList :: Value -&gt; Parser [DocumentClassifierDataFormat]
 parseJSON :: Value -&gt; Parser DocumentClassifierDataFormat
 $cparseJSON :: Value -&gt; Parser DocumentClassifierDataFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679340118"><span id="local-6989586621679340120"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentClassifierDataFormat]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679340380"><span id="local-6989586621679340382"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentClassifierDataFormat]
 FromJSONKeyFunction DocumentClassifierDataFormat
 FromJSONKeyFunction DocumentClassifierDataFormat
 -&gt; FromJSONKeyFunction [DocumentClassifierDataFormat]
@@ -254,7 +254,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DocumentClassifierDataFormat]
 fromJSONKey :: FromJSONKeyFunction DocumentClassifierDataFormat
 $cfromJSONKey :: FromJSONKeyFunction DocumentClassifierDataFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679340109"><span id="local-6989586621679340111"><span id="local-6989586621679340113"><span id="local-6989586621679340115"><span class="annot"><span class="annottext">[DocumentClassifierDataFormat] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679340371"><span id="local-6989586621679340373"><span id="local-6989586621679340375"><span id="local-6989586621679340377"><span class="annot"><span class="annottext">[DocumentClassifierDataFormat] -&gt; Encoding
 [DocumentClassifierDataFormat] -&gt; Value
 DocumentClassifierDataFormat -&gt; Encoding
 DocumentClassifierDataFormat -&gt; Value
@@ -278,7 +278,7 @@ $ctoEncoding :: DocumentClassifierDataFormat -&gt; Encoding
 toJSON :: DocumentClassifierDataFormat -&gt; Value
 $ctoJSON :: DocumentClassifierDataFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679340104"><span id="local-6989586621679340106"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentClassifierDataFormat]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679340366"><span id="local-6989586621679340368"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentClassifierDataFormat]
 ToJSONKeyFunction DocumentClassifierDataFormat
 ToJSONKeyFunction DocumentClassifierDataFormat
 -&gt; ToJSONKeyFunction [DocumentClassifierDataFormat]
@@ -290,14 +290,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DocumentClassifierDataFormat]
 toJSONKey :: ToJSONKeyFunction DocumentClassifierDataFormat
 $ctoJSONKey :: ToJSONKeyFunction DocumentClassifierDataFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679340101"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentClassifierDataFormat
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679340363"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentClassifierDataFormat
 ([Node] -&gt; Either String DocumentClassifierDataFormat)
 -&gt; FromXML DocumentClassifierDataFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DocumentClassifierDataFormat
 $cparseXML :: [Node] -&gt; Either String DocumentClassifierDataFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679340098"><span class="annot"><span class="annottext">DocumentClassifierDataFormat -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679340360"><span class="annot"><span class="annottext">DocumentClassifierDataFormat -&gt; XML
 (DocumentClassifierDataFormat -&gt; XML)
 -&gt; ToXML DocumentClassifierDataFormat
 forall a. (a -&gt; XML) -&gt; ToXML a

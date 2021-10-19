@@ -27,19 +27,19 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about the delete operation.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInventoryDeletionSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679795129"><span id="local-6989586621679795130"></span></span><span class="hs-keyword">data</span><span> </span><span id="InventoryDeletionSummary"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-var">InventoryDeletionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryDeletionSummary%27"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary%27"><span class="hs-identifier hs-var">InventoryDeletionSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679796764"><span id="local-6989586621679796765"></span></span><span class="hs-keyword">data</span><span> </span><span id="InventoryDeletionSummary"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-var">InventoryDeletionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryDeletionSummary%27"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary%27"><span class="hs-identifier hs-var">InventoryDeletionSummary'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Remaining number of items to delete.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AremainingCount%3AInventoryDeletionSummary%27"><span class="annot"><span class="annottext">InventoryDeletionSummary -&gt; Maybe Int
 </span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#%24sel%3AremainingCount%3AInventoryDeletionSummary%27"><span class="hs-identifier hs-var hs-var">remainingCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The total number of items to delete. This count doesn\'t change during</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- the delete operation.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AtotalCount%3AInventoryDeletionSummary%27"><span class="annot"><span class="annottext">InventoryDeletionSummary -&gt; Maybe Int
-</span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#%24sel%3AtotalCount%3AInventoryDeletionSummary%27"><span class="hs-identifier hs-var hs-var">totalCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A list of counts and versions for deleted items.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsummaryItems%3AInventoryDeletionSummary%27"><span class="annot"><span class="annottext">InventoryDeletionSummary -&gt; Maybe [InventoryDeletionSummaryItem]
-</span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#%24sel%3AsummaryItems%3AInventoryDeletionSummary%27"><span class="hs-identifier hs-var hs-var">summaryItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummaryItem.html#InventoryDeletionSummaryItem"><span class="hs-identifier hs-type">InventoryDeletionSummaryItem</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | A list of counts and versions for deleted items.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsummaryItems%3AInventoryDeletionSummary%27"><span class="annot"><span class="annottext">InventoryDeletionSummary -&gt; Maybe [InventoryDeletionSummaryItem]
+</span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#%24sel%3AsummaryItems%3AInventoryDeletionSummary%27"><span class="hs-identifier hs-var hs-var">summaryItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummaryItem.html#InventoryDeletionSummaryItem"><span class="hs-identifier hs-type">InventoryDeletionSummaryItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The total number of items to delete. This count doesn\'t change during</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the delete operation.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AtotalCount%3AInventoryDeletionSummary%27"><span class="annot"><span class="annottext">InventoryDeletionSummary -&gt; Maybe Int
+</span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#%24sel%3AtotalCount%3AInventoryDeletionSummary%27"><span class="hs-identifier hs-var hs-var">totalCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679795121"><span id="local-6989586621679795123"><span class="annot"><span class="annottext">InventoryDeletionSummary -&gt; InventoryDeletionSummary -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679796756"><span id="local-6989586621679796758"><span class="annot"><span class="annottext">InventoryDeletionSummary -&gt; InventoryDeletionSummary -&gt; Bool
 (InventoryDeletionSummary -&gt; InventoryDeletionSummary -&gt; Bool)
 -&gt; (InventoryDeletionSummary -&gt; InventoryDeletionSummary -&gt; Bool)
 -&gt; Eq InventoryDeletionSummary
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InventoryDeletionSummary -&gt; InventoryDeletionSummary -&gt; Bool
 == :: InventoryDeletionSummary -&gt; InventoryDeletionSummary -&gt; Bool
 $c== :: InventoryDeletionSummary -&gt; InventoryDeletionSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795112"><span id="local-6989586621679795114"><span id="local-6989586621679795116"><span id="local-6989586621679795118"><span class="annot"><span class="annottext">ReadPrec [InventoryDeletionSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796747"><span id="local-6989586621679796749"><span id="local-6989586621679796751"><span id="local-6989586621679796753"><span class="annot"><span class="annottext">ReadPrec [InventoryDeletionSummary]
 ReadPrec InventoryDeletionSummary
 Int -&gt; ReadS InventoryDeletionSummary
 ReadS [InventoryDeletionSummary]
@@ -68,7 +68,7 @@ readList :: ReadS [InventoryDeletionSummary]
 $creadList :: ReadS [InventoryDeletionSummary]
 readsPrec :: Int -&gt; ReadS InventoryDeletionSummary
 $creadsPrec :: Int -&gt; ReadS InventoryDeletionSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679795105"><span id="local-6989586621679795107"><span id="local-6989586621679795109"><span class="annot"><span class="annottext">Int -&gt; InventoryDeletionSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796740"><span id="local-6989586621679796742"><span id="local-6989586621679796744"><span class="annot"><span class="annottext">Int -&gt; InventoryDeletionSummary -&gt; ShowS
 [InventoryDeletionSummary] -&gt; ShowS
 InventoryDeletionSummary -&gt; String
 (Int -&gt; InventoryDeletionSummary -&gt; ShowS)
@@ -110,17 +110,17 @@ InventoryDeletionSummary -&gt; Rep InventoryDeletionSummary x
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- 'remainingCount', 'inventoryDeletionSummary_remainingCount' - Remaining number of items to delete.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'totalCount', 'inventoryDeletionSummary_totalCount' - The total number of items to delete. This count doesn\'t change during</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- the delete operation.</span><span>
-</span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'summaryItems', 'inventoryDeletionSummary_summaryItems' - A list of counts and versions for deleted items.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'summaryItems', 'inventoryDeletionSummary_summaryItems' - A list of counts and versions for deleted items.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'totalCount', 'inventoryDeletionSummary_totalCount' - The total number of items to delete. This count doesn\'t change during</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- the delete operation.</span><span>
 </span><span id="line-55"></span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#newInventoryDeletionSummary"><span class="hs-identifier hs-type">newInventoryDeletionSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-type">InventoryDeletionSummary</span></a></span><span>
 </span><span id="line-57"></span><span id="newInventoryDeletionSummary"><span class="annot"><span class="annottext">newInventoryDeletionSummary :: InventoryDeletionSummary
 </span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#newInventoryDeletionSummary"><span class="hs-identifier hs-var hs-var">newInventoryDeletionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">InventoryDeletionSummary' :: Maybe Int
--&gt; Maybe Int
 -&gt; Maybe [InventoryDeletionSummaryItem]
+-&gt; Maybe Int
 -&gt; InventoryDeletionSummary
 </span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary%27"><span class="hs-identifier hs-type">InventoryDeletionSummary'</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:remainingCount:InventoryDeletionSummary' :: Maybe Int
@@ -128,12 +128,12 @@ InventoryDeletionSummary -&gt; Rep InventoryDeletionSummary x
 </span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalCount:InventoryDeletionSummary' :: Maybe Int
-</span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#%24sel%3AtotalCount%3AInventoryDeletionSummary%27"><span class="hs-identifier hs-var">totalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:summaryItems:InventoryDeletionSummary' :: Maybe [InventoryDeletionSummaryItem]
+</span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#%24sel%3AsummaryItems%3AInventoryDeletionSummary%27"><span class="hs-identifier hs-var">summaryItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryDeletionSummaryItem]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:summaryItems:InventoryDeletionSummary' :: Maybe [InventoryDeletionSummaryItem]
-</span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#%24sel%3AsummaryItems%3AInventoryDeletionSummary%27"><span class="hs-identifier hs-var">summaryItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryDeletionSummaryItem]
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalCount:InventoryDeletionSummary' :: Maybe Int
+</span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#%24sel%3AtotalCount%3AInventoryDeletionSummary%27"><span class="hs-identifier hs-var">totalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
@@ -151,45 +151,20 @@ forall a. Maybe a
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary%27"><span class="hs-identifier hs-type">InventoryDeletionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795096"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary%27"><span class="hs-identifier hs-type">InventoryDeletionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796731"><span class="annot"><span class="annottext">Maybe Int
 remainingCount :: Maybe Int
 $sel:remainingCount:InventoryDeletionSummary' :: InventoryDeletionSummary -&gt; Maybe Int
-</span><a href="#local-6989586621679795096"><span class="hs-identifier hs-var hs-var">remainingCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679795096"><span class="hs-identifier hs-var">remainingCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795095"><span class="annot"><span class="annottext">s :: InventoryDeletionSummary
-</span><a href="#local-6989586621679795095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary%27"><span class="hs-identifier hs-type">InventoryDeletionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795094"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679795094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryDeletionSummary
-</span><a href="#local-6989586621679795095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remainingCount:InventoryDeletionSummary' :: Maybe Int
+</span><a href="#local-6989586621679796731"><span class="hs-identifier hs-var hs-var">remainingCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679796731"><span class="hs-identifier hs-var">remainingCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796730"><span class="annot"><span class="annottext">s :: InventoryDeletionSummary
+</span><a href="#local-6989586621679796730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary%27"><span class="hs-identifier hs-type">InventoryDeletionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796729"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679796729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryDeletionSummary
+</span><a href="#local-6989586621679796730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remainingCount:InventoryDeletionSummary' :: Maybe Int
 </span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#%24sel%3AremainingCount%3AInventoryDeletionSummary%27"><span class="hs-identifier hs-var">remainingCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679795094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-type">InventoryDeletionSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679796729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-type">InventoryDeletionSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | The total number of items to delete. This count doesn\'t change during</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- the delete operation.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#inventoryDeletionSummary_totalCount"><span class="hs-identifier hs-type">inventoryDeletionSummary_totalCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-type">InventoryDeletionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="inventoryDeletionSummary_totalCount"><span class="annot"><span class="annottext">inventoryDeletionSummary_totalCount :: (Maybe Int -&gt; f (Maybe Int))
--&gt; InventoryDeletionSummary -&gt; f InventoryDeletionSummary
-</span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#inventoryDeletionSummary_totalCount"><span class="hs-identifier hs-var hs-var">inventoryDeletionSummary_totalCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InventoryDeletionSummary -&gt; Maybe Int)
--&gt; (InventoryDeletionSummary
-    -&gt; Maybe Int -&gt; InventoryDeletionSummary)
--&gt; Lens
-     InventoryDeletionSummary
-     InventoryDeletionSummary
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary%27"><span class="hs-identifier hs-type">InventoryDeletionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795092"><span class="annot"><span class="annottext">Maybe Int
-totalCount :: Maybe Int
-$sel:totalCount:InventoryDeletionSummary' :: InventoryDeletionSummary -&gt; Maybe Int
-</span><a href="#local-6989586621679795092"><span class="hs-identifier hs-var hs-var">totalCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679795092"><span class="hs-identifier hs-var">totalCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795091"><span class="annot"><span class="annottext">s :: InventoryDeletionSummary
-</span><a href="#local-6989586621679795091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary%27"><span class="hs-identifier hs-type">InventoryDeletionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795090"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679795090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryDeletionSummary
-</span><a href="#local-6989586621679795091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalCount:InventoryDeletionSummary' :: Maybe Int
-</span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#%24sel%3AtotalCount%3AInventoryDeletionSummary%27"><span class="hs-identifier hs-var">totalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679795090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-type">InventoryDeletionSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | A list of counts and versions for deleted items.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#inventoryDeletionSummary_summaryItems"><span class="hs-identifier hs-type">inventoryDeletionSummary_summaryItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-type">InventoryDeletionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummaryItem.html#InventoryDeletionSummaryItem"><span class="hs-identifier hs-type">InventoryDeletionSummaryItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="inventoryDeletionSummary_summaryItems"><span class="annot"><span class="annottext">inventoryDeletionSummary_summaryItems :: (Maybe [InventoryDeletionSummaryItem]
+</span><span id="line-69"></span><span class="hs-comment">-- | A list of counts and versions for deleted items.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#inventoryDeletionSummary_summaryItems"><span class="hs-identifier hs-type">inventoryDeletionSummary_summaryItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-type">InventoryDeletionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummaryItem.html#InventoryDeletionSummaryItem"><span class="hs-identifier hs-type">InventoryDeletionSummaryItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="inventoryDeletionSummary_summaryItems"><span class="annot"><span class="annottext">inventoryDeletionSummary_summaryItems :: (Maybe [InventoryDeletionSummaryItem]
  -&gt; f (Maybe [InventoryDeletionSummaryItem]))
 -&gt; InventoryDeletionSummary -&gt; f InventoryDeletionSummary
 </span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#inventoryDeletionSummary_summaryItems"><span class="hs-identifier hs-var hs-var">inventoryDeletionSummary_summaryItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InventoryDeletionSummary -&gt; Maybe [InventoryDeletionSummaryItem])
@@ -202,16 +177,16 @@ $sel:totalCount:InventoryDeletionSummary' :: InventoryDeletionSummary -&gt; Mayb
      (Maybe [InventoryDeletionSummaryItem])
      (Maybe [InventoryDeletionSummaryItem])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary%27"><span class="hs-identifier hs-type">InventoryDeletionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679795088"><span class="annot"><span class="annottext">Maybe [InventoryDeletionSummaryItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary%27"><span class="hs-identifier hs-type">InventoryDeletionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796727"><span class="annot"><span class="annottext">Maybe [InventoryDeletionSummaryItem]
 summaryItems :: Maybe [InventoryDeletionSummaryItem]
 $sel:summaryItems:InventoryDeletionSummary' :: InventoryDeletionSummary -&gt; Maybe [InventoryDeletionSummaryItem]
-</span><a href="#local-6989586621679795088"><span class="hs-identifier hs-var hs-var">summaryItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryDeletionSummaryItem]
-</span><a href="#local-6989586621679795088"><span class="hs-identifier hs-var">summaryItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679795087"><span class="annot"><span class="annottext">s :: InventoryDeletionSummary
-</span><a href="#local-6989586621679795087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary%27"><span class="hs-identifier hs-type">InventoryDeletionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679795086"><span class="annot"><span class="annottext">Maybe [InventoryDeletionSummaryItem]
-</span><a href="#local-6989586621679795086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryDeletionSummary
-</span><a href="#local-6989586621679795087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summaryItems:InventoryDeletionSummary' :: Maybe [InventoryDeletionSummaryItem]
+</span><a href="#local-6989586621679796727"><span class="hs-identifier hs-var hs-var">summaryItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryDeletionSummaryItem]
+</span><a href="#local-6989586621679796727"><span class="hs-identifier hs-var">summaryItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796726"><span class="annot"><span class="annottext">s :: InventoryDeletionSummary
+</span><a href="#local-6989586621679796726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary%27"><span class="hs-identifier hs-type">InventoryDeletionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796725"><span class="annot"><span class="annottext">Maybe [InventoryDeletionSummaryItem]
+</span><a href="#local-6989586621679796725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryDeletionSummary
+</span><a href="#local-6989586621679796726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summaryItems:InventoryDeletionSummary' :: Maybe [InventoryDeletionSummaryItem]
 </span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#%24sel%3AsummaryItems%3AInventoryDeletionSummary%27"><span class="hs-identifier hs-var">summaryItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryDeletionSummaryItem]
-</span><a href="#local-6989586621679795086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-type">InventoryDeletionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InventoryDeletionSummaryItem]
+</span><a href="#local-6989586621679796725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-type">InventoryDeletionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InventoryDeletionSummaryItem]
   -&gt; f (Maybe [InventoryDeletionSummaryItem]))
  -&gt; InventoryDeletionSummary -&gt; f InventoryDeletionSummary)
 -&gt; ((Maybe [InventoryDeletionSummaryItem]
@@ -241,11 +216,36 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [InventoryDeletionSummaryItem]
   [InventoryDeletionSummaryItem]
   [InventoryDeletionSummaryItem]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The total number of items to delete. This count doesn\'t change during</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- the delete operation.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#inventoryDeletionSummary_totalCount"><span class="hs-identifier hs-type">inventoryDeletionSummary_totalCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-type">InventoryDeletionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="inventoryDeletionSummary_totalCount"><span class="annot"><span class="annottext">inventoryDeletionSummary_totalCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; InventoryDeletionSummary -&gt; f InventoryDeletionSummary
+</span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#inventoryDeletionSummary_totalCount"><span class="hs-identifier hs-var hs-var">inventoryDeletionSummary_totalCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InventoryDeletionSummary -&gt; Maybe Int)
+-&gt; (InventoryDeletionSummary
+    -&gt; Maybe Int -&gt; InventoryDeletionSummary)
+-&gt; Lens
+     InventoryDeletionSummary
+     InventoryDeletionSummary
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary%27"><span class="hs-identifier hs-type">InventoryDeletionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796720"><span class="annot"><span class="annottext">Maybe Int
+totalCount :: Maybe Int
+$sel:totalCount:InventoryDeletionSummary' :: InventoryDeletionSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679796720"><span class="hs-identifier hs-var hs-var">totalCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679796720"><span class="hs-identifier hs-var">totalCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796719"><span class="annot"><span class="annottext">s :: InventoryDeletionSummary
+</span><a href="#local-6989586621679796719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary%27"><span class="hs-identifier hs-type">InventoryDeletionSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796718"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679796718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryDeletionSummary
+</span><a href="#local-6989586621679796719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalCount:InventoryDeletionSummary' :: Maybe Int
+</span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#%24sel%3AtotalCount%3AInventoryDeletionSummary%27"><span class="hs-identifier hs-var">totalCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679796718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-type">InventoryDeletionSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795080"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-type">InventoryDeletionSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679795078"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InventoryDeletionSummary
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796715"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-type">InventoryDeletionSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679796713"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InventoryDeletionSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InventoryDeletionSummary)
@@ -255,48 +255,35 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InventoryDeletionSummary&quot;</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679795075"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679795075"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679796710"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679796710"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
--&gt; Maybe Int
 -&gt; Maybe [InventoryDeletionSummaryItem]
+-&gt; Maybe Int
 -&gt; InventoryDeletionSummary
 </span><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary%27"><span class="hs-identifier hs-var">InventoryDeletionSummary'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
- -&gt; Maybe Int
  -&gt; Maybe [InventoryDeletionSummaryItem]
+ -&gt; Maybe Int
  -&gt; InventoryDeletionSummary)
 -&gt; Parser (Maybe Int)
 -&gt; Parser
-     (Maybe Int
-      -&gt; Maybe [InventoryDeletionSummaryItem]
-      -&gt; InventoryDeletionSummary)
+     (Maybe [InventoryDeletionSummaryItem]
+      -&gt; Maybe Int -&gt; InventoryDeletionSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679795075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679796710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RemainingCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Int
-   -&gt; Maybe [InventoryDeletionSummaryItem]
-   -&gt; InventoryDeletionSummary)
--&gt; Parser (Maybe Int)
--&gt; Parser
-     (Maybe [InventoryDeletionSummaryItem] -&gt; InventoryDeletionSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679795075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TotalCount&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [InventoryDeletionSummaryItem] -&gt; InventoryDeletionSummary)
+  (Maybe [InventoryDeletionSummaryItem]
+   -&gt; Maybe Int -&gt; InventoryDeletionSummary)
 -&gt; Parser (Maybe [InventoryDeletionSummaryItem])
--&gt; Parser InventoryDeletionSummary
+-&gt; Parser (Maybe Int -&gt; InventoryDeletionSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679795075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679796710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [InventoryDeletionSummaryItem]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -307,9 +294,17 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InventoryDeletionSummaryItem]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; InventoryDeletionSummary)
+-&gt; Parser (Maybe Int) -&gt; Parser InventoryDeletionSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679796710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TotalCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795068"><span id="local-6989586621679795070"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-type">InventoryDeletionSummary</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796703"><span id="local-6989586621679796705"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-type">InventoryDeletionSummary</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679795065"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-type">InventoryDeletionSummary</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796700"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryDeletionSummary.html#InventoryDeletionSummary"><span class="hs-identifier hs-type">InventoryDeletionSummary</span></a></span></span><span>
 </span><span id="line-92"></span></pre></body></html>

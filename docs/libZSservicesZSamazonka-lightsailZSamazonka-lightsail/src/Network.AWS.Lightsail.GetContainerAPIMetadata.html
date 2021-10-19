@@ -45,10 +45,10 @@
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- | /See:/ 'newGetContainerAPIMetadata' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679645588"><span id="local-6989586621679645589"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerAPIMetadata"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadata"><span class="hs-identifier hs-var">GetContainerAPIMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerAPIMetadata%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadata%27"><span class="hs-identifier hs-var">GetContainerAPIMetadata'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679646587"><span id="local-6989586621679646588"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerAPIMetadata"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadata"><span class="hs-identifier hs-var">GetContainerAPIMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerAPIMetadata%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadata%27"><span class="hs-identifier hs-var">GetContainerAPIMetadata'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679645583"><span id="local-6989586621679645585"><span class="annot"><span class="annottext">GetContainerAPIMetadata -&gt; GetContainerAPIMetadata -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679646582"><span id="local-6989586621679646584"><span class="annot"><span class="annottext">GetContainerAPIMetadata -&gt; GetContainerAPIMetadata -&gt; Bool
 (GetContainerAPIMetadata -&gt; GetContainerAPIMetadata -&gt; Bool)
 -&gt; (GetContainerAPIMetadata -&gt; GetContainerAPIMetadata -&gt; Bool)
 -&gt; Eq GetContainerAPIMetadata
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetContainerAPIMetadata -&gt; GetContainerAPIMetadata -&gt; Bool
 == :: GetContainerAPIMetadata -&gt; GetContainerAPIMetadata -&gt; Bool
 $c== :: GetContainerAPIMetadata -&gt; GetContainerAPIMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645574"><span id="local-6989586621679645576"><span id="local-6989586621679645578"><span id="local-6989586621679645580"><span class="annot"><span class="annottext">ReadPrec [GetContainerAPIMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646573"><span id="local-6989586621679646575"><span id="local-6989586621679646577"><span id="local-6989586621679646579"><span class="annot"><span class="annottext">ReadPrec [GetContainerAPIMetadata]
 ReadPrec GetContainerAPIMetadata
 Int -&gt; ReadS GetContainerAPIMetadata
 ReadS [GetContainerAPIMetadata]
@@ -77,7 +77,7 @@ readList :: ReadS [GetContainerAPIMetadata]
 $creadList :: ReadS [GetContainerAPIMetadata]
 readsPrec :: Int -&gt; ReadS GetContainerAPIMetadata
 $creadsPrec :: Int -&gt; ReadS GetContainerAPIMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645567"><span id="local-6989586621679645569"><span id="local-6989586621679645571"><span class="annot"><span class="annottext">Int -&gt; GetContainerAPIMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646566"><span id="local-6989586621679646568"><span id="local-6989586621679646570"><span class="annot"><span class="annottext">Int -&gt; GetContainerAPIMetadata -&gt; ShowS
 [GetContainerAPIMetadata] -&gt; ShowS
 GetContainerAPIMetadata -&gt; String
 (Int -&gt; GetContainerAPIMetadata -&gt; ShowS)
@@ -119,13 +119,13 @@ $cfrom :: forall x. GetContainerAPIMetadata -&gt; Rep GetContainerAPIMetadata x
 </span><span id="line-62"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-63"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadata"><span class="hs-identifier hs-type">GetContainerAPIMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse"><span class="hs-identifier hs-type">GetContainerAPIMetadataResponse</span></a></span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679645559"><span class="annot"><span class="annottext">request :: GetContainerAPIMetadata -&gt; Request GetContainerAPIMetadata
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679646558"><span class="annot"><span class="annottext">request :: GetContainerAPIMetadata -&gt; Request GetContainerAPIMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetContainerAPIMetadata -&gt; Request GetContainerAPIMetadata
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679645555"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679646554"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetContainerAPIMetadata
 -&gt; ClientResponse ClientBody
@@ -151,10 +151,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679645552"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679645552"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679645551"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679645551"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679645550"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679645550"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679646551"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646551"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679646550"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679646550"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679646549"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679646549"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe [HashMap Text Text] -&gt; Int -&gt; GetContainerAPIMetadataResponse
 </span><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse%27"><span class="hs-identifier hs-var">GetContainerAPIMetadataResponse'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [HashMap Text Text]
@@ -163,7 +163,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetContainerAPIMetadataResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679645550"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [HashMap Text Text]))
+</span><a href="#local-6989586621679646549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [HashMap Text Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;metadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [HashMap Text Text]))
@@ -182,15 +182,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679645552"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679646551"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679645541"><span id="local-6989586621679645543"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadata"><span class="hs-identifier hs-type">GetContainerAPIMetadata</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646540"><span id="local-6989586621679646542"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadata"><span class="hs-identifier hs-type">GetContainerAPIMetadata</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679645538"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadata"><span class="hs-identifier hs-type">GetContainerAPIMetadata</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646537"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadata"><span class="hs-identifier hs-type">GetContainerAPIMetadata</span></a></span></span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadata"><span class="hs-identifier hs-type">GetContainerAPIMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679645534"><span class="annot"><span class="annottext">toHeaders :: GetContainerAPIMetadata -&gt; ResponseHeaders
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679646533"><span class="annot"><span class="annottext">toHeaders :: GetContainerAPIMetadata -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetContainerAPIMetadata -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -217,8 +217,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679645524"><span id="local-6989586621679645526"><span id="local-6989586621679645528"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadata"><span class="hs-identifier hs-type">GetContainerAPIMetadata</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679645522"><span class="annot"><span class="annottext">toJSON :: GetContainerAPIMetadata -&gt; Value
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679646523"><span id="local-6989586621679646525"><span id="local-6989586621679646527"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadata"><span class="hs-identifier hs-type">GetContainerAPIMetadata</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679646521"><span class="annot"><span class="annottext">toJSON :: GetContainerAPIMetadata -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; GetContainerAPIMetadata -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -227,14 +227,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadata"><span class="hs-identifier hs-type">GetContainerAPIMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679645517"><span class="annot"><span class="annottext">toPath :: GetContainerAPIMetadata -&gt; ByteString
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679646516"><span class="annot"><span class="annottext">toPath :: GetContainerAPIMetadata -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetContainerAPIMetadata -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadata"><span class="hs-identifier hs-type">GetContainerAPIMetadata</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679645513"><span class="annot"><span class="annottext">toQuery :: GetContainerAPIMetadata -&gt; QueryString
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679646512"><span class="annot"><span class="annottext">toQuery :: GetContainerAPIMetadata -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetContainerAPIMetadata -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -242,7 +242,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | /See:/ 'newGetContainerAPIMetadataResponse' smart constructor.</span><span>
-</span><span id="line-103"></span><span id="local-6989586621679645510"><span id="local-6989586621679645511"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerAPIMetadataResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse"><span class="hs-identifier hs-var">GetContainerAPIMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerAPIMetadataResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse%27"><span class="hs-identifier hs-var">GetContainerAPIMetadataResponse'</span></a></span></span><span>
+</span><span id="line-103"></span><span id="local-6989586621679646509"><span id="local-6989586621679646510"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetContainerAPIMetadataResponse"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse"><span class="hs-identifier hs-var">GetContainerAPIMetadataResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetContainerAPIMetadataResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse%27"><span class="hs-identifier hs-var">GetContainerAPIMetadataResponse'</span></a></span></span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Metadata about Lightsail containers, such as the current version of the</span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-comment">-- Lightsail Control (lightsailctl) plugin.</span><span>
 </span><span id="line-106"></span><span>    </span><span id="%24sel%3Ametadata%3AGetContainerAPIMetadataResponse%27"><span class="annot"><span class="annottext">GetContainerAPIMetadataResponse -&gt; Maybe [HashMap Text Text]
@@ -251,7 +251,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-108"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetContainerAPIMetadataResponse%27"><span class="annot"><span class="annottext">GetContainerAPIMetadataResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#%24sel%3AhttpStatus%3AGetContainerAPIMetadataResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679645504"><span id="local-6989586621679645506"><span class="annot"><span class="annottext">GetContainerAPIMetadataResponse
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679646503"><span id="local-6989586621679646505"><span class="annot"><span class="annottext">GetContainerAPIMetadataResponse
 -&gt; GetContainerAPIMetadataResponse -&gt; Bool
 (GetContainerAPIMetadataResponse
  -&gt; GetContainerAPIMetadataResponse -&gt; Bool)
@@ -267,7 +267,7 @@ $c/= :: GetContainerAPIMetadataResponse
 -&gt; GetContainerAPIMetadataResponse -&gt; Bool
 $c== :: GetContainerAPIMetadataResponse
 -&gt; GetContainerAPIMetadataResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645496"><span id="local-6989586621679645498"><span id="local-6989586621679645500"><span id="local-6989586621679645502"><span class="annot"><span class="annottext">ReadPrec [GetContainerAPIMetadataResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646495"><span id="local-6989586621679646497"><span id="local-6989586621679646499"><span id="local-6989586621679646501"><span class="annot"><span class="annottext">ReadPrec [GetContainerAPIMetadataResponse]
 ReadPrec GetContainerAPIMetadataResponse
 Int -&gt; ReadS GetContainerAPIMetadataResponse
 ReadS [GetContainerAPIMetadataResponse]
@@ -287,7 +287,7 @@ readList :: ReadS [GetContainerAPIMetadataResponse]
 $creadList :: ReadS [GetContainerAPIMetadataResponse]
 readsPrec :: Int -&gt; ReadS GetContainerAPIMetadataResponse
 $creadsPrec :: Int -&gt; ReadS GetContainerAPIMetadataResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645490"><span id="local-6989586621679645492"><span id="local-6989586621679645494"><span class="annot"><span class="annottext">Int -&gt; GetContainerAPIMetadataResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679646489"><span id="local-6989586621679646491"><span id="local-6989586621679646493"><span class="annot"><span class="annottext">Int -&gt; GetContainerAPIMetadataResponse -&gt; ShowS
 [GetContainerAPIMetadataResponse] -&gt; ShowS
 GetContainerAPIMetadataResponse -&gt; String
 (Int -&gt; GetContainerAPIMetadataResponse -&gt; ShowS)
@@ -342,8 +342,8 @@ GetContainerAPIMetadataResponse
 </span><span id="line-126"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse"><span class="hs-identifier hs-type">GetContainerAPIMetadataResponse</span></a></span><span>
 </span><span id="line-128"></span><span id="newGetContainerAPIMetadataResponse"><span class="annot"><span class="annottext">newGetContainerAPIMetadataResponse :: Int -&gt; GetContainerAPIMetadataResponse
-</span><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#newGetContainerAPIMetadataResponse"><span class="hs-identifier hs-var hs-var">newGetContainerAPIMetadataResponse</span></a></span></span><span> </span><span id="local-6989586621679645487"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679645487"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#newGetContainerAPIMetadataResponse"><span class="hs-identifier hs-var hs-var">newGetContainerAPIMetadataResponse</span></a></span></span><span> </span><span id="local-6989586621679646486"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646486"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>  </span><span class="annot"><span class="annottext">GetContainerAPIMetadataResponse' :: Maybe [HashMap Text Text] -&gt; Int -&gt; GetContainerAPIMetadataResponse
 </span><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse%27"><span class="hs-identifier hs-type">GetContainerAPIMetadataResponse'</span></a></span><span>
 </span><span id="line-130"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metadata:GetContainerAPIMetadataResponse' :: Maybe [HashMap Text Text]
@@ -353,7 +353,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetContainerAPIMetadataResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#%24sel%3AhttpStatus%3AGetContainerAPIMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679645487"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679646486"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | Metadata about Lightsail containers, such as the current version of the</span><span>
@@ -371,16 +371,16 @@ forall a. Maybe a
      (Maybe [HashMap Text Text])
      (Maybe [HashMap Text Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse%27"><span class="hs-identifier hs-type">GetContainerAPIMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645484"><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse%27"><span class="hs-identifier hs-type">GetContainerAPIMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646483"><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
 metadata :: Maybe [HashMap Text Text]
 $sel:metadata:GetContainerAPIMetadataResponse' :: GetContainerAPIMetadataResponse -&gt; Maybe [HashMap Text Text]
-</span><a href="#local-6989586621679645484"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
-</span><a href="#local-6989586621679645484"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679645483"><span class="annot"><span class="annottext">s :: GetContainerAPIMetadataResponse
-</span><a href="#local-6989586621679645483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse%27"><span class="hs-identifier hs-type">GetContainerAPIMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679645482"><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
-</span><a href="#local-6989586621679645482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerAPIMetadataResponse
-</span><a href="#local-6989586621679645483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata:GetContainerAPIMetadataResponse' :: Maybe [HashMap Text Text]
+</span><a href="#local-6989586621679646483"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
+</span><a href="#local-6989586621679646483"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646482"><span class="annot"><span class="annottext">s :: GetContainerAPIMetadataResponse
+</span><a href="#local-6989586621679646482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse%27"><span class="hs-identifier hs-type">GetContainerAPIMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646481"><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
+</span><a href="#local-6989586621679646481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerAPIMetadataResponse
+</span><a href="#local-6989586621679646482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata:GetContainerAPIMetadataResponse' :: Maybe [HashMap Text Text]
 </span><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#%24sel%3Ametadata%3AGetContainerAPIMetadataResponse%27"><span class="hs-identifier hs-var">metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HashMap Text Text]
-</span><a href="#local-6989586621679645482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse"><span class="hs-identifier hs-type">GetContainerAPIMetadataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HashMap Text Text] -&gt; f (Maybe [HashMap Text Text]))
+</span><a href="#local-6989586621679646481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse"><span class="hs-identifier hs-type">GetContainerAPIMetadataResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HashMap Text Text] -&gt; f (Maybe [HashMap Text Text]))
  -&gt; GetContainerAPIMetadataResponse
  -&gt; f GetContainerAPIMetadataResponse)
 -&gt; ((Maybe [HashMap Text Text] -&gt; f (Maybe [HashMap Text Text]))
@@ -407,8 +407,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [HashMap Text Text]
   [HashMap Text Text]
   [HashMap Text Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#getContainerAPIMetadataResponse_httpStatus"><span class="hs-identifier hs-type">getContainerAPIMetadataResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse"><span class="hs-identifier hs-type">GetContainerAPIMetadataResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -424,18 +424,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse%27"><span class="hs-identifier hs-type">GetContainerAPIMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645478"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse%27"><span class="hs-identifier hs-type">GetContainerAPIMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679646477"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetContainerAPIMetadataResponse' :: GetContainerAPIMetadataResponse -&gt; Int
-</span><a href="#local-6989586621679645478"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679645478"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679645477"><span class="annot"><span class="annottext">s :: GetContainerAPIMetadataResponse
-</span><a href="#local-6989586621679645477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse%27"><span class="hs-identifier hs-type">GetContainerAPIMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679645476"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679645476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerAPIMetadataResponse
-</span><a href="#local-6989586621679645477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetContainerAPIMetadataResponse' :: Int
+</span><a href="#local-6989586621679646477"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646477"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679646476"><span class="annot"><span class="annottext">s :: GetContainerAPIMetadataResponse
+</span><a href="#local-6989586621679646476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse%27"><span class="hs-identifier hs-type">GetContainerAPIMetadataResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679646475"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679646475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetContainerAPIMetadataResponse
+</span><a href="#local-6989586621679646476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetContainerAPIMetadataResponse' :: Int
 </span><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#%24sel%3AhttpStatus%3AGetContainerAPIMetadataResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679645476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse"><span class="hs-identifier hs-type">GetContainerAPIMetadataResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679646475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse"><span class="hs-identifier hs-type">GetContainerAPIMetadataResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679645474"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679646473"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.GetContainerAPIMetadata.html#GetContainerAPIMetadataResponse"><span class="hs-identifier hs-type">GetContainerAPIMetadataResponse</span></a></span></span><span>
 </span><span id="line-147"></span></pre></body></html>

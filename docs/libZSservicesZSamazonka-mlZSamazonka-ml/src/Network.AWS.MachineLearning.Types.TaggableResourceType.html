@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679253680"><span id="local-6989586621679253681"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TaggableResourceType"><span class="annot"><a href="Network.AWS.MachineLearning.Types.TaggableResourceType.html#TaggableResourceType"><span class="hs-identifier hs-var">TaggableResourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaggableResourceType%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.TaggableResourceType.html#TaggableResourceType%27"><span class="hs-identifier hs-var">TaggableResourceType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679253764"><span id="local-6989586621679253765"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TaggableResourceType"><span class="annot"><a href="Network.AWS.MachineLearning.Types.TaggableResourceType.html#TaggableResourceType"><span class="hs-identifier hs-var">TaggableResourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaggableResourceType%27"><span class="annot"><a href="Network.AWS.MachineLearning.Types.TaggableResourceType.html#TaggableResourceType%27"><span class="hs-identifier hs-var">TaggableResourceType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTaggableResourceType"><span class="annot"><span class="annottext">TaggableResourceType -&gt; Text
 </span><a href="Network.AWS.MachineLearning.Types.TaggableResourceType.html#fromTaggableResourceType"><span class="hs-identifier hs-var hs-var">fromTaggableResourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679253672"><span id="local-6989586621679253674"><span id="local-6989586621679253676"><span class="annot"><span class="annottext">Int -&gt; TaggableResourceType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679253756"><span id="local-6989586621679253758"><span id="local-6989586621679253760"><span class="annot"><span class="annottext">Int -&gt; TaggableResourceType -&gt; ShowS
 [TaggableResourceType] -&gt; ShowS
 TaggableResourceType -&gt; String
 (Int -&gt; TaggableResourceType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: TaggableResourceType -&gt; String
 showsPrec :: Int -&gt; TaggableResourceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; TaggableResourceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679253663"><span id="local-6989586621679253665"><span id="local-6989586621679253667"><span id="local-6989586621679253669"><span class="annot"><span class="annottext">ReadPrec [TaggableResourceType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679253747"><span id="local-6989586621679253749"><span id="local-6989586621679253751"><span id="local-6989586621679253753"><span class="annot"><span class="annottext">ReadPrec [TaggableResourceType]
 ReadPrec TaggableResourceType
 Int -&gt; ReadS TaggableResourceType
 ReadS [TaggableResourceType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [TaggableResourceType]
 readsPrec :: Int -&gt; ReadS TaggableResourceType
 $creadsPrec :: Int -&gt; ReadS TaggableResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679253658"><span id="local-6989586621679253660"><span class="annot"><span class="annottext">TaggableResourceType -&gt; TaggableResourceType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679253742"><span id="local-6989586621679253744"><span class="annot"><span class="annottext">TaggableResourceType -&gt; TaggableResourceType -&gt; Bool
 (TaggableResourceType -&gt; TaggableResourceType -&gt; Bool)
 -&gt; (TaggableResourceType -&gt; TaggableResourceType -&gt; Bool)
 -&gt; Eq TaggableResourceType
@@ -84,7 +84,7 @@ $c/= :: TaggableResourceType -&gt; TaggableResourceType -&gt; Bool
 == :: TaggableResourceType -&gt; TaggableResourceType -&gt; Bool
 $c== :: TaggableResourceType -&gt; TaggableResourceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679253642"><span id="local-6989586621679253644"><span id="local-6989586621679253646"><span id="local-6989586621679253648"><span id="local-6989586621679253650"><span id="local-6989586621679253652"><span id="local-6989586621679253654"><span class="annot"><span class="annottext">Eq TaggableResourceType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679253726"><span id="local-6989586621679253728"><span id="local-6989586621679253730"><span id="local-6989586621679253732"><span id="local-6989586621679253734"><span id="local-6989586621679253736"><span id="local-6989586621679253738"><span class="annot"><span class="annottext">Eq TaggableResourceType
 Eq TaggableResourceType
 -&gt; (TaggableResourceType -&gt; TaggableResourceType -&gt; Ordering)
 -&gt; (TaggableResourceType -&gt; TaggableResourceType -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. TaggableResourceType -&gt; Rep TaggableResourceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679253634"><span id="local-6989586621679253636"><span class="annot"><span class="annottext">Int -&gt; TaggableResourceType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679253718"><span id="local-6989586621679253720"><span class="annot"><span class="annottext">Int -&gt; TaggableResourceType -&gt; Int
 TaggableResourceType -&gt; Int
 (Int -&gt; TaggableResourceType -&gt; Int)
 -&gt; (TaggableResourceType -&gt; Int) -&gt; Hashable TaggableResourceType
@@ -152,54 +152,54 @@ $chash :: TaggableResourceType -&gt; Int
 hashWithSalt :: Int -&gt; TaggableResourceType -&gt; Int
 $chashWithSalt :: Int -&gt; TaggableResourceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679253631"><span class="annot"><span class="annottext">TaggableResourceType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679253715"><span class="annot"><span class="annottext">TaggableResourceType -&gt; ()
 (TaggableResourceType -&gt; ()) -&gt; NFData TaggableResourceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TaggableResourceType -&gt; ()
 $crnf :: TaggableResourceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679253628"><span class="annot"><span class="annottext">Text -&gt; Either String TaggableResourceType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679253712"><span class="annot"><span class="annottext">Text -&gt; Either String TaggableResourceType
 (Text -&gt; Either String TaggableResourceType)
 -&gt; FromText TaggableResourceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TaggableResourceType
 $cfromText :: Text -&gt; Either String TaggableResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679253625"><span class="annot"><span class="annottext">TaggableResourceType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679253709"><span class="annot"><span class="annottext">TaggableResourceType -&gt; Text
 (TaggableResourceType -&gt; Text) -&gt; ToText TaggableResourceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TaggableResourceType -&gt; Text
 $ctoText :: TaggableResourceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679253622"><span class="annot"><span class="annottext">TaggableResourceType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679253706"><span class="annot"><span class="annottext">TaggableResourceType -&gt; ByteString
 (TaggableResourceType -&gt; ByteString)
 -&gt; ToByteString TaggableResourceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TaggableResourceType -&gt; ByteString
 $ctoBS :: TaggableResourceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679253619"><span class="annot"><span class="annottext">TaggableResourceType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679253703"><span class="annot"><span class="annottext">TaggableResourceType -&gt; ByteStringBuilder
 (TaggableResourceType -&gt; ByteStringBuilder)
 -&gt; ToLog TaggableResourceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TaggableResourceType -&gt; ByteStringBuilder
 $cbuild :: TaggableResourceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679253616"><span class="annot"><span class="annottext">HeaderName -&gt; TaggableResourceType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679253700"><span class="annot"><span class="annottext">HeaderName -&gt; TaggableResourceType -&gt; [Header]
 (HeaderName -&gt; TaggableResourceType -&gt; [Header])
 -&gt; ToHeader TaggableResourceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TaggableResourceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TaggableResourceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679253613"><span class="annot"><span class="annottext">TaggableResourceType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679253697"><span class="annot"><span class="annottext">TaggableResourceType -&gt; QueryString
 (TaggableResourceType -&gt; QueryString)
 -&gt; ToQuery TaggableResourceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TaggableResourceType -&gt; QueryString
 $ctoQuery :: TaggableResourceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679253608"><span id="local-6989586621679253610"><span class="annot"><span class="annottext">Value -&gt; Parser [TaggableResourceType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679253692"><span id="local-6989586621679253694"><span class="annot"><span class="annottext">Value -&gt; Parser [TaggableResourceType]
 Value -&gt; Parser TaggableResourceType
 (Value -&gt; Parser TaggableResourceType)
 -&gt; (Value -&gt; Parser [TaggableResourceType])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [TaggableResourceType]
 parseJSON :: Value -&gt; Parser TaggableResourceType
 $cparseJSON :: Value -&gt; Parser TaggableResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679253603"><span id="local-6989586621679253605"><span class="annot"><span class="annottext">FromJSONKeyFunction [TaggableResourceType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679253687"><span id="local-6989586621679253689"><span class="annot"><span class="annottext">FromJSONKeyFunction [TaggableResourceType]
 FromJSONKeyFunction TaggableResourceType
 FromJSONKeyFunction TaggableResourceType
 -&gt; FromJSONKeyFunction [TaggableResourceType]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TaggableResourceType]
 fromJSONKey :: FromJSONKeyFunction TaggableResourceType
 $cfromJSONKey :: FromJSONKeyFunction TaggableResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679253594"><span id="local-6989586621679253596"><span id="local-6989586621679253598"><span id="local-6989586621679253600"><span class="annot"><span class="annottext">[TaggableResourceType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679253678"><span id="local-6989586621679253680"><span id="local-6989586621679253682"><span id="local-6989586621679253684"><span class="annot"><span class="annottext">[TaggableResourceType] -&gt; Encoding
 [TaggableResourceType] -&gt; Value
 TaggableResourceType -&gt; Encoding
 TaggableResourceType -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: TaggableResourceType -&gt; Encoding
 toJSON :: TaggableResourceType -&gt; Value
 $ctoJSON :: TaggableResourceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679253589"><span id="local-6989586621679253591"><span class="annot"><span class="annottext">ToJSONKeyFunction [TaggableResourceType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679253673"><span id="local-6989586621679253675"><span class="annot"><span class="annottext">ToJSONKeyFunction [TaggableResourceType]
 ToJSONKeyFunction TaggableResourceType
 ToJSONKeyFunction TaggableResourceType
 -&gt; ToJSONKeyFunction [TaggableResourceType]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TaggableResourceType]
 toJSONKey :: ToJSONKeyFunction TaggableResourceType
 $ctoJSONKey :: ToJSONKeyFunction TaggableResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679253586"><span class="annot"><span class="annottext">[Node] -&gt; Either String TaggableResourceType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679253670"><span class="annot"><span class="annottext">[Node] -&gt; Either String TaggableResourceType
 ([Node] -&gt; Either String TaggableResourceType)
 -&gt; FromXML TaggableResourceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TaggableResourceType
 $cparseXML :: [Node] -&gt; Either String TaggableResourceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679253583"><span class="annot"><span class="annottext">TaggableResourceType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679253667"><span class="annot"><span class="annottext">TaggableResourceType -&gt; XML
 (TaggableResourceType -&gt; XML) -&gt; ToXML TaggableResourceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TaggableResourceType -&gt; XML

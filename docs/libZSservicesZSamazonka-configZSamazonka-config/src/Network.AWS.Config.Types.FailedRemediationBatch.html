@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | List of each of the failed remediations with specific reasons.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFailedRemediationBatch' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679409472"><span id="local-6989586621679409473"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailedRemediationBatch"><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch"><span class="hs-identifier hs-var">FailedRemediationBatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailedRemediationBatch%27"><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch%27"><span class="hs-identifier hs-var">FailedRemediationBatch'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679410082"><span id="local-6989586621679410083"></span></span><span class="hs-keyword">data</span><span> </span><span id="FailedRemediationBatch"><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch"><span class="hs-identifier hs-var">FailedRemediationBatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailedRemediationBatch%27"><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch%27"><span class="hs-identifier hs-var">FailedRemediationBatch'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns a failure message. For example, the resource is already</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- compliant.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AfailureMessage%3AFailedRemediationBatch%27"><span class="annot"><span class="annottext">FailedRemediationBatch -&gt; Maybe Text
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AfailedItems%3AFailedRemediationBatch%27"><span class="annot"><span class="annottext">FailedRemediationBatch -&gt; Maybe [RemediationConfiguration]
 </span><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#%24sel%3AfailedItems%3AFailedRemediationBatch%27"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationConfiguration.html#RemediationConfiguration"><span class="hs-identifier hs-type">RemediationConfiguration</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409465"><span id="local-6989586621679409467"><span class="annot"><span class="annottext">FailedRemediationBatch -&gt; FailedRemediationBatch -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679410075"><span id="local-6989586621679410077"><span class="annot"><span class="annottext">FailedRemediationBatch -&gt; FailedRemediationBatch -&gt; Bool
 (FailedRemediationBatch -&gt; FailedRemediationBatch -&gt; Bool)
 -&gt; (FailedRemediationBatch -&gt; FailedRemediationBatch -&gt; Bool)
 -&gt; Eq FailedRemediationBatch
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FailedRemediationBatch -&gt; FailedRemediationBatch -&gt; Bool
 == :: FailedRemediationBatch -&gt; FailedRemediationBatch -&gt; Bool
 $c== :: FailedRemediationBatch -&gt; FailedRemediationBatch -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409456"><span id="local-6989586621679409458"><span id="local-6989586621679409460"><span id="local-6989586621679409462"><span class="annot"><span class="annottext">ReadPrec [FailedRemediationBatch]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410066"><span id="local-6989586621679410068"><span id="local-6989586621679410070"><span id="local-6989586621679410072"><span class="annot"><span class="annottext">ReadPrec [FailedRemediationBatch]
 ReadPrec FailedRemediationBatch
 Int -&gt; ReadS FailedRemediationBatch
 ReadS [FailedRemediationBatch]
@@ -65,7 +65,7 @@ readList :: ReadS [FailedRemediationBatch]
 $creadList :: ReadS [FailedRemediationBatch]
 readsPrec :: Int -&gt; ReadS FailedRemediationBatch
 $creadsPrec :: Int -&gt; ReadS FailedRemediationBatch
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409449"><span id="local-6989586621679409451"><span id="local-6989586621679409453"><span class="annot"><span class="annottext">Int -&gt; FailedRemediationBatch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679410059"><span id="local-6989586621679410061"><span id="local-6989586621679410063"><span class="annot"><span class="annottext">Int -&gt; FailedRemediationBatch -&gt; ShowS
 [FailedRemediationBatch] -&gt; ShowS
 FailedRemediationBatch -&gt; String
 (Int -&gt; FailedRemediationBatch -&gt; ShowS)
@@ -135,16 +135,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch%27"><span class="hs-identifier hs-type">FailedRemediationBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409440"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch%27"><span class="hs-identifier hs-type">FailedRemediationBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410050"><span class="annot"><span class="annottext">Maybe Text
 failureMessage :: Maybe Text
 $sel:failureMessage:FailedRemediationBatch' :: FailedRemediationBatch -&gt; Maybe Text
-</span><a href="#local-6989586621679409440"><span class="hs-identifier hs-var hs-var">failureMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409440"><span class="hs-identifier hs-var">failureMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409439"><span class="annot"><span class="annottext">s :: FailedRemediationBatch
-</span><a href="#local-6989586621679409439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch%27"><span class="hs-identifier hs-type">FailedRemediationBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409438"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedRemediationBatch
-</span><a href="#local-6989586621679409439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureMessage:FailedRemediationBatch' :: Maybe Text
+</span><a href="#local-6989586621679410050"><span class="hs-identifier hs-var hs-var">failureMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410050"><span class="hs-identifier hs-var">failureMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410049"><span class="annot"><span class="annottext">s :: FailedRemediationBatch
+</span><a href="#local-6989586621679410049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch%27"><span class="hs-identifier hs-type">FailedRemediationBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410048"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679410048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedRemediationBatch
+</span><a href="#local-6989586621679410049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureMessage:FailedRemediationBatch' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#%24sel%3AfailureMessage%3AFailedRemediationBatch%27"><span class="hs-identifier hs-var">failureMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch"><span class="hs-identifier hs-type">FailedRemediationBatch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679410048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch"><span class="hs-identifier hs-type">FailedRemediationBatch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | Returns remediation configurations of the failed items.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#failedRemediationBatch_failedItems"><span class="hs-identifier hs-type">failedRemediationBatch_failedItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch"><span class="hs-identifier hs-type">FailedRemediationBatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationConfiguration.html#RemediationConfiguration"><span class="hs-identifier hs-type">RemediationConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -160,16 +160,16 @@ $sel:failureMessage:FailedRemediationBatch' :: FailedRemediationBatch -&gt; Mayb
      (Maybe [RemediationConfiguration])
      (Maybe [RemediationConfiguration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch%27"><span class="hs-identifier hs-type">FailedRemediationBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409436"><span class="annot"><span class="annottext">Maybe [RemediationConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch%27"><span class="hs-identifier hs-type">FailedRemediationBatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679410046"><span class="annot"><span class="annottext">Maybe [RemediationConfiguration]
 failedItems :: Maybe [RemediationConfiguration]
 $sel:failedItems:FailedRemediationBatch' :: FailedRemediationBatch -&gt; Maybe [RemediationConfiguration]
-</span><a href="#local-6989586621679409436"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RemediationConfiguration]
-</span><a href="#local-6989586621679409436"><span class="hs-identifier hs-var">failedItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409435"><span class="annot"><span class="annottext">s :: FailedRemediationBatch
-</span><a href="#local-6989586621679409435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch%27"><span class="hs-identifier hs-type">FailedRemediationBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409434"><span class="annot"><span class="annottext">Maybe [RemediationConfiguration]
-</span><a href="#local-6989586621679409434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedRemediationBatch
-</span><a href="#local-6989586621679409435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedItems:FailedRemediationBatch' :: Maybe [RemediationConfiguration]
+</span><a href="#local-6989586621679410046"><span class="hs-identifier hs-var hs-var">failedItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RemediationConfiguration]
+</span><a href="#local-6989586621679410046"><span class="hs-identifier hs-var">failedItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679410045"><span class="annot"><span class="annottext">s :: FailedRemediationBatch
+</span><a href="#local-6989586621679410045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch%27"><span class="hs-identifier hs-type">FailedRemediationBatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679410044"><span class="annot"><span class="annottext">Maybe [RemediationConfiguration]
+</span><a href="#local-6989586621679410044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FailedRemediationBatch
+</span><a href="#local-6989586621679410045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedItems:FailedRemediationBatch' :: Maybe [RemediationConfiguration]
 </span><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#%24sel%3AfailedItems%3AFailedRemediationBatch%27"><span class="hs-identifier hs-var">failedItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RemediationConfiguration]
-</span><a href="#local-6989586621679409434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch"><span class="hs-identifier hs-type">FailedRemediationBatch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RemediationConfiguration]
+</span><a href="#local-6989586621679410044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch"><span class="hs-identifier hs-type">FailedRemediationBatch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RemediationConfiguration]
   -&gt; f (Maybe [RemediationConfiguration]))
  -&gt; FailedRemediationBatch -&gt; f FailedRemediationBatch)
 -&gt; ((Maybe [RemediationConfiguration]
@@ -199,11 +199,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [RemediationConfiguration]
   [RemediationConfiguration]
   [RemediationConfiguration]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409428"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch"><span class="hs-identifier hs-type">FailedRemediationBatch</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679409426"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FailedRemediationBatch
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410038"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch"><span class="hs-identifier hs-type">FailedRemediationBatch</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679410036"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FailedRemediationBatch
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FailedRemediationBatch)
@@ -213,8 +213,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FailedRemediationBatch&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679409423"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679409423"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679410033"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679410033"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [RemediationConfiguration] -&gt; FailedRemediationBatch
 </span><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch%27"><span class="hs-identifier hs-var">FailedRemediationBatch'</span></a></span><span>
@@ -225,7 +225,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe [RemediationConfiguration] -&gt; FailedRemediationBatch)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679409423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679410033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FailureMessage&quot;</span></span><span class="hs-special">)</span><span>
@@ -234,7 +234,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser FailedRemediationBatch
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679409423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [RemediationConfiguration]))
+</span><a href="#local-6989586621679410033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [RemediationConfiguration]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FailedItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [RemediationConfiguration]))
@@ -246,7 +246,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409416"><span id="local-6989586621679409418"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch"><span class="hs-identifier hs-type">FailedRemediationBatch</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410026"><span id="local-6989586621679410028"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch"><span class="hs-identifier hs-type">FailedRemediationBatch</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409413"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch"><span class="hs-identifier hs-type">FailedRemediationBatch</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679410023"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.FailedRemediationBatch.html#FailedRemediationBatch"><span class="hs-identifier hs-type">FailedRemediationBatch</span></a></span></span><span>
 </span><span id="line-82"></span></pre></body></html>

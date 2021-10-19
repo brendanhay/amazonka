@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- required to train and tune your custom language model.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInputDataConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679271488"><span id="local-6989586621679271489"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputDataConfig"><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-var">InputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputDataConfig%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-var">InputDataConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679271651"><span id="local-6989586621679271652"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputDataConfig"><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-var">InputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputDataConfig%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-var">InputDataConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon S3 prefix you specify to access the plain text files that you</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- use to tune your custom language model.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AtuningDataS3Uri%3AInputDataConfig%27"><span class="annot"><span class="annottext">InputDataConfig -&gt; Maybe Text
@@ -42,7 +42,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AdataAccessRoleArn%3AInputDataConfig%27"><span class="annot"><span class="annottext">InputDataConfig -&gt; Text
 </span><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#%24sel%3AdataAccessRoleArn%3AInputDataConfig%27"><span class="hs-identifier hs-var hs-var">dataAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271480"><span id="local-6989586621679271482"><span class="annot"><span class="annottext">InputDataConfig -&gt; InputDataConfig -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271643"><span id="local-6989586621679271645"><span class="annot"><span class="annottext">InputDataConfig -&gt; InputDataConfig -&gt; Bool
 (InputDataConfig -&gt; InputDataConfig -&gt; Bool)
 -&gt; (InputDataConfig -&gt; InputDataConfig -&gt; Bool)
 -&gt; Eq InputDataConfig
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InputDataConfig -&gt; InputDataConfig -&gt; Bool
 == :: InputDataConfig -&gt; InputDataConfig -&gt; Bool
 $c== :: InputDataConfig -&gt; InputDataConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271471"><span id="local-6989586621679271473"><span id="local-6989586621679271475"><span id="local-6989586621679271477"><span class="annot"><span class="annottext">ReadPrec [InputDataConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271634"><span id="local-6989586621679271636"><span id="local-6989586621679271638"><span id="local-6989586621679271640"><span class="annot"><span class="annottext">ReadPrec [InputDataConfig]
 ReadPrec InputDataConfig
 Int -&gt; ReadS InputDataConfig
 ReadS [InputDataConfig]
@@ -71,7 +71,7 @@ readList :: ReadS [InputDataConfig]
 $creadList :: ReadS [InputDataConfig]
 readsPrec :: Int -&gt; ReadS InputDataConfig
 $creadsPrec :: Int -&gt; ReadS InputDataConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271464"><span id="local-6989586621679271466"><span id="local-6989586621679271468"><span class="annot"><span class="annottext">Int -&gt; InputDataConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271627"><span id="local-6989586621679271629"><span id="local-6989586621679271631"><span class="annot"><span class="annottext">Int -&gt; InputDataConfig -&gt; ShowS
 [InputDataConfig] -&gt; ShowS
 InputDataConfig -&gt; String
 (Int -&gt; InputDataConfig -&gt; ShowS)
@@ -121,9 +121,9 @@ $cfrom :: forall x. InputDataConfig -&gt; Rep InputDataConfig x
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span>
 </span><span id="line-67"></span><span id="newInputDataConfig"><span class="annot"><span class="annottext">newInputDataConfig :: Text -&gt; Text -&gt; InputDataConfig
-</span><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#newInputDataConfig"><span class="hs-identifier hs-var hs-var">newInputDataConfig</span></a></span></span><span> </span><span id="local-6989586621679271458"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271458"><span class="hs-identifier hs-var">pS3Uri_</span></a></span></span><span> </span><span id="local-6989586621679271457"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271457"><span class="hs-identifier hs-var">pDataAccessRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#newInputDataConfig"><span class="hs-identifier hs-var hs-var">newInputDataConfig</span></a></span></span><span> </span><span id="local-6989586621679271621"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271621"><span class="hs-identifier hs-var">pS3Uri_</span></a></span></span><span> </span><span id="local-6989586621679271620"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271620"><span class="hs-identifier hs-var">pDataAccessRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">InputDataConfig' :: Maybe Text -&gt; Text -&gt; Text -&gt; InputDataConfig
 </span><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tuningDataS3Uri:InputDataConfig' :: Maybe Text
@@ -132,10 +132,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Uri:InputDataConfig' :: Text
 </span><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#%24sel%3As3Uri%3AInputDataConfig%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271458"><span class="hs-identifier hs-var">pS3Uri_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679271621"><span class="hs-identifier hs-var">pS3Uri_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataAccessRoleArn:InputDataConfig' :: Text
 </span><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#%24sel%3AdataAccessRoleArn%3AInputDataConfig%27"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271457"><span class="hs-identifier hs-var">pDataAccessRoleArn_</span></a></span><span>
+</span><a href="#local-6989586621679271620"><span class="hs-identifier hs-var">pDataAccessRoleArn_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The Amazon S3 prefix you specify to access the plain text files that you</span><span>
@@ -147,16 +147,16 @@ forall a. Maybe a
 -&gt; (InputDataConfig -&gt; Maybe Text -&gt; InputDataConfig)
 -&gt; Lens InputDataConfig InputDataConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271453"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271616"><span class="annot"><span class="annottext">Maybe Text
 tuningDataS3Uri :: Maybe Text
 $sel:tuningDataS3Uri:InputDataConfig' :: InputDataConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679271453"><span class="hs-identifier hs-var hs-var">tuningDataS3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271453"><span class="hs-identifier hs-var">tuningDataS3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271452"><span class="annot"><span class="annottext">s :: InputDataConfig
-</span><a href="#local-6989586621679271452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271451"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
-</span><a href="#local-6989586621679271452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tuningDataS3Uri:InputDataConfig' :: Maybe Text
+</span><a href="#local-6989586621679271616"><span class="hs-identifier hs-var hs-var">tuningDataS3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271616"><span class="hs-identifier hs-var">tuningDataS3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271615"><span class="annot"><span class="annottext">s :: InputDataConfig
+</span><a href="#local-6989586621679271615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271614"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679271615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tuningDataS3Uri:InputDataConfig' :: Maybe Text
 </span><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#%24sel%3AtuningDataS3Uri%3AInputDataConfig%27"><span class="hs-identifier hs-var">tuningDataS3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679271614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The Amazon S3 prefix you specify to access the plain text files that you</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- use to train your custom language model.</span><span>
@@ -166,16 +166,16 @@ $sel:tuningDataS3Uri:InputDataConfig' :: InputDataConfig -&gt; Maybe Text
 -&gt; (InputDataConfig -&gt; Text -&gt; InputDataConfig)
 -&gt; Lens InputDataConfig InputDataConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271449"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271612"><span class="annot"><span class="annottext">Text
 s3Uri :: Text
 $sel:s3Uri:InputDataConfig' :: InputDataConfig -&gt; Text
-</span><a href="#local-6989586621679271449"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271449"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271448"><span class="annot"><span class="annottext">s :: InputDataConfig
-</span><a href="#local-6989586621679271448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271447"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
-</span><a href="#local-6989586621679271448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:InputDataConfig' :: Text
+</span><a href="#local-6989586621679271612"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271612"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271611"><span class="annot"><span class="annottext">s :: InputDataConfig
+</span><a href="#local-6989586621679271611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271610"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679271611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:InputDataConfig' :: Text
 </span><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#%24sel%3As3Uri%3AInputDataConfig%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679271610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that uniquely identifies the permissions</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- you\'ve given Amazon Transcribe to access your Amazon S3 buckets</span><span>
@@ -186,19 +186,19 @@ $sel:s3Uri:InputDataConfig' :: InputDataConfig -&gt; Text
 -&gt; (InputDataConfig -&gt; Text -&gt; InputDataConfig)
 -&gt; Lens InputDataConfig InputDataConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271445"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271608"><span class="annot"><span class="annottext">Text
 dataAccessRoleArn :: Text
 $sel:dataAccessRoleArn:InputDataConfig' :: InputDataConfig -&gt; Text
-</span><a href="#local-6989586621679271445"><span class="hs-identifier hs-var hs-var">dataAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271445"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271444"><span class="annot"><span class="annottext">s :: InputDataConfig
-</span><a href="#local-6989586621679271444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271443"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
-</span><a href="#local-6989586621679271444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataAccessRoleArn:InputDataConfig' :: Text
+</span><a href="#local-6989586621679271608"><span class="hs-identifier hs-var hs-var">dataAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271608"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271607"><span class="annot"><span class="annottext">s :: InputDataConfig
+</span><a href="#local-6989586621679271607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271606"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679271606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679271607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataAccessRoleArn:InputDataConfig' :: Text
 </span><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#%24sel%3AdataAccessRoleArn%3AInputDataConfig%27"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679271606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271440"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679271438"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputDataConfig
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271603"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679271601"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InputDataConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InputDataConfig)
@@ -208,15 +208,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InputDataConfig&quot;</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271435"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271435"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271598"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271598"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Text -&gt; InputDataConfig
 </span><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-var">InputDataConfig'</span></a></span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Text -&gt; InputDataConfig)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Text -&gt; InputDataConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679271598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TuningDataS3Uri&quot;</span></span><span class="hs-special">)</span><span>
@@ -224,7 +224,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; InputDataConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679271598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span class="hs-special">)</span><span>
@@ -232,19 +232,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser InputDataConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679271435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679271598"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataAccessRoleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271428"><span id="local-6989586621679271430"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271591"><span id="local-6989586621679271593"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271425"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271588"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271417"><span id="local-6989586621679271419"><span id="local-6989586621679271421"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679271415"><span class="annot"><span class="annottext">toJSON :: InputDataConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271411"><span id="local-6989586621679271412"><span id="local-6989586621679271413"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271580"><span id="local-6989586621679271582"><span id="local-6989586621679271584"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679271578"><span class="annot"><span class="annottext">toJSON :: InputDataConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InputDataConfig.html#InputDataConfig%27"><span class="hs-identifier hs-type">InputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271574"><span id="local-6989586621679271575"><span id="local-6989586621679271576"><span class="annot"><span class="annottext">Maybe Text
 Text
 dataAccessRoleArn :: Text
 s3Uri :: Text
@@ -252,7 +252,7 @@ tuningDataS3Uri :: Maybe Text
 $sel:dataAccessRoleArn:InputDataConfig' :: InputDataConfig -&gt; Text
 $sel:s3Uri:InputDataConfig' :: InputDataConfig -&gt; Text
 $sel:tuningDataS3Uri:InputDataConfig' :: InputDataConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679271411"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679271574"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -265,14 +265,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679271413"><span class="hs-identifier hs-var">tuningDataS3Uri</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679271576"><span class="hs-identifier hs-var">tuningDataS3Uri</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271412"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679271575"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -280,7 +280,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DataAccessRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679271411"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679271574"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span></pre></body></html>

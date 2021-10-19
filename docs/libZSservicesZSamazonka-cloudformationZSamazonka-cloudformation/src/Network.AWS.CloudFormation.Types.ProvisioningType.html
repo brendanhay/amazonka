@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679418270"><span id="local-6989586621679418271"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProvisioningType"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ProvisioningType.html#ProvisioningType"><span class="hs-identifier hs-var">ProvisioningType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisioningType%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ProvisioningType.html#ProvisioningType%27"><span class="hs-identifier hs-var">ProvisioningType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679418671"><span id="local-6989586621679418672"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProvisioningType"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ProvisioningType.html#ProvisioningType"><span class="hs-identifier hs-var">ProvisioningType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisioningType%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ProvisioningType.html#ProvisioningType%27"><span class="hs-identifier hs-var">ProvisioningType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProvisioningType"><span class="annot"><span class="annottext">ProvisioningType -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.ProvisioningType.html#fromProvisioningType"><span class="hs-identifier hs-var hs-var">fromProvisioningType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679418262"><span id="local-6989586621679418264"><span id="local-6989586621679418266"><span class="annot"><span class="annottext">Int -&gt; ProvisioningType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679418663"><span id="local-6989586621679418665"><span id="local-6989586621679418667"><span class="annot"><span class="annottext">Int -&gt; ProvisioningType -&gt; ShowS
 [ProvisioningType] -&gt; ShowS
 ProvisioningType -&gt; String
 (Int -&gt; ProvisioningType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ProvisioningType -&gt; String
 showsPrec :: Int -&gt; ProvisioningType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ProvisioningType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679418253"><span id="local-6989586621679418255"><span id="local-6989586621679418257"><span id="local-6989586621679418259"><span class="annot"><span class="annottext">ReadPrec [ProvisioningType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679418654"><span id="local-6989586621679418656"><span id="local-6989586621679418658"><span id="local-6989586621679418660"><span class="annot"><span class="annottext">ReadPrec [ProvisioningType]
 ReadPrec ProvisioningType
 Int -&gt; ReadS ProvisioningType
 ReadS [ProvisioningType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ProvisioningType]
 readsPrec :: Int -&gt; ReadS ProvisioningType
 $creadsPrec :: Int -&gt; ReadS ProvisioningType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679418248"><span id="local-6989586621679418250"><span class="annot"><span class="annottext">ProvisioningType -&gt; ProvisioningType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679418649"><span id="local-6989586621679418651"><span class="annot"><span class="annottext">ProvisioningType -&gt; ProvisioningType -&gt; Bool
 (ProvisioningType -&gt; ProvisioningType -&gt; Bool)
 -&gt; (ProvisioningType -&gt; ProvisioningType -&gt; Bool)
 -&gt; Eq ProvisioningType
@@ -83,7 +83,7 @@ $c/= :: ProvisioningType -&gt; ProvisioningType -&gt; Bool
 == :: ProvisioningType -&gt; ProvisioningType -&gt; Bool
 $c== :: ProvisioningType -&gt; ProvisioningType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679418232"><span id="local-6989586621679418234"><span id="local-6989586621679418236"><span id="local-6989586621679418238"><span id="local-6989586621679418240"><span id="local-6989586621679418242"><span id="local-6989586621679418244"><span class="annot"><span class="annottext">Eq ProvisioningType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679418633"><span id="local-6989586621679418635"><span id="local-6989586621679418637"><span id="local-6989586621679418639"><span id="local-6989586621679418641"><span id="local-6989586621679418643"><span id="local-6989586621679418645"><span class="annot"><span class="annottext">Eq ProvisioningType
 Eq ProvisioningType
 -&gt; (ProvisioningType -&gt; ProvisioningType -&gt; Ordering)
 -&gt; (ProvisioningType -&gt; ProvisioningType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ProvisioningType -&gt; Rep ProvisioningType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679418224"><span id="local-6989586621679418226"><span class="annot"><span class="annottext">Int -&gt; ProvisioningType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679418625"><span id="local-6989586621679418627"><span class="annot"><span class="annottext">Int -&gt; ProvisioningType -&gt; Int
 ProvisioningType -&gt; Int
 (Int -&gt; ProvisioningType -&gt; Int)
 -&gt; (ProvisioningType -&gt; Int) -&gt; Hashable ProvisioningType
@@ -144,51 +144,51 @@ $chash :: ProvisioningType -&gt; Int
 hashWithSalt :: Int -&gt; ProvisioningType -&gt; Int
 $chashWithSalt :: Int -&gt; ProvisioningType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679418221"><span class="annot"><span class="annottext">ProvisioningType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679418622"><span class="annot"><span class="annottext">ProvisioningType -&gt; ()
 (ProvisioningType -&gt; ()) -&gt; NFData ProvisioningType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ProvisioningType -&gt; ()
 $crnf :: ProvisioningType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679418218"><span class="annot"><span class="annottext">Text -&gt; Either String ProvisioningType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679418619"><span class="annot"><span class="annottext">Text -&gt; Either String ProvisioningType
 (Text -&gt; Either String ProvisioningType)
 -&gt; FromText ProvisioningType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ProvisioningType
 $cfromText :: Text -&gt; Either String ProvisioningType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679418215"><span class="annot"><span class="annottext">ProvisioningType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679418616"><span class="annot"><span class="annottext">ProvisioningType -&gt; Text
 (ProvisioningType -&gt; Text) -&gt; ToText ProvisioningType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ProvisioningType -&gt; Text
 $ctoText :: ProvisioningType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679418212"><span class="annot"><span class="annottext">ProvisioningType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679418613"><span class="annot"><span class="annottext">ProvisioningType -&gt; ByteString
 (ProvisioningType -&gt; ByteString) -&gt; ToByteString ProvisioningType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ProvisioningType -&gt; ByteString
 $ctoBS :: ProvisioningType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679418209"><span class="annot"><span class="annottext">ProvisioningType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679418610"><span class="annot"><span class="annottext">ProvisioningType -&gt; ByteStringBuilder
 (ProvisioningType -&gt; ByteStringBuilder) -&gt; ToLog ProvisioningType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ProvisioningType -&gt; ByteStringBuilder
 $cbuild :: ProvisioningType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679418206"><span class="annot"><span class="annottext">HeaderName -&gt; ProvisioningType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679418607"><span class="annot"><span class="annottext">HeaderName -&gt; ProvisioningType -&gt; [Header]
 (HeaderName -&gt; ProvisioningType -&gt; [Header])
 -&gt; ToHeader ProvisioningType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ProvisioningType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ProvisioningType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679418203"><span class="annot"><span class="annottext">ProvisioningType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679418604"><span class="annot"><span class="annottext">ProvisioningType -&gt; QueryString
 (ProvisioningType -&gt; QueryString) -&gt; ToQuery ProvisioningType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ProvisioningType -&gt; QueryString
 $ctoQuery :: ProvisioningType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679418198"><span id="local-6989586621679418200"><span class="annot"><span class="annottext">Value -&gt; Parser [ProvisioningType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679418599"><span id="local-6989586621679418601"><span class="annot"><span class="annottext">Value -&gt; Parser [ProvisioningType]
 Value -&gt; Parser ProvisioningType
 (Value -&gt; Parser ProvisioningType)
 -&gt; (Value -&gt; Parser [ProvisioningType])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [ProvisioningType]
 parseJSON :: Value -&gt; Parser ProvisioningType
 $cparseJSON :: Value -&gt; Parser ProvisioningType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679418193"><span id="local-6989586621679418195"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProvisioningType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679418594"><span id="local-6989586621679418596"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProvisioningType]
 FromJSONKeyFunction ProvisioningType
 FromJSONKeyFunction ProvisioningType
 -&gt; FromJSONKeyFunction [ProvisioningType]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ProvisioningType]
 fromJSONKey :: FromJSONKeyFunction ProvisioningType
 $cfromJSONKey :: FromJSONKeyFunction ProvisioningType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679418184"><span id="local-6989586621679418186"><span id="local-6989586621679418188"><span id="local-6989586621679418190"><span class="annot"><span class="annottext">[ProvisioningType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679418585"><span id="local-6989586621679418587"><span id="local-6989586621679418589"><span id="local-6989586621679418591"><span class="annot"><span class="annottext">[ProvisioningType] -&gt; Encoding
 [ProvisioningType] -&gt; Value
 ProvisioningType -&gt; Encoding
 ProvisioningType -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: ProvisioningType -&gt; Encoding
 toJSON :: ProvisioningType -&gt; Value
 $ctoJSON :: ProvisioningType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679418179"><span id="local-6989586621679418181"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProvisioningType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679418580"><span id="local-6989586621679418582"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProvisioningType]
 ToJSONKeyFunction ProvisioningType
 ToJSONKeyFunction ProvisioningType
 -&gt; ToJSONKeyFunction [ProvisioningType]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ProvisioningType]
 toJSONKey :: ToJSONKeyFunction ProvisioningType
 $ctoJSONKey :: ToJSONKeyFunction ProvisioningType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679418176"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProvisioningType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679418577"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProvisioningType
 ([Node] -&gt; Either String ProvisioningType)
 -&gt; FromXML ProvisioningType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ProvisioningType
 $cparseXML :: [Node] -&gt; Either String ProvisioningType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679418173"><span class="annot"><span class="annottext">ProvisioningType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679418574"><span class="annot"><span class="annottext">ProvisioningType -&gt; XML
 (ProvisioningType -&gt; XML) -&gt; ToXML ProvisioningType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ProvisioningType -&gt; XML

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621681052932"><span id="local-6989586621681052933"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AnalysisStatus"><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisStatus.html#AnalysisStatus"><span class="hs-identifier hs-var">AnalysisStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnalysisStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisStatus.html#AnalysisStatus%27"><span class="hs-identifier hs-var">AnalysisStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621681086127"><span id="local-6989586621681086128"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AnalysisStatus"><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisStatus.html#AnalysisStatus"><span class="hs-identifier hs-var">AnalysisStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnalysisStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.AnalysisStatus.html#AnalysisStatus%27"><span class="hs-identifier hs-var">AnalysisStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAnalysisStatus"><span class="annot"><span class="annottext">AnalysisStatus -&gt; Text
 </span><a href="Network.AWS.EC2.Types.AnalysisStatus.html#fromAnalysisStatus"><span class="hs-identifier hs-var hs-var">fromAnalysisStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681052924"><span id="local-6989586621681052926"><span id="local-6989586621681052928"><span class="annot"><span class="annottext">Int -&gt; AnalysisStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681086119"><span id="local-6989586621681086121"><span id="local-6989586621681086123"><span class="annot"><span class="annottext">Int -&gt; AnalysisStatus -&gt; ShowS
 [AnalysisStatus] -&gt; ShowS
 AnalysisStatus -&gt; String
 (Int -&gt; AnalysisStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: AnalysisStatus -&gt; String
 showsPrec :: Int -&gt; AnalysisStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; AnalysisStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681052915"><span id="local-6989586621681052917"><span id="local-6989586621681052919"><span id="local-6989586621681052921"><span class="annot"><span class="annottext">ReadPrec [AnalysisStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681086110"><span id="local-6989586621681086112"><span id="local-6989586621681086114"><span id="local-6989586621681086116"><span class="annot"><span class="annottext">ReadPrec [AnalysisStatus]
 ReadPrec AnalysisStatus
 Int -&gt; ReadS AnalysisStatus
 ReadS [AnalysisStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [AnalysisStatus]
 readsPrec :: Int -&gt; ReadS AnalysisStatus
 $creadsPrec :: Int -&gt; ReadS AnalysisStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681052910"><span id="local-6989586621681052912"><span class="annot"><span class="annottext">AnalysisStatus -&gt; AnalysisStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681086105"><span id="local-6989586621681086107"><span class="annot"><span class="annottext">AnalysisStatus -&gt; AnalysisStatus -&gt; Bool
 (AnalysisStatus -&gt; AnalysisStatus -&gt; Bool)
 -&gt; (AnalysisStatus -&gt; AnalysisStatus -&gt; Bool) -&gt; Eq AnalysisStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: AnalysisStatus -&gt; AnalysisStatus -&gt; Bool
 == :: AnalysisStatus -&gt; AnalysisStatus -&gt; Bool
 $c== :: AnalysisStatus -&gt; AnalysisStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681052894"><span id="local-6989586621681052896"><span id="local-6989586621681052898"><span id="local-6989586621681052900"><span id="local-6989586621681052902"><span id="local-6989586621681052904"><span id="local-6989586621681052906"><span class="annot"><span class="annottext">Eq AnalysisStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681086089"><span id="local-6989586621681086091"><span id="local-6989586621681086093"><span id="local-6989586621681086095"><span id="local-6989586621681086097"><span id="local-6989586621681086099"><span id="local-6989586621681086101"><span class="annot"><span class="annottext">Eq AnalysisStatus
 Eq AnalysisStatus
 -&gt; (AnalysisStatus -&gt; AnalysisStatus -&gt; Ordering)
 -&gt; (AnalysisStatus -&gt; AnalysisStatus -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. AnalysisStatus -&gt; Rep AnalysisStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681052886"><span id="local-6989586621681052888"><span class="annot"><span class="annottext">Int -&gt; AnalysisStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681086081"><span id="local-6989586621681086083"><span class="annot"><span class="annottext">Int -&gt; AnalysisStatus -&gt; Int
 AnalysisStatus -&gt; Int
 (Int -&gt; AnalysisStatus -&gt; Int)
 -&gt; (AnalysisStatus -&gt; Int) -&gt; Hashable AnalysisStatus
@@ -144,50 +144,50 @@ $chash :: AnalysisStatus -&gt; Int
 hashWithSalt :: Int -&gt; AnalysisStatus -&gt; Int
 $chashWithSalt :: Int -&gt; AnalysisStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681052883"><span class="annot"><span class="annottext">AnalysisStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681086078"><span class="annot"><span class="annottext">AnalysisStatus -&gt; ()
 (AnalysisStatus -&gt; ()) -&gt; NFData AnalysisStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AnalysisStatus -&gt; ()
 $crnf :: AnalysisStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681052880"><span class="annot"><span class="annottext">Text -&gt; Either String AnalysisStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681086075"><span class="annot"><span class="annottext">Text -&gt; Either String AnalysisStatus
 (Text -&gt; Either String AnalysisStatus) -&gt; FromText AnalysisStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AnalysisStatus
 $cfromText :: Text -&gt; Either String AnalysisStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681052877"><span class="annot"><span class="annottext">AnalysisStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681086072"><span class="annot"><span class="annottext">AnalysisStatus -&gt; Text
 (AnalysisStatus -&gt; Text) -&gt; ToText AnalysisStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AnalysisStatus -&gt; Text
 $ctoText :: AnalysisStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681052874"><span class="annot"><span class="annottext">AnalysisStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681086069"><span class="annot"><span class="annottext">AnalysisStatus -&gt; ByteString
 (AnalysisStatus -&gt; ByteString) -&gt; ToByteString AnalysisStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AnalysisStatus -&gt; ByteString
 $ctoBS :: AnalysisStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681052871"><span class="annot"><span class="annottext">AnalysisStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681086066"><span class="annot"><span class="annottext">AnalysisStatus -&gt; ByteStringBuilder
 (AnalysisStatus -&gt; ByteStringBuilder) -&gt; ToLog AnalysisStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AnalysisStatus -&gt; ByteStringBuilder
 $cbuild :: AnalysisStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681052868"><span class="annot"><span class="annottext">HeaderName -&gt; AnalysisStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681086063"><span class="annot"><span class="annottext">HeaderName -&gt; AnalysisStatus -&gt; [Header]
 (HeaderName -&gt; AnalysisStatus -&gt; [Header])
 -&gt; ToHeader AnalysisStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AnalysisStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AnalysisStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681052865"><span class="annot"><span class="annottext">AnalysisStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681086060"><span class="annot"><span class="annottext">AnalysisStatus -&gt; QueryString
 (AnalysisStatus -&gt; QueryString) -&gt; ToQuery AnalysisStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AnalysisStatus -&gt; QueryString
 $ctoQuery :: AnalysisStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681052860"><span id="local-6989586621681052862"><span class="annot"><span class="annottext">Value -&gt; Parser [AnalysisStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681086055"><span id="local-6989586621681086057"><span class="annot"><span class="annottext">Value -&gt; Parser [AnalysisStatus]
 Value -&gt; Parser AnalysisStatus
 (Value -&gt; Parser AnalysisStatus)
 -&gt; (Value -&gt; Parser [AnalysisStatus]) -&gt; FromJSON AnalysisStatus
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [AnalysisStatus]
 parseJSON :: Value -&gt; Parser AnalysisStatus
 $cparseJSON :: Value -&gt; Parser AnalysisStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681052855"><span id="local-6989586621681052857"><span class="annot"><span class="annottext">FromJSONKeyFunction [AnalysisStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681086050"><span id="local-6989586621681086052"><span class="annot"><span class="annottext">FromJSONKeyFunction [AnalysisStatus]
 FromJSONKeyFunction AnalysisStatus
 FromJSONKeyFunction AnalysisStatus
 -&gt; FromJSONKeyFunction [AnalysisStatus]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AnalysisStatus]
 fromJSONKey :: FromJSONKeyFunction AnalysisStatus
 $cfromJSONKey :: FromJSONKeyFunction AnalysisStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681052846"><span id="local-6989586621681052848"><span id="local-6989586621681052850"><span id="local-6989586621681052852"><span class="annot"><span class="annottext">[AnalysisStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681086041"><span id="local-6989586621681086043"><span id="local-6989586621681086045"><span id="local-6989586621681086047"><span class="annot"><span class="annottext">[AnalysisStatus] -&gt; Encoding
 [AnalysisStatus] -&gt; Value
 AnalysisStatus -&gt; Encoding
 AnalysisStatus -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: AnalysisStatus -&gt; Encoding
 toJSON :: AnalysisStatus -&gt; Value
 $ctoJSON :: AnalysisStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681052841"><span id="local-6989586621681052843"><span class="annot"><span class="annottext">ToJSONKeyFunction [AnalysisStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681086036"><span id="local-6989586621681086038"><span class="annot"><span class="annottext">ToJSONKeyFunction [AnalysisStatus]
 ToJSONKeyFunction AnalysisStatus
 ToJSONKeyFunction AnalysisStatus
 -&gt; ToJSONKeyFunction [AnalysisStatus] -&gt; ToJSONKey AnalysisStatus
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AnalysisStatus]
 toJSONKey :: ToJSONKeyFunction AnalysisStatus
 $ctoJSONKey :: ToJSONKeyFunction AnalysisStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681052838"><span class="annot"><span class="annottext">[Node] -&gt; Either String AnalysisStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681086033"><span class="annot"><span class="annottext">[Node] -&gt; Either String AnalysisStatus
 ([Node] -&gt; Either String AnalysisStatus) -&gt; FromXML AnalysisStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AnalysisStatus
 $cparseXML :: [Node] -&gt; Either String AnalysisStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681052835"><span class="annot"><span class="annottext">AnalysisStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681086030"><span class="annot"><span class="annottext">AnalysisStatus -&gt; XML
 (AnalysisStatus -&gt; XML) -&gt; ToXML AnalysisStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AnalysisStatus -&gt; XML

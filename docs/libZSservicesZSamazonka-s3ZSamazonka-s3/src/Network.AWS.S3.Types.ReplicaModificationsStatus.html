@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679549156"><span id="local-6989586621679549157"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicaModificationsStatus"><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModificationsStatus.html#ReplicaModificationsStatus"><span class="hs-identifier hs-var">ReplicaModificationsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicaModificationsStatus%27"><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModificationsStatus.html#ReplicaModificationsStatus%27"><span class="hs-identifier hs-var">ReplicaModificationsStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679549789"><span id="local-6989586621679549790"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicaModificationsStatus"><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModificationsStatus.html#ReplicaModificationsStatus"><span class="hs-identifier hs-var">ReplicaModificationsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicaModificationsStatus%27"><span class="annot"><a href="Network.AWS.S3.Types.ReplicaModificationsStatus.html#ReplicaModificationsStatus%27"><span class="hs-identifier hs-var">ReplicaModificationsStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReplicaModificationsStatus"><span class="annot"><span class="annottext">ReplicaModificationsStatus -&gt; Text
 </span><a href="Network.AWS.S3.Types.ReplicaModificationsStatus.html#fromReplicaModificationsStatus"><span class="hs-identifier hs-var hs-var">fromReplicaModificationsStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679549148"><span id="local-6989586621679549150"><span id="local-6989586621679549152"><span class="annot"><span class="annottext">Int -&gt; ReplicaModificationsStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679549781"><span id="local-6989586621679549783"><span id="local-6989586621679549785"><span class="annot"><span class="annottext">Int -&gt; ReplicaModificationsStatus -&gt; ShowS
 [ReplicaModificationsStatus] -&gt; ShowS
 ReplicaModificationsStatus -&gt; String
 (Int -&gt; ReplicaModificationsStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ReplicaModificationsStatus -&gt; String
 showsPrec :: Int -&gt; ReplicaModificationsStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReplicaModificationsStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679549139"><span id="local-6989586621679549141"><span id="local-6989586621679549143"><span id="local-6989586621679549145"><span class="annot"><span class="annottext">ReadPrec [ReplicaModificationsStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679549772"><span id="local-6989586621679549774"><span id="local-6989586621679549776"><span id="local-6989586621679549778"><span class="annot"><span class="annottext">ReadPrec [ReplicaModificationsStatus]
 ReadPrec ReplicaModificationsStatus
 Int -&gt; ReadS ReplicaModificationsStatus
 ReadS [ReplicaModificationsStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ReplicaModificationsStatus]
 readsPrec :: Int -&gt; ReadS ReplicaModificationsStatus
 $creadsPrec :: Int -&gt; ReadS ReplicaModificationsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679549134"><span id="local-6989586621679549136"><span class="annot"><span class="annottext">ReplicaModificationsStatus -&gt; ReplicaModificationsStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679549767"><span id="local-6989586621679549769"><span class="annot"><span class="annottext">ReplicaModificationsStatus -&gt; ReplicaModificationsStatus -&gt; Bool
 (ReplicaModificationsStatus -&gt; ReplicaModificationsStatus -&gt; Bool)
 -&gt; (ReplicaModificationsStatus
     -&gt; ReplicaModificationsStatus -&gt; Bool)
@@ -84,7 +84,7 @@ $c/= :: ReplicaModificationsStatus -&gt; ReplicaModificationsStatus -&gt; Bool
 == :: ReplicaModificationsStatus -&gt; ReplicaModificationsStatus -&gt; Bool
 $c== :: ReplicaModificationsStatus -&gt; ReplicaModificationsStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679549118"><span id="local-6989586621679549120"><span id="local-6989586621679549122"><span id="local-6989586621679549124"><span id="local-6989586621679549126"><span id="local-6989586621679549128"><span id="local-6989586621679549130"><span class="annot"><span class="annottext">Eq ReplicaModificationsStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679549751"><span id="local-6989586621679549753"><span id="local-6989586621679549755"><span id="local-6989586621679549757"><span id="local-6989586621679549759"><span id="local-6989586621679549761"><span id="local-6989586621679549763"><span class="annot"><span class="annottext">Eq ReplicaModificationsStatus
 Eq ReplicaModificationsStatus
 -&gt; (ReplicaModificationsStatus
     -&gt; ReplicaModificationsStatus -&gt; Ordering)
@@ -156,7 +156,7 @@ ReplicaModificationsStatus -&gt; Rep ReplicaModificationsStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679549110"><span id="local-6989586621679549112"><span class="annot"><span class="annottext">Int -&gt; ReplicaModificationsStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679549743"><span id="local-6989586621679549745"><span class="annot"><span class="annottext">Int -&gt; ReplicaModificationsStatus -&gt; Int
 ReplicaModificationsStatus -&gt; Int
 (Int -&gt; ReplicaModificationsStatus -&gt; Int)
 -&gt; (ReplicaModificationsStatus -&gt; Int)
@@ -167,56 +167,56 @@ $chash :: ReplicaModificationsStatus -&gt; Int
 hashWithSalt :: Int -&gt; ReplicaModificationsStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ReplicaModificationsStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679549107"><span class="annot"><span class="annottext">ReplicaModificationsStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679549740"><span class="annot"><span class="annottext">ReplicaModificationsStatus -&gt; ()
 (ReplicaModificationsStatus -&gt; ())
 -&gt; NFData ReplicaModificationsStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReplicaModificationsStatus -&gt; ()
 $crnf :: ReplicaModificationsStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679549104"><span class="annot"><span class="annottext">Text -&gt; Either String ReplicaModificationsStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679549737"><span class="annot"><span class="annottext">Text -&gt; Either String ReplicaModificationsStatus
 (Text -&gt; Either String ReplicaModificationsStatus)
 -&gt; FromText ReplicaModificationsStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReplicaModificationsStatus
 $cfromText :: Text -&gt; Either String ReplicaModificationsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679549101"><span class="annot"><span class="annottext">ReplicaModificationsStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679549734"><span class="annot"><span class="annottext">ReplicaModificationsStatus -&gt; Text
 (ReplicaModificationsStatus -&gt; Text)
 -&gt; ToText ReplicaModificationsStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReplicaModificationsStatus -&gt; Text
 $ctoText :: ReplicaModificationsStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679549098"><span class="annot"><span class="annottext">ReplicaModificationsStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679549731"><span class="annot"><span class="annottext">ReplicaModificationsStatus -&gt; ByteString
 (ReplicaModificationsStatus -&gt; ByteString)
 -&gt; ToByteString ReplicaModificationsStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReplicaModificationsStatus -&gt; ByteString
 $ctoBS :: ReplicaModificationsStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679549095"><span class="annot"><span class="annottext">ReplicaModificationsStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679549728"><span class="annot"><span class="annottext">ReplicaModificationsStatus -&gt; ByteStringBuilder
 (ReplicaModificationsStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ReplicaModificationsStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReplicaModificationsStatus -&gt; ByteStringBuilder
 $cbuild :: ReplicaModificationsStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679549092"><span class="annot"><span class="annottext">HeaderName -&gt; ReplicaModificationsStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679549725"><span class="annot"><span class="annottext">HeaderName -&gt; ReplicaModificationsStatus -&gt; [Header]
 (HeaderName -&gt; ReplicaModificationsStatus -&gt; [Header])
 -&gt; ToHeader ReplicaModificationsStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReplicaModificationsStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReplicaModificationsStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679549089"><span class="annot"><span class="annottext">ReplicaModificationsStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679549722"><span class="annot"><span class="annottext">ReplicaModificationsStatus -&gt; QueryString
 (ReplicaModificationsStatus -&gt; QueryString)
 -&gt; ToQuery ReplicaModificationsStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReplicaModificationsStatus -&gt; QueryString
 $ctoQuery :: ReplicaModificationsStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679549084"><span id="local-6989586621679549086"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplicaModificationsStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679549717"><span id="local-6989586621679549719"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplicaModificationsStatus]
 Value -&gt; Parser ReplicaModificationsStatus
 (Value -&gt; Parser ReplicaModificationsStatus)
 -&gt; (Value -&gt; Parser [ReplicaModificationsStatus])
@@ -228,7 +228,7 @@ $cparseJSONList :: Value -&gt; Parser [ReplicaModificationsStatus]
 parseJSON :: Value -&gt; Parser ReplicaModificationsStatus
 $cparseJSON :: Value -&gt; Parser ReplicaModificationsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679549079"><span id="local-6989586621679549081"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplicaModificationsStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679549712"><span id="local-6989586621679549714"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplicaModificationsStatus]
 FromJSONKeyFunction ReplicaModificationsStatus
 FromJSONKeyFunction ReplicaModificationsStatus
 -&gt; FromJSONKeyFunction [ReplicaModificationsStatus]
@@ -240,7 +240,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReplicaModificationsStatus]
 fromJSONKey :: FromJSONKeyFunction ReplicaModificationsStatus
 $cfromJSONKey :: FromJSONKeyFunction ReplicaModificationsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679549070"><span id="local-6989586621679549072"><span id="local-6989586621679549074"><span id="local-6989586621679549076"><span class="annot"><span class="annottext">[ReplicaModificationsStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679549703"><span id="local-6989586621679549705"><span id="local-6989586621679549707"><span id="local-6989586621679549709"><span class="annot"><span class="annottext">[ReplicaModificationsStatus] -&gt; Encoding
 [ReplicaModificationsStatus] -&gt; Value
 ReplicaModificationsStatus -&gt; Encoding
 ReplicaModificationsStatus -&gt; Value
@@ -264,7 +264,7 @@ $ctoEncoding :: ReplicaModificationsStatus -&gt; Encoding
 toJSON :: ReplicaModificationsStatus -&gt; Value
 $ctoJSON :: ReplicaModificationsStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679549065"><span id="local-6989586621679549067"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplicaModificationsStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679549698"><span id="local-6989586621679549700"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplicaModificationsStatus]
 ToJSONKeyFunction ReplicaModificationsStatus
 ToJSONKeyFunction ReplicaModificationsStatus
 -&gt; ToJSONKeyFunction [ReplicaModificationsStatus]
@@ -276,14 +276,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReplicaModificationsStatus]
 toJSONKey :: ToJSONKeyFunction ReplicaModificationsStatus
 $ctoJSONKey :: ToJSONKeyFunction ReplicaModificationsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679549062"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplicaModificationsStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679549695"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplicaModificationsStatus
 ([Node] -&gt; Either String ReplicaModificationsStatus)
 -&gt; FromXML ReplicaModificationsStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReplicaModificationsStatus
 $cparseXML :: [Node] -&gt; Either String ReplicaModificationsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679549059"><span class="annot"><span class="annottext">ReplicaModificationsStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679549692"><span class="annot"><span class="annottext">ReplicaModificationsStatus -&gt; XML
 (ReplicaModificationsStatus -&gt; XML)
 -&gt; ToXML ReplicaModificationsStatus
 forall a. (a -&gt; XML) -&gt; ToXML a

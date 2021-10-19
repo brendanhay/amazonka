@@ -29,10 +29,10 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679456714"><span id="local-6989586621679456715"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PidMode"><span class="annot"><a href="Network.AWS.ECS.Types.PidMode.html#PidMode"><span class="hs-identifier hs-var">PidMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PidMode%27"><span class="annot"><a href="Network.AWS.ECS.Types.PidMode.html#PidMode%27"><span class="hs-identifier hs-var">PidMode'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromPidMode"><span class="annot"><span class="annottext">PidMode -&gt; Text
+</span><span id="line-32"></span><span id="local-6989586621679457433"><span id="local-6989586621679457434"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PidMode"><span class="annot"><a href="Network.AWS.ECS.Types.PidMode.html#PidMode"><span class="hs-identifier hs-var">PidMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PidMode%27"><span class="annot"><a href="Network.AWS.ECS.Types.PidMode.html#PidMode%27"><span class="hs-identifier hs-var">PidMode'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromPidMode"><span class="annot"><span class="annottext">PidMode -&gt; Text
 </span><a href="Network.AWS.ECS.Types.PidMode.html#fromPidMode"><span class="hs-identifier hs-var hs-var">fromPidMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679456706"><span id="local-6989586621679456708"><span id="local-6989586621679456710"><span class="annot"><span class="annottext">Int -&gt; PidMode -&gt; ShowS
+</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679457425"><span id="local-6989586621679457427"><span id="local-6989586621679457429"><span class="annot"><span class="annottext">Int -&gt; PidMode -&gt; ShowS
 [PidMode] -&gt; ShowS
 PidMode -&gt; String
 (Int -&gt; PidMode -&gt; ShowS)
@@ -46,7 +46,7 @@ $cshow :: PidMode -&gt; String
 showsPrec :: Int -&gt; PidMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; PidMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>      </span><span id="local-6989586621679456697"><span id="local-6989586621679456699"><span id="local-6989586621679456701"><span id="local-6989586621679456703"><span class="annot"><span class="annottext">ReadPrec [PidMode]
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679457416"><span id="local-6989586621679457418"><span id="local-6989586621679457420"><span id="local-6989586621679457422"><span class="annot"><span class="annottext">ReadPrec [PidMode]
 ReadPrec PidMode
 Int -&gt; ReadS PidMode
 ReadS [PidMode]
@@ -67,7 +67,7 @@ $creadList :: ReadS [PidMode]
 readsPrec :: Int -&gt; ReadS PidMode
 $creadsPrec :: Int -&gt; ReadS PidMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>      </span><span id="local-6989586621679456692"><span id="local-6989586621679456694"><span class="annot"><span class="annottext">PidMode -&gt; PidMode -&gt; Bool
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679457411"><span id="local-6989586621679457413"><span class="annot"><span class="annottext">PidMode -&gt; PidMode -&gt; Bool
 (PidMode -&gt; PidMode -&gt; Bool)
 -&gt; (PidMode -&gt; PidMode -&gt; Bool) -&gt; Eq PidMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ $c/= :: PidMode -&gt; PidMode -&gt; Bool
 == :: PidMode -&gt; PidMode -&gt; Bool
 $c== :: PidMode -&gt; PidMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679456676"><span id="local-6989586621679456678"><span id="local-6989586621679456680"><span id="local-6989586621679456682"><span id="local-6989586621679456684"><span id="local-6989586621679456686"><span id="local-6989586621679456688"><span class="annot"><span class="annottext">Eq PidMode
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679457395"><span id="local-6989586621679457397"><span id="local-6989586621679457399"><span id="local-6989586621679457401"><span id="local-6989586621679457403"><span id="local-6989586621679457405"><span id="local-6989586621679457407"><span class="annot"><span class="annottext">Eq PidMode
 Eq PidMode
 -&gt; (PidMode -&gt; PidMode -&gt; Ordering)
 -&gt; (PidMode -&gt; PidMode -&gt; Bool)
@@ -126,7 +126,7 @@ $cfrom :: forall x. PidMode -&gt; Rep PidMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679456668"><span id="local-6989586621679456670"><span class="annot"><span class="annottext">Int -&gt; PidMode -&gt; Int
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679457387"><span id="local-6989586621679457389"><span class="annot"><span class="annottext">Int -&gt; PidMode -&gt; Int
 PidMode -&gt; Int
 (Int -&gt; PidMode -&gt; Int) -&gt; (PidMode -&gt; Int) -&gt; Hashable PidMode
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -135,49 +135,49 @@ $chash :: PidMode -&gt; Int
 hashWithSalt :: Int -&gt; PidMode -&gt; Int
 $chashWithSalt :: Int -&gt; PidMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679456665"><span class="annot"><span class="annottext">PidMode -&gt; ()
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679457384"><span class="annot"><span class="annottext">PidMode -&gt; ()
 (PidMode -&gt; ()) -&gt; NFData PidMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PidMode -&gt; ()
 $crnf :: PidMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679456662"><span class="annot"><span class="annottext">Text -&gt; Either String PidMode
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679457381"><span class="annot"><span class="annottext">Text -&gt; Either String PidMode
 (Text -&gt; Either String PidMode) -&gt; FromText PidMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PidMode
 $cfromText :: Text -&gt; Either String PidMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679456659"><span class="annot"><span class="annottext">PidMode -&gt; Text
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679457378"><span class="annot"><span class="annottext">PidMode -&gt; Text
 (PidMode -&gt; Text) -&gt; ToText PidMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PidMode -&gt; Text
 $ctoText :: PidMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679456656"><span class="annot"><span class="annottext">PidMode -&gt; ByteString
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679457375"><span class="annot"><span class="annottext">PidMode -&gt; ByteString
 (PidMode -&gt; ByteString) -&gt; ToByteString PidMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PidMode -&gt; ByteString
 $ctoBS :: PidMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679456653"><span class="annot"><span class="annottext">PidMode -&gt; ByteStringBuilder
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679457372"><span class="annot"><span class="annottext">PidMode -&gt; ByteStringBuilder
 (PidMode -&gt; ByteStringBuilder) -&gt; ToLog PidMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PidMode -&gt; ByteStringBuilder
 $cbuild :: PidMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679456650"><span class="annot"><span class="annottext">HeaderName -&gt; PidMode -&gt; [Header]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679457369"><span class="annot"><span class="annottext">HeaderName -&gt; PidMode -&gt; [Header]
 (HeaderName -&gt; PidMode -&gt; [Header]) -&gt; ToHeader PidMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PidMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PidMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679456647"><span class="annot"><span class="annottext">PidMode -&gt; QueryString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679457366"><span class="annot"><span class="annottext">PidMode -&gt; QueryString
 (PidMode -&gt; QueryString) -&gt; ToQuery PidMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PidMode -&gt; QueryString
 $ctoQuery :: PidMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679456642"><span id="local-6989586621679456644"><span class="annot"><span class="annottext">Value -&gt; Parser [PidMode]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679457361"><span id="local-6989586621679457363"><span class="annot"><span class="annottext">Value -&gt; Parser [PidMode]
 Value -&gt; Parser PidMode
 (Value -&gt; Parser PidMode)
 -&gt; (Value -&gt; Parser [PidMode]) -&gt; FromJSON PidMode
@@ -188,7 +188,7 @@ $cparseJSONList :: Value -&gt; Parser [PidMode]
 parseJSON :: Value -&gt; Parser PidMode
 $cparseJSON :: Value -&gt; Parser PidMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679456637"><span id="local-6989586621679456639"><span class="annot"><span class="annottext">FromJSONKeyFunction [PidMode]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679457356"><span id="local-6989586621679457358"><span class="annot"><span class="annottext">FromJSONKeyFunction [PidMode]
 FromJSONKeyFunction PidMode
 FromJSONKeyFunction PidMode
 -&gt; FromJSONKeyFunction [PidMode] -&gt; FromJSONKey PidMode
@@ -199,7 +199,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PidMode]
 fromJSONKey :: FromJSONKeyFunction PidMode
 $cfromJSONKey :: FromJSONKeyFunction PidMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679456628"><span id="local-6989586621679456630"><span id="local-6989586621679456632"><span id="local-6989586621679456634"><span class="annot"><span class="annottext">[PidMode] -&gt; Encoding
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679457347"><span id="local-6989586621679457349"><span id="local-6989586621679457351"><span id="local-6989586621679457353"><span class="annot"><span class="annottext">[PidMode] -&gt; Encoding
 [PidMode] -&gt; Value
 PidMode -&gt; Encoding
 PidMode -&gt; Value
@@ -223,7 +223,7 @@ $ctoEncoding :: PidMode -&gt; Encoding
 toJSON :: PidMode -&gt; Value
 $ctoJSON :: PidMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679456623"><span id="local-6989586621679456625"><span class="annot"><span class="annottext">ToJSONKeyFunction [PidMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679457342"><span id="local-6989586621679457344"><span class="annot"><span class="annottext">ToJSONKeyFunction [PidMode]
 ToJSONKeyFunction PidMode
 ToJSONKeyFunction PidMode
 -&gt; ToJSONKeyFunction [PidMode] -&gt; ToJSONKey PidMode
@@ -234,13 +234,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PidMode]
 toJSONKey :: ToJSONKeyFunction PidMode
 $ctoJSONKey :: ToJSONKeyFunction PidMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679456620"><span class="annot"><span class="annottext">[Node] -&gt; Either String PidMode
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679457339"><span class="annot"><span class="annottext">[Node] -&gt; Either String PidMode
 ([Node] -&gt; Either String PidMode) -&gt; FromXML PidMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PidMode
 $cparseXML :: [Node] -&gt; Either String PidMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679456617"><span class="annot"><span class="annottext">PidMode -&gt; XML
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679457336"><span class="annot"><span class="annottext">PidMode -&gt; XML
 (PidMode -&gt; XML) -&gt; ToXML PidMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PidMode -&gt; XML

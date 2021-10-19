@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteQueue' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621680026770"><span id="local-6989586621680026771"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteQueue"><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue"><span class="hs-identifier hs-var">DeleteQueue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteQueue%27"><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue%27"><span class="hs-identifier hs-var">DeleteQueue'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621680032122"><span id="local-6989586621680032123"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteQueue"><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue"><span class="hs-identifier hs-var">DeleteQueue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteQueue%27"><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue%27"><span class="hs-identifier hs-var">DeleteQueue'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the queue that you want to delete.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3Aname%3ADeleteQueue%27"><span class="annot"><span class="annottext">DeleteQueue -&gt; Text
 </span><a href="Network.AWS.MediaConvert.DeleteQueue.html#%24sel%3Aname%3ADeleteQueue%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680026764"><span id="local-6989586621680026766"><span class="annot"><span class="annottext">DeleteQueue -&gt; DeleteQueue -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680032116"><span id="local-6989586621680032118"><span class="annot"><span class="annottext">DeleteQueue -&gt; DeleteQueue -&gt; Bool
 (DeleteQueue -&gt; DeleteQueue -&gt; Bool)
 -&gt; (DeleteQueue -&gt; DeleteQueue -&gt; Bool) -&gt; Eq DeleteQueue
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteQueue -&gt; DeleteQueue -&gt; Bool
 == :: DeleteQueue -&gt; DeleteQueue -&gt; Bool
 $c== :: DeleteQueue -&gt; DeleteQueue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680026755"><span id="local-6989586621680026757"><span id="local-6989586621680026759"><span id="local-6989586621680026761"><span class="annot"><span class="annottext">ReadPrec [DeleteQueue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680032107"><span id="local-6989586621680032109"><span id="local-6989586621680032111"><span id="local-6989586621680032113"><span class="annot"><span class="annottext">ReadPrec [DeleteQueue]
 ReadPrec DeleteQueue
 Int -&gt; ReadS DeleteQueue
 ReadS [DeleteQueue]
@@ -79,7 +79,7 @@ readList :: ReadS [DeleteQueue]
 $creadList :: ReadS [DeleteQueue]
 readsPrec :: Int -&gt; ReadS DeleteQueue
 $creadsPrec :: Int -&gt; ReadS DeleteQueue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680026748"><span id="local-6989586621680026750"><span id="local-6989586621680026752"><span class="annot"><span class="annottext">Int -&gt; DeleteQueue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680032100"><span id="local-6989586621680032102"><span id="local-6989586621680032104"><span class="annot"><span class="annottext">Int -&gt; DeleteQueue -&gt; ShowS
 [DeleteQueue] -&gt; ShowS
 DeleteQueue -&gt; String
 (Int -&gt; DeleteQueue -&gt; ShowS)
@@ -119,11 +119,11 @@ $cfrom :: forall x. DeleteQueue -&gt; Rep DeleteQueue x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue"><span class="hs-identifier hs-type">DeleteQueue</span></a></span><span>
 </span><span id="line-68"></span><span id="newDeleteQueue"><span class="annot"><span class="annottext">newDeleteQueue :: Text -&gt; DeleteQueue
-</span><a href="Network.AWS.MediaConvert.DeleteQueue.html#newDeleteQueue"><span class="hs-identifier hs-var hs-var">newDeleteQueue</span></a></span></span><span> </span><span id="local-6989586621680026743"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680026743"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteQueue' :: Text -&gt; DeleteQueue
+</span><a href="Network.AWS.MediaConvert.DeleteQueue.html#newDeleteQueue"><span class="hs-identifier hs-var hs-var">newDeleteQueue</span></a></span></span><span> </span><span id="local-6989586621680032095"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680032095"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteQueue' :: Text -&gt; DeleteQueue
 </span><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue%27"><span class="hs-identifier hs-type">DeleteQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteQueue' :: Text
 </span><a href="Network.AWS.MediaConvert.DeleteQueue.html#%24sel%3Aname%3ADeleteQueue%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680026743"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680032095"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The name of the queue that you want to delete.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#deleteQueue_name"><span class="hs-identifier hs-type">deleteQueue_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue"><span class="hs-identifier hs-type">DeleteQueue</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -132,25 +132,25 @@ $cfrom :: forall x. DeleteQueue -&gt; Rep DeleteQueue x
 -&gt; (DeleteQueue -&gt; Text -&gt; DeleteQueue)
 -&gt; Lens DeleteQueue DeleteQueue Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue%27"><span class="hs-identifier hs-type">DeleteQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680026740"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue%27"><span class="hs-identifier hs-type">DeleteQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680032092"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteQueue' :: DeleteQueue -&gt; Text
-</span><a href="#local-6989586621680026740"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680026740"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680026739"><span class="annot"><span class="annottext">s :: DeleteQueue
-</span><a href="#local-6989586621680026739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue%27"><span class="hs-identifier hs-type">DeleteQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680026738"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680026738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteQueue
-</span><a href="#local-6989586621680026739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteQueue' :: Text
+</span><a href="#local-6989586621680032092"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680032092"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680032091"><span class="annot"><span class="annottext">s :: DeleteQueue
+</span><a href="#local-6989586621680032091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue%27"><span class="hs-identifier hs-type">DeleteQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680032090"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680032090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteQueue
+</span><a href="#local-6989586621680032091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteQueue' :: Text
 </span><a href="Network.AWS.MediaConvert.DeleteQueue.html#%24sel%3Aname%3ADeleteQueue%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680026738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue"><span class="hs-identifier hs-type">DeleteQueue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680032090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue"><span class="hs-identifier hs-type">DeleteQueue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue"><span class="hs-identifier hs-type">DeleteQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue"><span class="hs-identifier hs-type">DeleteQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueueResponse"><span class="hs-identifier hs-type">DeleteQueueResponse</span></a></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621680026734"><span class="annot"><span class="annottext">request :: DeleteQueue -&gt; Request DeleteQueue
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621680032086"><span class="annot"><span class="annottext">request :: DeleteQueue -&gt; Request DeleteQueue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteQueue -&gt; Request DeleteQueue
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaConvert.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621680026730"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621680032082"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteQueue
 -&gt; ClientResponse ClientBody
@@ -174,10 +174,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680026727"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680026727"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680026726"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680026726"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680026725"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621680026725"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680032079"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680032079"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680032078"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680032078"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680032077"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621680032077"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteQueueResponse
 </span><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueueResponse%27"><span class="hs-identifier hs-var">DeleteQueueResponse'</span></a></span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteQueueResponse)
@@ -188,15 +188,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680026727"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680032079"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680026718"><span id="local-6989586621680026720"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue"><span class="hs-identifier hs-type">DeleteQueue</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680032070"><span id="local-6989586621680032072"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue"><span class="hs-identifier hs-type">DeleteQueue</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680026715"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue"><span class="hs-identifier hs-type">DeleteQueue</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680032067"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue"><span class="hs-identifier hs-type">DeleteQueue</span></a></span></span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue"><span class="hs-identifier hs-type">DeleteQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621680026711"><span class="annot"><span class="annottext">toHeaders :: DeleteQueue -&gt; ResponseHeaders
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621680032063"><span class="annot"><span class="annottext">toHeaders :: DeleteQueue -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteQueue -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -216,11 +216,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue"><span class="hs-identifier hs-type">DeleteQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621680026705"><span class="annot"><span class="annottext">toPath :: DeleteQueue -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue%27"><span class="hs-identifier hs-type">DeleteQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680026703"><span class="annot"><span class="annottext">Text
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621680032057"><span class="annot"><span class="annottext">toPath :: DeleteQueue -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue%27"><span class="hs-identifier hs-type">DeleteQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680032055"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteQueue' :: DeleteQueue -&gt; Text
-</span><a href="#local-6989586621680026703"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680032055"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -228,10 +228,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2017-08-29/queues/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680026703"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680032055"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueue"><span class="hs-identifier hs-type">DeleteQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621680026699"><span class="annot"><span class="annottext">toQuery :: DeleteQueue -&gt; QueryString
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621680032051"><span class="annot"><span class="annottext">toQuery :: DeleteQueue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteQueue -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -239,12 +239,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | /See:/ 'newDeleteQueueResponse' smart constructor.</span><span>
-</span><span id="line-108"></span><span id="local-6989586621680026696"><span id="local-6989586621680026697"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteQueueResponse"><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueueResponse"><span class="hs-identifier hs-var">DeleteQueueResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteQueueResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueueResponse%27"><span class="hs-identifier hs-var">DeleteQueueResponse'</span></a></span></span><span>
+</span><span id="line-108"></span><span id="local-6989586621680032048"><span id="local-6989586621680032049"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteQueueResponse"><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueueResponse"><span class="hs-identifier hs-var">DeleteQueueResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteQueueResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueueResponse%27"><span class="hs-identifier hs-var">DeleteQueueResponse'</span></a></span></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-110"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteQueueResponse%27"><span class="annot"><span class="annottext">DeleteQueueResponse -&gt; Int
 </span><a href="Network.AWS.MediaConvert.DeleteQueue.html#%24sel%3AhttpStatus%3ADeleteQueueResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680026691"><span id="local-6989586621680026693"><span class="annot"><span class="annottext">DeleteQueueResponse -&gt; DeleteQueueResponse -&gt; Bool
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680032043"><span id="local-6989586621680032045"><span class="annot"><span class="annottext">DeleteQueueResponse -&gt; DeleteQueueResponse -&gt; Bool
 (DeleteQueueResponse -&gt; DeleteQueueResponse -&gt; Bool)
 -&gt; (DeleteQueueResponse -&gt; DeleteQueueResponse -&gt; Bool)
 -&gt; Eq DeleteQueueResponse
@@ -253,7 +253,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteQueueResponse -&gt; DeleteQueueResponse -&gt; Bool
 == :: DeleteQueueResponse -&gt; DeleteQueueResponse -&gt; Bool
 $c== :: DeleteQueueResponse -&gt; DeleteQueueResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680026683"><span id="local-6989586621680026685"><span id="local-6989586621680026687"><span id="local-6989586621680026689"><span class="annot"><span class="annottext">ReadPrec [DeleteQueueResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680032035"><span id="local-6989586621680032037"><span id="local-6989586621680032039"><span id="local-6989586621680032041"><span class="annot"><span class="annottext">ReadPrec [DeleteQueueResponse]
 ReadPrec DeleteQueueResponse
 Int -&gt; ReadS DeleteQueueResponse
 ReadS [DeleteQueueResponse]
@@ -273,7 +273,7 @@ readList :: ReadS [DeleteQueueResponse]
 $creadList :: ReadS [DeleteQueueResponse]
 readsPrec :: Int -&gt; ReadS DeleteQueueResponse
 $creadsPrec :: Int -&gt; ReadS DeleteQueueResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680026677"><span id="local-6989586621680026679"><span id="local-6989586621680026681"><span class="annot"><span class="annottext">Int -&gt; DeleteQueueResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680032029"><span id="local-6989586621680032031"><span id="local-6989586621680032033"><span class="annot"><span class="annottext">Int -&gt; DeleteQueueResponse -&gt; ShowS
 [DeleteQueueResponse] -&gt; ShowS
 DeleteQueueResponse -&gt; String
 (Int -&gt; DeleteQueueResponse -&gt; ShowS)
@@ -313,12 +313,12 @@ $cfrom :: forall x. DeleteQueueResponse -&gt; Rep DeleteQueueResponse x
 </span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueueResponse"><span class="hs-identifier hs-type">DeleteQueueResponse</span></a></span><span>
 </span><span id="line-127"></span><span id="newDeleteQueueResponse"><span class="annot"><span class="annottext">newDeleteQueueResponse :: Int -&gt; DeleteQueueResponse
-</span><a href="Network.AWS.MediaConvert.DeleteQueue.html#newDeleteQueueResponse"><span class="hs-identifier hs-var hs-var">newDeleteQueueResponse</span></a></span></span><span> </span><span id="local-6989586621680026674"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680026674"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaConvert.DeleteQueue.html#newDeleteQueueResponse"><span class="hs-identifier hs-var hs-var">newDeleteQueueResponse</span></a></span></span><span> </span><span id="local-6989586621680032026"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680032026"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">DeleteQueueResponse' :: Int -&gt; DeleteQueueResponse
 </span><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueueResponse%27"><span class="hs-identifier hs-type">DeleteQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteQueueResponse' :: Int
 </span><a href="Network.AWS.MediaConvert.DeleteQueue.html#%24sel%3AhttpStatus%3ADeleteQueueResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680026674"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680032026"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-131"></span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#deleteQueueResponse_httpStatus"><span class="hs-identifier hs-type">deleteQueueResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueueResponse"><span class="hs-identifier hs-type">DeleteQueueResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -327,16 +327,16 @@ $cfrom :: forall x. DeleteQueueResponse -&gt; Rep DeleteQueueResponse x
 -&gt; (DeleteQueueResponse -&gt; Int -&gt; DeleteQueueResponse)
 -&gt; Lens DeleteQueueResponse DeleteQueueResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueueResponse%27"><span class="hs-identifier hs-type">DeleteQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680026673"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueueResponse%27"><span class="hs-identifier hs-type">DeleteQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680032025"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteQueueResponse' :: DeleteQueueResponse -&gt; Int
-</span><a href="#local-6989586621680026673"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680026673"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680026672"><span class="annot"><span class="annottext">s :: DeleteQueueResponse
-</span><a href="#local-6989586621680026672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueueResponse%27"><span class="hs-identifier hs-type">DeleteQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680026671"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680026671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteQueueResponse
-</span><a href="#local-6989586621680026672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteQueueResponse' :: Int
+</span><a href="#local-6989586621680032025"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680032025"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680032024"><span class="annot"><span class="annottext">s :: DeleteQueueResponse
+</span><a href="#local-6989586621680032024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueueResponse%27"><span class="hs-identifier hs-type">DeleteQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680032023"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680032023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteQueueResponse
+</span><a href="#local-6989586621680032024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteQueueResponse' :: Int
 </span><a href="Network.AWS.MediaConvert.DeleteQueue.html#%24sel%3AhttpStatus%3ADeleteQueueResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680026671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueueResponse"><span class="hs-identifier hs-type">DeleteQueueResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680032023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueueResponse"><span class="hs-identifier hs-type">DeleteQueueResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680026669"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueueResponse"><span class="hs-identifier hs-type">DeleteQueueResponse</span></a></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680032021"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.DeleteQueue.html#DeleteQueueResponse"><span class="hs-identifier hs-type">DeleteQueueResponse</span></a></span></span><span>
 </span><span id="line-135"></span></pre></body></html>

@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A subscription configuration for additional CloudWatch metrics.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRealtimeMetricsSubscriptionConfig' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679401073"><span id="local-6989586621679401074"></span></span><span class="hs-keyword">data</span><span> </span><span id="RealtimeMetricsSubscriptionConfig"><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig"><span class="hs-identifier hs-var">RealtimeMetricsSubscriptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RealtimeMetricsSubscriptionConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig%27"><span class="hs-identifier hs-var">RealtimeMetricsSubscriptionConfig'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679401335"><span id="local-6989586621679401336"></span></span><span class="hs-keyword">data</span><span> </span><span id="RealtimeMetricsSubscriptionConfig"><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig"><span class="hs-identifier hs-var">RealtimeMetricsSubscriptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RealtimeMetricsSubscriptionConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig%27"><span class="hs-identifier hs-var">RealtimeMetricsSubscriptionConfig'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A flag that indicates whether additional CloudWatch metrics are enabled</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- for a given CloudFront distribution.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3ArealtimeMetricsSubscriptionStatus%3ARealtimeMetricsSubscriptionConfig%27"><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionConfig
 -&gt; RealtimeMetricsSubscriptionStatus
 </span><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#%24sel%3ArealtimeMetricsSubscriptionStatus%3ARealtimeMetricsSubscriptionConfig%27"><span class="hs-identifier hs-var hs-var">realtimeMetricsSubscriptionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionStatus.html#RealtimeMetricsSubscriptionStatus"><span class="hs-identifier hs-type">RealtimeMetricsSubscriptionStatus</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401067"><span id="local-6989586621679401069"><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionConfig
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401329"><span id="local-6989586621679401331"><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionConfig
 -&gt; RealtimeMetricsSubscriptionConfig -&gt; Bool
 (RealtimeMetricsSubscriptionConfig
  -&gt; RealtimeMetricsSubscriptionConfig -&gt; Bool)
@@ -50,7 +50,7 @@ $c/= :: RealtimeMetricsSubscriptionConfig
 -&gt; RealtimeMetricsSubscriptionConfig -&gt; Bool
 $c== :: RealtimeMetricsSubscriptionConfig
 -&gt; RealtimeMetricsSubscriptionConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401058"><span id="local-6989586621679401060"><span id="local-6989586621679401062"><span id="local-6989586621679401064"><span class="annot"><span class="annottext">ReadPrec [RealtimeMetricsSubscriptionConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401320"><span id="local-6989586621679401322"><span id="local-6989586621679401324"><span id="local-6989586621679401326"><span class="annot"><span class="annottext">ReadPrec [RealtimeMetricsSubscriptionConfig]
 ReadPrec RealtimeMetricsSubscriptionConfig
 Int -&gt; ReadS RealtimeMetricsSubscriptionConfig
 ReadS [RealtimeMetricsSubscriptionConfig]
@@ -70,7 +70,7 @@ readList :: ReadS [RealtimeMetricsSubscriptionConfig]
 $creadList :: ReadS [RealtimeMetricsSubscriptionConfig]
 readsPrec :: Int -&gt; ReadS RealtimeMetricsSubscriptionConfig
 $creadsPrec :: Int -&gt; ReadS RealtimeMetricsSubscriptionConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401051"><span id="local-6989586621679401053"><span id="local-6989586621679401055"><span class="annot"><span class="annottext">Int -&gt; RealtimeMetricsSubscriptionConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401313"><span id="local-6989586621679401315"><span id="local-6989586621679401317"><span class="annot"><span class="annottext">Int -&gt; RealtimeMetricsSubscriptionConfig -&gt; ShowS
 [RealtimeMetricsSubscriptionConfig] -&gt; ShowS
 RealtimeMetricsSubscriptionConfig -&gt; String
 (Int -&gt; RealtimeMetricsSubscriptionConfig -&gt; ShowS)
@@ -125,15 +125,15 @@ RealtimeMetricsSubscriptionConfig
 </span><span id="line-51"></span><span id="newRealtimeMetricsSubscriptionConfig"><span class="annot"><span class="annottext">newRealtimeMetricsSubscriptionConfig :: RealtimeMetricsSubscriptionStatus
 -&gt; RealtimeMetricsSubscriptionConfig
 </span><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#newRealtimeMetricsSubscriptionConfig"><span class="hs-identifier hs-var hs-var">newRealtimeMetricsSubscriptionConfig</span></a></span></span><span>
-</span><span id="line-52"></span><span>  </span><span id="local-6989586621679401045"><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionStatus
-</span><a href="#local-6989586621679401045"><span class="hs-identifier hs-var">pRealtimeMetricsSubscriptionStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span id="local-6989586621679401307"><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionStatus
+</span><a href="#local-6989586621679401307"><span class="hs-identifier hs-var">pRealtimeMetricsSubscriptionStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>    </span><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionConfig' :: RealtimeMetricsSubscriptionStatus
 -&gt; RealtimeMetricsSubscriptionConfig
 </span><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig%27"><span class="hs-identifier hs-type">RealtimeMetricsSubscriptionConfig'</span></a></span><span>
 </span><span id="line-54"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:realtimeMetricsSubscriptionStatus:RealtimeMetricsSubscriptionConfig' :: RealtimeMetricsSubscriptionStatus
 </span><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#%24sel%3ArealtimeMetricsSubscriptionStatus%3ARealtimeMetricsSubscriptionConfig%27"><span class="hs-identifier hs-var">realtimeMetricsSubscriptionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>          </span><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionStatus
-</span><a href="#local-6989586621679401045"><span class="hs-identifier hs-var">pRealtimeMetricsSubscriptionStatus_</span></a></span><span>
+</span><a href="#local-6989586621679401307"><span class="hs-identifier hs-var">pRealtimeMetricsSubscriptionStatus_</span></a></span><span>
 </span><span id="line-56"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | A flag that indicates whether additional CloudWatch metrics are enabled</span><span>
@@ -154,25 +154,25 @@ RealtimeMetricsSubscriptionConfig
      RealtimeMetricsSubscriptionStatus
      RealtimeMetricsSubscriptionStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig%27"><span class="hs-identifier hs-type">RealtimeMetricsSubscriptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401041"><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig%27"><span class="hs-identifier hs-type">RealtimeMetricsSubscriptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401303"><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionStatus
 realtimeMetricsSubscriptionStatus :: RealtimeMetricsSubscriptionStatus
 $sel:realtimeMetricsSubscriptionStatus:RealtimeMetricsSubscriptionConfig' :: RealtimeMetricsSubscriptionConfig
 -&gt; RealtimeMetricsSubscriptionStatus
-</span><a href="#local-6989586621679401041"><span class="hs-identifier hs-var hs-var">realtimeMetricsSubscriptionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionStatus
-</span><a href="#local-6989586621679401041"><span class="hs-identifier hs-var">realtimeMetricsSubscriptionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401040"><span class="annot"><span class="annottext">s :: RealtimeMetricsSubscriptionConfig
-</span><a href="#local-6989586621679401040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig%27"><span class="hs-identifier hs-type">RealtimeMetricsSubscriptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401039"><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionStatus
-</span><a href="#local-6989586621679401039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionConfig
-</span><a href="#local-6989586621679401040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:realtimeMetricsSubscriptionStatus:RealtimeMetricsSubscriptionConfig' :: RealtimeMetricsSubscriptionStatus
+</span><a href="#local-6989586621679401303"><span class="hs-identifier hs-var hs-var">realtimeMetricsSubscriptionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionStatus
+</span><a href="#local-6989586621679401303"><span class="hs-identifier hs-var">realtimeMetricsSubscriptionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401302"><span class="annot"><span class="annottext">s :: RealtimeMetricsSubscriptionConfig
+</span><a href="#local-6989586621679401302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig%27"><span class="hs-identifier hs-type">RealtimeMetricsSubscriptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401301"><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionStatus
+</span><a href="#local-6989586621679401301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionConfig
+</span><a href="#local-6989586621679401302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:realtimeMetricsSubscriptionStatus:RealtimeMetricsSubscriptionConfig' :: RealtimeMetricsSubscriptionStatus
 </span><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#%24sel%3ArealtimeMetricsSubscriptionStatus%3ARealtimeMetricsSubscriptionConfig%27"><span class="hs-identifier hs-var">realtimeMetricsSubscriptionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionStatus
-</span><a href="#local-6989586621679401039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig"><span class="hs-identifier hs-type">RealtimeMetricsSubscriptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig"><span class="hs-identifier hs-type">RealtimeMetricsSubscriptionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig"><span class="hs-identifier hs-type">RealtimeMetricsSubscriptionConfig</span></a></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679401036"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RealtimeMetricsSubscriptionConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679401034"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401034"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679401298"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String RealtimeMetricsSubscriptionConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679401296"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679401296"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionStatus
 -&gt; RealtimeMetricsSubscriptionConfig
 </span><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig%27"><span class="hs-identifier hs-var">RealtimeMetricsSubscriptionConfig'</span></a></span><span>
@@ -182,26 +182,26 @@ $sel:realtimeMetricsSubscriptionStatus:RealtimeMetricsSubscriptionConfig' :: Rea
 -&gt; Either String RealtimeMetricsSubscriptionConfig
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401034"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String RealtimeMetricsSubscriptionStatus
+</span><a href="#local-6989586621679401296"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String RealtimeMetricsSubscriptionStatus
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RealtimeMetricsSubscriptionStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679401028"><span id="local-6989586621679401030"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679401290"><span id="local-6989586621679401292"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig"><span class="hs-identifier hs-type">RealtimeMetricsSubscriptionConfig</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679401025"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679401287"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig"><span class="hs-identifier hs-type">RealtimeMetricsSubscriptionConfig</span></a></span></span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig"><span class="hs-identifier hs-type">RealtimeMetricsSubscriptionConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679401021"><span class="annot"><span class="annottext">toXML :: RealtimeMetricsSubscriptionConfig -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig%27"><span class="hs-identifier hs-type">RealtimeMetricsSubscriptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401019"><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionStatus
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679401283"><span class="annot"><span class="annottext">toXML :: RealtimeMetricsSubscriptionConfig -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig%27"><span class="hs-identifier hs-type">RealtimeMetricsSubscriptionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401281"><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionStatus
 realtimeMetricsSubscriptionStatus :: RealtimeMetricsSubscriptionStatus
 $sel:realtimeMetricsSubscriptionStatus:RealtimeMetricsSubscriptionConfig' :: RealtimeMetricsSubscriptionConfig
 -&gt; RealtimeMetricsSubscriptionStatus
-</span><a href="#local-6989586621679401019"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679401281"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -210,6 +210,6 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; RealtimeMetricsSubscriptionStatus -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">RealtimeMetricsSubscriptionStatus
-</span><a href="#local-6989586621679401019"><span class="hs-identifier hs-var">realtimeMetricsSubscriptionStatus</span></a></span><span>
+</span><a href="#local-6989586621679401281"><span class="hs-identifier hs-var">realtimeMetricsSubscriptionStatus</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-85"></span></pre></body></html>

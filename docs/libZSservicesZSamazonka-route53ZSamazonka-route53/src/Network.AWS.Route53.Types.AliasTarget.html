@@ -39,7 +39,7 @@
 </span><span id="line-39"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-private-hosted-zones.html Configuring Failover in a Private Hosted Zone&gt;.</span><span>
 </span><span id="line-40"></span><span class="hs-comment">--</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newAliasTarget' smart constructor.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679292612"><span id="local-6989586621679292613"></span></span><span class="hs-keyword">data</span><span> </span><span id="AliasTarget"><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget"><span class="hs-identifier hs-var">AliasTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AliasTarget%27"><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget%27"><span class="hs-identifier hs-var">AliasTarget'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679292757"><span id="local-6989586621679292758"></span></span><span class="hs-keyword">data</span><span> </span><span id="AliasTarget"><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget"><span class="hs-identifier hs-var">AliasTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AliasTarget%27"><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget%27"><span class="hs-identifier hs-var">AliasTarget'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | /Alias resource records sets only/: The value used depends on where you</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- want to route traffic:</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -354,7 +354,7 @@
 </span><span id="line-352"></span><span>    </span><span id="%24sel%3AevaluateTargetHealth%3AAliasTarget%27"><span class="annot"><span class="annottext">AliasTarget -&gt; Bool
 </span><a href="Network.AWS.Route53.Types.AliasTarget.html#%24sel%3AevaluateTargetHealth%3AAliasTarget%27"><span class="hs-identifier hs-var hs-var">evaluateTargetHealth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-353"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-354"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292604"><span id="local-6989586621679292606"><span class="annot"><span class="annottext">AliasTarget -&gt; AliasTarget -&gt; Bool
+</span><span id="line-354"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679292749"><span id="local-6989586621679292751"><span class="annot"><span class="annottext">AliasTarget -&gt; AliasTarget -&gt; Bool
 (AliasTarget -&gt; AliasTarget -&gt; Bool)
 -&gt; (AliasTarget -&gt; AliasTarget -&gt; Bool) -&gt; Eq AliasTarget
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -362,7 +362,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AliasTarget -&gt; AliasTarget -&gt; Bool
 == :: AliasTarget -&gt; AliasTarget -&gt; Bool
 $c== :: AliasTarget -&gt; AliasTarget -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292595"><span id="local-6989586621679292597"><span id="local-6989586621679292599"><span id="local-6989586621679292601"><span class="annot"><span class="annottext">ReadPrec [AliasTarget]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292740"><span id="local-6989586621679292742"><span id="local-6989586621679292744"><span id="local-6989586621679292746"><span class="annot"><span class="annottext">ReadPrec [AliasTarget]
 ReadPrec AliasTarget
 Int -&gt; ReadS AliasTarget
 ReadS [AliasTarget]
@@ -382,7 +382,7 @@ readList :: ReadS [AliasTarget]
 $creadList :: ReadS [AliasTarget]
 readsPrec :: Int -&gt; ReadS AliasTarget
 $creadsPrec :: Int -&gt; ReadS AliasTarget
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292588"><span id="local-6989586621679292590"><span id="local-6989586621679292592"><span class="annot"><span class="annottext">Int -&gt; AliasTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679292733"><span id="local-6989586621679292735"><span id="local-6989586621679292737"><span class="annot"><span class="annottext">Int -&gt; AliasTarget -&gt; ShowS
 [AliasTarget] -&gt; ShowS
 AliasTarget -&gt; String
 (Int -&gt; AliasTarget -&gt; ShowS)
@@ -735,23 +735,23 @@ $cfrom :: forall x. AliasTarget -&gt; Rep AliasTarget x
 </span><span id="line-680"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget"><span class="hs-identifier hs-type">AliasTarget</span></a></span><span>
 </span><span id="line-681"></span><span id="newAliasTarget"><span class="annot"><span class="annottext">newAliasTarget :: ResourceId -&gt; Text -&gt; Bool -&gt; AliasTarget
 </span><a href="Network.AWS.Route53.Types.AliasTarget.html#newAliasTarget"><span class="hs-identifier hs-var hs-var">newAliasTarget</span></a></span></span><span>
-</span><span id="line-682"></span><span>  </span><span id="local-6989586621679292582"><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679292582"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span></span><span>
-</span><span id="line-683"></span><span>  </span><span id="local-6989586621679292581"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679292581"><span class="hs-identifier hs-var">pDNSName_</span></a></span></span><span>
-</span><span id="line-684"></span><span>  </span><span id="local-6989586621679292580"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679292580"><span class="hs-identifier hs-var">pEvaluateTargetHealth_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-682"></span><span>  </span><span id="local-6989586621679292727"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679292727"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span></span><span>
+</span><span id="line-683"></span><span>  </span><span id="local-6989586621679292726"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292726"><span class="hs-identifier hs-var">pDNSName_</span></a></span></span><span>
+</span><span id="line-684"></span><span>  </span><span id="local-6989586621679292725"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679292725"><span class="hs-identifier hs-var">pEvaluateTargetHealth_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-685"></span><span>    </span><span class="annot"><span class="annottext">AliasTarget' :: ResourceId -&gt; Text -&gt; Bool -&gt; AliasTarget
 </span><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget%27"><span class="hs-identifier hs-type">AliasTarget'</span></a></span><span>
 </span><span id="line-686"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hostedZoneId:AliasTarget' :: ResourceId
 </span><a href="Network.AWS.Route53.Types.AliasTarget.html#%24sel%3AhostedZoneId%3AAliasTarget%27"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679292582"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679292727"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-687"></span><span>        </span><span class="annot"><span class="annottext">$sel:dNSName:AliasTarget' :: Text
 </span><a href="Network.AWS.Route53.Types.AliasTarget.html#%24sel%3AdNSName%3AAliasTarget%27"><span class="hs-identifier hs-var">dNSName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679292581"><span class="hs-identifier hs-var">pDNSName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679292726"><span class="hs-identifier hs-var">pDNSName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-688"></span><span>        </span><span class="annot"><span class="annottext">$sel:evaluateTargetHealth:AliasTarget' :: Bool
 </span><a href="Network.AWS.Route53.Types.AliasTarget.html#%24sel%3AevaluateTargetHealth%3AAliasTarget%27"><span class="hs-identifier hs-var">evaluateTargetHealth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679292580"><span class="hs-identifier hs-var">pEvaluateTargetHealth_</span></a></span><span>
+</span><a href="#local-6989586621679292725"><span class="hs-identifier hs-var">pEvaluateTargetHealth_</span></a></span><span>
 </span><span id="line-689"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-690"></span><span>
 </span><span id="line-691"></span><span class="hs-comment">-- | /Alias resource records sets only/: The value used depends on where you</span><span>
@@ -843,16 +843,16 @@ $cfrom :: forall x. AliasTarget -&gt; Rep AliasTarget x
 -&gt; (AliasTarget -&gt; ResourceId -&gt; AliasTarget)
 -&gt; Lens AliasTarget AliasTarget ResourceId ResourceId
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget%27"><span class="hs-identifier hs-type">AliasTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292576"><span class="annot"><span class="annottext">ResourceId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget%27"><span class="hs-identifier hs-type">AliasTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292721"><span class="annot"><span class="annottext">ResourceId
 hostedZoneId :: ResourceId
 $sel:hostedZoneId:AliasTarget' :: AliasTarget -&gt; ResourceId
-</span><a href="#local-6989586621679292576"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679292576"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292575"><span class="annot"><span class="annottext">s :: AliasTarget
-</span><a href="#local-6989586621679292575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget%27"><span class="hs-identifier hs-type">AliasTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292574"><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679292574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AliasTarget
-</span><a href="#local-6989586621679292575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneId:AliasTarget' :: ResourceId
+</span><a href="#local-6989586621679292721"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679292721"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292720"><span class="annot"><span class="annottext">s :: AliasTarget
+</span><a href="#local-6989586621679292720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget%27"><span class="hs-identifier hs-type">AliasTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292719"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679292719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AliasTarget
+</span><a href="#local-6989586621679292720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneId:AliasTarget' :: ResourceId
 </span><a href="Network.AWS.Route53.Types.AliasTarget.html#%24sel%3AhostedZoneId%3AAliasTarget%27"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679292574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget"><span class="hs-identifier hs-type">AliasTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679292719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget"><span class="hs-identifier hs-type">AliasTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-776"></span><span>
 </span><span id="line-777"></span><span class="hs-comment">-- | /Alias resource record sets only:/ The value that you specify depends on</span><span>
 </span><span id="line-778"></span><span class="hs-comment">-- where you want to route queries:</span><span>
@@ -1009,16 +1009,16 @@ $sel:hostedZoneId:AliasTarget' :: AliasTarget -&gt; ResourceId
 -&gt; (AliasTarget -&gt; Text -&gt; AliasTarget)
 -&gt; Lens AliasTarget AliasTarget Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget%27"><span class="hs-identifier hs-type">AliasTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292572"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget%27"><span class="hs-identifier hs-type">AliasTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292717"><span class="annot"><span class="annottext">Text
 dNSName :: Text
 $sel:dNSName:AliasTarget' :: AliasTarget -&gt; Text
-</span><a href="#local-6989586621679292572"><span class="hs-identifier hs-var hs-var">dNSName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679292572"><span class="hs-identifier hs-var">dNSName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292571"><span class="annot"><span class="annottext">s :: AliasTarget
-</span><a href="#local-6989586621679292571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget%27"><span class="hs-identifier hs-type">AliasTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292570"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679292570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AliasTarget
-</span><a href="#local-6989586621679292571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dNSName:AliasTarget' :: Text
+</span><a href="#local-6989586621679292717"><span class="hs-identifier hs-var hs-var">dNSName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292717"><span class="hs-identifier hs-var">dNSName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292716"><span class="annot"><span class="annottext">s :: AliasTarget
+</span><a href="#local-6989586621679292716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget%27"><span class="hs-identifier hs-type">AliasTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292715"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679292715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AliasTarget
+</span><a href="#local-6989586621679292716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dNSName:AliasTarget' :: Text
 </span><a href="Network.AWS.Route53.Types.AliasTarget.html#%24sel%3AdNSName%3AAliasTarget%27"><span class="hs-identifier hs-var">dNSName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679292570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget"><span class="hs-identifier hs-type">AliasTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679292715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget"><span class="hs-identifier hs-type">AliasTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-928"></span><span>
 </span><span id="line-929"></span><span class="hs-comment">-- | /Applies only to alias, failover alias, geolocation alias, latency</span><span>
 </span><span id="line-930"></span><span class="hs-comment">-- alias, and weighted alias resource record sets:/ When</span><span>
@@ -1101,21 +1101,21 @@ $sel:dNSName:AliasTarget' :: AliasTarget -&gt; Text
 -&gt; (AliasTarget -&gt; Bool -&gt; AliasTarget)
 -&gt; Lens AliasTarget AliasTarget Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget%27"><span class="hs-identifier hs-type">AliasTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292568"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget%27"><span class="hs-identifier hs-type">AliasTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292713"><span class="annot"><span class="annottext">Bool
 evaluateTargetHealth :: Bool
 $sel:evaluateTargetHealth:AliasTarget' :: AliasTarget -&gt; Bool
-</span><a href="#local-6989586621679292568"><span class="hs-identifier hs-var hs-var">evaluateTargetHealth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679292568"><span class="hs-identifier hs-var">evaluateTargetHealth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292567"><span class="annot"><span class="annottext">s :: AliasTarget
-</span><a href="#local-6989586621679292567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget%27"><span class="hs-identifier hs-type">AliasTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292566"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679292566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AliasTarget
-</span><a href="#local-6989586621679292567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluateTargetHealth:AliasTarget' :: Bool
+</span><a href="#local-6989586621679292713"><span class="hs-identifier hs-var hs-var">evaluateTargetHealth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679292713"><span class="hs-identifier hs-var">evaluateTargetHealth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679292712"><span class="annot"><span class="annottext">s :: AliasTarget
+</span><a href="#local-6989586621679292712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget%27"><span class="hs-identifier hs-type">AliasTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679292711"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679292711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AliasTarget
+</span><a href="#local-6989586621679292712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluateTargetHealth:AliasTarget' :: Bool
 </span><a href="Network.AWS.Route53.Types.AliasTarget.html#%24sel%3AevaluateTargetHealth%3AAliasTarget%27"><span class="hs-identifier hs-var">evaluateTargetHealth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679292566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget"><span class="hs-identifier hs-type">AliasTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679292711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget"><span class="hs-identifier hs-type">AliasTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-1006"></span><span>
 </span><span id="line-1007"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget"><span class="hs-identifier hs-type">AliasTarget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-1008"></span><span>  </span><span id="local-6989586621679292563"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AliasTarget
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679292561"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679292561"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-1008"></span><span>  </span><span id="local-6989586621679292708"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AliasTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679292706"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679292706"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-1009"></span><span>    </span><span class="annot"><span class="annottext">ResourceId -&gt; Text -&gt; Bool -&gt; AliasTarget
 </span><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget%27"><span class="hs-identifier hs-var">AliasTarget'</span></a></span><span>
 </span><span id="line-1010"></span><span>      </span><span class="annot"><span class="annottext">(ResourceId -&gt; Text -&gt; Bool -&gt; AliasTarget)
@@ -1123,7 +1123,7 @@ $sel:evaluateTargetHealth:AliasTarget' :: AliasTarget -&gt; Bool
 -&gt; Either String (Text -&gt; Bool -&gt; AliasTarget)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679292561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ResourceId
+</span><a href="#local-6989586621679292706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ResourceId
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HostedZoneId&quot;</span></span><span class="hs-special">)</span><span>
@@ -1131,7 +1131,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String (Bool -&gt; AliasTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679292561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679292706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DNSName&quot;</span></span><span class="hs-special">)</span><span>
@@ -1139,18 +1139,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Bool -&gt; Either String AliasTarget
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679292561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+</span><a href="#local-6989586621679292706"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EvaluateTargetHealth&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-1013"></span><span>
-</span><span id="line-1014"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292555"><span id="local-6989586621679292557"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget"><span class="hs-identifier hs-type">AliasTarget</span></a></span></span></span><span>
+</span><span id="line-1014"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292700"><span id="local-6989586621679292702"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget"><span class="hs-identifier hs-type">AliasTarget</span></a></span></span></span><span>
 </span><span id="line-1015"></span><span>
-</span><span id="line-1016"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292552"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget"><span class="hs-identifier hs-type">AliasTarget</span></a></span></span><span>
+</span><span id="line-1016"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679292697"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget"><span class="hs-identifier hs-type">AliasTarget</span></a></span></span><span>
 </span><span id="line-1017"></span><span>
 </span><span id="line-1018"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget"><span class="hs-identifier hs-type">AliasTarget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-1019"></span><span>  </span><span id="local-6989586621679292548"><span class="annot"><span class="annottext">toXML :: AliasTarget -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget%27"><span class="hs-identifier hs-type">AliasTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292544"><span id="local-6989586621679292545"><span id="local-6989586621679292546"><span class="annot"><span class="annottext">Bool
+</span><span id="line-1019"></span><span>  </span><span id="local-6989586621679292693"><span class="annot"><span class="annottext">toXML :: AliasTarget -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.AliasTarget.html#AliasTarget%27"><span class="hs-identifier hs-type">AliasTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679292689"><span id="local-6989586621679292690"><span id="local-6989586621679292691"><span class="annot"><span class="annottext">Bool
 Text
 ResourceId
 evaluateTargetHealth :: Bool
@@ -1159,7 +1159,7 @@ hostedZoneId :: ResourceId
 $sel:evaluateTargetHealth:AliasTarget' :: AliasTarget -&gt; Bool
 $sel:dNSName:AliasTarget' :: AliasTarget -&gt; Text
 $sel:hostedZoneId:AliasTarget' :: AliasTarget -&gt; ResourceId
-</span><a href="#local-6989586621679292544"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679292689"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-1020"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -1167,16 +1167,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;HostedZoneId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; ResourceId -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679292546"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679292691"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1022"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;DNSName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679292545"><span class="hs-identifier hs-var">dNSName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679292690"><span class="hs-identifier hs-var">dNSName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-1023"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;EvaluateTargetHealth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Bool -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679292544"><span class="hs-identifier hs-var">evaluateTargetHealth</span></a></span><span>
+</span><a href="#local-6989586621679292689"><span class="hs-identifier hs-var">evaluateTargetHealth</span></a></span><span>
 </span><span id="line-1024"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-1025"></span></pre></body></html>

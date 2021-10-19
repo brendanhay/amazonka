@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679164609"><span id="local-6989586621679164610"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HLSFragmentSelectorType"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.html#HLSFragmentSelectorType"><span class="hs-identifier hs-var">HLSFragmentSelectorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HLSFragmentSelectorType%27"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.html#HLSFragmentSelectorType%27"><span class="hs-identifier hs-var">HLSFragmentSelectorType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679164620"><span id="local-6989586621679164621"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HLSFragmentSelectorType"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.html#HLSFragmentSelectorType"><span class="hs-identifier hs-var">HLSFragmentSelectorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HLSFragmentSelectorType%27"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.html#HLSFragmentSelectorType%27"><span class="hs-identifier hs-var">HLSFragmentSelectorType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHLSFragmentSelectorType"><span class="annot"><span class="annottext">HLSFragmentSelectorType -&gt; Text
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType.html#fromHLSFragmentSelectorType"><span class="hs-identifier hs-var hs-var">fromHLSFragmentSelectorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679164601"><span id="local-6989586621679164603"><span id="local-6989586621679164605"><span class="annot"><span class="annottext">Int -&gt; HLSFragmentSelectorType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679164612"><span id="local-6989586621679164614"><span id="local-6989586621679164616"><span class="annot"><span class="annottext">Int -&gt; HLSFragmentSelectorType -&gt; ShowS
 [HLSFragmentSelectorType] -&gt; ShowS
 HLSFragmentSelectorType -&gt; String
 (Int -&gt; HLSFragmentSelectorType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: HLSFragmentSelectorType -&gt; String
 showsPrec :: Int -&gt; HLSFragmentSelectorType -&gt; ShowS
 $cshowsPrec :: Int -&gt; HLSFragmentSelectorType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679164592"><span id="local-6989586621679164594"><span id="local-6989586621679164596"><span id="local-6989586621679164598"><span class="annot"><span class="annottext">ReadPrec [HLSFragmentSelectorType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679164603"><span id="local-6989586621679164605"><span id="local-6989586621679164607"><span id="local-6989586621679164609"><span class="annot"><span class="annottext">ReadPrec [HLSFragmentSelectorType]
 ReadPrec HLSFragmentSelectorType
 Int -&gt; ReadS HLSFragmentSelectorType
 ReadS [HLSFragmentSelectorType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [HLSFragmentSelectorType]
 readsPrec :: Int -&gt; ReadS HLSFragmentSelectorType
 $creadsPrec :: Int -&gt; ReadS HLSFragmentSelectorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679164587"><span id="local-6989586621679164589"><span class="annot"><span class="annottext">HLSFragmentSelectorType -&gt; HLSFragmentSelectorType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679164598"><span id="local-6989586621679164600"><span class="annot"><span class="annottext">HLSFragmentSelectorType -&gt; HLSFragmentSelectorType -&gt; Bool
 (HLSFragmentSelectorType -&gt; HLSFragmentSelectorType -&gt; Bool)
 -&gt; (HLSFragmentSelectorType -&gt; HLSFragmentSelectorType -&gt; Bool)
 -&gt; Eq HLSFragmentSelectorType
@@ -82,7 +82,7 @@ $c/= :: HLSFragmentSelectorType -&gt; HLSFragmentSelectorType -&gt; Bool
 == :: HLSFragmentSelectorType -&gt; HLSFragmentSelectorType -&gt; Bool
 $c== :: HLSFragmentSelectorType -&gt; HLSFragmentSelectorType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679164571"><span id="local-6989586621679164573"><span id="local-6989586621679164575"><span id="local-6989586621679164577"><span id="local-6989586621679164579"><span id="local-6989586621679164581"><span id="local-6989586621679164583"><span class="annot"><span class="annottext">Eq HLSFragmentSelectorType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679164582"><span id="local-6989586621679164584"><span id="local-6989586621679164586"><span id="local-6989586621679164588"><span id="local-6989586621679164590"><span id="local-6989586621679164592"><span id="local-6989586621679164594"><span class="annot"><span class="annottext">Eq HLSFragmentSelectorType
 Eq HLSFragmentSelectorType
 -&gt; (HLSFragmentSelectorType -&gt; HLSFragmentSelectorType -&gt; Ordering)
 -&gt; (HLSFragmentSelectorType -&gt; HLSFragmentSelectorType -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. HLSFragmentSelectorType -&gt; Rep HLSFragmentSelectorType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679164563"><span id="local-6989586621679164565"><span class="annot"><span class="annottext">Int -&gt; HLSFragmentSelectorType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679164574"><span id="local-6989586621679164576"><span class="annot"><span class="annottext">Int -&gt; HLSFragmentSelectorType -&gt; Int
 HLSFragmentSelectorType -&gt; Int
 (Int -&gt; HLSFragmentSelectorType -&gt; Int)
 -&gt; (HLSFragmentSelectorType -&gt; Int)
@@ -153,54 +153,54 @@ $chash :: HLSFragmentSelectorType -&gt; Int
 hashWithSalt :: Int -&gt; HLSFragmentSelectorType -&gt; Int
 $chashWithSalt :: Int -&gt; HLSFragmentSelectorType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679164560"><span class="annot"><span class="annottext">HLSFragmentSelectorType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679164571"><span class="annot"><span class="annottext">HLSFragmentSelectorType -&gt; ()
 (HLSFragmentSelectorType -&gt; ()) -&gt; NFData HLSFragmentSelectorType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HLSFragmentSelectorType -&gt; ()
 $crnf :: HLSFragmentSelectorType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679164557"><span class="annot"><span class="annottext">Text -&gt; Either String HLSFragmentSelectorType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679164568"><span class="annot"><span class="annottext">Text -&gt; Either String HLSFragmentSelectorType
 (Text -&gt; Either String HLSFragmentSelectorType)
 -&gt; FromText HLSFragmentSelectorType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HLSFragmentSelectorType
 $cfromText :: Text -&gt; Either String HLSFragmentSelectorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679164554"><span class="annot"><span class="annottext">HLSFragmentSelectorType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679164565"><span class="annot"><span class="annottext">HLSFragmentSelectorType -&gt; Text
 (HLSFragmentSelectorType -&gt; Text) -&gt; ToText HLSFragmentSelectorType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HLSFragmentSelectorType -&gt; Text
 $ctoText :: HLSFragmentSelectorType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679164551"><span class="annot"><span class="annottext">HLSFragmentSelectorType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679164562"><span class="annot"><span class="annottext">HLSFragmentSelectorType -&gt; ByteString
 (HLSFragmentSelectorType -&gt; ByteString)
 -&gt; ToByteString HLSFragmentSelectorType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HLSFragmentSelectorType -&gt; ByteString
 $ctoBS :: HLSFragmentSelectorType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679164548"><span class="annot"><span class="annottext">HLSFragmentSelectorType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679164559"><span class="annot"><span class="annottext">HLSFragmentSelectorType -&gt; ByteStringBuilder
 (HLSFragmentSelectorType -&gt; ByteStringBuilder)
 -&gt; ToLog HLSFragmentSelectorType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HLSFragmentSelectorType -&gt; ByteStringBuilder
 $cbuild :: HLSFragmentSelectorType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679164545"><span class="annot"><span class="annottext">HeaderName -&gt; HLSFragmentSelectorType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679164556"><span class="annot"><span class="annottext">HeaderName -&gt; HLSFragmentSelectorType -&gt; [Header]
 (HeaderName -&gt; HLSFragmentSelectorType -&gt; [Header])
 -&gt; ToHeader HLSFragmentSelectorType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HLSFragmentSelectorType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HLSFragmentSelectorType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679164542"><span class="annot"><span class="annottext">HLSFragmentSelectorType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679164553"><span class="annot"><span class="annottext">HLSFragmentSelectorType -&gt; QueryString
 (HLSFragmentSelectorType -&gt; QueryString)
 -&gt; ToQuery HLSFragmentSelectorType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HLSFragmentSelectorType -&gt; QueryString
 $ctoQuery :: HLSFragmentSelectorType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679164537"><span id="local-6989586621679164539"><span class="annot"><span class="annottext">Value -&gt; Parser [HLSFragmentSelectorType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679164548"><span id="local-6989586621679164550"><span class="annot"><span class="annottext">Value -&gt; Parser [HLSFragmentSelectorType]
 Value -&gt; Parser HLSFragmentSelectorType
 (Value -&gt; Parser HLSFragmentSelectorType)
 -&gt; (Value -&gt; Parser [HLSFragmentSelectorType])
@@ -212,7 +212,7 @@ $cparseJSONList :: Value -&gt; Parser [HLSFragmentSelectorType]
 parseJSON :: Value -&gt; Parser HLSFragmentSelectorType
 $cparseJSON :: Value -&gt; Parser HLSFragmentSelectorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679164532"><span id="local-6989586621679164534"><span class="annot"><span class="annottext">FromJSONKeyFunction [HLSFragmentSelectorType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679164543"><span id="local-6989586621679164545"><span class="annot"><span class="annottext">FromJSONKeyFunction [HLSFragmentSelectorType]
 FromJSONKeyFunction HLSFragmentSelectorType
 FromJSONKeyFunction HLSFragmentSelectorType
 -&gt; FromJSONKeyFunction [HLSFragmentSelectorType]
@@ -224,7 +224,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HLSFragmentSelectorType]
 fromJSONKey :: FromJSONKeyFunction HLSFragmentSelectorType
 $cfromJSONKey :: FromJSONKeyFunction HLSFragmentSelectorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679164523"><span id="local-6989586621679164525"><span id="local-6989586621679164527"><span id="local-6989586621679164529"><span class="annot"><span class="annottext">[HLSFragmentSelectorType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679164534"><span id="local-6989586621679164536"><span id="local-6989586621679164538"><span id="local-6989586621679164540"><span class="annot"><span class="annottext">[HLSFragmentSelectorType] -&gt; Encoding
 [HLSFragmentSelectorType] -&gt; Value
 HLSFragmentSelectorType -&gt; Encoding
 HLSFragmentSelectorType -&gt; Value
@@ -248,7 +248,7 @@ $ctoEncoding :: HLSFragmentSelectorType -&gt; Encoding
 toJSON :: HLSFragmentSelectorType -&gt; Value
 $ctoJSON :: HLSFragmentSelectorType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679164518"><span id="local-6989586621679164520"><span class="annot"><span class="annottext">ToJSONKeyFunction [HLSFragmentSelectorType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679164529"><span id="local-6989586621679164531"><span class="annot"><span class="annottext">ToJSONKeyFunction [HLSFragmentSelectorType]
 ToJSONKeyFunction HLSFragmentSelectorType
 ToJSONKeyFunction HLSFragmentSelectorType
 -&gt; ToJSONKeyFunction [HLSFragmentSelectorType]
@@ -260,14 +260,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HLSFragmentSelectorType]
 toJSONKey :: ToJSONKeyFunction HLSFragmentSelectorType
 $ctoJSONKey :: ToJSONKeyFunction HLSFragmentSelectorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679164515"><span class="annot"><span class="annottext">[Node] -&gt; Either String HLSFragmentSelectorType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679164526"><span class="annot"><span class="annottext">[Node] -&gt; Either String HLSFragmentSelectorType
 ([Node] -&gt; Either String HLSFragmentSelectorType)
 -&gt; FromXML HLSFragmentSelectorType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HLSFragmentSelectorType
 $cparseXML :: [Node] -&gt; Either String HLSFragmentSelectorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679164512"><span class="annot"><span class="annottext">HLSFragmentSelectorType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679164523"><span class="annot"><span class="annottext">HLSFragmentSelectorType -&gt; XML
 (HLSFragmentSelectorType -&gt; XML) -&gt; ToXML HLSFragmentSelectorType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HLSFragmentSelectorType -&gt; XML

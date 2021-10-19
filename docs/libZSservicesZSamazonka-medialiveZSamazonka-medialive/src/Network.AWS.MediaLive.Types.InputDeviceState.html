@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | The state of the input device.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679886263"><span id="local-6989586621679886264"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputDeviceState"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceState.html#InputDeviceState"><span class="hs-identifier hs-var">InputDeviceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputDeviceState%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceState.html#InputDeviceState%27"><span class="hs-identifier hs-var">InputDeviceState'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679892927"><span id="local-6989586621679892928"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputDeviceState"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceState.html#InputDeviceState"><span class="hs-identifier hs-var">InputDeviceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputDeviceState%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.InputDeviceState.html#InputDeviceState%27"><span class="hs-identifier hs-var">InputDeviceState'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInputDeviceState"><span class="annot"><span class="annottext">InputDeviceState -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.InputDeviceState.html#fromInputDeviceState"><span class="hs-identifier hs-var hs-var">fromInputDeviceState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679886255"><span id="local-6989586621679886257"><span id="local-6989586621679886259"><span class="annot"><span class="annottext">Int -&gt; InputDeviceState -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679892919"><span id="local-6989586621679892921"><span id="local-6989586621679892923"><span class="annot"><span class="annottext">Int -&gt; InputDeviceState -&gt; ShowS
 [InputDeviceState] -&gt; ShowS
 InputDeviceState -&gt; String
 (Int -&gt; InputDeviceState -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: InputDeviceState -&gt; String
 showsPrec :: Int -&gt; InputDeviceState -&gt; ShowS
 $cshowsPrec :: Int -&gt; InputDeviceState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679886246"><span id="local-6989586621679886248"><span id="local-6989586621679886250"><span id="local-6989586621679886252"><span class="annot"><span class="annottext">ReadPrec [InputDeviceState]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679892910"><span id="local-6989586621679892912"><span id="local-6989586621679892914"><span id="local-6989586621679892916"><span class="annot"><span class="annottext">ReadPrec [InputDeviceState]
 ReadPrec InputDeviceState
 Int -&gt; ReadS InputDeviceState
 ReadS [InputDeviceState]
@@ -73,7 +73,7 @@ $creadList :: ReadS [InputDeviceState]
 readsPrec :: Int -&gt; ReadS InputDeviceState
 $creadsPrec :: Int -&gt; ReadS InputDeviceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679886241"><span id="local-6989586621679886243"><span class="annot"><span class="annottext">InputDeviceState -&gt; InputDeviceState -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679892905"><span id="local-6989586621679892907"><span class="annot"><span class="annottext">InputDeviceState -&gt; InputDeviceState -&gt; Bool
 (InputDeviceState -&gt; InputDeviceState -&gt; Bool)
 -&gt; (InputDeviceState -&gt; InputDeviceState -&gt; Bool)
 -&gt; Eq InputDeviceState
@@ -83,7 +83,7 @@ $c/= :: InputDeviceState -&gt; InputDeviceState -&gt; Bool
 == :: InputDeviceState -&gt; InputDeviceState -&gt; Bool
 $c== :: InputDeviceState -&gt; InputDeviceState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679886225"><span id="local-6989586621679886227"><span id="local-6989586621679886229"><span id="local-6989586621679886231"><span id="local-6989586621679886233"><span id="local-6989586621679886235"><span id="local-6989586621679886237"><span class="annot"><span class="annottext">Eq InputDeviceState
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679892889"><span id="local-6989586621679892891"><span id="local-6989586621679892893"><span id="local-6989586621679892895"><span id="local-6989586621679892897"><span id="local-6989586621679892899"><span id="local-6989586621679892901"><span class="annot"><span class="annottext">Eq InputDeviceState
 Eq InputDeviceState
 -&gt; (InputDeviceState -&gt; InputDeviceState -&gt; Ordering)
 -&gt; (InputDeviceState -&gt; InputDeviceState -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. InputDeviceState -&gt; Rep InputDeviceState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679886217"><span id="local-6989586621679886219"><span class="annot"><span class="annottext">Int -&gt; InputDeviceState -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679892881"><span id="local-6989586621679892883"><span class="annot"><span class="annottext">Int -&gt; InputDeviceState -&gt; Int
 InputDeviceState -&gt; Int
 (Int -&gt; InputDeviceState -&gt; Int)
 -&gt; (InputDeviceState -&gt; Int) -&gt; Hashable InputDeviceState
@@ -144,51 +144,51 @@ $chash :: InputDeviceState -&gt; Int
 hashWithSalt :: Int -&gt; InputDeviceState -&gt; Int
 $chashWithSalt :: Int -&gt; InputDeviceState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679886214"><span class="annot"><span class="annottext">InputDeviceState -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679892878"><span class="annot"><span class="annottext">InputDeviceState -&gt; ()
 (InputDeviceState -&gt; ()) -&gt; NFData InputDeviceState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InputDeviceState -&gt; ()
 $crnf :: InputDeviceState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679886211"><span class="annot"><span class="annottext">Text -&gt; Either String InputDeviceState
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679892875"><span class="annot"><span class="annottext">Text -&gt; Either String InputDeviceState
 (Text -&gt; Either String InputDeviceState)
 -&gt; FromText InputDeviceState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InputDeviceState
 $cfromText :: Text -&gt; Either String InputDeviceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679886208"><span class="annot"><span class="annottext">InputDeviceState -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679892872"><span class="annot"><span class="annottext">InputDeviceState -&gt; Text
 (InputDeviceState -&gt; Text) -&gt; ToText InputDeviceState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InputDeviceState -&gt; Text
 $ctoText :: InputDeviceState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679886205"><span class="annot"><span class="annottext">InputDeviceState -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679892869"><span class="annot"><span class="annottext">InputDeviceState -&gt; ByteString
 (InputDeviceState -&gt; ByteString) -&gt; ToByteString InputDeviceState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InputDeviceState -&gt; ByteString
 $ctoBS :: InputDeviceState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679886202"><span class="annot"><span class="annottext">InputDeviceState -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679892866"><span class="annot"><span class="annottext">InputDeviceState -&gt; ByteStringBuilder
 (InputDeviceState -&gt; ByteStringBuilder) -&gt; ToLog InputDeviceState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InputDeviceState -&gt; ByteStringBuilder
 $cbuild :: InputDeviceState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679886199"><span class="annot"><span class="annottext">HeaderName -&gt; InputDeviceState -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679892863"><span class="annot"><span class="annottext">HeaderName -&gt; InputDeviceState -&gt; [Header]
 (HeaderName -&gt; InputDeviceState -&gt; [Header])
 -&gt; ToHeader InputDeviceState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InputDeviceState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InputDeviceState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679886196"><span class="annot"><span class="annottext">InputDeviceState -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679892860"><span class="annot"><span class="annottext">InputDeviceState -&gt; QueryString
 (InputDeviceState -&gt; QueryString) -&gt; ToQuery InputDeviceState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InputDeviceState -&gt; QueryString
 $ctoQuery :: InputDeviceState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679886191"><span id="local-6989586621679886193"><span class="annot"><span class="annottext">Value -&gt; Parser [InputDeviceState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679892855"><span id="local-6989586621679892857"><span class="annot"><span class="annottext">Value -&gt; Parser [InputDeviceState]
 Value -&gt; Parser InputDeviceState
 (Value -&gt; Parser InputDeviceState)
 -&gt; (Value -&gt; Parser [InputDeviceState])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [InputDeviceState]
 parseJSON :: Value -&gt; Parser InputDeviceState
 $cparseJSON :: Value -&gt; Parser InputDeviceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679886186"><span id="local-6989586621679886188"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputDeviceState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679892850"><span id="local-6989586621679892852"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputDeviceState]
 FromJSONKeyFunction InputDeviceState
 FromJSONKeyFunction InputDeviceState
 -&gt; FromJSONKeyFunction [InputDeviceState]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InputDeviceState]
 fromJSONKey :: FromJSONKeyFunction InputDeviceState
 $cfromJSONKey :: FromJSONKeyFunction InputDeviceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679886177"><span id="local-6989586621679886179"><span id="local-6989586621679886181"><span id="local-6989586621679886183"><span class="annot"><span class="annottext">[InputDeviceState] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679892841"><span id="local-6989586621679892843"><span id="local-6989586621679892845"><span id="local-6989586621679892847"><span class="annot"><span class="annottext">[InputDeviceState] -&gt; Encoding
 [InputDeviceState] -&gt; Value
 InputDeviceState -&gt; Encoding
 InputDeviceState -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: InputDeviceState -&gt; Encoding
 toJSON :: InputDeviceState -&gt; Value
 $ctoJSON :: InputDeviceState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679886172"><span id="local-6989586621679886174"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputDeviceState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679892836"><span id="local-6989586621679892838"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputDeviceState]
 ToJSONKeyFunction InputDeviceState
 ToJSONKeyFunction InputDeviceState
 -&gt; ToJSONKeyFunction [InputDeviceState]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InputDeviceState]
 toJSONKey :: ToJSONKeyFunction InputDeviceState
 $ctoJSONKey :: ToJSONKeyFunction InputDeviceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679886169"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputDeviceState
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679892833"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputDeviceState
 ([Node] -&gt; Either String InputDeviceState)
 -&gt; FromXML InputDeviceState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InputDeviceState
 $cparseXML :: [Node] -&gt; Either String InputDeviceState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679886166"><span class="annot"><span class="annottext">InputDeviceState -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679892830"><span class="annot"><span class="annottext">InputDeviceState -&gt; XML
 (InputDeviceState -&gt; XML) -&gt; ToXML InputDeviceState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InputDeviceState -&gt; XML

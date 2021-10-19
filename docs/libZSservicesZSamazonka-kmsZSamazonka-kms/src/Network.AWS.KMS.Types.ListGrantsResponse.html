@@ -25,22 +25,22 @@
 </span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-26"></span><span>
 </span><span id="line-27"></span><span class="hs-comment">-- | /See:/ 'newListGrantsResponse' smart constructor.</span><span>
-</span><span id="line-28"></span><span id="local-6989586621679249010"><span id="local-6989586621679249011"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGrantsResponse"><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-var">ListGrantsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGrantsResponse%27"><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse%27"><span class="hs-identifier hs-var">ListGrantsResponse'</span></a></span></span><span>
-</span><span id="line-29"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When @Truncated@ is true, this element is present and contains the value</span><span>
-</span><span id="line-30"></span><span>    </span><span class="hs-comment">-- to use for the @Marker@ parameter in a subsequent request.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AnextMarker%3AListGrantsResponse%27"><span class="annot"><span class="annottext">ListGrantsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#%24sel%3AnextMarker%3AListGrantsResponse%27"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | A list of grants.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Agrants%3AListGrantsResponse%27"><span class="annot"><span class="annottext">ListGrantsResponse -&gt; Maybe [GrantListEntry]
+</span><span id="line-28"></span><span id="local-6989586621679249210"><span id="local-6989586621679249211"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGrantsResponse"><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-var">ListGrantsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGrantsResponse%27"><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse%27"><span class="hs-identifier hs-var">ListGrantsResponse'</span></a></span></span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A flag that indicates whether there are more items in the list. When</span><span>
+</span><span id="line-30"></span><span>    </span><span class="hs-comment">-- this value is true, the list in this response is truncated. To get more</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- items, pass the value of the @NextMarker@ element in thisresponse to the</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- @Marker@ parameter in a subsequent request.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Atruncated%3AListGrantsResponse%27"><span class="annot"><span class="annottext">ListGrantsResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#%24sel%3Atruncated%3AListGrantsResponse%27"><span class="hs-identifier hs-var hs-var">truncated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A list of grants.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Agrants%3AListGrantsResponse%27"><span class="annot"><span class="annottext">ListGrantsResponse -&gt; Maybe [GrantListEntry]
 </span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#%24sel%3Agrants%3AListGrantsResponse%27"><span class="hs-identifier hs-var hs-var">grants</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KMS.Types.GrantListEntry.html#GrantListEntry"><span class="hs-identifier hs-type">GrantListEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A flag that indicates whether there are more items in the list. When</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- this value is true, the list in this response is truncated. To get more</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- items, pass the value of the @NextMarker@ element in thisresponse to the</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @Marker@ parameter in a subsequent request.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Atruncated%3AListGrantsResponse%27"><span class="annot"><span class="annottext">ListGrantsResponse -&gt; Maybe Bool
-</span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#%24sel%3Atruncated%3AListGrantsResponse%27"><span class="hs-identifier hs-var hs-var">truncated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | When @Truncated@ is true, this element is present and contains the value</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- to use for the @Marker@ parameter in a subsequent request.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AnextMarker%3AListGrantsResponse%27"><span class="annot"><span class="annottext">ListGrantsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#%24sel%3AnextMarker%3AListGrantsResponse%27"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249002"><span id="local-6989586621679249004"><span class="annot"><span class="annottext">ListGrantsResponse -&gt; ListGrantsResponse -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249202"><span id="local-6989586621679249204"><span class="annot"><span class="annottext">ListGrantsResponse -&gt; ListGrantsResponse -&gt; Bool
 (ListGrantsResponse -&gt; ListGrantsResponse -&gt; Bool)
 -&gt; (ListGrantsResponse -&gt; ListGrantsResponse -&gt; Bool)
 -&gt; Eq ListGrantsResponse
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListGrantsResponse -&gt; ListGrantsResponse -&gt; Bool
 == :: ListGrantsResponse -&gt; ListGrantsResponse -&gt; Bool
 $c== :: ListGrantsResponse -&gt; ListGrantsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248993"><span id="local-6989586621679248995"><span id="local-6989586621679248997"><span id="local-6989586621679248999"><span class="annot"><span class="annottext">ReadPrec [ListGrantsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249193"><span id="local-6989586621679249195"><span id="local-6989586621679249197"><span id="local-6989586621679249199"><span class="annot"><span class="annottext">ReadPrec [ListGrantsResponse]
 ReadPrec ListGrantsResponse
 Int -&gt; ReadS ListGrantsResponse
 ReadS [ListGrantsResponse]
@@ -69,7 +69,7 @@ readList :: ReadS [ListGrantsResponse]
 $creadList :: ReadS [ListGrantsResponse]
 readsPrec :: Int -&gt; ReadS ListGrantsResponse
 $creadsPrec :: Int -&gt; ReadS ListGrantsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248986"><span id="local-6989586621679248988"><span id="local-6989586621679248990"><span class="annot"><span class="annottext">Int -&gt; ListGrantsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249186"><span id="local-6989586621679249188"><span id="local-6989586621679249190"><span class="annot"><span class="annottext">Int -&gt; ListGrantsResponse -&gt; ShowS
 [ListGrantsResponse] -&gt; ShowS
 ListGrantsResponse -&gt; String
 (Int -&gt; ListGrantsResponse -&gt; ShowS)
@@ -103,60 +103,62 @@ $cfrom :: forall x. ListGrantsResponse -&gt; Rep ListGrantsResponse x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'nextMarker', 'listGrantsResponse_nextMarker' - When @Truncated@ is true, this element is present and contains the value</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- to use for the @Marker@ parameter in a subsequent request.</span><span>
-</span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'grants', 'listGrantsResponse_grants' - A list of grants.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'truncated', 'listGrantsResponse_truncated' - A flag that indicates whether there are more items in the list. When</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- this value is true, the list in this response is truncated. To get more</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- items, pass the value of the @NextMarker@ element in thisresponse to the</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- @Marker@ parameter in a subsequent request.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'truncated', 'listGrantsResponse_truncated' - A flag that indicates whether there are more items in the list. When</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- this value is true, the list in this response is truncated. To get more</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- items, pass the value of the @NextMarker@ element in thisresponse to the</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- @Marker@ parameter in a subsequent request.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'grants', 'listGrantsResponse_grants' - A list of grants.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'nextMarker', 'listGrantsResponse_nextMarker' - When @Truncated@ is true, this element is present and contains the value</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- to use for the @Marker@ parameter in a subsequent request.</span><span>
 </span><span id="line-59"></span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#newListGrantsResponse"><span class="hs-identifier hs-type">newListGrantsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span><span>
 </span><span id="line-61"></span><span id="newListGrantsResponse"><span class="annot"><span class="annottext">newListGrantsResponse :: ListGrantsResponse
 </span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#newListGrantsResponse"><span class="hs-identifier hs-var hs-var">newListGrantsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">ListGrantsResponse' :: Maybe Text
--&gt; Maybe [GrantListEntry] -&gt; Maybe Bool -&gt; ListGrantsResponse
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">ListGrantsResponse' :: Maybe Bool
+-&gt; Maybe [GrantListEntry] -&gt; Maybe Text -&gt; ListGrantsResponse
 </span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse%27"><span class="hs-identifier hs-type">ListGrantsResponse'</span></a></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextMarker:ListGrantsResponse' :: Maybe Text
-</span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#%24sel%3AnextMarker%3AListGrantsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:truncated:ListGrantsResponse' :: Maybe Bool
+</span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#%24sel%3Atruncated%3AListGrantsResponse%27"><span class="hs-identifier hs-var">truncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:grants:ListGrantsResponse' :: Maybe [GrantListEntry]
 </span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#%24sel%3Agrants%3AListGrantsResponse%27"><span class="hs-identifier hs-var">grants</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GrantListEntry]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:truncated:ListGrantsResponse' :: Maybe Bool
-</span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#%24sel%3Atruncated%3AListGrantsResponse%27"><span class="hs-identifier hs-var">truncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextMarker:ListGrantsResponse' :: Maybe Text
+</span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#%24sel%3AnextMarker%3AListGrantsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | When @Truncated@ is true, this element is present and contains the value</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- to use for the @Marker@ parameter in a subsequent request.</span><span>
-</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#listGrantsResponse_nextMarker"><span class="hs-identifier hs-type">listGrantsResponse_nextMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span id="listGrantsResponse_nextMarker"><span class="annot"><span class="annottext">listGrantsResponse_nextMarker :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-68"></span><span class="hs-comment">-- | A flag that indicates whether there are more items in the list. When</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- this value is true, the list in this response is truncated. To get more</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- items, pass the value of the @NextMarker@ element in thisresponse to the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- @Marker@ parameter in a subsequent request.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#listGrantsResponse_truncated"><span class="hs-identifier hs-type">listGrantsResponse_truncated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="listGrantsResponse_truncated"><span class="annot"><span class="annottext">listGrantsResponse_truncated :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; ListGrantsResponse -&gt; f ListGrantsResponse
-</span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#listGrantsResponse_nextMarker"><span class="hs-identifier hs-var hs-var">listGrantsResponse_nextMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGrantsResponse -&gt; Maybe Text)
--&gt; (ListGrantsResponse -&gt; Maybe Text -&gt; ListGrantsResponse)
+</span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#listGrantsResponse_truncated"><span class="hs-identifier hs-var hs-var">listGrantsResponse_truncated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGrantsResponse -&gt; Maybe Bool)
+-&gt; (ListGrantsResponse -&gt; Maybe Bool -&gt; ListGrantsResponse)
 -&gt; Lens
-     ListGrantsResponse ListGrantsResponse (Maybe Text) (Maybe Text)
+     ListGrantsResponse ListGrantsResponse (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse%27"><span class="hs-identifier hs-type">ListGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248977"><span class="annot"><span class="annottext">Maybe Text
-nextMarker :: Maybe Text
-$sel:nextMarker:ListGrantsResponse' :: ListGrantsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679248977"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248977"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248976"><span class="annot"><span class="annottext">s :: ListGrantsResponse
-</span><a href="#local-6989586621679248976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse%27"><span class="hs-identifier hs-type">ListGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248975"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGrantsResponse
-</span><a href="#local-6989586621679248976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListGrantsResponse' :: Maybe Text
-</span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#%24sel%3AnextMarker%3AListGrantsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | A list of grants.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#listGrantsResponse_grants"><span class="hs-identifier hs-type">listGrantsResponse_grants</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KMS.Types.GrantListEntry.html#GrantListEntry"><span class="hs-identifier hs-type">GrantListEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="listGrantsResponse_grants"><span class="annot"><span class="annottext">listGrantsResponse_grants :: (Maybe [GrantListEntry] -&gt; f (Maybe [GrantListEntry]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse%27"><span class="hs-identifier hs-type">ListGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249177"><span class="annot"><span class="annottext">Maybe Bool
+truncated :: Maybe Bool
+$sel:truncated:ListGrantsResponse' :: ListGrantsResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679249177"><span class="hs-identifier hs-var hs-var">truncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679249177"><span class="hs-identifier hs-var">truncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249176"><span class="annot"><span class="annottext">s :: ListGrantsResponse
+</span><a href="#local-6989586621679249176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse%27"><span class="hs-identifier hs-type">ListGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249175"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679249175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGrantsResponse
+</span><a href="#local-6989586621679249176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:truncated:ListGrantsResponse' :: Maybe Bool
+</span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#%24sel%3Atruncated%3AListGrantsResponse%27"><span class="hs-identifier hs-var">truncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679249175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | A list of grants.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#listGrantsResponse_grants"><span class="hs-identifier hs-type">listGrantsResponse_grants</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.KMS.Types.GrantListEntry.html#GrantListEntry"><span class="hs-identifier hs-type">GrantListEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="listGrantsResponse_grants"><span class="annot"><span class="annottext">listGrantsResponse_grants :: (Maybe [GrantListEntry] -&gt; f (Maybe [GrantListEntry]))
 -&gt; ListGrantsResponse -&gt; f ListGrantsResponse
 </span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#listGrantsResponse_grants"><span class="hs-identifier hs-var hs-var">listGrantsResponse_grants</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGrantsResponse -&gt; Maybe [GrantListEntry])
 -&gt; (ListGrantsResponse
@@ -167,16 +169,16 @@ $sel:nextMarker:ListGrantsResponse' :: ListGrantsResponse -&gt; Maybe Text
      (Maybe [GrantListEntry])
      (Maybe [GrantListEntry])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse%27"><span class="hs-identifier hs-type">ListGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248973"><span class="annot"><span class="annottext">Maybe [GrantListEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse%27"><span class="hs-identifier hs-type">ListGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249173"><span class="annot"><span class="annottext">Maybe [GrantListEntry]
 grants :: Maybe [GrantListEntry]
 $sel:grants:ListGrantsResponse' :: ListGrantsResponse -&gt; Maybe [GrantListEntry]
-</span><a href="#local-6989586621679248973"><span class="hs-identifier hs-var hs-var">grants</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GrantListEntry]
-</span><a href="#local-6989586621679248973"><span class="hs-identifier hs-var">grants</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248972"><span class="annot"><span class="annottext">s :: ListGrantsResponse
-</span><a href="#local-6989586621679248972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse%27"><span class="hs-identifier hs-type">ListGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248971"><span class="annot"><span class="annottext">Maybe [GrantListEntry]
-</span><a href="#local-6989586621679248971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGrantsResponse
-</span><a href="#local-6989586621679248972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grants:ListGrantsResponse' :: Maybe [GrantListEntry]
+</span><a href="#local-6989586621679249173"><span class="hs-identifier hs-var hs-var">grants</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GrantListEntry]
+</span><a href="#local-6989586621679249173"><span class="hs-identifier hs-var">grants</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249172"><span class="annot"><span class="annottext">s :: ListGrantsResponse
+</span><a href="#local-6989586621679249172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse%27"><span class="hs-identifier hs-type">ListGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249171"><span class="annot"><span class="annottext">Maybe [GrantListEntry]
+</span><a href="#local-6989586621679249171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGrantsResponse
+</span><a href="#local-6989586621679249172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grants:ListGrantsResponse' :: Maybe [GrantListEntry]
 </span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#%24sel%3Agrants%3AListGrantsResponse%27"><span class="hs-identifier hs-var">grants</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GrantListEntry]
-</span><a href="#local-6989586621679248971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GrantListEntry] -&gt; f (Maybe [GrantListEntry]))
+</span><a href="#local-6989586621679249171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GrantListEntry] -&gt; f (Maybe [GrantListEntry]))
  -&gt; ListGrantsResponse -&gt; f ListGrantsResponse)
 -&gt; ((Maybe [GrantListEntry] -&gt; f (Maybe [GrantListEntry]))
     -&gt; Maybe [GrantListEntry] -&gt; f (Maybe [GrantListEntry]))
@@ -196,34 +198,32 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [GrantListEntry] [GrantListEntry] [GrantListEntry] [GrantListEntry]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | A flag that indicates whether there are more items in the list. When</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- this value is true, the list in this response is truncated. To get more</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- items, pass the value of the @NextMarker@ element in thisresponse to the</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- @Marker@ parameter in a subsequent request.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#listGrantsResponse_truncated"><span class="hs-identifier hs-type">listGrantsResponse_truncated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="listGrantsResponse_truncated"><span class="annot"><span class="annottext">listGrantsResponse_truncated :: (Maybe Bool -&gt; f (Maybe Bool))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | When @Truncated@ is true, this element is present and contains the value</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- to use for the @Marker@ parameter in a subsequent request.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#listGrantsResponse_nextMarker"><span class="hs-identifier hs-type">listGrantsResponse_nextMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="listGrantsResponse_nextMarker"><span class="annot"><span class="annottext">listGrantsResponse_nextMarker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListGrantsResponse -&gt; f ListGrantsResponse
-</span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#listGrantsResponse_truncated"><span class="hs-identifier hs-var hs-var">listGrantsResponse_truncated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGrantsResponse -&gt; Maybe Bool)
--&gt; (ListGrantsResponse -&gt; Maybe Bool -&gt; ListGrantsResponse)
+</span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#listGrantsResponse_nextMarker"><span class="hs-identifier hs-var hs-var">listGrantsResponse_nextMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGrantsResponse -&gt; Maybe Text)
+-&gt; (ListGrantsResponse -&gt; Maybe Text -&gt; ListGrantsResponse)
 -&gt; Lens
-     ListGrantsResponse ListGrantsResponse (Maybe Bool) (Maybe Bool)
+     ListGrantsResponse ListGrantsResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse%27"><span class="hs-identifier hs-type">ListGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248966"><span class="annot"><span class="annottext">Maybe Bool
-truncated :: Maybe Bool
-$sel:truncated:ListGrantsResponse' :: ListGrantsResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679248966"><span class="hs-identifier hs-var hs-var">truncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679248966"><span class="hs-identifier hs-var">truncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248965"><span class="annot"><span class="annottext">s :: ListGrantsResponse
-</span><a href="#local-6989586621679248965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse%27"><span class="hs-identifier hs-type">ListGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248964"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679248964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGrantsResponse
-</span><a href="#local-6989586621679248965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:truncated:ListGrantsResponse' :: Maybe Bool
-</span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#%24sel%3Atruncated%3AListGrantsResponse%27"><span class="hs-identifier hs-var">truncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679248964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse%27"><span class="hs-identifier hs-type">ListGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249166"><span class="annot"><span class="annottext">Maybe Text
+nextMarker :: Maybe Text
+$sel:nextMarker:ListGrantsResponse' :: ListGrantsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679249166"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249166"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249165"><span class="annot"><span class="annottext">s :: ListGrantsResponse
+</span><a href="#local-6989586621679249165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse%27"><span class="hs-identifier hs-type">ListGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249164"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGrantsResponse
+</span><a href="#local-6989586621679249165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListGrantsResponse' :: Maybe Text
+</span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#%24sel%3AnextMarker%3AListGrantsResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248961"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679248959"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ListGrantsResponse
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249161"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679249159"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ListGrantsResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ListGrantsResponse)
@@ -233,28 +233,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ListGrantsResponse&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248956"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248956"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [GrantListEntry] -&gt; Maybe Bool -&gt; ListGrantsResponse
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249156"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249156"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe [GrantListEntry] -&gt; Maybe Text -&gt; ListGrantsResponse
 </span><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse%27"><span class="hs-identifier hs-var">ListGrantsResponse'</span></a></span><span>
-</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [GrantListEntry] -&gt; Maybe Bool -&gt; ListGrantsResponse)
--&gt; Parser (Maybe Text)
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe [GrantListEntry] -&gt; Maybe Text -&gt; ListGrantsResponse)
+-&gt; Parser (Maybe Bool)
 -&gt; Parser
-     (Maybe [GrantListEntry] -&gt; Maybe Bool -&gt; ListGrantsResponse)
+     (Maybe [GrantListEntry] -&gt; Maybe Text -&gt; ListGrantsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248956"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679249156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [GrantListEntry] -&gt; Maybe Bool -&gt; ListGrantsResponse)
+</span><span class="hs-string">&quot;Truncated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [GrantListEntry] -&gt; Maybe Text -&gt; ListGrantsResponse)
 -&gt; Parser (Maybe [GrantListEntry])
--&gt; Parser (Maybe Bool -&gt; ListGrantsResponse)
+-&gt; Parser (Maybe Text -&gt; ListGrantsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248956"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [GrantListEntry]))
+</span><a href="#local-6989586621679249156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [GrantListEntry]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Grants&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [GrantListEntry]))
@@ -263,17 +263,17 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GrantListEntry]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; ListGrantsResponse)
--&gt; Parser (Maybe Bool) -&gt; Parser ListGrantsResponse
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ListGrantsResponse)
+-&gt; Parser (Maybe Text) -&gt; Parser ListGrantsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248956"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679249156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Truncated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248949"><span id="local-6989586621679248951"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249149"><span id="local-6989586621679249151"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249146"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.ListGrantsResponse.html#ListGrantsResponse"><span class="hs-identifier hs-type">ListGrantsResponse</span></a></span></span><span>
 </span><span id="line-98"></span></pre></body></html>

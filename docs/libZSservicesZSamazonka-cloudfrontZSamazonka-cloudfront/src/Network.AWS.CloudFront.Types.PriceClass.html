@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679397420"><span id="local-6989586621679397421"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PriceClass"><span class="annot"><a href="Network.AWS.CloudFront.Types.PriceClass.html#PriceClass"><span class="hs-identifier hs-var">PriceClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PriceClass%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.PriceClass.html#PriceClass%27"><span class="hs-identifier hs-var">PriceClass'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679397672"><span id="local-6989586621679397673"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PriceClass"><span class="annot"><a href="Network.AWS.CloudFront.Types.PriceClass.html#PriceClass"><span class="hs-identifier hs-var">PriceClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PriceClass%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.PriceClass.html#PriceClass%27"><span class="hs-identifier hs-var">PriceClass'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPriceClass"><span class="annot"><span class="annottext">PriceClass -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.PriceClass.html#fromPriceClass"><span class="hs-identifier hs-var hs-var">fromPriceClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397412"><span id="local-6989586621679397414"><span id="local-6989586621679397416"><span class="annot"><span class="annottext">Int -&gt; PriceClass -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397664"><span id="local-6989586621679397666"><span id="local-6989586621679397668"><span class="annot"><span class="annottext">Int -&gt; PriceClass -&gt; ShowS
 [PriceClass] -&gt; ShowS
 PriceClass -&gt; String
 (Int -&gt; PriceClass -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: PriceClass -&gt; String
 showsPrec :: Int -&gt; PriceClass -&gt; ShowS
 $cshowsPrec :: Int -&gt; PriceClass -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679397403"><span id="local-6989586621679397405"><span id="local-6989586621679397407"><span id="local-6989586621679397409"><span class="annot"><span class="annottext">ReadPrec [PriceClass]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679397655"><span id="local-6989586621679397657"><span id="local-6989586621679397659"><span id="local-6989586621679397661"><span class="annot"><span class="annottext">ReadPrec [PriceClass]
 ReadPrec PriceClass
 Int -&gt; ReadS PriceClass
 ReadS [PriceClass]
@@ -73,7 +73,7 @@ $creadList :: ReadS [PriceClass]
 readsPrec :: Int -&gt; ReadS PriceClass
 $creadsPrec :: Int -&gt; ReadS PriceClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679397398"><span id="local-6989586621679397400"><span class="annot"><span class="annottext">PriceClass -&gt; PriceClass -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679397650"><span id="local-6989586621679397652"><span class="annot"><span class="annottext">PriceClass -&gt; PriceClass -&gt; Bool
 (PriceClass -&gt; PriceClass -&gt; Bool)
 -&gt; (PriceClass -&gt; PriceClass -&gt; Bool) -&gt; Eq PriceClass
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: PriceClass -&gt; PriceClass -&gt; Bool
 == :: PriceClass -&gt; PriceClass -&gt; Bool
 $c== :: PriceClass -&gt; PriceClass -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679397382"><span id="local-6989586621679397384"><span id="local-6989586621679397386"><span id="local-6989586621679397388"><span id="local-6989586621679397390"><span id="local-6989586621679397392"><span id="local-6989586621679397394"><span class="annot"><span class="annottext">Eq PriceClass
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679397634"><span id="local-6989586621679397636"><span id="local-6989586621679397638"><span id="local-6989586621679397640"><span id="local-6989586621679397642"><span id="local-6989586621679397644"><span id="local-6989586621679397646"><span class="annot"><span class="annottext">Eq PriceClass
 Eq PriceClass
 -&gt; (PriceClass -&gt; PriceClass -&gt; Ordering)
 -&gt; (PriceClass -&gt; PriceClass -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. PriceClass -&gt; Rep PriceClass x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397374"><span id="local-6989586621679397376"><span class="annot"><span class="annottext">Int -&gt; PriceClass -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397626"><span id="local-6989586621679397628"><span class="annot"><span class="annottext">Int -&gt; PriceClass -&gt; Int
 PriceClass -&gt; Int
 (Int -&gt; PriceClass -&gt; Int)
 -&gt; (PriceClass -&gt; Int) -&gt; Hashable PriceClass
@@ -142,49 +142,49 @@ $chash :: PriceClass -&gt; Int
 hashWithSalt :: Int -&gt; PriceClass -&gt; Int
 $chashWithSalt :: Int -&gt; PriceClass -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679397371"><span class="annot"><span class="annottext">PriceClass -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679397623"><span class="annot"><span class="annottext">PriceClass -&gt; ()
 (PriceClass -&gt; ()) -&gt; NFData PriceClass
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PriceClass -&gt; ()
 $crnf :: PriceClass -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679397368"><span class="annot"><span class="annottext">Text -&gt; Either String PriceClass
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679397620"><span class="annot"><span class="annottext">Text -&gt; Either String PriceClass
 (Text -&gt; Either String PriceClass) -&gt; FromText PriceClass
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PriceClass
 $cfromText :: Text -&gt; Either String PriceClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679397365"><span class="annot"><span class="annottext">PriceClass -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679397617"><span class="annot"><span class="annottext">PriceClass -&gt; Text
 (PriceClass -&gt; Text) -&gt; ToText PriceClass
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PriceClass -&gt; Text
 $ctoText :: PriceClass -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679397362"><span class="annot"><span class="annottext">PriceClass -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679397614"><span class="annot"><span class="annottext">PriceClass -&gt; ByteString
 (PriceClass -&gt; ByteString) -&gt; ToByteString PriceClass
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PriceClass -&gt; ByteString
 $ctoBS :: PriceClass -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679397359"><span class="annot"><span class="annottext">PriceClass -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679397611"><span class="annot"><span class="annottext">PriceClass -&gt; ByteStringBuilder
 (PriceClass -&gt; ByteStringBuilder) -&gt; ToLog PriceClass
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PriceClass -&gt; ByteStringBuilder
 $cbuild :: PriceClass -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679397356"><span class="annot"><span class="annottext">HeaderName -&gt; PriceClass -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679397608"><span class="annot"><span class="annottext">HeaderName -&gt; PriceClass -&gt; [Header]
 (HeaderName -&gt; PriceClass -&gt; [Header]) -&gt; ToHeader PriceClass
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PriceClass -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PriceClass -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679397353"><span class="annot"><span class="annottext">PriceClass -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679397605"><span class="annot"><span class="annottext">PriceClass -&gt; QueryString
 (PriceClass -&gt; QueryString) -&gt; ToQuery PriceClass
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PriceClass -&gt; QueryString
 $ctoQuery :: PriceClass -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679397348"><span id="local-6989586621679397350"><span class="annot"><span class="annottext">Value -&gt; Parser [PriceClass]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679397600"><span id="local-6989586621679397602"><span class="annot"><span class="annottext">Value -&gt; Parser [PriceClass]
 Value -&gt; Parser PriceClass
 (Value -&gt; Parser PriceClass)
 -&gt; (Value -&gt; Parser [PriceClass]) -&gt; FromJSON PriceClass
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [PriceClass]
 parseJSON :: Value -&gt; Parser PriceClass
 $cparseJSON :: Value -&gt; Parser PriceClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679397343"><span id="local-6989586621679397345"><span class="annot"><span class="annottext">FromJSONKeyFunction [PriceClass]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679397595"><span id="local-6989586621679397597"><span class="annot"><span class="annottext">FromJSONKeyFunction [PriceClass]
 FromJSONKeyFunction PriceClass
 FromJSONKeyFunction PriceClass
 -&gt; FromJSONKeyFunction [PriceClass] -&gt; FromJSONKey PriceClass
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PriceClass]
 fromJSONKey :: FromJSONKeyFunction PriceClass
 $cfromJSONKey :: FromJSONKeyFunction PriceClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679397334"><span id="local-6989586621679397336"><span id="local-6989586621679397338"><span id="local-6989586621679397340"><span class="annot"><span class="annottext">[PriceClass] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679397586"><span id="local-6989586621679397588"><span id="local-6989586621679397590"><span id="local-6989586621679397592"><span class="annot"><span class="annottext">[PriceClass] -&gt; Encoding
 [PriceClass] -&gt; Value
 PriceClass -&gt; Encoding
 PriceClass -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: PriceClass -&gt; Encoding
 toJSON :: PriceClass -&gt; Value
 $ctoJSON :: PriceClass -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679397329"><span id="local-6989586621679397331"><span class="annot"><span class="annottext">ToJSONKeyFunction [PriceClass]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679397581"><span id="local-6989586621679397583"><span class="annot"><span class="annottext">ToJSONKeyFunction [PriceClass]
 ToJSONKeyFunction PriceClass
 ToJSONKeyFunction PriceClass
 -&gt; ToJSONKeyFunction [PriceClass] -&gt; ToJSONKey PriceClass
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PriceClass]
 toJSONKey :: ToJSONKeyFunction PriceClass
 $ctoJSONKey :: ToJSONKeyFunction PriceClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679397326"><span class="annot"><span class="annottext">[Node] -&gt; Either String PriceClass
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679397578"><span class="annot"><span class="annottext">[Node] -&gt; Either String PriceClass
 ([Node] -&gt; Either String PriceClass) -&gt; FromXML PriceClass
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PriceClass
 $cparseXML :: [Node] -&gt; Either String PriceClass
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679397323"><span class="annot"><span class="annottext">PriceClass -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679397575"><span class="annot"><span class="annottext">PriceClass -&gt; XML
 (PriceClass -&gt; XML) -&gt; ToXML PriceClass
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PriceClass -&gt; XML

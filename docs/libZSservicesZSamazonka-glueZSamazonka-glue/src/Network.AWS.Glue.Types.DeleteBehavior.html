@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679683408"><span id="local-6989586621679683409"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeleteBehavior"><span class="annot"><a href="Network.AWS.Glue.Types.DeleteBehavior.html#DeleteBehavior"><span class="hs-identifier hs-var">DeleteBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBehavior%27"><span class="annot"><a href="Network.AWS.Glue.Types.DeleteBehavior.html#DeleteBehavior%27"><span class="hs-identifier hs-var">DeleteBehavior'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679685058"><span id="local-6989586621679685059"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeleteBehavior"><span class="annot"><a href="Network.AWS.Glue.Types.DeleteBehavior.html#DeleteBehavior"><span class="hs-identifier hs-var">DeleteBehavior</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBehavior%27"><span class="annot"><a href="Network.AWS.Glue.Types.DeleteBehavior.html#DeleteBehavior%27"><span class="hs-identifier hs-var">DeleteBehavior'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeleteBehavior"><span class="annot"><span class="annottext">DeleteBehavior -&gt; Text
 </span><a href="Network.AWS.Glue.Types.DeleteBehavior.html#fromDeleteBehavior"><span class="hs-identifier hs-var hs-var">fromDeleteBehavior</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679683400"><span id="local-6989586621679683402"><span id="local-6989586621679683404"><span class="annot"><span class="annottext">Int -&gt; DeleteBehavior -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679685050"><span id="local-6989586621679685052"><span id="local-6989586621679685054"><span class="annot"><span class="annottext">Int -&gt; DeleteBehavior -&gt; ShowS
 [DeleteBehavior] -&gt; ShowS
 DeleteBehavior -&gt; String
 (Int -&gt; DeleteBehavior -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: DeleteBehavior -&gt; String
 showsPrec :: Int -&gt; DeleteBehavior -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeleteBehavior -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679683391"><span id="local-6989586621679683393"><span id="local-6989586621679683395"><span id="local-6989586621679683397"><span class="annot"><span class="annottext">ReadPrec [DeleteBehavior]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679685041"><span id="local-6989586621679685043"><span id="local-6989586621679685045"><span id="local-6989586621679685047"><span class="annot"><span class="annottext">ReadPrec [DeleteBehavior]
 ReadPrec DeleteBehavior
 Int -&gt; ReadS DeleteBehavior
 ReadS [DeleteBehavior]
@@ -73,7 +73,7 @@ $creadList :: ReadS [DeleteBehavior]
 readsPrec :: Int -&gt; ReadS DeleteBehavior
 $creadsPrec :: Int -&gt; ReadS DeleteBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679683386"><span id="local-6989586621679683388"><span class="annot"><span class="annottext">DeleteBehavior -&gt; DeleteBehavior -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679685036"><span id="local-6989586621679685038"><span class="annot"><span class="annottext">DeleteBehavior -&gt; DeleteBehavior -&gt; Bool
 (DeleteBehavior -&gt; DeleteBehavior -&gt; Bool)
 -&gt; (DeleteBehavior -&gt; DeleteBehavior -&gt; Bool) -&gt; Eq DeleteBehavior
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: DeleteBehavior -&gt; DeleteBehavior -&gt; Bool
 == :: DeleteBehavior -&gt; DeleteBehavior -&gt; Bool
 $c== :: DeleteBehavior -&gt; DeleteBehavior -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679683370"><span id="local-6989586621679683372"><span id="local-6989586621679683374"><span id="local-6989586621679683376"><span id="local-6989586621679683378"><span id="local-6989586621679683380"><span id="local-6989586621679683382"><span class="annot"><span class="annottext">Eq DeleteBehavior
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679685020"><span id="local-6989586621679685022"><span id="local-6989586621679685024"><span id="local-6989586621679685026"><span id="local-6989586621679685028"><span id="local-6989586621679685030"><span id="local-6989586621679685032"><span class="annot"><span class="annottext">Eq DeleteBehavior
 Eq DeleteBehavior
 -&gt; (DeleteBehavior -&gt; DeleteBehavior -&gt; Ordering)
 -&gt; (DeleteBehavior -&gt; DeleteBehavior -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. DeleteBehavior -&gt; Rep DeleteBehavior x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679683362"><span id="local-6989586621679683364"><span class="annot"><span class="annottext">Int -&gt; DeleteBehavior -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679685012"><span id="local-6989586621679685014"><span class="annot"><span class="annottext">Int -&gt; DeleteBehavior -&gt; Int
 DeleteBehavior -&gt; Int
 (Int -&gt; DeleteBehavior -&gt; Int)
 -&gt; (DeleteBehavior -&gt; Int) -&gt; Hashable DeleteBehavior
@@ -143,50 +143,50 @@ $chash :: DeleteBehavior -&gt; Int
 hashWithSalt :: Int -&gt; DeleteBehavior -&gt; Int
 $chashWithSalt :: Int -&gt; DeleteBehavior -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679683359"><span class="annot"><span class="annottext">DeleteBehavior -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679685009"><span class="annot"><span class="annottext">DeleteBehavior -&gt; ()
 (DeleteBehavior -&gt; ()) -&gt; NFData DeleteBehavior
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeleteBehavior -&gt; ()
 $crnf :: DeleteBehavior -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679683356"><span class="annot"><span class="annottext">Text -&gt; Either String DeleteBehavior
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679685006"><span class="annot"><span class="annottext">Text -&gt; Either String DeleteBehavior
 (Text -&gt; Either String DeleteBehavior) -&gt; FromText DeleteBehavior
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeleteBehavior
 $cfromText :: Text -&gt; Either String DeleteBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679683353"><span class="annot"><span class="annottext">DeleteBehavior -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679685003"><span class="annot"><span class="annottext">DeleteBehavior -&gt; Text
 (DeleteBehavior -&gt; Text) -&gt; ToText DeleteBehavior
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeleteBehavior -&gt; Text
 $ctoText :: DeleteBehavior -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679683350"><span class="annot"><span class="annottext">DeleteBehavior -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679685000"><span class="annot"><span class="annottext">DeleteBehavior -&gt; ByteString
 (DeleteBehavior -&gt; ByteString) -&gt; ToByteString DeleteBehavior
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeleteBehavior -&gt; ByteString
 $ctoBS :: DeleteBehavior -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679683347"><span class="annot"><span class="annottext">DeleteBehavior -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679684997"><span class="annot"><span class="annottext">DeleteBehavior -&gt; ByteStringBuilder
 (DeleteBehavior -&gt; ByteStringBuilder) -&gt; ToLog DeleteBehavior
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeleteBehavior -&gt; ByteStringBuilder
 $cbuild :: DeleteBehavior -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679683344"><span class="annot"><span class="annottext">HeaderName -&gt; DeleteBehavior -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679684994"><span class="annot"><span class="annottext">HeaderName -&gt; DeleteBehavior -&gt; [Header]
 (HeaderName -&gt; DeleteBehavior -&gt; [Header])
 -&gt; ToHeader DeleteBehavior
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeleteBehavior -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeleteBehavior -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679683341"><span class="annot"><span class="annottext">DeleteBehavior -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679684991"><span class="annot"><span class="annottext">DeleteBehavior -&gt; QueryString
 (DeleteBehavior -&gt; QueryString) -&gt; ToQuery DeleteBehavior
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeleteBehavior -&gt; QueryString
 $ctoQuery :: DeleteBehavior -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679683336"><span id="local-6989586621679683338"><span class="annot"><span class="annottext">Value -&gt; Parser [DeleteBehavior]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679684986"><span id="local-6989586621679684988"><span class="annot"><span class="annottext">Value -&gt; Parser [DeleteBehavior]
 Value -&gt; Parser DeleteBehavior
 (Value -&gt; Parser DeleteBehavior)
 -&gt; (Value -&gt; Parser [DeleteBehavior]) -&gt; FromJSON DeleteBehavior
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [DeleteBehavior]
 parseJSON :: Value -&gt; Parser DeleteBehavior
 $cparseJSON :: Value -&gt; Parser DeleteBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679683331"><span id="local-6989586621679683333"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeleteBehavior]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679684981"><span id="local-6989586621679684983"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeleteBehavior]
 FromJSONKeyFunction DeleteBehavior
 FromJSONKeyFunction DeleteBehavior
 -&gt; FromJSONKeyFunction [DeleteBehavior]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeleteBehavior]
 fromJSONKey :: FromJSONKeyFunction DeleteBehavior
 $cfromJSONKey :: FromJSONKeyFunction DeleteBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679683322"><span id="local-6989586621679683324"><span id="local-6989586621679683326"><span id="local-6989586621679683328"><span class="annot"><span class="annottext">[DeleteBehavior] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679684972"><span id="local-6989586621679684974"><span id="local-6989586621679684976"><span id="local-6989586621679684978"><span class="annot"><span class="annottext">[DeleteBehavior] -&gt; Encoding
 [DeleteBehavior] -&gt; Value
 DeleteBehavior -&gt; Encoding
 DeleteBehavior -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: DeleteBehavior -&gt; Encoding
 toJSON :: DeleteBehavior -&gt; Value
 $ctoJSON :: DeleteBehavior -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679683317"><span id="local-6989586621679683319"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeleteBehavior]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679684967"><span id="local-6989586621679684969"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeleteBehavior]
 ToJSONKeyFunction DeleteBehavior
 ToJSONKeyFunction DeleteBehavior
 -&gt; ToJSONKeyFunction [DeleteBehavior] -&gt; ToJSONKey DeleteBehavior
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeleteBehavior]
 toJSONKey :: ToJSONKeyFunction DeleteBehavior
 $ctoJSONKey :: ToJSONKeyFunction DeleteBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679683314"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeleteBehavior
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679684964"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeleteBehavior
 ([Node] -&gt; Either String DeleteBehavior) -&gt; FromXML DeleteBehavior
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeleteBehavior
 $cparseXML :: [Node] -&gt; Either String DeleteBehavior
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679683311"><span class="annot"><span class="annottext">DeleteBehavior -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679684961"><span class="annot"><span class="annottext">DeleteBehavior -&gt; XML
 (DeleteBehavior -&gt; XML) -&gt; ToXML DeleteBehavior
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeleteBehavior -&gt; XML

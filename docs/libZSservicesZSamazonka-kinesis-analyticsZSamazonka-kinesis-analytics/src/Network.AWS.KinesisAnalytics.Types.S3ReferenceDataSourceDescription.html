@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- data.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newS3ReferenceDataSourceDescription' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679209581"><span id="local-6989586621679209582"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3ReferenceDataSourceDescription"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription"><span class="hs-identifier hs-var">S3ReferenceDataSourceDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3ReferenceDataSourceDescription%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-var">S3ReferenceDataSourceDescription'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679209681"><span id="local-6989586621679209682"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3ReferenceDataSourceDescription"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription"><span class="hs-identifier hs-var">S3ReferenceDataSourceDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3ReferenceDataSourceDescription%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-var">S3ReferenceDataSourceDescription'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amazon Resource Name (ARN) of the S3 bucket.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AbucketARN%3AS3ReferenceDataSourceDescription%27"><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription -&gt; Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#%24sel%3AbucketARN%3AS3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-var hs-var">bucketARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AreferenceRoleARN%3AS3ReferenceDataSourceDescription%27"><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription -&gt; Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#%24sel%3AreferenceRoleARN%3AS3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-var hs-var">referenceRoleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209573"><span id="local-6989586621679209575"><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209673"><span id="local-6989586621679209675"><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription
 -&gt; S3ReferenceDataSourceDescription -&gt; Bool
 (S3ReferenceDataSourceDescription
  -&gt; S3ReferenceDataSourceDescription -&gt; Bool)
@@ -56,7 +56,7 @@ $c/= :: S3ReferenceDataSourceDescription
 -&gt; S3ReferenceDataSourceDescription -&gt; Bool
 $c== :: S3ReferenceDataSourceDescription
 -&gt; S3ReferenceDataSourceDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209564"><span id="local-6989586621679209566"><span id="local-6989586621679209568"><span id="local-6989586621679209570"><span class="annot"><span class="annottext">ReadPrec [S3ReferenceDataSourceDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209664"><span id="local-6989586621679209666"><span id="local-6989586621679209668"><span id="local-6989586621679209670"><span class="annot"><span class="annottext">ReadPrec [S3ReferenceDataSourceDescription]
 ReadPrec S3ReferenceDataSourceDescription
 Int -&gt; ReadS S3ReferenceDataSourceDescription
 ReadS [S3ReferenceDataSourceDescription]
@@ -76,7 +76,7 @@ readList :: ReadS [S3ReferenceDataSourceDescription]
 $creadList :: ReadS [S3ReferenceDataSourceDescription]
 readsPrec :: Int -&gt; ReadS S3ReferenceDataSourceDescription
 $creadsPrec :: Int -&gt; ReadS S3ReferenceDataSourceDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209557"><span id="local-6989586621679209559"><span id="local-6989586621679209561"><span class="annot"><span class="annottext">Int -&gt; S3ReferenceDataSourceDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209657"><span id="local-6989586621679209659"><span id="local-6989586621679209661"><span class="annot"><span class="annottext">Int -&gt; S3ReferenceDataSourceDescription -&gt; ShowS
 [S3ReferenceDataSourceDescription] -&gt; ShowS
 S3ReferenceDataSourceDescription -&gt; String
 (Int -&gt; S3ReferenceDataSourceDescription -&gt; ShowS)
@@ -139,24 +139,24 @@ S3ReferenceDataSourceDescription
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription</span></a></span><span>
 </span><span id="line-65"></span><span id="newS3ReferenceDataSourceDescription"><span class="annot"><span class="annottext">newS3ReferenceDataSourceDescription :: Text -&gt; Text -&gt; Text -&gt; S3ReferenceDataSourceDescription
 </span><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#newS3ReferenceDataSourceDescription"><span class="hs-identifier hs-var hs-var">newS3ReferenceDataSourceDescription</span></a></span></span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679209551"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209551"><span class="hs-identifier hs-var">pBucketARN_</span></a></span></span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679209550"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209550"><span class="hs-identifier hs-var">pFileKey_</span></a></span></span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679209549"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209549"><span class="hs-identifier hs-var">pReferenceRoleARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679209651"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209651"><span class="hs-identifier hs-var">pBucketARN_</span></a></span></span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679209650"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209650"><span class="hs-identifier hs-var">pFileKey_</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679209649"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209649"><span class="hs-identifier hs-var">pReferenceRoleARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription' :: Text -&gt; Text -&gt; Text -&gt; S3ReferenceDataSourceDescription
 </span><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription'</span></a></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bucketARN:S3ReferenceDataSourceDescription' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#%24sel%3AbucketARN%3AS3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-var">bucketARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209551"><span class="hs-identifier hs-var">pBucketARN_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209651"><span class="hs-identifier hs-var">pBucketARN_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">$sel:fileKey:S3ReferenceDataSourceDescription' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#%24sel%3AfileKey%3AS3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-var">fileKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209550"><span class="hs-identifier hs-var">pFileKey_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209650"><span class="hs-identifier hs-var">pFileKey_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">$sel:referenceRoleARN:S3ReferenceDataSourceDescription' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#%24sel%3AreferenceRoleARN%3AS3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-var">referenceRoleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209549"><span class="hs-identifier hs-var">pReferenceRoleARN_</span></a></span><span>
+</span><a href="#local-6989586621679209649"><span class="hs-identifier hs-var">pReferenceRoleARN_</span></a></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | Amazon Resource Name (ARN) of the S3 bucket.</span><span>
@@ -173,16 +173,16 @@ S3ReferenceDataSourceDescription
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209545"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209645"><span class="annot"><span class="annottext">Text
 bucketARN :: Text
 $sel:bucketARN:S3ReferenceDataSourceDescription' :: S3ReferenceDataSourceDescription -&gt; Text
-</span><a href="#local-6989586621679209545"><span class="hs-identifier hs-var hs-var">bucketARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209545"><span class="hs-identifier hs-var">bucketARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209544"><span class="annot"><span class="annottext">s :: S3ReferenceDataSourceDescription
-</span><a href="#local-6989586621679209544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209543"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription
-</span><a href="#local-6989586621679209544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketARN:S3ReferenceDataSourceDescription' :: Text
+</span><a href="#local-6989586621679209645"><span class="hs-identifier hs-var hs-var">bucketARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209645"><span class="hs-identifier hs-var">bucketARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209644"><span class="annot"><span class="annottext">s :: S3ReferenceDataSourceDescription
+</span><a href="#local-6989586621679209644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209643"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription
+</span><a href="#local-6989586621679209644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketARN:S3ReferenceDataSourceDescription' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#%24sel%3AbucketARN%3AS3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-var">bucketARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Amazon S3 object key name.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#s3ReferenceDataSourceDescription_fileKey"><span class="hs-identifier hs-type">s3ReferenceDataSourceDescription_fileKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -198,16 +198,16 @@ $sel:bucketARN:S3ReferenceDataSourceDescription' :: S3ReferenceDataSourceDescrip
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209541"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209641"><span class="annot"><span class="annottext">Text
 fileKey :: Text
 $sel:fileKey:S3ReferenceDataSourceDescription' :: S3ReferenceDataSourceDescription -&gt; Text
-</span><a href="#local-6989586621679209541"><span class="hs-identifier hs-var hs-var">fileKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209541"><span class="hs-identifier hs-var">fileKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209540"><span class="annot"><span class="annottext">s :: S3ReferenceDataSourceDescription
-</span><a href="#local-6989586621679209540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209539"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription
-</span><a href="#local-6989586621679209540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileKey:S3ReferenceDataSourceDescription' :: Text
+</span><a href="#local-6989586621679209641"><span class="hs-identifier hs-var hs-var">fileKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209641"><span class="hs-identifier hs-var">fileKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209640"><span class="annot"><span class="annottext">s :: S3ReferenceDataSourceDescription
+</span><a href="#local-6989586621679209640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209639"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription
+</span><a href="#local-6989586621679209640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileKey:S3ReferenceDataSourceDescription' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#%24sel%3AfileKey%3AS3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-var">fileKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | ARN of the IAM role that Amazon Kinesis Analytics can assume to read the</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- Amazon S3 object on your behalf to populate the in-application reference</span><span>
@@ -225,22 +225,22 @@ $sel:fileKey:S3ReferenceDataSourceDescription' :: S3ReferenceDataSourceDescripti
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209537"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209637"><span class="annot"><span class="annottext">Text
 referenceRoleARN :: Text
 $sel:referenceRoleARN:S3ReferenceDataSourceDescription' :: S3ReferenceDataSourceDescription -&gt; Text
-</span><a href="#local-6989586621679209537"><span class="hs-identifier hs-var hs-var">referenceRoleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209537"><span class="hs-identifier hs-var">referenceRoleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209536"><span class="annot"><span class="annottext">s :: S3ReferenceDataSourceDescription
-</span><a href="#local-6989586621679209536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209535"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription
-</span><a href="#local-6989586621679209536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceRoleARN:S3ReferenceDataSourceDescription' :: Text
+</span><a href="#local-6989586621679209637"><span class="hs-identifier hs-var hs-var">referenceRoleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209637"><span class="hs-identifier hs-var">referenceRoleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209636"><span class="annot"><span class="annottext">s :: S3ReferenceDataSourceDescription
+</span><a href="#local-6989586621679209636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209635"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription
+</span><a href="#local-6989586621679209636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceRoleARN:S3ReferenceDataSourceDescription' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#%24sel%3AreferenceRoleARN%3AS3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-var">referenceRoleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679209532"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679209632"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription</span></a></span></span><span>
 </span><span id="line-93"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679209530"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3ReferenceDataSourceDescription
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679209630"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser S3ReferenceDataSourceDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser S3ReferenceDataSourceDescription)
@@ -250,8 +250,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;S3ReferenceDataSourceDescription&quot;</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209527"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209527"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209627"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209627"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text -&gt; S3ReferenceDataSourceDescription
 </span><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription%27"><span class="hs-identifier hs-var">S3ReferenceDataSourceDescription'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Text -&gt; S3ReferenceDataSourceDescription)
@@ -259,7 +259,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; S3ReferenceDataSourceDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679209627"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BucketARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -267,7 +267,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; S3ReferenceDataSourceDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679209627"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FileKey&quot;</span></span><span class="hs-special">)</span><span>
@@ -275,17 +275,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser S3ReferenceDataSourceDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209527"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679209627"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReferenceRoleARN&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679209521"><span id="local-6989586621679209523"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679209621"><span id="local-6989586621679209623"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679209518"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679209618"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription</span></a></span></span><span>
 </span><span id="line-111"></span></pre></body></html>

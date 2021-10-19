@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679252265"><span id="local-6989586621679252266"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TargetTypeEnum"><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetTypeEnum.html#TargetTypeEnum"><span class="hs-identifier hs-var">TargetTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetTypeEnum%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetTypeEnum.html#TargetTypeEnum%27"><span class="hs-identifier hs-var">TargetTypeEnum'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679255146"><span id="local-6989586621679255147"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TargetTypeEnum"><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetTypeEnum.html#TargetTypeEnum"><span class="hs-identifier hs-var">TargetTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetTypeEnum%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.TargetTypeEnum.html#TargetTypeEnum%27"><span class="hs-identifier hs-var">TargetTypeEnum'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTargetTypeEnum"><span class="annot"><span class="annottext">TargetTypeEnum -&gt; Text
 </span><a href="Network.AWS.ELBv2.Types.TargetTypeEnum.html#fromTargetTypeEnum"><span class="hs-identifier hs-var hs-var">fromTargetTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679252257"><span id="local-6989586621679252259"><span id="local-6989586621679252261"><span class="annot"><span class="annottext">Int -&gt; TargetTypeEnum -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679255138"><span id="local-6989586621679255140"><span id="local-6989586621679255142"><span class="annot"><span class="annottext">Int -&gt; TargetTypeEnum -&gt; ShowS
 [TargetTypeEnum] -&gt; ShowS
 TargetTypeEnum -&gt; String
 (Int -&gt; TargetTypeEnum -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: TargetTypeEnum -&gt; String
 showsPrec :: Int -&gt; TargetTypeEnum -&gt; ShowS
 $cshowsPrec :: Int -&gt; TargetTypeEnum -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679252248"><span id="local-6989586621679252250"><span id="local-6989586621679252252"><span id="local-6989586621679252254"><span class="annot"><span class="annottext">ReadPrec [TargetTypeEnum]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679255129"><span id="local-6989586621679255131"><span id="local-6989586621679255133"><span id="local-6989586621679255135"><span class="annot"><span class="annottext">ReadPrec [TargetTypeEnum]
 ReadPrec TargetTypeEnum
 Int -&gt; ReadS TargetTypeEnum
 ReadS [TargetTypeEnum]
@@ -74,7 +74,7 @@ $creadList :: ReadS [TargetTypeEnum]
 readsPrec :: Int -&gt; ReadS TargetTypeEnum
 $creadsPrec :: Int -&gt; ReadS TargetTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679252243"><span id="local-6989586621679252245"><span class="annot"><span class="annottext">TargetTypeEnum -&gt; TargetTypeEnum -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679255124"><span id="local-6989586621679255126"><span class="annot"><span class="annottext">TargetTypeEnum -&gt; TargetTypeEnum -&gt; Bool
 (TargetTypeEnum -&gt; TargetTypeEnum -&gt; Bool)
 -&gt; (TargetTypeEnum -&gt; TargetTypeEnum -&gt; Bool) -&gt; Eq TargetTypeEnum
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: TargetTypeEnum -&gt; TargetTypeEnum -&gt; Bool
 == :: TargetTypeEnum -&gt; TargetTypeEnum -&gt; Bool
 $c== :: TargetTypeEnum -&gt; TargetTypeEnum -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679252227"><span id="local-6989586621679252229"><span id="local-6989586621679252231"><span id="local-6989586621679252233"><span id="local-6989586621679252235"><span id="local-6989586621679252237"><span id="local-6989586621679252239"><span class="annot"><span class="annottext">Eq TargetTypeEnum
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679255108"><span id="local-6989586621679255110"><span id="local-6989586621679255112"><span id="local-6989586621679255114"><span id="local-6989586621679255116"><span id="local-6989586621679255118"><span id="local-6989586621679255120"><span class="annot"><span class="annottext">Eq TargetTypeEnum
 Eq TargetTypeEnum
 -&gt; (TargetTypeEnum -&gt; TargetTypeEnum -&gt; Ordering)
 -&gt; (TargetTypeEnum -&gt; TargetTypeEnum -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. TargetTypeEnum -&gt; Rep TargetTypeEnum x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679252219"><span id="local-6989586621679252221"><span class="annot"><span class="annottext">Int -&gt; TargetTypeEnum -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679255100"><span id="local-6989586621679255102"><span class="annot"><span class="annottext">Int -&gt; TargetTypeEnum -&gt; Int
 TargetTypeEnum -&gt; Int
 (Int -&gt; TargetTypeEnum -&gt; Int)
 -&gt; (TargetTypeEnum -&gt; Int) -&gt; Hashable TargetTypeEnum
@@ -144,50 +144,50 @@ $chash :: TargetTypeEnum -&gt; Int
 hashWithSalt :: Int -&gt; TargetTypeEnum -&gt; Int
 $chashWithSalt :: Int -&gt; TargetTypeEnum -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679252216"><span class="annot"><span class="annottext">TargetTypeEnum -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679255097"><span class="annot"><span class="annottext">TargetTypeEnum -&gt; ()
 (TargetTypeEnum -&gt; ()) -&gt; NFData TargetTypeEnum
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TargetTypeEnum -&gt; ()
 $crnf :: TargetTypeEnum -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679252213"><span class="annot"><span class="annottext">Text -&gt; Either String TargetTypeEnum
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679255094"><span class="annot"><span class="annottext">Text -&gt; Either String TargetTypeEnum
 (Text -&gt; Either String TargetTypeEnum) -&gt; FromText TargetTypeEnum
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TargetTypeEnum
 $cfromText :: Text -&gt; Either String TargetTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679252210"><span class="annot"><span class="annottext">TargetTypeEnum -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679255091"><span class="annot"><span class="annottext">TargetTypeEnum -&gt; Text
 (TargetTypeEnum -&gt; Text) -&gt; ToText TargetTypeEnum
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TargetTypeEnum -&gt; Text
 $ctoText :: TargetTypeEnum -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679252207"><span class="annot"><span class="annottext">TargetTypeEnum -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679255088"><span class="annot"><span class="annottext">TargetTypeEnum -&gt; ByteString
 (TargetTypeEnum -&gt; ByteString) -&gt; ToByteString TargetTypeEnum
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TargetTypeEnum -&gt; ByteString
 $ctoBS :: TargetTypeEnum -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679252204"><span class="annot"><span class="annottext">TargetTypeEnum -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679255085"><span class="annot"><span class="annottext">TargetTypeEnum -&gt; ByteStringBuilder
 (TargetTypeEnum -&gt; ByteStringBuilder) -&gt; ToLog TargetTypeEnum
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TargetTypeEnum -&gt; ByteStringBuilder
 $cbuild :: TargetTypeEnum -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679252201"><span class="annot"><span class="annottext">HeaderName -&gt; TargetTypeEnum -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679255082"><span class="annot"><span class="annottext">HeaderName -&gt; TargetTypeEnum -&gt; [Header]
 (HeaderName -&gt; TargetTypeEnum -&gt; [Header])
 -&gt; ToHeader TargetTypeEnum
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TargetTypeEnum -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TargetTypeEnum -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679252198"><span class="annot"><span class="annottext">TargetTypeEnum -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679255079"><span class="annot"><span class="annottext">TargetTypeEnum -&gt; QueryString
 (TargetTypeEnum -&gt; QueryString) -&gt; ToQuery TargetTypeEnum
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TargetTypeEnum -&gt; QueryString
 $ctoQuery :: TargetTypeEnum -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679252193"><span id="local-6989586621679252195"><span class="annot"><span class="annottext">Value -&gt; Parser [TargetTypeEnum]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679255074"><span id="local-6989586621679255076"><span class="annot"><span class="annottext">Value -&gt; Parser [TargetTypeEnum]
 Value -&gt; Parser TargetTypeEnum
 (Value -&gt; Parser TargetTypeEnum)
 -&gt; (Value -&gt; Parser [TargetTypeEnum]) -&gt; FromJSON TargetTypeEnum
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [TargetTypeEnum]
 parseJSON :: Value -&gt; Parser TargetTypeEnum
 $cparseJSON :: Value -&gt; Parser TargetTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679252188"><span id="local-6989586621679252190"><span class="annot"><span class="annottext">FromJSONKeyFunction [TargetTypeEnum]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679255069"><span id="local-6989586621679255071"><span class="annot"><span class="annottext">FromJSONKeyFunction [TargetTypeEnum]
 FromJSONKeyFunction TargetTypeEnum
 FromJSONKeyFunction TargetTypeEnum
 -&gt; FromJSONKeyFunction [TargetTypeEnum]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TargetTypeEnum]
 fromJSONKey :: FromJSONKeyFunction TargetTypeEnum
 $cfromJSONKey :: FromJSONKeyFunction TargetTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679252179"><span id="local-6989586621679252181"><span id="local-6989586621679252183"><span id="local-6989586621679252185"><span class="annot"><span class="annottext">[TargetTypeEnum] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679255060"><span id="local-6989586621679255062"><span id="local-6989586621679255064"><span id="local-6989586621679255066"><span class="annot"><span class="annottext">[TargetTypeEnum] -&gt; Encoding
 [TargetTypeEnum] -&gt; Value
 TargetTypeEnum -&gt; Encoding
 TargetTypeEnum -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: TargetTypeEnum -&gt; Encoding
 toJSON :: TargetTypeEnum -&gt; Value
 $ctoJSON :: TargetTypeEnum -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679252174"><span id="local-6989586621679252176"><span class="annot"><span class="annottext">ToJSONKeyFunction [TargetTypeEnum]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679255055"><span id="local-6989586621679255057"><span class="annot"><span class="annottext">ToJSONKeyFunction [TargetTypeEnum]
 ToJSONKeyFunction TargetTypeEnum
 ToJSONKeyFunction TargetTypeEnum
 -&gt; ToJSONKeyFunction [TargetTypeEnum] -&gt; ToJSONKey TargetTypeEnum
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TargetTypeEnum]
 toJSONKey :: ToJSONKeyFunction TargetTypeEnum
 $ctoJSONKey :: ToJSONKeyFunction TargetTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679252171"><span class="annot"><span class="annottext">[Node] -&gt; Either String TargetTypeEnum
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679255052"><span class="annot"><span class="annottext">[Node] -&gt; Either String TargetTypeEnum
 ([Node] -&gt; Either String TargetTypeEnum) -&gt; FromXML TargetTypeEnum
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TargetTypeEnum
 $cparseXML :: [Node] -&gt; Either String TargetTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679252168"><span class="annot"><span class="annottext">TargetTypeEnum -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679255049"><span class="annot"><span class="annottext">TargetTypeEnum -&gt; XML
 (TargetTypeEnum -&gt; XML) -&gt; ToXML TargetTypeEnum
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TargetTypeEnum -&gt; XML

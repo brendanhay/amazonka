@@ -37,11 +37,11 @@
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#newLoggingStatus"><span class="hs-identifier">newLoggingStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_lastSuccessfulDeliveryTime"><span class="hs-identifier">loggingStatus_lastSuccessfulDeliveryTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_bucketName"><span class="hs-identifier">loggingStatus_bucketName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_loggingEnabled"><span class="hs-identifier">loggingStatus_loggingEnabled</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_s3KeyPrefix"><span class="hs-identifier">loggingStatus_s3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_lastFailureTime"><span class="hs-identifier">loggingStatus_lastFailureTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_lastFailureTime"><span class="hs-identifier">loggingStatus_lastFailureTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_lastSuccessfulDeliveryTime"><span class="hs-identifier">loggingStatus_lastSuccessfulDeliveryTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_s3KeyPrefix"><span class="hs-identifier">loggingStatus_s3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_bucketName"><span class="hs-identifier">loggingStatus_bucketName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_loggingEnabled"><span class="hs-identifier">loggingStatus_loggingEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#loggingStatus_lastFailureMessage"><span class="hs-identifier">loggingStatus_lastFailureMessage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span class="hs-keyword">where</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newEnableLogging' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679511243"><span id="local-6989586621679511244"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableLogging"><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging"><span class="hs-identifier hs-var">EnableLogging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableLogging%27"><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging%27"><span class="hs-identifier hs-var">EnableLogging'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679511941"><span id="local-6989586621679511942"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableLogging"><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging"><span class="hs-identifier hs-var">EnableLogging</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableLogging%27"><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging%27"><span class="hs-identifier hs-var">EnableLogging'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The prefix applied to the log file names.</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Constraints:</span><span>
@@ -93,7 +93,7 @@
 </span><span id="line-91"></span><span>    </span><span id="%24sel%3AbucketName%3AEnableLogging%27"><span class="annot"><span class="annottext">EnableLogging -&gt; Text
 </span><a href="Network.AWS.Redshift.EnableLogging.html#%24sel%3AbucketName%3AEnableLogging%27"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679511235"><span id="local-6989586621679511237"><span class="annot"><span class="annottext">EnableLogging -&gt; EnableLogging -&gt; Bool
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679511933"><span id="local-6989586621679511935"><span class="annot"><span class="annottext">EnableLogging -&gt; EnableLogging -&gt; Bool
 (EnableLogging -&gt; EnableLogging -&gt; Bool)
 -&gt; (EnableLogging -&gt; EnableLogging -&gt; Bool) -&gt; Eq EnableLogging
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -101,7 +101,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnableLogging -&gt; EnableLogging -&gt; Bool
 == :: EnableLogging -&gt; EnableLogging -&gt; Bool
 $c== :: EnableLogging -&gt; EnableLogging -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511226"><span id="local-6989586621679511228"><span id="local-6989586621679511230"><span id="local-6989586621679511232"><span class="annot"><span class="annottext">ReadPrec [EnableLogging]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511924"><span id="local-6989586621679511926"><span id="local-6989586621679511928"><span id="local-6989586621679511930"><span class="annot"><span class="annottext">ReadPrec [EnableLogging]
 ReadPrec EnableLogging
 Int -&gt; ReadS EnableLogging
 ReadS [EnableLogging]
@@ -121,7 +121,7 @@ readList :: ReadS [EnableLogging]
 $creadList :: ReadS [EnableLogging]
 readsPrec :: Int -&gt; ReadS EnableLogging
 $creadsPrec :: Int -&gt; ReadS EnableLogging
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511219"><span id="local-6989586621679511221"><span id="local-6989586621679511223"><span class="annot"><span class="annottext">Int -&gt; EnableLogging -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511917"><span id="local-6989586621679511919"><span id="local-6989586621679511921"><span class="annot"><span class="annottext">Int -&gt; EnableLogging -&gt; ShowS
 [EnableLogging] -&gt; ShowS
 EnableLogging -&gt; String
 (Int -&gt; EnableLogging -&gt; ShowS)
@@ -193,9 +193,9 @@ $cfrom :: forall x. EnableLogging -&gt; Rep EnableLogging x
 </span><span id="line-138"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-139"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging"><span class="hs-identifier hs-type">EnableLogging</span></a></span><span>
 </span><span id="line-140"></span><span id="newEnableLogging"><span class="annot"><span class="annottext">newEnableLogging :: Text -&gt; Text -&gt; EnableLogging
-</span><a href="Network.AWS.Redshift.EnableLogging.html#newEnableLogging"><span class="hs-identifier hs-var hs-var">newEnableLogging</span></a></span></span><span> </span><span id="local-6989586621679511214"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511214"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span id="local-6989586621679511213"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511213"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.EnableLogging.html#newEnableLogging"><span class="hs-identifier hs-var hs-var">newEnableLogging</span></a></span></span><span> </span><span id="local-6989586621679511912"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511912"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span id="local-6989586621679511911"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511911"><span class="hs-identifier hs-var">pBucketName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><span class="annottext">EnableLogging' :: Maybe Text -&gt; Text -&gt; Text -&gt; EnableLogging
 </span><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging%27"><span class="hs-identifier hs-type">EnableLogging'</span></a></span><span>
 </span><span id="line-142"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3KeyPrefix:EnableLogging' :: Maybe Text
@@ -204,10 +204,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:EnableLogging' :: Text
 </span><a href="Network.AWS.Redshift.EnableLogging.html#%24sel%3AclusterIdentifier%3AEnableLogging%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511214"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679511912"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucketName:EnableLogging' :: Text
 </span><a href="Network.AWS.Redshift.EnableLogging.html#%24sel%3AbucketName%3AEnableLogging%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511213"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span>
+</span><a href="#local-6989586621679511911"><span class="hs-identifier hs-var">pBucketName_</span></a></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | The prefix applied to the log file names.</span><span>
@@ -235,16 +235,16 @@ forall a. Maybe a
 -&gt; (EnableLogging -&gt; Maybe Text -&gt; EnableLogging)
 -&gt; Lens EnableLogging EnableLogging (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging%27"><span class="hs-identifier hs-type">EnableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511210"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging%27"><span class="hs-identifier hs-type">EnableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511908"><span class="annot"><span class="annottext">Maybe Text
 s3KeyPrefix :: Maybe Text
 $sel:s3KeyPrefix:EnableLogging' :: EnableLogging -&gt; Maybe Text
-</span><a href="#local-6989586621679511210"><span class="hs-identifier hs-var hs-var">s3KeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679511210"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511209"><span class="annot"><span class="annottext">s :: EnableLogging
-</span><a href="#local-6989586621679511209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging%27"><span class="hs-identifier hs-type">EnableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511208"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679511208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableLogging
-</span><a href="#local-6989586621679511209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3KeyPrefix:EnableLogging' :: Maybe Text
+</span><a href="#local-6989586621679511908"><span class="hs-identifier hs-var hs-var">s3KeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679511908"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511907"><span class="annot"><span class="annottext">s :: EnableLogging
+</span><a href="#local-6989586621679511907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging%27"><span class="hs-identifier hs-type">EnableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511906"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679511906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableLogging
+</span><a href="#local-6989586621679511907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3KeyPrefix:EnableLogging' :: Maybe Text
 </span><a href="Network.AWS.Redshift.EnableLogging.html#%24sel%3As3KeyPrefix%3AEnableLogging%27"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679511208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging"><span class="hs-identifier hs-type">EnableLogging</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679511906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging"><span class="hs-identifier hs-type">EnableLogging</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The identifier of the cluster on which logging is to be started.</span><span>
 </span><span id="line-170"></span><span class="hs-comment">--</span><span>
@@ -255,16 +255,16 @@ $sel:s3KeyPrefix:EnableLogging' :: EnableLogging -&gt; Maybe Text
 -&gt; (EnableLogging -&gt; Text -&gt; EnableLogging)
 -&gt; Lens EnableLogging EnableLogging Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging%27"><span class="hs-identifier hs-type">EnableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511207"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging%27"><span class="hs-identifier hs-type">EnableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511905"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 $sel:clusterIdentifier:EnableLogging' :: EnableLogging -&gt; Text
-</span><a href="#local-6989586621679511207"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511207"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511206"><span class="annot"><span class="annottext">s :: EnableLogging
-</span><a href="#local-6989586621679511206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging%27"><span class="hs-identifier hs-type">EnableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511205"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableLogging
-</span><a href="#local-6989586621679511206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:EnableLogging' :: Text
+</span><a href="#local-6989586621679511905"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511905"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511904"><span class="annot"><span class="annottext">s :: EnableLogging
+</span><a href="#local-6989586621679511904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging%27"><span class="hs-identifier hs-type">EnableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511903"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableLogging
+</span><a href="#local-6989586621679511904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:EnableLogging' :: Text
 </span><a href="Network.AWS.Redshift.EnableLogging.html#%24sel%3AclusterIdentifier%3AEnableLogging%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging"><span class="hs-identifier hs-type">EnableLogging</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679511903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging"><span class="hs-identifier hs-type">EnableLogging</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The name of an existing S3 bucket where the log files are to be stored.</span><span>
 </span><span id="line-176"></span><span class="hs-comment">--</span><span>
@@ -279,25 +279,25 @@ $sel:clusterIdentifier:EnableLogging' :: EnableLogging -&gt; Text
 -&gt; (EnableLogging -&gt; Text -&gt; EnableLogging)
 -&gt; Lens EnableLogging EnableLogging Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging%27"><span class="hs-identifier hs-type">EnableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511204"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging%27"><span class="hs-identifier hs-type">EnableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511902"><span class="annot"><span class="annottext">Text
 bucketName :: Text
 $sel:bucketName:EnableLogging' :: EnableLogging -&gt; Text
-</span><a href="#local-6989586621679511204"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511204"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511203"><span class="annot"><span class="annottext">s :: EnableLogging
-</span><a href="#local-6989586621679511203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging%27"><span class="hs-identifier hs-type">EnableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511202"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableLogging
-</span><a href="#local-6989586621679511203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:EnableLogging' :: Text
+</span><a href="#local-6989586621679511902"><span class="hs-identifier hs-var hs-var">bucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511902"><span class="hs-identifier hs-var">bucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511901"><span class="annot"><span class="annottext">s :: EnableLogging
+</span><a href="#local-6989586621679511901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging%27"><span class="hs-identifier hs-type">EnableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511900"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableLogging
+</span><a href="#local-6989586621679511901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucketName:EnableLogging' :: Text
 </span><a href="Network.AWS.Redshift.EnableLogging.html#%24sel%3AbucketName%3AEnableLogging%27"><span class="hs-identifier hs-var">bucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging"><span class="hs-identifier hs-type">EnableLogging</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679511900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging"><span class="hs-identifier hs-type">EnableLogging</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging"><span class="hs-identifier hs-type">EnableLogging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging"><span class="hs-identifier hs-type">EnableLogging</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.LoggingStatus.html#LoggingStatus"><span class="hs-identifier hs-type">LoggingStatus</span></a></span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679511198"><span class="annot"><span class="annottext">request :: EnableLogging -&gt; Request EnableLogging
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679511896"><span class="annot"><span class="annottext">request :: EnableLogging -&gt; Request EnableLogging
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; EnableLogging -&gt; Request EnableLogging
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679511194"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679511892"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy EnableLogging
 -&gt; ClientResponse ClientBody
@@ -326,20 +326,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnableLoggingResult&quot;</span></span><span>
-</span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511191"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679511191"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679511190"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679511190"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679511189"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679511189"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String LoggingStatus
+</span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511889"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679511889"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679511888"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679511888"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679511887"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679511887"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String LoggingStatus
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679511189"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679511887"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679511184"><span id="local-6989586621679511186"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging"><span class="hs-identifier hs-type">EnableLogging</span></a></span></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679511882"><span id="local-6989586621679511884"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging"><span class="hs-identifier hs-type">EnableLogging</span></a></span></span></span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679511181"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging"><span class="hs-identifier hs-type">EnableLogging</span></a></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679511879"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging"><span class="hs-identifier hs-type">EnableLogging</span></a></span></span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging"><span class="hs-identifier hs-type">EnableLogging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679511177"><span class="annot"><span class="annottext">toHeaders :: EnableLogging -&gt; ResponseHeaders
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679511875"><span class="annot"><span class="annottext">toHeaders :: EnableLogging -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; EnableLogging -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -347,15 +347,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging"><span class="hs-identifier hs-type">EnableLogging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621679511172"><span class="annot"><span class="annottext">toPath :: EnableLogging -&gt; ByteString
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679511870"><span class="annot"><span class="annottext">toPath :: EnableLogging -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; EnableLogging -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging"><span class="hs-identifier hs-type">EnableLogging</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-204"></span><span>  </span><span id="local-6989586621679511168"><span class="annot"><span class="annottext">toQuery :: EnableLogging -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging%27"><span class="hs-identifier hs-type">EnableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511164"><span id="local-6989586621679511165"><span id="local-6989586621679511166"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679511866"><span class="annot"><span class="annottext">toQuery :: EnableLogging -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.EnableLogging.html#EnableLogging%27"><span class="hs-identifier hs-type">EnableLogging'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511862"><span id="local-6989586621679511863"><span id="local-6989586621679511864"><span class="annot"><span class="annottext">Maybe Text
 Text
 bucketName :: Text
 clusterIdentifier :: Text
@@ -363,7 +363,7 @@ s3KeyPrefix :: Maybe Text
 $sel:bucketName:EnableLogging' :: EnableLogging -&gt; Text
 $sel:clusterIdentifier:EnableLogging' :: EnableLogging -&gt; Text
 $sel:s3KeyPrefix:EnableLogging' :: EnableLogging -&gt; Maybe Text
-</span><a href="#local-6989586621679511164"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679511862"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-205"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -383,16 +383,16 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;S3KeyPrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679511166"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679511864"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511165"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679511863"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;BucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679511164"><span class="hs-identifier hs-var">bucketName</span></a></span><span>
+</span><a href="#local-6989586621679511862"><span class="hs-identifier hs-var">bucketName</span></a></span><span>
 </span><span id="line-213"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-214"></span></pre></body></html>

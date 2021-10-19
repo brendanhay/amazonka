@@ -89,10 +89,10 @@
 </span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#newScheduleKeyDeletionResponse"><span class="hs-identifier">newScheduleKeyDeletionResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_pendingWindowInDays"><span class="hs-identifier">scheduleKeyDeletionResponse_pendingWindowInDays</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_keyId"><span class="hs-identifier">scheduleKeyDeletionResponse_keyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_keyState"><span class="hs-identifier">scheduleKeyDeletionResponse_keyState</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_deletionDate"><span class="hs-identifier">scheduleKeyDeletionResponse_deletionDate</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_keyId"><span class="hs-identifier">scheduleKeyDeletionResponse_keyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_pendingWindowInDays"><span class="hs-identifier">scheduleKeyDeletionResponse_pendingWindowInDays</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_httpStatus"><span class="hs-identifier">scheduleKeyDeletionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span class="hs-keyword">where</span><span>
@@ -105,7 +105,7 @@
 </span><span id="line-105"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | /See:/ 'newScheduleKeyDeletion' smart constructor.</span><span>
-</span><span id="line-108"></span><span id="local-6989586621679251556"><span id="local-6989586621679251557"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduleKeyDeletion"><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion"><span class="hs-identifier hs-var">ScheduleKeyDeletion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduleKeyDeletion%27"><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion%27"><span class="hs-identifier hs-var">ScheduleKeyDeletion'</span></a></span></span><span>
+</span><span id="line-108"></span><span id="local-6989586621679251764"><span id="local-6989586621679251765"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduleKeyDeletion"><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion"><span class="hs-identifier hs-var">ScheduleKeyDeletion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduleKeyDeletion%27"><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion%27"><span class="hs-identifier hs-var">ScheduleKeyDeletion'</span></a></span></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The waiting period, specified in number of days. After the waiting</span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-comment">-- period ends, KMS deletes the KMS key.</span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -133,7 +133,7 @@
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AkeyId%3AScheduleKeyDeletion%27"><span class="annot"><span class="annottext">ScheduleKeyDeletion -&gt; Text
 </span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3AkeyId%3AScheduleKeyDeletion%27"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251549"><span id="local-6989586621679251551"><span class="annot"><span class="annottext">ScheduleKeyDeletion -&gt; ScheduleKeyDeletion -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251757"><span id="local-6989586621679251759"><span class="annot"><span class="annottext">ScheduleKeyDeletion -&gt; ScheduleKeyDeletion -&gt; Bool
 (ScheduleKeyDeletion -&gt; ScheduleKeyDeletion -&gt; Bool)
 -&gt; (ScheduleKeyDeletion -&gt; ScheduleKeyDeletion -&gt; Bool)
 -&gt; Eq ScheduleKeyDeletion
@@ -142,7 +142,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ScheduleKeyDeletion -&gt; ScheduleKeyDeletion -&gt; Bool
 == :: ScheduleKeyDeletion -&gt; ScheduleKeyDeletion -&gt; Bool
 $c== :: ScheduleKeyDeletion -&gt; ScheduleKeyDeletion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251540"><span id="local-6989586621679251542"><span id="local-6989586621679251544"><span id="local-6989586621679251546"><span class="annot"><span class="annottext">ReadPrec [ScheduleKeyDeletion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251748"><span id="local-6989586621679251750"><span id="local-6989586621679251752"><span id="local-6989586621679251754"><span class="annot"><span class="annottext">ReadPrec [ScheduleKeyDeletion]
 ReadPrec ScheduleKeyDeletion
 Int -&gt; ReadS ScheduleKeyDeletion
 ReadS [ScheduleKeyDeletion]
@@ -162,7 +162,7 @@ readList :: ReadS [ScheduleKeyDeletion]
 $creadList :: ReadS [ScheduleKeyDeletion]
 readsPrec :: Int -&gt; ReadS ScheduleKeyDeletion
 $creadsPrec :: Int -&gt; ReadS ScheduleKeyDeletion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251533"><span id="local-6989586621679251535"><span id="local-6989586621679251537"><span class="annot"><span class="annottext">Int -&gt; ScheduleKeyDeletion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251741"><span id="local-6989586621679251743"><span id="local-6989586621679251745"><span class="annot"><span class="annottext">Int -&gt; ScheduleKeyDeletion -&gt; ShowS
 [ScheduleKeyDeletion] -&gt; ShowS
 ScheduleKeyDeletion -&gt; String
 (Int -&gt; ScheduleKeyDeletion -&gt; ShowS)
@@ -224,8 +224,8 @@ $cfrom :: forall x. ScheduleKeyDeletion -&gt; Rep ScheduleKeyDeletion x
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion"><span class="hs-identifier hs-type">ScheduleKeyDeletion</span></a></span><span>
 </span><span id="line-171"></span><span id="newScheduleKeyDeletion"><span class="annot"><span class="annottext">newScheduleKeyDeletion :: Text -&gt; ScheduleKeyDeletion
-</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#newScheduleKeyDeletion"><span class="hs-identifier hs-var hs-var">newScheduleKeyDeletion</span></a></span></span><span> </span><span id="local-6989586621679251528"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251528"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#newScheduleKeyDeletion"><span class="hs-identifier hs-var hs-var">newScheduleKeyDeletion</span></a></span></span><span> </span><span id="local-6989586621679251736"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251736"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">ScheduleKeyDeletion' :: Maybe Natural -&gt; Text -&gt; ScheduleKeyDeletion
 </span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion%27"><span class="hs-identifier hs-type">ScheduleKeyDeletion'</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pendingWindowInDays:ScheduleKeyDeletion' :: Maybe Natural
@@ -235,7 +235,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyId:ScheduleKeyDeletion' :: Text
 </span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3AkeyId%3AScheduleKeyDeletion%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251528"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span>
+</span><a href="#local-6989586621679251736"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The waiting period, specified in number of days. After the waiting</span><span>
@@ -258,16 +258,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion%27"><span class="hs-identifier hs-type">ScheduleKeyDeletion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251525"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion%27"><span class="hs-identifier hs-type">ScheduleKeyDeletion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251733"><span class="annot"><span class="annottext">Maybe Natural
 pendingWindowInDays :: Maybe Natural
 $sel:pendingWindowInDays:ScheduleKeyDeletion' :: ScheduleKeyDeletion -&gt; Maybe Natural
-</span><a href="#local-6989586621679251525"><span class="hs-identifier hs-var hs-var">pendingWindowInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679251525"><span class="hs-identifier hs-var">pendingWindowInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251524"><span class="annot"><span class="annottext">s :: ScheduleKeyDeletion
-</span><a href="#local-6989586621679251524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion%27"><span class="hs-identifier hs-type">ScheduleKeyDeletion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251523"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679251523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleKeyDeletion
-</span><a href="#local-6989586621679251524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingWindowInDays:ScheduleKeyDeletion' :: Maybe Natural
+</span><a href="#local-6989586621679251733"><span class="hs-identifier hs-var hs-var">pendingWindowInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679251733"><span class="hs-identifier hs-var">pendingWindowInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251732"><span class="annot"><span class="annottext">s :: ScheduleKeyDeletion
+</span><a href="#local-6989586621679251732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion%27"><span class="hs-identifier hs-type">ScheduleKeyDeletion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251731"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679251731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleKeyDeletion
+</span><a href="#local-6989586621679251732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingWindowInDays:ScheduleKeyDeletion' :: Maybe Natural
 </span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3ApendingWindowInDays%3AScheduleKeyDeletion%27"><span class="hs-identifier hs-var">pendingWindowInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679251523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion"><span class="hs-identifier hs-type">ScheduleKeyDeletion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion"><span class="hs-identifier hs-type">ScheduleKeyDeletion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | The unique identifier of the KMS key to delete.</span><span>
 </span><span id="line-191"></span><span class="hs-comment">--</span><span>
@@ -288,27 +288,27 @@ $sel:pendingWindowInDays:ScheduleKeyDeletion' :: ScheduleKeyDeletion -&gt; Maybe
 -&gt; (ScheduleKeyDeletion -&gt; Text -&gt; ScheduleKeyDeletion)
 -&gt; Lens ScheduleKeyDeletion ScheduleKeyDeletion Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion%27"><span class="hs-identifier hs-type">ScheduleKeyDeletion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251522"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion%27"><span class="hs-identifier hs-type">ScheduleKeyDeletion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251730"><span class="annot"><span class="annottext">Text
 keyId :: Text
 $sel:keyId:ScheduleKeyDeletion' :: ScheduleKeyDeletion -&gt; Text
-</span><a href="#local-6989586621679251522"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251522"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251521"><span class="annot"><span class="annottext">s :: ScheduleKeyDeletion
-</span><a href="#local-6989586621679251521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion%27"><span class="hs-identifier hs-type">ScheduleKeyDeletion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251520"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleKeyDeletion
-</span><a href="#local-6989586621679251521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:ScheduleKeyDeletion' :: Text
+</span><a href="#local-6989586621679251730"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251730"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251729"><span class="annot"><span class="annottext">s :: ScheduleKeyDeletion
+</span><a href="#local-6989586621679251729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion%27"><span class="hs-identifier hs-type">ScheduleKeyDeletion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251728"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleKeyDeletion
+</span><a href="#local-6989586621679251729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:ScheduleKeyDeletion' :: Text
 </span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3AkeyId%3AScheduleKeyDeletion%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion"><span class="hs-identifier hs-type">ScheduleKeyDeletion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion"><span class="hs-identifier hs-type">ScheduleKeyDeletion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion"><span class="hs-identifier hs-type">ScheduleKeyDeletion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-207"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-208"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion"><span class="hs-identifier hs-type">ScheduleKeyDeletion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-209"></span><span>      </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679251516"><span class="annot"><span class="annottext">request :: ScheduleKeyDeletion -&gt; Request ScheduleKeyDeletion
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679251724"><span class="annot"><span class="annottext">request :: ScheduleKeyDeletion -&gt; Request ScheduleKeyDeletion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ScheduleKeyDeletion -&gt; Request ScheduleKeyDeletion
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679251512"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679251720"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ScheduleKeyDeletion
 -&gt; ClientResponse ClientBody
@@ -334,68 +334,77 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-213"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251509"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251509"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679251508"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679251508"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679251507"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251507"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-214"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-213"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251717"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251717"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679251716"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679251716"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679251715"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251715"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-214"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe KeyState
 -&gt; Maybe POSIX
--&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; Int
 -&gt; ScheduleKeyDeletionResponse
 </span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var">ScheduleKeyDeletionResponse'</span></a></span><span>
-</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe KeyState
  -&gt; Maybe POSIX
- -&gt; Maybe Text
+ -&gt; Maybe Natural
  -&gt; Int
  -&gt; ScheduleKeyDeletionResponse)
--&gt; Either String (Maybe Natural)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe KeyState
-      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; ScheduleKeyDeletionResponse)
+      -&gt; Maybe POSIX
+      -&gt; Maybe Natural
+      -&gt; Int
+      -&gt; ScheduleKeyDeletionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679251715"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PendingWindowInDays&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;KeyId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe KeyState
-   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; ScheduleKeyDeletionResponse)
+   -&gt; Maybe POSIX
+   -&gt; Maybe Natural
+   -&gt; Int
+   -&gt; ScheduleKeyDeletionResponse)
 -&gt; Either String (Maybe KeyState)
 -&gt; Either
      String
-     (Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; ScheduleKeyDeletionResponse)
+     (Maybe POSIX
+      -&gt; Maybe Natural -&gt; Int -&gt; ScheduleKeyDeletionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe KeyState)
+</span><a href="#local-6989586621679251715"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe KeyState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyState&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; ScheduleKeyDeletionResponse)
+  (Maybe POSIX
+   -&gt; Maybe Natural -&gt; Int -&gt; ScheduleKeyDeletionResponse)
 -&gt; Either String (Maybe POSIX)
--&gt; Either String (Maybe Text -&gt; Int -&gt; ScheduleKeyDeletionResponse)
+-&gt; Either
+     String (Maybe Natural -&gt; Int -&gt; ScheduleKeyDeletionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621679251715"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeletionDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ScheduleKeyDeletionResponse)
--&gt; Either String (Maybe Text)
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Natural -&gt; Int -&gt; ScheduleKeyDeletionResponse)
+-&gt; Either String (Maybe Natural)
 -&gt; Either String (Int -&gt; ScheduleKeyDeletionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679251715"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;KeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;PendingWindowInDays&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ScheduleKeyDeletionResponse)
 -&gt; Either String Int -&gt; Either String ScheduleKeyDeletionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -404,15 +413,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251509"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251717"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251499"><span id="local-6989586621679251501"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion"><span class="hs-identifier hs-type">ScheduleKeyDeletion</span></a></span></span></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251707"><span id="local-6989586621679251709"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion"><span class="hs-identifier hs-type">ScheduleKeyDeletion</span></a></span></span></span><span>
 </span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251496"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion"><span class="hs-identifier hs-type">ScheduleKeyDeletion</span></a></span></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251704"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion"><span class="hs-identifier hs-type">ScheduleKeyDeletion</span></a></span></span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion"><span class="hs-identifier hs-type">ScheduleKeyDeletion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621679251492"><span class="annot"><span class="annottext">toHeaders :: ScheduleKeyDeletion -&gt; ResponseHeaders
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679251700"><span class="annot"><span class="annottext">toHeaders :: ScheduleKeyDeletion -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ScheduleKeyDeletion -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -439,15 +448,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-238"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-239"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
-</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251482"><span id="local-6989586621679251484"><span id="local-6989586621679251486"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion"><span class="hs-identifier hs-type">ScheduleKeyDeletion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-242"></span><span>  </span><span id="local-6989586621679251480"><span class="annot"><span class="annottext">toJSON :: ScheduleKeyDeletion -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion%27"><span class="hs-identifier hs-type">ScheduleKeyDeletion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251477"><span id="local-6989586621679251478"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251690"><span id="local-6989586621679251692"><span id="local-6989586621679251694"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion"><span class="hs-identifier hs-type">ScheduleKeyDeletion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679251688"><span class="annot"><span class="annottext">toJSON :: ScheduleKeyDeletion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion%27"><span class="hs-identifier hs-type">ScheduleKeyDeletion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251685"><span id="local-6989586621679251686"><span class="annot"><span class="annottext">Maybe Natural
 Text
 keyId :: Text
 pendingWindowInDays :: Maybe Natural
 $sel:keyId:ScheduleKeyDeletion' :: ScheduleKeyDeletion -&gt; Text
 $sel:pendingWindowInDays:ScheduleKeyDeletion' :: ScheduleKeyDeletion -&gt; Maybe Natural
-</span><a href="#local-6989586621679251477"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679251685"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-244"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -460,26 +469,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-246"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679251478"><span class="hs-identifier hs-var">pendingWindowInDays</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679251686"><span class="hs-identifier hs-var">pendingWindowInDays</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251477"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251685"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-249"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion"><span class="hs-identifier hs-type">ScheduleKeyDeletion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-252"></span><span>  </span><span id="local-6989586621679251471"><span class="annot"><span class="annottext">toPath :: ScheduleKeyDeletion -&gt; ByteString
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621679251679"><span class="annot"><span class="annottext">toPath :: ScheduleKeyDeletion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ScheduleKeyDeletion -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletion"><span class="hs-identifier hs-type">ScheduleKeyDeletion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-255"></span><span>  </span><span id="local-6989586621679251467"><span class="annot"><span class="annottext">toQuery :: ScheduleKeyDeletion -&gt; QueryString
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621679251675"><span class="annot"><span class="annottext">toQuery :: ScheduleKeyDeletion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ScheduleKeyDeletion -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -487,39 +496,39 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-comment">-- | /See:/ 'newScheduleKeyDeletionResponse' smart constructor.</span><span>
-</span><span id="line-258"></span><span id="local-6989586621679251464"><span id="local-6989586621679251465"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduleKeyDeletionResponse"><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-var">ScheduleKeyDeletionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduleKeyDeletionResponse%27"><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var">ScheduleKeyDeletionResponse'</span></a></span></span><span>
-</span><span id="line-259"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The waiting period before the KMS key is deleted.</span><span>
-</span><span id="line-260"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-261"></span><span>    </span><span class="hs-comment">-- If the KMS key is a multi-Region primary key with replicas, the waiting</span><span>
-</span><span id="line-262"></span><span>    </span><span class="hs-comment">-- period begins when the last of its replica keys is deleted. Otherwise,</span><span>
-</span><span id="line-263"></span><span>    </span><span class="hs-comment">-- the waiting period begins immediately.</span><span>
-</span><span id="line-264"></span><span>    </span><span id="%24sel%3ApendingWindowInDays%3AScheduleKeyDeletionResponse%27"><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse -&gt; Maybe Natural
-</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3ApendingWindowInDays%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var hs-var">pendingWindowInDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-265"></span><span>    </span><span class="hs-comment">-- | The current status of the KMS key.</span><span>
-</span><span id="line-266"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-267"></span><span>    </span><span class="hs-comment">-- For more information about how key state affects the use of a KMS key,</span><span>
-</span><span id="line-268"></span><span>    </span><span class="hs-comment">-- see</span><span>
-</span><span id="line-269"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key&gt;</span><span>
-</span><span id="line-270"></span><span>    </span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
-</span><span id="line-271"></span><span>    </span><span id="%24sel%3AkeyState%3AScheduleKeyDeletionResponse%27"><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse -&gt; Maybe KeyState
-</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3AkeyState%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var hs-var">keyState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyState.html#KeyState"><span class="hs-identifier hs-type">KeyState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-272"></span><span>    </span><span class="hs-comment">-- | The date and time after which KMS deletes the KMS key.</span><span>
-</span><span id="line-273"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-274"></span><span>    </span><span class="hs-comment">-- If the KMS key is a multi-Region primary key with replica keys, this</span><span>
-</span><span id="line-275"></span><span>    </span><span class="hs-comment">-- field does not appear. The deletion date for the primary key isn\'t</span><span>
-</span><span id="line-276"></span><span>    </span><span class="hs-comment">-- known until its last replica key is deleted.</span><span>
-</span><span id="line-277"></span><span>    </span><span id="%24sel%3AdeletionDate%3AScheduleKeyDeletionResponse%27"><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse -&gt; Maybe POSIX
-</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3AdeletionDate%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var hs-var">deletionDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-278"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
-</span><span id="line-279"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN&gt;)</span><span>
-</span><span id="line-280"></span><span>    </span><span class="hs-comment">-- of the KMS key whose deletion is scheduled.</span><span>
-</span><span id="line-281"></span><span>    </span><span id="%24sel%3AkeyId%3AScheduleKeyDeletionResponse%27"><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse -&gt; Maybe Text
+</span><span id="line-258"></span><span id="local-6989586621679251672"><span id="local-6989586621679251673"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduleKeyDeletionResponse"><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-var">ScheduleKeyDeletionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduleKeyDeletionResponse%27"><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var">ScheduleKeyDeletionResponse'</span></a></span></span><span>
+</span><span id="line-259"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-260"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN&gt;)</span><span>
+</span><span id="line-261"></span><span>    </span><span class="hs-comment">-- of the KMS key whose deletion is scheduled.</span><span>
+</span><span id="line-262"></span><span>    </span><span id="%24sel%3AkeyId%3AScheduleKeyDeletionResponse%27"><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3AkeyId%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>    </span><span class="hs-comment">-- | The current status of the KMS key.</span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span>    </span><span class="hs-comment">-- For more information about how key state affects the use of a KMS key,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-comment">-- see</span><span>
+</span><span id="line-267"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key&gt;</span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-269"></span><span>    </span><span id="%24sel%3AkeyState%3AScheduleKeyDeletionResponse%27"><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse -&gt; Maybe KeyState
+</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3AkeyState%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var hs-var">keyState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyState.html#KeyState"><span class="hs-identifier hs-type">KeyState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>    </span><span class="hs-comment">-- | The date and time after which KMS deletes the KMS key.</span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-272"></span><span>    </span><span class="hs-comment">-- If the KMS key is a multi-Region primary key with replica keys, this</span><span>
+</span><span id="line-273"></span><span>    </span><span class="hs-comment">-- field does not appear. The deletion date for the primary key isn\'t</span><span>
+</span><span id="line-274"></span><span>    </span><span class="hs-comment">-- known until its last replica key is deleted.</span><span>
+</span><span id="line-275"></span><span>    </span><span id="%24sel%3AdeletionDate%3AScheduleKeyDeletionResponse%27"><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3AdeletionDate%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var hs-var">deletionDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>    </span><span class="hs-comment">-- | The waiting period before the KMS key is deleted.</span><span>
+</span><span id="line-277"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span>    </span><span class="hs-comment">-- If the KMS key is a multi-Region primary key with replicas, the waiting</span><span>
+</span><span id="line-279"></span><span>    </span><span class="hs-comment">-- period begins when the last of its replica keys is deleted. Otherwise,</span><span>
+</span><span id="line-280"></span><span>    </span><span class="hs-comment">-- the waiting period begins immediately.</span><span>
+</span><span id="line-281"></span><span>    </span><span id="%24sel%3ApendingWindowInDays%3AScheduleKeyDeletionResponse%27"><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse -&gt; Maybe Natural
+</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3ApendingWindowInDays%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var hs-var">pendingWindowInDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-282"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-283"></span><span>    </span><span id="%24sel%3AhttpStatus%3AScheduleKeyDeletionResponse%27"><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse -&gt; Int
 </span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3AhttpStatus%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-284"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-285"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251455"><span id="local-6989586621679251457"><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse -&gt; ScheduleKeyDeletionResponse -&gt; Bool
+</span><span id="line-285"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251663"><span id="local-6989586621679251665"><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse -&gt; ScheduleKeyDeletionResponse -&gt; Bool
 (ScheduleKeyDeletionResponse
  -&gt; ScheduleKeyDeletionResponse -&gt; Bool)
 -&gt; (ScheduleKeyDeletionResponse
@@ -530,7 +539,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ScheduleKeyDeletionResponse -&gt; ScheduleKeyDeletionResponse -&gt; Bool
 == :: ScheduleKeyDeletionResponse -&gt; ScheduleKeyDeletionResponse -&gt; Bool
 $c== :: ScheduleKeyDeletionResponse -&gt; ScheduleKeyDeletionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251447"><span id="local-6989586621679251449"><span id="local-6989586621679251451"><span id="local-6989586621679251453"><span class="annot"><span class="annottext">ReadPrec [ScheduleKeyDeletionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251655"><span id="local-6989586621679251657"><span id="local-6989586621679251659"><span id="local-6989586621679251661"><span class="annot"><span class="annottext">ReadPrec [ScheduleKeyDeletionResponse]
 ReadPrec ScheduleKeyDeletionResponse
 Int -&gt; ReadS ScheduleKeyDeletionResponse
 ReadS [ScheduleKeyDeletionResponse]
@@ -550,7 +559,7 @@ readList :: ReadS [ScheduleKeyDeletionResponse]
 $creadList :: ReadS [ScheduleKeyDeletionResponse]
 readsPrec :: Int -&gt; ReadS ScheduleKeyDeletionResponse
 $creadsPrec :: Int -&gt; ReadS ScheduleKeyDeletionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251441"><span id="local-6989586621679251443"><span id="local-6989586621679251445"><span class="annot"><span class="annottext">Int -&gt; ScheduleKeyDeletionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251649"><span id="local-6989586621679251651"><span id="local-6989586621679251653"><span class="annot"><span class="annottext">Int -&gt; ScheduleKeyDeletionResponse -&gt; ShowS
 [ScheduleKeyDeletionResponse] -&gt; ShowS
 ScheduleKeyDeletionResponse -&gt; String
 (Int -&gt; ScheduleKeyDeletionResponse -&gt; ShowS)
@@ -590,28 +599,28 @@ ScheduleKeyDeletionResponse -&gt; Rep ScheduleKeyDeletionResponse x
 </span><span id="line-292"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-293"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-294"></span><span class="hs-comment">--</span><span>
-</span><span id="line-295"></span><span class="hs-comment">-- 'pendingWindowInDays', 'scheduleKeyDeletionResponse_pendingWindowInDays' - The waiting period before the KMS key is deleted.</span><span>
-</span><span id="line-296"></span><span class="hs-comment">--</span><span>
-</span><span id="line-297"></span><span class="hs-comment">-- If the KMS key is a multi-Region primary key with replicas, the waiting</span><span>
-</span><span id="line-298"></span><span class="hs-comment">-- period begins when the last of its replica keys is deleted. Otherwise,</span><span>
-</span><span id="line-299"></span><span class="hs-comment">-- the waiting period begins immediately.</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- 'keyId', 'scheduleKeyDeletionResponse_keyId' - The Amazon Resource Name</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN&gt;)</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- of the KMS key whose deletion is scheduled.</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- 'keyState', 'scheduleKeyDeletionResponse_keyState' - The current status of the KMS key.</span><span>
 </span><span id="line-300"></span><span class="hs-comment">--</span><span>
-</span><span id="line-301"></span><span class="hs-comment">-- 'keyState', 'scheduleKeyDeletionResponse_keyState' - The current status of the KMS key.</span><span>
-</span><span id="line-302"></span><span class="hs-comment">--</span><span>
-</span><span id="line-303"></span><span class="hs-comment">-- For more information about how key state affects the use of a KMS key,</span><span>
-</span><span id="line-304"></span><span class="hs-comment">-- see</span><span>
-</span><span id="line-305"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key&gt;</span><span>
-</span><span id="line-306"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- For more information about how key state affects the use of a KMS key,</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key&gt;</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- 'deletionDate', 'scheduleKeyDeletionResponse_deletionDate' - The date and time after which KMS deletes the KMS key.</span><span>
 </span><span id="line-307"></span><span class="hs-comment">--</span><span>
-</span><span id="line-308"></span><span class="hs-comment">-- 'deletionDate', 'scheduleKeyDeletionResponse_deletionDate' - The date and time after which KMS deletes the KMS key.</span><span>
-</span><span id="line-309"></span><span class="hs-comment">--</span><span>
-</span><span id="line-310"></span><span class="hs-comment">-- If the KMS key is a multi-Region primary key with replica keys, this</span><span>
-</span><span id="line-311"></span><span class="hs-comment">-- field does not appear. The deletion date for the primary key isn\'t</span><span>
-</span><span id="line-312"></span><span class="hs-comment">-- known until its last replica key is deleted.</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- If the KMS key is a multi-Region primary key with replica keys, this</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- field does not appear. The deletion date for the primary key isn\'t</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- known until its last replica key is deleted.</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- 'pendingWindowInDays', 'scheduleKeyDeletionResponse_pendingWindowInDays' - The waiting period before the KMS key is deleted.</span><span>
 </span><span id="line-313"></span><span class="hs-comment">--</span><span>
-</span><span id="line-314"></span><span class="hs-comment">-- 'keyId', 'scheduleKeyDeletionResponse_keyId' - The Amazon Resource Name</span><span>
-</span><span id="line-315"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN&gt;)</span><span>
-</span><span id="line-316"></span><span class="hs-comment">-- of the KMS key whose deletion is scheduled.</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- If the KMS key is a multi-Region primary key with replicas, the waiting</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- period begins when the last of its replica keys is deleted. Otherwise,</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- the waiting period begins immediately.</span><span>
 </span><span id="line-317"></span><span class="hs-comment">--</span><span>
 </span><span id="line-318"></span><span class="hs-comment">-- 'httpStatus', 'scheduleKeyDeletionResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-319"></span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#newScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">newScheduleKeyDeletionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -619,18 +628,18 @@ ScheduleKeyDeletionResponse -&gt; Rep ScheduleKeyDeletionResponse x
 </span><span id="line-321"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-322"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span>
 </span><span id="line-323"></span><span id="newScheduleKeyDeletionResponse"><span class="annot"><span class="annottext">newScheduleKeyDeletionResponse :: Int -&gt; ScheduleKeyDeletionResponse
-</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#newScheduleKeyDeletionResponse"><span class="hs-identifier hs-var hs-var">newScheduleKeyDeletionResponse</span></a></span></span><span> </span><span id="local-6989586621679251438"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251438"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-324"></span><span>  </span><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse' :: Maybe Natural
+</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#newScheduleKeyDeletionResponse"><span class="hs-identifier hs-var hs-var">newScheduleKeyDeletionResponse</span></a></span></span><span> </span><span id="local-6989586621679251646"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251646"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-324"></span><span>  </span><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse' :: Maybe Text
 -&gt; Maybe KeyState
 -&gt; Maybe POSIX
--&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; Int
 -&gt; ScheduleKeyDeletionResponse
 </span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span>
-</span><span id="line-325"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pendingWindowInDays:ScheduleKeyDeletionResponse' :: Maybe Natural
-</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3ApendingWindowInDays%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var">pendingWindowInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-326"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-325"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyId:ScheduleKeyDeletionResponse' :: Maybe Text
+</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3AkeyId%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-326"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-327"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyState:ScheduleKeyDeletionResponse' :: Maybe KeyState
@@ -641,51 +650,49 @@ forall a. Maybe a
 </span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3AdeletionDate%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var">deletionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-329"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyId:ScheduleKeyDeletionResponse' :: Maybe Text
-</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3AkeyId%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-329"></span><span>      </span><span class="annot"><span class="annottext">$sel:pendingWindowInDays:ScheduleKeyDeletionResponse' :: Maybe Natural
+</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3ApendingWindowInDays%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var">pendingWindowInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-330"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ScheduleKeyDeletionResponse' :: Int
 </span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3AhttpStatus%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251438"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679251646"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-331"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-332"></span><span>
-</span><span id="line-333"></span><span class="hs-comment">-- | The waiting period before the KMS key is deleted.</span><span>
-</span><span id="line-334"></span><span class="hs-comment">--</span><span>
-</span><span id="line-335"></span><span class="hs-comment">-- If the KMS key is a multi-Region primary key with replicas, the waiting</span><span>
-</span><span id="line-336"></span><span class="hs-comment">-- period begins when the last of its replica keys is deleted. Otherwise,</span><span>
-</span><span id="line-337"></span><span class="hs-comment">-- the waiting period begins immediately.</span><span>
-</span><span id="line-338"></span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_pendingWindowInDays"><span class="hs-identifier hs-type">scheduleKeyDeletionResponse_pendingWindowInDays</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-339"></span><span id="scheduleKeyDeletionResponse_pendingWindowInDays"><span class="annot"><span class="annottext">scheduleKeyDeletionResponse_pendingWindowInDays :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-333"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN&gt;)</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- of the KMS key whose deletion is scheduled.</span><span>
+</span><span id="line-336"></span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_keyId"><span class="hs-identifier hs-type">scheduleKeyDeletionResponse_keyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span id="scheduleKeyDeletionResponse_keyId"><span class="annot"><span class="annottext">scheduleKeyDeletionResponse_keyId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ScheduleKeyDeletionResponse -&gt; f ScheduleKeyDeletionResponse
-</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_pendingWindowInDays"><span class="hs-identifier hs-var hs-var">scheduleKeyDeletionResponse_pendingWindowInDays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleKeyDeletionResponse -&gt; Maybe Natural)
+</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_keyId"><span class="hs-identifier hs-var hs-var">scheduleKeyDeletionResponse_keyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleKeyDeletionResponse -&gt; Maybe Text)
 -&gt; (ScheduleKeyDeletionResponse
-    -&gt; Maybe Natural -&gt; ScheduleKeyDeletionResponse)
+    -&gt; Maybe Text -&gt; ScheduleKeyDeletionResponse)
 -&gt; Lens
      ScheduleKeyDeletionResponse
      ScheduleKeyDeletionResponse
-     (Maybe Natural)
-     (Maybe Natural)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251437"><span class="annot"><span class="annottext">Maybe Natural
-pendingWindowInDays :: Maybe Natural
-$sel:pendingWindowInDays:ScheduleKeyDeletionResponse' :: ScheduleKeyDeletionResponse -&gt; Maybe Natural
-</span><a href="#local-6989586621679251437"><span class="hs-identifier hs-var hs-var">pendingWindowInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679251437"><span class="hs-identifier hs-var">pendingWindowInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251436"><span class="annot"><span class="annottext">s :: ScheduleKeyDeletionResponse
-</span><a href="#local-6989586621679251436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251435"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679251435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse
-</span><a href="#local-6989586621679251436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingWindowInDays:ScheduleKeyDeletionResponse' :: Maybe Natural
-</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3ApendingWindowInDays%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var">pendingWindowInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679251435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-340"></span><span>
-</span><span id="line-341"></span><span class="hs-comment">-- | The current status of the KMS key.</span><span>
-</span><span id="line-342"></span><span class="hs-comment">--</span><span>
-</span><span id="line-343"></span><span class="hs-comment">-- For more information about how key state affects the use of a KMS key,</span><span>
-</span><span id="line-344"></span><span class="hs-comment">-- see</span><span>
-</span><span id="line-345"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key&gt;</span><span>
-</span><span id="line-346"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
-</span><span id="line-347"></span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_keyState"><span class="hs-identifier hs-type">scheduleKeyDeletionResponse_keyState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyState.html#KeyState"><span class="hs-identifier hs-type">KeyState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-348"></span><span id="scheduleKeyDeletionResponse_keyState"><span class="annot"><span class="annottext">scheduleKeyDeletionResponse_keyState :: (Maybe KeyState -&gt; f (Maybe KeyState))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251645"><span class="annot"><span class="annottext">Maybe Text
+keyId :: Maybe Text
+$sel:keyId:ScheduleKeyDeletionResponse' :: ScheduleKeyDeletionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679251645"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251645"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251644"><span class="annot"><span class="annottext">s :: ScheduleKeyDeletionResponse
+</span><a href="#local-6989586621679251644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251643"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse
+</span><a href="#local-6989586621679251644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:ScheduleKeyDeletionResponse' :: Maybe Text
+</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3AkeyId%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- | The current status of the KMS key.</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- For more information about how key state affects the use of a KMS key,</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key&gt;</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-345"></span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_keyState"><span class="hs-identifier hs-type">scheduleKeyDeletionResponse_keyState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.KeyState.html#KeyState"><span class="hs-identifier hs-type">KeyState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-346"></span><span id="scheduleKeyDeletionResponse_keyState"><span class="annot"><span class="annottext">scheduleKeyDeletionResponse_keyState :: (Maybe KeyState -&gt; f (Maybe KeyState))
 -&gt; ScheduleKeyDeletionResponse -&gt; f ScheduleKeyDeletionResponse
 </span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_keyState"><span class="hs-identifier hs-var hs-var">scheduleKeyDeletionResponse_keyState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleKeyDeletionResponse -&gt; Maybe KeyState)
 -&gt; (ScheduleKeyDeletionResponse
@@ -696,24 +703,24 @@ $sel:pendingWindowInDays:ScheduleKeyDeletionResponse' :: ScheduleKeyDeletionResp
      (Maybe KeyState)
      (Maybe KeyState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251434"><span class="annot"><span class="annottext">Maybe KeyState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251642"><span class="annot"><span class="annottext">Maybe KeyState
 keyState :: Maybe KeyState
 $sel:keyState:ScheduleKeyDeletionResponse' :: ScheduleKeyDeletionResponse -&gt; Maybe KeyState
-</span><a href="#local-6989586621679251434"><span class="hs-identifier hs-var hs-var">keyState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyState
-</span><a href="#local-6989586621679251434"><span class="hs-identifier hs-var">keyState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251433"><span class="annot"><span class="annottext">s :: ScheduleKeyDeletionResponse
-</span><a href="#local-6989586621679251433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251432"><span class="annot"><span class="annottext">Maybe KeyState
-</span><a href="#local-6989586621679251432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse
-</span><a href="#local-6989586621679251433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyState:ScheduleKeyDeletionResponse' :: Maybe KeyState
+</span><a href="#local-6989586621679251642"><span class="hs-identifier hs-var hs-var">keyState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyState
+</span><a href="#local-6989586621679251642"><span class="hs-identifier hs-var">keyState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251641"><span class="annot"><span class="annottext">s :: ScheduleKeyDeletionResponse
+</span><a href="#local-6989586621679251641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251640"><span class="annot"><span class="annottext">Maybe KeyState
+</span><a href="#local-6989586621679251640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse
+</span><a href="#local-6989586621679251641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyState:ScheduleKeyDeletionResponse' :: Maybe KeyState
 </span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3AkeyState%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var">keyState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyState
-</span><a href="#local-6989586621679251432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-349"></span><span>
-</span><span id="line-350"></span><span class="hs-comment">-- | The date and time after which KMS deletes the KMS key.</span><span>
-</span><span id="line-351"></span><span class="hs-comment">--</span><span>
-</span><span id="line-352"></span><span class="hs-comment">-- If the KMS key is a multi-Region primary key with replica keys, this</span><span>
-</span><span id="line-353"></span><span class="hs-comment">-- field does not appear. The deletion date for the primary key isn\'t</span><span>
-</span><span id="line-354"></span><span class="hs-comment">-- known until its last replica key is deleted.</span><span>
-</span><span id="line-355"></span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_deletionDate"><span class="hs-identifier hs-type">scheduleKeyDeletionResponse_deletionDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-356"></span><span id="scheduleKeyDeletionResponse_deletionDate"><span class="annot"><span class="annottext">scheduleKeyDeletionResponse_deletionDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679251640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- | The date and time after which KMS deletes the KMS key.</span><span>
+</span><span id="line-349"></span><span class="hs-comment">--</span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- If the KMS key is a multi-Region primary key with replica keys, this</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- field does not appear. The deletion date for the primary key isn\'t</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- known until its last replica key is deleted.</span><span>
+</span><span id="line-353"></span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_deletionDate"><span class="hs-identifier hs-type">scheduleKeyDeletionResponse_deletionDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-354"></span><span id="scheduleKeyDeletionResponse_deletionDate"><span class="annot"><span class="annottext">scheduleKeyDeletionResponse_deletionDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ScheduleKeyDeletionResponse -&gt; f ScheduleKeyDeletionResponse
 </span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_deletionDate"><span class="hs-identifier hs-var hs-var">scheduleKeyDeletionResponse_deletionDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleKeyDeletionResponse -&gt; Maybe POSIX)
 -&gt; (ScheduleKeyDeletionResponse
@@ -724,16 +731,16 @@ $sel:keyState:ScheduleKeyDeletionResponse' :: ScheduleKeyDeletionResponse -&gt; 
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251431"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251639"><span class="annot"><span class="annottext">Maybe POSIX
 deletionDate :: Maybe POSIX
 $sel:deletionDate:ScheduleKeyDeletionResponse' :: ScheduleKeyDeletionResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679251431"><span class="hs-identifier hs-var hs-var">deletionDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679251431"><span class="hs-identifier hs-var">deletionDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251430"><span class="annot"><span class="annottext">s :: ScheduleKeyDeletionResponse
-</span><a href="#local-6989586621679251430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251429"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679251429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse
-</span><a href="#local-6989586621679251430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletionDate:ScheduleKeyDeletionResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679251639"><span class="hs-identifier hs-var hs-var">deletionDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679251639"><span class="hs-identifier hs-var">deletionDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251638"><span class="annot"><span class="annottext">s :: ScheduleKeyDeletionResponse
+</span><a href="#local-6989586621679251638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251637"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679251637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse
+</span><a href="#local-6989586621679251638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deletionDate:ScheduleKeyDeletionResponse' :: Maybe POSIX
 </span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3AdeletionDate%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var">deletionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679251429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679251637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ScheduleKeyDeletionResponse -&gt; f ScheduleKeyDeletionResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -749,32 +756,34 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-357"></span><span>
-</span><span id="line-358"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
-</span><span id="line-359"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN&gt;)</span><span>
-</span><span id="line-360"></span><span class="hs-comment">-- of the KMS key whose deletion is scheduled.</span><span>
-</span><span id="line-361"></span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_keyId"><span class="hs-identifier hs-type">scheduleKeyDeletionResponse_keyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-362"></span><span id="scheduleKeyDeletionResponse_keyId"><span class="annot"><span class="annottext">scheduleKeyDeletionResponse_keyId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-355"></span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- | The waiting period before the KMS key is deleted.</span><span>
+</span><span id="line-357"></span><span class="hs-comment">--</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- If the KMS key is a multi-Region primary key with replicas, the waiting</span><span>
+</span><span id="line-359"></span><span class="hs-comment">-- period begins when the last of its replica keys is deleted. Otherwise,</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- the waiting period begins immediately.</span><span>
+</span><span id="line-361"></span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_pendingWindowInDays"><span class="hs-identifier hs-type">scheduleKeyDeletionResponse_pendingWindowInDays</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-362"></span><span id="scheduleKeyDeletionResponse_pendingWindowInDays"><span class="annot"><span class="annottext">scheduleKeyDeletionResponse_pendingWindowInDays :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; ScheduleKeyDeletionResponse -&gt; f ScheduleKeyDeletionResponse
-</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_keyId"><span class="hs-identifier hs-var hs-var">scheduleKeyDeletionResponse_keyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleKeyDeletionResponse -&gt; Maybe Text)
+</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_pendingWindowInDays"><span class="hs-identifier hs-var hs-var">scheduleKeyDeletionResponse_pendingWindowInDays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduleKeyDeletionResponse -&gt; Maybe Natural)
 -&gt; (ScheduleKeyDeletionResponse
-    -&gt; Maybe Text -&gt; ScheduleKeyDeletionResponse)
+    -&gt; Maybe Natural -&gt; ScheduleKeyDeletionResponse)
 -&gt; Lens
      ScheduleKeyDeletionResponse
      ScheduleKeyDeletionResponse
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe Natural)
+     (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251425"><span class="annot"><span class="annottext">Maybe Text
-keyId :: Maybe Text
-$sel:keyId:ScheduleKeyDeletionResponse' :: ScheduleKeyDeletionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679251425"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251425"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251424"><span class="annot"><span class="annottext">s :: ScheduleKeyDeletionResponse
-</span><a href="#local-6989586621679251424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251423"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse
-</span><a href="#local-6989586621679251424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:ScheduleKeyDeletionResponse' :: Maybe Text
-</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3AkeyId%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251633"><span class="annot"><span class="annottext">Maybe Natural
+pendingWindowInDays :: Maybe Natural
+$sel:pendingWindowInDays:ScheduleKeyDeletionResponse' :: ScheduleKeyDeletionResponse -&gt; Maybe Natural
+</span><a href="#local-6989586621679251633"><span class="hs-identifier hs-var hs-var">pendingWindowInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679251633"><span class="hs-identifier hs-var">pendingWindowInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251632"><span class="annot"><span class="annottext">s :: ScheduleKeyDeletionResponse
+</span><a href="#local-6989586621679251632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251631"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679251631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse
+</span><a href="#local-6989586621679251632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingWindowInDays:ScheduleKeyDeletionResponse' :: Maybe Natural
+</span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3ApendingWindowInDays%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var">pendingWindowInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679251631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-363"></span><span>
 </span><span id="line-364"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-365"></span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#scheduleKeyDeletionResponse_httpStatus"><span class="hs-identifier hs-type">scheduleKeyDeletionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -786,16 +795,16 @@ $sel:keyId:ScheduleKeyDeletionResponse' :: ScheduleKeyDeletionResponse -&gt; May
 -&gt; Lens
      ScheduleKeyDeletionResponse ScheduleKeyDeletionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251422"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251630"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ScheduleKeyDeletionResponse' :: ScheduleKeyDeletionResponse -&gt; Int
-</span><a href="#local-6989586621679251422"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251422"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251421"><span class="annot"><span class="annottext">s :: ScheduleKeyDeletionResponse
-</span><a href="#local-6989586621679251421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251420"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse
-</span><a href="#local-6989586621679251421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ScheduleKeyDeletionResponse' :: Int
+</span><a href="#local-6989586621679251630"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251630"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251629"><span class="annot"><span class="annottext">s :: ScheduleKeyDeletionResponse
+</span><a href="#local-6989586621679251629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251628"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduleKeyDeletionResponse
+</span><a href="#local-6989586621679251629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ScheduleKeyDeletionResponse' :: Int
 </span><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#%24sel%3AhttpStatus%3AScheduleKeyDeletionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679251420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-367"></span><span>
-</span><span id="line-368"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251418"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span></span><span>
+</span><span id="line-368"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251626"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ScheduleKeyDeletion.html#ScheduleKeyDeletionResponse"><span class="hs-identifier hs-type">ScheduleKeyDeletionResponse</span></a></span></span><span>
 </span><span id="line-369"></span></pre></body></html>

@@ -28,20 +28,20 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Schedule of the campaign.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInAppCampaignSchedule' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679611446"><span id="local-6989586621679611447"></span></span><span class="hs-keyword">data</span><span> </span><span id="InAppCampaignSchedule"><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-var">InAppCampaignSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InAppCampaignSchedule%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule%27"><span class="hs-identifier hs-var">InAppCampaignSchedule'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The event filter the SDK has to use to show the in-app message in the</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- application.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AeventFilter%3AInAppCampaignSchedule%27"><span class="annot"><span class="annottext">InAppCampaignSchedule -&gt; Maybe CampaignEventFilter
-</span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#%24sel%3AeventFilter%3AInAppCampaignSchedule%27"><span class="hs-identifier hs-var hs-var">eventFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEventFilter.html#CampaignEventFilter"><span class="hs-identifier hs-type">CampaignEventFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679611939"><span id="local-6989586621679611940"></span></span><span class="hs-keyword">data</span><span> </span><span id="InAppCampaignSchedule"><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-var">InAppCampaignSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InAppCampaignSchedule%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule%27"><span class="hs-identifier hs-var">InAppCampaignSchedule'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The scheduled time after which the in-app message should not be shown.</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Timestamp is in ISO 8601 format.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AendDate%3AInAppCampaignSchedule%27"><span class="annot"><span class="annottext">InAppCampaignSchedule -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#%24sel%3AendDate%3AInAppCampaignSchedule%27"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Time during which the in-app message should not be shown to the user.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AquietTime%3AInAppCampaignSchedule%27"><span class="annot"><span class="annottext">InAppCampaignSchedule -&gt; Maybe QuietTime
 </span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#%24sel%3AquietTime%3AInAppCampaignSchedule%27"><span class="hs-identifier hs-var hs-var">quietTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.QuietTime.html#QuietTime"><span class="hs-identifier hs-type">QuietTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The scheduled time after which the in-app message should not be shown.</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Timestamp is in ISO 8601 format.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AendDate%3AInAppCampaignSchedule%27"><span class="annot"><span class="annottext">InAppCampaignSchedule -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#%24sel%3AendDate%3AInAppCampaignSchedule%27"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The event filter the SDK has to use to show the in-app message in the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AeventFilter%3AInAppCampaignSchedule%27"><span class="annot"><span class="annottext">InAppCampaignSchedule -&gt; Maybe CampaignEventFilter
+</span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#%24sel%3AeventFilter%3AInAppCampaignSchedule%27"><span class="hs-identifier hs-var hs-var">eventFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEventFilter.html#CampaignEventFilter"><span class="hs-identifier hs-type">CampaignEventFilter</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679611438"><span id="local-6989586621679611440"><span class="annot"><span class="annottext">InAppCampaignSchedule -&gt; InAppCampaignSchedule -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679611931"><span id="local-6989586621679611933"><span class="annot"><span class="annottext">InAppCampaignSchedule -&gt; InAppCampaignSchedule -&gt; Bool
 (InAppCampaignSchedule -&gt; InAppCampaignSchedule -&gt; Bool)
 -&gt; (InAppCampaignSchedule -&gt; InAppCampaignSchedule -&gt; Bool)
 -&gt; Eq InAppCampaignSchedule
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InAppCampaignSchedule -&gt; InAppCampaignSchedule -&gt; Bool
 == :: InAppCampaignSchedule -&gt; InAppCampaignSchedule -&gt; Bool
 $c== :: InAppCampaignSchedule -&gt; InAppCampaignSchedule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611429"><span id="local-6989586621679611431"><span id="local-6989586621679611433"><span id="local-6989586621679611435"><span class="annot"><span class="annottext">ReadPrec [InAppCampaignSchedule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611922"><span id="local-6989586621679611924"><span id="local-6989586621679611926"><span id="local-6989586621679611928"><span class="annot"><span class="annottext">ReadPrec [InAppCampaignSchedule]
 ReadPrec InAppCampaignSchedule
 Int -&gt; ReadS InAppCampaignSchedule
 ReadS [InAppCampaignSchedule]
@@ -70,7 +70,7 @@ readList :: ReadS [InAppCampaignSchedule]
 $creadList :: ReadS [InAppCampaignSchedule]
 readsPrec :: Int -&gt; ReadS InAppCampaignSchedule
 $creadsPrec :: Int -&gt; ReadS InAppCampaignSchedule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611422"><span id="local-6989586621679611424"><span id="local-6989586621679611426"><span class="annot"><span class="annottext">Int -&gt; InAppCampaignSchedule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679611915"><span id="local-6989586621679611917"><span id="local-6989586621679611919"><span class="annot"><span class="annottext">Int -&gt; InAppCampaignSchedule -&gt; ShowS
 [InAppCampaignSchedule] -&gt; ShowS
 InAppCampaignSchedule -&gt; String
 (Int -&gt; InAppCampaignSchedule -&gt; ShowS)
@@ -104,63 +104,63 @@ $cfrom :: forall x. InAppCampaignSchedule -&gt; Rep InAppCampaignSchedule x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'eventFilter', 'inAppCampaignSchedule_eventFilter' - The event filter the SDK has to use to show the in-app message in the</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'endDate', 'inAppCampaignSchedule_endDate' - The scheduled time after which the in-app message should not be shown.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Timestamp is in ISO 8601 format.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- 'quietTime', 'inAppCampaignSchedule_quietTime' - Time during which the in-app message should not be shown to the user.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'endDate', 'inAppCampaignSchedule_endDate' - The scheduled time after which the in-app message should not be shown.</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- Timestamp is in ISO 8601 format.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'eventFilter', 'inAppCampaignSchedule_eventFilter' - The event filter the SDK has to use to show the in-app message in the</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- application.</span><span>
 </span><span id="line-58"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#newInAppCampaignSchedule"><span class="hs-identifier hs-type">newInAppCampaignSchedule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span><span>
 </span><span id="line-60"></span><span id="newInAppCampaignSchedule"><span class="annot"><span class="annottext">newInAppCampaignSchedule :: InAppCampaignSchedule
 </span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#newInAppCampaignSchedule"><span class="hs-identifier hs-var hs-var">newInAppCampaignSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">InAppCampaignSchedule' :: Maybe CampaignEventFilter
--&gt; Maybe QuietTime -&gt; Maybe Text -&gt; InAppCampaignSchedule
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">InAppCampaignSchedule' :: Maybe Text
+-&gt; Maybe QuietTime
+-&gt; Maybe CampaignEventFilter
+-&gt; InAppCampaignSchedule
 </span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule%27"><span class="hs-identifier hs-type">InAppCampaignSchedule'</span></a></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventFilter:InAppCampaignSchedule' :: Maybe CampaignEventFilter
-</span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#%24sel%3AeventFilter%3AInAppCampaignSchedule%27"><span class="hs-identifier hs-var">eventFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe CampaignEventFilter
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endDate:InAppCampaignSchedule' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#%24sel%3AendDate%3AInAppCampaignSchedule%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:quietTime:InAppCampaignSchedule' :: Maybe QuietTime
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:quietTime:InAppCampaignSchedule' :: Maybe QuietTime
 </span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#%24sel%3AquietTime%3AInAppCampaignSchedule%27"><span class="hs-identifier hs-var">quietTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QuietTime
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:endDate:InAppCampaignSchedule' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#%24sel%3AendDate%3AInAppCampaignSchedule%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventFilter:InAppCampaignSchedule' :: Maybe CampaignEventFilter
+</span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#%24sel%3AeventFilter%3AInAppCampaignSchedule%27"><span class="hs-identifier hs-var">eventFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CampaignEventFilter
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | The event filter the SDK has to use to show the in-app message in the</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- application.</span><span>
-</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#inAppCampaignSchedule_eventFilter"><span class="hs-identifier hs-type">inAppCampaignSchedule_eventFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEventFilter.html#CampaignEventFilter"><span class="hs-identifier hs-type">CampaignEventFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span id="inAppCampaignSchedule_eventFilter"><span class="annot"><span class="annottext">inAppCampaignSchedule_eventFilter :: (Maybe CampaignEventFilter -&gt; f (Maybe CampaignEventFilter))
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The scheduled time after which the in-app message should not be shown.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Timestamp is in ISO 8601 format.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#inAppCampaignSchedule_endDate"><span class="hs-identifier hs-type">inAppCampaignSchedule_endDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="inAppCampaignSchedule_endDate"><span class="annot"><span class="annottext">inAppCampaignSchedule_endDate :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; InAppCampaignSchedule -&gt; f InAppCampaignSchedule
-</span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#inAppCampaignSchedule_eventFilter"><span class="hs-identifier hs-var hs-var">inAppCampaignSchedule_eventFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppCampaignSchedule -&gt; Maybe CampaignEventFilter)
--&gt; (InAppCampaignSchedule
-    -&gt; Maybe CampaignEventFilter -&gt; InAppCampaignSchedule)
+</span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#inAppCampaignSchedule_endDate"><span class="hs-identifier hs-var hs-var">inAppCampaignSchedule_endDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppCampaignSchedule -&gt; Maybe Text)
+-&gt; (InAppCampaignSchedule -&gt; Maybe Text -&gt; InAppCampaignSchedule)
 -&gt; Lens
      InAppCampaignSchedule
      InAppCampaignSchedule
-     (Maybe CampaignEventFilter)
-     (Maybe CampaignEventFilter)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule%27"><span class="hs-identifier hs-type">InAppCampaignSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611413"><span class="annot"><span class="annottext">Maybe CampaignEventFilter
-eventFilter :: Maybe CampaignEventFilter
-$sel:eventFilter:InAppCampaignSchedule' :: InAppCampaignSchedule -&gt; Maybe CampaignEventFilter
-</span><a href="#local-6989586621679611413"><span class="hs-identifier hs-var hs-var">eventFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CampaignEventFilter
-</span><a href="#local-6989586621679611413"><span class="hs-identifier hs-var">eventFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611412"><span class="annot"><span class="annottext">s :: InAppCampaignSchedule
-</span><a href="#local-6989586621679611412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule%27"><span class="hs-identifier hs-type">InAppCampaignSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611411"><span class="annot"><span class="annottext">Maybe CampaignEventFilter
-</span><a href="#local-6989586621679611411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppCampaignSchedule
-</span><a href="#local-6989586621679611412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventFilter:InAppCampaignSchedule' :: Maybe CampaignEventFilter
-</span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#%24sel%3AeventFilter%3AInAppCampaignSchedule%27"><span class="hs-identifier hs-var">eventFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CampaignEventFilter
-</span><a href="#local-6989586621679611411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | Time during which the in-app message should not be shown to the user.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#inAppCampaignSchedule_quietTime"><span class="hs-identifier hs-type">inAppCampaignSchedule_quietTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.QuietTime.html#QuietTime"><span class="hs-identifier hs-type">QuietTime</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="inAppCampaignSchedule_quietTime"><span class="annot"><span class="annottext">inAppCampaignSchedule_quietTime :: (Maybe QuietTime -&gt; f (Maybe QuietTime))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule%27"><span class="hs-identifier hs-type">InAppCampaignSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611906"><span class="annot"><span class="annottext">Maybe Text
+endDate :: Maybe Text
+$sel:endDate:InAppCampaignSchedule' :: InAppCampaignSchedule -&gt; Maybe Text
+</span><a href="#local-6989586621679611906"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679611906"><span class="hs-identifier hs-var">endDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611905"><span class="annot"><span class="annottext">s :: InAppCampaignSchedule
+</span><a href="#local-6989586621679611905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule%27"><span class="hs-identifier hs-type">InAppCampaignSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611904"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679611904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppCampaignSchedule
+</span><a href="#local-6989586621679611905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDate:InAppCampaignSchedule' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#%24sel%3AendDate%3AInAppCampaignSchedule%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679611904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Time during which the in-app message should not be shown to the user.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#inAppCampaignSchedule_quietTime"><span class="hs-identifier hs-type">inAppCampaignSchedule_quietTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.QuietTime.html#QuietTime"><span class="hs-identifier hs-type">QuietTime</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="inAppCampaignSchedule_quietTime"><span class="annot"><span class="annottext">inAppCampaignSchedule_quietTime :: (Maybe QuietTime -&gt; f (Maybe QuietTime))
 -&gt; InAppCampaignSchedule -&gt; f InAppCampaignSchedule
 </span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#inAppCampaignSchedule_quietTime"><span class="hs-identifier hs-var hs-var">inAppCampaignSchedule_quietTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppCampaignSchedule -&gt; Maybe QuietTime)
 -&gt; (InAppCampaignSchedule
@@ -171,87 +171,97 @@ $sel:eventFilter:InAppCampaignSchedule' :: InAppCampaignSchedule -&gt; Maybe Cam
      (Maybe QuietTime)
      (Maybe QuietTime)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule%27"><span class="hs-identifier hs-type">InAppCampaignSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611409"><span class="annot"><span class="annottext">Maybe QuietTime
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule%27"><span class="hs-identifier hs-type">InAppCampaignSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611902"><span class="annot"><span class="annottext">Maybe QuietTime
 quietTime :: Maybe QuietTime
 $sel:quietTime:InAppCampaignSchedule' :: InAppCampaignSchedule -&gt; Maybe QuietTime
-</span><a href="#local-6989586621679611409"><span class="hs-identifier hs-var hs-var">quietTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QuietTime
-</span><a href="#local-6989586621679611409"><span class="hs-identifier hs-var">quietTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611408"><span class="annot"><span class="annottext">s :: InAppCampaignSchedule
-</span><a href="#local-6989586621679611408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule%27"><span class="hs-identifier hs-type">InAppCampaignSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611407"><span class="annot"><span class="annottext">Maybe QuietTime
-</span><a href="#local-6989586621679611407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppCampaignSchedule
-</span><a href="#local-6989586621679611408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quietTime:InAppCampaignSchedule' :: Maybe QuietTime
+</span><a href="#local-6989586621679611902"><span class="hs-identifier hs-var hs-var">quietTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QuietTime
+</span><a href="#local-6989586621679611902"><span class="hs-identifier hs-var">quietTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611901"><span class="annot"><span class="annottext">s :: InAppCampaignSchedule
+</span><a href="#local-6989586621679611901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule%27"><span class="hs-identifier hs-type">InAppCampaignSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611900"><span class="annot"><span class="annottext">Maybe QuietTime
+</span><a href="#local-6989586621679611900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppCampaignSchedule
+</span><a href="#local-6989586621679611901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quietTime:InAppCampaignSchedule' :: Maybe QuietTime
 </span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#%24sel%3AquietTime%3AInAppCampaignSchedule%27"><span class="hs-identifier hs-var">quietTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QuietTime
-</span><a href="#local-6989586621679611407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | The scheduled time after which the in-app message should not be shown.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- Timestamp is in ISO 8601 format.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#inAppCampaignSchedule_endDate"><span class="hs-identifier hs-type">inAppCampaignSchedule_endDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="inAppCampaignSchedule_endDate"><span class="annot"><span class="annottext">inAppCampaignSchedule_endDate :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679611900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The event filter the SDK has to use to show the in-app message in the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#inAppCampaignSchedule_eventFilter"><span class="hs-identifier hs-type">inAppCampaignSchedule_eventFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignEventFilter.html#CampaignEventFilter"><span class="hs-identifier hs-type">CampaignEventFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="inAppCampaignSchedule_eventFilter"><span class="annot"><span class="annottext">inAppCampaignSchedule_eventFilter :: (Maybe CampaignEventFilter -&gt; f (Maybe CampaignEventFilter))
 -&gt; InAppCampaignSchedule -&gt; f InAppCampaignSchedule
-</span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#inAppCampaignSchedule_endDate"><span class="hs-identifier hs-var hs-var">inAppCampaignSchedule_endDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppCampaignSchedule -&gt; Maybe Text)
--&gt; (InAppCampaignSchedule -&gt; Maybe Text -&gt; InAppCampaignSchedule)
+</span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#inAppCampaignSchedule_eventFilter"><span class="hs-identifier hs-var hs-var">inAppCampaignSchedule_eventFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppCampaignSchedule -&gt; Maybe CampaignEventFilter)
+-&gt; (InAppCampaignSchedule
+    -&gt; Maybe CampaignEventFilter -&gt; InAppCampaignSchedule)
 -&gt; Lens
      InAppCampaignSchedule
      InAppCampaignSchedule
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe CampaignEventFilter)
+     (Maybe CampaignEventFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule%27"><span class="hs-identifier hs-type">InAppCampaignSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611405"><span class="annot"><span class="annottext">Maybe Text
-endDate :: Maybe Text
-$sel:endDate:InAppCampaignSchedule' :: InAppCampaignSchedule -&gt; Maybe Text
-</span><a href="#local-6989586621679611405"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611405"><span class="hs-identifier hs-var">endDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611404"><span class="annot"><span class="annottext">s :: InAppCampaignSchedule
-</span><a href="#local-6989586621679611404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule%27"><span class="hs-identifier hs-type">InAppCampaignSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611403"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppCampaignSchedule
-</span><a href="#local-6989586621679611404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDate:InAppCampaignSchedule' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#%24sel%3AendDate%3AInAppCampaignSchedule%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679611403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611400"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679611398"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InAppCampaignSchedule
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule%27"><span class="hs-identifier hs-type">InAppCampaignSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679611898"><span class="annot"><span class="annottext">Maybe CampaignEventFilter
+eventFilter :: Maybe CampaignEventFilter
+$sel:eventFilter:InAppCampaignSchedule' :: InAppCampaignSchedule -&gt; Maybe CampaignEventFilter
+</span><a href="#local-6989586621679611898"><span class="hs-identifier hs-var hs-var">eventFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CampaignEventFilter
+</span><a href="#local-6989586621679611898"><span class="hs-identifier hs-var">eventFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679611897"><span class="annot"><span class="annottext">s :: InAppCampaignSchedule
+</span><a href="#local-6989586621679611897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule%27"><span class="hs-identifier hs-type">InAppCampaignSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679611896"><span class="annot"><span class="annottext">Maybe CampaignEventFilter
+</span><a href="#local-6989586621679611896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppCampaignSchedule
+</span><a href="#local-6989586621679611897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventFilter:InAppCampaignSchedule' :: Maybe CampaignEventFilter
+</span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#%24sel%3AeventFilter%3AInAppCampaignSchedule%27"><span class="hs-identifier hs-var">eventFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CampaignEventFilter
+</span><a href="#local-6989586621679611896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611893"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679611891"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InAppCampaignSchedule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InAppCampaignSchedule)
 -&gt; Value
 -&gt; Parser InAppCampaignSchedule
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InAppCampaignSchedule&quot;</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679611395"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611395"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe CampaignEventFilter
--&gt; Maybe QuietTime -&gt; Maybe Text -&gt; InAppCampaignSchedule
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679611888"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679611888"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe QuietTime
+-&gt; Maybe CampaignEventFilter
+-&gt; InAppCampaignSchedule
 </span><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule%27"><span class="hs-identifier hs-var">InAppCampaignSchedule'</span></a></span><span>
-</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CampaignEventFilter
- -&gt; Maybe QuietTime -&gt; Maybe Text -&gt; InAppCampaignSchedule)
--&gt; Parser (Maybe CampaignEventFilter)
--&gt; Parser (Maybe QuietTime -&gt; Maybe Text -&gt; InAppCampaignSchedule)
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe QuietTime
+ -&gt; Maybe CampaignEventFilter
+ -&gt; InAppCampaignSchedule)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe QuietTime
+      -&gt; Maybe CampaignEventFilter -&gt; InAppCampaignSchedule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CampaignEventFilter)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EventFilter&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe QuietTime -&gt; Maybe Text -&gt; InAppCampaignSchedule)
--&gt; Parser (Maybe QuietTime)
--&gt; Parser (Maybe Text -&gt; InAppCampaignSchedule)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe QuietTime)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;QuietTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; InAppCampaignSchedule)
--&gt; Parser (Maybe Text) -&gt; Parser InAppCampaignSchedule
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679611395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679611888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611389"><span id="local-6989586621679611391"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span></span></span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611386"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span></span><span>
-</span><span id="line-96"></span></pre></body></html>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe QuietTime
+   -&gt; Maybe CampaignEventFilter -&gt; InAppCampaignSchedule)
+-&gt; Parser (Maybe QuietTime)
+-&gt; Parser (Maybe CampaignEventFilter -&gt; InAppCampaignSchedule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679611888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe QuietTime)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QuietTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe CampaignEventFilter -&gt; InAppCampaignSchedule)
+-&gt; Parser (Maybe CampaignEventFilter)
+-&gt; Parser InAppCampaignSchedule
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679611888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CampaignEventFilter)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventFilter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611882"><span id="local-6989586621679611884"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679611879"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppCampaignSchedule.html#InAppCampaignSchedule"><span class="hs-identifier hs-type">InAppCampaignSchedule</span></a></span></span><span>
+</span><span id="line-95"></span></pre></body></html>

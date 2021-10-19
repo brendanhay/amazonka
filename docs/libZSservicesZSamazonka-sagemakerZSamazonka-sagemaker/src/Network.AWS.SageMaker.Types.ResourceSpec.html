@@ -28,22 +28,22 @@
 </span><span id="line-28"></span><span class="hs-comment">-- and the instance type that the version runs on.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newResourceSpec' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680336803"><span id="local-6989586621680336804"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceSpec"><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-var">ResourceSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceSpec%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-var">ResourceSpec'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680338213"><span id="local-6989586621680338214"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceSpec"><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-var">ResourceSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceSpec%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-var">ResourceSpec'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The instance type that the image version runs on.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AinstanceType%3AResourceSpec%27"><span class="annot"><span class="annottext">ResourceSpec -&gt; Maybe AppInstanceType
 </span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#%24sel%3AinstanceType%3AResourceSpec%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AppInstanceType.html#AppInstanceType"><span class="hs-identifier hs-type">AppInstanceType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ARN of the SageMaker image that the image version belongs to.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AsageMakerImageArn%3AResourceSpec%27"><span class="annot"><span class="annottext">ResourceSpec -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#%24sel%3AsageMakerImageArn%3AResourceSpec%27"><span class="hs-identifier hs-var hs-var">sageMakerImageArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Lifecycle Configuration attached</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- to the Resource.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlifecycleConfigArn%3AResourceSpec%27"><span class="annot"><span class="annottext">ResourceSpec -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#%24sel%3AlifecycleConfigArn%3AResourceSpec%27"><span class="hs-identifier hs-var hs-var">lifecycleConfigArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ARN of the image version created on the instance.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AsageMakerImageVersionArn%3AResourceSpec%27"><span class="annot"><span class="annottext">ResourceSpec -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#%24sel%3AsageMakerImageVersionArn%3AResourceSpec%27"><span class="hs-identifier hs-var hs-var">sageMakerImageVersionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ARN of the image version created on the instance.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsageMakerImageVersionArn%3AResourceSpec%27"><span class="annot"><span class="annottext">ResourceSpec -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#%24sel%3AsageMakerImageVersionArn%3AResourceSpec%27"><span class="hs-identifier hs-var hs-var">sageMakerImageVersionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Lifecycle Configuration attached</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- to the Resource.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlifecycleConfigArn%3AResourceSpec%27"><span class="annot"><span class="annottext">ResourceSpec -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#%24sel%3AlifecycleConfigArn%3AResourceSpec%27"><span class="hs-identifier hs-var hs-var">lifecycleConfigArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680336794"><span id="local-6989586621680336796"><span class="annot"><span class="annottext">ResourceSpec -&gt; ResourceSpec -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680338204"><span id="local-6989586621680338206"><span class="annot"><span class="annottext">ResourceSpec -&gt; ResourceSpec -&gt; Bool
 (ResourceSpec -&gt; ResourceSpec -&gt; Bool)
 -&gt; (ResourceSpec -&gt; ResourceSpec -&gt; Bool) -&gt; Eq ResourceSpec
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceSpec -&gt; ResourceSpec -&gt; Bool
 == :: ResourceSpec -&gt; ResourceSpec -&gt; Bool
 $c== :: ResourceSpec -&gt; ResourceSpec -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680336785"><span id="local-6989586621680336787"><span id="local-6989586621680336789"><span id="local-6989586621680336791"><span class="annot"><span class="annottext">ReadPrec [ResourceSpec]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680338195"><span id="local-6989586621680338197"><span id="local-6989586621680338199"><span id="local-6989586621680338201"><span class="annot"><span class="annottext">ReadPrec [ResourceSpec]
 ReadPrec ResourceSpec
 Int -&gt; ReadS ResourceSpec
 ReadS [ResourceSpec]
@@ -71,7 +71,7 @@ readList :: ReadS [ResourceSpec]
 $creadList :: ReadS [ResourceSpec]
 readsPrec :: Int -&gt; ReadS ResourceSpec
 $creadsPrec :: Int -&gt; ReadS ResourceSpec
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680336778"><span id="local-6989586621680336780"><span id="local-6989586621680336782"><span class="annot"><span class="annottext">Int -&gt; ResourceSpec -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680338188"><span id="local-6989586621680338190"><span id="local-6989586621680338192"><span class="annot"><span class="annottext">Int -&gt; ResourceSpec -&gt; ShowS
 [ResourceSpec] -&gt; ShowS
 ResourceSpec -&gt; String
 (Int -&gt; ResourceSpec -&gt; ShowS)
@@ -109,10 +109,10 @@ $cfrom :: forall x. ResourceSpec -&gt; Rep ResourceSpec x
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- 'sageMakerImageArn', 'resourceSpec_sageMakerImageArn' - The ARN of the SageMaker image that the image version belongs to.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'lifecycleConfigArn', 'resourceSpec_lifecycleConfigArn' - The Amazon Resource Name (ARN) of the Lifecycle Configuration attached</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- to the Resource.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'sageMakerImageVersionArn', 'resourceSpec_sageMakerImageVersionArn' - The ARN of the image version created on the instance.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'sageMakerImageVersionArn', 'resourceSpec_sageMakerImageVersionArn' - The ARN of the image version created on the instance.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'lifecycleConfigArn', 'resourceSpec_lifecycleConfigArn' - The Amazon Resource Name (ARN) of the Lifecycle Configuration attached</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- to the Resource.</span><span>
 </span><span id="line-60"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#newResourceSpec"><span class="hs-identifier hs-type">newResourceSpec</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span><span>
 </span><span id="line-62"></span><span id="newResourceSpec"><span class="annot"><span class="annottext">newResourceSpec :: ResourceSpec
@@ -128,12 +128,12 @@ forall a. Maybe a
 </span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#%24sel%3AsageMakerImageArn%3AResourceSpec%27"><span class="hs-identifier hs-var">sageMakerImageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:lifecycleConfigArn:ResourceSpec' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#%24sel%3AlifecycleConfigArn%3AResourceSpec%27"><span class="hs-identifier hs-var">lifecycleConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:sageMakerImageVersionArn:ResourceSpec' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#%24sel%3AsageMakerImageVersionArn%3AResourceSpec%27"><span class="hs-identifier hs-var">sageMakerImageVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:sageMakerImageVersionArn:ResourceSpec' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#%24sel%3AsageMakerImageVersionArn%3AResourceSpec%27"><span class="hs-identifier hs-var">sageMakerImageVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:lifecycleConfigArn:ResourceSpec' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#%24sel%3AlifecycleConfigArn%3AResourceSpec%27"><span class="hs-identifier hs-var">lifecycleConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
@@ -150,16 +150,16 @@ forall a. Maybe a
      (Maybe AppInstanceType)
      (Maybe AppInstanceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-type">ResourceSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336769"><span class="annot"><span class="annottext">Maybe AppInstanceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-type">ResourceSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338179"><span class="annot"><span class="annottext">Maybe AppInstanceType
 instanceType :: Maybe AppInstanceType
 $sel:instanceType:ResourceSpec' :: ResourceSpec -&gt; Maybe AppInstanceType
-</span><a href="#local-6989586621680336769"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppInstanceType
-</span><a href="#local-6989586621680336769"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336768"><span class="annot"><span class="annottext">s :: ResourceSpec
-</span><a href="#local-6989586621680336768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-type">ResourceSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336767"><span class="annot"><span class="annottext">Maybe AppInstanceType
-</span><a href="#local-6989586621680336767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSpec
-</span><a href="#local-6989586621680336768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:ResourceSpec' :: Maybe AppInstanceType
+</span><a href="#local-6989586621680338179"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppInstanceType
+</span><a href="#local-6989586621680338179"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680338178"><span class="annot"><span class="annottext">s :: ResourceSpec
+</span><a href="#local-6989586621680338178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-type">ResourceSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680338177"><span class="annot"><span class="annottext">Maybe AppInstanceType
+</span><a href="#local-6989586621680338177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSpec
+</span><a href="#local-6989586621680338178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:ResourceSpec' :: Maybe AppInstanceType
 </span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#%24sel%3AinstanceType%3AResourceSpec%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppInstanceType
-</span><a href="#local-6989586621680336767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680338177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The ARN of the SageMaker image that the image version belongs to.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#resourceSpec_sageMakerImageArn"><span class="hs-identifier hs-type">resourceSpec_sageMakerImageArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -168,56 +168,56 @@ $sel:instanceType:ResourceSpec' :: ResourceSpec -&gt; Maybe AppInstanceType
 -&gt; (ResourceSpec -&gt; Maybe Text -&gt; ResourceSpec)
 -&gt; Lens ResourceSpec ResourceSpec (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-type">ResourceSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336765"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-type">ResourceSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338175"><span class="annot"><span class="annottext">Maybe Text
 sageMakerImageArn :: Maybe Text
 $sel:sageMakerImageArn:ResourceSpec' :: ResourceSpec -&gt; Maybe Text
-</span><a href="#local-6989586621680336765"><span class="hs-identifier hs-var hs-var">sageMakerImageArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680336765"><span class="hs-identifier hs-var">sageMakerImageArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336764"><span class="annot"><span class="annottext">s :: ResourceSpec
-</span><a href="#local-6989586621680336764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-type">ResourceSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336763"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680336763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSpec
-</span><a href="#local-6989586621680336764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sageMakerImageArn:ResourceSpec' :: Maybe Text
+</span><a href="#local-6989586621680338175"><span class="hs-identifier hs-var hs-var">sageMakerImageArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680338175"><span class="hs-identifier hs-var">sageMakerImageArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680338174"><span class="annot"><span class="annottext">s :: ResourceSpec
+</span><a href="#local-6989586621680338174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-type">ResourceSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680338173"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680338173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSpec
+</span><a href="#local-6989586621680338174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sageMakerImageArn:ResourceSpec' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#%24sel%3AsageMakerImageArn%3AResourceSpec%27"><span class="hs-identifier hs-var">sageMakerImageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680336763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680338173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Lifecycle Configuration attached</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- to the Resource.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#resourceSpec_lifecycleConfigArn"><span class="hs-identifier hs-type">resourceSpec_lifecycleConfigArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="resourceSpec_lifecycleConfigArn"><span class="annot"><span class="annottext">resourceSpec_lifecycleConfigArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ResourceSpec -&gt; f ResourceSpec
-</span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#resourceSpec_lifecycleConfigArn"><span class="hs-identifier hs-var hs-var">resourceSpec_lifecycleConfigArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceSpec -&gt; Maybe Text)
--&gt; (ResourceSpec -&gt; Maybe Text -&gt; ResourceSpec)
--&gt; Lens ResourceSpec ResourceSpec (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-type">ResourceSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336761"><span class="annot"><span class="annottext">Maybe Text
-lifecycleConfigArn :: Maybe Text
-$sel:lifecycleConfigArn:ResourceSpec' :: ResourceSpec -&gt; Maybe Text
-</span><a href="#local-6989586621680336761"><span class="hs-identifier hs-var hs-var">lifecycleConfigArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680336761"><span class="hs-identifier hs-var">lifecycleConfigArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336760"><span class="annot"><span class="annottext">s :: ResourceSpec
-</span><a href="#local-6989586621680336760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-type">ResourceSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336759"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680336759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSpec
-</span><a href="#local-6989586621680336760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecycleConfigArn:ResourceSpec' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#%24sel%3AlifecycleConfigArn%3AResourceSpec%27"><span class="hs-identifier hs-var">lifecycleConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680336759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | The ARN of the image version created on the instance.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#resourceSpec_sageMakerImageVersionArn"><span class="hs-identifier hs-type">resourceSpec_sageMakerImageVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="resourceSpec_sageMakerImageVersionArn"><span class="annot"><span class="annottext">resourceSpec_sageMakerImageVersionArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ResourceSpec -&gt; f ResourceSpec
+</span><span id="line-78"></span><span class="hs-comment">-- | The ARN of the image version created on the instance.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#resourceSpec_sageMakerImageVersionArn"><span class="hs-identifier hs-type">resourceSpec_sageMakerImageVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="resourceSpec_sageMakerImageVersionArn"><span class="annot"><span class="annottext">resourceSpec_sageMakerImageVersionArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ResourceSpec -&gt; f ResourceSpec
 </span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#resourceSpec_sageMakerImageVersionArn"><span class="hs-identifier hs-var hs-var">resourceSpec_sageMakerImageVersionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceSpec -&gt; Maybe Text)
 -&gt; (ResourceSpec -&gt; Maybe Text -&gt; ResourceSpec)
 -&gt; Lens ResourceSpec ResourceSpec (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-type">ResourceSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336757"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-type">ResourceSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338171"><span class="annot"><span class="annottext">Maybe Text
 sageMakerImageVersionArn :: Maybe Text
 $sel:sageMakerImageVersionArn:ResourceSpec' :: ResourceSpec -&gt; Maybe Text
-</span><a href="#local-6989586621680336757"><span class="hs-identifier hs-var hs-var">sageMakerImageVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680336757"><span class="hs-identifier hs-var">sageMakerImageVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680336756"><span class="annot"><span class="annottext">s :: ResourceSpec
-</span><a href="#local-6989586621680336756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-type">ResourceSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680336755"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680336755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSpec
-</span><a href="#local-6989586621680336756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sageMakerImageVersionArn:ResourceSpec' :: Maybe Text
+</span><a href="#local-6989586621680338171"><span class="hs-identifier hs-var hs-var">sageMakerImageVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680338171"><span class="hs-identifier hs-var">sageMakerImageVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680338170"><span class="annot"><span class="annottext">s :: ResourceSpec
+</span><a href="#local-6989586621680338170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-type">ResourceSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680338169"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680338169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSpec
+</span><a href="#local-6989586621680338170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sageMakerImageVersionArn:ResourceSpec' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#%24sel%3AsageMakerImageVersionArn%3AResourceSpec%27"><span class="hs-identifier hs-var">sageMakerImageVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680336755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680338169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Lifecycle Configuration attached</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- to the Resource.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#resourceSpec_lifecycleConfigArn"><span class="hs-identifier hs-type">resourceSpec_lifecycleConfigArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="resourceSpec_lifecycleConfigArn"><span class="annot"><span class="annottext">resourceSpec_lifecycleConfigArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ResourceSpec -&gt; f ResourceSpec
+</span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#resourceSpec_lifecycleConfigArn"><span class="hs-identifier hs-var hs-var">resourceSpec_lifecycleConfigArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceSpec -&gt; Maybe Text)
+-&gt; (ResourceSpec -&gt; Maybe Text -&gt; ResourceSpec)
+-&gt; Lens ResourceSpec ResourceSpec (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-type">ResourceSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338167"><span class="annot"><span class="annottext">Maybe Text
+lifecycleConfigArn :: Maybe Text
+$sel:lifecycleConfigArn:ResourceSpec' :: ResourceSpec -&gt; Maybe Text
+</span><a href="#local-6989586621680338167"><span class="hs-identifier hs-var hs-var">lifecycleConfigArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680338167"><span class="hs-identifier hs-var">lifecycleConfigArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680338166"><span class="annot"><span class="annottext">s :: ResourceSpec
+</span><a href="#local-6989586621680338166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-type">ResourceSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680338165"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680338165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceSpec
+</span><a href="#local-6989586621680338166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecycleConfigArn:ResourceSpec' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#%24sel%3AlifecycleConfigArn%3AResourceSpec%27"><span class="hs-identifier hs-var">lifecycleConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680338165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336752"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621680336750"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceSpec
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680338162"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621680338160"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceSpec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceSpec) -&gt; Value -&gt; Parser ResourceSpec
@@ -225,8 +225,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceSpec&quot;</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680336747"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680336747"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680338157"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680338157"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe AppInstanceType
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ResourceSpec
 </span><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-var">ResourceSpec'</span></a></span><span>
@@ -236,7 +236,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ResourceSpec)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680336747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AppInstanceType)
+</span><a href="#local-6989586621680338157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AppInstanceType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceType&quot;</span></span><span class="hs-special">)</span><span>
@@ -245,7 +245,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ResourceSpec)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680336747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680338157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SageMakerImageArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -253,37 +253,37 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ResourceSpec)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680336747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680338157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LifecycleConfigArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SageMakerImageVersionArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ResourceSpec)
 -&gt; Parser (Maybe Text) -&gt; Parser ResourceSpec
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680336747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680338157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SageMakerImageVersionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LifecycleConfigArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336741"><span id="local-6989586621680336743"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680338151"><span id="local-6989586621680338153"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336738"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680338148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680336730"><span id="local-6989586621680336732"><span id="local-6989586621680336734"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621680336728"><span class="annot"><span class="annottext">toJSON :: ResourceSpec -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-type">ResourceSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680336723"><span id="local-6989586621680336724"><span id="local-6989586621680336725"><span id="local-6989586621680336726"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680338140"><span id="local-6989586621680338142"><span id="local-6989586621680338144"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec"><span class="hs-identifier hs-type">ResourceSpec</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621680338138"><span class="annot"><span class="annottext">toJSON :: ResourceSpec -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ResourceSpec.html#ResourceSpec%27"><span class="hs-identifier hs-type">ResourceSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680338133"><span id="local-6989586621680338134"><span id="local-6989586621680338135"><span id="local-6989586621680338136"><span class="annot"><span class="annottext">Maybe Text
 Maybe AppInstanceType
-sageMakerImageVersionArn :: Maybe Text
 lifecycleConfigArn :: Maybe Text
+sageMakerImageVersionArn :: Maybe Text
 sageMakerImageArn :: Maybe Text
 instanceType :: Maybe AppInstanceType
-$sel:sageMakerImageVersionArn:ResourceSpec' :: ResourceSpec -&gt; Maybe Text
 $sel:lifecycleConfigArn:ResourceSpec' :: ResourceSpec -&gt; Maybe Text
+$sel:sageMakerImageVersionArn:ResourceSpec' :: ResourceSpec -&gt; Maybe Text
 $sel:sageMakerImageArn:ResourceSpec' :: ResourceSpec -&gt; Maybe Text
 $sel:instanceType:ResourceSpec' :: ResourceSpec -&gt; Maybe AppInstanceType
-</span><a href="#local-6989586621680336723"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680338133"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -295,7 +295,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AppInstanceType -&gt; Pair) -&gt; Maybe AppInstanceType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AppInstanceType
-</span><a href="#local-6989586621680336726"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680338136"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SageMakerImageArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -303,23 +303,23 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680336725"><span class="hs-identifier hs-var">sageMakerImageArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680338135"><span class="hs-identifier hs-var">sageMakerImageArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LifecycleConfigArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;SageMakerImageVersionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680336724"><span class="hs-identifier hs-var">lifecycleConfigArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680338134"><span class="hs-identifier hs-var">sageMakerImageVersionArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SageMakerImageVersionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;LifecycleConfigArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680336723"><span class="hs-identifier hs-var">sageMakerImageVersionArn</span></a></span><span>
+</span><a href="#local-6989586621680338133"><span class="hs-identifier hs-var">lifecycleConfigArn</span></a></span><span>
 </span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span></pre></body></html>

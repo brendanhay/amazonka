@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679374202"><span id="local-6989586621679374203"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RepoUpgradeOnBoot"><span class="annot"><a href="Network.AWS.EMR.Types.RepoUpgradeOnBoot.html#RepoUpgradeOnBoot"><span class="hs-identifier hs-var">RepoUpgradeOnBoot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RepoUpgradeOnBoot%27"><span class="annot"><a href="Network.AWS.EMR.Types.RepoUpgradeOnBoot.html#RepoUpgradeOnBoot%27"><span class="hs-identifier hs-var">RepoUpgradeOnBoot'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679374556"><span id="local-6989586621679374557"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RepoUpgradeOnBoot"><span class="annot"><a href="Network.AWS.EMR.Types.RepoUpgradeOnBoot.html#RepoUpgradeOnBoot"><span class="hs-identifier hs-var">RepoUpgradeOnBoot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RepoUpgradeOnBoot%27"><span class="annot"><a href="Network.AWS.EMR.Types.RepoUpgradeOnBoot.html#RepoUpgradeOnBoot%27"><span class="hs-identifier hs-var">RepoUpgradeOnBoot'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRepoUpgradeOnBoot"><span class="annot"><span class="annottext">RepoUpgradeOnBoot -&gt; Text
 </span><a href="Network.AWS.EMR.Types.RepoUpgradeOnBoot.html#fromRepoUpgradeOnBoot"><span class="hs-identifier hs-var hs-var">fromRepoUpgradeOnBoot</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374194"><span id="local-6989586621679374196"><span id="local-6989586621679374198"><span class="annot"><span class="annottext">Int -&gt; RepoUpgradeOnBoot -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374548"><span id="local-6989586621679374550"><span id="local-6989586621679374552"><span class="annot"><span class="annottext">Int -&gt; RepoUpgradeOnBoot -&gt; ShowS
 [RepoUpgradeOnBoot] -&gt; ShowS
 RepoUpgradeOnBoot -&gt; String
 (Int -&gt; RepoUpgradeOnBoot -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: RepoUpgradeOnBoot -&gt; String
 showsPrec :: Int -&gt; RepoUpgradeOnBoot -&gt; ShowS
 $cshowsPrec :: Int -&gt; RepoUpgradeOnBoot -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679374185"><span id="local-6989586621679374187"><span id="local-6989586621679374189"><span id="local-6989586621679374191"><span class="annot"><span class="annottext">ReadPrec [RepoUpgradeOnBoot]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679374539"><span id="local-6989586621679374541"><span id="local-6989586621679374543"><span id="local-6989586621679374545"><span class="annot"><span class="annottext">ReadPrec [RepoUpgradeOnBoot]
 ReadPrec RepoUpgradeOnBoot
 Int -&gt; ReadS RepoUpgradeOnBoot
 ReadS [RepoUpgradeOnBoot]
@@ -72,7 +72,7 @@ $creadList :: ReadS [RepoUpgradeOnBoot]
 readsPrec :: Int -&gt; ReadS RepoUpgradeOnBoot
 $creadsPrec :: Int -&gt; ReadS RepoUpgradeOnBoot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679374180"><span id="local-6989586621679374182"><span class="annot"><span class="annottext">RepoUpgradeOnBoot -&gt; RepoUpgradeOnBoot -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679374534"><span id="local-6989586621679374536"><span class="annot"><span class="annottext">RepoUpgradeOnBoot -&gt; RepoUpgradeOnBoot -&gt; Bool
 (RepoUpgradeOnBoot -&gt; RepoUpgradeOnBoot -&gt; Bool)
 -&gt; (RepoUpgradeOnBoot -&gt; RepoUpgradeOnBoot -&gt; Bool)
 -&gt; Eq RepoUpgradeOnBoot
@@ -82,7 +82,7 @@ $c/= :: RepoUpgradeOnBoot -&gt; RepoUpgradeOnBoot -&gt; Bool
 == :: RepoUpgradeOnBoot -&gt; RepoUpgradeOnBoot -&gt; Bool
 $c== :: RepoUpgradeOnBoot -&gt; RepoUpgradeOnBoot -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679374164"><span id="local-6989586621679374166"><span id="local-6989586621679374168"><span id="local-6989586621679374170"><span id="local-6989586621679374172"><span id="local-6989586621679374174"><span id="local-6989586621679374176"><span class="annot"><span class="annottext">Eq RepoUpgradeOnBoot
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679374518"><span id="local-6989586621679374520"><span id="local-6989586621679374522"><span id="local-6989586621679374524"><span id="local-6989586621679374526"><span id="local-6989586621679374528"><span id="local-6989586621679374530"><span class="annot"><span class="annottext">Eq RepoUpgradeOnBoot
 Eq RepoUpgradeOnBoot
 -&gt; (RepoUpgradeOnBoot -&gt; RepoUpgradeOnBoot -&gt; Ordering)
 -&gt; (RepoUpgradeOnBoot -&gt; RepoUpgradeOnBoot -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. RepoUpgradeOnBoot -&gt; Rep RepoUpgradeOnBoot x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374156"><span id="local-6989586621679374158"><span class="annot"><span class="annottext">Int -&gt; RepoUpgradeOnBoot -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374510"><span id="local-6989586621679374512"><span class="annot"><span class="annottext">Int -&gt; RepoUpgradeOnBoot -&gt; Int
 RepoUpgradeOnBoot -&gt; Int
 (Int -&gt; RepoUpgradeOnBoot -&gt; Int)
 -&gt; (RepoUpgradeOnBoot -&gt; Int) -&gt; Hashable RepoUpgradeOnBoot
@@ -143,51 +143,51 @@ $chash :: RepoUpgradeOnBoot -&gt; Int
 hashWithSalt :: Int -&gt; RepoUpgradeOnBoot -&gt; Int
 $chashWithSalt :: Int -&gt; RepoUpgradeOnBoot -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679374153"><span class="annot"><span class="annottext">RepoUpgradeOnBoot -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679374507"><span class="annot"><span class="annottext">RepoUpgradeOnBoot -&gt; ()
 (RepoUpgradeOnBoot -&gt; ()) -&gt; NFData RepoUpgradeOnBoot
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RepoUpgradeOnBoot -&gt; ()
 $crnf :: RepoUpgradeOnBoot -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679374150"><span class="annot"><span class="annottext">Text -&gt; Either String RepoUpgradeOnBoot
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679374504"><span class="annot"><span class="annottext">Text -&gt; Either String RepoUpgradeOnBoot
 (Text -&gt; Either String RepoUpgradeOnBoot)
 -&gt; FromText RepoUpgradeOnBoot
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RepoUpgradeOnBoot
 $cfromText :: Text -&gt; Either String RepoUpgradeOnBoot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679374147"><span class="annot"><span class="annottext">RepoUpgradeOnBoot -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679374501"><span class="annot"><span class="annottext">RepoUpgradeOnBoot -&gt; Text
 (RepoUpgradeOnBoot -&gt; Text) -&gt; ToText RepoUpgradeOnBoot
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RepoUpgradeOnBoot -&gt; Text
 $ctoText :: RepoUpgradeOnBoot -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679374144"><span class="annot"><span class="annottext">RepoUpgradeOnBoot -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679374498"><span class="annot"><span class="annottext">RepoUpgradeOnBoot -&gt; ByteString
 (RepoUpgradeOnBoot -&gt; ByteString) -&gt; ToByteString RepoUpgradeOnBoot
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RepoUpgradeOnBoot -&gt; ByteString
 $ctoBS :: RepoUpgradeOnBoot -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679374141"><span class="annot"><span class="annottext">RepoUpgradeOnBoot -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679374495"><span class="annot"><span class="annottext">RepoUpgradeOnBoot -&gt; ByteStringBuilder
 (RepoUpgradeOnBoot -&gt; ByteStringBuilder) -&gt; ToLog RepoUpgradeOnBoot
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RepoUpgradeOnBoot -&gt; ByteStringBuilder
 $cbuild :: RepoUpgradeOnBoot -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679374138"><span class="annot"><span class="annottext">HeaderName -&gt; RepoUpgradeOnBoot -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679374492"><span class="annot"><span class="annottext">HeaderName -&gt; RepoUpgradeOnBoot -&gt; [Header]
 (HeaderName -&gt; RepoUpgradeOnBoot -&gt; [Header])
 -&gt; ToHeader RepoUpgradeOnBoot
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RepoUpgradeOnBoot -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RepoUpgradeOnBoot -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679374135"><span class="annot"><span class="annottext">RepoUpgradeOnBoot -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679374489"><span class="annot"><span class="annottext">RepoUpgradeOnBoot -&gt; QueryString
 (RepoUpgradeOnBoot -&gt; QueryString) -&gt; ToQuery RepoUpgradeOnBoot
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RepoUpgradeOnBoot -&gt; QueryString
 $ctoQuery :: RepoUpgradeOnBoot -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679374130"><span id="local-6989586621679374132"><span class="annot"><span class="annottext">Value -&gt; Parser [RepoUpgradeOnBoot]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679374484"><span id="local-6989586621679374486"><span class="annot"><span class="annottext">Value -&gt; Parser [RepoUpgradeOnBoot]
 Value -&gt; Parser RepoUpgradeOnBoot
 (Value -&gt; Parser RepoUpgradeOnBoot)
 -&gt; (Value -&gt; Parser [RepoUpgradeOnBoot])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [RepoUpgradeOnBoot]
 parseJSON :: Value -&gt; Parser RepoUpgradeOnBoot
 $cparseJSON :: Value -&gt; Parser RepoUpgradeOnBoot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679374125"><span id="local-6989586621679374127"><span class="annot"><span class="annottext">FromJSONKeyFunction [RepoUpgradeOnBoot]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679374479"><span id="local-6989586621679374481"><span class="annot"><span class="annottext">FromJSONKeyFunction [RepoUpgradeOnBoot]
 FromJSONKeyFunction RepoUpgradeOnBoot
 FromJSONKeyFunction RepoUpgradeOnBoot
 -&gt; FromJSONKeyFunction [RepoUpgradeOnBoot]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RepoUpgradeOnBoot]
 fromJSONKey :: FromJSONKeyFunction RepoUpgradeOnBoot
 $cfromJSONKey :: FromJSONKeyFunction RepoUpgradeOnBoot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679374116"><span id="local-6989586621679374118"><span id="local-6989586621679374120"><span id="local-6989586621679374122"><span class="annot"><span class="annottext">[RepoUpgradeOnBoot] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679374470"><span id="local-6989586621679374472"><span id="local-6989586621679374474"><span id="local-6989586621679374476"><span class="annot"><span class="annottext">[RepoUpgradeOnBoot] -&gt; Encoding
 [RepoUpgradeOnBoot] -&gt; Value
 RepoUpgradeOnBoot -&gt; Encoding
 RepoUpgradeOnBoot -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: RepoUpgradeOnBoot -&gt; Encoding
 toJSON :: RepoUpgradeOnBoot -&gt; Value
 $ctoJSON :: RepoUpgradeOnBoot -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679374111"><span id="local-6989586621679374113"><span class="annot"><span class="annottext">ToJSONKeyFunction [RepoUpgradeOnBoot]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679374465"><span id="local-6989586621679374467"><span class="annot"><span class="annottext">ToJSONKeyFunction [RepoUpgradeOnBoot]
 ToJSONKeyFunction RepoUpgradeOnBoot
 ToJSONKeyFunction RepoUpgradeOnBoot
 -&gt; ToJSONKeyFunction [RepoUpgradeOnBoot]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RepoUpgradeOnBoot]
 toJSONKey :: ToJSONKeyFunction RepoUpgradeOnBoot
 $ctoJSONKey :: ToJSONKeyFunction RepoUpgradeOnBoot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679374108"><span class="annot"><span class="annottext">[Node] -&gt; Either String RepoUpgradeOnBoot
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679374462"><span class="annot"><span class="annottext">[Node] -&gt; Either String RepoUpgradeOnBoot
 ([Node] -&gt; Either String RepoUpgradeOnBoot)
 -&gt; FromXML RepoUpgradeOnBoot
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RepoUpgradeOnBoot
 $cparseXML :: [Node] -&gt; Either String RepoUpgradeOnBoot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679374105"><span class="annot"><span class="annottext">RepoUpgradeOnBoot -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679374459"><span class="annot"><span class="annottext">RepoUpgradeOnBoot -&gt; XML
 (RepoUpgradeOnBoot -&gt; XML) -&gt; ToXML RepoUpgradeOnBoot
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RepoUpgradeOnBoot -&gt; XML

@@ -33,67 +33,67 @@
 </span><span id="line-33"></span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newAttributeValue' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679157423"><span id="local-6989586621679157424"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttributeValue"><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-var">AttributeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributeValue%27"><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-var">AttributeValue'</span></a></span></span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An attribute of type Binary Set. For example:</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679157473"><span id="local-6989586621679157474"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttributeValue"><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-var">AttributeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributeValue%27"><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-var">AttributeValue'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An attribute of type List. For example:</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @\&quot;BS\&quot;: [\&quot;U3Vubnk=\&quot;, \&quot;UmFpbnk=\&quot;, \&quot;U25vd3k=\&quot;]@</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Abs%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe [Base64]
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Abs%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">bs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | An attribute of type Number. For example:</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @\&quot;L\&quot;: [ {\&quot;S\&quot;: \&quot;Cookies\&quot;} , {\&quot;S\&quot;: \&quot;Coffee\&quot;}, {\&quot;N\&quot;, \&quot;3.14159\&quot;}]@</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Al%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe [AttributeValue]
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Al%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">l</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | An attribute of type Number Set. For example:</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @\&quot;N\&quot;: \&quot;123.45\&quot;@</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @\&quot;NS\&quot;: [\&quot;42.2\&quot;, \&quot;-19\&quot;, \&quot;7.5\&quot;, \&quot;3.14\&quot;]@</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Numbers are sent across the network to DynamoDB as strings, to maximize</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- compatibility across languages and libraries. However, DynamoDB treats</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- them as number type attributes for mathematical operations.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3An%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe Text
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3An%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | An attribute of type Boolean. For example:</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Ans%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe [Text]
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Ans%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">ns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | An attribute of type Map. For example:</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @\&quot;BOOL\&quot;: true@</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3Abool%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe Bool
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Abool%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">bool</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @\&quot;M\&quot;: {\&quot;Name\&quot;: {\&quot;S\&quot;: \&quot;Joe\&quot;}, \&quot;Age\&quot;: {\&quot;N\&quot;: \&quot;35\&quot;}}@</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Am%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe (HashMap Text AttributeValue)
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Am%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">m</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | An attribute of type Null. For example:</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- @\&quot;NULL\&quot;: true@</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3Anull%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe Bool
 </span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Anull%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">null</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | An attribute of type String. For example:</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | An attribute of type Number. For example:</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @\&quot;S\&quot;: \&quot;Hello\&quot;@</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3As%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe Text
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3As%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">s</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | An attribute of type Map. For example:</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- @\&quot;M\&quot;: {\&quot;Name\&quot;: {\&quot;S\&quot;: \&quot;Joe\&quot;}, \&quot;Age\&quot;: {\&quot;N\&quot;: \&quot;35\&quot;}}@</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3Am%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Am%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">m</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | An attribute of type Binary. For example:</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @\&quot;N\&quot;: \&quot;123.45\&quot;@</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Numbers are sent across the network to DynamoDB as strings, to maximize</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- compatibility across languages and libraries. However, DynamoDB treats</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- them as number type attributes for mathematical operations.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3An%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3An%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | An attribute of type Binary Set. For example:</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @\&quot;B\&quot;: \&quot;dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\&quot;@</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3Ab%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe Base64
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Ab%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | An attribute of type List. For example:</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @\&quot;BS\&quot;: [\&quot;U3Vubnk=\&quot;, \&quot;UmFpbnk=\&quot;, \&quot;U25vd3k=\&quot;]@</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Abs%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe [Base64]
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Abs%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">bs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | An attribute of type Binary. For example:</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @\&quot;L\&quot;: [ {\&quot;S\&quot;: \&quot;Cookies\&quot;} , {\&quot;S\&quot;: \&quot;Coffee\&quot;}, {\&quot;N\&quot;, \&quot;3.14159\&quot;}]@</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3Al%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe [AttributeValue]
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Al%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">l</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @\&quot;B\&quot;: \&quot;dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\&quot;@</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Ab%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe Base64
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Ab%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">b</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | An attribute of type String Set. For example:</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- @\&quot;SS\&quot;: [\&quot;Giraffe\&quot;, \&quot;Hippo\&quot; ,\&quot;Zebra\&quot;]@</span><span>
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3Ass%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe [Text]
 </span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Ass%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">ss</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | An attribute of type Number Set. For example:</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | An attribute of type String. For example:</span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- @\&quot;NS\&quot;: [\&quot;42.2\&quot;, \&quot;-19\&quot;, \&quot;7.5\&quot;, \&quot;3.14\&quot;]@</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- Numbers are sent across the network to DynamoDB as strings, to maximize</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- compatibility across languages and libraries. However, DynamoDB treats</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- them as number type attributes for mathematical operations.</span><span>
-</span><span id="line-84"></span><span>    </span><span id="%24sel%3Ans%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe [Text]
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Ans%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">ns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- @\&quot;S\&quot;: \&quot;Hello\&quot;@</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3As%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3As%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">s</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | An attribute of type Boolean. For example:</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- @\&quot;BOOL\&quot;: true@</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Abool%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe Bool
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Abool%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">bool</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679157408"><span id="local-6989586621679157410"><span class="annot"><span class="annottext">AttributeValue -&gt; AttributeValue -&gt; Bool
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679157458"><span id="local-6989586621679157460"><span class="annot"><span class="annottext">AttributeValue -&gt; AttributeValue -&gt; Bool
 (AttributeValue -&gt; AttributeValue -&gt; Bool)
 -&gt; (AttributeValue -&gt; AttributeValue -&gt; Bool) -&gt; Eq AttributeValue
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -101,7 +101,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttributeValue -&gt; AttributeValue -&gt; Bool
 == :: AttributeValue -&gt; AttributeValue -&gt; Bool
 $c== :: AttributeValue -&gt; AttributeValue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679157399"><span id="local-6989586621679157401"><span id="local-6989586621679157403"><span id="local-6989586621679157405"><span class="annot"><span class="annottext">ReadPrec [AttributeValue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679157449"><span id="local-6989586621679157451"><span id="local-6989586621679157453"><span id="local-6989586621679157455"><span class="annot"><span class="annottext">ReadPrec [AttributeValue]
 ReadPrec AttributeValue
 Int -&gt; ReadS AttributeValue
 ReadS [AttributeValue]
@@ -121,7 +121,7 @@ readList :: ReadS [AttributeValue]
 $creadList :: ReadS [AttributeValue]
 readsPrec :: Int -&gt; ReadS AttributeValue
 $creadsPrec :: Int -&gt; ReadS AttributeValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679157392"><span id="local-6989586621679157394"><span id="local-6989586621679157396"><span class="annot"><span class="annottext">Int -&gt; AttributeValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679157442"><span id="local-6989586621679157444"><span id="local-6989586621679157446"><span class="annot"><span class="annottext">Int -&gt; AttributeValue -&gt; ShowS
 [AttributeValue] -&gt; ShowS
 AttributeValue -&gt; String
 (Int -&gt; AttributeValue -&gt; ShowS)
@@ -155,249 +155,206 @@ $cfrom :: forall x. AttributeValue -&gt; Rep AttributeValue x
 </span><span id="line-93"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'bs', 'attributeValue_bs' - An attribute of type Binary Set. For example:</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'l', 'attributeValue_l' - An attribute of type List. For example:</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- @\&quot;BS\&quot;: [\&quot;U3Vubnk=\&quot;, \&quot;UmFpbnk=\&quot;, \&quot;U25vd3k=\&quot;]@</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- @\&quot;L\&quot;: [ {\&quot;S\&quot;: \&quot;Cookies\&quot;} , {\&quot;S\&quot;: \&quot;Coffee\&quot;}, {\&quot;N\&quot;, \&quot;3.14159\&quot;}]@</span><span>
 </span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- 'n', 'attributeValue_n' - An attribute of type Number. For example:</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'ns', 'attributeValue_ns' - An attribute of type Number Set. For example:</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- @\&quot;N\&quot;: \&quot;123.45\&quot;@</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- @\&quot;NS\&quot;: [\&quot;42.2\&quot;, \&quot;-19\&quot;, \&quot;7.5\&quot;, \&quot;3.14\&quot;]@</span><span>
 </span><span id="line-103"></span><span class="hs-comment">--</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- Numbers are sent across the network to DynamoDB as strings, to maximize</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- compatibility across languages and libraries. However, DynamoDB treats</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- them as number type attributes for mathematical operations.</span><span>
 </span><span id="line-107"></span><span class="hs-comment">--</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- 'bool', 'attributeValue_bool' - An attribute of type Boolean. For example:</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'm', 'attributeValue_m' - An attribute of type Map. For example:</span><span>
 </span><span id="line-109"></span><span class="hs-comment">--</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- @\&quot;BOOL\&quot;: true@</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- @\&quot;M\&quot;: {\&quot;Name\&quot;: {\&quot;S\&quot;: \&quot;Joe\&quot;}, \&quot;Age\&quot;: {\&quot;N\&quot;: \&quot;35\&quot;}}@</span><span>
 </span><span id="line-111"></span><span class="hs-comment">--</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- 'null', 'attributeValue_null' - An attribute of type Null. For example:</span><span>
 </span><span id="line-113"></span><span class="hs-comment">--</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- @\&quot;NULL\&quot;: true@</span><span>
 </span><span id="line-115"></span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- 's', 'attributeValue_s' - An attribute of type String. For example:</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'n', 'attributeValue_n' - An attribute of type Number. For example:</span><span>
 </span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- @\&quot;S\&quot;: \&quot;Hello\&quot;@</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- @\&quot;N\&quot;: \&quot;123.45\&quot;@</span><span>
 </span><span id="line-119"></span><span class="hs-comment">--</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- 'm', 'attributeValue_m' - An attribute of type Map. For example:</span><span>
-</span><span id="line-121"></span><span class="hs-comment">--</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- @\&quot;M\&quot;: {\&quot;Name\&quot;: {\&quot;S\&quot;: \&quot;Joe\&quot;}, \&quot;Age\&quot;: {\&quot;N\&quot;: \&quot;35\&quot;}}@</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Numbers are sent across the network to DynamoDB as strings, to maximize</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- compatibility across languages and libraries. However, DynamoDB treats</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- them as number type attributes for mathematical operations.</span><span>
 </span><span id="line-123"></span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- 'b', 'attributeValue_b' - An attribute of type Binary. For example:</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'bs', 'attributeValue_bs' - An attribute of type Binary Set. For example:</span><span>
 </span><span id="line-125"></span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- @\&quot;B\&quot;: \&quot;dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\&quot;@--</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
-</span><span id="line-131"></span><span class="hs-comment">--</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- 'l', 'attributeValue_l' - An attribute of type List. For example:</span><span>
-</span><span id="line-133"></span><span class="hs-comment">--</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- @\&quot;L\&quot;: [ {\&quot;S\&quot;: \&quot;Cookies\&quot;} , {\&quot;S\&quot;: \&quot;Coffee\&quot;}, {\&quot;N\&quot;, \&quot;3.14159\&quot;}]@</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- @\&quot;BS\&quot;: [\&quot;U3Vubnk=\&quot;, \&quot;UmFpbnk=\&quot;, \&quot;U25vd3k=\&quot;]@</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'b', 'attributeValue_b' - An attribute of type Binary. For example:</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- @\&quot;B\&quot;: \&quot;dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\&quot;@--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
 </span><span id="line-135"></span><span class="hs-comment">--</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- 'ss', 'attributeValue_ss' - An attribute of type String Set. For example:</span><span>
 </span><span id="line-137"></span><span class="hs-comment">--</span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- @\&quot;SS\&quot;: [\&quot;Giraffe\&quot;, \&quot;Hippo\&quot; ,\&quot;Zebra\&quot;]@</span><span>
 </span><span id="line-139"></span><span class="hs-comment">--</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- 'ns', 'attributeValue_ns' - An attribute of type Number Set. For example:</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 's', 'attributeValue_s' - An attribute of type String. For example:</span><span>
 </span><span id="line-141"></span><span class="hs-comment">--</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- @\&quot;NS\&quot;: [\&quot;42.2\&quot;, \&quot;-19\&quot;, \&quot;7.5\&quot;, \&quot;3.14\&quot;]@</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- @\&quot;S\&quot;: \&quot;Hello\&quot;@</span><span>
 </span><span id="line-143"></span><span class="hs-comment">--</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- Numbers are sent across the network to DynamoDB as strings, to maximize</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- compatibility across languages and libraries. However, DynamoDB treats</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- them as number type attributes for mathematical operations.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'bool', 'attributeValue_bool' - An attribute of type Boolean. For example:</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- @\&quot;BOOL\&quot;: true@</span><span>
 </span><span id="line-147"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#newAttributeValue"><span class="hs-identifier hs-type">newAttributeValue</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span>
 </span><span id="line-149"></span><span id="newAttributeValue"><span class="annot"><span class="annottext">newAttributeValue :: AttributeValue
 </span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#newAttributeValue"><span class="hs-identifier hs-var hs-var">newAttributeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">AttributeValue' :: Maybe [Base64]
--&gt; Maybe Text
--&gt; Maybe Bool
--&gt; Maybe Bool
--&gt; Maybe Text
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">AttributeValue' :: Maybe [AttributeValue]
+-&gt; Maybe [Text]
 -&gt; Maybe (HashMap Text AttributeValue)
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe [Base64]
 -&gt; Maybe Base64
--&gt; Maybe [AttributeValue]
 -&gt; Maybe [Text]
--&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; AttributeValue
 </span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span>
-</span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bs:AttributeValue' :: Maybe [Base64]
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Abs%3AAttributeValue%27"><span class="hs-identifier hs-var">bs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Base64]
+</span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:l:AttributeValue' :: Maybe [AttributeValue]
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Al%3AAttributeValue%27"><span class="hs-identifier hs-var">l</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:n:AttributeValue' :: Maybe Text
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3An%3AAttributeValue%27"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:ns:AttributeValue' :: Maybe [Text]
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Ans%3AAttributeValue%27"><span class="hs-identifier hs-var">ns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:bool:AttributeValue' :: Maybe Bool
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Abool%3AAttributeValue%27"><span class="hs-identifier hs-var">bool</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:m:AttributeValue' :: Maybe (HashMap Text AttributeValue)
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Am%3AAttributeValue%27"><span class="hs-identifier hs-var">m</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:null:AttributeValue' :: Maybe Bool
 </span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Anull%3AAttributeValue%27"><span class="hs-identifier hs-var">null</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:s:AttributeValue' :: Maybe Text
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3As%3AAttributeValue%27"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:n:AttributeValue' :: Maybe Text
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3An%3AAttributeValue%27"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:m:AttributeValue' :: Maybe (HashMap Text AttributeValue)
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Am%3AAttributeValue%27"><span class="hs-identifier hs-var">m</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:bs:AttributeValue' :: Maybe [Base64]
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Abs%3AAttributeValue%27"><span class="hs-identifier hs-var">bs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Base64]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:b:AttributeValue' :: Maybe Base64
 </span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Ab%3AAttributeValue%27"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:l:AttributeValue' :: Maybe [AttributeValue]
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Al%3AAttributeValue%27"><span class="hs-identifier hs-var">l</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:ss:AttributeValue' :: Maybe [Text]
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:ss:AttributeValue' :: Maybe [Text]
 </span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Ass%3AAttributeValue%27"><span class="hs-identifier hs-var">ss</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:ns:AttributeValue' :: Maybe [Text]
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Ans%3AAttributeValue%27"><span class="hs-identifier hs-var">ns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:s:AttributeValue' :: Maybe Text
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3As%3AAttributeValue%27"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:bool:AttributeValue' :: Maybe Bool
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Abool%3AAttributeValue%27"><span class="hs-identifier hs-var">bool</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- | An attribute of type Binary Set. For example:</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | An attribute of type List. For example:</span><span>
 </span><span id="line-164"></span><span class="hs-comment">--</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- @\&quot;BS\&quot;: [\&quot;U3Vubnk=\&quot;, \&quot;UmFpbnk=\&quot;, \&quot;U25vd3k=\&quot;]@</span><span>
-</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_bs"><span class="hs-identifier hs-type">attributeValue_bs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span id="attributeValue_bs"><span class="annot"><span class="annottext">attributeValue_bs :: (Maybe [ByteString] -&gt; f (Maybe [ByteString]))
+</span><span id="line-165"></span><span class="hs-comment">-- @\&quot;L\&quot;: [ {\&quot;S\&quot;: \&quot;Cookies\&quot;} , {\&quot;S\&quot;: \&quot;Coffee\&quot;}, {\&quot;N\&quot;, \&quot;3.14159\&quot;}]@</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_l"><span class="hs-identifier hs-type">attributeValue_l</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="attributeValue_l"><span class="annot"><span class="annottext">attributeValue_l :: (Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
 -&gt; AttributeValue -&gt; f AttributeValue
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_bs"><span class="hs-identifier hs-var hs-var">attributeValue_bs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttributeValue -&gt; Maybe [Base64])
--&gt; (AttributeValue -&gt; Maybe [Base64] -&gt; AttributeValue)
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_l"><span class="hs-identifier hs-var hs-var">attributeValue_l</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttributeValue -&gt; Maybe [AttributeValue])
+-&gt; (AttributeValue -&gt; Maybe [AttributeValue] -&gt; AttributeValue)
 -&gt; Lens
-     AttributeValue AttributeValue (Maybe [Base64]) (Maybe [Base64])
+     AttributeValue
+     AttributeValue
+     (Maybe [AttributeValue])
+     (Maybe [AttributeValue])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157383"><span class="annot"><span class="annottext">Maybe [Base64]
-bs :: Maybe [Base64]
-$sel:bs:AttributeValue' :: AttributeValue -&gt; Maybe [Base64]
-</span><a href="#local-6989586621679157383"><span class="hs-identifier hs-var hs-var">bs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Base64]
-</span><a href="#local-6989586621679157383"><span class="hs-identifier hs-var">bs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157382"><span class="annot"><span class="annottext">s :: AttributeValue
-</span><a href="#local-6989586621679157382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157381"><span class="annot"><span class="annottext">Maybe [Base64]
-</span><a href="#local-6989586621679157381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
-</span><a href="#local-6989586621679157382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bs:AttributeValue' :: Maybe [Base64]
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Abs%3AAttributeValue%27"><span class="hs-identifier hs-var">bs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Base64]
-</span><a href="#local-6989586621679157381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Base64] -&gt; f (Maybe [Base64]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157433"><span class="annot"><span class="annottext">Maybe [AttributeValue]
+l :: Maybe [AttributeValue]
+$sel:l:AttributeValue' :: AttributeValue -&gt; Maybe [AttributeValue]
+</span><a href="#local-6989586621679157433"><span class="hs-identifier hs-var hs-var">l</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
+</span><a href="#local-6989586621679157433"><span class="hs-identifier hs-var">l</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157432"><span class="annot"><span class="annottext">s :: AttributeValue
+</span><a href="#local-6989586621679157432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157431"><span class="annot"><span class="annottext">Maybe [AttributeValue]
+</span><a href="#local-6989586621679157431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
+</span><a href="#local-6989586621679157432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:l:AttributeValue' :: Maybe [AttributeValue]
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Al%3AAttributeValue%27"><span class="hs-identifier hs-var">l</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
+</span><a href="#local-6989586621679157431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
  -&gt; AttributeValue -&gt; f AttributeValue)
--&gt; ((Maybe [ByteString] -&gt; f (Maybe [ByteString]))
-    -&gt; Maybe [Base64] -&gt; f (Maybe [Base64]))
--&gt; (Maybe [ByteString] -&gt; f (Maybe [ByteString]))
+-&gt; ((Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
+    -&gt; Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
+-&gt; (Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
 -&gt; AttributeValue
 -&gt; f AttributeValue
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Base64] [Base64] [ByteString] [ByteString]
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AttributeValue] [AttributeValue] [AttributeValue] [AttributeValue]
 -&gt; Iso
-     (Maybe [Base64])
-     (Maybe [Base64])
-     (Maybe [ByteString])
-     (Maybe [ByteString])
+     (Maybe [AttributeValue])
+     (Maybe [AttributeValue])
+     (Maybe [AttributeValue])
+     (Maybe [AttributeValue])
 forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Base64] [Base64] [ByteString] [ByteString]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AttributeValue] [AttributeValue] [AttributeValue] [AttributeValue]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- | An attribute of type Number. For example:</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | An attribute of type Number Set. For example:</span><span>
 </span><span id="line-170"></span><span class="hs-comment">--</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- @\&quot;N\&quot;: \&quot;123.45\&quot;@</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- @\&quot;NS\&quot;: [\&quot;42.2\&quot;, \&quot;-19\&quot;, \&quot;7.5\&quot;, \&quot;3.14\&quot;]@</span><span>
 </span><span id="line-172"></span><span class="hs-comment">--</span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- Numbers are sent across the network to DynamoDB as strings, to maximize</span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- compatibility across languages and libraries. However, DynamoDB treats</span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- them as number type attributes for mathematical operations.</span><span>
-</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_n"><span class="hs-identifier hs-type">attributeValue_n</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span id="attributeValue_n"><span class="annot"><span class="annottext">attributeValue_n :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_ns"><span class="hs-identifier hs-type">attributeValue_ns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="attributeValue_ns"><span class="annot"><span class="annottext">attributeValue_ns :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; AttributeValue -&gt; f AttributeValue
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_n"><span class="hs-identifier hs-var hs-var">attributeValue_n</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttributeValue -&gt; Maybe Text)
--&gt; (AttributeValue -&gt; Maybe Text -&gt; AttributeValue)
--&gt; Lens AttributeValue AttributeValue (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_ns"><span class="hs-identifier hs-var hs-var">attributeValue_ns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttributeValue -&gt; Maybe [Text])
+-&gt; (AttributeValue -&gt; Maybe [Text] -&gt; AttributeValue)
+-&gt; Lens AttributeValue AttributeValue (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157376"><span class="annot"><span class="annottext">Maybe Text
-n :: Maybe Text
-$sel:n:AttributeValue' :: AttributeValue -&gt; Maybe Text
-</span><a href="#local-6989586621679157376"><span class="hs-identifier hs-var hs-var">n</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679157376"><span class="hs-identifier hs-var">n</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157375"><span class="annot"><span class="annottext">s :: AttributeValue
-</span><a href="#local-6989586621679157375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157374"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679157374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
-</span><a href="#local-6989586621679157375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:n:AttributeValue' :: Maybe Text
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3An%3AAttributeValue%27"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679157374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157426"><span class="annot"><span class="annottext">Maybe [Text]
+ns :: Maybe [Text]
+$sel:ns:AttributeValue' :: AttributeValue -&gt; Maybe [Text]
+</span><a href="#local-6989586621679157426"><span class="hs-identifier hs-var hs-var">ns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679157426"><span class="hs-identifier hs-var">ns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157425"><span class="annot"><span class="annottext">s :: AttributeValue
+</span><a href="#local-6989586621679157425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157424"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679157424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
+</span><a href="#local-6989586621679157425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ns:AttributeValue' :: Maybe [Text]
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Ans%3AAttributeValue%27"><span class="hs-identifier hs-var">ns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679157424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; AttributeValue -&gt; f AttributeValue)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; AttributeValue
+-&gt; f AttributeValue
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- | An attribute of type Boolean. For example:</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | An attribute of type Map. For example:</span><span>
 </span><span id="line-180"></span><span class="hs-comment">--</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- @\&quot;BOOL\&quot;: true@</span><span>
-</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_bool"><span class="hs-identifier hs-type">attributeValue_bool</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span id="attributeValue_bool"><span class="annot"><span class="annottext">attributeValue_bool :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; AttributeValue -&gt; f AttributeValue
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_bool"><span class="hs-identifier hs-var hs-var">attributeValue_bool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttributeValue -&gt; Maybe Bool)
--&gt; (AttributeValue -&gt; Maybe Bool -&gt; AttributeValue)
--&gt; Lens AttributeValue AttributeValue (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157372"><span class="annot"><span class="annottext">Maybe Bool
-bool :: Maybe Bool
-$sel:bool:AttributeValue' :: AttributeValue -&gt; Maybe Bool
-</span><a href="#local-6989586621679157372"><span class="hs-identifier hs-var hs-var">bool</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679157372"><span class="hs-identifier hs-var">bool</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157371"><span class="annot"><span class="annottext">s :: AttributeValue
-</span><a href="#local-6989586621679157371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157370"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679157370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
-</span><a href="#local-6989586621679157371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bool:AttributeValue' :: Maybe Bool
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Abool%3AAttributeValue%27"><span class="hs-identifier hs-var">bool</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679157370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- | An attribute of type Null. For example:</span><span>
-</span><span id="line-186"></span><span class="hs-comment">--</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- @\&quot;NULL\&quot;: true@</span><span>
-</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_null"><span class="hs-identifier hs-type">attributeValue_null</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span id="attributeValue_null"><span class="annot"><span class="annottext">attributeValue_null :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; AttributeValue -&gt; f AttributeValue
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_null"><span class="hs-identifier hs-var hs-var">attributeValue_null</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttributeValue -&gt; Maybe Bool)
--&gt; (AttributeValue -&gt; Maybe Bool -&gt; AttributeValue)
--&gt; Lens AttributeValue AttributeValue (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157368"><span class="annot"><span class="annottext">Maybe Bool
-null :: Maybe Bool
-$sel:null:AttributeValue' :: AttributeValue -&gt; Maybe Bool
-</span><a href="#local-6989586621679157368"><span class="hs-identifier hs-var hs-var">null</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679157368"><span class="hs-identifier hs-var">null</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157367"><span class="annot"><span class="annottext">s :: AttributeValue
-</span><a href="#local-6989586621679157367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157366"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679157366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
-</span><a href="#local-6989586621679157367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:null:AttributeValue' :: Maybe Bool
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Anull%3AAttributeValue%27"><span class="hs-identifier hs-var">null</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679157366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- | An attribute of type String. For example:</span><span>
-</span><span id="line-192"></span><span class="hs-comment">--</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- @\&quot;S\&quot;: \&quot;Hello\&quot;@</span><span>
-</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_s"><span class="hs-identifier hs-type">attributeValue_s</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-195"></span><span id="attributeValue_s"><span class="annot"><span class="annottext">attributeValue_s :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AttributeValue -&gt; f AttributeValue
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_s"><span class="hs-identifier hs-var hs-var">attributeValue_s</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttributeValue -&gt; Maybe Text)
--&gt; (AttributeValue -&gt; Maybe Text -&gt; AttributeValue)
--&gt; Lens AttributeValue AttributeValue (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157364"><span class="annot"><span class="annottext">Maybe Text
-s :: Maybe Text
-$sel:s:AttributeValue' :: AttributeValue -&gt; Maybe Text
-</span><a href="#local-6989586621679157364"><span class="hs-identifier hs-var hs-var">s</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679157364"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157363"><span class="annot"><span class="annottext">s :: AttributeValue
-</span><a href="#local-6989586621679157363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157362"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679157362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
-</span><a href="#local-6989586621679157363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s:AttributeValue' :: Maybe Text
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3As%3AAttributeValue%27"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679157362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- | An attribute of type Map. For example:</span><span>
-</span><span id="line-198"></span><span class="hs-comment">--</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- @\&quot;M\&quot;: {\&quot;Name\&quot;: {\&quot;S\&quot;: \&quot;Joe\&quot;}, \&quot;Age\&quot;: {\&quot;N\&quot;: \&quot;35\&quot;}}@</span><span>
-</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_m"><span class="hs-identifier hs-type">attributeValue_m</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-201"></span><span id="attributeValue_m"><span class="annot"><span class="annottext">attributeValue_m :: (Maybe (HashMap Text AttributeValue)
+</span><span id="line-181"></span><span class="hs-comment">-- @\&quot;M\&quot;: {\&quot;Name\&quot;: {\&quot;S\&quot;: \&quot;Joe\&quot;}, \&quot;Age\&quot;: {\&quot;N\&quot;: \&quot;35\&quot;}}@</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_m"><span class="hs-identifier hs-type">attributeValue_m</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="attributeValue_m"><span class="annot"><span class="annottext">attributeValue_m :: (Maybe (HashMap Text AttributeValue)
  -&gt; f (Maybe (HashMap Text AttributeValue)))
 -&gt; AttributeValue -&gt; f AttributeValue
 </span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_m"><span class="hs-identifier hs-var hs-var">attributeValue_m</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttributeValue -&gt; Maybe (HashMap Text AttributeValue))
@@ -409,16 +366,16 @@ $sel:s:AttributeValue' :: AttributeValue -&gt; Maybe Text
      (Maybe (HashMap Text AttributeValue))
      (Maybe (HashMap Text AttributeValue))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157360"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157422"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 m :: Maybe (HashMap Text AttributeValue)
 $sel:m:AttributeValue' :: AttributeValue -&gt; Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679157360"><span class="hs-identifier hs-var hs-var">m</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679157360"><span class="hs-identifier hs-var">m</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157359"><span class="annot"><span class="annottext">s :: AttributeValue
-</span><a href="#local-6989586621679157359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157358"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679157358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
-</span><a href="#local-6989586621679157359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:m:AttributeValue' :: Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679157422"><span class="hs-identifier hs-var hs-var">m</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679157422"><span class="hs-identifier hs-var">m</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157421"><span class="annot"><span class="annottext">s :: AttributeValue
+</span><a href="#local-6989586621679157421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157420"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679157420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
+</span><a href="#local-6989586621679157421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:m:AttributeValue' :: Maybe (HashMap Text AttributeValue)
 </span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Am%3AAttributeValue%27"><span class="hs-identifier hs-var">m</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
-</span><a href="#local-6989586621679157358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679157420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
   -&gt; f (Maybe (HashMap Text AttributeValue)))
  -&gt; AttributeValue -&gt; f AttributeValue)
 -&gt; ((Maybe (HashMap Text AttributeValue)
@@ -448,33 +405,120 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text AttributeValue)
   (HashMap Text AttributeValue)
   (HashMap Text AttributeValue)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- | An attribute of type Binary. For example:</span><span>
-</span><span id="line-204"></span><span class="hs-comment">--</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- @\&quot;B\&quot;: \&quot;dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\&quot;@--</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
-</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_b"><span class="hs-identifier hs-type">attributeValue_b</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
-</span><span id="line-211"></span><span id="attributeValue_b"><span class="annot"><span class="annottext">attributeValue_b :: (Maybe ByteString -&gt; f (Maybe ByteString))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | An attribute of type Null. For example:</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- @\&quot;NULL\&quot;: true@</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_null"><span class="hs-identifier hs-type">attributeValue_null</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="attributeValue_null"><span class="annot"><span class="annottext">attributeValue_null :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AttributeValue -&gt; f AttributeValue
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_null"><span class="hs-identifier hs-var hs-var">attributeValue_null</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttributeValue -&gt; Maybe Bool)
+-&gt; (AttributeValue -&gt; Maybe Bool -&gt; AttributeValue)
+-&gt; Lens AttributeValue AttributeValue (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157418"><span class="annot"><span class="annottext">Maybe Bool
+null :: Maybe Bool
+$sel:null:AttributeValue' :: AttributeValue -&gt; Maybe Bool
+</span><a href="#local-6989586621679157418"><span class="hs-identifier hs-var hs-var">null</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679157418"><span class="hs-identifier hs-var">null</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157417"><span class="annot"><span class="annottext">s :: AttributeValue
+</span><a href="#local-6989586621679157417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157416"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679157416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
+</span><a href="#local-6989586621679157417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:null:AttributeValue' :: Maybe Bool
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Anull%3AAttributeValue%27"><span class="hs-identifier hs-var">null</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679157416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | An attribute of type Number. For example:</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- @\&quot;N\&quot;: \&quot;123.45\&quot;@</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- Numbers are sent across the network to DynamoDB as strings, to maximize</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- compatibility across languages and libraries. However, DynamoDB treats</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- them as number type attributes for mathematical operations.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_n"><span class="hs-identifier hs-type">attributeValue_n</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="attributeValue_n"><span class="annot"><span class="annottext">attributeValue_n :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AttributeValue -&gt; f AttributeValue
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_n"><span class="hs-identifier hs-var hs-var">attributeValue_n</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttributeValue -&gt; Maybe Text)
+-&gt; (AttributeValue -&gt; Maybe Text -&gt; AttributeValue)
+-&gt; Lens AttributeValue AttributeValue (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157414"><span class="annot"><span class="annottext">Maybe Text
+n :: Maybe Text
+$sel:n:AttributeValue' :: AttributeValue -&gt; Maybe Text
+</span><a href="#local-6989586621679157414"><span class="hs-identifier hs-var hs-var">n</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679157414"><span class="hs-identifier hs-var">n</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157413"><span class="annot"><span class="annottext">s :: AttributeValue
+</span><a href="#local-6989586621679157413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157412"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679157412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
+</span><a href="#local-6989586621679157413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:n:AttributeValue' :: Maybe Text
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3An%3AAttributeValue%27"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679157412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | An attribute of type Binary Set. For example:</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- @\&quot;BS\&quot;: [\&quot;U3Vubnk=\&quot;, \&quot;UmFpbnk=\&quot;, \&quot;U25vd3k=\&quot;]@</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_bs"><span class="hs-identifier hs-type">attributeValue_bs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="attributeValue_bs"><span class="annot"><span class="annottext">attributeValue_bs :: (Maybe [ByteString] -&gt; f (Maybe [ByteString]))
+-&gt; AttributeValue -&gt; f AttributeValue
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_bs"><span class="hs-identifier hs-var hs-var">attributeValue_bs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttributeValue -&gt; Maybe [Base64])
+-&gt; (AttributeValue -&gt; Maybe [Base64] -&gt; AttributeValue)
+-&gt; Lens
+     AttributeValue AttributeValue (Maybe [Base64]) (Maybe [Base64])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157410"><span class="annot"><span class="annottext">Maybe [Base64]
+bs :: Maybe [Base64]
+$sel:bs:AttributeValue' :: AttributeValue -&gt; Maybe [Base64]
+</span><a href="#local-6989586621679157410"><span class="hs-identifier hs-var hs-var">bs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Base64]
+</span><a href="#local-6989586621679157410"><span class="hs-identifier hs-var">bs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157409"><span class="annot"><span class="annottext">s :: AttributeValue
+</span><a href="#local-6989586621679157409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157408"><span class="annot"><span class="annottext">Maybe [Base64]
+</span><a href="#local-6989586621679157408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
+</span><a href="#local-6989586621679157409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bs:AttributeValue' :: Maybe [Base64]
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Abs%3AAttributeValue%27"><span class="hs-identifier hs-var">bs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Base64]
+</span><a href="#local-6989586621679157408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Base64] -&gt; f (Maybe [Base64]))
+ -&gt; AttributeValue -&gt; f AttributeValue)
+-&gt; ((Maybe [ByteString] -&gt; f (Maybe [ByteString]))
+    -&gt; Maybe [Base64] -&gt; f (Maybe [Base64]))
+-&gt; (Maybe [ByteString] -&gt; f (Maybe [ByteString]))
+-&gt; AttributeValue
+-&gt; f AttributeValue
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Base64] [Base64] [ByteString] [ByteString]
+-&gt; Iso
+     (Maybe [Base64])
+     (Maybe [Base64])
+     (Maybe [ByteString])
+     (Maybe [ByteString])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Base64] [Base64] [ByteString] [ByteString]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | An attribute of type Binary. For example:</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- @\&quot;B\&quot;: \&quot;dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk\&quot;@--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_b"><span class="hs-identifier hs-type">attributeValue_b</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="attributeValue_b"><span class="annot"><span class="annottext">attributeValue_b :: (Maybe ByteString -&gt; f (Maybe ByteString))
 -&gt; AttributeValue -&gt; f AttributeValue
 </span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_b"><span class="hs-identifier hs-var hs-var">attributeValue_b</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttributeValue -&gt; Maybe Base64)
 -&gt; (AttributeValue -&gt; Maybe Base64 -&gt; AttributeValue)
 -&gt; Lens AttributeValue AttributeValue (Maybe Base64) (Maybe Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157356"><span class="annot"><span class="annottext">Maybe Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157406"><span class="annot"><span class="annottext">Maybe Base64
 b :: Maybe Base64
 $sel:b:AttributeValue' :: AttributeValue -&gt; Maybe Base64
-</span><a href="#local-6989586621679157356"><span class="hs-identifier hs-var hs-var">b</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679157356"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157355"><span class="annot"><span class="annottext">s :: AttributeValue
-</span><a href="#local-6989586621679157355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157354"><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679157354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
-</span><a href="#local-6989586621679157355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:b:AttributeValue' :: Maybe Base64
+</span><a href="#local-6989586621679157406"><span class="hs-identifier hs-var hs-var">b</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679157406"><span class="hs-identifier hs-var">b</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157405"><span class="annot"><span class="annottext">s :: AttributeValue
+</span><a href="#local-6989586621679157405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157404"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679157404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
+</span><a href="#local-6989586621679157405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:b:AttributeValue' :: Maybe Base64
 </span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Ab%3AAttributeValue%27"><span class="hs-identifier hs-var">b</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679157354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
+</span><a href="#local-6989586621679157404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
  -&gt; AttributeValue -&gt; f AttributeValue)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe Base64 -&gt; f (Maybe Base64))
@@ -491,73 +535,27 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso Base64 Base64 ByteString ByteString
 Iso' Base64 ByteString
 </span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
-</span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- | An attribute of type List. For example:</span><span>
-</span><span id="line-214"></span><span class="hs-comment">--</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- @\&quot;L\&quot;: [ {\&quot;S\&quot;: \&quot;Cookies\&quot;} , {\&quot;S\&quot;: \&quot;Coffee\&quot;}, {\&quot;N\&quot;, \&quot;3.14159\&quot;}]@</span><span>
-</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_l"><span class="hs-identifier hs-type">attributeValue_l</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-217"></span><span id="attributeValue_l"><span class="annot"><span class="annottext">attributeValue_l :: (Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
--&gt; AttributeValue -&gt; f AttributeValue
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_l"><span class="hs-identifier hs-var hs-var">attributeValue_l</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttributeValue -&gt; Maybe [AttributeValue])
--&gt; (AttributeValue -&gt; Maybe [AttributeValue] -&gt; AttributeValue)
--&gt; Lens
-     AttributeValue
-     AttributeValue
-     (Maybe [AttributeValue])
-     (Maybe [AttributeValue])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157351"><span class="annot"><span class="annottext">Maybe [AttributeValue]
-l :: Maybe [AttributeValue]
-$sel:l:AttributeValue' :: AttributeValue -&gt; Maybe [AttributeValue]
-</span><a href="#local-6989586621679157351"><span class="hs-identifier hs-var hs-var">l</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
-</span><a href="#local-6989586621679157351"><span class="hs-identifier hs-var">l</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157350"><span class="annot"><span class="annottext">s :: AttributeValue
-</span><a href="#local-6989586621679157350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157349"><span class="annot"><span class="annottext">Maybe [AttributeValue]
-</span><a href="#local-6989586621679157349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
-</span><a href="#local-6989586621679157350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:l:AttributeValue' :: Maybe [AttributeValue]
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Al%3AAttributeValue%27"><span class="hs-identifier hs-var">l</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
-</span><a href="#local-6989586621679157349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
- -&gt; AttributeValue -&gt; f AttributeValue)
--&gt; ((Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
-    -&gt; Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
--&gt; (Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
--&gt; AttributeValue
--&gt; f AttributeValue
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [AttributeValue] [AttributeValue] [AttributeValue] [AttributeValue]
--&gt; Iso
-     (Maybe [AttributeValue])
-     (Maybe [AttributeValue])
-     (Maybe [AttributeValue])
-     (Maybe [AttributeValue])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [AttributeValue] [AttributeValue] [AttributeValue] [AttributeValue]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- | An attribute of type String Set. For example:</span><span>
-</span><span id="line-220"></span><span class="hs-comment">--</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- @\&quot;SS\&quot;: [\&quot;Giraffe\&quot;, \&quot;Hippo\&quot; ,\&quot;Zebra\&quot;]@</span><span>
-</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_ss"><span class="hs-identifier hs-type">attributeValue_ss</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-223"></span><span id="attributeValue_ss"><span class="annot"><span class="annottext">attributeValue_ss :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | An attribute of type String Set. For example:</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- @\&quot;SS\&quot;: [\&quot;Giraffe\&quot;, \&quot;Hippo\&quot; ,\&quot;Zebra\&quot;]@</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_ss"><span class="hs-identifier hs-type">attributeValue_ss</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="attributeValue_ss"><span class="annot"><span class="annottext">attributeValue_ss :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; AttributeValue -&gt; f AttributeValue
 </span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_ss"><span class="hs-identifier hs-var hs-var">attributeValue_ss</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttributeValue -&gt; Maybe [Text])
 -&gt; (AttributeValue -&gt; Maybe [Text] -&gt; AttributeValue)
 -&gt; Lens AttributeValue AttributeValue (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157347"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157401"><span class="annot"><span class="annottext">Maybe [Text]
 ss :: Maybe [Text]
 $sel:ss:AttributeValue' :: AttributeValue -&gt; Maybe [Text]
-</span><a href="#local-6989586621679157347"><span class="hs-identifier hs-var hs-var">ss</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679157347"><span class="hs-identifier hs-var">ss</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157346"><span class="annot"><span class="annottext">s :: AttributeValue
-</span><a href="#local-6989586621679157346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157345"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679157345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
-</span><a href="#local-6989586621679157346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ss:AttributeValue' :: Maybe [Text]
+</span><a href="#local-6989586621679157401"><span class="hs-identifier hs-var hs-var">ss</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679157401"><span class="hs-identifier hs-var">ss</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157400"><span class="annot"><span class="annottext">s :: AttributeValue
+</span><a href="#local-6989586621679157400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157399"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679157399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
+</span><a href="#local-6989586621679157400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ss:AttributeValue' :: Maybe [Text]
 </span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Ass%3AAttributeValue%27"><span class="hs-identifier hs-var">ss</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679157345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679157399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; AttributeValue -&gt; f AttributeValue)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -571,51 +569,53 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- | An attribute of type Number Set. For example:</span><span>
-</span><span id="line-226"></span><span class="hs-comment">--</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- @\&quot;NS\&quot;: [\&quot;42.2\&quot;, \&quot;-19\&quot;, \&quot;7.5\&quot;, \&quot;3.14\&quot;]@</span><span>
-</span><span id="line-228"></span><span class="hs-comment">--</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- Numbers are sent across the network to DynamoDB as strings, to maximize</span><span>
-</span><span id="line-230"></span><span class="hs-comment">-- compatibility across languages and libraries. However, DynamoDB treats</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- them as number type attributes for mathematical operations.</span><span>
-</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_ns"><span class="hs-identifier hs-type">attributeValue_ns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-233"></span><span id="attributeValue_ns"><span class="annot"><span class="annottext">attributeValue_ns :: (Maybe [Text] -&gt; f (Maybe [Text]))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | An attribute of type String. For example:</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- @\&quot;S\&quot;: \&quot;Hello\&quot;@</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_s"><span class="hs-identifier hs-type">attributeValue_s</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="attributeValue_s"><span class="annot"><span class="annottext">attributeValue_s :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AttributeValue -&gt; f AttributeValue
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_ns"><span class="hs-identifier hs-var hs-var">attributeValue_ns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttributeValue -&gt; Maybe [Text])
--&gt; (AttributeValue -&gt; Maybe [Text] -&gt; AttributeValue)
--&gt; Lens AttributeValue AttributeValue (Maybe [Text]) (Maybe [Text])
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_s"><span class="hs-identifier hs-var hs-var">attributeValue_s</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttributeValue -&gt; Maybe Text)
+-&gt; (AttributeValue -&gt; Maybe Text -&gt; AttributeValue)
+-&gt; Lens AttributeValue AttributeValue (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157343"><span class="annot"><span class="annottext">Maybe [Text]
-ns :: Maybe [Text]
-$sel:ns:AttributeValue' :: AttributeValue -&gt; Maybe [Text]
-</span><a href="#local-6989586621679157343"><span class="hs-identifier hs-var hs-var">ns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679157343"><span class="hs-identifier hs-var">ns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157342"><span class="annot"><span class="annottext">s :: AttributeValue
-</span><a href="#local-6989586621679157342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157341"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679157341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
-</span><a href="#local-6989586621679157342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ns:AttributeValue' :: Maybe [Text]
-</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Ans%3AAttributeValue%27"><span class="hs-identifier hs-var">ns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679157341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; AttributeValue -&gt; f AttributeValue)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; AttributeValue
--&gt; f AttributeValue
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157397"><span class="annot"><span class="annottext">Maybe Text
+s :: Maybe Text
+$sel:s:AttributeValue' :: AttributeValue -&gt; Maybe Text
+</span><a href="#local-6989586621679157397"><span class="hs-identifier hs-var hs-var">s</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679157397"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157396"><span class="annot"><span class="annottext">s :: AttributeValue
+</span><a href="#local-6989586621679157396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157395"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679157395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
+</span><a href="#local-6989586621679157396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s:AttributeValue' :: Maybe Text
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3As%3AAttributeValue%27"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679157395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | An attribute of type Boolean. For example:</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- @\&quot;BOOL\&quot;: true@</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_bool"><span class="hs-identifier hs-type">attributeValue_bool</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="attributeValue_bool"><span class="annot"><span class="annottext">attributeValue_bool :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AttributeValue -&gt; f AttributeValue
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#attributeValue_bool"><span class="hs-identifier hs-var hs-var">attributeValue_bool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttributeValue -&gt; Maybe Bool)
+-&gt; (AttributeValue -&gt; Maybe Bool -&gt; AttributeValue)
+-&gt; Lens AttributeValue AttributeValue (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679157393"><span class="annot"><span class="annottext">Maybe Bool
+bool :: Maybe Bool
+$sel:bool:AttributeValue' :: AttributeValue -&gt; Maybe Bool
+</span><a href="#local-6989586621679157393"><span class="hs-identifier hs-var hs-var">bool</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679157393"><span class="hs-identifier hs-var">bool</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679157392"><span class="annot"><span class="annottext">s :: AttributeValue
+</span><a href="#local-6989586621679157392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679157391"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679157391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
+</span><a href="#local-6989586621679157392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bool:AttributeValue' :: Maybe Bool
+</span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#%24sel%3Abool%3AAttributeValue%27"><span class="hs-identifier hs-var">bool</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679157391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679157338"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-236"></span><span>  </span><span id="local-6989586621679157336"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttributeValue
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679157388"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679157386"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttributeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-237"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AttributeValue)
@@ -625,171 +625,110 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-238"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AttributeValue&quot;</span></span><span>
-</span><span id="line-239"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679157333"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679157333"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-240"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Base64]
--&gt; Maybe Text
--&gt; Maybe Bool
--&gt; Maybe Bool
--&gt; Maybe Text
+</span><span id="line-239"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679157383"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679157383"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-240"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
+-&gt; Maybe [Text]
 -&gt; Maybe (HashMap Text AttributeValue)
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe [Base64]
 -&gt; Maybe Base64
--&gt; Maybe [AttributeValue]
 -&gt; Maybe [Text]
--&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; AttributeValue
 </span><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-var">AttributeValue'</span></a></span><span>
-</span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Base64]
- -&gt; Maybe Text
- -&gt; Maybe Bool
- -&gt; Maybe Bool
- -&gt; Maybe Text
+</span><span id="line-241"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AttributeValue]
+ -&gt; Maybe [Text]
  -&gt; Maybe (HashMap Text AttributeValue)
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe [Base64]
  -&gt; Maybe Base64
- -&gt; Maybe [AttributeValue]
  -&gt; Maybe [Text]
- -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
  -&gt; AttributeValue)
--&gt; Parser (Maybe [Base64])
+-&gt; Parser (Maybe [AttributeValue])
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Bool
+     (Maybe [Text]
+      -&gt; Maybe (HashMap Text AttributeValue)
       -&gt; Maybe Bool
       -&gt; Maybe Text
-      -&gt; Maybe (HashMap Text AttributeValue)
+      -&gt; Maybe [Base64]
       -&gt; Maybe Base64
-      -&gt; Maybe [AttributeValue]
       -&gt; Maybe [Text]
-      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
       -&gt; AttributeValue)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679157333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Base64]))
+</span><a href="#local-6989586621679157383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AttributeValue]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BS&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Base64]))
--&gt; Maybe [Base64] -&gt; Parser (Maybe [Base64])
+</span><span class="hs-string">&quot;L&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AttributeValue]))
+-&gt; Maybe [AttributeValue] -&gt; Parser (Maybe [AttributeValue])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Base64]
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Bool
-   -&gt; Maybe Bool
-   -&gt; Maybe Text
+  (Maybe [Text]
    -&gt; Maybe (HashMap Text AttributeValue)
-   -&gt; Maybe Base64
-   -&gt; Maybe [AttributeValue]
-   -&gt; Maybe [Text]
-   -&gt; Maybe [Text]
-   -&gt; AttributeValue)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Bool
-      -&gt; Maybe Bool
-      -&gt; Maybe Text
-      -&gt; Maybe (HashMap Text AttributeValue)
-      -&gt; Maybe Base64
-      -&gt; Maybe [AttributeValue]
-      -&gt; Maybe [Text]
-      -&gt; Maybe [Text]
-      -&gt; AttributeValue)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679157333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;N&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Bool
    -&gt; Maybe Bool
    -&gt; Maybe Text
-   -&gt; Maybe (HashMap Text AttributeValue)
+   -&gt; Maybe [Base64]
    -&gt; Maybe Base64
-   -&gt; Maybe [AttributeValue]
    -&gt; Maybe [Text]
-   -&gt; Maybe [Text]
-   -&gt; AttributeValue)
--&gt; Parser (Maybe Bool)
--&gt; Parser
-     (Maybe Bool
-      -&gt; Maybe Text
-      -&gt; Maybe (HashMap Text AttributeValue)
-      -&gt; Maybe Base64
-      -&gt; Maybe [AttributeValue]
-      -&gt; Maybe [Text]
-      -&gt; Maybe [Text]
-      -&gt; AttributeValue)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679157333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BOOL&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Bool
    -&gt; Maybe Text
-   -&gt; Maybe (HashMap Text AttributeValue)
-   -&gt; Maybe Base64
-   -&gt; Maybe [AttributeValue]
-   -&gt; Maybe [Text]
-   -&gt; Maybe [Text]
+   -&gt; Maybe Bool
    -&gt; AttributeValue)
--&gt; Parser (Maybe Bool)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe (HashMap Text AttributeValue)
-      -&gt; Maybe Base64
-      -&gt; Maybe [AttributeValue]
-      -&gt; Maybe [Text]
-      -&gt; Maybe [Text]
-      -&gt; AttributeValue)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679157333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NULL&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe (HashMap Text AttributeValue)
-   -&gt; Maybe Base64
-   -&gt; Maybe [AttributeValue]
-   -&gt; Maybe [Text]
-   -&gt; Maybe [Text]
-   -&gt; AttributeValue)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Text])
 -&gt; Parser
      (Maybe (HashMap Text AttributeValue)
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe [Base64]
       -&gt; Maybe Base64
-      -&gt; Maybe [AttributeValue]
       -&gt; Maybe [Text]
-      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
       -&gt; AttributeValue)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679157333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679157383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;S&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;NS&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe (HashMap Text AttributeValue)
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe [Base64]
    -&gt; Maybe Base64
-   -&gt; Maybe [AttributeValue]
    -&gt; Maybe [Text]
-   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
    -&gt; AttributeValue)
 -&gt; Parser (Maybe (HashMap Text AttributeValue))
 -&gt; Parser
-     (Maybe Base64
-      -&gt; Maybe [AttributeValue]
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe [Base64]
+      -&gt; Maybe Base64
       -&gt; Maybe [Text]
-      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
       -&gt; AttributeValue)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679157333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679157383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text AttributeValue)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -800,43 +739,92 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Base64
-   -&gt; Maybe [AttributeValue]
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe [Base64]
+   -&gt; Maybe Base64
    -&gt; Maybe [Text]
-   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
    -&gt; AttributeValue)
--&gt; Parser (Maybe Base64)
+-&gt; Parser (Maybe Bool)
 -&gt; Parser
-     (Maybe [AttributeValue]
-      -&gt; Maybe [Text] -&gt; Maybe [Text] -&gt; AttributeValue)
+     (Maybe Text
+      -&gt; Maybe [Base64]
+      -&gt; Maybe Base64
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; AttributeValue)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679157333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Base64)
+</span><a href="#local-6989586621679157383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NULL&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Base64]
+   -&gt; Maybe Base64
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; AttributeValue)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Base64]
+      -&gt; Maybe Base64
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; AttributeValue)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679157383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;N&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Base64]
+   -&gt; Maybe Base64
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; AttributeValue)
+-&gt; Parser (Maybe [Base64])
+-&gt; Parser
+     (Maybe Base64
+      -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Maybe Bool -&gt; AttributeValue)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679157383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Base64]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BS&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Base64]))
+-&gt; Maybe [Base64] -&gt; Parser (Maybe [Base64])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Base64]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Base64
+   -&gt; Maybe [Text] -&gt; Maybe Text -&gt; Maybe Bool -&gt; AttributeValue)
+-&gt; Parser (Maybe Base64)
+-&gt; Parser
+     (Maybe [Text] -&gt; Maybe Text -&gt; Maybe Bool -&gt; AttributeValue)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679157383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Base64)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;B&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [AttributeValue]
-   -&gt; Maybe [Text] -&gt; Maybe [Text] -&gt; AttributeValue)
--&gt; Parser (Maybe [AttributeValue])
--&gt; Parser (Maybe [Text] -&gt; Maybe [Text] -&gt; AttributeValue)
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe Text -&gt; Maybe Bool -&gt; AttributeValue)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe Text -&gt; Maybe Bool -&gt; AttributeValue)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679157333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AttributeValue]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;L&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AttributeValue]))
--&gt; Maybe [AttributeValue] -&gt; Parser (Maybe [AttributeValue])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe [Text] -&gt; AttributeValue)
--&gt; Parser (Maybe [Text]) -&gt; Parser (Maybe [Text] -&gt; AttributeValue)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679157333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679157383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SS&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -845,22 +833,25 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; AttributeValue)
--&gt; Parser (Maybe [Text]) -&gt; Parser AttributeValue
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Bool -&gt; AttributeValue)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Bool -&gt; AttributeValue)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679157333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679157383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NS&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
--&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;S&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; AttributeValue)
+-&gt; Parser (Maybe Bool) -&gt; Parser AttributeValue
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679157383"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BOOL&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679157326"><span id="local-6989586621679157328"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679157376"><span id="local-6989586621679157378"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span></span><span>
 </span><span id="line-254"></span><span>
-</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679157323"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679157373"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span><span>
 </span><span id="line-256"></span></pre></body></html>

@@ -30,24 +30,24 @@
 </span><span id="line-30"></span><span class="hs-comment">-- Valid values: @Success@ | @Failure@</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDeliveryChannelStatus' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679399057"><span id="local-6989586621679399058"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeliveryChannelStatus"><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-var">DeliveryChannelStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliveryChannelStatus%27"><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-var">DeliveryChannelStatus'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list containing the status of the delivery of the configuration stream</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- notification to the specified Amazon SNS topic.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AconfigStreamDeliveryInfo%3ADeliveryChannelStatus%27"><span class="annot"><span class="annottext">DeliveryChannelStatus -&gt; Maybe ConfigStreamDeliveryInfo
-</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3AconfigStreamDeliveryInfo%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var hs-var">configStreamDeliveryInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigStreamDeliveryInfo.html#ConfigStreamDeliveryInfo"><span class="hs-identifier hs-type">ConfigStreamDeliveryInfo</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A list containing the status of the delivery of the snapshot to the</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- specified Amazon S3 bucket.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AconfigSnapshotDeliveryInfo%3ADeliveryChannelStatus%27"><span class="annot"><span class="annottext">DeliveryChannelStatus -&gt; Maybe ConfigExportDeliveryInfo
+</span><span id="line-33"></span><span id="local-6989586621679399640"><span id="local-6989586621679399641"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeliveryChannelStatus"><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-var">DeliveryChannelStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliveryChannelStatus%27"><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-var">DeliveryChannelStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list containing the status of the delivery of the snapshot to the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- specified Amazon S3 bucket.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AconfigSnapshotDeliveryInfo%3ADeliveryChannelStatus%27"><span class="annot"><span class="annottext">DeliveryChannelStatus -&gt; Maybe ConfigExportDeliveryInfo
 </span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3AconfigSnapshotDeliveryInfo%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var hs-var">configSnapshotDeliveryInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the delivery channel.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aname%3ADeliveryChannelStatus%27"><span class="annot"><span class="annottext">DeliveryChannelStatus -&gt; Maybe Text
-</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3Aname%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A list that contains the status of the delivery of the configuration</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- history to the specified Amazon S3 bucket.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AconfigHistoryDeliveryInfo%3ADeliveryChannelStatus%27"><span class="annot"><span class="annottext">DeliveryChannelStatus -&gt; Maybe ConfigExportDeliveryInfo
-</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3AconfigHistoryDeliveryInfo%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var hs-var">configHistoryDeliveryInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A list containing the status of the delivery of the configuration stream</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- notification to the specified Amazon SNS topic.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AconfigStreamDeliveryInfo%3ADeliveryChannelStatus%27"><span class="annot"><span class="annottext">DeliveryChannelStatus -&gt; Maybe ConfigStreamDeliveryInfo
+</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3AconfigStreamDeliveryInfo%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var hs-var">configStreamDeliveryInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigStreamDeliveryInfo.html#ConfigStreamDeliveryInfo"><span class="hs-identifier hs-type">ConfigStreamDeliveryInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A list that contains the status of the delivery of the configuration</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- history to the specified Amazon S3 bucket.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AconfigHistoryDeliveryInfo%3ADeliveryChannelStatus%27"><span class="annot"><span class="annottext">DeliveryChannelStatus -&gt; Maybe ConfigExportDeliveryInfo
+</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3AconfigHistoryDeliveryInfo%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var hs-var">configHistoryDeliveryInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The name of the delivery channel.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aname%3ADeliveryChannelStatus%27"><span class="annot"><span class="annottext">DeliveryChannelStatus -&gt; Maybe Text
+</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3Aname%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399048"><span id="local-6989586621679399050"><span class="annot"><span class="annottext">DeliveryChannelStatus -&gt; DeliveryChannelStatus -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399631"><span id="local-6989586621679399633"><span class="annot"><span class="annottext">DeliveryChannelStatus -&gt; DeliveryChannelStatus -&gt; Bool
 (DeliveryChannelStatus -&gt; DeliveryChannelStatus -&gt; Bool)
 -&gt; (DeliveryChannelStatus -&gt; DeliveryChannelStatus -&gt; Bool)
 -&gt; Eq DeliveryChannelStatus
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeliveryChannelStatus -&gt; DeliveryChannelStatus -&gt; Bool
 == :: DeliveryChannelStatus -&gt; DeliveryChannelStatus -&gt; Bool
 $c== :: DeliveryChannelStatus -&gt; DeliveryChannelStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399039"><span id="local-6989586621679399041"><span id="local-6989586621679399043"><span id="local-6989586621679399045"><span class="annot"><span class="annottext">ReadPrec [DeliveryChannelStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399622"><span id="local-6989586621679399624"><span id="local-6989586621679399626"><span id="local-6989586621679399628"><span class="annot"><span class="annottext">ReadPrec [DeliveryChannelStatus]
 ReadPrec DeliveryChannelStatus
 Int -&gt; ReadS DeliveryChannelStatus
 ReadS [DeliveryChannelStatus]
@@ -76,7 +76,7 @@ readList :: ReadS [DeliveryChannelStatus]
 $creadList :: ReadS [DeliveryChannelStatus]
 readsPrec :: Int -&gt; ReadS DeliveryChannelStatus
 $creadsPrec :: Int -&gt; ReadS DeliveryChannelStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399032"><span id="local-6989586621679399034"><span id="local-6989586621679399036"><span class="annot"><span class="annottext">Int -&gt; DeliveryChannelStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399615"><span id="local-6989586621679399617"><span id="local-6989586621679399619"><span class="annot"><span class="annottext">Int -&gt; DeliveryChannelStatus -&gt; ShowS
 [DeliveryChannelStatus] -&gt; ShowS
 DeliveryChannelStatus -&gt; String
 (Int -&gt; DeliveryChannelStatus -&gt; ShowS)
@@ -110,75 +110,49 @@ $cfrom :: forall x. DeliveryChannelStatus -&gt; Rep DeliveryChannelStatus x
 </span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'configStreamDeliveryInfo', 'deliveryChannelStatus_configStreamDeliveryInfo' - A list containing the status of the delivery of the configuration stream</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- notification to the specified Amazon SNS topic.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'configSnapshotDeliveryInfo', 'deliveryChannelStatus_configSnapshotDeliveryInfo' - A list containing the status of the delivery of the snapshot to the</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- specified Amazon S3 bucket.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'configSnapshotDeliveryInfo', 'deliveryChannelStatus_configSnapshotDeliveryInfo' - A list containing the status of the delivery of the snapshot to the</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- specified Amazon S3 bucket.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'configStreamDeliveryInfo', 'deliveryChannelStatus_configStreamDeliveryInfo' - A list containing the status of the delivery of the configuration stream</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- notification to the specified Amazon SNS topic.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'name', 'deliveryChannelStatus_name' - The name of the delivery channel.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'configHistoryDeliveryInfo', 'deliveryChannelStatus_configHistoryDeliveryInfo' - A list that contains the status of the delivery of the configuration</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- history to the specified Amazon S3 bucket.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'configHistoryDeliveryInfo', 'deliveryChannelStatus_configHistoryDeliveryInfo' - A list that contains the status of the delivery of the configuration</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- history to the specified Amazon S3 bucket.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'name', 'deliveryChannelStatus_name' - The name of the delivery channel.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#newDeliveryChannelStatus"><span class="hs-identifier hs-type">newDeliveryChannelStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span><span>
 </span><span id="line-68"></span><span id="newDeliveryChannelStatus"><span class="annot"><span class="annottext">newDeliveryChannelStatus :: DeliveryChannelStatus
 </span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#newDeliveryChannelStatus"><span class="hs-identifier hs-var hs-var">newDeliveryChannelStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeliveryChannelStatus' :: Maybe ConfigStreamDeliveryInfo
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeliveryChannelStatus' :: Maybe ConfigExportDeliveryInfo
+-&gt; Maybe ConfigStreamDeliveryInfo
 -&gt; Maybe ConfigExportDeliveryInfo
 -&gt; Maybe Text
--&gt; Maybe ConfigExportDeliveryInfo
 -&gt; DeliveryChannelStatus
 </span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-type">DeliveryChannelStatus'</span></a></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:configStreamDeliveryInfo:DeliveryChannelStatus' :: Maybe ConfigStreamDeliveryInfo
-</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3AconfigStreamDeliveryInfo%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var">configStreamDeliveryInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe ConfigStreamDeliveryInfo
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:configSnapshotDeliveryInfo:DeliveryChannelStatus' :: Maybe ConfigExportDeliveryInfo
+</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3AconfigSnapshotDeliveryInfo%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var">configSnapshotDeliveryInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe ConfigExportDeliveryInfo
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:configSnapshotDeliveryInfo:DeliveryChannelStatus' :: Maybe ConfigExportDeliveryInfo
-</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3AconfigSnapshotDeliveryInfo%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var">configSnapshotDeliveryInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigExportDeliveryInfo
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:configStreamDeliveryInfo:DeliveryChannelStatus' :: Maybe ConfigStreamDeliveryInfo
+</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3AconfigStreamDeliveryInfo%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var">configStreamDeliveryInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigStreamDeliveryInfo
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DeliveryChannelStatus' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3Aname%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:configHistoryDeliveryInfo:DeliveryChannelStatus' :: Maybe ConfigExportDeliveryInfo
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:configHistoryDeliveryInfo:DeliveryChannelStatus' :: Maybe ConfigExportDeliveryInfo
 </span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3AconfigHistoryDeliveryInfo%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var">configHistoryDeliveryInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigExportDeliveryInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DeliveryChannelStatus' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3Aname%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | A list containing the status of the delivery of the configuration stream</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- notification to the specified Amazon SNS topic.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#deliveryChannelStatus_configStreamDeliveryInfo"><span class="hs-identifier hs-type">deliveryChannelStatus_configStreamDeliveryInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigStreamDeliveryInfo.html#ConfigStreamDeliveryInfo"><span class="hs-identifier hs-type">ConfigStreamDeliveryInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="deliveryChannelStatus_configStreamDeliveryInfo"><span class="annot"><span class="annottext">deliveryChannelStatus_configStreamDeliveryInfo :: (Maybe ConfigStreamDeliveryInfo
- -&gt; f (Maybe ConfigStreamDeliveryInfo))
--&gt; DeliveryChannelStatus -&gt; f DeliveryChannelStatus
-</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#deliveryChannelStatus_configStreamDeliveryInfo"><span class="hs-identifier hs-var hs-var">deliveryChannelStatus_configStreamDeliveryInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeliveryChannelStatus -&gt; Maybe ConfigStreamDeliveryInfo)
--&gt; (DeliveryChannelStatus
-    -&gt; Maybe ConfigStreamDeliveryInfo -&gt; DeliveryChannelStatus)
--&gt; Lens
-     DeliveryChannelStatus
-     DeliveryChannelStatus
-     (Maybe ConfigStreamDeliveryInfo)
-     (Maybe ConfigStreamDeliveryInfo)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-type">DeliveryChannelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399023"><span class="annot"><span class="annottext">Maybe ConfigStreamDeliveryInfo
-configStreamDeliveryInfo :: Maybe ConfigStreamDeliveryInfo
-$sel:configStreamDeliveryInfo:DeliveryChannelStatus' :: DeliveryChannelStatus -&gt; Maybe ConfigStreamDeliveryInfo
-</span><a href="#local-6989586621679399023"><span class="hs-identifier hs-var hs-var">configStreamDeliveryInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigStreamDeliveryInfo
-</span><a href="#local-6989586621679399023"><span class="hs-identifier hs-var">configStreamDeliveryInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399022"><span class="annot"><span class="annottext">s :: DeliveryChannelStatus
-</span><a href="#local-6989586621679399022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-type">DeliveryChannelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399021"><span class="annot"><span class="annottext">Maybe ConfigStreamDeliveryInfo
-</span><a href="#local-6989586621679399021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannelStatus
-</span><a href="#local-6989586621679399022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configStreamDeliveryInfo:DeliveryChannelStatus' :: Maybe ConfigStreamDeliveryInfo
-</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3AconfigStreamDeliveryInfo%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var">configStreamDeliveryInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigStreamDeliveryInfo
-</span><a href="#local-6989586621679399021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | A list containing the status of the delivery of the snapshot to the</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- specified Amazon S3 bucket.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#deliveryChannelStatus_configSnapshotDeliveryInfo"><span class="hs-identifier hs-type">deliveryChannelStatus_configSnapshotDeliveryInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="deliveryChannelStatus_configSnapshotDeliveryInfo"><span class="annot"><span class="annottext">deliveryChannelStatus_configSnapshotDeliveryInfo :: (Maybe ConfigExportDeliveryInfo
+</span><span id="line-77"></span><span class="hs-comment">-- | A list containing the status of the delivery of the snapshot to the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- specified Amazon S3 bucket.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#deliveryChannelStatus_configSnapshotDeliveryInfo"><span class="hs-identifier hs-type">deliveryChannelStatus_configSnapshotDeliveryInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="deliveryChannelStatus_configSnapshotDeliveryInfo"><span class="annot"><span class="annottext">deliveryChannelStatus_configSnapshotDeliveryInfo :: (Maybe ConfigExportDeliveryInfo
  -&gt; f (Maybe ConfigExportDeliveryInfo))
 -&gt; DeliveryChannelStatus -&gt; f DeliveryChannelStatus
 </span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#deliveryChannelStatus_configSnapshotDeliveryInfo"><span class="hs-identifier hs-var hs-var">deliveryChannelStatus_configSnapshotDeliveryInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeliveryChannelStatus -&gt; Maybe ConfigExportDeliveryInfo)
@@ -190,44 +164,47 @@ $sel:configStreamDeliveryInfo:DeliveryChannelStatus' :: DeliveryChannelStatus -&
      (Maybe ConfigExportDeliveryInfo)
      (Maybe ConfigExportDeliveryInfo)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-type">DeliveryChannelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399019"><span class="annot"><span class="annottext">Maybe ConfigExportDeliveryInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-type">DeliveryChannelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399606"><span class="annot"><span class="annottext">Maybe ConfigExportDeliveryInfo
 configSnapshotDeliveryInfo :: Maybe ConfigExportDeliveryInfo
 $sel:configSnapshotDeliveryInfo:DeliveryChannelStatus' :: DeliveryChannelStatus -&gt; Maybe ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679399019"><span class="hs-identifier hs-var hs-var">configSnapshotDeliveryInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679399019"><span class="hs-identifier hs-var">configSnapshotDeliveryInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399018"><span class="annot"><span class="annottext">s :: DeliveryChannelStatus
-</span><a href="#local-6989586621679399018"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-type">DeliveryChannelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399017"><span class="annot"><span class="annottext">Maybe ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679399017"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannelStatus
-</span><a href="#local-6989586621679399018"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configSnapshotDeliveryInfo:DeliveryChannelStatus' :: Maybe ConfigExportDeliveryInfo
+</span><a href="#local-6989586621679399606"><span class="hs-identifier hs-var hs-var">configSnapshotDeliveryInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigExportDeliveryInfo
+</span><a href="#local-6989586621679399606"><span class="hs-identifier hs-var">configSnapshotDeliveryInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399605"><span class="annot"><span class="annottext">s :: DeliveryChannelStatus
+</span><a href="#local-6989586621679399605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-type">DeliveryChannelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399604"><span class="annot"><span class="annottext">Maybe ConfigExportDeliveryInfo
+</span><a href="#local-6989586621679399604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannelStatus
+</span><a href="#local-6989586621679399605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configSnapshotDeliveryInfo:DeliveryChannelStatus' :: Maybe ConfigExportDeliveryInfo
 </span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3AconfigSnapshotDeliveryInfo%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var">configSnapshotDeliveryInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679399017"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The name of the delivery channel.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#deliveryChannelStatus_name"><span class="hs-identifier hs-type">deliveryChannelStatus_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="deliveryChannelStatus_name"><span class="annot"><span class="annottext">deliveryChannelStatus_name :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679399604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | A list containing the status of the delivery of the configuration stream</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- notification to the specified Amazon SNS topic.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#deliveryChannelStatus_configStreamDeliveryInfo"><span class="hs-identifier hs-type">deliveryChannelStatus_configStreamDeliveryInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigStreamDeliveryInfo.html#ConfigStreamDeliveryInfo"><span class="hs-identifier hs-type">ConfigStreamDeliveryInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="deliveryChannelStatus_configStreamDeliveryInfo"><span class="annot"><span class="annottext">deliveryChannelStatus_configStreamDeliveryInfo :: (Maybe ConfigStreamDeliveryInfo
+ -&gt; f (Maybe ConfigStreamDeliveryInfo))
 -&gt; DeliveryChannelStatus -&gt; f DeliveryChannelStatus
-</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#deliveryChannelStatus_name"><span class="hs-identifier hs-var hs-var">deliveryChannelStatus_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeliveryChannelStatus -&gt; Maybe Text)
--&gt; (DeliveryChannelStatus -&gt; Maybe Text -&gt; DeliveryChannelStatus)
+</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#deliveryChannelStatus_configStreamDeliveryInfo"><span class="hs-identifier hs-var hs-var">deliveryChannelStatus_configStreamDeliveryInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeliveryChannelStatus -&gt; Maybe ConfigStreamDeliveryInfo)
+-&gt; (DeliveryChannelStatus
+    -&gt; Maybe ConfigStreamDeliveryInfo -&gt; DeliveryChannelStatus)
 -&gt; Lens
      DeliveryChannelStatus
      DeliveryChannelStatus
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe ConfigStreamDeliveryInfo)
+     (Maybe ConfigStreamDeliveryInfo)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-type">DeliveryChannelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399015"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:DeliveryChannelStatus' :: DeliveryChannelStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679399015"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399015"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399014"><span class="annot"><span class="annottext">s :: DeliveryChannelStatus
-</span><a href="#local-6989586621679399014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-type">DeliveryChannelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399013"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannelStatus
-</span><a href="#local-6989586621679399014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeliveryChannelStatus' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3Aname%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | A list that contains the status of the delivery of the configuration</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- history to the specified Amazon S3 bucket.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#deliveryChannelStatus_configHistoryDeliveryInfo"><span class="hs-identifier hs-type">deliveryChannelStatus_configHistoryDeliveryInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="deliveryChannelStatus_configHistoryDeliveryInfo"><span class="annot"><span class="annottext">deliveryChannelStatus_configHistoryDeliveryInfo :: (Maybe ConfigExportDeliveryInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-type">DeliveryChannelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399602"><span class="annot"><span class="annottext">Maybe ConfigStreamDeliveryInfo
+configStreamDeliveryInfo :: Maybe ConfigStreamDeliveryInfo
+$sel:configStreamDeliveryInfo:DeliveryChannelStatus' :: DeliveryChannelStatus -&gt; Maybe ConfigStreamDeliveryInfo
+</span><a href="#local-6989586621679399602"><span class="hs-identifier hs-var hs-var">configStreamDeliveryInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigStreamDeliveryInfo
+</span><a href="#local-6989586621679399602"><span class="hs-identifier hs-var">configStreamDeliveryInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399601"><span class="annot"><span class="annottext">s :: DeliveryChannelStatus
+</span><a href="#local-6989586621679399601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-type">DeliveryChannelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399600"><span class="annot"><span class="annottext">Maybe ConfigStreamDeliveryInfo
+</span><a href="#local-6989586621679399600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannelStatus
+</span><a href="#local-6989586621679399601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configStreamDeliveryInfo:DeliveryChannelStatus' :: Maybe ConfigStreamDeliveryInfo
+</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3AconfigStreamDeliveryInfo%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var">configStreamDeliveryInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigStreamDeliveryInfo
+</span><a href="#local-6989586621679399600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | A list that contains the status of the delivery of the configuration</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- history to the specified Amazon S3 bucket.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#deliveryChannelStatus_configHistoryDeliveryInfo"><span class="hs-identifier hs-type">deliveryChannelStatus_configHistoryDeliveryInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ConfigExportDeliveryInfo.html#ConfigExportDeliveryInfo"><span class="hs-identifier hs-type">ConfigExportDeliveryInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="deliveryChannelStatus_configHistoryDeliveryInfo"><span class="annot"><span class="annottext">deliveryChannelStatus_configHistoryDeliveryInfo :: (Maybe ConfigExportDeliveryInfo
  -&gt; f (Maybe ConfigExportDeliveryInfo))
 -&gt; DeliveryChannelStatus -&gt; f DeliveryChannelStatus
 </span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#deliveryChannelStatus_configHistoryDeliveryInfo"><span class="hs-identifier hs-var hs-var">deliveryChannelStatus_configHistoryDeliveryInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeliveryChannelStatus -&gt; Maybe ConfigExportDeliveryInfo)
@@ -239,19 +216,42 @@ $sel:name:DeliveryChannelStatus' :: DeliveryChannelStatus -&gt; Maybe Text
      (Maybe ConfigExportDeliveryInfo)
      (Maybe ConfigExportDeliveryInfo)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-type">DeliveryChannelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399011"><span class="annot"><span class="annottext">Maybe ConfigExportDeliveryInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-type">DeliveryChannelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399598"><span class="annot"><span class="annottext">Maybe ConfigExportDeliveryInfo
 configHistoryDeliveryInfo :: Maybe ConfigExportDeliveryInfo
 $sel:configHistoryDeliveryInfo:DeliveryChannelStatus' :: DeliveryChannelStatus -&gt; Maybe ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679399011"><span class="hs-identifier hs-var hs-var">configHistoryDeliveryInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679399011"><span class="hs-identifier hs-var">configHistoryDeliveryInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399010"><span class="annot"><span class="annottext">s :: DeliveryChannelStatus
-</span><a href="#local-6989586621679399010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-type">DeliveryChannelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399009"><span class="annot"><span class="annottext">Maybe ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679399009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannelStatus
-</span><a href="#local-6989586621679399010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configHistoryDeliveryInfo:DeliveryChannelStatus' :: Maybe ConfigExportDeliveryInfo
+</span><a href="#local-6989586621679399598"><span class="hs-identifier hs-var hs-var">configHistoryDeliveryInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigExportDeliveryInfo
+</span><a href="#local-6989586621679399598"><span class="hs-identifier hs-var">configHistoryDeliveryInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399597"><span class="annot"><span class="annottext">s :: DeliveryChannelStatus
+</span><a href="#local-6989586621679399597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-type">DeliveryChannelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399596"><span class="annot"><span class="annottext">Maybe ConfigExportDeliveryInfo
+</span><a href="#local-6989586621679399596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannelStatus
+</span><a href="#local-6989586621679399597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configHistoryDeliveryInfo:DeliveryChannelStatus' :: Maybe ConfigExportDeliveryInfo
 </span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3AconfigHistoryDeliveryInfo%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var">configHistoryDeliveryInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ConfigExportDeliveryInfo
-</span><a href="#local-6989586621679399009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The name of the delivery channel.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#deliveryChannelStatus_name"><span class="hs-identifier hs-type">deliveryChannelStatus_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="deliveryChannelStatus_name"><span class="annot"><span class="annottext">deliveryChannelStatus_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeliveryChannelStatus -&gt; f DeliveryChannelStatus
+</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#deliveryChannelStatus_name"><span class="hs-identifier hs-var hs-var">deliveryChannelStatus_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeliveryChannelStatus -&gt; Maybe Text)
+-&gt; (DeliveryChannelStatus -&gt; Maybe Text -&gt; DeliveryChannelStatus)
+-&gt; Lens
+     DeliveryChannelStatus
+     DeliveryChannelStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-type">DeliveryChannelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399594"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:DeliveryChannelStatus' :: DeliveryChannelStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679399594"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399594"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399593"><span class="annot"><span class="annottext">s :: DeliveryChannelStatus
+</span><a href="#local-6989586621679399593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-type">DeliveryChannelStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399592"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeliveryChannelStatus
+</span><a href="#local-6989586621679399593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeliveryChannelStatus' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#%24sel%3Aname%3ADeliveryChannelStatus%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399006"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679399004"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeliveryChannelStatus
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399589"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679399587"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeliveryChannelStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DeliveryChannelStatus)
@@ -261,69 +261,68 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DeliveryChannelStatus&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399001"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399001"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConfigStreamDeliveryInfo
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399584"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399584"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe ConfigExportDeliveryInfo
+-&gt; Maybe ConfigStreamDeliveryInfo
 -&gt; Maybe ConfigExportDeliveryInfo
 -&gt; Maybe Text
--&gt; Maybe ConfigExportDeliveryInfo
 -&gt; DeliveryChannelStatus
 </span><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus%27"><span class="hs-identifier hs-var">DeliveryChannelStatus'</span></a></span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ConfigStreamDeliveryInfo
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ConfigExportDeliveryInfo
+ -&gt; Maybe ConfigStreamDeliveryInfo
  -&gt; Maybe ConfigExportDeliveryInfo
  -&gt; Maybe Text
- -&gt; Maybe ConfigExportDeliveryInfo
  -&gt; DeliveryChannelStatus)
--&gt; Parser (Maybe ConfigStreamDeliveryInfo)
+-&gt; Parser (Maybe ConfigExportDeliveryInfo)
 -&gt; Parser
-     (Maybe ConfigExportDeliveryInfo
-      -&gt; Maybe Text
+     (Maybe ConfigStreamDeliveryInfo
       -&gt; Maybe ConfigExportDeliveryInfo
+      -&gt; Maybe Text
       -&gt; DeliveryChannelStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConfigStreamDeliveryInfo)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;configStreamDeliveryInfo&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ConfigExportDeliveryInfo
-   -&gt; Maybe Text
-   -&gt; Maybe ConfigExportDeliveryInfo
-   -&gt; DeliveryChannelStatus)
--&gt; Parser (Maybe ConfigExportDeliveryInfo)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe ConfigExportDeliveryInfo -&gt; DeliveryChannelStatus)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConfigExportDeliveryInfo)
+</span><a href="#local-6989586621679399584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConfigExportDeliveryInfo)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;configSnapshotDeliveryInfo&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe ConfigExportDeliveryInfo -&gt; DeliveryChannelStatus)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe ConfigExportDeliveryInfo -&gt; DeliveryChannelStatus)
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ConfigStreamDeliveryInfo
+   -&gt; Maybe ConfigExportDeliveryInfo
+   -&gt; Maybe Text
+   -&gt; DeliveryChannelStatus)
+-&gt; Parser (Maybe ConfigStreamDeliveryInfo)
+-&gt; Parser
+     (Maybe ConfigExportDeliveryInfo
+      -&gt; Maybe Text -&gt; DeliveryChannelStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679399584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConfigStreamDeliveryInfo)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ConfigExportDeliveryInfo -&gt; DeliveryChannelStatus)
+</span><span class="hs-string">&quot;configStreamDeliveryInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ConfigExportDeliveryInfo
+   -&gt; Maybe Text -&gt; DeliveryChannelStatus)
 -&gt; Parser (Maybe ConfigExportDeliveryInfo)
--&gt; Parser DeliveryChannelStatus
+-&gt; Parser (Maybe Text -&gt; DeliveryChannelStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConfigExportDeliveryInfo)
+</span><a href="#local-6989586621679399584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ConfigExportDeliveryInfo)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;configHistoryDeliveryInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DeliveryChannelStatus)
+-&gt; Parser (Maybe Text) -&gt; Parser DeliveryChannelStatus
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398995"><span id="local-6989586621679398997"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399578"><span id="local-6989586621679399580"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679398992"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399575"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.DeliveryChannelStatus.html#DeliveryChannelStatus"><span class="hs-identifier hs-type">DeliveryChannelStatus</span></a></span></span><span>
 </span><span id="line-111"></span></pre></body></html>

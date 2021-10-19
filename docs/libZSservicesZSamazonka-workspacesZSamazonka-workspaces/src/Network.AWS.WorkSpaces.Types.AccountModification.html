@@ -29,14 +29,14 @@
 </span><span id="line-29"></span><span class="hs-comment">-- (BYOL) for the specified account.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAccountModification' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679268598"><span id="local-6989586621679268599"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountModification"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-var">AccountModification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountModification%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-var">AccountModification'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of BYOL (whether BYOL is being enabled or disabled).</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdedicatedTenancySupport%3AAccountModification%27"><span class="annot"><span class="annottext">AccountModification -&gt; Maybe DedicatedTenancySupportResultEnum
-</span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AdedicatedTenancySupport%3AAccountModification%27"><span class="hs-identifier hs-var hs-var">dedicatedTenancySupport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#DedicatedTenancySupportResultEnum"><span class="hs-identifier hs-type">DedicatedTenancySupportResultEnum</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The timestamp when the modification of the BYOL configuration was</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- started.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AstartTime%3AAccountModification%27"><span class="annot"><span class="annottext">AccountModification -&gt; Maybe POSIX
+</span><span id="line-32"></span><span id="local-6989586621679271329"><span id="local-6989586621679271330"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountModification"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-var">AccountModification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountModification%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-var">AccountModification'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timestamp when the modification of the BYOL configuration was</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- started.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AstartTime%3AAccountModification%27"><span class="annot"><span class="annottext">AccountModification -&gt; Maybe POSIX
 </span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AstartTime%3AAccountModification%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The status of BYOL (whether BYOL is being enabled or disabled).</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdedicatedTenancySupport%3AAccountModification%27"><span class="annot"><span class="annottext">AccountModification -&gt; Maybe DedicatedTenancySupportResultEnum
+</span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AdedicatedTenancySupport%3AAccountModification%27"><span class="hs-identifier hs-var hs-var">dedicatedTenancySupport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#DedicatedTenancySupportResultEnum"><span class="hs-identifier hs-type">DedicatedTenancySupportResultEnum</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The state of the modification to the configuration of BYOL.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AmodificationState%3AAccountModification%27"><span class="annot"><span class="annottext">AccountModification -&gt; Maybe DedicatedTenancyModificationStateEnum
 </span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AmodificationState%3AAccountModification%27"><span class="hs-identifier hs-var hs-var">modificationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DedicatedTenancyModificationStateEnum.html#DedicatedTenancyModificationStateEnum"><span class="hs-identifier hs-type">DedicatedTenancyModificationStateEnum</span></a></span><span class="hs-special">,</span><span>
@@ -44,16 +44,16 @@
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- management network interface used for the account.</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AdedicatedTenancyManagementCidrRange%3AAccountModification%27"><span class="annot"><span class="annottext">AccountModification -&gt; Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AdedicatedTenancyManagementCidrRange%3AAccountModification%27"><span class="hs-identifier hs-var hs-var">dedicatedTenancyManagementCidrRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The text of the error message that is returned if the configuration of</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- BYOL cannot be modified.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AerrorMessage%3AAccountModification%27"><span class="annot"><span class="annottext">AccountModification -&gt; Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AerrorMessage%3AAccountModification%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The error code that is returned if the configuration of BYOL cannot be</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- modified.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AerrorCode%3AAccountModification%27"><span class="annot"><span class="annottext">AccountModification -&gt; Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AerrorCode%3AAccountModification%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The error code that is returned if the configuration of BYOL cannot be</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- modified.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AerrorCode%3AAccountModification%27"><span class="annot"><span class="annottext">AccountModification -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AerrorCode%3AAccountModification%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The text of the error message that is returned if the configuration of</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- BYOL cannot be modified.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AerrorMessage%3AAccountModification%27"><span class="annot"><span class="annottext">AccountModification -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AerrorMessage%3AAccountModification%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268587"><span id="local-6989586621679268589"><span class="annot"><span class="annottext">AccountModification -&gt; AccountModification -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679271318"><span id="local-6989586621679271320"><span class="annot"><span class="annottext">AccountModification -&gt; AccountModification -&gt; Bool
 (AccountModification -&gt; AccountModification -&gt; Bool)
 -&gt; (AccountModification -&gt; AccountModification -&gt; Bool)
 -&gt; Eq AccountModification
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccountModification -&gt; AccountModification -&gt; Bool
 == :: AccountModification -&gt; AccountModification -&gt; Bool
 $c== :: AccountModification -&gt; AccountModification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268578"><span id="local-6989586621679268580"><span id="local-6989586621679268582"><span id="local-6989586621679268584"><span class="annot"><span class="annottext">ReadPrec [AccountModification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271309"><span id="local-6989586621679271311"><span id="local-6989586621679271313"><span id="local-6989586621679271315"><span class="annot"><span class="annottext">ReadPrec [AccountModification]
 ReadPrec AccountModification
 Int -&gt; ReadS AccountModification
 ReadS [AccountModification]
@@ -82,7 +82,7 @@ readList :: ReadS [AccountModification]
 $creadList :: ReadS [AccountModification]
 readsPrec :: Int -&gt; ReadS AccountModification
 $creadsPrec :: Int -&gt; ReadS AccountModification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268571"><span id="local-6989586621679268573"><span id="local-6989586621679268575"><span class="annot"><span class="annottext">Int -&gt; AccountModification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679271302"><span id="local-6989586621679271304"><span id="local-6989586621679271306"><span class="annot"><span class="annottext">Int -&gt; AccountModification -&gt; ShowS
 [AccountModification] -&gt; ShowS
 AccountModification -&gt; String
 (Int -&gt; AccountModification -&gt; ShowS)
@@ -116,106 +116,80 @@ $cfrom :: forall x. AccountModification -&gt; Rep AccountModification x
 </span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'dedicatedTenancySupport', 'accountModification_dedicatedTenancySupport' - The status of BYOL (whether BYOL is being enabled or disabled).</span><span>
-</span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'startTime', 'accountModification_startTime' - The timestamp when the modification of the BYOL configuration was</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- started.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'startTime', 'accountModification_startTime' - The timestamp when the modification of the BYOL configuration was</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- started.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'dedicatedTenancySupport', 'accountModification_dedicatedTenancySupport' - The status of BYOL (whether BYOL is being enabled or disabled).</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- 'modificationState', 'accountModification_modificationState' - The state of the modification to the configuration of BYOL.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- 'dedicatedTenancyManagementCidrRange', 'accountModification_dedicatedTenancyManagementCidrRange' - The IP address range, specified as an IPv4 CIDR block, for the</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- management network interface used for the account.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'errorMessage', 'accountModification_errorMessage' - The text of the error message that is returned if the configuration of</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- BYOL cannot be modified.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'errorCode', 'accountModification_errorCode' - The error code that is returned if the configuration of BYOL cannot be</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- modified.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'errorCode', 'accountModification_errorCode' - The error code that is returned if the configuration of BYOL cannot be</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- modified.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'errorMessage', 'accountModification_errorMessage' - The text of the error message that is returned if the configuration of</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- BYOL cannot be modified.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#newAccountModification"><span class="hs-identifier hs-type">newAccountModification</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span>
 </span><span id="line-77"></span><span id="newAccountModification"><span class="annot"><span class="annottext">newAccountModification :: AccountModification
 </span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#newAccountModification"><span class="hs-identifier hs-var hs-var">newAccountModification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">AccountModification' :: Maybe DedicatedTenancySupportResultEnum
--&gt; Maybe POSIX
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">AccountModification' :: Maybe POSIX
+-&gt; Maybe DedicatedTenancySupportResultEnum
 -&gt; Maybe DedicatedTenancyModificationStateEnum
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; AccountModification
 </span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dedicatedTenancySupport:AccountModification' :: Maybe DedicatedTenancySupportResultEnum
-</span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AdedicatedTenancySupport%3AAccountModification%27"><span class="hs-identifier hs-var">dedicatedTenancySupport</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportResultEnum
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:AccountModification' :: Maybe POSIX
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startTime:AccountModification' :: Maybe POSIX
 </span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AstartTime%3AAccountModification%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:modificationState:AccountModification' :: Maybe DedicatedTenancyModificationStateEnum
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:dedicatedTenancySupport:AccountModification' :: Maybe DedicatedTenancySupportResultEnum
+</span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AdedicatedTenancySupport%3AAccountModification%27"><span class="hs-identifier hs-var">dedicatedTenancySupport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportResultEnum
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:modificationState:AccountModification' :: Maybe DedicatedTenancyModificationStateEnum
 </span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AmodificationState%3AAccountModification%27"><span class="hs-identifier hs-var">modificationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DedicatedTenancyModificationStateEnum
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:dedicatedTenancyManagementCidrRange:AccountModification' :: Maybe Text
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:dedicatedTenancyManagementCidrRange:AccountModification' :: Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AdedicatedTenancyManagementCidrRange%3AAccountModification%27"><span class="hs-identifier hs-var">dedicatedTenancyManagementCidrRange</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:AccountModification' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AerrorCode%3AAccountModification%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:AccountModification' :: Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AerrorMessage%3AAccountModification%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:AccountModification' :: Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AerrorCode%3AAccountModification%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The status of BYOL (whether BYOL is being enabled or disabled).</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_dedicatedTenancySupport"><span class="hs-identifier hs-type">accountModification_dedicatedTenancySupport</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#DedicatedTenancySupportResultEnum"><span class="hs-identifier hs-type">DedicatedTenancySupportResultEnum</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="accountModification_dedicatedTenancySupport"><span class="annot"><span class="annottext">accountModification_dedicatedTenancySupport :: (Maybe DedicatedTenancySupportResultEnum
- -&gt; f (Maybe DedicatedTenancySupportResultEnum))
--&gt; AccountModification -&gt; f AccountModification
-</span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_dedicatedTenancySupport"><span class="hs-identifier hs-var hs-var">accountModification_dedicatedTenancySupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountModification -&gt; Maybe DedicatedTenancySupportResultEnum)
--&gt; (AccountModification
-    -&gt; Maybe DedicatedTenancySupportResultEnum -&gt; AccountModification)
--&gt; Lens
-     AccountModification
-     AccountModification
-     (Maybe DedicatedTenancySupportResultEnum)
-     (Maybe DedicatedTenancySupportResultEnum)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268562"><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportResultEnum
-dedicatedTenancySupport :: Maybe DedicatedTenancySupportResultEnum
-$sel:dedicatedTenancySupport:AccountModification' :: AccountModification -&gt; Maybe DedicatedTenancySupportResultEnum
-</span><a href="#local-6989586621679268562"><span class="hs-identifier hs-var hs-var">dedicatedTenancySupport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportResultEnum
-</span><a href="#local-6989586621679268562"><span class="hs-identifier hs-var">dedicatedTenancySupport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268561"><span class="annot"><span class="annottext">s :: AccountModification
-</span><a href="#local-6989586621679268561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268560"><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportResultEnum
-</span><a href="#local-6989586621679268560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountModification
-</span><a href="#local-6989586621679268561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dedicatedTenancySupport:AccountModification' :: Maybe DedicatedTenancySupportResultEnum
-</span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AdedicatedTenancySupport%3AAccountModification%27"><span class="hs-identifier hs-var">dedicatedTenancySupport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportResultEnum
-</span><a href="#local-6989586621679268560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The timestamp when the modification of the BYOL configuration was</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- started.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_startTime"><span class="hs-identifier hs-type">accountModification_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="accountModification_startTime"><span class="annot"><span class="annottext">accountModification_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The timestamp when the modification of the BYOL configuration was</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- started.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_startTime"><span class="hs-identifier hs-type">accountModification_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="accountModification_startTime"><span class="annot"><span class="annottext">accountModification_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; AccountModification -&gt; f AccountModification
 </span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_startTime"><span class="hs-identifier hs-var hs-var">accountModification_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountModification -&gt; Maybe POSIX)
 -&gt; (AccountModification -&gt; Maybe POSIX -&gt; AccountModification)
 -&gt; Lens
      AccountModification AccountModification (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268558"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271293"><span class="annot"><span class="annottext">Maybe POSIX
 startTime :: Maybe POSIX
 $sel:startTime:AccountModification' :: AccountModification -&gt; Maybe POSIX
-</span><a href="#local-6989586621679268558"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679268558"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268557"><span class="annot"><span class="annottext">s :: AccountModification
-</span><a href="#local-6989586621679268557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268556"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679268556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountModification
-</span><a href="#local-6989586621679268557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:AccountModification' :: Maybe POSIX
+</span><a href="#local-6989586621679271293"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679271293"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271292"><span class="annot"><span class="annottext">s :: AccountModification
+</span><a href="#local-6989586621679271292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271291"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679271291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountModification
+</span><a href="#local-6989586621679271292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:AccountModification' :: Maybe POSIX
 </span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AstartTime%3AAccountModification%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679268556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679271291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; AccountModification -&gt; f AccountModification)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -231,10 +205,35 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | The state of the modification to the configuration of BYOL.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_modificationState"><span class="hs-identifier hs-type">accountModification_modificationState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DedicatedTenancyModificationStateEnum.html#DedicatedTenancyModificationStateEnum"><span class="hs-identifier hs-type">DedicatedTenancyModificationStateEnum</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="accountModification_modificationState"><span class="annot"><span class="annottext">accountModification_modificationState :: (Maybe DedicatedTenancyModificationStateEnum
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The status of BYOL (whether BYOL is being enabled or disabled).</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_dedicatedTenancySupport"><span class="hs-identifier hs-type">accountModification_dedicatedTenancySupport</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DedicatedTenancySupportResultEnum.html#DedicatedTenancySupportResultEnum"><span class="hs-identifier hs-type">DedicatedTenancySupportResultEnum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="accountModification_dedicatedTenancySupport"><span class="annot"><span class="annottext">accountModification_dedicatedTenancySupport :: (Maybe DedicatedTenancySupportResultEnum
+ -&gt; f (Maybe DedicatedTenancySupportResultEnum))
+-&gt; AccountModification -&gt; f AccountModification
+</span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_dedicatedTenancySupport"><span class="hs-identifier hs-var hs-var">accountModification_dedicatedTenancySupport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountModification -&gt; Maybe DedicatedTenancySupportResultEnum)
+-&gt; (AccountModification
+    -&gt; Maybe DedicatedTenancySupportResultEnum -&gt; AccountModification)
+-&gt; Lens
+     AccountModification
+     AccountModification
+     (Maybe DedicatedTenancySupportResultEnum)
+     (Maybe DedicatedTenancySupportResultEnum)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271286"><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportResultEnum
+dedicatedTenancySupport :: Maybe DedicatedTenancySupportResultEnum
+$sel:dedicatedTenancySupport:AccountModification' :: AccountModification -&gt; Maybe DedicatedTenancySupportResultEnum
+</span><a href="#local-6989586621679271286"><span class="hs-identifier hs-var hs-var">dedicatedTenancySupport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportResultEnum
+</span><a href="#local-6989586621679271286"><span class="hs-identifier hs-var">dedicatedTenancySupport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271285"><span class="annot"><span class="annottext">s :: AccountModification
+</span><a href="#local-6989586621679271285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271284"><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportResultEnum
+</span><a href="#local-6989586621679271284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountModification
+</span><a href="#local-6989586621679271285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dedicatedTenancySupport:AccountModification' :: Maybe DedicatedTenancySupportResultEnum
+</span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AdedicatedTenancySupport%3AAccountModification%27"><span class="hs-identifier hs-var">dedicatedTenancySupport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportResultEnum
+</span><a href="#local-6989586621679271284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The state of the modification to the configuration of BYOL.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_modificationState"><span class="hs-identifier hs-type">accountModification_modificationState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DedicatedTenancyModificationStateEnum.html#DedicatedTenancyModificationStateEnum"><span class="hs-identifier hs-type">DedicatedTenancyModificationStateEnum</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="accountModification_modificationState"><span class="annot"><span class="annottext">accountModification_modificationState :: (Maybe DedicatedTenancyModificationStateEnum
  -&gt; f (Maybe DedicatedTenancyModificationStateEnum))
 -&gt; AccountModification -&gt; f AccountModification
 </span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_modificationState"><span class="hs-identifier hs-var hs-var">accountModification_modificationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountModification
@@ -248,111 +247,111 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe DedicatedTenancyModificationStateEnum)
      (Maybe DedicatedTenancyModificationStateEnum)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268551"><span class="annot"><span class="annottext">Maybe DedicatedTenancyModificationStateEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271282"><span class="annot"><span class="annottext">Maybe DedicatedTenancyModificationStateEnum
 modificationState :: Maybe DedicatedTenancyModificationStateEnum
 $sel:modificationState:AccountModification' :: AccountModification -&gt; Maybe DedicatedTenancyModificationStateEnum
-</span><a href="#local-6989586621679268551"><span class="hs-identifier hs-var hs-var">modificationState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DedicatedTenancyModificationStateEnum
-</span><a href="#local-6989586621679268551"><span class="hs-identifier hs-var">modificationState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268550"><span class="annot"><span class="annottext">s :: AccountModification
-</span><a href="#local-6989586621679268550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268549"><span class="annot"><span class="annottext">Maybe DedicatedTenancyModificationStateEnum
-</span><a href="#local-6989586621679268549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountModification
-</span><a href="#local-6989586621679268550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modificationState:AccountModification' :: Maybe DedicatedTenancyModificationStateEnum
+</span><a href="#local-6989586621679271282"><span class="hs-identifier hs-var hs-var">modificationState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DedicatedTenancyModificationStateEnum
+</span><a href="#local-6989586621679271282"><span class="hs-identifier hs-var">modificationState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271281"><span class="annot"><span class="annottext">s :: AccountModification
+</span><a href="#local-6989586621679271281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271280"><span class="annot"><span class="annottext">Maybe DedicatedTenancyModificationStateEnum
+</span><a href="#local-6989586621679271280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountModification
+</span><a href="#local-6989586621679271281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modificationState:AccountModification' :: Maybe DedicatedTenancyModificationStateEnum
 </span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AmodificationState%3AAccountModification%27"><span class="hs-identifier hs-var">modificationState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DedicatedTenancyModificationStateEnum
-</span><a href="#local-6989586621679268549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | The IP address range, specified as an IPv4 CIDR block, for the</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- management network interface used for the account.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_dedicatedTenancyManagementCidrRange"><span class="hs-identifier hs-type">accountModification_dedicatedTenancyManagementCidrRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="accountModification_dedicatedTenancyManagementCidrRange"><span class="annot"><span class="annottext">accountModification_dedicatedTenancyManagementCidrRange :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679271280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The IP address range, specified as an IPv4 CIDR block, for the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- management network interface used for the account.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_dedicatedTenancyManagementCidrRange"><span class="hs-identifier hs-type">accountModification_dedicatedTenancyManagementCidrRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="accountModification_dedicatedTenancyManagementCidrRange"><span class="annot"><span class="annottext">accountModification_dedicatedTenancyManagementCidrRange :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AccountModification -&gt; f AccountModification
 </span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_dedicatedTenancyManagementCidrRange"><span class="hs-identifier hs-var hs-var">accountModification_dedicatedTenancyManagementCidrRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountModification -&gt; Maybe Text)
 -&gt; (AccountModification -&gt; Maybe Text -&gt; AccountModification)
 -&gt; Lens
      AccountModification AccountModification (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268547"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271278"><span class="annot"><span class="annottext">Maybe Text
 dedicatedTenancyManagementCidrRange :: Maybe Text
 $sel:dedicatedTenancyManagementCidrRange:AccountModification' :: AccountModification -&gt; Maybe Text
-</span><a href="#local-6989586621679268547"><span class="hs-identifier hs-var hs-var">dedicatedTenancyManagementCidrRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268547"><span class="hs-identifier hs-var">dedicatedTenancyManagementCidrRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268546"><span class="annot"><span class="annottext">s :: AccountModification
-</span><a href="#local-6989586621679268546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268545"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountModification
-</span><a href="#local-6989586621679268546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dedicatedTenancyManagementCidrRange:AccountModification' :: Maybe Text
+</span><a href="#local-6989586621679271278"><span class="hs-identifier hs-var hs-var">dedicatedTenancyManagementCidrRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271278"><span class="hs-identifier hs-var">dedicatedTenancyManagementCidrRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271277"><span class="annot"><span class="annottext">s :: AccountModification
+</span><a href="#local-6989586621679271277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271276"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountModification
+</span><a href="#local-6989586621679271277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dedicatedTenancyManagementCidrRange:AccountModification' :: Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AdedicatedTenancyManagementCidrRange%3AAccountModification%27"><span class="hs-identifier hs-var">dedicatedTenancyManagementCidrRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | The text of the error message that is returned if the configuration of</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- BYOL cannot be modified.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_errorMessage"><span class="hs-identifier hs-type">accountModification_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="accountModification_errorMessage"><span class="annot"><span class="annottext">accountModification_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AccountModification -&gt; f AccountModification
-</span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_errorMessage"><span class="hs-identifier hs-var hs-var">accountModification_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountModification -&gt; Maybe Text)
--&gt; (AccountModification -&gt; Maybe Text -&gt; AccountModification)
--&gt; Lens
-     AccountModification AccountModification (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268543"><span class="annot"><span class="annottext">Maybe Text
-errorMessage :: Maybe Text
-$sel:errorMessage:AccountModification' :: AccountModification -&gt; Maybe Text
-</span><a href="#local-6989586621679268543"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268543"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268542"><span class="annot"><span class="annottext">s :: AccountModification
-</span><a href="#local-6989586621679268542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268541"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountModification
-</span><a href="#local-6989586621679268542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:AccountModification' :: Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AerrorMessage%3AAccountModification%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | The error code that is returned if the configuration of BYOL cannot be</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- modified.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_errorCode"><span class="hs-identifier hs-type">accountModification_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="accountModification_errorCode"><span class="annot"><span class="annottext">accountModification_errorCode :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679271276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The error code that is returned if the configuration of BYOL cannot be</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- modified.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_errorCode"><span class="hs-identifier hs-type">accountModification_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="accountModification_errorCode"><span class="annot"><span class="annottext">accountModification_errorCode :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AccountModification -&gt; f AccountModification
 </span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_errorCode"><span class="hs-identifier hs-var hs-var">accountModification_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountModification -&gt; Maybe Text)
 -&gt; (AccountModification -&gt; Maybe Text -&gt; AccountModification)
 -&gt; Lens
      AccountModification AccountModification (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268539"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271274"><span class="annot"><span class="annottext">Maybe Text
 errorCode :: Maybe Text
 $sel:errorCode:AccountModification' :: AccountModification -&gt; Maybe Text
-</span><a href="#local-6989586621679268539"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268539"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268538"><span class="annot"><span class="annottext">s :: AccountModification
-</span><a href="#local-6989586621679268538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268537"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountModification
-</span><a href="#local-6989586621679268538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:AccountModification' :: Maybe Text
+</span><a href="#local-6989586621679271274"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271274"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271273"><span class="annot"><span class="annottext">s :: AccountModification
+</span><a href="#local-6989586621679271273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271272"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountModification
+</span><a href="#local-6989586621679271273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:AccountModification' :: Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AerrorCode%3AAccountModification%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679268537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268534"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679268532"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccountModification
+</span><a href="#local-6989586621679271272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The text of the error message that is returned if the configuration of</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- BYOL cannot be modified.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_errorMessage"><span class="hs-identifier hs-type">accountModification_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="accountModification_errorMessage"><span class="annot"><span class="annottext">accountModification_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AccountModification -&gt; f AccountModification
+</span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#accountModification_errorMessage"><span class="hs-identifier hs-var hs-var">accountModification_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountModification -&gt; Maybe Text)
+-&gt; (AccountModification -&gt; Maybe Text -&gt; AccountModification)
+-&gt; Lens
+     AccountModification AccountModification (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679271270"><span class="annot"><span class="annottext">Maybe Text
+errorMessage :: Maybe Text
+$sel:errorMessage:AccountModification' :: AccountModification -&gt; Maybe Text
+</span><a href="#local-6989586621679271270"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271270"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679271269"><span class="annot"><span class="annottext">s :: AccountModification
+</span><a href="#local-6989586621679271269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-type">AccountModification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679271268"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountModification
+</span><a href="#local-6989586621679271269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:AccountModification' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#%24sel%3AerrorMessage%3AAccountModification%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679271268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271265"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679271263"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccountModification
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AccountModification)
 -&gt; Value
 -&gt; Parser AccountModification
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AccountModification&quot;</span></span><span>
-</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679268529"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268529"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportResultEnum
--&gt; Maybe POSIX
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679271260"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271260"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe DedicatedTenancySupportResultEnum
 -&gt; Maybe DedicatedTenancyModificationStateEnum
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; AccountModification
 </span><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification%27"><span class="hs-identifier hs-var">AccountModification'</span></a></span><span>
-</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DedicatedTenancySupportResultEnum
- -&gt; Maybe POSIX
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe DedicatedTenancySupportResultEnum
  -&gt; Maybe DedicatedTenancyModificationStateEnum
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; AccountModification)
--&gt; Parser (Maybe DedicatedTenancySupportResultEnum)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe POSIX
+     (Maybe DedicatedTenancySupportResultEnum
       -&gt; Maybe DedicatedTenancyModificationStateEnum
       -&gt; Maybe Text
       -&gt; Maybe Text
@@ -360,28 +359,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; AccountModification)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DedicatedTenancySupportResultEnum)
+</span><a href="#local-6989586621679271260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DedicatedTenancySupport&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
+</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DedicatedTenancySupportResultEnum
    -&gt; Maybe DedicatedTenancyModificationStateEnum
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; AccountModification)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe DedicatedTenancySupportResultEnum)
 -&gt; Parser
      (Maybe DedicatedTenancyModificationStateEnum
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AccountModification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679271260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DedicatedTenancySupportResultEnum)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;DedicatedTenancySupport&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe DedicatedTenancyModificationStateEnum
    -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AccountModification)
 -&gt; Parser (Maybe DedicatedTenancyModificationStateEnum)
@@ -389,41 +388,41 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AccountModification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe DedicatedTenancyModificationStateEnum)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModificationState&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AccountModification)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; AccountModification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679271260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DedicatedTenancyManagementCidrRange&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; AccountModification)
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; AccountModification)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; AccountModification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AccountModification)
--&gt; Parser (Maybe Text) -&gt; Parser AccountModification
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679268529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679271260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268523"><span id="local-6989586621679268525"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span></span></span><span>
-</span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268520"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span></span><span>
-</span><span id="line-134"></span></pre></body></html>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AccountModification)
+-&gt; Parser (Maybe Text) -&gt; Parser AccountModification
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679271260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271254"><span id="local-6989586621679271256"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679271251"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.AccountModification.html#AccountModification"><span class="hs-identifier hs-type">AccountModification</span></a></span></span><span>
+</span><span id="line-133"></span></pre></body></html>

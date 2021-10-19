@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newEnterStandby' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679338150"><span id="local-6989586621679338151"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnterStandby"><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-var">EnterStandby</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnterStandby%27"><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby%27"><span class="hs-identifier hs-var">EnterStandby'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679338827"><span id="local-6989586621679338828"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnterStandby"><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-var">EnterStandby</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnterStandby%27"><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby%27"><span class="hs-identifier hs-var">EnterStandby'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the instances. You can specify up to 20 instances.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AinstanceIds%3AEnterStandby%27"><span class="annot"><span class="annottext">EnterStandby -&gt; Maybe [Text]
 </span><a href="Network.AWS.AutoScaling.EnterStandby.html#%24sel%3AinstanceIds%3AEnterStandby%27"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AshouldDecrementDesiredCapacity%3AEnterStandby%27"><span class="annot"><span class="annottext">EnterStandby -&gt; Bool
 </span><a href="Network.AWS.AutoScaling.EnterStandby.html#%24sel%3AshouldDecrementDesiredCapacity%3AEnterStandby%27"><span class="hs-identifier hs-var hs-var">shouldDecrementDesiredCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338142"><span id="local-6989586621679338144"><span class="annot"><span class="annottext">EnterStandby -&gt; EnterStandby -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338819"><span id="local-6989586621679338821"><span class="annot"><span class="annottext">EnterStandby -&gt; EnterStandby -&gt; Bool
 (EnterStandby -&gt; EnterStandby -&gt; Bool)
 -&gt; (EnterStandby -&gt; EnterStandby -&gt; Bool) -&gt; Eq EnterStandby
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnterStandby -&gt; EnterStandby -&gt; Bool
 == :: EnterStandby -&gt; EnterStandby -&gt; Bool
 $c== :: EnterStandby -&gt; EnterStandby -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338133"><span id="local-6989586621679338135"><span id="local-6989586621679338137"><span id="local-6989586621679338139"><span class="annot"><span class="annottext">ReadPrec [EnterStandby]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338810"><span id="local-6989586621679338812"><span id="local-6989586621679338814"><span id="local-6989586621679338816"><span class="annot"><span class="annottext">ReadPrec [EnterStandby]
 ReadPrec EnterStandby
 Int -&gt; ReadS EnterStandby
 ReadS [EnterStandby]
@@ -102,7 +102,7 @@ readList :: ReadS [EnterStandby]
 $creadList :: ReadS [EnterStandby]
 readsPrec :: Int -&gt; ReadS EnterStandby
 $creadsPrec :: Int -&gt; ReadS EnterStandby
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338126"><span id="local-6989586621679338128"><span id="local-6989586621679338130"><span class="annot"><span class="annottext">Int -&gt; EnterStandby -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338803"><span id="local-6989586621679338805"><span id="local-6989586621679338807"><span class="annot"><span class="annottext">Int -&gt; EnterStandby -&gt; ShowS
 [EnterStandby] -&gt; ShowS
 EnterStandby -&gt; String
 (Int -&gt; EnterStandby -&gt; ShowS)
@@ -150,10 +150,10 @@ $cfrom :: forall x. EnterStandby -&gt; Rep EnterStandby x
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-type">EnterStandby</span></a></span><span>
 </span><span id="line-96"></span><span id="newEnterStandby"><span class="annot"><span class="annottext">newEnterStandby :: Text -&gt; Bool -&gt; EnterStandby
 </span><a href="Network.AWS.AutoScaling.EnterStandby.html#newEnterStandby"><span class="hs-identifier hs-var hs-var">newEnterStandby</span></a></span></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679338121"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679338121"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679338120"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679338120"><span class="hs-identifier hs-var">pShouldDecrementDesiredCapacity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679338798"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338798"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679338797"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679338797"><span class="hs-identifier hs-var">pShouldDecrementDesiredCapacity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">EnterStandby' :: Maybe [Text] -&gt; Text -&gt; Bool -&gt; EnterStandby
 </span><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby%27"><span class="hs-identifier hs-type">EnterStandby'</span></a></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceIds:EnterStandby' :: Maybe [Text]
@@ -162,11 +162,11 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:EnterStandby' :: Text
 </span><a href="Network.AWS.AutoScaling.EnterStandby.html#%24sel%3AautoScalingGroupName%3AEnterStandby%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679338121"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679338798"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">$sel:shouldDecrementDesiredCapacity:EnterStandby' :: Bool
 </span><a href="Network.AWS.AutoScaling.EnterStandby.html#%24sel%3AshouldDecrementDesiredCapacity%3AEnterStandby%27"><span class="hs-identifier hs-var">shouldDecrementDesiredCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679338120"><span class="hs-identifier hs-var">pShouldDecrementDesiredCapacity_</span></a></span><span>
+</span><a href="#local-6989586621679338797"><span class="hs-identifier hs-var">pShouldDecrementDesiredCapacity_</span></a></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The IDs of the instances. You can specify up to 20 instances.</span><span>
@@ -177,16 +177,16 @@ forall a. Maybe a
 -&gt; (EnterStandby -&gt; Maybe [Text] -&gt; EnterStandby)
 -&gt; Lens EnterStandby EnterStandby (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby%27"><span class="hs-identifier hs-type">EnterStandby'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338117"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby%27"><span class="hs-identifier hs-type">EnterStandby'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338794"><span class="annot"><span class="annottext">Maybe [Text]
 instanceIds :: Maybe [Text]
 $sel:instanceIds:EnterStandby' :: EnterStandby -&gt; Maybe [Text]
-</span><a href="#local-6989586621679338117"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679338117"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338116"><span class="annot"><span class="annottext">s :: EnterStandby
-</span><a href="#local-6989586621679338116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby%27"><span class="hs-identifier hs-type">EnterStandby'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338115"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679338115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnterStandby
-</span><a href="#local-6989586621679338116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIds:EnterStandby' :: Maybe [Text]
+</span><a href="#local-6989586621679338794"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679338794"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338793"><span class="annot"><span class="annottext">s :: EnterStandby
+</span><a href="#local-6989586621679338793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby%27"><span class="hs-identifier hs-type">EnterStandby'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338792"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679338792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnterStandby
+</span><a href="#local-6989586621679338793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIds:EnterStandby' :: Maybe [Text]
 </span><a href="Network.AWS.AutoScaling.EnterStandby.html#%24sel%3AinstanceIds%3AEnterStandby%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679338115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-type">EnterStandby</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679338792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-type">EnterStandby</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; EnterStandby -&gt; f EnterStandby)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -200,8 +200,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
 </span><span id="line-111"></span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#enterStandby_autoScalingGroupName"><span class="hs-identifier hs-type">enterStandby_autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-type">EnterStandby</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -210,16 +210,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (EnterStandby -&gt; Text -&gt; EnterStandby)
 -&gt; Lens EnterStandby EnterStandby Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby%27"><span class="hs-identifier hs-type">EnterStandby'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338111"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby%27"><span class="hs-identifier hs-type">EnterStandby'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338788"><span class="annot"><span class="annottext">Text
 autoScalingGroupName :: Text
 $sel:autoScalingGroupName:EnterStandby' :: EnterStandby -&gt; Text
-</span><a href="#local-6989586621679338111"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679338111"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338110"><span class="annot"><span class="annottext">s :: EnterStandby
-</span><a href="#local-6989586621679338110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby%27"><span class="hs-identifier hs-type">EnterStandby'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338109"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679338109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnterStandby
-</span><a href="#local-6989586621679338110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:EnterStandby' :: Text
+</span><a href="#local-6989586621679338788"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338788"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338787"><span class="annot"><span class="annottext">s :: EnterStandby
+</span><a href="#local-6989586621679338787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby%27"><span class="hs-identifier hs-type">EnterStandby'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338786"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnterStandby
+</span><a href="#local-6989586621679338787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:EnterStandby' :: Text
 </span><a href="Network.AWS.AutoScaling.EnterStandby.html#%24sel%3AautoScalingGroupName%3AEnterStandby%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679338109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-type">EnterStandby</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-type">EnterStandby</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | Indicates whether to decrement the desired capacity of the Auto Scaling</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- group by the number of instances moved to @Standby@ mode.</span><span>
@@ -229,25 +229,25 @@ $sel:autoScalingGroupName:EnterStandby' :: EnterStandby -&gt; Text
 -&gt; (EnterStandby -&gt; Bool -&gt; EnterStandby)
 -&gt; Lens EnterStandby EnterStandby Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby%27"><span class="hs-identifier hs-type">EnterStandby'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338108"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby%27"><span class="hs-identifier hs-type">EnterStandby'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338785"><span class="annot"><span class="annottext">Bool
 shouldDecrementDesiredCapacity :: Bool
 $sel:shouldDecrementDesiredCapacity:EnterStandby' :: EnterStandby -&gt; Bool
-</span><a href="#local-6989586621679338108"><span class="hs-identifier hs-var hs-var">shouldDecrementDesiredCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679338108"><span class="hs-identifier hs-var">shouldDecrementDesiredCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338107"><span class="annot"><span class="annottext">s :: EnterStandby
-</span><a href="#local-6989586621679338107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby%27"><span class="hs-identifier hs-type">EnterStandby'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338106"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679338106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnterStandby
-</span><a href="#local-6989586621679338107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shouldDecrementDesiredCapacity:EnterStandby' :: Bool
+</span><a href="#local-6989586621679338785"><span class="hs-identifier hs-var hs-var">shouldDecrementDesiredCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679338785"><span class="hs-identifier hs-var">shouldDecrementDesiredCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338784"><span class="annot"><span class="annottext">s :: EnterStandby
+</span><a href="#local-6989586621679338784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby%27"><span class="hs-identifier hs-type">EnterStandby'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338783"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679338783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnterStandby
+</span><a href="#local-6989586621679338784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shouldDecrementDesiredCapacity:EnterStandby' :: Bool
 </span><a href="Network.AWS.AutoScaling.EnterStandby.html#%24sel%3AshouldDecrementDesiredCapacity%3AEnterStandby%27"><span class="hs-identifier hs-var">shouldDecrementDesiredCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679338106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-type">EnterStandby</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-type">EnterStandby</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-type">EnterStandby</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-type">EnterStandby</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse"><span class="hs-identifier hs-type">EnterStandbyResponse</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679338102"><span class="annot"><span class="annottext">request :: EnterStandby -&gt; Request EnterStandby
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679338779"><span class="annot"><span class="annottext">request :: EnterStandby -&gt; Request EnterStandby
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; EnterStandby -&gt; Request EnterStandby
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679338098"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679338775"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy EnterStandby
 -&gt; ClientResponse ClientBody
@@ -276,10 +276,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnterStandbyResult&quot;</span></span><span>
-</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338095"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679338095"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679338094"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679338094"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679338093"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679338093"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338772"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338772"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679338771"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679338771"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679338770"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679338770"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Activity] -&gt; Int -&gt; EnterStandbyResponse
 </span><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse%27"><span class="hs-identifier hs-var">EnterStandbyResponse'</span></a></span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Activity] -&gt; Int -&gt; EnterStandbyResponse)
@@ -287,7 +287,7 @@ Text
 -&gt; Either String (Int -&gt; EnterStandbyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679338093"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679338770"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Activities&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -317,15 +317,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679338095"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338772"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338082"><span id="local-6989586621679338084"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-type">EnterStandby</span></a></span></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338759"><span id="local-6989586621679338761"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-type">EnterStandby</span></a></span></span></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338079"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-type">EnterStandby</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338756"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-type">EnterStandby</span></a></span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-type">EnterStandby</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679338075"><span class="annot"><span class="annottext">toHeaders :: EnterStandby -&gt; ResponseHeaders
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679338752"><span class="annot"><span class="annottext">toHeaders :: EnterStandby -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; EnterStandby -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -333,15 +333,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-type">EnterStandby</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679338070"><span class="annot"><span class="annottext">toPath :: EnterStandby -&gt; ByteString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679338747"><span class="annot"><span class="annottext">toPath :: EnterStandby -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; EnterStandby -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby"><span class="hs-identifier hs-type">EnterStandby</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679338066"><span class="annot"><span class="annottext">toQuery :: EnterStandby -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby%27"><span class="hs-identifier hs-type">EnterStandby'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338062"><span id="local-6989586621679338063"><span id="local-6989586621679338064"><span class="annot"><span class="annottext">Bool
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679338743"><span class="annot"><span class="annottext">toQuery :: EnterStandby -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandby%27"><span class="hs-identifier hs-type">EnterStandby'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338739"><span id="local-6989586621679338740"><span id="local-6989586621679338741"><span class="annot"><span class="annottext">Bool
 Maybe [Text]
 Text
 shouldDecrementDesiredCapacity :: Bool
@@ -350,7 +350,7 @@ instanceIds :: Maybe [Text]
 $sel:shouldDecrementDesiredCapacity:EnterStandby' :: EnterStandby -&gt; Bool
 $sel:autoScalingGroupName:EnterStandby' :: EnterStandby -&gt; Text
 $sel:instanceIds:EnterStandby' :: EnterStandby -&gt; Maybe [Text]
-</span><a href="#local-6989586621679338062"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679338739"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -381,22 +381,22 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679338064"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679338741"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AutoScalingGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679338063"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679338740"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ShouldDecrementDesiredCapacity&quot;</span></span><span>
 </span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679338062"><span class="hs-identifier hs-var">shouldDecrementDesiredCapacity</span></a></span><span>
+</span><a href="#local-6989586621679338739"><span class="hs-identifier hs-var">shouldDecrementDesiredCapacity</span></a></span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | /See:/ 'newEnterStandbyResponse' smart constructor.</span><span>
-</span><span id="line-159"></span><span id="local-6989586621679338058"><span id="local-6989586621679338059"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnterStandbyResponse"><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse"><span class="hs-identifier hs-var">EnterStandbyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnterStandbyResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse%27"><span class="hs-identifier hs-var">EnterStandbyResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span id="local-6989586621679338735"><span id="local-6989586621679338736"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnterStandbyResponse"><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse"><span class="hs-identifier hs-var">EnterStandbyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnterStandbyResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse%27"><span class="hs-identifier hs-var">EnterStandbyResponse'</span></a></span></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The activities related to moving instances into @Standby@ mode.</span><span>
 </span><span id="line-161"></span><span>    </span><span id="%24sel%3Aactivities%3AEnterStandbyResponse%27"><span class="annot"><span class="annottext">EnterStandbyResponse -&gt; Maybe [Activity]
 </span><a href="Network.AWS.AutoScaling.EnterStandby.html#%24sel%3Aactivities%3AEnterStandbyResponse%27"><span class="hs-identifier hs-var hs-var">activities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.Activity.html#Activity"><span class="hs-identifier hs-type">Activity</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -404,7 +404,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3AEnterStandbyResponse%27"><span class="annot"><span class="annottext">EnterStandbyResponse -&gt; Int
 </span><a href="Network.AWS.AutoScaling.EnterStandby.html#%24sel%3AhttpStatus%3AEnterStandbyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338052"><span id="local-6989586621679338054"><span class="annot"><span class="annottext">EnterStandbyResponse -&gt; EnterStandbyResponse -&gt; Bool
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338729"><span id="local-6989586621679338731"><span class="annot"><span class="annottext">EnterStandbyResponse -&gt; EnterStandbyResponse -&gt; Bool
 (EnterStandbyResponse -&gt; EnterStandbyResponse -&gt; Bool)
 -&gt; (EnterStandbyResponse -&gt; EnterStandbyResponse -&gt; Bool)
 -&gt; Eq EnterStandbyResponse
@@ -413,7 +413,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnterStandbyResponse -&gt; EnterStandbyResponse -&gt; Bool
 == :: EnterStandbyResponse -&gt; EnterStandbyResponse -&gt; Bool
 $c== :: EnterStandbyResponse -&gt; EnterStandbyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338044"><span id="local-6989586621679338046"><span id="local-6989586621679338048"><span id="local-6989586621679338050"><span class="annot"><span class="annottext">ReadPrec [EnterStandbyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338721"><span id="local-6989586621679338723"><span id="local-6989586621679338725"><span id="local-6989586621679338727"><span class="annot"><span class="annottext">ReadPrec [EnterStandbyResponse]
 ReadPrec EnterStandbyResponse
 Int -&gt; ReadS EnterStandbyResponse
 ReadS [EnterStandbyResponse]
@@ -433,7 +433,7 @@ readList :: ReadS [EnterStandbyResponse]
 $creadList :: ReadS [EnterStandbyResponse]
 readsPrec :: Int -&gt; ReadS EnterStandbyResponse
 $creadsPrec :: Int -&gt; ReadS EnterStandbyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338038"><span id="local-6989586621679338040"><span id="local-6989586621679338042"><span class="annot"><span class="annottext">Int -&gt; EnterStandbyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338715"><span id="local-6989586621679338717"><span id="local-6989586621679338719"><span class="annot"><span class="annottext">Int -&gt; EnterStandbyResponse -&gt; ShowS
 [EnterStandbyResponse] -&gt; ShowS
 EnterStandbyResponse -&gt; String
 (Int -&gt; EnterStandbyResponse -&gt; ShowS)
@@ -475,8 +475,8 @@ $cfrom :: forall x. EnterStandbyResponse -&gt; Rep EnterStandbyResponse x
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse"><span class="hs-identifier hs-type">EnterStandbyResponse</span></a></span><span>
 </span><span id="line-182"></span><span id="newEnterStandbyResponse"><span class="annot"><span class="annottext">newEnterStandbyResponse :: Int -&gt; EnterStandbyResponse
-</span><a href="Network.AWS.AutoScaling.EnterStandby.html#newEnterStandbyResponse"><span class="hs-identifier hs-var hs-var">newEnterStandbyResponse</span></a></span></span><span> </span><span id="local-6989586621679338035"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679338035"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AutoScaling.EnterStandby.html#newEnterStandbyResponse"><span class="hs-identifier hs-var hs-var">newEnterStandbyResponse</span></a></span></span><span> </span><span id="local-6989586621679338712"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338712"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">EnterStandbyResponse' :: Maybe [Activity] -&gt; Int -&gt; EnterStandbyResponse
 </span><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse%27"><span class="hs-identifier hs-type">EnterStandbyResponse'</span></a></span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:activities:EnterStandbyResponse' :: Maybe [Activity]
@@ -485,7 +485,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:EnterStandbyResponse' :: Int
 </span><a href="Network.AWS.AutoScaling.EnterStandby.html#%24sel%3AhttpStatus%3AEnterStandbyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679338035"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679338712"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | The activities related to moving instances into @Standby@ mode.</span><span>
@@ -501,16 +501,16 @@ forall a. Maybe a
      (Maybe [Activity])
      (Maybe [Activity])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse%27"><span class="hs-identifier hs-type">EnterStandbyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338034"><span class="annot"><span class="annottext">Maybe [Activity]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse%27"><span class="hs-identifier hs-type">EnterStandbyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338711"><span class="annot"><span class="annottext">Maybe [Activity]
 activities :: Maybe [Activity]
 $sel:activities:EnterStandbyResponse' :: EnterStandbyResponse -&gt; Maybe [Activity]
-</span><a href="#local-6989586621679338034"><span class="hs-identifier hs-var hs-var">activities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Activity]
-</span><a href="#local-6989586621679338034"><span class="hs-identifier hs-var">activities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338033"><span class="annot"><span class="annottext">s :: EnterStandbyResponse
-</span><a href="#local-6989586621679338033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse%27"><span class="hs-identifier hs-type">EnterStandbyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338032"><span class="annot"><span class="annottext">Maybe [Activity]
-</span><a href="#local-6989586621679338032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnterStandbyResponse
-</span><a href="#local-6989586621679338033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activities:EnterStandbyResponse' :: Maybe [Activity]
+</span><a href="#local-6989586621679338711"><span class="hs-identifier hs-var hs-var">activities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Activity]
+</span><a href="#local-6989586621679338711"><span class="hs-identifier hs-var">activities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338710"><span class="annot"><span class="annottext">s :: EnterStandbyResponse
+</span><a href="#local-6989586621679338710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse%27"><span class="hs-identifier hs-type">EnterStandbyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338709"><span class="annot"><span class="annottext">Maybe [Activity]
+</span><a href="#local-6989586621679338709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnterStandbyResponse
+</span><a href="#local-6989586621679338710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activities:EnterStandbyResponse' :: Maybe [Activity]
 </span><a href="Network.AWS.AutoScaling.EnterStandby.html#%24sel%3Aactivities%3AEnterStandbyResponse%27"><span class="hs-identifier hs-var">activities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Activity]
-</span><a href="#local-6989586621679338032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse"><span class="hs-identifier hs-type">EnterStandbyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Activity] -&gt; f (Maybe [Activity]))
+</span><a href="#local-6989586621679338709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse"><span class="hs-identifier hs-type">EnterStandbyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Activity] -&gt; f (Maybe [Activity]))
  -&gt; EnterStandbyResponse -&gt; f EnterStandbyResponse)
 -&gt; ((Maybe [Activity] -&gt; f (Maybe [Activity]))
     -&gt; Maybe [Activity] -&gt; f (Maybe [Activity]))
@@ -528,8 +528,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Activity] [Activity] [Activity] [Activity]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-193"></span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#enterStandbyResponse_httpStatus"><span class="hs-identifier hs-type">enterStandbyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse"><span class="hs-identifier hs-type">EnterStandbyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -538,16 +538,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (EnterStandbyResponse -&gt; Int -&gt; EnterStandbyResponse)
 -&gt; Lens EnterStandbyResponse EnterStandbyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse%27"><span class="hs-identifier hs-type">EnterStandbyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338031"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse%27"><span class="hs-identifier hs-type">EnterStandbyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338708"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:EnterStandbyResponse' :: EnterStandbyResponse -&gt; Int
-</span><a href="#local-6989586621679338031"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679338031"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338030"><span class="annot"><span class="annottext">s :: EnterStandbyResponse
-</span><a href="#local-6989586621679338030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse%27"><span class="hs-identifier hs-type">EnterStandbyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338029"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679338029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnterStandbyResponse
-</span><a href="#local-6989586621679338030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:EnterStandbyResponse' :: Int
+</span><a href="#local-6989586621679338708"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338708"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338707"><span class="annot"><span class="annottext">s :: EnterStandbyResponse
+</span><a href="#local-6989586621679338707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse%27"><span class="hs-identifier hs-type">EnterStandbyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338706"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnterStandbyResponse
+</span><a href="#local-6989586621679338707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:EnterStandbyResponse' :: Int
 </span><a href="Network.AWS.AutoScaling.EnterStandby.html#%24sel%3AhttpStatus%3AEnterStandbyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679338029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse"><span class="hs-identifier hs-type">EnterStandbyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679338706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse"><span class="hs-identifier hs-type">EnterStandbyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338027"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse"><span class="hs-identifier hs-type">EnterStandbyResponse</span></a></span></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338704"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.EnterStandby.html#EnterStandbyResponse"><span class="hs-identifier hs-type">EnterStandbyResponse</span></a></span></span><span>
 </span><span id="line-197"></span></pre></body></html>

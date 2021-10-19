@@ -27,21 +27,21 @@
 </span><span id="line-27"></span><span class="hs-comment">-- specific instances when shrinking an instance group.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInstanceResizePolicy' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679370397"><span id="local-6989586621679370398"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceResizePolicy"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-var">InstanceResizePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceResizePolicy%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy%27"><span class="hs-identifier hs-var">InstanceResizePolicy'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Decommissioning timeout override for the specific list of instances to</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- be terminated.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AinstanceTerminationTimeout%3AInstanceResizePolicy%27"><span class="annot"><span class="annottext">InstanceResizePolicy -&gt; Maybe Int
-</span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#%24sel%3AinstanceTerminationTimeout%3AInstanceResizePolicy%27"><span class="hs-identifier hs-var hs-var">instanceTerminationTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679370746"><span id="local-6989586621679370747"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceResizePolicy"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-var">InstanceResizePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceResizePolicy%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy%27"><span class="hs-identifier hs-var">InstanceResizePolicy'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specific list of instances to be protected when shrinking an instance</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AinstancesToProtect%3AInstanceResizePolicy%27"><span class="annot"><span class="annottext">InstanceResizePolicy -&gt; Maybe [Text]
+</span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#%24sel%3AinstancesToProtect%3AInstanceResizePolicy%27"><span class="hs-identifier hs-var hs-var">instancesToProtect</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Specific list of instances to be terminated when shrinking an instance</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- group.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AinstancesToTerminate%3AInstanceResizePolicy%27"><span class="annot"><span class="annottext">InstanceResizePolicy -&gt; Maybe [Text]
 </span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#%24sel%3AinstancesToTerminate%3AInstanceResizePolicy%27"><span class="hs-identifier hs-var hs-var">instancesToTerminate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Specific list of instances to be protected when shrinking an instance</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- group.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AinstancesToProtect%3AInstanceResizePolicy%27"><span class="annot"><span class="annottext">InstanceResizePolicy -&gt; Maybe [Text]
-</span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#%24sel%3AinstancesToProtect%3AInstanceResizePolicy%27"><span class="hs-identifier hs-var hs-var">instancesToProtect</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Decommissioning timeout override for the specific list of instances to</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- be terminated.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AinstanceTerminationTimeout%3AInstanceResizePolicy%27"><span class="annot"><span class="annottext">InstanceResizePolicy -&gt; Maybe Int
+</span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#%24sel%3AinstanceTerminationTimeout%3AInstanceResizePolicy%27"><span class="hs-identifier hs-var hs-var">instanceTerminationTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370389"><span id="local-6989586621679370391"><span class="annot"><span class="annottext">InstanceResizePolicy -&gt; InstanceResizePolicy -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370738"><span id="local-6989586621679370740"><span class="annot"><span class="annottext">InstanceResizePolicy -&gt; InstanceResizePolicy -&gt; Bool
 (InstanceResizePolicy -&gt; InstanceResizePolicy -&gt; Bool)
 -&gt; (InstanceResizePolicy -&gt; InstanceResizePolicy -&gt; Bool)
 -&gt; Eq InstanceResizePolicy
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceResizePolicy -&gt; InstanceResizePolicy -&gt; Bool
 == :: InstanceResizePolicy -&gt; InstanceResizePolicy -&gt; Bool
 $c== :: InstanceResizePolicy -&gt; InstanceResizePolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370380"><span id="local-6989586621679370382"><span id="local-6989586621679370384"><span id="local-6989586621679370386"><span class="annot"><span class="annottext">ReadPrec [InstanceResizePolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370729"><span id="local-6989586621679370731"><span id="local-6989586621679370733"><span id="local-6989586621679370735"><span class="annot"><span class="annottext">ReadPrec [InstanceResizePolicy]
 ReadPrec InstanceResizePolicy
 Int -&gt; ReadS InstanceResizePolicy
 ReadS [InstanceResizePolicy]
@@ -70,7 +70,7 @@ readList :: ReadS [InstanceResizePolicy]
 $creadList :: ReadS [InstanceResizePolicy]
 readsPrec :: Int -&gt; ReadS InstanceResizePolicy
 $creadsPrec :: Int -&gt; ReadS InstanceResizePolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370373"><span id="local-6989586621679370375"><span id="local-6989586621679370377"><span class="annot"><span class="annottext">Int -&gt; InstanceResizePolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370722"><span id="local-6989586621679370724"><span id="local-6989586621679370726"><span class="annot"><span class="annottext">Int -&gt; InstanceResizePolicy -&gt; ShowS
 [InstanceResizePolicy] -&gt; ShowS
 InstanceResizePolicy -&gt; String
 (Int -&gt; InstanceResizePolicy -&gt; ShowS)
@@ -104,55 +104,73 @@ $cfrom :: forall x. InstanceResizePolicy -&gt; Rep InstanceResizePolicy x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'instanceTerminationTimeout', 'instanceResizePolicy_instanceTerminationTimeout' - Decommissioning timeout override for the specific list of instances to</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- be terminated.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'instancesToProtect', 'instanceResizePolicy_instancesToProtect' - Specific list of instances to be protected when shrinking an instance</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- group.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- 'instancesToTerminate', 'instanceResizePolicy_instancesToTerminate' - Specific list of instances to be terminated when shrinking an instance</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- group.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'instancesToProtect', 'instanceResizePolicy_instancesToProtect' - Specific list of instances to be protected when shrinking an instance</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'instanceTerminationTimeout', 'instanceResizePolicy_instanceTerminationTimeout' - Decommissioning timeout override for the specific list of instances to</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- be terminated.</span><span>
 </span><span id="line-59"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#newInstanceResizePolicy"><span class="hs-identifier hs-type">newInstanceResizePolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span><span>
 </span><span id="line-61"></span><span id="newInstanceResizePolicy"><span class="annot"><span class="annottext">newInstanceResizePolicy :: InstanceResizePolicy
 </span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#newInstanceResizePolicy"><span class="hs-identifier hs-var hs-var">newInstanceResizePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">InstanceResizePolicy' :: Maybe Int -&gt; Maybe [Text] -&gt; Maybe [Text] -&gt; InstanceResizePolicy
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">InstanceResizePolicy' :: Maybe [Text] -&gt; Maybe [Text] -&gt; Maybe Int -&gt; InstanceResizePolicy
 </span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy%27"><span class="hs-identifier hs-type">InstanceResizePolicy'</span></a></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceTerminationTimeout:InstanceResizePolicy' :: Maybe Int
-</span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#%24sel%3AinstanceTerminationTimeout%3AInstanceResizePolicy%27"><span class="hs-identifier hs-var">instanceTerminationTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instancesToProtect:InstanceResizePolicy' :: Maybe [Text]
+</span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#%24sel%3AinstancesToProtect%3AInstanceResizePolicy%27"><span class="hs-identifier hs-var">instancesToProtect</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:instancesToTerminate:InstanceResizePolicy' :: Maybe [Text]
 </span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#%24sel%3AinstancesToTerminate%3AInstanceResizePolicy%27"><span class="hs-identifier hs-var">instancesToTerminate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:instancesToProtect:InstanceResizePolicy' :: Maybe [Text]
-</span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#%24sel%3AinstancesToProtect%3AInstanceResizePolicy%27"><span class="hs-identifier hs-var">instancesToProtect</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceTerminationTimeout:InstanceResizePolicy' :: Maybe Int
+</span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#%24sel%3AinstanceTerminationTimeout%3AInstanceResizePolicy%27"><span class="hs-identifier hs-var">instanceTerminationTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | Decommissioning timeout override for the specific list of instances to</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- be terminated.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#instanceResizePolicy_instanceTerminationTimeout"><span class="hs-identifier hs-type">instanceResizePolicy_instanceTerminationTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="instanceResizePolicy_instanceTerminationTimeout"><span class="annot"><span class="annottext">instanceResizePolicy_instanceTerminationTimeout :: (Maybe Int -&gt; f (Maybe Int))
+</span><span id="line-69"></span><span class="hs-comment">-- | Specific list of instances to be protected when shrinking an instance</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#instanceResizePolicy_instancesToProtect"><span class="hs-identifier hs-type">instanceResizePolicy_instancesToProtect</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="instanceResizePolicy_instancesToProtect"><span class="annot"><span class="annottext">instanceResizePolicy_instancesToProtect :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; InstanceResizePolicy -&gt; f InstanceResizePolicy
-</span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#instanceResizePolicy_instanceTerminationTimeout"><span class="hs-identifier hs-var hs-var">instanceResizePolicy_instanceTerminationTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceResizePolicy -&gt; Maybe Int)
--&gt; (InstanceResizePolicy -&gt; Maybe Int -&gt; InstanceResizePolicy)
+</span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#instanceResizePolicy_instancesToProtect"><span class="hs-identifier hs-var hs-var">instanceResizePolicy_instancesToProtect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceResizePolicy -&gt; Maybe [Text])
+-&gt; (InstanceResizePolicy -&gt; Maybe [Text] -&gt; InstanceResizePolicy)
 -&gt; Lens
-     InstanceResizePolicy InstanceResizePolicy (Maybe Int) (Maybe Int)
+     InstanceResizePolicy
+     InstanceResizePolicy
+     (Maybe [Text])
+     (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy%27"><span class="hs-identifier hs-type">InstanceResizePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370364"><span class="annot"><span class="annottext">Maybe Int
-instanceTerminationTimeout :: Maybe Int
-$sel:instanceTerminationTimeout:InstanceResizePolicy' :: InstanceResizePolicy -&gt; Maybe Int
-</span><a href="#local-6989586621679370364"><span class="hs-identifier hs-var hs-var">instanceTerminationTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679370364"><span class="hs-identifier hs-var">instanceTerminationTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370363"><span class="annot"><span class="annottext">s :: InstanceResizePolicy
-</span><a href="#local-6989586621679370363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy%27"><span class="hs-identifier hs-type">InstanceResizePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370362"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679370362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceResizePolicy
-</span><a href="#local-6989586621679370363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceTerminationTimeout:InstanceResizePolicy' :: Maybe Int
-</span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#%24sel%3AinstanceTerminationTimeout%3AInstanceResizePolicy%27"><span class="hs-identifier hs-var">instanceTerminationTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679370362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy%27"><span class="hs-identifier hs-type">InstanceResizePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370713"><span class="annot"><span class="annottext">Maybe [Text]
+instancesToProtect :: Maybe [Text]
+$sel:instancesToProtect:InstanceResizePolicy' :: InstanceResizePolicy -&gt; Maybe [Text]
+</span><a href="#local-6989586621679370713"><span class="hs-identifier hs-var hs-var">instancesToProtect</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679370713"><span class="hs-identifier hs-var">instancesToProtect</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370712"><span class="annot"><span class="annottext">s :: InstanceResizePolicy
+</span><a href="#local-6989586621679370712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy%27"><span class="hs-identifier hs-type">InstanceResizePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370711"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679370711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceResizePolicy
+</span><a href="#local-6989586621679370712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instancesToProtect:InstanceResizePolicy' :: Maybe [Text]
+</span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#%24sel%3AinstancesToProtect%3AInstanceResizePolicy%27"><span class="hs-identifier hs-var">instancesToProtect</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679370711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; InstanceResizePolicy -&gt; f InstanceResizePolicy)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; InstanceResizePolicy
+-&gt; f InstanceResizePolicy
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | Specific list of instances to be terminated when shrinking an instance</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- group.</span><span>
@@ -167,16 +185,16 @@ $sel:instanceTerminationTimeout:InstanceResizePolicy' :: InstanceResizePolicy -&
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy%27"><span class="hs-identifier hs-type">InstanceResizePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370360"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy%27"><span class="hs-identifier hs-type">InstanceResizePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370706"><span class="annot"><span class="annottext">Maybe [Text]
 instancesToTerminate :: Maybe [Text]
 $sel:instancesToTerminate:InstanceResizePolicy' :: InstanceResizePolicy -&gt; Maybe [Text]
-</span><a href="#local-6989586621679370360"><span class="hs-identifier hs-var hs-var">instancesToTerminate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679370360"><span class="hs-identifier hs-var">instancesToTerminate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370359"><span class="annot"><span class="annottext">s :: InstanceResizePolicy
-</span><a href="#local-6989586621679370359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy%27"><span class="hs-identifier hs-type">InstanceResizePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370358"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679370358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceResizePolicy
-</span><a href="#local-6989586621679370359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instancesToTerminate:InstanceResizePolicy' :: Maybe [Text]
+</span><a href="#local-6989586621679370706"><span class="hs-identifier hs-var hs-var">instancesToTerminate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679370706"><span class="hs-identifier hs-var">instancesToTerminate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370705"><span class="annot"><span class="annottext">s :: InstanceResizePolicy
+</span><a href="#local-6989586621679370705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy%27"><span class="hs-identifier hs-type">InstanceResizePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370704"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679370704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceResizePolicy
+</span><a href="#local-6989586621679370705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instancesToTerminate:InstanceResizePolicy' :: Maybe [Text]
 </span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#%24sel%3AinstancesToTerminate%3AInstanceResizePolicy%27"><span class="hs-identifier hs-var">instancesToTerminate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679370358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679370704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; InstanceResizePolicy -&gt; f InstanceResizePolicy)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -190,50 +208,32 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | Specific list of instances to be protected when shrinking an instance</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- group.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#instanceResizePolicy_instancesToProtect"><span class="hs-identifier hs-type">instanceResizePolicy_instancesToProtect</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="instanceResizePolicy_instancesToProtect"><span class="annot"><span class="annottext">instanceResizePolicy_instancesToProtect :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-79"></span><span class="hs-comment">-- | Decommissioning timeout override for the specific list of instances to</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- be terminated.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#instanceResizePolicy_instanceTerminationTimeout"><span class="hs-identifier hs-type">instanceResizePolicy_instanceTerminationTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="instanceResizePolicy_instanceTerminationTimeout"><span class="annot"><span class="annottext">instanceResizePolicy_instanceTerminationTimeout :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; InstanceResizePolicy -&gt; f InstanceResizePolicy
-</span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#instanceResizePolicy_instancesToProtect"><span class="hs-identifier hs-var hs-var">instanceResizePolicy_instancesToProtect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceResizePolicy -&gt; Maybe [Text])
--&gt; (InstanceResizePolicy -&gt; Maybe [Text] -&gt; InstanceResizePolicy)
+</span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#instanceResizePolicy_instanceTerminationTimeout"><span class="hs-identifier hs-var hs-var">instanceResizePolicy_instanceTerminationTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceResizePolicy -&gt; Maybe Int)
+-&gt; (InstanceResizePolicy -&gt; Maybe Int -&gt; InstanceResizePolicy)
 -&gt; Lens
-     InstanceResizePolicy
-     InstanceResizePolicy
-     (Maybe [Text])
-     (Maybe [Text])
+     InstanceResizePolicy InstanceResizePolicy (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy%27"><span class="hs-identifier hs-type">InstanceResizePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370353"><span class="annot"><span class="annottext">Maybe [Text]
-instancesToProtect :: Maybe [Text]
-$sel:instancesToProtect:InstanceResizePolicy' :: InstanceResizePolicy -&gt; Maybe [Text]
-</span><a href="#local-6989586621679370353"><span class="hs-identifier hs-var hs-var">instancesToProtect</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679370353"><span class="hs-identifier hs-var">instancesToProtect</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370352"><span class="annot"><span class="annottext">s :: InstanceResizePolicy
-</span><a href="#local-6989586621679370352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy%27"><span class="hs-identifier hs-type">InstanceResizePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370351"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679370351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceResizePolicy
-</span><a href="#local-6989586621679370352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instancesToProtect:InstanceResizePolicy' :: Maybe [Text]
-</span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#%24sel%3AinstancesToProtect%3AInstanceResizePolicy%27"><span class="hs-identifier hs-var">instancesToProtect</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679370351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; InstanceResizePolicy -&gt; f InstanceResizePolicy)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; InstanceResizePolicy
--&gt; f InstanceResizePolicy
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy%27"><span class="hs-identifier hs-type">InstanceResizePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370702"><span class="annot"><span class="annottext">Maybe Int
+instanceTerminationTimeout :: Maybe Int
+$sel:instanceTerminationTimeout:InstanceResizePolicy' :: InstanceResizePolicy -&gt; Maybe Int
+</span><a href="#local-6989586621679370702"><span class="hs-identifier hs-var hs-var">instanceTerminationTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679370702"><span class="hs-identifier hs-var">instanceTerminationTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370701"><span class="annot"><span class="annottext">s :: InstanceResizePolicy
+</span><a href="#local-6989586621679370701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy%27"><span class="hs-identifier hs-type">InstanceResizePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370700"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679370700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceResizePolicy
+</span><a href="#local-6989586621679370701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceTerminationTimeout:InstanceResizePolicy' :: Maybe Int
+</span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#%24sel%3AinstanceTerminationTimeout%3AInstanceResizePolicy%27"><span class="hs-identifier hs-var">instanceTerminationTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679370700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370348"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679370346"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceResizePolicy
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370697"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679370695"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceResizePolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InstanceResizePolicy)
@@ -243,80 +243,80 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InstanceResizePolicy&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370343"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370343"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe [Text] -&gt; Maybe [Text] -&gt; InstanceResizePolicy
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679370692"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370692"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe [Text] -&gt; Maybe Int -&gt; InstanceResizePolicy
 </span><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy%27"><span class="hs-identifier hs-var">InstanceResizePolicy'</span></a></span><span>
-</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe [Text] -&gt; Maybe [Text] -&gt; InstanceResizePolicy)
--&gt; Parser (Maybe Int)
--&gt; Parser (Maybe [Text] -&gt; Maybe [Text] -&gt; InstanceResizePolicy)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370343"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InstanceTerminationTimeout&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe [Text] -&gt; InstanceResizePolicy)
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe [Text] -&gt; Maybe Int -&gt; InstanceResizePolicy)
 -&gt; Parser (Maybe [Text])
--&gt; Parser (Maybe [Text] -&gt; InstanceResizePolicy)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370343"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InstancesToTerminate&quot;</span></span><span>
-</span><span id="line-92"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
--&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-93"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; InstanceResizePolicy)
--&gt; Parser (Maybe [Text]) -&gt; Parser InstanceResizePolicy
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679370343"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+-&gt; Parser (Maybe [Text] -&gt; Maybe Int -&gt; InstanceResizePolicy)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370692"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstancesToProtect&quot;</span></span><span>
-</span><span id="line-95"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+</span><span id="line-91"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
 -&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-96"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe Int -&gt; InstanceResizePolicy)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe Int -&gt; InstanceResizePolicy)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370692"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstancesToTerminate&quot;</span></span><span>
+</span><span id="line-94"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-95"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; InstanceResizePolicy)
+-&gt; Parser (Maybe Int) -&gt; Parser InstanceResizePolicy
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679370692"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceTerminationTimeout&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370336"><span id="local-6989586621679370338"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370685"><span id="local-6989586621679370687"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370333"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370682"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370325"><span id="local-6989586621679370327"><span id="local-6989586621679370329"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679370323"><span class="annot"><span class="annottext">toJSON :: InstanceResizePolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy%27"><span class="hs-identifier hs-type">InstanceResizePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370319"><span id="local-6989586621679370320"><span id="local-6989586621679370321"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370674"><span id="local-6989586621679370676"><span id="local-6989586621679370678"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy"><span class="hs-identifier hs-type">InstanceResizePolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679370672"><span class="annot"><span class="annottext">toJSON :: InstanceResizePolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.InstanceResizePolicy.html#InstanceResizePolicy%27"><span class="hs-identifier hs-type">InstanceResizePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370668"><span id="local-6989586621679370669"><span id="local-6989586621679370670"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Text]
-instancesToProtect :: Maybe [Text]
-instancesToTerminate :: Maybe [Text]
 instanceTerminationTimeout :: Maybe Int
-$sel:instancesToProtect:InstanceResizePolicy' :: InstanceResizePolicy -&gt; Maybe [Text]
-$sel:instancesToTerminate:InstanceResizePolicy' :: InstanceResizePolicy -&gt; Maybe [Text]
+instancesToTerminate :: Maybe [Text]
+instancesToProtect :: Maybe [Text]
 $sel:instanceTerminationTimeout:InstanceResizePolicy' :: InstanceResizePolicy -&gt; Maybe Int
-</span><a href="#local-6989586621679370319"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:instancesToTerminate:InstanceResizePolicy' :: InstanceResizePolicy -&gt; Maybe [Text]
+$sel:instancesToProtect:InstanceResizePolicy' :: InstanceResizePolicy -&gt; Maybe [Text]
+</span><a href="#local-6989586621679370668"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-107"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InstanceTerminationTimeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+</span><span class="hs-string">&quot;InstancesToProtect&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679370321"><span class="hs-identifier hs-var">instanceTerminationTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679370670"><span class="hs-identifier hs-var">instancesToProtect</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstancesToTerminate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -324,15 +324,15 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679370320"><span class="hs-identifier hs-var">instancesToTerminate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370669"><span class="hs-identifier hs-var">instancesToTerminate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InstancesToProtect&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+</span><span class="hs-string">&quot;InstanceTerminationTimeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679370319"><span class="hs-identifier hs-var">instancesToProtect</span></a></span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679370668"><span class="hs-identifier hs-var">instanceTerminationTimeout</span></a></span><span>
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span></pre></body></html>

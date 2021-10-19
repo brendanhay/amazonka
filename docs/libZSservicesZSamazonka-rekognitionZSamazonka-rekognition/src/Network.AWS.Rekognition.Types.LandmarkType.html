@@ -57,13 +57,13 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span id="local-6989586621679325612"><span id="local-6989586621679325613"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LandmarkType"><span class="annot"><a href="Network.AWS.Rekognition.Types.LandmarkType.html#LandmarkType"><span class="hs-identifier hs-var">LandmarkType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LandmarkType%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.LandmarkType.html#LandmarkType%27"><span class="hs-identifier hs-var">LandmarkType'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679325891"><span id="local-6989586621679325892"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LandmarkType"><span class="annot"><a href="Network.AWS.Rekognition.Types.LandmarkType.html#LandmarkType"><span class="hs-identifier hs-var">LandmarkType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LandmarkType%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.LandmarkType.html#LandmarkType%27"><span class="hs-identifier hs-var">LandmarkType'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLandmarkType"><span class="annot"><span class="annottext">LandmarkType -&gt; Text
 </span><a href="Network.AWS.Rekognition.Types.LandmarkType.html#fromLandmarkType"><span class="hs-identifier hs-var hs-var">fromLandmarkType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325604"><span id="local-6989586621679325606"><span id="local-6989586621679325608"><span class="annot"><span class="annottext">Int -&gt; LandmarkType -&gt; ShowS
+</span><span id="line-65"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325883"><span id="local-6989586621679325885"><span id="local-6989586621679325887"><span class="annot"><span class="annottext">Int -&gt; LandmarkType -&gt; ShowS
 [LandmarkType] -&gt; ShowS
 LandmarkType -&gt; String
 (Int -&gt; LandmarkType -&gt; ShowS)
@@ -79,7 +79,7 @@ $cshow :: LandmarkType -&gt; String
 showsPrec :: Int -&gt; LandmarkType -&gt; ShowS
 $cshowsPrec :: Int -&gt; LandmarkType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679325595"><span id="local-6989586621679325597"><span id="local-6989586621679325599"><span id="local-6989586621679325601"><span class="annot"><span class="annottext">ReadPrec [LandmarkType]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679325874"><span id="local-6989586621679325876"><span id="local-6989586621679325878"><span id="local-6989586621679325880"><span class="annot"><span class="annottext">ReadPrec [LandmarkType]
 ReadPrec LandmarkType
 Int -&gt; ReadS LandmarkType
 ReadS [LandmarkType]
@@ -100,7 +100,7 @@ $creadList :: ReadS [LandmarkType]
 readsPrec :: Int -&gt; ReadS LandmarkType
 $creadsPrec :: Int -&gt; ReadS LandmarkType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679325590"><span id="local-6989586621679325592"><span class="annot"><span class="annottext">LandmarkType -&gt; LandmarkType -&gt; Bool
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679325869"><span id="local-6989586621679325871"><span class="annot"><span class="annottext">LandmarkType -&gt; LandmarkType -&gt; Bool
 (LandmarkType -&gt; LandmarkType -&gt; Bool)
 -&gt; (LandmarkType -&gt; LandmarkType -&gt; Bool) -&gt; Eq LandmarkType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -109,7 +109,7 @@ $c/= :: LandmarkType -&gt; LandmarkType -&gt; Bool
 == :: LandmarkType -&gt; LandmarkType -&gt; Bool
 $c== :: LandmarkType -&gt; LandmarkType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679325574"><span id="local-6989586621679325576"><span id="local-6989586621679325578"><span id="local-6989586621679325580"><span id="local-6989586621679325582"><span id="local-6989586621679325584"><span id="local-6989586621679325586"><span class="annot"><span class="annottext">Eq LandmarkType
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679325853"><span id="local-6989586621679325855"><span id="local-6989586621679325857"><span id="local-6989586621679325859"><span id="local-6989586621679325861"><span id="local-6989586621679325863"><span id="local-6989586621679325865"><span class="annot"><span class="annottext">Eq LandmarkType
 Eq LandmarkType
 -&gt; (LandmarkType -&gt; LandmarkType -&gt; Ordering)
 -&gt; (LandmarkType -&gt; LandmarkType -&gt; Bool)
@@ -160,7 +160,7 @@ $cfrom :: forall x. LandmarkType -&gt; Rep LandmarkType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325566"><span id="local-6989586621679325568"><span class="annot"><span class="annottext">Int -&gt; LandmarkType -&gt; Int
+</span><span id="line-72"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325845"><span id="local-6989586621679325847"><span class="annot"><span class="annottext">Int -&gt; LandmarkType -&gt; Int
 LandmarkType -&gt; Int
 (Int -&gt; LandmarkType -&gt; Int)
 -&gt; (LandmarkType -&gt; Int) -&gt; Hashable LandmarkType
@@ -170,49 +170,49 @@ $chash :: LandmarkType -&gt; Int
 hashWithSalt :: Int -&gt; LandmarkType -&gt; Int
 $chashWithSalt :: Int -&gt; LandmarkType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679325563"><span class="annot"><span class="annottext">LandmarkType -&gt; ()
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679325842"><span class="annot"><span class="annottext">LandmarkType -&gt; ()
 (LandmarkType -&gt; ()) -&gt; NFData LandmarkType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LandmarkType -&gt; ()
 $crnf :: LandmarkType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span id="local-6989586621679325560"><span class="annot"><span class="annottext">Text -&gt; Either String LandmarkType
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679325839"><span class="annot"><span class="annottext">Text -&gt; Either String LandmarkType
 (Text -&gt; Either String LandmarkType) -&gt; FromText LandmarkType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LandmarkType
 $cfromText :: Text -&gt; Either String LandmarkType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span id="local-6989586621679325557"><span class="annot"><span class="annottext">LandmarkType -&gt; Text
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679325836"><span class="annot"><span class="annottext">LandmarkType -&gt; Text
 (LandmarkType -&gt; Text) -&gt; ToText LandmarkType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LandmarkType -&gt; Text
 $ctoText :: LandmarkType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span id="local-6989586621679325554"><span class="annot"><span class="annottext">LandmarkType -&gt; ByteString
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679325833"><span class="annot"><span class="annottext">LandmarkType -&gt; ByteString
 (LandmarkType -&gt; ByteString) -&gt; ToByteString LandmarkType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LandmarkType -&gt; ByteString
 $ctoBS :: LandmarkType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679325551"><span class="annot"><span class="annottext">LandmarkType -&gt; ByteStringBuilder
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679325830"><span class="annot"><span class="annottext">LandmarkType -&gt; ByteStringBuilder
 (LandmarkType -&gt; ByteStringBuilder) -&gt; ToLog LandmarkType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LandmarkType -&gt; ByteStringBuilder
 $cbuild :: LandmarkType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621679325548"><span class="annot"><span class="annottext">HeaderName -&gt; LandmarkType -&gt; [Header]
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679325827"><span class="annot"><span class="annottext">HeaderName -&gt; LandmarkType -&gt; [Header]
 (HeaderName -&gt; LandmarkType -&gt; [Header]) -&gt; ToHeader LandmarkType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LandmarkType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LandmarkType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span id="local-6989586621679325545"><span class="annot"><span class="annottext">LandmarkType -&gt; QueryString
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679325824"><span class="annot"><span class="annottext">LandmarkType -&gt; QueryString
 (LandmarkType -&gt; QueryString) -&gt; ToQuery LandmarkType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LandmarkType -&gt; QueryString
 $ctoQuery :: LandmarkType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span id="local-6989586621679325540"><span id="local-6989586621679325542"><span class="annot"><span class="annottext">Value -&gt; Parser [LandmarkType]
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679325819"><span id="local-6989586621679325821"><span class="annot"><span class="annottext">Value -&gt; Parser [LandmarkType]
 Value -&gt; Parser LandmarkType
 (Value -&gt; Parser LandmarkType)
 -&gt; (Value -&gt; Parser [LandmarkType]) -&gt; FromJSON LandmarkType
@@ -223,7 +223,7 @@ $cparseJSONList :: Value -&gt; Parser [LandmarkType]
 parseJSON :: Value -&gt; Parser LandmarkType
 $cparseJSON :: Value -&gt; Parser LandmarkType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span id="local-6989586621679325535"><span id="local-6989586621679325537"><span class="annot"><span class="annottext">FromJSONKeyFunction [LandmarkType]
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679325814"><span id="local-6989586621679325816"><span class="annot"><span class="annottext">FromJSONKeyFunction [LandmarkType]
 FromJSONKeyFunction LandmarkType
 FromJSONKeyFunction LandmarkType
 -&gt; FromJSONKeyFunction [LandmarkType] -&gt; FromJSONKey LandmarkType
@@ -234,7 +234,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LandmarkType]
 fromJSONKey :: FromJSONKeyFunction LandmarkType
 $cfromJSONKey :: FromJSONKeyFunction LandmarkType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span id="local-6989586621679325526"><span id="local-6989586621679325528"><span id="local-6989586621679325530"><span id="local-6989586621679325532"><span class="annot"><span class="annottext">[LandmarkType] -&gt; Encoding
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621679325805"><span id="local-6989586621679325807"><span id="local-6989586621679325809"><span id="local-6989586621679325811"><span class="annot"><span class="annottext">[LandmarkType] -&gt; Encoding
 [LandmarkType] -&gt; Value
 LandmarkType -&gt; Encoding
 LandmarkType -&gt; Value
@@ -258,7 +258,7 @@ $ctoEncoding :: LandmarkType -&gt; Encoding
 toJSON :: LandmarkType -&gt; Value
 $ctoJSON :: LandmarkType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span id="local-6989586621679325521"><span id="local-6989586621679325523"><span class="annot"><span class="annottext">ToJSONKeyFunction [LandmarkType]
+</span><span id="line-83"></span><span>      </span><span id="local-6989586621679325800"><span id="local-6989586621679325802"><span class="annot"><span class="annottext">ToJSONKeyFunction [LandmarkType]
 ToJSONKeyFunction LandmarkType
 ToJSONKeyFunction LandmarkType
 -&gt; ToJSONKeyFunction [LandmarkType] -&gt; ToJSONKey LandmarkType
@@ -269,13 +269,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LandmarkType]
 toJSONKey :: ToJSONKeyFunction LandmarkType
 $ctoJSONKey :: ToJSONKeyFunction LandmarkType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span id="local-6989586621679325518"><span class="annot"><span class="annottext">[Node] -&gt; Either String LandmarkType
+</span><span id="line-84"></span><span>      </span><span id="local-6989586621679325797"><span class="annot"><span class="annottext">[Node] -&gt; Either String LandmarkType
 ([Node] -&gt; Either String LandmarkType) -&gt; FromXML LandmarkType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LandmarkType
 $cparseXML :: [Node] -&gt; Either String LandmarkType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span id="local-6989586621679325515"><span class="annot"><span class="annottext">LandmarkType -&gt; XML
+</span><span id="line-85"></span><span>      </span><span id="local-6989586621679325794"><span class="annot"><span class="annottext">LandmarkType -&gt; XML
 (LandmarkType -&gt; XML) -&gt; ToXML LandmarkType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LandmarkType -&gt; XML

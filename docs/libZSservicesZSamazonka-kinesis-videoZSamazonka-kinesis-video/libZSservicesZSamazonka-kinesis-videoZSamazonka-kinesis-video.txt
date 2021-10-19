@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-kinesis-videoZSamazonka-kinesis-video
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.KinesisVideo.Types.APIName
@@ -204,15 +204,15 @@ module Network.AWS.KinesisVideo.Types.ResourceEndpointListItem
 --   
 --   <i>See:</i> <a>newResourceEndpointListItem</a> smart constructor.
 data ResourceEndpointListItem
-ResourceEndpointListItem' :: Maybe Text -> Maybe ChannelProtocol -> ResourceEndpointListItem
-
--- | The endpoint of the signaling channel returned by the
---   <tt>GetSignalingChannelEndpoint</tt> API.
-[$sel:resourceEndpoint:ResourceEndpointListItem'] :: ResourceEndpointListItem -> Maybe Text
+ResourceEndpointListItem' :: Maybe ChannelProtocol -> Maybe Text -> ResourceEndpointListItem
 
 -- | The protocol of the signaling channel returned by the
 --   <tt>GetSignalingChannelEndpoint</tt> API.
 [$sel:protocol:ResourceEndpointListItem'] :: ResourceEndpointListItem -> Maybe ChannelProtocol
+
+-- | The endpoint of the signaling channel returned by the
+--   <tt>GetSignalingChannelEndpoint</tt> API.
+[$sel:resourceEndpoint:ResourceEndpointListItem'] :: ResourceEndpointListItem -> Maybe Text
 
 -- | Create a value of <a>ResourceEndpointListItem</a> with all optional
 --   fields omitted.
@@ -223,24 +223,24 @@ ResourceEndpointListItem' :: Maybe Text -> Maybe ChannelProtocol -> ResourceEndp
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:resourceEndpoint:ResourceEndpointListItem'</a>,
---   <a>resourceEndpointListItem_resourceEndpoint</a> - The endpoint of the
---   signaling channel returned by the <tt>GetSignalingChannelEndpoint</tt>
---   API.
---   
 --   <a>$sel:protocol:ResourceEndpointListItem'</a>,
 --   <a>resourceEndpointListItem_protocol</a> - The protocol of the
 --   signaling channel returned by the <tt>GetSignalingChannelEndpoint</tt>
 --   API.
+--   
+--   <a>$sel:resourceEndpoint:ResourceEndpointListItem'</a>,
+--   <a>resourceEndpointListItem_resourceEndpoint</a> - The endpoint of the
+--   signaling channel returned by the <tt>GetSignalingChannelEndpoint</tt>
+--   API.
 newResourceEndpointListItem :: ResourceEndpointListItem
-
--- | The endpoint of the signaling channel returned by the
---   <tt>GetSignalingChannelEndpoint</tt> API.
-resourceEndpointListItem_resourceEndpoint :: Lens' ResourceEndpointListItem (Maybe Text)
 
 -- | The protocol of the signaling channel returned by the
 --   <tt>GetSignalingChannelEndpoint</tt> API.
 resourceEndpointListItem_protocol :: Lens' ResourceEndpointListItem (Maybe ChannelProtocol)
+
+-- | The endpoint of the signaling channel returned by the
+--   <tt>GetSignalingChannelEndpoint</tt> API.
+resourceEndpointListItem_resourceEndpoint :: Lens' ResourceEndpointListItem (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.KinesisVideo.Types.ResourceEndpointListItem.ResourceEndpointListItem
 instance GHC.Show.Show Network.AWS.KinesisVideo.Types.ResourceEndpointListItem.ResourceEndpointListItem
 instance GHC.Read.Read Network.AWS.KinesisVideo.Types.ResourceEndpointListItem.ResourceEndpointListItem
@@ -455,7 +455,7 @@ module Network.AWS.KinesisVideo.Types.StreamInfo
 --   
 --   <i>See:</i> <a>newStreamInfo</a> smart constructor.
 data StreamInfo
-StreamInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> StreamInfo
+StreamInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> StreamInfo
 
 -- | A time stamp that indicates when the stream was created.
 [$sel:creationTime:StreamInfo'] :: StreamInfo -> Maybe POSIX
@@ -463,11 +463,14 @@ StreamInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Natural -> Maybe Text 
 -- | The status of the stream.
 [$sel:status:StreamInfo'] :: StreamInfo -> Maybe StreamStatus
 
+-- | The <tt>MediaType</tt> of the stream.
+[$sel:mediaType:StreamInfo'] :: StreamInfo -> Maybe Text
+
 -- | How long the stream retains data, in hours.
 [$sel:dataRetentionInHours:StreamInfo'] :: StreamInfo -> Maybe Natural
 
--- | The version of the stream.
-[$sel:version:StreamInfo'] :: StreamInfo -> Maybe Text
+-- | The Amazon Resource Name (ARN) of the stream.
+[$sel:streamARN:StreamInfo'] :: StreamInfo -> Maybe Text
 
 -- | The ID of the AWS Key Management Service (AWS KMS) key that Kinesis
 --   Video Streams uses to encrypt data on the stream.
@@ -476,11 +479,8 @@ StreamInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Natural -> Maybe Text 
 -- | The name of the device that is associated with the stream.
 [$sel:deviceName:StreamInfo'] :: StreamInfo -> Maybe Text
 
--- | The <tt>MediaType</tt> of the stream.
-[$sel:mediaType:StreamInfo'] :: StreamInfo -> Maybe Text
-
--- | The Amazon Resource Name (ARN) of the stream.
-[$sel:streamARN:StreamInfo'] :: StreamInfo -> Maybe Text
+-- | The version of the stream.
+[$sel:version:StreamInfo'] :: StreamInfo -> Maybe Text
 
 -- | The name of the stream.
 [$sel:streamName:StreamInfo'] :: StreamInfo -> Maybe Text
@@ -499,12 +499,15 @@ StreamInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Natural -> Maybe Text 
 --   <a>$sel:status:StreamInfo'</a>, <a>streamInfo_status</a> - The status
 --   of the stream.
 --   
+--   <a>$sel:mediaType:StreamInfo'</a>, <a>streamInfo_mediaType</a> - The
+--   <tt>MediaType</tt> of the stream.
+--   
 --   <a>$sel:dataRetentionInHours:StreamInfo'</a>,
 --   <a>streamInfo_dataRetentionInHours</a> - How long the stream retains
 --   data, in hours.
 --   
---   <a>$sel:version:StreamInfo'</a>, <a>streamInfo_version</a> - The
---   version of the stream.
+--   <a>$sel:streamARN:StreamInfo'</a>, <a>streamInfo_streamARN</a> - The
+--   Amazon Resource Name (ARN) of the stream.
 --   
 --   <a>$sel:kmsKeyId:StreamInfo'</a>, <a>streamInfo_kmsKeyId</a> - The ID
 --   of the AWS Key Management Service (AWS KMS) key that Kinesis Video
@@ -513,11 +516,8 @@ StreamInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Natural -> Maybe Text 
 --   <a>$sel:deviceName:StreamInfo'</a>, <a>streamInfo_deviceName</a> - The
 --   name of the device that is associated with the stream.
 --   
---   <a>$sel:mediaType:StreamInfo'</a>, <a>streamInfo_mediaType</a> - The
---   <tt>MediaType</tt> of the stream.
---   
---   <a>$sel:streamARN:StreamInfo'</a>, <a>streamInfo_streamARN</a> - The
---   Amazon Resource Name (ARN) of the stream.
+--   <a>$sel:version:StreamInfo'</a>, <a>streamInfo_version</a> - The
+--   version of the stream.
 --   
 --   <a>$sel:streamName:StreamInfo'</a>, <a>streamInfo_streamName</a> - The
 --   name of the stream.
@@ -529,11 +529,14 @@ streamInfo_creationTime :: Lens' StreamInfo (Maybe UTCTime)
 -- | The status of the stream.
 streamInfo_status :: Lens' StreamInfo (Maybe StreamStatus)
 
+-- | The <tt>MediaType</tt> of the stream.
+streamInfo_mediaType :: Lens' StreamInfo (Maybe Text)
+
 -- | How long the stream retains data, in hours.
 streamInfo_dataRetentionInHours :: Lens' StreamInfo (Maybe Natural)
 
--- | The version of the stream.
-streamInfo_version :: Lens' StreamInfo (Maybe Text)
+-- | The Amazon Resource Name (ARN) of the stream.
+streamInfo_streamARN :: Lens' StreamInfo (Maybe Text)
 
 -- | The ID of the AWS Key Management Service (AWS KMS) key that Kinesis
 --   Video Streams uses to encrypt data on the stream.
@@ -542,11 +545,8 @@ streamInfo_kmsKeyId :: Lens' StreamInfo (Maybe Text)
 -- | The name of the device that is associated with the stream.
 streamInfo_deviceName :: Lens' StreamInfo (Maybe Text)
 
--- | The <tt>MediaType</tt> of the stream.
-streamInfo_mediaType :: Lens' StreamInfo (Maybe Text)
-
--- | The Amazon Resource Name (ARN) of the stream.
-streamInfo_streamARN :: Lens' StreamInfo (Maybe Text)
+-- | The version of the stream.
+streamInfo_version :: Lens' StreamInfo (Maybe Text)
 
 -- | The name of the stream.
 streamInfo_streamName :: Lens' StreamInfo (Maybe Text)
@@ -566,29 +566,29 @@ module Network.AWS.KinesisVideo.Types.ChannelInfo
 --   
 --   <i>See:</i> <a>newChannelInfo</a> smart constructor.
 data ChannelInfo
-ChannelInfo' :: Maybe POSIX -> Maybe Text -> Maybe SingleMasterConfiguration -> Maybe ChannelType -> Maybe Text -> Maybe StreamStatus -> Maybe Text -> ChannelInfo
+ChannelInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Text -> Maybe SingleMasterConfiguration -> Maybe Text -> Maybe Text -> Maybe ChannelType -> ChannelInfo
 
 -- | The time at which the signaling channel was created.
 [$sel:creationTime:ChannelInfo'] :: ChannelInfo -> Maybe POSIX
-
--- | The name of the signaling channel.
-[$sel:channelName:ChannelInfo'] :: ChannelInfo -> Maybe Text
-
--- | A structure that contains the configuration for the
---   <tt>SINGLE_MASTER</tt> channel type.
-[$sel:singleMasterConfiguration:ChannelInfo'] :: ChannelInfo -> Maybe SingleMasterConfiguration
-
--- | The type of the signaling channel.
-[$sel:channelType:ChannelInfo'] :: ChannelInfo -> Maybe ChannelType
-
--- | The current version of the signaling channel.
-[$sel:version:ChannelInfo'] :: ChannelInfo -> Maybe Text
 
 -- | Current status of the signaling channel.
 [$sel:channelStatus:ChannelInfo'] :: ChannelInfo -> Maybe StreamStatus
 
 -- | The Amazon Resource Name (ARN) of the signaling channel.
 [$sel:channelARN:ChannelInfo'] :: ChannelInfo -> Maybe Text
+
+-- | A structure that contains the configuration for the
+--   <tt>SINGLE_MASTER</tt> channel type.
+[$sel:singleMasterConfiguration:ChannelInfo'] :: ChannelInfo -> Maybe SingleMasterConfiguration
+
+-- | The name of the signaling channel.
+[$sel:channelName:ChannelInfo'] :: ChannelInfo -> Maybe Text
+
+-- | The current version of the signaling channel.
+[$sel:version:ChannelInfo'] :: ChannelInfo -> Maybe Text
+
+-- | The type of the signaling channel.
+[$sel:channelType:ChannelInfo'] :: ChannelInfo -> Maybe ChannelType
 
 -- | Create a value of <a>ChannelInfo</a> with all optional fields omitted.
 --   
@@ -601,49 +601,49 @@ ChannelInfo' :: Maybe POSIX -> Maybe Text -> Maybe SingleMasterConfiguration -> 
 --   <a>$sel:creationTime:ChannelInfo'</a>, <a>channelInfo_creationTime</a>
 --   - The time at which the signaling channel was created.
 --   
---   <a>$sel:channelName:ChannelInfo'</a>, <a>channelInfo_channelName</a> -
---   The name of the signaling channel.
---   
---   <a>$sel:singleMasterConfiguration:ChannelInfo'</a>,
---   <a>channelInfo_singleMasterConfiguration</a> - A structure that
---   contains the configuration for the <tt>SINGLE_MASTER</tt> channel
---   type.
---   
---   <a>$sel:channelType:ChannelInfo'</a>, <a>channelInfo_channelType</a> -
---   The type of the signaling channel.
---   
---   <a>$sel:version:ChannelInfo'</a>, <a>channelInfo_version</a> - The
---   current version of the signaling channel.
---   
 --   <a>$sel:channelStatus:ChannelInfo'</a>,
 --   <a>channelInfo_channelStatus</a> - Current status of the signaling
 --   channel.
 --   
 --   <a>$sel:channelARN:ChannelInfo'</a>, <a>channelInfo_channelARN</a> -
 --   The Amazon Resource Name (ARN) of the signaling channel.
+--   
+--   <a>$sel:singleMasterConfiguration:ChannelInfo'</a>,
+--   <a>channelInfo_singleMasterConfiguration</a> - A structure that
+--   contains the configuration for the <tt>SINGLE_MASTER</tt> channel
+--   type.
+--   
+--   <a>$sel:channelName:ChannelInfo'</a>, <a>channelInfo_channelName</a> -
+--   The name of the signaling channel.
+--   
+--   <a>$sel:version:ChannelInfo'</a>, <a>channelInfo_version</a> - The
+--   current version of the signaling channel.
+--   
+--   <a>$sel:channelType:ChannelInfo'</a>, <a>channelInfo_channelType</a> -
+--   The type of the signaling channel.
 newChannelInfo :: ChannelInfo
 
 -- | The time at which the signaling channel was created.
 channelInfo_creationTime :: Lens' ChannelInfo (Maybe UTCTime)
-
--- | The name of the signaling channel.
-channelInfo_channelName :: Lens' ChannelInfo (Maybe Text)
-
--- | A structure that contains the configuration for the
---   <tt>SINGLE_MASTER</tt> channel type.
-channelInfo_singleMasterConfiguration :: Lens' ChannelInfo (Maybe SingleMasterConfiguration)
-
--- | The type of the signaling channel.
-channelInfo_channelType :: Lens' ChannelInfo (Maybe ChannelType)
-
--- | The current version of the signaling channel.
-channelInfo_version :: Lens' ChannelInfo (Maybe Text)
 
 -- | Current status of the signaling channel.
 channelInfo_channelStatus :: Lens' ChannelInfo (Maybe StreamStatus)
 
 -- | The Amazon Resource Name (ARN) of the signaling channel.
 channelInfo_channelARN :: Lens' ChannelInfo (Maybe Text)
+
+-- | A structure that contains the configuration for the
+--   <tt>SINGLE_MASTER</tt> channel type.
+channelInfo_singleMasterConfiguration :: Lens' ChannelInfo (Maybe SingleMasterConfiguration)
+
+-- | The name of the signaling channel.
+channelInfo_channelName :: Lens' ChannelInfo (Maybe Text)
+
+-- | The current version of the signaling channel.
+channelInfo_version :: Lens' ChannelInfo (Maybe Text)
+
+-- | The type of the signaling channel.
+channelInfo_channelType :: Lens' ChannelInfo (Maybe ChannelType)
 instance GHC.Generics.Generic Network.AWS.KinesisVideo.Types.ChannelInfo.ChannelInfo
 instance GHC.Show.Show Network.AWS.KinesisVideo.Types.ChannelInfo.ChannelInfo
 instance GHC.Read.Read Network.AWS.KinesisVideo.Types.ChannelInfo.ChannelInfo
@@ -734,48 +734,48 @@ module Network.AWS.KinesisVideo.Types
 --   SDK configuration.
 defaultService :: Service
 
--- | The number of streams created for the account is too high.
-_AccountStreamLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | You do not have required permissions to perform this operation.
+_AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The stream version that you specified is not the latest version. To
---   get the latest version, use the <a>DescribeStream</a> API.
-_VersionMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | You have reached the maximum limit of active signaling channels for
---   this AWS account in this region.
-_AccountChannelLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Kinesis Video Streams has throttled the request because you have
---   exceeded the limit of allowed client calls. Try making the call later.
-_ClientLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The value for this input parameter is invalid.
+_InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | You have exceeded the limit of tags that you can associate with the
 --   resource. Kinesis video streams support up to 50 tags.
 _TagsPerResourceExceededLimitException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Not implemented.
-_DeviceStreamLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The caller is not authorized to perform this operation.
+_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The format of the <tt>StreamARN</tt> is invalid.
-_InvalidResourceFormatException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Kinesis Video Streams has throttled the request because you have
+--   exceeded the limit of allowed client calls. Try making the call later.
+_ClientLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | You do not have required permissions to perform this operation.
-_AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The signaling channel is currently not available for this operation.
-_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Amazon Kinesis Video Streams can't find the stream that you specified.
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | You have reached the maximum limit of active signaling channels for
+--   this AWS account in this region.
+_AccountChannelLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Not implemented.
 _InvalidDeviceException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The caller is not authorized to perform this operation.
-_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The stream version that you specified is not the latest version. To
+--   get the latest version, use the <a>DescribeStream</a> API.
+_VersionMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The value for this input parameter is invalid.
-_InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The number of streams created for the account is too high.
+_AccountStreamLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The format of the <tt>StreamARN</tt> is invalid.
+_InvalidResourceFormatException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Not implemented.
+_DeviceStreamLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Amazon Kinesis Video Streams can't find the stream that you specified.
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The signaling channel is currently not available for this operation.
+_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 newtype APIName
 APIName' :: Text -> APIName
 [fromAPIName] :: APIName -> Text
@@ -822,29 +822,29 @@ pattern UpdateDataRetentionOperation_INCREASE_DATA_RETENTION :: UpdateDataRetent
 --   
 --   <i>See:</i> <a>newChannelInfo</a> smart constructor.
 data ChannelInfo
-ChannelInfo' :: Maybe POSIX -> Maybe Text -> Maybe SingleMasterConfiguration -> Maybe ChannelType -> Maybe Text -> Maybe StreamStatus -> Maybe Text -> ChannelInfo
+ChannelInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Text -> Maybe SingleMasterConfiguration -> Maybe Text -> Maybe Text -> Maybe ChannelType -> ChannelInfo
 
 -- | The time at which the signaling channel was created.
 [$sel:creationTime:ChannelInfo'] :: ChannelInfo -> Maybe POSIX
-
--- | The name of the signaling channel.
-[$sel:channelName:ChannelInfo'] :: ChannelInfo -> Maybe Text
-
--- | A structure that contains the configuration for the
---   <tt>SINGLE_MASTER</tt> channel type.
-[$sel:singleMasterConfiguration:ChannelInfo'] :: ChannelInfo -> Maybe SingleMasterConfiguration
-
--- | The type of the signaling channel.
-[$sel:channelType:ChannelInfo'] :: ChannelInfo -> Maybe ChannelType
-
--- | The current version of the signaling channel.
-[$sel:version:ChannelInfo'] :: ChannelInfo -> Maybe Text
 
 -- | Current status of the signaling channel.
 [$sel:channelStatus:ChannelInfo'] :: ChannelInfo -> Maybe StreamStatus
 
 -- | The Amazon Resource Name (ARN) of the signaling channel.
 [$sel:channelARN:ChannelInfo'] :: ChannelInfo -> Maybe Text
+
+-- | A structure that contains the configuration for the
+--   <tt>SINGLE_MASTER</tt> channel type.
+[$sel:singleMasterConfiguration:ChannelInfo'] :: ChannelInfo -> Maybe SingleMasterConfiguration
+
+-- | The name of the signaling channel.
+[$sel:channelName:ChannelInfo'] :: ChannelInfo -> Maybe Text
+
+-- | The current version of the signaling channel.
+[$sel:version:ChannelInfo'] :: ChannelInfo -> Maybe Text
+
+-- | The type of the signaling channel.
+[$sel:channelType:ChannelInfo'] :: ChannelInfo -> Maybe ChannelType
 
 -- | Create a value of <a>ChannelInfo</a> with all optional fields omitted.
 --   
@@ -857,49 +857,49 @@ ChannelInfo' :: Maybe POSIX -> Maybe Text -> Maybe SingleMasterConfiguration -> 
 --   <a>$sel:creationTime:ChannelInfo'</a>, <a>channelInfo_creationTime</a>
 --   - The time at which the signaling channel was created.
 --   
---   <a>$sel:channelName:ChannelInfo'</a>, <a>channelInfo_channelName</a> -
---   The name of the signaling channel.
---   
---   <a>$sel:singleMasterConfiguration:ChannelInfo'</a>,
---   <a>channelInfo_singleMasterConfiguration</a> - A structure that
---   contains the configuration for the <tt>SINGLE_MASTER</tt> channel
---   type.
---   
---   <a>$sel:channelType:ChannelInfo'</a>, <a>channelInfo_channelType</a> -
---   The type of the signaling channel.
---   
---   <a>$sel:version:ChannelInfo'</a>, <a>channelInfo_version</a> - The
---   current version of the signaling channel.
---   
 --   <a>$sel:channelStatus:ChannelInfo'</a>,
 --   <a>channelInfo_channelStatus</a> - Current status of the signaling
 --   channel.
 --   
 --   <a>$sel:channelARN:ChannelInfo'</a>, <a>channelInfo_channelARN</a> -
 --   The Amazon Resource Name (ARN) of the signaling channel.
+--   
+--   <a>$sel:singleMasterConfiguration:ChannelInfo'</a>,
+--   <a>channelInfo_singleMasterConfiguration</a> - A structure that
+--   contains the configuration for the <tt>SINGLE_MASTER</tt> channel
+--   type.
+--   
+--   <a>$sel:channelName:ChannelInfo'</a>, <a>channelInfo_channelName</a> -
+--   The name of the signaling channel.
+--   
+--   <a>$sel:version:ChannelInfo'</a>, <a>channelInfo_version</a> - The
+--   current version of the signaling channel.
+--   
+--   <a>$sel:channelType:ChannelInfo'</a>, <a>channelInfo_channelType</a> -
+--   The type of the signaling channel.
 newChannelInfo :: ChannelInfo
 
 -- | The time at which the signaling channel was created.
 channelInfo_creationTime :: Lens' ChannelInfo (Maybe UTCTime)
-
--- | The name of the signaling channel.
-channelInfo_channelName :: Lens' ChannelInfo (Maybe Text)
-
--- | A structure that contains the configuration for the
---   <tt>SINGLE_MASTER</tt> channel type.
-channelInfo_singleMasterConfiguration :: Lens' ChannelInfo (Maybe SingleMasterConfiguration)
-
--- | The type of the signaling channel.
-channelInfo_channelType :: Lens' ChannelInfo (Maybe ChannelType)
-
--- | The current version of the signaling channel.
-channelInfo_version :: Lens' ChannelInfo (Maybe Text)
 
 -- | Current status of the signaling channel.
 channelInfo_channelStatus :: Lens' ChannelInfo (Maybe StreamStatus)
 
 -- | The Amazon Resource Name (ARN) of the signaling channel.
 channelInfo_channelARN :: Lens' ChannelInfo (Maybe Text)
+
+-- | A structure that contains the configuration for the
+--   <tt>SINGLE_MASTER</tt> channel type.
+channelInfo_singleMasterConfiguration :: Lens' ChannelInfo (Maybe SingleMasterConfiguration)
+
+-- | The name of the signaling channel.
+channelInfo_channelName :: Lens' ChannelInfo (Maybe Text)
+
+-- | The current version of the signaling channel.
+channelInfo_version :: Lens' ChannelInfo (Maybe Text)
+
+-- | The type of the signaling channel.
+channelInfo_channelType :: Lens' ChannelInfo (Maybe ChannelType)
 
 -- | An optional input parameter for the <tt>ListSignalingChannels</tt>
 --   API. When this parameter is specified while invoking
@@ -950,15 +950,15 @@ channelNameCondition_comparisonValue :: Lens' ChannelNameCondition (Maybe Text)
 --   
 --   <i>See:</i> <a>newResourceEndpointListItem</a> smart constructor.
 data ResourceEndpointListItem
-ResourceEndpointListItem' :: Maybe Text -> Maybe ChannelProtocol -> ResourceEndpointListItem
-
--- | The endpoint of the signaling channel returned by the
---   <tt>GetSignalingChannelEndpoint</tt> API.
-[$sel:resourceEndpoint:ResourceEndpointListItem'] :: ResourceEndpointListItem -> Maybe Text
+ResourceEndpointListItem' :: Maybe ChannelProtocol -> Maybe Text -> ResourceEndpointListItem
 
 -- | The protocol of the signaling channel returned by the
 --   <tt>GetSignalingChannelEndpoint</tt> API.
 [$sel:protocol:ResourceEndpointListItem'] :: ResourceEndpointListItem -> Maybe ChannelProtocol
+
+-- | The endpoint of the signaling channel returned by the
+--   <tt>GetSignalingChannelEndpoint</tt> API.
+[$sel:resourceEndpoint:ResourceEndpointListItem'] :: ResourceEndpointListItem -> Maybe Text
 
 -- | Create a value of <a>ResourceEndpointListItem</a> with all optional
 --   fields omitted.
@@ -969,24 +969,24 @@ ResourceEndpointListItem' :: Maybe Text -> Maybe ChannelProtocol -> ResourceEndp
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:resourceEndpoint:ResourceEndpointListItem'</a>,
---   <a>resourceEndpointListItem_resourceEndpoint</a> - The endpoint of the
---   signaling channel returned by the <tt>GetSignalingChannelEndpoint</tt>
---   API.
---   
 --   <a>$sel:protocol:ResourceEndpointListItem'</a>,
 --   <a>resourceEndpointListItem_protocol</a> - The protocol of the
 --   signaling channel returned by the <tt>GetSignalingChannelEndpoint</tt>
 --   API.
+--   
+--   <a>$sel:resourceEndpoint:ResourceEndpointListItem'</a>,
+--   <a>resourceEndpointListItem_resourceEndpoint</a> - The endpoint of the
+--   signaling channel returned by the <tt>GetSignalingChannelEndpoint</tt>
+--   API.
 newResourceEndpointListItem :: ResourceEndpointListItem
-
--- | The endpoint of the signaling channel returned by the
---   <tt>GetSignalingChannelEndpoint</tt> API.
-resourceEndpointListItem_resourceEndpoint :: Lens' ResourceEndpointListItem (Maybe Text)
 
 -- | The protocol of the signaling channel returned by the
 --   <tt>GetSignalingChannelEndpoint</tt> API.
 resourceEndpointListItem_protocol :: Lens' ResourceEndpointListItem (Maybe ChannelProtocol)
+
+-- | The endpoint of the signaling channel returned by the
+--   <tt>GetSignalingChannelEndpoint</tt> API.
+resourceEndpointListItem_resourceEndpoint :: Lens' ResourceEndpointListItem (Maybe Text)
 
 -- | An object that contains the endpoint configuration for the
 --   <tt>SINGLE_MASTER</tt> channel type.
@@ -1087,7 +1087,7 @@ singleMasterConfiguration_messageTtlSeconds :: Lens' SingleMasterConfiguration (
 --   
 --   <i>See:</i> <a>newStreamInfo</a> smart constructor.
 data StreamInfo
-StreamInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> StreamInfo
+StreamInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> StreamInfo
 
 -- | A time stamp that indicates when the stream was created.
 [$sel:creationTime:StreamInfo'] :: StreamInfo -> Maybe POSIX
@@ -1095,11 +1095,14 @@ StreamInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Natural -> Maybe Text 
 -- | The status of the stream.
 [$sel:status:StreamInfo'] :: StreamInfo -> Maybe StreamStatus
 
+-- | The <tt>MediaType</tt> of the stream.
+[$sel:mediaType:StreamInfo'] :: StreamInfo -> Maybe Text
+
 -- | How long the stream retains data, in hours.
 [$sel:dataRetentionInHours:StreamInfo'] :: StreamInfo -> Maybe Natural
 
--- | The version of the stream.
-[$sel:version:StreamInfo'] :: StreamInfo -> Maybe Text
+-- | The Amazon Resource Name (ARN) of the stream.
+[$sel:streamARN:StreamInfo'] :: StreamInfo -> Maybe Text
 
 -- | The ID of the AWS Key Management Service (AWS KMS) key that Kinesis
 --   Video Streams uses to encrypt data on the stream.
@@ -1108,11 +1111,8 @@ StreamInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Natural -> Maybe Text 
 -- | The name of the device that is associated with the stream.
 [$sel:deviceName:StreamInfo'] :: StreamInfo -> Maybe Text
 
--- | The <tt>MediaType</tt> of the stream.
-[$sel:mediaType:StreamInfo'] :: StreamInfo -> Maybe Text
-
--- | The Amazon Resource Name (ARN) of the stream.
-[$sel:streamARN:StreamInfo'] :: StreamInfo -> Maybe Text
+-- | The version of the stream.
+[$sel:version:StreamInfo'] :: StreamInfo -> Maybe Text
 
 -- | The name of the stream.
 [$sel:streamName:StreamInfo'] :: StreamInfo -> Maybe Text
@@ -1131,12 +1131,15 @@ StreamInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Natural -> Maybe Text 
 --   <a>$sel:status:StreamInfo'</a>, <a>streamInfo_status</a> - The status
 --   of the stream.
 --   
+--   <a>$sel:mediaType:StreamInfo'</a>, <a>streamInfo_mediaType</a> - The
+--   <tt>MediaType</tt> of the stream.
+--   
 --   <a>$sel:dataRetentionInHours:StreamInfo'</a>,
 --   <a>streamInfo_dataRetentionInHours</a> - How long the stream retains
 --   data, in hours.
 --   
---   <a>$sel:version:StreamInfo'</a>, <a>streamInfo_version</a> - The
---   version of the stream.
+--   <a>$sel:streamARN:StreamInfo'</a>, <a>streamInfo_streamARN</a> - The
+--   Amazon Resource Name (ARN) of the stream.
 --   
 --   <a>$sel:kmsKeyId:StreamInfo'</a>, <a>streamInfo_kmsKeyId</a> - The ID
 --   of the AWS Key Management Service (AWS KMS) key that Kinesis Video
@@ -1145,11 +1148,8 @@ StreamInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Natural -> Maybe Text 
 --   <a>$sel:deviceName:StreamInfo'</a>, <a>streamInfo_deviceName</a> - The
 --   name of the device that is associated with the stream.
 --   
---   <a>$sel:mediaType:StreamInfo'</a>, <a>streamInfo_mediaType</a> - The
---   <tt>MediaType</tt> of the stream.
---   
---   <a>$sel:streamARN:StreamInfo'</a>, <a>streamInfo_streamARN</a> - The
---   Amazon Resource Name (ARN) of the stream.
+--   <a>$sel:version:StreamInfo'</a>, <a>streamInfo_version</a> - The
+--   version of the stream.
 --   
 --   <a>$sel:streamName:StreamInfo'</a>, <a>streamInfo_streamName</a> - The
 --   name of the stream.
@@ -1161,11 +1161,14 @@ streamInfo_creationTime :: Lens' StreamInfo (Maybe UTCTime)
 -- | The status of the stream.
 streamInfo_status :: Lens' StreamInfo (Maybe StreamStatus)
 
+-- | The <tt>MediaType</tt> of the stream.
+streamInfo_mediaType :: Lens' StreamInfo (Maybe Text)
+
 -- | How long the stream retains data, in hours.
 streamInfo_dataRetentionInHours :: Lens' StreamInfo (Maybe Natural)
 
--- | The version of the stream.
-streamInfo_version :: Lens' StreamInfo (Maybe Text)
+-- | The Amazon Resource Name (ARN) of the stream.
+streamInfo_streamARN :: Lens' StreamInfo (Maybe Text)
 
 -- | The ID of the AWS Key Management Service (AWS KMS) key that Kinesis
 --   Video Streams uses to encrypt data on the stream.
@@ -1174,11 +1177,8 @@ streamInfo_kmsKeyId :: Lens' StreamInfo (Maybe Text)
 -- | The name of the device that is associated with the stream.
 streamInfo_deviceName :: Lens' StreamInfo (Maybe Text)
 
--- | The <tt>MediaType</tt> of the stream.
-streamInfo_mediaType :: Lens' StreamInfo (Maybe Text)
-
--- | The Amazon Resource Name (ARN) of the stream.
-streamInfo_streamARN :: Lens' StreamInfo (Maybe Text)
+-- | The version of the stream.
+streamInfo_version :: Lens' StreamInfo (Maybe Text)
 
 -- | The name of the stream.
 streamInfo_streamName :: Lens' StreamInfo (Maybe Text)
@@ -1464,15 +1464,15 @@ module Network.AWS.KinesisVideo.ListTagsForStream
 data ListTagsForStream
 ListTagsForStream' :: Maybe Text -> Maybe Text -> Maybe Text -> ListTagsForStream
 
+-- | The Amazon Resource Name (ARN) of the stream that you want to list
+--   tags for.
+[$sel:streamARN:ListTagsForStream'] :: ListTagsForStream -> Maybe Text
+
 -- | If you specify this parameter and the result of a
 --   <tt>ListTagsForStream</tt> call is truncated, the response includes a
 --   token that you can use in the next request to fetch the next batch of
 --   tags.
 [$sel:nextToken:ListTagsForStream'] :: ListTagsForStream -> Maybe Text
-
--- | The Amazon Resource Name (ARN) of the stream that you want to list
---   tags for.
-[$sel:streamARN:ListTagsForStream'] :: ListTagsForStream -> Maybe Text
 
 -- | The name of the stream that you want to list tags for.
 [$sel:streamName:ListTagsForStream'] :: ListTagsForStream -> Maybe Text
@@ -1486,30 +1486,30 @@ ListTagsForStream' :: Maybe Text -> Maybe Text -> Maybe Text -> ListTagsForStrea
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:streamARN:ListTagsForStream'</a>,
+--   <a>listTagsForStream_streamARN</a> - The Amazon Resource Name (ARN) of
+--   the stream that you want to list tags for.
+--   
 --   <a>$sel:nextToken:ListTagsForStream'</a>,
 --   <a>listTagsForStream_nextToken</a> - If you specify this parameter and
 --   the result of a <tt>ListTagsForStream</tt> call is truncated, the
 --   response includes a token that you can use in the next request to
 --   fetch the next batch of tags.
 --   
---   <a>$sel:streamARN:ListTagsForStream'</a>,
---   <a>listTagsForStream_streamARN</a> - The Amazon Resource Name (ARN) of
---   the stream that you want to list tags for.
---   
 --   <a>$sel:streamName:ListTagsForStream'</a>,
 --   <a>listTagsForStream_streamName</a> - The name of the stream that you
 --   want to list tags for.
 newListTagsForStream :: ListTagsForStream
+
+-- | The Amazon Resource Name (ARN) of the stream that you want to list
+--   tags for.
+listTagsForStream_streamARN :: Lens' ListTagsForStream (Maybe Text)
 
 -- | If you specify this parameter and the result of a
 --   <tt>ListTagsForStream</tt> call is truncated, the response includes a
 --   token that you can use in the next request to fetch the next batch of
 --   tags.
 listTagsForStream_nextToken :: Lens' ListTagsForStream (Maybe Text)
-
--- | The Amazon Resource Name (ARN) of the stream that you want to list
---   tags for.
-listTagsForStream_streamARN :: Lens' ListTagsForStream (Maybe Text)
 
 -- | The name of the stream that you want to list tags for.
 listTagsForStream_streamName :: Lens' ListTagsForStream (Maybe Text)
@@ -1709,7 +1709,7 @@ module Network.AWS.KinesisVideo.ListStreams
 
 -- | <i>See:</i> <a>newListStreams</a> smart constructor.
 data ListStreams
-ListStreams' :: Maybe Text -> Maybe Natural -> Maybe StreamNameCondition -> ListStreams
+ListStreams' :: Maybe Text -> Maybe StreamNameCondition -> Maybe Natural -> ListStreams
 
 -- | If you specify this parameter, when the result of a
 --   <tt>ListStreams</tt> operation is truncated, the call returns the
@@ -1717,14 +1717,14 @@ ListStreams' :: Maybe Text -> Maybe Natural -> Maybe StreamNameCondition -> List
 --   provide this token in your next request.
 [$sel:nextToken:ListStreams'] :: ListStreams -> Maybe Text
 
--- | The maximum number of streams to return in the response. The default
---   is 10,000.
-[$sel:maxResults:ListStreams'] :: ListStreams -> Maybe Natural
-
 -- | Optional: Returns only streams that satisfy a specific condition.
 --   Currently, you can specify only the prefix of a stream name as a
 --   condition.
 [$sel:streamNameCondition:ListStreams'] :: ListStreams -> Maybe StreamNameCondition
+
+-- | The maximum number of streams to return in the response. The default
+--   is 10,000.
+[$sel:maxResults:ListStreams'] :: ListStreams -> Maybe Natural
 
 -- | Create a value of <a>ListStreams</a> with all optional fields omitted.
 --   
@@ -1740,14 +1740,14 @@ ListStreams' :: Maybe Text -> Maybe Natural -> Maybe StreamNameCondition -> List
 --   response. To get another batch of streams, provide this token in your
 --   next request.
 --   
---   <a>$sel:maxResults:ListStreams'</a>, <a>listStreams_maxResults</a> -
---   The maximum number of streams to return in the response. The default
---   is 10,000.
---   
 --   <a>$sel:streamNameCondition:ListStreams'</a>,
 --   <a>listStreams_streamNameCondition</a> - Optional: Returns only
 --   streams that satisfy a specific condition. Currently, you can specify
 --   only the prefix of a stream name as a condition.
+--   
+--   <a>$sel:maxResults:ListStreams'</a>, <a>listStreams_maxResults</a> -
+--   The maximum number of streams to return in the response. The default
+--   is 10,000.
 newListStreams :: ListStreams
 
 -- | If you specify this parameter, when the result of a
@@ -1756,26 +1756,26 @@ newListStreams :: ListStreams
 --   provide this token in your next request.
 listStreams_nextToken :: Lens' ListStreams (Maybe Text)
 
--- | The maximum number of streams to return in the response. The default
---   is 10,000.
-listStreams_maxResults :: Lens' ListStreams (Maybe Natural)
-
 -- | Optional: Returns only streams that satisfy a specific condition.
 --   Currently, you can specify only the prefix of a stream name as a
 --   condition.
 listStreams_streamNameCondition :: Lens' ListStreams (Maybe StreamNameCondition)
 
+-- | The maximum number of streams to return in the response. The default
+--   is 10,000.
+listStreams_maxResults :: Lens' ListStreams (Maybe Natural)
+
 -- | <i>See:</i> <a>newListStreamsResponse</a> smart constructor.
 data ListStreamsResponse
-ListStreamsResponse' :: Maybe Text -> Maybe [StreamInfo] -> Int -> ListStreamsResponse
+ListStreamsResponse' :: Maybe [StreamInfo] -> Maybe Text -> Int -> ListStreamsResponse
+
+-- | An array of <tt>StreamInfo</tt> objects.
+[$sel:streamInfoList:ListStreamsResponse'] :: ListStreamsResponse -> Maybe [StreamInfo]
 
 -- | If the response is truncated, the call returns this element with a
 --   token. To get the next batch of streams, use this token in your next
 --   request.
 [$sel:nextToken:ListStreamsResponse'] :: ListStreamsResponse -> Maybe Text
-
--- | An array of <tt>StreamInfo</tt> objects.
-[$sel:streamInfoList:ListStreamsResponse'] :: ListStreamsResponse -> Maybe [StreamInfo]
 
 -- | The response's http status code.
 [$sel:httpStatus:ListStreamsResponse'] :: ListStreamsResponse -> Int
@@ -1789,27 +1789,27 @@ ListStreamsResponse' :: Maybe Text -> Maybe [StreamInfo] -> Int -> ListStreamsRe
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:streamInfoList:ListStreamsResponse'</a>,
+--   <a>listStreamsResponse_streamInfoList</a> - An array of
+--   <tt>StreamInfo</tt> objects.
+--   
 --   <a>$sel:nextToken:ListStreams'</a>,
 --   <a>listStreamsResponse_nextToken</a> - If the response is truncated,
 --   the call returns this element with a token. To get the next batch of
 --   streams, use this token in your next request.
---   
---   <a>$sel:streamInfoList:ListStreamsResponse'</a>,
---   <a>listStreamsResponse_streamInfoList</a> - An array of
---   <tt>StreamInfo</tt> objects.
 --   
 --   <a>$sel:httpStatus:ListStreamsResponse'</a>,
 --   <a>listStreamsResponse_httpStatus</a> - The response's http status
 --   code.
 newListStreamsResponse :: Int -> ListStreamsResponse
 
+-- | An array of <tt>StreamInfo</tt> objects.
+listStreamsResponse_streamInfoList :: Lens' ListStreamsResponse (Maybe [StreamInfo])
+
 -- | If the response is truncated, the call returns this element with a
 --   token. To get the next batch of streams, use this token in your next
 --   request.
 listStreamsResponse_nextToken :: Lens' ListStreamsResponse (Maybe Text)
-
--- | An array of <tt>StreamInfo</tt> objects.
-listStreamsResponse_streamInfoList :: Lens' ListStreamsResponse (Maybe [StreamInfo])
 
 -- | The response's http status code.
 listStreamsResponse_httpStatus :: Lens' ListStreamsResponse Int
@@ -1897,15 +1897,15 @@ listSignalingChannels_maxResults :: Lens' ListSignalingChannels (Maybe Natural)
 
 -- | <i>See:</i> <a>newListSignalingChannelsResponse</a> smart constructor.
 data ListSignalingChannelsResponse
-ListSignalingChannelsResponse' :: Maybe Text -> Maybe [ChannelInfo] -> Int -> ListSignalingChannelsResponse
+ListSignalingChannelsResponse' :: Maybe [ChannelInfo] -> Maybe Text -> Int -> ListSignalingChannelsResponse
+
+-- | An array of <tt>ChannelInfo</tt> objects.
+[$sel:channelInfoList:ListSignalingChannelsResponse'] :: ListSignalingChannelsResponse -> Maybe [ChannelInfo]
 
 -- | If the response is truncated, the call returns this element with a
 --   token. To get the next batch of streams, use this token in your next
 --   request.
 [$sel:nextToken:ListSignalingChannelsResponse'] :: ListSignalingChannelsResponse -> Maybe Text
-
--- | An array of <tt>ChannelInfo</tt> objects.
-[$sel:channelInfoList:ListSignalingChannelsResponse'] :: ListSignalingChannelsResponse -> Maybe [ChannelInfo]
 
 -- | The response's http status code.
 [$sel:httpStatus:ListSignalingChannelsResponse'] :: ListSignalingChannelsResponse -> Int
@@ -1919,27 +1919,27 @@ ListSignalingChannelsResponse' :: Maybe Text -> Maybe [ChannelInfo] -> Int -> Li
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:channelInfoList:ListSignalingChannelsResponse'</a>,
+--   <a>listSignalingChannelsResponse_channelInfoList</a> - An array of
+--   <tt>ChannelInfo</tt> objects.
+--   
 --   <a>$sel:nextToken:ListSignalingChannels'</a>,
 --   <a>listSignalingChannelsResponse_nextToken</a> - If the response is
 --   truncated, the call returns this element with a token. To get the next
 --   batch of streams, use this token in your next request.
---   
---   <a>$sel:channelInfoList:ListSignalingChannelsResponse'</a>,
---   <a>listSignalingChannelsResponse_channelInfoList</a> - An array of
---   <tt>ChannelInfo</tt> objects.
 --   
 --   <a>$sel:httpStatus:ListSignalingChannelsResponse'</a>,
 --   <a>listSignalingChannelsResponse_httpStatus</a> - The response's http
 --   status code.
 newListSignalingChannelsResponse :: Int -> ListSignalingChannelsResponse
 
+-- | An array of <tt>ChannelInfo</tt> objects.
+listSignalingChannelsResponse_channelInfoList :: Lens' ListSignalingChannelsResponse (Maybe [ChannelInfo])
+
 -- | If the response is truncated, the call returns this element with a
 --   token. To get the next batch of streams, use this token in your next
 --   request.
 listSignalingChannelsResponse_nextToken :: Lens' ListSignalingChannelsResponse (Maybe Text)
-
--- | An array of <tt>ChannelInfo</tt> objects.
-listSignalingChannelsResponse_channelInfoList :: Lens' ListSignalingChannelsResponse (Maybe [ChannelInfo])
 
 -- | The response's http status code.
 listSignalingChannelsResponse_httpStatus :: Lens' ListSignalingChannelsResponse Int
@@ -2286,11 +2286,11 @@ module Network.AWS.KinesisVideo.DescribeSignalingChannel
 data DescribeSignalingChannel
 DescribeSignalingChannel' :: Maybe Text -> Maybe Text -> DescribeSignalingChannel
 
--- | The name of the signaling channel that you want to describe.
-[$sel:channelName:DescribeSignalingChannel'] :: DescribeSignalingChannel -> Maybe Text
-
 -- | The ARN of the signaling channel that you want to describe.
 [$sel:channelARN:DescribeSignalingChannel'] :: DescribeSignalingChannel -> Maybe Text
+
+-- | The name of the signaling channel that you want to describe.
+[$sel:channelName:DescribeSignalingChannel'] :: DescribeSignalingChannel -> Maybe Text
 
 -- | Create a value of <a>DescribeSignalingChannel</a> with all optional
 --   fields omitted.
@@ -2301,20 +2301,20 @@ DescribeSignalingChannel' :: Maybe Text -> Maybe Text -> DescribeSignalingChanne
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:channelName:DescribeSignalingChannel'</a>,
---   <a>describeSignalingChannel_channelName</a> - The name of the
---   signaling channel that you want to describe.
---   
 --   <a>$sel:channelARN:DescribeSignalingChannel'</a>,
 --   <a>describeSignalingChannel_channelARN</a> - The ARN of the signaling
 --   channel that you want to describe.
+--   
+--   <a>$sel:channelName:DescribeSignalingChannel'</a>,
+--   <a>describeSignalingChannel_channelName</a> - The name of the
+--   signaling channel that you want to describe.
 newDescribeSignalingChannel :: DescribeSignalingChannel
-
--- | The name of the signaling channel that you want to describe.
-describeSignalingChannel_channelName :: Lens' DescribeSignalingChannel (Maybe Text)
 
 -- | The ARN of the signaling channel that you want to describe.
 describeSignalingChannel_channelARN :: Lens' DescribeSignalingChannel (Maybe Text)
+
+-- | The name of the signaling channel that you want to describe.
+describeSignalingChannel_channelName :: Lens' DescribeSignalingChannel (Maybe Text)
 
 -- | <i>See:</i> <a>newDescribeSignalingChannelResponse</a> smart
 --   constructor.
@@ -2588,7 +2588,18 @@ module Network.AWS.KinesisVideo.CreateStream
 
 -- | <i>See:</i> <a>newCreateStream</a> smart constructor.
 data CreateStream
-CreateStream' :: Maybe Natural -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe (HashMap Text Text) -> Text -> CreateStream
+CreateStream' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe (HashMap Text Text) -> Text -> CreateStream
+
+-- | The media type of the stream. Consumers of the stream can use this
+--   information when processing the stream. For more information about
+--   media types, see <a>Media Types</a>. If you choose to specify the
+--   <tt>MediaType</tt>, see <a>Naming Requirements</a> for guidelines.
+--   
+--   Example valid values include "video/h264" and "video/h264,audio/aac".
+--   
+--   This parameter is optional; the default value is <tt>null</tt> (or
+--   empty in JSON).
+[$sel:mediaType:CreateStream'] :: CreateStream -> Maybe Text
 
 -- | The number of hours that you want to retain the data in the stream.
 --   Kinesis Video Streams retains the data in a data store that is
@@ -2619,17 +2630,6 @@ CreateStream' :: Maybe Natural -> Maybe Text -> Maybe Text -> Maybe Text -> Mayb
 --   name.
 [$sel:deviceName:CreateStream'] :: CreateStream -> Maybe Text
 
--- | The media type of the stream. Consumers of the stream can use this
---   information when processing the stream. For more information about
---   media types, see <a>Media Types</a>. If you choose to specify the
---   <tt>MediaType</tt>, see <a>Naming Requirements</a> for guidelines.
---   
---   Example valid values include "video/h264" and "video/h264,audio/aac".
---   
---   This parameter is optional; the default value is <tt>null</tt> (or
---   empty in JSON).
-[$sel:mediaType:CreateStream'] :: CreateStream -> Maybe Text
-
 -- | A list of tags to associate with the specified stream. Each tag is a
 --   key-value pair (the value is optional).
 [$sel:tags:CreateStream'] :: CreateStream -> Maybe (HashMap Text Text)
@@ -2648,6 +2648,17 @@ CreateStream' :: Maybe Natural -> Maybe Text -> Maybe Text -> Maybe Text -> Mayb
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:mediaType:CreateStream'</a>, <a>createStream_mediaType</a> -
+--   The media type of the stream. Consumers of the stream can use this
+--   information when processing the stream. For more information about
+--   media types, see <a>Media Types</a>. If you choose to specify the
+--   <tt>MediaType</tt>, see <a>Naming Requirements</a> for guidelines.
+--   
+--   Example valid values include "video/h264" and "video/h264,audio/aac".
+--   
+--   This parameter is optional; the default value is <tt>null</tt> (or
+--   empty in JSON).
 --   
 --   <a>$sel:dataRetentionInHours:CreateStream'</a>,
 --   <a>createStream_dataRetentionInHours</a> - The number of hours that
@@ -2678,17 +2689,6 @@ CreateStream' :: Maybe Natural -> Maybe Text -> Maybe Text -> Maybe Text -> Mayb
 --   In the current implementation, Kinesis Video Streams does not use this
 --   name.
 --   
---   <a>$sel:mediaType:CreateStream'</a>, <a>createStream_mediaType</a> -
---   The media type of the stream. Consumers of the stream can use this
---   information when processing the stream. For more information about
---   media types, see <a>Media Types</a>. If you choose to specify the
---   <tt>MediaType</tt>, see <a>Naming Requirements</a> for guidelines.
---   
---   Example valid values include "video/h264" and "video/h264,audio/aac".
---   
---   This parameter is optional; the default value is <tt>null</tt> (or
---   empty in JSON).
---   
 --   <a>$sel:tags:CreateStream'</a>, <a>createStream_tags</a> - A list of
 --   tags to associate with the specified stream. Each tag is a key-value
 --   pair (the value is optional).
@@ -2699,6 +2699,17 @@ CreateStream' :: Maybe Natural -> Maybe Text -> Maybe Text -> Maybe Text -> Mayb
 --   The stream name is an identifier for the stream, and must be unique
 --   for each account and region.
 newCreateStream :: Text -> CreateStream
+
+-- | The media type of the stream. Consumers of the stream can use this
+--   information when processing the stream. For more information about
+--   media types, see <a>Media Types</a>. If you choose to specify the
+--   <tt>MediaType</tt>, see <a>Naming Requirements</a> for guidelines.
+--   
+--   Example valid values include "video/h264" and "video/h264,audio/aac".
+--   
+--   This parameter is optional; the default value is <tt>null</tt> (or
+--   empty in JSON).
+createStream_mediaType :: Lens' CreateStream (Maybe Text)
 
 -- | The number of hours that you want to retain the data in the stream.
 --   Kinesis Video Streams retains the data in a data store that is
@@ -2728,17 +2739,6 @@ createStream_kmsKeyId :: Lens' CreateStream (Maybe Text)
 --   In the current implementation, Kinesis Video Streams does not use this
 --   name.
 createStream_deviceName :: Lens' CreateStream (Maybe Text)
-
--- | The media type of the stream. Consumers of the stream can use this
---   information when processing the stream. For more information about
---   media types, see <a>Media Types</a>. If you choose to specify the
---   <tt>MediaType</tt>, see <a>Naming Requirements</a> for guidelines.
---   
---   Example valid values include "video/h264" and "video/h264,audio/aac".
---   
---   This parameter is optional; the default value is <tt>null</tt> (or
---   empty in JSON).
-createStream_mediaType :: Lens' CreateStream (Maybe Text)
 
 -- | A list of tags to associate with the specified stream. Each tag is a
 --   key-value pair (the value is optional).
@@ -3363,12 +3363,6 @@ module Network.AWS.KinesisVideo.UpdateStream
 data UpdateStream
 UpdateStream' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Text -> UpdateStream
 
--- | The name of the device that is writing to the stream.
---   
---   In the current implementation, Kinesis Video Streams does not use this
---   name.
-[$sel:deviceName:UpdateStream'] :: UpdateStream -> Maybe Text
-
 -- | The stream's media type. Use <tt>MediaType</tt> to specify the type of
 --   content that the stream contains to the consumers of the stream. For
 --   more information about media types, see <a>Media Types</a>. If you
@@ -3382,6 +3376,12 @@ UpdateStream' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Text ->
 
 -- | The ARN of the stream whose metadata you want to update.
 [$sel:streamARN:UpdateStream'] :: UpdateStream -> Maybe Text
+
+-- | The name of the device that is writing to the stream.
+--   
+--   In the current implementation, Kinesis Video Streams does not use this
+--   name.
+[$sel:deviceName:UpdateStream'] :: UpdateStream -> Maybe Text
 
 -- | The name of the stream whose metadata you want to update.
 --   
@@ -3401,12 +3401,6 @@ UpdateStream' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Text ->
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:deviceName:UpdateStream'</a>, <a>updateStream_deviceName</a> -
---   The name of the device that is writing to the stream.
---   
---   In the current implementation, Kinesis Video Streams does not use this
---   name.
---   
 --   <a>$sel:mediaType:UpdateStream'</a>, <a>updateStream_mediaType</a> -
 --   The stream's media type. Use <tt>MediaType</tt> to specify the type of
 --   content that the stream contains to the consumers of the stream. For
@@ -3421,6 +3415,12 @@ UpdateStream' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Text ->
 --   <a>$sel:streamARN:UpdateStream'</a>, <a>updateStream_streamARN</a> -
 --   The ARN of the stream whose metadata you want to update.
 --   
+--   <a>$sel:deviceName:UpdateStream'</a>, <a>updateStream_deviceName</a> -
+--   The name of the device that is writing to the stream.
+--   
+--   In the current implementation, Kinesis Video Streams does not use this
+--   name.
+--   
 --   <a>$sel:streamName:UpdateStream'</a>, <a>updateStream_streamName</a> -
 --   The name of the stream whose metadata you want to update.
 --   
@@ -3431,12 +3431,6 @@ UpdateStream' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Text ->
 --   <a>updateStream_currentVersion</a> - The version of the stream whose
 --   metadata you want to update.
 newUpdateStream :: Text -> UpdateStream
-
--- | The name of the device that is writing to the stream.
---   
---   In the current implementation, Kinesis Video Streams does not use this
---   name.
-updateStream_deviceName :: Lens' UpdateStream (Maybe Text)
 
 -- | The stream's media type. Use <tt>MediaType</tt> to specify the type of
 --   content that the stream contains to the consumers of the stream. For
@@ -3451,6 +3445,12 @@ updateStream_mediaType :: Lens' UpdateStream (Maybe Text)
 
 -- | The ARN of the stream whose metadata you want to update.
 updateStream_streamARN :: Lens' UpdateStream (Maybe Text)
+
+-- | The name of the device that is writing to the stream.
+--   
+--   In the current implementation, Kinesis Video Streams does not use this
+--   name.
+updateStream_deviceName :: Lens' UpdateStream (Maybe Text)
 
 -- | The name of the stream whose metadata you want to update.
 --   
@@ -3504,98 +3504,65 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.KinesisVideo.UpdateStream.Up
 
 module Network.AWS.KinesisVideo.Lens
 
--- | If you specify this parameter and the result of a
---   <tt>ListTagsForStream</tt> call is truncated, the response includes a
---   token that you can use in the next request to fetch the next batch of
---   tags.
-listTagsForStream_nextToken :: Lens' ListTagsForStream (Maybe Text)
+-- | Optional: Returns only the channels that satisfy a specific condition.
+listSignalingChannels_channelNameCondition :: Lens' ListSignalingChannels (Maybe ChannelNameCondition)
 
--- | The Amazon Resource Name (ARN) of the stream that you want to list
---   tags for.
-listTagsForStream_streamARN :: Lens' ListTagsForStream (Maybe Text)
+-- | If you specify this parameter, when the result of a
+--   <tt>ListSignalingChannels</tt> operation is truncated, the call
+--   returns the <tt>NextToken</tt> in the response. To get another batch
+--   of channels, provide this token in your next request.
+listSignalingChannels_nextToken :: Lens' ListSignalingChannels (Maybe Text)
 
--- | The name of the stream that you want to list tags for.
-listTagsForStream_streamName :: Lens' ListTagsForStream (Maybe Text)
+-- | The maximum number of channels to return in the response. The default
+--   is 500.
+listSignalingChannels_maxResults :: Lens' ListSignalingChannels (Maybe Natural)
 
--- | If you specify this parameter and the result of a <tt>ListTags</tt>
---   call is truncated, the response includes a token that you can use in
---   the next request to fetch the next set of tags.
-listTagsForStreamResponse_nextToken :: Lens' ListTagsForStreamResponse (Maybe Text)
+-- | An array of <tt>ChannelInfo</tt> objects.
+listSignalingChannelsResponse_channelInfoList :: Lens' ListSignalingChannelsResponse (Maybe [ChannelInfo])
 
--- | A map of tag keys and values associated with the specified stream.
-listTagsForStreamResponse_tags :: Lens' ListTagsForStreamResponse (Maybe (HashMap Text Text))
+-- | If the response is truncated, the call returns this element with a
+--   token. To get the next batch of streams, use this token in your next
+--   request.
+listSignalingChannelsResponse_nextToken :: Lens' ListSignalingChannelsResponse (Maybe Text)
 
 -- | The response's http status code.
-listTagsForStreamResponse_httpStatus :: Lens' ListTagsForStreamResponse Int
+listSignalingChannelsResponse_httpStatus :: Lens' ListSignalingChannelsResponse Int
 
--- | The Amazon Resource Name (ARN) of the signaling channel from which you
---   want to remove tags.
-untagResource_resourceARN :: Lens' UntagResource Text
+-- | If you specify this parameter and the result of a
+--   <tt>ListTagsForResource</tt> call is truncated, the response includes
+--   a token that you can use in the next request to fetch the next batch
+--   of tags.
+listTagsForResource_nextToken :: Lens' ListTagsForResource (Maybe Text)
+
+-- | The Amazon Resource Name (ARN) of the signaling channel for which you
+--   want to list tags.
+listTagsForResource_resourceARN :: Lens' ListTagsForResource Text
+
+-- | If you specify this parameter and the result of a
+--   <tt>ListTagsForResource</tt> call is truncated, the response includes
+--   a token that you can use in the next request to fetch the next set of
+--   tags.
+listTagsForResourceResponse_nextToken :: Lens' ListTagsForResourceResponse (Maybe Text)
+
+-- | A map of tag keys and values associated with the specified signaling
+--   channel.
+listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (HashMap Text Text))
+
+-- | The response's http status code.
+listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
+
+-- | The Amazon Resource Name (ARN) of the stream that you want to remove
+--   tags from.
+untagStream_streamARN :: Lens' UntagStream (Maybe Text)
+
+-- | The name of the stream that you want to remove tags from.
+untagStream_streamName :: Lens' UntagStream (Maybe Text)
 
 -- | A list of the keys of the tags that you want to remove.
-untagResource_tagKeyList :: Lens' UntagResource (NonEmpty Text)
+untagStream_tagKeyList :: Lens' UntagStream (NonEmpty Text)
 
 -- | The response's http status code.
-untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-
--- | The Amazon Resource Name (ARN) of the signaling channel to which you
---   want to add tags.
-tagResource_resourceARN :: Lens' TagResource Text
-
--- | A list of tags to associate with the specified signaling channel. Each
---   tag is a key-value pair.
-tagResource_tags :: Lens' TagResource (NonEmpty Tag)
-
--- | The response's http status code.
-tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-
--- | Optional: The version of the stream that you want to delete.
---   
---   Specify the version as a safeguard to ensure that your are deleting
---   the correct stream. To get the stream version, use the
---   <tt>DescribeStream</tt> API.
---   
---   If not specified, only the <tt>CreationTime</tt> is checked before
---   deleting the stream.
-deleteStream_currentVersion :: Lens' DeleteStream (Maybe Text)
-
--- | The Amazon Resource Name (ARN) of the stream that you want to delete.
-deleteStream_streamARN :: Lens' DeleteStream Text
-
--- | The response's http status code.
-deleteStreamResponse_httpStatus :: Lens' DeleteStreamResponse Int
-
--- | The name of the device that is writing to the stream.
---   
---   In the current implementation, Kinesis Video Streams does not use this
---   name.
-updateStream_deviceName :: Lens' UpdateStream (Maybe Text)
-
--- | The stream's media type. Use <tt>MediaType</tt> to specify the type of
---   content that the stream contains to the consumers of the stream. For
---   more information about media types, see <a>Media Types</a>. If you
---   choose to specify the <tt>MediaType</tt>, see <a>Naming
---   Requirements</a>.
---   
---   To play video on the console, you must specify the correct video type.
---   For example, if the video in the stream is H.264, specify
---   <tt>video/h264</tt> as the <tt>MediaType</tt>.
-updateStream_mediaType :: Lens' UpdateStream (Maybe Text)
-
--- | The ARN of the stream whose metadata you want to update.
-updateStream_streamARN :: Lens' UpdateStream (Maybe Text)
-
--- | The name of the stream whose metadata you want to update.
---   
---   The stream name is an identifier for the stream, and must be unique
---   for each account and region.
-updateStream_streamName :: Lens' UpdateStream (Maybe Text)
-
--- | The version of the stream whose metadata you want to update.
-updateStream_currentVersion :: Lens' UpdateStream Text
-
--- | The response's http status code.
-updateStreamResponse_httpStatus :: Lens' UpdateStreamResponse Int
+untagStreamResponse_httpStatus :: Lens' UntagStreamResponse Int
 
 -- | The Amazon Resource Name (ARN) of the stream whose retention period
 --   you want to change.
@@ -3640,18 +3607,43 @@ getDataEndpointResponse_dataEndpoint :: Lens' GetDataEndpointResponse (Maybe Tex
 -- | The response's http status code.
 getDataEndpointResponse_httpStatus :: Lens' GetDataEndpointResponse Int
 
--- | The Amazon Resource Name (ARN) of the stream that you want to remove
---   tags from.
-untagStream_streamARN :: Lens' UntagStream (Maybe Text)
+-- | A structure containing the endpoint configuration for the
+--   <tt>SINGLE_MASTER</tt> channel type.
+getSignalingChannelEndpoint_singleMasterChannelEndpointConfiguration :: Lens' GetSignalingChannelEndpoint (Maybe SingleMasterChannelEndpointConfiguration)
 
--- | The name of the stream that you want to remove tags from.
-untagStream_streamName :: Lens' UntagStream (Maybe Text)
+-- | The Amazon Resource Name (ARN) of the signalling channel for which you
+--   want to get an endpoint.
+getSignalingChannelEndpoint_channelARN :: Lens' GetSignalingChannelEndpoint Text
 
--- | A list of the keys of the tags that you want to remove.
-untagStream_tagKeyList :: Lens' UntagStream (NonEmpty Text)
+-- | A list of endpoints for the specified signaling channel.
+getSignalingChannelEndpointResponse_resourceEndpointList :: Lens' GetSignalingChannelEndpointResponse (Maybe [ResourceEndpointListItem])
 
 -- | The response's http status code.
-untagStreamResponse_httpStatus :: Lens' UntagStreamResponse Int
+getSignalingChannelEndpointResponse_httpStatus :: Lens' GetSignalingChannelEndpointResponse Int
+
+-- | The Amazon Resource Name (ARN) of the stream that you want to list
+--   tags for.
+listTagsForStream_streamARN :: Lens' ListTagsForStream (Maybe Text)
+
+-- | If you specify this parameter and the result of a
+--   <tt>ListTagsForStream</tt> call is truncated, the response includes a
+--   token that you can use in the next request to fetch the next batch of
+--   tags.
+listTagsForStream_nextToken :: Lens' ListTagsForStream (Maybe Text)
+
+-- | The name of the stream that you want to list tags for.
+listTagsForStream_streamName :: Lens' ListTagsForStream (Maybe Text)
+
+-- | If you specify this parameter and the result of a <tt>ListTags</tt>
+--   call is truncated, the response includes a token that you can use in
+--   the next request to fetch the next set of tags.
+listTagsForStreamResponse_nextToken :: Lens' ListTagsForStreamResponse (Maybe Text)
+
+-- | A map of tag keys and values associated with the specified stream.
+listTagsForStreamResponse_tags :: Lens' ListTagsForStreamResponse (Maybe (HashMap Text Text))
+
+-- | The response's http status code.
+listTagsForStreamResponse_httpStatus :: Lens' ListTagsForStreamResponse Int
 
 -- | The current version of the signaling channel that you want to delete.
 --   You can obtain the current version by invoking the
@@ -3681,29 +3673,183 @@ updateSignalingChannel_currentVersion :: Lens' UpdateSignalingChannel Text
 -- | The response's http status code.
 updateSignalingChannelResponse_httpStatus :: Lens' UpdateSignalingChannelResponse Int
 
--- | Optional: Returns only the channels that satisfy a specific condition.
-listSignalingChannels_channelNameCondition :: Lens' ListSignalingChannels (Maybe ChannelNameCondition)
+-- | The stream's media type. Use <tt>MediaType</tt> to specify the type of
+--   content that the stream contains to the consumers of the stream. For
+--   more information about media types, see <a>Media Types</a>. If you
+--   choose to specify the <tt>MediaType</tt>, see <a>Naming
+--   Requirements</a>.
+--   
+--   To play video on the console, you must specify the correct video type.
+--   For example, if the video in the stream is H.264, specify
+--   <tt>video/h264</tt> as the <tt>MediaType</tt>.
+updateStream_mediaType :: Lens' UpdateStream (Maybe Text)
+
+-- | The ARN of the stream whose metadata you want to update.
+updateStream_streamARN :: Lens' UpdateStream (Maybe Text)
+
+-- | The name of the device that is writing to the stream.
+--   
+--   In the current implementation, Kinesis Video Streams does not use this
+--   name.
+updateStream_deviceName :: Lens' UpdateStream (Maybe Text)
+
+-- | The name of the stream whose metadata you want to update.
+--   
+--   The stream name is an identifier for the stream, and must be unique
+--   for each account and region.
+updateStream_streamName :: Lens' UpdateStream (Maybe Text)
+
+-- | The version of the stream whose metadata you want to update.
+updateStream_currentVersion :: Lens' UpdateStream Text
+
+-- | The response's http status code.
+updateStreamResponse_httpStatus :: Lens' UpdateStreamResponse Int
+
+-- | Optional: The version of the stream that you want to delete.
+--   
+--   Specify the version as a safeguard to ensure that your are deleting
+--   the correct stream. To get the stream version, use the
+--   <tt>DescribeStream</tt> API.
+--   
+--   If not specified, only the <tt>CreationTime</tt> is checked before
+--   deleting the stream.
+deleteStream_currentVersion :: Lens' DeleteStream (Maybe Text)
+
+-- | The Amazon Resource Name (ARN) of the stream that you want to delete.
+deleteStream_streamARN :: Lens' DeleteStream Text
+
+-- | The response's http status code.
+deleteStreamResponse_httpStatus :: Lens' DeleteStreamResponse Int
 
 -- | If you specify this parameter, when the result of a
---   <tt>ListSignalingChannels</tt> operation is truncated, the call
---   returns the <tt>NextToken</tt> in the response. To get another batch
---   of channels, provide this token in your next request.
-listSignalingChannels_nextToken :: Lens' ListSignalingChannels (Maybe Text)
+--   <tt>ListStreams</tt> operation is truncated, the call returns the
+--   <tt>NextToken</tt> in the response. To get another batch of streams,
+--   provide this token in your next request.
+listStreams_nextToken :: Lens' ListStreams (Maybe Text)
 
--- | The maximum number of channels to return in the response. The default
---   is 500.
-listSignalingChannels_maxResults :: Lens' ListSignalingChannels (Maybe Natural)
+-- | Optional: Returns only streams that satisfy a specific condition.
+--   Currently, you can specify only the prefix of a stream name as a
+--   condition.
+listStreams_streamNameCondition :: Lens' ListStreams (Maybe StreamNameCondition)
+
+-- | The maximum number of streams to return in the response. The default
+--   is 10,000.
+listStreams_maxResults :: Lens' ListStreams (Maybe Natural)
+
+-- | An array of <tt>StreamInfo</tt> objects.
+listStreamsResponse_streamInfoList :: Lens' ListStreamsResponse (Maybe [StreamInfo])
 
 -- | If the response is truncated, the call returns this element with a
 --   token. To get the next batch of streams, use this token in your next
 --   request.
-listSignalingChannelsResponse_nextToken :: Lens' ListSignalingChannelsResponse (Maybe Text)
-
--- | An array of <tt>ChannelInfo</tt> objects.
-listSignalingChannelsResponse_channelInfoList :: Lens' ListSignalingChannelsResponse (Maybe [ChannelInfo])
+listStreamsResponse_nextToken :: Lens' ListStreamsResponse (Maybe Text)
 
 -- | The response's http status code.
-listSignalingChannelsResponse_httpStatus :: Lens' ListSignalingChannelsResponse Int
+listStreamsResponse_httpStatus :: Lens' ListStreamsResponse Int
+
+-- | The media type of the stream. Consumers of the stream can use this
+--   information when processing the stream. For more information about
+--   media types, see <a>Media Types</a>. If you choose to specify the
+--   <tt>MediaType</tt>, see <a>Naming Requirements</a> for guidelines.
+--   
+--   Example valid values include "video/h264" and "video/h264,audio/aac".
+--   
+--   This parameter is optional; the default value is <tt>null</tt> (or
+--   empty in JSON).
+createStream_mediaType :: Lens' CreateStream (Maybe Text)
+
+-- | The number of hours that you want to retain the data in the stream.
+--   Kinesis Video Streams retains the data in a data store that is
+--   associated with the stream.
+--   
+--   The default value is 0, indicating that the stream does not persist
+--   data.
+--   
+--   When the <tt>DataRetentionInHours</tt> value is 0, consumers can still
+--   consume the fragments that remain in the service host buffer, which
+--   has a retention time limit of 5 minutes and a retention memory limit
+--   of 200 MB. Fragments are removed from the buffer when either limit is
+--   reached.
+createStream_dataRetentionInHours :: Lens' CreateStream (Maybe Natural)
+
+-- | The ID of the AWS Key Management Service (AWS KMS) key that you want
+--   Kinesis Video Streams to use to encrypt stream data.
+--   
+--   If no key ID is specified, the default, Kinesis Video-managed key
+--   (<tt>aws/kinesisvideo</tt>) is used.
+--   
+--   For more information, see <a>DescribeKey</a>.
+createStream_kmsKeyId :: Lens' CreateStream (Maybe Text)
+
+-- | The name of the device that is writing to the stream.
+--   
+--   In the current implementation, Kinesis Video Streams does not use this
+--   name.
+createStream_deviceName :: Lens' CreateStream (Maybe Text)
+
+-- | A list of tags to associate with the specified stream. Each tag is a
+--   key-value pair (the value is optional).
+createStream_tags :: Lens' CreateStream (Maybe (HashMap Text Text))
+
+-- | A name for the stream that you are creating.
+--   
+--   The stream name is an identifier for the stream, and must be unique
+--   for each account and region.
+createStream_streamName :: Lens' CreateStream Text
+
+-- | The Amazon Resource Name (ARN) of the stream.
+createStreamResponse_streamARN :: Lens' CreateStreamResponse (Maybe Text)
+
+-- | The response's http status code.
+createStreamResponse_httpStatus :: Lens' CreateStreamResponse Int
+
+-- | The ARN of the signaling channel that you want to describe.
+describeSignalingChannel_channelARN :: Lens' DescribeSignalingChannel (Maybe Text)
+
+-- | The name of the signaling channel that you want to describe.
+describeSignalingChannel_channelName :: Lens' DescribeSignalingChannel (Maybe Text)
+
+-- | A structure that encapsulates the specified signaling channel's
+--   metadata and properties.
+describeSignalingChannelResponse_channelInfo :: Lens' DescribeSignalingChannelResponse (Maybe ChannelInfo)
+
+-- | The response's http status code.
+describeSignalingChannelResponse_httpStatus :: Lens' DescribeSignalingChannelResponse Int
+
+-- | The Amazon Resource Name (ARN) of the signaling channel to which you
+--   want to add tags.
+tagResource_resourceARN :: Lens' TagResource Text
+
+-- | A list of tags to associate with the specified signaling channel. Each
+--   tag is a key-value pair.
+tagResource_tags :: Lens' TagResource (NonEmpty Tag)
+
+-- | The response's http status code.
+tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
+
+-- | The Amazon Resource Name (ARN) of the signaling channel from which you
+--   want to remove tags.
+untagResource_resourceARN :: Lens' UntagResource Text
+
+-- | A list of the keys of the tags that you want to remove.
+untagResource_tagKeyList :: Lens' UntagResource (NonEmpty Text)
+
+-- | The response's http status code.
+untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
+
+-- | The Amazon Resource Name (ARN) of the resource that you want to add
+--   the tag or tags to.
+tagStream_streamARN :: Lens' TagStream (Maybe Text)
+
+-- | The name of the stream that you want to add the tag or tags to.
+tagStream_streamName :: Lens' TagStream (Maybe Text)
+
+-- | A list of tags to associate with the specified stream. Each tag is a
+--   key-value pair (the value is optional).
+tagStream_tags :: Lens' TagStream (HashMap Text Text)
+
+-- | The response's http status code.
+tagStreamResponse_httpStatus :: Lens' TagStreamResponse Int
 
 -- | A structure containing the configuration for the
 --   <tt>SINGLE_MASTER</tt> channel type.
@@ -3739,173 +3885,27 @@ describeStreamResponse_streamInfo :: Lens' DescribeStreamResponse (Maybe StreamI
 -- | The response's http status code.
 describeStreamResponse_httpStatus :: Lens' DescribeStreamResponse Int
 
--- | The Amazon Resource Name (ARN) of the resource that you want to add
---   the tag or tags to.
-tagStream_streamARN :: Lens' TagStream (Maybe Text)
-
--- | The name of the stream that you want to add the tag or tags to.
-tagStream_streamName :: Lens' TagStream (Maybe Text)
-
--- | A list of tags to associate with the specified stream. Each tag is a
---   key-value pair (the value is optional).
-tagStream_tags :: Lens' TagStream (HashMap Text Text)
-
--- | The response's http status code.
-tagStreamResponse_httpStatus :: Lens' TagStreamResponse Int
-
--- | The name of the signaling channel that you want to describe.
-describeSignalingChannel_channelName :: Lens' DescribeSignalingChannel (Maybe Text)
-
--- | The ARN of the signaling channel that you want to describe.
-describeSignalingChannel_channelARN :: Lens' DescribeSignalingChannel (Maybe Text)
-
--- | A structure that encapsulates the specified signaling channel's
---   metadata and properties.
-describeSignalingChannelResponse_channelInfo :: Lens' DescribeSignalingChannelResponse (Maybe ChannelInfo)
-
--- | The response's http status code.
-describeSignalingChannelResponse_httpStatus :: Lens' DescribeSignalingChannelResponse Int
-
--- | A structure containing the endpoint configuration for the
---   <tt>SINGLE_MASTER</tt> channel type.
-getSignalingChannelEndpoint_singleMasterChannelEndpointConfiguration :: Lens' GetSignalingChannelEndpoint (Maybe SingleMasterChannelEndpointConfiguration)
-
--- | The Amazon Resource Name (ARN) of the signalling channel for which you
---   want to get an endpoint.
-getSignalingChannelEndpoint_channelARN :: Lens' GetSignalingChannelEndpoint Text
-
--- | A list of endpoints for the specified signaling channel.
-getSignalingChannelEndpointResponse_resourceEndpointList :: Lens' GetSignalingChannelEndpointResponse (Maybe [ResourceEndpointListItem])
-
--- | The response's http status code.
-getSignalingChannelEndpointResponse_httpStatus :: Lens' GetSignalingChannelEndpointResponse Int
-
--- | The number of hours that you want to retain the data in the stream.
---   Kinesis Video Streams retains the data in a data store that is
---   associated with the stream.
---   
---   The default value is 0, indicating that the stream does not persist
---   data.
---   
---   When the <tt>DataRetentionInHours</tt> value is 0, consumers can still
---   consume the fragments that remain in the service host buffer, which
---   has a retention time limit of 5 minutes and a retention memory limit
---   of 200 MB. Fragments are removed from the buffer when either limit is
---   reached.
-createStream_dataRetentionInHours :: Lens' CreateStream (Maybe Natural)
-
--- | The ID of the AWS Key Management Service (AWS KMS) key that you want
---   Kinesis Video Streams to use to encrypt stream data.
---   
---   If no key ID is specified, the default, Kinesis Video-managed key
---   (<tt>aws/kinesisvideo</tt>) is used.
---   
---   For more information, see <a>DescribeKey</a>.
-createStream_kmsKeyId :: Lens' CreateStream (Maybe Text)
-
--- | The name of the device that is writing to the stream.
---   
---   In the current implementation, Kinesis Video Streams does not use this
---   name.
-createStream_deviceName :: Lens' CreateStream (Maybe Text)
-
--- | The media type of the stream. Consumers of the stream can use this
---   information when processing the stream. For more information about
---   media types, see <a>Media Types</a>. If you choose to specify the
---   <tt>MediaType</tt>, see <a>Naming Requirements</a> for guidelines.
---   
---   Example valid values include "video/h264" and "video/h264,audio/aac".
---   
---   This parameter is optional; the default value is <tt>null</tt> (or
---   empty in JSON).
-createStream_mediaType :: Lens' CreateStream (Maybe Text)
-
--- | A list of tags to associate with the specified stream. Each tag is a
---   key-value pair (the value is optional).
-createStream_tags :: Lens' CreateStream (Maybe (HashMap Text Text))
-
--- | A name for the stream that you are creating.
---   
---   The stream name is an identifier for the stream, and must be unique
---   for each account and region.
-createStream_streamName :: Lens' CreateStream Text
-
--- | The Amazon Resource Name (ARN) of the stream.
-createStreamResponse_streamARN :: Lens' CreateStreamResponse (Maybe Text)
-
--- | The response's http status code.
-createStreamResponse_httpStatus :: Lens' CreateStreamResponse Int
-
--- | If you specify this parameter, when the result of a
---   <tt>ListStreams</tt> operation is truncated, the call returns the
---   <tt>NextToken</tt> in the response. To get another batch of streams,
---   provide this token in your next request.
-listStreams_nextToken :: Lens' ListStreams (Maybe Text)
-
--- | The maximum number of streams to return in the response. The default
---   is 10,000.
-listStreams_maxResults :: Lens' ListStreams (Maybe Natural)
-
--- | Optional: Returns only streams that satisfy a specific condition.
---   Currently, you can specify only the prefix of a stream name as a
---   condition.
-listStreams_streamNameCondition :: Lens' ListStreams (Maybe StreamNameCondition)
-
--- | If the response is truncated, the call returns this element with a
---   token. To get the next batch of streams, use this token in your next
---   request.
-listStreamsResponse_nextToken :: Lens' ListStreamsResponse (Maybe Text)
-
--- | An array of <tt>StreamInfo</tt> objects.
-listStreamsResponse_streamInfoList :: Lens' ListStreamsResponse (Maybe [StreamInfo])
-
--- | The response's http status code.
-listStreamsResponse_httpStatus :: Lens' ListStreamsResponse Int
-
--- | If you specify this parameter and the result of a
---   <tt>ListTagsForResource</tt> call is truncated, the response includes
---   a token that you can use in the next request to fetch the next batch
---   of tags.
-listTagsForResource_nextToken :: Lens' ListTagsForResource (Maybe Text)
-
--- | The Amazon Resource Name (ARN) of the signaling channel for which you
---   want to list tags.
-listTagsForResource_resourceARN :: Lens' ListTagsForResource Text
-
--- | If you specify this parameter and the result of a
---   <tt>ListTagsForResource</tt> call is truncated, the response includes
---   a token that you can use in the next request to fetch the next set of
---   tags.
-listTagsForResourceResponse_nextToken :: Lens' ListTagsForResourceResponse (Maybe Text)
-
--- | A map of tag keys and values associated with the specified signaling
---   channel.
-listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (HashMap Text Text))
-
--- | The response's http status code.
-listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-
 -- | The time at which the signaling channel was created.
 channelInfo_creationTime :: Lens' ChannelInfo (Maybe UTCTime)
-
--- | The name of the signaling channel.
-channelInfo_channelName :: Lens' ChannelInfo (Maybe Text)
-
--- | A structure that contains the configuration for the
---   <tt>SINGLE_MASTER</tt> channel type.
-channelInfo_singleMasterConfiguration :: Lens' ChannelInfo (Maybe SingleMasterConfiguration)
-
--- | The type of the signaling channel.
-channelInfo_channelType :: Lens' ChannelInfo (Maybe ChannelType)
-
--- | The current version of the signaling channel.
-channelInfo_version :: Lens' ChannelInfo (Maybe Text)
 
 -- | Current status of the signaling channel.
 channelInfo_channelStatus :: Lens' ChannelInfo (Maybe StreamStatus)
 
 -- | The Amazon Resource Name (ARN) of the signaling channel.
 channelInfo_channelARN :: Lens' ChannelInfo (Maybe Text)
+
+-- | A structure that contains the configuration for the
+--   <tt>SINGLE_MASTER</tt> channel type.
+channelInfo_singleMasterConfiguration :: Lens' ChannelInfo (Maybe SingleMasterConfiguration)
+
+-- | The name of the signaling channel.
+channelInfo_channelName :: Lens' ChannelInfo (Maybe Text)
+
+-- | The current version of the signaling channel.
+channelInfo_version :: Lens' ChannelInfo (Maybe Text)
+
+-- | The type of the signaling channel.
+channelInfo_channelType :: Lens' ChannelInfo (Maybe ChannelType)
 
 -- | A comparison operator. Currently, you can only specify the
 --   <tt>BEGINS_WITH</tt> operator, which finds signaling channels whose
@@ -3915,13 +3915,13 @@ channelNameCondition_comparisonOperator :: Lens' ChannelNameCondition (Maybe Com
 -- | A value to compare.
 channelNameCondition_comparisonValue :: Lens' ChannelNameCondition (Maybe Text)
 
--- | The endpoint of the signaling channel returned by the
---   <tt>GetSignalingChannelEndpoint</tt> API.
-resourceEndpointListItem_resourceEndpoint :: Lens' ResourceEndpointListItem (Maybe Text)
-
 -- | The protocol of the signaling channel returned by the
 --   <tt>GetSignalingChannelEndpoint</tt> API.
 resourceEndpointListItem_protocol :: Lens' ResourceEndpointListItem (Maybe ChannelProtocol)
+
+-- | The endpoint of the signaling channel returned by the
+--   <tt>GetSignalingChannelEndpoint</tt> API.
+resourceEndpointListItem_resourceEndpoint :: Lens' ResourceEndpointListItem (Maybe Text)
 
 -- | This property is used to determine the nature of communication over
 --   this <tt>SINGLE_MASTER</tt> signaling channel. If <tt>WSS</tt> is
@@ -3948,11 +3948,14 @@ streamInfo_creationTime :: Lens' StreamInfo (Maybe UTCTime)
 -- | The status of the stream.
 streamInfo_status :: Lens' StreamInfo (Maybe StreamStatus)
 
+-- | The <tt>MediaType</tt> of the stream.
+streamInfo_mediaType :: Lens' StreamInfo (Maybe Text)
+
 -- | How long the stream retains data, in hours.
 streamInfo_dataRetentionInHours :: Lens' StreamInfo (Maybe Natural)
 
--- | The version of the stream.
-streamInfo_version :: Lens' StreamInfo (Maybe Text)
+-- | The Amazon Resource Name (ARN) of the stream.
+streamInfo_streamARN :: Lens' StreamInfo (Maybe Text)
 
 -- | The ID of the AWS Key Management Service (AWS KMS) key that Kinesis
 --   Video Streams uses to encrypt data on the stream.
@@ -3961,11 +3964,8 @@ streamInfo_kmsKeyId :: Lens' StreamInfo (Maybe Text)
 -- | The name of the device that is associated with the stream.
 streamInfo_deviceName :: Lens' StreamInfo (Maybe Text)
 
--- | The <tt>MediaType</tt> of the stream.
-streamInfo_mediaType :: Lens' StreamInfo (Maybe Text)
-
--- | The Amazon Resource Name (ARN) of the stream.
-streamInfo_streamARN :: Lens' StreamInfo (Maybe Text)
+-- | The version of the stream.
+streamInfo_version :: Lens' StreamInfo (Maybe Text)
 
 -- | The name of the stream.
 streamInfo_streamName :: Lens' StreamInfo (Maybe Text)
@@ -3998,54 +3998,110 @@ module Network.AWS.KinesisVideo
 --   SDK configuration.
 defaultService :: Service
 
--- | The number of streams created for the account is too high.
-_AccountStreamLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | You do not have required permissions to perform this operation.
+_AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The stream version that you specified is not the latest version. To
---   get the latest version, use the <a>DescribeStream</a> API.
-_VersionMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | You have reached the maximum limit of active signaling channels for
---   this AWS account in this region.
-_AccountChannelLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Kinesis Video Streams has throttled the request because you have
---   exceeded the limit of allowed client calls. Try making the call later.
-_ClientLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The value for this input parameter is invalid.
+_InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | You have exceeded the limit of tags that you can associate with the
 --   resource. Kinesis video streams support up to 50 tags.
 _TagsPerResourceExceededLimitException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Not implemented.
-_DeviceStreamLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The caller is not authorized to perform this operation.
+_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The format of the <tt>StreamARN</tt> is invalid.
-_InvalidResourceFormatException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | Kinesis Video Streams has throttled the request because you have
+--   exceeded the limit of allowed client calls. Try making the call later.
+_ClientLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | You do not have required permissions to perform this operation.
-_AccessDeniedException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The signaling channel is currently not available for this operation.
-_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | Amazon Kinesis Video Streams can't find the stream that you specified.
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | You have reached the maximum limit of active signaling channels for
+--   this AWS account in this region.
+_AccountChannelLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Not implemented.
 _InvalidDeviceException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The caller is not authorized to perform this operation.
-_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The stream version that you specified is not the latest version. To
+--   get the latest version, use the <a>DescribeStream</a> API.
+_VersionMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The value for this input parameter is invalid.
-_InvalidArgumentException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The number of streams created for the account is too high.
+_AccountStreamLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | <i>See:</i> <a>newListTagsForStream</a> smart constructor.
-data ListTagsForStream
-ListTagsForStream' :: Maybe Text -> Maybe Text -> Maybe Text -> ListTagsForStream
+-- | The format of the <tt>StreamARN</tt> is invalid.
+_InvalidResourceFormatException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Create a value of <a>ListTagsForStream</a> with all optional fields
+-- | Not implemented.
+_DeviceStreamLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Amazon Kinesis Video Streams can't find the stream that you specified.
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The signaling channel is currently not available for this operation.
+_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | <i>See:</i> <a>newListSignalingChannels</a> smart constructor.
+data ListSignalingChannels
+ListSignalingChannels' :: Maybe ChannelNameCondition -> Maybe Text -> Maybe Natural -> ListSignalingChannels
+
+-- | Create a value of <a>ListSignalingChannels</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:channelNameCondition:ListSignalingChannels'</a>,
+--   <a>listSignalingChannels_channelNameCondition</a> - Optional: Returns
+--   only the channels that satisfy a specific condition.
+--   
+--   <a>$sel:nextToken:ListSignalingChannels'</a>,
+--   <a>listSignalingChannels_nextToken</a> - If you specify this
+--   parameter, when the result of a <tt>ListSignalingChannels</tt>
+--   operation is truncated, the call returns the <tt>NextToken</tt> in the
+--   response. To get another batch of channels, provide this token in your
+--   next request.
+--   
+--   <a>$sel:maxResults:ListSignalingChannels'</a>,
+--   <a>listSignalingChannels_maxResults</a> - The maximum number of
+--   channels to return in the response. The default is 500.
+newListSignalingChannels :: ListSignalingChannels
+
+-- | <i>See:</i> <a>newListSignalingChannelsResponse</a> smart constructor.
+data ListSignalingChannelsResponse
+ListSignalingChannelsResponse' :: Maybe [ChannelInfo] -> Maybe Text -> Int -> ListSignalingChannelsResponse
+
+-- | Create a value of <a>ListSignalingChannelsResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:channelInfoList:ListSignalingChannelsResponse'</a>,
+--   <a>listSignalingChannelsResponse_channelInfoList</a> - An array of
+--   <tt>ChannelInfo</tt> objects.
+--   
+--   <a>$sel:nextToken:ListSignalingChannels'</a>,
+--   <a>listSignalingChannelsResponse_nextToken</a> - If the response is
+--   truncated, the call returns this element with a token. To get the next
+--   batch of streams, use this token in your next request.
+--   
+--   <a>$sel:httpStatus:ListSignalingChannelsResponse'</a>,
+--   <a>listSignalingChannelsResponse_httpStatus</a> - The response's http
+--   status code.
+newListSignalingChannelsResponse :: Int -> ListSignalingChannelsResponse
+
+-- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
+data ListTagsForResource
+ListTagsForResource' :: Maybe Text -> Text -> ListTagsForResource
+
+-- | Create a value of <a>ListTagsForResource</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -4054,26 +4110,22 @@ ListTagsForStream' :: Maybe Text -> Maybe Text -> Maybe Text -> ListTagsForStrea
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListTagsForStream'</a>,
---   <a>listTagsForStream_nextToken</a> - If you specify this parameter and
---   the result of a <tt>ListTagsForStream</tt> call is truncated, the
---   response includes a token that you can use in the next request to
+--   <a>$sel:nextToken:ListTagsForResource'</a>,
+--   <a>listTagsForResource_nextToken</a> - If you specify this parameter
+--   and the result of a <tt>ListTagsForResource</tt> call is truncated,
+--   the response includes a token that you can use in the next request to
 --   fetch the next batch of tags.
 --   
---   <a>$sel:streamARN:ListTagsForStream'</a>,
---   <a>listTagsForStream_streamARN</a> - The Amazon Resource Name (ARN) of
---   the stream that you want to list tags for.
---   
---   <a>$sel:streamName:ListTagsForStream'</a>,
---   <a>listTagsForStream_streamName</a> - The name of the stream that you
---   want to list tags for.
-newListTagsForStream :: ListTagsForStream
+--   <a>$sel:resourceARN:ListTagsForResource'</a>,
+--   <a>listTagsForResource_resourceARN</a> - The Amazon Resource Name
+--   (ARN) of the signaling channel for which you want to list tags.
+newListTagsForResource :: Text -> ListTagsForResource
 
--- | <i>See:</i> <a>newListTagsForStreamResponse</a> smart constructor.
-data ListTagsForStreamResponse
-ListTagsForStreamResponse' :: Maybe Text -> Maybe (HashMap Text Text) -> Int -> ListTagsForStreamResponse
+-- | <i>See:</i> <a>newListTagsForResourceResponse</a> smart constructor.
+data ListTagsForResourceResponse
+ListTagsForResourceResponse' :: Maybe Text -> Maybe (HashMap Text Text) -> Int -> ListTagsForResourceResponse
 
--- | Create a value of <a>ListTagsForStreamResponse</a> with all optional
+-- | Create a value of <a>ListTagsForResourceResponse</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -4082,26 +4134,49 @@ ListTagsForStreamResponse' :: Maybe Text -> Maybe (HashMap Text Text) -> Int -> 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListTagsForStream'</a>,
---   <a>listTagsForStreamResponse_nextToken</a> - If you specify this
---   parameter and the result of a <tt>ListTags</tt> call is truncated, the
---   response includes a token that you can use in the next request to
---   fetch the next set of tags.
+--   <a>$sel:nextToken:ListTagsForResource'</a>,
+--   <a>listTagsForResourceResponse_nextToken</a> - If you specify this
+--   parameter and the result of a <tt>ListTagsForResource</tt> call is
+--   truncated, the response includes a token that you can use in the next
+--   request to fetch the next set of tags.
 --   
---   <a>$sel:tags:ListTagsForStreamResponse'</a>,
---   <a>listTagsForStreamResponse_tags</a> - A map of tag keys and values
---   associated with the specified stream.
+--   <a>$sel:tags:ListTagsForResourceResponse'</a>,
+--   <a>listTagsForResourceResponse_tags</a> - A map of tag keys and values
+--   associated with the specified signaling channel.
 --   
---   <a>$sel:httpStatus:ListTagsForStreamResponse'</a>,
---   <a>listTagsForStreamResponse_httpStatus</a> - The response's http
+--   <a>$sel:httpStatus:ListTagsForResourceResponse'</a>,
+--   <a>listTagsForResourceResponse_httpStatus</a> - The response's http
 --   status code.
-newListTagsForStreamResponse :: Int -> ListTagsForStreamResponse
+newListTagsForResourceResponse :: Int -> ListTagsForResourceResponse
 
--- | <i>See:</i> <a>newUntagResource</a> smart constructor.
-data UntagResource
-UntagResource' :: Text -> NonEmpty Text -> UntagResource
+-- | <i>See:</i> <a>newUntagStream</a> smart constructor.
+data UntagStream
+UntagStream' :: Maybe Text -> Maybe Text -> NonEmpty Text -> UntagStream
 
--- | Create a value of <a>UntagResource</a> with all optional fields
+-- | Create a value of <a>UntagStream</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:streamARN:UntagStream'</a>, <a>untagStream_streamARN</a> - The
+--   Amazon Resource Name (ARN) of the stream that you want to remove tags
+--   from.
+--   
+--   <a>$sel:streamName:UntagStream'</a>, <a>untagStream_streamName</a> -
+--   The name of the stream that you want to remove tags from.
+--   
+--   <a>$sel:tagKeyList:UntagStream'</a>, <a>untagStream_tagKeyList</a> - A
+--   list of the keys of the tags that you want to remove.
+newUntagStream :: NonEmpty Text -> UntagStream
+
+-- | <i>See:</i> <a>newUntagStreamResponse</a> smart constructor.
+data UntagStreamResponse
+UntagStreamResponse' :: Int -> UntagStreamResponse
+
+-- | Create a value of <a>UntagStreamResponse</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -4110,178 +4185,10 @@ UntagResource' :: Text -> NonEmpty Text -> UntagResource
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:resourceARN:UntagResource'</a>,
---   <a>untagResource_resourceARN</a> - The Amazon Resource Name (ARN) of
---   the signaling channel from which you want to remove tags.
---   
---   <a>$sel:tagKeyList:UntagResource'</a>, <a>untagResource_tagKeyList</a>
---   - A list of the keys of the tags that you want to remove.
-newUntagResource :: Text -> NonEmpty Text -> UntagResource
-
--- | <i>See:</i> <a>newUntagResourceResponse</a> smart constructor.
-data UntagResourceResponse
-UntagResourceResponse' :: Int -> UntagResourceResponse
-
--- | Create a value of <a>UntagResourceResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:UntagResourceResponse'</a>,
---   <a>untagResourceResponse_httpStatus</a> - The response's http status
+--   <a>$sel:httpStatus:UntagStreamResponse'</a>,
+--   <a>untagStreamResponse_httpStatus</a> - The response's http status
 --   code.
-newUntagResourceResponse :: Int -> UntagResourceResponse
-
--- | <i>See:</i> <a>newTagResource</a> smart constructor.
-data TagResource
-TagResource' :: Text -> NonEmpty Tag -> TagResource
-
--- | Create a value of <a>TagResource</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:resourceARN:TagResource'</a>, <a>tagResource_resourceARN</a> -
---   The Amazon Resource Name (ARN) of the signaling channel to which you
---   want to add tags.
---   
---   <a>$sel:tags:TagResource'</a>, <a>tagResource_tags</a> - A list of
---   tags to associate with the specified signaling channel. Each tag is a
---   key-value pair.
-newTagResource :: Text -> NonEmpty Tag -> TagResource
-
--- | <i>See:</i> <a>newTagResourceResponse</a> smart constructor.
-data TagResourceResponse
-TagResourceResponse' :: Int -> TagResourceResponse
-
--- | Create a value of <a>TagResourceResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:TagResourceResponse'</a>,
---   <a>tagResourceResponse_httpStatus</a> - The response's http status
---   code.
-newTagResourceResponse :: Int -> TagResourceResponse
-
--- | <i>See:</i> <a>newDeleteStream</a> smart constructor.
-data DeleteStream
-DeleteStream' :: Maybe Text -> Text -> DeleteStream
-
--- | Create a value of <a>DeleteStream</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:currentVersion:DeleteStream'</a>,
---   <a>deleteStream_currentVersion</a> - Optional: The version of the
---   stream that you want to delete.
---   
---   Specify the version as a safeguard to ensure that your are deleting
---   the correct stream. To get the stream version, use the
---   <tt>DescribeStream</tt> API.
---   
---   If not specified, only the <tt>CreationTime</tt> is checked before
---   deleting the stream.
---   
---   <a>$sel:streamARN:DeleteStream'</a>, <a>deleteStream_streamARN</a> -
---   The Amazon Resource Name (ARN) of the stream that you want to delete.
-newDeleteStream :: Text -> DeleteStream
-
--- | <i>See:</i> <a>newDeleteStreamResponse</a> smart constructor.
-data DeleteStreamResponse
-DeleteStreamResponse' :: Int -> DeleteStreamResponse
-
--- | Create a value of <a>DeleteStreamResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:DeleteStreamResponse'</a>,
---   <a>deleteStreamResponse_httpStatus</a> - The response's http status
---   code.
-newDeleteStreamResponse :: Int -> DeleteStreamResponse
-
--- | <i>See:</i> <a>newUpdateStream</a> smart constructor.
-data UpdateStream
-UpdateStream' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Text -> UpdateStream
-
--- | Create a value of <a>UpdateStream</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:deviceName:UpdateStream'</a>, <a>updateStream_deviceName</a> -
---   The name of the device that is writing to the stream.
---   
---   In the current implementation, Kinesis Video Streams does not use this
---   name.
---   
---   <a>$sel:mediaType:UpdateStream'</a>, <a>updateStream_mediaType</a> -
---   The stream's media type. Use <tt>MediaType</tt> to specify the type of
---   content that the stream contains to the consumers of the stream. For
---   more information about media types, see <a>Media Types</a>. If you
---   choose to specify the <tt>MediaType</tt>, see <a>Naming
---   Requirements</a>.
---   
---   To play video on the console, you must specify the correct video type.
---   For example, if the video in the stream is H.264, specify
---   <tt>video/h264</tt> as the <tt>MediaType</tt>.
---   
---   <a>$sel:streamARN:UpdateStream'</a>, <a>updateStream_streamARN</a> -
---   The ARN of the stream whose metadata you want to update.
---   
---   <a>$sel:streamName:UpdateStream'</a>, <a>updateStream_streamName</a> -
---   The name of the stream whose metadata you want to update.
---   
---   The stream name is an identifier for the stream, and must be unique
---   for each account and region.
---   
---   <a>$sel:currentVersion:UpdateStream'</a>,
---   <a>updateStream_currentVersion</a> - The version of the stream whose
---   metadata you want to update.
-newUpdateStream :: Text -> UpdateStream
-
--- | <i>See:</i> <a>newUpdateStreamResponse</a> smart constructor.
-data UpdateStreamResponse
-UpdateStreamResponse' :: Int -> UpdateStreamResponse
-
--- | Create a value of <a>UpdateStreamResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:UpdateStreamResponse'</a>,
---   <a>updateStreamResponse_httpStatus</a> - The response's http status
---   code.
-newUpdateStreamResponse :: Int -> UpdateStreamResponse
+newUntagStreamResponse :: Int -> UntagStreamResponse
 
 -- | <i>See:</i> <a>newUpdateDataRetention</a> smart constructor.
 data UpdateDataRetention
@@ -4387,11 +4294,12 @@ GetDataEndpointResponse' :: Maybe Text -> Int -> GetDataEndpointResponse
 --   code.
 newGetDataEndpointResponse :: Int -> GetDataEndpointResponse
 
--- | <i>See:</i> <a>newUntagStream</a> smart constructor.
-data UntagStream
-UntagStream' :: Maybe Text -> Maybe Text -> NonEmpty Text -> UntagStream
+-- | <i>See:</i> <a>newGetSignalingChannelEndpoint</a> smart constructor.
+data GetSignalingChannelEndpoint
+GetSignalingChannelEndpoint' :: Maybe SingleMasterChannelEndpointConfiguration -> Text -> GetSignalingChannelEndpoint
 
--- | Create a value of <a>UntagStream</a> with all optional fields omitted.
+-- | Create a value of <a>GetSignalingChannelEndpoint</a> with all optional
+--   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -4399,22 +4307,46 @@ UntagStream' :: Maybe Text -> Maybe Text -> NonEmpty Text -> UntagStream
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:streamARN:UntagStream'</a>, <a>untagStream_streamARN</a> - The
---   Amazon Resource Name (ARN) of the stream that you want to remove tags
---   from.
 --   
---   <a>$sel:streamName:UntagStream'</a>, <a>untagStream_streamName</a> -
---   The name of the stream that you want to remove tags from.
+--   <a>$sel:singleMasterChannelEndpointConfiguration:GetSignalingChannelEndpoint'</a>,
+--   <a>getSignalingChannelEndpoint_singleMasterChannelEndpointConfiguration</a>
+--   - A structure containing the endpoint configuration for the
+--   <tt>SINGLE_MASTER</tt> channel type.
 --   
---   <a>$sel:tagKeyList:UntagStream'</a>, <a>untagStream_tagKeyList</a> - A
---   list of the keys of the tags that you want to remove.
-newUntagStream :: NonEmpty Text -> UntagStream
+--   <a>$sel:channelARN:GetSignalingChannelEndpoint'</a>,
+--   <a>getSignalingChannelEndpoint_channelARN</a> - The Amazon Resource
+--   Name (ARN) of the signalling channel for which you want to get an
+--   endpoint.
+newGetSignalingChannelEndpoint :: Text -> GetSignalingChannelEndpoint
 
--- | <i>See:</i> <a>newUntagStreamResponse</a> smart constructor.
-data UntagStreamResponse
-UntagStreamResponse' :: Int -> UntagStreamResponse
+-- | <i>See:</i> <a>newGetSignalingChannelEndpointResponse</a> smart
+--   constructor.
+data GetSignalingChannelEndpointResponse
+GetSignalingChannelEndpointResponse' :: Maybe [ResourceEndpointListItem] -> Int -> GetSignalingChannelEndpointResponse
 
--- | Create a value of <a>UntagStreamResponse</a> with all optional fields
+-- | Create a value of <a>GetSignalingChannelEndpointResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:resourceEndpointList:GetSignalingChannelEndpointResponse'</a>,
+--   <a>getSignalingChannelEndpointResponse_resourceEndpointList</a> - A
+--   list of endpoints for the specified signaling channel.
+--   
+--   <a>$sel:httpStatus:GetSignalingChannelEndpointResponse'</a>,
+--   <a>getSignalingChannelEndpointResponse_httpStatus</a> - The response's
+--   http status code.
+newGetSignalingChannelEndpointResponse :: Int -> GetSignalingChannelEndpointResponse
+
+-- | <i>See:</i> <a>newListTagsForStream</a> smart constructor.
+data ListTagsForStream
+ListTagsForStream' :: Maybe Text -> Maybe Text -> Maybe Text -> ListTagsForStream
+
+-- | Create a value of <a>ListTagsForStream</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -4423,10 +4355,48 @@ UntagStreamResponse' :: Int -> UntagStreamResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:UntagStreamResponse'</a>,
---   <a>untagStreamResponse_httpStatus</a> - The response's http status
---   code.
-newUntagStreamResponse :: Int -> UntagStreamResponse
+--   <a>$sel:streamARN:ListTagsForStream'</a>,
+--   <a>listTagsForStream_streamARN</a> - The Amazon Resource Name (ARN) of
+--   the stream that you want to list tags for.
+--   
+--   <a>$sel:nextToken:ListTagsForStream'</a>,
+--   <a>listTagsForStream_nextToken</a> - If you specify this parameter and
+--   the result of a <tt>ListTagsForStream</tt> call is truncated, the
+--   response includes a token that you can use in the next request to
+--   fetch the next batch of tags.
+--   
+--   <a>$sel:streamName:ListTagsForStream'</a>,
+--   <a>listTagsForStream_streamName</a> - The name of the stream that you
+--   want to list tags for.
+newListTagsForStream :: ListTagsForStream
+
+-- | <i>See:</i> <a>newListTagsForStreamResponse</a> smart constructor.
+data ListTagsForStreamResponse
+ListTagsForStreamResponse' :: Maybe Text -> Maybe (HashMap Text Text) -> Int -> ListTagsForStreamResponse
+
+-- | Create a value of <a>ListTagsForStreamResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListTagsForStream'</a>,
+--   <a>listTagsForStreamResponse_nextToken</a> - If you specify this
+--   parameter and the result of a <tt>ListTags</tt> call is truncated, the
+--   response includes a token that you can use in the next request to
+--   fetch the next set of tags.
+--   
+--   <a>$sel:tags:ListTagsForStreamResponse'</a>,
+--   <a>listTagsForStreamResponse_tags</a> - A map of tag keys and values
+--   associated with the specified stream.
+--   
+--   <a>$sel:httpStatus:ListTagsForStreamResponse'</a>,
+--   <a>listTagsForStreamResponse_httpStatus</a> - The response's http
+--   status code.
+newListTagsForStreamResponse :: Int -> ListTagsForStreamResponse
 
 -- | <i>See:</i> <a>newDeleteSignalingChannel</a> smart constructor.
 data DeleteSignalingChannel
@@ -4517,11 +4487,260 @@ UpdateSignalingChannelResponse' :: Int -> UpdateSignalingChannelResponse
 --   status code.
 newUpdateSignalingChannelResponse :: Int -> UpdateSignalingChannelResponse
 
--- | <i>See:</i> <a>newListSignalingChannels</a> smart constructor.
-data ListSignalingChannels
-ListSignalingChannels' :: Maybe ChannelNameCondition -> Maybe Text -> Maybe Natural -> ListSignalingChannels
+-- | <i>See:</i> <a>newUpdateStream</a> smart constructor.
+data UpdateStream
+UpdateStream' :: Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Text -> UpdateStream
 
--- | Create a value of <a>ListSignalingChannels</a> with all optional
+-- | Create a value of <a>UpdateStream</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:mediaType:UpdateStream'</a>, <a>updateStream_mediaType</a> -
+--   The stream's media type. Use <tt>MediaType</tt> to specify the type of
+--   content that the stream contains to the consumers of the stream. For
+--   more information about media types, see <a>Media Types</a>. If you
+--   choose to specify the <tt>MediaType</tt>, see <a>Naming
+--   Requirements</a>.
+--   
+--   To play video on the console, you must specify the correct video type.
+--   For example, if the video in the stream is H.264, specify
+--   <tt>video/h264</tt> as the <tt>MediaType</tt>.
+--   
+--   <a>$sel:streamARN:UpdateStream'</a>, <a>updateStream_streamARN</a> -
+--   The ARN of the stream whose metadata you want to update.
+--   
+--   <a>$sel:deviceName:UpdateStream'</a>, <a>updateStream_deviceName</a> -
+--   The name of the device that is writing to the stream.
+--   
+--   In the current implementation, Kinesis Video Streams does not use this
+--   name.
+--   
+--   <a>$sel:streamName:UpdateStream'</a>, <a>updateStream_streamName</a> -
+--   The name of the stream whose metadata you want to update.
+--   
+--   The stream name is an identifier for the stream, and must be unique
+--   for each account and region.
+--   
+--   <a>$sel:currentVersion:UpdateStream'</a>,
+--   <a>updateStream_currentVersion</a> - The version of the stream whose
+--   metadata you want to update.
+newUpdateStream :: Text -> UpdateStream
+
+-- | <i>See:</i> <a>newUpdateStreamResponse</a> smart constructor.
+data UpdateStreamResponse
+UpdateStreamResponse' :: Int -> UpdateStreamResponse
+
+-- | Create a value of <a>UpdateStreamResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:UpdateStreamResponse'</a>,
+--   <a>updateStreamResponse_httpStatus</a> - The response's http status
+--   code.
+newUpdateStreamResponse :: Int -> UpdateStreamResponse
+
+-- | <i>See:</i> <a>newDeleteStream</a> smart constructor.
+data DeleteStream
+DeleteStream' :: Maybe Text -> Text -> DeleteStream
+
+-- | Create a value of <a>DeleteStream</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:currentVersion:DeleteStream'</a>,
+--   <a>deleteStream_currentVersion</a> - Optional: The version of the
+--   stream that you want to delete.
+--   
+--   Specify the version as a safeguard to ensure that your are deleting
+--   the correct stream. To get the stream version, use the
+--   <tt>DescribeStream</tt> API.
+--   
+--   If not specified, only the <tt>CreationTime</tt> is checked before
+--   deleting the stream.
+--   
+--   <a>$sel:streamARN:DeleteStream'</a>, <a>deleteStream_streamARN</a> -
+--   The Amazon Resource Name (ARN) of the stream that you want to delete.
+newDeleteStream :: Text -> DeleteStream
+
+-- | <i>See:</i> <a>newDeleteStreamResponse</a> smart constructor.
+data DeleteStreamResponse
+DeleteStreamResponse' :: Int -> DeleteStreamResponse
+
+-- | Create a value of <a>DeleteStreamResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:DeleteStreamResponse'</a>,
+--   <a>deleteStreamResponse_httpStatus</a> - The response's http status
+--   code.
+newDeleteStreamResponse :: Int -> DeleteStreamResponse
+
+-- | <i>See:</i> <a>newListStreams</a> smart constructor.
+data ListStreams
+ListStreams' :: Maybe Text -> Maybe StreamNameCondition -> Maybe Natural -> ListStreams
+
+-- | Create a value of <a>ListStreams</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListStreams'</a>, <a>listStreams_nextToken</a> - If
+--   you specify this parameter, when the result of a <tt>ListStreams</tt>
+--   operation is truncated, the call returns the <tt>NextToken</tt> in the
+--   response. To get another batch of streams, provide this token in your
+--   next request.
+--   
+--   <a>$sel:streamNameCondition:ListStreams'</a>,
+--   <a>listStreams_streamNameCondition</a> - Optional: Returns only
+--   streams that satisfy a specific condition. Currently, you can specify
+--   only the prefix of a stream name as a condition.
+--   
+--   <a>$sel:maxResults:ListStreams'</a>, <a>listStreams_maxResults</a> -
+--   The maximum number of streams to return in the response. The default
+--   is 10,000.
+newListStreams :: ListStreams
+
+-- | <i>See:</i> <a>newListStreamsResponse</a> smart constructor.
+data ListStreamsResponse
+ListStreamsResponse' :: Maybe [StreamInfo] -> Maybe Text -> Int -> ListStreamsResponse
+
+-- | Create a value of <a>ListStreamsResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:streamInfoList:ListStreamsResponse'</a>,
+--   <a>listStreamsResponse_streamInfoList</a> - An array of
+--   <tt>StreamInfo</tt> objects.
+--   
+--   <a>$sel:nextToken:ListStreams'</a>,
+--   <a>listStreamsResponse_nextToken</a> - If the response is truncated,
+--   the call returns this element with a token. To get the next batch of
+--   streams, use this token in your next request.
+--   
+--   <a>$sel:httpStatus:ListStreamsResponse'</a>,
+--   <a>listStreamsResponse_httpStatus</a> - The response's http status
+--   code.
+newListStreamsResponse :: Int -> ListStreamsResponse
+
+-- | <i>See:</i> <a>newCreateStream</a> smart constructor.
+data CreateStream
+CreateStream' :: Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe (HashMap Text Text) -> Text -> CreateStream
+
+-- | Create a value of <a>CreateStream</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:mediaType:CreateStream'</a>, <a>createStream_mediaType</a> -
+--   The media type of the stream. Consumers of the stream can use this
+--   information when processing the stream. For more information about
+--   media types, see <a>Media Types</a>. If you choose to specify the
+--   <tt>MediaType</tt>, see <a>Naming Requirements</a> for guidelines.
+--   
+--   Example valid values include "video/h264" and "video/h264,audio/aac".
+--   
+--   This parameter is optional; the default value is <tt>null</tt> (or
+--   empty in JSON).
+--   
+--   <a>$sel:dataRetentionInHours:CreateStream'</a>,
+--   <a>createStream_dataRetentionInHours</a> - The number of hours that
+--   you want to retain the data in the stream. Kinesis Video Streams
+--   retains the data in a data store that is associated with the stream.
+--   
+--   The default value is 0, indicating that the stream does not persist
+--   data.
+--   
+--   When the <tt>DataRetentionInHours</tt> value is 0, consumers can still
+--   consume the fragments that remain in the service host buffer, which
+--   has a retention time limit of 5 minutes and a retention memory limit
+--   of 200 MB. Fragments are removed from the buffer when either limit is
+--   reached.
+--   
+--   <a>$sel:kmsKeyId:CreateStream'</a>, <a>createStream_kmsKeyId</a> - The
+--   ID of the AWS Key Management Service (AWS KMS) key that you want
+--   Kinesis Video Streams to use to encrypt stream data.
+--   
+--   If no key ID is specified, the default, Kinesis Video-managed key
+--   (<tt>aws/kinesisvideo</tt>) is used.
+--   
+--   For more information, see <a>DescribeKey</a>.
+--   
+--   <a>$sel:deviceName:CreateStream'</a>, <a>createStream_deviceName</a> -
+--   The name of the device that is writing to the stream.
+--   
+--   In the current implementation, Kinesis Video Streams does not use this
+--   name.
+--   
+--   <a>$sel:tags:CreateStream'</a>, <a>createStream_tags</a> - A list of
+--   tags to associate with the specified stream. Each tag is a key-value
+--   pair (the value is optional).
+--   
+--   <a>$sel:streamName:CreateStream'</a>, <a>createStream_streamName</a> -
+--   A name for the stream that you are creating.
+--   
+--   The stream name is an identifier for the stream, and must be unique
+--   for each account and region.
+newCreateStream :: Text -> CreateStream
+
+-- | <i>See:</i> <a>newCreateStreamResponse</a> smart constructor.
+data CreateStreamResponse
+CreateStreamResponse' :: Maybe Text -> Int -> CreateStreamResponse
+
+-- | Create a value of <a>CreateStreamResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:streamARN:CreateStreamResponse'</a>,
+--   <a>createStreamResponse_streamARN</a> - The Amazon Resource Name (ARN)
+--   of the stream.
+--   
+--   <a>$sel:httpStatus:CreateStreamResponse'</a>,
+--   <a>createStreamResponse_httpStatus</a> - The response's http status
+--   code.
+newCreateStreamResponse :: Int -> CreateStreamResponse
+
+-- | <i>See:</i> <a>newDescribeSignalingChannel</a> smart constructor.
+data DescribeSignalingChannel
+DescribeSignalingChannel' :: Maybe Text -> Maybe Text -> DescribeSignalingChannel
+
+-- | Create a value of <a>DescribeSignalingChannel</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -4530,27 +4749,21 @@ ListSignalingChannels' :: Maybe ChannelNameCondition -> Maybe Text -> Maybe Natu
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:channelNameCondition:ListSignalingChannels'</a>,
---   <a>listSignalingChannels_channelNameCondition</a> - Optional: Returns
---   only the channels that satisfy a specific condition.
+--   <a>$sel:channelARN:DescribeSignalingChannel'</a>,
+--   <a>describeSignalingChannel_channelARN</a> - The ARN of the signaling
+--   channel that you want to describe.
 --   
---   <a>$sel:nextToken:ListSignalingChannels'</a>,
---   <a>listSignalingChannels_nextToken</a> - If you specify this
---   parameter, when the result of a <tt>ListSignalingChannels</tt>
---   operation is truncated, the call returns the <tt>NextToken</tt> in the
---   response. To get another batch of channels, provide this token in your
---   next request.
---   
---   <a>$sel:maxResults:ListSignalingChannels'</a>,
---   <a>listSignalingChannels_maxResults</a> - The maximum number of
---   channels to return in the response. The default is 500.
-newListSignalingChannels :: ListSignalingChannels
+--   <a>$sel:channelName:DescribeSignalingChannel'</a>,
+--   <a>describeSignalingChannel_channelName</a> - The name of the
+--   signaling channel that you want to describe.
+newDescribeSignalingChannel :: DescribeSignalingChannel
 
--- | <i>See:</i> <a>newListSignalingChannelsResponse</a> smart constructor.
-data ListSignalingChannelsResponse
-ListSignalingChannelsResponse' :: Maybe Text -> Maybe [ChannelInfo] -> Int -> ListSignalingChannelsResponse
+-- | <i>See:</i> <a>newDescribeSignalingChannelResponse</a> smart
+--   constructor.
+data DescribeSignalingChannelResponse
+DescribeSignalingChannelResponse' :: Maybe ChannelInfo -> Int -> DescribeSignalingChannelResponse
 
--- | Create a value of <a>ListSignalingChannelsResponse</a> with all
+-- | Create a value of <a>DescribeSignalingChannelResponse</a> with all
 --   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -4559,19 +4772,134 @@ ListSignalingChannelsResponse' :: Maybe Text -> Maybe [ChannelInfo] -> Int -> Li
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListSignalingChannels'</a>,
---   <a>listSignalingChannelsResponse_nextToken</a> - If the response is
---   truncated, the call returns this element with a token. To get the next
---   batch of streams, use this token in your next request.
+--   <a>$sel:channelInfo:DescribeSignalingChannelResponse'</a>,
+--   <a>describeSignalingChannelResponse_channelInfo</a> - A structure that
+--   encapsulates the specified signaling channel's metadata and
+--   properties.
 --   
---   <a>$sel:channelInfoList:ListSignalingChannelsResponse'</a>,
---   <a>listSignalingChannelsResponse_channelInfoList</a> - An array of
---   <tt>ChannelInfo</tt> objects.
+--   <a>$sel:httpStatus:DescribeSignalingChannelResponse'</a>,
+--   <a>describeSignalingChannelResponse_httpStatus</a> - The response's
+--   http status code.
+newDescribeSignalingChannelResponse :: Int -> DescribeSignalingChannelResponse
+
+-- | <i>See:</i> <a>newTagResource</a> smart constructor.
+data TagResource
+TagResource' :: Text -> NonEmpty Tag -> TagResource
+
+-- | Create a value of <a>TagResource</a> with all optional fields omitted.
 --   
---   <a>$sel:httpStatus:ListSignalingChannelsResponse'</a>,
---   <a>listSignalingChannelsResponse_httpStatus</a> - The response's http
---   status code.
-newListSignalingChannelsResponse :: Int -> ListSignalingChannelsResponse
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:resourceARN:TagResource'</a>, <a>tagResource_resourceARN</a> -
+--   The Amazon Resource Name (ARN) of the signaling channel to which you
+--   want to add tags.
+--   
+--   <a>$sel:tags:TagResource'</a>, <a>tagResource_tags</a> - A list of
+--   tags to associate with the specified signaling channel. Each tag is a
+--   key-value pair.
+newTagResource :: Text -> NonEmpty Tag -> TagResource
+
+-- | <i>See:</i> <a>newTagResourceResponse</a> smart constructor.
+data TagResourceResponse
+TagResourceResponse' :: Int -> TagResourceResponse
+
+-- | Create a value of <a>TagResourceResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:TagResourceResponse'</a>,
+--   <a>tagResourceResponse_httpStatus</a> - The response's http status
+--   code.
+newTagResourceResponse :: Int -> TagResourceResponse
+
+-- | <i>See:</i> <a>newUntagResource</a> smart constructor.
+data UntagResource
+UntagResource' :: Text -> NonEmpty Text -> UntagResource
+
+-- | Create a value of <a>UntagResource</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:resourceARN:UntagResource'</a>,
+--   <a>untagResource_resourceARN</a> - The Amazon Resource Name (ARN) of
+--   the signaling channel from which you want to remove tags.
+--   
+--   <a>$sel:tagKeyList:UntagResource'</a>, <a>untagResource_tagKeyList</a>
+--   - A list of the keys of the tags that you want to remove.
+newUntagResource :: Text -> NonEmpty Text -> UntagResource
+
+-- | <i>See:</i> <a>newUntagResourceResponse</a> smart constructor.
+data UntagResourceResponse
+UntagResourceResponse' :: Int -> UntagResourceResponse
+
+-- | Create a value of <a>UntagResourceResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:UntagResourceResponse'</a>,
+--   <a>untagResourceResponse_httpStatus</a> - The response's http status
+--   code.
+newUntagResourceResponse :: Int -> UntagResourceResponse
+
+-- | <i>See:</i> <a>newTagStream</a> smart constructor.
+data TagStream
+TagStream' :: Maybe Text -> Maybe Text -> HashMap Text Text -> TagStream
+
+-- | Create a value of <a>TagStream</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:streamARN:TagStream'</a>, <a>tagStream_streamARN</a> - The
+--   Amazon Resource Name (ARN) of the resource that you want to add the
+--   tag or tags to.
+--   
+--   <a>$sel:streamName:TagStream'</a>, <a>tagStream_streamName</a> - The
+--   name of the stream that you want to add the tag or tags to.
+--   
+--   <a>$sel:tags:TagStream'</a>, <a>tagStream_tags</a> - A list of tags to
+--   associate with the specified stream. Each tag is a key-value pair (the
+--   value is optional).
+newTagStream :: TagStream
+
+-- | <i>See:</i> <a>newTagStreamResponse</a> smart constructor.
+data TagStreamResponse
+TagStreamResponse' :: Int -> TagStreamResponse
+
+-- | Create a value of <a>TagStreamResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:TagStreamResponse'</a>,
+--   <a>tagStreamResponse_httpStatus</a> - The response's http status code.
+newTagStreamResponse :: Int -> TagStreamResponse
 
 -- | <i>See:</i> <a>newCreateSignalingChannel</a> smart constructor.
 data CreateSignalingChannel
@@ -4670,334 +4998,6 @@ DescribeStreamResponse' :: Maybe StreamInfo -> Int -> DescribeStreamResponse
 --   <a>describeStreamResponse_httpStatus</a> - The response's http status
 --   code.
 newDescribeStreamResponse :: Int -> DescribeStreamResponse
-
--- | <i>See:</i> <a>newTagStream</a> smart constructor.
-data TagStream
-TagStream' :: Maybe Text -> Maybe Text -> HashMap Text Text -> TagStream
-
--- | Create a value of <a>TagStream</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:streamARN:TagStream'</a>, <a>tagStream_streamARN</a> - The
---   Amazon Resource Name (ARN) of the resource that you want to add the
---   tag or tags to.
---   
---   <a>$sel:streamName:TagStream'</a>, <a>tagStream_streamName</a> - The
---   name of the stream that you want to add the tag or tags to.
---   
---   <a>$sel:tags:TagStream'</a>, <a>tagStream_tags</a> - A list of tags to
---   associate with the specified stream. Each tag is a key-value pair (the
---   value is optional).
-newTagStream :: TagStream
-
--- | <i>See:</i> <a>newTagStreamResponse</a> smart constructor.
-data TagStreamResponse
-TagStreamResponse' :: Int -> TagStreamResponse
-
--- | Create a value of <a>TagStreamResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:TagStreamResponse'</a>,
---   <a>tagStreamResponse_httpStatus</a> - The response's http status code.
-newTagStreamResponse :: Int -> TagStreamResponse
-
--- | <i>See:</i> <a>newDescribeSignalingChannel</a> smart constructor.
-data DescribeSignalingChannel
-DescribeSignalingChannel' :: Maybe Text -> Maybe Text -> DescribeSignalingChannel
-
--- | Create a value of <a>DescribeSignalingChannel</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:channelName:DescribeSignalingChannel'</a>,
---   <a>describeSignalingChannel_channelName</a> - The name of the
---   signaling channel that you want to describe.
---   
---   <a>$sel:channelARN:DescribeSignalingChannel'</a>,
---   <a>describeSignalingChannel_channelARN</a> - The ARN of the signaling
---   channel that you want to describe.
-newDescribeSignalingChannel :: DescribeSignalingChannel
-
--- | <i>See:</i> <a>newDescribeSignalingChannelResponse</a> smart
---   constructor.
-data DescribeSignalingChannelResponse
-DescribeSignalingChannelResponse' :: Maybe ChannelInfo -> Int -> DescribeSignalingChannelResponse
-
--- | Create a value of <a>DescribeSignalingChannelResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:channelInfo:DescribeSignalingChannelResponse'</a>,
---   <a>describeSignalingChannelResponse_channelInfo</a> - A structure that
---   encapsulates the specified signaling channel's metadata and
---   properties.
---   
---   <a>$sel:httpStatus:DescribeSignalingChannelResponse'</a>,
---   <a>describeSignalingChannelResponse_httpStatus</a> - The response's
---   http status code.
-newDescribeSignalingChannelResponse :: Int -> DescribeSignalingChannelResponse
-
--- | <i>See:</i> <a>newGetSignalingChannelEndpoint</a> smart constructor.
-data GetSignalingChannelEndpoint
-GetSignalingChannelEndpoint' :: Maybe SingleMasterChannelEndpointConfiguration -> Text -> GetSignalingChannelEndpoint
-
--- | Create a value of <a>GetSignalingChannelEndpoint</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   
---   <a>$sel:singleMasterChannelEndpointConfiguration:GetSignalingChannelEndpoint'</a>,
---   <a>getSignalingChannelEndpoint_singleMasterChannelEndpointConfiguration</a>
---   - A structure containing the endpoint configuration for the
---   <tt>SINGLE_MASTER</tt> channel type.
---   
---   <a>$sel:channelARN:GetSignalingChannelEndpoint'</a>,
---   <a>getSignalingChannelEndpoint_channelARN</a> - The Amazon Resource
---   Name (ARN) of the signalling channel for which you want to get an
---   endpoint.
-newGetSignalingChannelEndpoint :: Text -> GetSignalingChannelEndpoint
-
--- | <i>See:</i> <a>newGetSignalingChannelEndpointResponse</a> smart
---   constructor.
-data GetSignalingChannelEndpointResponse
-GetSignalingChannelEndpointResponse' :: Maybe [ResourceEndpointListItem] -> Int -> GetSignalingChannelEndpointResponse
-
--- | Create a value of <a>GetSignalingChannelEndpointResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:resourceEndpointList:GetSignalingChannelEndpointResponse'</a>,
---   <a>getSignalingChannelEndpointResponse_resourceEndpointList</a> - A
---   list of endpoints for the specified signaling channel.
---   
---   <a>$sel:httpStatus:GetSignalingChannelEndpointResponse'</a>,
---   <a>getSignalingChannelEndpointResponse_httpStatus</a> - The response's
---   http status code.
-newGetSignalingChannelEndpointResponse :: Int -> GetSignalingChannelEndpointResponse
-
--- | <i>See:</i> <a>newCreateStream</a> smart constructor.
-data CreateStream
-CreateStream' :: Maybe Natural -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe (HashMap Text Text) -> Text -> CreateStream
-
--- | Create a value of <a>CreateStream</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:dataRetentionInHours:CreateStream'</a>,
---   <a>createStream_dataRetentionInHours</a> - The number of hours that
---   you want to retain the data in the stream. Kinesis Video Streams
---   retains the data in a data store that is associated with the stream.
---   
---   The default value is 0, indicating that the stream does not persist
---   data.
---   
---   When the <tt>DataRetentionInHours</tt> value is 0, consumers can still
---   consume the fragments that remain in the service host buffer, which
---   has a retention time limit of 5 minutes and a retention memory limit
---   of 200 MB. Fragments are removed from the buffer when either limit is
---   reached.
---   
---   <a>$sel:kmsKeyId:CreateStream'</a>, <a>createStream_kmsKeyId</a> - The
---   ID of the AWS Key Management Service (AWS KMS) key that you want
---   Kinesis Video Streams to use to encrypt stream data.
---   
---   If no key ID is specified, the default, Kinesis Video-managed key
---   (<tt>aws/kinesisvideo</tt>) is used.
---   
---   For more information, see <a>DescribeKey</a>.
---   
---   <a>$sel:deviceName:CreateStream'</a>, <a>createStream_deviceName</a> -
---   The name of the device that is writing to the stream.
---   
---   In the current implementation, Kinesis Video Streams does not use this
---   name.
---   
---   <a>$sel:mediaType:CreateStream'</a>, <a>createStream_mediaType</a> -
---   The media type of the stream. Consumers of the stream can use this
---   information when processing the stream. For more information about
---   media types, see <a>Media Types</a>. If you choose to specify the
---   <tt>MediaType</tt>, see <a>Naming Requirements</a> for guidelines.
---   
---   Example valid values include "video/h264" and "video/h264,audio/aac".
---   
---   This parameter is optional; the default value is <tt>null</tt> (or
---   empty in JSON).
---   
---   <a>$sel:tags:CreateStream'</a>, <a>createStream_tags</a> - A list of
---   tags to associate with the specified stream. Each tag is a key-value
---   pair (the value is optional).
---   
---   <a>$sel:streamName:CreateStream'</a>, <a>createStream_streamName</a> -
---   A name for the stream that you are creating.
---   
---   The stream name is an identifier for the stream, and must be unique
---   for each account and region.
-newCreateStream :: Text -> CreateStream
-
--- | <i>See:</i> <a>newCreateStreamResponse</a> smart constructor.
-data CreateStreamResponse
-CreateStreamResponse' :: Maybe Text -> Int -> CreateStreamResponse
-
--- | Create a value of <a>CreateStreamResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:streamARN:CreateStreamResponse'</a>,
---   <a>createStreamResponse_streamARN</a> - The Amazon Resource Name (ARN)
---   of the stream.
---   
---   <a>$sel:httpStatus:CreateStreamResponse'</a>,
---   <a>createStreamResponse_httpStatus</a> - The response's http status
---   code.
-newCreateStreamResponse :: Int -> CreateStreamResponse
-
--- | <i>See:</i> <a>newListStreams</a> smart constructor.
-data ListStreams
-ListStreams' :: Maybe Text -> Maybe Natural -> Maybe StreamNameCondition -> ListStreams
-
--- | Create a value of <a>ListStreams</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListStreams'</a>, <a>listStreams_nextToken</a> - If
---   you specify this parameter, when the result of a <tt>ListStreams</tt>
---   operation is truncated, the call returns the <tt>NextToken</tt> in the
---   response. To get another batch of streams, provide this token in your
---   next request.
---   
---   <a>$sel:maxResults:ListStreams'</a>, <a>listStreams_maxResults</a> -
---   The maximum number of streams to return in the response. The default
---   is 10,000.
---   
---   <a>$sel:streamNameCondition:ListStreams'</a>,
---   <a>listStreams_streamNameCondition</a> - Optional: Returns only
---   streams that satisfy a specific condition. Currently, you can specify
---   only the prefix of a stream name as a condition.
-newListStreams :: ListStreams
-
--- | <i>See:</i> <a>newListStreamsResponse</a> smart constructor.
-data ListStreamsResponse
-ListStreamsResponse' :: Maybe Text -> Maybe [StreamInfo] -> Int -> ListStreamsResponse
-
--- | Create a value of <a>ListStreamsResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListStreams'</a>,
---   <a>listStreamsResponse_nextToken</a> - If the response is truncated,
---   the call returns this element with a token. To get the next batch of
---   streams, use this token in your next request.
---   
---   <a>$sel:streamInfoList:ListStreamsResponse'</a>,
---   <a>listStreamsResponse_streamInfoList</a> - An array of
---   <tt>StreamInfo</tt> objects.
---   
---   <a>$sel:httpStatus:ListStreamsResponse'</a>,
---   <a>listStreamsResponse_httpStatus</a> - The response's http status
---   code.
-newListStreamsResponse :: Int -> ListStreamsResponse
-
--- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
-data ListTagsForResource
-ListTagsForResource' :: Maybe Text -> Text -> ListTagsForResource
-
--- | Create a value of <a>ListTagsForResource</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListTagsForResource'</a>,
---   <a>listTagsForResource_nextToken</a> - If you specify this parameter
---   and the result of a <tt>ListTagsForResource</tt> call is truncated,
---   the response includes a token that you can use in the next request to
---   fetch the next batch of tags.
---   
---   <a>$sel:resourceARN:ListTagsForResource'</a>,
---   <a>listTagsForResource_resourceARN</a> - The Amazon Resource Name
---   (ARN) of the signaling channel for which you want to list tags.
-newListTagsForResource :: Text -> ListTagsForResource
-
--- | <i>See:</i> <a>newListTagsForResourceResponse</a> smart constructor.
-data ListTagsForResourceResponse
-ListTagsForResourceResponse' :: Maybe Text -> Maybe (HashMap Text Text) -> Int -> ListTagsForResourceResponse
-
--- | Create a value of <a>ListTagsForResourceResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListTagsForResource'</a>,
---   <a>listTagsForResourceResponse_nextToken</a> - If you specify this
---   parameter and the result of a <tt>ListTagsForResource</tt> call is
---   truncated, the response includes a token that you can use in the next
---   request to fetch the next set of tags.
---   
---   <a>$sel:tags:ListTagsForResourceResponse'</a>,
---   <a>listTagsForResourceResponse_tags</a> - A map of tag keys and values
---   associated with the specified signaling channel.
---   
---   <a>$sel:httpStatus:ListTagsForResourceResponse'</a>,
---   <a>listTagsForResourceResponse_httpStatus</a> - The response's http
---   status code.
-newListTagsForResourceResponse :: Int -> ListTagsForResourceResponse
 newtype APIName
 APIName' :: Text -> APIName
 [fromAPIName] :: APIName -> Text
@@ -5044,7 +5044,7 @@ pattern UpdateDataRetentionOperation_INCREASE_DATA_RETENTION :: UpdateDataRetent
 --   
 --   <i>See:</i> <a>newChannelInfo</a> smart constructor.
 data ChannelInfo
-ChannelInfo' :: Maybe POSIX -> Maybe Text -> Maybe SingleMasterConfiguration -> Maybe ChannelType -> Maybe Text -> Maybe StreamStatus -> Maybe Text -> ChannelInfo
+ChannelInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Text -> Maybe SingleMasterConfiguration -> Maybe Text -> Maybe Text -> Maybe ChannelType -> ChannelInfo
 
 -- | Create a value of <a>ChannelInfo</a> with all optional fields omitted.
 --   
@@ -5057,26 +5057,26 @@ ChannelInfo' :: Maybe POSIX -> Maybe Text -> Maybe SingleMasterConfiguration -> 
 --   <a>$sel:creationTime:ChannelInfo'</a>, <a>channelInfo_creationTime</a>
 --   - The time at which the signaling channel was created.
 --   
---   <a>$sel:channelName:ChannelInfo'</a>, <a>channelInfo_channelName</a> -
---   The name of the signaling channel.
---   
---   <a>$sel:singleMasterConfiguration:ChannelInfo'</a>,
---   <a>channelInfo_singleMasterConfiguration</a> - A structure that
---   contains the configuration for the <tt>SINGLE_MASTER</tt> channel
---   type.
---   
---   <a>$sel:channelType:ChannelInfo'</a>, <a>channelInfo_channelType</a> -
---   The type of the signaling channel.
---   
---   <a>$sel:version:ChannelInfo'</a>, <a>channelInfo_version</a> - The
---   current version of the signaling channel.
---   
 --   <a>$sel:channelStatus:ChannelInfo'</a>,
 --   <a>channelInfo_channelStatus</a> - Current status of the signaling
 --   channel.
 --   
 --   <a>$sel:channelARN:ChannelInfo'</a>, <a>channelInfo_channelARN</a> -
 --   The Amazon Resource Name (ARN) of the signaling channel.
+--   
+--   <a>$sel:singleMasterConfiguration:ChannelInfo'</a>,
+--   <a>channelInfo_singleMasterConfiguration</a> - A structure that
+--   contains the configuration for the <tt>SINGLE_MASTER</tt> channel
+--   type.
+--   
+--   <a>$sel:channelName:ChannelInfo'</a>, <a>channelInfo_channelName</a> -
+--   The name of the signaling channel.
+--   
+--   <a>$sel:version:ChannelInfo'</a>, <a>channelInfo_version</a> - The
+--   current version of the signaling channel.
+--   
+--   <a>$sel:channelType:ChannelInfo'</a>, <a>channelInfo_channelType</a> -
+--   The type of the signaling channel.
 newChannelInfo :: ChannelInfo
 
 -- | An optional input parameter for the <tt>ListSignalingChannels</tt>
@@ -5112,7 +5112,7 @@ newChannelNameCondition :: ChannelNameCondition
 --   
 --   <i>See:</i> <a>newResourceEndpointListItem</a> smart constructor.
 data ResourceEndpointListItem
-ResourceEndpointListItem' :: Maybe Text -> Maybe ChannelProtocol -> ResourceEndpointListItem
+ResourceEndpointListItem' :: Maybe ChannelProtocol -> Maybe Text -> ResourceEndpointListItem
 
 -- | Create a value of <a>ResourceEndpointListItem</a> with all optional
 --   fields omitted.
@@ -5123,13 +5123,13 @@ ResourceEndpointListItem' :: Maybe Text -> Maybe ChannelProtocol -> ResourceEndp
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:resourceEndpoint:ResourceEndpointListItem'</a>,
---   <a>resourceEndpointListItem_resourceEndpoint</a> - The endpoint of the
+--   <a>$sel:protocol:ResourceEndpointListItem'</a>,
+--   <a>resourceEndpointListItem_protocol</a> - The protocol of the
 --   signaling channel returned by the <tt>GetSignalingChannelEndpoint</tt>
 --   API.
 --   
---   <a>$sel:protocol:ResourceEndpointListItem'</a>,
---   <a>resourceEndpointListItem_protocol</a> - The protocol of the
+--   <a>$sel:resourceEndpoint:ResourceEndpointListItem'</a>,
+--   <a>resourceEndpointListItem_resourceEndpoint</a> - The endpoint of the
 --   signaling channel returned by the <tt>GetSignalingChannelEndpoint</tt>
 --   API.
 newResourceEndpointListItem :: ResourceEndpointListItem
@@ -5195,7 +5195,7 @@ newSingleMasterConfiguration :: SingleMasterConfiguration
 --   
 --   <i>See:</i> <a>newStreamInfo</a> smart constructor.
 data StreamInfo
-StreamInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> StreamInfo
+StreamInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Text -> Maybe Natural -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> StreamInfo
 
 -- | Create a value of <a>StreamInfo</a> with all optional fields omitted.
 --   
@@ -5211,12 +5211,15 @@ StreamInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Natural -> Maybe Text 
 --   <a>$sel:status:StreamInfo'</a>, <a>streamInfo_status</a> - The status
 --   of the stream.
 --   
+--   <a>$sel:mediaType:StreamInfo'</a>, <a>streamInfo_mediaType</a> - The
+--   <tt>MediaType</tt> of the stream.
+--   
 --   <a>$sel:dataRetentionInHours:StreamInfo'</a>,
 --   <a>streamInfo_dataRetentionInHours</a> - How long the stream retains
 --   data, in hours.
 --   
---   <a>$sel:version:StreamInfo'</a>, <a>streamInfo_version</a> - The
---   version of the stream.
+--   <a>$sel:streamARN:StreamInfo'</a>, <a>streamInfo_streamARN</a> - The
+--   Amazon Resource Name (ARN) of the stream.
 --   
 --   <a>$sel:kmsKeyId:StreamInfo'</a>, <a>streamInfo_kmsKeyId</a> - The ID
 --   of the AWS Key Management Service (AWS KMS) key that Kinesis Video
@@ -5225,11 +5228,8 @@ StreamInfo' :: Maybe POSIX -> Maybe StreamStatus -> Maybe Natural -> Maybe Text 
 --   <a>$sel:deviceName:StreamInfo'</a>, <a>streamInfo_deviceName</a> - The
 --   name of the device that is associated with the stream.
 --   
---   <a>$sel:mediaType:StreamInfo'</a>, <a>streamInfo_mediaType</a> - The
---   <tt>MediaType</tt> of the stream.
---   
---   <a>$sel:streamARN:StreamInfo'</a>, <a>streamInfo_streamARN</a> - The
---   Amazon Resource Name (ARN) of the stream.
+--   <a>$sel:version:StreamInfo'</a>, <a>streamInfo_version</a> - The
+--   version of the stream.
 --   
 --   <a>$sel:streamName:StreamInfo'</a>, <a>streamInfo_streamName</a> - The
 --   name of the stream.

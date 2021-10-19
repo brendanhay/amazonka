@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679368796"><span id="local-6989586621679368797"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ComputeType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-var">ComputeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComputeType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ComputeType.html#ComputeType%27"><span class="hs-identifier hs-var">ComputeType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679370666"><span id="local-6989586621679370667"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ComputeType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ComputeType.html#ComputeType"><span class="hs-identifier hs-var">ComputeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComputeType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ComputeType.html#ComputeType%27"><span class="hs-identifier hs-var">ComputeType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromComputeType"><span class="annot"><span class="annottext">ComputeType -&gt; Text
 </span><a href="Network.AWS.CodeBuild.Types.ComputeType.html#fromComputeType"><span class="hs-identifier hs-var hs-var">fromComputeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679368788"><span id="local-6989586621679368790"><span id="local-6989586621679368792"><span class="annot"><span class="annottext">Int -&gt; ComputeType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370658"><span id="local-6989586621679370660"><span id="local-6989586621679370662"><span class="annot"><span class="annottext">Int -&gt; ComputeType -&gt; ShowS
 [ComputeType] -&gt; ShowS
 ComputeType -&gt; String
 (Int -&gt; ComputeType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: ComputeType -&gt; String
 showsPrec :: Int -&gt; ComputeType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ComputeType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679368779"><span id="local-6989586621679368781"><span id="local-6989586621679368783"><span id="local-6989586621679368785"><span class="annot"><span class="annottext">ReadPrec [ComputeType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679370649"><span id="local-6989586621679370651"><span id="local-6989586621679370653"><span id="local-6989586621679370655"><span class="annot"><span class="annottext">ReadPrec [ComputeType]
 ReadPrec ComputeType
 Int -&gt; ReadS ComputeType
 ReadS [ComputeType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [ComputeType]
 readsPrec :: Int -&gt; ReadS ComputeType
 $creadsPrec :: Int -&gt; ReadS ComputeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679368774"><span id="local-6989586621679368776"><span class="annot"><span class="annottext">ComputeType -&gt; ComputeType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679370644"><span id="local-6989586621679370646"><span class="annot"><span class="annottext">ComputeType -&gt; ComputeType -&gt; Bool
 (ComputeType -&gt; ComputeType -&gt; Bool)
 -&gt; (ComputeType -&gt; ComputeType -&gt; Bool) -&gt; Eq ComputeType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: ComputeType -&gt; ComputeType -&gt; Bool
 == :: ComputeType -&gt; ComputeType -&gt; Bool
 $c== :: ComputeType -&gt; ComputeType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679368758"><span id="local-6989586621679368760"><span id="local-6989586621679368762"><span id="local-6989586621679368764"><span id="local-6989586621679368766"><span id="local-6989586621679368768"><span id="local-6989586621679368770"><span class="annot"><span class="annottext">Eq ComputeType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679370628"><span id="local-6989586621679370630"><span id="local-6989586621679370632"><span id="local-6989586621679370634"><span id="local-6989586621679370636"><span id="local-6989586621679370638"><span id="local-6989586621679370640"><span class="annot"><span class="annottext">Eq ComputeType
 Eq ComputeType
 -&gt; (ComputeType -&gt; ComputeType -&gt; Ordering)
 -&gt; (ComputeType -&gt; ComputeType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ComputeType -&gt; Rep ComputeType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679368750"><span id="local-6989586621679368752"><span class="annot"><span class="annottext">Int -&gt; ComputeType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370620"><span id="local-6989586621679370622"><span class="annot"><span class="annottext">Int -&gt; ComputeType -&gt; Int
 ComputeType -&gt; Int
 (Int -&gt; ComputeType -&gt; Int)
 -&gt; (ComputeType -&gt; Int) -&gt; Hashable ComputeType
@@ -144,49 +144,49 @@ $chash :: ComputeType -&gt; Int
 hashWithSalt :: Int -&gt; ComputeType -&gt; Int
 $chashWithSalt :: Int -&gt; ComputeType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679368747"><span class="annot"><span class="annottext">ComputeType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679370617"><span class="annot"><span class="annottext">ComputeType -&gt; ()
 (ComputeType -&gt; ()) -&gt; NFData ComputeType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ComputeType -&gt; ()
 $crnf :: ComputeType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679368744"><span class="annot"><span class="annottext">Text -&gt; Either String ComputeType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679370614"><span class="annot"><span class="annottext">Text -&gt; Either String ComputeType
 (Text -&gt; Either String ComputeType) -&gt; FromText ComputeType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ComputeType
 $cfromText :: Text -&gt; Either String ComputeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679368741"><span class="annot"><span class="annottext">ComputeType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679370611"><span class="annot"><span class="annottext">ComputeType -&gt; Text
 (ComputeType -&gt; Text) -&gt; ToText ComputeType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ComputeType -&gt; Text
 $ctoText :: ComputeType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679368738"><span class="annot"><span class="annottext">ComputeType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679370608"><span class="annot"><span class="annottext">ComputeType -&gt; ByteString
 (ComputeType -&gt; ByteString) -&gt; ToByteString ComputeType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ComputeType -&gt; ByteString
 $ctoBS :: ComputeType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679368735"><span class="annot"><span class="annottext">ComputeType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679370605"><span class="annot"><span class="annottext">ComputeType -&gt; ByteStringBuilder
 (ComputeType -&gt; ByteStringBuilder) -&gt; ToLog ComputeType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ComputeType -&gt; ByteStringBuilder
 $cbuild :: ComputeType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679368732"><span class="annot"><span class="annottext">HeaderName -&gt; ComputeType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679370602"><span class="annot"><span class="annottext">HeaderName -&gt; ComputeType -&gt; [Header]
 (HeaderName -&gt; ComputeType -&gt; [Header]) -&gt; ToHeader ComputeType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ComputeType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ComputeType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679368729"><span class="annot"><span class="annottext">ComputeType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679370599"><span class="annot"><span class="annottext">ComputeType -&gt; QueryString
 (ComputeType -&gt; QueryString) -&gt; ToQuery ComputeType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ComputeType -&gt; QueryString
 $ctoQuery :: ComputeType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679368724"><span id="local-6989586621679368726"><span class="annot"><span class="annottext">Value -&gt; Parser [ComputeType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679370594"><span id="local-6989586621679370596"><span class="annot"><span class="annottext">Value -&gt; Parser [ComputeType]
 Value -&gt; Parser ComputeType
 (Value -&gt; Parser ComputeType)
 -&gt; (Value -&gt; Parser [ComputeType]) -&gt; FromJSON ComputeType
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [ComputeType]
 parseJSON :: Value -&gt; Parser ComputeType
 $cparseJSON :: Value -&gt; Parser ComputeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679368719"><span id="local-6989586621679368721"><span class="annot"><span class="annottext">FromJSONKeyFunction [ComputeType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679370589"><span id="local-6989586621679370591"><span class="annot"><span class="annottext">FromJSONKeyFunction [ComputeType]
 FromJSONKeyFunction ComputeType
 FromJSONKeyFunction ComputeType
 -&gt; FromJSONKeyFunction [ComputeType] -&gt; FromJSONKey ComputeType
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ComputeType]
 fromJSONKey :: FromJSONKeyFunction ComputeType
 $cfromJSONKey :: FromJSONKeyFunction ComputeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679368710"><span id="local-6989586621679368712"><span id="local-6989586621679368714"><span id="local-6989586621679368716"><span class="annot"><span class="annottext">[ComputeType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679370580"><span id="local-6989586621679370582"><span id="local-6989586621679370584"><span id="local-6989586621679370586"><span class="annot"><span class="annottext">[ComputeType] -&gt; Encoding
 [ComputeType] -&gt; Value
 ComputeType -&gt; Encoding
 ComputeType -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: ComputeType -&gt; Encoding
 toJSON :: ComputeType -&gt; Value
 $ctoJSON :: ComputeType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679368705"><span id="local-6989586621679368707"><span class="annot"><span class="annottext">ToJSONKeyFunction [ComputeType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679370575"><span id="local-6989586621679370577"><span class="annot"><span class="annottext">ToJSONKeyFunction [ComputeType]
 ToJSONKeyFunction ComputeType
 ToJSONKeyFunction ComputeType
 -&gt; ToJSONKeyFunction [ComputeType] -&gt; ToJSONKey ComputeType
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ComputeType]
 toJSONKey :: ToJSONKeyFunction ComputeType
 $ctoJSONKey :: ToJSONKeyFunction ComputeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679368702"><span class="annot"><span class="annottext">[Node] -&gt; Either String ComputeType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679370572"><span class="annot"><span class="annottext">[Node] -&gt; Either String ComputeType
 ([Node] -&gt; Either String ComputeType) -&gt; FromXML ComputeType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ComputeType
 $cparseXML :: [Node] -&gt; Either String ComputeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679368699"><span class="annot"><span class="annottext">ComputeType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679370569"><span class="annot"><span class="annottext">ComputeType -&gt; XML
 (ComputeType -&gt; XML) -&gt; ToXML ComputeType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ComputeType -&gt; XML

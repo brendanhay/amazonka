@@ -28,12 +28,12 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the placement group support of the instance type.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newPlacementGroupInfo' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681100680"><span id="local-6989586621681100681"></span></span><span class="hs-keyword">data</span><span> </span><span id="PlacementGroupInfo"><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupInfo.html#PlacementGroupInfo"><span class="hs-identifier hs-var">PlacementGroupInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlacementGroupInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupInfo.html#PlacementGroupInfo%27"><span class="hs-identifier hs-var">PlacementGroupInfo'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681135380"><span id="local-6989586621681135381"></span></span><span class="hs-keyword">data</span><span> </span><span id="PlacementGroupInfo"><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupInfo.html#PlacementGroupInfo"><span class="hs-identifier hs-var">PlacementGroupInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlacementGroupInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupInfo.html#PlacementGroupInfo%27"><span class="hs-identifier hs-var">PlacementGroupInfo'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The supported placement group types.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AsupportedStrategies%3APlacementGroupInfo%27"><span class="annot"><span class="annottext">PlacementGroupInfo -&gt; Maybe [PlacementGroupStrategy]
 </span><a href="Network.AWS.EC2.Types.PlacementGroupInfo.html#%24sel%3AsupportedStrategies%3APlacementGroupInfo%27"><span class="hs-identifier hs-var hs-var">supportedStrategies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupStrategy.html#PlacementGroupStrategy"><span class="hs-identifier hs-type">PlacementGroupStrategy</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681100674"><span id="local-6989586621681100676"><span class="annot"><span class="annottext">PlacementGroupInfo -&gt; PlacementGroupInfo -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681135374"><span id="local-6989586621681135376"><span class="annot"><span class="annottext">PlacementGroupInfo -&gt; PlacementGroupInfo -&gt; Bool
 (PlacementGroupInfo -&gt; PlacementGroupInfo -&gt; Bool)
 -&gt; (PlacementGroupInfo -&gt; PlacementGroupInfo -&gt; Bool)
 -&gt; Eq PlacementGroupInfo
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PlacementGroupInfo -&gt; PlacementGroupInfo -&gt; Bool
 == :: PlacementGroupInfo -&gt; PlacementGroupInfo -&gt; Bool
 $c== :: PlacementGroupInfo -&gt; PlacementGroupInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681100665"><span id="local-6989586621681100667"><span id="local-6989586621681100669"><span id="local-6989586621681100671"><span class="annot"><span class="annottext">ReadPrec [PlacementGroupInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681135365"><span id="local-6989586621681135367"><span id="local-6989586621681135369"><span id="local-6989586621681135371"><span class="annot"><span class="annottext">ReadPrec [PlacementGroupInfo]
 ReadPrec PlacementGroupInfo
 Int -&gt; ReadS PlacementGroupInfo
 ReadS [PlacementGroupInfo]
@@ -62,7 +62,7 @@ readList :: ReadS [PlacementGroupInfo]
 $creadList :: ReadS [PlacementGroupInfo]
 readsPrec :: Int -&gt; ReadS PlacementGroupInfo
 $creadsPrec :: Int -&gt; ReadS PlacementGroupInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681100658"><span id="local-6989586621681100660"><span id="local-6989586621681100662"><span class="annot"><span class="annottext">Int -&gt; PlacementGroupInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681135358"><span id="local-6989586621681135360"><span id="local-6989586621681135362"><span class="annot"><span class="annottext">Int -&gt; PlacementGroupInfo -&gt; ShowS
 [PlacementGroupInfo] -&gt; ShowS
 PlacementGroupInfo -&gt; String
 (Int -&gt; PlacementGroupInfo -&gt; ShowS)
@@ -124,16 +124,16 @@ forall a. Maybe a
      (Maybe [PlacementGroupStrategy])
      (Maybe [PlacementGroupStrategy])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupInfo.html#PlacementGroupInfo%27"><span class="hs-identifier hs-type">PlacementGroupInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681100649"><span class="annot"><span class="annottext">Maybe [PlacementGroupStrategy]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupInfo.html#PlacementGroupInfo%27"><span class="hs-identifier hs-type">PlacementGroupInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135349"><span class="annot"><span class="annottext">Maybe [PlacementGroupStrategy]
 supportedStrategies :: Maybe [PlacementGroupStrategy]
 $sel:supportedStrategies:PlacementGroupInfo' :: PlacementGroupInfo -&gt; Maybe [PlacementGroupStrategy]
-</span><a href="#local-6989586621681100649"><span class="hs-identifier hs-var hs-var">supportedStrategies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementGroupStrategy]
-</span><a href="#local-6989586621681100649"><span class="hs-identifier hs-var">supportedStrategies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681100648"><span class="annot"><span class="annottext">s :: PlacementGroupInfo
-</span><a href="#local-6989586621681100648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupInfo.html#PlacementGroupInfo%27"><span class="hs-identifier hs-type">PlacementGroupInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681100647"><span class="annot"><span class="annottext">Maybe [PlacementGroupStrategy]
-</span><a href="#local-6989586621681100647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementGroupInfo
-</span><a href="#local-6989586621681100648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedStrategies:PlacementGroupInfo' :: Maybe [PlacementGroupStrategy]
+</span><a href="#local-6989586621681135349"><span class="hs-identifier hs-var hs-var">supportedStrategies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementGroupStrategy]
+</span><a href="#local-6989586621681135349"><span class="hs-identifier hs-var">supportedStrategies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135348"><span class="annot"><span class="annottext">s :: PlacementGroupInfo
+</span><a href="#local-6989586621681135348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupInfo.html#PlacementGroupInfo%27"><span class="hs-identifier hs-type">PlacementGroupInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135347"><span class="annot"><span class="annottext">Maybe [PlacementGroupStrategy]
+</span><a href="#local-6989586621681135347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PlacementGroupInfo
+</span><a href="#local-6989586621681135348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedStrategies:PlacementGroupInfo' :: Maybe [PlacementGroupStrategy]
 </span><a href="Network.AWS.EC2.Types.PlacementGroupInfo.html#%24sel%3AsupportedStrategies%3APlacementGroupInfo%27"><span class="hs-identifier hs-var">supportedStrategies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlacementGroupStrategy]
-</span><a href="#local-6989586621681100647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupInfo.html#PlacementGroupInfo"><span class="hs-identifier hs-type">PlacementGroupInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlacementGroupStrategy]
+</span><a href="#local-6989586621681135347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupInfo.html#PlacementGroupInfo"><span class="hs-identifier hs-type">PlacementGroupInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlacementGroupStrategy]
   -&gt; f (Maybe [PlacementGroupStrategy]))
  -&gt; PlacementGroupInfo -&gt; f PlacementGroupInfo)
 -&gt; ((Maybe [PlacementGroupStrategy]
@@ -163,13 +163,13 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [PlacementGroupStrategy]
   [PlacementGroupStrategy]
   [PlacementGroupStrategy]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupInfo.html#PlacementGroupInfo"><span class="hs-identifier hs-type">PlacementGroupInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621681100641"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PlacementGroupInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681100639"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681100639"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621681135341"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PlacementGroupInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681135339"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681135339"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">Maybe [PlacementGroupStrategy] -&gt; PlacementGroupInfo
 </span><a href="Network.AWS.EC2.Types.PlacementGroupInfo.html#PlacementGroupInfo%27"><span class="hs-identifier hs-var">PlacementGroupInfo'</span></a></span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [PlacementGroupStrategy] -&gt; PlacementGroupInfo)
@@ -177,7 +177,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Either String PlacementGroupInfo
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681100639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681135339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;supportedStrategies&quot;</span></span><span>
@@ -201,7 +201,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681100630"><span id="local-6989586621681100632"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupInfo.html#PlacementGroupInfo"><span class="hs-identifier hs-type">PlacementGroupInfo</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681135330"><span id="local-6989586621681135332"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupInfo.html#PlacementGroupInfo"><span class="hs-identifier hs-type">PlacementGroupInfo</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681100627"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupInfo.html#PlacementGroupInfo"><span class="hs-identifier hs-type">PlacementGroupInfo</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681135327"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupInfo.html#PlacementGroupInfo"><span class="hs-identifier hs-type">PlacementGroupInfo</span></a></span></span><span>
 </span><span id="line-69"></span></pre></body></html>

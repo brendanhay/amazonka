@@ -27,20 +27,20 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Defines the query to run against an object.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newQuery' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679176014"><span id="local-6989586621679176015"></span></span><span class="hs-keyword">data</span><span> </span><span id="Query"><span class="annot"><a href="Network.AWS.DataPipeline.Types.Query.html#Query"><span class="hs-identifier hs-var">Query</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Query%27"><span class="annot"><a href="Network.AWS.DataPipeline.Types.Query.html#Query%27"><span class="hs-identifier hs-var">Query'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679176156"><span id="local-6989586621679176157"></span></span><span class="hs-keyword">data</span><span> </span><span id="Query"><span class="annot"><a href="Network.AWS.DataPipeline.Types.Query.html#Query"><span class="hs-identifier hs-var">Query</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Query%27"><span class="annot"><a href="Network.AWS.DataPipeline.Types.Query.html#Query%27"><span class="hs-identifier hs-var">Query'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of selectors that define the query. An object must satisfy all of</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the selectors to match the query.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aselectors%3AQuery%27"><span class="annot"><span class="annottext">Query -&gt; Maybe [Selector]
 </span><a href="Network.AWS.DataPipeline.Types.Query.html#%24sel%3Aselectors%3AQuery%27"><span class="hs-identifier hs-var hs-var">selectors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Selector.html#Selector"><span class="hs-identifier hs-type">Selector</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176008"><span id="local-6989586621679176010"><span class="annot"><span class="annottext">Query -&gt; Query -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176150"><span id="local-6989586621679176152"><span class="annot"><span class="annottext">Query -&gt; Query -&gt; Bool
 (Query -&gt; Query -&gt; Bool) -&gt; (Query -&gt; Query -&gt; Bool) -&gt; Eq Query
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Query -&gt; Query -&gt; Bool
 $c/= :: Query -&gt; Query -&gt; Bool
 == :: Query -&gt; Query -&gt; Bool
 $c== :: Query -&gt; Query -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175999"><span id="local-6989586621679176001"><span id="local-6989586621679176003"><span id="local-6989586621679176005"><span class="annot"><span class="annottext">ReadPrec [Query]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176141"><span id="local-6989586621679176143"><span id="local-6989586621679176145"><span id="local-6989586621679176147"><span class="annot"><span class="annottext">ReadPrec [Query]
 ReadPrec Query
 Int -&gt; ReadS Query
 ReadS [Query]
@@ -60,7 +60,7 @@ readList :: ReadS [Query]
 $creadList :: ReadS [Query]
 readsPrec :: Int -&gt; ReadS Query
 $creadsPrec :: Int -&gt; ReadS Query
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175992"><span id="local-6989586621679175994"><span id="local-6989586621679175996"><span class="annot"><span class="annottext">Int -&gt; Query -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176134"><span id="local-6989586621679176136"><span id="local-6989586621679176138"><span class="annot"><span class="annottext">Int -&gt; Query -&gt; ShowS
 [Query] -&gt; ShowS
 Query -&gt; String
 (Int -&gt; Query -&gt; ShowS)
@@ -110,16 +110,16 @@ forall a. Maybe a
 -&gt; (Query -&gt; Maybe [Selector] -&gt; Query)
 -&gt; Lens Query Query (Maybe [Selector]) (Maybe [Selector])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175983"><span class="annot"><span class="annottext">Maybe [Selector]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176125"><span class="annot"><span class="annottext">Maybe [Selector]
 selectors :: Maybe [Selector]
 $sel:selectors:Query' :: Query -&gt; Maybe [Selector]
-</span><a href="#local-6989586621679175983"><span class="hs-identifier hs-var hs-var">selectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Selector]
-</span><a href="#local-6989586621679175983"><span class="hs-identifier hs-var">selectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175982"><span class="annot"><span class="annottext">s :: Query
-</span><a href="#local-6989586621679175982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175981"><span class="annot"><span class="annottext">Maybe [Selector]
-</span><a href="#local-6989586621679175981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
-</span><a href="#local-6989586621679175982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectors:Query' :: Maybe [Selector]
+</span><a href="#local-6989586621679176125"><span class="hs-identifier hs-var hs-var">selectors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Selector]
+</span><a href="#local-6989586621679176125"><span class="hs-identifier hs-var">selectors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176124"><span class="annot"><span class="annottext">s :: Query
+</span><a href="#local-6989586621679176124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176123"><span class="annot"><span class="annottext">Maybe [Selector]
+</span><a href="#local-6989586621679176123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Query
+</span><a href="#local-6989586621679176124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectors:Query' :: Maybe [Selector]
 </span><a href="Network.AWS.DataPipeline.Types.Query.html#%24sel%3Aselectors%3AQuery%27"><span class="hs-identifier hs-var">selectors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Selector]
-</span><a href="#local-6989586621679175981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Selector] -&gt; f (Maybe [Selector])) -&gt; Query -&gt; f Query)
+</span><a href="#local-6989586621679176123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Selector] -&gt; f (Maybe [Selector])) -&gt; Query -&gt; f Query)
 -&gt; ((Maybe [Selector] -&gt; f (Maybe [Selector]))
     -&gt; Maybe [Selector] -&gt; f (Maybe [Selector]))
 -&gt; (Maybe [Selector] -&gt; f (Maybe [Selector]))
@@ -136,19 +136,19 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Selector] [Selector] [Selector] [Selector]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175974"><span id="local-6989586621679175976"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span></span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176116"><span id="local-6989586621679176118"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span></span></span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175971"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span></span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175963"><span id="local-6989586621679175965"><span id="local-6989586621679175967"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679175961"><span class="annot"><span class="annottext">toJSON :: Query -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175959"><span class="annot"><span class="annottext">Maybe [Selector]
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176105"><span id="local-6989586621679176107"><span id="local-6989586621679176109"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Query.html#Query"><span class="hs-identifier hs-type">Query</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679176103"><span class="annot"><span class="annottext">toJSON :: Query -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DataPipeline.Types.Query.html#Query%27"><span class="hs-identifier hs-type">Query'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176101"><span class="annot"><span class="annottext">Maybe [Selector]
 selectors :: Maybe [Selector]
 $sel:selectors:Query' :: Query -&gt; Maybe [Selector]
-</span><a href="#local-6989586621679175959"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679176101"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -160,6 +160,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Selector] -&gt; Pair) -&gt; Maybe [Selector] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Selector]
-</span><a href="#local-6989586621679175959"><span class="hs-identifier hs-var">selectors</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679176101"><span class="hs-identifier hs-var">selectors</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span></pre></body></html>

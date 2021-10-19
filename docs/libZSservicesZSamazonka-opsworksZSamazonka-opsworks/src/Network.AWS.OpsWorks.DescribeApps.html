@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newDescribeApps' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679390133"><span id="local-6989586621679390134"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeApps"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps"><span class="hs-identifier hs-var">DescribeApps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeApps%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps%27"><span class="hs-identifier hs-var">DescribeApps'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679390557"><span id="local-6989586621679390558"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeApps"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps"><span class="hs-identifier hs-var">DescribeApps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeApps%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps%27"><span class="hs-identifier hs-var">DescribeApps'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of app IDs for the apps to be described. If you use this</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- parameter, @DescribeApps@ returns a description of the specified apps.</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Otherwise, it returns a description of every app.</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AstackId%3ADescribeApps%27"><span class="annot"><span class="annottext">DescribeApps -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.DescribeApps.html#%24sel%3AstackId%3ADescribeApps%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390126"><span id="local-6989586621679390128"><span class="annot"><span class="annottext">DescribeApps -&gt; DescribeApps -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390550"><span id="local-6989586621679390552"><span class="annot"><span class="annottext">DescribeApps -&gt; DescribeApps -&gt; Bool
 (DescribeApps -&gt; DescribeApps -&gt; Bool)
 -&gt; (DescribeApps -&gt; DescribeApps -&gt; Bool) -&gt; Eq DescribeApps
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeApps -&gt; DescribeApps -&gt; Bool
 == :: DescribeApps -&gt; DescribeApps -&gt; Bool
 $c== :: DescribeApps -&gt; DescribeApps -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390117"><span id="local-6989586621679390119"><span id="local-6989586621679390121"><span id="local-6989586621679390123"><span class="annot"><span class="annottext">ReadPrec [DescribeApps]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390541"><span id="local-6989586621679390543"><span id="local-6989586621679390545"><span id="local-6989586621679390547"><span class="annot"><span class="annottext">ReadPrec [DescribeApps]
 ReadPrec DescribeApps
 Int -&gt; ReadS DescribeApps
 ReadS [DescribeApps]
@@ -95,7 +95,7 @@ readList :: ReadS [DescribeApps]
 $creadList :: ReadS [DescribeApps]
 readsPrec :: Int -&gt; ReadS DescribeApps
 $creadsPrec :: Int -&gt; ReadS DescribeApps
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390110"><span id="local-6989586621679390112"><span id="local-6989586621679390114"><span class="annot"><span class="annottext">Int -&gt; DescribeApps -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390534"><span id="local-6989586621679390536"><span id="local-6989586621679390538"><span class="annot"><span class="annottext">Int -&gt; DescribeApps -&gt; ShowS
 [DescribeApps] -&gt; ShowS
 DescribeApps -&gt; String
 (Int -&gt; DescribeApps -&gt; ShowS)
@@ -161,16 +161,16 @@ forall a. Maybe a
 -&gt; (DescribeApps -&gt; Maybe [Text] -&gt; DescribeApps)
 -&gt; Lens DescribeApps DescribeApps (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps%27"><span class="hs-identifier hs-type">DescribeApps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390103"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps%27"><span class="hs-identifier hs-type">DescribeApps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390527"><span class="annot"><span class="annottext">Maybe [Text]
 appIds :: Maybe [Text]
 $sel:appIds:DescribeApps' :: DescribeApps -&gt; Maybe [Text]
-</span><a href="#local-6989586621679390103"><span class="hs-identifier hs-var hs-var">appIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679390103"><span class="hs-identifier hs-var">appIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390102"><span class="annot"><span class="annottext">s :: DescribeApps
-</span><a href="#local-6989586621679390102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps%27"><span class="hs-identifier hs-type">DescribeApps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390101"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679390101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApps
-</span><a href="#local-6989586621679390102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appIds:DescribeApps' :: Maybe [Text]
+</span><a href="#local-6989586621679390527"><span class="hs-identifier hs-var hs-var">appIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679390527"><span class="hs-identifier hs-var">appIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390526"><span class="annot"><span class="annottext">s :: DescribeApps
+</span><a href="#local-6989586621679390526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps%27"><span class="hs-identifier hs-type">DescribeApps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390525"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679390525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApps
+</span><a href="#local-6989586621679390526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appIds:DescribeApps' :: Maybe [Text]
 </span><a href="Network.AWS.OpsWorks.DescribeApps.html#%24sel%3AappIds%3ADescribeApps%27"><span class="hs-identifier hs-var">appIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679390101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps"><span class="hs-identifier hs-type">DescribeApps</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679390525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps"><span class="hs-identifier hs-type">DescribeApps</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeApps -&gt; f DescribeApps)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -184,8 +184,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The app stack ID. If you use this parameter, @DescribeApps@ returns a</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- description of the apps in the specified stack.</span><span>
@@ -195,25 +195,25 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (DescribeApps -&gt; Maybe Text -&gt; DescribeApps)
 -&gt; Lens DescribeApps DescribeApps (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps%27"><span class="hs-identifier hs-type">DescribeApps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390097"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps%27"><span class="hs-identifier hs-type">DescribeApps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390521"><span class="annot"><span class="annottext">Maybe Text
 stackId :: Maybe Text
 $sel:stackId:DescribeApps' :: DescribeApps -&gt; Maybe Text
-</span><a href="#local-6989586621679390097"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390097"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390096"><span class="annot"><span class="annottext">s :: DescribeApps
-</span><a href="#local-6989586621679390096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps%27"><span class="hs-identifier hs-type">DescribeApps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390095"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApps
-</span><a href="#local-6989586621679390096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:DescribeApps' :: Maybe Text
+</span><a href="#local-6989586621679390521"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390521"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390520"><span class="annot"><span class="annottext">s :: DescribeApps
+</span><a href="#local-6989586621679390520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps%27"><span class="hs-identifier hs-type">DescribeApps'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390519"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679390519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeApps
+</span><a href="#local-6989586621679390520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:DescribeApps' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.DescribeApps.html#%24sel%3AstackId%3ADescribeApps%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps"><span class="hs-identifier hs-type">DescribeApps</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps"><span class="hs-identifier hs-type">DescribeApps</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps"><span class="hs-identifier hs-type">DescribeApps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps"><span class="hs-identifier hs-type">DescribeApps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse"><span class="hs-identifier hs-type">DescribeAppsResponse</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679390091"><span class="annot"><span class="annottext">request :: DescribeApps -&gt; Request DescribeApps
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679390515"><span class="annot"><span class="annottext">request :: DescribeApps -&gt; Request DescribeApps
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeApps -&gt; Request DescribeApps
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679390087"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679390511"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeApps
 -&gt; ClientResponse ClientBody
@@ -237,10 +237,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679390084"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390084"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679390083"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679390083"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679390082"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679390082"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679390508"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390508"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679390507"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679390507"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679390506"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679390506"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe [App] -&gt; Int -&gt; DescribeAppsResponse
 </span><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse%27"><span class="hs-identifier hs-var">DescribeAppsResponse'</span></a></span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [App] -&gt; Int -&gt; DescribeAppsResponse)
@@ -248,7 +248,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeAppsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679390082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [App]))
+</span><a href="#local-6989586621679390506"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [App]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Apps&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [App]))
@@ -265,15 +265,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390084"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390508"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390073"><span id="local-6989586621679390075"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps"><span class="hs-identifier hs-type">DescribeApps</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390497"><span id="local-6989586621679390499"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps"><span class="hs-identifier hs-type">DescribeApps</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390070"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps"><span class="hs-identifier hs-type">DescribeApps</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390494"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps"><span class="hs-identifier hs-type">DescribeApps</span></a></span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps"><span class="hs-identifier hs-type">DescribeApps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679390066"><span class="annot"><span class="annottext">toHeaders :: DescribeApps -&gt; ResponseHeaders
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679390490"><span class="annot"><span class="annottext">toHeaders :: DescribeApps -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeApps -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -300,15 +300,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390056"><span id="local-6989586621679390058"><span id="local-6989586621679390060"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps"><span class="hs-identifier hs-type">DescribeApps</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679390054"><span class="annot"><span class="annottext">toJSON :: DescribeApps -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps%27"><span class="hs-identifier hs-type">DescribeApps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390051"><span id="local-6989586621679390052"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390480"><span id="local-6989586621679390482"><span id="local-6989586621679390484"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps"><span class="hs-identifier hs-type">DescribeApps</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679390478"><span class="annot"><span class="annottext">toJSON :: DescribeApps -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps%27"><span class="hs-identifier hs-type">DescribeApps'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390475"><span id="local-6989586621679390476"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 stackId :: Maybe Text
 appIds :: Maybe [Text]
 $sel:stackId:DescribeApps' :: DescribeApps -&gt; Maybe Text
 $sel:appIds:DescribeApps' :: DescribeApps -&gt; Maybe [Text]
-</span><a href="#local-6989586621679390051"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679390475"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -320,26 +320,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679390052"><span class="hs-identifier hs-var">appIds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679390476"><span class="hs-identifier hs-var">appIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390051"><span class="hs-identifier hs-var">stackId</span></a></span><span>
+</span><a href="#local-6989586621679390475"><span class="hs-identifier hs-var">stackId</span></a></span><span>
 </span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps"><span class="hs-identifier hs-type">DescribeApps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679390045"><span class="annot"><span class="annottext">toPath :: DescribeApps -&gt; ByteString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679390469"><span class="annot"><span class="annottext">toPath :: DescribeApps -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeApps -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeApps"><span class="hs-identifier hs-type">DescribeApps</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679390041"><span class="annot"><span class="annottext">toQuery :: DescribeApps -&gt; QueryString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679390465"><span class="annot"><span class="annottext">toQuery :: DescribeApps -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeApps -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -349,7 +349,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-148"></span><span class="hs-comment">-- | Contains the response to a @DescribeApps@ request.</span><span>
 </span><span id="line-149"></span><span class="hs-comment">--</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- /See:/ 'newDescribeAppsResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679390038"><span id="local-6989586621679390039"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAppsResponse"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse"><span class="hs-identifier hs-var">DescribeAppsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAppsResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse%27"><span class="hs-identifier hs-var">DescribeAppsResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679390462"><span id="local-6989586621679390463"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAppsResponse"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse"><span class="hs-identifier hs-var">DescribeAppsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAppsResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse%27"><span class="hs-identifier hs-var">DescribeAppsResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of @App@ objects that describe the specified apps.</span><span>
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3Aapps%3ADescribeAppsResponse%27"><span class="annot"><span class="annottext">DescribeAppsResponse -&gt; Maybe [App]
 </span><a href="Network.AWS.OpsWorks.DescribeApps.html#%24sel%3Aapps%3ADescribeAppsResponse%27"><span class="hs-identifier hs-var hs-var">apps</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.App.html#App"><span class="hs-identifier hs-type">App</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -357,7 +357,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeAppsResponse%27"><span class="annot"><span class="annottext">DescribeAppsResponse -&gt; Int
 </span><a href="Network.AWS.OpsWorks.DescribeApps.html#%24sel%3AhttpStatus%3ADescribeAppsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390032"><span id="local-6989586621679390034"><span class="annot"><span class="annottext">DescribeAppsResponse -&gt; DescribeAppsResponse -&gt; Bool
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390456"><span id="local-6989586621679390458"><span class="annot"><span class="annottext">DescribeAppsResponse -&gt; DescribeAppsResponse -&gt; Bool
 (DescribeAppsResponse -&gt; DescribeAppsResponse -&gt; Bool)
 -&gt; (DescribeAppsResponse -&gt; DescribeAppsResponse -&gt; Bool)
 -&gt; Eq DescribeAppsResponse
@@ -366,7 +366,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeAppsResponse -&gt; DescribeAppsResponse -&gt; Bool
 == :: DescribeAppsResponse -&gt; DescribeAppsResponse -&gt; Bool
 $c== :: DescribeAppsResponse -&gt; DescribeAppsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390024"><span id="local-6989586621679390026"><span id="local-6989586621679390028"><span id="local-6989586621679390030"><span class="annot"><span class="annottext">ReadPrec [DescribeAppsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390448"><span id="local-6989586621679390450"><span id="local-6989586621679390452"><span id="local-6989586621679390454"><span class="annot"><span class="annottext">ReadPrec [DescribeAppsResponse]
 ReadPrec DescribeAppsResponse
 Int -&gt; ReadS DescribeAppsResponse
 ReadS [DescribeAppsResponse]
@@ -386,7 +386,7 @@ readList :: ReadS [DescribeAppsResponse]
 $creadList :: ReadS [DescribeAppsResponse]
 readsPrec :: Int -&gt; ReadS DescribeAppsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeAppsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390018"><span id="local-6989586621679390020"><span id="local-6989586621679390022"><span class="annot"><span class="annottext">Int -&gt; DescribeAppsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390442"><span id="local-6989586621679390444"><span id="local-6989586621679390446"><span class="annot"><span class="annottext">Int -&gt; DescribeAppsResponse -&gt; ShowS
 [DescribeAppsResponse] -&gt; ShowS
 DescribeAppsResponse -&gt; String
 (Int -&gt; DescribeAppsResponse -&gt; ShowS)
@@ -428,8 +428,8 @@ $cfrom :: forall x. DescribeAppsResponse -&gt; Rep DescribeAppsResponse x
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse"><span class="hs-identifier hs-type">DescribeAppsResponse</span></a></span><span>
 </span><span id="line-174"></span><span id="newDescribeAppsResponse"><span class="annot"><span class="annottext">newDescribeAppsResponse :: Int -&gt; DescribeAppsResponse
-</span><a href="Network.AWS.OpsWorks.DescribeApps.html#newDescribeAppsResponse"><span class="hs-identifier hs-var hs-var">newDescribeAppsResponse</span></a></span></span><span> </span><span id="local-6989586621679390015"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390015"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.DescribeApps.html#newDescribeAppsResponse"><span class="hs-identifier hs-var hs-var">newDescribeAppsResponse</span></a></span></span><span> </span><span id="local-6989586621679390439"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390439"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">DescribeAppsResponse' :: Maybe [App] -&gt; Int -&gt; DescribeAppsResponse
 </span><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse%27"><span class="hs-identifier hs-type">DescribeAppsResponse'</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:apps:DescribeAppsResponse' :: Maybe [App]
@@ -438,7 +438,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAppsResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.DescribeApps.html#%24sel%3AhttpStatus%3ADescribeAppsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390015"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679390439"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | An array of @App@ objects that describe the specified apps.</span><span>
@@ -453,16 +453,16 @@ forall a. Maybe a
      (Maybe [App])
      (Maybe [App])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse%27"><span class="hs-identifier hs-type">DescribeAppsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390014"><span class="annot"><span class="annottext">Maybe [App]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse%27"><span class="hs-identifier hs-type">DescribeAppsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390438"><span class="annot"><span class="annottext">Maybe [App]
 apps :: Maybe [App]
 $sel:apps:DescribeAppsResponse' :: DescribeAppsResponse -&gt; Maybe [App]
-</span><a href="#local-6989586621679390014"><span class="hs-identifier hs-var hs-var">apps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [App]
-</span><a href="#local-6989586621679390014"><span class="hs-identifier hs-var">apps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390013"><span class="annot"><span class="annottext">s :: DescribeAppsResponse
-</span><a href="#local-6989586621679390013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse%27"><span class="hs-identifier hs-type">DescribeAppsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390012"><span class="annot"><span class="annottext">Maybe [App]
-</span><a href="#local-6989586621679390012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAppsResponse
-</span><a href="#local-6989586621679390013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apps:DescribeAppsResponse' :: Maybe [App]
+</span><a href="#local-6989586621679390438"><span class="hs-identifier hs-var hs-var">apps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [App]
+</span><a href="#local-6989586621679390438"><span class="hs-identifier hs-var">apps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390437"><span class="annot"><span class="annottext">s :: DescribeAppsResponse
+</span><a href="#local-6989586621679390437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse%27"><span class="hs-identifier hs-type">DescribeAppsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390436"><span class="annot"><span class="annottext">Maybe [App]
+</span><a href="#local-6989586621679390436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAppsResponse
+</span><a href="#local-6989586621679390437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apps:DescribeAppsResponse' :: Maybe [App]
 </span><a href="Network.AWS.OpsWorks.DescribeApps.html#%24sel%3Aapps%3ADescribeAppsResponse%27"><span class="hs-identifier hs-var">apps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [App]
-</span><a href="#local-6989586621679390012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse"><span class="hs-identifier hs-type">DescribeAppsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [App] -&gt; f (Maybe [App]))
+</span><a href="#local-6989586621679390436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse"><span class="hs-identifier hs-type">DescribeAppsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [App] -&gt; f (Maybe [App]))
  -&gt; DescribeAppsResponse -&gt; f DescribeAppsResponse)
 -&gt; ((Maybe [App] -&gt; f (Maybe [App]))
     -&gt; Maybe [App] -&gt; f (Maybe [App]))
@@ -476,8 +476,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [App] [App] [App] [App]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-185"></span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#describeAppsResponse_httpStatus"><span class="hs-identifier hs-type">describeAppsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse"><span class="hs-identifier hs-type">DescribeAppsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -486,16 +486,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (DescribeAppsResponse -&gt; Int -&gt; DescribeAppsResponse)
 -&gt; Lens DescribeAppsResponse DescribeAppsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse%27"><span class="hs-identifier hs-type">DescribeAppsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390011"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse%27"><span class="hs-identifier hs-type">DescribeAppsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390435"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeAppsResponse' :: DescribeAppsResponse -&gt; Int
-</span><a href="#local-6989586621679390011"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390011"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390010"><span class="annot"><span class="annottext">s :: DescribeAppsResponse
-</span><a href="#local-6989586621679390010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse%27"><span class="hs-identifier hs-type">DescribeAppsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390009"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAppsResponse
-</span><a href="#local-6989586621679390010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAppsResponse' :: Int
+</span><a href="#local-6989586621679390435"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390435"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390434"><span class="annot"><span class="annottext">s :: DescribeAppsResponse
+</span><a href="#local-6989586621679390434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse%27"><span class="hs-identifier hs-type">DescribeAppsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390433"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAppsResponse
+</span><a href="#local-6989586621679390434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAppsResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.DescribeApps.html#%24sel%3AhttpStatus%3ADescribeAppsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse"><span class="hs-identifier hs-type">DescribeAppsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse"><span class="hs-identifier hs-type">DescribeAppsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390007"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse"><span class="hs-identifier hs-type">DescribeAppsResponse</span></a></span></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390431"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeApps.html#DescribeAppsResponse"><span class="hs-identifier hs-type">DescribeAppsResponse</span></a></span></span><span>
 </span><span id="line-189"></span></pre></body></html>

@@ -26,30 +26,30 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes a set of permissions for a security group rule.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newSecurityGroupRuleDescription' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679248253"><span id="local-6989586621679248254"></span></span><span class="hs-keyword">data</span><span> </span><span id="SecurityGroupRuleDescription"><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-var">SecurityGroupRuleDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SecurityGroupRuleDescription%27"><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">SecurityGroupRuleDescription'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679248495"><span id="local-6989586621679248496"></span></span><span class="hs-keyword">data</span><span> </span><span id="SecurityGroupRuleDescription"><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-var">SecurityGroupRuleDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SecurityGroupRuleDescription%27"><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">SecurityGroupRuleDescription'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The start of the port range for the TCP and UDP protocols, or an</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- ICMP\/ICMPv6 type number. A value of @-1@ indicates all ICMP\/ICMPv6</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- types.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AfromPort%3ASecurityGroupRuleDescription%27"><span class="annot"><span class="annottext">SecurityGroupRuleDescription -&gt; Maybe Natural
 </span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AfromPort%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var hs-var">fromPort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The IPv4 ranges for the security group rule.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AiPV4Range%3ASecurityGroupRuleDescription%27"><span class="annot"><span class="annottext">SecurityGroupRuleDescription -&gt; Maybe Text
-</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AiPV4Range%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var hs-var">iPV4Range</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ID of the prefix list for the security group rule.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AprefixListId%3ASecurityGroupRuleDescription%27"><span class="annot"><span class="annottext">SecurityGroupRuleDescription -&gt; Maybe Text
-</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AprefixListId%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var hs-var">prefixListId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The IP protocol name (@tcp@, @udp@, @icmp@, @icmpv6@) or number.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aprotocol%3ASecurityGroupRuleDescription%27"><span class="annot"><span class="annottext">SecurityGroupRuleDescription -&gt; Maybe Text
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The IP protocol name (@tcp@, @udp@, @icmp@, @icmpv6@) or number.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aprotocol%3ASecurityGroupRuleDescription%27"><span class="annot"><span class="annottext">SecurityGroupRuleDescription -&gt; Maybe Text
 </span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3Aprotocol%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The IPv6 ranges for the security group rule.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AiPV6Range%3ASecurityGroupRuleDescription%27"><span class="annot"><span class="annottext">SecurityGroupRuleDescription -&gt; Maybe Text
-</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AiPV6Range%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var hs-var">iPV6Range</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The end of the port range for the TCP and UDP protocols, or an</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- ICMP\/ICMPv6 code. A value of @-1@ indicates all ICMP\/ICMPv6 codes.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AtoPort%3ASecurityGroupRuleDescription%27"><span class="annot"><span class="annottext">SecurityGroupRuleDescription -&gt; Maybe Natural
-</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AtoPort%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var hs-var">toPort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The IPv4 ranges for the security group rule.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AiPV4Range%3ASecurityGroupRuleDescription%27"><span class="annot"><span class="annottext">SecurityGroupRuleDescription -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AiPV4Range%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var hs-var">iPV4Range</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ID of the prefix list for the security group rule.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AprefixListId%3ASecurityGroupRuleDescription%27"><span class="annot"><span class="annottext">SecurityGroupRuleDescription -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AprefixListId%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var hs-var">prefixListId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The end of the port range for the TCP and UDP protocols, or an</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- ICMP\/ICMPv6 code. A value of @-1@ indicates all ICMP\/ICMPv6 codes.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AtoPort%3ASecurityGroupRuleDescription%27"><span class="annot"><span class="annottext">SecurityGroupRuleDescription -&gt; Maybe Natural
+</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AtoPort%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var hs-var">toPort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The IPv6 ranges for the security group rule.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AiPV6Range%3ASecurityGroupRuleDescription%27"><span class="annot"><span class="annottext">SecurityGroupRuleDescription -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AiPV6Range%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var hs-var">iPV6Range</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248242"><span id="local-6989586621679248244"><span class="annot"><span class="annottext">SecurityGroupRuleDescription
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248484"><span id="local-6989586621679248486"><span class="annot"><span class="annottext">SecurityGroupRuleDescription
 -&gt; SecurityGroupRuleDescription -&gt; Bool
 (SecurityGroupRuleDescription
  -&gt; SecurityGroupRuleDescription -&gt; Bool)
@@ -65,7 +65,7 @@ $c/= :: SecurityGroupRuleDescription
 -&gt; SecurityGroupRuleDescription -&gt; Bool
 $c== :: SecurityGroupRuleDescription
 -&gt; SecurityGroupRuleDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248233"><span id="local-6989586621679248235"><span id="local-6989586621679248237"><span id="local-6989586621679248239"><span class="annot"><span class="annottext">ReadPrec [SecurityGroupRuleDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248475"><span id="local-6989586621679248477"><span id="local-6989586621679248479"><span id="local-6989586621679248481"><span class="annot"><span class="annottext">ReadPrec [SecurityGroupRuleDescription]
 ReadPrec SecurityGroupRuleDescription
 Int -&gt; ReadS SecurityGroupRuleDescription
 ReadS [SecurityGroupRuleDescription]
@@ -85,7 +85,7 @@ readList :: ReadS [SecurityGroupRuleDescription]
 $creadList :: ReadS [SecurityGroupRuleDescription]
 readsPrec :: Int -&gt; ReadS SecurityGroupRuleDescription
 $creadsPrec :: Int -&gt; ReadS SecurityGroupRuleDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248226"><span id="local-6989586621679248228"><span id="local-6989586621679248230"><span class="annot"><span class="annottext">Int -&gt; SecurityGroupRuleDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248468"><span id="local-6989586621679248470"><span id="local-6989586621679248472"><span class="annot"><span class="annottext">Int -&gt; SecurityGroupRuleDescription -&gt; ShowS
 [SecurityGroupRuleDescription] -&gt; ShowS
 SecurityGroupRuleDescription -&gt; String
 (Int -&gt; SecurityGroupRuleDescription -&gt; ShowS)
@@ -129,16 +129,16 @@ SecurityGroupRuleDescription -&gt; Rep SecurityGroupRuleDescription x
 </span><span id="line-57"></span><span class="hs-comment">-- ICMP\/ICMPv6 type number. A value of @-1@ indicates all ICMP\/ICMPv6</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- types.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'iPV4Range', 'securityGroupRuleDescription_iPV4Range' - The IPv4 ranges for the security group rule.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'protocol', 'securityGroupRuleDescription_protocol' - The IP protocol name (@tcp@, @udp@, @icmp@, @icmpv6@) or number.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'prefixListId', 'securityGroupRuleDescription_prefixListId' - The ID of the prefix list for the security group rule.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'iPV4Range', 'securityGroupRuleDescription_iPV4Range' - The IPv4 ranges for the security group rule.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'protocol', 'securityGroupRuleDescription_protocol' - The IP protocol name (@tcp@, @udp@, @icmp@, @icmpv6@) or number.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'prefixListId', 'securityGroupRuleDescription_prefixListId' - The ID of the prefix list for the security group rule.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'iPV6Range', 'securityGroupRuleDescription_iPV6Range' - The IPv6 ranges for the security group rule.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'toPort', 'securityGroupRuleDescription_toPort' - The end of the port range for the TCP and UDP protocols, or an</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- ICMP\/ICMPv6 code. A value of @-1@ indicates all ICMP\/ICMPv6 codes.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'toPort', 'securityGroupRuleDescription_toPort' - The end of the port range for the TCP and UDP protocols, or an</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- ICMP\/ICMPv6 code. A value of @-1@ indicates all ICMP\/ICMPv6 codes.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'iPV6Range', 'securityGroupRuleDescription_iPV6Range' - The IPv6 ranges for the security group rule.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#newSecurityGroupRuleDescription"><span class="hs-identifier hs-type">newSecurityGroupRuleDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span>
 </span><span id="line-72"></span><span id="newSecurityGroupRuleDescription"><span class="annot"><span class="annottext">newSecurityGroupRuleDescription :: SecurityGroupRuleDescription
@@ -147,8 +147,8 @@ SecurityGroupRuleDescription -&gt; Rep SecurityGroupRuleDescription x
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Natural
+-&gt; Maybe Text
 -&gt; SecurityGroupRuleDescription
 </span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fromPort:SecurityGroupRuleDescription' :: Maybe Natural
@@ -156,24 +156,24 @@ SecurityGroupRuleDescription -&gt; Rep SecurityGroupRuleDescription x
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:iPV4Range:SecurityGroupRuleDescription' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AiPV4Range%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">iPV4Range</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefixListId:SecurityGroupRuleDescription' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AprefixListId%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">prefixListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:SecurityGroupRuleDescription' :: Maybe Text
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:SecurityGroupRuleDescription' :: Maybe Text
 </span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3Aprotocol%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:iPV6Range:SecurityGroupRuleDescription' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AiPV6Range%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">iPV6Range</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:iPV4Range:SecurityGroupRuleDescription' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AiPV4Range%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">iPV4Range</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:toPort:SecurityGroupRuleDescription' :: Maybe Natural
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefixListId:SecurityGroupRuleDescription' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AprefixListId%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">prefixListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:toPort:SecurityGroupRuleDescription' :: Maybe Natural
 </span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AtoPort%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">toPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:iPV6Range:SecurityGroupRuleDescription' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AiPV6Range%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">iPV6Range</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
@@ -193,68 +193,20 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248217"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248459"><span class="annot"><span class="annottext">Maybe Natural
 fromPort :: Maybe Natural
 $sel:fromPort:SecurityGroupRuleDescription' :: SecurityGroupRuleDescription -&gt; Maybe Natural
-</span><a href="#local-6989586621679248217"><span class="hs-identifier hs-var hs-var">fromPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679248217"><span class="hs-identifier hs-var">fromPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248216"><span class="annot"><span class="annottext">s :: SecurityGroupRuleDescription
-</span><a href="#local-6989586621679248216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248215"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679248215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroupRuleDescription
-</span><a href="#local-6989586621679248216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromPort:SecurityGroupRuleDescription' :: Maybe Natural
+</span><a href="#local-6989586621679248459"><span class="hs-identifier hs-var hs-var">fromPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679248459"><span class="hs-identifier hs-var">fromPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248458"><span class="annot"><span class="annottext">s :: SecurityGroupRuleDescription
+</span><a href="#local-6989586621679248458"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248457"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679248457"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroupRuleDescription
+</span><a href="#local-6989586621679248458"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromPort:SecurityGroupRuleDescription' :: Maybe Natural
 </span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AfromPort%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">fromPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679248215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248457"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The IPv4 ranges for the security group rule.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#securityGroupRuleDescription_iPV4Range"><span class="hs-identifier hs-type">securityGroupRuleDescription_iPV4Range</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="securityGroupRuleDescription_iPV4Range"><span class="annot"><span class="annottext">securityGroupRuleDescription_iPV4Range :: (Maybe Text -&gt; f (Maybe Text))
--&gt; SecurityGroupRuleDescription -&gt; f SecurityGroupRuleDescription
-</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#securityGroupRuleDescription_iPV4Range"><span class="hs-identifier hs-var hs-var">securityGroupRuleDescription_iPV4Range</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SecurityGroupRuleDescription -&gt; Maybe Text)
--&gt; (SecurityGroupRuleDescription
-    -&gt; Maybe Text -&gt; SecurityGroupRuleDescription)
--&gt; Lens
-     SecurityGroupRuleDescription
-     SecurityGroupRuleDescription
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248213"><span class="annot"><span class="annottext">Maybe Text
-iPV4Range :: Maybe Text
-$sel:iPV4Range:SecurityGroupRuleDescription' :: SecurityGroupRuleDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679248213"><span class="hs-identifier hs-var hs-var">iPV4Range</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248213"><span class="hs-identifier hs-var">iPV4Range</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248212"><span class="annot"><span class="annottext">s :: SecurityGroupRuleDescription
-</span><a href="#local-6989586621679248212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248211"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroupRuleDescription
-</span><a href="#local-6989586621679248212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iPV4Range:SecurityGroupRuleDescription' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AiPV4Range%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">iPV4Range</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The ID of the prefix list for the security group rule.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#securityGroupRuleDescription_prefixListId"><span class="hs-identifier hs-type">securityGroupRuleDescription_prefixListId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="securityGroupRuleDescription_prefixListId"><span class="annot"><span class="annottext">securityGroupRuleDescription_prefixListId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; SecurityGroupRuleDescription -&gt; f SecurityGroupRuleDescription
-</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#securityGroupRuleDescription_prefixListId"><span class="hs-identifier hs-var hs-var">securityGroupRuleDescription_prefixListId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SecurityGroupRuleDescription -&gt; Maybe Text)
--&gt; (SecurityGroupRuleDescription
-    -&gt; Maybe Text -&gt; SecurityGroupRuleDescription)
--&gt; Lens
-     SecurityGroupRuleDescription
-     SecurityGroupRuleDescription
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248209"><span class="annot"><span class="annottext">Maybe Text
-prefixListId :: Maybe Text
-$sel:prefixListId:SecurityGroupRuleDescription' :: SecurityGroupRuleDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679248209"><span class="hs-identifier hs-var hs-var">prefixListId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248209"><span class="hs-identifier hs-var">prefixListId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248208"><span class="annot"><span class="annottext">s :: SecurityGroupRuleDescription
-</span><a href="#local-6989586621679248208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248207"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroupRuleDescription
-</span><a href="#local-6989586621679248208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefixListId:SecurityGroupRuleDescription' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AprefixListId%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">prefixListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The IP protocol name (@tcp@, @udp@, @icmp@, @icmpv6@) or number.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#securityGroupRuleDescription_protocol"><span class="hs-identifier hs-type">securityGroupRuleDescription_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="securityGroupRuleDescription_protocol"><span class="annot"><span class="annottext">securityGroupRuleDescription_protocol :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-89"></span><span class="hs-comment">-- | The IP protocol name (@tcp@, @udp@, @icmp@, @icmpv6@) or number.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#securityGroupRuleDescription_protocol"><span class="hs-identifier hs-type">securityGroupRuleDescription_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="securityGroupRuleDescription_protocol"><span class="annot"><span class="annottext">securityGroupRuleDescription_protocol :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; SecurityGroupRuleDescription -&gt; f SecurityGroupRuleDescription
 </span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#securityGroupRuleDescription_protocol"><span class="hs-identifier hs-var hs-var">securityGroupRuleDescription_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SecurityGroupRuleDescription -&gt; Maybe Text)
 -&gt; (SecurityGroupRuleDescription
@@ -265,22 +217,22 @@ $sel:prefixListId:SecurityGroupRuleDescription' :: SecurityGroupRuleDescription 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248205"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248455"><span class="annot"><span class="annottext">Maybe Text
 protocol :: Maybe Text
 $sel:protocol:SecurityGroupRuleDescription' :: SecurityGroupRuleDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679248205"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248205"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248204"><span class="annot"><span class="annottext">s :: SecurityGroupRuleDescription
-</span><a href="#local-6989586621679248204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248203"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroupRuleDescription
-</span><a href="#local-6989586621679248204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:SecurityGroupRuleDescription' :: Maybe Text
+</span><a href="#local-6989586621679248455"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248455"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248454"><span class="annot"><span class="annottext">s :: SecurityGroupRuleDescription
+</span><a href="#local-6989586621679248454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248453"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroupRuleDescription
+</span><a href="#local-6989586621679248454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:SecurityGroupRuleDescription' :: Maybe Text
 </span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3Aprotocol%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The IPv6 ranges for the security group rule.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#securityGroupRuleDescription_iPV6Range"><span class="hs-identifier hs-type">securityGroupRuleDescription_iPV6Range</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="securityGroupRuleDescription_iPV6Range"><span class="annot"><span class="annottext">securityGroupRuleDescription_iPV6Range :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679248453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The IPv4 ranges for the security group rule.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#securityGroupRuleDescription_iPV4Range"><span class="hs-identifier hs-type">securityGroupRuleDescription_iPV4Range</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="securityGroupRuleDescription_iPV4Range"><span class="annot"><span class="annottext">securityGroupRuleDescription_iPV4Range :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; SecurityGroupRuleDescription -&gt; f SecurityGroupRuleDescription
-</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#securityGroupRuleDescription_iPV6Range"><span class="hs-identifier hs-var hs-var">securityGroupRuleDescription_iPV6Range</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SecurityGroupRuleDescription -&gt; Maybe Text)
+</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#securityGroupRuleDescription_iPV4Range"><span class="hs-identifier hs-var hs-var">securityGroupRuleDescription_iPV4Range</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SecurityGroupRuleDescription -&gt; Maybe Text)
 -&gt; (SecurityGroupRuleDescription
     -&gt; Maybe Text -&gt; SecurityGroupRuleDescription)
 -&gt; Lens
@@ -289,21 +241,45 @@ $sel:protocol:SecurityGroupRuleDescription' :: SecurityGroupRuleDescription -&gt
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248201"><span class="annot"><span class="annottext">Maybe Text
-iPV6Range :: Maybe Text
-$sel:iPV6Range:SecurityGroupRuleDescription' :: SecurityGroupRuleDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679248201"><span class="hs-identifier hs-var hs-var">iPV6Range</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248201"><span class="hs-identifier hs-var">iPV6Range</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248200"><span class="annot"><span class="annottext">s :: SecurityGroupRuleDescription
-</span><a href="#local-6989586621679248200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248199"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroupRuleDescription
-</span><a href="#local-6989586621679248200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iPV6Range:SecurityGroupRuleDescription' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AiPV6Range%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">iPV6Range</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The end of the port range for the TCP and UDP protocols, or an</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- ICMP\/ICMPv6 code. A value of @-1@ indicates all ICMP\/ICMPv6 codes.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#securityGroupRuleDescription_toPort"><span class="hs-identifier hs-type">securityGroupRuleDescription_toPort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="securityGroupRuleDescription_toPort"><span class="annot"><span class="annottext">securityGroupRuleDescription_toPort :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248451"><span class="annot"><span class="annottext">Maybe Text
+iPV4Range :: Maybe Text
+$sel:iPV4Range:SecurityGroupRuleDescription' :: SecurityGroupRuleDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679248451"><span class="hs-identifier hs-var hs-var">iPV4Range</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248451"><span class="hs-identifier hs-var">iPV4Range</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248450"><span class="annot"><span class="annottext">s :: SecurityGroupRuleDescription
+</span><a href="#local-6989586621679248450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248449"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroupRuleDescription
+</span><a href="#local-6989586621679248450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iPV4Range:SecurityGroupRuleDescription' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AiPV4Range%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">iPV4Range</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The ID of the prefix list for the security group rule.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#securityGroupRuleDescription_prefixListId"><span class="hs-identifier hs-type">securityGroupRuleDescription_prefixListId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="securityGroupRuleDescription_prefixListId"><span class="annot"><span class="annottext">securityGroupRuleDescription_prefixListId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SecurityGroupRuleDescription -&gt; f SecurityGroupRuleDescription
+</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#securityGroupRuleDescription_prefixListId"><span class="hs-identifier hs-var hs-var">securityGroupRuleDescription_prefixListId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SecurityGroupRuleDescription -&gt; Maybe Text)
+-&gt; (SecurityGroupRuleDescription
+    -&gt; Maybe Text -&gt; SecurityGroupRuleDescription)
+-&gt; Lens
+     SecurityGroupRuleDescription
+     SecurityGroupRuleDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248447"><span class="annot"><span class="annottext">Maybe Text
+prefixListId :: Maybe Text
+$sel:prefixListId:SecurityGroupRuleDescription' :: SecurityGroupRuleDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679248447"><span class="hs-identifier hs-var hs-var">prefixListId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248447"><span class="hs-identifier hs-var">prefixListId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248446"><span class="annot"><span class="annottext">s :: SecurityGroupRuleDescription
+</span><a href="#local-6989586621679248446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248445"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroupRuleDescription
+</span><a href="#local-6989586621679248446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefixListId:SecurityGroupRuleDescription' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AprefixListId%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">prefixListId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The end of the port range for the TCP and UDP protocols, or an</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- ICMP\/ICMPv6 code. A value of @-1@ indicates all ICMP\/ICMPv6 codes.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#securityGroupRuleDescription_toPort"><span class="hs-identifier hs-type">securityGroupRuleDescription_toPort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="securityGroupRuleDescription_toPort"><span class="annot"><span class="annottext">securityGroupRuleDescription_toPort :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; SecurityGroupRuleDescription -&gt; f SecurityGroupRuleDescription
 </span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#securityGroupRuleDescription_toPort"><span class="hs-identifier hs-var hs-var">securityGroupRuleDescription_toPort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SecurityGroupRuleDescription -&gt; Maybe Natural)
 -&gt; (SecurityGroupRuleDescription
@@ -314,19 +290,43 @@ $sel:iPV6Range:SecurityGroupRuleDescription' :: SecurityGroupRuleDescription -&g
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248197"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248443"><span class="annot"><span class="annottext">Maybe Natural
 toPort :: Maybe Natural
 $sel:toPort:SecurityGroupRuleDescription' :: SecurityGroupRuleDescription -&gt; Maybe Natural
-</span><a href="#local-6989586621679248197"><span class="hs-identifier hs-var hs-var">toPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679248197"><span class="hs-identifier hs-var">toPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248196"><span class="annot"><span class="annottext">s :: SecurityGroupRuleDescription
-</span><a href="#local-6989586621679248196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248195"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679248195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroupRuleDescription
-</span><a href="#local-6989586621679248196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:toPort:SecurityGroupRuleDescription' :: Maybe Natural
+</span><a href="#local-6989586621679248443"><span class="hs-identifier hs-var hs-var">toPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679248443"><span class="hs-identifier hs-var">toPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248442"><span class="annot"><span class="annottext">s :: SecurityGroupRuleDescription
+</span><a href="#local-6989586621679248442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248441"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679248441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroupRuleDescription
+</span><a href="#local-6989586621679248442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:toPort:SecurityGroupRuleDescription' :: Maybe Natural
 </span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AtoPort%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">toPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679248195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The IPv6 ranges for the security group rule.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#securityGroupRuleDescription_iPV6Range"><span class="hs-identifier hs-type">securityGroupRuleDescription_iPV6Range</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="securityGroupRuleDescription_iPV6Range"><span class="annot"><span class="annottext">securityGroupRuleDescription_iPV6Range :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SecurityGroupRuleDescription -&gt; f SecurityGroupRuleDescription
+</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#securityGroupRuleDescription_iPV6Range"><span class="hs-identifier hs-var hs-var">securityGroupRuleDescription_iPV6Range</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SecurityGroupRuleDescription -&gt; Maybe Text)
+-&gt; (SecurityGroupRuleDescription
+    -&gt; Maybe Text -&gt; SecurityGroupRuleDescription)
+-&gt; Lens
+     SecurityGroupRuleDescription
+     SecurityGroupRuleDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248439"><span class="annot"><span class="annottext">Maybe Text
+iPV6Range :: Maybe Text
+$sel:iPV6Range:SecurityGroupRuleDescription' :: SecurityGroupRuleDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679248439"><span class="hs-identifier hs-var hs-var">iPV6Range</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248439"><span class="hs-identifier hs-var">iPV6Range</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248438"><span class="annot"><span class="annottext">s :: SecurityGroupRuleDescription
+</span><a href="#local-6989586621679248438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-type">SecurityGroupRuleDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248437"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityGroupRuleDescription
+</span><a href="#local-6989586621679248438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iPV6Range:SecurityGroupRuleDescription' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#%24sel%3AiPV6Range%3ASecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">iPV6Range</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248192"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679248190"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SecurityGroupRuleDescription
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248434"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679248432"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SecurityGroupRuleDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SecurityGroupRuleDescription)
@@ -336,34 +336,34 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SecurityGroupRuleDescription&quot;</span></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248187"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248187"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248429"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248429"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Natural
+-&gt; Maybe Text
 -&gt; SecurityGroupRuleDescription
 </span><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription%27"><span class="hs-identifier hs-var">SecurityGroupRuleDescription'</span></a></span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe Natural
+ -&gt; Maybe Text
  -&gt; SecurityGroupRuleDescription)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe Natural
+      -&gt; Maybe Text
       -&gt; SecurityGroupRuleDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679248429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FromPort&quot;</span></span><span class="hs-special">)</span><span>
@@ -371,73 +371,73 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe Natural
+   -&gt; Maybe Text
    -&gt; SecurityGroupRuleDescription)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe Natural
+      -&gt; Maybe Text
       -&gt; SecurityGroupRuleDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679248429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IPV4Range&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Protocol&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe Natural
+   -&gt; Maybe Text
    -&gt; SecurityGroupRuleDescription)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe Natural -&gt; SecurityGroupRuleDescription)
+      -&gt; Maybe Natural -&gt; Maybe Text -&gt; SecurityGroupRuleDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679248429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IPV4Range&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Natural -&gt; Maybe Text -&gt; SecurityGroupRuleDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Natural -&gt; Maybe Text -&gt; SecurityGroupRuleDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PrefixListId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe Natural -&gt; SecurityGroupRuleDescription)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text -&gt; Maybe Natural -&gt; SecurityGroupRuleDescription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Protocol&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text -&gt; Maybe Natural -&gt; SecurityGroupRuleDescription)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Natural -&gt; SecurityGroupRuleDescription)
+  (Maybe Natural -&gt; Maybe Text -&gt; SecurityGroupRuleDescription)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Text -&gt; SecurityGroupRuleDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IPV6Range&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; SecurityGroupRuleDescription)
--&gt; Parser (Maybe Natural) -&gt; Parser SecurityGroupRuleDescription
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679248429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ToPort&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; SecurityGroupRuleDescription)
+-&gt; Parser (Maybe Text) -&gt; Parser SecurityGroupRuleDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248429"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IPV6Range&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679248181"><span id="local-6989586621679248183"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679248423"><span id="local-6989586621679248425"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248178"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248420"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.SecurityGroupRuleDescription.html#SecurityGroupRuleDescription"><span class="hs-identifier hs-type">SecurityGroupRuleDescription</span></a></span></span><span>
 </span><span id="line-129"></span></pre></body></html>

@@ -27,18 +27,18 @@
 </span><span id="line-27"></span><span class="hs-comment">-- definition.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newVolumeFrom' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679466239"><span id="local-6989586621679466240"></span></span><span class="hs-keyword">data</span><span> </span><span id="VolumeFrom"><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-var">VolumeFrom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VolumeFrom%27"><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom%27"><span class="hs-identifier hs-var">VolumeFrom'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If this value is @true@, the container has read-only access to the</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- volume. If this value is @false@, then the container can write to the</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- volume. The default value is @false@.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AreadOnly%3AVolumeFrom%27"><span class="annot"><span class="annottext">VolumeFrom -&gt; Maybe Bool
-</span><a href="Network.AWS.ECS.Types.VolumeFrom.html#%24sel%3AreadOnly%3AVolumeFrom%27"><span class="hs-identifier hs-var hs-var">readOnly</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of another container within the same task definition from which</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- to mount volumes.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsourceContainer%3AVolumeFrom%27"><span class="annot"><span class="annottext">VolumeFrom -&gt; Maybe Text
-</span><a href="Network.AWS.ECS.Types.VolumeFrom.html#%24sel%3AsourceContainer%3AVolumeFrom%27"><span class="hs-identifier hs-var hs-var">sourceContainer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679466978"><span id="local-6989586621679466979"></span></span><span class="hs-keyword">data</span><span> </span><span id="VolumeFrom"><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-var">VolumeFrom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VolumeFrom%27"><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom%27"><span class="hs-identifier hs-var">VolumeFrom'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of another container within the same task definition from which</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- to mount volumes.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsourceContainer%3AVolumeFrom%27"><span class="annot"><span class="annottext">VolumeFrom -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.Types.VolumeFrom.html#%24sel%3AsourceContainer%3AVolumeFrom%27"><span class="hs-identifier hs-var hs-var">sourceContainer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | If this value is @true@, the container has read-only access to the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- volume. If this value is @false@, then the container can write to the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- volume. The default value is @false@.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AreadOnly%3AVolumeFrom%27"><span class="annot"><span class="annottext">VolumeFrom -&gt; Maybe Bool
+</span><a href="Network.AWS.ECS.Types.VolumeFrom.html#%24sel%3AreadOnly%3AVolumeFrom%27"><span class="hs-identifier hs-var hs-var">readOnly</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679466232"><span id="local-6989586621679466234"><span class="annot"><span class="annottext">VolumeFrom -&gt; VolumeFrom -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679466971"><span id="local-6989586621679466973"><span class="annot"><span class="annottext">VolumeFrom -&gt; VolumeFrom -&gt; Bool
 (VolumeFrom -&gt; VolumeFrom -&gt; Bool)
 -&gt; (VolumeFrom -&gt; VolumeFrom -&gt; Bool) -&gt; Eq VolumeFrom
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VolumeFrom -&gt; VolumeFrom -&gt; Bool
 == :: VolumeFrom -&gt; VolumeFrom -&gt; Bool
 $c== :: VolumeFrom -&gt; VolumeFrom -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679466223"><span id="local-6989586621679466225"><span id="local-6989586621679466227"><span id="local-6989586621679466229"><span class="annot"><span class="annottext">ReadPrec [VolumeFrom]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679466962"><span id="local-6989586621679466964"><span id="local-6989586621679466966"><span id="local-6989586621679466968"><span class="annot"><span class="annottext">ReadPrec [VolumeFrom]
 ReadPrec VolumeFrom
 Int -&gt; ReadS VolumeFrom
 ReadS [VolumeFrom]
@@ -66,7 +66,7 @@ readList :: ReadS [VolumeFrom]
 $creadList :: ReadS [VolumeFrom]
 readsPrec :: Int -&gt; ReadS VolumeFrom
 $creadsPrec :: Int -&gt; ReadS VolumeFrom
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679466216"><span id="local-6989586621679466218"><span id="local-6989586621679466220"><span class="annot"><span class="annottext">Int -&gt; VolumeFrom -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679466955"><span id="local-6989586621679466957"><span id="local-6989586621679466959"><span class="annot"><span class="annottext">Int -&gt; VolumeFrom -&gt; ShowS
 [VolumeFrom] -&gt; ShowS
 VolumeFrom -&gt; String
 (Int -&gt; VolumeFrom -&gt; ShowS)
@@ -99,69 +99,69 @@ $cfrom :: forall x. VolumeFrom -&gt; Rep VolumeFrom x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'readOnly', 'volumeFrom_readOnly' - If this value is @true@, the container has read-only access to the</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- volume. If this value is @false@, then the container can write to the</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- volume. The default value is @false@.</span><span>
-</span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'sourceContainer', 'volumeFrom_sourceContainer' - The name of another container within the same task definition from which</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- to mount volumes.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'sourceContainer', 'volumeFrom_sourceContainer' - The name of another container within the same task definition from which</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- to mount volumes.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'readOnly', 'volumeFrom_readOnly' - If this value is @true@, the container has read-only access to the</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- volume. If this value is @false@, then the container can write to the</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- volume. The default value is @false@.</span><span>
 </span><span id="line-55"></span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#newVolumeFrom"><span class="hs-identifier hs-type">newVolumeFrom</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-type">VolumeFrom</span></a></span><span>
 </span><span id="line-57"></span><span id="newVolumeFrom"><span class="annot"><span class="annottext">newVolumeFrom :: VolumeFrom
 </span><a href="Network.AWS.ECS.Types.VolumeFrom.html#newVolumeFrom"><span class="hs-identifier hs-var hs-var">newVolumeFrom</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">VolumeFrom' :: Maybe Bool -&gt; Maybe Text -&gt; VolumeFrom
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">VolumeFrom' :: Maybe Text -&gt; Maybe Bool -&gt; VolumeFrom
 </span><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom%27"><span class="hs-identifier hs-type">VolumeFrom'</span></a></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:readOnly:VolumeFrom' :: Maybe Bool
-</span><a href="Network.AWS.ECS.Types.VolumeFrom.html#%24sel%3AreadOnly%3AVolumeFrom%27"><span class="hs-identifier hs-var">readOnly</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceContainer:VolumeFrom' :: Maybe Text
+</span><a href="Network.AWS.ECS.Types.VolumeFrom.html#%24sel%3AsourceContainer%3AVolumeFrom%27"><span class="hs-identifier hs-var">sourceContainer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceContainer:VolumeFrom' :: Maybe Text
-</span><a href="Network.AWS.ECS.Types.VolumeFrom.html#%24sel%3AsourceContainer%3AVolumeFrom%27"><span class="hs-identifier hs-var">sourceContainer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:readOnly:VolumeFrom' :: Maybe Bool
+</span><a href="Network.AWS.ECS.Types.VolumeFrom.html#%24sel%3AreadOnly%3AVolumeFrom%27"><span class="hs-identifier hs-var">readOnly</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | If this value is @true@, the container has read-only access to the</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- volume. If this value is @false@, then the container can write to the</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- volume. The default value is @false@.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#volumeFrom_readOnly"><span class="hs-identifier hs-type">volumeFrom_readOnly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-type">VolumeFrom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="volumeFrom_readOnly"><span class="annot"><span class="annottext">volumeFrom_readOnly :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; VolumeFrom -&gt; f VolumeFrom
-</span><a href="Network.AWS.ECS.Types.VolumeFrom.html#volumeFrom_readOnly"><span class="hs-identifier hs-var hs-var">volumeFrom_readOnly</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeFrom -&gt; Maybe Bool)
--&gt; (VolumeFrom -&gt; Maybe Bool -&gt; VolumeFrom)
--&gt; Lens VolumeFrom VolumeFrom (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom%27"><span class="hs-identifier hs-type">VolumeFrom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466207"><span class="annot"><span class="annottext">Maybe Bool
-readOnly :: Maybe Bool
-$sel:readOnly:VolumeFrom' :: VolumeFrom -&gt; Maybe Bool
-</span><a href="#local-6989586621679466207"><span class="hs-identifier hs-var hs-var">readOnly</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679466207"><span class="hs-identifier hs-var">readOnly</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679466206"><span class="annot"><span class="annottext">s :: VolumeFrom
-</span><a href="#local-6989586621679466206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom%27"><span class="hs-identifier hs-type">VolumeFrom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679466205"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679466205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeFrom
-</span><a href="#local-6989586621679466206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:readOnly:VolumeFrom' :: Maybe Bool
-</span><a href="Network.AWS.ECS.Types.VolumeFrom.html#%24sel%3AreadOnly%3AVolumeFrom%27"><span class="hs-identifier hs-var">readOnly</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679466205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-type">VolumeFrom</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | The name of another container within the same task definition from which</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- to mount volumes.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#volumeFrom_sourceContainer"><span class="hs-identifier hs-type">volumeFrom_sourceContainer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-type">VolumeFrom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="volumeFrom_sourceContainer"><span class="annot"><span class="annottext">volumeFrom_sourceContainer :: (Maybe Text -&gt; f (Maybe Text)) -&gt; VolumeFrom -&gt; f VolumeFrom
+</span><span id="line-63"></span><span class="hs-comment">-- | The name of another container within the same task definition from which</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- to mount volumes.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#volumeFrom_sourceContainer"><span class="hs-identifier hs-type">volumeFrom_sourceContainer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-type">VolumeFrom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="volumeFrom_sourceContainer"><span class="annot"><span class="annottext">volumeFrom_sourceContainer :: (Maybe Text -&gt; f (Maybe Text)) -&gt; VolumeFrom -&gt; f VolumeFrom
 </span><a href="Network.AWS.ECS.Types.VolumeFrom.html#volumeFrom_sourceContainer"><span class="hs-identifier hs-var hs-var">volumeFrom_sourceContainer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeFrom -&gt; Maybe Text)
 -&gt; (VolumeFrom -&gt; Maybe Text -&gt; VolumeFrom)
 -&gt; Lens VolumeFrom VolumeFrom (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom%27"><span class="hs-identifier hs-type">VolumeFrom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466203"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom%27"><span class="hs-identifier hs-type">VolumeFrom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466946"><span class="annot"><span class="annottext">Maybe Text
 sourceContainer :: Maybe Text
 $sel:sourceContainer:VolumeFrom' :: VolumeFrom -&gt; Maybe Text
-</span><a href="#local-6989586621679466203"><span class="hs-identifier hs-var hs-var">sourceContainer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679466203"><span class="hs-identifier hs-var">sourceContainer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679466202"><span class="annot"><span class="annottext">s :: VolumeFrom
-</span><a href="#local-6989586621679466202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom%27"><span class="hs-identifier hs-type">VolumeFrom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679466201"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679466201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeFrom
-</span><a href="#local-6989586621679466202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceContainer:VolumeFrom' :: Maybe Text
+</span><a href="#local-6989586621679466946"><span class="hs-identifier hs-var hs-var">sourceContainer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679466946"><span class="hs-identifier hs-var">sourceContainer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679466945"><span class="annot"><span class="annottext">s :: VolumeFrom
+</span><a href="#local-6989586621679466945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom%27"><span class="hs-identifier hs-type">VolumeFrom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679466944"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679466944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeFrom
+</span><a href="#local-6989586621679466945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceContainer:VolumeFrom' :: Maybe Text
 </span><a href="Network.AWS.ECS.Types.VolumeFrom.html#%24sel%3AsourceContainer%3AVolumeFrom%27"><span class="hs-identifier hs-var">sourceContainer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679466201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-type">VolumeFrom</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679466944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-type">VolumeFrom</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | If this value is @true@, the container has read-only access to the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- volume. If this value is @false@, then the container can write to the</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- volume. The default value is @false@.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#volumeFrom_readOnly"><span class="hs-identifier hs-type">volumeFrom_readOnly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-type">VolumeFrom</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="volumeFrom_readOnly"><span class="annot"><span class="annottext">volumeFrom_readOnly :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; VolumeFrom -&gt; f VolumeFrom
+</span><a href="Network.AWS.ECS.Types.VolumeFrom.html#volumeFrom_readOnly"><span class="hs-identifier hs-var hs-var">volumeFrom_readOnly</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VolumeFrom -&gt; Maybe Bool)
+-&gt; (VolumeFrom -&gt; Maybe Bool -&gt; VolumeFrom)
+-&gt; Lens VolumeFrom VolumeFrom (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom%27"><span class="hs-identifier hs-type">VolumeFrom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466942"><span class="annot"><span class="annottext">Maybe Bool
+readOnly :: Maybe Bool
+$sel:readOnly:VolumeFrom' :: VolumeFrom -&gt; Maybe Bool
+</span><a href="#local-6989586621679466942"><span class="hs-identifier hs-var hs-var">readOnly</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679466942"><span class="hs-identifier hs-var">readOnly</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679466941"><span class="annot"><span class="annottext">s :: VolumeFrom
+</span><a href="#local-6989586621679466941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom%27"><span class="hs-identifier hs-type">VolumeFrom'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679466940"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679466940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VolumeFrom
+</span><a href="#local-6989586621679466941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:readOnly:VolumeFrom' :: Maybe Bool
+</span><a href="Network.AWS.ECS.Types.VolumeFrom.html#%24sel%3AreadOnly%3AVolumeFrom%27"><span class="hs-identifier hs-var">readOnly</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679466940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-type">VolumeFrom</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466198"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-type">VolumeFrom</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679466196"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VolumeFrom
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466937"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-type">VolumeFrom</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679466935"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VolumeFrom
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser VolumeFrom) -&gt; Value -&gt; Parser VolumeFrom
@@ -169,61 +169,61 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;VolumeFrom&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679466193"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679466193"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Text -&gt; VolumeFrom
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679466932"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679466932"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Bool -&gt; VolumeFrom
 </span><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom%27"><span class="hs-identifier hs-var">VolumeFrom'</span></a></span><span>
-</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Text -&gt; VolumeFrom)
--&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Text -&gt; VolumeFrom)
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Bool -&gt; VolumeFrom)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Bool -&gt; VolumeFrom)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679466193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;readOnly&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; VolumeFrom)
--&gt; Parser (Maybe Text) -&gt; Parser VolumeFrom
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679466193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679466932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceContainer&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; VolumeFrom)
+-&gt; Parser (Maybe Bool) -&gt; Parser VolumeFrom
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679466932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;readOnly&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466187"><span id="local-6989586621679466189"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-type">VolumeFrom</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466926"><span id="local-6989586621679466928"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-type">VolumeFrom</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466184"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-type">VolumeFrom</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-type">VolumeFrom</span></a></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466176"><span id="local-6989586621679466178"><span id="local-6989586621679466180"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-type">VolumeFrom</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679466174"><span class="annot"><span class="annottext">toJSON :: VolumeFrom -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom%27"><span class="hs-identifier hs-type">VolumeFrom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466171"><span id="local-6989586621679466172"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679466915"><span id="local-6989586621679466917"><span id="local-6989586621679466919"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom"><span class="hs-identifier hs-type">VolumeFrom</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679466913"><span class="annot"><span class="annottext">toJSON :: VolumeFrom -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.VolumeFrom.html#VolumeFrom%27"><span class="hs-identifier hs-type">VolumeFrom'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679466910"><span id="local-6989586621679466911"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
-sourceContainer :: Maybe Text
 readOnly :: Maybe Bool
-$sel:sourceContainer:VolumeFrom' :: VolumeFrom -&gt; Maybe Text
+sourceContainer :: Maybe Text
 $sel:readOnly:VolumeFrom' :: VolumeFrom -&gt; Maybe Bool
-</span><a href="#local-6989586621679466171"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:sourceContainer:VolumeFrom' :: VolumeFrom -&gt; Maybe Text
+</span><a href="#local-6989586621679466910"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-92"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceContainer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679466911"><span class="hs-identifier hs-var">sourceContainer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;readOnly&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679466172"><span class="hs-identifier hs-var">readOnly</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;sourceContainer&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679466171"><span class="hs-identifier hs-var">sourceContainer</span></a></span><span>
+</span><a href="#local-6989586621679466910"><span class="hs-identifier hs-var">readOnly</span></a></span><span>
 </span><span id="line-95"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span></pre></body></html>

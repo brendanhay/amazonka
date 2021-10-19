@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679429070"><span id="local-6989586621679429071"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthMechanismValue"><span class="annot"><a href="Network.AWS.DMS.Types.AuthMechanismValue.html#AuthMechanismValue"><span class="hs-identifier hs-var">AuthMechanismValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthMechanismValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.AuthMechanismValue.html#AuthMechanismValue%27"><span class="hs-identifier hs-var">AuthMechanismValue'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679429341"><span id="local-6989586621679429342"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthMechanismValue"><span class="annot"><a href="Network.AWS.DMS.Types.AuthMechanismValue.html#AuthMechanismValue"><span class="hs-identifier hs-var">AuthMechanismValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthMechanismValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.AuthMechanismValue.html#AuthMechanismValue%27"><span class="hs-identifier hs-var">AuthMechanismValue'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuthMechanismValue"><span class="annot"><span class="annottext">AuthMechanismValue -&gt; Text
 </span><a href="Network.AWS.DMS.Types.AuthMechanismValue.html#fromAuthMechanismValue"><span class="hs-identifier hs-var hs-var">fromAuthMechanismValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679429062"><span id="local-6989586621679429064"><span id="local-6989586621679429066"><span class="annot"><span class="annottext">Int -&gt; AuthMechanismValue -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679429333"><span id="local-6989586621679429335"><span id="local-6989586621679429337"><span class="annot"><span class="annottext">Int -&gt; AuthMechanismValue -&gt; ShowS
 [AuthMechanismValue] -&gt; ShowS
 AuthMechanismValue -&gt; String
 (Int -&gt; AuthMechanismValue -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AuthMechanismValue -&gt; String
 showsPrec :: Int -&gt; AuthMechanismValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; AuthMechanismValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679429053"><span id="local-6989586621679429055"><span id="local-6989586621679429057"><span id="local-6989586621679429059"><span class="annot"><span class="annottext">ReadPrec [AuthMechanismValue]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679429324"><span id="local-6989586621679429326"><span id="local-6989586621679429328"><span id="local-6989586621679429330"><span class="annot"><span class="annottext">ReadPrec [AuthMechanismValue]
 ReadPrec AuthMechanismValue
 Int -&gt; ReadS AuthMechanismValue
 ReadS [AuthMechanismValue]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AuthMechanismValue]
 readsPrec :: Int -&gt; ReadS AuthMechanismValue
 $creadsPrec :: Int -&gt; ReadS AuthMechanismValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679429048"><span id="local-6989586621679429050"><span class="annot"><span class="annottext">AuthMechanismValue -&gt; AuthMechanismValue -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679429319"><span id="local-6989586621679429321"><span class="annot"><span class="annottext">AuthMechanismValue -&gt; AuthMechanismValue -&gt; Bool
 (AuthMechanismValue -&gt; AuthMechanismValue -&gt; Bool)
 -&gt; (AuthMechanismValue -&gt; AuthMechanismValue -&gt; Bool)
 -&gt; Eq AuthMechanismValue
@@ -83,7 +83,7 @@ $c/= :: AuthMechanismValue -&gt; AuthMechanismValue -&gt; Bool
 == :: AuthMechanismValue -&gt; AuthMechanismValue -&gt; Bool
 $c== :: AuthMechanismValue -&gt; AuthMechanismValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679429032"><span id="local-6989586621679429034"><span id="local-6989586621679429036"><span id="local-6989586621679429038"><span id="local-6989586621679429040"><span id="local-6989586621679429042"><span id="local-6989586621679429044"><span class="annot"><span class="annottext">Eq AuthMechanismValue
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679429303"><span id="local-6989586621679429305"><span id="local-6989586621679429307"><span id="local-6989586621679429309"><span id="local-6989586621679429311"><span id="local-6989586621679429313"><span id="local-6989586621679429315"><span class="annot"><span class="annottext">Eq AuthMechanismValue
 Eq AuthMechanismValue
 -&gt; (AuthMechanismValue -&gt; AuthMechanismValue -&gt; Ordering)
 -&gt; (AuthMechanismValue -&gt; AuthMechanismValue -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. AuthMechanismValue -&gt; Rep AuthMechanismValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679429024"><span id="local-6989586621679429026"><span class="annot"><span class="annottext">Int -&gt; AuthMechanismValue -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679429295"><span id="local-6989586621679429297"><span class="annot"><span class="annottext">Int -&gt; AuthMechanismValue -&gt; Int
 AuthMechanismValue -&gt; Int
 (Int -&gt; AuthMechanismValue -&gt; Int)
 -&gt; (AuthMechanismValue -&gt; Int) -&gt; Hashable AuthMechanismValue
@@ -144,53 +144,53 @@ $chash :: AuthMechanismValue -&gt; Int
 hashWithSalt :: Int -&gt; AuthMechanismValue -&gt; Int
 $chashWithSalt :: Int -&gt; AuthMechanismValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679429021"><span class="annot"><span class="annottext">AuthMechanismValue -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679429292"><span class="annot"><span class="annottext">AuthMechanismValue -&gt; ()
 (AuthMechanismValue -&gt; ()) -&gt; NFData AuthMechanismValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AuthMechanismValue -&gt; ()
 $crnf :: AuthMechanismValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679429018"><span class="annot"><span class="annottext">Text -&gt; Either String AuthMechanismValue
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679429289"><span class="annot"><span class="annottext">Text -&gt; Either String AuthMechanismValue
 (Text -&gt; Either String AuthMechanismValue)
 -&gt; FromText AuthMechanismValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AuthMechanismValue
 $cfromText :: Text -&gt; Either String AuthMechanismValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679429015"><span class="annot"><span class="annottext">AuthMechanismValue -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679429286"><span class="annot"><span class="annottext">AuthMechanismValue -&gt; Text
 (AuthMechanismValue -&gt; Text) -&gt; ToText AuthMechanismValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AuthMechanismValue -&gt; Text
 $ctoText :: AuthMechanismValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679429012"><span class="annot"><span class="annottext">AuthMechanismValue -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679429283"><span class="annot"><span class="annottext">AuthMechanismValue -&gt; ByteString
 (AuthMechanismValue -&gt; ByteString)
 -&gt; ToByteString AuthMechanismValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AuthMechanismValue -&gt; ByteString
 $ctoBS :: AuthMechanismValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679429009"><span class="annot"><span class="annottext">AuthMechanismValue -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679429280"><span class="annot"><span class="annottext">AuthMechanismValue -&gt; ByteStringBuilder
 (AuthMechanismValue -&gt; ByteStringBuilder)
 -&gt; ToLog AuthMechanismValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AuthMechanismValue -&gt; ByteStringBuilder
 $cbuild :: AuthMechanismValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679429006"><span class="annot"><span class="annottext">HeaderName -&gt; AuthMechanismValue -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679429277"><span class="annot"><span class="annottext">HeaderName -&gt; AuthMechanismValue -&gt; [Header]
 (HeaderName -&gt; AuthMechanismValue -&gt; [Header])
 -&gt; ToHeader AuthMechanismValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AuthMechanismValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AuthMechanismValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679429003"><span class="annot"><span class="annottext">AuthMechanismValue -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679429274"><span class="annot"><span class="annottext">AuthMechanismValue -&gt; QueryString
 (AuthMechanismValue -&gt; QueryString) -&gt; ToQuery AuthMechanismValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AuthMechanismValue -&gt; QueryString
 $ctoQuery :: AuthMechanismValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679428998"><span id="local-6989586621679429000"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthMechanismValue]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679429269"><span id="local-6989586621679429271"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthMechanismValue]
 Value -&gt; Parser AuthMechanismValue
 (Value -&gt; Parser AuthMechanismValue)
 -&gt; (Value -&gt; Parser [AuthMechanismValue])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [AuthMechanismValue]
 parseJSON :: Value -&gt; Parser AuthMechanismValue
 $cparseJSON :: Value -&gt; Parser AuthMechanismValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679428993"><span id="local-6989586621679428995"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthMechanismValue]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679429264"><span id="local-6989586621679429266"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthMechanismValue]
 FromJSONKeyFunction AuthMechanismValue
 FromJSONKeyFunction AuthMechanismValue
 -&gt; FromJSONKeyFunction [AuthMechanismValue]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AuthMechanismValue]
 fromJSONKey :: FromJSONKeyFunction AuthMechanismValue
 $cfromJSONKey :: FromJSONKeyFunction AuthMechanismValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679428984"><span id="local-6989586621679428986"><span id="local-6989586621679428988"><span id="local-6989586621679428990"><span class="annot"><span class="annottext">[AuthMechanismValue] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679429255"><span id="local-6989586621679429257"><span id="local-6989586621679429259"><span id="local-6989586621679429261"><span class="annot"><span class="annottext">[AuthMechanismValue] -&gt; Encoding
 [AuthMechanismValue] -&gt; Value
 AuthMechanismValue -&gt; Encoding
 AuthMechanismValue -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: AuthMechanismValue -&gt; Encoding
 toJSON :: AuthMechanismValue -&gt; Value
 $ctoJSON :: AuthMechanismValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679428979"><span id="local-6989586621679428981"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthMechanismValue]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679429250"><span id="local-6989586621679429252"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthMechanismValue]
 ToJSONKeyFunction AuthMechanismValue
 ToJSONKeyFunction AuthMechanismValue
 -&gt; ToJSONKeyFunction [AuthMechanismValue]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AuthMechanismValue]
 toJSONKey :: ToJSONKeyFunction AuthMechanismValue
 $ctoJSONKey :: ToJSONKeyFunction AuthMechanismValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679428976"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthMechanismValue
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679429247"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthMechanismValue
 ([Node] -&gt; Either String AuthMechanismValue)
 -&gt; FromXML AuthMechanismValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AuthMechanismValue
 $cparseXML :: [Node] -&gt; Either String AuthMechanismValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679428973"><span class="annot"><span class="annottext">AuthMechanismValue -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679429244"><span class="annot"><span class="annottext">AuthMechanismValue -&gt; XML
 (AuthMechanismValue -&gt; XML) -&gt; ToXML AuthMechanismValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AuthMechanismValue -&gt; XML

@@ -28,46 +28,46 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Information about a transit virtual interface.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newNewTransitVirtualInterface' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679281705"><span id="local-6989586621679281706"></span></span><span class="hs-keyword">data</span><span> </span><span id="NewTransitVirtualInterface"><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-var">NewTransitVirtualInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NewTransitVirtualInterface%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-var">NewTransitVirtualInterface'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The authentication key for BGP configuration. This string has a minimum</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- length of 6 characters and and a maximun lenth of 80 characters.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AauthKey%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AauthKey%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var hs-var">authKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- The valid values are 1-2147483647.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aasn%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe Int
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Aasn%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var hs-var">asn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The maximum transmission unit (MTU), in bytes. The supported values are</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- 1500 and 9001. The default value is 1500.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Amtu%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe Int
+</span><span id="line-31"></span><span id="local-6989586621679281933"><span id="local-6989586621679281934"></span></span><span class="hs-keyword">data</span><span> </span><span id="NewTransitVirtualInterface"><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-var">NewTransitVirtualInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NewTransitVirtualInterface%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-var">NewTransitVirtualInterface'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum transmission unit (MTU), in bytes. The supported values are</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- 1500 and 9001. The default value is 1500.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Amtu%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe Int
 </span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Amtu%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var hs-var">mtu</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The tags associated with the transitive virtual interface.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3Atags%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe (NonEmpty Tag)
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Atags%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The ID of the Direct Connect gateway.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AdirectConnectGatewayId%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AdirectConnectGatewayId%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var hs-var">directConnectGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The name of the virtual interface assigned by the customer network. The</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- name has a maximum of 100 characters. The following are valid</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- characters: a-z, 0-9 and a hyphen (-).</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AvirtualInterfaceName%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AvirtualInterfaceName%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var hs-var">virtualInterfaceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The IP address assigned to the Amazon interface.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AamazonAddress%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AamazonAddress%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var hs-var">amazonAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The address family for the BGP peer.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AaddressFamily%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe AddressFamily
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AaddressFamily%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var hs-var">addressFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily"><span class="hs-identifier hs-type">AddressFamily</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The ID of the VLAN.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3Avlan%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe Int
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The IP address assigned to the customer interface.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcustomerAddress%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AcustomerAddress%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var hs-var">customerAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ID of the VLAN.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Avlan%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe Int
 </span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Avlan%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var hs-var">vlan</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The IP address assigned to the customer interface.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AcustomerAddress%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AcustomerAddress%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var hs-var">customerAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The IP address assigned to the Amazon interface.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AamazonAddress%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AamazonAddress%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var hs-var">amazonAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The address family for the BGP peer.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AaddressFamily%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe AddressFamily
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AaddressFamily%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var hs-var">addressFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily"><span class="hs-identifier hs-type">AddressFamily</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The ID of the Direct Connect gateway.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AdirectConnectGatewayId%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AdirectConnectGatewayId%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var hs-var">directConnectGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- The valid values are 1-2147483647.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Aasn%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe Int
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Aasn%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var hs-var">asn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The authentication key for BGP configuration. This string has a minimum</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- length of 6 characters and and a maximun lenth of 80 characters.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AauthKey%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AauthKey%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var hs-var">authKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The name of the virtual interface assigned by the customer network. The</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- name has a maximum of 100 characters. The following are valid</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- characters: a-z, 0-9 and a hyphen (-).</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AvirtualInterfaceName%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AvirtualInterfaceName%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var hs-var">virtualInterfaceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The tags associated with the transitive virtual interface.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Atags%3ANewTransitVirtualInterface%27"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Atags%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281690"><span id="local-6989586621679281692"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; NewTransitVirtualInterface -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281918"><span id="local-6989586621679281920"><span class="annot"><span class="annottext">NewTransitVirtualInterface -&gt; NewTransitVirtualInterface -&gt; Bool
 (NewTransitVirtualInterface -&gt; NewTransitVirtualInterface -&gt; Bool)
 -&gt; (NewTransitVirtualInterface
     -&gt; NewTransitVirtualInterface -&gt; Bool)
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NewTransitVirtualInterface -&gt; NewTransitVirtualInterface -&gt; Bool
 == :: NewTransitVirtualInterface -&gt; NewTransitVirtualInterface -&gt; Bool
 $c== :: NewTransitVirtualInterface -&gt; NewTransitVirtualInterface -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281681"><span id="local-6989586621679281683"><span id="local-6989586621679281685"><span id="local-6989586621679281687"><span class="annot"><span class="annottext">ReadPrec [NewTransitVirtualInterface]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281909"><span id="local-6989586621679281911"><span id="local-6989586621679281913"><span id="local-6989586621679281915"><span class="annot"><span class="annottext">ReadPrec [NewTransitVirtualInterface]
 ReadPrec NewTransitVirtualInterface
 Int -&gt; ReadS NewTransitVirtualInterface
 ReadS [NewTransitVirtualInterface]
@@ -97,7 +97,7 @@ readList :: ReadS [NewTransitVirtualInterface]
 $creadList :: ReadS [NewTransitVirtualInterface]
 readsPrec :: Int -&gt; ReadS NewTransitVirtualInterface
 $creadsPrec :: Int -&gt; ReadS NewTransitVirtualInterface
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281674"><span id="local-6989586621679281676"><span id="local-6989586621679281678"><span class="annot"><span class="annottext">Int -&gt; NewTransitVirtualInterface -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281902"><span id="local-6989586621679281904"><span id="local-6989586621679281906"><span class="annot"><span class="annottext">Int -&gt; NewTransitVirtualInterface -&gt; ShowS
 [NewTransitVirtualInterface] -&gt; ShowS
 NewTransitVirtualInterface -&gt; String
 (Int -&gt; NewTransitVirtualInterface -&gt; ShowS)
@@ -137,147 +137,94 @@ NewTransitVirtualInterface -&gt; Rep NewTransitVirtualInterface x
 </span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'authKey', 'newTransitVirtualInterface_authKey' - The authentication key for BGP configuration. This string has a minimum</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- length of 6 characters and and a maximun lenth of 80 characters.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'mtu', 'newTransitVirtualInterface_mtu' - The maximum transmission unit (MTU), in bytes. The supported values are</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 1500 and 9001. The default value is 1500.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'asn', 'newTransitVirtualInterface_asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- configuration.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- The valid values are 1-2147483647.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'mtu', 'newTransitVirtualInterface_mtu' - The maximum transmission unit (MTU), in bytes. The supported values are</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 1500 and 9001. The default value is 1500.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'customerAddress', 'newTransitVirtualInterface_customerAddress' - The IP address assigned to the customer interface.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'vlan', 'newTransitVirtualInterface_vlan' - The ID of the VLAN.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'amazonAddress', 'newTransitVirtualInterface_amazonAddress' - The IP address assigned to the Amazon interface.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'addressFamily', 'newTransitVirtualInterface_addressFamily' - The address family for the BGP peer.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'tags', 'newTransitVirtualInterface_tags' - The tags associated with the transitive virtual interface.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'directConnectGatewayId', 'newTransitVirtualInterface_directConnectGatewayId' - The ID of the Direct Connect gateway.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'directConnectGatewayId', 'newTransitVirtualInterface_directConnectGatewayId' - The ID of the Direct Connect gateway.</span><span>
-</span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'virtualInterfaceName', 'newTransitVirtualInterface_virtualInterfaceName' - The name of the virtual interface assigned by the customer network. The</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- name has a maximum of 100 characters. The following are valid</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- characters: a-z, 0-9 and a hyphen (-).</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'amazonAddress', 'newTransitVirtualInterface_amazonAddress' - The IP address assigned to the Amazon interface.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'asn', 'newTransitVirtualInterface_asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The valid values are 1-2147483647.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'authKey', 'newTransitVirtualInterface_authKey' - The authentication key for BGP configuration. This string has a minimum</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- length of 6 characters and and a maximun lenth of 80 characters.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'addressFamily', 'newTransitVirtualInterface_addressFamily' - The address family for the BGP peer.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'vlan', 'newTransitVirtualInterface_vlan' - The ID of the VLAN.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'virtualInterfaceName', 'newTransitVirtualInterface_virtualInterfaceName' - The name of the virtual interface assigned by the customer network. The</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- name has a maximum of 100 characters. The following are valid</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- characters: a-z, 0-9 and a hyphen (-).</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'customerAddress', 'newTransitVirtualInterface_customerAddress' - The IP address assigned to the customer interface.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'tags', 'newTransitVirtualInterface_tags' - The tags associated with the transitive virtual interface.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newNewTransitVirtualInterface"><span class="hs-identifier hs-type">newNewTransitVirtualInterface</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span>
 </span><span id="line-98"></span><span id="newNewTransitVirtualInterface"><span class="annot"><span class="annottext">newNewTransitVirtualInterface :: NewTransitVirtualInterface
 </span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newNewTransitVirtualInterface"><span class="hs-identifier hs-var hs-var">newNewTransitVirtualInterface</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">NewTransitVirtualInterface' :: Maybe Text
--&gt; Maybe Int
--&gt; Maybe Int
--&gt; Maybe (NonEmpty Tag)
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">NewTransitVirtualInterface' :: Maybe Int
 -&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe Int
 -&gt; Maybe Text
 -&gt; Maybe AddressFamily
+-&gt; Maybe Text
 -&gt; Maybe Int
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty Tag)
 -&gt; NewTransitVirtualInterface
 </span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authKey:NewTransitVirtualInterface' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AauthKey%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">authKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:asn:NewTransitVirtualInterface' :: Maybe Int
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Aasn%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">asn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:mtu:NewTransitVirtualInterface' :: Maybe Int
+</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mtu:NewTransitVirtualInterface' :: Maybe Int
 </span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Amtu%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">mtu</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:NewTransitVirtualInterface' :: Maybe (NonEmpty Tag)
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Atags%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:customerAddress:NewTransitVirtualInterface' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AcustomerAddress%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">customerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:vlan:NewTransitVirtualInterface' :: Maybe Int
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Avlan%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">vlan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:amazonAddress:NewTransitVirtualInterface' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AamazonAddress%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:addressFamily:NewTransitVirtualInterface' :: Maybe AddressFamily
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AaddressFamily%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">addressFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:directConnectGatewayId:NewTransitVirtualInterface' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AdirectConnectGatewayId%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualInterfaceName:NewTransitVirtualInterface' :: Maybe Text
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:asn:NewTransitVirtualInterface' :: Maybe Int
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Aasn%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">asn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:authKey:NewTransitVirtualInterface' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AauthKey%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">authKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:virtualInterfaceName:NewTransitVirtualInterface' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AvirtualInterfaceName%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">virtualInterfaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:amazonAddress:NewTransitVirtualInterface' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AamazonAddress%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:addressFamily:NewTransitVirtualInterface' :: Maybe AddressFamily
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AaddressFamily%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">addressFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:vlan:NewTransitVirtualInterface' :: Maybe Int
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Avlan%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">vlan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:customerAddress:NewTransitVirtualInterface' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AcustomerAddress%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">customerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:NewTransitVirtualInterface' :: Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Atags%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The authentication key for BGP configuration. This string has a minimum</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- length of 6 characters and and a maximun lenth of 80 characters.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_authKey"><span class="hs-identifier hs-type">newTransitVirtualInterface_authKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="newTransitVirtualInterface_authKey"><span class="annot"><span class="annottext">newTransitVirtualInterface_authKey :: (Maybe Text -&gt; f (Maybe Text))
--&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_authKey"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterface_authKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterface -&gt; Maybe Text)
--&gt; (NewTransitVirtualInterface
-    -&gt; Maybe Text -&gt; NewTransitVirtualInterface)
--&gt; Lens
-     NewTransitVirtualInterface
-     NewTransitVirtualInterface
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281665"><span class="annot"><span class="annottext">Maybe Text
-authKey :: Maybe Text
-$sel:authKey:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
-</span><a href="#local-6989586621679281665"><span class="hs-identifier hs-var hs-var">authKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281665"><span class="hs-identifier hs-var">authKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281664"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
-</span><a href="#local-6989586621679281664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281663"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
-</span><a href="#local-6989586621679281664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authKey:NewTransitVirtualInterface' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AauthKey%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">authKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- configuration.</span><span>
-</span><span id="line-120"></span><span class="hs-comment">--</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- The valid values are 1-2147483647.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_asn"><span class="hs-identifier hs-type">newTransitVirtualInterface_asn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="newTransitVirtualInterface_asn"><span class="annot"><span class="annottext">newTransitVirtualInterface_asn :: (Maybe Int -&gt; f (Maybe Int))
--&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_asn"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterface_asn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterface -&gt; Maybe Int)
--&gt; (NewTransitVirtualInterface
-    -&gt; Maybe Int -&gt; NewTransitVirtualInterface)
--&gt; Lens
-     NewTransitVirtualInterface
-     NewTransitVirtualInterface
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281661"><span class="annot"><span class="annottext">Maybe Int
-asn :: Maybe Int
-$sel:asn:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Int
-</span><a href="#local-6989586621679281661"><span class="hs-identifier hs-var hs-var">asn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679281661"><span class="hs-identifier hs-var">asn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281660"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
-</span><a href="#local-6989586621679281660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281659"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679281659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
-</span><a href="#local-6989586621679281660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:asn:NewTransitVirtualInterface' :: Maybe Int
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Aasn%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">asn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679281659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | The maximum transmission unit (MTU), in bytes. The supported values are</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- 1500 and 9001. The default value is 1500.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_mtu"><span class="hs-identifier hs-type">newTransitVirtualInterface_mtu</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="newTransitVirtualInterface_mtu"><span class="annot"><span class="annottext">newTransitVirtualInterface_mtu :: (Maybe Int -&gt; f (Maybe Int))
+</span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The maximum transmission unit (MTU), in bytes. The supported values are</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 1500 and 9001. The default value is 1500.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_mtu"><span class="hs-identifier hs-type">newTransitVirtualInterface_mtu</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="newTransitVirtualInterface_mtu"><span class="annot"><span class="annottext">newTransitVirtualInterface_mtu :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface
 </span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_mtu"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterface_mtu</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterface -&gt; Maybe Int)
 -&gt; (NewTransitVirtualInterface
@@ -288,20 +235,218 @@ $sel:asn:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe I
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281657"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281893"><span class="annot"><span class="annottext">Maybe Int
 mtu :: Maybe Int
 $sel:mtu:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Int
-</span><a href="#local-6989586621679281657"><span class="hs-identifier hs-var hs-var">mtu</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679281657"><span class="hs-identifier hs-var">mtu</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281656"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
-</span><a href="#local-6989586621679281656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281655"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679281655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
-</span><a href="#local-6989586621679281656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mtu:NewTransitVirtualInterface' :: Maybe Int
+</span><a href="#local-6989586621679281893"><span class="hs-identifier hs-var hs-var">mtu</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679281893"><span class="hs-identifier hs-var">mtu</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281892"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
+</span><a href="#local-6989586621679281892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281891"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679281891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
+</span><a href="#local-6989586621679281892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mtu:NewTransitVirtualInterface' :: Maybe Int
 </span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Amtu%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">mtu</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679281655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The tags associated with the transitive virtual interface.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_tags"><span class="hs-identifier hs-type">newTransitVirtualInterface_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="newTransitVirtualInterface_tags"><span class="annot"><span class="annottext">newTransitVirtualInterface_tags :: (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+</span><a href="#local-6989586621679281891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The IP address assigned to the customer interface.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_customerAddress"><span class="hs-identifier hs-type">newTransitVirtualInterface_customerAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="newTransitVirtualInterface_customerAddress"><span class="annot"><span class="annottext">newTransitVirtualInterface_customerAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_customerAddress"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterface_customerAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterface -&gt; Maybe Text)
+-&gt; (NewTransitVirtualInterface
+    -&gt; Maybe Text -&gt; NewTransitVirtualInterface)
+-&gt; Lens
+     NewTransitVirtualInterface
+     NewTransitVirtualInterface
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281889"><span class="annot"><span class="annottext">Maybe Text
+customerAddress :: Maybe Text
+$sel:customerAddress:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
+</span><a href="#local-6989586621679281889"><span class="hs-identifier hs-var hs-var">customerAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281889"><span class="hs-identifier hs-var">customerAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281888"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
+</span><a href="#local-6989586621679281888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281887"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
+</span><a href="#local-6989586621679281888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerAddress:NewTransitVirtualInterface' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AcustomerAddress%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">customerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The ID of the VLAN.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_vlan"><span class="hs-identifier hs-type">newTransitVirtualInterface_vlan</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="newTransitVirtualInterface_vlan"><span class="annot"><span class="annottext">newTransitVirtualInterface_vlan :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_vlan"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterface_vlan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterface -&gt; Maybe Int)
+-&gt; (NewTransitVirtualInterface
+    -&gt; Maybe Int -&gt; NewTransitVirtualInterface)
+-&gt; Lens
+     NewTransitVirtualInterface
+     NewTransitVirtualInterface
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281885"><span class="annot"><span class="annottext">Maybe Int
+vlan :: Maybe Int
+$sel:vlan:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Int
+</span><a href="#local-6989586621679281885"><span class="hs-identifier hs-var hs-var">vlan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679281885"><span class="hs-identifier hs-var">vlan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281884"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
+</span><a href="#local-6989586621679281884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281883"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679281883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
+</span><a href="#local-6989586621679281884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vlan:NewTransitVirtualInterface' :: Maybe Int
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Avlan%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">vlan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679281883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The IP address assigned to the Amazon interface.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_amazonAddress"><span class="hs-identifier hs-type">newTransitVirtualInterface_amazonAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="newTransitVirtualInterface_amazonAddress"><span class="annot"><span class="annottext">newTransitVirtualInterface_amazonAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_amazonAddress"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterface_amazonAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterface -&gt; Maybe Text)
+-&gt; (NewTransitVirtualInterface
+    -&gt; Maybe Text -&gt; NewTransitVirtualInterface)
+-&gt; Lens
+     NewTransitVirtualInterface
+     NewTransitVirtualInterface
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281881"><span class="annot"><span class="annottext">Maybe Text
+amazonAddress :: Maybe Text
+$sel:amazonAddress:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
+</span><a href="#local-6989586621679281881"><span class="hs-identifier hs-var hs-var">amazonAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281881"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281880"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
+</span><a href="#local-6989586621679281880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281879"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
+</span><a href="#local-6989586621679281880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amazonAddress:NewTransitVirtualInterface' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AamazonAddress%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The address family for the BGP peer.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_addressFamily"><span class="hs-identifier hs-type">newTransitVirtualInterface_addressFamily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily"><span class="hs-identifier hs-type">AddressFamily</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="newTransitVirtualInterface_addressFamily"><span class="annot"><span class="annottext">newTransitVirtualInterface_addressFamily :: (Maybe AddressFamily -&gt; f (Maybe AddressFamily))
+-&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_addressFamily"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterface_addressFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterface -&gt; Maybe AddressFamily)
+-&gt; (NewTransitVirtualInterface
+    -&gt; Maybe AddressFamily -&gt; NewTransitVirtualInterface)
+-&gt; Lens
+     NewTransitVirtualInterface
+     NewTransitVirtualInterface
+     (Maybe AddressFamily)
+     (Maybe AddressFamily)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281877"><span class="annot"><span class="annottext">Maybe AddressFamily
+addressFamily :: Maybe AddressFamily
+$sel:addressFamily:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe AddressFamily
+</span><a href="#local-6989586621679281877"><span class="hs-identifier hs-var hs-var">addressFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
+</span><a href="#local-6989586621679281877"><span class="hs-identifier hs-var">addressFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281876"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
+</span><a href="#local-6989586621679281876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281875"><span class="annot"><span class="annottext">Maybe AddressFamily
+</span><a href="#local-6989586621679281875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
+</span><a href="#local-6989586621679281876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressFamily:NewTransitVirtualInterface' :: Maybe AddressFamily
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AaddressFamily%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">addressFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
+</span><a href="#local-6989586621679281875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The ID of the Direct Connect gateway.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_directConnectGatewayId"><span class="hs-identifier hs-type">newTransitVirtualInterface_directConnectGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="newTransitVirtualInterface_directConnectGatewayId"><span class="annot"><span class="annottext">newTransitVirtualInterface_directConnectGatewayId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_directConnectGatewayId"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterface_directConnectGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterface -&gt; Maybe Text)
+-&gt; (NewTransitVirtualInterface
+    -&gt; Maybe Text -&gt; NewTransitVirtualInterface)
+-&gt; Lens
+     NewTransitVirtualInterface
+     NewTransitVirtualInterface
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281873"><span class="annot"><span class="annottext">Maybe Text
+directConnectGatewayId :: Maybe Text
+$sel:directConnectGatewayId:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
+</span><a href="#local-6989586621679281873"><span class="hs-identifier hs-var hs-var">directConnectGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281873"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281872"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
+</span><a href="#local-6989586621679281872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281871"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
+</span><a href="#local-6989586621679281872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directConnectGatewayId:NewTransitVirtualInterface' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AdirectConnectGatewayId%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- The valid values are 1-2147483647.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_asn"><span class="hs-identifier hs-type">newTransitVirtualInterface_asn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="newTransitVirtualInterface_asn"><span class="annot"><span class="annottext">newTransitVirtualInterface_asn :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_asn"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterface_asn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterface -&gt; Maybe Int)
+-&gt; (NewTransitVirtualInterface
+    -&gt; Maybe Int -&gt; NewTransitVirtualInterface)
+-&gt; Lens
+     NewTransitVirtualInterface
+     NewTransitVirtualInterface
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281869"><span class="annot"><span class="annottext">Maybe Int
+asn :: Maybe Int
+$sel:asn:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Int
+</span><a href="#local-6989586621679281869"><span class="hs-identifier hs-var hs-var">asn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679281869"><span class="hs-identifier hs-var">asn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281868"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
+</span><a href="#local-6989586621679281868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281867"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679281867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
+</span><a href="#local-6989586621679281868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:asn:NewTransitVirtualInterface' :: Maybe Int
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Aasn%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">asn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679281867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The authentication key for BGP configuration. This string has a minimum</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- length of 6 characters and and a maximun lenth of 80 characters.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_authKey"><span class="hs-identifier hs-type">newTransitVirtualInterface_authKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="newTransitVirtualInterface_authKey"><span class="annot"><span class="annottext">newTransitVirtualInterface_authKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_authKey"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterface_authKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterface -&gt; Maybe Text)
+-&gt; (NewTransitVirtualInterface
+    -&gt; Maybe Text -&gt; NewTransitVirtualInterface)
+-&gt; Lens
+     NewTransitVirtualInterface
+     NewTransitVirtualInterface
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281865"><span class="annot"><span class="annottext">Maybe Text
+authKey :: Maybe Text
+$sel:authKey:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
+</span><a href="#local-6989586621679281865"><span class="hs-identifier hs-var hs-var">authKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281865"><span class="hs-identifier hs-var">authKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281864"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
+</span><a href="#local-6989586621679281864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281863"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
+</span><a href="#local-6989586621679281864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authKey:NewTransitVirtualInterface' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AauthKey%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">authKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The name of the virtual interface assigned by the customer network. The</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- name has a maximum of 100 characters. The following are valid</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- characters: a-z, 0-9 and a hyphen (-).</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_virtualInterfaceName"><span class="hs-identifier hs-type">newTransitVirtualInterface_virtualInterfaceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="newTransitVirtualInterface_virtualInterfaceName"><span class="annot"><span class="annottext">newTransitVirtualInterface_virtualInterfaceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_virtualInterfaceName"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterface_virtualInterfaceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterface -&gt; Maybe Text)
+-&gt; (NewTransitVirtualInterface
+    -&gt; Maybe Text -&gt; NewTransitVirtualInterface)
+-&gt; Lens
+     NewTransitVirtualInterface
+     NewTransitVirtualInterface
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281861"><span class="annot"><span class="annottext">Maybe Text
+virtualInterfaceName :: Maybe Text
+$sel:virtualInterfaceName:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
+</span><a href="#local-6989586621679281861"><span class="hs-identifier hs-var hs-var">virtualInterfaceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281861"><span class="hs-identifier hs-var">virtualInterfaceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281860"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
+</span><a href="#local-6989586621679281860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281859"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
+</span><a href="#local-6989586621679281860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceName:NewTransitVirtualInterface' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AvirtualInterfaceName%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">virtualInterfaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The tags associated with the transitive virtual interface.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_tags"><span class="hs-identifier hs-type">newTransitVirtualInterface_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="newTransitVirtualInterface_tags"><span class="annot"><span class="annottext">newTransitVirtualInterface_tags :: (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
 -&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface
 </span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_tags"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterface_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterface -&gt; Maybe (NonEmpty Tag))
 -&gt; (NewTransitVirtualInterface
@@ -312,16 +457,16 @@ $sel:mtu:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe I
      (Maybe (NonEmpty Tag))
      (Maybe (NonEmpty Tag))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281653"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281857"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
 tags :: Maybe (NonEmpty Tag)
 $sel:tags:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679281653"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679281653"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281652"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
-</span><a href="#local-6989586621679281652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281651"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679281651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
-</span><a href="#local-6989586621679281652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:NewTransitVirtualInterface' :: Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679281857"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679281857"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281856"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
+</span><a href="#local-6989586621679281856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281855"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679281855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
+</span><a href="#local-6989586621679281856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:NewTransitVirtualInterface' :: Maybe (NonEmpty Tag)
 </span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Atags%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679281651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+</span><a href="#local-6989586621679281855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
  -&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface)
 -&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
     -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
@@ -339,264 +484,118 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | The ID of the Direct Connect gateway.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_directConnectGatewayId"><span class="hs-identifier hs-type">newTransitVirtualInterface_directConnectGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="newTransitVirtualInterface_directConnectGatewayId"><span class="annot"><span class="annottext">newTransitVirtualInterface_directConnectGatewayId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_directConnectGatewayId"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterface_directConnectGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterface -&gt; Maybe Text)
--&gt; (NewTransitVirtualInterface
-    -&gt; Maybe Text -&gt; NewTransitVirtualInterface)
--&gt; Lens
-     NewTransitVirtualInterface
-     NewTransitVirtualInterface
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281646"><span class="annot"><span class="annottext">Maybe Text
-directConnectGatewayId :: Maybe Text
-$sel:directConnectGatewayId:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
-</span><a href="#local-6989586621679281646"><span class="hs-identifier hs-var hs-var">directConnectGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281646"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281645"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
-</span><a href="#local-6989586621679281645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281644"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
-</span><a href="#local-6989586621679281645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directConnectGatewayId:NewTransitVirtualInterface' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AdirectConnectGatewayId%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | The name of the virtual interface assigned by the customer network. The</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- name has a maximum of 100 characters. The following are valid</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- characters: a-z, 0-9 and a hyphen (-).</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_virtualInterfaceName"><span class="hs-identifier hs-type">newTransitVirtualInterface_virtualInterfaceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="newTransitVirtualInterface_virtualInterfaceName"><span class="annot"><span class="annottext">newTransitVirtualInterface_virtualInterfaceName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_virtualInterfaceName"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterface_virtualInterfaceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterface -&gt; Maybe Text)
--&gt; (NewTransitVirtualInterface
-    -&gt; Maybe Text -&gt; NewTransitVirtualInterface)
--&gt; Lens
-     NewTransitVirtualInterface
-     NewTransitVirtualInterface
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281642"><span class="annot"><span class="annottext">Maybe Text
-virtualInterfaceName :: Maybe Text
-$sel:virtualInterfaceName:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
-</span><a href="#local-6989586621679281642"><span class="hs-identifier hs-var hs-var">virtualInterfaceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281642"><span class="hs-identifier hs-var">virtualInterfaceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281641"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
-</span><a href="#local-6989586621679281641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281640"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
-</span><a href="#local-6989586621679281641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceName:NewTransitVirtualInterface' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AvirtualInterfaceName%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">virtualInterfaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | The IP address assigned to the Amazon interface.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_amazonAddress"><span class="hs-identifier hs-type">newTransitVirtualInterface_amazonAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="newTransitVirtualInterface_amazonAddress"><span class="annot"><span class="annottext">newTransitVirtualInterface_amazonAddress :: (Maybe Text -&gt; f (Maybe Text))
--&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_amazonAddress"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterface_amazonAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterface -&gt; Maybe Text)
--&gt; (NewTransitVirtualInterface
-    -&gt; Maybe Text -&gt; NewTransitVirtualInterface)
--&gt; Lens
-     NewTransitVirtualInterface
-     NewTransitVirtualInterface
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281638"><span class="annot"><span class="annottext">Maybe Text
-amazonAddress :: Maybe Text
-$sel:amazonAddress:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
-</span><a href="#local-6989586621679281638"><span class="hs-identifier hs-var hs-var">amazonAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281638"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281637"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
-</span><a href="#local-6989586621679281637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281636"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
-</span><a href="#local-6989586621679281637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amazonAddress:NewTransitVirtualInterface' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AamazonAddress%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- | The address family for the BGP peer.</span><span>
-</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_addressFamily"><span class="hs-identifier hs-type">newTransitVirtualInterface_addressFamily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily"><span class="hs-identifier hs-type">AddressFamily</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span id="newTransitVirtualInterface_addressFamily"><span class="annot"><span class="annottext">newTransitVirtualInterface_addressFamily :: (Maybe AddressFamily -&gt; f (Maybe AddressFamily))
--&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_addressFamily"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterface_addressFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterface -&gt; Maybe AddressFamily)
--&gt; (NewTransitVirtualInterface
-    -&gt; Maybe AddressFamily -&gt; NewTransitVirtualInterface)
--&gt; Lens
-     NewTransitVirtualInterface
-     NewTransitVirtualInterface
-     (Maybe AddressFamily)
-     (Maybe AddressFamily)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281634"><span class="annot"><span class="annottext">Maybe AddressFamily
-addressFamily :: Maybe AddressFamily
-$sel:addressFamily:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe AddressFamily
-</span><a href="#local-6989586621679281634"><span class="hs-identifier hs-var hs-var">addressFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
-</span><a href="#local-6989586621679281634"><span class="hs-identifier hs-var">addressFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281633"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
-</span><a href="#local-6989586621679281633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281632"><span class="annot"><span class="annottext">Maybe AddressFamily
-</span><a href="#local-6989586621679281632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
-</span><a href="#local-6989586621679281633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressFamily:NewTransitVirtualInterface' :: Maybe AddressFamily
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AaddressFamily%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">addressFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
-</span><a href="#local-6989586621679281632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- | The ID of the VLAN.</span><span>
-</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_vlan"><span class="hs-identifier hs-type">newTransitVirtualInterface_vlan</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span id="newTransitVirtualInterface_vlan"><span class="annot"><span class="annottext">newTransitVirtualInterface_vlan :: (Maybe Int -&gt; f (Maybe Int))
--&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_vlan"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterface_vlan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterface -&gt; Maybe Int)
--&gt; (NewTransitVirtualInterface
-    -&gt; Maybe Int -&gt; NewTransitVirtualInterface)
--&gt; Lens
-     NewTransitVirtualInterface
-     NewTransitVirtualInterface
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281630"><span class="annot"><span class="annottext">Maybe Int
-vlan :: Maybe Int
-$sel:vlan:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Int
-</span><a href="#local-6989586621679281630"><span class="hs-identifier hs-var hs-var">vlan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679281630"><span class="hs-identifier hs-var">vlan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281629"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
-</span><a href="#local-6989586621679281629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281628"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679281628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
-</span><a href="#local-6989586621679281629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vlan:NewTransitVirtualInterface' :: Maybe Int
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3Avlan%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">vlan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679281628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- | The IP address assigned to the customer interface.</span><span>
-</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_customerAddress"><span class="hs-identifier hs-type">newTransitVirtualInterface_customerAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span id="newTransitVirtualInterface_customerAddress"><span class="annot"><span class="annottext">newTransitVirtualInterface_customerAddress :: (Maybe Text -&gt; f (Maybe Text))
--&gt; NewTransitVirtualInterface -&gt; f NewTransitVirtualInterface
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#newTransitVirtualInterface_customerAddress"><span class="hs-identifier hs-var hs-var">newTransitVirtualInterface_customerAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewTransitVirtualInterface -&gt; Maybe Text)
--&gt; (NewTransitVirtualInterface
-    -&gt; Maybe Text -&gt; NewTransitVirtualInterface)
--&gt; Lens
-     NewTransitVirtualInterface
-     NewTransitVirtualInterface
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281626"><span class="annot"><span class="annottext">Maybe Text
-customerAddress :: Maybe Text
-$sel:customerAddress:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
-</span><a href="#local-6989586621679281626"><span class="hs-identifier hs-var hs-var">customerAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281626"><span class="hs-identifier hs-var">customerAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281625"><span class="annot"><span class="annottext">s :: NewTransitVirtualInterface
-</span><a href="#local-6989586621679281625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281624"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewTransitVirtualInterface
-</span><a href="#local-6989586621679281625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerAddress:NewTransitVirtualInterface' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#%24sel%3AcustomerAddress%3ANewTransitVirtualInterface%27"><span class="hs-identifier hs-var">customerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281620"><span id="local-6989586621679281622"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span></span></span><span>
-</span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281617"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span></span><span>
-</span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281609"><span id="local-6989586621679281611"><span id="local-6989586621679281613"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679281607"><span class="annot"><span class="annottext">toJSON :: NewTransitVirtualInterface -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281596"><span id="local-6989586621679281597"><span id="local-6989586621679281598"><span id="local-6989586621679281599"><span id="local-6989586621679281600"><span id="local-6989586621679281601"><span id="local-6989586621679281602"><span id="local-6989586621679281603"><span id="local-6989586621679281604"><span id="local-6989586621679281605"><span class="annot"><span class="annottext">Maybe Int
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281848"><span id="local-6989586621679281850"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281845"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281837"><span id="local-6989586621679281839"><span id="local-6989586621679281841"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface"><span class="hs-identifier hs-type">NewTransitVirtualInterface</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679281835"><span class="annot"><span class="annottext">toJSON :: NewTransitVirtualInterface -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewTransitVirtualInterface.html#NewTransitVirtualInterface%27"><span class="hs-identifier hs-type">NewTransitVirtualInterface'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281824"><span id="local-6989586621679281825"><span id="local-6989586621679281826"><span id="local-6989586621679281827"><span id="local-6989586621679281828"><span id="local-6989586621679281829"><span id="local-6989586621679281830"><span id="local-6989586621679281831"><span id="local-6989586621679281832"><span id="local-6989586621679281833"><span class="annot"><span class="annottext">Maybe Int
 Maybe (NonEmpty Tag)
 Maybe Text
 Maybe AddressFamily
-customerAddress :: Maybe Text
-vlan :: Maybe Int
+tags :: Maybe (NonEmpty Tag)
+virtualInterfaceName :: Maybe Text
+authKey :: Maybe Text
+asn :: Maybe Int
+directConnectGatewayId :: Maybe Text
 addressFamily :: Maybe AddressFamily
 amazonAddress :: Maybe Text
-virtualInterfaceName :: Maybe Text
-directConnectGatewayId :: Maybe Text
-tags :: Maybe (NonEmpty Tag)
+vlan :: Maybe Int
+customerAddress :: Maybe Text
 mtu :: Maybe Int
-asn :: Maybe Int
-authKey :: Maybe Text
-$sel:customerAddress:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
-$sel:vlan:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Int
+$sel:tags:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe (NonEmpty Tag)
+$sel:virtualInterfaceName:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
+$sel:authKey:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
+$sel:asn:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Int
+$sel:directConnectGatewayId:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
 $sel:addressFamily:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe AddressFamily
 $sel:amazonAddress:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
-$sel:virtualInterfaceName:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
-$sel:directConnectGatewayId:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
-$sel:tags:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe (NonEmpty Tag)
+$sel:vlan:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Int
+$sel:customerAddress:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
 $sel:mtu:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Int
-$sel:asn:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Int
-$sel:authKey:NewTransitVirtualInterface' :: NewTransitVirtualInterface -&gt; Maybe Text
-</span><a href="#local-6989586621679281596"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><a href="#local-6989586621679281824"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-168"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;authKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281605"><span class="hs-identifier hs-var">authKey</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;asn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679281604"><span class="hs-identifier hs-var">asn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-167"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mtu&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679281603"><span class="hs-identifier hs-var">mtu</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Tag -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; Pair) -&gt; Maybe (NonEmpty Tag) -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679281602"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;directConnectGatewayId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><a href="#local-6989586621679281833"><span class="hs-identifier hs-var">mtu</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;customerAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281601"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;virtualInterfaceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281600"><span class="hs-identifier hs-var">virtualInterfaceName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;amazonAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281599"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;addressFamily&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AddressFamily -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AddressFamily -&gt; Pair) -&gt; Maybe AddressFamily -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
-</span><a href="#local-6989586621679281598"><span class="hs-identifier hs-var">addressFamily</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679281832"><span class="hs-identifier hs-var">customerAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vlan&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679281597"><span class="hs-identifier hs-var">vlan</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;customerAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><a href="#local-6989586621679281831"><span class="hs-identifier hs-var">vlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;amazonAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281596"><span class="hs-identifier hs-var">customerAddress</span></a></span><span>
-</span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span></pre></body></html>
+</span><a href="#local-6989586621679281830"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;addressFamily&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AddressFamily -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AddressFamily -&gt; Pair) -&gt; Maybe AddressFamily -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
+</span><a href="#local-6989586621679281829"><span class="hs-identifier hs-var">addressFamily</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;directConnectGatewayId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281828"><span class="hs-identifier hs-var">directConnectGatewayId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;asn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679281827"><span class="hs-identifier hs-var">asn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281826"><span class="hs-identifier hs-var">authKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;virtualInterfaceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281825"><span class="hs-identifier hs-var">virtualInterfaceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Tag -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; Pair) -&gt; Maybe (NonEmpty Tag) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679281824"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span></pre></body></html>

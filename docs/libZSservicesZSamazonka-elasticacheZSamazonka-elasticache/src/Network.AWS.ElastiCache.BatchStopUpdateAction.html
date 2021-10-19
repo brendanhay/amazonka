@@ -38,8 +38,8 @@
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UpdateActionResultsMessage.html#newUpdateActionResultsMessage"><span class="hs-identifier">newUpdateActionResultsMessage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UpdateActionResultsMessage.html#updateActionResultsMessage_processedUpdateActions"><span class="hs-identifier">updateActionResultsMessage_processedUpdateActions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UpdateActionResultsMessage.html#updateActionResultsMessage_unprocessedUpdateActions"><span class="hs-identifier">updateActionResultsMessage_unprocessedUpdateActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UpdateActionResultsMessage.html#updateActionResultsMessage_unprocessedUpdateActions"><span class="hs-identifier">updateActionResultsMessage_unprocessedUpdateActions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UpdateActionResultsMessage.html#updateActionResultsMessage_processedUpdateActions"><span class="hs-identifier">updateActionResultsMessage_processedUpdateActions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span class="hs-keyword">where</span><span>
 </span><span id="line-45"></span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newBatchStopUpdateAction' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679424091"><span id="local-6989586621679424092"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchStopUpdateAction"><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-var">BatchStopUpdateAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchStopUpdateAction%27"><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction%27"><span class="hs-identifier hs-var">BatchStopUpdateAction'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679424687"><span id="local-6989586621679424688"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchStopUpdateAction"><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-var">BatchStopUpdateAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchStopUpdateAction%27"><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction%27"><span class="hs-identifier hs-var">BatchStopUpdateAction'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The cache cluster IDs</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AcacheClusterIds%3ABatchStopUpdateAction%27"><span class="annot"><span class="annottext">BatchStopUpdateAction -&gt; Maybe [Text]
 </span><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#%24sel%3AcacheClusterIds%3ABatchStopUpdateAction%27"><span class="hs-identifier hs-var hs-var">cacheClusterIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AserviceUpdateName%3ABatchStopUpdateAction%27"><span class="annot"><span class="annottext">BatchStopUpdateAction -&gt; Text
 </span><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#%24sel%3AserviceUpdateName%3ABatchStopUpdateAction%27"><span class="hs-identifier hs-var hs-var">serviceUpdateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679424083"><span id="local-6989586621679424085"><span class="annot"><span class="annottext">BatchStopUpdateAction -&gt; BatchStopUpdateAction -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679424679"><span id="local-6989586621679424681"><span class="annot"><span class="annottext">BatchStopUpdateAction -&gt; BatchStopUpdateAction -&gt; Bool
 (BatchStopUpdateAction -&gt; BatchStopUpdateAction -&gt; Bool)
 -&gt; (BatchStopUpdateAction -&gt; BatchStopUpdateAction -&gt; Bool)
 -&gt; Eq BatchStopUpdateAction
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchStopUpdateAction -&gt; BatchStopUpdateAction -&gt; Bool
 == :: BatchStopUpdateAction -&gt; BatchStopUpdateAction -&gt; Bool
 $c== :: BatchStopUpdateAction -&gt; BatchStopUpdateAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424074"><span id="local-6989586621679424076"><span id="local-6989586621679424078"><span id="local-6989586621679424080"><span class="annot"><span class="annottext">ReadPrec [BatchStopUpdateAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424670"><span id="local-6989586621679424672"><span id="local-6989586621679424674"><span id="local-6989586621679424676"><span class="annot"><span class="annottext">ReadPrec [BatchStopUpdateAction]
 ReadPrec BatchStopUpdateAction
 Int -&gt; ReadS BatchStopUpdateAction
 ReadS [BatchStopUpdateAction]
@@ -91,7 +91,7 @@ readList :: ReadS [BatchStopUpdateAction]
 $creadList :: ReadS [BatchStopUpdateAction]
 readsPrec :: Int -&gt; ReadS BatchStopUpdateAction
 $creadsPrec :: Int -&gt; ReadS BatchStopUpdateAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424067"><span id="local-6989586621679424069"><span id="local-6989586621679424071"><span class="annot"><span class="annottext">Int -&gt; BatchStopUpdateAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424663"><span id="local-6989586621679424665"><span id="local-6989586621679424667"><span class="annot"><span class="annottext">Int -&gt; BatchStopUpdateAction -&gt; ShowS
 [BatchStopUpdateAction] -&gt; ShowS
 BatchStopUpdateAction -&gt; String
 (Int -&gt; BatchStopUpdateAction -&gt; ShowS)
@@ -135,8 +135,8 @@ $cfrom :: forall x. BatchStopUpdateAction -&gt; Rep BatchStopUpdateAction x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-type">BatchStopUpdateAction</span></a></span><span>
 </span><span id="line-81"></span><span id="newBatchStopUpdateAction"><span class="annot"><span class="annottext">newBatchStopUpdateAction :: Text -&gt; BatchStopUpdateAction
-</span><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#newBatchStopUpdateAction"><span class="hs-identifier hs-var hs-var">newBatchStopUpdateAction</span></a></span></span><span> </span><span id="local-6989586621679424062"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424062"><span class="hs-identifier hs-var">pServiceUpdateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#newBatchStopUpdateAction"><span class="hs-identifier hs-var hs-var">newBatchStopUpdateAction</span></a></span></span><span> </span><span id="local-6989586621679424658"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424658"><span class="hs-identifier hs-var">pServiceUpdateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">BatchStopUpdateAction' :: Maybe [Text] -&gt; Maybe [Text] -&gt; Text -&gt; BatchStopUpdateAction
 </span><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction%27"><span class="hs-identifier hs-type">BatchStopUpdateAction'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cacheClusterIds:BatchStopUpdateAction' :: Maybe [Text]
@@ -150,7 +150,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceUpdateName:BatchStopUpdateAction' :: Text
 </span><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#%24sel%3AserviceUpdateName%3ABatchStopUpdateAction%27"><span class="hs-identifier hs-var">serviceUpdateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424062"><span class="hs-identifier hs-var">pServiceUpdateName_</span></a></span><span>
+</span><a href="#local-6989586621679424658"><span class="hs-identifier hs-var">pServiceUpdateName_</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The cache cluster IDs</span><span>
@@ -165,16 +165,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction%27"><span class="hs-identifier hs-type">BatchStopUpdateAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424059"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction%27"><span class="hs-identifier hs-type">BatchStopUpdateAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424655"><span class="annot"><span class="annottext">Maybe [Text]
 cacheClusterIds :: Maybe [Text]
 $sel:cacheClusterIds:BatchStopUpdateAction' :: BatchStopUpdateAction -&gt; Maybe [Text]
-</span><a href="#local-6989586621679424059"><span class="hs-identifier hs-var hs-var">cacheClusterIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679424059"><span class="hs-identifier hs-var">cacheClusterIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424058"><span class="annot"><span class="annottext">s :: BatchStopUpdateAction
-</span><a href="#local-6989586621679424058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction%27"><span class="hs-identifier hs-type">BatchStopUpdateAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424057"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679424057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStopUpdateAction
-</span><a href="#local-6989586621679424058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheClusterIds:BatchStopUpdateAction' :: Maybe [Text]
+</span><a href="#local-6989586621679424655"><span class="hs-identifier hs-var hs-var">cacheClusterIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679424655"><span class="hs-identifier hs-var">cacheClusterIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424654"><span class="annot"><span class="annottext">s :: BatchStopUpdateAction
+</span><a href="#local-6989586621679424654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction%27"><span class="hs-identifier hs-type">BatchStopUpdateAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424653"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679424653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStopUpdateAction
+</span><a href="#local-6989586621679424654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheClusterIds:BatchStopUpdateAction' :: Maybe [Text]
 </span><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#%24sel%3AcacheClusterIds%3ABatchStopUpdateAction%27"><span class="hs-identifier hs-var">cacheClusterIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679424057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-type">BatchStopUpdateAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679424653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-type">BatchStopUpdateAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; BatchStopUpdateAction -&gt; f BatchStopUpdateAction)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -188,8 +188,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The replication group IDs</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#batchStopUpdateAction_replicationGroupIds"><span class="hs-identifier hs-type">batchStopUpdateAction_replicationGroupIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-type">BatchStopUpdateAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -203,16 +203,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction%27"><span class="hs-identifier hs-type">BatchStopUpdateAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424053"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction%27"><span class="hs-identifier hs-type">BatchStopUpdateAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424649"><span class="annot"><span class="annottext">Maybe [Text]
 replicationGroupIds :: Maybe [Text]
 $sel:replicationGroupIds:BatchStopUpdateAction' :: BatchStopUpdateAction -&gt; Maybe [Text]
-</span><a href="#local-6989586621679424053"><span class="hs-identifier hs-var hs-var">replicationGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679424053"><span class="hs-identifier hs-var">replicationGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424052"><span class="annot"><span class="annottext">s :: BatchStopUpdateAction
-</span><a href="#local-6989586621679424052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction%27"><span class="hs-identifier hs-type">BatchStopUpdateAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424051"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679424051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStopUpdateAction
-</span><a href="#local-6989586621679424052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroupIds:BatchStopUpdateAction' :: Maybe [Text]
+</span><a href="#local-6989586621679424649"><span class="hs-identifier hs-var hs-var">replicationGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679424649"><span class="hs-identifier hs-var">replicationGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424648"><span class="annot"><span class="annottext">s :: BatchStopUpdateAction
+</span><a href="#local-6989586621679424648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction%27"><span class="hs-identifier hs-type">BatchStopUpdateAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424647"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679424647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStopUpdateAction
+</span><a href="#local-6989586621679424648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationGroupIds:BatchStopUpdateAction' :: Maybe [Text]
 </span><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#%24sel%3AreplicationGroupIds%3ABatchStopUpdateAction%27"><span class="hs-identifier hs-var">replicationGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679424051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-type">BatchStopUpdateAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679424647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-type">BatchStopUpdateAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; BatchStopUpdateAction -&gt; f BatchStopUpdateAction)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -226,8 +226,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The unique ID of the service update</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#batchStopUpdateAction_serviceUpdateName"><span class="hs-identifier hs-type">batchStopUpdateAction_serviceUpdateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-type">BatchStopUpdateAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -237,27 +237,27 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (BatchStopUpdateAction -&gt; Text -&gt; BatchStopUpdateAction)
 -&gt; Lens BatchStopUpdateAction BatchStopUpdateAction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction%27"><span class="hs-identifier hs-type">BatchStopUpdateAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424050"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction%27"><span class="hs-identifier hs-type">BatchStopUpdateAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424646"><span class="annot"><span class="annottext">Text
 serviceUpdateName :: Text
 $sel:serviceUpdateName:BatchStopUpdateAction' :: BatchStopUpdateAction -&gt; Text
-</span><a href="#local-6989586621679424050"><span class="hs-identifier hs-var hs-var">serviceUpdateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424050"><span class="hs-identifier hs-var">serviceUpdateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424049"><span class="annot"><span class="annottext">s :: BatchStopUpdateAction
-</span><a href="#local-6989586621679424049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction%27"><span class="hs-identifier hs-type">BatchStopUpdateAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424048"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStopUpdateAction
-</span><a href="#local-6989586621679424049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceUpdateName:BatchStopUpdateAction' :: Text
+</span><a href="#local-6989586621679424646"><span class="hs-identifier hs-var hs-var">serviceUpdateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424646"><span class="hs-identifier hs-var">serviceUpdateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424645"><span class="annot"><span class="annottext">s :: BatchStopUpdateAction
+</span><a href="#local-6989586621679424645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction%27"><span class="hs-identifier hs-type">BatchStopUpdateAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424644"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679424644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchStopUpdateAction
+</span><a href="#local-6989586621679424645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceUpdateName:BatchStopUpdateAction' :: Text
 </span><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#%24sel%3AserviceUpdateName%3ABatchStopUpdateAction%27"><span class="hs-identifier hs-var">serviceUpdateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-type">BatchStopUpdateAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-type">BatchStopUpdateAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-type">BatchStopUpdateAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-type">BatchStopUpdateAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.UpdateActionResultsMessage.html#UpdateActionResultsMessage"><span class="hs-identifier hs-type">UpdateActionResultsMessage</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679424044"><span class="annot"><span class="annottext">request :: BatchStopUpdateAction -&gt; Request BatchStopUpdateAction
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679424640"><span class="annot"><span class="annottext">request :: BatchStopUpdateAction -&gt; Request BatchStopUpdateAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchStopUpdateAction -&gt; Request BatchStopUpdateAction
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679424040"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679424636"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchStopUpdateAction
 -&gt; ClientResponse ClientBody
@@ -288,20 +288,20 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BatchStopUpdateActionResult&quot;</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424037"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679424037"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679424036"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679424036"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679424035"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424035"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String UpdateActionResultsMessage
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424633"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679424633"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679424632"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679424632"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679424631"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679424631"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String UpdateActionResultsMessage
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424035"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424631"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424030"><span id="local-6989586621679424032"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-type">BatchStopUpdateAction</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424626"><span id="local-6989586621679424628"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-type">BatchStopUpdateAction</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424027"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-type">BatchStopUpdateAction</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424623"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-type">BatchStopUpdateAction</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-type">BatchStopUpdateAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679424023"><span class="annot"><span class="annottext">toHeaders :: BatchStopUpdateAction -&gt; ResponseHeaders
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679424619"><span class="annot"><span class="annottext">toHeaders :: BatchStopUpdateAction -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchStopUpdateAction -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -309,15 +309,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-type">BatchStopUpdateAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679424018"><span class="annot"><span class="annottext">toPath :: BatchStopUpdateAction -&gt; ByteString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679424614"><span class="annot"><span class="annottext">toPath :: BatchStopUpdateAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchStopUpdateAction -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction"><span class="hs-identifier hs-type">BatchStopUpdateAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679424014"><span class="annot"><span class="annottext">toQuery :: BatchStopUpdateAction -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction%27"><span class="hs-identifier hs-type">BatchStopUpdateAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424010"><span id="local-6989586621679424011"><span id="local-6989586621679424012"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679424610"><span class="annot"><span class="annottext">toQuery :: BatchStopUpdateAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.BatchStopUpdateAction.html#BatchStopUpdateAction%27"><span class="hs-identifier hs-type">BatchStopUpdateAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424606"><span id="local-6989586621679424607"><span id="local-6989586621679424608"><span class="annot"><span class="annottext">Maybe [Text]
 Text
 serviceUpdateName :: Text
 replicationGroupIds :: Maybe [Text]
@@ -325,7 +325,7 @@ cacheClusterIds :: Maybe [Text]
 $sel:serviceUpdateName:BatchStopUpdateAction' :: BatchStopUpdateAction -&gt; Text
 $sel:replicationGroupIds:BatchStopUpdateAction' :: BatchStopUpdateAction -&gt; Maybe [Text]
 $sel:cacheClusterIds:BatchStopUpdateAction' :: BatchStopUpdateAction -&gt; Maybe [Text]
-</span><a href="#local-6989586621679424010"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679424606"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -357,7 +357,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-131"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679424012"><span class="hs-identifier hs-var">cacheClusterIds</span></a></span><span>
+</span><a href="#local-6989586621679424608"><span class="hs-identifier hs-var">cacheClusterIds</span></a></span><span>
 </span><span id="line-132"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReplicationGroupIds&quot;</span></span><span>
@@ -375,12 +375,12 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-136"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679424011"><span class="hs-identifier hs-var">replicationGroupIds</span></a></span><span>
+</span><a href="#local-6989586621679424607"><span class="hs-identifier hs-var">replicationGroupIds</span></a></span><span>
 </span><span id="line-137"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ServiceUpdateName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679424010"><span class="hs-identifier hs-var">serviceUpdateName</span></a></span><span>
+</span><a href="#local-6989586621679424606"><span class="hs-identifier hs-var">serviceUpdateName</span></a></span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span></pre></body></html>

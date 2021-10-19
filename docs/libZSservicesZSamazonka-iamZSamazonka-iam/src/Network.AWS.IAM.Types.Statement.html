@@ -32,21 +32,21 @@
 </span><span id="line-32"></span><span class="hs-comment">-- @ EvaluationResult @ type.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newStatement' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679429717"><span id="local-6989586621679429718"></span></span><span class="hs-keyword">data</span><span> </span><span id="Statement"><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-var">Statement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Statement%27"><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-var">Statement'</span></a></span></span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The row and column of the beginning of the @Statement@ in an IAM policy.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AstartPosition%3AStatement%27"><span class="annot"><span class="annottext">Statement -&gt; Maybe Position
-</span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AstartPosition%3AStatement%27"><span class="hs-identifier hs-var hs-var">startPosition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The type of the policy.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AsourcePolicyType%3AStatement%27"><span class="annot"><span class="annottext">Statement -&gt; Maybe PolicySourceType
+</span><span id="line-35"></span><span id="local-6989586621679430229"><span id="local-6989586621679430230"></span></span><span class="hs-keyword">data</span><span> </span><span id="Statement"><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-var">Statement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Statement%27"><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-var">Statement'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of the policy.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsourcePolicyType%3AStatement%27"><span class="annot"><span class="annottext">Statement -&gt; Maybe PolicySourceType
 </span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AsourcePolicyType%3AStatement%27"><span class="hs-identifier hs-var hs-var">sourcePolicyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicySourceType.html#PolicySourceType"><span class="hs-identifier hs-type">PolicySourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The identifier of the policy that was provided as an input.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AsourcePolicyId%3AStatement%27"><span class="annot"><span class="annottext">Statement -&gt; Maybe Text
+</span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AsourcePolicyId%3AStatement%27"><span class="hs-identifier hs-var hs-var">sourcePolicyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The row and column of the end of a @Statement@ in an IAM policy.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AendPosition%3AStatement%27"><span class="annot"><span class="annottext">Statement -&gt; Maybe Position
 </span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AendPosition%3AStatement%27"><span class="hs-identifier hs-var hs-var">endPosition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The identifier of the policy that was provided as an input.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AsourcePolicyId%3AStatement%27"><span class="annot"><span class="annottext">Statement -&gt; Maybe Text
-</span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AsourcePolicyId%3AStatement%27"><span class="hs-identifier hs-var hs-var">sourcePolicyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The row and column of the beginning of the @Statement@ in an IAM policy.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AstartPosition%3AStatement%27"><span class="annot"><span class="annottext">Statement -&gt; Maybe Position
+</span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AstartPosition%3AStatement%27"><span class="hs-identifier hs-var hs-var">startPosition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679429708"><span id="local-6989586621679429710"><span class="annot"><span class="annottext">Statement -&gt; Statement -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430220"><span id="local-6989586621679430222"><span class="annot"><span class="annottext">Statement -&gt; Statement -&gt; Bool
 (Statement -&gt; Statement -&gt; Bool)
 -&gt; (Statement -&gt; Statement -&gt; Bool) -&gt; Eq Statement
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Statement -&gt; Statement -&gt; Bool
 == :: Statement -&gt; Statement -&gt; Bool
 $c== :: Statement -&gt; Statement -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429699"><span id="local-6989586621679429701"><span id="local-6989586621679429703"><span id="local-6989586621679429705"><span class="annot"><span class="annottext">ReadPrec [Statement]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430211"><span id="local-6989586621679430213"><span id="local-6989586621679430215"><span id="local-6989586621679430217"><span class="annot"><span class="annottext">ReadPrec [Statement]
 ReadPrec Statement
 Int -&gt; ReadS Statement
 ReadS [Statement]
@@ -74,7 +74,7 @@ readList :: ReadS [Statement]
 $creadList :: ReadS [Statement]
 readsPrec :: Int -&gt; ReadS Statement
 $creadsPrec :: Int -&gt; ReadS Statement
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429692"><span id="local-6989586621679429694"><span id="local-6989586621679429696"><span class="annot"><span class="annottext">Int -&gt; Statement -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430204"><span id="local-6989586621679430206"><span id="local-6989586621679430208"><span class="annot"><span class="annottext">Int -&gt; Statement -&gt; ShowS
 [Statement] -&gt; ShowS
 Statement -&gt; String
 (Int -&gt; Statement -&gt; ShowS)
@@ -107,62 +107,41 @@ $cfrom :: forall x. Statement -&gt; Rep Statement x
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'startPosition', 'statement_startPosition' - The row and column of the beginning of the @Statement@ in an IAM policy.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'sourcePolicyType', 'statement_sourcePolicyType' - The type of the policy.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'sourcePolicyType', 'statement_sourcePolicyType' - The type of the policy.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'sourcePolicyId', 'statement_sourcePolicyId' - The identifier of the policy that was provided as an input.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- 'endPosition', 'statement_endPosition' - The row and column of the end of a @Statement@ in an IAM policy.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'sourcePolicyId', 'statement_sourcePolicyId' - The identifier of the policy that was provided as an input.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'startPosition', 'statement_startPosition' - The row and column of the beginning of the @Statement@ in an IAM policy.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#newStatement"><span class="hs-identifier hs-type">newStatement</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span>
 </span><span id="line-64"></span><span id="newStatement"><span class="annot"><span class="annottext">newStatement :: Statement
 </span><a href="Network.AWS.IAM.Types.Statement.html#newStatement"><span class="hs-identifier hs-var hs-var">newStatement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">Statement' :: Maybe Position
--&gt; Maybe PolicySourceType
--&gt; Maybe Position
--&gt; Maybe Text
--&gt; Statement
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">Statement' :: Maybe PolicySourceType
+-&gt; Maybe Text -&gt; Maybe Position -&gt; Maybe Position -&gt; Statement
 </span><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startPosition:Statement' :: Maybe Position
-</span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AstartPosition%3AStatement%27"><span class="hs-identifier hs-var">startPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Position
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourcePolicyType:Statement' :: Maybe PolicySourceType
+</span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AsourcePolicyType%3AStatement%27"><span class="hs-identifier hs-var">sourcePolicyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PolicySourceType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourcePolicyType:Statement' :: Maybe PolicySourceType
-</span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AsourcePolicyType%3AStatement%27"><span class="hs-identifier hs-var">sourcePolicyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PolicySourceType
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourcePolicyId:Statement' :: Maybe Text
+</span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AsourcePolicyId%3AStatement%27"><span class="hs-identifier hs-var">sourcePolicyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:endPosition:Statement' :: Maybe Position
 </span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AendPosition%3AStatement%27"><span class="hs-identifier hs-var">endPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Position
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourcePolicyId:Statement' :: Maybe Text
-</span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AsourcePolicyId%3AStatement%27"><span class="hs-identifier hs-var">sourcePolicyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:startPosition:Statement' :: Maybe Position
+</span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AstartPosition%3AStatement%27"><span class="hs-identifier hs-var">startPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Position
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The row and column of the beginning of the @Statement@ in an IAM policy.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#statement_startPosition"><span class="hs-identifier hs-type">statement_startPosition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="statement_startPosition"><span class="annot"><span class="annottext">statement_startPosition :: (Maybe Position -&gt; f (Maybe Position)) -&gt; Statement -&gt; f Statement
-</span><a href="Network.AWS.IAM.Types.Statement.html#statement_startPosition"><span class="hs-identifier hs-var hs-var">statement_startPosition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Statement -&gt; Maybe Position)
--&gt; (Statement -&gt; Maybe Position -&gt; Statement)
--&gt; Lens Statement Statement (Maybe Position) (Maybe Position)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429683"><span class="annot"><span class="annottext">Maybe Position
-startPosition :: Maybe Position
-$sel:startPosition:Statement' :: Statement -&gt; Maybe Position
-</span><a href="#local-6989586621679429683"><span class="hs-identifier hs-var hs-var">startPosition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Position
-</span><a href="#local-6989586621679429683"><span class="hs-identifier hs-var">startPosition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429682"><span class="annot"><span class="annottext">s :: Statement
-</span><a href="#local-6989586621679429682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429681"><span class="annot"><span class="annottext">Maybe Position
-</span><a href="#local-6989586621679429681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Statement
-</span><a href="#local-6989586621679429682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startPosition:Statement' :: Maybe Position
-</span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AstartPosition%3AStatement%27"><span class="hs-identifier hs-var">startPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Position
-</span><a href="#local-6989586621679429681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | The type of the policy.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#statement_sourcePolicyType"><span class="hs-identifier hs-type">statement_sourcePolicyType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicySourceType.html#PolicySourceType"><span class="hs-identifier hs-type">PolicySourceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="statement_sourcePolicyType"><span class="annot"><span class="annottext">statement_sourcePolicyType :: (Maybe PolicySourceType -&gt; f (Maybe PolicySourceType))
+</span><span id="line-72"></span><span class="hs-comment">-- | The type of the policy.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#statement_sourcePolicyType"><span class="hs-identifier hs-type">statement_sourcePolicyType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.PolicySourceType.html#PolicySourceType"><span class="hs-identifier hs-type">PolicySourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="statement_sourcePolicyType"><span class="annot"><span class="annottext">statement_sourcePolicyType :: (Maybe PolicySourceType -&gt; f (Maybe PolicySourceType))
 -&gt; Statement -&gt; f Statement
 </span><a href="Network.AWS.IAM.Types.Statement.html#statement_sourcePolicyType"><span class="hs-identifier hs-var hs-var">statement_sourcePolicyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Statement -&gt; Maybe PolicySourceType)
 -&gt; (Statement -&gt; Maybe PolicySourceType -&gt; Statement)
@@ -172,16 +151,34 @@ $sel:startPosition:Statement' :: Statement -&gt; Maybe Position
      (Maybe PolicySourceType)
      (Maybe PolicySourceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429679"><span class="annot"><span class="annottext">Maybe PolicySourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430195"><span class="annot"><span class="annottext">Maybe PolicySourceType
 sourcePolicyType :: Maybe PolicySourceType
 $sel:sourcePolicyType:Statement' :: Statement -&gt; Maybe PolicySourceType
-</span><a href="#local-6989586621679429679"><span class="hs-identifier hs-var hs-var">sourcePolicyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PolicySourceType
-</span><a href="#local-6989586621679429679"><span class="hs-identifier hs-var">sourcePolicyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429678"><span class="annot"><span class="annottext">s :: Statement
-</span><a href="#local-6989586621679429678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429677"><span class="annot"><span class="annottext">Maybe PolicySourceType
-</span><a href="#local-6989586621679429677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Statement
-</span><a href="#local-6989586621679429678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourcePolicyType:Statement' :: Maybe PolicySourceType
+</span><a href="#local-6989586621679430195"><span class="hs-identifier hs-var hs-var">sourcePolicyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PolicySourceType
+</span><a href="#local-6989586621679430195"><span class="hs-identifier hs-var">sourcePolicyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430194"><span class="annot"><span class="annottext">s :: Statement
+</span><a href="#local-6989586621679430194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430193"><span class="annot"><span class="annottext">Maybe PolicySourceType
+</span><a href="#local-6989586621679430193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Statement
+</span><a href="#local-6989586621679430194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourcePolicyType:Statement' :: Maybe PolicySourceType
 </span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AsourcePolicyType%3AStatement%27"><span class="hs-identifier hs-var">sourcePolicyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PolicySourceType
-</span><a href="#local-6989586621679429677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The identifier of the policy that was provided as an input.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#statement_sourcePolicyId"><span class="hs-identifier hs-type">statement_sourcePolicyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="statement_sourcePolicyId"><span class="annot"><span class="annottext">statement_sourcePolicyId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Statement -&gt; f Statement
+</span><a href="Network.AWS.IAM.Types.Statement.html#statement_sourcePolicyId"><span class="hs-identifier hs-var hs-var">statement_sourcePolicyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Statement -&gt; Maybe Text)
+-&gt; (Statement -&gt; Maybe Text -&gt; Statement)
+-&gt; Lens Statement Statement (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430191"><span class="annot"><span class="annottext">Maybe Text
+sourcePolicyId :: Maybe Text
+$sel:sourcePolicyId:Statement' :: Statement -&gt; Maybe Text
+</span><a href="#local-6989586621679430191"><span class="hs-identifier hs-var hs-var">sourcePolicyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430191"><span class="hs-identifier hs-var">sourcePolicyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430190"><span class="annot"><span class="annottext">s :: Statement
+</span><a href="#local-6989586621679430190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430189"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Statement
+</span><a href="#local-6989586621679430190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourcePolicyId:Statement' :: Maybe Text
+</span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AsourcePolicyId%3AStatement%27"><span class="hs-identifier hs-var">sourcePolicyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The row and column of the end of a @Statement@ in an IAM policy.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#statement_endPosition"><span class="hs-identifier hs-type">statement_endPosition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span><span class="hs-special">)</span><span>
@@ -190,92 +187,84 @@ $sel:sourcePolicyType:Statement' :: Statement -&gt; Maybe PolicySourceType
 -&gt; (Statement -&gt; Maybe Position -&gt; Statement)
 -&gt; Lens Statement Statement (Maybe Position) (Maybe Position)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429675"><span class="annot"><span class="annottext">Maybe Position
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430187"><span class="annot"><span class="annottext">Maybe Position
 endPosition :: Maybe Position
 $sel:endPosition:Statement' :: Statement -&gt; Maybe Position
-</span><a href="#local-6989586621679429675"><span class="hs-identifier hs-var hs-var">endPosition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Position
-</span><a href="#local-6989586621679429675"><span class="hs-identifier hs-var">endPosition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429674"><span class="annot"><span class="annottext">s :: Statement
-</span><a href="#local-6989586621679429674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429673"><span class="annot"><span class="annottext">Maybe Position
-</span><a href="#local-6989586621679429673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Statement
-</span><a href="#local-6989586621679429674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endPosition:Statement' :: Maybe Position
+</span><a href="#local-6989586621679430187"><span class="hs-identifier hs-var hs-var">endPosition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Position
+</span><a href="#local-6989586621679430187"><span class="hs-identifier hs-var">endPosition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430186"><span class="annot"><span class="annottext">s :: Statement
+</span><a href="#local-6989586621679430186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430185"><span class="annot"><span class="annottext">Maybe Position
+</span><a href="#local-6989586621679430185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Statement
+</span><a href="#local-6989586621679430186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endPosition:Statement' :: Maybe Position
 </span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AendPosition%3AStatement%27"><span class="hs-identifier hs-var">endPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Position
-</span><a href="#local-6989586621679429673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The identifier of the policy that was provided as an input.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#statement_sourcePolicyId"><span class="hs-identifier hs-type">statement_sourcePolicyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="statement_sourcePolicyId"><span class="annot"><span class="annottext">statement_sourcePolicyId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Statement -&gt; f Statement
-</span><a href="Network.AWS.IAM.Types.Statement.html#statement_sourcePolicyId"><span class="hs-identifier hs-var hs-var">statement_sourcePolicyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Statement -&gt; Maybe Text)
--&gt; (Statement -&gt; Maybe Text -&gt; Statement)
--&gt; Lens Statement Statement (Maybe Text) (Maybe Text)
+</span><span id="line-84"></span><span class="hs-comment">-- | The row and column of the beginning of the @Statement@ in an IAM policy.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#statement_startPosition"><span class="hs-identifier hs-type">statement_startPosition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Position.html#Position"><span class="hs-identifier hs-type">Position</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="statement_startPosition"><span class="annot"><span class="annottext">statement_startPosition :: (Maybe Position -&gt; f (Maybe Position)) -&gt; Statement -&gt; f Statement
+</span><a href="Network.AWS.IAM.Types.Statement.html#statement_startPosition"><span class="hs-identifier hs-var hs-var">statement_startPosition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Statement -&gt; Maybe Position)
+-&gt; (Statement -&gt; Maybe Position -&gt; Statement)
+-&gt; Lens Statement Statement (Maybe Position) (Maybe Position)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429671"><span class="annot"><span class="annottext">Maybe Text
-sourcePolicyId :: Maybe Text
-$sel:sourcePolicyId:Statement' :: Statement -&gt; Maybe Text
-</span><a href="#local-6989586621679429671"><span class="hs-identifier hs-var hs-var">sourcePolicyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429671"><span class="hs-identifier hs-var">sourcePolicyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429670"><span class="annot"><span class="annottext">s :: Statement
-</span><a href="#local-6989586621679429670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429669"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Statement
-</span><a href="#local-6989586621679429670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourcePolicyId:Statement' :: Maybe Text
-</span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AsourcePolicyId%3AStatement%27"><span class="hs-identifier hs-var">sourcePolicyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430183"><span class="annot"><span class="annottext">Maybe Position
+startPosition :: Maybe Position
+$sel:startPosition:Statement' :: Statement -&gt; Maybe Position
+</span><a href="#local-6989586621679430183"><span class="hs-identifier hs-var hs-var">startPosition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Position
+</span><a href="#local-6989586621679430183"><span class="hs-identifier hs-var">startPosition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430182"><span class="annot"><span class="annottext">s :: Statement
+</span><a href="#local-6989586621679430182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-type">Statement'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430181"><span class="annot"><span class="annottext">Maybe Position
+</span><a href="#local-6989586621679430181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Statement
+</span><a href="#local-6989586621679430182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startPosition:Statement' :: Maybe Position
+</span><a href="Network.AWS.IAM.Types.Statement.html#%24sel%3AstartPosition%3AStatement%27"><span class="hs-identifier hs-var">startPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Position
+</span><a href="#local-6989586621679430181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679429666"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Statement
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679429664"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679429664"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">Maybe Position
--&gt; Maybe PolicySourceType
--&gt; Maybe Position
--&gt; Maybe Text
--&gt; Statement
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679430178"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Statement
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679430176"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679430176"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">Maybe PolicySourceType
+-&gt; Maybe Text -&gt; Maybe Position -&gt; Maybe Position -&gt; Statement
 </span><a href="Network.AWS.IAM.Types.Statement.html#Statement%27"><span class="hs-identifier hs-var">Statement'</span></a></span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Position
- -&gt; Maybe PolicySourceType
- -&gt; Maybe Position
- -&gt; Maybe Text
- -&gt; Statement)
--&gt; Either String (Maybe Position)
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">(Maybe PolicySourceType
+ -&gt; Maybe Text -&gt; Maybe Position -&gt; Maybe Position -&gt; Statement)
+-&gt; Either String (Maybe PolicySourceType)
 -&gt; Either
      String
-     (Maybe PolicySourceType
-      -&gt; Maybe Position -&gt; Maybe Text -&gt; Statement)
+     (Maybe Text -&gt; Maybe Position -&gt; Maybe Position -&gt; Statement)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679429664"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Position)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StartPosition&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe PolicySourceType
-   -&gt; Maybe Position -&gt; Maybe Text -&gt; Statement)
--&gt; Either String (Maybe PolicySourceType)
--&gt; Either String (Maybe Position -&gt; Maybe Text -&gt; Statement)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679429664"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PolicySourceType)
+</span><a href="#local-6989586621679430176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PolicySourceType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourcePolicyType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Position -&gt; Maybe Text -&gt; Statement)
--&gt; Either String (Maybe Position)
--&gt; Either String (Maybe Text -&gt; Statement)
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Position -&gt; Maybe Position -&gt; Statement)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Position -&gt; Maybe Position -&gt; Statement)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679429664"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Position)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EndPosition&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Statement)
--&gt; Either String (Maybe Text) -&gt; Either String Statement
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679429664"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679430176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourcePolicyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Position -&gt; Maybe Position -&gt; Statement)
+-&gt; Either String (Maybe Position)
+-&gt; Either String (Maybe Position -&gt; Statement)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679430176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Position)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndPosition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Position -&gt; Statement)
+-&gt; Either String (Maybe Position) -&gt; Either String Statement
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679430176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Position)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartPosition&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429658"><span id="local-6989586621679429660"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430170"><span id="local-6989586621679430172"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429655"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430167"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a></span></span><span>
 </span><span id="line-99"></span></pre></body></html>

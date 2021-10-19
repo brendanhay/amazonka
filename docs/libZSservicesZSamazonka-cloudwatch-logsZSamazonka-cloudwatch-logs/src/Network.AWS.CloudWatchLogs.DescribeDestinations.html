@@ -31,8 +31,8 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#describeDestinations_nextToken"><span class="hs-identifier">describeDestinations_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#describeDestinations_destinationNamePrefix"><span class="hs-identifier">describeDestinations_destinationNamePrefix</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#describeDestinations_limit"><span class="hs-identifier">describeDestinations_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#describeDestinations_limit"><span class="hs-identifier">describeDestinations_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#describeDestinations_destinationNamePrefix"><span class="hs-identifier">describeDestinations_destinationNamePrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse"><span class="hs-identifier">DescribeDestinationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -53,21 +53,21 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDescribeDestinations' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679230625"><span id="local-6989586621679230626"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDestinations"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-var">DescribeDestinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDestinations%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations%27"><span class="hs-identifier hs-var">DescribeDestinations'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679230789"><span id="local-6989586621679230790"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDestinations"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-var">DescribeDestinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDestinations%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations%27"><span class="hs-identifier hs-var">DescribeDestinations'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- from a previous call.)</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeDestinations%27"><span class="annot"><span class="annottext">DescribeDestinations -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3AnextToken%3ADescribeDestinations%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The prefix to match. If you don\'t specify a value, no prefix filter is</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- applied.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AdestinationNamePrefix%3ADescribeDestinations%27"><span class="annot"><span class="annottext">DescribeDestinations -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3AdestinationNamePrefix%3ADescribeDestinations%27"><span class="hs-identifier hs-var hs-var">destinationNamePrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The maximum number of items returned. If you don\'t specify a value, the</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- default is up to 50 items.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeDestinations%27"><span class="annot"><span class="annottext">DescribeDestinations -&gt; Maybe Natural
-</span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3Alimit%3ADescribeDestinations%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The maximum number of items returned. If you don\'t specify a value, the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- default is up to 50 items.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeDestinations%27"><span class="annot"><span class="annottext">DescribeDestinations -&gt; Maybe Natural
+</span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3Alimit%3ADescribeDestinations%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The prefix to match. If you don\'t specify a value, no prefix filter is</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- applied.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AdestinationNamePrefix%3ADescribeDestinations%27"><span class="annot"><span class="annottext">DescribeDestinations -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3AdestinationNamePrefix%3ADescribeDestinations%27"><span class="hs-identifier hs-var hs-var">destinationNamePrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230617"><span id="local-6989586621679230619"><span class="annot"><span class="annottext">DescribeDestinations -&gt; DescribeDestinations -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230781"><span id="local-6989586621679230783"><span class="annot"><span class="annottext">DescribeDestinations -&gt; DescribeDestinations -&gt; Bool
 (DescribeDestinations -&gt; DescribeDestinations -&gt; Bool)
 -&gt; (DescribeDestinations -&gt; DescribeDestinations -&gt; Bool)
 -&gt; Eq DescribeDestinations
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeDestinations -&gt; DescribeDestinations -&gt; Bool
 == :: DescribeDestinations -&gt; DescribeDestinations -&gt; Bool
 $c== :: DescribeDestinations -&gt; DescribeDestinations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230608"><span id="local-6989586621679230610"><span id="local-6989586621679230612"><span id="local-6989586621679230614"><span class="annot"><span class="annottext">ReadPrec [DescribeDestinations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230772"><span id="local-6989586621679230774"><span id="local-6989586621679230776"><span id="local-6989586621679230778"><span class="annot"><span class="annottext">ReadPrec [DescribeDestinations]
 ReadPrec DescribeDestinations
 Int -&gt; ReadS DescribeDestinations
 ReadS [DescribeDestinations]
@@ -96,7 +96,7 @@ readList :: ReadS [DescribeDestinations]
 $creadList :: ReadS [DescribeDestinations]
 readsPrec :: Int -&gt; ReadS DescribeDestinations
 $creadsPrec :: Int -&gt; ReadS DescribeDestinations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230601"><span id="local-6989586621679230603"><span id="local-6989586621679230605"><span class="annot"><span class="annottext">Int -&gt; DescribeDestinations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230765"><span id="local-6989586621679230767"><span id="local-6989586621679230769"><span class="annot"><span class="annottext">Int -&gt; DescribeDestinations -&gt; ShowS
 [DescribeDestinations] -&gt; ShowS
 DescribeDestinations -&gt; String
 (Int -&gt; DescribeDestinations -&gt; ShowS)
@@ -133,27 +133,27 @@ $cfrom :: forall x. DescribeDestinations -&gt; Rep DescribeDestinations x
 </span><span id="line-77"></span><span class="hs-comment">-- 'nextToken', 'describeDestinations_nextToken' - The token for the next set of items to return. (You received this token</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- from a previous call.)</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'destinationNamePrefix', 'describeDestinations_destinationNamePrefix' - The prefix to match. If you don\'t specify a value, no prefix filter is</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- applied.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'limit', 'describeDestinations_limit' - The maximum number of items returned. If you don\'t specify a value, the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- default is up to 50 items.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'limit', 'describeDestinations_limit' - The maximum number of items returned. If you don\'t specify a value, the</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- default is up to 50 items.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'destinationNamePrefix', 'describeDestinations_destinationNamePrefix' - The prefix to match. If you don\'t specify a value, no prefix filter is</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- applied.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#newDescribeDestinations"><span class="hs-identifier hs-type">newDescribeDestinations</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span><span>
 </span><span id="line-87"></span><span id="newDescribeDestinations"><span class="annot"><span class="annottext">newDescribeDestinations :: DescribeDestinations
 </span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#newDescribeDestinations"><span class="hs-identifier hs-var hs-var">newDescribeDestinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">DescribeDestinations' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; DescribeDestinations
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">DescribeDestinations' :: Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; DescribeDestinations
 </span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations%27"><span class="hs-identifier hs-type">DescribeDestinations'</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeDestinations' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3AnextToken%3ADescribeDestinations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationNamePrefix:DescribeDestinations' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3AdestinationNamePrefix%3ADescribeDestinations%27"><span class="hs-identifier hs-var">destinationNamePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:DescribeDestinations' :: Maybe Natural
+</span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3Alimit%3ADescribeDestinations%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:DescribeDestinations' :: Maybe Natural
-</span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3Alimit%3ADescribeDestinations%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationNamePrefix:DescribeDestinations' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3AdestinationNamePrefix%3ADescribeDestinations%27"><span class="hs-identifier hs-var">destinationNamePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
@@ -168,42 +168,21 @@ forall a. Maybe a
 -&gt; Lens
      DescribeDestinations DescribeDestinations (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations%27"><span class="hs-identifier hs-type">DescribeDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230595"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations%27"><span class="hs-identifier hs-type">DescribeDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230759"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeDestinations' :: DescribeDestinations -&gt; Maybe Text
-</span><a href="#local-6989586621679230595"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230595"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230594"><span class="annot"><span class="annottext">s :: DescribeDestinations
-</span><a href="#local-6989586621679230594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations%27"><span class="hs-identifier hs-type">DescribeDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230593"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDestinations
-</span><a href="#local-6989586621679230594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeDestinations' :: Maybe Text
+</span><a href="#local-6989586621679230759"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230759"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230758"><span class="annot"><span class="annottext">s :: DescribeDestinations
+</span><a href="#local-6989586621679230758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations%27"><span class="hs-identifier hs-type">DescribeDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230757"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDestinations
+</span><a href="#local-6989586621679230758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeDestinations' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3AnextToken%3ADescribeDestinations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679230757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | The prefix to match. If you don\'t specify a value, no prefix filter is</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- applied.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#describeDestinations_destinationNamePrefix"><span class="hs-identifier hs-type">describeDestinations_destinationNamePrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="describeDestinations_destinationNamePrefix"><span class="annot"><span class="annottext">describeDestinations_destinationNamePrefix :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeDestinations -&gt; f DescribeDestinations
-</span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#describeDestinations_destinationNamePrefix"><span class="hs-identifier hs-var hs-var">describeDestinations_destinationNamePrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDestinations -&gt; Maybe Text)
--&gt; (DescribeDestinations -&gt; Maybe Text -&gt; DescribeDestinations)
--&gt; Lens
-     DescribeDestinations DescribeDestinations (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations%27"><span class="hs-identifier hs-type">DescribeDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230592"><span class="annot"><span class="annottext">Maybe Text
-destinationNamePrefix :: Maybe Text
-$sel:destinationNamePrefix:DescribeDestinations' :: DescribeDestinations -&gt; Maybe Text
-</span><a href="#local-6989586621679230592"><span class="hs-identifier hs-var hs-var">destinationNamePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230592"><span class="hs-identifier hs-var">destinationNamePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230591"><span class="annot"><span class="annottext">s :: DescribeDestinations
-</span><a href="#local-6989586621679230591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations%27"><span class="hs-identifier hs-type">DescribeDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230590"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDestinations
-</span><a href="#local-6989586621679230591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationNamePrefix:DescribeDestinations' :: Maybe Text
-</span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3AdestinationNamePrefix%3ADescribeDestinations%27"><span class="hs-identifier hs-var">destinationNamePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | The maximum number of items returned. If you don\'t specify a value, the</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- default is up to 50 items.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#describeDestinations_limit"><span class="hs-identifier hs-type">describeDestinations_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="describeDestinations_limit"><span class="annot"><span class="annottext">describeDestinations_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-99"></span><span class="hs-comment">-- | The maximum number of items returned. If you don\'t specify a value, the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- default is up to 50 items.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#describeDestinations_limit"><span class="hs-identifier hs-type">describeDestinations_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="describeDestinations_limit"><span class="annot"><span class="annottext">describeDestinations_limit :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; DescribeDestinations -&gt; f DescribeDestinations
 </span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#describeDestinations_limit"><span class="hs-identifier hs-var hs-var">describeDestinations_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDestinations -&gt; Maybe Natural)
 -&gt; (DescribeDestinations -&gt; Maybe Natural -&gt; DescribeDestinations)
@@ -213,29 +192,50 @@ $sel:destinationNamePrefix:DescribeDestinations' :: DescribeDestinations -&gt; M
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations%27"><span class="hs-identifier hs-type">DescribeDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230589"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations%27"><span class="hs-identifier hs-type">DescribeDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230756"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:DescribeDestinations' :: DescribeDestinations -&gt; Maybe Natural
-</span><a href="#local-6989586621679230589"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679230589"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230588"><span class="annot"><span class="annottext">s :: DescribeDestinations
-</span><a href="#local-6989586621679230588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations%27"><span class="hs-identifier hs-type">DescribeDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230587"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679230587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDestinations
-</span><a href="#local-6989586621679230588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeDestinations' :: Maybe Natural
+</span><a href="#local-6989586621679230756"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679230756"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230755"><span class="annot"><span class="annottext">s :: DescribeDestinations
+</span><a href="#local-6989586621679230755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations%27"><span class="hs-identifier hs-type">DescribeDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230754"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679230754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDestinations
+</span><a href="#local-6989586621679230755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeDestinations' :: Maybe Natural
 </span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3Alimit%3ADescribeDestinations%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679230587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679230754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The prefix to match. If you don\'t specify a value, no prefix filter is</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- applied.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#describeDestinations_destinationNamePrefix"><span class="hs-identifier hs-type">describeDestinations_destinationNamePrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="describeDestinations_destinationNamePrefix"><span class="annot"><span class="annottext">describeDestinations_destinationNamePrefix :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDestinations -&gt; f DescribeDestinations
+</span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#describeDestinations_destinationNamePrefix"><span class="hs-identifier hs-var hs-var">describeDestinations_destinationNamePrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDestinations -&gt; Maybe Text)
+-&gt; (DescribeDestinations -&gt; Maybe Text -&gt; DescribeDestinations)
+-&gt; Lens
+     DescribeDestinations DescribeDestinations (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations%27"><span class="hs-identifier hs-type">DescribeDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230753"><span class="annot"><span class="annottext">Maybe Text
+destinationNamePrefix :: Maybe Text
+$sel:destinationNamePrefix:DescribeDestinations' :: DescribeDestinations -&gt; Maybe Text
+</span><a href="#local-6989586621679230753"><span class="hs-identifier hs-var hs-var">destinationNamePrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230753"><span class="hs-identifier hs-var">destinationNamePrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230752"><span class="annot"><span class="annottext">s :: DescribeDestinations
+</span><a href="#local-6989586621679230752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations%27"><span class="hs-identifier hs-type">DescribeDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230751"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDestinations
+</span><a href="#local-6989586621679230752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationNamePrefix:DescribeDestinations' :: Maybe Text
+</span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3AdestinationNamePrefix%3ADescribeDestinations%27"><span class="hs-identifier hs-var">destinationNamePrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679230583"><span class="annot"><span class="annottext">page :: DescribeDestinations
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679230747"><span class="annot"><span class="annottext">page :: DescribeDestinations
 -&gt; AWSResponse DescribeDestinations -&gt; Maybe DescribeDestinations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679230581"><span class="annot"><span class="annottext">DescribeDestinations
-</span><a href="#local-6989586621679230581"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679230580"><span class="annot"><span class="annottext">AWSResponse DescribeDestinations
-</span><a href="#local-6989586621679230580"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679230745"><span class="annot"><span class="annottext">DescribeDestinations
+</span><a href="#local-6989586621679230745"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679230744"><span class="annot"><span class="annottext">AWSResponse DescribeDestinations
+</span><a href="#local-6989586621679230744"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-112"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeDestinations
 DescribeDestinationsResponse
-</span><a href="#local-6989586621679230580"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679230744"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">DescribeDestinationsResponse
 -&gt; Getting (First Text) DescribeDestinationsResponse Text
 -&gt; Maybe Text
@@ -265,7 +265,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeDestinations
 DescribeDestinationsResponse
-</span><a href="#local-6989586621679230580"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679230744"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">DescribeDestinationsResponse
 -&gt; Getting
      (First [Destination]) DescribeDestinationsResponse [Destination]
@@ -305,7 +305,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">DescribeDestinations
-</span><a href="#local-6989586621679230581"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679230745"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">DescribeDestinations
 -&gt; (DescribeDestinations -&gt; DescribeDestinations)
 -&gt; DescribeDestinations
@@ -321,7 +321,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeDestinations
 DescribeDestinationsResponse
-</span><a href="#local-6989586621679230580"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679230744"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">DescribeDestinationsResponse
 -&gt; Getting (First Text) DescribeDestinationsResponse Text
 -&gt; Maybe Text
@@ -347,12 +347,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-133"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse"><span class="hs-identifier hs-type">DescribeDestinationsResponse</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679230570"><span class="annot"><span class="annottext">request :: DescribeDestinations -&gt; Request DescribeDestinations
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679230734"><span class="annot"><span class="annottext">request :: DescribeDestinations -&gt; Request DescribeDestinations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeDestinations -&gt; Request DescribeDestinations
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679230566"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679230730"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeDestinations
 -&gt; ClientResponse ClientBody
@@ -378,10 +378,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679230563"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230563"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679230562"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679230562"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679230561"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679230561"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679230727"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230727"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679230726"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679230726"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679230725"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679230725"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [Destination] -&gt; Int -&gt; DescribeDestinationsResponse
 </span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse%27"><span class="hs-identifier hs-var">DescribeDestinationsResponse'</span></a></span><span>
@@ -392,7 +392,7 @@ MonadResource m =&gt;
      String (Maybe [Destination] -&gt; Int -&gt; DescribeDestinationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679230561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679230725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -402,7 +402,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeDestinationsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679230561"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Destination]))
+</span><a href="#local-6989586621679230725"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Destination]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destinations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Destination]))
@@ -419,15 +419,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230563"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679230727"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230552"><span id="local-6989586621679230554"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230716"><span id="local-6989586621679230718"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230549"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230713"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679230545"><span class="annot"><span class="annottext">toHeaders :: DescribeDestinations -&gt; ResponseHeaders
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679230709"><span class="annot"><span class="annottext">toHeaders :: DescribeDestinations -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeDestinations -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -454,17 +454,17 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230535"><span id="local-6989586621679230537"><span id="local-6989586621679230539"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679230533"><span class="annot"><span class="annottext">toJSON :: DescribeDestinations -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations%27"><span class="hs-identifier hs-type">DescribeDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230529"><span id="local-6989586621679230530"><span id="local-6989586621679230531"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230699"><span id="local-6989586621679230701"><span id="local-6989586621679230703"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679230697"><span class="annot"><span class="annottext">toJSON :: DescribeDestinations -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations%27"><span class="hs-identifier hs-type">DescribeDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230693"><span id="local-6989586621679230694"><span id="local-6989586621679230695"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
-limit :: Maybe Natural
 destinationNamePrefix :: Maybe Text
+limit :: Maybe Natural
 nextToken :: Maybe Text
-$sel:limit:DescribeDestinations' :: DescribeDestinations -&gt; Maybe Natural
 $sel:destinationNamePrefix:DescribeDestinations' :: DescribeDestinations -&gt; Maybe Text
+$sel:limit:DescribeDestinations' :: DescribeDestinations -&gt; Maybe Natural
 $sel:nextToken:DescribeDestinations' :: DescribeDestinations -&gt; Maybe Text
-</span><a href="#local-6989586621679230529"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679230693"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -476,34 +476,34 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230531"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679230695"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DestinationNamePrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230530"><span class="hs-identifier hs-var">destinationNamePrefix</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-171"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679230529"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><a href="#local-6989586621679230694"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DestinationNamePrefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230693"><span class="hs-identifier hs-var">destinationNamePrefix</span></a></span><span>
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679230523"><span class="annot"><span class="annottext">toPath :: DescribeDestinations -&gt; ByteString
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679230687"><span class="annot"><span class="annottext">toPath :: DescribeDestinations -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeDestinations -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinations"><span class="hs-identifier hs-type">DescribeDestinations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679230519"><span class="annot"><span class="annottext">toQuery :: DescribeDestinations -&gt; QueryString
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679230683"><span class="annot"><span class="annottext">toQuery :: DescribeDestinations -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeDestinations -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -511,7 +511,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newDescribeDestinationsResponse' smart constructor.</span><span>
-</span><span id="line-182"></span><span id="local-6989586621679230516"><span id="local-6989586621679230517"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDestinationsResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse"><span class="hs-identifier hs-var">DescribeDestinationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDestinationsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse%27"><span class="hs-identifier hs-var">DescribeDestinationsResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span id="local-6989586621679230680"><span id="local-6989586621679230681"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDestinationsResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse"><span class="hs-identifier hs-var">DescribeDestinationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDestinationsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse%27"><span class="hs-identifier hs-var">DescribeDestinationsResponse'</span></a></span></span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AnextToken%3ADescribeDestinationsResponse%27"><span class="annot"><span class="annottext">DescribeDestinationsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3AnextToken%3ADescribeDestinationsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | The destinations.</span><span>
@@ -521,7 +521,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-187"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeDestinationsResponse%27"><span class="annot"><span class="annottext">DescribeDestinationsResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3AhttpStatus%3ADescribeDestinationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230509"><span id="local-6989586621679230511"><span class="annot"><span class="annottext">DescribeDestinationsResponse
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679230673"><span id="local-6989586621679230675"><span class="annot"><span class="annottext">DescribeDestinationsResponse
 -&gt; DescribeDestinationsResponse -&gt; Bool
 (DescribeDestinationsResponse
  -&gt; DescribeDestinationsResponse -&gt; Bool)
@@ -537,7 +537,7 @@ $c/= :: DescribeDestinationsResponse
 -&gt; DescribeDestinationsResponse -&gt; Bool
 $c== :: DescribeDestinationsResponse
 -&gt; DescribeDestinationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230501"><span id="local-6989586621679230503"><span id="local-6989586621679230505"><span id="local-6989586621679230507"><span class="annot"><span class="annottext">ReadPrec [DescribeDestinationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230665"><span id="local-6989586621679230667"><span id="local-6989586621679230669"><span id="local-6989586621679230671"><span class="annot"><span class="annottext">ReadPrec [DescribeDestinationsResponse]
 ReadPrec DescribeDestinationsResponse
 Int -&gt; ReadS DescribeDestinationsResponse
 ReadS [DescribeDestinationsResponse]
@@ -557,7 +557,7 @@ readList :: ReadS [DescribeDestinationsResponse]
 $creadList :: ReadS [DescribeDestinationsResponse]
 readsPrec :: Int -&gt; ReadS DescribeDestinationsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeDestinationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230495"><span id="local-6989586621679230497"><span id="local-6989586621679230499"><span class="annot"><span class="annottext">Int -&gt; DescribeDestinationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679230659"><span id="local-6989586621679230661"><span id="local-6989586621679230663"><span class="annot"><span class="annottext">Int -&gt; DescribeDestinationsResponse -&gt; ShowS
 [DescribeDestinationsResponse] -&gt; ShowS
 DescribeDestinationsResponse -&gt; String
 (Int -&gt; DescribeDestinationsResponse -&gt; ShowS)
@@ -607,8 +607,8 @@ DescribeDestinationsResponse -&gt; Rep DescribeDestinationsResponse x
 </span><span id="line-206"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-207"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse"><span class="hs-identifier hs-type">DescribeDestinationsResponse</span></a></span><span>
 </span><span id="line-208"></span><span id="newDescribeDestinationsResponse"><span class="annot"><span class="annottext">newDescribeDestinationsResponse :: Int -&gt; DescribeDestinationsResponse
-</span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#newDescribeDestinationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeDestinationsResponse</span></a></span></span><span> </span><span id="local-6989586621679230492"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230492"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#newDescribeDestinationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeDestinationsResponse</span></a></span></span><span> </span><span id="local-6989586621679230656"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230656"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-209"></span><span>  </span><span class="annot"><span class="annottext">DescribeDestinationsResponse' :: Maybe Text
 -&gt; Maybe [Destination] -&gt; Int -&gt; DescribeDestinationsResponse
 </span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse%27"><span class="hs-identifier hs-type">DescribeDestinationsResponse'</span></a></span><span>
@@ -623,7 +623,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDestinationsResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3AhttpStatus%3ADescribeDestinationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230492"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679230656"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-214"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -635,16 +635,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeDestinationsResponse)
 -&gt; Lens' DescribeDestinationsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse%27"><span class="hs-identifier hs-type">DescribeDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230491"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse%27"><span class="hs-identifier hs-type">DescribeDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230655"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeDestinationsResponse' :: DescribeDestinationsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679230491"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230491"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230490"><span class="annot"><span class="annottext">s :: DescribeDestinationsResponse
-</span><a href="#local-6989586621679230490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse%27"><span class="hs-identifier hs-type">DescribeDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230489"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDestinationsResponse
-</span><a href="#local-6989586621679230490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeDestinationsResponse' :: Maybe Text
+</span><a href="#local-6989586621679230655"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230655"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230654"><span class="annot"><span class="annottext">s :: DescribeDestinationsResponse
+</span><a href="#local-6989586621679230654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse%27"><span class="hs-identifier hs-type">DescribeDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230653"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679230653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDestinationsResponse
+</span><a href="#local-6989586621679230654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeDestinationsResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3AnextToken%3ADescribeDestinationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679230489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse"><span class="hs-identifier hs-type">DescribeDestinationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679230653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse"><span class="hs-identifier hs-type">DescribeDestinationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | The destinations.</span><span>
 </span><span id="line-221"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#describeDestinationsResponse_destinations"><span class="hs-identifier hs-type">describeDestinationsResponse_destinations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse"><span class="hs-identifier hs-type">DescribeDestinationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.Types.Destination.html#Destination"><span class="hs-identifier hs-type">Destination</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -655,16 +655,16 @@ $sel:nextToken:DescribeDestinationsResponse' :: DescribeDestinationsResponse -&g
     -&gt; Maybe [Destination] -&gt; DescribeDestinationsResponse)
 -&gt; Lens' DescribeDestinationsResponse (Maybe [Destination])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse%27"><span class="hs-identifier hs-type">DescribeDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230488"><span class="annot"><span class="annottext">Maybe [Destination]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse%27"><span class="hs-identifier hs-type">DescribeDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230652"><span class="annot"><span class="annottext">Maybe [Destination]
 destinations :: Maybe [Destination]
 $sel:destinations:DescribeDestinationsResponse' :: DescribeDestinationsResponse -&gt; Maybe [Destination]
-</span><a href="#local-6989586621679230488"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Destination]
-</span><a href="#local-6989586621679230488"><span class="hs-identifier hs-var">destinations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230487"><span class="annot"><span class="annottext">s :: DescribeDestinationsResponse
-</span><a href="#local-6989586621679230487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse%27"><span class="hs-identifier hs-type">DescribeDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230486"><span class="annot"><span class="annottext">Maybe [Destination]
-</span><a href="#local-6989586621679230486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDestinationsResponse
-</span><a href="#local-6989586621679230487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinations:DescribeDestinationsResponse' :: Maybe [Destination]
+</span><a href="#local-6989586621679230652"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Destination]
+</span><a href="#local-6989586621679230652"><span class="hs-identifier hs-var">destinations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230651"><span class="annot"><span class="annottext">s :: DescribeDestinationsResponse
+</span><a href="#local-6989586621679230651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse%27"><span class="hs-identifier hs-type">DescribeDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230650"><span class="annot"><span class="annottext">Maybe [Destination]
+</span><a href="#local-6989586621679230650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDestinationsResponse
+</span><a href="#local-6989586621679230651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinations:DescribeDestinationsResponse' :: Maybe [Destination]
 </span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3Adestinations%3ADescribeDestinationsResponse%27"><span class="hs-identifier hs-var">destinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Destination]
-</span><a href="#local-6989586621679230486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse"><span class="hs-identifier hs-type">DescribeDestinationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Destination] -&gt; f (Maybe [Destination]))
+</span><a href="#local-6989586621679230650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse"><span class="hs-identifier hs-type">DescribeDestinationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Destination] -&gt; f (Maybe [Destination]))
  -&gt; DescribeDestinationsResponse -&gt; f DescribeDestinationsResponse)
 -&gt; ((Maybe [Destination] -&gt; f (Maybe [Destination]))
     -&gt; Maybe [Destination] -&gt; f (Maybe [Destination]))
@@ -682,8 +682,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Destination] [Destination] [Destination] [Destination]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-225"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#describeDestinationsResponse_httpStatus"><span class="hs-identifier hs-type">describeDestinationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse"><span class="hs-identifier hs-type">DescribeDestinationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -695,16 +695,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      DescribeDestinationsResponse DescribeDestinationsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse%27"><span class="hs-identifier hs-type">DescribeDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230483"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse%27"><span class="hs-identifier hs-type">DescribeDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679230647"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeDestinationsResponse' :: DescribeDestinationsResponse -&gt; Int
-</span><a href="#local-6989586621679230483"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230483"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230482"><span class="annot"><span class="annottext">s :: DescribeDestinationsResponse
-</span><a href="#local-6989586621679230482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse%27"><span class="hs-identifier hs-type">DescribeDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230481"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDestinationsResponse
-</span><a href="#local-6989586621679230482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDestinationsResponse' :: Int
+</span><a href="#local-6989586621679230647"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230647"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679230646"><span class="annot"><span class="annottext">s :: DescribeDestinationsResponse
+</span><a href="#local-6989586621679230646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse%27"><span class="hs-identifier hs-type">DescribeDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679230645"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679230645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDestinationsResponse
+</span><a href="#local-6989586621679230646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeDestinationsResponse' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#%24sel%3AhttpStatus%3ADescribeDestinationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679230481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse"><span class="hs-identifier hs-type">DescribeDestinationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679230645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse"><span class="hs-identifier hs-type">DescribeDestinationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230479"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse"><span class="hs-identifier hs-type">DescribeDestinationsResponse</span></a></span></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679230643"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.DescribeDestinations.html#DescribeDestinationsResponse"><span class="hs-identifier hs-type">DescribeDestinationsResponse</span></a></span></span><span>
 </span><span id="line-229"></span></pre></body></html>

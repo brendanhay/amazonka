@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newUpdateEvaluation' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679261122"><span id="local-6989586621679261123"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateEvaluation"><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation"><span class="hs-identifier hs-var">UpdateEvaluation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateEvaluation%27"><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation%27"><span class="hs-identifier hs-var">UpdateEvaluation'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679261220"><span id="local-6989586621679261221"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateEvaluation"><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation"><span class="hs-identifier hs-var">UpdateEvaluation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateEvaluation%27"><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation%27"><span class="hs-identifier hs-var">UpdateEvaluation'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID assigned to the @Evaluation@ during creation.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AevaluationId%3AUpdateEvaluation%27"><span class="annot"><span class="annottext">UpdateEvaluation -&gt; Text
 </span><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#%24sel%3AevaluationId%3AUpdateEvaluation%27"><span class="hs-identifier hs-var hs-var">evaluationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AevaluationName%3AUpdateEvaluation%27"><span class="annot"><span class="annottext">UpdateEvaluation -&gt; Text
 </span><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#%24sel%3AevaluationName%3AUpdateEvaluation%27"><span class="hs-identifier hs-var hs-var">evaluationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261115"><span id="local-6989586621679261117"><span class="annot"><span class="annottext">UpdateEvaluation -&gt; UpdateEvaluation -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261213"><span id="local-6989586621679261215"><span class="annot"><span class="annottext">UpdateEvaluation -&gt; UpdateEvaluation -&gt; Bool
 (UpdateEvaluation -&gt; UpdateEvaluation -&gt; Bool)
 -&gt; (UpdateEvaluation -&gt; UpdateEvaluation -&gt; Bool)
 -&gt; Eq UpdateEvaluation
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateEvaluation -&gt; UpdateEvaluation -&gt; Bool
 == :: UpdateEvaluation -&gt; UpdateEvaluation -&gt; Bool
 $c== :: UpdateEvaluation -&gt; UpdateEvaluation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261106"><span id="local-6989586621679261108"><span id="local-6989586621679261110"><span id="local-6989586621679261112"><span class="annot"><span class="annottext">ReadPrec [UpdateEvaluation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261204"><span id="local-6989586621679261206"><span id="local-6989586621679261208"><span id="local-6989586621679261210"><span class="annot"><span class="annottext">ReadPrec [UpdateEvaluation]
 ReadPrec UpdateEvaluation
 Int -&gt; ReadS UpdateEvaluation
 ReadS [UpdateEvaluation]
@@ -89,7 +89,7 @@ readList :: ReadS [UpdateEvaluation]
 $creadList :: ReadS [UpdateEvaluation]
 readsPrec :: Int -&gt; ReadS UpdateEvaluation
 $creadsPrec :: Int -&gt; ReadS UpdateEvaluation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261099"><span id="local-6989586621679261101"><span id="local-6989586621679261103"><span class="annot"><span class="annottext">Int -&gt; UpdateEvaluation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261197"><span id="local-6989586621679261199"><span id="local-6989586621679261201"><span class="annot"><span class="annottext">Int -&gt; UpdateEvaluation -&gt; ShowS
 [UpdateEvaluation] -&gt; ShowS
 UpdateEvaluation -&gt; String
 (Int -&gt; UpdateEvaluation -&gt; ShowS)
@@ -134,17 +134,17 @@ $cfrom :: forall x. UpdateEvaluation -&gt; Rep UpdateEvaluation x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation"><span class="hs-identifier hs-type">UpdateEvaluation</span></a></span><span>
 </span><span id="line-81"></span><span id="newUpdateEvaluation"><span class="annot"><span class="annottext">newUpdateEvaluation :: Text -&gt; Text -&gt; UpdateEvaluation
-</span><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#newUpdateEvaluation"><span class="hs-identifier hs-var hs-var">newUpdateEvaluation</span></a></span></span><span> </span><span id="local-6989586621679261094"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261094"><span class="hs-identifier hs-var">pEvaluationId_</span></a></span></span><span> </span><span id="local-6989586621679261093"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261093"><span class="hs-identifier hs-var">pEvaluationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#newUpdateEvaluation"><span class="hs-identifier hs-var hs-var">newUpdateEvaluation</span></a></span></span><span> </span><span id="local-6989586621679261192"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261192"><span class="hs-identifier hs-var">pEvaluationId_</span></a></span></span><span> </span><span id="local-6989586621679261191"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261191"><span class="hs-identifier hs-var">pEvaluationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">UpdateEvaluation' :: Text -&gt; Text -&gt; UpdateEvaluation
 </span><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation%27"><span class="hs-identifier hs-type">UpdateEvaluation'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:evaluationId:UpdateEvaluation' :: Text
 </span><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#%24sel%3AevaluationId%3AUpdateEvaluation%27"><span class="hs-identifier hs-var">evaluationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261094"><span class="hs-identifier hs-var">pEvaluationId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261192"><span class="hs-identifier hs-var">pEvaluationId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:evaluationName:UpdateEvaluation' :: Text
 </span><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#%24sel%3AevaluationName%3AUpdateEvaluation%27"><span class="hs-identifier hs-var">evaluationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261093"><span class="hs-identifier hs-var">pEvaluationName_</span></a></span><span>
+</span><a href="#local-6989586621679261191"><span class="hs-identifier hs-var">pEvaluationName_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The ID assigned to the @Evaluation@ during creation.</span><span>
@@ -154,16 +154,16 @@ $cfrom :: forall x. UpdateEvaluation -&gt; Rep UpdateEvaluation x
 -&gt; (UpdateEvaluation -&gt; Text -&gt; UpdateEvaluation)
 -&gt; Lens UpdateEvaluation UpdateEvaluation Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation%27"><span class="hs-identifier hs-type">UpdateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261090"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation%27"><span class="hs-identifier hs-type">UpdateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261188"><span class="annot"><span class="annottext">Text
 evaluationId :: Text
 $sel:evaluationId:UpdateEvaluation' :: UpdateEvaluation -&gt; Text
-</span><a href="#local-6989586621679261090"><span class="hs-identifier hs-var hs-var">evaluationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261090"><span class="hs-identifier hs-var">evaluationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261089"><span class="annot"><span class="annottext">s :: UpdateEvaluation
-</span><a href="#local-6989586621679261089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation%27"><span class="hs-identifier hs-type">UpdateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261088"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEvaluation
-</span><a href="#local-6989586621679261089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationId:UpdateEvaluation' :: Text
+</span><a href="#local-6989586621679261188"><span class="hs-identifier hs-var hs-var">evaluationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261188"><span class="hs-identifier hs-var">evaluationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261187"><span class="annot"><span class="annottext">s :: UpdateEvaluation
+</span><a href="#local-6989586621679261187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation%27"><span class="hs-identifier hs-type">UpdateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261186"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEvaluation
+</span><a href="#local-6989586621679261187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationId:UpdateEvaluation' :: Text
 </span><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#%24sel%3AevaluationId%3AUpdateEvaluation%27"><span class="hs-identifier hs-var">evaluationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation"><span class="hs-identifier hs-type">UpdateEvaluation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation"><span class="hs-identifier hs-type">UpdateEvaluation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | A new user-supplied name or description of the @Evaluation@ that will</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- replace the current content.</span><span>
@@ -173,27 +173,27 @@ $sel:evaluationId:UpdateEvaluation' :: UpdateEvaluation -&gt; Text
 -&gt; (UpdateEvaluation -&gt; Text -&gt; UpdateEvaluation)
 -&gt; Lens UpdateEvaluation UpdateEvaluation Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation%27"><span class="hs-identifier hs-type">UpdateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261087"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation%27"><span class="hs-identifier hs-type">UpdateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261185"><span class="annot"><span class="annottext">Text
 evaluationName :: Text
 $sel:evaluationName:UpdateEvaluation' :: UpdateEvaluation -&gt; Text
-</span><a href="#local-6989586621679261087"><span class="hs-identifier hs-var hs-var">evaluationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261087"><span class="hs-identifier hs-var">evaluationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261086"><span class="annot"><span class="annottext">s :: UpdateEvaluation
-</span><a href="#local-6989586621679261086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation%27"><span class="hs-identifier hs-type">UpdateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261085"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEvaluation
-</span><a href="#local-6989586621679261086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationName:UpdateEvaluation' :: Text
+</span><a href="#local-6989586621679261185"><span class="hs-identifier hs-var hs-var">evaluationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261185"><span class="hs-identifier hs-var">evaluationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261184"><span class="annot"><span class="annottext">s :: UpdateEvaluation
+</span><a href="#local-6989586621679261184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation%27"><span class="hs-identifier hs-type">UpdateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261183"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEvaluation
+</span><a href="#local-6989586621679261184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationName:UpdateEvaluation' :: Text
 </span><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#%24sel%3AevaluationName%3AUpdateEvaluation%27"><span class="hs-identifier hs-var">evaluationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation"><span class="hs-identifier hs-type">UpdateEvaluation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation"><span class="hs-identifier hs-type">UpdateEvaluation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation"><span class="hs-identifier hs-type">UpdateEvaluation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation"><span class="hs-identifier hs-type">UpdateEvaluation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse"><span class="hs-identifier hs-type">UpdateEvaluationResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679261081"><span class="annot"><span class="annottext">request :: UpdateEvaluation -&gt; Request UpdateEvaluation
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679261179"><span class="annot"><span class="annottext">request :: UpdateEvaluation -&gt; Request UpdateEvaluation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateEvaluation -&gt; Request UpdateEvaluation
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MachineLearning.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679261077"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679261175"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateEvaluation
 -&gt; ClientResponse ClientBody
@@ -217,10 +217,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679261074"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261074"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679261073"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679261073"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679261072"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261072"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679261172"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261172"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679261171"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679261171"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679261170"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679261170"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; UpdateEvaluationResponse
 </span><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse%27"><span class="hs-identifier hs-var">UpdateEvaluationResponse'</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; UpdateEvaluationResponse)
@@ -228,7 +228,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateEvaluationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679261170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EvaluationId&quot;</span></span><span class="hs-special">)</span><span>
@@ -240,15 +240,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261074"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261172"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261064"><span id="local-6989586621679261066"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation"><span class="hs-identifier hs-type">UpdateEvaluation</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261162"><span id="local-6989586621679261164"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation"><span class="hs-identifier hs-type">UpdateEvaluation</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation"><span class="hs-identifier hs-type">UpdateEvaluation</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261159"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation"><span class="hs-identifier hs-type">UpdateEvaluation</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation"><span class="hs-identifier hs-type">UpdateEvaluation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679261057"><span class="annot"><span class="annottext">toHeaders :: UpdateEvaluation -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679261155"><span class="annot"><span class="annottext">toHeaders :: UpdateEvaluation -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateEvaluation -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -275,14 +275,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261047"><span id="local-6989586621679261049"><span id="local-6989586621679261051"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation"><span class="hs-identifier hs-type">UpdateEvaluation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679261045"><span class="annot"><span class="annottext">toJSON :: UpdateEvaluation -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation%27"><span class="hs-identifier hs-type">UpdateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261042"><span id="local-6989586621679261043"><span class="annot"><span class="annottext">Text
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261145"><span id="local-6989586621679261147"><span id="local-6989586621679261149"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation"><span class="hs-identifier hs-type">UpdateEvaluation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679261143"><span class="annot"><span class="annottext">toJSON :: UpdateEvaluation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation%27"><span class="hs-identifier hs-type">UpdateEvaluation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261140"><span id="local-6989586621679261141"><span class="annot"><span class="annottext">Text
 evaluationName :: Text
 evaluationId :: Text
 $sel:evaluationName:UpdateEvaluation' :: UpdateEvaluation -&gt; Text
 $sel:evaluationId:UpdateEvaluation' :: UpdateEvaluation -&gt; Text
-</span><a href="#local-6989586621679261042"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679261140"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -294,7 +294,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;EvaluationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261043"><span class="hs-identifier hs-var">evaluationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261141"><span class="hs-identifier hs-var">evaluationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -302,19 +302,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;EvaluationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261042"><span class="hs-identifier hs-var">evaluationName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261140"><span class="hs-identifier hs-var">evaluationName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation"><span class="hs-identifier hs-type">UpdateEvaluation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679261036"><span class="annot"><span class="annottext">toPath :: UpdateEvaluation -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679261134"><span class="annot"><span class="annottext">toPath :: UpdateEvaluation -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateEvaluation -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluation"><span class="hs-identifier hs-type">UpdateEvaluation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679261032"><span class="annot"><span class="annottext">toQuery :: UpdateEvaluation -&gt; QueryString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679261130"><span class="annot"><span class="annottext">toQuery :: UpdateEvaluation -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateEvaluation -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -326,7 +326,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-146"></span><span class="hs-comment">-- You can see the updated content by using the @GetEvaluation@ operation.</span><span>
 </span><span id="line-147"></span><span class="hs-comment">--</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- /See:/ 'newUpdateEvaluationResponse' smart constructor.</span><span>
-</span><span id="line-149"></span><span id="local-6989586621679261029"><span id="local-6989586621679261030"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateEvaluationResponse"><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse"><span class="hs-identifier hs-var">UpdateEvaluationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateEvaluationResponse%27"><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse%27"><span class="hs-identifier hs-var">UpdateEvaluationResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span id="local-6989586621679261127"><span id="local-6989586621679261128"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateEvaluationResponse"><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse"><span class="hs-identifier hs-var">UpdateEvaluationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateEvaluationResponse%27"><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse%27"><span class="hs-identifier hs-var">UpdateEvaluationResponse'</span></a></span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID assigned to the @Evaluation@ during creation. This value should</span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-comment">-- be identical to the value of the @Evaluation@ in the request.</span><span>
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3AevaluationId%3AUpdateEvaluationResponse%27"><span class="annot"><span class="annottext">UpdateEvaluationResponse -&gt; Maybe Text
@@ -335,7 +335,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateEvaluationResponse%27"><span class="annot"><span class="annottext">UpdateEvaluationResponse -&gt; Int
 </span><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#%24sel%3AhttpStatus%3AUpdateEvaluationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261023"><span id="local-6989586621679261025"><span class="annot"><span class="annottext">UpdateEvaluationResponse -&gt; UpdateEvaluationResponse -&gt; Bool
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261121"><span id="local-6989586621679261123"><span class="annot"><span class="annottext">UpdateEvaluationResponse -&gt; UpdateEvaluationResponse -&gt; Bool
 (UpdateEvaluationResponse -&gt; UpdateEvaluationResponse -&gt; Bool)
 -&gt; (UpdateEvaluationResponse -&gt; UpdateEvaluationResponse -&gt; Bool)
 -&gt; Eq UpdateEvaluationResponse
@@ -344,7 +344,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateEvaluationResponse -&gt; UpdateEvaluationResponse -&gt; Bool
 == :: UpdateEvaluationResponse -&gt; UpdateEvaluationResponse -&gt; Bool
 $c== :: UpdateEvaluationResponse -&gt; UpdateEvaluationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261015"><span id="local-6989586621679261017"><span id="local-6989586621679261019"><span id="local-6989586621679261021"><span class="annot"><span class="annottext">ReadPrec [UpdateEvaluationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261113"><span id="local-6989586621679261115"><span id="local-6989586621679261117"><span id="local-6989586621679261119"><span class="annot"><span class="annottext">ReadPrec [UpdateEvaluationResponse]
 ReadPrec UpdateEvaluationResponse
 Int -&gt; ReadS UpdateEvaluationResponse
 ReadS [UpdateEvaluationResponse]
@@ -364,7 +364,7 @@ readList :: ReadS [UpdateEvaluationResponse]
 $creadList :: ReadS [UpdateEvaluationResponse]
 readsPrec :: Int -&gt; ReadS UpdateEvaluationResponse
 $creadsPrec :: Int -&gt; ReadS UpdateEvaluationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261009"><span id="local-6989586621679261011"><span id="local-6989586621679261013"><span class="annot"><span class="annottext">Int -&gt; UpdateEvaluationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261107"><span id="local-6989586621679261109"><span id="local-6989586621679261111"><span class="annot"><span class="annottext">Int -&gt; UpdateEvaluationResponse -&gt; ShowS
 [UpdateEvaluationResponse] -&gt; ShowS
 UpdateEvaluationResponse -&gt; String
 (Int -&gt; UpdateEvaluationResponse -&gt; ShowS)
@@ -413,8 +413,8 @@ UpdateEvaluationResponse -&gt; Rep UpdateEvaluationResponse x
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse"><span class="hs-identifier hs-type">UpdateEvaluationResponse</span></a></span><span>
 </span><span id="line-174"></span><span id="newUpdateEvaluationResponse"><span class="annot"><span class="annottext">newUpdateEvaluationResponse :: Int -&gt; UpdateEvaluationResponse
-</span><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#newUpdateEvaluationResponse"><span class="hs-identifier hs-var hs-var">newUpdateEvaluationResponse</span></a></span></span><span> </span><span id="local-6989586621679261006"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261006"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#newUpdateEvaluationResponse"><span class="hs-identifier hs-var hs-var">newUpdateEvaluationResponse</span></a></span></span><span> </span><span id="local-6989586621679261104"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261104"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">UpdateEvaluationResponse' :: Maybe Text -&gt; Int -&gt; UpdateEvaluationResponse
 </span><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse%27"><span class="hs-identifier hs-type">UpdateEvaluationResponse'</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:evaluationId:UpdateEvaluationResponse' :: Maybe Text
@@ -424,7 +424,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateEvaluationResponse' :: Int
 </span><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#%24sel%3AhttpStatus%3AUpdateEvaluationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261006"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679261104"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The ID assigned to the @Evaluation@ during creation. This value should</span><span>
@@ -441,16 +441,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse%27"><span class="hs-identifier hs-type">UpdateEvaluationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261005"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse%27"><span class="hs-identifier hs-type">UpdateEvaluationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261103"><span class="annot"><span class="annottext">Maybe Text
 evaluationId :: Maybe Text
 $sel:evaluationId:UpdateEvaluationResponse' :: UpdateEvaluationResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679261005"><span class="hs-identifier hs-var hs-var">evaluationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261005"><span class="hs-identifier hs-var">evaluationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261004"><span class="annot"><span class="annottext">s :: UpdateEvaluationResponse
-</span><a href="#local-6989586621679261004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse%27"><span class="hs-identifier hs-type">UpdateEvaluationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261003"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEvaluationResponse
-</span><a href="#local-6989586621679261004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationId:UpdateEvaluationResponse' :: Maybe Text
+</span><a href="#local-6989586621679261103"><span class="hs-identifier hs-var hs-var">evaluationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261103"><span class="hs-identifier hs-var">evaluationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261102"><span class="annot"><span class="annottext">s :: UpdateEvaluationResponse
+</span><a href="#local-6989586621679261102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse%27"><span class="hs-identifier hs-type">UpdateEvaluationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261101"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEvaluationResponse
+</span><a href="#local-6989586621679261102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationId:UpdateEvaluationResponse' :: Maybe Text
 </span><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#%24sel%3AevaluationId%3AUpdateEvaluationResponse%27"><span class="hs-identifier hs-var">evaluationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse"><span class="hs-identifier hs-type">UpdateEvaluationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse"><span class="hs-identifier hs-type">UpdateEvaluationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-187"></span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#updateEvaluationResponse_httpStatus"><span class="hs-identifier hs-type">updateEvaluationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse"><span class="hs-identifier hs-type">UpdateEvaluationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -460,16 +460,16 @@ $sel:evaluationId:UpdateEvaluationResponse' :: UpdateEvaluationResponse -&gt; Ma
 -&gt; (UpdateEvaluationResponse -&gt; Int -&gt; UpdateEvaluationResponse)
 -&gt; Lens UpdateEvaluationResponse UpdateEvaluationResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse%27"><span class="hs-identifier hs-type">UpdateEvaluationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261002"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse%27"><span class="hs-identifier hs-type">UpdateEvaluationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261100"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateEvaluationResponse' :: UpdateEvaluationResponse -&gt; Int
-</span><a href="#local-6989586621679261002"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261002"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261001"><span class="annot"><span class="annottext">s :: UpdateEvaluationResponse
-</span><a href="#local-6989586621679261001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse%27"><span class="hs-identifier hs-type">UpdateEvaluationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261000"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEvaluationResponse
-</span><a href="#local-6989586621679261001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateEvaluationResponse' :: Int
+</span><a href="#local-6989586621679261100"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261100"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261099"><span class="annot"><span class="annottext">s :: UpdateEvaluationResponse
+</span><a href="#local-6989586621679261099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse%27"><span class="hs-identifier hs-type">UpdateEvaluationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261098"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEvaluationResponse
+</span><a href="#local-6989586621679261099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateEvaluationResponse' :: Int
 </span><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#%24sel%3AhttpStatus%3AUpdateEvaluationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse"><span class="hs-identifier hs-type">UpdateEvaluationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse"><span class="hs-identifier hs-type">UpdateEvaluationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260998"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse"><span class="hs-identifier hs-type">UpdateEvaluationResponse</span></a></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261096"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.UpdateEvaluation.html#UpdateEvaluationResponse"><span class="hs-identifier hs-type">UpdateEvaluationResponse</span></a></span></span><span>
 </span><span id="line-191"></span></pre></body></html>

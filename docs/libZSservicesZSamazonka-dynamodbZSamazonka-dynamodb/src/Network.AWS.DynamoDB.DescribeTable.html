@@ -57,12 +57,12 @@
 </span><span id="line-57"></span><span class="hs-comment">-- | Represents the input of a @DescribeTable@ operation.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newDescribeTable' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679391091"><span id="local-6989586621679391092"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTable"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable"><span class="hs-identifier hs-var">DescribeTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTable%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable%27"><span class="hs-identifier hs-var">DescribeTable'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679391817"><span id="local-6989586621679391818"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTable"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable"><span class="hs-identifier hs-var">DescribeTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTable%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable%27"><span class="hs-identifier hs-var">DescribeTable'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the table to describe.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AtableName%3ADescribeTable%27"><span class="annot"><span class="annottext">DescribeTable -&gt; Text
 </span><a href="Network.AWS.DynamoDB.DescribeTable.html#%24sel%3AtableName%3ADescribeTable%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391085"><span id="local-6989586621679391087"><span class="annot"><span class="annottext">DescribeTable -&gt; DescribeTable -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391811"><span id="local-6989586621679391813"><span class="annot"><span class="annottext">DescribeTable -&gt; DescribeTable -&gt; Bool
 (DescribeTable -&gt; DescribeTable -&gt; Bool)
 -&gt; (DescribeTable -&gt; DescribeTable -&gt; Bool) -&gt; Eq DescribeTable
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeTable -&gt; DescribeTable -&gt; Bool
 == :: DescribeTable -&gt; DescribeTable -&gt; Bool
 $c== :: DescribeTable -&gt; DescribeTable -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391076"><span id="local-6989586621679391078"><span id="local-6989586621679391080"><span id="local-6989586621679391082"><span class="annot"><span class="annottext">ReadPrec [DescribeTable]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391802"><span id="local-6989586621679391804"><span id="local-6989586621679391806"><span id="local-6989586621679391808"><span class="annot"><span class="annottext">ReadPrec [DescribeTable]
 ReadPrec DescribeTable
 Int -&gt; ReadS DescribeTable
 ReadS [DescribeTable]
@@ -90,7 +90,7 @@ readList :: ReadS [DescribeTable]
 $creadList :: ReadS [DescribeTable]
 readsPrec :: Int -&gt; ReadS DescribeTable
 $creadsPrec :: Int -&gt; ReadS DescribeTable
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391069"><span id="local-6989586621679391071"><span id="local-6989586621679391073"><span class="annot"><span class="annottext">Int -&gt; DescribeTable -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391795"><span id="local-6989586621679391797"><span id="local-6989586621679391799"><span class="annot"><span class="annottext">Int -&gt; DescribeTable -&gt; ShowS
 [DescribeTable] -&gt; ShowS
 DescribeTable -&gt; String
 (Int -&gt; DescribeTable -&gt; ShowS)
@@ -130,12 +130,12 @@ $cfrom :: forall x. DescribeTable -&gt; Rep DescribeTable x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable"><span class="hs-identifier hs-type">DescribeTable</span></a></span><span>
 </span><span id="line-79"></span><span id="newDescribeTable"><span class="annot"><span class="annottext">newDescribeTable :: Text -&gt; DescribeTable
-</span><a href="Network.AWS.DynamoDB.DescribeTable.html#newDescribeTable"><span class="hs-identifier hs-var hs-var">newDescribeTable</span></a></span></span><span> </span><span id="local-6989586621679391064"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391064"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.DescribeTable.html#newDescribeTable"><span class="hs-identifier hs-var hs-var">newDescribeTable</span></a></span></span><span> </span><span id="local-6989586621679391790"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391790"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">DescribeTable' :: Text -&gt; DescribeTable
 </span><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable%27"><span class="hs-identifier hs-type">DescribeTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DescribeTable' :: Text
 </span><a href="Network.AWS.DynamoDB.DescribeTable.html#%24sel%3AtableName%3ADescribeTable%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391064"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679391790"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The name of the table to describe.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#describeTable_tableName"><span class="hs-identifier hs-type">describeTable_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable"><span class="hs-identifier hs-type">DescribeTable</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -144,27 +144,27 @@ $cfrom :: forall x. DescribeTable -&gt; Rep DescribeTable x
 -&gt; (DescribeTable -&gt; Text -&gt; DescribeTable)
 -&gt; Lens DescribeTable DescribeTable Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable%27"><span class="hs-identifier hs-type">DescribeTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391061"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable%27"><span class="hs-identifier hs-type">DescribeTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391787"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:DescribeTable' :: DescribeTable -&gt; Text
-</span><a href="#local-6989586621679391061"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391061"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391060"><span class="annot"><span class="annottext">s :: DescribeTable
-</span><a href="#local-6989586621679391060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable%27"><span class="hs-identifier hs-type">DescribeTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391059"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTable
-</span><a href="#local-6989586621679391060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DescribeTable' :: Text
+</span><a href="#local-6989586621679391787"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391787"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391786"><span class="annot"><span class="annottext">s :: DescribeTable
+</span><a href="#local-6989586621679391786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable%27"><span class="hs-identifier hs-type">DescribeTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391785"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679391785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTable
+</span><a href="#local-6989586621679391786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DescribeTable' :: Text
 </span><a href="Network.AWS.DynamoDB.DescribeTable.html#%24sel%3AtableName%3ADescribeTable%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable"><span class="hs-identifier hs-type">DescribeTable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable"><span class="hs-identifier hs-type">DescribeTable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable"><span class="hs-identifier hs-type">DescribeTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable"><span class="hs-identifier hs-type">DescribeTable</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse"><span class="hs-identifier hs-type">DescribeTableResponse</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679391055"><span class="annot"><span class="annottext">request :: DescribeTable -&gt; Request DescribeTable
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679391781"><span class="annot"><span class="annottext">request :: DescribeTable -&gt; Request DescribeTable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeTable -&gt; Request DescribeTable
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679391051"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679391777"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeTable
 -&gt; ClientResponse ClientBody
@@ -188,10 +188,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679391048"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391048"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391047"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679391047"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391046"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391046"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679391774"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391774"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391773"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679391773"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391772"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679391772"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe TableDescription -&gt; Int -&gt; DescribeTableResponse
 </span><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse%27"><span class="hs-identifier hs-var">DescribeTableResponse'</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TableDescription -&gt; Int -&gt; DescribeTableResponse)
@@ -199,7 +199,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeTableResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TableDescription)
+</span><a href="#local-6989586621679391772"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TableDescription)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Table&quot;</span></span><span class="hs-special">)</span><span>
@@ -211,15 +211,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391048"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391774"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391038"><span id="local-6989586621679391040"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable"><span class="hs-identifier hs-type">DescribeTable</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391764"><span id="local-6989586621679391766"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable"><span class="hs-identifier hs-type">DescribeTable</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391035"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable"><span class="hs-identifier hs-type">DescribeTable</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391761"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable"><span class="hs-identifier hs-type">DescribeTable</span></a></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable"><span class="hs-identifier hs-type">DescribeTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679391031"><span class="annot"><span class="annottext">toHeaders :: DescribeTable -&gt; ResponseHeaders
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679391757"><span class="annot"><span class="annottext">toHeaders :: DescribeTable -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeTable -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -246,12 +246,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391021"><span id="local-6989586621679391023"><span id="local-6989586621679391025"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable"><span class="hs-identifier hs-type">DescribeTable</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679391019"><span class="annot"><span class="annottext">toJSON :: DescribeTable -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable%27"><span class="hs-identifier hs-type">DescribeTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391017"><span class="annot"><span class="annottext">Text
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391747"><span id="local-6989586621679391749"><span id="local-6989586621679391751"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable"><span class="hs-identifier hs-type">DescribeTable</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679391745"><span class="annot"><span class="annottext">toJSON :: DescribeTable -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable%27"><span class="hs-identifier hs-type">DescribeTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391743"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:DescribeTable' :: DescribeTable -&gt; Text
-</span><a href="#local-6989586621679391017"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679391743"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -263,18 +263,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391017"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679391743"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable"><span class="hs-identifier hs-type">DescribeTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679391011"><span class="annot"><span class="annottext">toPath :: DescribeTable -&gt; ByteString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679391737"><span class="annot"><span class="annottext">toPath :: DescribeTable -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeTable -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTable"><span class="hs-identifier hs-type">DescribeTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679391007"><span class="annot"><span class="annottext">toQuery :: DescribeTable -&gt; QueryString
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679391733"><span class="annot"><span class="annottext">toQuery :: DescribeTable -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeTable -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -284,7 +284,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-131"></span><span class="hs-comment">-- | Represents the output of a @DescribeTable@ operation.</span><span>
 </span><span id="line-132"></span><span class="hs-comment">--</span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- /See:/ 'newDescribeTableResponse' smart constructor.</span><span>
-</span><span id="line-134"></span><span id="local-6989586621679391004"><span id="local-6989586621679391005"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTableResponse"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse"><span class="hs-identifier hs-var">DescribeTableResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTableResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse%27"><span class="hs-identifier hs-var">DescribeTableResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span id="local-6989586621679391730"><span id="local-6989586621679391731"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTableResponse"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse"><span class="hs-identifier hs-var">DescribeTableResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTableResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse%27"><span class="hs-identifier hs-var">DescribeTableResponse'</span></a></span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The properties of the table.</span><span>
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3Atable%3ADescribeTableResponse%27"><span class="annot"><span class="annottext">DescribeTableResponse -&gt; Maybe TableDescription
 </span><a href="Network.AWS.DynamoDB.DescribeTable.html#%24sel%3Atable%3ADescribeTableResponse%27"><span class="hs-identifier hs-var hs-var">table</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.TableDescription.html#TableDescription"><span class="hs-identifier hs-type">TableDescription</span></a></span><span class="hs-special">,</span><span>
@@ -292,7 +292,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeTableResponse%27"><span class="annot"><span class="annottext">DescribeTableResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.DescribeTable.html#%24sel%3AhttpStatus%3ADescribeTableResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390998"><span id="local-6989586621679391000"><span class="annot"><span class="annottext">DescribeTableResponse -&gt; DescribeTableResponse -&gt; Bool
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391724"><span id="local-6989586621679391726"><span class="annot"><span class="annottext">DescribeTableResponse -&gt; DescribeTableResponse -&gt; Bool
 (DescribeTableResponse -&gt; DescribeTableResponse -&gt; Bool)
 -&gt; (DescribeTableResponse -&gt; DescribeTableResponse -&gt; Bool)
 -&gt; Eq DescribeTableResponse
@@ -301,7 +301,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeTableResponse -&gt; DescribeTableResponse -&gt; Bool
 == :: DescribeTableResponse -&gt; DescribeTableResponse -&gt; Bool
 $c== :: DescribeTableResponse -&gt; DescribeTableResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390990"><span id="local-6989586621679390992"><span id="local-6989586621679390994"><span id="local-6989586621679390996"><span class="annot"><span class="annottext">ReadPrec [DescribeTableResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391716"><span id="local-6989586621679391718"><span id="local-6989586621679391720"><span id="local-6989586621679391722"><span class="annot"><span class="annottext">ReadPrec [DescribeTableResponse]
 ReadPrec DescribeTableResponse
 Int -&gt; ReadS DescribeTableResponse
 ReadS [DescribeTableResponse]
@@ -321,7 +321,7 @@ readList :: ReadS [DescribeTableResponse]
 $creadList :: ReadS [DescribeTableResponse]
 readsPrec :: Int -&gt; ReadS DescribeTableResponse
 $creadsPrec :: Int -&gt; ReadS DescribeTableResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390984"><span id="local-6989586621679390986"><span id="local-6989586621679390988"><span class="annot"><span class="annottext">Int -&gt; DescribeTableResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391710"><span id="local-6989586621679391712"><span id="local-6989586621679391714"><span class="annot"><span class="annottext">Int -&gt; DescribeTableResponse -&gt; ShowS
 [DescribeTableResponse] -&gt; ShowS
 DescribeTableResponse -&gt; String
 (Int -&gt; DescribeTableResponse -&gt; ShowS)
@@ -363,8 +363,8 @@ $cfrom :: forall x. DescribeTableResponse -&gt; Rep DescribeTableResponse x
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse"><span class="hs-identifier hs-type">DescribeTableResponse</span></a></span><span>
 </span><span id="line-157"></span><span id="newDescribeTableResponse"><span class="annot"><span class="annottext">newDescribeTableResponse :: Int -&gt; DescribeTableResponse
-</span><a href="Network.AWS.DynamoDB.DescribeTable.html#newDescribeTableResponse"><span class="hs-identifier hs-var hs-var">newDescribeTableResponse</span></a></span></span><span> </span><span id="local-6989586621679390981"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390981"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.DescribeTable.html#newDescribeTableResponse"><span class="hs-identifier hs-var hs-var">newDescribeTableResponse</span></a></span></span><span> </span><span id="local-6989586621679391707"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391707"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">DescribeTableResponse' :: Maybe TableDescription -&gt; Int -&gt; DescribeTableResponse
 </span><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse%27"><span class="hs-identifier hs-type">DescribeTableResponse'</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:table:DescribeTableResponse' :: Maybe TableDescription
@@ -373,7 +373,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTableResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.DescribeTable.html#%24sel%3AhttpStatus%3ADescribeTableResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390981"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679391707"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | The properties of the table.</span><span>
@@ -389,16 +389,16 @@ forall a. Maybe a
      (Maybe TableDescription)
      (Maybe TableDescription)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse%27"><span class="hs-identifier hs-type">DescribeTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390980"><span class="annot"><span class="annottext">Maybe TableDescription
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse%27"><span class="hs-identifier hs-type">DescribeTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391706"><span class="annot"><span class="annottext">Maybe TableDescription
 table :: Maybe TableDescription
 $sel:table:DescribeTableResponse' :: DescribeTableResponse -&gt; Maybe TableDescription
-</span><a href="#local-6989586621679390980"><span class="hs-identifier hs-var hs-var">table</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TableDescription
-</span><a href="#local-6989586621679390980"><span class="hs-identifier hs-var">table</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390979"><span class="annot"><span class="annottext">s :: DescribeTableResponse
-</span><a href="#local-6989586621679390979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse%27"><span class="hs-identifier hs-type">DescribeTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390978"><span class="annot"><span class="annottext">Maybe TableDescription
-</span><a href="#local-6989586621679390978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTableResponse
-</span><a href="#local-6989586621679390979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:table:DescribeTableResponse' :: Maybe TableDescription
+</span><a href="#local-6989586621679391706"><span class="hs-identifier hs-var hs-var">table</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TableDescription
+</span><a href="#local-6989586621679391706"><span class="hs-identifier hs-var">table</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391705"><span class="annot"><span class="annottext">s :: DescribeTableResponse
+</span><a href="#local-6989586621679391705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse%27"><span class="hs-identifier hs-type">DescribeTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391704"><span class="annot"><span class="annottext">Maybe TableDescription
+</span><a href="#local-6989586621679391704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTableResponse
+</span><a href="#local-6989586621679391705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:table:DescribeTableResponse' :: Maybe TableDescription
 </span><a href="Network.AWS.DynamoDB.DescribeTable.html#%24sel%3Atable%3ADescribeTableResponse%27"><span class="hs-identifier hs-var">table</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TableDescription
-</span><a href="#local-6989586621679390978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse"><span class="hs-identifier hs-type">DescribeTableResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse"><span class="hs-identifier hs-type">DescribeTableResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-168"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#describeTableResponse_httpStatus"><span class="hs-identifier hs-type">describeTableResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse"><span class="hs-identifier hs-type">DescribeTableResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -407,16 +407,16 @@ $sel:table:DescribeTableResponse' :: DescribeTableResponse -&gt; Maybe TableDesc
 -&gt; (DescribeTableResponse -&gt; Int -&gt; DescribeTableResponse)
 -&gt; Lens DescribeTableResponse DescribeTableResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse%27"><span class="hs-identifier hs-type">DescribeTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390977"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse%27"><span class="hs-identifier hs-type">DescribeTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391703"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeTableResponse' :: DescribeTableResponse -&gt; Int
-</span><a href="#local-6989586621679390977"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390977"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390976"><span class="annot"><span class="annottext">s :: DescribeTableResponse
-</span><a href="#local-6989586621679390976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse%27"><span class="hs-identifier hs-type">DescribeTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390975"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTableResponse
-</span><a href="#local-6989586621679390976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTableResponse' :: Int
+</span><a href="#local-6989586621679391703"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391703"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391702"><span class="annot"><span class="annottext">s :: DescribeTableResponse
+</span><a href="#local-6989586621679391702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse%27"><span class="hs-identifier hs-type">DescribeTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391701"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679391701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTableResponse
+</span><a href="#local-6989586621679391702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTableResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.DescribeTable.html#%24sel%3AhttpStatus%3ADescribeTableResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse"><span class="hs-identifier hs-type">DescribeTableResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679391701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse"><span class="hs-identifier hs-type">DescribeTableResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390973"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse"><span class="hs-identifier hs-type">DescribeTableResponse</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679391699"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeTable.html#DescribeTableResponse"><span class="hs-identifier hs-type">DescribeTableResponse</span></a></span></span><span>
 </span><span id="line-172"></span></pre></body></html>

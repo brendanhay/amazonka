@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Status of the EBS options for the specified Elasticsearch domain.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEBSOptionsStatus' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679304791"><span id="local-6989586621679304792"></span></span><span class="hs-keyword">data</span><span> </span><span id="EBSOptionsStatus"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus"><span class="hs-identifier hs-var">EBSOptionsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EBSOptionsStatus%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus%27"><span class="hs-identifier hs-var">EBSOptionsStatus'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679305010"><span id="local-6989586621679305011"></span></span><span class="hs-keyword">data</span><span> </span><span id="EBSOptionsStatus"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus"><span class="hs-identifier hs-var">EBSOptionsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EBSOptionsStatus%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus%27"><span class="hs-identifier hs-var">EBSOptionsStatus'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the EBS options for the specified Elasticsearch domain.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aoptions%3AEBSOptionsStatus%27"><span class="annot"><span class="annottext">EBSOptionsStatus -&gt; EBSOptions
 </span><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#%24sel%3Aoptions%3AEBSOptionsStatus%27"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptions.html#EBSOptions"><span class="hs-identifier hs-type">EBSOptions</span></a></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3AEBSOptionsStatus%27"><span class="annot"><span class="annottext">EBSOptionsStatus -&gt; OptionStatus
 </span><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#%24sel%3Astatus%3AEBSOptionsStatus%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304784"><span id="local-6989586621679304786"><span class="annot"><span class="annottext">EBSOptionsStatus -&gt; EBSOptionsStatus -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305003"><span id="local-6989586621679305005"><span class="annot"><span class="annottext">EBSOptionsStatus -&gt; EBSOptionsStatus -&gt; Bool
 (EBSOptionsStatus -&gt; EBSOptionsStatus -&gt; Bool)
 -&gt; (EBSOptionsStatus -&gt; EBSOptionsStatus -&gt; Bool)
 -&gt; Eq EBSOptionsStatus
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EBSOptionsStatus -&gt; EBSOptionsStatus -&gt; Bool
 == :: EBSOptionsStatus -&gt; EBSOptionsStatus -&gt; Bool
 $c== :: EBSOptionsStatus -&gt; EBSOptionsStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304775"><span id="local-6989586621679304777"><span id="local-6989586621679304779"><span id="local-6989586621679304781"><span class="annot"><span class="annottext">ReadPrec [EBSOptionsStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304994"><span id="local-6989586621679304996"><span id="local-6989586621679304998"><span id="local-6989586621679305000"><span class="annot"><span class="annottext">ReadPrec [EBSOptionsStatus]
 ReadPrec EBSOptionsStatus
 Int -&gt; ReadS EBSOptionsStatus
 ReadS [EBSOptionsStatus]
@@ -66,7 +66,7 @@ readList :: ReadS [EBSOptionsStatus]
 $creadList :: ReadS [EBSOptionsStatus]
 readsPrec :: Int -&gt; ReadS EBSOptionsStatus
 $creadsPrec :: Int -&gt; ReadS EBSOptionsStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304768"><span id="local-6989586621679304770"><span id="local-6989586621679304772"><span class="annot"><span class="annottext">Int -&gt; EBSOptionsStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304987"><span id="local-6989586621679304989"><span id="local-6989586621679304991"><span class="annot"><span class="annottext">Int -&gt; EBSOptionsStatus -&gt; ShowS
 [EBSOptionsStatus] -&gt; ShowS
 EBSOptionsStatus -&gt; String
 (Int -&gt; EBSOptionsStatus -&gt; ShowS)
@@ -111,17 +111,17 @@ $cfrom :: forall x. EBSOptionsStatus -&gt; Rep EBSOptionsStatus x
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus"><span class="hs-identifier hs-type">EBSOptionsStatus</span></a></span><span>
 </span><span id="line-58"></span><span id="newEBSOptionsStatus"><span class="annot"><span class="annottext">newEBSOptionsStatus :: EBSOptions -&gt; OptionStatus -&gt; EBSOptionsStatus
-</span><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#newEBSOptionsStatus"><span class="hs-identifier hs-var hs-var">newEBSOptionsStatus</span></a></span></span><span> </span><span id="local-6989586621679304762"><span class="annot"><span class="annottext">EBSOptions
-</span><a href="#local-6989586621679304762"><span class="hs-identifier hs-var">pOptions_</span></a></span></span><span> </span><span id="local-6989586621679304761"><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679304761"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#newEBSOptionsStatus"><span class="hs-identifier hs-var hs-var">newEBSOptionsStatus</span></a></span></span><span> </span><span id="local-6989586621679304981"><span class="annot"><span class="annottext">EBSOptions
+</span><a href="#local-6989586621679304981"><span class="hs-identifier hs-var">pOptions_</span></a></span></span><span> </span><span id="local-6989586621679304980"><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679304980"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">EBSOptionsStatus' :: EBSOptions -&gt; OptionStatus -&gt; EBSOptionsStatus
 </span><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus%27"><span class="hs-identifier hs-type">EBSOptionsStatus'</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:options:EBSOptionsStatus' :: EBSOptions
 </span><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#%24sel%3Aoptions%3AEBSOptionsStatus%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EBSOptions
-</span><a href="#local-6989586621679304762"><span class="hs-identifier hs-var">pOptions_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679304981"><span class="hs-identifier hs-var">pOptions_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:EBSOptionsStatus' :: OptionStatus
 </span><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#%24sel%3Astatus%3AEBSOptionsStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679304761"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621679304980"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | Specifies the EBS options for the specified Elasticsearch domain.</span><span>
@@ -132,16 +132,16 @@ $cfrom :: forall x. EBSOptionsStatus -&gt; Rep EBSOptionsStatus x
 -&gt; (EBSOptionsStatus -&gt; EBSOptions -&gt; EBSOptionsStatus)
 -&gt; Lens EBSOptionsStatus EBSOptionsStatus EBSOptions EBSOptions
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus%27"><span class="hs-identifier hs-type">EBSOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304757"><span class="annot"><span class="annottext">EBSOptions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus%27"><span class="hs-identifier hs-type">EBSOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304976"><span class="annot"><span class="annottext">EBSOptions
 options :: EBSOptions
 $sel:options:EBSOptionsStatus' :: EBSOptionsStatus -&gt; EBSOptions
-</span><a href="#local-6989586621679304757"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EBSOptions
-</span><a href="#local-6989586621679304757"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304756"><span class="annot"><span class="annottext">s :: EBSOptionsStatus
-</span><a href="#local-6989586621679304756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus%27"><span class="hs-identifier hs-type">EBSOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304755"><span class="annot"><span class="annottext">EBSOptions
-</span><a href="#local-6989586621679304755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EBSOptionsStatus
-</span><a href="#local-6989586621679304756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:EBSOptionsStatus' :: EBSOptions
+</span><a href="#local-6989586621679304976"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EBSOptions
+</span><a href="#local-6989586621679304976"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304975"><span class="annot"><span class="annottext">s :: EBSOptionsStatus
+</span><a href="#local-6989586621679304975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus%27"><span class="hs-identifier hs-type">EBSOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304974"><span class="annot"><span class="annottext">EBSOptions
+</span><a href="#local-6989586621679304974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EBSOptionsStatus
+</span><a href="#local-6989586621679304975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:EBSOptionsStatus' :: EBSOptions
 </span><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#%24sel%3Aoptions%3AEBSOptionsStatus%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EBSOptions
-</span><a href="#local-6989586621679304755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus"><span class="hs-identifier hs-type">EBSOptionsStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus"><span class="hs-identifier hs-type">EBSOptionsStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | Specifies the status of the EBS options for the specified Elasticsearch</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- domain.</span><span>
@@ -152,19 +152,19 @@ $sel:options:EBSOptionsStatus' :: EBSOptionsStatus -&gt; EBSOptions
 -&gt; (EBSOptionsStatus -&gt; OptionStatus -&gt; EBSOptionsStatus)
 -&gt; Lens EBSOptionsStatus EBSOptionsStatus OptionStatus OptionStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus%27"><span class="hs-identifier hs-type">EBSOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304753"><span class="annot"><span class="annottext">OptionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus%27"><span class="hs-identifier hs-type">EBSOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304972"><span class="annot"><span class="annottext">OptionStatus
 status :: OptionStatus
 $sel:status:EBSOptionsStatus' :: EBSOptionsStatus -&gt; OptionStatus
-</span><a href="#local-6989586621679304753"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679304753"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304752"><span class="annot"><span class="annottext">s :: EBSOptionsStatus
-</span><a href="#local-6989586621679304752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus%27"><span class="hs-identifier hs-type">EBSOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304751"><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679304751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EBSOptionsStatus
-</span><a href="#local-6989586621679304752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:EBSOptionsStatus' :: OptionStatus
+</span><a href="#local-6989586621679304972"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679304972"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304971"><span class="annot"><span class="annottext">s :: EBSOptionsStatus
+</span><a href="#local-6989586621679304971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus%27"><span class="hs-identifier hs-type">EBSOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304970"><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679304970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EBSOptionsStatus
+</span><a href="#local-6989586621679304971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:EBSOptionsStatus' :: OptionStatus
 </span><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#%24sel%3Astatus%3AEBSOptionsStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679304751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus"><span class="hs-identifier hs-type">EBSOptionsStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus"><span class="hs-identifier hs-type">EBSOptionsStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304748"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus"><span class="hs-identifier hs-type">EBSOptionsStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679304746"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EBSOptionsStatus
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304967"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus"><span class="hs-identifier hs-type">EBSOptionsStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679304965"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EBSOptionsStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EBSOptionsStatus)
@@ -174,15 +174,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EBSOptionsStatus&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304743"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304743"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304962"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304962"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">EBSOptions -&gt; OptionStatus -&gt; EBSOptionsStatus
 </span><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus%27"><span class="hs-identifier hs-var">EBSOptionsStatus'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(EBSOptions -&gt; OptionStatus -&gt; EBSOptionsStatus)
 -&gt; Parser EBSOptions -&gt; Parser (OptionStatus -&gt; EBSOptionsStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304743"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EBSOptions
+</span><a href="#local-6989586621679304962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EBSOptions
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Options&quot;</span></span><span class="hs-special">)</span><span>
@@ -190,13 +190,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser OptionStatus -&gt; Parser EBSOptionsStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304743"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OptionStatus
+</span><a href="#local-6989586621679304962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OptionStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304737"><span id="local-6989586621679304739"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus"><span class="hs-identifier hs-type">EBSOptionsStatus</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304956"><span id="local-6989586621679304958"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus"><span class="hs-identifier hs-type">EBSOptionsStatus</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304734"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus"><span class="hs-identifier hs-type">EBSOptionsStatus</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304953"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EBSOptionsStatus.html#EBSOptionsStatus"><span class="hs-identifier hs-type">EBSOptionsStatus</span></a></span></span><span>
 </span><span id="line-86"></span></pre></body></html>

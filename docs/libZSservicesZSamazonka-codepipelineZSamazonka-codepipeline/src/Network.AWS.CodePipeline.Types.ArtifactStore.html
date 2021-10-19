@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- in your pipeline, you must use @artifactStores@.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newArtifactStore' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679277107"><span id="local-6989586621679277108"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArtifactStore"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-var">ArtifactStore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactStore%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore%27"><span class="hs-identifier hs-var">ArtifactStore'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679277307"><span id="local-6989586621679277308"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArtifactStore"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-var">ArtifactStore</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactStore%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore%27"><span class="hs-identifier hs-var">ArtifactStore'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The encryption key used to encrypt the data in the artifact store, such</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- as an AWS Key Management Service (AWS KMS) key. If this is undefined,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- the default key for Amazon S3 is used.</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3Alocation%3AArtifactStore%27"><span class="annot"><span class="annottext">ArtifactStore -&gt; Text
 </span><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#%24sel%3Alocation%3AArtifactStore%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277099"><span id="local-6989586621679277101"><span class="annot"><span class="annottext">ArtifactStore -&gt; ArtifactStore -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679277299"><span id="local-6989586621679277301"><span class="annot"><span class="annottext">ArtifactStore -&gt; ArtifactStore -&gt; Bool
 (ArtifactStore -&gt; ArtifactStore -&gt; Bool)
 -&gt; (ArtifactStore -&gt; ArtifactStore -&gt; Bool) -&gt; Eq ArtifactStore
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ArtifactStore -&gt; ArtifactStore -&gt; Bool
 == :: ArtifactStore -&gt; ArtifactStore -&gt; Bool
 $c== :: ArtifactStore -&gt; ArtifactStore -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277090"><span id="local-6989586621679277092"><span id="local-6989586621679277094"><span id="local-6989586621679277096"><span class="annot"><span class="annottext">ReadPrec [ArtifactStore]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277290"><span id="local-6989586621679277292"><span id="local-6989586621679277294"><span id="local-6989586621679277296"><span class="annot"><span class="annottext">ReadPrec [ArtifactStore]
 ReadPrec ArtifactStore
 Int -&gt; ReadS ArtifactStore
 ReadS [ArtifactStore]
@@ -77,7 +77,7 @@ readList :: ReadS [ArtifactStore]
 $creadList :: ReadS [ArtifactStore]
 readsPrec :: Int -&gt; ReadS ArtifactStore
 $creadsPrec :: Int -&gt; ReadS ArtifactStore
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277083"><span id="local-6989586621679277085"><span id="local-6989586621679277087"><span class="annot"><span class="annottext">Int -&gt; ArtifactStore -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679277283"><span id="local-6989586621679277285"><span id="local-6989586621679277287"><span class="annot"><span class="annottext">Int -&gt; ArtifactStore -&gt; ShowS
 [ArtifactStore] -&gt; ShowS
 ArtifactStore -&gt; String
 (Int -&gt; ArtifactStore -&gt; ShowS)
@@ -129,9 +129,9 @@ $cfrom :: forall x. ArtifactStore -&gt; Rep ArtifactStore x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span><span>
 </span><span id="line-76"></span><span id="newArtifactStore"><span class="annot"><span class="annottext">newArtifactStore :: ArtifactStoreType -&gt; Text -&gt; ArtifactStore
-</span><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#newArtifactStore"><span class="hs-identifier hs-var hs-var">newArtifactStore</span></a></span></span><span> </span><span id="local-6989586621679277077"><span class="annot"><span class="annottext">ArtifactStoreType
-</span><a href="#local-6989586621679277077"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679277076"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679277076"><span class="hs-identifier hs-var">pLocation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#newArtifactStore"><span class="hs-identifier hs-var hs-var">newArtifactStore</span></a></span></span><span> </span><span id="local-6989586621679277277"><span class="annot"><span class="annottext">ArtifactStoreType
+</span><a href="#local-6989586621679277277"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679277276"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277276"><span class="hs-identifier hs-var">pLocation_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">ArtifactStore' :: Maybe EncryptionKey -&gt; ArtifactStoreType -&gt; Text -&gt; ArtifactStore
 </span><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore%27"><span class="hs-identifier hs-type">ArtifactStore'</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encryptionKey:ArtifactStore' :: Maybe EncryptionKey
@@ -140,10 +140,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ArtifactStore' :: ArtifactStoreType
 </span><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#%24sel%3Atype%27%3AArtifactStore%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ArtifactStoreType
-</span><a href="#local-6989586621679277077"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277277"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:ArtifactStore' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#%24sel%3Alocation%3AArtifactStore%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679277076"><span class="hs-identifier hs-var">pLocation_</span></a></span><span>
+</span><a href="#local-6989586621679277276"><span class="hs-identifier hs-var">pLocation_</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The encryption key used to encrypt the data in the artifact store, such</span><span>
@@ -160,16 +160,16 @@ forall a. Maybe a
      (Maybe EncryptionKey)
      (Maybe EncryptionKey)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore%27"><span class="hs-identifier hs-type">ArtifactStore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277072"><span class="annot"><span class="annottext">Maybe EncryptionKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore%27"><span class="hs-identifier hs-type">ArtifactStore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277272"><span class="annot"><span class="annottext">Maybe EncryptionKey
 encryptionKey :: Maybe EncryptionKey
 $sel:encryptionKey:ArtifactStore' :: ArtifactStore -&gt; Maybe EncryptionKey
-</span><a href="#local-6989586621679277072"><span class="hs-identifier hs-var hs-var">encryptionKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionKey
-</span><a href="#local-6989586621679277072"><span class="hs-identifier hs-var">encryptionKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277071"><span class="annot"><span class="annottext">s :: ArtifactStore
-</span><a href="#local-6989586621679277071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore%27"><span class="hs-identifier hs-type">ArtifactStore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277070"><span class="annot"><span class="annottext">Maybe EncryptionKey
-</span><a href="#local-6989586621679277070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactStore
-</span><a href="#local-6989586621679277071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionKey:ArtifactStore' :: Maybe EncryptionKey
+</span><a href="#local-6989586621679277272"><span class="hs-identifier hs-var hs-var">encryptionKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionKey
+</span><a href="#local-6989586621679277272"><span class="hs-identifier hs-var">encryptionKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277271"><span class="annot"><span class="annottext">s :: ArtifactStore
+</span><a href="#local-6989586621679277271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore%27"><span class="hs-identifier hs-type">ArtifactStore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277270"><span class="annot"><span class="annottext">Maybe EncryptionKey
+</span><a href="#local-6989586621679277270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactStore
+</span><a href="#local-6989586621679277271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionKey:ArtifactStore' :: Maybe EncryptionKey
 </span><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#%24sel%3AencryptionKey%3AArtifactStore%27"><span class="hs-identifier hs-var">encryptionKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionKey
-</span><a href="#local-6989586621679277070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The type of the artifact store, such as S3.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#artifactStore_type"><span class="hs-identifier hs-type">artifactStore_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStoreType.html#ArtifactStoreType"><span class="hs-identifier hs-type">ArtifactStoreType</span></a></span><span>
@@ -180,16 +180,16 @@ $sel:encryptionKey:ArtifactStore' :: ArtifactStore -&gt; Maybe EncryptionKey
 -&gt; Lens
      ArtifactStore ArtifactStore ArtifactStoreType ArtifactStoreType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore%27"><span class="hs-identifier hs-type">ArtifactStore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277068"><span class="annot"><span class="annottext">ArtifactStoreType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore%27"><span class="hs-identifier hs-type">ArtifactStore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277268"><span class="annot"><span class="annottext">ArtifactStoreType
 type' :: ArtifactStoreType
 $sel:type':ArtifactStore' :: ArtifactStore -&gt; ArtifactStoreType
-</span><a href="#local-6989586621679277068"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactStoreType
-</span><a href="#local-6989586621679277068"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277067"><span class="annot"><span class="annottext">s :: ArtifactStore
-</span><a href="#local-6989586621679277067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore%27"><span class="hs-identifier hs-type">ArtifactStore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277066"><span class="annot"><span class="annottext">ArtifactStoreType
-</span><a href="#local-6989586621679277066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactStore
-</span><a href="#local-6989586621679277067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ArtifactStore' :: ArtifactStoreType
+</span><a href="#local-6989586621679277268"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactStoreType
+</span><a href="#local-6989586621679277268"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277267"><span class="annot"><span class="annottext">s :: ArtifactStore
+</span><a href="#local-6989586621679277267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore%27"><span class="hs-identifier hs-type">ArtifactStore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277266"><span class="annot"><span class="annottext">ArtifactStoreType
+</span><a href="#local-6989586621679277266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactStore
+</span><a href="#local-6989586621679277267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ArtifactStore' :: ArtifactStoreType
 </span><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#%24sel%3Atype%27%3AArtifactStore%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ArtifactStoreType
-</span><a href="#local-6989586621679277066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The S3 bucket used for storing the artifacts for a pipeline. You can</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- specify the name of an S3 bucket but not a folder in the bucket. A</span><span>
@@ -202,19 +202,19 @@ $sel:type':ArtifactStore' :: ArtifactStore -&gt; ArtifactStoreType
 -&gt; (ArtifactStore -&gt; Text -&gt; ArtifactStore)
 -&gt; Lens ArtifactStore ArtifactStore Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore%27"><span class="hs-identifier hs-type">ArtifactStore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277064"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore%27"><span class="hs-identifier hs-type">ArtifactStore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277264"><span class="annot"><span class="annottext">Text
 location :: Text
 $sel:location:ArtifactStore' :: ArtifactStore -&gt; Text
-</span><a href="#local-6989586621679277064"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679277064"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277063"><span class="annot"><span class="annottext">s :: ArtifactStore
-</span><a href="#local-6989586621679277063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore%27"><span class="hs-identifier hs-type">ArtifactStore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277062"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679277062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactStore
-</span><a href="#local-6989586621679277063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:ArtifactStore' :: Text
+</span><a href="#local-6989586621679277264"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277264"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679277263"><span class="annot"><span class="annottext">s :: ArtifactStore
+</span><a href="#local-6989586621679277263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore%27"><span class="hs-identifier hs-type">ArtifactStore'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679277262"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679277262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArtifactStore
+</span><a href="#local-6989586621679277263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:ArtifactStore' :: Text
 </span><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#%24sel%3Alocation%3AArtifactStore%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679277062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277059"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679277057"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArtifactStore
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277259"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679277257"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArtifactStore
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ArtifactStore)
@@ -224,8 +224,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ArtifactStore&quot;</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679277054"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277054"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679277254"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679277254"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe EncryptionKey -&gt; ArtifactStoreType -&gt; Text -&gt; ArtifactStore
 </span><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore%27"><span class="hs-identifier hs-var">ArtifactStore'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EncryptionKey -&gt; ArtifactStoreType -&gt; Text -&gt; ArtifactStore)
@@ -233,7 +233,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (ArtifactStoreType -&gt; Text -&gt; ArtifactStore)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277054"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionKey)
+</span><a href="#local-6989586621679277254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionKey)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;encryptionKey&quot;</span></span><span class="hs-special">)</span><span>
@@ -241,7 +241,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser ArtifactStoreType -&gt; Parser (Text -&gt; ArtifactStore)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277054"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ArtifactStoreType
+</span><a href="#local-6989586621679277254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ArtifactStoreType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
@@ -249,19 +249,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser ArtifactStore
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679277054"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679277254"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277047"><span id="local-6989586621679277049"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277247"><span id="local-6989586621679277249"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277244"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277036"><span id="local-6989586621679277038"><span id="local-6989586621679277040"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679277034"><span class="annot"><span class="annottext">toJSON :: ArtifactStore -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore%27"><span class="hs-identifier hs-type">ArtifactStore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277030"><span id="local-6989586621679277031"><span id="local-6989586621679277032"><span class="annot"><span class="annottext">Maybe EncryptionKey
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679277236"><span id="local-6989586621679277238"><span id="local-6989586621679277240"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore"><span class="hs-identifier hs-type">ArtifactStore</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679277234"><span class="annot"><span class="annottext">toJSON :: ArtifactStore -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactStore.html#ArtifactStore%27"><span class="hs-identifier hs-type">ArtifactStore'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679277230"><span id="local-6989586621679277231"><span id="local-6989586621679277232"><span class="annot"><span class="annottext">Maybe EncryptionKey
 Text
 ArtifactStoreType
 location :: Text
@@ -270,7 +270,7 @@ encryptionKey :: Maybe EncryptionKey
 $sel:location:ArtifactStore' :: ArtifactStore -&gt; Text
 $sel:type':ArtifactStore' :: ArtifactStore -&gt; ArtifactStoreType
 $sel:encryptionKey:ArtifactStore' :: ArtifactStore -&gt; Maybe EncryptionKey
-</span><a href="#local-6989586621679277030"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679277230"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -282,21 +282,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EncryptionKey -&gt; Pair) -&gt; Maybe EncryptionKey -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionKey
-</span><a href="#local-6989586621679277032"><span class="hs-identifier hs-var">encryptionKey</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277232"><span class="hs-identifier hs-var">encryptionKey</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ArtifactStoreType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ArtifactStoreType
-</span><a href="#local-6989586621679277031"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679277231"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679277030"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679277230"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span></pre></body></html>

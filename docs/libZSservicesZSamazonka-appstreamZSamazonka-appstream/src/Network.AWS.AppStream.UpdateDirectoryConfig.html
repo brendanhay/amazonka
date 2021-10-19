@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newUpdateDirectoryConfig' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679303598"><span id="local-6989586621679303599"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDirectoryConfig"><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-var">UpdateDirectoryConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDirectoryConfig%27"><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig%27"><span class="hs-identifier hs-var">UpdateDirectoryConfig'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679303886"><span id="local-6989586621679303887"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDirectoryConfig"><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-var">UpdateDirectoryConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDirectoryConfig%27"><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig%27"><span class="hs-identifier hs-var">UpdateDirectoryConfig'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The credentials for the service account used by the fleet or image</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- builder to connect to the directory.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AserviceAccountCredentials%3AUpdateDirectoryConfig%27"><span class="annot"><span class="annottext">UpdateDirectoryConfig -&gt; Maybe ServiceAccountCredentials
@@ -64,7 +64,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AdirectoryName%3AUpdateDirectoryConfig%27"><span class="annot"><span class="annottext">UpdateDirectoryConfig -&gt; Text
 </span><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#%24sel%3AdirectoryName%3AUpdateDirectoryConfig%27"><span class="hs-identifier hs-var hs-var">directoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303590"><span id="local-6989586621679303592"><span class="annot"><span class="annottext">UpdateDirectoryConfig -&gt; UpdateDirectoryConfig -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303878"><span id="local-6989586621679303880"><span class="annot"><span class="annottext">UpdateDirectoryConfig -&gt; UpdateDirectoryConfig -&gt; Bool
 (UpdateDirectoryConfig -&gt; UpdateDirectoryConfig -&gt; Bool)
 -&gt; (UpdateDirectoryConfig -&gt; UpdateDirectoryConfig -&gt; Bool)
 -&gt; Eq UpdateDirectoryConfig
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDirectoryConfig -&gt; UpdateDirectoryConfig -&gt; Bool
 == :: UpdateDirectoryConfig -&gt; UpdateDirectoryConfig -&gt; Bool
 $c== :: UpdateDirectoryConfig -&gt; UpdateDirectoryConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303583"><span id="local-6989586621679303585"><span id="local-6989586621679303587"><span class="annot"><span class="annottext">Int -&gt; UpdateDirectoryConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303871"><span id="local-6989586621679303873"><span id="local-6989586621679303875"><span class="annot"><span class="annottext">Int -&gt; UpdateDirectoryConfig -&gt; ShowS
 [UpdateDirectoryConfig] -&gt; ShowS
 UpdateDirectoryConfig -&gt; String
 (Int -&gt; UpdateDirectoryConfig -&gt; ShowS)
@@ -119,8 +119,8 @@ $cfrom :: forall x. UpdateDirectoryConfig -&gt; Rep UpdateDirectoryConfig x
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span><span>
 </span><span id="line-85"></span><span id="newUpdateDirectoryConfig"><span class="annot"><span class="annottext">newUpdateDirectoryConfig :: Text -&gt; UpdateDirectoryConfig
-</span><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#newUpdateDirectoryConfig"><span class="hs-identifier hs-var hs-var">newUpdateDirectoryConfig</span></a></span></span><span> </span><span id="local-6989586621679303578"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303578"><span class="hs-identifier hs-var">pDirectoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#newUpdateDirectoryConfig"><span class="hs-identifier hs-var hs-var">newUpdateDirectoryConfig</span></a></span></span><span> </span><span id="local-6989586621679303866"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303866"><span class="hs-identifier hs-var">pDirectoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">UpdateDirectoryConfig' :: Maybe ServiceAccountCredentials
 -&gt; Maybe [Text] -&gt; Text -&gt; UpdateDirectoryConfig
 </span><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig%27"><span class="hs-identifier hs-type">UpdateDirectoryConfig'</span></a></span><span>
@@ -136,7 +136,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:directoryName:UpdateDirectoryConfig' :: Text
 </span><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#%24sel%3AdirectoryName%3AUpdateDirectoryConfig%27"><span class="hs-identifier hs-var">directoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303578"><span class="hs-identifier hs-var">pDirectoryName_</span></a></span><span>
+</span><a href="#local-6989586621679303866"><span class="hs-identifier hs-var">pDirectoryName_</span></a></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The credentials for the service account used by the fleet or image</span><span>
@@ -154,16 +154,16 @@ forall a. Maybe a
      (Maybe ServiceAccountCredentials)
      (Maybe ServiceAccountCredentials)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig%27"><span class="hs-identifier hs-type">UpdateDirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303575"><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig%27"><span class="hs-identifier hs-type">UpdateDirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303863"><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
 serviceAccountCredentials :: Maybe ServiceAccountCredentials
 $sel:serviceAccountCredentials:UpdateDirectoryConfig' :: UpdateDirectoryConfig -&gt; Maybe ServiceAccountCredentials
-</span><a href="#local-6989586621679303575"><span class="hs-identifier hs-var hs-var">serviceAccountCredentials</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
-</span><a href="#local-6989586621679303575"><span class="hs-identifier hs-var">serviceAccountCredentials</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303574"><span class="annot"><span class="annottext">s :: UpdateDirectoryConfig
-</span><a href="#local-6989586621679303574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig%27"><span class="hs-identifier hs-type">UpdateDirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303573"><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
-</span><a href="#local-6989586621679303573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDirectoryConfig
-</span><a href="#local-6989586621679303574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccountCredentials:UpdateDirectoryConfig' :: Maybe ServiceAccountCredentials
+</span><a href="#local-6989586621679303863"><span class="hs-identifier hs-var hs-var">serviceAccountCredentials</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
+</span><a href="#local-6989586621679303863"><span class="hs-identifier hs-var">serviceAccountCredentials</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303862"><span class="annot"><span class="annottext">s :: UpdateDirectoryConfig
+</span><a href="#local-6989586621679303862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig%27"><span class="hs-identifier hs-type">UpdateDirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303861"><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
+</span><a href="#local-6989586621679303861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDirectoryConfig
+</span><a href="#local-6989586621679303862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccountCredentials:UpdateDirectoryConfig' :: Maybe ServiceAccountCredentials
 </span><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#%24sel%3AserviceAccountCredentials%3AUpdateDirectoryConfig%27"><span class="hs-identifier hs-var">serviceAccountCredentials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
-</span><a href="#local-6989586621679303573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The distinguished names of the organizational units for computer</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- accounts.</span><span>
@@ -178,16 +178,16 @@ $sel:serviceAccountCredentials:UpdateDirectoryConfig' :: UpdateDirectoryConfig -
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig%27"><span class="hs-identifier hs-type">UpdateDirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303572"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig%27"><span class="hs-identifier hs-type">UpdateDirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303860"><span class="annot"><span class="annottext">Maybe [Text]
 organizationalUnitDistinguishedNames :: Maybe [Text]
 $sel:organizationalUnitDistinguishedNames:UpdateDirectoryConfig' :: UpdateDirectoryConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679303572"><span class="hs-identifier hs-var hs-var">organizationalUnitDistinguishedNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679303572"><span class="hs-identifier hs-var">organizationalUnitDistinguishedNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303571"><span class="annot"><span class="annottext">s :: UpdateDirectoryConfig
-</span><a href="#local-6989586621679303571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig%27"><span class="hs-identifier hs-type">UpdateDirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303570"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679303570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDirectoryConfig
-</span><a href="#local-6989586621679303571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationalUnitDistinguishedNames:UpdateDirectoryConfig' :: Maybe [Text]
+</span><a href="#local-6989586621679303860"><span class="hs-identifier hs-var hs-var">organizationalUnitDistinguishedNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679303860"><span class="hs-identifier hs-var">organizationalUnitDistinguishedNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303859"><span class="annot"><span class="annottext">s :: UpdateDirectoryConfig
+</span><a href="#local-6989586621679303859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig%27"><span class="hs-identifier hs-type">UpdateDirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303858"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679303858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDirectoryConfig
+</span><a href="#local-6989586621679303859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationalUnitDistinguishedNames:UpdateDirectoryConfig' :: Maybe [Text]
 </span><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#%24sel%3AorganizationalUnitDistinguishedNames%3AUpdateDirectoryConfig%27"><span class="hs-identifier hs-var">organizationalUnitDistinguishedNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679303570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679303858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; UpdateDirectoryConfig -&gt; f UpdateDirectoryConfig)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -201,8 +201,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The name of the Directory Config object.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#updateDirectoryConfig_directoryName"><span class="hs-identifier hs-type">updateDirectoryConfig_directoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -212,27 +212,27 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (UpdateDirectoryConfig -&gt; Text -&gt; UpdateDirectoryConfig)
 -&gt; Lens UpdateDirectoryConfig UpdateDirectoryConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig%27"><span class="hs-identifier hs-type">UpdateDirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303566"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig%27"><span class="hs-identifier hs-type">UpdateDirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303854"><span class="annot"><span class="annottext">Text
 directoryName :: Text
 $sel:directoryName:UpdateDirectoryConfig' :: UpdateDirectoryConfig -&gt; Text
-</span><a href="#local-6989586621679303566"><span class="hs-identifier hs-var hs-var">directoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303566"><span class="hs-identifier hs-var">directoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303565"><span class="annot"><span class="annottext">s :: UpdateDirectoryConfig
-</span><a href="#local-6989586621679303565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig%27"><span class="hs-identifier hs-type">UpdateDirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303564"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDirectoryConfig
-</span><a href="#local-6989586621679303565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryName:UpdateDirectoryConfig' :: Text
+</span><a href="#local-6989586621679303854"><span class="hs-identifier hs-var hs-var">directoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303854"><span class="hs-identifier hs-var">directoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303853"><span class="annot"><span class="annottext">s :: UpdateDirectoryConfig
+</span><a href="#local-6989586621679303853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig%27"><span class="hs-identifier hs-type">UpdateDirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303852"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679303852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDirectoryConfig
+</span><a href="#local-6989586621679303853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryName:UpdateDirectoryConfig' :: Text
 </span><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#%24sel%3AdirectoryName%3AUpdateDirectoryConfig%27"><span class="hs-identifier hs-var">directoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-110"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse"><span class="hs-identifier hs-type">UpdateDirectoryConfigResponse</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679303560"><span class="annot"><span class="annottext">request :: UpdateDirectoryConfig -&gt; Request UpdateDirectoryConfig
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679303848"><span class="annot"><span class="annottext">request :: UpdateDirectoryConfig -&gt; Request UpdateDirectoryConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateDirectoryConfig -&gt; Request UpdateDirectoryConfig
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679303556"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679303844"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateDirectoryConfig
 -&gt; ClientResponse ClientBody
@@ -258,10 +258,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303553"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303553"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679303552"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679303552"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679303551"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303551"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303841"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303841"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679303840"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679303840"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679303839"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679303839"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe DirectoryConfig -&gt; Int -&gt; UpdateDirectoryConfigResponse
 </span><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse%27"><span class="hs-identifier hs-var">UpdateDirectoryConfigResponse'</span></a></span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DirectoryConfig -&gt; Int -&gt; UpdateDirectoryConfigResponse)
@@ -269,7 +269,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateDirectoryConfigResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679303551"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DirectoryConfig)
+</span><a href="#local-6989586621679303839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DirectoryConfig)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DirectoryConfig&quot;</span></span><span class="hs-special">)</span><span>
@@ -281,15 +281,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303553"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303841"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303543"><span id="local-6989586621679303545"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303831"><span id="local-6989586621679303833"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303540"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303828"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679303536"><span class="annot"><span class="annottext">toHeaders :: UpdateDirectoryConfig -&gt; ResponseHeaders
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679303824"><span class="annot"><span class="annottext">toHeaders :: UpdateDirectoryConfig -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateDirectoryConfig -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -316,9 +316,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303526"><span id="local-6989586621679303528"><span id="local-6989586621679303530"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679303524"><span class="annot"><span class="annottext">toJSON :: UpdateDirectoryConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig%27"><span class="hs-identifier hs-type">UpdateDirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303520"><span id="local-6989586621679303521"><span id="local-6989586621679303522"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303814"><span id="local-6989586621679303816"><span id="local-6989586621679303818"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679303812"><span class="annot"><span class="annottext">toJSON :: UpdateDirectoryConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig%27"><span class="hs-identifier hs-type">UpdateDirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303808"><span id="local-6989586621679303809"><span id="local-6989586621679303810"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe ServiceAccountCredentials
 Text
 directoryName :: Text
@@ -327,7 +327,7 @@ serviceAccountCredentials :: Maybe ServiceAccountCredentials
 $sel:directoryName:UpdateDirectoryConfig' :: UpdateDirectoryConfig -&gt; Text
 $sel:organizationalUnitDistinguishedNames:UpdateDirectoryConfig' :: UpdateDirectoryConfig -&gt; Maybe [Text]
 $sel:serviceAccountCredentials:UpdateDirectoryConfig' :: UpdateDirectoryConfig -&gt; Maybe ServiceAccountCredentials
-</span><a href="#local-6989586621679303520"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679303808"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -341,7 +341,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ServiceAccountCredentials -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
-</span><a href="#local-6989586621679303522"><span class="hs-identifier hs-var">serviceAccountCredentials</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679303810"><span class="hs-identifier hs-var">serviceAccountCredentials</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OrganizationalUnitDistinguishedNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -349,7 +349,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679303521"><span class="hs-identifier hs-var">organizationalUnitDistinguishedNames</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679303809"><span class="hs-identifier hs-var">organizationalUnitDistinguishedNames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -357,19 +357,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DirectoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303520"><span class="hs-identifier hs-var">directoryName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303808"><span class="hs-identifier hs-var">directoryName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679303514"><span class="annot"><span class="annottext">toPath :: UpdateDirectoryConfig -&gt; ByteString
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679303802"><span class="annot"><span class="annottext">toPath :: UpdateDirectoryConfig -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateDirectoryConfig -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfig"><span class="hs-identifier hs-type">UpdateDirectoryConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679303510"><span class="annot"><span class="annottext">toQuery :: UpdateDirectoryConfig -&gt; QueryString
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679303798"><span class="annot"><span class="annottext">toQuery :: UpdateDirectoryConfig -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDirectoryConfig -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -377,7 +377,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newUpdateDirectoryConfigResponse' smart constructor.</span><span>
-</span><span id="line-160"></span><span id="local-6989586621679303507"><span id="local-6989586621679303508"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDirectoryConfigResponse"><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse"><span class="hs-identifier hs-var">UpdateDirectoryConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDirectoryConfigResponse%27"><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse%27"><span class="hs-identifier hs-var">UpdateDirectoryConfigResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span id="local-6989586621679303795"><span id="local-6989586621679303796"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDirectoryConfigResponse"><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse"><span class="hs-identifier hs-var">UpdateDirectoryConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDirectoryConfigResponse%27"><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse%27"><span class="hs-identifier hs-var">UpdateDirectoryConfigResponse'</span></a></span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the Directory Config object.</span><span>
 </span><span id="line-162"></span><span>    </span><span id="%24sel%3AdirectoryConfig%3AUpdateDirectoryConfigResponse%27"><span class="annot"><span class="annottext">UpdateDirectoryConfigResponse -&gt; Maybe DirectoryConfig
 </span><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#%24sel%3AdirectoryConfig%3AUpdateDirectoryConfigResponse%27"><span class="hs-identifier hs-var hs-var">directoryConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span><span class="hs-special">,</span><span>
@@ -385,7 +385,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateDirectoryConfigResponse%27"><span class="annot"><span class="annottext">UpdateDirectoryConfigResponse -&gt; Int
 </span><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#%24sel%3AhttpStatus%3AUpdateDirectoryConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303501"><span id="local-6989586621679303503"><span class="annot"><span class="annottext">UpdateDirectoryConfigResponse
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303789"><span id="local-6989586621679303791"><span class="annot"><span class="annottext">UpdateDirectoryConfigResponse
 -&gt; UpdateDirectoryConfigResponse -&gt; Bool
 (UpdateDirectoryConfigResponse
  -&gt; UpdateDirectoryConfigResponse -&gt; Bool)
@@ -401,7 +401,7 @@ $c/= :: UpdateDirectoryConfigResponse
 -&gt; UpdateDirectoryConfigResponse -&gt; Bool
 $c== :: UpdateDirectoryConfigResponse
 -&gt; UpdateDirectoryConfigResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303495"><span id="local-6989586621679303497"><span id="local-6989586621679303499"><span class="annot"><span class="annottext">Int -&gt; UpdateDirectoryConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303783"><span id="local-6989586621679303785"><span id="local-6989586621679303787"><span class="annot"><span class="annottext">Int -&gt; UpdateDirectoryConfigResponse -&gt; ShowS
 [UpdateDirectoryConfigResponse] -&gt; ShowS
 UpdateDirectoryConfigResponse -&gt; String
 (Int -&gt; UpdateDirectoryConfigResponse -&gt; ShowS)
@@ -455,8 +455,8 @@ UpdateDirectoryConfigResponse
 </span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse"><span class="hs-identifier hs-type">UpdateDirectoryConfigResponse</span></a></span><span>
 </span><span id="line-183"></span><span id="newUpdateDirectoryConfigResponse"><span class="annot"><span class="annottext">newUpdateDirectoryConfigResponse :: Int -&gt; UpdateDirectoryConfigResponse
-</span><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#newUpdateDirectoryConfigResponse"><span class="hs-identifier hs-var hs-var">newUpdateDirectoryConfigResponse</span></a></span></span><span> </span><span id="local-6989586621679303492"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303492"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#newUpdateDirectoryConfigResponse"><span class="hs-identifier hs-var hs-var">newUpdateDirectoryConfigResponse</span></a></span></span><span> </span><span id="local-6989586621679303780"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303780"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><span class="annottext">UpdateDirectoryConfigResponse' :: Maybe DirectoryConfig -&gt; Int -&gt; UpdateDirectoryConfigResponse
 </span><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse%27"><span class="hs-identifier hs-type">UpdateDirectoryConfigResponse'</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryConfig:UpdateDirectoryConfigResponse' :: Maybe DirectoryConfig
@@ -466,7 +466,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDirectoryConfigResponse' :: Int
 </span><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#%24sel%3AhttpStatus%3AUpdateDirectoryConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303492"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679303780"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-188"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | Information about the Directory Config object.</span><span>
@@ -482,16 +482,16 @@ forall a. Maybe a
      (Maybe DirectoryConfig)
      (Maybe DirectoryConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse%27"><span class="hs-identifier hs-type">UpdateDirectoryConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303491"><span class="annot"><span class="annottext">Maybe DirectoryConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse%27"><span class="hs-identifier hs-type">UpdateDirectoryConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303779"><span class="annot"><span class="annottext">Maybe DirectoryConfig
 directoryConfig :: Maybe DirectoryConfig
 $sel:directoryConfig:UpdateDirectoryConfigResponse' :: UpdateDirectoryConfigResponse -&gt; Maybe DirectoryConfig
-</span><a href="#local-6989586621679303491"><span class="hs-identifier hs-var hs-var">directoryConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DirectoryConfig
-</span><a href="#local-6989586621679303491"><span class="hs-identifier hs-var">directoryConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303490"><span class="annot"><span class="annottext">s :: UpdateDirectoryConfigResponse
-</span><a href="#local-6989586621679303490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse%27"><span class="hs-identifier hs-type">UpdateDirectoryConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303489"><span class="annot"><span class="annottext">Maybe DirectoryConfig
-</span><a href="#local-6989586621679303489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDirectoryConfigResponse
-</span><a href="#local-6989586621679303490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryConfig:UpdateDirectoryConfigResponse' :: Maybe DirectoryConfig
+</span><a href="#local-6989586621679303779"><span class="hs-identifier hs-var hs-var">directoryConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DirectoryConfig
+</span><a href="#local-6989586621679303779"><span class="hs-identifier hs-var">directoryConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303778"><span class="annot"><span class="annottext">s :: UpdateDirectoryConfigResponse
+</span><a href="#local-6989586621679303778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse%27"><span class="hs-identifier hs-type">UpdateDirectoryConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303777"><span class="annot"><span class="annottext">Maybe DirectoryConfig
+</span><a href="#local-6989586621679303777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDirectoryConfigResponse
+</span><a href="#local-6989586621679303778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryConfig:UpdateDirectoryConfigResponse' :: Maybe DirectoryConfig
 </span><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#%24sel%3AdirectoryConfig%3AUpdateDirectoryConfigResponse%27"><span class="hs-identifier hs-var">directoryConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DirectoryConfig
-</span><a href="#local-6989586621679303489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse"><span class="hs-identifier hs-type">UpdateDirectoryConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse"><span class="hs-identifier hs-type">UpdateDirectoryConfigResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-195"></span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#updateDirectoryConfigResponse_httpStatus"><span class="hs-identifier hs-type">updateDirectoryConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse"><span class="hs-identifier hs-type">UpdateDirectoryConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -503,16 +503,16 @@ $sel:directoryConfig:UpdateDirectoryConfigResponse' :: UpdateDirectoryConfigResp
 -&gt; Lens
      UpdateDirectoryConfigResponse UpdateDirectoryConfigResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse%27"><span class="hs-identifier hs-type">UpdateDirectoryConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303488"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse%27"><span class="hs-identifier hs-type">UpdateDirectoryConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303776"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateDirectoryConfigResponse' :: UpdateDirectoryConfigResponse -&gt; Int
-</span><a href="#local-6989586621679303488"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303488"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303487"><span class="annot"><span class="annottext">s :: UpdateDirectoryConfigResponse
-</span><a href="#local-6989586621679303487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse%27"><span class="hs-identifier hs-type">UpdateDirectoryConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303486"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDirectoryConfigResponse
-</span><a href="#local-6989586621679303487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDirectoryConfigResponse' :: Int
+</span><a href="#local-6989586621679303776"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303776"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303775"><span class="annot"><span class="annottext">s :: UpdateDirectoryConfigResponse
+</span><a href="#local-6989586621679303775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse%27"><span class="hs-identifier hs-type">UpdateDirectoryConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303774"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDirectoryConfigResponse
+</span><a href="#local-6989586621679303775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDirectoryConfigResponse' :: Int
 </span><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#%24sel%3AhttpStatus%3AUpdateDirectoryConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse"><span class="hs-identifier hs-type">UpdateDirectoryConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse"><span class="hs-identifier hs-type">UpdateDirectoryConfigResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303484"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse"><span class="hs-identifier hs-type">UpdateDirectoryConfigResponse</span></a></span></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303772"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.UpdateDirectoryConfig.html#UpdateDirectoryConfigResponse"><span class="hs-identifier hs-type">UpdateDirectoryConfigResponse</span></a></span></span><span>
 </span><span id="line-199"></span></pre></body></html>

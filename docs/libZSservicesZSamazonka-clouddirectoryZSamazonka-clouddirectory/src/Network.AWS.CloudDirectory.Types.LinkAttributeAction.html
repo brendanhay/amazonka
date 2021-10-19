@@ -29,15 +29,15 @@
 </span><span id="line-29"></span><span class="hs-comment">-- supported for attributes which don&#8217;t contribute to link identity.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLinkAttributeAction' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679333437"><span id="local-6989586621679333438"></span></span><span class="hs-keyword">data</span><span> </span><span id="LinkAttributeAction"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-var">LinkAttributeAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LinkAttributeAction%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction%27"><span class="hs-identifier hs-var">LinkAttributeAction'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value that you want to update to.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AattributeUpdateValue%3ALinkAttributeAction%27"><span class="annot"><span class="annottext">LinkAttributeAction -&gt; Maybe TypedAttributeValue
-</span><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#%24sel%3AattributeUpdateValue%3ALinkAttributeAction%27"><span class="hs-identifier hs-var hs-var">attributeUpdateValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A type that can be either @UPDATE_OR_CREATE@ or @DELETE@.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AattributeActionType%3ALinkAttributeAction%27"><span class="annot"><span class="annottext">LinkAttributeAction -&gt; Maybe UpdateActionType
-</span><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#%24sel%3AattributeActionType%3ALinkAttributeAction%27"><span class="hs-identifier hs-var hs-var">attributeActionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.UpdateActionType.html#UpdateActionType"><span class="hs-identifier hs-type">UpdateActionType</span></a></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679333822"><span id="local-6989586621679333823"></span></span><span class="hs-keyword">data</span><span> </span><span id="LinkAttributeAction"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-var">LinkAttributeAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LinkAttributeAction%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction%27"><span class="hs-identifier hs-var">LinkAttributeAction'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A type that can be either @UPDATE_OR_CREATE@ or @DELETE@.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AattributeActionType%3ALinkAttributeAction%27"><span class="annot"><span class="annottext">LinkAttributeAction -&gt; Maybe UpdateActionType
+</span><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#%24sel%3AattributeActionType%3ALinkAttributeAction%27"><span class="hs-identifier hs-var hs-var">attributeActionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.UpdateActionType.html#UpdateActionType"><span class="hs-identifier hs-type">UpdateActionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The value that you want to update to.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AattributeUpdateValue%3ALinkAttributeAction%27"><span class="annot"><span class="annottext">LinkAttributeAction -&gt; Maybe TypedAttributeValue
+</span><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#%24sel%3AattributeUpdateValue%3ALinkAttributeAction%27"><span class="hs-identifier hs-var hs-var">attributeUpdateValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333430"><span id="local-6989586621679333432"><span class="annot"><span class="annottext">LinkAttributeAction -&gt; LinkAttributeAction -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333815"><span id="local-6989586621679333817"><span class="annot"><span class="annottext">LinkAttributeAction -&gt; LinkAttributeAction -&gt; Bool
 (LinkAttributeAction -&gt; LinkAttributeAction -&gt; Bool)
 -&gt; (LinkAttributeAction -&gt; LinkAttributeAction -&gt; Bool)
 -&gt; Eq LinkAttributeAction
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LinkAttributeAction -&gt; LinkAttributeAction -&gt; Bool
 == :: LinkAttributeAction -&gt; LinkAttributeAction -&gt; Bool
 $c== :: LinkAttributeAction -&gt; LinkAttributeAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333421"><span id="local-6989586621679333423"><span id="local-6989586621679333425"><span id="local-6989586621679333427"><span class="annot"><span class="annottext">ReadPrec [LinkAttributeAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333806"><span id="local-6989586621679333808"><span id="local-6989586621679333810"><span id="local-6989586621679333812"><span class="annot"><span class="annottext">ReadPrec [LinkAttributeAction]
 ReadPrec LinkAttributeAction
 Int -&gt; ReadS LinkAttributeAction
 ReadS [LinkAttributeAction]
@@ -66,7 +66,7 @@ readList :: ReadS [LinkAttributeAction]
 $creadList :: ReadS [LinkAttributeAction]
 readsPrec :: Int -&gt; ReadS LinkAttributeAction
 $creadsPrec :: Int -&gt; ReadS LinkAttributeAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333414"><span id="local-6989586621679333416"><span id="local-6989586621679333418"><span class="annot"><span class="annottext">Int -&gt; LinkAttributeAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333799"><span id="local-6989586621679333801"><span id="local-6989586621679333803"><span class="annot"><span class="annottext">Int -&gt; LinkAttributeAction -&gt; ShowS
 [LinkAttributeAction] -&gt; ShowS
 LinkAttributeAction -&gt; String
 (Int -&gt; LinkAttributeAction -&gt; ShowS)
@@ -100,54 +100,30 @@ $cfrom :: forall x. LinkAttributeAction -&gt; Rep LinkAttributeAction x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'attributeUpdateValue', 'linkAttributeAction_attributeUpdateValue' - The value that you want to update to.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'attributeActionType', 'linkAttributeAction_attributeActionType' - A type that can be either @UPDATE_OR_CREATE@ or @DELETE@.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'attributeActionType', 'linkAttributeAction_attributeActionType' - A type that can be either @UPDATE_OR_CREATE@ or @DELETE@.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'attributeUpdateValue', 'linkAttributeAction_attributeUpdateValue' - The value that you want to update to.</span><span>
 </span><span id="line-51"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#newLinkAttributeAction"><span class="hs-identifier hs-type">newLinkAttributeAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-type">LinkAttributeAction</span></a></span><span>
 </span><span id="line-53"></span><span id="newLinkAttributeAction"><span class="annot"><span class="annottext">newLinkAttributeAction :: LinkAttributeAction
 </span><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#newLinkAttributeAction"><span class="hs-identifier hs-var hs-var">newLinkAttributeAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">LinkAttributeAction' :: Maybe TypedAttributeValue
--&gt; Maybe UpdateActionType -&gt; LinkAttributeAction
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">LinkAttributeAction' :: Maybe UpdateActionType
+-&gt; Maybe TypedAttributeValue -&gt; LinkAttributeAction
 </span><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction%27"><span class="hs-identifier hs-type">LinkAttributeAction'</span></a></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributeUpdateValue:LinkAttributeAction' :: Maybe TypedAttributeValue
-</span><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#%24sel%3AattributeUpdateValue%3ALinkAttributeAction%27"><span class="hs-identifier hs-var">attributeUpdateValue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributeActionType:LinkAttributeAction' :: Maybe UpdateActionType
+</span><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#%24sel%3AattributeActionType%3ALinkAttributeAction%27"><span class="hs-identifier hs-var">attributeActionType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">Maybe UpdateActionType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeActionType:LinkAttributeAction' :: Maybe UpdateActionType
-</span><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#%24sel%3AattributeActionType%3ALinkAttributeAction%27"><span class="hs-identifier hs-var">attributeActionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateActionType
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeUpdateValue:LinkAttributeAction' :: Maybe TypedAttributeValue
+</span><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#%24sel%3AattributeUpdateValue%3ALinkAttributeAction%27"><span class="hs-identifier hs-var">attributeUpdateValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | The value that you want to update to.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#linkAttributeAction_attributeUpdateValue"><span class="hs-identifier hs-type">linkAttributeAction_attributeUpdateValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-type">LinkAttributeAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="linkAttributeAction_attributeUpdateValue"><span class="annot"><span class="annottext">linkAttributeAction_attributeUpdateValue :: (Maybe TypedAttributeValue -&gt; f (Maybe TypedAttributeValue))
--&gt; LinkAttributeAction -&gt; f LinkAttributeAction
-</span><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#linkAttributeAction_attributeUpdateValue"><span class="hs-identifier hs-var hs-var">linkAttributeAction_attributeUpdateValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LinkAttributeAction -&gt; Maybe TypedAttributeValue)
--&gt; (LinkAttributeAction
-    -&gt; Maybe TypedAttributeValue -&gt; LinkAttributeAction)
--&gt; Lens
-     LinkAttributeAction
-     LinkAttributeAction
-     (Maybe TypedAttributeValue)
-     (Maybe TypedAttributeValue)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction%27"><span class="hs-identifier hs-type">LinkAttributeAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333405"><span class="annot"><span class="annottext">Maybe TypedAttributeValue
-attributeUpdateValue :: Maybe TypedAttributeValue
-$sel:attributeUpdateValue:LinkAttributeAction' :: LinkAttributeAction -&gt; Maybe TypedAttributeValue
-</span><a href="#local-6989586621679333405"><span class="hs-identifier hs-var hs-var">attributeUpdateValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
-</span><a href="#local-6989586621679333405"><span class="hs-identifier hs-var">attributeUpdateValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333404"><span class="annot"><span class="annottext">s :: LinkAttributeAction
-</span><a href="#local-6989586621679333404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction%27"><span class="hs-identifier hs-type">LinkAttributeAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333403"><span class="annot"><span class="annottext">Maybe TypedAttributeValue
-</span><a href="#local-6989586621679333403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinkAttributeAction
-</span><a href="#local-6989586621679333404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeUpdateValue:LinkAttributeAction' :: Maybe TypedAttributeValue
-</span><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#%24sel%3AattributeUpdateValue%3ALinkAttributeAction%27"><span class="hs-identifier hs-var">attributeUpdateValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
-</span><a href="#local-6989586621679333403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-type">LinkAttributeAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | A type that can be either @UPDATE_OR_CREATE@ or @DELETE@.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#linkAttributeAction_attributeActionType"><span class="hs-identifier hs-type">linkAttributeAction_attributeActionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-type">LinkAttributeAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.UpdateActionType.html#UpdateActionType"><span class="hs-identifier hs-type">UpdateActionType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="linkAttributeAction_attributeActionType"><span class="annot"><span class="annottext">linkAttributeAction_attributeActionType :: (Maybe UpdateActionType -&gt; f (Maybe UpdateActionType))
+</span><span id="line-60"></span><span class="hs-comment">-- | A type that can be either @UPDATE_OR_CREATE@ or @DELETE@.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#linkAttributeAction_attributeActionType"><span class="hs-identifier hs-type">linkAttributeAction_attributeActionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-type">LinkAttributeAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.UpdateActionType.html#UpdateActionType"><span class="hs-identifier hs-type">UpdateActionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="linkAttributeAction_attributeActionType"><span class="annot"><span class="annottext">linkAttributeAction_attributeActionType :: (Maybe UpdateActionType -&gt; f (Maybe UpdateActionType))
 -&gt; LinkAttributeAction -&gt; f LinkAttributeAction
 </span><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#linkAttributeAction_attributeActionType"><span class="hs-identifier hs-var hs-var">linkAttributeAction_attributeActionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LinkAttributeAction -&gt; Maybe UpdateActionType)
 -&gt; (LinkAttributeAction
@@ -158,52 +134,76 @@ $sel:attributeUpdateValue:LinkAttributeAction' :: LinkAttributeAction -&gt; Mayb
      (Maybe UpdateActionType)
      (Maybe UpdateActionType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction%27"><span class="hs-identifier hs-type">LinkAttributeAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333401"><span class="annot"><span class="annottext">Maybe UpdateActionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction%27"><span class="hs-identifier hs-type">LinkAttributeAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333790"><span class="annot"><span class="annottext">Maybe UpdateActionType
 attributeActionType :: Maybe UpdateActionType
 $sel:attributeActionType:LinkAttributeAction' :: LinkAttributeAction -&gt; Maybe UpdateActionType
-</span><a href="#local-6989586621679333401"><span class="hs-identifier hs-var hs-var">attributeActionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateActionType
-</span><a href="#local-6989586621679333401"><span class="hs-identifier hs-var">attributeActionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333400"><span class="annot"><span class="annottext">s :: LinkAttributeAction
-</span><a href="#local-6989586621679333400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction%27"><span class="hs-identifier hs-type">LinkAttributeAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333399"><span class="annot"><span class="annottext">Maybe UpdateActionType
-</span><a href="#local-6989586621679333399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinkAttributeAction
-</span><a href="#local-6989586621679333400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeActionType:LinkAttributeAction' :: Maybe UpdateActionType
+</span><a href="#local-6989586621679333790"><span class="hs-identifier hs-var hs-var">attributeActionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateActionType
+</span><a href="#local-6989586621679333790"><span class="hs-identifier hs-var">attributeActionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333789"><span class="annot"><span class="annottext">s :: LinkAttributeAction
+</span><a href="#local-6989586621679333789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction%27"><span class="hs-identifier hs-type">LinkAttributeAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333788"><span class="annot"><span class="annottext">Maybe UpdateActionType
+</span><a href="#local-6989586621679333788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinkAttributeAction
+</span><a href="#local-6989586621679333789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeActionType:LinkAttributeAction' :: Maybe UpdateActionType
 </span><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#%24sel%3AattributeActionType%3ALinkAttributeAction%27"><span class="hs-identifier hs-var">attributeActionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateActionType
-</span><a href="#local-6989586621679333399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-type">LinkAttributeAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333395"><span id="local-6989586621679333397"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-type">LinkAttributeAction</span></a></span></span></span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333392"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-type">LinkAttributeAction</span></a></span></span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333384"><span id="local-6989586621679333386"><span id="local-6989586621679333388"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-type">LinkAttributeAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679333382"><span class="annot"><span class="annottext">toJSON :: LinkAttributeAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction%27"><span class="hs-identifier hs-type">LinkAttributeAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333379"><span id="local-6989586621679333380"><span class="annot"><span class="annottext">Maybe TypedAttributeValue
-Maybe UpdateActionType
-attributeActionType :: Maybe UpdateActionType
+</span><a href="#local-6989586621679333788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-type">LinkAttributeAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The value that you want to update to.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#linkAttributeAction_attributeUpdateValue"><span class="hs-identifier hs-type">linkAttributeAction_attributeUpdateValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-type">LinkAttributeAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.TypedAttributeValue.html#TypedAttributeValue"><span class="hs-identifier hs-type">TypedAttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="linkAttributeAction_attributeUpdateValue"><span class="annot"><span class="annottext">linkAttributeAction_attributeUpdateValue :: (Maybe TypedAttributeValue -&gt; f (Maybe TypedAttributeValue))
+-&gt; LinkAttributeAction -&gt; f LinkAttributeAction
+</span><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#linkAttributeAction_attributeUpdateValue"><span class="hs-identifier hs-var hs-var">linkAttributeAction_attributeUpdateValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LinkAttributeAction -&gt; Maybe TypedAttributeValue)
+-&gt; (LinkAttributeAction
+    -&gt; Maybe TypedAttributeValue -&gt; LinkAttributeAction)
+-&gt; Lens
+     LinkAttributeAction
+     LinkAttributeAction
+     (Maybe TypedAttributeValue)
+     (Maybe TypedAttributeValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction%27"><span class="hs-identifier hs-type">LinkAttributeAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333786"><span class="annot"><span class="annottext">Maybe TypedAttributeValue
 attributeUpdateValue :: Maybe TypedAttributeValue
-$sel:attributeActionType:LinkAttributeAction' :: LinkAttributeAction -&gt; Maybe UpdateActionType
 $sel:attributeUpdateValue:LinkAttributeAction' :: LinkAttributeAction -&gt; Maybe TypedAttributeValue
-</span><a href="#local-6989586621679333379"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679333786"><span class="hs-identifier hs-var hs-var">attributeUpdateValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><a href="#local-6989586621679333786"><span class="hs-identifier hs-var">attributeUpdateValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333785"><span class="annot"><span class="annottext">s :: LinkAttributeAction
+</span><a href="#local-6989586621679333785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction%27"><span class="hs-identifier hs-type">LinkAttributeAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333784"><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><a href="#local-6989586621679333784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LinkAttributeAction
+</span><a href="#local-6989586621679333785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeUpdateValue:LinkAttributeAction' :: Maybe TypedAttributeValue
+</span><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#%24sel%3AattributeUpdateValue%3ALinkAttributeAction%27"><span class="hs-identifier hs-var">attributeUpdateValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><a href="#local-6989586621679333784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-type">LinkAttributeAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333780"><span id="local-6989586621679333782"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-type">LinkAttributeAction</span></a></span></span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-type">LinkAttributeAction</span></a></span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333769"><span id="local-6989586621679333771"><span id="local-6989586621679333773"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction"><span class="hs-identifier hs-type">LinkAttributeAction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679333767"><span class="annot"><span class="annottext">toJSON :: LinkAttributeAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.LinkAttributeAction.html#LinkAttributeAction%27"><span class="hs-identifier hs-type">LinkAttributeAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333764"><span id="local-6989586621679333765"><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+Maybe UpdateActionType
+attributeUpdateValue :: Maybe TypedAttributeValue
+attributeActionType :: Maybe UpdateActionType
+$sel:attributeUpdateValue:LinkAttributeAction' :: LinkAttributeAction -&gt; Maybe TypedAttributeValue
+$sel:attributeActionType:LinkAttributeAction' :: LinkAttributeAction -&gt; Maybe UpdateActionType
+</span><a href="#local-6989586621679333764"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-76"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AttributeUpdateValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TypedAttributeValue -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>              </span><span class="annot"><span class="annottext">(TypedAttributeValue -&gt; Pair)
--&gt; Maybe TypedAttributeValue -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
-</span><a href="#local-6989586621679333380"><span class="hs-identifier hs-var">attributeUpdateValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttributeActionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UpdateActionType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>              </span><span class="annot"><span class="annottext">(UpdateActionType -&gt; Pair) -&gt; Maybe UpdateActionType -&gt; Maybe Pair
+</span><span id="line-77"></span><span>              </span><span class="annot"><span class="annottext">(UpdateActionType -&gt; Pair) -&gt; Maybe UpdateActionType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UpdateActionType
-</span><a href="#local-6989586621679333379"><span class="hs-identifier hs-var">attributeActionType</span></a></span><span>
+</span><a href="#local-6989586621679333765"><span class="hs-identifier hs-var">attributeActionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AttributeUpdateValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TypedAttributeValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>              </span><span class="annot"><span class="annottext">(TypedAttributeValue -&gt; Pair)
+-&gt; Maybe TypedAttributeValue -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TypedAttributeValue
+</span><a href="#local-6989586621679333764"><span class="hs-identifier hs-var">attributeUpdateValue</span></a></span><span>
 </span><span id="line-80"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span></pre></body></html>

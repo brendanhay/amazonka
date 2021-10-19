@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679450858"><span id="local-6989586621679450859"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EFSAuthorizationConfigIAM"><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfigIAM.html#EFSAuthorizationConfigIAM"><span class="hs-identifier hs-var">EFSAuthorizationConfigIAM</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EFSAuthorizationConfigIAM%27"><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfigIAM.html#EFSAuthorizationConfigIAM%27"><span class="hs-identifier hs-var">EFSAuthorizationConfigIAM'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679451570"><span id="local-6989586621679451571"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EFSAuthorizationConfigIAM"><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfigIAM.html#EFSAuthorizationConfigIAM"><span class="hs-identifier hs-var">EFSAuthorizationConfigIAM</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EFSAuthorizationConfigIAM%27"><span class="annot"><a href="Network.AWS.ECS.Types.EFSAuthorizationConfigIAM.html#EFSAuthorizationConfigIAM%27"><span class="hs-identifier hs-var">EFSAuthorizationConfigIAM'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEFSAuthorizationConfigIAM"><span class="annot"><span class="annottext">EFSAuthorizationConfigIAM -&gt; Text
 </span><a href="Network.AWS.ECS.Types.EFSAuthorizationConfigIAM.html#fromEFSAuthorizationConfigIAM"><span class="hs-identifier hs-var hs-var">fromEFSAuthorizationConfigIAM</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679450850"><span id="local-6989586621679450852"><span id="local-6989586621679450854"><span class="annot"><span class="annottext">Int -&gt; EFSAuthorizationConfigIAM -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679451562"><span id="local-6989586621679451564"><span id="local-6989586621679451566"><span class="annot"><span class="annottext">Int -&gt; EFSAuthorizationConfigIAM -&gt; ShowS
 [EFSAuthorizationConfigIAM] -&gt; ShowS
 EFSAuthorizationConfigIAM -&gt; String
 (Int -&gt; EFSAuthorizationConfigIAM -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: EFSAuthorizationConfigIAM -&gt; String
 showsPrec :: Int -&gt; EFSAuthorizationConfigIAM -&gt; ShowS
 $cshowsPrec :: Int -&gt; EFSAuthorizationConfigIAM -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679450841"><span id="local-6989586621679450843"><span id="local-6989586621679450845"><span id="local-6989586621679450847"><span class="annot"><span class="annottext">ReadPrec [EFSAuthorizationConfigIAM]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679451553"><span id="local-6989586621679451555"><span id="local-6989586621679451557"><span id="local-6989586621679451559"><span class="annot"><span class="annottext">ReadPrec [EFSAuthorizationConfigIAM]
 ReadPrec EFSAuthorizationConfigIAM
 Int -&gt; ReadS EFSAuthorizationConfigIAM
 ReadS [EFSAuthorizationConfigIAM]
@@ -72,7 +72,7 @@ $creadList :: ReadS [EFSAuthorizationConfigIAM]
 readsPrec :: Int -&gt; ReadS EFSAuthorizationConfigIAM
 $creadsPrec :: Int -&gt; ReadS EFSAuthorizationConfigIAM
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679450836"><span id="local-6989586621679450838"><span class="annot"><span class="annottext">EFSAuthorizationConfigIAM -&gt; EFSAuthorizationConfigIAM -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679451548"><span id="local-6989586621679451550"><span class="annot"><span class="annottext">EFSAuthorizationConfigIAM -&gt; EFSAuthorizationConfigIAM -&gt; Bool
 (EFSAuthorizationConfigIAM -&gt; EFSAuthorizationConfigIAM -&gt; Bool)
 -&gt; (EFSAuthorizationConfigIAM -&gt; EFSAuthorizationConfigIAM -&gt; Bool)
 -&gt; Eq EFSAuthorizationConfigIAM
@@ -82,7 +82,7 @@ $c/= :: EFSAuthorizationConfigIAM -&gt; EFSAuthorizationConfigIAM -&gt; Bool
 == :: EFSAuthorizationConfigIAM -&gt; EFSAuthorizationConfigIAM -&gt; Bool
 $c== :: EFSAuthorizationConfigIAM -&gt; EFSAuthorizationConfigIAM -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679450820"><span id="local-6989586621679450822"><span id="local-6989586621679450824"><span id="local-6989586621679450826"><span id="local-6989586621679450828"><span id="local-6989586621679450830"><span id="local-6989586621679450832"><span class="annot"><span class="annottext">Eq EFSAuthorizationConfigIAM
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679451532"><span id="local-6989586621679451534"><span id="local-6989586621679451536"><span id="local-6989586621679451538"><span id="local-6989586621679451540"><span id="local-6989586621679451542"><span id="local-6989586621679451544"><span class="annot"><span class="annottext">Eq EFSAuthorizationConfigIAM
 Eq EFSAuthorizationConfigIAM
 -&gt; (EFSAuthorizationConfigIAM
     -&gt; EFSAuthorizationConfigIAM -&gt; Ordering)
@@ -147,7 +147,7 @@ EFSAuthorizationConfigIAM -&gt; Rep EFSAuthorizationConfigIAM x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679450812"><span id="local-6989586621679450814"><span class="annot"><span class="annottext">Int -&gt; EFSAuthorizationConfigIAM -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679451524"><span id="local-6989586621679451526"><span class="annot"><span class="annottext">Int -&gt; EFSAuthorizationConfigIAM -&gt; Int
 EFSAuthorizationConfigIAM -&gt; Int
 (Int -&gt; EFSAuthorizationConfigIAM -&gt; Int)
 -&gt; (EFSAuthorizationConfigIAM -&gt; Int)
@@ -158,56 +158,56 @@ $chash :: EFSAuthorizationConfigIAM -&gt; Int
 hashWithSalt :: Int -&gt; EFSAuthorizationConfigIAM -&gt; Int
 $chashWithSalt :: Int -&gt; EFSAuthorizationConfigIAM -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679450809"><span class="annot"><span class="annottext">EFSAuthorizationConfigIAM -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679451521"><span class="annot"><span class="annottext">EFSAuthorizationConfigIAM -&gt; ()
 (EFSAuthorizationConfigIAM -&gt; ())
 -&gt; NFData EFSAuthorizationConfigIAM
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EFSAuthorizationConfigIAM -&gt; ()
 $crnf :: EFSAuthorizationConfigIAM -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679450806"><span class="annot"><span class="annottext">Text -&gt; Either String EFSAuthorizationConfigIAM
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679451518"><span class="annot"><span class="annottext">Text -&gt; Either String EFSAuthorizationConfigIAM
 (Text -&gt; Either String EFSAuthorizationConfigIAM)
 -&gt; FromText EFSAuthorizationConfigIAM
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EFSAuthorizationConfigIAM
 $cfromText :: Text -&gt; Either String EFSAuthorizationConfigIAM
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679450803"><span class="annot"><span class="annottext">EFSAuthorizationConfigIAM -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679451515"><span class="annot"><span class="annottext">EFSAuthorizationConfigIAM -&gt; Text
 (EFSAuthorizationConfigIAM -&gt; Text)
 -&gt; ToText EFSAuthorizationConfigIAM
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EFSAuthorizationConfigIAM -&gt; Text
 $ctoText :: EFSAuthorizationConfigIAM -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679450800"><span class="annot"><span class="annottext">EFSAuthorizationConfigIAM -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679451512"><span class="annot"><span class="annottext">EFSAuthorizationConfigIAM -&gt; ByteString
 (EFSAuthorizationConfigIAM -&gt; ByteString)
 -&gt; ToByteString EFSAuthorizationConfigIAM
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EFSAuthorizationConfigIAM -&gt; ByteString
 $ctoBS :: EFSAuthorizationConfigIAM -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679450797"><span class="annot"><span class="annottext">EFSAuthorizationConfigIAM -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679451509"><span class="annot"><span class="annottext">EFSAuthorizationConfigIAM -&gt; ByteStringBuilder
 (EFSAuthorizationConfigIAM -&gt; ByteStringBuilder)
 -&gt; ToLog EFSAuthorizationConfigIAM
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EFSAuthorizationConfigIAM -&gt; ByteStringBuilder
 $cbuild :: EFSAuthorizationConfigIAM -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679450794"><span class="annot"><span class="annottext">HeaderName -&gt; EFSAuthorizationConfigIAM -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679451506"><span class="annot"><span class="annottext">HeaderName -&gt; EFSAuthorizationConfigIAM -&gt; [Header]
 (HeaderName -&gt; EFSAuthorizationConfigIAM -&gt; [Header])
 -&gt; ToHeader EFSAuthorizationConfigIAM
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EFSAuthorizationConfigIAM -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EFSAuthorizationConfigIAM -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679450791"><span class="annot"><span class="annottext">EFSAuthorizationConfigIAM -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679451503"><span class="annot"><span class="annottext">EFSAuthorizationConfigIAM -&gt; QueryString
 (EFSAuthorizationConfigIAM -&gt; QueryString)
 -&gt; ToQuery EFSAuthorizationConfigIAM
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EFSAuthorizationConfigIAM -&gt; QueryString
 $ctoQuery :: EFSAuthorizationConfigIAM -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679450786"><span id="local-6989586621679450788"><span class="annot"><span class="annottext">Value -&gt; Parser [EFSAuthorizationConfigIAM]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679451498"><span id="local-6989586621679451500"><span class="annot"><span class="annottext">Value -&gt; Parser [EFSAuthorizationConfigIAM]
 Value -&gt; Parser EFSAuthorizationConfigIAM
 (Value -&gt; Parser EFSAuthorizationConfigIAM)
 -&gt; (Value -&gt; Parser [EFSAuthorizationConfigIAM])
@@ -219,7 +219,7 @@ $cparseJSONList :: Value -&gt; Parser [EFSAuthorizationConfigIAM]
 parseJSON :: Value -&gt; Parser EFSAuthorizationConfigIAM
 $cparseJSON :: Value -&gt; Parser EFSAuthorizationConfigIAM
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679450781"><span id="local-6989586621679450783"><span class="annot"><span class="annottext">FromJSONKeyFunction [EFSAuthorizationConfigIAM]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679451493"><span id="local-6989586621679451495"><span class="annot"><span class="annottext">FromJSONKeyFunction [EFSAuthorizationConfigIAM]
 FromJSONKeyFunction EFSAuthorizationConfigIAM
 FromJSONKeyFunction EFSAuthorizationConfigIAM
 -&gt; FromJSONKeyFunction [EFSAuthorizationConfigIAM]
@@ -231,7 +231,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EFSAuthorizationConfigIAM]
 fromJSONKey :: FromJSONKeyFunction EFSAuthorizationConfigIAM
 $cfromJSONKey :: FromJSONKeyFunction EFSAuthorizationConfigIAM
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679450772"><span id="local-6989586621679450774"><span id="local-6989586621679450776"><span id="local-6989586621679450778"><span class="annot"><span class="annottext">[EFSAuthorizationConfigIAM] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679451484"><span id="local-6989586621679451486"><span id="local-6989586621679451488"><span id="local-6989586621679451490"><span class="annot"><span class="annottext">[EFSAuthorizationConfigIAM] -&gt; Encoding
 [EFSAuthorizationConfigIAM] -&gt; Value
 EFSAuthorizationConfigIAM -&gt; Encoding
 EFSAuthorizationConfigIAM -&gt; Value
@@ -255,7 +255,7 @@ $ctoEncoding :: EFSAuthorizationConfigIAM -&gt; Encoding
 toJSON :: EFSAuthorizationConfigIAM -&gt; Value
 $ctoJSON :: EFSAuthorizationConfigIAM -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679450767"><span id="local-6989586621679450769"><span class="annot"><span class="annottext">ToJSONKeyFunction [EFSAuthorizationConfigIAM]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679451479"><span id="local-6989586621679451481"><span class="annot"><span class="annottext">ToJSONKeyFunction [EFSAuthorizationConfigIAM]
 ToJSONKeyFunction EFSAuthorizationConfigIAM
 ToJSONKeyFunction EFSAuthorizationConfigIAM
 -&gt; ToJSONKeyFunction [EFSAuthorizationConfigIAM]
@@ -267,14 +267,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EFSAuthorizationConfigIAM]
 toJSONKey :: ToJSONKeyFunction EFSAuthorizationConfigIAM
 $ctoJSONKey :: ToJSONKeyFunction EFSAuthorizationConfigIAM
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679450764"><span class="annot"><span class="annottext">[Node] -&gt; Either String EFSAuthorizationConfigIAM
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679451476"><span class="annot"><span class="annottext">[Node] -&gt; Either String EFSAuthorizationConfigIAM
 ([Node] -&gt; Either String EFSAuthorizationConfigIAM)
 -&gt; FromXML EFSAuthorizationConfigIAM
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EFSAuthorizationConfigIAM
 $cparseXML :: [Node] -&gt; Either String EFSAuthorizationConfigIAM
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679450761"><span class="annot"><span class="annottext">EFSAuthorizationConfigIAM -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679451473"><span class="annot"><span class="annottext">EFSAuthorizationConfigIAM -&gt; XML
 (EFSAuthorizationConfigIAM -&gt; XML)
 -&gt; ToXML EFSAuthorizationConfigIAM
 forall a. (a -&gt; XML) -&gt; ToXML a

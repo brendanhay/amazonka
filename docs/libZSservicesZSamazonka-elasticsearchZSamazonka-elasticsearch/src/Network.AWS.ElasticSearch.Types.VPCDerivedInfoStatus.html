@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Status of the VPC options for the specified Elasticsearch domain.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newVPCDerivedInfoStatus' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679304271"><span id="local-6989586621679304272"></span></span><span class="hs-keyword">data</span><span> </span><span id="VPCDerivedInfoStatus"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus"><span class="hs-identifier hs-var">VPCDerivedInfoStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VPCDerivedInfoStatus%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus%27"><span class="hs-identifier hs-var">VPCDerivedInfoStatus'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679304489"><span id="local-6989586621679304490"></span></span><span class="hs-keyword">data</span><span> </span><span id="VPCDerivedInfoStatus"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus"><span class="hs-identifier hs-var">VPCDerivedInfoStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VPCDerivedInfoStatus%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus%27"><span class="hs-identifier hs-var">VPCDerivedInfoStatus'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the VPC options for the specified Elasticsearch domain.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aoptions%3AVPCDerivedInfoStatus%27"><span class="annot"><span class="annottext">VPCDerivedInfoStatus -&gt; VPCDerivedInfo
 </span><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#%24sel%3Aoptions%3AVPCDerivedInfoStatus%27"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfo.html#VPCDerivedInfo"><span class="hs-identifier hs-type">VPCDerivedInfo</span></a></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3AVPCDerivedInfoStatus%27"><span class="annot"><span class="annottext">VPCDerivedInfoStatus -&gt; OptionStatus
 </span><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#%24sel%3Astatus%3AVPCDerivedInfoStatus%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304264"><span id="local-6989586621679304266"><span class="annot"><span class="annottext">VPCDerivedInfoStatus -&gt; VPCDerivedInfoStatus -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304482"><span id="local-6989586621679304484"><span class="annot"><span class="annottext">VPCDerivedInfoStatus -&gt; VPCDerivedInfoStatus -&gt; Bool
 (VPCDerivedInfoStatus -&gt; VPCDerivedInfoStatus -&gt; Bool)
 -&gt; (VPCDerivedInfoStatus -&gt; VPCDerivedInfoStatus -&gt; Bool)
 -&gt; Eq VPCDerivedInfoStatus
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VPCDerivedInfoStatus -&gt; VPCDerivedInfoStatus -&gt; Bool
 == :: VPCDerivedInfoStatus -&gt; VPCDerivedInfoStatus -&gt; Bool
 $c== :: VPCDerivedInfoStatus -&gt; VPCDerivedInfoStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304255"><span id="local-6989586621679304257"><span id="local-6989586621679304259"><span id="local-6989586621679304261"><span class="annot"><span class="annottext">ReadPrec [VPCDerivedInfoStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304473"><span id="local-6989586621679304475"><span id="local-6989586621679304477"><span id="local-6989586621679304479"><span class="annot"><span class="annottext">ReadPrec [VPCDerivedInfoStatus]
 ReadPrec VPCDerivedInfoStatus
 Int -&gt; ReadS VPCDerivedInfoStatus
 ReadS [VPCDerivedInfoStatus]
@@ -66,7 +66,7 @@ readList :: ReadS [VPCDerivedInfoStatus]
 $creadList :: ReadS [VPCDerivedInfoStatus]
 readsPrec :: Int -&gt; ReadS VPCDerivedInfoStatus
 $creadsPrec :: Int -&gt; ReadS VPCDerivedInfoStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304248"><span id="local-6989586621679304250"><span id="local-6989586621679304252"><span class="annot"><span class="annottext">Int -&gt; VPCDerivedInfoStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304466"><span id="local-6989586621679304468"><span id="local-6989586621679304470"><span class="annot"><span class="annottext">Int -&gt; VPCDerivedInfoStatus -&gt; ShowS
 [VPCDerivedInfoStatus] -&gt; ShowS
 VPCDerivedInfoStatus -&gt; String
 (Int -&gt; VPCDerivedInfoStatus -&gt; ShowS)
@@ -111,17 +111,17 @@ $cfrom :: forall x. VPCDerivedInfoStatus -&gt; Rep VPCDerivedInfoStatus x
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus"><span class="hs-identifier hs-type">VPCDerivedInfoStatus</span></a></span><span>
 </span><span id="line-58"></span><span id="newVPCDerivedInfoStatus"><span class="annot"><span class="annottext">newVPCDerivedInfoStatus :: VPCDerivedInfo -&gt; OptionStatus -&gt; VPCDerivedInfoStatus
-</span><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#newVPCDerivedInfoStatus"><span class="hs-identifier hs-var hs-var">newVPCDerivedInfoStatus</span></a></span></span><span> </span><span id="local-6989586621679304242"><span class="annot"><span class="annottext">VPCDerivedInfo
-</span><a href="#local-6989586621679304242"><span class="hs-identifier hs-var">pOptions_</span></a></span></span><span> </span><span id="local-6989586621679304241"><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679304241"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#newVPCDerivedInfoStatus"><span class="hs-identifier hs-var hs-var">newVPCDerivedInfoStatus</span></a></span></span><span> </span><span id="local-6989586621679304460"><span class="annot"><span class="annottext">VPCDerivedInfo
+</span><a href="#local-6989586621679304460"><span class="hs-identifier hs-var">pOptions_</span></a></span></span><span> </span><span id="local-6989586621679304459"><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679304459"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">VPCDerivedInfoStatus' :: VPCDerivedInfo -&gt; OptionStatus -&gt; VPCDerivedInfoStatus
 </span><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus%27"><span class="hs-identifier hs-type">VPCDerivedInfoStatus'</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:options:VPCDerivedInfoStatus' :: VPCDerivedInfo
 </span><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#%24sel%3Aoptions%3AVPCDerivedInfoStatus%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VPCDerivedInfo
-</span><a href="#local-6989586621679304242"><span class="hs-identifier hs-var">pOptions_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679304460"><span class="hs-identifier hs-var">pOptions_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:VPCDerivedInfoStatus' :: OptionStatus
 </span><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#%24sel%3Astatus%3AVPCDerivedInfoStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679304241"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621679304459"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | Specifies the VPC options for the specified Elasticsearch domain.</span><span>
@@ -136,16 +136,16 @@ $cfrom :: forall x. VPCDerivedInfoStatus -&gt; Rep VPCDerivedInfoStatus x
      VPCDerivedInfo
      VPCDerivedInfo
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus%27"><span class="hs-identifier hs-type">VPCDerivedInfoStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304237"><span class="annot"><span class="annottext">VPCDerivedInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus%27"><span class="hs-identifier hs-type">VPCDerivedInfoStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304455"><span class="annot"><span class="annottext">VPCDerivedInfo
 options :: VPCDerivedInfo
 $sel:options:VPCDerivedInfoStatus' :: VPCDerivedInfoStatus -&gt; VPCDerivedInfo
-</span><a href="#local-6989586621679304237"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCDerivedInfo
-</span><a href="#local-6989586621679304237"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304236"><span class="annot"><span class="annottext">s :: VPCDerivedInfoStatus
-</span><a href="#local-6989586621679304236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus%27"><span class="hs-identifier hs-type">VPCDerivedInfoStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304235"><span class="annot"><span class="annottext">VPCDerivedInfo
-</span><a href="#local-6989586621679304235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCDerivedInfoStatus
-</span><a href="#local-6989586621679304236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:VPCDerivedInfoStatus' :: VPCDerivedInfo
+</span><a href="#local-6989586621679304455"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCDerivedInfo
+</span><a href="#local-6989586621679304455"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304454"><span class="annot"><span class="annottext">s :: VPCDerivedInfoStatus
+</span><a href="#local-6989586621679304454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus%27"><span class="hs-identifier hs-type">VPCDerivedInfoStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304453"><span class="annot"><span class="annottext">VPCDerivedInfo
+</span><a href="#local-6989586621679304453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCDerivedInfoStatus
+</span><a href="#local-6989586621679304454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:VPCDerivedInfoStatus' :: VPCDerivedInfo
 </span><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#%24sel%3Aoptions%3AVPCDerivedInfoStatus%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VPCDerivedInfo
-</span><a href="#local-6989586621679304235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus"><span class="hs-identifier hs-type">VPCDerivedInfoStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus"><span class="hs-identifier hs-type">VPCDerivedInfoStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | Specifies the status of the VPC options for the specified Elasticsearch</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- domain.</span><span>
@@ -157,19 +157,19 @@ $sel:options:VPCDerivedInfoStatus' :: VPCDerivedInfoStatus -&gt; VPCDerivedInfo
 -&gt; Lens
      VPCDerivedInfoStatus VPCDerivedInfoStatus OptionStatus OptionStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus%27"><span class="hs-identifier hs-type">VPCDerivedInfoStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304233"><span class="annot"><span class="annottext">OptionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus%27"><span class="hs-identifier hs-type">VPCDerivedInfoStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304451"><span class="annot"><span class="annottext">OptionStatus
 status :: OptionStatus
 $sel:status:VPCDerivedInfoStatus' :: VPCDerivedInfoStatus -&gt; OptionStatus
-</span><a href="#local-6989586621679304233"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679304233"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304232"><span class="annot"><span class="annottext">s :: VPCDerivedInfoStatus
-</span><a href="#local-6989586621679304232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus%27"><span class="hs-identifier hs-type">VPCDerivedInfoStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304231"><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679304231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCDerivedInfoStatus
-</span><a href="#local-6989586621679304232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:VPCDerivedInfoStatus' :: OptionStatus
+</span><a href="#local-6989586621679304451"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679304451"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304450"><span class="annot"><span class="annottext">s :: VPCDerivedInfoStatus
+</span><a href="#local-6989586621679304450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus%27"><span class="hs-identifier hs-type">VPCDerivedInfoStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304449"><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679304449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VPCDerivedInfoStatus
+</span><a href="#local-6989586621679304450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:VPCDerivedInfoStatus' :: OptionStatus
 </span><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#%24sel%3Astatus%3AVPCDerivedInfoStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OptionStatus
-</span><a href="#local-6989586621679304231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus"><span class="hs-identifier hs-type">VPCDerivedInfoStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus"><span class="hs-identifier hs-type">VPCDerivedInfoStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304228"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus"><span class="hs-identifier hs-type">VPCDerivedInfoStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679304226"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VPCDerivedInfoStatus
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304446"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus"><span class="hs-identifier hs-type">VPCDerivedInfoStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679304444"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VPCDerivedInfoStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser VPCDerivedInfoStatus)
@@ -179,8 +179,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;VPCDerivedInfoStatus&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304223"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304223"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304441"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304441"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">VPCDerivedInfo -&gt; OptionStatus -&gt; VPCDerivedInfoStatus
 </span><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus%27"><span class="hs-identifier hs-var">VPCDerivedInfoStatus'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(VPCDerivedInfo -&gt; OptionStatus -&gt; VPCDerivedInfoStatus)
@@ -188,7 +188,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (OptionStatus -&gt; VPCDerivedInfoStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304223"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser VPCDerivedInfo
+</span><a href="#local-6989586621679304441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser VPCDerivedInfo
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Options&quot;</span></span><span class="hs-special">)</span><span>
@@ -196,13 +196,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser OptionStatus -&gt; Parser VPCDerivedInfoStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304223"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OptionStatus
+</span><a href="#local-6989586621679304441"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OptionStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304217"><span id="local-6989586621679304219"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus"><span class="hs-identifier hs-type">VPCDerivedInfoStatus</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304435"><span id="local-6989586621679304437"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus"><span class="hs-identifier hs-type">VPCDerivedInfoStatus</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304214"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus"><span class="hs-identifier hs-type">VPCDerivedInfoStatus</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304432"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus.html#VPCDerivedInfoStatus"><span class="hs-identifier hs-type">VPCDerivedInfoStatus</span></a></span></span><span>
 </span><span id="line-86"></span></pre></body></html>

@@ -28,16 +28,16 @@
 </span><span id="line-28"></span><span class="hs-comment">-- time the face was detected in the video.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newFaceDetection' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679332619"><span id="local-6989586621679332620"></span></span><span class="hs-keyword">data</span><span> </span><span id="FaceDetection"><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection"><span class="hs-identifier hs-var">FaceDetection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FaceDetection%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection%27"><span class="hs-identifier hs-var">FaceDetection'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The face properties for the detected face.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aface%3AFaceDetection%27"><span class="annot"><span class="annottext">FaceDetection -&gt; Maybe FaceDetail
-</span><a href="Network.AWS.Rekognition.Types.FaceDetection.html#%24sel%3Aface%3AFaceDetection%27"><span class="hs-identifier hs-var hs-var">face</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetail.html#FaceDetail"><span class="hs-identifier hs-type">FaceDetail</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Time, in milliseconds from the start of the video, that the face was</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- detected.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Atimestamp%3AFaceDetection%27"><span class="annot"><span class="annottext">FaceDetection -&gt; Maybe Integer
-</span><a href="Network.AWS.Rekognition.Types.FaceDetection.html#%24sel%3Atimestamp%3AFaceDetection%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679332911"><span id="local-6989586621679332912"></span></span><span class="hs-keyword">data</span><span> </span><span id="FaceDetection"><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection"><span class="hs-identifier hs-var">FaceDetection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FaceDetection%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection%27"><span class="hs-identifier hs-var">FaceDetection'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Time, in milliseconds from the start of the video, that the face was</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- detected.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Atimestamp%3AFaceDetection%27"><span class="annot"><span class="annottext">FaceDetection -&gt; Maybe Integer
+</span><a href="Network.AWS.Rekognition.Types.FaceDetection.html#%24sel%3Atimestamp%3AFaceDetection%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The face properties for the detected face.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aface%3AFaceDetection%27"><span class="annot"><span class="annottext">FaceDetection -&gt; Maybe FaceDetail
+</span><a href="Network.AWS.Rekognition.Types.FaceDetection.html#%24sel%3Aface%3AFaceDetection%27"><span class="hs-identifier hs-var hs-var">face</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetail.html#FaceDetail"><span class="hs-identifier hs-type">FaceDetail</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332612"><span id="local-6989586621679332614"><span class="annot"><span class="annottext">FaceDetection -&gt; FaceDetection -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332904"><span id="local-6989586621679332906"><span class="annot"><span class="annottext">FaceDetection -&gt; FaceDetection -&gt; Bool
 (FaceDetection -&gt; FaceDetection -&gt; Bool)
 -&gt; (FaceDetection -&gt; FaceDetection -&gt; Bool) -&gt; Eq FaceDetection
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FaceDetection -&gt; FaceDetection -&gt; Bool
 == :: FaceDetection -&gt; FaceDetection -&gt; Bool
 $c== :: FaceDetection -&gt; FaceDetection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332603"><span id="local-6989586621679332605"><span id="local-6989586621679332607"><span id="local-6989586621679332609"><span class="annot"><span class="annottext">ReadPrec [FaceDetection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332895"><span id="local-6989586621679332897"><span id="local-6989586621679332899"><span id="local-6989586621679332901"><span class="annot"><span class="annottext">ReadPrec [FaceDetection]
 ReadPrec FaceDetection
 Int -&gt; ReadS FaceDetection
 ReadS [FaceDetection]
@@ -65,7 +65,7 @@ readList :: ReadS [FaceDetection]
 $creadList :: ReadS [FaceDetection]
 readsPrec :: Int -&gt; ReadS FaceDetection
 $creadsPrec :: Int -&gt; ReadS FaceDetection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332596"><span id="local-6989586621679332598"><span id="local-6989586621679332600"><span class="annot"><span class="annottext">Int -&gt; FaceDetection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332888"><span id="local-6989586621679332890"><span id="local-6989586621679332892"><span class="annot"><span class="annottext">Int -&gt; FaceDetection -&gt; ShowS
 [FaceDetection] -&gt; ShowS
 FaceDetection -&gt; String
 (Int -&gt; FaceDetection -&gt; ShowS)
@@ -99,68 +99,68 @@ $cfrom :: forall x. FaceDetection -&gt; Rep FaceDetection x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'face', 'faceDetection_face' - The face properties for the detected face.</span><span>
-</span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'timestamp', 'faceDetection_timestamp' - Time, in milliseconds from the start of the video, that the face was</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- detected.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'timestamp', 'faceDetection_timestamp' - Time, in milliseconds from the start of the video, that the face was</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- detected.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'face', 'faceDetection_face' - The face properties for the detected face.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#newFaceDetection"><span class="hs-identifier hs-type">newFaceDetection</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection"><span class="hs-identifier hs-type">FaceDetection</span></a></span><span>
 </span><span id="line-54"></span><span id="newFaceDetection"><span class="annot"><span class="annottext">newFaceDetection :: FaceDetection
 </span><a href="Network.AWS.Rekognition.Types.FaceDetection.html#newFaceDetection"><span class="hs-identifier hs-var hs-var">newFaceDetection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">FaceDetection' :: Maybe FaceDetail -&gt; Maybe Integer -&gt; FaceDetection
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">FaceDetection' :: Maybe Integer -&gt; Maybe FaceDetail -&gt; FaceDetection
 </span><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection%27"><span class="hs-identifier hs-type">FaceDetection'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:face:FaceDetection' :: Maybe FaceDetail
-</span><a href="Network.AWS.Rekognition.Types.FaceDetection.html#%24sel%3Aface%3AFaceDetection%27"><span class="hs-identifier hs-var">face</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FaceDetail
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timestamp:FaceDetection' :: Maybe Integer
+</span><a href="Network.AWS.Rekognition.Types.FaceDetection.html#%24sel%3Atimestamp%3AFaceDetection%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:timestamp:FaceDetection' :: Maybe Integer
-</span><a href="Network.AWS.Rekognition.Types.FaceDetection.html#%24sel%3Atimestamp%3AFaceDetection%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:face:FaceDetection' :: Maybe FaceDetail
+</span><a href="Network.AWS.Rekognition.Types.FaceDetection.html#%24sel%3Aface%3AFaceDetection%27"><span class="hs-identifier hs-var">face</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FaceDetail
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | The face properties for the detected face.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#faceDetection_face"><span class="hs-identifier hs-type">faceDetection_face</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection"><span class="hs-identifier hs-type">FaceDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetail.html#FaceDetail"><span class="hs-identifier hs-type">FaceDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="faceDetection_face"><span class="annot"><span class="annottext">faceDetection_face :: (Maybe FaceDetail -&gt; f (Maybe FaceDetail))
+</span><span id="line-60"></span><span class="hs-comment">-- | Time, in milliseconds from the start of the video, that the face was</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- detected.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#faceDetection_timestamp"><span class="hs-identifier hs-type">faceDetection_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection"><span class="hs-identifier hs-type">FaceDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="faceDetection_timestamp"><span class="annot"><span class="annottext">faceDetection_timestamp :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; FaceDetection -&gt; f FaceDetection
+</span><a href="Network.AWS.Rekognition.Types.FaceDetection.html#faceDetection_timestamp"><span class="hs-identifier hs-var hs-var">faceDetection_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FaceDetection -&gt; Maybe Integer)
+-&gt; (FaceDetection -&gt; Maybe Integer -&gt; FaceDetection)
+-&gt; Lens FaceDetection FaceDetection (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection%27"><span class="hs-identifier hs-type">FaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332879"><span class="annot"><span class="annottext">Maybe Integer
+timestamp :: Maybe Integer
+$sel:timestamp:FaceDetection' :: FaceDetection -&gt; Maybe Integer
+</span><a href="#local-6989586621679332879"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679332879"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332878"><span class="annot"><span class="annottext">s :: FaceDetection
+</span><a href="#local-6989586621679332878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection%27"><span class="hs-identifier hs-type">FaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332877"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679332877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FaceDetection
+</span><a href="#local-6989586621679332878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:FaceDetection' :: Maybe Integer
+</span><a href="Network.AWS.Rekognition.Types.FaceDetection.html#%24sel%3Atimestamp%3AFaceDetection%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679332877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection"><span class="hs-identifier hs-type">FaceDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The face properties for the detected face.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#faceDetection_face"><span class="hs-identifier hs-type">faceDetection_face</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection"><span class="hs-identifier hs-type">FaceDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetail.html#FaceDetail"><span class="hs-identifier hs-type">FaceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="faceDetection_face"><span class="annot"><span class="annottext">faceDetection_face :: (Maybe FaceDetail -&gt; f (Maybe FaceDetail))
 -&gt; FaceDetection -&gt; f FaceDetection
 </span><a href="Network.AWS.Rekognition.Types.FaceDetection.html#faceDetection_face"><span class="hs-identifier hs-var hs-var">faceDetection_face</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FaceDetection -&gt; Maybe FaceDetail)
 -&gt; (FaceDetection -&gt; Maybe FaceDetail -&gt; FaceDetection)
 -&gt; Lens
      FaceDetection FaceDetection (Maybe FaceDetail) (Maybe FaceDetail)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection%27"><span class="hs-identifier hs-type">FaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332587"><span class="annot"><span class="annottext">Maybe FaceDetail
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection%27"><span class="hs-identifier hs-type">FaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332875"><span class="annot"><span class="annottext">Maybe FaceDetail
 face :: Maybe FaceDetail
 $sel:face:FaceDetection' :: FaceDetection -&gt; Maybe FaceDetail
-</span><a href="#local-6989586621679332587"><span class="hs-identifier hs-var hs-var">face</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FaceDetail
-</span><a href="#local-6989586621679332587"><span class="hs-identifier hs-var">face</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332586"><span class="annot"><span class="annottext">s :: FaceDetection
-</span><a href="#local-6989586621679332586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection%27"><span class="hs-identifier hs-type">FaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332585"><span class="annot"><span class="annottext">Maybe FaceDetail
-</span><a href="#local-6989586621679332585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FaceDetection
-</span><a href="#local-6989586621679332586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:face:FaceDetection' :: Maybe FaceDetail
+</span><a href="#local-6989586621679332875"><span class="hs-identifier hs-var hs-var">face</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FaceDetail
+</span><a href="#local-6989586621679332875"><span class="hs-identifier hs-var">face</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332874"><span class="annot"><span class="annottext">s :: FaceDetection
+</span><a href="#local-6989586621679332874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection%27"><span class="hs-identifier hs-type">FaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332873"><span class="annot"><span class="annottext">Maybe FaceDetail
+</span><a href="#local-6989586621679332873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FaceDetection
+</span><a href="#local-6989586621679332874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:face:FaceDetection' :: Maybe FaceDetail
 </span><a href="Network.AWS.Rekognition.Types.FaceDetection.html#%24sel%3Aface%3AFaceDetection%27"><span class="hs-identifier hs-var">face</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FaceDetail
-</span><a href="#local-6989586621679332585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection"><span class="hs-identifier hs-type">FaceDetection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | Time, in milliseconds from the start of the video, that the face was</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- detected.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#faceDetection_timestamp"><span class="hs-identifier hs-type">faceDetection_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection"><span class="hs-identifier hs-type">FaceDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="faceDetection_timestamp"><span class="annot"><span class="annottext">faceDetection_timestamp :: (Maybe Integer -&gt; f (Maybe Integer))
--&gt; FaceDetection -&gt; f FaceDetection
-</span><a href="Network.AWS.Rekognition.Types.FaceDetection.html#faceDetection_timestamp"><span class="hs-identifier hs-var hs-var">faceDetection_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FaceDetection -&gt; Maybe Integer)
--&gt; (FaceDetection -&gt; Maybe Integer -&gt; FaceDetection)
--&gt; Lens FaceDetection FaceDetection (Maybe Integer) (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection%27"><span class="hs-identifier hs-type">FaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332583"><span class="annot"><span class="annottext">Maybe Integer
-timestamp :: Maybe Integer
-$sel:timestamp:FaceDetection' :: FaceDetection -&gt; Maybe Integer
-</span><a href="#local-6989586621679332583"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332583"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332582"><span class="annot"><span class="annottext">s :: FaceDetection
-</span><a href="#local-6989586621679332582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection%27"><span class="hs-identifier hs-type">FaceDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332581"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FaceDetection
-</span><a href="#local-6989586621679332582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:FaceDetection' :: Maybe Integer
-</span><a href="Network.AWS.Rekognition.Types.FaceDetection.html#%24sel%3Atimestamp%3AFaceDetection%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection"><span class="hs-identifier hs-type">FaceDetection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679332873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection"><span class="hs-identifier hs-type">FaceDetection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332578"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection"><span class="hs-identifier hs-type">FaceDetection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679332576"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FaceDetection
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332870"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection"><span class="hs-identifier hs-type">FaceDetection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679332868"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FaceDetection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FaceDetection)
@@ -170,30 +170,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FaceDetection&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679332573"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332573"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe FaceDetail -&gt; Maybe Integer -&gt; FaceDetection
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679332865"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679332865"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer -&gt; Maybe FaceDetail -&gt; FaceDetection
 </span><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection%27"><span class="hs-identifier hs-var">FaceDetection'</span></a></span><span>
-</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FaceDetail -&gt; Maybe Integer -&gt; FaceDetection)
--&gt; Parser (Maybe FaceDetail)
--&gt; Parser (Maybe Integer -&gt; FaceDetection)
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer -&gt; Maybe FaceDetail -&gt; FaceDetection)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser (Maybe FaceDetail -&gt; FaceDetection)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FaceDetail)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Face&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; FaceDetection)
--&gt; Parser (Maybe Integer) -&gt; Parser FaceDetection
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332573"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679332865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe FaceDetail -&gt; FaceDetection)
+-&gt; Parser (Maybe FaceDetail) -&gt; Parser FaceDetection
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679332865"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FaceDetail)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Face&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332567"><span id="local-6989586621679332569"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection"><span class="hs-identifier hs-type">FaceDetection</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332859"><span id="local-6989586621679332861"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection"><span class="hs-identifier hs-type">FaceDetection</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332564"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection"><span class="hs-identifier hs-type">FaceDetection</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332856"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceDetection.html#FaceDetection"><span class="hs-identifier hs-type">FaceDetection</span></a></span></span><span>
 </span><span id="line-82"></span></pre></body></html>

@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-comment">-- (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- choose a different value for Coding mode, the service ignores Stereo</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- downmix (Eac3StereoDownmix).</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679957528"><span id="local-6989586621679957529"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3StereoDownmix"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3StereoDownmix.html#Eac3StereoDownmix"><span class="hs-identifier hs-var">Eac3StereoDownmix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3StereoDownmix%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3StereoDownmix.html#Eac3StereoDownmix%27"><span class="hs-identifier hs-var">Eac3StereoDownmix'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679962152"><span id="local-6989586621679962153"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3StereoDownmix"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3StereoDownmix.html#Eac3StereoDownmix"><span class="hs-identifier hs-var">Eac3StereoDownmix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3StereoDownmix%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3StereoDownmix.html#Eac3StereoDownmix%27"><span class="hs-identifier hs-var">Eac3StereoDownmix'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEac3StereoDownmix"><span class="annot"><span class="annottext">Eac3StereoDownmix -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Eac3StereoDownmix.html#fromEac3StereoDownmix"><span class="hs-identifier hs-var hs-var">fromEac3StereoDownmix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679957520"><span id="local-6989586621679957522"><span id="local-6989586621679957524"><span class="annot"><span class="annottext">Int -&gt; Eac3StereoDownmix -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679962144"><span id="local-6989586621679962146"><span id="local-6989586621679962148"><span class="annot"><span class="annottext">Int -&gt; Eac3StereoDownmix -&gt; ShowS
 [Eac3StereoDownmix] -&gt; ShowS
 Eac3StereoDownmix -&gt; String
 (Int -&gt; Eac3StereoDownmix -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: Eac3StereoDownmix -&gt; String
 showsPrec :: Int -&gt; Eac3StereoDownmix -&gt; ShowS
 $cshowsPrec :: Int -&gt; Eac3StereoDownmix -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679957511"><span id="local-6989586621679957513"><span id="local-6989586621679957515"><span id="local-6989586621679957517"><span class="annot"><span class="annottext">ReadPrec [Eac3StereoDownmix]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679962135"><span id="local-6989586621679962137"><span id="local-6989586621679962139"><span id="local-6989586621679962141"><span class="annot"><span class="annottext">ReadPrec [Eac3StereoDownmix]
 ReadPrec Eac3StereoDownmix
 Int -&gt; ReadS Eac3StereoDownmix
 ReadS [Eac3StereoDownmix]
@@ -79,7 +79,7 @@ $creadList :: ReadS [Eac3StereoDownmix]
 readsPrec :: Int -&gt; ReadS Eac3StereoDownmix
 $creadsPrec :: Int -&gt; ReadS Eac3StereoDownmix
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679957506"><span id="local-6989586621679957508"><span class="annot"><span class="annottext">Eac3StereoDownmix -&gt; Eac3StereoDownmix -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679962130"><span id="local-6989586621679962132"><span class="annot"><span class="annottext">Eac3StereoDownmix -&gt; Eac3StereoDownmix -&gt; Bool
 (Eac3StereoDownmix -&gt; Eac3StereoDownmix -&gt; Bool)
 -&gt; (Eac3StereoDownmix -&gt; Eac3StereoDownmix -&gt; Bool)
 -&gt; Eq Eac3StereoDownmix
@@ -89,7 +89,7 @@ $c/= :: Eac3StereoDownmix -&gt; Eac3StereoDownmix -&gt; Bool
 == :: Eac3StereoDownmix -&gt; Eac3StereoDownmix -&gt; Bool
 $c== :: Eac3StereoDownmix -&gt; Eac3StereoDownmix -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679957490"><span id="local-6989586621679957492"><span id="local-6989586621679957494"><span id="local-6989586621679957496"><span id="local-6989586621679957498"><span id="local-6989586621679957500"><span id="local-6989586621679957502"><span class="annot"><span class="annottext">Eq Eac3StereoDownmix
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679962114"><span id="local-6989586621679962116"><span id="local-6989586621679962118"><span id="local-6989586621679962120"><span id="local-6989586621679962122"><span id="local-6989586621679962124"><span id="local-6989586621679962126"><span class="annot"><span class="annottext">Eq Eac3StereoDownmix
 Eq Eac3StereoDownmix
 -&gt; (Eac3StereoDownmix -&gt; Eac3StereoDownmix -&gt; Ordering)
 -&gt; (Eac3StereoDownmix -&gt; Eac3StereoDownmix -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. Eac3StereoDownmix -&gt; Rep Eac3StereoDownmix x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679957482"><span id="local-6989586621679957484"><span class="annot"><span class="annottext">Int -&gt; Eac3StereoDownmix -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679962106"><span id="local-6989586621679962108"><span class="annot"><span class="annottext">Int -&gt; Eac3StereoDownmix -&gt; Int
 Eac3StereoDownmix -&gt; Int
 (Int -&gt; Eac3StereoDownmix -&gt; Int)
 -&gt; (Eac3StereoDownmix -&gt; Int) -&gt; Hashable Eac3StereoDownmix
@@ -150,51 +150,51 @@ $chash :: Eac3StereoDownmix -&gt; Int
 hashWithSalt :: Int -&gt; Eac3StereoDownmix -&gt; Int
 $chashWithSalt :: Int -&gt; Eac3StereoDownmix -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679957479"><span class="annot"><span class="annottext">Eac3StereoDownmix -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679962103"><span class="annot"><span class="annottext">Eac3StereoDownmix -&gt; ()
 (Eac3StereoDownmix -&gt; ()) -&gt; NFData Eac3StereoDownmix
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Eac3StereoDownmix -&gt; ()
 $crnf :: Eac3StereoDownmix -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679957476"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3StereoDownmix
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679962100"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3StereoDownmix
 (Text -&gt; Either String Eac3StereoDownmix)
 -&gt; FromText Eac3StereoDownmix
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Eac3StereoDownmix
 $cfromText :: Text -&gt; Either String Eac3StereoDownmix
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679957473"><span class="annot"><span class="annottext">Eac3StereoDownmix -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679962097"><span class="annot"><span class="annottext">Eac3StereoDownmix -&gt; Text
 (Eac3StereoDownmix -&gt; Text) -&gt; ToText Eac3StereoDownmix
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Eac3StereoDownmix -&gt; Text
 $ctoText :: Eac3StereoDownmix -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679957470"><span class="annot"><span class="annottext">Eac3StereoDownmix -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679962094"><span class="annot"><span class="annottext">Eac3StereoDownmix -&gt; ByteString
 (Eac3StereoDownmix -&gt; ByteString) -&gt; ToByteString Eac3StereoDownmix
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Eac3StereoDownmix -&gt; ByteString
 $ctoBS :: Eac3StereoDownmix -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679957467"><span class="annot"><span class="annottext">Eac3StereoDownmix -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679962091"><span class="annot"><span class="annottext">Eac3StereoDownmix -&gt; ByteStringBuilder
 (Eac3StereoDownmix -&gt; ByteStringBuilder) -&gt; ToLog Eac3StereoDownmix
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Eac3StereoDownmix -&gt; ByteStringBuilder
 $cbuild :: Eac3StereoDownmix -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679957464"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3StereoDownmix -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679962088"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3StereoDownmix -&gt; [Header]
 (HeaderName -&gt; Eac3StereoDownmix -&gt; [Header])
 -&gt; ToHeader Eac3StereoDownmix
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Eac3StereoDownmix -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Eac3StereoDownmix -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679957461"><span class="annot"><span class="annottext">Eac3StereoDownmix -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679962085"><span class="annot"><span class="annottext">Eac3StereoDownmix -&gt; QueryString
 (Eac3StereoDownmix -&gt; QueryString) -&gt; ToQuery Eac3StereoDownmix
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Eac3StereoDownmix -&gt; QueryString
 $ctoQuery :: Eac3StereoDownmix -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679957456"><span id="local-6989586621679957458"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3StereoDownmix]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679962080"><span id="local-6989586621679962082"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3StereoDownmix]
 Value -&gt; Parser Eac3StereoDownmix
 (Value -&gt; Parser Eac3StereoDownmix)
 -&gt; (Value -&gt; Parser [Eac3StereoDownmix])
@@ -206,7 +206,7 @@ $cparseJSONList :: Value -&gt; Parser [Eac3StereoDownmix]
 parseJSON :: Value -&gt; Parser Eac3StereoDownmix
 $cparseJSON :: Value -&gt; Parser Eac3StereoDownmix
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679957451"><span id="local-6989586621679957453"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3StereoDownmix]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679962075"><span id="local-6989586621679962077"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3StereoDownmix]
 FromJSONKeyFunction Eac3StereoDownmix
 FromJSONKeyFunction Eac3StereoDownmix
 -&gt; FromJSONKeyFunction [Eac3StereoDownmix]
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Eac3StereoDownmix]
 fromJSONKey :: FromJSONKeyFunction Eac3StereoDownmix
 $cfromJSONKey :: FromJSONKeyFunction Eac3StereoDownmix
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679957442"><span id="local-6989586621679957444"><span id="local-6989586621679957446"><span id="local-6989586621679957448"><span class="annot"><span class="annottext">[Eac3StereoDownmix] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679962066"><span id="local-6989586621679962068"><span id="local-6989586621679962070"><span id="local-6989586621679962072"><span class="annot"><span class="annottext">[Eac3StereoDownmix] -&gt; Encoding
 [Eac3StereoDownmix] -&gt; Value
 Eac3StereoDownmix -&gt; Encoding
 Eac3StereoDownmix -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: Eac3StereoDownmix -&gt; Encoding
 toJSON :: Eac3StereoDownmix -&gt; Value
 $ctoJSON :: Eac3StereoDownmix -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679957437"><span id="local-6989586621679957439"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3StereoDownmix]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679962061"><span id="local-6989586621679962063"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3StereoDownmix]
 ToJSONKeyFunction Eac3StereoDownmix
 ToJSONKeyFunction Eac3StereoDownmix
 -&gt; ToJSONKeyFunction [Eac3StereoDownmix]
@@ -254,14 +254,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Eac3StereoDownmix]
 toJSONKey :: ToJSONKeyFunction Eac3StereoDownmix
 $ctoJSONKey :: ToJSONKeyFunction Eac3StereoDownmix
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679957434"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3StereoDownmix
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679962058"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3StereoDownmix
 ([Node] -&gt; Either String Eac3StereoDownmix)
 -&gt; FromXML Eac3StereoDownmix
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Eac3StereoDownmix
 $cparseXML :: [Node] -&gt; Either String Eac3StereoDownmix
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679957431"><span class="annot"><span class="annottext">Eac3StereoDownmix -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679962055"><span class="annot"><span class="annottext">Eac3StereoDownmix -&gt; XML
 (Eac3StereoDownmix -&gt; XML) -&gt; ToXML Eac3StereoDownmix
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Eac3StereoDownmix -&gt; XML

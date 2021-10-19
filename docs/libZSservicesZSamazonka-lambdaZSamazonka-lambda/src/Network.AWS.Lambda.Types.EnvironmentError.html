@@ -26,15 +26,15 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Error messages for environment variables that couldn\'t be applied.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newEnvironmentError' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679290013"><span id="local-6989586621679290014"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnvironmentError"><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError"><span class="hs-identifier hs-var">EnvironmentError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnvironmentError%27"><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError%27"><span class="hs-identifier hs-var">EnvironmentError'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error message.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3Amessage%3AEnvironmentError%27"><span class="annot"><span class="annottext">EnvironmentError -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.Lambda.Types.EnvironmentError.html#%24sel%3Amessage%3AEnvironmentError%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The error code.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AerrorCode%3AEnvironmentError%27"><span class="annot"><span class="annottext">EnvironmentError -&gt; Maybe Text
-</span><a href="Network.AWS.Lambda.Types.EnvironmentError.html#%24sel%3AerrorCode%3AEnvironmentError%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679294853"><span id="local-6989586621679294854"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnvironmentError"><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError"><span class="hs-identifier hs-var">EnvironmentError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnvironmentError%27"><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError%27"><span class="hs-identifier hs-var">EnvironmentError'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error code.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AerrorCode%3AEnvironmentError%27"><span class="annot"><span class="annottext">EnvironmentError -&gt; Maybe Text
+</span><a href="Network.AWS.Lambda.Types.EnvironmentError.html#%24sel%3AerrorCode%3AEnvironmentError%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The error message.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Amessage%3AEnvironmentError%27"><span class="annot"><span class="annottext">EnvironmentError -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.Lambda.Types.EnvironmentError.html#%24sel%3Amessage%3AEnvironmentError%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679290006"><span id="local-6989586621679290008"><span class="annot"><span class="annottext">EnvironmentError -&gt; EnvironmentError -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294846"><span id="local-6989586621679294848"><span class="annot"><span class="annottext">EnvironmentError -&gt; EnvironmentError -&gt; Bool
 (EnvironmentError -&gt; EnvironmentError -&gt; Bool)
 -&gt; (EnvironmentError -&gt; EnvironmentError -&gt; Bool)
 -&gt; Eq EnvironmentError
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnvironmentError -&gt; EnvironmentError -&gt; Bool
 == :: EnvironmentError -&gt; EnvironmentError -&gt; Bool
 $c== :: EnvironmentError -&gt; EnvironmentError -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289999"><span id="local-6989586621679290001"><span id="local-6989586621679290003"><span class="annot"><span class="annottext">Int -&gt; EnvironmentError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294839"><span id="local-6989586621679294841"><span id="local-6989586621679294843"><span class="annot"><span class="annottext">Int -&gt; EnvironmentError -&gt; ShowS
 [EnvironmentError] -&gt; ShowS
 EnvironmentError -&gt; String
 (Int -&gt; EnvironmentError -&gt; ShowS)
@@ -77,28 +77,47 @@ $cfrom :: forall x. EnvironmentError -&gt; Rep EnvironmentError x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'message', 'environmentError_message' - The error message.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'errorCode', 'environmentError_errorCode' - The error code.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'errorCode', 'environmentError_errorCode' - The error code.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'message', 'environmentError_message' - The error message.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#newEnvironmentError"><span class="hs-identifier hs-type">newEnvironmentError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError"><span class="hs-identifier hs-type">EnvironmentError</span></a></span><span>
 </span><span id="line-50"></span><span id="newEnvironmentError"><span class="annot"><span class="annottext">newEnvironmentError :: EnvironmentError
 </span><a href="Network.AWS.Lambda.Types.EnvironmentError.html#newEnvironmentError"><span class="hs-identifier hs-var hs-var">newEnvironmentError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">EnvironmentError' :: Maybe (Sensitive Text) -&gt; Maybe Text -&gt; EnvironmentError
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">EnvironmentError' :: Maybe Text -&gt; Maybe (Sensitive Text) -&gt; EnvironmentError
 </span><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError%27"><span class="hs-identifier hs-type">EnvironmentError'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:EnvironmentError' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.Lambda.Types.EnvironmentError.html#%24sel%3Amessage%3AEnvironmentError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errorCode:EnvironmentError' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.EnvironmentError.html#%24sel%3AerrorCode%3AEnvironmentError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:EnvironmentError' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.EnvironmentError.html#%24sel%3AerrorCode%3AEnvironmentError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:EnvironmentError' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Lambda.Types.EnvironmentError.html#%24sel%3Amessage%3AEnvironmentError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- | The error message.</span><span>
-</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#environmentError_message"><span class="hs-identifier hs-type">environmentError_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError"><span class="hs-identifier hs-type">EnvironmentError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-58"></span><span id="environmentError_message"><span class="annot"><span class="annottext">environmentError_message :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-56"></span><span class="hs-comment">-- | The error code.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#environmentError_errorCode"><span class="hs-identifier hs-type">environmentError_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError"><span class="hs-identifier hs-type">EnvironmentError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="environmentError_errorCode"><span class="annot"><span class="annottext">environmentError_errorCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EnvironmentError -&gt; f EnvironmentError
+</span><a href="Network.AWS.Lambda.Types.EnvironmentError.html#environmentError_errorCode"><span class="hs-identifier hs-var hs-var">environmentError_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentError -&gt; Maybe Text)
+-&gt; (EnvironmentError -&gt; Maybe Text -&gt; EnvironmentError)
+-&gt; Lens EnvironmentError EnvironmentError (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError%27"><span class="hs-identifier hs-type">EnvironmentError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294830"><span class="annot"><span class="annottext">Maybe Text
+errorCode :: Maybe Text
+$sel:errorCode:EnvironmentError' :: EnvironmentError -&gt; Maybe Text
+</span><a href="#local-6989586621679294830"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294830"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294829"><span class="annot"><span class="annottext">s :: EnvironmentError
+</span><a href="#local-6989586621679294829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError%27"><span class="hs-identifier hs-type">EnvironmentError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294828"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentError
+</span><a href="#local-6989586621679294829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:EnvironmentError' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.EnvironmentError.html#%24sel%3AerrorCode%3AEnvironmentError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError"><span class="hs-identifier hs-type">EnvironmentError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The error message.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#environmentError_message"><span class="hs-identifier hs-type">environmentError_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError"><span class="hs-identifier hs-type">EnvironmentError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="environmentError_message"><span class="annot"><span class="annottext">environmentError_message :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; EnvironmentError -&gt; f EnvironmentError
 </span><a href="Network.AWS.Lambda.Types.EnvironmentError.html#environmentError_message"><span class="hs-identifier hs-var hs-var">environmentError_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentError -&gt; Maybe (Sensitive Text))
 -&gt; (EnvironmentError -&gt; Maybe (Sensitive Text) -&gt; EnvironmentError)
@@ -108,16 +127,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError%27"><span class="hs-identifier hs-type">EnvironmentError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289990"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError%27"><span class="hs-identifier hs-type">EnvironmentError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294826"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 message :: Maybe (Sensitive Text)
 $sel:message:EnvironmentError' :: EnvironmentError -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679289990"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679289990"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289989"><span class="annot"><span class="annottext">s :: EnvironmentError
-</span><a href="#local-6989586621679289989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError%27"><span class="hs-identifier hs-type">EnvironmentError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289988"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679289988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentError
-</span><a href="#local-6989586621679289989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:EnvironmentError' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679294826"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679294826"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294825"><span class="annot"><span class="annottext">s :: EnvironmentError
+</span><a href="#local-6989586621679294825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError%27"><span class="hs-identifier hs-type">EnvironmentError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294824"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679294824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentError
+</span><a href="#local-6989586621679294825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:EnvironmentError' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.Lambda.Types.EnvironmentError.html#%24sel%3Amessage%3AEnvironmentError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679289988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError"><span class="hs-identifier hs-type">EnvironmentError</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679294824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError"><span class="hs-identifier hs-type">EnvironmentError</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; EnvironmentError -&gt; f EnvironmentError)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -137,28 +156,9 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | The error code.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#environmentError_errorCode"><span class="hs-identifier hs-type">environmentError_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError"><span class="hs-identifier hs-type">EnvironmentError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="environmentError_errorCode"><span class="annot"><span class="annottext">environmentError_errorCode :: (Maybe Text -&gt; f (Maybe Text))
--&gt; EnvironmentError -&gt; f EnvironmentError
-</span><a href="Network.AWS.Lambda.Types.EnvironmentError.html#environmentError_errorCode"><span class="hs-identifier hs-var hs-var">environmentError_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentError -&gt; Maybe Text)
--&gt; (EnvironmentError -&gt; Maybe Text -&gt; EnvironmentError)
--&gt; Lens EnvironmentError EnvironmentError (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError%27"><span class="hs-identifier hs-type">EnvironmentError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289983"><span class="annot"><span class="annottext">Maybe Text
-errorCode :: Maybe Text
-$sel:errorCode:EnvironmentError' :: EnvironmentError -&gt; Maybe Text
-</span><a href="#local-6989586621679289983"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679289983"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289982"><span class="annot"><span class="annottext">s :: EnvironmentError
-</span><a href="#local-6989586621679289982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError%27"><span class="hs-identifier hs-type">EnvironmentError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289981"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679289981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentError
-</span><a href="#local-6989586621679289982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:EnvironmentError' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.EnvironmentError.html#%24sel%3AerrorCode%3AEnvironmentError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679289981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError"><span class="hs-identifier hs-type">EnvironmentError</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289978"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError"><span class="hs-identifier hs-type">EnvironmentError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679289976"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EnvironmentError
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294818"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError"><span class="hs-identifier hs-type">EnvironmentError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679294816"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EnvironmentError
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EnvironmentError)
@@ -168,30 +168,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EnvironmentError&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289973"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289973"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text) -&gt; Maybe Text -&gt; EnvironmentError
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294813"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294813"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe (Sensitive Text) -&gt; EnvironmentError
 </span><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError%27"><span class="hs-identifier hs-var">EnvironmentError'</span></a></span><span>
-</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (Sensitive Text) -&gt; Maybe Text -&gt; EnvironmentError)
--&gt; Parser (Maybe (Sensitive Text))
--&gt; Parser (Maybe Text -&gt; EnvironmentError)
+</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe (Sensitive Text) -&gt; EnvironmentError)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe (Sensitive Text) -&gt; EnvironmentError)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; EnvironmentError)
--&gt; Parser (Maybe Text) -&gt; Parser EnvironmentError
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679289973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679294813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (Sensitive Text) -&gt; EnvironmentError)
+-&gt; Parser (Maybe (Sensitive Text)) -&gt; Parser EnvironmentError
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289967"><span id="local-6989586621679289969"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError"><span class="hs-identifier hs-type">EnvironmentError</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294807"><span id="local-6989586621679294809"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError"><span class="hs-identifier hs-type">EnvironmentError</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289964"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError"><span class="hs-identifier hs-type">EnvironmentError</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.EnvironmentError.html#EnvironmentError"><span class="hs-identifier hs-type">EnvironmentError</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

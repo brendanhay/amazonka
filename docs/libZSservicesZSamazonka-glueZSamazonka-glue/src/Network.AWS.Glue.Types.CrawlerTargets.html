@@ -31,24 +31,24 @@
 </span><span id="line-31"></span><span class="hs-comment">-- | Specifies data stores to crawl.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newCrawlerTargets' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679694825"><span id="local-6989586621679694826"></span></span><span class="hs-keyword">data</span><span> </span><span id="CrawlerTargets"><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-var">CrawlerTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CrawlerTargets%27"><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-var">CrawlerTargets'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies Glue Data Catalog targets.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcatalogTargets%3ACrawlerTargets%27"><span class="annot"><span class="annottext">CrawlerTargets -&gt; Maybe [CatalogTarget]
-</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AcatalogTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var hs-var">catalogTargets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-type">CatalogTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Specifies Amazon DocumentDB or MongoDB targets.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmongoDBTargets%3ACrawlerTargets%27"><span class="annot"><span class="annottext">CrawlerTargets -&gt; Maybe [MongoDBTarget]
-</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AmongoDBTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var hs-var">mongoDBTargets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.MongoDBTarget.html#MongoDBTarget"><span class="hs-identifier hs-type">MongoDBTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Specifies Amazon DynamoDB targets.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdynamoDBTargets%3ACrawlerTargets%27"><span class="annot"><span class="annottext">CrawlerTargets -&gt; Maybe [DynamoDBTarget]
+</span><span id="line-34"></span><span id="local-6989586621679696517"><span id="local-6989586621679696518"></span></span><span class="hs-keyword">data</span><span> </span><span id="CrawlerTargets"><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-var">CrawlerTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CrawlerTargets%27"><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-var">CrawlerTargets'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies Amazon DynamoDB targets.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AdynamoDBTargets%3ACrawlerTargets%27"><span class="annot"><span class="annottext">CrawlerTargets -&gt; Maybe [DynamoDBTarget]
 </span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AdynamoDBTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var hs-var">dynamoDBTargets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-type">DynamoDBTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Specifies JDBC targets.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AjdbcTargets%3ACrawlerTargets%27"><span class="annot"><span class="annottext">CrawlerTargets -&gt; Maybe [JdbcTarget]
-</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AjdbcTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var hs-var">jdbcTargets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Specifies Amazon Simple Storage Service (Amazon S3) targets.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3As3Targets%3ACrawlerTargets%27"><span class="annot"><span class="annottext">CrawlerTargets -&gt; Maybe [S3Target]
-</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3As3Targets%3ACrawlerTargets%27"><span class="hs-identifier hs-var hs-var">s3Targets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Specifies Amazon Simple Storage Service (Amazon S3) targets.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3As3Targets%3ACrawlerTargets%27"><span class="annot"><span class="annottext">CrawlerTargets -&gt; Maybe [S3Target]
+</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3As3Targets%3ACrawlerTargets%27"><span class="hs-identifier hs-var hs-var">s3Targets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Specifies Amazon DocumentDB or MongoDB targets.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AmongoDBTargets%3ACrawlerTargets%27"><span class="annot"><span class="annottext">CrawlerTargets -&gt; Maybe [MongoDBTarget]
+</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AmongoDBTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var hs-var">mongoDBTargets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.MongoDBTarget.html#MongoDBTarget"><span class="hs-identifier hs-type">MongoDBTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Specifies Glue Data Catalog targets.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcatalogTargets%3ACrawlerTargets%27"><span class="annot"><span class="annottext">CrawlerTargets -&gt; Maybe [CatalogTarget]
+</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AcatalogTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var hs-var">catalogTargets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-type">CatalogTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Specifies JDBC targets.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AjdbcTargets%3ACrawlerTargets%27"><span class="annot"><span class="annottext">CrawlerTargets -&gt; Maybe [JdbcTarget]
+</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AjdbcTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var hs-var">jdbcTargets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679694815"><span id="local-6989586621679694817"><span class="annot"><span class="annottext">CrawlerTargets -&gt; CrawlerTargets -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679696507"><span id="local-6989586621679696509"><span class="annot"><span class="annottext">CrawlerTargets -&gt; CrawlerTargets -&gt; Bool
 (CrawlerTargets -&gt; CrawlerTargets -&gt; Bool)
 -&gt; (CrawlerTargets -&gt; CrawlerTargets -&gt; Bool) -&gt; Eq CrawlerTargets
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CrawlerTargets -&gt; CrawlerTargets -&gt; Bool
 == :: CrawlerTargets -&gt; CrawlerTargets -&gt; Bool
 $c== :: CrawlerTargets -&gt; CrawlerTargets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679694806"><span id="local-6989586621679694808"><span id="local-6989586621679694810"><span id="local-6989586621679694812"><span class="annot"><span class="annottext">ReadPrec [CrawlerTargets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679696498"><span id="local-6989586621679696500"><span id="local-6989586621679696502"><span id="local-6989586621679696504"><span class="annot"><span class="annottext">ReadPrec [CrawlerTargets]
 ReadPrec CrawlerTargets
 Int -&gt; ReadS CrawlerTargets
 ReadS [CrawlerTargets]
@@ -76,7 +76,7 @@ readList :: ReadS [CrawlerTargets]
 $creadList :: ReadS [CrawlerTargets]
 readsPrec :: Int -&gt; ReadS CrawlerTargets
 $creadsPrec :: Int -&gt; ReadS CrawlerTargets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679694799"><span id="local-6989586621679694801"><span id="local-6989586621679694803"><span class="annot"><span class="annottext">Int -&gt; CrawlerTargets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679696491"><span id="local-6989586621679696493"><span id="local-6989586621679696495"><span class="annot"><span class="annottext">Int -&gt; CrawlerTargets -&gt; ShowS
 [CrawlerTargets] -&gt; ShowS
 CrawlerTargets -&gt; String
 (Int -&gt; CrawlerTargets -&gt; ShowS)
@@ -110,139 +110,51 @@ $cfrom :: forall x. CrawlerTargets -&gt; Rep CrawlerTargets x
 </span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'catalogTargets', 'crawlerTargets_catalogTargets' - Specifies Glue Data Catalog targets.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'dynamoDBTargets', 'crawlerTargets_dynamoDBTargets' - Specifies Amazon DynamoDB targets.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'mongoDBTargets', 'crawlerTargets_mongoDBTargets' - Specifies Amazon DocumentDB or MongoDB targets.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 's3Targets', 'crawlerTargets_s3Targets' - Specifies Amazon Simple Storage Service (Amazon S3) targets.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'dynamoDBTargets', 'crawlerTargets_dynamoDBTargets' - Specifies Amazon DynamoDB targets.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'mongoDBTargets', 'crawlerTargets_mongoDBTargets' - Specifies Amazon DocumentDB or MongoDB targets.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'jdbcTargets', 'crawlerTargets_jdbcTargets' - Specifies JDBC targets.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'catalogTargets', 'crawlerTargets_catalogTargets' - Specifies Glue Data Catalog targets.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 's3Targets', 'crawlerTargets_s3Targets' - Specifies Amazon Simple Storage Service (Amazon S3) targets.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'jdbcTargets', 'crawlerTargets_jdbcTargets' - Specifies JDBC targets.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#newCrawlerTargets"><span class="hs-identifier hs-type">newCrawlerTargets</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span>
 </span><span id="line-67"></span><span id="newCrawlerTargets"><span class="annot"><span class="annottext">newCrawlerTargets :: CrawlerTargets
 </span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#newCrawlerTargets"><span class="hs-identifier hs-var hs-var">newCrawlerTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">CrawlerTargets' :: Maybe [CatalogTarget]
--&gt; Maybe [MongoDBTarget]
--&gt; Maybe [DynamoDBTarget]
--&gt; Maybe [JdbcTarget]
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">CrawlerTargets' :: Maybe [DynamoDBTarget]
 -&gt; Maybe [S3Target]
+-&gt; Maybe [MongoDBTarget]
+-&gt; Maybe [CatalogTarget]
+-&gt; Maybe [JdbcTarget]
 -&gt; CrawlerTargets
 </span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:catalogTargets:CrawlerTargets' :: Maybe [CatalogTarget]
-</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AcatalogTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var">catalogTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CatalogTarget]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:mongoDBTargets:CrawlerTargets' :: Maybe [MongoDBTarget]
-</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AmongoDBTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var">mongoDBTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MongoDBTarget]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:dynamoDBTargets:CrawlerTargets' :: Maybe [DynamoDBTarget]
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dynamoDBTargets:CrawlerTargets' :: Maybe [DynamoDBTarget]
 </span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AdynamoDBTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var">dynamoDBTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DynamoDBTarget]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:jdbcTargets:CrawlerTargets' :: Maybe [JdbcTarget]
-</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AjdbcTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var">jdbcTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JdbcTarget]
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Targets:CrawlerTargets' :: Maybe [S3Target]
+</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3As3Targets%3ACrawlerTargets%27"><span class="hs-identifier hs-var">s3Targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [S3Target]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Targets:CrawlerTargets' :: Maybe [S3Target]
-</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3As3Targets%3ACrawlerTargets%27"><span class="hs-identifier hs-var">s3Targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [S3Target]
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:mongoDBTargets:CrawlerTargets' :: Maybe [MongoDBTarget]
+</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AmongoDBTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var">mongoDBTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MongoDBTarget]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:catalogTargets:CrawlerTargets' :: Maybe [CatalogTarget]
+</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AcatalogTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var">catalogTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CatalogTarget]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:jdbcTargets:CrawlerTargets' :: Maybe [JdbcTarget]
+</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AjdbcTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var">jdbcTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JdbcTarget]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | Specifies Glue Data Catalog targets.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#crawlerTargets_catalogTargets"><span class="hs-identifier hs-type">crawlerTargets_catalogTargets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-type">CatalogTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="crawlerTargets_catalogTargets"><span class="annot"><span class="annottext">crawlerTargets_catalogTargets :: (Maybe [CatalogTarget] -&gt; f (Maybe [CatalogTarget]))
--&gt; CrawlerTargets -&gt; f CrawlerTargets
-</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#crawlerTargets_catalogTargets"><span class="hs-identifier hs-var hs-var">crawlerTargets_catalogTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CrawlerTargets -&gt; Maybe [CatalogTarget])
--&gt; (CrawlerTargets -&gt; Maybe [CatalogTarget] -&gt; CrawlerTargets)
--&gt; Lens
-     CrawlerTargets
-     CrawlerTargets
-     (Maybe [CatalogTarget])
-     (Maybe [CatalogTarget])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694790"><span class="annot"><span class="annottext">Maybe [CatalogTarget]
-catalogTargets :: Maybe [CatalogTarget]
-$sel:catalogTargets:CrawlerTargets' :: CrawlerTargets -&gt; Maybe [CatalogTarget]
-</span><a href="#local-6989586621679694790"><span class="hs-identifier hs-var hs-var">catalogTargets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CatalogTarget]
-</span><a href="#local-6989586621679694790"><span class="hs-identifier hs-var">catalogTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694789"><span class="annot"><span class="annottext">s :: CrawlerTargets
-</span><a href="#local-6989586621679694789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694788"><span class="annot"><span class="annottext">Maybe [CatalogTarget]
-</span><a href="#local-6989586621679694788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrawlerTargets
-</span><a href="#local-6989586621679694789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogTargets:CrawlerTargets' :: Maybe [CatalogTarget]
-</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AcatalogTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var">catalogTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CatalogTarget]
-</span><a href="#local-6989586621679694788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CatalogTarget] -&gt; f (Maybe [CatalogTarget]))
- -&gt; CrawlerTargets -&gt; f CrawlerTargets)
--&gt; ((Maybe [CatalogTarget] -&gt; f (Maybe [CatalogTarget]))
-    -&gt; Maybe [CatalogTarget] -&gt; f (Maybe [CatalogTarget]))
--&gt; (Maybe [CatalogTarget] -&gt; f (Maybe [CatalogTarget]))
--&gt; CrawlerTargets
--&gt; f CrawlerTargets
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [CatalogTarget] [CatalogTarget] [CatalogTarget] [CatalogTarget]
--&gt; Iso
-     (Maybe [CatalogTarget])
-     (Maybe [CatalogTarget])
-     (Maybe [CatalogTarget])
-     (Maybe [CatalogTarget])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [CatalogTarget] [CatalogTarget] [CatalogTarget] [CatalogTarget]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | Specifies Amazon DocumentDB or MongoDB targets.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#crawlerTargets_mongoDBTargets"><span class="hs-identifier hs-type">crawlerTargets_mongoDBTargets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.MongoDBTarget.html#MongoDBTarget"><span class="hs-identifier hs-type">MongoDBTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="crawlerTargets_mongoDBTargets"><span class="annot"><span class="annottext">crawlerTargets_mongoDBTargets :: (Maybe [MongoDBTarget] -&gt; f (Maybe [MongoDBTarget]))
--&gt; CrawlerTargets -&gt; f CrawlerTargets
-</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#crawlerTargets_mongoDBTargets"><span class="hs-identifier hs-var hs-var">crawlerTargets_mongoDBTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CrawlerTargets -&gt; Maybe [MongoDBTarget])
--&gt; (CrawlerTargets -&gt; Maybe [MongoDBTarget] -&gt; CrawlerTargets)
--&gt; Lens
-     CrawlerTargets
-     CrawlerTargets
-     (Maybe [MongoDBTarget])
-     (Maybe [MongoDBTarget])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694783"><span class="annot"><span class="annottext">Maybe [MongoDBTarget]
-mongoDBTargets :: Maybe [MongoDBTarget]
-$sel:mongoDBTargets:CrawlerTargets' :: CrawlerTargets -&gt; Maybe [MongoDBTarget]
-</span><a href="#local-6989586621679694783"><span class="hs-identifier hs-var hs-var">mongoDBTargets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MongoDBTarget]
-</span><a href="#local-6989586621679694783"><span class="hs-identifier hs-var">mongoDBTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694782"><span class="annot"><span class="annottext">s :: CrawlerTargets
-</span><a href="#local-6989586621679694782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694781"><span class="annot"><span class="annottext">Maybe [MongoDBTarget]
-</span><a href="#local-6989586621679694781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrawlerTargets
-</span><a href="#local-6989586621679694782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mongoDBTargets:CrawlerTargets' :: Maybe [MongoDBTarget]
-</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AmongoDBTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var">mongoDBTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MongoDBTarget]
-</span><a href="#local-6989586621679694781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MongoDBTarget] -&gt; f (Maybe [MongoDBTarget]))
- -&gt; CrawlerTargets -&gt; f CrawlerTargets)
--&gt; ((Maybe [MongoDBTarget] -&gt; f (Maybe [MongoDBTarget]))
-    -&gt; Maybe [MongoDBTarget] -&gt; f (Maybe [MongoDBTarget]))
--&gt; (Maybe [MongoDBTarget] -&gt; f (Maybe [MongoDBTarget]))
--&gt; CrawlerTargets
--&gt; f CrawlerTargets
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [MongoDBTarget] [MongoDBTarget] [MongoDBTarget] [MongoDBTarget]
--&gt; Iso
-     (Maybe [MongoDBTarget])
-     (Maybe [MongoDBTarget])
-     (Maybe [MongoDBTarget])
-     (Maybe [MongoDBTarget])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  [MongoDBTarget] [MongoDBTarget] [MongoDBTarget] [MongoDBTarget]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | Specifies Amazon DynamoDB targets.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#crawlerTargets_dynamoDBTargets"><span class="hs-identifier hs-type">crawlerTargets_dynamoDBTargets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-type">DynamoDBTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="crawlerTargets_dynamoDBTargets"><span class="annot"><span class="annottext">crawlerTargets_dynamoDBTargets :: (Maybe [DynamoDBTarget] -&gt; f (Maybe [DynamoDBTarget]))
+</span><span id="line-76"></span><span class="hs-comment">-- | Specifies Amazon DynamoDB targets.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#crawlerTargets_dynamoDBTargets"><span class="hs-identifier hs-type">crawlerTargets_dynamoDBTargets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.DynamoDBTarget.html#DynamoDBTarget"><span class="hs-identifier hs-type">DynamoDBTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="crawlerTargets_dynamoDBTargets"><span class="annot"><span class="annottext">crawlerTargets_dynamoDBTargets :: (Maybe [DynamoDBTarget] -&gt; f (Maybe [DynamoDBTarget]))
 -&gt; CrawlerTargets -&gt; f CrawlerTargets
 </span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#crawlerTargets_dynamoDBTargets"><span class="hs-identifier hs-var hs-var">crawlerTargets_dynamoDBTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CrawlerTargets -&gt; Maybe [DynamoDBTarget])
 -&gt; (CrawlerTargets -&gt; Maybe [DynamoDBTarget] -&gt; CrawlerTargets)
@@ -252,16 +164,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [DynamoDBTarget])
      (Maybe [DynamoDBTarget])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694779"><span class="annot"><span class="annottext">Maybe [DynamoDBTarget]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696482"><span class="annot"><span class="annottext">Maybe [DynamoDBTarget]
 dynamoDBTargets :: Maybe [DynamoDBTarget]
 $sel:dynamoDBTargets:CrawlerTargets' :: CrawlerTargets -&gt; Maybe [DynamoDBTarget]
-</span><a href="#local-6989586621679694779"><span class="hs-identifier hs-var hs-var">dynamoDBTargets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DynamoDBTarget]
-</span><a href="#local-6989586621679694779"><span class="hs-identifier hs-var">dynamoDBTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694778"><span class="annot"><span class="annottext">s :: CrawlerTargets
-</span><a href="#local-6989586621679694778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694777"><span class="annot"><span class="annottext">Maybe [DynamoDBTarget]
-</span><a href="#local-6989586621679694777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrawlerTargets
-</span><a href="#local-6989586621679694778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamoDBTargets:CrawlerTargets' :: Maybe [DynamoDBTarget]
+</span><a href="#local-6989586621679696482"><span class="hs-identifier hs-var hs-var">dynamoDBTargets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DynamoDBTarget]
+</span><a href="#local-6989586621679696482"><span class="hs-identifier hs-var">dynamoDBTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696481"><span class="annot"><span class="annottext">s :: CrawlerTargets
+</span><a href="#local-6989586621679696481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696480"><span class="annot"><span class="annottext">Maybe [DynamoDBTarget]
+</span><a href="#local-6989586621679696480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrawlerTargets
+</span><a href="#local-6989586621679696481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamoDBTargets:CrawlerTargets' :: Maybe [DynamoDBTarget]
 </span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AdynamoDBTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var">dynamoDBTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DynamoDBTarget]
-</span><a href="#local-6989586621679694777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DynamoDBTarget] -&gt; f (Maybe [DynamoDBTarget]))
+</span><a href="#local-6989586621679696480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DynamoDBTarget] -&gt; f (Maybe [DynamoDBTarget]))
  -&gt; CrawlerTargets -&gt; f CrawlerTargets)
 -&gt; ((Maybe [DynamoDBTarget] -&gt; f (Maybe [DynamoDBTarget]))
     -&gt; Maybe [DynamoDBTarget] -&gt; f (Maybe [DynamoDBTarget]))
@@ -281,70 +193,28 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [DynamoDBTarget] [DynamoDBTarget] [DynamoDBTarget] [DynamoDBTarget]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | Specifies JDBC targets.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#crawlerTargets_jdbcTargets"><span class="hs-identifier hs-type">crawlerTargets_jdbcTargets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="crawlerTargets_jdbcTargets"><span class="annot"><span class="annottext">crawlerTargets_jdbcTargets :: (Maybe [JdbcTarget] -&gt; f (Maybe [JdbcTarget]))
--&gt; CrawlerTargets -&gt; f CrawlerTargets
-</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#crawlerTargets_jdbcTargets"><span class="hs-identifier hs-var hs-var">crawlerTargets_jdbcTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CrawlerTargets -&gt; Maybe [JdbcTarget])
--&gt; (CrawlerTargets -&gt; Maybe [JdbcTarget] -&gt; CrawlerTargets)
--&gt; Lens
-     CrawlerTargets
-     CrawlerTargets
-     (Maybe [JdbcTarget])
-     (Maybe [JdbcTarget])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694775"><span class="annot"><span class="annottext">Maybe [JdbcTarget]
-jdbcTargets :: Maybe [JdbcTarget]
-$sel:jdbcTargets:CrawlerTargets' :: CrawlerTargets -&gt; Maybe [JdbcTarget]
-</span><a href="#local-6989586621679694775"><span class="hs-identifier hs-var hs-var">jdbcTargets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JdbcTarget]
-</span><a href="#local-6989586621679694775"><span class="hs-identifier hs-var">jdbcTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694774"><span class="annot"><span class="annottext">s :: CrawlerTargets
-</span><a href="#local-6989586621679694774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694773"><span class="annot"><span class="annottext">Maybe [JdbcTarget]
-</span><a href="#local-6989586621679694773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrawlerTargets
-</span><a href="#local-6989586621679694774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jdbcTargets:CrawlerTargets' :: Maybe [JdbcTarget]
-</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AjdbcTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var">jdbcTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JdbcTarget]
-</span><a href="#local-6989586621679694773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JdbcTarget] -&gt; f (Maybe [JdbcTarget]))
- -&gt; CrawlerTargets -&gt; f CrawlerTargets)
--&gt; ((Maybe [JdbcTarget] -&gt; f (Maybe [JdbcTarget]))
-    -&gt; Maybe [JdbcTarget] -&gt; f (Maybe [JdbcTarget]))
--&gt; (Maybe [JdbcTarget] -&gt; f (Maybe [JdbcTarget]))
--&gt; CrawlerTargets
--&gt; f CrawlerTargets
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [JdbcTarget] [JdbcTarget] [JdbcTarget] [JdbcTarget]
--&gt; Iso
-     (Maybe [JdbcTarget])
-     (Maybe [JdbcTarget])
-     (Maybe [JdbcTarget])
-     (Maybe [JdbcTarget])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [JdbcTarget] [JdbcTarget] [JdbcTarget] [JdbcTarget]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | Specifies Amazon Simple Storage Service (Amazon S3) targets.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#crawlerTargets_s3Targets"><span class="hs-identifier hs-type">crawlerTargets_s3Targets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="crawlerTargets_s3Targets"><span class="annot"><span class="annottext">crawlerTargets_s3Targets :: (Maybe [S3Target] -&gt; f (Maybe [S3Target]))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | Specifies Amazon Simple Storage Service (Amazon S3) targets.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#crawlerTargets_s3Targets"><span class="hs-identifier hs-type">crawlerTargets_s3Targets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.S3Target.html#S3Target"><span class="hs-identifier hs-type">S3Target</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="crawlerTargets_s3Targets"><span class="annot"><span class="annottext">crawlerTargets_s3Targets :: (Maybe [S3Target] -&gt; f (Maybe [S3Target]))
 -&gt; CrawlerTargets -&gt; f CrawlerTargets
 </span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#crawlerTargets_s3Targets"><span class="hs-identifier hs-var hs-var">crawlerTargets_s3Targets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CrawlerTargets -&gt; Maybe [S3Target])
 -&gt; (CrawlerTargets -&gt; Maybe [S3Target] -&gt; CrawlerTargets)
 -&gt; Lens
      CrawlerTargets CrawlerTargets (Maybe [S3Target]) (Maybe [S3Target])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694771"><span class="annot"><span class="annottext">Maybe [S3Target]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696475"><span class="annot"><span class="annottext">Maybe [S3Target]
 s3Targets :: Maybe [S3Target]
 $sel:s3Targets:CrawlerTargets' :: CrawlerTargets -&gt; Maybe [S3Target]
-</span><a href="#local-6989586621679694771"><span class="hs-identifier hs-var hs-var">s3Targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [S3Target]
-</span><a href="#local-6989586621679694771"><span class="hs-identifier hs-var">s3Targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694770"><span class="annot"><span class="annottext">s :: CrawlerTargets
-</span><a href="#local-6989586621679694770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694769"><span class="annot"><span class="annottext">Maybe [S3Target]
-</span><a href="#local-6989586621679694769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrawlerTargets
-</span><a href="#local-6989586621679694770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Targets:CrawlerTargets' :: Maybe [S3Target]
+</span><a href="#local-6989586621679696475"><span class="hs-identifier hs-var hs-var">s3Targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [S3Target]
+</span><a href="#local-6989586621679696475"><span class="hs-identifier hs-var">s3Targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696474"><span class="annot"><span class="annottext">s :: CrawlerTargets
+</span><a href="#local-6989586621679696474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696473"><span class="annot"><span class="annottext">Maybe [S3Target]
+</span><a href="#local-6989586621679696473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrawlerTargets
+</span><a href="#local-6989586621679696474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Targets:CrawlerTargets' :: Maybe [S3Target]
 </span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3As3Targets%3ACrawlerTargets%27"><span class="hs-identifier hs-var">s3Targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [S3Target]
-</span><a href="#local-6989586621679694769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [S3Target] -&gt; f (Maybe [S3Target]))
+</span><a href="#local-6989586621679696473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [S3Target] -&gt; f (Maybe [S3Target]))
  -&gt; CrawlerTargets -&gt; f CrawlerTargets)
 -&gt; ((Maybe [S3Target] -&gt; f (Maybe [S3Target]))
     -&gt; Maybe [S3Target] -&gt; f (Maybe [S3Target]))
@@ -362,11 +232,141 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [S3Target] [S3Target] [S3Target] [S3Target]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | Specifies Amazon DocumentDB or MongoDB targets.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#crawlerTargets_mongoDBTargets"><span class="hs-identifier hs-type">crawlerTargets_mongoDBTargets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.MongoDBTarget.html#MongoDBTarget"><span class="hs-identifier hs-type">MongoDBTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="crawlerTargets_mongoDBTargets"><span class="annot"><span class="annottext">crawlerTargets_mongoDBTargets :: (Maybe [MongoDBTarget] -&gt; f (Maybe [MongoDBTarget]))
+-&gt; CrawlerTargets -&gt; f CrawlerTargets
+</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#crawlerTargets_mongoDBTargets"><span class="hs-identifier hs-var hs-var">crawlerTargets_mongoDBTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CrawlerTargets -&gt; Maybe [MongoDBTarget])
+-&gt; (CrawlerTargets -&gt; Maybe [MongoDBTarget] -&gt; CrawlerTargets)
+-&gt; Lens
+     CrawlerTargets
+     CrawlerTargets
+     (Maybe [MongoDBTarget])
+     (Maybe [MongoDBTarget])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696471"><span class="annot"><span class="annottext">Maybe [MongoDBTarget]
+mongoDBTargets :: Maybe [MongoDBTarget]
+$sel:mongoDBTargets:CrawlerTargets' :: CrawlerTargets -&gt; Maybe [MongoDBTarget]
+</span><a href="#local-6989586621679696471"><span class="hs-identifier hs-var hs-var">mongoDBTargets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MongoDBTarget]
+</span><a href="#local-6989586621679696471"><span class="hs-identifier hs-var">mongoDBTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696470"><span class="annot"><span class="annottext">s :: CrawlerTargets
+</span><a href="#local-6989586621679696470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696469"><span class="annot"><span class="annottext">Maybe [MongoDBTarget]
+</span><a href="#local-6989586621679696469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrawlerTargets
+</span><a href="#local-6989586621679696470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mongoDBTargets:CrawlerTargets' :: Maybe [MongoDBTarget]
+</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AmongoDBTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var">mongoDBTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MongoDBTarget]
+</span><a href="#local-6989586621679696469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MongoDBTarget] -&gt; f (Maybe [MongoDBTarget]))
+ -&gt; CrawlerTargets -&gt; f CrawlerTargets)
+-&gt; ((Maybe [MongoDBTarget] -&gt; f (Maybe [MongoDBTarget]))
+    -&gt; Maybe [MongoDBTarget] -&gt; f (Maybe [MongoDBTarget]))
+-&gt; (Maybe [MongoDBTarget] -&gt; f (Maybe [MongoDBTarget]))
+-&gt; CrawlerTargets
+-&gt; f CrawlerTargets
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MongoDBTarget] [MongoDBTarget] [MongoDBTarget] [MongoDBTarget]
+-&gt; Iso
+     (Maybe [MongoDBTarget])
+     (Maybe [MongoDBTarget])
+     (Maybe [MongoDBTarget])
+     (Maybe [MongoDBTarget])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MongoDBTarget] [MongoDBTarget] [MongoDBTarget] [MongoDBTarget]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Specifies Glue Data Catalog targets.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#crawlerTargets_catalogTargets"><span class="hs-identifier hs-type">crawlerTargets_catalogTargets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CatalogTarget.html#CatalogTarget"><span class="hs-identifier hs-type">CatalogTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="crawlerTargets_catalogTargets"><span class="annot"><span class="annottext">crawlerTargets_catalogTargets :: (Maybe [CatalogTarget] -&gt; f (Maybe [CatalogTarget]))
+-&gt; CrawlerTargets -&gt; f CrawlerTargets
+</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#crawlerTargets_catalogTargets"><span class="hs-identifier hs-var hs-var">crawlerTargets_catalogTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CrawlerTargets -&gt; Maybe [CatalogTarget])
+-&gt; (CrawlerTargets -&gt; Maybe [CatalogTarget] -&gt; CrawlerTargets)
+-&gt; Lens
+     CrawlerTargets
+     CrawlerTargets
+     (Maybe [CatalogTarget])
+     (Maybe [CatalogTarget])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696467"><span class="annot"><span class="annottext">Maybe [CatalogTarget]
+catalogTargets :: Maybe [CatalogTarget]
+$sel:catalogTargets:CrawlerTargets' :: CrawlerTargets -&gt; Maybe [CatalogTarget]
+</span><a href="#local-6989586621679696467"><span class="hs-identifier hs-var hs-var">catalogTargets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CatalogTarget]
+</span><a href="#local-6989586621679696467"><span class="hs-identifier hs-var">catalogTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696466"><span class="annot"><span class="annottext">s :: CrawlerTargets
+</span><a href="#local-6989586621679696466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696465"><span class="annot"><span class="annottext">Maybe [CatalogTarget]
+</span><a href="#local-6989586621679696465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrawlerTargets
+</span><a href="#local-6989586621679696466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogTargets:CrawlerTargets' :: Maybe [CatalogTarget]
+</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AcatalogTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var">catalogTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CatalogTarget]
+</span><a href="#local-6989586621679696465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CatalogTarget] -&gt; f (Maybe [CatalogTarget]))
+ -&gt; CrawlerTargets -&gt; f CrawlerTargets)
+-&gt; ((Maybe [CatalogTarget] -&gt; f (Maybe [CatalogTarget]))
+    -&gt; Maybe [CatalogTarget] -&gt; f (Maybe [CatalogTarget]))
+-&gt; (Maybe [CatalogTarget] -&gt; f (Maybe [CatalogTarget]))
+-&gt; CrawlerTargets
+-&gt; f CrawlerTargets
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CatalogTarget] [CatalogTarget] [CatalogTarget] [CatalogTarget]
+-&gt; Iso
+     (Maybe [CatalogTarget])
+     (Maybe [CatalogTarget])
+     (Maybe [CatalogTarget])
+     (Maybe [CatalogTarget])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CatalogTarget] [CatalogTarget] [CatalogTarget] [CatalogTarget]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | Specifies JDBC targets.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#crawlerTargets_jdbcTargets"><span class="hs-identifier hs-type">crawlerTargets_jdbcTargets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="crawlerTargets_jdbcTargets"><span class="annot"><span class="annottext">crawlerTargets_jdbcTargets :: (Maybe [JdbcTarget] -&gt; f (Maybe [JdbcTarget]))
+-&gt; CrawlerTargets -&gt; f CrawlerTargets
+</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#crawlerTargets_jdbcTargets"><span class="hs-identifier hs-var hs-var">crawlerTargets_jdbcTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CrawlerTargets -&gt; Maybe [JdbcTarget])
+-&gt; (CrawlerTargets -&gt; Maybe [JdbcTarget] -&gt; CrawlerTargets)
+-&gt; Lens
+     CrawlerTargets
+     CrawlerTargets
+     (Maybe [JdbcTarget])
+     (Maybe [JdbcTarget])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696463"><span class="annot"><span class="annottext">Maybe [JdbcTarget]
+jdbcTargets :: Maybe [JdbcTarget]
+$sel:jdbcTargets:CrawlerTargets' :: CrawlerTargets -&gt; Maybe [JdbcTarget]
+</span><a href="#local-6989586621679696463"><span class="hs-identifier hs-var hs-var">jdbcTargets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JdbcTarget]
+</span><a href="#local-6989586621679696463"><span class="hs-identifier hs-var">jdbcTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679696462"><span class="annot"><span class="annottext">s :: CrawlerTargets
+</span><a href="#local-6989586621679696462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679696461"><span class="annot"><span class="annottext">Maybe [JdbcTarget]
+</span><a href="#local-6989586621679696461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrawlerTargets
+</span><a href="#local-6989586621679696462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jdbcTargets:CrawlerTargets' :: Maybe [JdbcTarget]
+</span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#%24sel%3AjdbcTargets%3ACrawlerTargets%27"><span class="hs-identifier hs-var">jdbcTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JdbcTarget]
+</span><a href="#local-6989586621679696461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JdbcTarget] -&gt; f (Maybe [JdbcTarget]))
+ -&gt; CrawlerTargets -&gt; f CrawlerTargets)
+-&gt; ((Maybe [JdbcTarget] -&gt; f (Maybe [JdbcTarget]))
+    -&gt; Maybe [JdbcTarget] -&gt; f (Maybe [JdbcTarget]))
+-&gt; (Maybe [JdbcTarget] -&gt; f (Maybe [JdbcTarget]))
+-&gt; CrawlerTargets
+-&gt; f CrawlerTargets
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [JdbcTarget] [JdbcTarget] [JdbcTarget] [JdbcTarget]
+-&gt; Iso
+     (Maybe [JdbcTarget])
+     (Maybe [JdbcTarget])
+     (Maybe [JdbcTarget])
+     (Maybe [JdbcTarget])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [JdbcTarget] [JdbcTarget] [JdbcTarget] [JdbcTarget]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694766"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679694764"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CrawlerTargets
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696458"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679696456"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CrawlerTargets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CrawlerTargets)
@@ -376,98 +376,54 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CrawlerTargets&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679694761"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679694761"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe [CatalogTarget]
--&gt; Maybe [MongoDBTarget]
--&gt; Maybe [DynamoDBTarget]
--&gt; Maybe [JdbcTarget]
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679696453"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679696453"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DynamoDBTarget]
 -&gt; Maybe [S3Target]
+-&gt; Maybe [MongoDBTarget]
+-&gt; Maybe [CatalogTarget]
+-&gt; Maybe [JdbcTarget]
 -&gt; CrawlerTargets
 </span><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-var">CrawlerTargets'</span></a></span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [CatalogTarget]
- -&gt; Maybe [MongoDBTarget]
- -&gt; Maybe [DynamoDBTarget]
- -&gt; Maybe [JdbcTarget]
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [DynamoDBTarget]
  -&gt; Maybe [S3Target]
+ -&gt; Maybe [MongoDBTarget]
+ -&gt; Maybe [CatalogTarget]
+ -&gt; Maybe [JdbcTarget]
  -&gt; CrawlerTargets)
--&gt; Parser (Maybe [CatalogTarget])
--&gt; Parser
-     (Maybe [MongoDBTarget]
-      -&gt; Maybe [DynamoDBTarget]
-      -&gt; Maybe [JdbcTarget]
-      -&gt; Maybe [S3Target]
-      -&gt; CrawlerTargets)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679694761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CatalogTarget]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CatalogTargets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [CatalogTarget]))
--&gt; Maybe [CatalogTarget] -&gt; Parser (Maybe [CatalogTarget])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CatalogTarget]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [MongoDBTarget]
-   -&gt; Maybe [DynamoDBTarget]
-   -&gt; Maybe [JdbcTarget]
-   -&gt; Maybe [S3Target]
-   -&gt; CrawlerTargets)
--&gt; Parser (Maybe [MongoDBTarget])
--&gt; Parser
-     (Maybe [DynamoDBTarget]
-      -&gt; Maybe [JdbcTarget] -&gt; Maybe [S3Target] -&gt; CrawlerTargets)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679694761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MongoDBTarget]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MongoDBTargets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [MongoDBTarget]))
--&gt; Maybe [MongoDBTarget] -&gt; Parser (Maybe [MongoDBTarget])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MongoDBTarget]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [DynamoDBTarget]
-   -&gt; Maybe [JdbcTarget] -&gt; Maybe [S3Target] -&gt; CrawlerTargets)
 -&gt; Parser (Maybe [DynamoDBTarget])
 -&gt; Parser
-     (Maybe [JdbcTarget] -&gt; Maybe [S3Target] -&gt; CrawlerTargets)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679694761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [DynamoDBTarget]))
+     (Maybe [S3Target]
+      -&gt; Maybe [MongoDBTarget]
+      -&gt; Maybe [CatalogTarget]
+      -&gt; Maybe [JdbcTarget]
+      -&gt; CrawlerTargets)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679696453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [DynamoDBTarget]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DynamoDBTargets&quot;</span></span><span>
-</span><span id="line-105"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [DynamoDBTarget]))
+</span><span id="line-103"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [DynamoDBTarget]))
 -&gt; Maybe [DynamoDBTarget] -&gt; Parser (Maybe [DynamoDBTarget])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DynamoDBTarget]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-106"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [JdbcTarget] -&gt; Maybe [S3Target] -&gt; CrawlerTargets)
--&gt; Parser (Maybe [JdbcTarget])
--&gt; Parser (Maybe [S3Target] -&gt; CrawlerTargets)
+</span><span id="line-104"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [S3Target]
+   -&gt; Maybe [MongoDBTarget]
+   -&gt; Maybe [CatalogTarget]
+   -&gt; Maybe [JdbcTarget]
+   -&gt; CrawlerTargets)
+-&gt; Parser (Maybe [S3Target])
+-&gt; Parser
+     (Maybe [MongoDBTarget]
+      -&gt; Maybe [CatalogTarget] -&gt; Maybe [JdbcTarget] -&gt; CrawlerTargets)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679694761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [JdbcTarget]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;JdbcTargets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [JdbcTarget]))
--&gt; Maybe [JdbcTarget] -&gt; Parser (Maybe [JdbcTarget])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [JdbcTarget]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [S3Target] -&gt; CrawlerTargets)
--&gt; Parser (Maybe [S3Target]) -&gt; Parser CrawlerTargets
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679694761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [S3Target]))
+</span><a href="#local-6989586621679696453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [S3Target]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Targets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [S3Target]))
@@ -476,73 +432,118 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [S3Target]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [MongoDBTarget]
+   -&gt; Maybe [CatalogTarget] -&gt; Maybe [JdbcTarget] -&gt; CrawlerTargets)
+-&gt; Parser (Maybe [MongoDBTarget])
+-&gt; Parser
+     (Maybe [CatalogTarget] -&gt; Maybe [JdbcTarget] -&gt; CrawlerTargets)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679696453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MongoDBTarget]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MongoDBTargets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [MongoDBTarget]))
+-&gt; Maybe [MongoDBTarget] -&gt; Parser (Maybe [MongoDBTarget])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MongoDBTarget]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [CatalogTarget] -&gt; Maybe [JdbcTarget] -&gt; CrawlerTargets)
+-&gt; Parser (Maybe [CatalogTarget])
+-&gt; Parser (Maybe [JdbcTarget] -&gt; CrawlerTargets)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679696453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [CatalogTarget]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogTargets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [CatalogTarget]))
+-&gt; Maybe [CatalogTarget] -&gt; Parser (Maybe [CatalogTarget])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CatalogTarget]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [JdbcTarget] -&gt; CrawlerTargets)
+-&gt; Parser (Maybe [JdbcTarget]) -&gt; Parser CrawlerTargets
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679696453"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [JdbcTarget]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JdbcTargets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [JdbcTarget]))
+-&gt; Maybe [JdbcTarget] -&gt; Parser (Maybe [JdbcTarget])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [JdbcTarget]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694754"><span id="local-6989586621679694756"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696446"><span id="local-6989586621679696448"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694751"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694743"><span id="local-6989586621679694745"><span id="local-6989586621679694747"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679694741"><span class="annot"><span class="annottext">toJSON :: CrawlerTargets -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694735"><span id="local-6989586621679694736"><span id="local-6989586621679694737"><span id="local-6989586621679694738"><span id="local-6989586621679694739"><span class="annot"><span class="annottext">Maybe [CatalogTarget]
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679696435"><span id="local-6989586621679696437"><span id="local-6989586621679696439"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets"><span class="hs-identifier hs-type">CrawlerTargets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679696433"><span class="annot"><span class="annottext">toJSON :: CrawlerTargets -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CrawlerTargets.html#CrawlerTargets%27"><span class="hs-identifier hs-type">CrawlerTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679696427"><span id="local-6989586621679696428"><span id="local-6989586621679696429"><span id="local-6989586621679696430"><span id="local-6989586621679696431"><span class="annot"><span class="annottext">Maybe [CatalogTarget]
 Maybe [DynamoDBTarget]
 Maybe [JdbcTarget]
 Maybe [MongoDBTarget]
 Maybe [S3Target]
-s3Targets :: Maybe [S3Target]
 jdbcTargets :: Maybe [JdbcTarget]
-dynamoDBTargets :: Maybe [DynamoDBTarget]
-mongoDBTargets :: Maybe [MongoDBTarget]
 catalogTargets :: Maybe [CatalogTarget]
-$sel:s3Targets:CrawlerTargets' :: CrawlerTargets -&gt; Maybe [S3Target]
+mongoDBTargets :: Maybe [MongoDBTarget]
+s3Targets :: Maybe [S3Target]
+dynamoDBTargets :: Maybe [DynamoDBTarget]
 $sel:jdbcTargets:CrawlerTargets' :: CrawlerTargets -&gt; Maybe [JdbcTarget]
-$sel:dynamoDBTargets:CrawlerTargets' :: CrawlerTargets -&gt; Maybe [DynamoDBTarget]
-$sel:mongoDBTargets:CrawlerTargets' :: CrawlerTargets -&gt; Maybe [MongoDBTarget]
 $sel:catalogTargets:CrawlerTargets' :: CrawlerTargets -&gt; Maybe [CatalogTarget]
-</span><a href="#local-6989586621679694735"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:mongoDBTargets:CrawlerTargets' :: CrawlerTargets -&gt; Maybe [MongoDBTarget]
+$sel:s3Targets:CrawlerTargets' :: CrawlerTargets -&gt; Maybe [S3Target]
+$sel:dynamoDBTargets:CrawlerTargets' :: CrawlerTargets -&gt; Maybe [DynamoDBTarget]
+</span><a href="#local-6989586621679696427"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CatalogTargets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CatalogTarget] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">([CatalogTarget] -&gt; Pair) -&gt; Maybe [CatalogTarget] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CatalogTarget]
-</span><a href="#local-6989586621679694739"><span class="hs-identifier hs-var">catalogTargets</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MongoDBTargets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MongoDBTarget] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">([MongoDBTarget] -&gt; Pair) -&gt; Maybe [MongoDBTarget] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MongoDBTarget]
-</span><a href="#local-6989586621679694738"><span class="hs-identifier hs-var">mongoDBTargets</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DynamoDBTargets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [DynamoDBTarget] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">([DynamoDBTarget] -&gt; Pair) -&gt; Maybe [DynamoDBTarget] -&gt; Maybe Pair
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">([DynamoDBTarget] -&gt; Pair) -&gt; Maybe [DynamoDBTarget] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DynamoDBTarget]
-</span><a href="#local-6989586621679694737"><span class="hs-identifier hs-var">dynamoDBTargets</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;JdbcTargets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [JdbcTarget] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([JdbcTarget] -&gt; Pair) -&gt; Maybe [JdbcTarget] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [JdbcTarget]
-</span><a href="#local-6989586621679694736"><span class="hs-identifier hs-var">jdbcTargets</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679696431"><span class="hs-identifier hs-var">dynamoDBTargets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Targets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [S3Target] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([S3Target] -&gt; Pair) -&gt; Maybe [S3Target] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [S3Target]
-</span><a href="#local-6989586621679694735"><span class="hs-identifier hs-var">s3Targets</span></a></span><span>
+</span><a href="#local-6989586621679696430"><span class="hs-identifier hs-var">s3Targets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MongoDBTargets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MongoDBTarget] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">([MongoDBTarget] -&gt; Pair) -&gt; Maybe [MongoDBTarget] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MongoDBTarget]
+</span><a href="#local-6989586621679696429"><span class="hs-identifier hs-var">mongoDBTargets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogTargets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CatalogTarget] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">([CatalogTarget] -&gt; Pair) -&gt; Maybe [CatalogTarget] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CatalogTarget]
+</span><a href="#local-6989586621679696428"><span class="hs-identifier hs-var">catalogTargets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JdbcTargets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [JdbcTarget] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([JdbcTarget] -&gt; Pair) -&gt; Maybe [JdbcTarget] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [JdbcTarget]
+</span><a href="#local-6989586621679696427"><span class="hs-identifier hs-var">jdbcTargets</span></a></span><span>
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span></pre></body></html>

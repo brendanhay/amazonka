@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span class="hs-comment">-- DescribeFleetPortSettings</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newIpPermission' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679434359"><span id="local-6989586621679434360"></span></span><span class="hs-keyword">data</span><span> </span><span id="IpPermission"><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-var">IpPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IpPermission%27"><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-var">IpPermission'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679434806"><span id="local-6989586621679434807"></span></span><span class="hs-keyword">data</span><span> </span><span id="IpPermission"><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-var">IpPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IpPermission%27"><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-var">IpPermission'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A starting value for a range of allowed port numbers.</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AfromPort%3AIpPermission%27"><span class="annot"><span class="annottext">IpPermission -&gt; Natural
 </span><a href="Network.AWS.GameLift.Types.IpPermission.html#%24sel%3AfromPort%3AIpPermission%27"><span class="hs-identifier hs-var hs-var">fromPort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3Aprotocol%3AIpPermission%27"><span class="annot"><span class="annottext">IpPermission -&gt; IpProtocol
 </span><a href="Network.AWS.GameLift.Types.IpPermission.html#%24sel%3Aprotocol%3AIpPermission%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpProtocol.html#IpProtocol"><span class="hs-identifier hs-type">IpProtocol</span></a></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434350"><span id="local-6989586621679434352"><span class="annot"><span class="annottext">IpPermission -&gt; IpPermission -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434797"><span id="local-6989586621679434799"><span class="annot"><span class="annottext">IpPermission -&gt; IpPermission -&gt; Bool
 (IpPermission -&gt; IpPermission -&gt; Bool)
 -&gt; (IpPermission -&gt; IpPermission -&gt; Bool) -&gt; Eq IpPermission
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IpPermission -&gt; IpPermission -&gt; Bool
 == :: IpPermission -&gt; IpPermission -&gt; Bool
 $c== :: IpPermission -&gt; IpPermission -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434341"><span id="local-6989586621679434343"><span id="local-6989586621679434345"><span id="local-6989586621679434347"><span class="annot"><span class="annottext">ReadPrec [IpPermission]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434788"><span id="local-6989586621679434790"><span id="local-6989586621679434792"><span id="local-6989586621679434794"><span class="annot"><span class="annottext">ReadPrec [IpPermission]
 ReadPrec IpPermission
 Int -&gt; ReadS IpPermission
 ReadS [IpPermission]
@@ -82,7 +82,7 @@ readList :: ReadS [IpPermission]
 $creadList :: ReadS [IpPermission]
 readsPrec :: Int -&gt; ReadS IpPermission
 $creadsPrec :: Int -&gt; ReadS IpPermission
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434334"><span id="local-6989586621679434336"><span id="local-6989586621679434338"><span class="annot"><span class="annottext">Int -&gt; IpPermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434781"><span id="local-6989586621679434783"><span id="local-6989586621679434785"><span class="annot"><span class="annottext">Int -&gt; IpPermission -&gt; ShowS
 [IpPermission] -&gt; ShowS
 IpPermission -&gt; String
 (Int -&gt; IpPermission -&gt; ShowS)
@@ -138,28 +138,28 @@ $cfrom :: forall x. IpPermission -&gt; Rep IpPermission x
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span><span>
 </span><span id="line-83"></span><span id="newIpPermission"><span class="annot"><span class="annottext">newIpPermission :: Natural -&gt; Natural -&gt; Text -&gt; IpProtocol -&gt; IpPermission
 </span><a href="Network.AWS.GameLift.Types.IpPermission.html#newIpPermission"><span class="hs-identifier hs-var hs-var">newIpPermission</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679434328"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679434328"><span class="hs-identifier hs-var">pFromPort_</span></a></span></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679434327"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679434327"><span class="hs-identifier hs-var">pToPort_</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679434326"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434326"><span class="hs-identifier hs-var">pIpRange_</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679434325"><span class="annot"><span class="annottext">IpProtocol
-</span><a href="#local-6989586621679434325"><span class="hs-identifier hs-var">pProtocol_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679434775"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679434775"><span class="hs-identifier hs-var">pFromPort_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679434774"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679434774"><span class="hs-identifier hs-var">pToPort_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679434773"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679434773"><span class="hs-identifier hs-var">pIpRange_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679434772"><span class="annot"><span class="annottext">IpProtocol
+</span><a href="#local-6989586621679434772"><span class="hs-identifier hs-var">pProtocol_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">IpPermission' :: Natural -&gt; Natural -&gt; Text -&gt; IpProtocol -&gt; IpPermission
 </span><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fromPort:IpPermission' :: Natural
 </span><a href="Network.AWS.GameLift.Types.IpPermission.html#%24sel%3AfromPort%3AIpPermission%27"><span class="hs-identifier hs-var">fromPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679434328"><span class="hs-identifier hs-var">pFromPort_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679434775"><span class="hs-identifier hs-var">pFromPort_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:toPort:IpPermission' :: Natural
 </span><a href="Network.AWS.GameLift.Types.IpPermission.html#%24sel%3AtoPort%3AIpPermission%27"><span class="hs-identifier hs-var">toPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679434327"><span class="hs-identifier hs-var">pToPort_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679434774"><span class="hs-identifier hs-var">pToPort_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:ipRange:IpPermission' :: Text
 </span><a href="Network.AWS.GameLift.Types.IpPermission.html#%24sel%3AipRange%3AIpPermission%27"><span class="hs-identifier hs-var">ipRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434326"><span class="hs-identifier hs-var">pIpRange_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679434773"><span class="hs-identifier hs-var">pIpRange_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:protocol:IpPermission' :: IpProtocol
 </span><a href="Network.AWS.GameLift.Types.IpPermission.html#%24sel%3Aprotocol%3AIpPermission%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IpProtocol
-</span><a href="#local-6989586621679434325"><span class="hs-identifier hs-var">pProtocol_</span></a></span><span>
+</span><a href="#local-6989586621679434772"><span class="hs-identifier hs-var">pProtocol_</span></a></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | A starting value for a range of allowed port numbers.</span><span>
@@ -169,16 +169,16 @@ $cfrom :: forall x. IpPermission -&gt; Rep IpPermission x
 -&gt; (IpPermission -&gt; Natural -&gt; IpPermission)
 -&gt; Lens IpPermission IpPermission Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434321"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434768"><span class="annot"><span class="annottext">Natural
 fromPort :: Natural
 $sel:fromPort:IpPermission' :: IpPermission -&gt; Natural
-</span><a href="#local-6989586621679434321"><span class="hs-identifier hs-var hs-var">fromPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679434321"><span class="hs-identifier hs-var">fromPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434320"><span class="annot"><span class="annottext">s :: IpPermission
-</span><a href="#local-6989586621679434320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434319"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679434319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpPermission
-</span><a href="#local-6989586621679434320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromPort:IpPermission' :: Natural
+</span><a href="#local-6989586621679434768"><span class="hs-identifier hs-var hs-var">fromPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679434768"><span class="hs-identifier hs-var">fromPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434767"><span class="annot"><span class="annottext">s :: IpPermission
+</span><a href="#local-6989586621679434767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434766"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679434766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpPermission
+</span><a href="#local-6989586621679434767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromPort:IpPermission' :: Natural
 </span><a href="Network.AWS.GameLift.Types.IpPermission.html#%24sel%3AfromPort%3AIpPermission%27"><span class="hs-identifier hs-var">fromPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679434319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | An ending value for a range of allowed port numbers. Port numbers are</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- end-inclusive. This value must be higher than @FromPort@.</span><span>
@@ -188,16 +188,16 @@ $sel:fromPort:IpPermission' :: IpPermission -&gt; Natural
 -&gt; (IpPermission -&gt; Natural -&gt; IpPermission)
 -&gt; Lens IpPermission IpPermission Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434317"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434764"><span class="annot"><span class="annottext">Natural
 toPort :: Natural
 $sel:toPort:IpPermission' :: IpPermission -&gt; Natural
-</span><a href="#local-6989586621679434317"><span class="hs-identifier hs-var hs-var">toPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679434317"><span class="hs-identifier hs-var">toPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434316"><span class="annot"><span class="annottext">s :: IpPermission
-</span><a href="#local-6989586621679434316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434315"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679434315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpPermission
-</span><a href="#local-6989586621679434316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:toPort:IpPermission' :: Natural
+</span><a href="#local-6989586621679434764"><span class="hs-identifier hs-var hs-var">toPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679434764"><span class="hs-identifier hs-var">toPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434763"><span class="annot"><span class="annottext">s :: IpPermission
+</span><a href="#local-6989586621679434763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434762"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679434762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpPermission
+</span><a href="#local-6989586621679434763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:toPort:IpPermission' :: Natural
 </span><a href="Network.AWS.GameLift.Types.IpPermission.html#%24sel%3AtoPort%3AIpPermission%27"><span class="hs-identifier hs-var">toPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679434315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | A range of allowed IP addresses. This value must be expressed in CIDR</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- notation. Example: \&quot;@000.000.000.000\/[subnet mask]@\&quot; or optionally</span><span>
@@ -208,16 +208,16 @@ $sel:toPort:IpPermission' :: IpPermission -&gt; Natural
 -&gt; (IpPermission -&gt; Text -&gt; IpPermission)
 -&gt; Lens IpPermission IpPermission Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434313"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434760"><span class="annot"><span class="annottext">Text
 ipRange :: Text
 $sel:ipRange:IpPermission' :: IpPermission -&gt; Text
-</span><a href="#local-6989586621679434313"><span class="hs-identifier hs-var hs-var">ipRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434313"><span class="hs-identifier hs-var">ipRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434312"><span class="annot"><span class="annottext">s :: IpPermission
-</span><a href="#local-6989586621679434312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434311"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpPermission
-</span><a href="#local-6989586621679434312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipRange:IpPermission' :: Text
+</span><a href="#local-6989586621679434760"><span class="hs-identifier hs-var hs-var">ipRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679434760"><span class="hs-identifier hs-var">ipRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434759"><span class="annot"><span class="annottext">s :: IpPermission
+</span><a href="#local-6989586621679434759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434758"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679434758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpPermission
+</span><a href="#local-6989586621679434759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipRange:IpPermission' :: Text
 </span><a href="Network.AWS.GameLift.Types.IpPermission.html#%24sel%3AipRange%3AIpPermission%27"><span class="hs-identifier hs-var">ipRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- | The network communication protocol used by the fleet.</span><span>
 </span><span id="line-111"></span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#ipPermission_protocol"><span class="hs-identifier hs-type">ipPermission_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpProtocol.html#IpProtocol"><span class="hs-identifier hs-type">IpProtocol</span></a></span><span>
@@ -226,19 +226,19 @@ $sel:ipRange:IpPermission' :: IpPermission -&gt; Text
 -&gt; (IpPermission -&gt; IpProtocol -&gt; IpPermission)
 -&gt; Lens IpPermission IpPermission IpProtocol IpProtocol
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434309"><span class="annot"><span class="annottext">IpProtocol
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434756"><span class="annot"><span class="annottext">IpProtocol
 protocol :: IpProtocol
 $sel:protocol:IpPermission' :: IpPermission -&gt; IpProtocol
-</span><a href="#local-6989586621679434309"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpProtocol
-</span><a href="#local-6989586621679434309"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434308"><span class="annot"><span class="annottext">s :: IpPermission
-</span><a href="#local-6989586621679434308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434307"><span class="annot"><span class="annottext">IpProtocol
-</span><a href="#local-6989586621679434307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpPermission
-</span><a href="#local-6989586621679434308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:IpPermission' :: IpProtocol
+</span><a href="#local-6989586621679434756"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpProtocol
+</span><a href="#local-6989586621679434756"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434755"><span class="annot"><span class="annottext">s :: IpPermission
+</span><a href="#local-6989586621679434755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434754"><span class="annot"><span class="annottext">IpProtocol
+</span><a href="#local-6989586621679434754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpPermission
+</span><a href="#local-6989586621679434755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:IpPermission' :: IpProtocol
 </span><a href="Network.AWS.GameLift.Types.IpPermission.html#%24sel%3Aprotocol%3AIpPermission%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">IpProtocol
-</span><a href="#local-6989586621679434307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434304"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679434302"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IpPermission
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434751"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679434749"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IpPermission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser IpPermission) -&gt; Value -&gt; Parser IpPermission
@@ -246,8 +246,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;IpPermission&quot;</span></span><span>
-</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679434299"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434299"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679434746"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679434746"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Natural -&gt; Natural -&gt; Text -&gt; IpProtocol -&gt; IpPermission
 </span><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-var">IpPermission'</span></a></span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Natural -&gt; Natural -&gt; Text -&gt; IpProtocol -&gt; IpPermission)
@@ -255,7 +255,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Natural -&gt; Text -&gt; IpProtocol -&gt; IpPermission)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679434746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FromPort&quot;</span></span><span class="hs-special">)</span><span>
@@ -263,7 +263,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser (Text -&gt; IpProtocol -&gt; IpPermission)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679434746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ToPort&quot;</span></span><span class="hs-special">)</span><span>
@@ -271,7 +271,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (IpProtocol -&gt; IpPermission)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679434746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IpRange&quot;</span></span><span class="hs-special">)</span><span>
@@ -279,19 +279,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser IpProtocol -&gt; Parser IpPermission
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679434299"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser IpProtocol
+</span><a href="#local-6989586621679434746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser IpProtocol
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Protocol&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434293"><span id="local-6989586621679434295"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434740"><span id="local-6989586621679434742"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434290"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434282"><span id="local-6989586621679434284"><span id="local-6989586621679434286"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679434280"><span class="annot"><span class="annottext">toJSON :: IpPermission -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434275"><span id="local-6989586621679434276"><span id="local-6989586621679434277"><span id="local-6989586621679434278"><span class="annot"><span class="annottext">Natural
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434729"><span id="local-6989586621679434731"><span id="local-6989586621679434733"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission"><span class="hs-identifier hs-type">IpPermission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679434727"><span class="annot"><span class="annottext">toJSON :: IpPermission -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.IpPermission.html#IpPermission%27"><span class="hs-identifier hs-type">IpPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434722"><span id="local-6989586621679434723"><span id="local-6989586621679434724"><span id="local-6989586621679434725"><span class="annot"><span class="annottext">Natural
 Text
 IpProtocol
 protocol :: IpProtocol
@@ -302,7 +302,7 @@ $sel:protocol:IpPermission' :: IpPermission -&gt; IpProtocol
 $sel:ipRange:IpPermission' :: IpPermission -&gt; Text
 $sel:toPort:IpPermission' :: IpPermission -&gt; Natural
 $sel:fromPort:IpPermission' :: IpPermission -&gt; Natural
-</span><a href="#local-6989586621679434275"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679434722"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -314,28 +314,28 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;FromPort&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679434278"><span class="hs-identifier hs-var">fromPort</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679434725"><span class="hs-identifier hs-var">fromPort</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ToPort&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679434277"><span class="hs-identifier hs-var">toPort</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679434724"><span class="hs-identifier hs-var">toPort</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IpRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434276"><span class="hs-identifier hs-var">ipRange</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679434723"><span class="hs-identifier hs-var">ipRange</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Protocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; IpProtocol -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">IpProtocol
-</span><a href="#local-6989586621679434275"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679434722"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span></pre></body></html>

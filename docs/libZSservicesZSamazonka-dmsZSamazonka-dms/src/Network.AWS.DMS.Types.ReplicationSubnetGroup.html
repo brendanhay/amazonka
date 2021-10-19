@@ -28,24 +28,24 @@
 </span><span id="line-28"></span><span class="hs-comment">-- @DescribeReplicationSubnetGroups@ operation.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newReplicationSubnetGroup' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679439623"><span id="local-6989586621679439624"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicationSubnetGroup"><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-var">ReplicationSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationSubnetGroup%27"><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-var">ReplicationSubnetGroup'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the replication instance subnet group.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AreplicationSubnetGroupIdentifier%3AReplicationSubnetGroup%27"><span class="annot"><span class="annottext">ReplicationSubnetGroup -&gt; Maybe Text
-</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3AreplicationSubnetGroupIdentifier%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var hs-var">replicationSubnetGroupIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The status of the subnet group.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsubnetGroupStatus%3AReplicationSubnetGroup%27"><span class="annot"><span class="annottext">ReplicationSubnetGroup -&gt; Maybe Text
-</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3AsubnetGroupStatus%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var hs-var">subnetGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A description for the replication subnet group.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AreplicationSubnetGroupDescription%3AReplicationSubnetGroup%27"><span class="annot"><span class="annottext">ReplicationSubnetGroup -&gt; Maybe Text
-</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3AreplicationSubnetGroupDescription%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var hs-var">replicationSubnetGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ID of the VPC.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AvpcId%3AReplicationSubnetGroup%27"><span class="annot"><span class="annottext">ReplicationSubnetGroup -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621679439905"><span id="local-6989586621679439906"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicationSubnetGroup"><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-var">ReplicationSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationSubnetGroup%27"><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-var">ReplicationSubnetGroup'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the VPC.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AvpcId%3AReplicationSubnetGroup%27"><span class="annot"><span class="annottext">ReplicationSubnetGroup -&gt; Maybe Text
 </span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3AvpcId%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The subnets that are in the subnet group.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Asubnets%3AReplicationSubnetGroup%27"><span class="annot"><span class="annottext">ReplicationSubnetGroup -&gt; Maybe [Subnet]
-</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3Asubnets%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DMS.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The subnets that are in the subnet group.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Asubnets%3AReplicationSubnetGroup%27"><span class="annot"><span class="annottext">ReplicationSubnetGroup -&gt; Maybe [Subnet]
+</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3Asubnets%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DMS.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The identifier of the replication instance subnet group.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AreplicationSubnetGroupIdentifier%3AReplicationSubnetGroup%27"><span class="annot"><span class="annottext">ReplicationSubnetGroup -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3AreplicationSubnetGroupIdentifier%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var hs-var">replicationSubnetGroupIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The status of the subnet group.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AsubnetGroupStatus%3AReplicationSubnetGroup%27"><span class="annot"><span class="annottext">ReplicationSubnetGroup -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3AsubnetGroupStatus%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var hs-var">subnetGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A description for the replication subnet group.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AreplicationSubnetGroupDescription%3AReplicationSubnetGroup%27"><span class="annot"><span class="annottext">ReplicationSubnetGroup -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3AreplicationSubnetGroupDescription%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var hs-var">replicationSubnetGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679439613"><span id="local-6989586621679439615"><span class="annot"><span class="annottext">ReplicationSubnetGroup -&gt; ReplicationSubnetGroup -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679439895"><span id="local-6989586621679439897"><span class="annot"><span class="annottext">ReplicationSubnetGroup -&gt; ReplicationSubnetGroup -&gt; Bool
 (ReplicationSubnetGroup -&gt; ReplicationSubnetGroup -&gt; Bool)
 -&gt; (ReplicationSubnetGroup -&gt; ReplicationSubnetGroup -&gt; Bool)
 -&gt; Eq ReplicationSubnetGroup
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReplicationSubnetGroup -&gt; ReplicationSubnetGroup -&gt; Bool
 == :: ReplicationSubnetGroup -&gt; ReplicationSubnetGroup -&gt; Bool
 $c== :: ReplicationSubnetGroup -&gt; ReplicationSubnetGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439604"><span id="local-6989586621679439606"><span id="local-6989586621679439608"><span id="local-6989586621679439610"><span class="annot"><span class="annottext">ReadPrec [ReplicationSubnetGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439886"><span id="local-6989586621679439888"><span id="local-6989586621679439890"><span id="local-6989586621679439892"><span class="annot"><span class="annottext">ReadPrec [ReplicationSubnetGroup]
 ReadPrec ReplicationSubnetGroup
 Int -&gt; ReadS ReplicationSubnetGroup
 ReadS [ReplicationSubnetGroup]
@@ -74,7 +74,7 @@ readList :: ReadS [ReplicationSubnetGroup]
 $creadList :: ReadS [ReplicationSubnetGroup]
 readsPrec :: Int -&gt; ReadS ReplicationSubnetGroup
 $creadsPrec :: Int -&gt; ReadS ReplicationSubnetGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439597"><span id="local-6989586621679439599"><span id="local-6989586621679439601"><span class="annot"><span class="annottext">Int -&gt; ReplicationSubnetGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439879"><span id="local-6989586621679439881"><span id="local-6989586621679439883"><span class="annot"><span class="annottext">Int -&gt; ReplicationSubnetGroup -&gt; ShowS
 [ReplicationSubnetGroup] -&gt; ShowS
 ReplicationSubnetGroup -&gt; String
 (Int -&gt; ReplicationSubnetGroup -&gt; ShowS)
@@ -109,121 +109,51 @@ $cfrom :: forall x. ReplicationSubnetGroup -&gt; Rep ReplicationSubnetGroup x
 </span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'replicationSubnetGroupIdentifier', 'replicationSubnetGroup_replicationSubnetGroupIdentifier' - The identifier of the replication instance subnet group.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'vpcId', 'replicationSubnetGroup_vpcId' - The ID of the VPC.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'subnetGroupStatus', 'replicationSubnetGroup_subnetGroupStatus' - The status of the subnet group.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'subnets', 'replicationSubnetGroup_subnets' - The subnets that are in the subnet group.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'replicationSubnetGroupDescription', 'replicationSubnetGroup_replicationSubnetGroupDescription' - A description for the replication subnet group.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'replicationSubnetGroupIdentifier', 'replicationSubnetGroup_replicationSubnetGroupIdentifier' - The identifier of the replication instance subnet group.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'vpcId', 'replicationSubnetGroup_vpcId' - The ID of the VPC.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'subnetGroupStatus', 'replicationSubnetGroup_subnetGroupStatus' - The status of the subnet group.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'subnets', 'replicationSubnetGroup_subnets' - The subnets that are in the subnet group.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'replicationSubnetGroupDescription', 'replicationSubnetGroup_replicationSubnetGroupDescription' - A description for the replication subnet group.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#newReplicationSubnetGroup"><span class="hs-identifier hs-type">newReplicationSubnetGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span>
 </span><span id="line-64"></span><span id="newReplicationSubnetGroup"><span class="annot"><span class="annottext">newReplicationSubnetGroup :: ReplicationSubnetGroup
 </span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#newReplicationSubnetGroup"><span class="hs-identifier hs-var hs-var">newReplicationSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">ReplicationSubnetGroup' :: Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe [Subnet]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; ReplicationSubnetGroup
 </span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replicationSubnetGroupIdentifier:ReplicationSubnetGroup' :: Maybe Text
-</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3AreplicationSubnetGroupIdentifier%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var">replicationSubnetGroupIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetGroupStatus:ReplicationSubnetGroup' :: Maybe Text
-</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3AsubnetGroupStatus%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var">subnetGroupStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationSubnetGroupDescription:ReplicationSubnetGroup' :: Maybe Text
-</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3AreplicationSubnetGroupDescription%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var">replicationSubnetGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:ReplicationSubnetGroup' :: Maybe Text
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpcId:ReplicationSubnetGroup' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3AvpcId%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnets:ReplicationSubnetGroup' :: Maybe [Subnet]
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnets:ReplicationSubnetGroup' :: Maybe [Subnet]
 </span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3Asubnets%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var">subnets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Subnet]
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | The identifier of the replication instance subnet group.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#replicationSubnetGroup_replicationSubnetGroupIdentifier"><span class="hs-identifier hs-type">replicationSubnetGroup_replicationSubnetGroupIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="replicationSubnetGroup_replicationSubnetGroupIdentifier"><span class="annot"><span class="annottext">replicationSubnetGroup_replicationSubnetGroupIdentifier :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ReplicationSubnetGroup -&gt; f ReplicationSubnetGroup
-</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#replicationSubnetGroup_replicationSubnetGroupIdentifier"><span class="hs-identifier hs-var hs-var">replicationSubnetGroup_replicationSubnetGroupIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationSubnetGroup -&gt; Maybe Text)
--&gt; (ReplicationSubnetGroup -&gt; Maybe Text -&gt; ReplicationSubnetGroup)
--&gt; Lens
-     ReplicationSubnetGroup
-     ReplicationSubnetGroup
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439588"><span class="annot"><span class="annottext">Maybe Text
-replicationSubnetGroupIdentifier :: Maybe Text
-$sel:replicationSubnetGroupIdentifier:ReplicationSubnetGroup' :: ReplicationSubnetGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679439588"><span class="hs-identifier hs-var hs-var">replicationSubnetGroupIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439588"><span class="hs-identifier hs-var">replicationSubnetGroupIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439587"><span class="annot"><span class="annottext">s :: ReplicationSubnetGroup
-</span><a href="#local-6989586621679439587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439586"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationSubnetGroup
-</span><a href="#local-6989586621679439587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationSubnetGroupIdentifier:ReplicationSubnetGroup' :: Maybe Text
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationSubnetGroupIdentifier:ReplicationSubnetGroup' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3AreplicationSubnetGroupIdentifier%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var">replicationSubnetGroupIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The status of the subnet group.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#replicationSubnetGroup_subnetGroupStatus"><span class="hs-identifier hs-type">replicationSubnetGroup_subnetGroupStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="replicationSubnetGroup_subnetGroupStatus"><span class="annot"><span class="annottext">replicationSubnetGroup_subnetGroupStatus :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ReplicationSubnetGroup -&gt; f ReplicationSubnetGroup
-</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#replicationSubnetGroup_subnetGroupStatus"><span class="hs-identifier hs-var hs-var">replicationSubnetGroup_subnetGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationSubnetGroup -&gt; Maybe Text)
--&gt; (ReplicationSubnetGroup -&gt; Maybe Text -&gt; ReplicationSubnetGroup)
--&gt; Lens
-     ReplicationSubnetGroup
-     ReplicationSubnetGroup
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439584"><span class="annot"><span class="annottext">Maybe Text
-subnetGroupStatus :: Maybe Text
-$sel:subnetGroupStatus:ReplicationSubnetGroup' :: ReplicationSubnetGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679439584"><span class="hs-identifier hs-var hs-var">subnetGroupStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439584"><span class="hs-identifier hs-var">subnetGroupStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439583"><span class="annot"><span class="annottext">s :: ReplicationSubnetGroup
-</span><a href="#local-6989586621679439583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439582"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationSubnetGroup
-</span><a href="#local-6989586621679439583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetGroupStatus:ReplicationSubnetGroup' :: Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetGroupStatus:ReplicationSubnetGroup' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3AsubnetGroupStatus%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var">subnetGroupStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | A description for the replication subnet group.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#replicationSubnetGroup_replicationSubnetGroupDescription"><span class="hs-identifier hs-type">replicationSubnetGroup_replicationSubnetGroupDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="replicationSubnetGroup_replicationSubnetGroupDescription"><span class="annot"><span class="annottext">replicationSubnetGroup_replicationSubnetGroupDescription :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ReplicationSubnetGroup -&gt; f ReplicationSubnetGroup
-</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#replicationSubnetGroup_replicationSubnetGroupDescription"><span class="hs-identifier hs-var hs-var">replicationSubnetGroup_replicationSubnetGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationSubnetGroup -&gt; Maybe Text)
--&gt; (ReplicationSubnetGroup -&gt; Maybe Text -&gt; ReplicationSubnetGroup)
--&gt; Lens
-     ReplicationSubnetGroup
-     ReplicationSubnetGroup
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439580"><span class="annot"><span class="annottext">Maybe Text
-replicationSubnetGroupDescription :: Maybe Text
-$sel:replicationSubnetGroupDescription:ReplicationSubnetGroup' :: ReplicationSubnetGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679439580"><span class="hs-identifier hs-var hs-var">replicationSubnetGroupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439580"><span class="hs-identifier hs-var">replicationSubnetGroupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439579"><span class="annot"><span class="annottext">s :: ReplicationSubnetGroup
-</span><a href="#local-6989586621679439579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439578"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationSubnetGroup
-</span><a href="#local-6989586621679439579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationSubnetGroupDescription:ReplicationSubnetGroup' :: Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationSubnetGroupDescription:ReplicationSubnetGroup' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3AreplicationSubnetGroupDescription%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var">replicationSubnetGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | The ID of the VPC.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#replicationSubnetGroup_vpcId"><span class="hs-identifier hs-type">replicationSubnetGroup_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="replicationSubnetGroup_vpcId"><span class="annot"><span class="annottext">replicationSubnetGroup_vpcId :: (Maybe Text -&gt; f (Maybe Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The ID of the VPC.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#replicationSubnetGroup_vpcId"><span class="hs-identifier hs-type">replicationSubnetGroup_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="replicationSubnetGroup_vpcId"><span class="annot"><span class="annottext">replicationSubnetGroup_vpcId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ReplicationSubnetGroup -&gt; f ReplicationSubnetGroup
 </span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#replicationSubnetGroup_vpcId"><span class="hs-identifier hs-var hs-var">replicationSubnetGroup_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationSubnetGroup -&gt; Maybe Text)
 -&gt; (ReplicationSubnetGroup -&gt; Maybe Text -&gt; ReplicationSubnetGroup)
@@ -233,20 +163,20 @@ $sel:replicationSubnetGroupDescription:ReplicationSubnetGroup' :: ReplicationSub
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439576"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439870"><span class="annot"><span class="annottext">Maybe Text
 vpcId :: Maybe Text
 $sel:vpcId:ReplicationSubnetGroup' :: ReplicationSubnetGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679439576"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439576"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439575"><span class="annot"><span class="annottext">s :: ReplicationSubnetGroup
-</span><a href="#local-6989586621679439575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439574"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationSubnetGroup
-</span><a href="#local-6989586621679439575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:ReplicationSubnetGroup' :: Maybe Text
+</span><a href="#local-6989586621679439870"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439870"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439869"><span class="annot"><span class="annottext">s :: ReplicationSubnetGroup
+</span><a href="#local-6989586621679439869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439868"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationSubnetGroup
+</span><a href="#local-6989586621679439869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:ReplicationSubnetGroup' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3AvpcId%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The subnets that are in the subnet group.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#replicationSubnetGroup_subnets"><span class="hs-identifier hs-type">replicationSubnetGroup_subnets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DMS.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="replicationSubnetGroup_subnets"><span class="annot"><span class="annottext">replicationSubnetGroup_subnets :: (Maybe [Subnet] -&gt; f (Maybe [Subnet]))
+</span><a href="#local-6989586621679439868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The subnets that are in the subnet group.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#replicationSubnetGroup_subnets"><span class="hs-identifier hs-type">replicationSubnetGroup_subnets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DMS.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="replicationSubnetGroup_subnets"><span class="annot"><span class="annottext">replicationSubnetGroup_subnets :: (Maybe [Subnet] -&gt; f (Maybe [Subnet]))
 -&gt; ReplicationSubnetGroup -&gt; f ReplicationSubnetGroup
 </span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#replicationSubnetGroup_subnets"><span class="hs-identifier hs-var hs-var">replicationSubnetGroup_subnets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationSubnetGroup -&gt; Maybe [Subnet])
 -&gt; (ReplicationSubnetGroup
@@ -257,16 +187,16 @@ $sel:vpcId:ReplicationSubnetGroup' :: ReplicationSubnetGroup -&gt; Maybe Text
      (Maybe [Subnet])
      (Maybe [Subnet])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439572"><span class="annot"><span class="annottext">Maybe [Subnet]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439866"><span class="annot"><span class="annottext">Maybe [Subnet]
 subnets :: Maybe [Subnet]
 $sel:subnets:ReplicationSubnetGroup' :: ReplicationSubnetGroup -&gt; Maybe [Subnet]
-</span><a href="#local-6989586621679439572"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Subnet]
-</span><a href="#local-6989586621679439572"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439571"><span class="annot"><span class="annottext">s :: ReplicationSubnetGroup
-</span><a href="#local-6989586621679439571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439570"><span class="annot"><span class="annottext">Maybe [Subnet]
-</span><a href="#local-6989586621679439570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationSubnetGroup
-</span><a href="#local-6989586621679439571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnets:ReplicationSubnetGroup' :: Maybe [Subnet]
+</span><a href="#local-6989586621679439866"><span class="hs-identifier hs-var hs-var">subnets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Subnet]
+</span><a href="#local-6989586621679439866"><span class="hs-identifier hs-var">subnets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439865"><span class="annot"><span class="annottext">s :: ReplicationSubnetGroup
+</span><a href="#local-6989586621679439865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439864"><span class="annot"><span class="annottext">Maybe [Subnet]
+</span><a href="#local-6989586621679439864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationSubnetGroup
+</span><a href="#local-6989586621679439865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnets:ReplicationSubnetGroup' :: Maybe [Subnet]
 </span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3Asubnets%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var">subnets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Subnet]
-</span><a href="#local-6989586621679439570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Subnet] -&gt; f (Maybe [Subnet]))
+</span><a href="#local-6989586621679439864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Subnet] -&gt; f (Maybe [Subnet]))
  -&gt; ReplicationSubnetGroup -&gt; f ReplicationSubnetGroup)
 -&gt; ((Maybe [Subnet] -&gt; f (Maybe [Subnet]))
     -&gt; Maybe [Subnet] -&gt; f (Maybe [Subnet]))
@@ -281,89 +211,129 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Subnet] [Subnet] [Subnet] [Subnet]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439564"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679439562"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReplicationSubnetGroup
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The identifier of the replication instance subnet group.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#replicationSubnetGroup_replicationSubnetGroupIdentifier"><span class="hs-identifier hs-type">replicationSubnetGroup_replicationSubnetGroupIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="replicationSubnetGroup_replicationSubnetGroupIdentifier"><span class="annot"><span class="annottext">replicationSubnetGroup_replicationSubnetGroupIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationSubnetGroup -&gt; f ReplicationSubnetGroup
+</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#replicationSubnetGroup_replicationSubnetGroupIdentifier"><span class="hs-identifier hs-var hs-var">replicationSubnetGroup_replicationSubnetGroupIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationSubnetGroup -&gt; Maybe Text)
+-&gt; (ReplicationSubnetGroup -&gt; Maybe Text -&gt; ReplicationSubnetGroup)
+-&gt; Lens
+     ReplicationSubnetGroup
+     ReplicationSubnetGroup
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439859"><span class="annot"><span class="annottext">Maybe Text
+replicationSubnetGroupIdentifier :: Maybe Text
+$sel:replicationSubnetGroupIdentifier:ReplicationSubnetGroup' :: ReplicationSubnetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679439859"><span class="hs-identifier hs-var hs-var">replicationSubnetGroupIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439859"><span class="hs-identifier hs-var">replicationSubnetGroupIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439858"><span class="annot"><span class="annottext">s :: ReplicationSubnetGroup
+</span><a href="#local-6989586621679439858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439857"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationSubnetGroup
+</span><a href="#local-6989586621679439858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationSubnetGroupIdentifier:ReplicationSubnetGroup' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3AreplicationSubnetGroupIdentifier%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var">replicationSubnetGroupIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The status of the subnet group.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#replicationSubnetGroup_subnetGroupStatus"><span class="hs-identifier hs-type">replicationSubnetGroup_subnetGroupStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="replicationSubnetGroup_subnetGroupStatus"><span class="annot"><span class="annottext">replicationSubnetGroup_subnetGroupStatus :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationSubnetGroup -&gt; f ReplicationSubnetGroup
+</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#replicationSubnetGroup_subnetGroupStatus"><span class="hs-identifier hs-var hs-var">replicationSubnetGroup_subnetGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationSubnetGroup -&gt; Maybe Text)
+-&gt; (ReplicationSubnetGroup -&gt; Maybe Text -&gt; ReplicationSubnetGroup)
+-&gt; Lens
+     ReplicationSubnetGroup
+     ReplicationSubnetGroup
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439855"><span class="annot"><span class="annottext">Maybe Text
+subnetGroupStatus :: Maybe Text
+$sel:subnetGroupStatus:ReplicationSubnetGroup' :: ReplicationSubnetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679439855"><span class="hs-identifier hs-var hs-var">subnetGroupStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439855"><span class="hs-identifier hs-var">subnetGroupStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439854"><span class="annot"><span class="annottext">s :: ReplicationSubnetGroup
+</span><a href="#local-6989586621679439854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439853"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationSubnetGroup
+</span><a href="#local-6989586621679439854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetGroupStatus:ReplicationSubnetGroup' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3AsubnetGroupStatus%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var">subnetGroupStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | A description for the replication subnet group.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#replicationSubnetGroup_replicationSubnetGroupDescription"><span class="hs-identifier hs-type">replicationSubnetGroup_replicationSubnetGroupDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="replicationSubnetGroup_replicationSubnetGroupDescription"><span class="annot"><span class="annottext">replicationSubnetGroup_replicationSubnetGroupDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationSubnetGroup -&gt; f ReplicationSubnetGroup
+</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#replicationSubnetGroup_replicationSubnetGroupDescription"><span class="hs-identifier hs-var hs-var">replicationSubnetGroup_replicationSubnetGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationSubnetGroup -&gt; Maybe Text)
+-&gt; (ReplicationSubnetGroup -&gt; Maybe Text -&gt; ReplicationSubnetGroup)
+-&gt; Lens
+     ReplicationSubnetGroup
+     ReplicationSubnetGroup
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439851"><span class="annot"><span class="annottext">Maybe Text
+replicationSubnetGroupDescription :: Maybe Text
+$sel:replicationSubnetGroupDescription:ReplicationSubnetGroup' :: ReplicationSubnetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679439851"><span class="hs-identifier hs-var hs-var">replicationSubnetGroupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439851"><span class="hs-identifier hs-var">replicationSubnetGroupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439850"><span class="annot"><span class="annottext">s :: ReplicationSubnetGroup
+</span><a href="#local-6989586621679439850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-type">ReplicationSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439849"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationSubnetGroup
+</span><a href="#local-6989586621679439850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationSubnetGroupDescription:ReplicationSubnetGroup' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#%24sel%3AreplicationSubnetGroupDescription%3AReplicationSubnetGroup%27"><span class="hs-identifier hs-var">replicationSubnetGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679439849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439846"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679439844"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReplicationSubnetGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReplicationSubnetGroup)
 -&gt; Value
 -&gt; Parser ReplicationSubnetGroup
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReplicationSubnetGroup&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679439559"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439559"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679439841"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679439841"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [Subnet]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; ReplicationSubnetGroup
 </span><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup%27"><span class="hs-identifier hs-var">ReplicationSubnetGroup'</span></a></span><span>
-</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe [Subnet]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; ReplicationSubnetGroup)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
+     (Maybe [Subnet]
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe [Subnet]
+      -&gt; Maybe Text
       -&gt; ReplicationSubnetGroup)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439559"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReplicationSubnetGroupIdentifier&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe [Subnet]
-   -&gt; ReplicationSubnetGroup)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe [Subnet] -&gt; ReplicationSubnetGroup)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439559"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SubnetGroupStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe [Subnet] -&gt; ReplicationSubnetGroup)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe [Subnet] -&gt; ReplicationSubnetGroup)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439559"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReplicationSubnetGroupDescription&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Subnet] -&gt; ReplicationSubnetGroup)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe [Subnet] -&gt; ReplicationSubnetGroup)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439559"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679439841"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VpcId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Subnet] -&gt; ReplicationSubnetGroup)
--&gt; Parser (Maybe [Subnet]) -&gt; Parser ReplicationSubnetGroup
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Subnet]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ReplicationSubnetGroup)
+-&gt; Parser (Maybe [Subnet])
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ReplicationSubnetGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439559"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Subnet]))
+</span><a href="#local-6989586621679439841"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Subnet]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Subnets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Subnet]))
@@ -372,9 +342,36 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Subnet]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439552"><span id="local-6989586621679439554"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span></span></span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439549"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span></span><span>
-</span><span id="line-110"></span></pre></body></html>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ReplicationSubnetGroup)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ReplicationSubnetGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679439841"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationSubnetGroupIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ReplicationSubnetGroup)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; ReplicationSubnetGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679439841"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubnetGroupStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ReplicationSubnetGroup)
+-&gt; Parser (Maybe Text) -&gt; Parser ReplicationSubnetGroup
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679439841"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationSubnetGroupDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439834"><span id="local-6989586621679439836"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439831"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationSubnetGroup.html#ReplicationSubnetGroup"><span class="hs-identifier hs-type">ReplicationSubnetGroup</span></a></span></span><span>
+</span><span id="line-109"></span></pre></body></html>

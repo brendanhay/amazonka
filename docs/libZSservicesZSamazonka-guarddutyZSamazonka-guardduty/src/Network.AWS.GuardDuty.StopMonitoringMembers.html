@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newStopMonitoringMembers' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679304148"><span id="local-6989586621679304149"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopMonitoringMembers"><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-var">StopMonitoringMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopMonitoringMembers%27"><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers%27"><span class="hs-identifier hs-var">StopMonitoringMembers'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679304445"><span id="local-6989586621679304446"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopMonitoringMembers"><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-var">StopMonitoringMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopMonitoringMembers%27"><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers%27"><span class="hs-identifier hs-var">StopMonitoringMembers'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the detector associated with the GuardDuty</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- administrator account that is monitoring member accounts.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AdetectorId%3AStopMonitoringMembers%27"><span class="annot"><span class="annottext">StopMonitoringMembers -&gt; Text
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AaccountIds%3AStopMonitoringMembers%27"><span class="annot"><span class="annottext">StopMonitoringMembers -&gt; NonEmpty Text
 </span><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#%24sel%3AaccountIds%3AStopMonitoringMembers%27"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304141"><span id="local-6989586621679304143"><span class="annot"><span class="annottext">StopMonitoringMembers -&gt; StopMonitoringMembers -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304438"><span id="local-6989586621679304440"><span class="annot"><span class="annottext">StopMonitoringMembers -&gt; StopMonitoringMembers -&gt; Bool
 (StopMonitoringMembers -&gt; StopMonitoringMembers -&gt; Bool)
 -&gt; (StopMonitoringMembers -&gt; StopMonitoringMembers -&gt; Bool)
 -&gt; Eq StopMonitoringMembers
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopMonitoringMembers -&gt; StopMonitoringMembers -&gt; Bool
 == :: StopMonitoringMembers -&gt; StopMonitoringMembers -&gt; Bool
 $c== :: StopMonitoringMembers -&gt; StopMonitoringMembers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304132"><span id="local-6989586621679304134"><span id="local-6989586621679304136"><span id="local-6989586621679304138"><span class="annot"><span class="annottext">ReadPrec [StopMonitoringMembers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304429"><span id="local-6989586621679304431"><span id="local-6989586621679304433"><span id="local-6989586621679304435"><span class="annot"><span class="annottext">ReadPrec [StopMonitoringMembers]
 ReadPrec StopMonitoringMembers
 Int -&gt; ReadS StopMonitoringMembers
 ReadS [StopMonitoringMembers]
@@ -88,7 +88,7 @@ readList :: ReadS [StopMonitoringMembers]
 $creadList :: ReadS [StopMonitoringMembers]
 readsPrec :: Int -&gt; ReadS StopMonitoringMembers
 $creadsPrec :: Int -&gt; ReadS StopMonitoringMembers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304125"><span id="local-6989586621679304127"><span id="local-6989586621679304129"><span class="annot"><span class="annottext">Int -&gt; StopMonitoringMembers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304422"><span id="local-6989586621679304424"><span id="local-6989586621679304426"><span class="annot"><span class="annottext">Int -&gt; StopMonitoringMembers -&gt; ShowS
 [StopMonitoringMembers] -&gt; ShowS
 StopMonitoringMembers -&gt; String
 (Int -&gt; StopMonitoringMembers -&gt; ShowS)
@@ -133,24 +133,24 @@ $cfrom :: forall x. StopMonitoringMembers -&gt; Rep StopMonitoringMembers x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-type">StopMonitoringMembers</span></a></span><span>
 </span><span id="line-80"></span><span id="newStopMonitoringMembers"><span class="annot"><span class="annottext">newStopMonitoringMembers :: Text -&gt; NonEmpty Text -&gt; StopMonitoringMembers
-</span><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#newStopMonitoringMembers"><span class="hs-identifier hs-var hs-var">newStopMonitoringMembers</span></a></span></span><span> </span><span id="local-6989586621679304120"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304120"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span id="local-6989586621679304119"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679304119"><span class="hs-identifier hs-var">pAccountIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#newStopMonitoringMembers"><span class="hs-identifier hs-var hs-var">newStopMonitoringMembers</span></a></span></span><span> </span><span id="local-6989586621679304417"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304417"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span id="local-6989586621679304416"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679304416"><span class="hs-identifier hs-var">pAccountIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">StopMonitoringMembers' :: Text -&gt; NonEmpty Text -&gt; StopMonitoringMembers
 </span><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers%27"><span class="hs-identifier hs-type">StopMonitoringMembers'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detectorId:StopMonitoringMembers' :: Text
 </span><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#%24sel%3AdetectorId%3AStopMonitoringMembers%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304120"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679304417"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountIds:StopMonitoringMembers' :: NonEmpty Text
 </span><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#%24sel%3AaccountIds%3AStopMonitoringMembers%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679304119"><span class="hs-identifier hs-var">pAccountIds_</span></a></span><span>
+</span><a href="#local-6989586621679304416"><span class="hs-identifier hs-var">pAccountIds_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The unique ID of the detector associated with the GuardDuty</span><span>
@@ -162,16 +162,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (StopMonitoringMembers -&gt; Text -&gt; StopMonitoringMembers)
 -&gt; Lens StopMonitoringMembers StopMonitoringMembers Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers%27"><span class="hs-identifier hs-type">StopMonitoringMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304114"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers%27"><span class="hs-identifier hs-type">StopMonitoringMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304411"><span class="annot"><span class="annottext">Text
 detectorId :: Text
 $sel:detectorId:StopMonitoringMembers' :: StopMonitoringMembers -&gt; Text
-</span><a href="#local-6989586621679304114"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304114"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304113"><span class="annot"><span class="annottext">s :: StopMonitoringMembers
-</span><a href="#local-6989586621679304113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers%27"><span class="hs-identifier hs-type">StopMonitoringMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304112"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopMonitoringMembers
-</span><a href="#local-6989586621679304113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:StopMonitoringMembers' :: Text
+</span><a href="#local-6989586621679304411"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304411"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304410"><span class="annot"><span class="annottext">s :: StopMonitoringMembers
+</span><a href="#local-6989586621679304410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers%27"><span class="hs-identifier hs-type">StopMonitoringMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304409"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopMonitoringMembers
+</span><a href="#local-6989586621679304410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:StopMonitoringMembers' :: Text
 </span><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#%24sel%3AdetectorId%3AStopMonitoringMembers%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-type">StopMonitoringMembers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-type">StopMonitoringMembers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | A list of account IDs for the member accounts to stop monitoring.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#stopMonitoringMembers_accountIds"><span class="hs-identifier hs-type">stopMonitoringMembers_accountIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-type">StopMonitoringMembers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -186,16 +186,16 @@ $sel:detectorId:StopMonitoringMembers' :: StopMonitoringMembers -&gt; Text
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers%27"><span class="hs-identifier hs-type">StopMonitoringMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304111"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers%27"><span class="hs-identifier hs-type">StopMonitoringMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304408"><span class="annot"><span class="annottext">NonEmpty Text
 accountIds :: NonEmpty Text
 $sel:accountIds:StopMonitoringMembers' :: StopMonitoringMembers -&gt; NonEmpty Text
-</span><a href="#local-6989586621679304111"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679304111"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304110"><span class="annot"><span class="annottext">s :: StopMonitoringMembers
-</span><a href="#local-6989586621679304110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers%27"><span class="hs-identifier hs-type">StopMonitoringMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304109"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679304109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopMonitoringMembers
-</span><a href="#local-6989586621679304110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:StopMonitoringMembers' :: NonEmpty Text
+</span><a href="#local-6989586621679304408"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679304408"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304407"><span class="annot"><span class="annottext">s :: StopMonitoringMembers
+</span><a href="#local-6989586621679304407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers%27"><span class="hs-identifier hs-type">StopMonitoringMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304406"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679304406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopMonitoringMembers
+</span><a href="#local-6989586621679304407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:StopMonitoringMembers' :: NonEmpty Text
 </span><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#%24sel%3AaccountIds%3AStopMonitoringMembers%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679304109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-type">StopMonitoringMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679304406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-type">StopMonitoringMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; StopMonitoringMembers -&gt; f StopMonitoringMembers)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -205,19 +205,19 @@ $sel:accountIds:StopMonitoringMembers' :: StopMonitoringMembers -&gt; NonEmpty T
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-type">StopMonitoringMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-type">StopMonitoringMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse"><span class="hs-identifier hs-type">StopMonitoringMembersResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679304104"><span class="annot"><span class="annottext">request :: StopMonitoringMembers -&gt; Request StopMonitoringMembers
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679304401"><span class="annot"><span class="annottext">request :: StopMonitoringMembers -&gt; Request StopMonitoringMembers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopMonitoringMembers -&gt; Request StopMonitoringMembers
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679304100"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679304397"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopMonitoringMembers
 -&gt; ClientResponse ClientBody
@@ -243,10 +243,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304097"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304097"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304096"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679304096"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304095"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304095"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304394"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304394"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304393"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679304393"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304392"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304392"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; [UnprocessedAccount] -&gt; StopMonitoringMembersResponse
 </span><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse%27"><span class="hs-identifier hs-var">StopMonitoringMembersResponse'</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; [UnprocessedAccount] -&gt; StopMonitoringMembersResponse)
@@ -259,14 +259,14 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304097"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304394"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
   String ([UnprocessedAccount] -&gt; StopMonitoringMembersResponse)
 -&gt; Either String [UnprocessedAccount]
 -&gt; Either String StopMonitoringMembersResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [UnprocessedAccount])
+</span><a href="#local-6989586621679304392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [UnprocessedAccount])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;unprocessedAccounts&quot;</span></span><span>
@@ -279,12 +279,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-107"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304086"><span id="local-6989586621679304088"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-type">StopMonitoringMembers</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304383"><span id="local-6989586621679304385"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-type">StopMonitoringMembers</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304083"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-type">StopMonitoringMembers</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304380"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-type">StopMonitoringMembers</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-type">StopMonitoringMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679304079"><span class="annot"><span class="annottext">toHeaders :: StopMonitoringMembers -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679304376"><span class="annot"><span class="annottext">toHeaders :: StopMonitoringMembers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopMonitoringMembers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -303,15 +303,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304069"><span id="local-6989586621679304071"><span id="local-6989586621679304073"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-type">StopMonitoringMembers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679304067"><span class="annot"><span class="annottext">toJSON :: StopMonitoringMembers -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers%27"><span class="hs-identifier hs-type">StopMonitoringMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304064"><span id="local-6989586621679304065"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304366"><span id="local-6989586621679304368"><span id="local-6989586621679304370"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-type">StopMonitoringMembers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679304364"><span class="annot"><span class="annottext">toJSON :: StopMonitoringMembers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers%27"><span class="hs-identifier hs-type">StopMonitoringMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304361"><span id="local-6989586621679304362"><span class="annot"><span class="annottext">NonEmpty Text
 Text
 accountIds :: NonEmpty Text
 detectorId :: Text
 $sel:accountIds:StopMonitoringMembers' :: StopMonitoringMembers -&gt; NonEmpty Text
 $sel:detectorId:StopMonitoringMembers' :: StopMonitoringMembers -&gt; Text
-</span><a href="#local-6989586621679304064"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679304361"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -323,18 +323,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;accountIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679304064"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679304361"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-type">StopMonitoringMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679304058"><span class="annot"><span class="annottext">toPath :: StopMonitoringMembers -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers%27"><span class="hs-identifier hs-type">StopMonitoringMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304055"><span id="local-6989586621679304056"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679304355"><span class="annot"><span class="annottext">toPath :: StopMonitoringMembers -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers%27"><span class="hs-identifier hs-type">StopMonitoringMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304352"><span id="local-6989586621679304353"><span class="annot"><span class="annottext">NonEmpty Text
 Text
 accountIds :: NonEmpty Text
 detectorId :: Text
 $sel:accountIds:StopMonitoringMembers' :: StopMonitoringMembers -&gt; NonEmpty Text
 $sel:detectorId:StopMonitoringMembers' :: StopMonitoringMembers -&gt; Text
-</span><a href="#local-6989586621679304055"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679304352"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -342,11 +342,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/detector/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304056"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679304353"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/member/stop&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembers"><span class="hs-identifier hs-type">StopMonitoringMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679304051"><span class="annot"><span class="annottext">toQuery :: StopMonitoringMembers -&gt; QueryString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679304348"><span class="annot"><span class="annottext">toQuery :: StopMonitoringMembers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopMonitoringMembers -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -354,7 +354,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newStopMonitoringMembersResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679304048"><span id="local-6989586621679304049"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopMonitoringMembersResponse"><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse"><span class="hs-identifier hs-var">StopMonitoringMembersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopMonitoringMembersResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse%27"><span class="hs-identifier hs-var">StopMonitoringMembersResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679304345"><span id="local-6989586621679304346"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopMonitoringMembersResponse"><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse"><span class="hs-identifier hs-var">StopMonitoringMembersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopMonitoringMembersResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse%27"><span class="hs-identifier hs-var">StopMonitoringMembersResponse'</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-143"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopMonitoringMembersResponse%27"><span class="annot"><span class="annottext">StopMonitoringMembersResponse -&gt; Int
 </span><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#%24sel%3AhttpStatus%3AStopMonitoringMembersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -364,7 +364,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3AunprocessedAccounts%3AStopMonitoringMembersResponse%27"><span class="annot"><span class="annottext">StopMonitoringMembersResponse -&gt; [UnprocessedAccount]
 </span><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#%24sel%3AunprocessedAccounts%3AStopMonitoringMembersResponse%27"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304042"><span id="local-6989586621679304044"><span class="annot"><span class="annottext">StopMonitoringMembersResponse
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304339"><span id="local-6989586621679304341"><span class="annot"><span class="annottext">StopMonitoringMembersResponse
 -&gt; StopMonitoringMembersResponse -&gt; Bool
 (StopMonitoringMembersResponse
  -&gt; StopMonitoringMembersResponse -&gt; Bool)
@@ -380,7 +380,7 @@ $c/= :: StopMonitoringMembersResponse
 -&gt; StopMonitoringMembersResponse -&gt; Bool
 $c== :: StopMonitoringMembersResponse
 -&gt; StopMonitoringMembersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304034"><span id="local-6989586621679304036"><span id="local-6989586621679304038"><span id="local-6989586621679304040"><span class="annot"><span class="annottext">ReadPrec [StopMonitoringMembersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304331"><span id="local-6989586621679304333"><span id="local-6989586621679304335"><span id="local-6989586621679304337"><span class="annot"><span class="annottext">ReadPrec [StopMonitoringMembersResponse]
 ReadPrec StopMonitoringMembersResponse
 Int -&gt; ReadS StopMonitoringMembersResponse
 ReadS [StopMonitoringMembersResponse]
@@ -400,7 +400,7 @@ readList :: ReadS [StopMonitoringMembersResponse]
 $creadList :: ReadS [StopMonitoringMembersResponse]
 readsPrec :: Int -&gt; ReadS StopMonitoringMembersResponse
 $creadsPrec :: Int -&gt; ReadS StopMonitoringMembersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304028"><span id="local-6989586621679304030"><span id="local-6989586621679304032"><span class="annot"><span class="annottext">Int -&gt; StopMonitoringMembersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304325"><span id="local-6989586621679304327"><span id="local-6989586621679304329"><span class="annot"><span class="annottext">Int -&gt; StopMonitoringMembersResponse -&gt; ShowS
 [StopMonitoringMembersResponse] -&gt; ShowS
 StopMonitoringMembersResponse -&gt; String
 (Int -&gt; StopMonitoringMembersResponse -&gt; ShowS)
@@ -456,14 +456,14 @@ StopMonitoringMembersResponse
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse"><span class="hs-identifier hs-type">StopMonitoringMembersResponse</span></a></span><span>
 </span><span id="line-168"></span><span id="newStopMonitoringMembersResponse"><span class="annot"><span class="annottext">newStopMonitoringMembersResponse :: Int -&gt; StopMonitoringMembersResponse
-</span><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#newStopMonitoringMembersResponse"><span class="hs-identifier hs-var hs-var">newStopMonitoringMembersResponse</span></a></span></span><span> </span><span id="local-6989586621679304025"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304025"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#newStopMonitoringMembersResponse"><span class="hs-identifier hs-var hs-var">newStopMonitoringMembersResponse</span></a></span></span><span> </span><span id="local-6989586621679304322"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304322"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="annottext">StopMonitoringMembersResponse' :: Int -&gt; [UnprocessedAccount] -&gt; StopMonitoringMembersResponse
 </span><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse%27"><span class="hs-identifier hs-type">StopMonitoringMembersResponse'</span></a></span><span>
 </span><span id="line-170"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:StopMonitoringMembersResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#%24sel%3AhttpStatus%3AStopMonitoringMembersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304025"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679304322"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:StopMonitoringMembersResponse' :: [UnprocessedAccount]
 </span><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#%24sel%3AunprocessedAccounts%3AStopMonitoringMembersResponse%27"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
 forall a. Monoid a =&gt; a
@@ -480,16 +480,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      StopMonitoringMembersResponse StopMonitoringMembersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse%27"><span class="hs-identifier hs-type">StopMonitoringMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304024"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse%27"><span class="hs-identifier hs-type">StopMonitoringMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304321"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopMonitoringMembersResponse' :: StopMonitoringMembersResponse -&gt; Int
-</span><a href="#local-6989586621679304024"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304024"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304023"><span class="annot"><span class="annottext">s :: StopMonitoringMembersResponse
-</span><a href="#local-6989586621679304023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse%27"><span class="hs-identifier hs-type">StopMonitoringMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304022"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopMonitoringMembersResponse
-</span><a href="#local-6989586621679304023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopMonitoringMembersResponse' :: Int
+</span><a href="#local-6989586621679304321"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304321"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304320"><span class="annot"><span class="annottext">s :: StopMonitoringMembersResponse
+</span><a href="#local-6989586621679304320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse%27"><span class="hs-identifier hs-type">StopMonitoringMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304319"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopMonitoringMembersResponse
+</span><a href="#local-6989586621679304320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopMonitoringMembersResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#%24sel%3AhttpStatus%3AStopMonitoringMembersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679304022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse"><span class="hs-identifier hs-type">StopMonitoringMembersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse"><span class="hs-identifier hs-type">StopMonitoringMembersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | A list of objects that contain an accountId for each account that could</span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- not be processed, and a result string that indicates why the account was</span><span>
@@ -506,16 +506,16 @@ $sel:httpStatus:StopMonitoringMembersResponse' :: StopMonitoringMembersResponse 
      [UnprocessedAccount]
      [UnprocessedAccount]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse%27"><span class="hs-identifier hs-type">StopMonitoringMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304021"><span class="annot"><span class="annottext">[UnprocessedAccount]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse%27"><span class="hs-identifier hs-type">StopMonitoringMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304318"><span class="annot"><span class="annottext">[UnprocessedAccount]
 unprocessedAccounts :: [UnprocessedAccount]
 $sel:unprocessedAccounts:StopMonitoringMembersResponse' :: StopMonitoringMembersResponse -&gt; [UnprocessedAccount]
-</span><a href="#local-6989586621679304021"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
-</span><a href="#local-6989586621679304021"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304020"><span class="annot"><span class="annottext">s :: StopMonitoringMembersResponse
-</span><a href="#local-6989586621679304020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse%27"><span class="hs-identifier hs-type">StopMonitoringMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304019"><span class="annot"><span class="annottext">[UnprocessedAccount]
-</span><a href="#local-6989586621679304019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopMonitoringMembersResponse
-</span><a href="#local-6989586621679304020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:StopMonitoringMembersResponse' :: [UnprocessedAccount]
+</span><a href="#local-6989586621679304318"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
+</span><a href="#local-6989586621679304318"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304317"><span class="annot"><span class="annottext">s :: StopMonitoringMembersResponse
+</span><a href="#local-6989586621679304317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse%27"><span class="hs-identifier hs-type">StopMonitoringMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304316"><span class="annot"><span class="annottext">[UnprocessedAccount]
+</span><a href="#local-6989586621679304316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopMonitoringMembersResponse
+</span><a href="#local-6989586621679304317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:StopMonitoringMembersResponse' :: [UnprocessedAccount]
 </span><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#%24sel%3AunprocessedAccounts%3AStopMonitoringMembersResponse%27"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
-</span><a href="#local-6989586621679304019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse"><span class="hs-identifier hs-type">StopMonitoringMembersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([UnprocessedAccount] -&gt; f [UnprocessedAccount])
+</span><a href="#local-6989586621679304316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse"><span class="hs-identifier hs-type">StopMonitoringMembersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([UnprocessedAccount] -&gt; f [UnprocessedAccount])
  -&gt; StopMonitoringMembersResponse
  -&gt; f StopMonitoringMembersResponse)
 -&gt; (([UnprocessedAccount] -&gt; f [UnprocessedAccount])
@@ -526,8 +526,8 @@ $sel:unprocessedAccounts:StopMonitoringMembersResponse' :: StopMonitoringMembers
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([UnprocessedAccount] -&gt; f [UnprocessedAccount])
 -&gt; [UnprocessedAccount] -&gt; f [UnprocessedAccount]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse"><span class="hs-identifier hs-type">StopMonitoringMembersResponse</span></a></span></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304314"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.StopMonitoringMembers.html#StopMonitoringMembersResponse"><span class="hs-identifier hs-type">StopMonitoringMembersResponse</span></a></span></span><span>
 </span><span id="line-186"></span></pre></body></html>

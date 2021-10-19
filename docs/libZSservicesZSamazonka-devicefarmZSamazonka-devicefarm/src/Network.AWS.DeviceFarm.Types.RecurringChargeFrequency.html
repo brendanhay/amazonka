@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679365396"><span id="local-6989586621679365397"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RecurringChargeFrequency"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.RecurringChargeFrequency.html#RecurringChargeFrequency"><span class="hs-identifier hs-var">RecurringChargeFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecurringChargeFrequency%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.RecurringChargeFrequency.html#RecurringChargeFrequency%27"><span class="hs-identifier hs-var">RecurringChargeFrequency'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679365633"><span id="local-6989586621679365634"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RecurringChargeFrequency"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.RecurringChargeFrequency.html#RecurringChargeFrequency"><span class="hs-identifier hs-var">RecurringChargeFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RecurringChargeFrequency%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.RecurringChargeFrequency.html#RecurringChargeFrequency%27"><span class="hs-identifier hs-var">RecurringChargeFrequency'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRecurringChargeFrequency"><span class="annot"><span class="annottext">RecurringChargeFrequency -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.Types.RecurringChargeFrequency.html#fromRecurringChargeFrequency"><span class="hs-identifier hs-var hs-var">fromRecurringChargeFrequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365388"><span id="local-6989586621679365390"><span id="local-6989586621679365392"><span class="annot"><span class="annottext">Int -&gt; RecurringChargeFrequency -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365625"><span id="local-6989586621679365627"><span id="local-6989586621679365629"><span class="annot"><span class="annottext">Int -&gt; RecurringChargeFrequency -&gt; ShowS
 [RecurringChargeFrequency] -&gt; ShowS
 RecurringChargeFrequency -&gt; String
 (Int -&gt; RecurringChargeFrequency -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: RecurringChargeFrequency -&gt; String
 showsPrec :: Int -&gt; RecurringChargeFrequency -&gt; ShowS
 $cshowsPrec :: Int -&gt; RecurringChargeFrequency -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679365379"><span id="local-6989586621679365381"><span id="local-6989586621679365383"><span id="local-6989586621679365385"><span class="annot"><span class="annottext">ReadPrec [RecurringChargeFrequency]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679365616"><span id="local-6989586621679365618"><span id="local-6989586621679365620"><span id="local-6989586621679365622"><span class="annot"><span class="annottext">ReadPrec [RecurringChargeFrequency]
 ReadPrec RecurringChargeFrequency
 Int -&gt; ReadS RecurringChargeFrequency
 ReadS [RecurringChargeFrequency]
@@ -71,7 +71,7 @@ $creadList :: ReadS [RecurringChargeFrequency]
 readsPrec :: Int -&gt; ReadS RecurringChargeFrequency
 $creadsPrec :: Int -&gt; ReadS RecurringChargeFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679365374"><span id="local-6989586621679365376"><span class="annot"><span class="annottext">RecurringChargeFrequency -&gt; RecurringChargeFrequency -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679365611"><span id="local-6989586621679365613"><span class="annot"><span class="annottext">RecurringChargeFrequency -&gt; RecurringChargeFrequency -&gt; Bool
 (RecurringChargeFrequency -&gt; RecurringChargeFrequency -&gt; Bool)
 -&gt; (RecurringChargeFrequency -&gt; RecurringChargeFrequency -&gt; Bool)
 -&gt; Eq RecurringChargeFrequency
@@ -81,7 +81,7 @@ $c/= :: RecurringChargeFrequency -&gt; RecurringChargeFrequency -&gt; Bool
 == :: RecurringChargeFrequency -&gt; RecurringChargeFrequency -&gt; Bool
 $c== :: RecurringChargeFrequency -&gt; RecurringChargeFrequency -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679365358"><span id="local-6989586621679365360"><span id="local-6989586621679365362"><span id="local-6989586621679365364"><span id="local-6989586621679365366"><span id="local-6989586621679365368"><span id="local-6989586621679365370"><span class="annot"><span class="annottext">Eq RecurringChargeFrequency
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679365595"><span id="local-6989586621679365597"><span id="local-6989586621679365599"><span id="local-6989586621679365601"><span id="local-6989586621679365603"><span id="local-6989586621679365605"><span id="local-6989586621679365607"><span class="annot"><span class="annottext">Eq RecurringChargeFrequency
 Eq RecurringChargeFrequency
 -&gt; (RecurringChargeFrequency
     -&gt; RecurringChargeFrequency -&gt; Ordering)
@@ -146,7 +146,7 @@ RecurringChargeFrequency -&gt; Rep RecurringChargeFrequency x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365350"><span id="local-6989586621679365352"><span class="annot"><span class="annottext">Int -&gt; RecurringChargeFrequency -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679365587"><span id="local-6989586621679365589"><span class="annot"><span class="annottext">Int -&gt; RecurringChargeFrequency -&gt; Int
 RecurringChargeFrequency -&gt; Int
 (Int -&gt; RecurringChargeFrequency -&gt; Int)
 -&gt; (RecurringChargeFrequency -&gt; Int)
@@ -157,55 +157,55 @@ $chash :: RecurringChargeFrequency -&gt; Int
 hashWithSalt :: Int -&gt; RecurringChargeFrequency -&gt; Int
 $chashWithSalt :: Int -&gt; RecurringChargeFrequency -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679365347"><span class="annot"><span class="annottext">RecurringChargeFrequency -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679365584"><span class="annot"><span class="annottext">RecurringChargeFrequency -&gt; ()
 (RecurringChargeFrequency -&gt; ()) -&gt; NFData RecurringChargeFrequency
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: RecurringChargeFrequency -&gt; ()
 $crnf :: RecurringChargeFrequency -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679365344"><span class="annot"><span class="annottext">Text -&gt; Either String RecurringChargeFrequency
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679365581"><span class="annot"><span class="annottext">Text -&gt; Either String RecurringChargeFrequency
 (Text -&gt; Either String RecurringChargeFrequency)
 -&gt; FromText RecurringChargeFrequency
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String RecurringChargeFrequency
 $cfromText :: Text -&gt; Either String RecurringChargeFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679365341"><span class="annot"><span class="annottext">RecurringChargeFrequency -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679365578"><span class="annot"><span class="annottext">RecurringChargeFrequency -&gt; Text
 (RecurringChargeFrequency -&gt; Text)
 -&gt; ToText RecurringChargeFrequency
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: RecurringChargeFrequency -&gt; Text
 $ctoText :: RecurringChargeFrequency -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679365338"><span class="annot"><span class="annottext">RecurringChargeFrequency -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679365575"><span class="annot"><span class="annottext">RecurringChargeFrequency -&gt; ByteString
 (RecurringChargeFrequency -&gt; ByteString)
 -&gt; ToByteString RecurringChargeFrequency
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: RecurringChargeFrequency -&gt; ByteString
 $ctoBS :: RecurringChargeFrequency -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679365335"><span class="annot"><span class="annottext">RecurringChargeFrequency -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679365572"><span class="annot"><span class="annottext">RecurringChargeFrequency -&gt; ByteStringBuilder
 (RecurringChargeFrequency -&gt; ByteStringBuilder)
 -&gt; ToLog RecurringChargeFrequency
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: RecurringChargeFrequency -&gt; ByteStringBuilder
 $cbuild :: RecurringChargeFrequency -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679365332"><span class="annot"><span class="annottext">HeaderName -&gt; RecurringChargeFrequency -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679365569"><span class="annot"><span class="annottext">HeaderName -&gt; RecurringChargeFrequency -&gt; [Header]
 (HeaderName -&gt; RecurringChargeFrequency -&gt; [Header])
 -&gt; ToHeader RecurringChargeFrequency
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; RecurringChargeFrequency -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; RecurringChargeFrequency -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679365329"><span class="annot"><span class="annottext">RecurringChargeFrequency -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679365566"><span class="annot"><span class="annottext">RecurringChargeFrequency -&gt; QueryString
 (RecurringChargeFrequency -&gt; QueryString)
 -&gt; ToQuery RecurringChargeFrequency
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: RecurringChargeFrequency -&gt; QueryString
 $ctoQuery :: RecurringChargeFrequency -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679365324"><span id="local-6989586621679365326"><span class="annot"><span class="annottext">Value -&gt; Parser [RecurringChargeFrequency]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679365561"><span id="local-6989586621679365563"><span class="annot"><span class="annottext">Value -&gt; Parser [RecurringChargeFrequency]
 Value -&gt; Parser RecurringChargeFrequency
 (Value -&gt; Parser RecurringChargeFrequency)
 -&gt; (Value -&gt; Parser [RecurringChargeFrequency])
@@ -217,7 +217,7 @@ $cparseJSONList :: Value -&gt; Parser [RecurringChargeFrequency]
 parseJSON :: Value -&gt; Parser RecurringChargeFrequency
 $cparseJSON :: Value -&gt; Parser RecurringChargeFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679365319"><span id="local-6989586621679365321"><span class="annot"><span class="annottext">FromJSONKeyFunction [RecurringChargeFrequency]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679365556"><span id="local-6989586621679365558"><span class="annot"><span class="annottext">FromJSONKeyFunction [RecurringChargeFrequency]
 FromJSONKeyFunction RecurringChargeFrequency
 FromJSONKeyFunction RecurringChargeFrequency
 -&gt; FromJSONKeyFunction [RecurringChargeFrequency]
@@ -229,7 +229,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [RecurringChargeFrequency]
 fromJSONKey :: FromJSONKeyFunction RecurringChargeFrequency
 $cfromJSONKey :: FromJSONKeyFunction RecurringChargeFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679365310"><span id="local-6989586621679365312"><span id="local-6989586621679365314"><span id="local-6989586621679365316"><span class="annot"><span class="annottext">[RecurringChargeFrequency] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679365547"><span id="local-6989586621679365549"><span id="local-6989586621679365551"><span id="local-6989586621679365553"><span class="annot"><span class="annottext">[RecurringChargeFrequency] -&gt; Encoding
 [RecurringChargeFrequency] -&gt; Value
 RecurringChargeFrequency -&gt; Encoding
 RecurringChargeFrequency -&gt; Value
@@ -253,7 +253,7 @@ $ctoEncoding :: RecurringChargeFrequency -&gt; Encoding
 toJSON :: RecurringChargeFrequency -&gt; Value
 $ctoJSON :: RecurringChargeFrequency -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679365305"><span id="local-6989586621679365307"><span class="annot"><span class="annottext">ToJSONKeyFunction [RecurringChargeFrequency]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679365542"><span id="local-6989586621679365544"><span class="annot"><span class="annottext">ToJSONKeyFunction [RecurringChargeFrequency]
 ToJSONKeyFunction RecurringChargeFrequency
 ToJSONKeyFunction RecurringChargeFrequency
 -&gt; ToJSONKeyFunction [RecurringChargeFrequency]
@@ -265,14 +265,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [RecurringChargeFrequency]
 toJSONKey :: ToJSONKeyFunction RecurringChargeFrequency
 $ctoJSONKey :: ToJSONKeyFunction RecurringChargeFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679365302"><span class="annot"><span class="annottext">[Node] -&gt; Either String RecurringChargeFrequency
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679365539"><span class="annot"><span class="annottext">[Node] -&gt; Either String RecurringChargeFrequency
 ([Node] -&gt; Either String RecurringChargeFrequency)
 -&gt; FromXML RecurringChargeFrequency
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String RecurringChargeFrequency
 $cparseXML :: [Node] -&gt; Either String RecurringChargeFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679365299"><span class="annot"><span class="annottext">RecurringChargeFrequency -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679365536"><span class="annot"><span class="annottext">RecurringChargeFrequency -&gt; XML
 (RecurringChargeFrequency -&gt; XML) -&gt; ToXML RecurringChargeFrequency
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: RecurringChargeFrequency -&gt; XML

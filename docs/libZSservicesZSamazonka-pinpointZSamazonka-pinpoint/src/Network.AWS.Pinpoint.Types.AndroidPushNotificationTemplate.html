@@ -30,61 +30,61 @@
 </span><span id="line-30"></span><span class="hs-comment">-- Cloud Messaging, formerly Google Cloud Messaging) channel.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAndroidPushNotificationTemplate' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679591089"><span id="local-6989586621679591090"></span></span><span class="hs-keyword">data</span><span> </span><span id="AndroidPushNotificationTemplate"><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-var">AndroidPushNotificationTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AndroidPushNotificationTemplate%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">AndroidPushNotificationTemplate'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679591517"><span id="local-6989586621679591518"></span></span><span class="hs-keyword">data</span><span> </span><span id="AndroidPushNotificationTemplate"><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-var">AndroidPushNotificationTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AndroidPushNotificationTemplate%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">AndroidPushNotificationTemplate'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The URL of the large icon image to display in the content view of a push</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- notification that\'s based on the message template.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AimageIconUrl%3AAndroidPushNotificationTemplate%27"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3AimageIconUrl%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var hs-var">imageIconUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The message body to use in a push notification that\'s based on the</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- message template.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Abody%3AAndroidPushNotificationTemplate%27"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Abody%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The title to use in a push notification that\'s based on the message</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- template. This title appears above the notification message on a</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- recipient\'s device.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Atitle%3AAndroidPushNotificationTemplate%27"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Atitle%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The URL of an image to display in a push notification that\'s based on</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- the message template.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AimageUrl%3AAndroidPushNotificationTemplate%27"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3AimageUrl%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var hs-var">imageUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The action to occur if a recipient taps a push notification that\'s</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- based on the message template. Valid values are:</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   OPEN_APP - Your app opens or it becomes the foreground app if it was</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     sent to the background. This is the default action.</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   DEEP_LINK - Your app opens and displays a designated user interface</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     in the app. This action uses the deep-linking features of the</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     Android platform.</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- -   URL - The default mobile browser on the recipient\'s device opens</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     and loads the web page at a URL that you specify.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aaction%3AAndroidPushNotificationTemplate%27"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate -&gt; Maybe Action
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Aaction%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The URL to open in a recipient\'s default mobile browser, if a recipient</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- taps a push notification that\'s based on the message template and the</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- value of the Action property is URL.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3Aurl%3AAndroidPushNotificationTemplate%27"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Aurl%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The sound to play when a recipient receives a push notification that\'s</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- based on the message template. You can use the default stream or specify</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- the file name of a sound resource that\'s bundled in your app. On an</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- Android platform, the sound file must reside in \/res\/raw\/.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3Asound%3AAndroidPushNotificationTemplate%27"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Asound%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var hs-var">sound</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The URL of the small icon image to display in the status bar and the</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- content view of a push notification that\'s based on the message</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- template.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3AsmallImageIconUrl%3AAndroidPushNotificationTemplate%27"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate -&gt; Maybe Text
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The raw, JSON-formatted string to use as the payload for a push</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- notification that\'s based on the message template. If specified, this</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- value overrides all other content for the message template.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3ArawContent%3AAndroidPushNotificationTemplate%27"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3ArawContent%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var hs-var">rawContent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The URL of the small icon image to display in the status bar and the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- content view of a push notification that\'s based on the message</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- template.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AsmallImageIconUrl%3AAndroidPushNotificationTemplate%27"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3AsmallImageIconUrl%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var hs-var">smallImageIconUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The raw, JSON-formatted string to use as the payload for a push</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- notification that\'s based on the message template. If specified, this</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- value overrides all other content for the message template.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3ArawContent%3AAndroidPushNotificationTemplate%27"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3ArawContent%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var hs-var">rawContent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The message body to use in a push notification that\'s based on the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- message template.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Abody%3AAndroidPushNotificationTemplate%27"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Abody%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The URL to open in a recipient\'s default mobile browser, if a recipient</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- taps a push notification that\'s based on the message template and the</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- value of the Action property is URL.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aurl%3AAndroidPushNotificationTemplate%27"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Aurl%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The sound to play when a recipient receives a push notification that\'s</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- based on the message template. You can use the default stream or specify</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- the file name of a sound resource that\'s bundled in your app. On an</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Android platform, the sound file must reside in \/res\/raw\/.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Asound%3AAndroidPushNotificationTemplate%27"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Asound%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var hs-var">sound</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The action to occur if a recipient taps a push notification that\'s</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- based on the message template. Valid values are:</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   OPEN_APP - Your app opens or it becomes the foreground app if it was</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     sent to the background. This is the default action.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   DEEP_LINK - Your app opens and displays a designated user interface</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     in the app. This action uses the deep-linking features of the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     Android platform.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   URL - The default mobile browser on the recipient\'s device opens</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     and loads the web page at a URL that you specify.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Aaction%3AAndroidPushNotificationTemplate%27"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate -&gt; Maybe Action
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Aaction%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The URL of an image to display in a push notification that\'s based on</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- the message template.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AimageUrl%3AAndroidPushNotificationTemplate%27"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3AimageUrl%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var hs-var">imageUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The title to use in a push notification that\'s based on the message</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- template. This title appears above the notification message on a</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- recipient\'s device.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Atitle%3AAndroidPushNotificationTemplate%27"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Atitle%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679591075"><span id="local-6989586621679591077"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679591503"><span id="local-6989586621679591505"><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
 -&gt; AndroidPushNotificationTemplate -&gt; Bool
 (AndroidPushNotificationTemplate
  -&gt; AndroidPushNotificationTemplate -&gt; Bool)
@@ -100,7 +100,7 @@ $c/= :: AndroidPushNotificationTemplate
 -&gt; AndroidPushNotificationTemplate -&gt; Bool
 $c== :: AndroidPushNotificationTemplate
 -&gt; AndroidPushNotificationTemplate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591066"><span id="local-6989586621679591068"><span id="local-6989586621679591070"><span id="local-6989586621679591072"><span class="annot"><span class="annottext">ReadPrec [AndroidPushNotificationTemplate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591494"><span id="local-6989586621679591496"><span id="local-6989586621679591498"><span id="local-6989586621679591500"><span class="annot"><span class="annottext">ReadPrec [AndroidPushNotificationTemplate]
 ReadPrec AndroidPushNotificationTemplate
 Int -&gt; ReadS AndroidPushNotificationTemplate
 ReadS [AndroidPushNotificationTemplate]
@@ -120,7 +120,7 @@ readList :: ReadS [AndroidPushNotificationTemplate]
 $creadList :: ReadS [AndroidPushNotificationTemplate]
 readsPrec :: Int -&gt; ReadS AndroidPushNotificationTemplate
 $creadsPrec :: Int -&gt; ReadS AndroidPushNotificationTemplate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591059"><span id="local-6989586621679591061"><span id="local-6989586621679591063"><span class="annot"><span class="annottext">Int -&gt; AndroidPushNotificationTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679591487"><span id="local-6989586621679591489"><span id="local-6989586621679591491"><span class="annot"><span class="annottext">Int -&gt; AndroidPushNotificationTemplate -&gt; ShowS
 [AndroidPushNotificationTemplate] -&gt; ShowS
 AndroidPushNotificationTemplate -&gt; String
 (Int -&gt; AndroidPushNotificationTemplate -&gt; ShowS)
@@ -169,45 +169,45 @@ AndroidPushNotificationTemplate
 </span><span id="line-88"></span><span class="hs-comment">-- 'imageIconUrl', 'androidPushNotificationTemplate_imageIconUrl' - The URL of the large icon image to display in the content view of a push</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- notification that\'s based on the message template.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'body', 'androidPushNotificationTemplate_body' - The message body to use in a push notification that\'s based on the</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- message template.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'title', 'androidPushNotificationTemplate_title' - The title to use in a push notification that\'s based on the message</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- template. This title appears above the notification message on a</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- recipient\'s device.</span><span>
-</span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'imageUrl', 'androidPushNotificationTemplate_imageUrl' - The URL of an image to display in a push notification that\'s based on</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- the message template.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'action', 'androidPushNotificationTemplate_action' - The action to occur if a recipient taps a push notification that\'s</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- based on the message template. Valid values are:</span><span>
-</span><span id="line-103"></span><span class="hs-comment">--</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- -   OPEN_APP - Your app opens or it becomes the foreground app if it was</span><span>
-</span><span id="line-105"></span><span class="hs-comment">--     sent to the background. This is the default action.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- -   DEEP_LINK - Your app opens and displays a designated user interface</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--     in the app. This action uses the deep-linking features of the</span><span>
-</span><span id="line-109"></span><span class="hs-comment">--     Android platform.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'rawContent', 'androidPushNotificationTemplate_rawContent' - The raw, JSON-formatted string to use as the payload for a push</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- notification that\'s based on the message template. If specified, this</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- value overrides all other content for the message template.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'smallImageIconUrl', 'androidPushNotificationTemplate_smallImageIconUrl' - The URL of the small icon image to display in the status bar and the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- content view of a push notification that\'s based on the message</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- template.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'body', 'androidPushNotificationTemplate_body' - The message body to use in a push notification that\'s based on the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- message template.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'url', 'androidPushNotificationTemplate_url' - The URL to open in a recipient\'s default mobile browser, if a recipient</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- taps a push notification that\'s based on the message template and the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- value of the Action property is URL.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'sound', 'androidPushNotificationTemplate_sound' - The sound to play when a recipient receives a push notification that\'s</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- based on the message template. You can use the default stream or specify</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- the file name of a sound resource that\'s bundled in your app. On an</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Android platform, the sound file must reside in \/res\/raw\/.</span><span>
 </span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- -   URL - The default mobile browser on the recipient\'s device opens</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--     and loads the web page at a URL that you specify.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'action', 'androidPushNotificationTemplate_action' - The action to occur if a recipient taps a push notification that\'s</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- based on the message template. Valid values are:</span><span>
 </span><span id="line-113"></span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- 'url', 'androidPushNotificationTemplate_url' - The URL to open in a recipient\'s default mobile browser, if a recipient</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- taps a push notification that\'s based on the message template and the</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- value of the Action property is URL.</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- 'sound', 'androidPushNotificationTemplate_sound' - The sound to play when a recipient receives a push notification that\'s</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- based on the message template. You can use the default stream or specify</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- the file name of a sound resource that\'s bundled in your app. On an</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- Android platform, the sound file must reside in \/res\/raw\/.</span><span>
-</span><span id="line-122"></span><span class="hs-comment">--</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- 'smallImageIconUrl', 'androidPushNotificationTemplate_smallImageIconUrl' - The URL of the small icon image to display in the status bar and the</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- content view of a push notification that\'s based on the message</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- template.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- -   OPEN_APP - Your app opens or it becomes the foreground app if it was</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--     sent to the background. This is the default action.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   DEEP_LINK - Your app opens and displays a designated user interface</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--     in the app. This action uses the deep-linking features of the</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     Android platform.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- -   URL - The default mobile browser on the recipient\'s device opens</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--     and loads the web page at a URL that you specify.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'imageUrl', 'androidPushNotificationTemplate_imageUrl' - The URL of an image to display in a push notification that\'s based on</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- the message template.</span><span>
 </span><span id="line-126"></span><span class="hs-comment">--</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- 'rawContent', 'androidPushNotificationTemplate_rawContent' - The raw, JSON-formatted string to use as the payload for a push</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- notification that\'s based on the message template. If specified, this</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- value overrides all other content for the message template.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'title', 'androidPushNotificationTemplate_title' - The title to use in a push notification that\'s based on the message</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- template. This title appears above the notification message on a</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- recipient\'s device.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#newAndroidPushNotificationTemplate"><span class="hs-identifier hs-type">newAndroidPushNotificationTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span>
 </span><span id="line-132"></span><span id="newAndroidPushNotificationTemplate"><span class="annot"><span class="annottext">newAndroidPushNotificationTemplate :: AndroidPushNotificationTemplate
@@ -216,9 +216,9 @@ AndroidPushNotificationTemplate
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Action
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; AndroidPushNotificationTemplate
@@ -228,36 +228,36 @@ AndroidPushNotificationTemplate
 </span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:body:AndroidPushNotificationTemplate' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Abody%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:rawContent:AndroidPushNotificationTemplate' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3ArawContent%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">rawContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:title:AndroidPushNotificationTemplate' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Atitle%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageUrl:AndroidPushNotificationTemplate' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3AimageUrl%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">imageUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:action:AndroidPushNotificationTemplate' :: Maybe Action
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Aaction%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Action
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:AndroidPushNotificationTemplate' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Aurl%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:sound:AndroidPushNotificationTemplate' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Asound%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">sound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:smallImageIconUrl:AndroidPushNotificationTemplate' :: Maybe Text
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:smallImageIconUrl:AndroidPushNotificationTemplate' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3AsmallImageIconUrl%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">smallImageIconUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:rawContent:AndroidPushNotificationTemplate' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3ArawContent%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">rawContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:body:AndroidPushNotificationTemplate' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Abody%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:AndroidPushNotificationTemplate' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Aurl%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:sound:AndroidPushNotificationTemplate' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Asound%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">sound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:action:AndroidPushNotificationTemplate' :: Maybe Action
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Aaction%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Action
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageUrl:AndroidPushNotificationTemplate' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3AimageUrl%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">imageUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:title:AndroidPushNotificationTemplate' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Atitle%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-special">}</span><span>
@@ -277,219 +277,22 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591050"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591478"><span class="annot"><span class="annottext">Maybe Text
 imageIconUrl :: Maybe Text
 $sel:imageIconUrl:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621679591050"><span class="hs-identifier hs-var hs-var">imageIconUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591050"><span class="hs-identifier hs-var">imageIconUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591049"><span class="annot"><span class="annottext">s :: AndroidPushNotificationTemplate
-</span><a href="#local-6989586621679591049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591048"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
-</span><a href="#local-6989586621679591049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageIconUrl:AndroidPushNotificationTemplate' :: Maybe Text
+</span><a href="#local-6989586621679591478"><span class="hs-identifier hs-var hs-var">imageIconUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591478"><span class="hs-identifier hs-var">imageIconUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591477"><span class="annot"><span class="annottext">s :: AndroidPushNotificationTemplate
+</span><a href="#local-6989586621679591477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591476"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
+</span><a href="#local-6989586621679591477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageIconUrl:AndroidPushNotificationTemplate' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3AimageIconUrl%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">imageIconUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679591476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- | The message body to use in a push notification that\'s based on the</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- message template.</span><span>
-</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_body"><span class="hs-identifier hs-type">androidPushNotificationTemplate_body</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span id="androidPushNotificationTemplate_body"><span class="annot"><span class="annottext">androidPushNotificationTemplate_body :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AndroidPushNotificationTemplate
--&gt; f AndroidPushNotificationTemplate
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_body"><span class="hs-identifier hs-var hs-var">androidPushNotificationTemplate_body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AndroidPushNotificationTemplate -&gt; Maybe Text)
--&gt; (AndroidPushNotificationTemplate
-    -&gt; Maybe Text -&gt; AndroidPushNotificationTemplate)
--&gt; Lens
-     AndroidPushNotificationTemplate
-     AndroidPushNotificationTemplate
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591046"><span class="annot"><span class="annottext">Maybe Text
-body :: Maybe Text
-$sel:body:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621679591046"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591046"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591045"><span class="annot"><span class="annottext">s :: AndroidPushNotificationTemplate
-</span><a href="#local-6989586621679591045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591044"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
-</span><a href="#local-6989586621679591045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:AndroidPushNotificationTemplate' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Abody%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- | The title to use in a push notification that\'s based on the message</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- template. This title appears above the notification message on a</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- recipient\'s device.</span><span>
-</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_title"><span class="hs-identifier hs-type">androidPushNotificationTemplate_title</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span id="androidPushNotificationTemplate_title"><span class="annot"><span class="annottext">androidPushNotificationTemplate_title :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AndroidPushNotificationTemplate
--&gt; f AndroidPushNotificationTemplate
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_title"><span class="hs-identifier hs-var hs-var">androidPushNotificationTemplate_title</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AndroidPushNotificationTemplate -&gt; Maybe Text)
--&gt; (AndroidPushNotificationTemplate
-    -&gt; Maybe Text -&gt; AndroidPushNotificationTemplate)
--&gt; Lens
-     AndroidPushNotificationTemplate
-     AndroidPushNotificationTemplate
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591042"><span class="annot"><span class="annottext">Maybe Text
-title :: Maybe Text
-$sel:title:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621679591042"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591042"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591041"><span class="annot"><span class="annottext">s :: AndroidPushNotificationTemplate
-</span><a href="#local-6989586621679591041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591040"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
-</span><a href="#local-6989586621679591041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:AndroidPushNotificationTemplate' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Atitle%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- | The URL of an image to display in a push notification that\'s based on</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- the message template.</span><span>
-</span><span id="line-164"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_imageUrl"><span class="hs-identifier hs-type">androidPushNotificationTemplate_imageUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span id="androidPushNotificationTemplate_imageUrl"><span class="annot"><span class="annottext">androidPushNotificationTemplate_imageUrl :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AndroidPushNotificationTemplate
--&gt; f AndroidPushNotificationTemplate
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_imageUrl"><span class="hs-identifier hs-var hs-var">androidPushNotificationTemplate_imageUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AndroidPushNotificationTemplate -&gt; Maybe Text)
--&gt; (AndroidPushNotificationTemplate
-    -&gt; Maybe Text -&gt; AndroidPushNotificationTemplate)
--&gt; Lens
-     AndroidPushNotificationTemplate
-     AndroidPushNotificationTemplate
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591038"><span class="annot"><span class="annottext">Maybe Text
-imageUrl :: Maybe Text
-$sel:imageUrl:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621679591038"><span class="hs-identifier hs-var hs-var">imageUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591038"><span class="hs-identifier hs-var">imageUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591037"><span class="annot"><span class="annottext">s :: AndroidPushNotificationTemplate
-</span><a href="#local-6989586621679591037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591036"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
-</span><a href="#local-6989586621679591037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageUrl:AndroidPushNotificationTemplate' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3AimageUrl%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">imageUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- | The action to occur if a recipient taps a push notification that\'s</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- based on the message template. Valid values are:</span><span>
-</span><span id="line-169"></span><span class="hs-comment">--</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- -   OPEN_APP - Your app opens or it becomes the foreground app if it was</span><span>
-</span><span id="line-171"></span><span class="hs-comment">--     sent to the background. This is the default action.</span><span>
-</span><span id="line-172"></span><span class="hs-comment">--</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- -   DEEP_LINK - Your app opens and displays a designated user interface</span><span>
-</span><span id="line-174"></span><span class="hs-comment">--     in the app. This action uses the deep-linking features of the</span><span>
-</span><span id="line-175"></span><span class="hs-comment">--     Android platform.</span><span>
-</span><span id="line-176"></span><span class="hs-comment">--</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- -   URL - The default mobile browser on the recipient\'s device opens</span><span>
-</span><span id="line-178"></span><span class="hs-comment">--     and loads the web page at a URL that you specify.</span><span>
-</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_action"><span class="hs-identifier hs-type">androidPushNotificationTemplate_action</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span id="androidPushNotificationTemplate_action"><span class="annot"><span class="annottext">androidPushNotificationTemplate_action :: (Maybe Action -&gt; f (Maybe Action))
--&gt; AndroidPushNotificationTemplate
--&gt; f AndroidPushNotificationTemplate
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_action"><span class="hs-identifier hs-var hs-var">androidPushNotificationTemplate_action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AndroidPushNotificationTemplate -&gt; Maybe Action)
--&gt; (AndroidPushNotificationTemplate
-    -&gt; Maybe Action -&gt; AndroidPushNotificationTemplate)
--&gt; Lens
-     AndroidPushNotificationTemplate
-     AndroidPushNotificationTemplate
-     (Maybe Action)
-     (Maybe Action)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591034"><span class="annot"><span class="annottext">Maybe Action
-action :: Maybe Action
-$sel:action:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Action
-</span><a href="#local-6989586621679591034"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Action
-</span><a href="#local-6989586621679591034"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591033"><span class="annot"><span class="annottext">s :: AndroidPushNotificationTemplate
-</span><a href="#local-6989586621679591033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591032"><span class="annot"><span class="annottext">Maybe Action
-</span><a href="#local-6989586621679591032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
-</span><a href="#local-6989586621679591033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:AndroidPushNotificationTemplate' :: Maybe Action
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Aaction%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Action
-</span><a href="#local-6989586621679591032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- | The URL to open in a recipient\'s default mobile browser, if a recipient</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- taps a push notification that\'s based on the message template and the</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- value of the Action property is URL.</span><span>
-</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_url"><span class="hs-identifier hs-type">androidPushNotificationTemplate_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span id="androidPushNotificationTemplate_url"><span class="annot"><span class="annottext">androidPushNotificationTemplate_url :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AndroidPushNotificationTemplate
--&gt; f AndroidPushNotificationTemplate
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_url"><span class="hs-identifier hs-var hs-var">androidPushNotificationTemplate_url</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AndroidPushNotificationTemplate -&gt; Maybe Text)
--&gt; (AndroidPushNotificationTemplate
-    -&gt; Maybe Text -&gt; AndroidPushNotificationTemplate)
--&gt; Lens
-     AndroidPushNotificationTemplate
-     AndroidPushNotificationTemplate
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591030"><span class="annot"><span class="annottext">Maybe Text
-url :: Maybe Text
-$sel:url:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621679591030"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591030"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591029"><span class="annot"><span class="annottext">s :: AndroidPushNotificationTemplate
-</span><a href="#local-6989586621679591029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591028"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
-</span><a href="#local-6989586621679591029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:AndroidPushNotificationTemplate' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Aurl%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- | The sound to play when a recipient receives a push notification that\'s</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- based on the message template. You can use the default stream or specify</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- the file name of a sound resource that\'s bundled in your app. On an</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- Android platform, the sound file must reside in \/res\/raw\/.</span><span>
-</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_sound"><span class="hs-identifier hs-type">androidPushNotificationTemplate_sound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-193"></span><span id="androidPushNotificationTemplate_sound"><span class="annot"><span class="annottext">androidPushNotificationTemplate_sound :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AndroidPushNotificationTemplate
--&gt; f AndroidPushNotificationTemplate
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_sound"><span class="hs-identifier hs-var hs-var">androidPushNotificationTemplate_sound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AndroidPushNotificationTemplate -&gt; Maybe Text)
--&gt; (AndroidPushNotificationTemplate
-    -&gt; Maybe Text -&gt; AndroidPushNotificationTemplate)
--&gt; Lens
-     AndroidPushNotificationTemplate
-     AndroidPushNotificationTemplate
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591026"><span class="annot"><span class="annottext">Maybe Text
-sound :: Maybe Text
-$sel:sound:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621679591026"><span class="hs-identifier hs-var hs-var">sound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591026"><span class="hs-identifier hs-var">sound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591025"><span class="annot"><span class="annottext">s :: AndroidPushNotificationTemplate
-</span><a href="#local-6989586621679591025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591024"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
-</span><a href="#local-6989586621679591025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sound:AndroidPushNotificationTemplate' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Asound%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">sound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- | The URL of the small icon image to display in the status bar and the</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- content view of a push notification that\'s based on the message</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- template.</span><span>
-</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_smallImageIconUrl"><span class="hs-identifier hs-type">androidPushNotificationTemplate_smallImageIconUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-199"></span><span id="androidPushNotificationTemplate_smallImageIconUrl"><span class="annot"><span class="annottext">androidPushNotificationTemplate_smallImageIconUrl :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AndroidPushNotificationTemplate
--&gt; f AndroidPushNotificationTemplate
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_smallImageIconUrl"><span class="hs-identifier hs-var hs-var">androidPushNotificationTemplate_smallImageIconUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AndroidPushNotificationTemplate -&gt; Maybe Text)
--&gt; (AndroidPushNotificationTemplate
-    -&gt; Maybe Text -&gt; AndroidPushNotificationTemplate)
--&gt; Lens
-     AndroidPushNotificationTemplate
-     AndroidPushNotificationTemplate
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591022"><span class="annot"><span class="annottext">Maybe Text
-smallImageIconUrl :: Maybe Text
-$sel:smallImageIconUrl:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621679591022"><span class="hs-identifier hs-var hs-var">smallImageIconUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591022"><span class="hs-identifier hs-var">smallImageIconUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591021"><span class="annot"><span class="annottext">s :: AndroidPushNotificationTemplate
-</span><a href="#local-6989586621679591021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591020"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
-</span><a href="#local-6989586621679591021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:smallImageIconUrl:AndroidPushNotificationTemplate' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3AsmallImageIconUrl%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">smallImageIconUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-200"></span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- | The raw, JSON-formatted string to use as the payload for a push</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- notification that\'s based on the message template. If specified, this</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- value overrides all other content for the message template.</span><span>
-</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_rawContent"><span class="hs-identifier hs-type">androidPushNotificationTemplate_rawContent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span id="androidPushNotificationTemplate_rawContent"><span class="annot"><span class="annottext">androidPushNotificationTemplate_rawContent :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-151"></span><span class="hs-comment">-- | The raw, JSON-formatted string to use as the payload for a push</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- notification that\'s based on the message template. If specified, this</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- value overrides all other content for the message template.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_rawContent"><span class="hs-identifier hs-type">androidPushNotificationTemplate_rawContent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="androidPushNotificationTemplate_rawContent"><span class="annot"><span class="annottext">androidPushNotificationTemplate_rawContent :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AndroidPushNotificationTemplate
 -&gt; f AndroidPushNotificationTemplate
 </span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_rawContent"><span class="hs-identifier hs-var hs-var">androidPushNotificationTemplate_rawContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AndroidPushNotificationTemplate -&gt; Maybe Text)
@@ -501,22 +304,219 @@ $sel:smallImageIconUrl:AndroidPushNotificationTemplate' :: AndroidPushNotificati
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591018"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591474"><span class="annot"><span class="annottext">Maybe Text
 rawContent :: Maybe Text
 $sel:rawContent:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621679591018"><span class="hs-identifier hs-var hs-var">rawContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591018"><span class="hs-identifier hs-var">rawContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591017"><span class="annot"><span class="annottext">s :: AndroidPushNotificationTemplate
-</span><a href="#local-6989586621679591017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591016"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
-</span><a href="#local-6989586621679591017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rawContent:AndroidPushNotificationTemplate' :: Maybe Text
+</span><a href="#local-6989586621679591474"><span class="hs-identifier hs-var hs-var">rawContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591474"><span class="hs-identifier hs-var">rawContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591473"><span class="annot"><span class="annottext">s :: AndroidPushNotificationTemplate
+</span><a href="#local-6989586621679591473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591472"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
+</span><a href="#local-6989586621679591473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rawContent:AndroidPushNotificationTemplate' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3ArawContent%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">rawContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679591016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679591472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The URL of the small icon image to display in the status bar and the</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- content view of a push notification that\'s based on the message</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- template.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_smallImageIconUrl"><span class="hs-identifier hs-type">androidPushNotificationTemplate_smallImageIconUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="androidPushNotificationTemplate_smallImageIconUrl"><span class="annot"><span class="annottext">androidPushNotificationTemplate_smallImageIconUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AndroidPushNotificationTemplate
+-&gt; f AndroidPushNotificationTemplate
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_smallImageIconUrl"><span class="hs-identifier hs-var hs-var">androidPushNotificationTemplate_smallImageIconUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AndroidPushNotificationTemplate -&gt; Maybe Text)
+-&gt; (AndroidPushNotificationTemplate
+    -&gt; Maybe Text -&gt; AndroidPushNotificationTemplate)
+-&gt; Lens
+     AndroidPushNotificationTemplate
+     AndroidPushNotificationTemplate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591470"><span class="annot"><span class="annottext">Maybe Text
+smallImageIconUrl :: Maybe Text
+$sel:smallImageIconUrl:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679591470"><span class="hs-identifier hs-var hs-var">smallImageIconUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591470"><span class="hs-identifier hs-var">smallImageIconUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591469"><span class="annot"><span class="annottext">s :: AndroidPushNotificationTemplate
+</span><a href="#local-6989586621679591469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591468"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
+</span><a href="#local-6989586621679591469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:smallImageIconUrl:AndroidPushNotificationTemplate' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3AsmallImageIconUrl%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">smallImageIconUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The message body to use in a push notification that\'s based on the</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- message template.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_body"><span class="hs-identifier hs-type">androidPushNotificationTemplate_body</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="androidPushNotificationTemplate_body"><span class="annot"><span class="annottext">androidPushNotificationTemplate_body :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AndroidPushNotificationTemplate
+-&gt; f AndroidPushNotificationTemplate
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_body"><span class="hs-identifier hs-var hs-var">androidPushNotificationTemplate_body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AndroidPushNotificationTemplate -&gt; Maybe Text)
+-&gt; (AndroidPushNotificationTemplate
+    -&gt; Maybe Text -&gt; AndroidPushNotificationTemplate)
+-&gt; Lens
+     AndroidPushNotificationTemplate
+     AndroidPushNotificationTemplate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591466"><span class="annot"><span class="annottext">Maybe Text
+body :: Maybe Text
+$sel:body:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679591466"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591466"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591465"><span class="annot"><span class="annottext">s :: AndroidPushNotificationTemplate
+</span><a href="#local-6989586621679591465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591464"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
+</span><a href="#local-6989586621679591465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:AndroidPushNotificationTemplate' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Abody%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The URL to open in a recipient\'s default mobile browser, if a recipient</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- taps a push notification that\'s based on the message template and the</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- value of the Action property is URL.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_url"><span class="hs-identifier hs-type">androidPushNotificationTemplate_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="androidPushNotificationTemplate_url"><span class="annot"><span class="annottext">androidPushNotificationTemplate_url :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AndroidPushNotificationTemplate
+-&gt; f AndroidPushNotificationTemplate
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_url"><span class="hs-identifier hs-var hs-var">androidPushNotificationTemplate_url</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AndroidPushNotificationTemplate -&gt; Maybe Text)
+-&gt; (AndroidPushNotificationTemplate
+    -&gt; Maybe Text -&gt; AndroidPushNotificationTemplate)
+-&gt; Lens
+     AndroidPushNotificationTemplate
+     AndroidPushNotificationTemplate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591462"><span class="annot"><span class="annottext">Maybe Text
+url :: Maybe Text
+$sel:url:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679591462"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591462"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591461"><span class="annot"><span class="annottext">s :: AndroidPushNotificationTemplate
+</span><a href="#local-6989586621679591461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591460"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
+</span><a href="#local-6989586621679591461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:AndroidPushNotificationTemplate' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Aurl%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- | The sound to play when a recipient receives a push notification that\'s</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- based on the message template. You can use the default stream or specify</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- the file name of a sound resource that\'s bundled in your app. On an</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Android platform, the sound file must reside in \/res\/raw\/.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_sound"><span class="hs-identifier hs-type">androidPushNotificationTemplate_sound</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="androidPushNotificationTemplate_sound"><span class="annot"><span class="annottext">androidPushNotificationTemplate_sound :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AndroidPushNotificationTemplate
+-&gt; f AndroidPushNotificationTemplate
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_sound"><span class="hs-identifier hs-var hs-var">androidPushNotificationTemplate_sound</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AndroidPushNotificationTemplate -&gt; Maybe Text)
+-&gt; (AndroidPushNotificationTemplate
+    -&gt; Maybe Text -&gt; AndroidPushNotificationTemplate)
+-&gt; Lens
+     AndroidPushNotificationTemplate
+     AndroidPushNotificationTemplate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591458"><span class="annot"><span class="annottext">Maybe Text
+sound :: Maybe Text
+$sel:sound:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679591458"><span class="hs-identifier hs-var hs-var">sound</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591458"><span class="hs-identifier hs-var">sound</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591457"><span class="annot"><span class="annottext">s :: AndroidPushNotificationTemplate
+</span><a href="#local-6989586621679591457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591456"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
+</span><a href="#local-6989586621679591457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sound:AndroidPushNotificationTemplate' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Asound%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">sound</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The action to occur if a recipient taps a push notification that\'s</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- based on the message template. Valid values are:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- -   OPEN_APP - Your app opens or it becomes the foreground app if it was</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--     sent to the background. This is the default action.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- -   DEEP_LINK - Your app opens and displays a designated user interface</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--     in the app. This action uses the deep-linking features of the</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--     Android platform.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- -   URL - The default mobile browser on the recipient\'s device opens</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--     and loads the web page at a URL that you specify.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_action"><span class="hs-identifier hs-type">androidPushNotificationTemplate_action</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Action.html#Action"><span class="hs-identifier hs-type">Action</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="androidPushNotificationTemplate_action"><span class="annot"><span class="annottext">androidPushNotificationTemplate_action :: (Maybe Action -&gt; f (Maybe Action))
+-&gt; AndroidPushNotificationTemplate
+-&gt; f AndroidPushNotificationTemplate
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_action"><span class="hs-identifier hs-var hs-var">androidPushNotificationTemplate_action</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AndroidPushNotificationTemplate -&gt; Maybe Action)
+-&gt; (AndroidPushNotificationTemplate
+    -&gt; Maybe Action -&gt; AndroidPushNotificationTemplate)
+-&gt; Lens
+     AndroidPushNotificationTemplate
+     AndroidPushNotificationTemplate
+     (Maybe Action)
+     (Maybe Action)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591454"><span class="annot"><span class="annottext">Maybe Action
+action :: Maybe Action
+$sel:action:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Action
+</span><a href="#local-6989586621679591454"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Action
+</span><a href="#local-6989586621679591454"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591453"><span class="annot"><span class="annottext">s :: AndroidPushNotificationTemplate
+</span><a href="#local-6989586621679591453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591452"><span class="annot"><span class="annottext">Maybe Action
+</span><a href="#local-6989586621679591452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
+</span><a href="#local-6989586621679591453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:AndroidPushNotificationTemplate' :: Maybe Action
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Aaction%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Action
+</span><a href="#local-6989586621679591452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The URL of an image to display in a push notification that\'s based on</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- the message template.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_imageUrl"><span class="hs-identifier hs-type">androidPushNotificationTemplate_imageUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="androidPushNotificationTemplate_imageUrl"><span class="annot"><span class="annottext">androidPushNotificationTemplate_imageUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AndroidPushNotificationTemplate
+-&gt; f AndroidPushNotificationTemplate
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_imageUrl"><span class="hs-identifier hs-var hs-var">androidPushNotificationTemplate_imageUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AndroidPushNotificationTemplate -&gt; Maybe Text)
+-&gt; (AndroidPushNotificationTemplate
+    -&gt; Maybe Text -&gt; AndroidPushNotificationTemplate)
+-&gt; Lens
+     AndroidPushNotificationTemplate
+     AndroidPushNotificationTemplate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591450"><span class="annot"><span class="annottext">Maybe Text
+imageUrl :: Maybe Text
+$sel:imageUrl:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679591450"><span class="hs-identifier hs-var hs-var">imageUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591450"><span class="hs-identifier hs-var">imageUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591449"><span class="annot"><span class="annottext">s :: AndroidPushNotificationTemplate
+</span><a href="#local-6989586621679591449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591448"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
+</span><a href="#local-6989586621679591449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageUrl:AndroidPushNotificationTemplate' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3AimageUrl%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">imageUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The title to use in a push notification that\'s based on the message</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- template. This title appears above the notification message on a</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- recipient\'s device.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_title"><span class="hs-identifier hs-type">androidPushNotificationTemplate_title</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="androidPushNotificationTemplate_title"><span class="annot"><span class="annottext">androidPushNotificationTemplate_title :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AndroidPushNotificationTemplate
+-&gt; f AndroidPushNotificationTemplate
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#androidPushNotificationTemplate_title"><span class="hs-identifier hs-var hs-var">androidPushNotificationTemplate_title</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AndroidPushNotificationTemplate -&gt; Maybe Text)
+-&gt; (AndroidPushNotificationTemplate
+    -&gt; Maybe Text -&gt; AndroidPushNotificationTemplate)
+-&gt; Lens
+     AndroidPushNotificationTemplate
+     AndroidPushNotificationTemplate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591446"><span class="annot"><span class="annottext">Maybe Text
+title :: Maybe Text
+$sel:title:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679591446"><span class="hs-identifier hs-var hs-var">title</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591446"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679591445"><span class="annot"><span class="annottext">s :: AndroidPushNotificationTemplate
+</span><a href="#local-6989586621679591445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679591444"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AndroidPushNotificationTemplate
+</span><a href="#local-6989586621679591445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:title:AndroidPushNotificationTemplate' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#%24sel%3Atitle%3AAndroidPushNotificationTemplate%27"><span class="hs-identifier hs-var">title</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679591013"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679591441"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-209"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span></span><span>
 </span><span id="line-210"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679591011"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AndroidPushNotificationTemplate
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679591439"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AndroidPushNotificationTemplate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AndroidPushNotificationTemplate)
@@ -526,15 +526,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AndroidPushNotificationTemplate&quot;</span></span><span>
-</span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679591008"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679591008"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679591436"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679591436"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-215"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Action
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; AndroidPushNotificationTemplate
@@ -543,9 +543,9 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Action
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; AndroidPushNotificationTemplate)
@@ -554,15 +554,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Action
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; AndroidPushNotificationTemplate)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679591008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679591436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImageIconUrl&quot;</span></span><span class="hs-special">)</span><span>
@@ -570,9 +570,9 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe Action
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; AndroidPushNotificationTemplate)
@@ -580,24 +580,68 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Action
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; AndroidPushNotificationTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679591008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679591436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Body&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;RawContent&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe Action
    -&gt; Maybe Text
    -&gt; Maybe Text
+   -&gt; AndroidPushNotificationTemplate)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Action
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AndroidPushNotificationTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679591436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SmallImageIconUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Action
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; AndroidPushNotificationTemplate)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Action
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; AndroidPushNotificationTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679591436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Body&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Action
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; AndroidPushNotificationTemplate)
@@ -607,136 +651,92 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Action
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; AndroidPushNotificationTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679591008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679591436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Title&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;Url&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Action
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; AndroidPushNotificationTemplate)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Action
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; AndroidPushNotificationTemplate)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679591008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ImageUrl&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Action
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; AndroidPushNotificationTemplate)
--&gt; Parser (Maybe Action)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; AndroidPushNotificationTemplate)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679591008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Action)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Action&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; AndroidPushNotificationTemplate)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
       -&gt; Maybe Text -&gt; Maybe Text -&gt; AndroidPushNotificationTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679591008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679591436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Url&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Sound&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
+  (Maybe Action
    -&gt; Maybe Text -&gt; Maybe Text -&gt; AndroidPushNotificationTemplate)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Action)
 -&gt; Parser
      (Maybe Text -&gt; Maybe Text -&gt; AndroidPushNotificationTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679591008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679591436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Action)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Sound&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Action&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text -&gt; Maybe Text -&gt; AndroidPushNotificationTemplate)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; AndroidPushNotificationTemplate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679591008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679591436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SmallImageIconUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ImageUrl&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AndroidPushNotificationTemplate)
 -&gt; Parser (Maybe Text) -&gt; Parser AndroidPushNotificationTemplate
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679591008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679591436"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RawContent&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Title&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621679591002"><span id="local-6989586621679591004"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679591430"><span id="local-6989586621679591432"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-229"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span></span></span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679590999"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679591427"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-233"></span><span>    </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span></span><span>
 </span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679590991"><span id="local-6989586621679590993"><span id="local-6989586621679590995"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-236"></span><span>  </span><span id="local-6989586621679590989"><span class="annot"><span class="annottext">toJSON :: AndroidPushNotificationTemplate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679590979"><span id="local-6989586621679590980"><span id="local-6989586621679590981"><span id="local-6989586621679590982"><span id="local-6989586621679590983"><span id="local-6989586621679590984"><span id="local-6989586621679590985"><span id="local-6989586621679590986"><span id="local-6989586621679590987"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679591419"><span id="local-6989586621679591421"><span id="local-6989586621679591423"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679591417"><span class="annot"><span class="annottext">toJSON :: AndroidPushNotificationTemplate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate.html#AndroidPushNotificationTemplate%27"><span class="hs-identifier hs-type">AndroidPushNotificationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679591407"><span id="local-6989586621679591408"><span id="local-6989586621679591409"><span id="local-6989586621679591410"><span id="local-6989586621679591411"><span id="local-6989586621679591412"><span id="local-6989586621679591413"><span id="local-6989586621679591414"><span id="local-6989586621679591415"><span class="annot"><span class="annottext">Maybe Text
 Maybe Action
-rawContent :: Maybe Text
-smallImageIconUrl :: Maybe Text
+title :: Maybe Text
+imageUrl :: Maybe Text
+action :: Maybe Action
 sound :: Maybe Text
 url :: Maybe Text
-action :: Maybe Action
-imageUrl :: Maybe Text
-title :: Maybe Text
 body :: Maybe Text
+smallImageIconUrl :: Maybe Text
+rawContent :: Maybe Text
 imageIconUrl :: Maybe Text
-$sel:rawContent:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
-$sel:smallImageIconUrl:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
+$sel:title:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
+$sel:imageUrl:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
+$sel:action:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Action
 $sel:sound:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
 $sel:url:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
-$sel:action:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Action
-$sel:imageUrl:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
-$sel:title:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
 $sel:body:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
+$sel:smallImageIconUrl:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
+$sel:rawContent:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
 $sel:imageIconUrl:AndroidPushNotificationTemplate' :: AndroidPushNotificationTemplate -&gt; Maybe Text
-</span><a href="#local-6989586621679590979"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679591407"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-237"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-238"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -748,64 +748,64 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679590987"><span class="hs-identifier hs-var">imageIconUrl</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679591415"><span class="hs-identifier hs-var">imageIconUrl</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-240"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RawContent&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591414"><span class="hs-identifier hs-var">rawContent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SmallImageIconUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591413"><span class="hs-identifier hs-var">smallImageIconUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Body&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679590986"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-241"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Title&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679590985"><span class="hs-identifier hs-var">title</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-242"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ImageUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679590984"><span class="hs-identifier hs-var">imageUrl</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-243"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Action&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Action -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Pair) -&gt; Maybe Action -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Action
-</span><a href="#local-6989586621679590983"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679591412"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-244"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Url&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679590982"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679591411"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-245"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Sound&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679590981"><span class="hs-identifier hs-var">sound</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679591410"><span class="hs-identifier hs-var">sound</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-246"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SmallImageIconUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;Action&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Action -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-247"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Action -&gt; Pair) -&gt; Maybe Action -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679590980"><span class="hs-identifier hs-var">smallImageIconUrl</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-248"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RawContent&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Action
+</span><a href="#local-6989586621679591409"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ImageUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679590979"><span class="hs-identifier hs-var">rawContent</span></a></span><span>
+</span><a href="#local-6989586621679591408"><span class="hs-identifier hs-var">imageUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Title&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679591407"><span class="hs-identifier hs-var">title</span></a></span><span>
 </span><span id="line-249"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-250"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span></pre></body></html>

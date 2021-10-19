@@ -36,8 +36,8 @@
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#getTestGridSession_sessionArn"><span class="hs-identifier">getTestGridSession_sessionArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#getTestGridSession_sessionId"><span class="hs-identifier">getTestGridSession_sessionId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#getTestGridSession_projectArn"><span class="hs-identifier">getTestGridSession_projectArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#getTestGridSession_projectArn"><span class="hs-identifier">getTestGridSession_projectArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#getTestGridSession_sessionId"><span class="hs-identifier">getTestGridSession_sessionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse"><span class="hs-identifier">GetTestGridSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -57,19 +57,19 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newGetTestGridSession' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679381726"><span id="local-6989586621679381727"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTestGridSession"><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-var">GetTestGridSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTestGridSession%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession%27"><span class="hs-identifier hs-var">GetTestGridSession'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679382005"><span id="local-6989586621679382006"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTestGridSession"><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-var">GetTestGridSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTestGridSession%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession%27"><span class="hs-identifier hs-var">GetTestGridSession'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An ARN that uniquely identifies a TestGridSession.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AsessionArn%3AGetTestGridSession%27"><span class="annot"><span class="annottext">GetTestGridSession -&gt; Maybe Text
 </span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AsessionArn%3AGetTestGridSession%27"><span class="hs-identifier hs-var hs-var">sessionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | An ID associated with this session.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AsessionId%3AGetTestGridSession%27"><span class="annot"><span class="annottext">GetTestGridSession -&gt; Maybe Text
-</span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AsessionId%3AGetTestGridSession%27"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The ARN for the project that this session belongs to. See</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- CreateTestGridProject and ListTestGridProjects.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3AprojectArn%3AGetTestGridSession%27"><span class="annot"><span class="annottext">GetTestGridSession -&gt; Maybe Text
-</span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AprojectArn%3AGetTestGridSession%27"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The ARN for the project that this session belongs to. See</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- CreateTestGridProject and ListTestGridProjects.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AprojectArn%3AGetTestGridSession%27"><span class="annot"><span class="annottext">GetTestGridSession -&gt; Maybe Text
+</span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AprojectArn%3AGetTestGridSession%27"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | An ID associated with this session.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AsessionId%3AGetTestGridSession%27"><span class="annot"><span class="annottext">GetTestGridSession -&gt; Maybe Text
+</span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AsessionId%3AGetTestGridSession%27"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381718"><span id="local-6989586621679381720"><span class="annot"><span class="annottext">GetTestGridSession -&gt; GetTestGridSession -&gt; Bool
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381997"><span id="local-6989586621679381999"><span class="annot"><span class="annottext">GetTestGridSession -&gt; GetTestGridSession -&gt; Bool
 (GetTestGridSession -&gt; GetTestGridSession -&gt; Bool)
 -&gt; (GetTestGridSession -&gt; GetTestGridSession -&gt; Bool)
 -&gt; Eq GetTestGridSession
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTestGridSession -&gt; GetTestGridSession -&gt; Bool
 == :: GetTestGridSession -&gt; GetTestGridSession -&gt; Bool
 $c== :: GetTestGridSession -&gt; GetTestGridSession -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381709"><span id="local-6989586621679381711"><span id="local-6989586621679381713"><span id="local-6989586621679381715"><span class="annot"><span class="annottext">ReadPrec [GetTestGridSession]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381988"><span id="local-6989586621679381990"><span id="local-6989586621679381992"><span id="local-6989586621679381994"><span class="annot"><span class="annottext">ReadPrec [GetTestGridSession]
 ReadPrec GetTestGridSession
 Int -&gt; ReadS GetTestGridSession
 ReadS [GetTestGridSession]
@@ -98,7 +98,7 @@ readList :: ReadS [GetTestGridSession]
 $creadList :: ReadS [GetTestGridSession]
 readsPrec :: Int -&gt; ReadS GetTestGridSession
 $creadsPrec :: Int -&gt; ReadS GetTestGridSession
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381702"><span id="local-6989586621679381704"><span id="local-6989586621679381706"><span class="annot"><span class="annottext">Int -&gt; GetTestGridSession -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381981"><span id="local-6989586621679381983"><span id="local-6989586621679381985"><span class="annot"><span class="annottext">Int -&gt; GetTestGridSession -&gt; ShowS
 [GetTestGridSession] -&gt; ShowS
 GetTestGridSession -&gt; String
 (Int -&gt; GetTestGridSession -&gt; ShowS)
@@ -134,10 +134,10 @@ $cfrom :: forall x. GetTestGridSession -&gt; Rep GetTestGridSession x
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- 'sessionArn', 'getTestGridSession_sessionArn' - An ARN that uniquely identifies a TestGridSession.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'sessionId', 'getTestGridSession_sessionId' - An ID associated with this session.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'projectArn', 'getTestGridSession_projectArn' - The ARN for the project that this session belongs to. See</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- CreateTestGridProject and ListTestGridProjects.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'projectArn', 'getTestGridSession_projectArn' - The ARN for the project that this session belongs to. See</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- CreateTestGridProject and ListTestGridProjects.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'sessionId', 'getTestGridSession_sessionId' - An ID associated with this session.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#newGetTestGridSession"><span class="hs-identifier hs-type">newGetTestGridSession</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span><span>
 </span><span id="line-87"></span><span id="newGetTestGridSession"><span class="annot"><span class="annottext">newGetTestGridSession :: GetTestGridSession
@@ -148,12 +148,12 @@ $cfrom :: forall x. GetTestGridSession -&gt; Rep GetTestGridSession x
 </span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AsessionArn%3AGetTestGridSession%27"><span class="hs-identifier hs-var">sessionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:sessionId:GetTestGridSession' :: Maybe Text
-</span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AsessionId%3AGetTestGridSession%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectArn:GetTestGridSession' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AprojectArn%3AGetTestGridSession%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectArn:GetTestGridSession' :: Maybe Text
-</span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AprojectArn%3AGetTestGridSession%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:sessionId:GetTestGridSession' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AsessionId%3AGetTestGridSession%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
@@ -167,68 +167,68 @@ forall a. Maybe a
 -&gt; Lens
      GetTestGridSession GetTestGridSession (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession%27"><span class="hs-identifier hs-type">GetTestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381695"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession%27"><span class="hs-identifier hs-type">GetTestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381974"><span class="annot"><span class="annottext">Maybe Text
 sessionArn :: Maybe Text
 $sel:sessionArn:GetTestGridSession' :: GetTestGridSession -&gt; Maybe Text
-</span><a href="#local-6989586621679381695"><span class="hs-identifier hs-var hs-var">sessionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381695"><span class="hs-identifier hs-var">sessionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381694"><span class="annot"><span class="annottext">s :: GetTestGridSession
-</span><a href="#local-6989586621679381694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession%27"><span class="hs-identifier hs-type">GetTestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381693"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTestGridSession
-</span><a href="#local-6989586621679381694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionArn:GetTestGridSession' :: Maybe Text
+</span><a href="#local-6989586621679381974"><span class="hs-identifier hs-var hs-var">sessionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381974"><span class="hs-identifier hs-var">sessionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381973"><span class="annot"><span class="annottext">s :: GetTestGridSession
+</span><a href="#local-6989586621679381973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession%27"><span class="hs-identifier hs-type">GetTestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381972"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTestGridSession
+</span><a href="#local-6989586621679381973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionArn:GetTestGridSession' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AsessionArn%3AGetTestGridSession%27"><span class="hs-identifier hs-var">sessionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | An ID associated with this session.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#getTestGridSession_sessionId"><span class="hs-identifier hs-type">getTestGridSession_sessionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="getTestGridSession_sessionId"><span class="annot"><span class="annottext">getTestGridSession_sessionId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetTestGridSession -&gt; f GetTestGridSession
-</span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#getTestGridSession_sessionId"><span class="hs-identifier hs-var hs-var">getTestGridSession_sessionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTestGridSession -&gt; Maybe Text)
--&gt; (GetTestGridSession -&gt; Maybe Text -&gt; GetTestGridSession)
--&gt; Lens
-     GetTestGridSession GetTestGridSession (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession%27"><span class="hs-identifier hs-type">GetTestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381692"><span class="annot"><span class="annottext">Maybe Text
-sessionId :: Maybe Text
-$sel:sessionId:GetTestGridSession' :: GetTestGridSession -&gt; Maybe Text
-</span><a href="#local-6989586621679381692"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381692"><span class="hs-identifier hs-var">sessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381691"><span class="annot"><span class="annottext">s :: GetTestGridSession
-</span><a href="#local-6989586621679381691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession%27"><span class="hs-identifier hs-type">GetTestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381690"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTestGridSession
-</span><a href="#local-6989586621679381691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionId:GetTestGridSession' :: Maybe Text
-</span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AsessionId%3AGetTestGridSession%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | The ARN for the project that this session belongs to. See</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- CreateTestGridProject and ListTestGridProjects.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#getTestGridSession_projectArn"><span class="hs-identifier hs-type">getTestGridSession_projectArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="getTestGridSession_projectArn"><span class="annot"><span class="annottext">getTestGridSession_projectArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-98"></span><span class="hs-comment">-- | The ARN for the project that this session belongs to. See</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- CreateTestGridProject and ListTestGridProjects.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#getTestGridSession_projectArn"><span class="hs-identifier hs-type">getTestGridSession_projectArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="getTestGridSession_projectArn"><span class="annot"><span class="annottext">getTestGridSession_projectArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetTestGridSession -&gt; f GetTestGridSession
 </span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#getTestGridSession_projectArn"><span class="hs-identifier hs-var hs-var">getTestGridSession_projectArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTestGridSession -&gt; Maybe Text)
 -&gt; (GetTestGridSession -&gt; Maybe Text -&gt; GetTestGridSession)
 -&gt; Lens
      GetTestGridSession GetTestGridSession (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession%27"><span class="hs-identifier hs-type">GetTestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381689"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession%27"><span class="hs-identifier hs-type">GetTestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381971"><span class="annot"><span class="annottext">Maybe Text
 projectArn :: Maybe Text
 $sel:projectArn:GetTestGridSession' :: GetTestGridSession -&gt; Maybe Text
-</span><a href="#local-6989586621679381689"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381689"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381688"><span class="annot"><span class="annottext">s :: GetTestGridSession
-</span><a href="#local-6989586621679381688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession%27"><span class="hs-identifier hs-type">GetTestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381687"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTestGridSession
-</span><a href="#local-6989586621679381688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectArn:GetTestGridSession' :: Maybe Text
+</span><a href="#local-6989586621679381971"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381971"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381970"><span class="annot"><span class="annottext">s :: GetTestGridSession
+</span><a href="#local-6989586621679381970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession%27"><span class="hs-identifier hs-type">GetTestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381969"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTestGridSession
+</span><a href="#local-6989586621679381970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectArn:GetTestGridSession' :: Maybe Text
 </span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AprojectArn%3AGetTestGridSession%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | An ID associated with this session.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#getTestGridSession_sessionId"><span class="hs-identifier hs-type">getTestGridSession_sessionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="getTestGridSession_sessionId"><span class="annot"><span class="annottext">getTestGridSession_sessionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetTestGridSession -&gt; f GetTestGridSession
+</span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#getTestGridSession_sessionId"><span class="hs-identifier hs-var hs-var">getTestGridSession_sessionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetTestGridSession -&gt; Maybe Text)
+-&gt; (GetTestGridSession -&gt; Maybe Text -&gt; GetTestGridSession)
+-&gt; Lens
+     GetTestGridSession GetTestGridSession (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession%27"><span class="hs-identifier hs-type">GetTestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381968"><span class="annot"><span class="annottext">Maybe Text
+sessionId :: Maybe Text
+$sel:sessionId:GetTestGridSession' :: GetTestGridSession -&gt; Maybe Text
+</span><a href="#local-6989586621679381968"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381968"><span class="hs-identifier hs-var">sessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381967"><span class="annot"><span class="annottext">s :: GetTestGridSession
+</span><a href="#local-6989586621679381967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession%27"><span class="hs-identifier hs-type">GetTestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381966"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTestGridSession
+</span><a href="#local-6989586621679381967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionId:GetTestGridSession' :: Maybe Text
+</span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AsessionId%3AGetTestGridSession%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse"><span class="hs-identifier hs-type">GetTestGridSessionResponse</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679381683"><span class="annot"><span class="annottext">request :: GetTestGridSession -&gt; Request GetTestGridSession
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679381962"><span class="annot"><span class="annottext">request :: GetTestGridSession -&gt; Request GetTestGridSession
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetTestGridSession -&gt; Request GetTestGridSession
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679381679"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679381958"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetTestGridSession
 -&gt; ClientResponse ClientBody
@@ -254,10 +254,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381676"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381676"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679381675"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679381675"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679381674"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381674"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679381955"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381955"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679381954"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679381954"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679381953"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679381953"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe TestGridSession -&gt; Int -&gt; GetTestGridSessionResponse
 </span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse%27"><span class="hs-identifier hs-var">GetTestGridSessionResponse'</span></a></span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TestGridSession -&gt; Int -&gt; GetTestGridSessionResponse)
@@ -265,7 +265,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetTestGridSessionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679381674"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TestGridSession)
+</span><a href="#local-6989586621679381953"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TestGridSession)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;testGridSession&quot;</span></span><span class="hs-special">)</span><span>
@@ -277,15 +277,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381676"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381955"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381666"><span id="local-6989586621679381668"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381945"><span id="local-6989586621679381947"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381663"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381942"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679381659"><span class="annot"><span class="annottext">toHeaders :: GetTestGridSession -&gt; ResponseHeaders
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679381938"><span class="annot"><span class="annottext">toHeaders :: GetTestGridSession -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetTestGridSession -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -312,16 +312,16 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381649"><span id="local-6989586621679381651"><span id="local-6989586621679381653"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679381647"><span class="annot"><span class="annottext">toJSON :: GetTestGridSession -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession%27"><span class="hs-identifier hs-type">GetTestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381643"><span id="local-6989586621679381644"><span id="local-6989586621679381645"><span class="annot"><span class="annottext">Maybe Text
-projectArn :: Maybe Text
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381928"><span id="local-6989586621679381930"><span id="local-6989586621679381932"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679381926"><span class="annot"><span class="annottext">toJSON :: GetTestGridSession -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession%27"><span class="hs-identifier hs-type">GetTestGridSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381922"><span id="local-6989586621679381923"><span id="local-6989586621679381924"><span class="annot"><span class="annottext">Maybe Text
 sessionId :: Maybe Text
+projectArn :: Maybe Text
 sessionArn :: Maybe Text
-$sel:projectArn:GetTestGridSession' :: GetTestGridSession -&gt; Maybe Text
 $sel:sessionId:GetTestGridSession' :: GetTestGridSession -&gt; Maybe Text
+$sel:projectArn:GetTestGridSession' :: GetTestGridSession -&gt; Maybe Text
 $sel:sessionArn:GetTestGridSession' :: GetTestGridSession -&gt; Maybe Text
-</span><a href="#local-6989586621679381643"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679381922"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -333,33 +333,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381645"><span class="hs-identifier hs-var">sessionArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679381924"><span class="hs-identifier hs-var">sessionArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;sessionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381644"><span class="hs-identifier hs-var">sessionId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;projectArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679381643"><span class="hs-identifier hs-var">projectArn</span></a></span><span>
+</span><a href="#local-6989586621679381923"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sessionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679381922"><span class="hs-identifier hs-var">sessionId</span></a></span><span>
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679381637"><span class="annot"><span class="annottext">toPath :: GetTestGridSession -&gt; ByteString
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679381916"><span class="annot"><span class="annottext">toPath :: GetTestGridSession -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetTestGridSession -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSession"><span class="hs-identifier hs-type">GetTestGridSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679381633"><span class="annot"><span class="annottext">toQuery :: GetTestGridSession -&gt; QueryString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679381912"><span class="annot"><span class="annottext">toQuery :: GetTestGridSession -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetTestGridSession -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -367,7 +367,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | /See:/ 'newGetTestGridSessionResponse' smart constructor.</span><span>
-</span><span id="line-156"></span><span id="local-6989586621679381630"><span id="local-6989586621679381631"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTestGridSessionResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse"><span class="hs-identifier hs-var">GetTestGridSessionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTestGridSessionResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse%27"><span class="hs-identifier hs-var">GetTestGridSessionResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span id="local-6989586621679381909"><span id="local-6989586621679381910"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetTestGridSessionResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse"><span class="hs-identifier hs-var">GetTestGridSessionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetTestGridSessionResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse%27"><span class="hs-identifier hs-var">GetTestGridSessionResponse'</span></a></span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The TestGridSession that was requested.</span><span>
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3AtestGridSession%3AGetTestGridSessionResponse%27"><span class="annot"><span class="annottext">GetTestGridSessionResponse -&gt; Maybe TestGridSession
 </span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AtestGridSession%3AGetTestGridSessionResponse%27"><span class="hs-identifier hs-var hs-var">testGridSession</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.TestGridSession.html#TestGridSession"><span class="hs-identifier hs-type">TestGridSession</span></a></span><span class="hs-special">,</span><span>
@@ -375,7 +375,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetTestGridSessionResponse%27"><span class="annot"><span class="annottext">GetTestGridSessionResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AhttpStatus%3AGetTestGridSessionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381624"><span id="local-6989586621679381626"><span class="annot"><span class="annottext">GetTestGridSessionResponse -&gt; GetTestGridSessionResponse -&gt; Bool
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381903"><span id="local-6989586621679381905"><span class="annot"><span class="annottext">GetTestGridSessionResponse -&gt; GetTestGridSessionResponse -&gt; Bool
 (GetTestGridSessionResponse -&gt; GetTestGridSessionResponse -&gt; Bool)
 -&gt; (GetTestGridSessionResponse
     -&gt; GetTestGridSessionResponse -&gt; Bool)
@@ -385,7 +385,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetTestGridSessionResponse -&gt; GetTestGridSessionResponse -&gt; Bool
 == :: GetTestGridSessionResponse -&gt; GetTestGridSessionResponse -&gt; Bool
 $c== :: GetTestGridSessionResponse -&gt; GetTestGridSessionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381616"><span id="local-6989586621679381618"><span id="local-6989586621679381620"><span id="local-6989586621679381622"><span class="annot"><span class="annottext">ReadPrec [GetTestGridSessionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381895"><span id="local-6989586621679381897"><span id="local-6989586621679381899"><span id="local-6989586621679381901"><span class="annot"><span class="annottext">ReadPrec [GetTestGridSessionResponse]
 ReadPrec GetTestGridSessionResponse
 Int -&gt; ReadS GetTestGridSessionResponse
 ReadS [GetTestGridSessionResponse]
@@ -405,7 +405,7 @@ readList :: ReadS [GetTestGridSessionResponse]
 $creadList :: ReadS [GetTestGridSessionResponse]
 readsPrec :: Int -&gt; ReadS GetTestGridSessionResponse
 $creadsPrec :: Int -&gt; ReadS GetTestGridSessionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381610"><span id="local-6989586621679381612"><span id="local-6989586621679381614"><span class="annot"><span class="annottext">Int -&gt; GetTestGridSessionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381889"><span id="local-6989586621679381891"><span id="local-6989586621679381893"><span class="annot"><span class="annottext">Int -&gt; GetTestGridSessionResponse -&gt; ShowS
 [GetTestGridSessionResponse] -&gt; ShowS
 GetTestGridSessionResponse -&gt; String
 (Int -&gt; GetTestGridSessionResponse -&gt; ShowS)
@@ -453,8 +453,8 @@ GetTestGridSessionResponse -&gt; Rep GetTestGridSessionResponse x
 </span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse"><span class="hs-identifier hs-type">GetTestGridSessionResponse</span></a></span><span>
 </span><span id="line-179"></span><span id="newGetTestGridSessionResponse"><span class="annot"><span class="annottext">newGetTestGridSessionResponse :: Int -&gt; GetTestGridSessionResponse
-</span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#newGetTestGridSessionResponse"><span class="hs-identifier hs-var hs-var">newGetTestGridSessionResponse</span></a></span></span><span> </span><span id="local-6989586621679381607"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381607"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#newGetTestGridSessionResponse"><span class="hs-identifier hs-var hs-var">newGetTestGridSessionResponse</span></a></span></span><span> </span><span id="local-6989586621679381886"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381886"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">GetTestGridSessionResponse' :: Maybe TestGridSession -&gt; Int -&gt; GetTestGridSessionResponse
 </span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse%27"><span class="hs-identifier hs-type">GetTestGridSessionResponse'</span></a></span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:testGridSession:GetTestGridSessionResponse' :: Maybe TestGridSession
@@ -464,7 +464,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetTestGridSessionResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AhttpStatus%3AGetTestGridSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381607"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679381886"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | The TestGridSession that was requested.</span><span>
@@ -480,16 +480,16 @@ forall a. Maybe a
      (Maybe TestGridSession)
      (Maybe TestGridSession)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse%27"><span class="hs-identifier hs-type">GetTestGridSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381606"><span class="annot"><span class="annottext">Maybe TestGridSession
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse%27"><span class="hs-identifier hs-type">GetTestGridSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381885"><span class="annot"><span class="annottext">Maybe TestGridSession
 testGridSession :: Maybe TestGridSession
 $sel:testGridSession:GetTestGridSessionResponse' :: GetTestGridSessionResponse -&gt; Maybe TestGridSession
-</span><a href="#local-6989586621679381606"><span class="hs-identifier hs-var hs-var">testGridSession</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TestGridSession
-</span><a href="#local-6989586621679381606"><span class="hs-identifier hs-var">testGridSession</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381605"><span class="annot"><span class="annottext">s :: GetTestGridSessionResponse
-</span><a href="#local-6989586621679381605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse%27"><span class="hs-identifier hs-type">GetTestGridSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381604"><span class="annot"><span class="annottext">Maybe TestGridSession
-</span><a href="#local-6989586621679381604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTestGridSessionResponse
-</span><a href="#local-6989586621679381605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:testGridSession:GetTestGridSessionResponse' :: Maybe TestGridSession
+</span><a href="#local-6989586621679381885"><span class="hs-identifier hs-var hs-var">testGridSession</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TestGridSession
+</span><a href="#local-6989586621679381885"><span class="hs-identifier hs-var">testGridSession</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381884"><span class="annot"><span class="annottext">s :: GetTestGridSessionResponse
+</span><a href="#local-6989586621679381884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse%27"><span class="hs-identifier hs-type">GetTestGridSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381883"><span class="annot"><span class="annottext">Maybe TestGridSession
+</span><a href="#local-6989586621679381883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTestGridSessionResponse
+</span><a href="#local-6989586621679381884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:testGridSession:GetTestGridSessionResponse' :: Maybe TestGridSession
 </span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AtestGridSession%3AGetTestGridSessionResponse%27"><span class="hs-identifier hs-var">testGridSession</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TestGridSession
-</span><a href="#local-6989586621679381604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse"><span class="hs-identifier hs-type">GetTestGridSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse"><span class="hs-identifier hs-type">GetTestGridSessionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-191"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#getTestGridSessionResponse_httpStatus"><span class="hs-identifier hs-type">getTestGridSessionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse"><span class="hs-identifier hs-type">GetTestGridSessionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -501,16 +501,16 @@ $sel:testGridSession:GetTestGridSessionResponse' :: GetTestGridSessionResponse -
 -&gt; Lens
      GetTestGridSessionResponse GetTestGridSessionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse%27"><span class="hs-identifier hs-type">GetTestGridSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381603"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse%27"><span class="hs-identifier hs-type">GetTestGridSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381882"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetTestGridSessionResponse' :: GetTestGridSessionResponse -&gt; Int
-</span><a href="#local-6989586621679381603"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381603"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381602"><span class="annot"><span class="annottext">s :: GetTestGridSessionResponse
-</span><a href="#local-6989586621679381602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse%27"><span class="hs-identifier hs-type">GetTestGridSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381601"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTestGridSessionResponse
-</span><a href="#local-6989586621679381602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTestGridSessionResponse' :: Int
+</span><a href="#local-6989586621679381882"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381882"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381881"><span class="annot"><span class="annottext">s :: GetTestGridSessionResponse
+</span><a href="#local-6989586621679381881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse%27"><span class="hs-identifier hs-type">GetTestGridSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381880"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679381880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetTestGridSessionResponse
+</span><a href="#local-6989586621679381881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetTestGridSessionResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#%24sel%3AhttpStatus%3AGetTestGridSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679381601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse"><span class="hs-identifier hs-type">GetTestGridSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679381880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse"><span class="hs-identifier hs-type">GetTestGridSessionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse"><span class="hs-identifier hs-type">GetTestGridSessionResponse</span></a></span></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381878"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetTestGridSession.html#GetTestGridSessionResponse"><span class="hs-identifier hs-type">GetTestGridSessionResponse</span></a></span></span><span>
 </span><span id="line-195"></span></pre></body></html>

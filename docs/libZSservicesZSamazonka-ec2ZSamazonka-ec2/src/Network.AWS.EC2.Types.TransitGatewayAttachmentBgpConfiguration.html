@@ -28,10 +28,10 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | The BGP configuration information.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newTransitGatewayAttachmentBgpConfiguration' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681134691"><span id="local-6989586621681134692"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransitGatewayAttachmentBgpConfiguration"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-var">TransitGatewayAttachmentBgpConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitGatewayAttachmentBgpConfiguration%27"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var">TransitGatewayAttachmentBgpConfiguration'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The interior BGP peer IP address for the appliance.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3ApeerAddress%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3ApeerAddress%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var hs-var">peerAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span id="local-6989586621681169820"><span id="local-6989586621681169821"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransitGatewayAttachmentBgpConfiguration"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-var">TransitGatewayAttachmentBgpConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitGatewayAttachmentBgpConfiguration%27"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var">TransitGatewayAttachmentBgpConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The transit gateway Autonomous System Number (ASN).</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AtransitGatewayAsn%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Integer
+</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3AtransitGatewayAsn%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var hs-var">transitGatewayAsn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The peer Autonomous System Number (ASN).</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3ApeerAsn%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Integer
 </span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3ApeerAsn%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var hs-var">peerAsn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
@@ -41,11 +41,11 @@
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The BGP status.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AbgpStatus%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration -&gt; Maybe BgpStatus
 </span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3AbgpStatus%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var hs-var">bgpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BgpStatus.html#BgpStatus"><span class="hs-identifier hs-type">BgpStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The transit gateway Autonomous System Number (ASN).</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AtransitGatewayAsn%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Integer
-</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3AtransitGatewayAsn%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var hs-var">transitGatewayAsn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The interior BGP peer IP address for the appliance.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3ApeerAddress%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3ApeerAddress%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var hs-var">peerAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681134681"><span id="local-6989586621681134683"><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681169810"><span id="local-6989586621681169812"><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration
 -&gt; TransitGatewayAttachmentBgpConfiguration -&gt; Bool
 (TransitGatewayAttachmentBgpConfiguration
  -&gt; TransitGatewayAttachmentBgpConfiguration -&gt; Bool)
@@ -61,7 +61,7 @@ $c/= :: TransitGatewayAttachmentBgpConfiguration
 -&gt; TransitGatewayAttachmentBgpConfiguration -&gt; Bool
 $c== :: TransitGatewayAttachmentBgpConfiguration
 -&gt; TransitGatewayAttachmentBgpConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681134672"><span id="local-6989586621681134674"><span id="local-6989586621681134676"><span id="local-6989586621681134678"><span class="annot"><span class="annottext">ReadPrec [TransitGatewayAttachmentBgpConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681169801"><span id="local-6989586621681169803"><span id="local-6989586621681169805"><span id="local-6989586621681169807"><span class="annot"><span class="annottext">ReadPrec [TransitGatewayAttachmentBgpConfiguration]
 ReadPrec TransitGatewayAttachmentBgpConfiguration
 Int -&gt; ReadS TransitGatewayAttachmentBgpConfiguration
 ReadS [TransitGatewayAttachmentBgpConfiguration]
@@ -81,7 +81,7 @@ readList :: ReadS [TransitGatewayAttachmentBgpConfiguration]
 $creadList :: ReadS [TransitGatewayAttachmentBgpConfiguration]
 readsPrec :: Int -&gt; ReadS TransitGatewayAttachmentBgpConfiguration
 $creadsPrec :: Int -&gt; ReadS TransitGatewayAttachmentBgpConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681134665"><span id="local-6989586621681134667"><span id="local-6989586621681134669"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayAttachmentBgpConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681169794"><span id="local-6989586621681169796"><span id="local-6989586621681169798"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayAttachmentBgpConfiguration -&gt; ShowS
 [TransitGatewayAttachmentBgpConfiguration] -&gt; ShowS
 TransitGatewayAttachmentBgpConfiguration -&gt; String
 (Int -&gt; TransitGatewayAttachmentBgpConfiguration -&gt; ShowS)
@@ -127,7 +127,7 @@ TransitGatewayAttachmentBgpConfiguration
 </span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'peerAddress', 'transitGatewayAttachmentBgpConfiguration_peerAddress' - The interior BGP peer IP address for the appliance.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'transitGatewayAsn', 'transitGatewayAttachmentBgpConfiguration_transitGatewayAsn' - The transit gateway Autonomous System Number (ASN).</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- 'peerAsn', 'transitGatewayAttachmentBgpConfiguration_peerAsn' - The peer Autonomous System Number (ASN).</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
@@ -135,21 +135,21 @@ TransitGatewayAttachmentBgpConfiguration
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- 'bgpStatus', 'transitGatewayAttachmentBgpConfiguration_bgpStatus' - The BGP status.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'transitGatewayAsn', 'transitGatewayAttachmentBgpConfiguration_transitGatewayAsn' - The transit gateway Autonomous System Number (ASN).</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'peerAddress', 'transitGatewayAttachmentBgpConfiguration_peerAddress' - The interior BGP peer IP address for the appliance.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#newTransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">newTransitGatewayAttachmentBgpConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span>
 </span><span id="line-64"></span><span id="newTransitGatewayAttachmentBgpConfiguration"><span class="annot"><span class="annottext">newTransitGatewayAttachmentBgpConfiguration :: TransitGatewayAttachmentBgpConfiguration
 </span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#newTransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-var hs-var">newTransitGatewayAttachmentBgpConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration' :: Maybe Text
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration' :: Maybe Integer
 -&gt; Maybe Integer
 -&gt; Maybe Text
 -&gt; Maybe BgpStatus
--&gt; Maybe Integer
+-&gt; Maybe Text
 -&gt; TransitGatewayAttachmentBgpConfiguration
 </span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:peerAddress:TransitGatewayAttachmentBgpConfiguration' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3ApeerAddress%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var">peerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transitGatewayAsn:TransitGatewayAttachmentBgpConfiguration' :: Maybe Integer
+</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3AtransitGatewayAsn%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var">transitGatewayAsn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:peerAsn:TransitGatewayAttachmentBgpConfiguration' :: Maybe Integer
@@ -165,116 +165,15 @@ forall a. Maybe a
 </span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3AbgpStatus%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var">bgpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BgpStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayAsn:TransitGatewayAttachmentBgpConfiguration' :: Maybe Integer
-</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3AtransitGatewayAsn%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var">transitGatewayAsn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:peerAddress:TransitGatewayAttachmentBgpConfiguration' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3ApeerAddress%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var">peerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | The interior BGP peer IP address for the appliance.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_peerAddress"><span class="hs-identifier hs-type">transitGatewayAttachmentBgpConfiguration_peerAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="transitGatewayAttachmentBgpConfiguration_peerAddress"><span class="annot"><span class="annottext">transitGatewayAttachmentBgpConfiguration_peerAddress :: (Maybe Text -&gt; f (Maybe Text))
--&gt; TransitGatewayAttachmentBgpConfiguration
--&gt; f TransitGatewayAttachmentBgpConfiguration
-</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_peerAddress"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentBgpConfiguration_peerAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Text)
--&gt; (TransitGatewayAttachmentBgpConfiguration
-    -&gt; Maybe Text -&gt; TransitGatewayAttachmentBgpConfiguration)
--&gt; Lens
-     TransitGatewayAttachmentBgpConfiguration
-     TransitGatewayAttachmentBgpConfiguration
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681134656"><span class="annot"><span class="annottext">Maybe Text
-peerAddress :: Maybe Text
-$sel:peerAddress:TransitGatewayAttachmentBgpConfiguration' :: TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621681134656"><span class="hs-identifier hs-var hs-var">peerAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681134656"><span class="hs-identifier hs-var">peerAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681134655"><span class="annot"><span class="annottext">s :: TransitGatewayAttachmentBgpConfiguration
-</span><a href="#local-6989586621681134655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681134654"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681134654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration
-</span><a href="#local-6989586621681134655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:peerAddress:TransitGatewayAttachmentBgpConfiguration' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3ApeerAddress%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var">peerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681134654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The peer Autonomous System Number (ASN).</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_peerAsn"><span class="hs-identifier hs-type">transitGatewayAttachmentBgpConfiguration_peerAsn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="transitGatewayAttachmentBgpConfiguration_peerAsn"><span class="annot"><span class="annottext">transitGatewayAttachmentBgpConfiguration_peerAsn :: (Maybe Integer -&gt; f (Maybe Integer))
--&gt; TransitGatewayAttachmentBgpConfiguration
--&gt; f TransitGatewayAttachmentBgpConfiguration
-</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_peerAsn"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentBgpConfiguration_peerAsn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Integer)
--&gt; (TransitGatewayAttachmentBgpConfiguration
-    -&gt; Maybe Integer -&gt; TransitGatewayAttachmentBgpConfiguration)
--&gt; Lens
-     TransitGatewayAttachmentBgpConfiguration
-     TransitGatewayAttachmentBgpConfiguration
-     (Maybe Integer)
-     (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681134652"><span class="annot"><span class="annottext">Maybe Integer
-peerAsn :: Maybe Integer
-$sel:peerAsn:TransitGatewayAttachmentBgpConfiguration' :: TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Integer
-</span><a href="#local-6989586621681134652"><span class="hs-identifier hs-var hs-var">peerAsn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681134652"><span class="hs-identifier hs-var">peerAsn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681134651"><span class="annot"><span class="annottext">s :: TransitGatewayAttachmentBgpConfiguration
-</span><a href="#local-6989586621681134651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681134650"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681134650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration
-</span><a href="#local-6989586621681134651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:peerAsn:TransitGatewayAttachmentBgpConfiguration' :: Maybe Integer
-</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3ApeerAsn%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var">peerAsn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681134650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The interior BGP peer IP address for the transit gateway.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_transitGatewayAddress"><span class="hs-identifier hs-type">transitGatewayAttachmentBgpConfiguration_transitGatewayAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="transitGatewayAttachmentBgpConfiguration_transitGatewayAddress"><span class="annot"><span class="annottext">transitGatewayAttachmentBgpConfiguration_transitGatewayAddress :: (Maybe Text -&gt; f (Maybe Text))
--&gt; TransitGatewayAttachmentBgpConfiguration
--&gt; f TransitGatewayAttachmentBgpConfiguration
-</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_transitGatewayAddress"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentBgpConfiguration_transitGatewayAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Text)
--&gt; (TransitGatewayAttachmentBgpConfiguration
-    -&gt; Maybe Text -&gt; TransitGatewayAttachmentBgpConfiguration)
--&gt; Lens
-     TransitGatewayAttachmentBgpConfiguration
-     TransitGatewayAttachmentBgpConfiguration
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681134648"><span class="annot"><span class="annottext">Maybe Text
-transitGatewayAddress :: Maybe Text
-$sel:transitGatewayAddress:TransitGatewayAttachmentBgpConfiguration' :: TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621681134648"><span class="hs-identifier hs-var hs-var">transitGatewayAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681134648"><span class="hs-identifier hs-var">transitGatewayAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681134647"><span class="annot"><span class="annottext">s :: TransitGatewayAttachmentBgpConfiguration
-</span><a href="#local-6989586621681134647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681134646"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681134646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration
-</span><a href="#local-6989586621681134647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAddress:TransitGatewayAttachmentBgpConfiguration' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3AtransitGatewayAddress%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var">transitGatewayAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681134646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The BGP status.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_bgpStatus"><span class="hs-identifier hs-type">transitGatewayAttachmentBgpConfiguration_bgpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BgpStatus.html#BgpStatus"><span class="hs-identifier hs-type">BgpStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="transitGatewayAttachmentBgpConfiguration_bgpStatus"><span class="annot"><span class="annottext">transitGatewayAttachmentBgpConfiguration_bgpStatus :: (Maybe BgpStatus -&gt; f (Maybe BgpStatus))
--&gt; TransitGatewayAttachmentBgpConfiguration
--&gt; f TransitGatewayAttachmentBgpConfiguration
-</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_bgpStatus"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentBgpConfiguration_bgpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayAttachmentBgpConfiguration -&gt; Maybe BgpStatus)
--&gt; (TransitGatewayAttachmentBgpConfiguration
-    -&gt; Maybe BgpStatus -&gt; TransitGatewayAttachmentBgpConfiguration)
--&gt; Lens
-     TransitGatewayAttachmentBgpConfiguration
-     TransitGatewayAttachmentBgpConfiguration
-     (Maybe BgpStatus)
-     (Maybe BgpStatus)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681134644"><span class="annot"><span class="annottext">Maybe BgpStatus
-bgpStatus :: Maybe BgpStatus
-$sel:bgpStatus:TransitGatewayAttachmentBgpConfiguration' :: TransitGatewayAttachmentBgpConfiguration -&gt; Maybe BgpStatus
-</span><a href="#local-6989586621681134644"><span class="hs-identifier hs-var hs-var">bgpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BgpStatus
-</span><a href="#local-6989586621681134644"><span class="hs-identifier hs-var">bgpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681134643"><span class="annot"><span class="annottext">s :: TransitGatewayAttachmentBgpConfiguration
-</span><a href="#local-6989586621681134643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681134642"><span class="annot"><span class="annottext">Maybe BgpStatus
-</span><a href="#local-6989586621681134642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration
-</span><a href="#local-6989586621681134643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bgpStatus:TransitGatewayAttachmentBgpConfiguration' :: Maybe BgpStatus
-</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3AbgpStatus%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var">bgpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BgpStatus
-</span><a href="#local-6989586621681134642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | The transit gateway Autonomous System Number (ASN).</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_transitGatewayAsn"><span class="hs-identifier hs-type">transitGatewayAttachmentBgpConfiguration_transitGatewayAsn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="transitGatewayAttachmentBgpConfiguration_transitGatewayAsn"><span class="annot"><span class="annottext">transitGatewayAttachmentBgpConfiguration_transitGatewayAsn :: (Maybe Integer -&gt; f (Maybe Integer))
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The transit gateway Autonomous System Number (ASN).</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_transitGatewayAsn"><span class="hs-identifier hs-type">transitGatewayAttachmentBgpConfiguration_transitGatewayAsn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="transitGatewayAttachmentBgpConfiguration_transitGatewayAsn"><span class="annot"><span class="annottext">transitGatewayAttachmentBgpConfiguration_transitGatewayAsn :: (Maybe Integer -&gt; f (Maybe Integer))
 -&gt; TransitGatewayAttachmentBgpConfiguration
 -&gt; f TransitGatewayAttachmentBgpConfiguration
 </span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_transitGatewayAsn"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentBgpConfiguration_transitGatewayAsn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Integer)
@@ -286,117 +185,217 @@ $sel:bgpStatus:TransitGatewayAttachmentBgpConfiguration' :: TransitGatewayAttach
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681134640"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681169785"><span class="annot"><span class="annottext">Maybe Integer
 transitGatewayAsn :: Maybe Integer
 $sel:transitGatewayAsn:TransitGatewayAttachmentBgpConfiguration' :: TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Integer
-</span><a href="#local-6989586621681134640"><span class="hs-identifier hs-var hs-var">transitGatewayAsn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681134640"><span class="hs-identifier hs-var">transitGatewayAsn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681134639"><span class="annot"><span class="annottext">s :: TransitGatewayAttachmentBgpConfiguration
-</span><a href="#local-6989586621681134639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681134638"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681134638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration
-</span><a href="#local-6989586621681134639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAsn:TransitGatewayAttachmentBgpConfiguration' :: Maybe Integer
+</span><a href="#local-6989586621681169785"><span class="hs-identifier hs-var hs-var">transitGatewayAsn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681169785"><span class="hs-identifier hs-var">transitGatewayAsn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681169784"><span class="annot"><span class="annottext">s :: TransitGatewayAttachmentBgpConfiguration
+</span><a href="#local-6989586621681169784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681169783"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681169783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration
+</span><a href="#local-6989586621681169784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAsn:TransitGatewayAttachmentBgpConfiguration' :: Maybe Integer
 </span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3AtransitGatewayAsn%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var">transitGatewayAsn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681134638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
-</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621681134635"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TransitGatewayAttachmentBgpConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681134633"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681134633"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681169783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The peer Autonomous System Number (ASN).</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_peerAsn"><span class="hs-identifier hs-type">transitGatewayAttachmentBgpConfiguration_peerAsn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="transitGatewayAttachmentBgpConfiguration_peerAsn"><span class="annot"><span class="annottext">transitGatewayAttachmentBgpConfiguration_peerAsn :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; TransitGatewayAttachmentBgpConfiguration
+-&gt; f TransitGatewayAttachmentBgpConfiguration
+</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_peerAsn"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentBgpConfiguration_peerAsn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Integer)
+-&gt; (TransitGatewayAttachmentBgpConfiguration
+    -&gt; Maybe Integer -&gt; TransitGatewayAttachmentBgpConfiguration)
+-&gt; Lens
+     TransitGatewayAttachmentBgpConfiguration
+     TransitGatewayAttachmentBgpConfiguration
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681169781"><span class="annot"><span class="annottext">Maybe Integer
+peerAsn :: Maybe Integer
+$sel:peerAsn:TransitGatewayAttachmentBgpConfiguration' :: TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Integer
+</span><a href="#local-6989586621681169781"><span class="hs-identifier hs-var hs-var">peerAsn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681169781"><span class="hs-identifier hs-var">peerAsn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681169780"><span class="annot"><span class="annottext">s :: TransitGatewayAttachmentBgpConfiguration
+</span><a href="#local-6989586621681169780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681169779"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681169779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration
+</span><a href="#local-6989586621681169780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:peerAsn:TransitGatewayAttachmentBgpConfiguration' :: Maybe Integer
+</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3ApeerAsn%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var">peerAsn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681169779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The interior BGP peer IP address for the transit gateway.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_transitGatewayAddress"><span class="hs-identifier hs-type">transitGatewayAttachmentBgpConfiguration_transitGatewayAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="transitGatewayAttachmentBgpConfiguration_transitGatewayAddress"><span class="annot"><span class="annottext">transitGatewayAttachmentBgpConfiguration_transitGatewayAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TransitGatewayAttachmentBgpConfiguration
+-&gt; f TransitGatewayAttachmentBgpConfiguration
+</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_transitGatewayAddress"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentBgpConfiguration_transitGatewayAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Text)
+-&gt; (TransitGatewayAttachmentBgpConfiguration
+    -&gt; Maybe Text -&gt; TransitGatewayAttachmentBgpConfiguration)
+-&gt; Lens
+     TransitGatewayAttachmentBgpConfiguration
+     TransitGatewayAttachmentBgpConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681169777"><span class="annot"><span class="annottext">Maybe Text
+transitGatewayAddress :: Maybe Text
+$sel:transitGatewayAddress:TransitGatewayAttachmentBgpConfiguration' :: TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621681169777"><span class="hs-identifier hs-var hs-var">transitGatewayAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681169777"><span class="hs-identifier hs-var">transitGatewayAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681169776"><span class="annot"><span class="annottext">s :: TransitGatewayAttachmentBgpConfiguration
+</span><a href="#local-6989586621681169776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681169775"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681169775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration
+</span><a href="#local-6989586621681169776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayAddress:TransitGatewayAttachmentBgpConfiguration' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3AtransitGatewayAddress%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var">transitGatewayAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681169775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The BGP status.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_bgpStatus"><span class="hs-identifier hs-type">transitGatewayAttachmentBgpConfiguration_bgpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.BgpStatus.html#BgpStatus"><span class="hs-identifier hs-type">BgpStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="transitGatewayAttachmentBgpConfiguration_bgpStatus"><span class="annot"><span class="annottext">transitGatewayAttachmentBgpConfiguration_bgpStatus :: (Maybe BgpStatus -&gt; f (Maybe BgpStatus))
+-&gt; TransitGatewayAttachmentBgpConfiguration
+-&gt; f TransitGatewayAttachmentBgpConfiguration
+</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_bgpStatus"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentBgpConfiguration_bgpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayAttachmentBgpConfiguration -&gt; Maybe BgpStatus)
+-&gt; (TransitGatewayAttachmentBgpConfiguration
+    -&gt; Maybe BgpStatus -&gt; TransitGatewayAttachmentBgpConfiguration)
+-&gt; Lens
+     TransitGatewayAttachmentBgpConfiguration
+     TransitGatewayAttachmentBgpConfiguration
+     (Maybe BgpStatus)
+     (Maybe BgpStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681169773"><span class="annot"><span class="annottext">Maybe BgpStatus
+bgpStatus :: Maybe BgpStatus
+$sel:bgpStatus:TransitGatewayAttachmentBgpConfiguration' :: TransitGatewayAttachmentBgpConfiguration -&gt; Maybe BgpStatus
+</span><a href="#local-6989586621681169773"><span class="hs-identifier hs-var hs-var">bgpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BgpStatus
+</span><a href="#local-6989586621681169773"><span class="hs-identifier hs-var">bgpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681169772"><span class="annot"><span class="annottext">s :: TransitGatewayAttachmentBgpConfiguration
+</span><a href="#local-6989586621681169772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681169771"><span class="annot"><span class="annottext">Maybe BgpStatus
+</span><a href="#local-6989586621681169771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration
+</span><a href="#local-6989586621681169772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bgpStatus:TransitGatewayAttachmentBgpConfiguration' :: Maybe BgpStatus
+</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3AbgpStatus%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var">bgpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BgpStatus
+</span><a href="#local-6989586621681169771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The interior BGP peer IP address for the appliance.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_peerAddress"><span class="hs-identifier hs-type">transitGatewayAttachmentBgpConfiguration_peerAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="transitGatewayAttachmentBgpConfiguration_peerAddress"><span class="annot"><span class="annottext">transitGatewayAttachmentBgpConfiguration_peerAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TransitGatewayAttachmentBgpConfiguration
+-&gt; f TransitGatewayAttachmentBgpConfiguration
+</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#transitGatewayAttachmentBgpConfiguration_peerAddress"><span class="hs-identifier hs-var hs-var">transitGatewayAttachmentBgpConfiguration_peerAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Text)
+-&gt; (TransitGatewayAttachmentBgpConfiguration
+    -&gt; Maybe Text -&gt; TransitGatewayAttachmentBgpConfiguration)
+-&gt; Lens
+     TransitGatewayAttachmentBgpConfiguration
+     TransitGatewayAttachmentBgpConfiguration
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681169769"><span class="annot"><span class="annottext">Maybe Text
+peerAddress :: Maybe Text
+$sel:peerAddress:TransitGatewayAttachmentBgpConfiguration' :: TransitGatewayAttachmentBgpConfiguration -&gt; Maybe Text
+</span><a href="#local-6989586621681169769"><span class="hs-identifier hs-var hs-var">peerAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681169769"><span class="hs-identifier hs-var">peerAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681169768"><span class="annot"><span class="annottext">s :: TransitGatewayAttachmentBgpConfiguration
+</span><a href="#local-6989586621681169768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681169767"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681169767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGatewayAttachmentBgpConfiguration
+</span><a href="#local-6989586621681169768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:peerAddress:TransitGatewayAttachmentBgpConfiguration' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#%24sel%3ApeerAddress%3ATransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var">peerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681169767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621681169764"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TransitGatewayAttachmentBgpConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681169762"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681169762"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">Maybe Integer
 -&gt; Maybe Integer
 -&gt; Maybe Text
 -&gt; Maybe BgpStatus
--&gt; Maybe Integer
+-&gt; Maybe Text
 -&gt; TransitGatewayAttachmentBgpConfiguration
 </span><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration%27"><span class="hs-identifier hs-var">TransitGatewayAttachmentBgpConfiguration'</span></a></span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Integer
  -&gt; Maybe Integer
  -&gt; Maybe Text
  -&gt; Maybe BgpStatus
- -&gt; Maybe Integer
+ -&gt; Maybe Text
  -&gt; TransitGatewayAttachmentBgpConfiguration)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Integer)
 -&gt; Either
      String
      (Maybe Integer
       -&gt; Maybe Text
       -&gt; Maybe BgpStatus
-      -&gt; Maybe Integer
+      -&gt; Maybe Text
       -&gt; TransitGatewayAttachmentBgpConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681134633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681169762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;peerAddress&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;transitGatewayAsn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Integer
    -&gt; Maybe Text
    -&gt; Maybe BgpStatus
-   -&gt; Maybe Integer
+   -&gt; Maybe Text
    -&gt; TransitGatewayAttachmentBgpConfiguration)
 -&gt; Either String (Maybe Integer)
 -&gt; Either
      String
      (Maybe Text
       -&gt; Maybe BgpStatus
-      -&gt; Maybe Integer
+      -&gt; Maybe Text
       -&gt; TransitGatewayAttachmentBgpConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681134633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621681169762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;peerAsn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Either
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe BgpStatus
-   -&gt; Maybe Integer
+   -&gt; Maybe Text
    -&gt; TransitGatewayAttachmentBgpConfiguration)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe BgpStatus
-      -&gt; Maybe Integer -&gt; TransitGatewayAttachmentBgpConfiguration)
+      -&gt; Maybe Text -&gt; TransitGatewayAttachmentBgpConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681134633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681169762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transitGatewayAddress&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">Either
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Either
   String
   (Maybe BgpStatus
-   -&gt; Maybe Integer -&gt; TransitGatewayAttachmentBgpConfiguration)
+   -&gt; Maybe Text -&gt; TransitGatewayAttachmentBgpConfiguration)
 -&gt; Either String (Maybe BgpStatus)
 -&gt; Either
-     String (Maybe Integer -&gt; TransitGatewayAttachmentBgpConfiguration)
+     String (Maybe Text -&gt; TransitGatewayAttachmentBgpConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681134633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe BgpStatus)
+</span><a href="#local-6989586621681169762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe BgpStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;bgpStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Either
-  String (Maybe Integer -&gt; TransitGatewayAttachmentBgpConfiguration)
--&gt; Either String (Maybe Integer)
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; TransitGatewayAttachmentBgpConfiguration)
+-&gt; Either String (Maybe Text)
 -&gt; Either String TransitGatewayAttachmentBgpConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681134633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621681169762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;transitGatewayAsn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621681134627"><span id="local-6989586621681134629"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
-</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span></span></span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621681134624"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span></span><span>
-</span><span id="line-115"></span></pre></body></html>
+</span><span class="hs-string">&quot;peerAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621681169756"><span id="local-6989586621681169758"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span></span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621681169753"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayAttachmentBgpConfiguration.html#TransitGatewayAttachmentBgpConfiguration"><span class="hs-identifier hs-type">TransitGatewayAttachmentBgpConfiguration</span></a></span></span><span>
+</span><span id="line-114"></span></pre></body></html>

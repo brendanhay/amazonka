@@ -23,7 +23,7 @@
 </span><span id="line-23"></span><span class="hs-comment">-- Move a dedicated IP address to an existing dedicated IP pool.</span><span>
 </span><span id="line-24"></span><span class="hs-comment">--</span><span>
 </span><span id="line-25"></span><span class="hs-comment">-- The dedicated IP address that you specify must already exist, and must</span><span>
-</span><span id="line-26"></span><span class="hs-comment">-- be associated with your AWS account.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- be associated with your Amazon Web Services account.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- The dedicated IP pool you specify must already exist. You can create a</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- new pool by using the @CreateDedicatedIpPool@ operation.</span><span>
@@ -55,10 +55,10 @@
 </span><span id="line-55"></span><span class="hs-comment">-- | A request to move a dedicated IP address to a dedicated IP pool.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newPutDedicatedIpInPool' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679337135"><span id="local-6989586621679337136"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDedicatedIpInPool"><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-var">PutDedicatedIpInPool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDedicatedIpInPool%27"><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool%27"><span class="hs-identifier hs-var">PutDedicatedIpInPool'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679339675"><span id="local-6989586621679339676"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDedicatedIpInPool"><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-var">PutDedicatedIpInPool</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDedicatedIpInPool%27"><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool%27"><span class="hs-identifier hs-var">PutDedicatedIpInPool'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IP address that you want to move to the dedicated IP pool. The value</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- you specify has to be a dedicated IP address that\'s associated with</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- your AWS account.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- your Amazon Web Services account.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3Aip%3APutDedicatedIpInPool%27"><span class="annot"><span class="annottext">PutDedicatedIpInPool -&gt; Text
 </span><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#%24sel%3Aip%3APutDedicatedIpInPool%27"><span class="hs-identifier hs-var hs-var">ip</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The name of the IP pool that you want to add the dedicated IP address</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AdestinationPoolName%3APutDedicatedIpInPool%27"><span class="annot"><span class="annottext">PutDedicatedIpInPool -&gt; Text
 </span><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#%24sel%3AdestinationPoolName%3APutDedicatedIpInPool%27"><span class="hs-identifier hs-var hs-var">destinationPoolName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337128"><span id="local-6989586621679337130"><span class="annot"><span class="annottext">PutDedicatedIpInPool -&gt; PutDedicatedIpInPool -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339668"><span id="local-6989586621679339670"><span class="annot"><span class="annottext">PutDedicatedIpInPool -&gt; PutDedicatedIpInPool -&gt; Bool
 (PutDedicatedIpInPool -&gt; PutDedicatedIpInPool -&gt; Bool)
 -&gt; (PutDedicatedIpInPool -&gt; PutDedicatedIpInPool -&gt; Bool)
 -&gt; Eq PutDedicatedIpInPool
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutDedicatedIpInPool -&gt; PutDedicatedIpInPool -&gt; Bool
 == :: PutDedicatedIpInPool -&gt; PutDedicatedIpInPool -&gt; Bool
 $c== :: PutDedicatedIpInPool -&gt; PutDedicatedIpInPool -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337119"><span id="local-6989586621679337121"><span id="local-6989586621679337123"><span id="local-6989586621679337125"><span class="annot"><span class="annottext">ReadPrec [PutDedicatedIpInPool]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339659"><span id="local-6989586621679339661"><span id="local-6989586621679339663"><span id="local-6989586621679339665"><span class="annot"><span class="annottext">ReadPrec [PutDedicatedIpInPool]
 ReadPrec PutDedicatedIpInPool
 Int -&gt; ReadS PutDedicatedIpInPool
 ReadS [PutDedicatedIpInPool]
@@ -95,7 +95,7 @@ readList :: ReadS [PutDedicatedIpInPool]
 $creadList :: ReadS [PutDedicatedIpInPool]
 readsPrec :: Int -&gt; ReadS PutDedicatedIpInPool
 $creadsPrec :: Int -&gt; ReadS PutDedicatedIpInPool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337112"><span id="local-6989586621679337114"><span id="local-6989586621679337116"><span class="annot"><span class="annottext">Int -&gt; PutDedicatedIpInPool -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339652"><span id="local-6989586621679339654"><span id="local-6989586621679339656"><span class="annot"><span class="annottext">Int -&gt; PutDedicatedIpInPool -&gt; ShowS
 [PutDedicatedIpInPool] -&gt; ShowS
 PutDedicatedIpInPool -&gt; String
 (Int -&gt; PutDedicatedIpInPool -&gt; ShowS)
@@ -131,7 +131,7 @@ $cfrom :: forall x. PutDedicatedIpInPool -&gt; Rep PutDedicatedIpInPool x
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- 'ip', 'putDedicatedIpInPool_ip' - The IP address that you want to move to the dedicated IP pool. The value</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- you specify has to be a dedicated IP address that\'s associated with</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- your AWS account.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- your Amazon Web Services account.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- 'destinationPoolName', 'putDedicatedIpInPool_destinationPoolName' - The name of the IP pool that you want to add the dedicated IP address</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- to. You have to specify an IP pool that already exists.</span><span>
@@ -142,38 +142,38 @@ $cfrom :: forall x. PutDedicatedIpInPool -&gt; Rep PutDedicatedIpInPool x
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-type">PutDedicatedIpInPool</span></a></span><span>
 </span><span id="line-89"></span><span id="newPutDedicatedIpInPool"><span class="annot"><span class="annottext">newPutDedicatedIpInPool :: Text -&gt; Text -&gt; PutDedicatedIpInPool
-</span><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#newPutDedicatedIpInPool"><span class="hs-identifier hs-var hs-var">newPutDedicatedIpInPool</span></a></span></span><span> </span><span id="local-6989586621679337107"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337107"><span class="hs-identifier hs-var">pIp_</span></a></span></span><span> </span><span id="local-6989586621679337106"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337106"><span class="hs-identifier hs-var">pDestinationPoolName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#newPutDedicatedIpInPool"><span class="hs-identifier hs-var hs-var">newPutDedicatedIpInPool</span></a></span></span><span> </span><span id="local-6989586621679339647"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679339647"><span class="hs-identifier hs-var">pIp_</span></a></span></span><span> </span><span id="local-6989586621679339646"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679339646"><span class="hs-identifier hs-var">pDestinationPoolName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">PutDedicatedIpInPool' :: Text -&gt; Text -&gt; PutDedicatedIpInPool
 </span><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool%27"><span class="hs-identifier hs-type">PutDedicatedIpInPool'</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ip:PutDedicatedIpInPool' :: Text
 </span><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#%24sel%3Aip%3APutDedicatedIpInPool%27"><span class="hs-identifier hs-var">ip</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337107"><span class="hs-identifier hs-var">pIp_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679339647"><span class="hs-identifier hs-var">pIp_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationPoolName:PutDedicatedIpInPool' :: Text
 </span><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#%24sel%3AdestinationPoolName%3APutDedicatedIpInPool%27"><span class="hs-identifier hs-var">destinationPoolName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337106"><span class="hs-identifier hs-var">pDestinationPoolName_</span></a></span><span>
+</span><a href="#local-6989586621679339646"><span class="hs-identifier hs-var">pDestinationPoolName_</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The IP address that you want to move to the dedicated IP pool. The value</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- you specify has to be a dedicated IP address that\'s associated with</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- your AWS account.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- your Amazon Web Services account.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#putDedicatedIpInPool_ip"><span class="hs-identifier hs-type">putDedicatedIpInPool_ip</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-type">PutDedicatedIpInPool</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-99"></span><span id="putDedicatedIpInPool_ip"><span class="annot"><span class="annottext">putDedicatedIpInPool_ip :: (Text -&gt; f Text) -&gt; PutDedicatedIpInPool -&gt; f PutDedicatedIpInPool
 </span><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#putDedicatedIpInPool_ip"><span class="hs-identifier hs-var hs-var">putDedicatedIpInPool_ip</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutDedicatedIpInPool -&gt; Text)
 -&gt; (PutDedicatedIpInPool -&gt; Text -&gt; PutDedicatedIpInPool)
 -&gt; Lens PutDedicatedIpInPool PutDedicatedIpInPool Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool%27"><span class="hs-identifier hs-type">PutDedicatedIpInPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337103"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool%27"><span class="hs-identifier hs-type">PutDedicatedIpInPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339643"><span class="annot"><span class="annottext">Text
 ip :: Text
 $sel:ip:PutDedicatedIpInPool' :: PutDedicatedIpInPool -&gt; Text
-</span><a href="#local-6989586621679337103"><span class="hs-identifier hs-var hs-var">ip</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337103"><span class="hs-identifier hs-var">ip</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337102"><span class="annot"><span class="annottext">s :: PutDedicatedIpInPool
-</span><a href="#local-6989586621679337102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool%27"><span class="hs-identifier hs-type">PutDedicatedIpInPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337101"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDedicatedIpInPool
-</span><a href="#local-6989586621679337102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ip:PutDedicatedIpInPool' :: Text
+</span><a href="#local-6989586621679339643"><span class="hs-identifier hs-var hs-var">ip</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679339643"><span class="hs-identifier hs-var">ip</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339642"><span class="annot"><span class="annottext">s :: PutDedicatedIpInPool
+</span><a href="#local-6989586621679339642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool%27"><span class="hs-identifier hs-type">PutDedicatedIpInPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339641"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679339641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDedicatedIpInPool
+</span><a href="#local-6989586621679339642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ip:PutDedicatedIpInPool' :: Text
 </span><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#%24sel%3Aip%3APutDedicatedIpInPool%27"><span class="hs-identifier hs-var">ip</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-type">PutDedicatedIpInPool</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679339641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-type">PutDedicatedIpInPool</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The name of the IP pool that you want to add the dedicated IP address</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- to. You have to specify an IP pool that already exists.</span><span>
@@ -183,27 +183,27 @@ $sel:ip:PutDedicatedIpInPool' :: PutDedicatedIpInPool -&gt; Text
 -&gt; (PutDedicatedIpInPool -&gt; Text -&gt; PutDedicatedIpInPool)
 -&gt; Lens PutDedicatedIpInPool PutDedicatedIpInPool Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool%27"><span class="hs-identifier hs-type">PutDedicatedIpInPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337100"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool%27"><span class="hs-identifier hs-type">PutDedicatedIpInPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339640"><span class="annot"><span class="annottext">Text
 destinationPoolName :: Text
 $sel:destinationPoolName:PutDedicatedIpInPool' :: PutDedicatedIpInPool -&gt; Text
-</span><a href="#local-6989586621679337100"><span class="hs-identifier hs-var hs-var">destinationPoolName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337100"><span class="hs-identifier hs-var">destinationPoolName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337099"><span class="annot"><span class="annottext">s :: PutDedicatedIpInPool
-</span><a href="#local-6989586621679337099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool%27"><span class="hs-identifier hs-type">PutDedicatedIpInPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337098"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDedicatedIpInPool
-</span><a href="#local-6989586621679337099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationPoolName:PutDedicatedIpInPool' :: Text
+</span><a href="#local-6989586621679339640"><span class="hs-identifier hs-var hs-var">destinationPoolName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679339640"><span class="hs-identifier hs-var">destinationPoolName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339639"><span class="annot"><span class="annottext">s :: PutDedicatedIpInPool
+</span><a href="#local-6989586621679339639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool%27"><span class="hs-identifier hs-type">PutDedicatedIpInPool'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339638"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679339638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDedicatedIpInPool
+</span><a href="#local-6989586621679339639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationPoolName:PutDedicatedIpInPool' :: Text
 </span><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#%24sel%3AdestinationPoolName%3APutDedicatedIpInPool%27"><span class="hs-identifier hs-var">destinationPoolName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-type">PutDedicatedIpInPool</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679339638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-type">PutDedicatedIpInPool</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-type">PutDedicatedIpInPool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-type">PutDedicatedIpInPool</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPoolResponse"><span class="hs-identifier hs-type">PutDedicatedIpInPoolResponse</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679337094"><span class="annot"><span class="annottext">request :: PutDedicatedIpInPool -&gt; Request PutDedicatedIpInPool
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679339634"><span class="annot"><span class="annottext">request :: PutDedicatedIpInPool -&gt; Request PutDedicatedIpInPool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutDedicatedIpInPool -&gt; Request PutDedicatedIpInPool
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679337090"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679339630"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutDedicatedIpInPool
 -&gt; ClientResponse ClientBody
@@ -229,10 +229,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679337087"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337087"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679337086"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679337086"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679337085"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679337085"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679339627"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679339627"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679339626"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679339626"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679339625"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679339625"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; PutDedicatedIpInPoolResponse
 </span><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPoolResponse%27"><span class="hs-identifier hs-var">PutDedicatedIpInPoolResponse'</span></a></span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; PutDedicatedIpInPoolResponse)
@@ -243,15 +243,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337087"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679339627"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337078"><span id="local-6989586621679337080"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-type">PutDedicatedIpInPool</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339618"><span id="local-6989586621679339620"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-type">PutDedicatedIpInPool</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337075"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-type">PutDedicatedIpInPool</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339615"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-type">PutDedicatedIpInPool</span></a></span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-type">PutDedicatedIpInPool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679337071"><span class="annot"><span class="annottext">toHeaders :: PutDedicatedIpInPool -&gt; ResponseHeaders
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679339611"><span class="annot"><span class="annottext">toHeaders :: PutDedicatedIpInPool -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutDedicatedIpInPool -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -270,14 +270,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337061"><span id="local-6989586621679337063"><span id="local-6989586621679337065"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-type">PutDedicatedIpInPool</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679337059"><span class="annot"><span class="annottext">toJSON :: PutDedicatedIpInPool -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool%27"><span class="hs-identifier hs-type">PutDedicatedIpInPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337056"><span id="local-6989586621679337057"><span class="annot"><span class="annottext">Text
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339601"><span id="local-6989586621679339603"><span id="local-6989586621679339605"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-type">PutDedicatedIpInPool</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679339599"><span class="annot"><span class="annottext">toJSON :: PutDedicatedIpInPool -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool%27"><span class="hs-identifier hs-type">PutDedicatedIpInPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339596"><span id="local-6989586621679339597"><span class="annot"><span class="annottext">Text
 destinationPoolName :: Text
 ip :: Text
 $sel:destinationPoolName:PutDedicatedIpInPool' :: PutDedicatedIpInPool -&gt; Text
 $sel:ip:PutDedicatedIpInPool' :: PutDedicatedIpInPool -&gt; Text
-</span><a href="#local-6989586621679337056"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679339596"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -290,18 +290,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DestinationPoolName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337056"><span class="hs-identifier hs-var">destinationPoolName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679339596"><span class="hs-identifier hs-var">destinationPoolName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-type">PutDedicatedIpInPool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679337050"><span class="annot"><span class="annottext">toPath :: PutDedicatedIpInPool -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool%27"><span class="hs-identifier hs-type">PutDedicatedIpInPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337047"><span id="local-6989586621679337048"><span class="annot"><span class="annottext">Text
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679339590"><span class="annot"><span class="annottext">toPath :: PutDedicatedIpInPool -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool%27"><span class="hs-identifier hs-type">PutDedicatedIpInPool'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339587"><span id="local-6989586621679339588"><span class="annot"><span class="annottext">Text
 destinationPoolName :: Text
 ip :: Text
 $sel:destinationPoolName:PutDedicatedIpInPool' :: PutDedicatedIpInPool -&gt; Text
 $sel:ip:PutDedicatedIpInPool' :: PutDedicatedIpInPool -&gt; Text
-</span><a href="#local-6989586621679337047"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679339587"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -309,11 +309,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/v2/email/dedicated-ips/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679337048"><span class="hs-identifier hs-var">ip</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679339588"><span class="hs-identifier hs-var">ip</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/pool&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPool"><span class="hs-identifier hs-type">PutDedicatedIpInPool</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679337043"><span class="annot"><span class="annottext">toQuery :: PutDedicatedIpInPool -&gt; QueryString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679339583"><span class="annot"><span class="annottext">toQuery :: PutDedicatedIpInPool -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutDedicatedIpInPool -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -324,12 +324,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-151"></span><span class="hs-comment">-- request fails.</span><span>
 </span><span id="line-152"></span><span class="hs-comment">--</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- /See:/ 'newPutDedicatedIpInPoolResponse' smart constructor.</span><span>
-</span><span id="line-154"></span><span id="local-6989586621679337040"><span id="local-6989586621679337041"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDedicatedIpInPoolResponse"><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPoolResponse"><span class="hs-identifier hs-var">PutDedicatedIpInPoolResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDedicatedIpInPoolResponse%27"><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPoolResponse%27"><span class="hs-identifier hs-var">PutDedicatedIpInPoolResponse'</span></a></span></span><span>
+</span><span id="line-154"></span><span id="local-6989586621679339580"><span id="local-6989586621679339581"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDedicatedIpInPoolResponse"><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPoolResponse"><span class="hs-identifier hs-var">PutDedicatedIpInPoolResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDedicatedIpInPoolResponse%27"><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPoolResponse%27"><span class="hs-identifier hs-var">PutDedicatedIpInPoolResponse'</span></a></span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutDedicatedIpInPoolResponse%27"><span class="annot"><span class="annottext">PutDedicatedIpInPoolResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#%24sel%3AhttpStatus%3APutDedicatedIpInPoolResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679337035"><span id="local-6989586621679337037"><span class="annot"><span class="annottext">PutDedicatedIpInPoolResponse
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339575"><span id="local-6989586621679339577"><span class="annot"><span class="annottext">PutDedicatedIpInPoolResponse
 -&gt; PutDedicatedIpInPoolResponse -&gt; Bool
 (PutDedicatedIpInPoolResponse
  -&gt; PutDedicatedIpInPoolResponse -&gt; Bool)
@@ -345,7 +345,7 @@ $c/= :: PutDedicatedIpInPoolResponse
 -&gt; PutDedicatedIpInPoolResponse -&gt; Bool
 $c== :: PutDedicatedIpInPoolResponse
 -&gt; PutDedicatedIpInPoolResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337027"><span id="local-6989586621679337029"><span id="local-6989586621679337031"><span id="local-6989586621679337033"><span class="annot"><span class="annottext">ReadPrec [PutDedicatedIpInPoolResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339567"><span id="local-6989586621679339569"><span id="local-6989586621679339571"><span id="local-6989586621679339573"><span class="annot"><span class="annottext">ReadPrec [PutDedicatedIpInPoolResponse]
 ReadPrec PutDedicatedIpInPoolResponse
 Int -&gt; ReadS PutDedicatedIpInPoolResponse
 ReadS [PutDedicatedIpInPoolResponse]
@@ -365,7 +365,7 @@ readList :: ReadS [PutDedicatedIpInPoolResponse]
 $creadList :: ReadS [PutDedicatedIpInPoolResponse]
 readsPrec :: Int -&gt; ReadS PutDedicatedIpInPoolResponse
 $creadsPrec :: Int -&gt; ReadS PutDedicatedIpInPoolResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679337021"><span id="local-6989586621679337023"><span id="local-6989586621679337025"><span class="annot"><span class="annottext">Int -&gt; PutDedicatedIpInPoolResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339561"><span id="local-6989586621679339563"><span id="local-6989586621679339565"><span class="annot"><span class="annottext">Int -&gt; PutDedicatedIpInPoolResponse -&gt; ShowS
 [PutDedicatedIpInPoolResponse] -&gt; ShowS
 PutDedicatedIpInPoolResponse -&gt; String
 (Int -&gt; PutDedicatedIpInPoolResponse -&gt; ShowS)
@@ -411,14 +411,14 @@ PutDedicatedIpInPoolResponse -&gt; Rep PutDedicatedIpInPoolResponse x
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPoolResponse"><span class="hs-identifier hs-type">PutDedicatedIpInPoolResponse</span></a></span><span>
 </span><span id="line-173"></span><span id="newPutDedicatedIpInPoolResponse"><span class="annot"><span class="annottext">newPutDedicatedIpInPoolResponse :: Int -&gt; PutDedicatedIpInPoolResponse
-</span><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#newPutDedicatedIpInPoolResponse"><span class="hs-identifier hs-var hs-var">newPutDedicatedIpInPoolResponse</span></a></span></span><span> </span><span id="local-6989586621679337018"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337018"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#newPutDedicatedIpInPoolResponse"><span class="hs-identifier hs-var hs-var">newPutDedicatedIpInPoolResponse</span></a></span></span><span> </span><span id="local-6989586621679339558"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679339558"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">PutDedicatedIpInPoolResponse' :: Int -&gt; PutDedicatedIpInPoolResponse
 </span><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPoolResponse%27"><span class="hs-identifier hs-type">PutDedicatedIpInPoolResponse'</span></a></span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:PutDedicatedIpInPoolResponse' :: Int
 </span><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#%24sel%3AhttpStatus%3APutDedicatedIpInPoolResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337018"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679339558"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -431,16 +431,16 @@ PutDedicatedIpInPoolResponse -&gt; Rep PutDedicatedIpInPoolResponse x
 -&gt; Lens
      PutDedicatedIpInPoolResponse PutDedicatedIpInPoolResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPoolResponse%27"><span class="hs-identifier hs-type">PutDedicatedIpInPoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679337017"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPoolResponse%27"><span class="hs-identifier hs-type">PutDedicatedIpInPoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339557"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutDedicatedIpInPoolResponse' :: PutDedicatedIpInPoolResponse -&gt; Int
-</span><a href="#local-6989586621679337017"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337017"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679337016"><span class="annot"><span class="annottext">s :: PutDedicatedIpInPoolResponse
-</span><a href="#local-6989586621679337016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPoolResponse%27"><span class="hs-identifier hs-type">PutDedicatedIpInPoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679337015"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDedicatedIpInPoolResponse
-</span><a href="#local-6989586621679337016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutDedicatedIpInPoolResponse' :: Int
+</span><a href="#local-6989586621679339557"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679339557"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339556"><span class="annot"><span class="annottext">s :: PutDedicatedIpInPoolResponse
+</span><a href="#local-6989586621679339556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPoolResponse%27"><span class="hs-identifier hs-type">PutDedicatedIpInPoolResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339555"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679339555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDedicatedIpInPoolResponse
+</span><a href="#local-6989586621679339556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutDedicatedIpInPoolResponse' :: Int
 </span><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#%24sel%3AhttpStatus%3APutDedicatedIpInPoolResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679337015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPoolResponse"><span class="hs-identifier hs-type">PutDedicatedIpInPoolResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679339555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPoolResponse"><span class="hs-identifier hs-type">PutDedicatedIpInPoolResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679337013"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPoolResponse"><span class="hs-identifier hs-type">PutDedicatedIpInPoolResponse</span></a></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339553"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.PutDedicatedIpInPool.html#PutDedicatedIpInPoolResponse"><span class="hs-identifier hs-type">PutDedicatedIpInPoolResponse</span></a></span></span><span>
 </span><span id="line-184"></span></pre></body></html>

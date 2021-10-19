@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Represents filters for a dimension.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDimensionFilter' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679253711"><span id="local-6989586621679253712"></span></span><span class="hs-keyword">data</span><span> </span><span id="DimensionFilter"><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter"><span class="hs-identifier hs-var">DimensionFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DimensionFilter%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter%27"><span class="hs-identifier hs-var">DimensionFilter'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679254036"><span id="local-6989586621679254037"></span></span><span class="hs-keyword">data</span><span> </span><span id="DimensionFilter"><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter"><span class="hs-identifier hs-var">DimensionFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DimensionFilter%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter%27"><span class="hs-identifier hs-var">DimensionFilter'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the dimension to be matched.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Avalue%3ADimensionFilter%27"><span class="annot"><span class="annottext">DimensionFilter -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#%24sel%3Avalue%3ADimensionFilter%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3ADimensionFilter%27"><span class="annot"><span class="annottext">DimensionFilter -&gt; Text
 </span><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#%24sel%3Aname%3ADimensionFilter%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253704"><span id="local-6989586621679253706"><span class="annot"><span class="annottext">DimensionFilter -&gt; DimensionFilter -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254029"><span id="local-6989586621679254031"><span class="annot"><span class="annottext">DimensionFilter -&gt; DimensionFilter -&gt; Bool
 (DimensionFilter -&gt; DimensionFilter -&gt; Bool)
 -&gt; (DimensionFilter -&gt; DimensionFilter -&gt; Bool)
 -&gt; Eq DimensionFilter
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DimensionFilter -&gt; DimensionFilter -&gt; Bool
 == :: DimensionFilter -&gt; DimensionFilter -&gt; Bool
 $c== :: DimensionFilter -&gt; DimensionFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253695"><span id="local-6989586621679253697"><span id="local-6989586621679253699"><span id="local-6989586621679253701"><span class="annot"><span class="annottext">ReadPrec [DimensionFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254020"><span id="local-6989586621679254022"><span id="local-6989586621679254024"><span id="local-6989586621679254026"><span class="annot"><span class="annottext">ReadPrec [DimensionFilter]
 ReadPrec DimensionFilter
 Int -&gt; ReadS DimensionFilter
 ReadS [DimensionFilter]
@@ -63,7 +63,7 @@ readList :: ReadS [DimensionFilter]
 $creadList :: ReadS [DimensionFilter]
 readsPrec :: Int -&gt; ReadS DimensionFilter
 $creadsPrec :: Int -&gt; ReadS DimensionFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253688"><span id="local-6989586621679253690"><span id="local-6989586621679253692"><span class="annot"><span class="annottext">Int -&gt; DimensionFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254013"><span id="local-6989586621679254015"><span id="local-6989586621679254017"><span class="annot"><span class="annottext">Int -&gt; DimensionFilter -&gt; ShowS
 [DimensionFilter] -&gt; ShowS
 DimensionFilter -&gt; String
 (Int -&gt; DimensionFilter -&gt; ShowS)
@@ -105,8 +105,8 @@ $cfrom :: forall x. DimensionFilter -&gt; Rep DimensionFilter x
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter"><span class="hs-identifier hs-type">DimensionFilter</span></a></span><span>
 </span><span id="line-52"></span><span id="newDimensionFilter"><span class="annot"><span class="annottext">newDimensionFilter :: Text -&gt; DimensionFilter
-</span><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#newDimensionFilter"><span class="hs-identifier hs-var hs-var">newDimensionFilter</span></a></span></span><span> </span><span id="local-6989586621679253682"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253682"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#newDimensionFilter"><span class="hs-identifier hs-var hs-var">newDimensionFilter</span></a></span></span><span> </span><span id="local-6989586621679254007"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254007"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">DimensionFilter' :: Maybe Text -&gt; Text -&gt; DimensionFilter
 </span><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter%27"><span class="hs-identifier hs-type">DimensionFilter'</span></a></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:DimensionFilter' :: Maybe Text
@@ -115,7 +115,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DimensionFilter' :: Text
 </span><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#%24sel%3Aname%3ADimensionFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253682"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679254007"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | The value of the dimension to be matched.</span><span>
@@ -126,16 +126,16 @@ forall a. Maybe a
 -&gt; (DimensionFilter -&gt; Maybe Text -&gt; DimensionFilter)
 -&gt; Lens DimensionFilter DimensionFilter (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter%27"><span class="hs-identifier hs-type">DimensionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253678"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter%27"><span class="hs-identifier hs-type">DimensionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254003"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:DimensionFilter' :: DimensionFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679253678"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253678"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253677"><span class="annot"><span class="annottext">s :: DimensionFilter
-</span><a href="#local-6989586621679253677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter%27"><span class="hs-identifier hs-type">DimensionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253676"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DimensionFilter
-</span><a href="#local-6989586621679253677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:DimensionFilter' :: Maybe Text
+</span><a href="#local-6989586621679254003"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254003"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254002"><span class="annot"><span class="annottext">s :: DimensionFilter
+</span><a href="#local-6989586621679254002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter%27"><span class="hs-identifier hs-type">DimensionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254001"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679254001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DimensionFilter
+</span><a href="#local-6989586621679254002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:DimensionFilter' :: Maybe Text
 </span><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#%24sel%3Avalue%3ADimensionFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter"><span class="hs-identifier hs-type">DimensionFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679254001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter"><span class="hs-identifier hs-type">DimensionFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The dimension name to be matched.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#dimensionFilter_name"><span class="hs-identifier hs-type">dimensionFilter_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter"><span class="hs-identifier hs-type">DimensionFilter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -144,30 +144,30 @@ $sel:value:DimensionFilter' :: DimensionFilter -&gt; Maybe Text
 -&gt; (DimensionFilter -&gt; Text -&gt; DimensionFilter)
 -&gt; Lens DimensionFilter DimensionFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter%27"><span class="hs-identifier hs-type">DimensionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253674"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter%27"><span class="hs-identifier hs-type">DimensionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253999"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DimensionFilter' :: DimensionFilter -&gt; Text
-</span><a href="#local-6989586621679253674"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253674"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253673"><span class="annot"><span class="annottext">s :: DimensionFilter
-</span><a href="#local-6989586621679253673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter%27"><span class="hs-identifier hs-type">DimensionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253672"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DimensionFilter
-</span><a href="#local-6989586621679253673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DimensionFilter' :: Text
+</span><a href="#local-6989586621679253999"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253999"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253998"><span class="annot"><span class="annottext">s :: DimensionFilter
+</span><a href="#local-6989586621679253998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter%27"><span class="hs-identifier hs-type">DimensionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253997"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DimensionFilter
+</span><a href="#local-6989586621679253998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DimensionFilter' :: Text
 </span><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#%24sel%3Aname%3ADimensionFilter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter"><span class="hs-identifier hs-type">DimensionFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter"><span class="hs-identifier hs-type">DimensionFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253668"><span id="local-6989586621679253670"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter"><span class="hs-identifier hs-type">DimensionFilter</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253993"><span id="local-6989586621679253995"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter"><span class="hs-identifier hs-type">DimensionFilter</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter"><span class="hs-identifier hs-type">DimensionFilter</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253990"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter"><span class="hs-identifier hs-type">DimensionFilter</span></a></span></span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter"><span class="hs-identifier hs-type">DimensionFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679253661"><span class="annot"><span class="annottext">toQuery :: DimensionFilter -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter%27"><span class="hs-identifier hs-type">DimensionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253658"><span id="local-6989586621679253659"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679253986"><span class="annot"><span class="annottext">toQuery :: DimensionFilter -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.DimensionFilter.html#DimensionFilter%27"><span class="hs-identifier hs-type">DimensionFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253983"><span id="local-6989586621679253984"><span class="annot"><span class="annottext">Maybe Text
 Text
 name :: Text
 value :: Maybe Text
 $sel:name:DimensionFilter' :: DimensionFilter -&gt; Text
 $sel:value:DimensionFilter' :: DimensionFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679253658"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679253983"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -175,9 +175,9 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253659"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679253984"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253658"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679253983"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-74"></span></pre></body></html>

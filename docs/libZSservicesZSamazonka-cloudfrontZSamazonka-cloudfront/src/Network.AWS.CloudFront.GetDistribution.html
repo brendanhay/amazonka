@@ -50,13 +50,13 @@
 </span><span id="line-50"></span><span class="hs-comment">-- | The request to get a distribution\'s information.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- /See:/ 'newGetDistribution' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679416349"><span id="local-6989586621679416350"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDistribution"><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution"><span class="hs-identifier hs-var">GetDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDistribution%27"><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution%27"><span class="hs-identifier hs-var">GetDistribution'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679416631"><span id="local-6989586621679416632"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDistribution"><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution"><span class="hs-identifier hs-var">GetDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDistribution%27"><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution%27"><span class="hs-identifier hs-var">GetDistribution'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The distribution\'s ID. If the ID is empty, an empty distribution</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- configuration is returned.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3Aid%3AGetDistribution%27"><span class="annot"><span class="annottext">GetDistribution -&gt; Text
 </span><a href="Network.AWS.CloudFront.GetDistribution.html#%24sel%3Aid%3AGetDistribution%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416343"><span id="local-6989586621679416345"><span class="annot"><span class="annottext">GetDistribution -&gt; GetDistribution -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416625"><span id="local-6989586621679416627"><span class="annot"><span class="annottext">GetDistribution -&gt; GetDistribution -&gt; Bool
 (GetDistribution -&gt; GetDistribution -&gt; Bool)
 -&gt; (GetDistribution -&gt; GetDistribution -&gt; Bool)
 -&gt; Eq GetDistribution
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDistribution -&gt; GetDistribution -&gt; Bool
 == :: GetDistribution -&gt; GetDistribution -&gt; Bool
 $c== :: GetDistribution -&gt; GetDistribution -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416334"><span id="local-6989586621679416336"><span id="local-6989586621679416338"><span id="local-6989586621679416340"><span class="annot"><span class="annottext">ReadPrec [GetDistribution]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416616"><span id="local-6989586621679416618"><span id="local-6989586621679416620"><span id="local-6989586621679416622"><span class="annot"><span class="annottext">ReadPrec [GetDistribution]
 ReadPrec GetDistribution
 Int -&gt; ReadS GetDistribution
 ReadS [GetDistribution]
@@ -85,7 +85,7 @@ readList :: ReadS [GetDistribution]
 $creadList :: ReadS [GetDistribution]
 readsPrec :: Int -&gt; ReadS GetDistribution
 $creadsPrec :: Int -&gt; ReadS GetDistribution
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416327"><span id="local-6989586621679416329"><span id="local-6989586621679416331"><span class="annot"><span class="annottext">Int -&gt; GetDistribution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416609"><span id="local-6989586621679416611"><span id="local-6989586621679416613"><span class="annot"><span class="annottext">Int -&gt; GetDistribution -&gt; ShowS
 [GetDistribution] -&gt; ShowS
 GetDistribution -&gt; String
 (Int -&gt; GetDistribution -&gt; ShowS)
@@ -126,11 +126,11 @@ $cfrom :: forall x. GetDistribution -&gt; Rep GetDistribution x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution"><span class="hs-identifier hs-type">GetDistribution</span></a></span><span>
 </span><span id="line-74"></span><span id="newGetDistribution"><span class="annot"><span class="annottext">newGetDistribution :: Text -&gt; GetDistribution
-</span><a href="Network.AWS.CloudFront.GetDistribution.html#newGetDistribution"><span class="hs-identifier hs-var hs-var">newGetDistribution</span></a></span></span><span> </span><span id="local-6989586621679416322"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416322"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetDistribution' :: Text -&gt; GetDistribution
+</span><a href="Network.AWS.CloudFront.GetDistribution.html#newGetDistribution"><span class="hs-identifier hs-var hs-var">newGetDistribution</span></a></span></span><span> </span><span id="local-6989586621679416604"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416604"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetDistribution' :: Text -&gt; GetDistribution
 </span><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution%27"><span class="hs-identifier hs-type">GetDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetDistribution' :: Text
 </span><a href="Network.AWS.CloudFront.GetDistribution.html#%24sel%3Aid%3AGetDistribution%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416322"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679416604"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The distribution\'s ID. If the ID is empty, an empty distribution</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- configuration is returned.</span><span>
@@ -140,27 +140,27 @@ $cfrom :: forall x. GetDistribution -&gt; Rep GetDistribution x
 -&gt; (GetDistribution -&gt; Text -&gt; GetDistribution)
 -&gt; Lens GetDistribution GetDistribution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution%27"><span class="hs-identifier hs-type">GetDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416319"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution%27"><span class="hs-identifier hs-type">GetDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416601"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:GetDistribution' :: GetDistribution -&gt; Text
-</span><a href="#local-6989586621679416319"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416319"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416318"><span class="annot"><span class="annottext">s :: GetDistribution
-</span><a href="#local-6989586621679416318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution%27"><span class="hs-identifier hs-type">GetDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416317"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistribution
-</span><a href="#local-6989586621679416318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetDistribution' :: Text
+</span><a href="#local-6989586621679416601"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416601"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416600"><span class="annot"><span class="annottext">s :: GetDistribution
+</span><a href="#local-6989586621679416600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution%27"><span class="hs-identifier hs-type">GetDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416599"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679416599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistribution
+</span><a href="#local-6989586621679416600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetDistribution' :: Text
 </span><a href="Network.AWS.CloudFront.GetDistribution.html#%24sel%3Aid%3AGetDistribution%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution"><span class="hs-identifier hs-type">GetDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution"><span class="hs-identifier hs-type">GetDistribution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution"><span class="hs-identifier hs-type">GetDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution"><span class="hs-identifier hs-type">GetDistribution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse"><span class="hs-identifier hs-type">GetDistributionResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679416313"><span class="annot"><span class="annottext">request :: GetDistribution -&gt; Request GetDistribution
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679416595"><span class="annot"><span class="annottext">request :: GetDistribution -&gt; Request GetDistribution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDistribution -&gt; Request GetDistribution
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679416309"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679416591"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetDistribution
 -&gt; ClientResponse ClientBody
@@ -184,10 +184,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679416306"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416306"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679416305"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679416305"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679416304"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416304"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679416588"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416588"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679416587"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679416587"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679416586"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679416586"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Distribution -&gt; Int -&gt; GetDistributionResponse
 </span><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse%27"><span class="hs-identifier hs-var">GetDistributionResponse'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
@@ -197,7 +197,7 @@ MonadResource m =&gt;
      String (Maybe Distribution -&gt; Int -&gt; GetDistributionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679416305"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679416587"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
@@ -211,7 +211,7 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe Distribution)
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679416304"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416586"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDistributionResponse)
 -&gt; Either String Int -&gt; Either String GetDistributionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -220,15 +220,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416306"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416588"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416295"><span id="local-6989586621679416297"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution"><span class="hs-identifier hs-type">GetDistribution</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416577"><span id="local-6989586621679416579"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution"><span class="hs-identifier hs-type">GetDistribution</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416292"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution"><span class="hs-identifier hs-type">GetDistribution</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416574"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution"><span class="hs-identifier hs-type">GetDistribution</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution"><span class="hs-identifier hs-type">GetDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679416288"><span class="annot"><span class="annottext">toHeaders :: GetDistribution -&gt; ResponseHeaders
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679416570"><span class="annot"><span class="annottext">toHeaders :: GetDistribution -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDistribution -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -236,11 +236,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution"><span class="hs-identifier hs-type">GetDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679416283"><span class="annot"><span class="annottext">toPath :: GetDistribution -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution%27"><span class="hs-identifier hs-type">GetDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416281"><span class="annot"><span class="annottext">Text
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679416565"><span class="annot"><span class="annottext">toPath :: GetDistribution -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution%27"><span class="hs-identifier hs-type">GetDistribution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416563"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:GetDistribution' :: GetDistribution -&gt; Text
-</span><a href="#local-6989586621679416281"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679416563"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -248,10 +248,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2020-05-31/distribution/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679416281"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679416563"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistribution"><span class="hs-identifier hs-type">GetDistribution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679416277"><span class="annot"><span class="annottext">toQuery :: GetDistribution -&gt; QueryString
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679416559"><span class="annot"><span class="annottext">toQuery :: GetDistribution -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDistribution -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -261,7 +261,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-110"></span><span class="hs-comment">-- | The returned result of the corresponding request.</span><span>
 </span><span id="line-111"></span><span class="hs-comment">--</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- /See:/ 'newGetDistributionResponse' smart constructor.</span><span>
-</span><span id="line-113"></span><span id="local-6989586621679416274"><span id="local-6989586621679416275"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDistributionResponse"><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse"><span class="hs-identifier hs-var">GetDistributionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDistributionResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse%27"><span class="hs-identifier hs-var">GetDistributionResponse'</span></a></span></span><span>
+</span><span id="line-113"></span><span id="local-6989586621679416556"><span id="local-6989586621679416557"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDistributionResponse"><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse"><span class="hs-identifier hs-var">GetDistributionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDistributionResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse%27"><span class="hs-identifier hs-var">GetDistributionResponse'</span></a></span></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current version of the distribution\'s information. For example:</span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-comment">-- @E2QWRUHAPOMQZL@.</span><span>
 </span><span id="line-116"></span><span>    </span><span id="%24sel%3AeTag%3AGetDistributionResponse%27"><span class="annot"><span class="annottext">GetDistributionResponse -&gt; Maybe Text
@@ -273,7 +273,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-120"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDistributionResponse%27"><span class="annot"><span class="annottext">GetDistributionResponse -&gt; Int
 </span><a href="Network.AWS.CloudFront.GetDistribution.html#%24sel%3AhttpStatus%3AGetDistributionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416267"><span id="local-6989586621679416269"><span class="annot"><span class="annottext">GetDistributionResponse -&gt; GetDistributionResponse -&gt; Bool
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679416549"><span id="local-6989586621679416551"><span class="annot"><span class="annottext">GetDistributionResponse -&gt; GetDistributionResponse -&gt; Bool
 (GetDistributionResponse -&gt; GetDistributionResponse -&gt; Bool)
 -&gt; (GetDistributionResponse -&gt; GetDistributionResponse -&gt; Bool)
 -&gt; Eq GetDistributionResponse
@@ -282,7 +282,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDistributionResponse -&gt; GetDistributionResponse -&gt; Bool
 == :: GetDistributionResponse -&gt; GetDistributionResponse -&gt; Bool
 $c== :: GetDistributionResponse -&gt; GetDistributionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416261"><span id="local-6989586621679416263"><span id="local-6989586621679416265"><span class="annot"><span class="annottext">Int -&gt; GetDistributionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679416543"><span id="local-6989586621679416545"><span id="local-6989586621679416547"><span class="annot"><span class="annottext">Int -&gt; GetDistributionResponse -&gt; ShowS
 [GetDistributionResponse] -&gt; ShowS
 GetDistributionResponse -&gt; String
 (Int -&gt; GetDistributionResponse -&gt; ShowS)
@@ -329,8 +329,8 @@ $cfrom :: forall x. GetDistributionResponse -&gt; Rep GetDistributionResponse x
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse"><span class="hs-identifier hs-type">GetDistributionResponse</span></a></span><span>
 </span><span id="line-142"></span><span id="newGetDistributionResponse"><span class="annot"><span class="annottext">newGetDistributionResponse :: Int -&gt; GetDistributionResponse
-</span><a href="Network.AWS.CloudFront.GetDistribution.html#newGetDistributionResponse"><span class="hs-identifier hs-var hs-var">newGetDistributionResponse</span></a></span></span><span> </span><span id="local-6989586621679416258"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.GetDistribution.html#newGetDistributionResponse"><span class="hs-identifier hs-var hs-var">newGetDistributionResponse</span></a></span></span><span> </span><span id="local-6989586621679416540"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416540"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="annottext">GetDistributionResponse' :: Maybe Text -&gt; Maybe Distribution -&gt; Int -&gt; GetDistributionResponse
 </span><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse%27"><span class="hs-identifier hs-type">GetDistributionResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eTag:GetDistributionResponse' :: Maybe Text
@@ -343,7 +343,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDistributionResponse' :: Int
 </span><a href="Network.AWS.CloudFront.GetDistribution.html#%24sel%3AhttpStatus%3AGetDistributionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679416540"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The current version of the distribution\'s information. For example:</span><span>
@@ -360,16 +360,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse%27"><span class="hs-identifier hs-type">GetDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416257"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse%27"><span class="hs-identifier hs-type">GetDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416539"><span class="annot"><span class="annottext">Maybe Text
 eTag :: Maybe Text
 $sel:eTag:GetDistributionResponse' :: GetDistributionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679416257"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416257"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416256"><span class="annot"><span class="annottext">s :: GetDistributionResponse
-</span><a href="#local-6989586621679416256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse%27"><span class="hs-identifier hs-type">GetDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416255"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionResponse
-</span><a href="#local-6989586621679416256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:GetDistributionResponse' :: Maybe Text
+</span><a href="#local-6989586621679416539"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416539"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416538"><span class="annot"><span class="annottext">s :: GetDistributionResponse
+</span><a href="#local-6989586621679416538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse%27"><span class="hs-identifier hs-type">GetDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416537"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679416537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionResponse
+</span><a href="#local-6989586621679416538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:GetDistributionResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.GetDistribution.html#%24sel%3AeTag%3AGetDistributionResponse%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679416255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse"><span class="hs-identifier hs-type">GetDistributionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse"><span class="hs-identifier hs-type">GetDistributionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The distribution\'s information.</span><span>
 </span><span id="line-155"></span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#getDistributionResponse_distribution"><span class="hs-identifier hs-type">getDistributionResponse_distribution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse"><span class="hs-identifier hs-type">GetDistributionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Distribution.html#Distribution"><span class="hs-identifier hs-type">Distribution</span></a></span><span class="hs-special">)</span><span>
@@ -384,16 +384,16 @@ $sel:eTag:GetDistributionResponse' :: GetDistributionResponse -&gt; Maybe Text
      (Maybe Distribution)
      (Maybe Distribution)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse%27"><span class="hs-identifier hs-type">GetDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416254"><span class="annot"><span class="annottext">Maybe Distribution
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse%27"><span class="hs-identifier hs-type">GetDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416536"><span class="annot"><span class="annottext">Maybe Distribution
 distribution :: Maybe Distribution
 $sel:distribution:GetDistributionResponse' :: GetDistributionResponse -&gt; Maybe Distribution
-</span><a href="#local-6989586621679416254"><span class="hs-identifier hs-var hs-var">distribution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Distribution
-</span><a href="#local-6989586621679416254"><span class="hs-identifier hs-var">distribution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416253"><span class="annot"><span class="annottext">s :: GetDistributionResponse
-</span><a href="#local-6989586621679416253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse%27"><span class="hs-identifier hs-type">GetDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416252"><span class="annot"><span class="annottext">Maybe Distribution
-</span><a href="#local-6989586621679416252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionResponse
-</span><a href="#local-6989586621679416253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distribution:GetDistributionResponse' :: Maybe Distribution
+</span><a href="#local-6989586621679416536"><span class="hs-identifier hs-var hs-var">distribution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Distribution
+</span><a href="#local-6989586621679416536"><span class="hs-identifier hs-var">distribution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416535"><span class="annot"><span class="annottext">s :: GetDistributionResponse
+</span><a href="#local-6989586621679416535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse%27"><span class="hs-identifier hs-type">GetDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416534"><span class="annot"><span class="annottext">Maybe Distribution
+</span><a href="#local-6989586621679416534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionResponse
+</span><a href="#local-6989586621679416535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distribution:GetDistributionResponse' :: Maybe Distribution
 </span><a href="Network.AWS.CloudFront.GetDistribution.html#%24sel%3Adistribution%3AGetDistributionResponse%27"><span class="hs-identifier hs-var">distribution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Distribution
-</span><a href="#local-6989586621679416252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse"><span class="hs-identifier hs-type">GetDistributionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse"><span class="hs-identifier hs-type">GetDistributionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-159"></span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#getDistributionResponse_httpStatus"><span class="hs-identifier hs-type">getDistributionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse"><span class="hs-identifier hs-type">GetDistributionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -403,16 +403,16 @@ $sel:distribution:GetDistributionResponse' :: GetDistributionResponse -&gt; Mayb
 -&gt; (GetDistributionResponse -&gt; Int -&gt; GetDistributionResponse)
 -&gt; Lens GetDistributionResponse GetDistributionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse%27"><span class="hs-identifier hs-type">GetDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416251"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse%27"><span class="hs-identifier hs-type">GetDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679416533"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetDistributionResponse' :: GetDistributionResponse -&gt; Int
-</span><a href="#local-6989586621679416251"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416251"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416250"><span class="annot"><span class="annottext">s :: GetDistributionResponse
-</span><a href="#local-6989586621679416250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse%27"><span class="hs-identifier hs-type">GetDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416249"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionResponse
-</span><a href="#local-6989586621679416250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDistributionResponse' :: Int
+</span><a href="#local-6989586621679416533"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416533"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679416532"><span class="annot"><span class="annottext">s :: GetDistributionResponse
+</span><a href="#local-6989586621679416532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse%27"><span class="hs-identifier hs-type">GetDistributionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679416531"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679416531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionResponse
+</span><a href="#local-6989586621679416532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDistributionResponse' :: Int
 </span><a href="Network.AWS.CloudFront.GetDistribution.html#%24sel%3AhttpStatus%3AGetDistributionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679416249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse"><span class="hs-identifier hs-type">GetDistributionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679416531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse"><span class="hs-identifier hs-type">GetDistributionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416247"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse"><span class="hs-identifier hs-type">GetDistributionResponse</span></a></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679416529"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.GetDistribution.html#GetDistributionResponse"><span class="hs-identifier hs-type">GetDistributionResponse</span></a></span></span><span>
 </span><span id="line-163"></span></pre></body></html>

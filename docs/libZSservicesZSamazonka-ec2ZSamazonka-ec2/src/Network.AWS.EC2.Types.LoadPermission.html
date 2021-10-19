@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a load permission.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLoadPermission' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681098624"><span id="local-6989586621681098625"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoadPermission"><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission"><span class="hs-identifier hs-var">LoadPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoadPermission%27"><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission%27"><span class="hs-identifier hs-var">LoadPermission'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681133321"><span id="local-6989586621681133322"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoadPermission"><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission"><span class="hs-identifier hs-var">LoadPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoadPermission%27"><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission%27"><span class="hs-identifier hs-var">LoadPermission'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the group.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Agroup%27%3ALoadPermission%27"><span class="annot"><span class="annottext">LoadPermission -&gt; Maybe PermissionGroup
 </span><a href="Network.AWS.EC2.Types.LoadPermission.html#%24sel%3Agroup%27%3ALoadPermission%27"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PermissionGroup.html#PermissionGroup"><span class="hs-identifier hs-type">PermissionGroup</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The AWS account ID.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account ID.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AuserId%3ALoadPermission%27"><span class="annot"><span class="annottext">LoadPermission -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.LoadPermission.html#%24sel%3AuserId%3ALoadPermission%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681098617"><span id="local-6989586621681098619"><span class="annot"><span class="annottext">LoadPermission -&gt; LoadPermission -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681133314"><span id="local-6989586621681133316"><span class="annot"><span class="annottext">LoadPermission -&gt; LoadPermission -&gt; Bool
 (LoadPermission -&gt; LoadPermission -&gt; Bool)
 -&gt; (LoadPermission -&gt; LoadPermission -&gt; Bool) -&gt; Eq LoadPermission
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LoadPermission -&gt; LoadPermission -&gt; Bool
 == :: LoadPermission -&gt; LoadPermission -&gt; Bool
 $c== :: LoadPermission -&gt; LoadPermission -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681098608"><span id="local-6989586621681098610"><span id="local-6989586621681098612"><span id="local-6989586621681098614"><span class="annot"><span class="annottext">ReadPrec [LoadPermission]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681133305"><span id="local-6989586621681133307"><span id="local-6989586621681133309"><span id="local-6989586621681133311"><span class="annot"><span class="annottext">ReadPrec [LoadPermission]
 ReadPrec LoadPermission
 Int -&gt; ReadS LoadPermission
 ReadS [LoadPermission]
@@ -64,7 +64,7 @@ readList :: ReadS [LoadPermission]
 $creadList :: ReadS [LoadPermission]
 readsPrec :: Int -&gt; ReadS LoadPermission
 $creadsPrec :: Int -&gt; ReadS LoadPermission
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681098601"><span id="local-6989586621681098603"><span id="local-6989586621681098605"><span class="annot"><span class="annottext">Int -&gt; LoadPermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681133298"><span id="local-6989586621681133300"><span id="local-6989586621681133302"><span class="annot"><span class="annottext">Int -&gt; LoadPermission -&gt; ShowS
 [LoadPermission] -&gt; ShowS
 LoadPermission -&gt; String
 (Int -&gt; LoadPermission -&gt; ShowS)
@@ -100,7 +100,7 @@ $cfrom :: forall x. LoadPermission -&gt; Rep LoadPermission x
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- 'group'', 'loadPermission_group' - The name of the group.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'userId', 'loadPermission_userId' - The AWS account ID.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'userId', 'loadPermission_userId' - The Amazon Web Services account ID.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#newLoadPermission"><span class="hs-identifier hs-type">newLoadPermission</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission"><span class="hs-identifier hs-type">LoadPermission</span></a></span><span>
 </span><span id="line-52"></span><span id="newLoadPermission"><span class="annot"><span class="annottext">newLoadPermission :: LoadPermission
@@ -129,18 +129,18 @@ forall a. Maybe a
      (Maybe PermissionGroup)
      (Maybe PermissionGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission%27"><span class="hs-identifier hs-type">LoadPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681098592"><span class="annot"><span class="annottext">Maybe PermissionGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission%27"><span class="hs-identifier hs-type">LoadPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681133289"><span class="annot"><span class="annottext">Maybe PermissionGroup
 group' :: Maybe PermissionGroup
 $sel:group':LoadPermission' :: LoadPermission -&gt; Maybe PermissionGroup
-</span><a href="#local-6989586621681098592"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionGroup
-</span><a href="#local-6989586621681098592"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681098591"><span class="annot"><span class="annottext">s :: LoadPermission
-</span><a href="#local-6989586621681098591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission%27"><span class="hs-identifier hs-type">LoadPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681098590"><span class="annot"><span class="annottext">Maybe PermissionGroup
-</span><a href="#local-6989586621681098590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadPermission
-</span><a href="#local-6989586621681098591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':LoadPermission' :: Maybe PermissionGroup
+</span><a href="#local-6989586621681133289"><span class="hs-identifier hs-var hs-var">group'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionGroup
+</span><a href="#local-6989586621681133289"><span class="hs-identifier hs-var">group'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681133288"><span class="annot"><span class="annottext">s :: LoadPermission
+</span><a href="#local-6989586621681133288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission%27"><span class="hs-identifier hs-type">LoadPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681133287"><span class="annot"><span class="annottext">Maybe PermissionGroup
+</span><a href="#local-6989586621681133287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadPermission
+</span><a href="#local-6989586621681133288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:group':LoadPermission' :: Maybe PermissionGroup
 </span><a href="Network.AWS.EC2.Types.LoadPermission.html#%24sel%3Agroup%27%3ALoadPermission%27"><span class="hs-identifier hs-var">group'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PermissionGroup
-</span><a href="#local-6989586621681098590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission"><span class="hs-identifier hs-type">LoadPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681133287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission"><span class="hs-identifier hs-type">LoadPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The AWS account ID.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The Amazon Web Services account ID.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#loadPermission_userId"><span class="hs-identifier hs-type">loadPermission_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission"><span class="hs-identifier hs-type">LoadPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span id="loadPermission_userId"><span class="annot"><span class="annottext">loadPermission_userId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; LoadPermission -&gt; f LoadPermission
@@ -148,21 +148,21 @@ $sel:group':LoadPermission' :: LoadPermission -&gt; Maybe PermissionGroup
 -&gt; (LoadPermission -&gt; Maybe Text -&gt; LoadPermission)
 -&gt; Lens LoadPermission LoadPermission (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission%27"><span class="hs-identifier hs-type">LoadPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681098588"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission%27"><span class="hs-identifier hs-type">LoadPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681133285"><span class="annot"><span class="annottext">Maybe Text
 userId :: Maybe Text
 $sel:userId:LoadPermission' :: LoadPermission -&gt; Maybe Text
-</span><a href="#local-6989586621681098588"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681098588"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681098587"><span class="annot"><span class="annottext">s :: LoadPermission
-</span><a href="#local-6989586621681098587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission%27"><span class="hs-identifier hs-type">LoadPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681098586"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681098586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadPermission
-</span><a href="#local-6989586621681098587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:LoadPermission' :: Maybe Text
+</span><a href="#local-6989586621681133285"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681133285"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681133284"><span class="annot"><span class="annottext">s :: LoadPermission
+</span><a href="#local-6989586621681133284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission%27"><span class="hs-identifier hs-type">LoadPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681133283"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681133283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadPermission
+</span><a href="#local-6989586621681133284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:LoadPermission' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.LoadPermission.html#%24sel%3AuserId%3ALoadPermission%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681098586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission"><span class="hs-identifier hs-type">LoadPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681133283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission"><span class="hs-identifier hs-type">LoadPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission"><span class="hs-identifier hs-type">LoadPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621681098583"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LoadPermission
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681098581"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681098581"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621681133280"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LoadPermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681133278"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681133278"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Maybe PermissionGroup -&gt; Maybe Text -&gt; LoadPermission
 </span><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission%27"><span class="hs-identifier hs-var">LoadPermission'</span></a></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">(Maybe PermissionGroup -&gt; Maybe Text -&gt; LoadPermission)
@@ -170,7 +170,7 @@ $sel:userId:LoadPermission' :: LoadPermission -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; LoadPermission)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681098581"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PermissionGroup)
+</span><a href="#local-6989586621681133278"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PermissionGroup)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;group&quot;</span></span><span class="hs-special">)</span><span>
@@ -178,12 +178,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String LoadPermission
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681098581"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681133278"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;userId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681098575"><span id="local-6989586621681098577"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission"><span class="hs-identifier hs-type">LoadPermission</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681133272"><span id="local-6989586621681133274"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission"><span class="hs-identifier hs-type">LoadPermission</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681098572"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission"><span class="hs-identifier hs-type">LoadPermission</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681133269"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LoadPermission.html#LoadPermission"><span class="hs-identifier hs-type">LoadPermission</span></a></span></span><span>
 </span><span id="line-75"></span></pre></body></html>

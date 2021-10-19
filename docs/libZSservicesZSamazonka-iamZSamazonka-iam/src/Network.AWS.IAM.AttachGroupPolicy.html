@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newAttachGroupPolicy' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679460596"><span id="local-6989586621679460597"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachGroupPolicy"><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy"><span class="hs-identifier hs-var">AttachGroupPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachGroupPolicy%27"><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy%27"><span class="hs-identifier hs-var">AttachGroupPolicy'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679461230"><span id="local-6989586621679461231"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachGroupPolicy"><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy"><span class="hs-identifier hs-var">AttachGroupPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachGroupPolicy%27"><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy%27"><span class="hs-identifier hs-var">AttachGroupPolicy'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name (friendly name, not ARN) of the group to attach the policy to.</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
@@ -73,7 +73,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3ApolicyArn%3AAttachGroupPolicy%27"><span class="annot"><span class="annottext">AttachGroupPolicy -&gt; Text
 </span><a href="Network.AWS.IAM.AttachGroupPolicy.html#%24sel%3ApolicyArn%3AAttachGroupPolicy%27"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679460589"><span id="local-6989586621679460591"><span class="annot"><span class="annottext">AttachGroupPolicy -&gt; AttachGroupPolicy -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679461223"><span id="local-6989586621679461225"><span class="annot"><span class="annottext">AttachGroupPolicy -&gt; AttachGroupPolicy -&gt; Bool
 (AttachGroupPolicy -&gt; AttachGroupPolicy -&gt; Bool)
 -&gt; (AttachGroupPolicy -&gt; AttachGroupPolicy -&gt; Bool)
 -&gt; Eq AttachGroupPolicy
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttachGroupPolicy -&gt; AttachGroupPolicy -&gt; Bool
 == :: AttachGroupPolicy -&gt; AttachGroupPolicy -&gt; Bool
 $c== :: AttachGroupPolicy -&gt; AttachGroupPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460580"><span id="local-6989586621679460582"><span id="local-6989586621679460584"><span id="local-6989586621679460586"><span class="annot"><span class="annottext">ReadPrec [AttachGroupPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461214"><span id="local-6989586621679461216"><span id="local-6989586621679461218"><span id="local-6989586621679461220"><span class="annot"><span class="annottext">ReadPrec [AttachGroupPolicy]
 ReadPrec AttachGroupPolicy
 Int -&gt; ReadS AttachGroupPolicy
 ReadS [AttachGroupPolicy]
@@ -102,7 +102,7 @@ readList :: ReadS [AttachGroupPolicy]
 $creadList :: ReadS [AttachGroupPolicy]
 readsPrec :: Int -&gt; ReadS AttachGroupPolicy
 $creadsPrec :: Int -&gt; ReadS AttachGroupPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460573"><span id="local-6989586621679460575"><span id="local-6989586621679460577"><span class="annot"><span class="annottext">Int -&gt; AttachGroupPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461207"><span id="local-6989586621679461209"><span id="local-6989586621679461211"><span class="annot"><span class="annottext">Int -&gt; AttachGroupPolicy -&gt; ShowS
 [AttachGroupPolicy] -&gt; ShowS
 AttachGroupPolicy -&gt; String
 (Int -&gt; AttachGroupPolicy -&gt; ShowS)
@@ -155,17 +155,17 @@ $cfrom :: forall x. AttachGroupPolicy -&gt; Rep AttachGroupPolicy x
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy"><span class="hs-identifier hs-type">AttachGroupPolicy</span></a></span><span>
 </span><span id="line-102"></span><span id="newAttachGroupPolicy"><span class="annot"><span class="annottext">newAttachGroupPolicy :: Text -&gt; Text -&gt; AttachGroupPolicy
-</span><a href="Network.AWS.IAM.AttachGroupPolicy.html#newAttachGroupPolicy"><span class="hs-identifier hs-var hs-var">newAttachGroupPolicy</span></a></span></span><span> </span><span id="local-6989586621679460568"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460568"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span id="local-6989586621679460567"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460567"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.AttachGroupPolicy.html#newAttachGroupPolicy"><span class="hs-identifier hs-var hs-var">newAttachGroupPolicy</span></a></span></span><span> </span><span id="local-6989586621679461202"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461202"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span id="local-6989586621679461201"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461201"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">AttachGroupPolicy' :: Text -&gt; Text -&gt; AttachGroupPolicy
 </span><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy%27"><span class="hs-identifier hs-type">AttachGroupPolicy'</span></a></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupName:AttachGroupPolicy' :: Text
 </span><a href="Network.AWS.IAM.AttachGroupPolicy.html#%24sel%3AgroupName%3AAttachGroupPolicy%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460568"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679461202"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyArn:AttachGroupPolicy' :: Text
 </span><a href="Network.AWS.IAM.AttachGroupPolicy.html#%24sel%3ApolicyArn%3AAttachGroupPolicy%27"><span class="hs-identifier hs-var">policyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460567"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span><span>
+</span><a href="#local-6989586621679461201"><span class="hs-identifier hs-var">pPolicyArn_</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The name (friendly name, not ARN) of the group to attach the policy to.</span><span>
@@ -180,16 +180,16 @@ $cfrom :: forall x. AttachGroupPolicy -&gt; Rep AttachGroupPolicy x
 -&gt; (AttachGroupPolicy -&gt; Text -&gt; AttachGroupPolicy)
 -&gt; Lens AttachGroupPolicy AttachGroupPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy%27"><span class="hs-identifier hs-type">AttachGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460564"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy%27"><span class="hs-identifier hs-type">AttachGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461198"><span class="annot"><span class="annottext">Text
 groupName :: Text
 $sel:groupName:AttachGroupPolicy' :: AttachGroupPolicy -&gt; Text
-</span><a href="#local-6989586621679460564"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460564"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460563"><span class="annot"><span class="annottext">s :: AttachGroupPolicy
-</span><a href="#local-6989586621679460563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy%27"><span class="hs-identifier hs-type">AttachGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460562"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachGroupPolicy
-</span><a href="#local-6989586621679460563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:AttachGroupPolicy' :: Text
+</span><a href="#local-6989586621679461198"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461198"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461197"><span class="annot"><span class="annottext">s :: AttachGroupPolicy
+</span><a href="#local-6989586621679461197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy%27"><span class="hs-identifier hs-type">AttachGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461196"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachGroupPolicy
+</span><a href="#local-6989586621679461197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:AttachGroupPolicy' :: Text
 </span><a href="Network.AWS.IAM.AttachGroupPolicy.html#%24sel%3AgroupName%3AAttachGroupPolicy%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy"><span class="hs-identifier hs-type">AttachGroupPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679461196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy"><span class="hs-identifier hs-type">AttachGroupPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM policy you want to attach.</span><span>
 </span><span id="line-118"></span><span class="hs-comment">--</span><span>
@@ -202,27 +202,27 @@ $sel:groupName:AttachGroupPolicy' :: AttachGroupPolicy -&gt; Text
 -&gt; (AttachGroupPolicy -&gt; Text -&gt; AttachGroupPolicy)
 -&gt; Lens AttachGroupPolicy AttachGroupPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy%27"><span class="hs-identifier hs-type">AttachGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460561"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy%27"><span class="hs-identifier hs-type">AttachGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461195"><span class="annot"><span class="annottext">Text
 policyArn :: Text
 $sel:policyArn:AttachGroupPolicy' :: AttachGroupPolicy -&gt; Text
-</span><a href="#local-6989586621679460561"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460561"><span class="hs-identifier hs-var">policyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460560"><span class="annot"><span class="annottext">s :: AttachGroupPolicy
-</span><a href="#local-6989586621679460560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy%27"><span class="hs-identifier hs-type">AttachGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460559"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachGroupPolicy
-</span><a href="#local-6989586621679460560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyArn:AttachGroupPolicy' :: Text
+</span><a href="#local-6989586621679461195"><span class="hs-identifier hs-var hs-var">policyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461195"><span class="hs-identifier hs-var">policyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461194"><span class="annot"><span class="annottext">s :: AttachGroupPolicy
+</span><a href="#local-6989586621679461194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy%27"><span class="hs-identifier hs-type">AttachGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461193"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679461193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachGroupPolicy
+</span><a href="#local-6989586621679461194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyArn:AttachGroupPolicy' :: Text
 </span><a href="Network.AWS.IAM.AttachGroupPolicy.html#%24sel%3ApolicyArn%3AAttachGroupPolicy%27"><span class="hs-identifier hs-var">policyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy"><span class="hs-identifier hs-type">AttachGroupPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679461193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy"><span class="hs-identifier hs-type">AttachGroupPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy"><span class="hs-identifier hs-type">AttachGroupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-127"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy"><span class="hs-identifier hs-type">AttachGroupPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicyResponse"><span class="hs-identifier hs-type">AttachGroupPolicyResponse</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679460555"><span class="annot"><span class="annottext">request :: AttachGroupPolicy -&gt; Request AttachGroupPolicy
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679461189"><span class="annot"><span class="annottext">request :: AttachGroupPolicy -&gt; Request AttachGroupPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AttachGroupPolicy -&gt; Request AttachGroupPolicy
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679460551"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679461185"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AttachGroupPolicy
 -&gt; ClientResponse ClientBody
@@ -248,12 +248,12 @@ AWSResponse a
 AttachGroupPolicyResponse
 </span><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicyResponse%27"><span class="hs-identifier hs-var">AttachGroupPolicyResponse'</span></a></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460544"><span id="local-6989586621679460546"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy"><span class="hs-identifier hs-type">AttachGroupPolicy</span></a></span></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461178"><span id="local-6989586621679461180"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy"><span class="hs-identifier hs-type">AttachGroupPolicy</span></a></span></span></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460541"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy"><span class="hs-identifier hs-type">AttachGroupPolicy</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461175"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy"><span class="hs-identifier hs-type">AttachGroupPolicy</span></a></span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy"><span class="hs-identifier hs-type">AttachGroupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679460537"><span class="annot"><span class="annottext">toHeaders :: AttachGroupPolicy -&gt; [Header]
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679461171"><span class="annot"><span class="annottext">toHeaders :: AttachGroupPolicy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; AttachGroupPolicy -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -261,20 +261,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy"><span class="hs-identifier hs-type">AttachGroupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679460532"><span class="annot"><span class="annottext">toPath :: AttachGroupPolicy -&gt; ByteString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679461166"><span class="annot"><span class="annottext">toPath :: AttachGroupPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AttachGroupPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy"><span class="hs-identifier hs-type">AttachGroupPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679460528"><span class="annot"><span class="annottext">toQuery :: AttachGroupPolicy -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy%27"><span class="hs-identifier hs-type">AttachGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460525"><span id="local-6989586621679460526"><span class="annot"><span class="annottext">Text
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679461162"><span class="annot"><span class="annottext">toQuery :: AttachGroupPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicy%27"><span class="hs-identifier hs-type">AttachGroupPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461159"><span id="local-6989586621679461160"><span class="annot"><span class="annottext">Text
 policyArn :: Text
 groupName :: Text
 $sel:policyArn:AttachGroupPolicy' :: AttachGroupPolicy -&gt; Text
 $sel:groupName:AttachGroupPolicy' :: AttachGroupPolicy -&gt; Text
-</span><a href="#local-6989586621679460525"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679461159"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -294,19 +294,19 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460526"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679461160"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PolicyArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679460525"><span class="hs-identifier hs-var">policyArn</span></a></span><span>
+</span><a href="#local-6989586621679461159"><span class="hs-identifier hs-var">policyArn</span></a></span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newAttachGroupPolicyResponse' smart constructor.</span><span>
-</span><span id="line-155"></span><span id="local-6989586621679460522"><span id="local-6989586621679460523"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachGroupPolicyResponse"><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicyResponse"><span class="hs-identifier hs-var">AttachGroupPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachGroupPolicyResponse%27"><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicyResponse%27"><span class="hs-identifier hs-var">AttachGroupPolicyResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span id="local-6989586621679461156"><span id="local-6989586621679461157"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachGroupPolicyResponse"><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicyResponse"><span class="hs-identifier hs-var">AttachGroupPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachGroupPolicyResponse%27"><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicyResponse%27"><span class="hs-identifier hs-var">AttachGroupPolicyResponse'</span></a></span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679460518"><span id="local-6989586621679460520"><span class="annot"><span class="annottext">AttachGroupPolicyResponse -&gt; AttachGroupPolicyResponse -&gt; Bool
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679461152"><span id="local-6989586621679461154"><span class="annot"><span class="annottext">AttachGroupPolicyResponse -&gt; AttachGroupPolicyResponse -&gt; Bool
 (AttachGroupPolicyResponse -&gt; AttachGroupPolicyResponse -&gt; Bool)
 -&gt; (AttachGroupPolicyResponse -&gt; AttachGroupPolicyResponse -&gt; Bool)
 -&gt; Eq AttachGroupPolicyResponse
@@ -315,7 +315,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttachGroupPolicyResponse -&gt; AttachGroupPolicyResponse -&gt; Bool
 == :: AttachGroupPolicyResponse -&gt; AttachGroupPolicyResponse -&gt; Bool
 $c== :: AttachGroupPolicyResponse -&gt; AttachGroupPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460510"><span id="local-6989586621679460512"><span id="local-6989586621679460514"><span id="local-6989586621679460516"><span class="annot"><span class="annottext">ReadPrec [AttachGroupPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461144"><span id="local-6989586621679461146"><span id="local-6989586621679461148"><span id="local-6989586621679461150"><span class="annot"><span class="annottext">ReadPrec [AttachGroupPolicyResponse]
 ReadPrec AttachGroupPolicyResponse
 Int -&gt; ReadS AttachGroupPolicyResponse
 ReadS [AttachGroupPolicyResponse]
@@ -335,7 +335,7 @@ readList :: ReadS [AttachGroupPolicyResponse]
 $creadList :: ReadS [AttachGroupPolicyResponse]
 readsPrec :: Int -&gt; ReadS AttachGroupPolicyResponse
 $creadsPrec :: Int -&gt; ReadS AttachGroupPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460504"><span id="local-6989586621679460506"><span id="local-6989586621679460508"><span class="annot"><span class="annottext">Int -&gt; AttachGroupPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461138"><span id="local-6989586621679461140"><span id="local-6989586621679461142"><span class="annot"><span class="annottext">Int -&gt; AttachGroupPolicyResponse -&gt; ShowS
 [AttachGroupPolicyResponse] -&gt; ShowS
 AttachGroupPolicyResponse -&gt; String
 (Int -&gt; AttachGroupPolicyResponse -&gt; ShowS)
@@ -378,5 +378,5 @@ AttachGroupPolicyResponse -&gt; Rep AttachGroupPolicyResponse x
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">AttachGroupPolicyResponse
 </span><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicyResponse%27"><span class="hs-identifier hs-var">AttachGroupPolicyResponse'</span></a></span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicyResponse"><span class="hs-identifier hs-type">AttachGroupPolicyResponse</span></a></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.AttachGroupPolicy.html#AttachGroupPolicyResponse"><span class="hs-identifier hs-type">AttachGroupPolicyResponse</span></a></span></span><span>
 </span><span id="line-170"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Contains information about the delegated administrator.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDelegatedAdministrator' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679236395"><span id="local-6989586621679236396"></span></span><span class="hs-keyword">data</span><span> </span><span id="DelegatedAdministrator"><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-var">DelegatedAdministrator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DelegatedAdministrator%27"><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-var">DelegatedAdministrator'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679236514"><span id="local-6989586621679236515"></span></span><span class="hs-keyword">data</span><span> </span><span id="DelegatedAdministrator"><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-var">DelegatedAdministrator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DelegatedAdministrator%27"><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-var">DelegatedAdministrator'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the delegated administrator\'s account in the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- organization.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3ADelegatedAdministrator%27"><span class="annot"><span class="annottext">DelegatedAdministrator -&gt; Maybe AccountStatus
@@ -37,29 +37,29 @@
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- organization.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AjoinedMethod%3ADelegatedAdministrator%27"><span class="annot"><span class="annottext">DelegatedAdministrator -&gt; Maybe AccountJoinedMethod
 </span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3AjoinedMethod%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var hs-var">joinedMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.AccountJoinedMethod.html#AccountJoinedMethod"><span class="hs-identifier hs-type">AccountJoinedMethod</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the delegated administrator\'s</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- account.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aarn%3ADelegatedAdministrator%27"><span class="annot"><span class="annottext">DelegatedAdministrator -&gt; Maybe Text
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aarn%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The date when the delegated administrator\'s account became a part of</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- the organization.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AjoinedTimestamp%3ADelegatedAdministrator%27"><span class="annot"><span class="annottext">DelegatedAdministrator -&gt; Maybe POSIX
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3AjoinedTimestamp%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var hs-var">joinedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The unique identifier (ID) of the delegated administrator\'s account.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aid%3ADelegatedAdministrator%27"><span class="annot"><span class="annottext">DelegatedAdministrator -&gt; Maybe Text
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aid%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The friendly name of the delegated administrator\'s account.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aname%3ADelegatedAdministrator%27"><span class="annot"><span class="annottext">DelegatedAdministrator -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aname%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The email address that is associated with the delegated administrator\'s</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- AWS account.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aemail%3ADelegatedAdministrator%27"><span class="annot"><span class="annottext">DelegatedAdministrator -&gt; Maybe (Sensitive Text)
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The email address that is associated with the delegated administrator\'s</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- AWS account.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aemail%3ADelegatedAdministrator%27"><span class="annot"><span class="annottext">DelegatedAdministrator -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aemail%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The date when the account was made a delegated administrator.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AdelegationEnabledDate%3ADelegatedAdministrator%27"><span class="annot"><span class="annottext">DelegatedAdministrator -&gt; Maybe POSIX
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3AdelegationEnabledDate%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var hs-var">delegationEnabledDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the delegated administrator\'s</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aarn%3ADelegatedAdministrator%27"><span class="annot"><span class="annottext">DelegatedAdministrator -&gt; Maybe Text
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aarn%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The date when the delegated administrator\'s account became a part of</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- the organization.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AjoinedTimestamp%3ADelegatedAdministrator%27"><span class="annot"><span class="annottext">DelegatedAdministrator -&gt; Maybe POSIX
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3AjoinedTimestamp%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var hs-var">joinedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The date when the account was made a delegated administrator.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AdelegationEnabledDate%3ADelegatedAdministrator%27"><span class="annot"><span class="annottext">DelegatedAdministrator -&gt; Maybe POSIX
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3AdelegationEnabledDate%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var hs-var">delegationEnabledDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The friendly name of the delegated administrator\'s account.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aname%3ADelegatedAdministrator%27"><span class="annot"><span class="annottext">DelegatedAdministrator -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aname%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The unique identifier (ID) of the delegated administrator\'s account.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aid%3ADelegatedAdministrator%27"><span class="annot"><span class="annottext">DelegatedAdministrator -&gt; Maybe Text
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aid%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679236382"><span id="local-6989586621679236384"><span class="annot"><span class="annottext">DelegatedAdministrator -&gt; DelegatedAdministrator -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679236501"><span id="local-6989586621679236503"><span class="annot"><span class="annottext">DelegatedAdministrator -&gt; DelegatedAdministrator -&gt; Bool
 (DelegatedAdministrator -&gt; DelegatedAdministrator -&gt; Bool)
 -&gt; (DelegatedAdministrator -&gt; DelegatedAdministrator -&gt; Bool)
 -&gt; Eq DelegatedAdministrator
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DelegatedAdministrator -&gt; DelegatedAdministrator -&gt; Bool
 == :: DelegatedAdministrator -&gt; DelegatedAdministrator -&gt; Bool
 $c== :: DelegatedAdministrator -&gt; DelegatedAdministrator -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236375"><span id="local-6989586621679236377"><span id="local-6989586621679236379"><span class="annot"><span class="annottext">Int -&gt; DelegatedAdministrator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679236494"><span id="local-6989586621679236496"><span id="local-6989586621679236498"><span class="annot"><span class="annottext">Int -&gt; DelegatedAdministrator -&gt; ShowS
 [DelegatedAdministrator] -&gt; ShowS
 DelegatedAdministrator -&gt; String
 (Int -&gt; DelegatedAdministrator -&gt; ShowS)
@@ -109,32 +109,32 @@ $cfrom :: forall x. DelegatedAdministrator -&gt; Rep DelegatedAdministrator x
 </span><span id="line-67"></span><span class="hs-comment">-- 'joinedMethod', 'delegatedAdministrator_joinedMethod' - The method by which the delegated administrator\'s account joined the</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- organization.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'arn', 'delegatedAdministrator_arn' - The Amazon Resource Name (ARN) of the delegated administrator\'s</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'email', 'delegatedAdministrator_email' - The email address that is associated with the delegated administrator\'s</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- AWS account.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'joinedTimestamp', 'delegatedAdministrator_joinedTimestamp' - The date when the delegated administrator\'s account became a part of</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- the organization.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'arn', 'delegatedAdministrator_arn' - The Amazon Resource Name (ARN) of the delegated administrator\'s</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- account.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'id', 'delegatedAdministrator_id' - The unique identifier (ID) of the delegated administrator\'s account.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'name', 'delegatedAdministrator_name' - The friendly name of the delegated administrator\'s account.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'email', 'delegatedAdministrator_email' - The email address that is associated with the delegated administrator\'s</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- AWS account.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'joinedTimestamp', 'delegatedAdministrator_joinedTimestamp' - The date when the delegated administrator\'s account became a part of</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- the organization.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'delegationEnabledDate', 'delegatedAdministrator_delegationEnabledDate' - The date when the account was made a delegated administrator.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'name', 'delegatedAdministrator_name' - The friendly name of the delegated administrator\'s account.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'delegationEnabledDate', 'delegatedAdministrator_delegationEnabledDate' - The date when the account was made a delegated administrator.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'id', 'delegatedAdministrator_id' - The unique identifier (ID) of the delegated administrator\'s account.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#newDelegatedAdministrator"><span class="hs-identifier hs-type">newDelegatedAdministrator</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span>
 </span><span id="line-86"></span><span id="newDelegatedAdministrator"><span class="annot"><span class="annottext">newDelegatedAdministrator :: DelegatedAdministrator
 </span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#newDelegatedAdministrator"><span class="hs-identifier hs-var hs-var">newDelegatedAdministrator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">DelegatedAdministrator' :: Maybe AccountStatus
 -&gt; Maybe AccountJoinedMethod
+-&gt; Maybe (Sensitive Text)
 -&gt; Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe (Sensitive Text)
--&gt; Maybe (Sensitive Text)
 -&gt; Maybe POSIX
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
 -&gt; DelegatedAdministrator
 </span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:DelegatedAdministrator' :: Maybe AccountStatus
@@ -145,28 +145,28 @@ forall a. Maybe a
 </span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3AjoinedMethod%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">joinedMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccountJoinedMethod
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:DelegatedAdministrator' :: Maybe Text
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aarn%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:joinedTimestamp:DelegatedAdministrator' :: Maybe POSIX
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3AjoinedTimestamp%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">joinedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:DelegatedAdministrator' :: Maybe Text
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aid%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DelegatedAdministrator' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aname%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:email:DelegatedAdministrator' :: Maybe (Sensitive Text)
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:email:DelegatedAdministrator' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aemail%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:delegationEnabledDate:DelegatedAdministrator' :: Maybe POSIX
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:DelegatedAdministrator' :: Maybe Text
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aarn%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:joinedTimestamp:DelegatedAdministrator' :: Maybe POSIX
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3AjoinedTimestamp%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">joinedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:delegationEnabledDate:DelegatedAdministrator' :: Maybe POSIX
 </span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3AdelegationEnabledDate%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">delegationEnabledDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DelegatedAdministrator' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aname%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:DelegatedAdministrator' :: Maybe Text
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aid%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
@@ -185,16 +185,16 @@ forall a. Maybe a
      (Maybe AccountStatus)
      (Maybe AccountStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236366"><span class="annot"><span class="annottext">Maybe AccountStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236485"><span class="annot"><span class="annottext">Maybe AccountStatus
 status :: Maybe AccountStatus
 $sel:status:DelegatedAdministrator' :: DelegatedAdministrator -&gt; Maybe AccountStatus
-</span><a href="#local-6989586621679236366"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccountStatus
-</span><a href="#local-6989586621679236366"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236365"><span class="annot"><span class="annottext">s :: DelegatedAdministrator
-</span><a href="#local-6989586621679236365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236364"><span class="annot"><span class="annottext">Maybe AccountStatus
-</span><a href="#local-6989586621679236364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedAdministrator
-</span><a href="#local-6989586621679236365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DelegatedAdministrator' :: Maybe AccountStatus
+</span><a href="#local-6989586621679236485"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccountStatus
+</span><a href="#local-6989586621679236485"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236484"><span class="annot"><span class="annottext">s :: DelegatedAdministrator
+</span><a href="#local-6989586621679236484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236483"><span class="annot"><span class="annottext">Maybe AccountStatus
+</span><a href="#local-6989586621679236483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedAdministrator
+</span><a href="#local-6989586621679236484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DelegatedAdministrator' :: Maybe AccountStatus
 </span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Astatus%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccountStatus
-</span><a href="#local-6989586621679236364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679236483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The method by which the delegated administrator\'s account joined the</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- organization.</span><span>
@@ -210,109 +210,23 @@ $sel:status:DelegatedAdministrator' :: DelegatedAdministrator -&gt; Maybe Accoun
      (Maybe AccountJoinedMethod)
      (Maybe AccountJoinedMethod)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236362"><span class="annot"><span class="annottext">Maybe AccountJoinedMethod
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236481"><span class="annot"><span class="annottext">Maybe AccountJoinedMethod
 joinedMethod :: Maybe AccountJoinedMethod
 $sel:joinedMethod:DelegatedAdministrator' :: DelegatedAdministrator -&gt; Maybe AccountJoinedMethod
-</span><a href="#local-6989586621679236362"><span class="hs-identifier hs-var hs-var">joinedMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccountJoinedMethod
-</span><a href="#local-6989586621679236362"><span class="hs-identifier hs-var">joinedMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236361"><span class="annot"><span class="annottext">s :: DelegatedAdministrator
-</span><a href="#local-6989586621679236361"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236360"><span class="annot"><span class="annottext">Maybe AccountJoinedMethod
-</span><a href="#local-6989586621679236360"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedAdministrator
-</span><a href="#local-6989586621679236361"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:joinedMethod:DelegatedAdministrator' :: Maybe AccountJoinedMethod
+</span><a href="#local-6989586621679236481"><span class="hs-identifier hs-var hs-var">joinedMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccountJoinedMethod
+</span><a href="#local-6989586621679236481"><span class="hs-identifier hs-var">joinedMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236480"><span class="annot"><span class="annottext">s :: DelegatedAdministrator
+</span><a href="#local-6989586621679236480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236479"><span class="annot"><span class="annottext">Maybe AccountJoinedMethod
+</span><a href="#local-6989586621679236479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedAdministrator
+</span><a href="#local-6989586621679236480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:joinedMethod:DelegatedAdministrator' :: Maybe AccountJoinedMethod
 </span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3AjoinedMethod%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">joinedMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccountJoinedMethod
-</span><a href="#local-6989586621679236360"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679236479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the delegated administrator\'s</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- account.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_arn"><span class="hs-identifier hs-type">delegatedAdministrator_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="delegatedAdministrator_arn"><span class="annot"><span class="annottext">delegatedAdministrator_arn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-108"></span><span class="hs-comment">-- | The email address that is associated with the delegated administrator\'s</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- AWS account.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_email"><span class="hs-identifier hs-type">delegatedAdministrator_email</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="delegatedAdministrator_email"><span class="annot"><span class="annottext">delegatedAdministrator_email :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DelegatedAdministrator -&gt; f DelegatedAdministrator
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_arn"><span class="hs-identifier hs-var hs-var">delegatedAdministrator_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegatedAdministrator -&gt; Maybe Text)
--&gt; (DelegatedAdministrator -&gt; Maybe Text -&gt; DelegatedAdministrator)
--&gt; Lens
-     DelegatedAdministrator
-     DelegatedAdministrator
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236358"><span class="annot"><span class="annottext">Maybe Text
-arn :: Maybe Text
-$sel:arn:DelegatedAdministrator' :: DelegatedAdministrator -&gt; Maybe Text
-</span><a href="#local-6989586621679236358"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679236358"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236357"><span class="annot"><span class="annottext">s :: DelegatedAdministrator
-</span><a href="#local-6989586621679236357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236356"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679236356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedAdministrator
-</span><a href="#local-6989586621679236357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DelegatedAdministrator' :: Maybe Text
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aarn%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679236356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The date when the delegated administrator\'s account became a part of</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- the organization.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_joinedTimestamp"><span class="hs-identifier hs-type">delegatedAdministrator_joinedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="delegatedAdministrator_joinedTimestamp"><span class="annot"><span class="annottext">delegatedAdministrator_joinedTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; DelegatedAdministrator -&gt; f DelegatedAdministrator
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_joinedTimestamp"><span class="hs-identifier hs-var hs-var">delegatedAdministrator_joinedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegatedAdministrator -&gt; Maybe POSIX)
--&gt; (DelegatedAdministrator
-    -&gt; Maybe POSIX -&gt; DelegatedAdministrator)
--&gt; Lens
-     DelegatedAdministrator
-     DelegatedAdministrator
-     (Maybe POSIX)
-     (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236354"><span class="annot"><span class="annottext">Maybe POSIX
-joinedTimestamp :: Maybe POSIX
-$sel:joinedTimestamp:DelegatedAdministrator' :: DelegatedAdministrator -&gt; Maybe POSIX
-</span><a href="#local-6989586621679236354"><span class="hs-identifier hs-var hs-var">joinedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679236354"><span class="hs-identifier hs-var">joinedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236353"><span class="annot"><span class="annottext">s :: DelegatedAdministrator
-</span><a href="#local-6989586621679236353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236352"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679236352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedAdministrator
-</span><a href="#local-6989586621679236353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:joinedTimestamp:DelegatedAdministrator' :: Maybe POSIX
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3AjoinedTimestamp%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">joinedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679236352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; DelegatedAdministrator -&gt; f DelegatedAdministrator)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; DelegatedAdministrator
--&gt; f DelegatedAdministrator
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The unique identifier (ID) of the delegated administrator\'s account.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_id"><span class="hs-identifier hs-type">delegatedAdministrator_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="delegatedAdministrator_id"><span class="annot"><span class="annottext">delegatedAdministrator_id :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DelegatedAdministrator -&gt; f DelegatedAdministrator
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_id"><span class="hs-identifier hs-var hs-var">delegatedAdministrator_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegatedAdministrator -&gt; Maybe Text)
--&gt; (DelegatedAdministrator -&gt; Maybe Text -&gt; DelegatedAdministrator)
--&gt; Lens
-     DelegatedAdministrator
-     DelegatedAdministrator
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236347"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:DelegatedAdministrator' :: DelegatedAdministrator -&gt; Maybe Text
-</span><a href="#local-6989586621679236347"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679236347"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236346"><span class="annot"><span class="annottext">s :: DelegatedAdministrator
-</span><a href="#local-6989586621679236346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236345"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679236345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedAdministrator
-</span><a href="#local-6989586621679236346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DelegatedAdministrator' :: Maybe Text
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aid%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679236345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | The friendly name of the delegated administrator\'s account.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_name"><span class="hs-identifier hs-type">delegatedAdministrator_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="delegatedAdministrator_name"><span class="annot"><span class="annottext">delegatedAdministrator_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DelegatedAdministrator -&gt; f DelegatedAdministrator
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_name"><span class="hs-identifier hs-var hs-var">delegatedAdministrator_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegatedAdministrator -&gt; Maybe (Sensitive Text))
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_email"><span class="hs-identifier hs-var hs-var">delegatedAdministrator_email</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegatedAdministrator -&gt; Maybe (Sensitive Text))
 -&gt; (DelegatedAdministrator
     -&gt; Maybe (Sensitive Text) -&gt; DelegatedAdministrator)
 -&gt; Lens
@@ -321,16 +235,16 @@ $sel:id:DelegatedAdministrator' :: DelegatedAdministrator -&gt; Maybe Text
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236343"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-name :: Maybe (Sensitive Text)
-$sel:name:DelegatedAdministrator' :: DelegatedAdministrator -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679236343"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679236343"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236342"><span class="annot"><span class="annottext">s :: DelegatedAdministrator
-</span><a href="#local-6989586621679236342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236341"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679236341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedAdministrator
-</span><a href="#local-6989586621679236342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DelegatedAdministrator' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aname%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679236341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236477"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+email :: Maybe (Sensitive Text)
+$sel:email:DelegatedAdministrator' :: DelegatedAdministrator -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679236477"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679236477"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236476"><span class="annot"><span class="annottext">s :: DelegatedAdministrator
+</span><a href="#local-6989586621679236476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236475"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679236475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedAdministrator
+</span><a href="#local-6989586621679236476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:DelegatedAdministrator' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aemail%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679236475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; DelegatedAdministrator -&gt; f DelegatedAdministrator)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -350,13 +264,115 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The email address that is associated with the delegated administrator\'s</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- AWS account.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_email"><span class="hs-identifier hs-type">delegatedAdministrator_email</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span id="delegatedAdministrator_email"><span class="annot"><span class="annottext">delegatedAdministrator_email :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the delegated administrator\'s</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_arn"><span class="hs-identifier hs-type">delegatedAdministrator_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="delegatedAdministrator_arn"><span class="annot"><span class="annottext">delegatedAdministrator_arn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DelegatedAdministrator -&gt; f DelegatedAdministrator
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_email"><span class="hs-identifier hs-var hs-var">delegatedAdministrator_email</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegatedAdministrator -&gt; Maybe (Sensitive Text))
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_arn"><span class="hs-identifier hs-var hs-var">delegatedAdministrator_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegatedAdministrator -&gt; Maybe Text)
+-&gt; (DelegatedAdministrator -&gt; Maybe Text -&gt; DelegatedAdministrator)
+-&gt; Lens
+     DelegatedAdministrator
+     DelegatedAdministrator
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236470"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:DelegatedAdministrator' :: DelegatedAdministrator -&gt; Maybe Text
+</span><a href="#local-6989586621679236470"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236470"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236469"><span class="annot"><span class="annottext">s :: DelegatedAdministrator
+</span><a href="#local-6989586621679236469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236468"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedAdministrator
+</span><a href="#local-6989586621679236469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DelegatedAdministrator' :: Maybe Text
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aarn%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The date when the delegated administrator\'s account became a part of</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- the organization.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_joinedTimestamp"><span class="hs-identifier hs-type">delegatedAdministrator_joinedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="delegatedAdministrator_joinedTimestamp"><span class="annot"><span class="annottext">delegatedAdministrator_joinedTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DelegatedAdministrator -&gt; f DelegatedAdministrator
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_joinedTimestamp"><span class="hs-identifier hs-var hs-var">delegatedAdministrator_joinedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegatedAdministrator -&gt; Maybe POSIX)
+-&gt; (DelegatedAdministrator
+    -&gt; Maybe POSIX -&gt; DelegatedAdministrator)
+-&gt; Lens
+     DelegatedAdministrator
+     DelegatedAdministrator
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236466"><span class="annot"><span class="annottext">Maybe POSIX
+joinedTimestamp :: Maybe POSIX
+$sel:joinedTimestamp:DelegatedAdministrator' :: DelegatedAdministrator -&gt; Maybe POSIX
+</span><a href="#local-6989586621679236466"><span class="hs-identifier hs-var hs-var">joinedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679236466"><span class="hs-identifier hs-var">joinedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236465"><span class="annot"><span class="annottext">s :: DelegatedAdministrator
+</span><a href="#local-6989586621679236465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236464"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679236464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedAdministrator
+</span><a href="#local-6989586621679236465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:joinedTimestamp:DelegatedAdministrator' :: Maybe POSIX
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3AjoinedTimestamp%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">joinedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679236464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DelegatedAdministrator -&gt; f DelegatedAdministrator)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DelegatedAdministrator
+-&gt; f DelegatedAdministrator
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The date when the account was made a delegated administrator.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_delegationEnabledDate"><span class="hs-identifier hs-type">delegatedAdministrator_delegationEnabledDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="delegatedAdministrator_delegationEnabledDate"><span class="annot"><span class="annottext">delegatedAdministrator_delegationEnabledDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DelegatedAdministrator -&gt; f DelegatedAdministrator
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_delegationEnabledDate"><span class="hs-identifier hs-var hs-var">delegatedAdministrator_delegationEnabledDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegatedAdministrator -&gt; Maybe POSIX)
+-&gt; (DelegatedAdministrator
+    -&gt; Maybe POSIX -&gt; DelegatedAdministrator)
+-&gt; Lens
+     DelegatedAdministrator
+     DelegatedAdministrator
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236461"><span class="annot"><span class="annottext">Maybe POSIX
+delegationEnabledDate :: Maybe POSIX
+$sel:delegationEnabledDate:DelegatedAdministrator' :: DelegatedAdministrator -&gt; Maybe POSIX
+</span><a href="#local-6989586621679236461"><span class="hs-identifier hs-var hs-var">delegationEnabledDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679236461"><span class="hs-identifier hs-var">delegationEnabledDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236460"><span class="annot"><span class="annottext">s :: DelegatedAdministrator
+</span><a href="#local-6989586621679236460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236459"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679236459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedAdministrator
+</span><a href="#local-6989586621679236460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delegationEnabledDate:DelegatedAdministrator' :: Maybe POSIX
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3AdelegationEnabledDate%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">delegationEnabledDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679236459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DelegatedAdministrator -&gt; f DelegatedAdministrator)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DelegatedAdministrator
+-&gt; f DelegatedAdministrator
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The friendly name of the delegated administrator\'s account.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_name"><span class="hs-identifier hs-type">delegatedAdministrator_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="delegatedAdministrator_name"><span class="annot"><span class="annottext">delegatedAdministrator_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DelegatedAdministrator -&gt; f DelegatedAdministrator
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_name"><span class="hs-identifier hs-var hs-var">delegatedAdministrator_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegatedAdministrator -&gt; Maybe (Sensitive Text))
 -&gt; (DelegatedAdministrator
     -&gt; Maybe (Sensitive Text) -&gt; DelegatedAdministrator)
 -&gt; Lens
@@ -365,16 +381,16 @@ forall a. Iso' (Sensitive a) a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236338"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-email :: Maybe (Sensitive Text)
-$sel:email:DelegatedAdministrator' :: DelegatedAdministrator -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679236338"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679236338"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236337"><span class="annot"><span class="annottext">s :: DelegatedAdministrator
-</span><a href="#local-6989586621679236337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236336"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679236336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedAdministrator
-</span><a href="#local-6989586621679236337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:DelegatedAdministrator' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aemail%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679236336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236457"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+name :: Maybe (Sensitive Text)
+$sel:name:DelegatedAdministrator' :: DelegatedAdministrator -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679236457"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679236457"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236456"><span class="annot"><span class="annottext">s :: DelegatedAdministrator
+</span><a href="#local-6989586621679236456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236455"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679236455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedAdministrator
+</span><a href="#local-6989586621679236456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DelegatedAdministrator' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aname%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679236455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; DelegatedAdministrator -&gt; f DelegatedAdministrator)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -395,47 +411,31 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- | The date when the account was made a delegated administrator.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_delegationEnabledDate"><span class="hs-identifier hs-type">delegatedAdministrator_delegationEnabledDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="delegatedAdministrator_delegationEnabledDate"><span class="annot"><span class="annottext">delegatedAdministrator_delegationEnabledDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-131"></span><span class="hs-comment">-- | The unique identifier (ID) of the delegated administrator\'s account.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_id"><span class="hs-identifier hs-type">delegatedAdministrator_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="delegatedAdministrator_id"><span class="annot"><span class="annottext">delegatedAdministrator_id :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DelegatedAdministrator -&gt; f DelegatedAdministrator
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_delegationEnabledDate"><span class="hs-identifier hs-var hs-var">delegatedAdministrator_delegationEnabledDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegatedAdministrator -&gt; Maybe POSIX)
--&gt; (DelegatedAdministrator
-    -&gt; Maybe POSIX -&gt; DelegatedAdministrator)
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#delegatedAdministrator_id"><span class="hs-identifier hs-var hs-var">delegatedAdministrator_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DelegatedAdministrator -&gt; Maybe Text)
+-&gt; (DelegatedAdministrator -&gt; Maybe Text -&gt; DelegatedAdministrator)
 -&gt; Lens
      DelegatedAdministrator
      DelegatedAdministrator
-     (Maybe POSIX)
-     (Maybe POSIX)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236334"><span class="annot"><span class="annottext">Maybe POSIX
-delegationEnabledDate :: Maybe POSIX
-$sel:delegationEnabledDate:DelegatedAdministrator' :: DelegatedAdministrator -&gt; Maybe POSIX
-</span><a href="#local-6989586621679236334"><span class="hs-identifier hs-var hs-var">delegationEnabledDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679236334"><span class="hs-identifier hs-var">delegationEnabledDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236333"><span class="annot"><span class="annottext">s :: DelegatedAdministrator
-</span><a href="#local-6989586621679236333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236332"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679236332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedAdministrator
-</span><a href="#local-6989586621679236333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:delegationEnabledDate:DelegatedAdministrator' :: Maybe POSIX
-</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3AdelegationEnabledDate%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">delegationEnabledDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679236332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; DelegatedAdministrator -&gt; f DelegatedAdministrator)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; DelegatedAdministrator
--&gt; f DelegatedAdministrator
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679236453"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:DelegatedAdministrator' :: DelegatedAdministrator -&gt; Maybe Text
+</span><a href="#local-6989586621679236453"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236453"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679236452"><span class="annot"><span class="annottext">s :: DelegatedAdministrator
+</span><a href="#local-6989586621679236452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-type">DelegatedAdministrator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679236451"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DelegatedAdministrator
+</span><a href="#local-6989586621679236452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DelegatedAdministrator' :: Maybe Text
+</span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#%24sel%3Aid%3ADelegatedAdministrator%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679236451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236329"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679236327"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DelegatedAdministrator
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236448"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679236446"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DelegatedAdministrator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DelegatedAdministrator)
@@ -445,158 +445,158 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DelegatedAdministrator&quot;</span></span><span>
-</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679236324"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679236324"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679236443"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236443"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe AccountStatus
 -&gt; Maybe AccountJoinedMethod
+-&gt; Maybe (Sensitive Text)
 -&gt; Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe (Sensitive Text)
--&gt; Maybe (Sensitive Text)
 -&gt; Maybe POSIX
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
 -&gt; DelegatedAdministrator
 </span><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator%27"><span class="hs-identifier hs-var">DelegatedAdministrator'</span></a></span><span>
 </span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AccountStatus
  -&gt; Maybe AccountJoinedMethod
+ -&gt; Maybe (Sensitive Text)
  -&gt; Maybe Text
  -&gt; Maybe POSIX
- -&gt; Maybe Text
- -&gt; Maybe (Sensitive Text)
- -&gt; Maybe (Sensitive Text)
  -&gt; Maybe POSIX
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe Text
  -&gt; DelegatedAdministrator)
 -&gt; Parser (Maybe AccountStatus)
 -&gt; Parser
      (Maybe AccountJoinedMethod
+      -&gt; Maybe (Sensitive Text)
       -&gt; Maybe Text
       -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe (Sensitive Text)
       -&gt; Maybe POSIX
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
       -&gt; DelegatedAdministrator)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679236324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccountStatus)
+</span><a href="#local-6989586621679236443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccountStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe AccountJoinedMethod
+   -&gt; Maybe (Sensitive Text)
    -&gt; Maybe Text
    -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe (Sensitive Text)
    -&gt; Maybe POSIX
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
    -&gt; DelegatedAdministrator)
 -&gt; Parser (Maybe AccountJoinedMethod)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe POSIX
+     (Maybe (Sensitive Text)
       -&gt; Maybe Text
-      -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe (Sensitive Text)
       -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
       -&gt; DelegatedAdministrator)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679236324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccountJoinedMethod)
+</span><a href="#local-6989586621679236443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccountJoinedMethod)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JoinedMethod&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; DelegatedAdministrator)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; DelegatedAdministrator)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Email&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe (Sensitive Text)
    -&gt; Maybe POSIX
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
    -&gt; DelegatedAdministrator)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe (Sensitive Text)
       -&gt; Maybe POSIX
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
       -&gt; DelegatedAdministrator)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679236324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679236443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe (Sensitive Text)
    -&gt; Maybe POSIX
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
    -&gt; DelegatedAdministrator)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe POSIX
-      -&gt; DelegatedAdministrator)
+     (Maybe POSIX
+      -&gt; Maybe (Sensitive Text) -&gt; Maybe Text -&gt; DelegatedAdministrator)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679236324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679236443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JoinedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe POSIX
-   -&gt; DelegatedAdministrator)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe (Sensitive Text)
-      -&gt; Maybe (Sensitive Text) -&gt; Maybe POSIX -&gt; DelegatedAdministrator)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679236324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (Sensitive Text)
-   -&gt; Maybe (Sensitive Text) -&gt; Maybe POSIX -&gt; DelegatedAdministrator)
--&gt; Parser (Maybe (Sensitive Text))
+  (Maybe POSIX
+   -&gt; Maybe (Sensitive Text) -&gt; Maybe Text -&gt; DelegatedAdministrator)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe (Sensitive Text) -&gt; Maybe POSIX -&gt; DelegatedAdministrator)
+     (Maybe (Sensitive Text) -&gt; Maybe Text -&gt; DelegatedAdministrator)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679236324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (Sensitive Text) -&gt; Maybe POSIX -&gt; DelegatedAdministrator)
--&gt; Parser (Maybe (Sensitive Text))
--&gt; Parser (Maybe POSIX -&gt; DelegatedAdministrator)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679236324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Email&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; DelegatedAdministrator)
--&gt; Parser (Maybe POSIX) -&gt; Parser DelegatedAdministrator
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679236324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679236443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DelegationEnabledDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text) -&gt; Maybe Text -&gt; DelegatedAdministrator)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser (Maybe Text -&gt; DelegatedAdministrator)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DelegatedAdministrator)
+-&gt; Parser (Maybe Text) -&gt; Parser DelegatedAdministrator
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679236443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236318"><span id="local-6989586621679236320"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236437"><span id="local-6989586621679236439"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236315"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679236434"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.DelegatedAdministrator.html#DelegatedAdministrator"><span class="hs-identifier hs-type">DelegatedAdministrator</span></a></span></span><span>
 </span><span id="line-154"></span></pre></body></html>

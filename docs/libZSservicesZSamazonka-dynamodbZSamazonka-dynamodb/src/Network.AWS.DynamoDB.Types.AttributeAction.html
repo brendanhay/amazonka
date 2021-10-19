@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679366704"><span id="local-6989586621679366705"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AttributeAction"><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeAction.html#AttributeAction"><span class="hs-identifier hs-var">AttributeAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributeAction%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeAction.html#AttributeAction%27"><span class="hs-identifier hs-var">AttributeAction'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679367360"><span id="local-6989586621679367361"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AttributeAction"><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeAction.html#AttributeAction"><span class="hs-identifier hs-var">AttributeAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributeAction%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.AttributeAction.html#AttributeAction%27"><span class="hs-identifier hs-var">AttributeAction'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAttributeAction"><span class="annot"><span class="annottext">AttributeAction -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Types.AttributeAction.html#fromAttributeAction"><span class="hs-identifier hs-var hs-var">fromAttributeAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366696"><span id="local-6989586621679366698"><span id="local-6989586621679366700"><span class="annot"><span class="annottext">Int -&gt; AttributeAction -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367352"><span id="local-6989586621679367354"><span id="local-6989586621679367356"><span class="annot"><span class="annottext">Int -&gt; AttributeAction -&gt; ShowS
 [AttributeAction] -&gt; ShowS
 AttributeAction -&gt; String
 (Int -&gt; AttributeAction -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: AttributeAction -&gt; String
 showsPrec :: Int -&gt; AttributeAction -&gt; ShowS
 $cshowsPrec :: Int -&gt; AttributeAction -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679366687"><span id="local-6989586621679366689"><span id="local-6989586621679366691"><span id="local-6989586621679366693"><span class="annot"><span class="annottext">ReadPrec [AttributeAction]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679367343"><span id="local-6989586621679367345"><span id="local-6989586621679367347"><span id="local-6989586621679367349"><span class="annot"><span class="annottext">ReadPrec [AttributeAction]
 ReadPrec AttributeAction
 Int -&gt; ReadS AttributeAction
 ReadS [AttributeAction]
@@ -73,7 +73,7 @@ $creadList :: ReadS [AttributeAction]
 readsPrec :: Int -&gt; ReadS AttributeAction
 $creadsPrec :: Int -&gt; ReadS AttributeAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679366682"><span id="local-6989586621679366684"><span class="annot"><span class="annottext">AttributeAction -&gt; AttributeAction -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679367338"><span id="local-6989586621679367340"><span class="annot"><span class="annottext">AttributeAction -&gt; AttributeAction -&gt; Bool
 (AttributeAction -&gt; AttributeAction -&gt; Bool)
 -&gt; (AttributeAction -&gt; AttributeAction -&gt; Bool)
 -&gt; Eq AttributeAction
@@ -83,7 +83,7 @@ $c/= :: AttributeAction -&gt; AttributeAction -&gt; Bool
 == :: AttributeAction -&gt; AttributeAction -&gt; Bool
 $c== :: AttributeAction -&gt; AttributeAction -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679366666"><span id="local-6989586621679366668"><span id="local-6989586621679366670"><span id="local-6989586621679366672"><span id="local-6989586621679366674"><span id="local-6989586621679366676"><span id="local-6989586621679366678"><span class="annot"><span class="annottext">Eq AttributeAction
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679367322"><span id="local-6989586621679367324"><span id="local-6989586621679367326"><span id="local-6989586621679367328"><span id="local-6989586621679367330"><span id="local-6989586621679367332"><span id="local-6989586621679367334"><span class="annot"><span class="annottext">Eq AttributeAction
 Eq AttributeAction
 -&gt; (AttributeAction -&gt; AttributeAction -&gt; Ordering)
 -&gt; (AttributeAction -&gt; AttributeAction -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. AttributeAction -&gt; Rep AttributeAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366658"><span id="local-6989586621679366660"><span class="annot"><span class="annottext">Int -&gt; AttributeAction -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679367314"><span id="local-6989586621679367316"><span class="annot"><span class="annottext">Int -&gt; AttributeAction -&gt; Int
 AttributeAction -&gt; Int
 (Int -&gt; AttributeAction -&gt; Int)
 -&gt; (AttributeAction -&gt; Int) -&gt; Hashable AttributeAction
@@ -144,50 +144,50 @@ $chash :: AttributeAction -&gt; Int
 hashWithSalt :: Int -&gt; AttributeAction -&gt; Int
 $chashWithSalt :: Int -&gt; AttributeAction -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679366655"><span class="annot"><span class="annottext">AttributeAction -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679367311"><span class="annot"><span class="annottext">AttributeAction -&gt; ()
 (AttributeAction -&gt; ()) -&gt; NFData AttributeAction
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AttributeAction -&gt; ()
 $crnf :: AttributeAction -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679366652"><span class="annot"><span class="annottext">Text -&gt; Either String AttributeAction
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679367308"><span class="annot"><span class="annottext">Text -&gt; Either String AttributeAction
 (Text -&gt; Either String AttributeAction) -&gt; FromText AttributeAction
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AttributeAction
 $cfromText :: Text -&gt; Either String AttributeAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679366649"><span class="annot"><span class="annottext">AttributeAction -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679367305"><span class="annot"><span class="annottext">AttributeAction -&gt; Text
 (AttributeAction -&gt; Text) -&gt; ToText AttributeAction
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AttributeAction -&gt; Text
 $ctoText :: AttributeAction -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679366646"><span class="annot"><span class="annottext">AttributeAction -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679367302"><span class="annot"><span class="annottext">AttributeAction -&gt; ByteString
 (AttributeAction -&gt; ByteString) -&gt; ToByteString AttributeAction
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AttributeAction -&gt; ByteString
 $ctoBS :: AttributeAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679366643"><span class="annot"><span class="annottext">AttributeAction -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679367299"><span class="annot"><span class="annottext">AttributeAction -&gt; ByteStringBuilder
 (AttributeAction -&gt; ByteStringBuilder) -&gt; ToLog AttributeAction
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AttributeAction -&gt; ByteStringBuilder
 $cbuild :: AttributeAction -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679366640"><span class="annot"><span class="annottext">HeaderName -&gt; AttributeAction -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679367296"><span class="annot"><span class="annottext">HeaderName -&gt; AttributeAction -&gt; [Header]
 (HeaderName -&gt; AttributeAction -&gt; [Header])
 -&gt; ToHeader AttributeAction
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AttributeAction -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AttributeAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679366637"><span class="annot"><span class="annottext">AttributeAction -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679367293"><span class="annot"><span class="annottext">AttributeAction -&gt; QueryString
 (AttributeAction -&gt; QueryString) -&gt; ToQuery AttributeAction
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AttributeAction -&gt; QueryString
 $ctoQuery :: AttributeAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679366632"><span id="local-6989586621679366634"><span class="annot"><span class="annottext">Value -&gt; Parser [AttributeAction]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679367288"><span id="local-6989586621679367290"><span class="annot"><span class="annottext">Value -&gt; Parser [AttributeAction]
 Value -&gt; Parser AttributeAction
 (Value -&gt; Parser AttributeAction)
 -&gt; (Value -&gt; Parser [AttributeAction]) -&gt; FromJSON AttributeAction
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [AttributeAction]
 parseJSON :: Value -&gt; Parser AttributeAction
 $cparseJSON :: Value -&gt; Parser AttributeAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679366627"><span id="local-6989586621679366629"><span class="annot"><span class="annottext">FromJSONKeyFunction [AttributeAction]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679367283"><span id="local-6989586621679367285"><span class="annot"><span class="annottext">FromJSONKeyFunction [AttributeAction]
 FromJSONKeyFunction AttributeAction
 FromJSONKeyFunction AttributeAction
 -&gt; FromJSONKeyFunction [AttributeAction]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AttributeAction]
 fromJSONKey :: FromJSONKeyFunction AttributeAction
 $cfromJSONKey :: FromJSONKeyFunction AttributeAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679366618"><span id="local-6989586621679366620"><span id="local-6989586621679366622"><span id="local-6989586621679366624"><span class="annot"><span class="annottext">[AttributeAction] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679367274"><span id="local-6989586621679367276"><span id="local-6989586621679367278"><span id="local-6989586621679367280"><span class="annot"><span class="annottext">[AttributeAction] -&gt; Encoding
 [AttributeAction] -&gt; Value
 AttributeAction -&gt; Encoding
 AttributeAction -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: AttributeAction -&gt; Encoding
 toJSON :: AttributeAction -&gt; Value
 $ctoJSON :: AttributeAction -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679366613"><span id="local-6989586621679366615"><span class="annot"><span class="annottext">ToJSONKeyFunction [AttributeAction]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679367269"><span id="local-6989586621679367271"><span class="annot"><span class="annottext">ToJSONKeyFunction [AttributeAction]
 ToJSONKeyFunction AttributeAction
 ToJSONKeyFunction AttributeAction
 -&gt; ToJSONKeyFunction [AttributeAction] -&gt; ToJSONKey AttributeAction
@@ -245,14 +245,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AttributeAction]
 toJSONKey :: ToJSONKeyFunction AttributeAction
 $ctoJSONKey :: ToJSONKeyFunction AttributeAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679366610"><span class="annot"><span class="annottext">[Node] -&gt; Either String AttributeAction
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679367266"><span class="annot"><span class="annottext">[Node] -&gt; Either String AttributeAction
 ([Node] -&gt; Either String AttributeAction)
 -&gt; FromXML AttributeAction
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AttributeAction
 $cparseXML :: [Node] -&gt; Either String AttributeAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679366607"><span class="annot"><span class="annottext">AttributeAction -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679367263"><span class="annot"><span class="annottext">AttributeAction -&gt; XML
 (AttributeAction -&gt; XML) -&gt; ToXML AttributeAction
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AttributeAction -&gt; XML

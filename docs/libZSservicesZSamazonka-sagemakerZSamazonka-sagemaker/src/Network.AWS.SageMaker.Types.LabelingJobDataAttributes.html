@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- the data to be labeled.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLabelingJobDataAttributes' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680311677"><span id="local-6989586621680311678"></span></span><span class="hs-keyword">data</span><span> </span><span id="LabelingJobDataAttributes"><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes"><span class="hs-identifier hs-var">LabelingJobDataAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LabelingJobDataAttributes%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes%27"><span class="hs-identifier hs-var">LabelingJobDataAttributes'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680313054"><span id="local-6989586621680313055"></span></span><span class="hs-keyword">data</span><span> </span><span id="LabelingJobDataAttributes"><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes"><span class="hs-identifier hs-var">LabelingJobDataAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LabelingJobDataAttributes%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes%27"><span class="hs-identifier hs-var">LabelingJobDataAttributes'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Declares that your content is free of personally identifiable</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- information or adult content. Amazon SageMaker may restrict the Amazon</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Mechanical Turk workers that can view your task based on this</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AcontentClassifiers%3ALabelingJobDataAttributes%27"><span class="annot"><span class="annottext">LabelingJobDataAttributes -&gt; Maybe [ContentClassifier]
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#%24sel%3AcontentClassifiers%3ALabelingJobDataAttributes%27"><span class="hs-identifier hs-var hs-var">contentClassifiers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ContentClassifier.html#ContentClassifier"><span class="hs-identifier hs-type">ContentClassifier</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680311671"><span id="local-6989586621680311673"><span class="annot"><span class="annottext">LabelingJobDataAttributes -&gt; LabelingJobDataAttributes -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680313048"><span id="local-6989586621680313050"><span class="annot"><span class="annottext">LabelingJobDataAttributes -&gt; LabelingJobDataAttributes -&gt; Bool
 (LabelingJobDataAttributes -&gt; LabelingJobDataAttributes -&gt; Bool)
 -&gt; (LabelingJobDataAttributes -&gt; LabelingJobDataAttributes -&gt; Bool)
 -&gt; Eq LabelingJobDataAttributes
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LabelingJobDataAttributes -&gt; LabelingJobDataAttributes -&gt; Bool
 == :: LabelingJobDataAttributes -&gt; LabelingJobDataAttributes -&gt; Bool
 $c== :: LabelingJobDataAttributes -&gt; LabelingJobDataAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680311662"><span id="local-6989586621680311664"><span id="local-6989586621680311666"><span id="local-6989586621680311668"><span class="annot"><span class="annottext">ReadPrec [LabelingJobDataAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680313039"><span id="local-6989586621680313041"><span id="local-6989586621680313043"><span id="local-6989586621680313045"><span class="annot"><span class="annottext">ReadPrec [LabelingJobDataAttributes]
 ReadPrec LabelingJobDataAttributes
 Int -&gt; ReadS LabelingJobDataAttributes
 ReadS [LabelingJobDataAttributes]
@@ -65,7 +65,7 @@ readList :: ReadS [LabelingJobDataAttributes]
 $creadList :: ReadS [LabelingJobDataAttributes]
 readsPrec :: Int -&gt; ReadS LabelingJobDataAttributes
 $creadsPrec :: Int -&gt; ReadS LabelingJobDataAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680311655"><span id="local-6989586621680311657"><span id="local-6989586621680311659"><span class="annot"><span class="annottext">Int -&gt; LabelingJobDataAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680313032"><span id="local-6989586621680313034"><span id="local-6989586621680313036"><span class="annot"><span class="annottext">Int -&gt; LabelingJobDataAttributes -&gt; ShowS
 [LabelingJobDataAttributes] -&gt; ShowS
 LabelingJobDataAttributes -&gt; String
 (Int -&gt; LabelingJobDataAttributes -&gt; ShowS)
@@ -138,16 +138,16 @@ forall a. Maybe a
      (Maybe [ContentClassifier])
      (Maybe [ContentClassifier])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes%27"><span class="hs-identifier hs-type">LabelingJobDataAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311646"><span class="annot"><span class="annottext">Maybe [ContentClassifier]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes%27"><span class="hs-identifier hs-type">LabelingJobDataAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680313023"><span class="annot"><span class="annottext">Maybe [ContentClassifier]
 contentClassifiers :: Maybe [ContentClassifier]
 $sel:contentClassifiers:LabelingJobDataAttributes' :: LabelingJobDataAttributes -&gt; Maybe [ContentClassifier]
-</span><a href="#local-6989586621680311646"><span class="hs-identifier hs-var hs-var">contentClassifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContentClassifier]
-</span><a href="#local-6989586621680311646"><span class="hs-identifier hs-var">contentClassifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680311645"><span class="annot"><span class="annottext">s :: LabelingJobDataAttributes
-</span><a href="#local-6989586621680311645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes%27"><span class="hs-identifier hs-type">LabelingJobDataAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680311644"><span class="annot"><span class="annottext">Maybe [ContentClassifier]
-</span><a href="#local-6989586621680311644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobDataAttributes
-</span><a href="#local-6989586621680311645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentClassifiers:LabelingJobDataAttributes' :: Maybe [ContentClassifier]
+</span><a href="#local-6989586621680313023"><span class="hs-identifier hs-var hs-var">contentClassifiers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ContentClassifier]
+</span><a href="#local-6989586621680313023"><span class="hs-identifier hs-var">contentClassifiers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680313022"><span class="annot"><span class="annottext">s :: LabelingJobDataAttributes
+</span><a href="#local-6989586621680313022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes%27"><span class="hs-identifier hs-type">LabelingJobDataAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680313021"><span class="annot"><span class="annottext">Maybe [ContentClassifier]
+</span><a href="#local-6989586621680313021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobDataAttributes
+</span><a href="#local-6989586621680313022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentClassifiers:LabelingJobDataAttributes' :: Maybe [ContentClassifier]
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#%24sel%3AcontentClassifiers%3ALabelingJobDataAttributes%27"><span class="hs-identifier hs-var">contentClassifiers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ContentClassifier]
-</span><a href="#local-6989586621680311644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes"><span class="hs-identifier hs-type">LabelingJobDataAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContentClassifier] -&gt; f (Maybe [ContentClassifier]))
+</span><a href="#local-6989586621680313021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes"><span class="hs-identifier hs-type">LabelingJobDataAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ContentClassifier] -&gt; f (Maybe [ContentClassifier]))
  -&gt; LabelingJobDataAttributes -&gt; f LabelingJobDataAttributes)
 -&gt; ((Maybe [ContentClassifier] -&gt; f (Maybe [ContentClassifier]))
     -&gt; Maybe [ContentClassifier] -&gt; f (Maybe [ContentClassifier]))
@@ -173,11 +173,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ContentClassifier]
   [ContentClassifier]
   [ContentClassifier]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311638"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes"><span class="hs-identifier hs-type">LabelingJobDataAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621680311636"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LabelingJobDataAttributes
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313015"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes"><span class="hs-identifier hs-type">LabelingJobDataAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621680313013"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LabelingJobDataAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LabelingJobDataAttributes)
@@ -187,8 +187,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LabelingJobDataAttributes&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680311633"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680311633"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680313010"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680313010"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ContentClassifier] -&gt; LabelingJobDataAttributes
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes%27"><span class="hs-identifier hs-var">LabelingJobDataAttributes'</span></a></span><span>
 </span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ContentClassifier] -&gt; LabelingJobDataAttributes)
@@ -196,7 +196,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser LabelingJobDataAttributes
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680311633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ContentClassifier]))
+</span><a href="#local-6989586621680313010"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ContentClassifier]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContentClassifiers&quot;</span></span><span>
@@ -209,16 +209,16 @@ forall a. Monoid a =&gt; a
 </span><span id="line-75"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311626"><span id="local-6989586621680311628"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes"><span class="hs-identifier hs-type">LabelingJobDataAttributes</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313003"><span id="local-6989586621680313005"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes"><span class="hs-identifier hs-type">LabelingJobDataAttributes</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311623"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes"><span class="hs-identifier hs-type">LabelingJobDataAttributes</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680313000"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes"><span class="hs-identifier hs-type">LabelingJobDataAttributes</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680311615"><span id="local-6989586621680311617"><span id="local-6989586621680311619"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes"><span class="hs-identifier hs-type">LabelingJobDataAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621680311613"><span class="annot"><span class="annottext">toJSON :: LabelingJobDataAttributes -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes%27"><span class="hs-identifier hs-type">LabelingJobDataAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680311611"><span class="annot"><span class="annottext">Maybe [ContentClassifier]
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680312992"><span id="local-6989586621680312994"><span id="local-6989586621680312996"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes"><span class="hs-identifier hs-type">LabelingJobDataAttributes</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621680312990"><span class="annot"><span class="annottext">toJSON :: LabelingJobDataAttributes -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes%27"><span class="hs-identifier hs-type">LabelingJobDataAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680312988"><span class="annot"><span class="annottext">Maybe [ContentClassifier]
 contentClassifiers :: Maybe [ContentClassifier]
 $sel:contentClassifiers:LabelingJobDataAttributes' :: LabelingJobDataAttributes -&gt; Maybe [ContentClassifier]
-</span><a href="#local-6989586621680311611"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680312988"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -232,7 +232,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [ContentClassifier] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ContentClassifier]
-</span><a href="#local-6989586621680311611"><span class="hs-identifier hs-var">contentClassifiers</span></a></span><span>
+</span><a href="#local-6989586621680312988"><span class="hs-identifier hs-var">contentClassifiers</span></a></span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

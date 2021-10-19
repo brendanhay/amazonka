@@ -25,22 +25,34 @@
 </span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
 </span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-27"></span><span>
-</span><span id="line-28"></span><span class="hs-comment">-- | Describes a policy used by EFS lifecycle management to transition files</span><span>
-</span><span id="line-29"></span><span class="hs-comment">-- to the Infrequent Access (IA) storage class.</span><span>
-</span><span id="line-30"></span><span class="hs-comment">--</span><span>
-</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLifecyclePolicy' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679188425"><span id="local-6989586621679188426"></span></span><span class="hs-keyword">data</span><span> </span><span id="LifecyclePolicy"><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-var">LifecyclePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifecyclePolicy%27"><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy%27"><span class="hs-identifier hs-var">LifecyclePolicy'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the period of time that a file is not accessed, after which it</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- transitions to the IA storage class. Metadata operations such as listing</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the contents of a directory don\'t count as file access events.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtransitionToIA%3ALifecyclePolicy%27"><span class="annot"><span class="annottext">LifecyclePolicy -&gt; Maybe TransitionToIARules
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes a policy used by EFS lifecycle management and EFS intelligent</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- tiering that specifies when to transition files into and out of the file</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- system\'s Infrequent Access (IA) storage class. For more information,</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html EFS Intelligent&#8208;Tiering and EFS Lifecycle Management&gt;.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- When using the @put-lifecycle-configuration@ CLI command or the</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- @PutLifecycleConfiguration@ API action, Amazon EFS requires that each</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- @LifecyclePolicy@ object have only a single transition. This means that</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- in a request body, @LifecyclePolicies@ needs to be structured as an</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- array of @LifecyclePolicy@ objects, one object for each transition,</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- @TransitionToIA@, @TransitionToPrimaryStorageClass@. For more</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- information, see the request examples in PutLifecycleConfiguration.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- /See:/ 'newLifecyclePolicy' smart constructor.</span><span>
+</span><span id="line-43"></span><span id="local-6989586621679188501"><span id="local-6989586621679188502"></span></span><span class="hs-keyword">data</span><span> </span><span id="LifecyclePolicy"><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-var">LifecyclePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LifecyclePolicy%27"><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy%27"><span class="hs-identifier hs-var">LifecyclePolicy'</span></a></span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the period of time that a file is not accessed, after which it</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- transitions to IA storage. Metadata operations such as listing the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- contents of a directory don\'t count as file access events.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AtransitionToIA%3ALifecyclePolicy%27"><span class="annot"><span class="annottext">LifecyclePolicy -&gt; Maybe TransitionToIARules
 </span><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#%24sel%3AtransitionToIA%3ALifecyclePolicy%27"><span class="hs-identifier hs-var hs-var">transitionToIA</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.TransitionToIARules.html#TransitionToIARules"><span class="hs-identifier hs-type">TransitionToIARules</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Describes the policy used to transition a file from infequent access</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- storage to primary storage.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AtransitionToPrimaryStorageClass%3ALifecyclePolicy%27"><span class="annot"><span class="annottext">LifecyclePolicy -&gt; Maybe TransitionToPrimaryStorageClassRules
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Describes when to transition a file from IA storage to primary storage.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- Metadata operations such as listing the contents of a directory don\'t</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- count as file access events.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AtransitionToPrimaryStorageClass%3ALifecyclePolicy%27"><span class="annot"><span class="annottext">LifecyclePolicy -&gt; Maybe TransitionToPrimaryStorageClassRules
 </span><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#%24sel%3AtransitionToPrimaryStorageClass%3ALifecyclePolicy%27"><span class="hs-identifier hs-var hs-var">transitionToPrimaryStorageClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.html#TransitionToPrimaryStorageClassRules"><span class="hs-identifier hs-type">TransitionToPrimaryStorageClassRules</span></a></span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188418"><span id="local-6989586621679188420"><span class="annot"><span class="annottext">LifecyclePolicy -&gt; LifecyclePolicy -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679188494"><span id="local-6989586621679188496"><span class="annot"><span class="annottext">LifecyclePolicy -&gt; LifecyclePolicy -&gt; Bool
 (LifecyclePolicy -&gt; LifecyclePolicy -&gt; Bool)
 -&gt; (LifecyclePolicy -&gt; LifecyclePolicy -&gt; Bool)
 -&gt; Eq LifecyclePolicy
@@ -49,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LifecyclePolicy -&gt; LifecyclePolicy -&gt; Bool
 == :: LifecyclePolicy -&gt; LifecyclePolicy -&gt; Bool
 $c== :: LifecyclePolicy -&gt; LifecyclePolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188409"><span id="local-6989586621679188411"><span id="local-6989586621679188413"><span id="local-6989586621679188415"><span class="annot"><span class="annottext">ReadPrec [LifecyclePolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188485"><span id="local-6989586621679188487"><span id="local-6989586621679188489"><span id="local-6989586621679188491"><span class="annot"><span class="annottext">ReadPrec [LifecyclePolicy]
 ReadPrec LifecyclePolicy
 Int -&gt; ReadS LifecyclePolicy
 ReadS [LifecyclePolicy]
@@ -69,7 +81,7 @@ readList :: ReadS [LifecyclePolicy]
 $creadList :: ReadS [LifecyclePolicy]
 readsPrec :: Int -&gt; ReadS LifecyclePolicy
 $creadsPrec :: Int -&gt; ReadS LifecyclePolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188402"><span id="local-6989586621679188404"><span id="local-6989586621679188406"><span class="annot"><span class="annottext">Int -&gt; LifecyclePolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679188478"><span id="local-6989586621679188480"><span id="local-6989586621679188482"><span class="annot"><span class="annottext">Int -&gt; LifecyclePolicy -&gt; ShowS
 [LifecyclePolicy] -&gt; ShowS
 LifecyclePolicy -&gt; String
 (Int -&gt; LifecyclePolicy -&gt; ShowS)
@@ -94,43 +106,44 @@ forall a.
 $cto :: forall x. Rep LifecyclePolicy x -&gt; LifecyclePolicy
 $cfrom :: forall x. LifecyclePolicy -&gt; Rep LifecyclePolicy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-42"></span><span>
-</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'LifecyclePolicy' with all optional fields omitted.</span><span>
-</span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'transitionToIA', 'lifecyclePolicy_transitionToIA' - Describes the period of time that a file is not accessed, after which it</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- transitions to the IA storage class. Metadata operations such as listing</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- the contents of a directory don\'t count as file access events.</span><span>
-</span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'transitionToPrimaryStorageClass', 'lifecyclePolicy_transitionToPrimaryStorageClass' - Describes the policy used to transition a file from infequent access</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- storage to primary storage.</span><span>
-</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#newLifecyclePolicy"><span class="hs-identifier hs-type">newLifecyclePolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-type">LifecyclePolicy</span></a></span><span>
-</span><span id="line-59"></span><span id="newLifecyclePolicy"><span class="annot"><span class="annottext">newLifecyclePolicy :: LifecyclePolicy
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'LifecyclePolicy' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'transitionToIA', 'lifecyclePolicy_transitionToIA' - Describes the period of time that a file is not accessed, after which it</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- transitions to IA storage. Metadata operations such as listing the</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- contents of a directory don\'t count as file access events.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'transitionToPrimaryStorageClass', 'lifecyclePolicy_transitionToPrimaryStorageClass' - Describes when to transition a file from IA storage to primary storage.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Metadata operations such as listing the contents of a directory don\'t</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- count as file access events.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#newLifecyclePolicy"><span class="hs-identifier hs-type">newLifecyclePolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-type">LifecyclePolicy</span></a></span><span>
+</span><span id="line-72"></span><span id="newLifecyclePolicy"><span class="annot"><span class="annottext">newLifecyclePolicy :: LifecyclePolicy
 </span><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#newLifecyclePolicy"><span class="hs-identifier hs-var hs-var">newLifecyclePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">LifecyclePolicy' :: Maybe TransitionToIARules
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">LifecyclePolicy' :: Maybe TransitionToIARules
 -&gt; Maybe TransitionToPrimaryStorageClassRules -&gt; LifecyclePolicy
 </span><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy%27"><span class="hs-identifier hs-type">LifecyclePolicy'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transitionToIA:LifecyclePolicy' :: Maybe TransitionToIARules
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transitionToIA:LifecyclePolicy' :: Maybe TransitionToIARules
 </span><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#%24sel%3AtransitionToIA%3ALifecyclePolicy%27"><span class="hs-identifier hs-var">transitionToIA</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitionToIARules
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitionToPrimaryStorageClass:LifecyclePolicy' :: Maybe TransitionToPrimaryStorageClassRules
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitionToPrimaryStorageClass:LifecyclePolicy' :: Maybe TransitionToPrimaryStorageClassRules
 </span><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#%24sel%3AtransitionToPrimaryStorageClass%3ALifecyclePolicy%27"><span class="hs-identifier hs-var">transitionToPrimaryStorageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitionToPrimaryStorageClassRules
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | Describes the period of time that a file is not accessed, after which it</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- transitions to the IA storage class. Metadata operations such as listing</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- the contents of a directory don\'t count as file access events.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#lifecyclePolicy_transitionToIA"><span class="hs-identifier hs-type">lifecyclePolicy_transitionToIA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-type">LifecyclePolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.TransitionToIARules.html#TransitionToIARules"><span class="hs-identifier hs-type">TransitionToIARules</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="lifecyclePolicy_transitionToIA"><span class="annot"><span class="annottext">lifecyclePolicy_transitionToIA :: (Maybe TransitionToIARules -&gt; f (Maybe TransitionToIARules))
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | Describes the period of time that a file is not accessed, after which it</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- transitions to IA storage. Metadata operations such as listing the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- contents of a directory don\'t count as file access events.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#lifecyclePolicy_transitionToIA"><span class="hs-identifier hs-type">lifecyclePolicy_transitionToIA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-type">LifecyclePolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.TransitionToIARules.html#TransitionToIARules"><span class="hs-identifier hs-type">TransitionToIARules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="lifecyclePolicy_transitionToIA"><span class="annot"><span class="annottext">lifecyclePolicy_transitionToIA :: (Maybe TransitionToIARules -&gt; f (Maybe TransitionToIARules))
 -&gt; LifecyclePolicy -&gt; f LifecyclePolicy
 </span><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#lifecyclePolicy_transitionToIA"><span class="hs-identifier hs-var hs-var">lifecyclePolicy_transitionToIA</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LifecyclePolicy -&gt; Maybe TransitionToIARules)
 -&gt; (LifecyclePolicy
@@ -141,21 +154,22 @@ forall a. Maybe a
      (Maybe TransitionToIARules)
      (Maybe TransitionToIARules)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy%27"><span class="hs-identifier hs-type">LifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188393"><span class="annot"><span class="annottext">Maybe TransitionToIARules
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy%27"><span class="hs-identifier hs-type">LifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188469"><span class="annot"><span class="annottext">Maybe TransitionToIARules
 transitionToIA :: Maybe TransitionToIARules
 $sel:transitionToIA:LifecyclePolicy' :: LifecyclePolicy -&gt; Maybe TransitionToIARules
-</span><a href="#local-6989586621679188393"><span class="hs-identifier hs-var hs-var">transitionToIA</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitionToIARules
-</span><a href="#local-6989586621679188393"><span class="hs-identifier hs-var">transitionToIA</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188392"><span class="annot"><span class="annottext">s :: LifecyclePolicy
-</span><a href="#local-6989586621679188392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy%27"><span class="hs-identifier hs-type">LifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188391"><span class="annot"><span class="annottext">Maybe TransitionToIARules
-</span><a href="#local-6989586621679188391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecyclePolicy
-</span><a href="#local-6989586621679188392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitionToIA:LifecyclePolicy' :: Maybe TransitionToIARules
+</span><a href="#local-6989586621679188469"><span class="hs-identifier hs-var hs-var">transitionToIA</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitionToIARules
+</span><a href="#local-6989586621679188469"><span class="hs-identifier hs-var">transitionToIA</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188468"><span class="annot"><span class="annottext">s :: LifecyclePolicy
+</span><a href="#local-6989586621679188468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy%27"><span class="hs-identifier hs-type">LifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188467"><span class="annot"><span class="annottext">Maybe TransitionToIARules
+</span><a href="#local-6989586621679188467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecyclePolicy
+</span><a href="#local-6989586621679188468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitionToIA:LifecyclePolicy' :: Maybe TransitionToIARules
 </span><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#%24sel%3AtransitionToIA%3ALifecyclePolicy%27"><span class="hs-identifier hs-var">transitionToIA</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitionToIARules
-</span><a href="#local-6989586621679188391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-type">LifecyclePolicy</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | Describes the policy used to transition a file from infequent access</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- storage to primary storage.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#lifecyclePolicy_transitionToPrimaryStorageClass"><span class="hs-identifier hs-type">lifecyclePolicy_transitionToPrimaryStorageClass</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-type">LifecyclePolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.html#TransitionToPrimaryStorageClassRules"><span class="hs-identifier hs-type">TransitionToPrimaryStorageClassRules</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="lifecyclePolicy_transitionToPrimaryStorageClass"><span class="annot"><span class="annottext">lifecyclePolicy_transitionToPrimaryStorageClass :: (Maybe TransitionToPrimaryStorageClassRules
+</span><a href="#local-6989586621679188467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-type">LifecyclePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | Describes when to transition a file from IA storage to primary storage.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Metadata operations such as listing the contents of a directory don\'t</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- count as file access events.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#lifecyclePolicy_transitionToPrimaryStorageClass"><span class="hs-identifier hs-type">lifecyclePolicy_transitionToPrimaryStorageClass</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-type">LifecyclePolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules.html#TransitionToPrimaryStorageClassRules"><span class="hs-identifier hs-type">TransitionToPrimaryStorageClassRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="lifecyclePolicy_transitionToPrimaryStorageClass"><span class="annot"><span class="annottext">lifecyclePolicy_transitionToPrimaryStorageClass :: (Maybe TransitionToPrimaryStorageClassRules
  -&gt; f (Maybe TransitionToPrimaryStorageClassRules))
 -&gt; LifecyclePolicy -&gt; f LifecyclePolicy
 </span><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#lifecyclePolicy_transitionToPrimaryStorageClass"><span class="hs-identifier hs-var hs-var">lifecyclePolicy_transitionToPrimaryStorageClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LifecyclePolicy -&gt; Maybe TransitionToPrimaryStorageClassRules)
@@ -167,93 +181,93 @@ $sel:transitionToIA:LifecyclePolicy' :: LifecyclePolicy -&gt; Maybe TransitionTo
      (Maybe TransitionToPrimaryStorageClassRules)
      (Maybe TransitionToPrimaryStorageClassRules)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy%27"><span class="hs-identifier hs-type">LifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188389"><span class="annot"><span class="annottext">Maybe TransitionToPrimaryStorageClassRules
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy%27"><span class="hs-identifier hs-type">LifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188465"><span class="annot"><span class="annottext">Maybe TransitionToPrimaryStorageClassRules
 transitionToPrimaryStorageClass :: Maybe TransitionToPrimaryStorageClassRules
 $sel:transitionToPrimaryStorageClass:LifecyclePolicy' :: LifecyclePolicy -&gt; Maybe TransitionToPrimaryStorageClassRules
-</span><a href="#local-6989586621679188389"><span class="hs-identifier hs-var hs-var">transitionToPrimaryStorageClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitionToPrimaryStorageClassRules
-</span><a href="#local-6989586621679188389"><span class="hs-identifier hs-var">transitionToPrimaryStorageClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188388"><span class="annot"><span class="annottext">s :: LifecyclePolicy
-</span><a href="#local-6989586621679188388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy%27"><span class="hs-identifier hs-type">LifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188387"><span class="annot"><span class="annottext">Maybe TransitionToPrimaryStorageClassRules
-</span><a href="#local-6989586621679188387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecyclePolicy
-</span><a href="#local-6989586621679188388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitionToPrimaryStorageClass:LifecyclePolicy' :: Maybe TransitionToPrimaryStorageClassRules
+</span><a href="#local-6989586621679188465"><span class="hs-identifier hs-var hs-var">transitionToPrimaryStorageClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitionToPrimaryStorageClassRules
+</span><a href="#local-6989586621679188465"><span class="hs-identifier hs-var">transitionToPrimaryStorageClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679188464"><span class="annot"><span class="annottext">s :: LifecyclePolicy
+</span><a href="#local-6989586621679188464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy%27"><span class="hs-identifier hs-type">LifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679188463"><span class="annot"><span class="annottext">Maybe TransitionToPrimaryStorageClassRules
+</span><a href="#local-6989586621679188463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LifecyclePolicy
+</span><a href="#local-6989586621679188464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitionToPrimaryStorageClass:LifecyclePolicy' :: Maybe TransitionToPrimaryStorageClassRules
 </span><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#%24sel%3AtransitionToPrimaryStorageClass%3ALifecyclePolicy%27"><span class="hs-identifier hs-var">transitionToPrimaryStorageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitionToPrimaryStorageClassRules
-</span><a href="#local-6989586621679188387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-type">LifecyclePolicy</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188384"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-type">LifecyclePolicy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679188382"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LifecyclePolicy
+</span><a href="#local-6989586621679188463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-type">LifecyclePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188460"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-type">LifecyclePolicy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679188458"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LifecyclePolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LifecyclePolicy)
 -&gt; Value
 -&gt; Parser LifecyclePolicy
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LifecyclePolicy&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679188379"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188379"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitionToIARules
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679188455"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188455"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitionToIARules
 -&gt; Maybe TransitionToPrimaryStorageClassRules -&gt; LifecyclePolicy
 </span><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy%27"><span class="hs-identifier hs-var">LifecyclePolicy'</span></a></span><span>
-</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TransitionToIARules
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TransitionToIARules
  -&gt; Maybe TransitionToPrimaryStorageClassRules -&gt; LifecyclePolicy)
 -&gt; Parser (Maybe TransitionToIARules)
 -&gt; Parser
      (Maybe TransitionToPrimaryStorageClassRules -&gt; LifecyclePolicy)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TransitionToIARules)
+</span><a href="#local-6989586621679188455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TransitionToIARules)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TransitionToIA&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe TransitionToPrimaryStorageClassRules -&gt; LifecyclePolicy)
 -&gt; Parser (Maybe TransitionToPrimaryStorageClassRules)
 -&gt; Parser LifecyclePolicy
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679188379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679188455"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe TransitionToPrimaryStorageClassRules)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TransitionToPrimaryStorageClass&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188373"><span id="local-6989586621679188375"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-type">LifecyclePolicy</span></a></span></span></span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-type">LifecyclePolicy</span></a></span></span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188362"><span id="local-6989586621679188364"><span id="local-6989586621679188366"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-type">LifecyclePolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679188360"><span class="annot"><span class="annottext">toJSON :: LifecyclePolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy%27"><span class="hs-identifier hs-type">LifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188357"><span id="local-6989586621679188358"><span class="annot"><span class="annottext">Maybe TransitionToIARules
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188449"><span id="local-6989586621679188451"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-type">LifecyclePolicy</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188446"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-type">LifecyclePolicy</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679188438"><span id="local-6989586621679188440"><span id="local-6989586621679188442"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy"><span class="hs-identifier hs-type">LifecyclePolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679188436"><span class="annot"><span class="annottext">toJSON :: LifecyclePolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.LifecyclePolicy.html#LifecyclePolicy%27"><span class="hs-identifier hs-type">LifecyclePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679188433"><span id="local-6989586621679188434"><span class="annot"><span class="annottext">Maybe TransitionToIARules
 Maybe TransitionToPrimaryStorageClassRules
 transitionToPrimaryStorageClass :: Maybe TransitionToPrimaryStorageClassRules
 transitionToIA :: Maybe TransitionToIARules
 $sel:transitionToPrimaryStorageClass:LifecyclePolicy' :: LifecyclePolicy -&gt; Maybe TransitionToPrimaryStorageClassRules
 $sel:transitionToIA:LifecyclePolicy' :: LifecyclePolicy -&gt; Maybe TransitionToIARules
-</span><a href="#local-6989586621679188357"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><a href="#local-6989586621679188433"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-94"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TransitionToIA&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TransitionToIARules -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">(TransitionToIARules -&gt; Pair)
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">(TransitionToIARules -&gt; Pair)
 -&gt; Maybe TransitionToIARules -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TransitionToIARules
-</span><a href="#local-6989586621679188358"><span class="hs-identifier hs-var">transitionToIA</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679188434"><span class="hs-identifier hs-var">transitionToIA</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TransitionToPrimaryStorageClass&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TransitionToPrimaryStorageClassRules -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">(TransitionToPrimaryStorageClassRules -&gt; Pair)
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">(TransitionToPrimaryStorageClassRules -&gt; Pair)
 -&gt; Maybe TransitionToPrimaryStorageClassRules -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TransitionToPrimaryStorageClassRules
-</span><a href="#local-6989586621679188357"><span class="hs-identifier hs-var">transitionToPrimaryStorageClass</span></a></span><span>
-</span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span></pre></body></html>
+</span><a href="#local-6989586621679188433"><span class="hs-identifier hs-var">transitionToPrimaryStorageClass</span></a></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span></pre></body></html>

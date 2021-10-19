@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680329921"><span id="local-6989586621680329922"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProcessingS3DataType"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingS3DataType.html#ProcessingS3DataType"><span class="hs-identifier hs-var">ProcessingS3DataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessingS3DataType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingS3DataType.html#ProcessingS3DataType%27"><span class="hs-identifier hs-var">ProcessingS3DataType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680331322"><span id="local-6989586621680331323"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProcessingS3DataType"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingS3DataType.html#ProcessingS3DataType"><span class="hs-identifier hs-var">ProcessingS3DataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessingS3DataType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingS3DataType.html#ProcessingS3DataType%27"><span class="hs-identifier hs-var">ProcessingS3DataType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProcessingS3DataType"><span class="annot"><span class="annottext">ProcessingS3DataType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ProcessingS3DataType.html#fromProcessingS3DataType"><span class="hs-identifier hs-var hs-var">fromProcessingS3DataType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680329913"><span id="local-6989586621680329915"><span id="local-6989586621680329917"><span class="annot"><span class="annottext">Int -&gt; ProcessingS3DataType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680331314"><span id="local-6989586621680331316"><span id="local-6989586621680331318"><span class="annot"><span class="annottext">Int -&gt; ProcessingS3DataType -&gt; ShowS
 [ProcessingS3DataType] -&gt; ShowS
 ProcessingS3DataType -&gt; String
 (Int -&gt; ProcessingS3DataType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ProcessingS3DataType -&gt; String
 showsPrec :: Int -&gt; ProcessingS3DataType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ProcessingS3DataType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680329904"><span id="local-6989586621680329906"><span id="local-6989586621680329908"><span id="local-6989586621680329910"><span class="annot"><span class="annottext">ReadPrec [ProcessingS3DataType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680331305"><span id="local-6989586621680331307"><span id="local-6989586621680331309"><span id="local-6989586621680331311"><span class="annot"><span class="annottext">ReadPrec [ProcessingS3DataType]
 ReadPrec ProcessingS3DataType
 Int -&gt; ReadS ProcessingS3DataType
 ReadS [ProcessingS3DataType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ProcessingS3DataType]
 readsPrec :: Int -&gt; ReadS ProcessingS3DataType
 $creadsPrec :: Int -&gt; ReadS ProcessingS3DataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680329899"><span id="local-6989586621680329901"><span class="annot"><span class="annottext">ProcessingS3DataType -&gt; ProcessingS3DataType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680331300"><span id="local-6989586621680331302"><span class="annot"><span class="annottext">ProcessingS3DataType -&gt; ProcessingS3DataType -&gt; Bool
 (ProcessingS3DataType -&gt; ProcessingS3DataType -&gt; Bool)
 -&gt; (ProcessingS3DataType -&gt; ProcessingS3DataType -&gt; Bool)
 -&gt; Eq ProcessingS3DataType
@@ -82,7 +82,7 @@ $c/= :: ProcessingS3DataType -&gt; ProcessingS3DataType -&gt; Bool
 == :: ProcessingS3DataType -&gt; ProcessingS3DataType -&gt; Bool
 $c== :: ProcessingS3DataType -&gt; ProcessingS3DataType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680329883"><span id="local-6989586621680329885"><span id="local-6989586621680329887"><span id="local-6989586621680329889"><span id="local-6989586621680329891"><span id="local-6989586621680329893"><span id="local-6989586621680329895"><span class="annot"><span class="annottext">Eq ProcessingS3DataType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680331284"><span id="local-6989586621680331286"><span id="local-6989586621680331288"><span id="local-6989586621680331290"><span id="local-6989586621680331292"><span id="local-6989586621680331294"><span id="local-6989586621680331296"><span class="annot"><span class="annottext">Eq ProcessingS3DataType
 Eq ProcessingS3DataType
 -&gt; (ProcessingS3DataType -&gt; ProcessingS3DataType -&gt; Ordering)
 -&gt; (ProcessingS3DataType -&gt; ProcessingS3DataType -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. ProcessingS3DataType -&gt; Rep ProcessingS3DataType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680329875"><span id="local-6989586621680329877"><span class="annot"><span class="annottext">Int -&gt; ProcessingS3DataType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680331276"><span id="local-6989586621680331278"><span class="annot"><span class="annottext">Int -&gt; ProcessingS3DataType -&gt; Int
 ProcessingS3DataType -&gt; Int
 (Int -&gt; ProcessingS3DataType -&gt; Int)
 -&gt; (ProcessingS3DataType -&gt; Int) -&gt; Hashable ProcessingS3DataType
@@ -150,54 +150,54 @@ $chash :: ProcessingS3DataType -&gt; Int
 hashWithSalt :: Int -&gt; ProcessingS3DataType -&gt; Int
 $chashWithSalt :: Int -&gt; ProcessingS3DataType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680329872"><span class="annot"><span class="annottext">ProcessingS3DataType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680331273"><span class="annot"><span class="annottext">ProcessingS3DataType -&gt; ()
 (ProcessingS3DataType -&gt; ()) -&gt; NFData ProcessingS3DataType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ProcessingS3DataType -&gt; ()
 $crnf :: ProcessingS3DataType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680329869"><span class="annot"><span class="annottext">Text -&gt; Either String ProcessingS3DataType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680331270"><span class="annot"><span class="annottext">Text -&gt; Either String ProcessingS3DataType
 (Text -&gt; Either String ProcessingS3DataType)
 -&gt; FromText ProcessingS3DataType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ProcessingS3DataType
 $cfromText :: Text -&gt; Either String ProcessingS3DataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680329866"><span class="annot"><span class="annottext">ProcessingS3DataType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680331267"><span class="annot"><span class="annottext">ProcessingS3DataType -&gt; Text
 (ProcessingS3DataType -&gt; Text) -&gt; ToText ProcessingS3DataType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ProcessingS3DataType -&gt; Text
 $ctoText :: ProcessingS3DataType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680329863"><span class="annot"><span class="annottext">ProcessingS3DataType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680331264"><span class="annot"><span class="annottext">ProcessingS3DataType -&gt; ByteString
 (ProcessingS3DataType -&gt; ByteString)
 -&gt; ToByteString ProcessingS3DataType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ProcessingS3DataType -&gt; ByteString
 $ctoBS :: ProcessingS3DataType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680329860"><span class="annot"><span class="annottext">ProcessingS3DataType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680331261"><span class="annot"><span class="annottext">ProcessingS3DataType -&gt; ByteStringBuilder
 (ProcessingS3DataType -&gt; ByteStringBuilder)
 -&gt; ToLog ProcessingS3DataType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ProcessingS3DataType -&gt; ByteStringBuilder
 $cbuild :: ProcessingS3DataType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680329857"><span class="annot"><span class="annottext">HeaderName -&gt; ProcessingS3DataType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680331258"><span class="annot"><span class="annottext">HeaderName -&gt; ProcessingS3DataType -&gt; [Header]
 (HeaderName -&gt; ProcessingS3DataType -&gt; [Header])
 -&gt; ToHeader ProcessingS3DataType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ProcessingS3DataType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ProcessingS3DataType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680329854"><span class="annot"><span class="annottext">ProcessingS3DataType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680331255"><span class="annot"><span class="annottext">ProcessingS3DataType -&gt; QueryString
 (ProcessingS3DataType -&gt; QueryString)
 -&gt; ToQuery ProcessingS3DataType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ProcessingS3DataType -&gt; QueryString
 $ctoQuery :: ProcessingS3DataType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680329849"><span id="local-6989586621680329851"><span class="annot"><span class="annottext">Value -&gt; Parser [ProcessingS3DataType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680331250"><span id="local-6989586621680331252"><span class="annot"><span class="annottext">Value -&gt; Parser [ProcessingS3DataType]
 Value -&gt; Parser ProcessingS3DataType
 (Value -&gt; Parser ProcessingS3DataType)
 -&gt; (Value -&gt; Parser [ProcessingS3DataType])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [ProcessingS3DataType]
 parseJSON :: Value -&gt; Parser ProcessingS3DataType
 $cparseJSON :: Value -&gt; Parser ProcessingS3DataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680329844"><span id="local-6989586621680329846"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProcessingS3DataType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680331245"><span id="local-6989586621680331247"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProcessingS3DataType]
 FromJSONKeyFunction ProcessingS3DataType
 FromJSONKeyFunction ProcessingS3DataType
 -&gt; FromJSONKeyFunction [ProcessingS3DataType]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ProcessingS3DataType]
 fromJSONKey :: FromJSONKeyFunction ProcessingS3DataType
 $cfromJSONKey :: FromJSONKeyFunction ProcessingS3DataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680329835"><span id="local-6989586621680329837"><span id="local-6989586621680329839"><span id="local-6989586621680329841"><span class="annot"><span class="annottext">[ProcessingS3DataType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680331236"><span id="local-6989586621680331238"><span id="local-6989586621680331240"><span id="local-6989586621680331242"><span class="annot"><span class="annottext">[ProcessingS3DataType] -&gt; Encoding
 [ProcessingS3DataType] -&gt; Value
 ProcessingS3DataType -&gt; Encoding
 ProcessingS3DataType -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: ProcessingS3DataType -&gt; Encoding
 toJSON :: ProcessingS3DataType -&gt; Value
 $ctoJSON :: ProcessingS3DataType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680329830"><span id="local-6989586621680329832"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProcessingS3DataType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680331231"><span id="local-6989586621680331233"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProcessingS3DataType]
 ToJSONKeyFunction ProcessingS3DataType
 ToJSONKeyFunction ProcessingS3DataType
 -&gt; ToJSONKeyFunction [ProcessingS3DataType]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ProcessingS3DataType]
 toJSONKey :: ToJSONKeyFunction ProcessingS3DataType
 $ctoJSONKey :: ToJSONKeyFunction ProcessingS3DataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680329827"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProcessingS3DataType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680331228"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProcessingS3DataType
 ([Node] -&gt; Either String ProcessingS3DataType)
 -&gt; FromXML ProcessingS3DataType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ProcessingS3DataType
 $cparseXML :: [Node] -&gt; Either String ProcessingS3DataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680329824"><span class="annot"><span class="annottext">ProcessingS3DataType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680331225"><span class="annot"><span class="annottext">ProcessingS3DataType -&gt; XML
 (ProcessingS3DataType -&gt; XML) -&gt; ToXML ProcessingS3DataType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ProcessingS3DataType -&gt; XML

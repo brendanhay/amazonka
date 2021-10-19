@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679334819"><span id="local-6989586621679334820"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VideoColorRange"><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoColorRange.html#VideoColorRange"><span class="hs-identifier hs-var">VideoColorRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoColorRange%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoColorRange.html#VideoColorRange%27"><span class="hs-identifier hs-var">VideoColorRange'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679335116"><span id="local-6989586621679335117"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VideoColorRange"><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoColorRange.html#VideoColorRange"><span class="hs-identifier hs-var">VideoColorRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoColorRange%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoColorRange.html#VideoColorRange%27"><span class="hs-identifier hs-var">VideoColorRange'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVideoColorRange"><span class="annot"><span class="annottext">VideoColorRange -&gt; Text
 </span><a href="Network.AWS.Rekognition.Types.VideoColorRange.html#fromVideoColorRange"><span class="hs-identifier hs-var hs-var">fromVideoColorRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679334811"><span id="local-6989586621679334813"><span id="local-6989586621679334815"><span class="annot"><span class="annottext">Int -&gt; VideoColorRange -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679335108"><span id="local-6989586621679335110"><span id="local-6989586621679335112"><span class="annot"><span class="annottext">Int -&gt; VideoColorRange -&gt; ShowS
 [VideoColorRange] -&gt; ShowS
 VideoColorRange -&gt; String
 (Int -&gt; VideoColorRange -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: VideoColorRange -&gt; String
 showsPrec :: Int -&gt; VideoColorRange -&gt; ShowS
 $cshowsPrec :: Int -&gt; VideoColorRange -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679334802"><span id="local-6989586621679334804"><span id="local-6989586621679334806"><span id="local-6989586621679334808"><span class="annot"><span class="annottext">ReadPrec [VideoColorRange]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679335099"><span id="local-6989586621679335101"><span id="local-6989586621679335103"><span id="local-6989586621679335105"><span class="annot"><span class="annottext">ReadPrec [VideoColorRange]
 ReadPrec VideoColorRange
 Int -&gt; ReadS VideoColorRange
 ReadS [VideoColorRange]
@@ -72,7 +72,7 @@ $creadList :: ReadS [VideoColorRange]
 readsPrec :: Int -&gt; ReadS VideoColorRange
 $creadsPrec :: Int -&gt; ReadS VideoColorRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679334797"><span id="local-6989586621679334799"><span class="annot"><span class="annottext">VideoColorRange -&gt; VideoColorRange -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679335094"><span id="local-6989586621679335096"><span class="annot"><span class="annottext">VideoColorRange -&gt; VideoColorRange -&gt; Bool
 (VideoColorRange -&gt; VideoColorRange -&gt; Bool)
 -&gt; (VideoColorRange -&gt; VideoColorRange -&gt; Bool)
 -&gt; Eq VideoColorRange
@@ -82,7 +82,7 @@ $c/= :: VideoColorRange -&gt; VideoColorRange -&gt; Bool
 == :: VideoColorRange -&gt; VideoColorRange -&gt; Bool
 $c== :: VideoColorRange -&gt; VideoColorRange -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679334781"><span id="local-6989586621679334783"><span id="local-6989586621679334785"><span id="local-6989586621679334787"><span id="local-6989586621679334789"><span id="local-6989586621679334791"><span id="local-6989586621679334793"><span class="annot"><span class="annottext">Eq VideoColorRange
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679335078"><span id="local-6989586621679335080"><span id="local-6989586621679335082"><span id="local-6989586621679335084"><span id="local-6989586621679335086"><span id="local-6989586621679335088"><span id="local-6989586621679335090"><span class="annot"><span class="annottext">Eq VideoColorRange
 Eq VideoColorRange
 -&gt; (VideoColorRange -&gt; VideoColorRange -&gt; Ordering)
 -&gt; (VideoColorRange -&gt; VideoColorRange -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. VideoColorRange -&gt; Rep VideoColorRange x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679334773"><span id="local-6989586621679334775"><span class="annot"><span class="annottext">Int -&gt; VideoColorRange -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679335070"><span id="local-6989586621679335072"><span class="annot"><span class="annottext">Int -&gt; VideoColorRange -&gt; Int
 VideoColorRange -&gt; Int
 (Int -&gt; VideoColorRange -&gt; Int)
 -&gt; (VideoColorRange -&gt; Int) -&gt; Hashable VideoColorRange
@@ -143,50 +143,50 @@ $chash :: VideoColorRange -&gt; Int
 hashWithSalt :: Int -&gt; VideoColorRange -&gt; Int
 $chashWithSalt :: Int -&gt; VideoColorRange -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679334770"><span class="annot"><span class="annottext">VideoColorRange -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679335067"><span class="annot"><span class="annottext">VideoColorRange -&gt; ()
 (VideoColorRange -&gt; ()) -&gt; NFData VideoColorRange
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VideoColorRange -&gt; ()
 $crnf :: VideoColorRange -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679334767"><span class="annot"><span class="annottext">Text -&gt; Either String VideoColorRange
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679335064"><span class="annot"><span class="annottext">Text -&gt; Either String VideoColorRange
 (Text -&gt; Either String VideoColorRange) -&gt; FromText VideoColorRange
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VideoColorRange
 $cfromText :: Text -&gt; Either String VideoColorRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679334764"><span class="annot"><span class="annottext">VideoColorRange -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679335061"><span class="annot"><span class="annottext">VideoColorRange -&gt; Text
 (VideoColorRange -&gt; Text) -&gt; ToText VideoColorRange
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VideoColorRange -&gt; Text
 $ctoText :: VideoColorRange -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679334761"><span class="annot"><span class="annottext">VideoColorRange -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679335058"><span class="annot"><span class="annottext">VideoColorRange -&gt; ByteString
 (VideoColorRange -&gt; ByteString) -&gt; ToByteString VideoColorRange
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VideoColorRange -&gt; ByteString
 $ctoBS :: VideoColorRange -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679334758"><span class="annot"><span class="annottext">VideoColorRange -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679335055"><span class="annot"><span class="annottext">VideoColorRange -&gt; ByteStringBuilder
 (VideoColorRange -&gt; ByteStringBuilder) -&gt; ToLog VideoColorRange
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VideoColorRange -&gt; ByteStringBuilder
 $cbuild :: VideoColorRange -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679334755"><span class="annot"><span class="annottext">HeaderName -&gt; VideoColorRange -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679335052"><span class="annot"><span class="annottext">HeaderName -&gt; VideoColorRange -&gt; [Header]
 (HeaderName -&gt; VideoColorRange -&gt; [Header])
 -&gt; ToHeader VideoColorRange
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VideoColorRange -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VideoColorRange -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679334752"><span class="annot"><span class="annottext">VideoColorRange -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679335049"><span class="annot"><span class="annottext">VideoColorRange -&gt; QueryString
 (VideoColorRange -&gt; QueryString) -&gt; ToQuery VideoColorRange
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VideoColorRange -&gt; QueryString
 $ctoQuery :: VideoColorRange -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679334747"><span id="local-6989586621679334749"><span class="annot"><span class="annottext">Value -&gt; Parser [VideoColorRange]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679335044"><span id="local-6989586621679335046"><span class="annot"><span class="annottext">Value -&gt; Parser [VideoColorRange]
 Value -&gt; Parser VideoColorRange
 (Value -&gt; Parser VideoColorRange)
 -&gt; (Value -&gt; Parser [VideoColorRange]) -&gt; FromJSON VideoColorRange
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [VideoColorRange]
 parseJSON :: Value -&gt; Parser VideoColorRange
 $cparseJSON :: Value -&gt; Parser VideoColorRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679334742"><span id="local-6989586621679334744"><span class="annot"><span class="annottext">FromJSONKeyFunction [VideoColorRange]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679335039"><span id="local-6989586621679335041"><span class="annot"><span class="annottext">FromJSONKeyFunction [VideoColorRange]
 FromJSONKeyFunction VideoColorRange
 FromJSONKeyFunction VideoColorRange
 -&gt; FromJSONKeyFunction [VideoColorRange]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VideoColorRange]
 fromJSONKey :: FromJSONKeyFunction VideoColorRange
 $cfromJSONKey :: FromJSONKeyFunction VideoColorRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679334733"><span id="local-6989586621679334735"><span id="local-6989586621679334737"><span id="local-6989586621679334739"><span class="annot"><span class="annottext">[VideoColorRange] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679335030"><span id="local-6989586621679335032"><span id="local-6989586621679335034"><span id="local-6989586621679335036"><span class="annot"><span class="annottext">[VideoColorRange] -&gt; Encoding
 [VideoColorRange] -&gt; Value
 VideoColorRange -&gt; Encoding
 VideoColorRange -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: VideoColorRange -&gt; Encoding
 toJSON :: VideoColorRange -&gt; Value
 $ctoJSON :: VideoColorRange -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679334728"><span id="local-6989586621679334730"><span class="annot"><span class="annottext">ToJSONKeyFunction [VideoColorRange]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679335025"><span id="local-6989586621679335027"><span class="annot"><span class="annottext">ToJSONKeyFunction [VideoColorRange]
 ToJSONKeyFunction VideoColorRange
 ToJSONKeyFunction VideoColorRange
 -&gt; ToJSONKeyFunction [VideoColorRange] -&gt; ToJSONKey VideoColorRange
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VideoColorRange]
 toJSONKey :: ToJSONKeyFunction VideoColorRange
 $ctoJSONKey :: ToJSONKeyFunction VideoColorRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679334725"><span class="annot"><span class="annottext">[Node] -&gt; Either String VideoColorRange
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679335022"><span class="annot"><span class="annottext">[Node] -&gt; Either String VideoColorRange
 ([Node] -&gt; Either String VideoColorRange)
 -&gt; FromXML VideoColorRange
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VideoColorRange
 $cparseXML :: [Node] -&gt; Either String VideoColorRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679334722"><span class="annot"><span class="annottext">VideoColorRange -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679335019"><span class="annot"><span class="annottext">VideoColorRange -&gt; XML
 (VideoColorRange -&gt; XML) -&gt; ToXML VideoColorRange
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: VideoColorRange -&gt; XML

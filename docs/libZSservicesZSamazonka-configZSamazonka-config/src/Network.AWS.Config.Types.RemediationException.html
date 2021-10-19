@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-comment">-- type.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newRemediationException' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679404359"><span id="local-6989586621679404360"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemediationException"><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-var">RemediationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemediationException%27"><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-var">RemediationException'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time when the remediation exception will be deleted.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AexpirationTime%3ARemediationException%27"><span class="annot"><span class="annottext">RemediationException -&gt; Maybe POSIX
-</span><a href="Network.AWS.Config.Types.RemediationException.html#%24sel%3AexpirationTime%3ARemediationException%27"><span class="hs-identifier hs-var hs-var">expirationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | An explanation of an remediation exception.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Amessage%3ARemediationException%27"><span class="annot"><span class="annottext">RemediationException -&gt; Maybe Text
+</span><span id="line-32"></span><span id="local-6989586621679404952"><span id="local-6989586621679404953"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemediationException"><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-var">RemediationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemediationException%27"><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-var">RemediationException'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An explanation of an remediation exception.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Amessage%3ARemediationException%27"><span class="annot"><span class="annottext">RemediationException -&gt; Maybe Text
 </span><a href="Network.AWS.Config.Types.RemediationException.html#%24sel%3Amessage%3ARemediationException%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time when the remediation exception will be deleted.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AexpirationTime%3ARemediationException%27"><span class="annot"><span class="annottext">RemediationException -&gt; Maybe POSIX
+</span><a href="Network.AWS.Config.Types.RemediationException.html#%24sel%3AexpirationTime%3ARemediationException%27"><span class="hs-identifier hs-var hs-var">expirationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the Config rule.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AconfigRuleName%3ARemediationException%27"><span class="annot"><span class="annottext">RemediationException -&gt; Text
 </span><a href="Network.AWS.Config.Types.RemediationException.html#%24sel%3AconfigRuleName%3ARemediationException%27"><span class="hs-identifier hs-var hs-var">configRuleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AresourceId%3ARemediationException%27"><span class="annot"><span class="annottext">RemediationException -&gt; Text
 </span><a href="Network.AWS.Config.Types.RemediationException.html#%24sel%3AresourceId%3ARemediationException%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679404349"><span id="local-6989586621679404351"><span class="annot"><span class="annottext">RemediationException -&gt; RemediationException -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679404942"><span id="local-6989586621679404944"><span class="annot"><span class="annottext">RemediationException -&gt; RemediationException -&gt; Bool
 (RemediationException -&gt; RemediationException -&gt; Bool)
 -&gt; (RemediationException -&gt; RemediationException -&gt; Bool)
 -&gt; Eq RemediationException
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemediationException -&gt; RemediationException -&gt; Bool
 == :: RemediationException -&gt; RemediationException -&gt; Bool
 $c== :: RemediationException -&gt; RemediationException -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404340"><span id="local-6989586621679404342"><span id="local-6989586621679404344"><span id="local-6989586621679404346"><span class="annot"><span class="annottext">ReadPrec [RemediationException]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404933"><span id="local-6989586621679404935"><span id="local-6989586621679404937"><span id="local-6989586621679404939"><span class="annot"><span class="annottext">ReadPrec [RemediationException]
 ReadPrec RemediationException
 Int -&gt; ReadS RemediationException
 ReadS [RemediationException]
@@ -75,7 +75,7 @@ readList :: ReadS [RemediationException]
 $creadList :: ReadS [RemediationException]
 readsPrec :: Int -&gt; ReadS RemediationException
 $creadsPrec :: Int -&gt; ReadS RemediationException
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404333"><span id="local-6989586621679404335"><span id="local-6989586621679404337"><span class="annot"><span class="annottext">Int -&gt; RemediationException -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679404926"><span id="local-6989586621679404928"><span id="local-6989586621679404930"><span class="annot"><span class="annottext">Int -&gt; RemediationException -&gt; ShowS
 [RemediationException] -&gt; ShowS
 RemediationException -&gt; String
 (Int -&gt; RemediationException -&gt; ShowS)
@@ -109,9 +109,9 @@ $cfrom :: forall x. RemediationException -&gt; Rep RemediationException x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'expirationTime', 'remediationException_expirationTime' - The time when the remediation exception will be deleted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'message', 'remediationException_message' - An explanation of an remediation exception.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'message', 'remediationException_message' - An explanation of an remediation exception.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'expirationTime', 'remediationException_expirationTime' - The time when the remediation exception will be deleted.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- 'configRuleName', 'remediationException_configRuleName' - The name of the Config rule.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
@@ -128,38 +128,57 @@ $cfrom :: forall x. RemediationException -&gt; Rep RemediationException x
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span>
 </span><span id="line-71"></span><span id="newRemediationException"><span class="annot"><span class="annottext">newRemediationException :: Text -&gt; Text -&gt; Text -&gt; RemediationException
 </span><a href="Network.AWS.Config.Types.RemediationException.html#newRemediationException"><span class="hs-identifier hs-var hs-var">newRemediationException</span></a></span></span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679404327"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404327"><span class="hs-identifier hs-var">pConfigRuleName_</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679404326"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404326"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679404325"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404325"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">RemediationException' :: Maybe POSIX
--&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; RemediationException
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679404920"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679404920"><span class="hs-identifier hs-var">pConfigRuleName_</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679404919"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679404919"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679404918"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679404918"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">RemediationException' :: Maybe Text
+-&gt; Maybe POSIX -&gt; Text -&gt; Text -&gt; Text -&gt; RemediationException
 </span><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expirationTime:RemediationException' :: Maybe POSIX
-</span><a href="Network.AWS.Config.Types.RemediationException.html#%24sel%3AexpirationTime%3ARemediationException%27"><span class="hs-identifier hs-var">expirationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">$sel:message:RemediationException' :: Maybe Text
+</span><span id="line-76"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:RemediationException' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.RemediationException.html#%24sel%3Amessage%3ARemediationException%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">$sel:configRuleName:RemediationException' :: Text
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">$sel:expirationTime:RemediationException' :: Maybe POSIX
+</span><a href="Network.AWS.Config.Types.RemediationException.html#%24sel%3AexpirationTime%3ARemediationException%27"><span class="hs-identifier hs-var">expirationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">$sel:configRuleName:RemediationException' :: Text
 </span><a href="Network.AWS.Config.Types.RemediationException.html#%24sel%3AconfigRuleName%3ARemediationException%27"><span class="hs-identifier hs-var">configRuleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404327"><span class="hs-identifier hs-var">pConfigRuleName_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceType:RemediationException' :: Text
+</span><a href="#local-6989586621679404920"><span class="hs-identifier hs-var">pConfigRuleName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceType:RemediationException' :: Text
 </span><a href="Network.AWS.Config.Types.RemediationException.html#%24sel%3AresourceType%3ARemediationException%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404326"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceId:RemediationException' :: Text
+</span><a href="#local-6989586621679404919"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceId:RemediationException' :: Text
 </span><a href="Network.AWS.Config.Types.RemediationException.html#%24sel%3AresourceId%3ARemediationException%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404325"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The time when the remediation exception will be deleted.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#remediationException_expirationTime"><span class="hs-identifier hs-type">remediationException_expirationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="remediationException_expirationTime"><span class="annot"><span class="annottext">remediationException_expirationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679404918"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | An explanation of an remediation exception.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#remediationException_message"><span class="hs-identifier hs-type">remediationException_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="remediationException_message"><span class="annot"><span class="annottext">remediationException_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RemediationException -&gt; f RemediationException
+</span><a href="Network.AWS.Config.Types.RemediationException.html#remediationException_message"><span class="hs-identifier hs-var hs-var">remediationException_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationException -&gt; Maybe Text)
+-&gt; (RemediationException -&gt; Maybe Text -&gt; RemediationException)
+-&gt; Lens
+     RemediationException RemediationException (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404914"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:RemediationException' :: RemediationException -&gt; Maybe Text
+</span><a href="#local-6989586621679404914"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404914"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404913"><span class="annot"><span class="annottext">s :: RemediationException
+</span><a href="#local-6989586621679404913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404912"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationException
+</span><a href="#local-6989586621679404913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:RemediationException' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.RemediationException.html#%24sel%3Amessage%3ARemediationException%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679404912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The time when the remediation exception will be deleted.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#remediationException_expirationTime"><span class="hs-identifier hs-type">remediationException_expirationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="remediationException_expirationTime"><span class="annot"><span class="annottext">remediationException_expirationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; RemediationException -&gt; f RemediationException
 </span><a href="Network.AWS.Config.Types.RemediationException.html#remediationException_expirationTime"><span class="hs-identifier hs-var hs-var">remediationException_expirationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationException -&gt; Maybe POSIX)
 -&gt; (RemediationException -&gt; Maybe POSIX -&gt; RemediationException)
@@ -169,16 +188,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404321"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404910"><span class="annot"><span class="annottext">Maybe POSIX
 expirationTime :: Maybe POSIX
 $sel:expirationTime:RemediationException' :: RemediationException -&gt; Maybe POSIX
-</span><a href="#local-6989586621679404321"><span class="hs-identifier hs-var hs-var">expirationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679404321"><span class="hs-identifier hs-var">expirationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404320"><span class="annot"><span class="annottext">s :: RemediationException
-</span><a href="#local-6989586621679404320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404319"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679404319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationException
-</span><a href="#local-6989586621679404320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expirationTime:RemediationException' :: Maybe POSIX
+</span><a href="#local-6989586621679404910"><span class="hs-identifier hs-var hs-var">expirationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404910"><span class="hs-identifier hs-var">expirationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404909"><span class="annot"><span class="annottext">s :: RemediationException
+</span><a href="#local-6989586621679404909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404908"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679404908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationException
+</span><a href="#local-6989586621679404909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expirationTime:RemediationException' :: Maybe POSIX
 </span><a href="Network.AWS.Config.Types.RemediationException.html#%24sel%3AexpirationTime%3ARemediationException%27"><span class="hs-identifier hs-var">expirationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679404319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679404908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; RemediationException -&gt; f RemediationException)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -194,144 +213,125 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | An explanation of an remediation exception.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#remediationException_message"><span class="hs-identifier hs-type">remediationException_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="remediationException_message"><span class="annot"><span class="annottext">remediationException_message :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RemediationException -&gt; f RemediationException
-</span><a href="Network.AWS.Config.Types.RemediationException.html#remediationException_message"><span class="hs-identifier hs-var hs-var">remediationException_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationException -&gt; Maybe Text)
--&gt; (RemediationException -&gt; Maybe Text -&gt; RemediationException)
--&gt; Lens
-     RemediationException RemediationException (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404314"><span class="annot"><span class="annottext">Maybe Text
-message :: Maybe Text
-$sel:message:RemediationException' :: RemediationException -&gt; Maybe Text
-</span><a href="#local-6989586621679404314"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404314"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404313"><span class="annot"><span class="annottext">s :: RemediationException
-</span><a href="#local-6989586621679404313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404312"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationException
-</span><a href="#local-6989586621679404313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:RemediationException' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.RemediationException.html#%24sel%3Amessage%3ARemediationException%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679404312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | The name of the Config rule.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#remediationException_configRuleName"><span class="hs-identifier hs-type">remediationException_configRuleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-94"></span><span id="remediationException_configRuleName"><span class="annot"><span class="annottext">remediationException_configRuleName :: (Text -&gt; f Text) -&gt; RemediationException -&gt; f RemediationException
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The name of the Config rule.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#remediationException_configRuleName"><span class="hs-identifier hs-type">remediationException_configRuleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="remediationException_configRuleName"><span class="annot"><span class="annottext">remediationException_configRuleName :: (Text -&gt; f Text) -&gt; RemediationException -&gt; f RemediationException
 </span><a href="Network.AWS.Config.Types.RemediationException.html#remediationException_configRuleName"><span class="hs-identifier hs-var hs-var">remediationException_configRuleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationException -&gt; Text)
 -&gt; (RemediationException -&gt; Text -&gt; RemediationException)
 -&gt; Lens RemediationException RemediationException Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404310"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404903"><span class="annot"><span class="annottext">Text
 configRuleName :: Text
 $sel:configRuleName:RemediationException' :: RemediationException -&gt; Text
-</span><a href="#local-6989586621679404310"><span class="hs-identifier hs-var hs-var">configRuleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404310"><span class="hs-identifier hs-var">configRuleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404309"><span class="annot"><span class="annottext">s :: RemediationException
-</span><a href="#local-6989586621679404309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404308"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationException
-</span><a href="#local-6989586621679404309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRuleName:RemediationException' :: Text
+</span><a href="#local-6989586621679404903"><span class="hs-identifier hs-var hs-var">configRuleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679404903"><span class="hs-identifier hs-var">configRuleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404902"><span class="annot"><span class="annottext">s :: RemediationException
+</span><a href="#local-6989586621679404902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404901"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679404901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationException
+</span><a href="#local-6989586621679404902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRuleName:RemediationException' :: Text
 </span><a href="Network.AWS.Config.Types.RemediationException.html#%24sel%3AconfigRuleName%3ARemediationException%27"><span class="hs-identifier hs-var">configRuleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The type of a resource.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#remediationException_resourceType"><span class="hs-identifier hs-type">remediationException_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-98"></span><span id="remediationException_resourceType"><span class="annot"><span class="annottext">remediationException_resourceType :: (Text -&gt; f Text) -&gt; RemediationException -&gt; f RemediationException
+</span><a href="#local-6989586621679404901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The type of a resource.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#remediationException_resourceType"><span class="hs-identifier hs-type">remediationException_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-97"></span><span id="remediationException_resourceType"><span class="annot"><span class="annottext">remediationException_resourceType :: (Text -&gt; f Text) -&gt; RemediationException -&gt; f RemediationException
 </span><a href="Network.AWS.Config.Types.RemediationException.html#remediationException_resourceType"><span class="hs-identifier hs-var hs-var">remediationException_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationException -&gt; Text)
 -&gt; (RemediationException -&gt; Text -&gt; RemediationException)
 -&gt; Lens RemediationException RemediationException Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404306"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404899"><span class="annot"><span class="annottext">Text
 resourceType :: Text
 $sel:resourceType:RemediationException' :: RemediationException -&gt; Text
-</span><a href="#local-6989586621679404306"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404306"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404305"><span class="annot"><span class="annottext">s :: RemediationException
-</span><a href="#local-6989586621679404305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404304"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationException
-</span><a href="#local-6989586621679404305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:RemediationException' :: Text
+</span><a href="#local-6989586621679404899"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679404899"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404898"><span class="annot"><span class="annottext">s :: RemediationException
+</span><a href="#local-6989586621679404898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404897"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679404897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationException
+</span><a href="#local-6989586621679404898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:RemediationException' :: Text
 </span><a href="Network.AWS.Config.Types.RemediationException.html#%24sel%3AresourceType%3ARemediationException%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The ID of the resource (for example., sg-xxxxxx).</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#remediationException_resourceId"><span class="hs-identifier hs-type">remediationException_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-102"></span><span id="remediationException_resourceId"><span class="annot"><span class="annottext">remediationException_resourceId :: (Text -&gt; f Text) -&gt; RemediationException -&gt; f RemediationException
+</span><a href="#local-6989586621679404897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The ID of the resource (for example., sg-xxxxxx).</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#remediationException_resourceId"><span class="hs-identifier hs-type">remediationException_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="remediationException_resourceId"><span class="annot"><span class="annottext">remediationException_resourceId :: (Text -&gt; f Text) -&gt; RemediationException -&gt; f RemediationException
 </span><a href="Network.AWS.Config.Types.RemediationException.html#remediationException_resourceId"><span class="hs-identifier hs-var hs-var">remediationException_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemediationException -&gt; Text)
 -&gt; (RemediationException -&gt; Text -&gt; RemediationException)
 -&gt; Lens RemediationException RemediationException Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404302"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679404895"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:RemediationException' :: RemediationException -&gt; Text
-</span><a href="#local-6989586621679404302"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404302"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404301"><span class="annot"><span class="annottext">s :: RemediationException
-</span><a href="#local-6989586621679404301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404300"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationException
-</span><a href="#local-6989586621679404301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:RemediationException' :: Text
+</span><a href="#local-6989586621679404895"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679404895"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679404894"><span class="annot"><span class="annottext">s :: RemediationException
+</span><a href="#local-6989586621679404894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-type">RemediationException'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679404893"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679404893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemediationException
+</span><a href="#local-6989586621679404894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:RemediationException' :: Text
 </span><a href="Network.AWS.Config.Types.RemediationException.html#%24sel%3AresourceId%3ARemediationException%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679404300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404297"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679404295"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RemediationException
+</span><a href="#local-6989586621679404893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404890"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679404888"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RemediationException
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RemediationException)
 -&gt; Value
 -&gt; Parser RemediationException
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RemediationException&quot;</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679404292"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404292"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; RemediationException
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679404885"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404885"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe POSIX -&gt; Text -&gt; Text -&gt; Text -&gt; RemediationException
 </span><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException%27"><span class="hs-identifier hs-var">RemediationException'</span></a></span><span>
-</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; RemediationException)
--&gt; Parser (Maybe POSIX)
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe POSIX -&gt; Text -&gt; Text -&gt; Text -&gt; RemediationException)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; RemediationException)
+     (Maybe POSIX -&gt; Text -&gt; Text -&gt; Text -&gt; RemediationException)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ExpirationTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; RemediationException)
--&gt; Parser (Maybe Text)
--&gt; Parser (Text -&gt; Text -&gt; Text -&gt; RemediationException)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679404885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; RemediationException)
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX -&gt; Text -&gt; Text -&gt; Text -&gt; RemediationException)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Text -&gt; Text -&gt; Text -&gt; RemediationException)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679404885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExpirationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; RemediationException)
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; RemediationException)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679404885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConfigRuleName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; RemediationException)
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; RemediationException)
 -&gt; Parser Text -&gt; Parser (Text -&gt; RemediationException)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679404885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; RemediationException)
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; RemediationException)
 -&gt; Parser Text -&gt; Parser RemediationException
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679404292"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679404885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404285"><span id="local-6989586621679404287"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span></span></span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404282"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span></span><span>
-</span><span id="line-120"></span></pre></body></html>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404878"><span id="local-6989586621679404880"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404875"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.RemediationException.html#RemediationException"><span class="hs-identifier hs-type">RemediationException</span></a></span></span><span>
+</span><span id="line-119"></span></pre></body></html>

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Specifies whether the pricing plan for your reserved queue is ACTIVE or</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- EXPIRED.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679997307"><span id="local-6989586621679997308"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReservationPlanStatus"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ReservationPlanStatus.html#ReservationPlanStatus"><span class="hs-identifier hs-var">ReservationPlanStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservationPlanStatus%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ReservationPlanStatus.html#ReservationPlanStatus%27"><span class="hs-identifier hs-var">ReservationPlanStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680002230"><span id="local-6989586621680002231"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReservationPlanStatus"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ReservationPlanStatus.html#ReservationPlanStatus"><span class="hs-identifier hs-var">ReservationPlanStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservationPlanStatus%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ReservationPlanStatus.html#ReservationPlanStatus%27"><span class="hs-identifier hs-var">ReservationPlanStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReservationPlanStatus"><span class="annot"><span class="annottext">ReservationPlanStatus -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.ReservationPlanStatus.html#fromReservationPlanStatus"><span class="hs-identifier hs-var hs-var">fromReservationPlanStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679997299"><span id="local-6989586621679997301"><span id="local-6989586621679997303"><span class="annot"><span class="annottext">Int -&gt; ReservationPlanStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680002222"><span id="local-6989586621680002224"><span id="local-6989586621680002226"><span class="annot"><span class="annottext">Int -&gt; ReservationPlanStatus -&gt; ShowS
 [ReservationPlanStatus] -&gt; ShowS
 ReservationPlanStatus -&gt; String
 (Int -&gt; ReservationPlanStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: ReservationPlanStatus -&gt; String
 showsPrec :: Int -&gt; ReservationPlanStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReservationPlanStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679997290"><span id="local-6989586621679997292"><span id="local-6989586621679997294"><span id="local-6989586621679997296"><span class="annot"><span class="annottext">ReadPrec [ReservationPlanStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680002213"><span id="local-6989586621680002215"><span id="local-6989586621680002217"><span id="local-6989586621680002219"><span class="annot"><span class="annottext">ReadPrec [ReservationPlanStatus]
 ReadPrec ReservationPlanStatus
 Int -&gt; ReadS ReservationPlanStatus
 ReadS [ReservationPlanStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [ReservationPlanStatus]
 readsPrec :: Int -&gt; ReadS ReservationPlanStatus
 $creadsPrec :: Int -&gt; ReadS ReservationPlanStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679997285"><span id="local-6989586621679997287"><span class="annot"><span class="annottext">ReservationPlanStatus -&gt; ReservationPlanStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680002208"><span id="local-6989586621680002210"><span class="annot"><span class="annottext">ReservationPlanStatus -&gt; ReservationPlanStatus -&gt; Bool
 (ReservationPlanStatus -&gt; ReservationPlanStatus -&gt; Bool)
 -&gt; (ReservationPlanStatus -&gt; ReservationPlanStatus -&gt; Bool)
 -&gt; Eq ReservationPlanStatus
@@ -84,7 +84,7 @@ $c/= :: ReservationPlanStatus -&gt; ReservationPlanStatus -&gt; Bool
 == :: ReservationPlanStatus -&gt; ReservationPlanStatus -&gt; Bool
 $c== :: ReservationPlanStatus -&gt; ReservationPlanStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679997269"><span id="local-6989586621679997271"><span id="local-6989586621679997273"><span id="local-6989586621679997275"><span id="local-6989586621679997277"><span id="local-6989586621679997279"><span id="local-6989586621679997281"><span class="annot"><span class="annottext">Eq ReservationPlanStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680002192"><span id="local-6989586621680002194"><span id="local-6989586621680002196"><span id="local-6989586621680002198"><span id="local-6989586621680002200"><span id="local-6989586621680002202"><span id="local-6989586621680002204"><span class="annot"><span class="annottext">Eq ReservationPlanStatus
 Eq ReservationPlanStatus
 -&gt; (ReservationPlanStatus -&gt; ReservationPlanStatus -&gt; Ordering)
 -&gt; (ReservationPlanStatus -&gt; ReservationPlanStatus -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. ReservationPlanStatus -&gt; Rep ReservationPlanStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679997261"><span id="local-6989586621679997263"><span class="annot"><span class="annottext">Int -&gt; ReservationPlanStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680002184"><span id="local-6989586621680002186"><span class="annot"><span class="annottext">Int -&gt; ReservationPlanStatus -&gt; Int
 ReservationPlanStatus -&gt; Int
 (Int -&gt; ReservationPlanStatus -&gt; Int)
 -&gt; (ReservationPlanStatus -&gt; Int) -&gt; Hashable ReservationPlanStatus
@@ -152,54 +152,54 @@ $chash :: ReservationPlanStatus -&gt; Int
 hashWithSalt :: Int -&gt; ReservationPlanStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ReservationPlanStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679997258"><span class="annot"><span class="annottext">ReservationPlanStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680002181"><span class="annot"><span class="annottext">ReservationPlanStatus -&gt; ()
 (ReservationPlanStatus -&gt; ()) -&gt; NFData ReservationPlanStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReservationPlanStatus -&gt; ()
 $crnf :: ReservationPlanStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679997255"><span class="annot"><span class="annottext">Text -&gt; Either String ReservationPlanStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680002178"><span class="annot"><span class="annottext">Text -&gt; Either String ReservationPlanStatus
 (Text -&gt; Either String ReservationPlanStatus)
 -&gt; FromText ReservationPlanStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReservationPlanStatus
 $cfromText :: Text -&gt; Either String ReservationPlanStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679997252"><span class="annot"><span class="annottext">ReservationPlanStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680002175"><span class="annot"><span class="annottext">ReservationPlanStatus -&gt; Text
 (ReservationPlanStatus -&gt; Text) -&gt; ToText ReservationPlanStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReservationPlanStatus -&gt; Text
 $ctoText :: ReservationPlanStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679997249"><span class="annot"><span class="annottext">ReservationPlanStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680002172"><span class="annot"><span class="annottext">ReservationPlanStatus -&gt; ByteString
 (ReservationPlanStatus -&gt; ByteString)
 -&gt; ToByteString ReservationPlanStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReservationPlanStatus -&gt; ByteString
 $ctoBS :: ReservationPlanStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679997246"><span class="annot"><span class="annottext">ReservationPlanStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680002169"><span class="annot"><span class="annottext">ReservationPlanStatus -&gt; ByteStringBuilder
 (ReservationPlanStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ReservationPlanStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReservationPlanStatus -&gt; ByteStringBuilder
 $cbuild :: ReservationPlanStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679997243"><span class="annot"><span class="annottext">HeaderName -&gt; ReservationPlanStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680002166"><span class="annot"><span class="annottext">HeaderName -&gt; ReservationPlanStatus -&gt; [Header]
 (HeaderName -&gt; ReservationPlanStatus -&gt; [Header])
 -&gt; ToHeader ReservationPlanStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReservationPlanStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReservationPlanStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679997240"><span class="annot"><span class="annottext">ReservationPlanStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680002163"><span class="annot"><span class="annottext">ReservationPlanStatus -&gt; QueryString
 (ReservationPlanStatus -&gt; QueryString)
 -&gt; ToQuery ReservationPlanStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReservationPlanStatus -&gt; QueryString
 $ctoQuery :: ReservationPlanStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679997235"><span id="local-6989586621679997237"><span class="annot"><span class="annottext">Value -&gt; Parser [ReservationPlanStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680002158"><span id="local-6989586621680002160"><span class="annot"><span class="annottext">Value -&gt; Parser [ReservationPlanStatus]
 Value -&gt; Parser ReservationPlanStatus
 (Value -&gt; Parser ReservationPlanStatus)
 -&gt; (Value -&gt; Parser [ReservationPlanStatus])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [ReservationPlanStatus]
 parseJSON :: Value -&gt; Parser ReservationPlanStatus
 $cparseJSON :: Value -&gt; Parser ReservationPlanStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679997230"><span id="local-6989586621679997232"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReservationPlanStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680002153"><span id="local-6989586621680002155"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReservationPlanStatus]
 FromJSONKeyFunction ReservationPlanStatus
 FromJSONKeyFunction ReservationPlanStatus
 -&gt; FromJSONKeyFunction [ReservationPlanStatus]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReservationPlanStatus]
 fromJSONKey :: FromJSONKeyFunction ReservationPlanStatus
 $cfromJSONKey :: FromJSONKeyFunction ReservationPlanStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679997221"><span id="local-6989586621679997223"><span id="local-6989586621679997225"><span id="local-6989586621679997227"><span class="annot"><span class="annottext">[ReservationPlanStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680002144"><span id="local-6989586621680002146"><span id="local-6989586621680002148"><span id="local-6989586621680002150"><span class="annot"><span class="annottext">[ReservationPlanStatus] -&gt; Encoding
 [ReservationPlanStatus] -&gt; Value
 ReservationPlanStatus -&gt; Encoding
 ReservationPlanStatus -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: ReservationPlanStatus -&gt; Encoding
 toJSON :: ReservationPlanStatus -&gt; Value
 $ctoJSON :: ReservationPlanStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679997216"><span id="local-6989586621679997218"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReservationPlanStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680002139"><span id="local-6989586621680002141"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReservationPlanStatus]
 ToJSONKeyFunction ReservationPlanStatus
 ToJSONKeyFunction ReservationPlanStatus
 -&gt; ToJSONKeyFunction [ReservationPlanStatus]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReservationPlanStatus]
 toJSONKey :: ToJSONKeyFunction ReservationPlanStatus
 $ctoJSONKey :: ToJSONKeyFunction ReservationPlanStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679997213"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReservationPlanStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680002136"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReservationPlanStatus
 ([Node] -&gt; Either String ReservationPlanStatus)
 -&gt; FromXML ReservationPlanStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReservationPlanStatus
 $cparseXML :: [Node] -&gt; Either String ReservationPlanStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679997210"><span class="annot"><span class="annottext">ReservationPlanStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680002133"><span class="annot"><span class="annottext">ReservationPlanStatus -&gt; XML
 (ReservationPlanStatus -&gt; XML) -&gt; ToXML ReservationPlanStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReservationPlanStatus -&gt; XML

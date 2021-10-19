@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newRemoveTargets' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679309326"><span id="local-6989586621679309327"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTargets"><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-var">RemoveTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTargets%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-var">RemoveTargets'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679309521"><span id="local-6989586621679309522"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTargets"><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-var">RemoveTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTargets%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-var">RemoveTargets'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If this is a managed rule, created by an Amazon Web Services service on</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- your behalf, you must specify @Force@ as @True@ to remove targets. This</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- parameter is ignored for rules that are not managed rules. You can check</span><span>
@@ -80,7 +80,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3Aids%3ARemoveTargets%27"><span class="annot"><span class="annottext">RemoveTargets -&gt; NonEmpty Text
 </span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#%24sel%3Aids%3ARemoveTargets%27"><span class="hs-identifier hs-var hs-var">ids</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309317"><span id="local-6989586621679309319"><span class="annot"><span class="annottext">RemoveTargets -&gt; RemoveTargets -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309512"><span id="local-6989586621679309514"><span class="annot"><span class="annottext">RemoveTargets -&gt; RemoveTargets -&gt; Bool
 (RemoveTargets -&gt; RemoveTargets -&gt; Bool)
 -&gt; (RemoveTargets -&gt; RemoveTargets -&gt; Bool) -&gt; Eq RemoveTargets
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemoveTargets -&gt; RemoveTargets -&gt; Bool
 == :: RemoveTargets -&gt; RemoveTargets -&gt; Bool
 $c== :: RemoveTargets -&gt; RemoveTargets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309308"><span id="local-6989586621679309310"><span id="local-6989586621679309312"><span id="local-6989586621679309314"><span class="annot"><span class="annottext">ReadPrec [RemoveTargets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309503"><span id="local-6989586621679309505"><span id="local-6989586621679309507"><span id="local-6989586621679309509"><span class="annot"><span class="annottext">ReadPrec [RemoveTargets]
 ReadPrec RemoveTargets
 Int -&gt; ReadS RemoveTargets
 ReadS [RemoveTargets]
@@ -108,7 +108,7 @@ readList :: ReadS [RemoveTargets]
 $creadList :: ReadS [RemoveTargets]
 readsPrec :: Int -&gt; ReadS RemoveTargets
 $creadsPrec :: Int -&gt; ReadS RemoveTargets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309301"><span id="local-6989586621679309303"><span id="local-6989586621679309305"><span class="annot"><span class="annottext">Int -&gt; RemoveTargets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309496"><span id="local-6989586621679309498"><span id="local-6989586621679309500"><span class="annot"><span class="annottext">Int -&gt; RemoveTargets -&gt; ShowS
 [RemoveTargets] -&gt; ShowS
 RemoveTargets -&gt; String
 (Int -&gt; RemoveTargets -&gt; ShowS)
@@ -161,9 +161,9 @@ $cfrom :: forall x. RemoveTargets -&gt; Rep RemoveTargets x
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span><span>
 </span><span id="line-107"></span><span id="newRemoveTargets"><span class="annot"><span class="annottext">newRemoveTargets :: Text -&gt; NonEmpty Text -&gt; RemoveTargets
-</span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#newRemoveTargets"><span class="hs-identifier hs-var hs-var">newRemoveTargets</span></a></span></span><span> </span><span id="local-6989586621679309296"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309296"><span class="hs-identifier hs-var">pRule_</span></a></span></span><span> </span><span id="local-6989586621679309295"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679309295"><span class="hs-identifier hs-var">pIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#newRemoveTargets"><span class="hs-identifier hs-var hs-var">newRemoveTargets</span></a></span></span><span> </span><span id="local-6989586621679309491"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309491"><span class="hs-identifier hs-var">pRule_</span></a></span></span><span> </span><span id="local-6989586621679309490"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679309490"><span class="hs-identifier hs-var">pIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">RemoveTargets' :: Maybe Bool -&gt; Maybe Text -&gt; Text -&gt; NonEmpty Text -&gt; RemoveTargets
 </span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:force:RemoveTargets' :: Maybe Bool
@@ -176,17 +176,17 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:rule:RemoveTargets' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#%24sel%3Arule%3ARemoveTargets%27"><span class="hs-identifier hs-var">rule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309296"><span class="hs-identifier hs-var">pRule_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679309491"><span class="hs-identifier hs-var">pRule_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:ids:RemoveTargets' :: NonEmpty Text
 </span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#%24sel%3Aids%3ARemoveTargets%27"><span class="hs-identifier hs-var">ids</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679309295"><span class="hs-identifier hs-var">pIds_</span></a></span><span>
+</span><a href="#local-6989586621679309490"><span class="hs-identifier hs-var">pIds_</span></a></span><span>
 </span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | If this is a managed rule, created by an Amazon Web Services service on</span><span>
@@ -200,16 +200,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (RemoveTargets -&gt; Maybe Bool -&gt; RemoveTargets)
 -&gt; Lens RemoveTargets RemoveTargets (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309290"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309485"><span class="annot"><span class="annottext">Maybe Bool
 force :: Maybe Bool
 $sel:force:RemoveTargets' :: RemoveTargets -&gt; Maybe Bool
-</span><a href="#local-6989586621679309290"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679309290"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309289"><span class="annot"><span class="annottext">s :: RemoveTargets
-</span><a href="#local-6989586621679309289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309288"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679309288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTargets
-</span><a href="#local-6989586621679309289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:RemoveTargets' :: Maybe Bool
+</span><a href="#local-6989586621679309485"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679309485"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309484"><span class="annot"><span class="annottext">s :: RemoveTargets
+</span><a href="#local-6989586621679309484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309483"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679309483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTargets
+</span><a href="#local-6989586621679309484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:RemoveTargets' :: Maybe Bool
 </span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#%24sel%3Aforce%3ARemoveTargets%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679309288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The name or ARN of the event bus associated with the rule. If you omit</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- this, the default event bus is used.</span><span>
@@ -219,16 +219,16 @@ $sel:force:RemoveTargets' :: RemoveTargets -&gt; Maybe Bool
 -&gt; (RemoveTargets -&gt; Maybe Text -&gt; RemoveTargets)
 -&gt; Lens RemoveTargets RemoveTargets (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309287"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309482"><span class="annot"><span class="annottext">Maybe Text
 eventBusName :: Maybe Text
 $sel:eventBusName:RemoveTargets' :: RemoveTargets -&gt; Maybe Text
-</span><a href="#local-6989586621679309287"><span class="hs-identifier hs-var hs-var">eventBusName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309287"><span class="hs-identifier hs-var">eventBusName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309286"><span class="annot"><span class="annottext">s :: RemoveTargets
-</span><a href="#local-6989586621679309286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309285"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTargets
-</span><a href="#local-6989586621679309286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventBusName:RemoveTargets' :: Maybe Text
+</span><a href="#local-6989586621679309482"><span class="hs-identifier hs-var hs-var">eventBusName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309482"><span class="hs-identifier hs-var">eventBusName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309481"><span class="annot"><span class="annottext">s :: RemoveTargets
+</span><a href="#local-6989586621679309481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309480"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTargets
+</span><a href="#local-6989586621679309481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventBusName:RemoveTargets' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#%24sel%3AeventBusName%3ARemoveTargets%27"><span class="hs-identifier hs-var">eventBusName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The name of the rule.</span><span>
 </span><span id="line-129"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#removeTargets_rule"><span class="hs-identifier hs-type">removeTargets_rule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -237,16 +237,16 @@ $sel:eventBusName:RemoveTargets' :: RemoveTargets -&gt; Maybe Text
 -&gt; (RemoveTargets -&gt; Text -&gt; RemoveTargets)
 -&gt; Lens RemoveTargets RemoveTargets Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309284"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309479"><span class="annot"><span class="annottext">Text
 rule :: Text
 $sel:rule:RemoveTargets' :: RemoveTargets -&gt; Text
-</span><a href="#local-6989586621679309284"><span class="hs-identifier hs-var hs-var">rule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309284"><span class="hs-identifier hs-var">rule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309283"><span class="annot"><span class="annottext">s :: RemoveTargets
-</span><a href="#local-6989586621679309283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309282"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTargets
-</span><a href="#local-6989586621679309283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rule:RemoveTargets' :: Text
+</span><a href="#local-6989586621679309479"><span class="hs-identifier hs-var hs-var">rule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309479"><span class="hs-identifier hs-var">rule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309478"><span class="annot"><span class="annottext">s :: RemoveTargets
+</span><a href="#local-6989586621679309478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309477"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTargets
+</span><a href="#local-6989586621679309478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rule:RemoveTargets' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#%24sel%3Arule%3ARemoveTargets%27"><span class="hs-identifier hs-var">rule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | The IDs of the targets to remove from the rule.</span><span>
 </span><span id="line-133"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#removeTargets_ids"><span class="hs-identifier hs-type">removeTargets_ids</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -256,16 +256,16 @@ $sel:rule:RemoveTargets' :: RemoveTargets -&gt; Text
 -&gt; (RemoveTargets -&gt; NonEmpty Text -&gt; RemoveTargets)
 -&gt; Lens RemoveTargets RemoveTargets (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309281"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309476"><span class="annot"><span class="annottext">NonEmpty Text
 ids :: NonEmpty Text
 $sel:ids:RemoveTargets' :: RemoveTargets -&gt; NonEmpty Text
-</span><a href="#local-6989586621679309281"><span class="hs-identifier hs-var hs-var">ids</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679309281"><span class="hs-identifier hs-var">ids</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309280"><span class="annot"><span class="annottext">s :: RemoveTargets
-</span><a href="#local-6989586621679309280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309279"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679309279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTargets
-</span><a href="#local-6989586621679309280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ids:RemoveTargets' :: NonEmpty Text
+</span><a href="#local-6989586621679309476"><span class="hs-identifier hs-var hs-var">ids</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679309476"><span class="hs-identifier hs-var">ids</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309475"><span class="annot"><span class="annottext">s :: RemoveTargets
+</span><a href="#local-6989586621679309475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309474"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679309474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTargets
+</span><a href="#local-6989586621679309475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ids:RemoveTargets' :: NonEmpty Text
 </span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#%24sel%3Aids%3ARemoveTargets%27"><span class="hs-identifier hs-var">ids</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679309279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679309474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; RemoveTargets -&gt; f RemoveTargets)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -275,19 +275,19 @@ $sel:ids:RemoveTargets' :: RemoveTargets -&gt; NonEmpty Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-138"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse"><span class="hs-identifier hs-type">RemoveTargetsResponse</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679309274"><span class="annot"><span class="annottext">request :: RemoveTargets -&gt; Request RemoveTargets
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679309469"><span class="annot"><span class="annottext">request :: RemoveTargets -&gt; Request RemoveTargets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RemoveTargets -&gt; Request RemoveTargets
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679309270"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679309465"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RemoveTargets
 -&gt; ClientResponse ClientBody
@@ -311,10 +311,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309267"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309267"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679309266"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679309266"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679309265"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309265"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309462"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309462"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679309461"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679309461"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679309460"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309460"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe [RemoveTargetsResultEntry] -&gt; Int -&gt; RemoveTargetsResponse
 </span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse%27"><span class="hs-identifier hs-var">RemoveTargetsResponse'</span></a></span><span>
@@ -328,7 +328,7 @@ MonadResource m =&gt;
      (Maybe [RemoveTargetsResultEntry] -&gt; Int -&gt; RemoveTargetsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309265"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679309460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FailedEntryCount&quot;</span></span><span class="hs-special">)</span><span>
@@ -339,7 +339,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; RemoveTargetsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309265"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [RemoveTargetsResultEntry]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -358,15 +358,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309267"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309462"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309256"><span id="local-6989586621679309258"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309451"><span id="local-6989586621679309453"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span></span></span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309253"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679309249"><span class="annot"><span class="annottext">toHeaders :: RemoveTargets -&gt; ResponseHeaders
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679309444"><span class="annot"><span class="annottext">toHeaders :: RemoveTargets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RemoveTargets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -391,9 +391,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309239"><span id="local-6989586621679309241"><span id="local-6989586621679309243"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679309237"><span class="annot"><span class="annottext">toJSON :: RemoveTargets -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309232"><span id="local-6989586621679309233"><span id="local-6989586621679309234"><span id="local-6989586621679309235"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309434"><span id="local-6989586621679309436"><span id="local-6989586621679309438"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679309432"><span class="annot"><span class="annottext">toJSON :: RemoveTargets -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets%27"><span class="hs-identifier hs-type">RemoveTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309427"><span id="local-6989586621679309428"><span id="local-6989586621679309429"><span id="local-6989586621679309430"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 NonEmpty Text
 Text
@@ -405,7 +405,7 @@ $sel:ids:RemoveTargets' :: RemoveTargets -&gt; NonEmpty Text
 $sel:rule:RemoveTargets' :: RemoveTargets -&gt; Text
 $sel:eventBusName:RemoveTargets' :: RemoveTargets -&gt; Maybe Text
 $sel:force:RemoveTargets' :: RemoveTargets -&gt; Maybe Bool
-</span><a href="#local-6989586621679309232"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679309427"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -417,40 +417,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679309235"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679309430"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventBusName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309234"><span class="hs-identifier hs-var">eventBusName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679309429"><span class="hs-identifier hs-var">eventBusName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Rule&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309233"><span class="hs-identifier hs-var">rule</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679309428"><span class="hs-identifier hs-var">rule</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Ids&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679309232"><span class="hs-identifier hs-var">ids</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309427"><span class="hs-identifier hs-var">ids</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679309226"><span class="annot"><span class="annottext">toPath :: RemoveTargets -&gt; ByteString
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679309421"><span class="annot"><span class="annottext">toPath :: RemoveTargets -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RemoveTargets -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargets"><span class="hs-identifier hs-type">RemoveTargets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679309222"><span class="annot"><span class="annottext">toQuery :: RemoveTargets -&gt; QueryString
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679309417"><span class="annot"><span class="annottext">toQuery :: RemoveTargets -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RemoveTargets -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -458,7 +458,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | /See:/ 'newRemoveTargetsResponse' smart constructor.</span><span>
-</span><span id="line-185"></span><span id="local-6989586621679309219"><span id="local-6989586621679309220"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTargetsResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse"><span class="hs-identifier hs-var">RemoveTargetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTargetsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse%27"><span class="hs-identifier hs-var">RemoveTargetsResponse'</span></a></span></span><span>
+</span><span id="line-185"></span><span id="local-6989586621679309414"><span id="local-6989586621679309415"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTargetsResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse"><span class="hs-identifier hs-var">RemoveTargetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTargetsResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse%27"><span class="hs-identifier hs-var">RemoveTargetsResponse'</span></a></span></span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of failed entries.</span><span>
 </span><span id="line-187"></span><span>    </span><span id="%24sel%3AfailedEntryCount%3ARemoveTargetsResponse%27"><span class="annot"><span class="annottext">RemoveTargetsResponse -&gt; Maybe Int
 </span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#%24sel%3AfailedEntryCount%3ARemoveTargetsResponse%27"><span class="hs-identifier hs-var hs-var">failedEntryCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -469,7 +469,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-191"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARemoveTargetsResponse%27"><span class="annot"><span class="annottext">RemoveTargetsResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#%24sel%3AhttpStatus%3ARemoveTargetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309212"><span id="local-6989586621679309214"><span class="annot"><span class="annottext">RemoveTargetsResponse -&gt; RemoveTargetsResponse -&gt; Bool
+</span><span id="line-193"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309407"><span id="local-6989586621679309409"><span class="annot"><span class="annottext">RemoveTargetsResponse -&gt; RemoveTargetsResponse -&gt; Bool
 (RemoveTargetsResponse -&gt; RemoveTargetsResponse -&gt; Bool)
 -&gt; (RemoveTargetsResponse -&gt; RemoveTargetsResponse -&gt; Bool)
 -&gt; Eq RemoveTargetsResponse
@@ -478,7 +478,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemoveTargetsResponse -&gt; RemoveTargetsResponse -&gt; Bool
 == :: RemoveTargetsResponse -&gt; RemoveTargetsResponse -&gt; Bool
 $c== :: RemoveTargetsResponse -&gt; RemoveTargetsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309204"><span id="local-6989586621679309206"><span id="local-6989586621679309208"><span id="local-6989586621679309210"><span class="annot"><span class="annottext">ReadPrec [RemoveTargetsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309399"><span id="local-6989586621679309401"><span id="local-6989586621679309403"><span id="local-6989586621679309405"><span class="annot"><span class="annottext">ReadPrec [RemoveTargetsResponse]
 ReadPrec RemoveTargetsResponse
 Int -&gt; ReadS RemoveTargetsResponse
 ReadS [RemoveTargetsResponse]
@@ -498,7 +498,7 @@ readList :: ReadS [RemoveTargetsResponse]
 $creadList :: ReadS [RemoveTargetsResponse]
 readsPrec :: Int -&gt; ReadS RemoveTargetsResponse
 $creadsPrec :: Int -&gt; ReadS RemoveTargetsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309198"><span id="local-6989586621679309200"><span id="local-6989586621679309202"><span class="annot"><span class="annottext">Int -&gt; RemoveTargetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309393"><span id="local-6989586621679309395"><span id="local-6989586621679309397"><span class="annot"><span class="annottext">Int -&gt; RemoveTargetsResponse -&gt; ShowS
 [RemoveTargetsResponse] -&gt; ShowS
 RemoveTargetsResponse -&gt; String
 (Int -&gt; RemoveTargetsResponse -&gt; ShowS)
@@ -542,8 +542,8 @@ $cfrom :: forall x. RemoveTargetsResponse -&gt; Rep RemoveTargetsResponse x
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse"><span class="hs-identifier hs-type">RemoveTargetsResponse</span></a></span><span>
 </span><span id="line-212"></span><span id="newRemoveTargetsResponse"><span class="annot"><span class="annottext">newRemoveTargetsResponse :: Int -&gt; RemoveTargetsResponse
-</span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#newRemoveTargetsResponse"><span class="hs-identifier hs-var hs-var">newRemoveTargetsResponse</span></a></span></span><span> </span><span id="local-6989586621679309195"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309195"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#newRemoveTargetsResponse"><span class="hs-identifier hs-var hs-var">newRemoveTargetsResponse</span></a></span></span><span> </span><span id="local-6989586621679309390"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309390"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><span class="annottext">RemoveTargetsResponse' :: Maybe Int
 -&gt; Maybe [RemoveTargetsResultEntry] -&gt; Int -&gt; RemoveTargetsResponse
 </span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse%27"><span class="hs-identifier hs-type">RemoveTargetsResponse'</span></a></span><span>
@@ -558,7 +558,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveTargetsResponse' :: Int
 </span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#%24sel%3AhttpStatus%3ARemoveTargetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309195"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679309390"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | The number of failed entries.</span><span>
@@ -570,16 +570,16 @@ forall a. Maybe a
 -&gt; Lens
      RemoveTargetsResponse RemoveTargetsResponse (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse%27"><span class="hs-identifier hs-type">RemoveTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309194"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse%27"><span class="hs-identifier hs-type">RemoveTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309389"><span class="annot"><span class="annottext">Maybe Int
 failedEntryCount :: Maybe Int
 $sel:failedEntryCount:RemoveTargetsResponse' :: RemoveTargetsResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679309194"><span class="hs-identifier hs-var hs-var">failedEntryCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679309194"><span class="hs-identifier hs-var">failedEntryCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309193"><span class="annot"><span class="annottext">s :: RemoveTargetsResponse
-</span><a href="#local-6989586621679309193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse%27"><span class="hs-identifier hs-type">RemoveTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309192"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679309192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTargetsResponse
-</span><a href="#local-6989586621679309193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedEntryCount:RemoveTargetsResponse' :: Maybe Int
+</span><a href="#local-6989586621679309389"><span class="hs-identifier hs-var hs-var">failedEntryCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679309389"><span class="hs-identifier hs-var">failedEntryCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309388"><span class="annot"><span class="annottext">s :: RemoveTargetsResponse
+</span><a href="#local-6989586621679309388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse%27"><span class="hs-identifier hs-type">RemoveTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309387"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679309387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTargetsResponse
+</span><a href="#local-6989586621679309388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedEntryCount:RemoveTargetsResponse' :: Maybe Int
 </span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#%24sel%3AfailedEntryCount%3ARemoveTargetsResponse%27"><span class="hs-identifier hs-var">failedEntryCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679309192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse"><span class="hs-identifier hs-type">RemoveTargetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse"><span class="hs-identifier hs-type">RemoveTargetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | The failed target entries.</span><span>
 </span><span id="line-225"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#removeTargetsResponse_failedEntries"><span class="hs-identifier hs-type">removeTargetsResponse_failedEntries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse"><span class="hs-identifier hs-type">RemoveTargetsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.RemoveTargetsResultEntry.html#RemoveTargetsResultEntry"><span class="hs-identifier hs-type">RemoveTargetsResultEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -595,16 +595,16 @@ $sel:failedEntryCount:RemoveTargetsResponse' :: RemoveTargetsResponse -&gt; Mayb
      (Maybe [RemoveTargetsResultEntry])
      (Maybe [RemoveTargetsResultEntry])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse%27"><span class="hs-identifier hs-type">RemoveTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309191"><span class="annot"><span class="annottext">Maybe [RemoveTargetsResultEntry]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse%27"><span class="hs-identifier hs-type">RemoveTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309386"><span class="annot"><span class="annottext">Maybe [RemoveTargetsResultEntry]
 failedEntries :: Maybe [RemoveTargetsResultEntry]
 $sel:failedEntries:RemoveTargetsResponse' :: RemoveTargetsResponse -&gt; Maybe [RemoveTargetsResultEntry]
-</span><a href="#local-6989586621679309191"><span class="hs-identifier hs-var hs-var">failedEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RemoveTargetsResultEntry]
-</span><a href="#local-6989586621679309191"><span class="hs-identifier hs-var">failedEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309190"><span class="annot"><span class="annottext">s :: RemoveTargetsResponse
-</span><a href="#local-6989586621679309190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse%27"><span class="hs-identifier hs-type">RemoveTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309189"><span class="annot"><span class="annottext">Maybe [RemoveTargetsResultEntry]
-</span><a href="#local-6989586621679309189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTargetsResponse
-</span><a href="#local-6989586621679309190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedEntries:RemoveTargetsResponse' :: Maybe [RemoveTargetsResultEntry]
+</span><a href="#local-6989586621679309386"><span class="hs-identifier hs-var hs-var">failedEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RemoveTargetsResultEntry]
+</span><a href="#local-6989586621679309386"><span class="hs-identifier hs-var">failedEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309385"><span class="annot"><span class="annottext">s :: RemoveTargetsResponse
+</span><a href="#local-6989586621679309385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse%27"><span class="hs-identifier hs-type">RemoveTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309384"><span class="annot"><span class="annottext">Maybe [RemoveTargetsResultEntry]
+</span><a href="#local-6989586621679309384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTargetsResponse
+</span><a href="#local-6989586621679309385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedEntries:RemoveTargetsResponse' :: Maybe [RemoveTargetsResultEntry]
 </span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#%24sel%3AfailedEntries%3ARemoveTargetsResponse%27"><span class="hs-identifier hs-var">failedEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RemoveTargetsResultEntry]
-</span><a href="#local-6989586621679309189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse"><span class="hs-identifier hs-type">RemoveTargetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RemoveTargetsResultEntry]
+</span><a href="#local-6989586621679309384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse"><span class="hs-identifier hs-type">RemoveTargetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RemoveTargetsResultEntry]
   -&gt; f (Maybe [RemoveTargetsResultEntry]))
  -&gt; RemoveTargetsResponse -&gt; f RemoveTargetsResponse)
 -&gt; ((Maybe [RemoveTargetsResultEntry]
@@ -634,8 +634,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [RemoveTargetsResultEntry]
   [RemoveTargetsResultEntry]
   [RemoveTargetsResultEntry]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-229"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#removeTargetsResponse_httpStatus"><span class="hs-identifier hs-type">removeTargetsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse"><span class="hs-identifier hs-type">RemoveTargetsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -644,16 +644,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (RemoveTargetsResponse -&gt; Int -&gt; RemoveTargetsResponse)
 -&gt; Lens RemoveTargetsResponse RemoveTargetsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse%27"><span class="hs-identifier hs-type">RemoveTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309187"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse%27"><span class="hs-identifier hs-type">RemoveTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309382"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RemoveTargetsResponse' :: RemoveTargetsResponse -&gt; Int
-</span><a href="#local-6989586621679309187"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309187"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309186"><span class="annot"><span class="annottext">s :: RemoveTargetsResponse
-</span><a href="#local-6989586621679309186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse%27"><span class="hs-identifier hs-type">RemoveTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309185"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTargetsResponse
-</span><a href="#local-6989586621679309186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveTargetsResponse' :: Int
+</span><a href="#local-6989586621679309382"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309382"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309381"><span class="annot"><span class="annottext">s :: RemoveTargetsResponse
+</span><a href="#local-6989586621679309381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse%27"><span class="hs-identifier hs-type">RemoveTargetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309380"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTargetsResponse
+</span><a href="#local-6989586621679309381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveTargetsResponse' :: Int
 </span><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#%24sel%3AhttpStatus%3ARemoveTargetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse"><span class="hs-identifier hs-type">RemoveTargetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse"><span class="hs-identifier hs-type">RemoveTargetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
-</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309183"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse"><span class="hs-identifier hs-type">RemoveTargetsResponse</span></a></span></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309378"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.RemoveTargets.html#RemoveTargetsResponse"><span class="hs-identifier hs-type">RemoveTargetsResponse</span></a></span></span><span>
 </span><span id="line-233"></span></pre></body></html>

@@ -33,48 +33,48 @@
 </span><span id="line-33"></span><span class="hs-comment">-- that is pending deletion will include the @DeleteTimestamp@ parameter.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newBackup' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679174703"><span id="local-6989586621679174704"></span></span><span class="hs-keyword">data</span><span> </span><span id="Backup"><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-var">Backup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Backup%27"><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-var">Backup'</span></a></span></span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier (ID) of the cluster that was backed up.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AclusterId%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe Text
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AclusterId%3ABackup%27"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The state of the backup.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AbackupState%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe BackupState
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AbackupState%3ABackup%27"><span class="hs-identifier hs-var hs-var">backupState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.BackupState.html#BackupState"><span class="hs-identifier hs-type">BackupState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The identifier (ID) of the source backup from which the new backup was</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- copied.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AsourceBackup%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe Text
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AsourceBackup%3ABackup%27"><span class="hs-identifier hs-var hs-var">sourceBackup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The date and time when the backup was copied from a source backup.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcopyTimestamp%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe POSIX
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AcopyTimestamp%3ABackup%27"><span class="hs-identifier hs-var hs-var">copyTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Specifies whether the service should exempt a backup from the retention</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- policy for the cluster. @True@ exempts a backup from the retention</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- policy. @False@ means the service applies the backup retention policy</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- defined at the cluster.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AneverExpires%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe Bool
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AneverExpires%3ABackup%27"><span class="hs-identifier hs-var hs-var">neverExpires</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The date and time when the backup was created.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AcreateTimestamp%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe POSIX
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AcreateTimestamp%3ABackup%27"><span class="hs-identifier hs-var hs-var">createTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The date and time when the backup will be permanently deleted.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AdeleteTimestamp%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe POSIX
+</span><span id="line-36"></span><span id="local-6989586621679174768"><span id="local-6989586621679174769"></span></span><span class="hs-keyword">data</span><span> </span><span id="Backup"><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-var">Backup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Backup%27"><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-var">Backup'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time when the backup will be permanently deleted.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdeleteTimestamp%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe POSIX
 </span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AdeleteTimestamp%3ABackup%27"><span class="hs-identifier hs-var hs-var">deleteTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The identifier (ID) of the cluster containing the source backup from</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- which the new backup was copied.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3AsourceCluster%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe Text
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The identifier (ID) of the cluster containing the source backup from</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- which the new backup was copied.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AsourceCluster%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe Text
 </span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AsourceCluster%3ABackup%27"><span class="hs-identifier hs-var hs-var">sourceCluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The list of tags for the backup.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AtagList%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe [Tag]
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AtagList%3ABackup%27"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The AWS Region that contains the source backup from which the new backup</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- was copied.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AsourceRegion%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe Text
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Specifies whether the service should exempt a backup from the retention</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- policy for the cluster. @True@ exempts a backup from the retention</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- policy. @False@ means the service applies the backup retention policy</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- defined at the cluster.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AneverExpires%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe Bool
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AneverExpires%3ABackup%27"><span class="hs-identifier hs-var hs-var">neverExpires</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The AWS Region that contains the source backup from which the new backup</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- was copied.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AsourceRegion%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe Text
 </span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AsourceRegion%3ABackup%27"><span class="hs-identifier hs-var hs-var">sourceRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The list of tags for the backup.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AtagList%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe [Tag]
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AtagList%3ABackup%27"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The identifier (ID) of the source backup from which the new backup was</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- copied.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AsourceBackup%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe Text
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AsourceBackup%3ABackup%27"><span class="hs-identifier hs-var hs-var">sourceBackup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The identifier (ID) of the cluster that was backed up.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AclusterId%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe Text
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AclusterId%3ABackup%27"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The date and time when the backup was created.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AcreateTimestamp%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe POSIX
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AcreateTimestamp%3ABackup%27"><span class="hs-identifier hs-var hs-var">createTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The date and time when the backup was copied from a source backup.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AcopyTimestamp%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe POSIX
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AcopyTimestamp%3ABackup%27"><span class="hs-identifier hs-var hs-var">copyTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The state of the backup.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AbackupState%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Maybe BackupState
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AbackupState%3ABackup%27"><span class="hs-identifier hs-var hs-var">backupState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.BackupState.html#BackupState"><span class="hs-identifier hs-type">BackupState</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The identifier (ID) of the backup.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AbackupId%3ABackup%27"><span class="annot"><span class="annottext">Backup -&gt; Text
 </span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AbackupId%3ABackup%27"><span class="hs-identifier hs-var hs-var">backupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174687"><span id="local-6989586621679174689"><span class="annot"><span class="annottext">Backup -&gt; Backup -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174752"><span id="local-6989586621679174754"><span class="annot"><span class="annottext">Backup -&gt; Backup -&gt; Bool
 (Backup -&gt; Backup -&gt; Bool)
 -&gt; (Backup -&gt; Backup -&gt; Bool) -&gt; Eq Backup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Backup -&gt; Backup -&gt; Bool
 == :: Backup -&gt; Backup -&gt; Bool
 $c== :: Backup -&gt; Backup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174678"><span id="local-6989586621679174680"><span id="local-6989586621679174682"><span id="local-6989586621679174684"><span class="annot"><span class="annottext">ReadPrec [Backup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174743"><span id="local-6989586621679174745"><span id="local-6989586621679174747"><span id="local-6989586621679174749"><span class="annot"><span class="annottext">ReadPrec [Backup]
 ReadPrec Backup
 Int -&gt; ReadS Backup
 ReadS [Backup]
@@ -102,7 +102,7 @@ readList :: ReadS [Backup]
 $creadList :: ReadS [Backup]
 readsPrec :: Int -&gt; ReadS Backup
 $creadsPrec :: Int -&gt; ReadS Backup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174671"><span id="local-6989586621679174673"><span id="local-6989586621679174675"><span class="annot"><span class="annottext">Int -&gt; Backup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174736"><span id="local-6989586621679174738"><span id="local-6989586621679174740"><span class="annot"><span class="annottext">Int -&gt; Backup -&gt; ShowS
 [Backup] -&gt; ShowS
 Backup -&gt; String
 (Int -&gt; Backup -&gt; ShowS)
@@ -133,31 +133,31 @@ $cfrom :: forall x. Backup -&gt; Rep Backup x
 </span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'clusterId', 'backup_clusterId' - The identifier (ID) of the cluster that was backed up.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'deleteTimestamp', 'backup_deleteTimestamp' - The date and time when the backup will be permanently deleted.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'backupState', 'backup_backupState' - The state of the backup.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'sourceBackup', 'backup_sourceBackup' - The identifier (ID) of the source backup from which the new backup was</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- copied.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'copyTimestamp', 'backup_copyTimestamp' - The date and time when the backup was copied from a source backup.</span><span>
-</span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'neverExpires', 'backup_neverExpires' - Specifies whether the service should exempt a backup from the retention</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- policy for the cluster. @True@ exempts a backup from the retention</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- policy. @False@ means the service applies the backup retention policy</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- defined at the cluster.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'createTimestamp', 'backup_createTimestamp' - The date and time when the backup was created.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'deleteTimestamp', 'backup_deleteTimestamp' - The date and time when the backup will be permanently deleted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'sourceCluster', 'backup_sourceCluster' - The identifier (ID) of the cluster containing the source backup from</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- which the new backup was copied.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'neverExpires', 'backup_neverExpires' - Specifies whether the service should exempt a backup from the retention</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- policy for the cluster. @True@ exempts a backup from the retention</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- policy. @False@ means the service applies the backup retention policy</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- defined at the cluster.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'sourceRegion', 'backup_sourceRegion' - The AWS Region that contains the source backup from which the new backup</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- was copied.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'tagList', 'backup_tagList' - The list of tags for the backup.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'sourceBackup', 'backup_sourceBackup' - The identifier (ID) of the source backup from which the new backup was</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- copied.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'sourceCluster', 'backup_sourceCluster' - The identifier (ID) of the cluster containing the source backup from</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- which the new backup was copied.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'tagList', 'backup_tagList' - The list of tags for the backup.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'sourceRegion', 'backup_sourceRegion' - The AWS Region that contains the source backup from which the new backup</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- was copied.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'clusterId', 'backup_clusterId' - The identifier (ID) of the cluster that was backed up.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'createTimestamp', 'backup_createTimestamp' - The date and time when the backup was created.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'copyTimestamp', 'backup_copyTimestamp' - The date and time when the backup was copied from a source backup.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'backupState', 'backup_backupState' - The state of the backup.</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- 'backupId', 'backup_backupId' - The identifier (ID) of the backup.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#newBackup"><span class="hs-identifier hs-type">newBackup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -165,223 +165,83 @@ $cfrom :: forall x. Backup -&gt; Rep Backup x
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span>
 </span><span id="line-107"></span><span id="newBackup"><span class="annot"><span class="annottext">newBackup :: Text -&gt; Backup
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#newBackup"><span class="hs-identifier hs-var hs-var">newBackup</span></a></span></span><span> </span><span id="local-6989586621679174665"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174665"><span class="hs-identifier hs-var">pBackupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">Backup' :: Maybe Text
--&gt; Maybe BackupState
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#newBackup"><span class="hs-identifier hs-var hs-var">newBackup</span></a></span></span><span> </span><span id="local-6989586621679174730"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174730"><span class="hs-identifier hs-var">pBackupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">Backup' :: Maybe POSIX
 -&gt; Maybe Text
--&gt; Maybe POSIX
 -&gt; Maybe Bool
--&gt; Maybe POSIX
--&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe [Tag]
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe BackupState
 -&gt; Text
 -&gt; Backup
 </span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clusterId:Backup' :: Maybe Text
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AclusterId%3ABackup%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:backupState:Backup' :: Maybe BackupState
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AbackupState%3ABackup%27"><span class="hs-identifier hs-var">backupState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BackupState
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceBackup:Backup' :: Maybe Text
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AsourceBackup%3ABackup%27"><span class="hs-identifier hs-var">sourceBackup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:copyTimestamp:Backup' :: Maybe POSIX
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AcopyTimestamp%3ABackup%27"><span class="hs-identifier hs-var">copyTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:neverExpires:Backup' :: Maybe Bool
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AneverExpires%3ABackup%27"><span class="hs-identifier hs-var">neverExpires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:createTimestamp:Backup' :: Maybe POSIX
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AcreateTimestamp%3ABackup%27"><span class="hs-identifier hs-var">createTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:deleteTimestamp:Backup' :: Maybe POSIX
+</span><span id="line-109"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deleteTimestamp:Backup' :: Maybe POSIX
 </span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AdeleteTimestamp%3ABackup%27"><span class="hs-identifier hs-var">deleteTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceCluster:Backup' :: Maybe Text
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceCluster:Backup' :: Maybe Text
 </span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AsourceCluster%3ABackup%27"><span class="hs-identifier hs-var">sourceCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagList:Backup' :: Maybe [Tag]
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:neverExpires:Backup' :: Maybe Bool
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AneverExpires%3ABackup%27"><span class="hs-identifier hs-var">neverExpires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceRegion:Backup' :: Maybe Text
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AsourceRegion%3ABackup%27"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagList:Backup' :: Maybe [Tag]
 </span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AtagList%3ABackup%27"><span class="hs-identifier hs-var">tagList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceRegion:Backup' :: Maybe Text
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AsourceRegion%3ABackup%27"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceBackup:Backup' :: Maybe Text
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AsourceBackup%3ABackup%27"><span class="hs-identifier hs-var">sourceBackup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterId:Backup' :: Maybe Text
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AclusterId%3ABackup%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:createTimestamp:Backup' :: Maybe POSIX
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AcreateTimestamp%3ABackup%27"><span class="hs-identifier hs-var">createTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:copyTimestamp:Backup' :: Maybe POSIX
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AcopyTimestamp%3ABackup%27"><span class="hs-identifier hs-var">copyTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:backupState:Backup' :: Maybe BackupState
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AbackupState%3ABackup%27"><span class="hs-identifier hs-var">backupState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BackupState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:backupId:Backup' :: Text
 </span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AbackupId%3ABackup%27"><span class="hs-identifier hs-var">backupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174665"><span class="hs-identifier hs-var">pBackupId_</span></a></span><span>
+</span><a href="#local-6989586621679174730"><span class="hs-identifier hs-var">pBackupId_</span></a></span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | The identifier (ID) of the cluster that was backed up.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_clusterId"><span class="hs-identifier hs-type">backup_clusterId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="backup_clusterId"><span class="annot"><span class="annottext">backup_clusterId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Backup -&gt; f Backup
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_clusterId"><span class="hs-identifier hs-var hs-var">backup_clusterId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Backup -&gt; Maybe Text)
--&gt; (Backup -&gt; Maybe Text -&gt; Backup)
--&gt; Lens Backup Backup (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174661"><span class="annot"><span class="annottext">Maybe Text
-clusterId :: Maybe Text
-$sel:clusterId:Backup' :: Backup -&gt; Maybe Text
-</span><a href="#local-6989586621679174661"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174661"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174660"><span class="annot"><span class="annottext">s :: Backup
-</span><a href="#local-6989586621679174660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174659"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
-</span><a href="#local-6989586621679174660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterId:Backup' :: Maybe Text
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AclusterId%3ABackup%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The state of the backup.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_backupState"><span class="hs-identifier hs-type">backup_backupState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.BackupState.html#BackupState"><span class="hs-identifier hs-type">BackupState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="backup_backupState"><span class="annot"><span class="annottext">backup_backupState :: (Maybe BackupState -&gt; f (Maybe BackupState)) -&gt; Backup -&gt; f Backup
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_backupState"><span class="hs-identifier hs-var hs-var">backup_backupState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Backup -&gt; Maybe BackupState)
--&gt; (Backup -&gt; Maybe BackupState -&gt; Backup)
--&gt; Lens Backup Backup (Maybe BackupState) (Maybe BackupState)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174657"><span class="annot"><span class="annottext">Maybe BackupState
-backupState :: Maybe BackupState
-$sel:backupState:Backup' :: Backup -&gt; Maybe BackupState
-</span><a href="#local-6989586621679174657"><span class="hs-identifier hs-var hs-var">backupState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BackupState
-</span><a href="#local-6989586621679174657"><span class="hs-identifier hs-var">backupState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174656"><span class="annot"><span class="annottext">s :: Backup
-</span><a href="#local-6989586621679174656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174655"><span class="annot"><span class="annottext">Maybe BackupState
-</span><a href="#local-6989586621679174655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
-</span><a href="#local-6989586621679174656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupState:Backup' :: Maybe BackupState
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AbackupState%3ABackup%27"><span class="hs-identifier hs-var">backupState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BackupState
-</span><a href="#local-6989586621679174655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The identifier (ID) of the source backup from which the new backup was</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- copied.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_sourceBackup"><span class="hs-identifier hs-type">backup_sourceBackup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="backup_sourceBackup"><span class="annot"><span class="annottext">backup_sourceBackup :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Backup -&gt; f Backup
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_sourceBackup"><span class="hs-identifier hs-var hs-var">backup_sourceBackup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Backup -&gt; Maybe Text)
--&gt; (Backup -&gt; Maybe Text -&gt; Backup)
--&gt; Lens Backup Backup (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174653"><span class="annot"><span class="annottext">Maybe Text
-sourceBackup :: Maybe Text
-$sel:sourceBackup:Backup' :: Backup -&gt; Maybe Text
-</span><a href="#local-6989586621679174653"><span class="hs-identifier hs-var hs-var">sourceBackup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174653"><span class="hs-identifier hs-var">sourceBackup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174652"><span class="annot"><span class="annottext">s :: Backup
-</span><a href="#local-6989586621679174652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174651"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
-</span><a href="#local-6989586621679174652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceBackup:Backup' :: Maybe Text
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AsourceBackup%3ABackup%27"><span class="hs-identifier hs-var">sourceBackup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | The date and time when the backup was copied from a source backup.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_copyTimestamp"><span class="hs-identifier hs-type">backup_copyTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="backup_copyTimestamp"><span class="annot"><span class="annottext">backup_copyTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Backup -&gt; f Backup
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_copyTimestamp"><span class="hs-identifier hs-var hs-var">backup_copyTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Backup -&gt; Maybe POSIX)
--&gt; (Backup -&gt; Maybe POSIX -&gt; Backup)
--&gt; Lens Backup Backup (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174649"><span class="annot"><span class="annottext">Maybe POSIX
-copyTimestamp :: Maybe POSIX
-$sel:copyTimestamp:Backup' :: Backup -&gt; Maybe POSIX
-</span><a href="#local-6989586621679174649"><span class="hs-identifier hs-var hs-var">copyTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679174649"><span class="hs-identifier hs-var">copyTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174648"><span class="annot"><span class="annottext">s :: Backup
-</span><a href="#local-6989586621679174648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174647"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679174647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
-</span><a href="#local-6989586621679174648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:copyTimestamp:Backup' :: Maybe POSIX
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AcopyTimestamp%3ABackup%27"><span class="hs-identifier hs-var">copyTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679174647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Backup -&gt; f Backup)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; Backup
--&gt; f Backup
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | Specifies whether the service should exempt a backup from the retention</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- policy for the cluster. @True@ exempts a backup from the retention</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- policy. @False@ means the service applies the backup retention policy</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- defined at the cluster.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_neverExpires"><span class="hs-identifier hs-type">backup_neverExpires</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="backup_neverExpires"><span class="annot"><span class="annottext">backup_neverExpires :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Backup -&gt; f Backup
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_neverExpires"><span class="hs-identifier hs-var hs-var">backup_neverExpires</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Backup -&gt; Maybe Bool)
--&gt; (Backup -&gt; Maybe Bool -&gt; Backup)
--&gt; Lens Backup Backup (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174642"><span class="annot"><span class="annottext">Maybe Bool
-neverExpires :: Maybe Bool
-$sel:neverExpires:Backup' :: Backup -&gt; Maybe Bool
-</span><a href="#local-6989586621679174642"><span class="hs-identifier hs-var hs-var">neverExpires</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679174642"><span class="hs-identifier hs-var">neverExpires</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174641"><span class="annot"><span class="annottext">s :: Backup
-</span><a href="#local-6989586621679174641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174640"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679174640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
-</span><a href="#local-6989586621679174641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:neverExpires:Backup' :: Maybe Bool
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AneverExpires%3ABackup%27"><span class="hs-identifier hs-var">neverExpires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679174640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- | The date and time when the backup was created.</span><span>
-</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_createTimestamp"><span class="hs-identifier hs-type">backup_createTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span id="backup_createTimestamp"><span class="annot"><span class="annottext">backup_createTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Backup -&gt; f Backup
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_createTimestamp"><span class="hs-identifier hs-var hs-var">backup_createTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Backup -&gt; Maybe POSIX)
--&gt; (Backup -&gt; Maybe POSIX -&gt; Backup)
--&gt; Lens Backup Backup (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174638"><span class="annot"><span class="annottext">Maybe POSIX
-createTimestamp :: Maybe POSIX
-$sel:createTimestamp:Backup' :: Backup -&gt; Maybe POSIX
-</span><a href="#local-6989586621679174638"><span class="hs-identifier hs-var hs-var">createTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679174638"><span class="hs-identifier hs-var">createTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174637"><span class="annot"><span class="annottext">s :: Backup
-</span><a href="#local-6989586621679174637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174636"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679174636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
-</span><a href="#local-6989586621679174637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTimestamp:Backup' :: Maybe POSIX
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AcreateTimestamp%3ABackup%27"><span class="hs-identifier hs-var">createTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679174636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Backup -&gt; f Backup)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; Backup
--&gt; f Backup
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- | The date and time when the backup will be permanently deleted.</span><span>
-</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_deleteTimestamp"><span class="hs-identifier hs-type">backup_deleteTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span id="backup_deleteTimestamp"><span class="annot"><span class="annottext">backup_deleteTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Backup -&gt; f Backup
+</span><span id="line-122"></span><span class="hs-comment">-- | The date and time when the backup will be permanently deleted.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_deleteTimestamp"><span class="hs-identifier hs-type">backup_deleteTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="backup_deleteTimestamp"><span class="annot"><span class="annottext">backup_deleteTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Backup -&gt; f Backup
 </span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_deleteTimestamp"><span class="hs-identifier hs-var hs-var">backup_deleteTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Backup -&gt; Maybe POSIX)
 -&gt; (Backup -&gt; Maybe POSIX -&gt; Backup)
 -&gt; Lens Backup Backup (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174634"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174726"><span class="annot"><span class="annottext">Maybe POSIX
 deleteTimestamp :: Maybe POSIX
 $sel:deleteTimestamp:Backup' :: Backup -&gt; Maybe POSIX
-</span><a href="#local-6989586621679174634"><span class="hs-identifier hs-var hs-var">deleteTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679174634"><span class="hs-identifier hs-var">deleteTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174633"><span class="annot"><span class="annottext">s :: Backup
-</span><a href="#local-6989586621679174633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174632"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679174632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
-</span><a href="#local-6989586621679174633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteTimestamp:Backup' :: Maybe POSIX
+</span><a href="#local-6989586621679174726"><span class="hs-identifier hs-var hs-var">deleteTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679174726"><span class="hs-identifier hs-var">deleteTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174725"><span class="annot"><span class="annottext">s :: Backup
+</span><a href="#local-6989586621679174725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174724"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679174724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
+</span><a href="#local-6989586621679174725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteTimestamp:Backup' :: Maybe POSIX
 </span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AdeleteTimestamp%3ABackup%27"><span class="hs-identifier hs-var">deleteTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679174632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Backup -&gt; f Backup)
+</span><a href="#local-6989586621679174724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Backup -&gt; f Backup)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -396,43 +256,83 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- | The identifier (ID) of the cluster containing the source backup from</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- which the new backup was copied.</span><span>
-</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_sourceCluster"><span class="hs-identifier hs-type">backup_sourceCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span id="backup_sourceCluster"><span class="annot"><span class="annottext">backup_sourceCluster :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Backup -&gt; f Backup
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The identifier (ID) of the cluster containing the source backup from</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- which the new backup was copied.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_sourceCluster"><span class="hs-identifier hs-type">backup_sourceCluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="backup_sourceCluster"><span class="annot"><span class="annottext">backup_sourceCluster :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Backup -&gt; f Backup
 </span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_sourceCluster"><span class="hs-identifier hs-var hs-var">backup_sourceCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Backup -&gt; Maybe Text)
 -&gt; (Backup -&gt; Maybe Text -&gt; Backup)
 -&gt; Lens Backup Backup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174630"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174719"><span class="annot"><span class="annottext">Maybe Text
 sourceCluster :: Maybe Text
 $sel:sourceCluster:Backup' :: Backup -&gt; Maybe Text
-</span><a href="#local-6989586621679174630"><span class="hs-identifier hs-var hs-var">sourceCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174630"><span class="hs-identifier hs-var">sourceCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174629"><span class="annot"><span class="annottext">s :: Backup
-</span><a href="#local-6989586621679174629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174628"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
-</span><a href="#local-6989586621679174629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceCluster:Backup' :: Maybe Text
+</span><a href="#local-6989586621679174719"><span class="hs-identifier hs-var hs-var">sourceCluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174719"><span class="hs-identifier hs-var">sourceCluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174718"><span class="annot"><span class="annottext">s :: Backup
+</span><a href="#local-6989586621679174718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174717"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
+</span><a href="#local-6989586621679174718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceCluster:Backup' :: Maybe Text
 </span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AsourceCluster%3ABackup%27"><span class="hs-identifier hs-var">sourceCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- | The list of tags for the backup.</span><span>
-</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_tagList"><span class="hs-identifier hs-type">backup_tagList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span id="backup_tagList"><span class="annot"><span class="annottext">backup_tagList :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Backup -&gt; f Backup
+</span><a href="#local-6989586621679174717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Specifies whether the service should exempt a backup from the retention</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- policy for the cluster. @True@ exempts a backup from the retention</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- policy. @False@ means the service applies the backup retention policy</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- defined at the cluster.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_neverExpires"><span class="hs-identifier hs-type">backup_neverExpires</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="backup_neverExpires"><span class="annot"><span class="annottext">backup_neverExpires :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Backup -&gt; f Backup
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_neverExpires"><span class="hs-identifier hs-var hs-var">backup_neverExpires</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Backup -&gt; Maybe Bool)
+-&gt; (Backup -&gt; Maybe Bool -&gt; Backup)
+-&gt; Lens Backup Backup (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174715"><span class="annot"><span class="annottext">Maybe Bool
+neverExpires :: Maybe Bool
+$sel:neverExpires:Backup' :: Backup -&gt; Maybe Bool
+</span><a href="#local-6989586621679174715"><span class="hs-identifier hs-var hs-var">neverExpires</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679174715"><span class="hs-identifier hs-var">neverExpires</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174714"><span class="annot"><span class="annottext">s :: Backup
+</span><a href="#local-6989586621679174714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174713"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679174713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
+</span><a href="#local-6989586621679174714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:neverExpires:Backup' :: Maybe Bool
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AneverExpires%3ABackup%27"><span class="hs-identifier hs-var">neverExpires</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679174713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The AWS Region that contains the source backup from which the new backup</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- was copied.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_sourceRegion"><span class="hs-identifier hs-type">backup_sourceRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="backup_sourceRegion"><span class="annot"><span class="annottext">backup_sourceRegion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Backup -&gt; f Backup
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_sourceRegion"><span class="hs-identifier hs-var hs-var">backup_sourceRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Backup -&gt; Maybe Text)
+-&gt; (Backup -&gt; Maybe Text -&gt; Backup)
+-&gt; Lens Backup Backup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174711"><span class="annot"><span class="annottext">Maybe Text
+sourceRegion :: Maybe Text
+$sel:sourceRegion:Backup' :: Backup -&gt; Maybe Text
+</span><a href="#local-6989586621679174711"><span class="hs-identifier hs-var hs-var">sourceRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174711"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174710"><span class="annot"><span class="annottext">s :: Backup
+</span><a href="#local-6989586621679174710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174709"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
+</span><a href="#local-6989586621679174710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceRegion:Backup' :: Maybe Text
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AsourceRegion%3ABackup%27"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The list of tags for the backup.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_tagList"><span class="hs-identifier hs-type">backup_tagList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="backup_tagList"><span class="annot"><span class="annottext">backup_tagList :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Backup -&gt; f Backup
 </span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_tagList"><span class="hs-identifier hs-var hs-var">backup_tagList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Backup -&gt; Maybe [Tag])
 -&gt; (Backup -&gt; Maybe [Tag] -&gt; Backup)
 -&gt; Lens Backup Backup (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174626"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174707"><span class="annot"><span class="annottext">Maybe [Tag]
 tagList :: Maybe [Tag]
 $sel:tagList:Backup' :: Backup -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679174626"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679174626"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174625"><span class="annot"><span class="annottext">s :: Backup
-</span><a href="#local-6989586621679174625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174624"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679174624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
-</span><a href="#local-6989586621679174625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagList:Backup' :: Maybe [Tag]
+</span><a href="#local-6989586621679174707"><span class="hs-identifier hs-var hs-var">tagList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679174707"><span class="hs-identifier hs-var">tagList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174706"><span class="annot"><span class="annottext">s :: Backup
+</span><a href="#local-6989586621679174706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174705"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679174705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
+</span><a href="#local-6989586621679174706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagList:Backup' :: Maybe [Tag]
 </span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AtagList%3ABackup%27"><span class="hs-identifier hs-var">tagList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679174624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Backup -&gt; f Backup)
+</span><a href="#local-6989586621679174705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Backup -&gt; f Backup)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -445,27 +345,127 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- | The AWS Region that contains the source backup from which the new backup</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- was copied.</span><span>
-</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_sourceRegion"><span class="hs-identifier hs-type">backup_sourceRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span id="backup_sourceRegion"><span class="annot"><span class="annottext">backup_sourceRegion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Backup -&gt; f Backup
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_sourceRegion"><span class="hs-identifier hs-var hs-var">backup_sourceRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Backup -&gt; Maybe Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The identifier (ID) of the source backup from which the new backup was</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- copied.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_sourceBackup"><span class="hs-identifier hs-type">backup_sourceBackup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="backup_sourceBackup"><span class="annot"><span class="annottext">backup_sourceBackup :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Backup -&gt; f Backup
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_sourceBackup"><span class="hs-identifier hs-var hs-var">backup_sourceBackup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Backup -&gt; Maybe Text)
 -&gt; (Backup -&gt; Maybe Text -&gt; Backup)
 -&gt; Lens Backup Backup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174621"><span class="annot"><span class="annottext">Maybe Text
-sourceRegion :: Maybe Text
-$sel:sourceRegion:Backup' :: Backup -&gt; Maybe Text
-</span><a href="#local-6989586621679174621"><span class="hs-identifier hs-var hs-var">sourceRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174621"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174620"><span class="annot"><span class="annottext">s :: Backup
-</span><a href="#local-6989586621679174620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174619"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
-</span><a href="#local-6989586621679174620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceRegion:Backup' :: Maybe Text
-</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AsourceRegion%3ABackup%27"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174702"><span class="annot"><span class="annottext">Maybe Text
+sourceBackup :: Maybe Text
+$sel:sourceBackup:Backup' :: Backup -&gt; Maybe Text
+</span><a href="#local-6989586621679174702"><span class="hs-identifier hs-var hs-var">sourceBackup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174702"><span class="hs-identifier hs-var">sourceBackup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174701"><span class="annot"><span class="annottext">s :: Backup
+</span><a href="#local-6989586621679174701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174700"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
+</span><a href="#local-6989586621679174701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceBackup:Backup' :: Maybe Text
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AsourceBackup%3ABackup%27"><span class="hs-identifier hs-var">sourceBackup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The identifier (ID) of the cluster that was backed up.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_clusterId"><span class="hs-identifier hs-type">backup_clusterId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="backup_clusterId"><span class="annot"><span class="annottext">backup_clusterId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Backup -&gt; f Backup
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_clusterId"><span class="hs-identifier hs-var hs-var">backup_clusterId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Backup -&gt; Maybe Text)
+-&gt; (Backup -&gt; Maybe Text -&gt; Backup)
+-&gt; Lens Backup Backup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174698"><span class="annot"><span class="annottext">Maybe Text
+clusterId :: Maybe Text
+$sel:clusterId:Backup' :: Backup -&gt; Maybe Text
+</span><a href="#local-6989586621679174698"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174698"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174697"><span class="annot"><span class="annottext">s :: Backup
+</span><a href="#local-6989586621679174697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174696"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
+</span><a href="#local-6989586621679174697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterId:Backup' :: Maybe Text
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AclusterId%3ABackup%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The date and time when the backup was created.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_createTimestamp"><span class="hs-identifier hs-type">backup_createTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="backup_createTimestamp"><span class="annot"><span class="annottext">backup_createTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Backup -&gt; f Backup
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_createTimestamp"><span class="hs-identifier hs-var hs-var">backup_createTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Backup -&gt; Maybe POSIX)
+-&gt; (Backup -&gt; Maybe POSIX -&gt; Backup)
+-&gt; Lens Backup Backup (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174694"><span class="annot"><span class="annottext">Maybe POSIX
+createTimestamp :: Maybe POSIX
+$sel:createTimestamp:Backup' :: Backup -&gt; Maybe POSIX
+</span><a href="#local-6989586621679174694"><span class="hs-identifier hs-var hs-var">createTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679174694"><span class="hs-identifier hs-var">createTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174693"><span class="annot"><span class="annottext">s :: Backup
+</span><a href="#local-6989586621679174693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174692"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679174692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
+</span><a href="#local-6989586621679174693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTimestamp:Backup' :: Maybe POSIX
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AcreateTimestamp%3ABackup%27"><span class="hs-identifier hs-var">createTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679174692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Backup -&gt; f Backup)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Backup
+-&gt; f Backup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The date and time when the backup was copied from a source backup.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_copyTimestamp"><span class="hs-identifier hs-type">backup_copyTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="backup_copyTimestamp"><span class="annot"><span class="annottext">backup_copyTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Backup -&gt; f Backup
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_copyTimestamp"><span class="hs-identifier hs-var hs-var">backup_copyTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Backup -&gt; Maybe POSIX)
+-&gt; (Backup -&gt; Maybe POSIX -&gt; Backup)
+-&gt; Lens Backup Backup (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174690"><span class="annot"><span class="annottext">Maybe POSIX
+copyTimestamp :: Maybe POSIX
+$sel:copyTimestamp:Backup' :: Backup -&gt; Maybe POSIX
+</span><a href="#local-6989586621679174690"><span class="hs-identifier hs-var hs-var">copyTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679174690"><span class="hs-identifier hs-var">copyTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174689"><span class="annot"><span class="annottext">s :: Backup
+</span><a href="#local-6989586621679174689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174688"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679174688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
+</span><a href="#local-6989586621679174689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:copyTimestamp:Backup' :: Maybe POSIX
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AcopyTimestamp%3ABackup%27"><span class="hs-identifier hs-var">copyTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679174688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Backup -&gt; f Backup)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Backup
+-&gt; f Backup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The state of the backup.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_backupState"><span class="hs-identifier hs-type">backup_backupState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.BackupState.html#BackupState"><span class="hs-identifier hs-type">BackupState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="backup_backupState"><span class="annot"><span class="annottext">backup_backupState :: (Maybe BackupState -&gt; f (Maybe BackupState)) -&gt; Backup -&gt; f Backup
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_backupState"><span class="hs-identifier hs-var hs-var">backup_backupState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Backup -&gt; Maybe BackupState)
+-&gt; (Backup -&gt; Maybe BackupState -&gt; Backup)
+-&gt; Lens Backup Backup (Maybe BackupState) (Maybe BackupState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174686"><span class="annot"><span class="annottext">Maybe BackupState
+backupState :: Maybe BackupState
+$sel:backupState:Backup' :: Backup -&gt; Maybe BackupState
+</span><a href="#local-6989586621679174686"><span class="hs-identifier hs-var hs-var">backupState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BackupState
+</span><a href="#local-6989586621679174686"><span class="hs-identifier hs-var">backupState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174685"><span class="annot"><span class="annottext">s :: Backup
+</span><a href="#local-6989586621679174685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174684"><span class="annot"><span class="annottext">Maybe BackupState
+</span><a href="#local-6989586621679174684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
+</span><a href="#local-6989586621679174685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupState:Backup' :: Maybe BackupState
+</span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AbackupState%3ABackup%27"><span class="hs-identifier hs-var">backupState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BackupState
+</span><a href="#local-6989586621679174684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The identifier (ID) of the backup.</span><span>
 </span><span id="line-169"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_backupId"><span class="hs-identifier hs-type">backup_backupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -473,223 +473,176 @@ $sel:sourceRegion:Backup' :: Backup -&gt; Maybe Text
 </span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#backup_backupId"><span class="hs-identifier hs-var hs-var">backup_backupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Backup -&gt; Text)
 -&gt; (Backup -&gt; Text -&gt; Backup) -&gt; Lens Backup Backup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174617"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174682"><span class="annot"><span class="annottext">Text
 backupId :: Text
 $sel:backupId:Backup' :: Backup -&gt; Text
-</span><a href="#local-6989586621679174617"><span class="hs-identifier hs-var hs-var">backupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174617"><span class="hs-identifier hs-var">backupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174616"><span class="annot"><span class="annottext">s :: Backup
-</span><a href="#local-6989586621679174616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174615"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
-</span><a href="#local-6989586621679174616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupId:Backup' :: Text
+</span><a href="#local-6989586621679174682"><span class="hs-identifier hs-var hs-var">backupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174682"><span class="hs-identifier hs-var">backupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174681"><span class="annot"><span class="annottext">s :: Backup
+</span><a href="#local-6989586621679174681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-type">Backup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174680"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Backup
+</span><a href="#local-6989586621679174681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupId:Backup' :: Text
 </span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#%24sel%3AbackupId%3ABackup%27"><span class="hs-identifier hs-var">backupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174612"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679174610"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Backup
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174677"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679174675"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Backup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Backup) -&gt; Value -&gt; Parser Backup
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Backup&quot;</span></span><span>
-</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174607"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174607"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe BackupState
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174672"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174672"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe Text
--&gt; Maybe POSIX
 -&gt; Maybe Bool
--&gt; Maybe POSIX
--&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe [Tag]
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe BackupState
 -&gt; Text
 -&gt; Backup
 </span><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup%27"><span class="hs-identifier hs-var">Backup'</span></a></span><span>
-</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe BackupState
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
  -&gt; Maybe Text
- -&gt; Maybe POSIX
  -&gt; Maybe Bool
- -&gt; Maybe POSIX
- -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; Maybe [Tag]
  -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe BackupState
  -&gt; Text
  -&gt; Backup)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe BackupState
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
+     (Maybe Text
       -&gt; Maybe Bool
-      -&gt; Maybe POSIX
-      -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe [Tag]
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe BackupState
       -&gt; Text
       -&gt; Backup)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679174672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ClusterId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;DeleteTimestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe BackupState
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Bool
-   -&gt; Maybe POSIX
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe [Tag]
-   -&gt; Maybe Text
-   -&gt; Text
-   -&gt; Backup)
--&gt; Parser (Maybe BackupState)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe Bool
-      -&gt; Maybe POSIX
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe [Tag]
-      -&gt; Maybe Text
-      -&gt; Text
-      -&gt; Backup)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BackupState)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BackupState&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe POSIX
    -&gt; Maybe Bool
-   -&gt; Maybe POSIX
-   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; Maybe [Tag]
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe BackupState
    -&gt; Text
    -&gt; Backup)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Bool
-      -&gt; Maybe POSIX
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe [Tag]
-      -&gt; Maybe Text
-      -&gt; Text
-      -&gt; Backup)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SourceBackup&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Bool
-   -&gt; Maybe POSIX
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe [Tag]
-   -&gt; Maybe Text
-   -&gt; Text
-   -&gt; Backup)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
      (Maybe Bool
-      -&gt; Maybe POSIX
-      -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe [Tag]
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe BackupState
       -&gt; Text
       -&gt; Backup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679174672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CopyTimestamp&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;SourceCluster&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Bool
-   -&gt; Maybe POSIX
-   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; Maybe [Tag]
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe BackupState
    -&gt; Text
    -&gt; Backup)
 -&gt; Parser (Maybe Bool)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
+     (Maybe Text
       -&gt; Maybe [Tag]
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe BackupState
       -&gt; Text
       -&gt; Backup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679174672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NeverExpires&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
    -&gt; Maybe [Tag]
    -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe BackupState
    -&gt; Text
    -&gt; Backup)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; Text -&gt; Backup)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreateTimestamp&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; Text -&gt; Backup)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe Text -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; Text -&gt; Backup)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeleteTimestamp&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; Text -&gt; Backup)
 -&gt; Parser (Maybe Text)
--&gt; Parser (Maybe [Tag] -&gt; Maybe Text -&gt; Text -&gt; Backup)
+-&gt; Parser
+     (Maybe [Tag]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe BackupState
+      -&gt; Text
+      -&gt; Backup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679174672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SourceCluster&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Tag] -&gt; Maybe Text -&gt; Text -&gt; Backup)
--&gt; Parser (Maybe [Tag]) -&gt; Parser (Maybe Text -&gt; Text -&gt; Backup)
+</span><span class="hs-string">&quot;SourceRegion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Tag]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe BackupState
+   -&gt; Text
+   -&gt; Backup)
+-&gt; Parser (Maybe [Tag])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe BackupState
+      -&gt; Text
+      -&gt; Backup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
+</span><a href="#local-6989586621679174672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TagList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tag])) -&gt; Maybe [Tag] -&gt; Parser (Maybe [Tag])
@@ -697,24 +650,81 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; Backup)
--&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Backup)
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe BackupState
+   -&gt; Text
+   -&gt; Backup)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe BackupState
+      -&gt; Text
+      -&gt; Backup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679174672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SourceRegion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SourceBackup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe BackupState
+   -&gt; Text
+   -&gt; Backup)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe BackupState -&gt; Text -&gt; Backup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX -&gt; Maybe POSIX -&gt; Maybe BackupState -&gt; Text -&gt; Backup)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe POSIX -&gt; Maybe BackupState -&gt; Text -&gt; Backup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe BackupState -&gt; Text -&gt; Backup)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe BackupState -&gt; Text -&gt; Backup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CopyTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe BackupState -&gt; Text -&gt; Backup)
+-&gt; Parser (Maybe BackupState) -&gt; Parser (Text -&gt; Backup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BackupState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BackupState&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Backup) -&gt; Parser Text -&gt; Parser Backup
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679174672"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BackupId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174599"><span id="local-6989586621679174601"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174664"><span id="local-6989586621679174666"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span></span></span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174596"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174661"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Backup.html#Backup"><span class="hs-identifier hs-type">Backup</span></a></span></span><span>
 </span><span id="line-194"></span></pre></body></html>

@@ -26,15 +26,15 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The HTTP header.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newHttpHeader' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679429292"><span id="local-6989586621679429293"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpHeader"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader"><span class="hs-identifier hs-var">HttpHeader</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpHeader%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader%27"><span class="hs-identifier hs-var">HttpHeader'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The header name</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AheaderName%3AHttpHeader%27"><span class="annot"><span class="annottext">HttpHeader -&gt; Maybe Text
-</span><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#%24sel%3AheaderName%3AHttpHeader%27"><span class="hs-identifier hs-var hs-var">headerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The header value.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AheaderValue%3AHttpHeader%27"><span class="annot"><span class="annottext">HttpHeader -&gt; Maybe Text
-</span><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#%24sel%3AheaderValue%3AHttpHeader%27"><span class="hs-identifier hs-var hs-var">headerValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679429745"><span id="local-6989586621679429746"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpHeader"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader"><span class="hs-identifier hs-var">HttpHeader</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpHeader%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader%27"><span class="hs-identifier hs-var">HttpHeader'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The header value.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AheaderValue%3AHttpHeader%27"><span class="annot"><span class="annottext">HttpHeader -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#%24sel%3AheaderValue%3AHttpHeader%27"><span class="hs-identifier hs-var hs-var">headerValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The header name</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AheaderName%3AHttpHeader%27"><span class="annot"><span class="annottext">HttpHeader -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#%24sel%3AheaderName%3AHttpHeader%27"><span class="hs-identifier hs-var hs-var">headerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679429285"><span id="local-6989586621679429287"><span class="annot"><span class="annottext">HttpHeader -&gt; HttpHeader -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679429738"><span id="local-6989586621679429740"><span class="annot"><span class="annottext">HttpHeader -&gt; HttpHeader -&gt; Bool
 (HttpHeader -&gt; HttpHeader -&gt; Bool)
 -&gt; (HttpHeader -&gt; HttpHeader -&gt; Bool) -&gt; Eq HttpHeader
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HttpHeader -&gt; HttpHeader -&gt; Bool
 == :: HttpHeader -&gt; HttpHeader -&gt; Bool
 $c== :: HttpHeader -&gt; HttpHeader -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429276"><span id="local-6989586621679429278"><span id="local-6989586621679429280"><span id="local-6989586621679429282"><span class="annot"><span class="annottext">ReadPrec [HttpHeader]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429729"><span id="local-6989586621679429731"><span id="local-6989586621679429733"><span id="local-6989586621679429735"><span class="annot"><span class="annottext">ReadPrec [HttpHeader]
 ReadPrec HttpHeader
 Int -&gt; ReadS HttpHeader
 ReadS [HttpHeader]
@@ -62,7 +62,7 @@ readList :: ReadS [HttpHeader]
 $creadList :: ReadS [HttpHeader]
 readsPrec :: Int -&gt; ReadS HttpHeader
 $creadsPrec :: Int -&gt; ReadS HttpHeader
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429269"><span id="local-6989586621679429271"><span id="local-6989586621679429273"><span class="annot"><span class="annottext">Int -&gt; HttpHeader -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679429722"><span id="local-6989586621679429724"><span id="local-6989586621679429726"><span class="annot"><span class="annottext">Int -&gt; HttpHeader -&gt; ShowS
 [HttpHeader] -&gt; ShowS
 HttpHeader -&gt; String
 (Int -&gt; HttpHeader -&gt; ShowS)
@@ -95,92 +95,92 @@ $cfrom :: forall x. HttpHeader -&gt; Rep HttpHeader x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'headerName', 'httpHeader_headerName' - The header name</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'headerValue', 'httpHeader_headerValue' - The header value.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'headerValue', 'httpHeader_headerValue' - The header value.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'headerName', 'httpHeader_headerName' - The header name</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#newHttpHeader"><span class="hs-identifier hs-type">newHttpHeader</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader"><span class="hs-identifier hs-type">HttpHeader</span></a></span><span>
 </span><span id="line-50"></span><span id="newHttpHeader"><span class="annot"><span class="annottext">newHttpHeader :: HttpHeader
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#newHttpHeader"><span class="hs-identifier hs-var hs-var">newHttpHeader</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">HttpHeader' :: Maybe Text -&gt; Maybe Text -&gt; HttpHeader
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader%27"><span class="hs-identifier hs-type">HttpHeader'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:headerName:HttpHeader' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#%24sel%3AheaderName%3AHttpHeader%27"><span class="hs-identifier hs-var">headerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:headerValue:HttpHeader' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#%24sel%3AheaderValue%3AHttpHeader%27"><span class="hs-identifier hs-var">headerValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:headerValue:HttpHeader' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#%24sel%3AheaderValue%3AHttpHeader%27"><span class="hs-identifier hs-var">headerValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:headerName:HttpHeader' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#%24sel%3AheaderName%3AHttpHeader%27"><span class="hs-identifier hs-var">headerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- | The header name</span><span>
-</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#httpHeader_headerName"><span class="hs-identifier hs-type">httpHeader_headerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader"><span class="hs-identifier hs-type">HttpHeader</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-58"></span><span id="httpHeader_headerName"><span class="annot"><span class="annottext">httpHeader_headerName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; HttpHeader -&gt; f HttpHeader
-</span><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#httpHeader_headerName"><span class="hs-identifier hs-var hs-var">httpHeader_headerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpHeader -&gt; Maybe Text)
--&gt; (HttpHeader -&gt; Maybe Text -&gt; HttpHeader)
--&gt; Lens HttpHeader HttpHeader (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader%27"><span class="hs-identifier hs-type">HttpHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429260"><span class="annot"><span class="annottext">Maybe Text
-headerName :: Maybe Text
-$sel:headerName:HttpHeader' :: HttpHeader -&gt; Maybe Text
-</span><a href="#local-6989586621679429260"><span class="hs-identifier hs-var hs-var">headerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429260"><span class="hs-identifier hs-var">headerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429259"><span class="annot"><span class="annottext">s :: HttpHeader
-</span><a href="#local-6989586621679429259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader%27"><span class="hs-identifier hs-type">HttpHeader'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429258"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpHeader
-</span><a href="#local-6989586621679429259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headerName:HttpHeader' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#%24sel%3AheaderName%3AHttpHeader%27"><span class="hs-identifier hs-var">headerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader"><span class="hs-identifier hs-type">HttpHeader</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | The header value.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#httpHeader_headerValue"><span class="hs-identifier hs-type">httpHeader_headerValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader"><span class="hs-identifier hs-type">HttpHeader</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="httpHeader_headerValue"><span class="annot"><span class="annottext">httpHeader_headerValue :: (Maybe Text -&gt; f (Maybe Text)) -&gt; HttpHeader -&gt; f HttpHeader
+</span><span id="line-56"></span><span class="hs-comment">-- | The header value.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#httpHeader_headerValue"><span class="hs-identifier hs-type">httpHeader_headerValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader"><span class="hs-identifier hs-type">HttpHeader</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="httpHeader_headerValue"><span class="annot"><span class="annottext">httpHeader_headerValue :: (Maybe Text -&gt; f (Maybe Text)) -&gt; HttpHeader -&gt; f HttpHeader
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#httpHeader_headerValue"><span class="hs-identifier hs-var hs-var">httpHeader_headerValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpHeader -&gt; Maybe Text)
 -&gt; (HttpHeader -&gt; Maybe Text -&gt; HttpHeader)
 -&gt; Lens HttpHeader HttpHeader (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader%27"><span class="hs-identifier hs-type">HttpHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429256"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader%27"><span class="hs-identifier hs-type">HttpHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429713"><span class="annot"><span class="annottext">Maybe Text
 headerValue :: Maybe Text
 $sel:headerValue:HttpHeader' :: HttpHeader -&gt; Maybe Text
-</span><a href="#local-6989586621679429256"><span class="hs-identifier hs-var hs-var">headerValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429256"><span class="hs-identifier hs-var">headerValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429255"><span class="annot"><span class="annottext">s :: HttpHeader
-</span><a href="#local-6989586621679429255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader%27"><span class="hs-identifier hs-type">HttpHeader'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429254"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpHeader
-</span><a href="#local-6989586621679429255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headerValue:HttpHeader' :: Maybe Text
+</span><a href="#local-6989586621679429713"><span class="hs-identifier hs-var hs-var">headerValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429713"><span class="hs-identifier hs-var">headerValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429712"><span class="annot"><span class="annottext">s :: HttpHeader
+</span><a href="#local-6989586621679429712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader%27"><span class="hs-identifier hs-type">HttpHeader'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429711"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpHeader
+</span><a href="#local-6989586621679429712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headerValue:HttpHeader' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#%24sel%3AheaderValue%3AHttpHeader%27"><span class="hs-identifier hs-var">headerValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader"><span class="hs-identifier hs-type">HttpHeader</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429250"><span id="local-6989586621679429252"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader"><span class="hs-identifier hs-type">HttpHeader</span></a></span></span></span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429247"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader"><span class="hs-identifier hs-type">HttpHeader</span></a></span></span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429239"><span id="local-6989586621679429241"><span id="local-6989586621679429243"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader"><span class="hs-identifier hs-type">HttpHeader</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679429237"><span class="annot"><span class="annottext">toJSON :: HttpHeader -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader%27"><span class="hs-identifier hs-type">HttpHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429234"><span id="local-6989586621679429235"><span class="annot"><span class="annottext">Maybe Text
-headerValue :: Maybe Text
+</span><a href="#local-6989586621679429711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader"><span class="hs-identifier hs-type">HttpHeader</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The header name</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#httpHeader_headerName"><span class="hs-identifier hs-type">httpHeader_headerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader"><span class="hs-identifier hs-type">HttpHeader</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="httpHeader_headerName"><span class="annot"><span class="annottext">httpHeader_headerName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; HttpHeader -&gt; f HttpHeader
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#httpHeader_headerName"><span class="hs-identifier hs-var hs-var">httpHeader_headerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpHeader -&gt; Maybe Text)
+-&gt; (HttpHeader -&gt; Maybe Text -&gt; HttpHeader)
+-&gt; Lens HttpHeader HttpHeader (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader%27"><span class="hs-identifier hs-type">HttpHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429709"><span class="annot"><span class="annottext">Maybe Text
 headerName :: Maybe Text
-$sel:headerValue:HttpHeader' :: HttpHeader -&gt; Maybe Text
 $sel:headerName:HttpHeader' :: HttpHeader -&gt; Maybe Text
-</span><a href="#local-6989586621679429234"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679429709"><span class="hs-identifier hs-var hs-var">headerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429709"><span class="hs-identifier hs-var">headerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679429708"><span class="annot"><span class="annottext">s :: HttpHeader
+</span><a href="#local-6989586621679429708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader%27"><span class="hs-identifier hs-type">HttpHeader'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679429707"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpHeader
+</span><a href="#local-6989586621679429708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headerName:HttpHeader' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#%24sel%3AheaderName%3AHttpHeader%27"><span class="hs-identifier hs-var">headerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader"><span class="hs-identifier hs-type">HttpHeader</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429703"><span id="local-6989586621679429705"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader"><span class="hs-identifier hs-type">HttpHeader</span></a></span></span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429700"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader"><span class="hs-identifier hs-type">HttpHeader</span></a></span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679429692"><span id="local-6989586621679429694"><span id="local-6989586621679429696"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader"><span class="hs-identifier hs-type">HttpHeader</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679429690"><span class="annot"><span class="annottext">toJSON :: HttpHeader -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.HttpHeader.html#HttpHeader%27"><span class="hs-identifier hs-type">HttpHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679429687"><span id="local-6989586621679429688"><span class="annot"><span class="annottext">Maybe Text
+headerName :: Maybe Text
+headerValue :: Maybe Text
+$sel:headerName:HttpHeader' :: HttpHeader -&gt; Maybe Text
+$sel:headerValue:HttpHeader' :: HttpHeader -&gt; Maybe Text
+</span><a href="#local-6989586621679429687"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-72"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;headerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429235"><span class="hs-identifier hs-var">headerName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;headerValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679429234"><span class="hs-identifier hs-var">headerValue</span></a></span><span>
+</span><a href="#local-6989586621679429688"><span class="hs-identifier hs-var">headerValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;headerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679429687"><span class="hs-identifier hs-var">headerName</span></a></span><span>
 </span><span id="line-74"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span></pre></body></html>

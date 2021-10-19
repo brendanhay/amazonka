@@ -29,15 +29,15 @@
 </span><span id="line-29"></span><span class="hs-comment">-- to that object.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPolicyToPath' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679326970"><span id="local-6989586621679326971"></span></span><span class="hs-keyword">data</span><span> </span><span id="PolicyToPath"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-var">PolicyToPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyToPath%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-var">PolicyToPath'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of policy objects.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Apolicies%3APolicyToPath%27"><span class="annot"><span class="annottext">PolicyToPath -&gt; Maybe [PolicyAttachment]
-</span><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#%24sel%3Apolicies%3APolicyToPath%27"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyAttachment.html#PolicyAttachment"><span class="hs-identifier hs-type">PolicyAttachment</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The path that is referenced from the root.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Apath%3APolicyToPath%27"><span class="annot"><span class="annottext">PolicyToPath -&gt; Maybe Text
-</span><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#%24sel%3Apath%3APolicyToPath%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679327322"><span id="local-6989586621679327323"></span></span><span class="hs-keyword">data</span><span> </span><span id="PolicyToPath"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-var">PolicyToPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PolicyToPath%27"><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-var">PolicyToPath'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path that is referenced from the root.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Apath%3APolicyToPath%27"><span class="annot"><span class="annottext">PolicyToPath -&gt; Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#%24sel%3Apath%3APolicyToPath%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | List of policy objects.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Apolicies%3APolicyToPath%27"><span class="annot"><span class="annottext">PolicyToPath -&gt; Maybe [PolicyAttachment]
+</span><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#%24sel%3Apolicies%3APolicyToPath%27"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyAttachment.html#PolicyAttachment"><span class="hs-identifier hs-type">PolicyAttachment</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326963"><span id="local-6989586621679326965"><span class="annot"><span class="annottext">PolicyToPath -&gt; PolicyToPath -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327315"><span id="local-6989586621679327317"><span class="annot"><span class="annottext">PolicyToPath -&gt; PolicyToPath -&gt; Bool
 (PolicyToPath -&gt; PolicyToPath -&gt; Bool)
 -&gt; (PolicyToPath -&gt; PolicyToPath -&gt; Bool) -&gt; Eq PolicyToPath
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PolicyToPath -&gt; PolicyToPath -&gt; Bool
 == :: PolicyToPath -&gt; PolicyToPath -&gt; Bool
 $c== :: PolicyToPath -&gt; PolicyToPath -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326954"><span id="local-6989586621679326956"><span id="local-6989586621679326958"><span id="local-6989586621679326960"><span class="annot"><span class="annottext">ReadPrec [PolicyToPath]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327306"><span id="local-6989586621679327308"><span id="local-6989586621679327310"><span id="local-6989586621679327312"><span class="annot"><span class="annottext">ReadPrec [PolicyToPath]
 ReadPrec PolicyToPath
 Int -&gt; ReadS PolicyToPath
 ReadS [PolicyToPath]
@@ -65,7 +65,7 @@ readList :: ReadS [PolicyToPath]
 $creadList :: ReadS [PolicyToPath]
 readsPrec :: Int -&gt; ReadS PolicyToPath
 $creadsPrec :: Int -&gt; ReadS PolicyToPath
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326947"><span id="local-6989586621679326949"><span id="local-6989586621679326951"><span class="annot"><span class="annottext">Int -&gt; PolicyToPath -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327299"><span id="local-6989586621679327301"><span id="local-6989586621679327303"><span class="annot"><span class="annottext">Int -&gt; PolicyToPath -&gt; ShowS
 [PolicyToPath] -&gt; ShowS
 PolicyToPath -&gt; String
 (Int -&gt; PolicyToPath -&gt; ShowS)
@@ -99,28 +99,46 @@ $cfrom :: forall x. PolicyToPath -&gt; Rep PolicyToPath x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'policies', 'policyToPath_policies' - List of policy objects.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'path', 'policyToPath_path' - The path that is referenced from the root.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'path', 'policyToPath_path' - The path that is referenced from the root.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'policies', 'policyToPath_policies' - List of policy objects.</span><span>
 </span><span id="line-51"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#newPolicyToPath"><span class="hs-identifier hs-type">newPolicyToPath</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span><span>
 </span><span id="line-53"></span><span id="newPolicyToPath"><span class="annot"><span class="annottext">newPolicyToPath :: PolicyToPath
 </span><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#newPolicyToPath"><span class="hs-identifier hs-var hs-var">newPolicyToPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">PolicyToPath' :: Maybe [PolicyAttachment] -&gt; Maybe Text -&gt; PolicyToPath
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">PolicyToPath' :: Maybe Text -&gt; Maybe [PolicyAttachment] -&gt; PolicyToPath
 </span><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-type">PolicyToPath'</span></a></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policies:PolicyToPath' :: Maybe [PolicyAttachment]
-</span><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#%24sel%3Apolicies%3APolicyToPath%27"><span class="hs-identifier hs-var">policies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyAttachment]
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:path:PolicyToPath' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#%24sel%3Apath%3APolicyToPath%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:path:PolicyToPath' :: Maybe Text
-</span><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#%24sel%3Apath%3APolicyToPath%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:policies:PolicyToPath' :: Maybe [PolicyAttachment]
+</span><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#%24sel%3Apolicies%3APolicyToPath%27"><span class="hs-identifier hs-var">policies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyAttachment]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | List of policy objects.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#policyToPath_policies"><span class="hs-identifier hs-type">policyToPath_policies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyAttachment.html#PolicyAttachment"><span class="hs-identifier hs-type">PolicyAttachment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="policyToPath_policies"><span class="annot"><span class="annottext">policyToPath_policies :: (Maybe [PolicyAttachment] -&gt; f (Maybe [PolicyAttachment]))
+</span><span id="line-59"></span><span class="hs-comment">-- | The path that is referenced from the root.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#policyToPath_path"><span class="hs-identifier hs-type">policyToPath_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="policyToPath_path"><span class="annot"><span class="annottext">policyToPath_path :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PolicyToPath -&gt; f PolicyToPath
+</span><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#policyToPath_path"><span class="hs-identifier hs-var hs-var">policyToPath_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyToPath -&gt; Maybe Text)
+-&gt; (PolicyToPath -&gt; Maybe Text -&gt; PolicyToPath)
+-&gt; Lens PolicyToPath PolicyToPath (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-type">PolicyToPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327290"><span class="annot"><span class="annottext">Maybe Text
+path :: Maybe Text
+$sel:path:PolicyToPath' :: PolicyToPath -&gt; Maybe Text
+</span><a href="#local-6989586621679327290"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327290"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327289"><span class="annot"><span class="annottext">s :: PolicyToPath
+</span><a href="#local-6989586621679327289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-type">PolicyToPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327288"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyToPath
+</span><a href="#local-6989586621679327289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:PolicyToPath' :: Maybe Text
+</span><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#%24sel%3Apath%3APolicyToPath%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | List of policy objects.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#policyToPath_policies"><span class="hs-identifier hs-type">policyToPath_policies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyAttachment.html#PolicyAttachment"><span class="hs-identifier hs-type">PolicyAttachment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="policyToPath_policies"><span class="annot"><span class="annottext">policyToPath_policies :: (Maybe [PolicyAttachment] -&gt; f (Maybe [PolicyAttachment]))
 -&gt; PolicyToPath -&gt; f PolicyToPath
 </span><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#policyToPath_policies"><span class="hs-identifier hs-var hs-var">policyToPath_policies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyToPath -&gt; Maybe [PolicyAttachment])
 -&gt; (PolicyToPath -&gt; Maybe [PolicyAttachment] -&gt; PolicyToPath)
@@ -130,16 +148,16 @@ forall a. Maybe a
      (Maybe [PolicyAttachment])
      (Maybe [PolicyAttachment])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-type">PolicyToPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326938"><span class="annot"><span class="annottext">Maybe [PolicyAttachment]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-type">PolicyToPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327286"><span class="annot"><span class="annottext">Maybe [PolicyAttachment]
 policies :: Maybe [PolicyAttachment]
 $sel:policies:PolicyToPath' :: PolicyToPath -&gt; Maybe [PolicyAttachment]
-</span><a href="#local-6989586621679326938"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyAttachment]
-</span><a href="#local-6989586621679326938"><span class="hs-identifier hs-var">policies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326937"><span class="annot"><span class="annottext">s :: PolicyToPath
-</span><a href="#local-6989586621679326937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-type">PolicyToPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326936"><span class="annot"><span class="annottext">Maybe [PolicyAttachment]
-</span><a href="#local-6989586621679326936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyToPath
-</span><a href="#local-6989586621679326937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policies:PolicyToPath' :: Maybe [PolicyAttachment]
+</span><a href="#local-6989586621679327286"><span class="hs-identifier hs-var hs-var">policies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyAttachment]
+</span><a href="#local-6989586621679327286"><span class="hs-identifier hs-var">policies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327285"><span class="annot"><span class="annottext">s :: PolicyToPath
+</span><a href="#local-6989586621679327285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-type">PolicyToPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327284"><span class="annot"><span class="annottext">Maybe [PolicyAttachment]
+</span><a href="#local-6989586621679327284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyToPath
+</span><a href="#local-6989586621679327285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policies:PolicyToPath' :: Maybe [PolicyAttachment]
 </span><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#%24sel%3Apolicies%3APolicyToPath%27"><span class="hs-identifier hs-var">policies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyAttachment]
-</span><a href="#local-6989586621679326936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyAttachment] -&gt; f (Maybe [PolicyAttachment]))
+</span><a href="#local-6989586621679327284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PolicyAttachment] -&gt; f (Maybe [PolicyAttachment]))
  -&gt; PolicyToPath -&gt; f PolicyToPath)
 -&gt; ((Maybe [PolicyAttachment] -&gt; f (Maybe [PolicyAttachment]))
     -&gt; Maybe [PolicyAttachment] -&gt; f (Maybe [PolicyAttachment]))
@@ -165,29 +183,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [PolicyAttachment]
   [PolicyAttachment]
   [PolicyAttachment]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The path that is referenced from the root.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#policyToPath_path"><span class="hs-identifier hs-type">policyToPath_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="policyToPath_path"><span class="annot"><span class="annottext">policyToPath_path :: (Maybe Text -&gt; f (Maybe Text)) -&gt; PolicyToPath -&gt; f PolicyToPath
-</span><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#policyToPath_path"><span class="hs-identifier hs-var hs-var">policyToPath_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PolicyToPath -&gt; Maybe Text)
--&gt; (PolicyToPath -&gt; Maybe Text -&gt; PolicyToPath)
--&gt; Lens PolicyToPath PolicyToPath (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-type">PolicyToPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326931"><span class="annot"><span class="annottext">Maybe Text
-path :: Maybe Text
-$sel:path:PolicyToPath' :: PolicyToPath -&gt; Maybe Text
-</span><a href="#local-6989586621679326931"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326931"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326930"><span class="annot"><span class="annottext">s :: PolicyToPath
-</span><a href="#local-6989586621679326930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-type">PolicyToPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326929"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PolicyToPath
-</span><a href="#local-6989586621679326930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:PolicyToPath' :: Maybe Text
-</span><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#%24sel%3Apath%3APolicyToPath%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326926"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679326924"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PolicyToPath
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327278"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679327276"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PolicyToPath
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PolicyToPath) -&gt; Value -&gt; Parser PolicyToPath
@@ -195,16 +195,24 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PolicyToPath&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326921"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326921"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PolicyAttachment] -&gt; Maybe Text -&gt; PolicyToPath
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679327273"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327273"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [PolicyAttachment] -&gt; PolicyToPath
 </span><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath%27"><span class="hs-identifier hs-var">PolicyToPath'</span></a></span><span>
-</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PolicyAttachment] -&gt; Maybe Text -&gt; PolicyToPath)
--&gt; Parser (Maybe [PolicyAttachment])
--&gt; Parser (Maybe Text -&gt; PolicyToPath)
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [PolicyAttachment] -&gt; PolicyToPath)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [PolicyAttachment] -&gt; PolicyToPath)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326921"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PolicyAttachment]))
+</span><a href="#local-6989586621679327273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Path&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [PolicyAttachment] -&gt; PolicyToPath)
+-&gt; Parser (Maybe [PolicyAttachment]) -&gt; Parser PolicyToPath
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327273"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PolicyAttachment]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Policies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [PolicyAttachment]))
@@ -213,17 +221,9 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PolicyAttachment]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PolicyToPath)
--&gt; Parser (Maybe Text) -&gt; Parser PolicyToPath
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326921"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Path&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326914"><span id="local-6989586621679326916"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327266"><span id="local-6989586621679327268"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326911"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327263"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.PolicyToPath.html#PolicyToPath"><span class="hs-identifier hs-type">PolicyToPath</span></a></span></span><span>
 </span><span id="line-80"></span></pre></body></html>

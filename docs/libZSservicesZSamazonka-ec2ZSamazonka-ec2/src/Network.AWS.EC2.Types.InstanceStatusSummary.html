@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes the status of an instance.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newInstanceStatusSummary' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681120770"><span id="local-6989586621681120771"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceStatusSummary"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary"><span class="hs-identifier hs-var">InstanceStatusSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceStatusSummary%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary%27"><span class="hs-identifier hs-var">InstanceStatusSummary'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681155616"><span id="local-6989586621681155617"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceStatusSummary"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary"><span class="hs-identifier hs-var">InstanceStatusSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceStatusSummary%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary%27"><span class="hs-identifier hs-var">InstanceStatusSummary'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The system instance health or application instance health.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Adetails%3AInstanceStatusSummary%27"><span class="annot"><span class="annottext">InstanceStatusSummary -&gt; Maybe [InstanceStatusDetails]
 </span><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#%24sel%3Adetails%3AInstanceStatusSummary%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusDetails.html#InstanceStatusDetails"><span class="hs-identifier hs-type">InstanceStatusDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3AInstanceStatusSummary%27"><span class="annot"><span class="annottext">InstanceStatusSummary -&gt; SummaryStatus
 </span><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#%24sel%3Astatus%3AInstanceStatusSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SummaryStatus.html#SummaryStatus"><span class="hs-identifier hs-type">SummaryStatus</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681120763"><span id="local-6989586621681120765"><span class="annot"><span class="annottext">InstanceStatusSummary -&gt; InstanceStatusSummary -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681155609"><span id="local-6989586621681155611"><span class="annot"><span class="annottext">InstanceStatusSummary -&gt; InstanceStatusSummary -&gt; Bool
 (InstanceStatusSummary -&gt; InstanceStatusSummary -&gt; Bool)
 -&gt; (InstanceStatusSummary -&gt; InstanceStatusSummary -&gt; Bool)
 -&gt; Eq InstanceStatusSummary
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceStatusSummary -&gt; InstanceStatusSummary -&gt; Bool
 == :: InstanceStatusSummary -&gt; InstanceStatusSummary -&gt; Bool
 $c== :: InstanceStatusSummary -&gt; InstanceStatusSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681120754"><span id="local-6989586621681120756"><span id="local-6989586621681120758"><span id="local-6989586621681120760"><span class="annot"><span class="annottext">ReadPrec [InstanceStatusSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681155600"><span id="local-6989586621681155602"><span id="local-6989586621681155604"><span id="local-6989586621681155606"><span class="annot"><span class="annottext">ReadPrec [InstanceStatusSummary]
 ReadPrec InstanceStatusSummary
 Int -&gt; ReadS InstanceStatusSummary
 ReadS [InstanceStatusSummary]
@@ -66,7 +66,7 @@ readList :: ReadS [InstanceStatusSummary]
 $creadList :: ReadS [InstanceStatusSummary]
 readsPrec :: Int -&gt; ReadS InstanceStatusSummary
 $creadsPrec :: Int -&gt; ReadS InstanceStatusSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681120747"><span id="local-6989586621681120749"><span id="local-6989586621681120751"><span class="annot"><span class="annottext">Int -&gt; InstanceStatusSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681155593"><span id="local-6989586621681155595"><span id="local-6989586621681155597"><span class="annot"><span class="annottext">Int -&gt; InstanceStatusSummary -&gt; ShowS
 [InstanceStatusSummary] -&gt; ShowS
 InstanceStatusSummary -&gt; String
 (Int -&gt; InstanceStatusSummary -&gt; ShowS)
@@ -108,8 +108,8 @@ $cfrom :: forall x. InstanceStatusSummary -&gt; Rep InstanceStatusSummary x
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.SummaryStatus.html#SummaryStatus"><span class="hs-identifier hs-type">SummaryStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary"><span class="hs-identifier hs-type">InstanceStatusSummary</span></a></span><span>
 </span><span id="line-55"></span><span id="newInstanceStatusSummary"><span class="annot"><span class="annottext">newInstanceStatusSummary :: SummaryStatus -&gt; InstanceStatusSummary
-</span><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#newInstanceStatusSummary"><span class="hs-identifier hs-var hs-var">newInstanceStatusSummary</span></a></span></span><span> </span><span id="local-6989586621681120741"><span class="annot"><span class="annottext">SummaryStatus
-</span><a href="#local-6989586621681120741"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#newInstanceStatusSummary"><span class="hs-identifier hs-var hs-var">newInstanceStatusSummary</span></a></span></span><span> </span><span id="local-6989586621681155587"><span class="annot"><span class="annottext">SummaryStatus
+</span><a href="#local-6989586621681155587"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">InstanceStatusSummary' :: Maybe [InstanceStatusDetails]
 -&gt; SummaryStatus -&gt; InstanceStatusSummary
 </span><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary%27"><span class="hs-identifier hs-type">InstanceStatusSummary'</span></a></span><span>
@@ -119,7 +119,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:InstanceStatusSummary' :: SummaryStatus
 </span><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#%24sel%3Astatus%3AInstanceStatusSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SummaryStatus
-</span><a href="#local-6989586621681120741"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621681155587"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The system instance health or application instance health.</span><span>
@@ -136,16 +136,16 @@ forall a. Maybe a
      (Maybe [InstanceStatusDetails])
      (Maybe [InstanceStatusDetails])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary%27"><span class="hs-identifier hs-type">InstanceStatusSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681120737"><span class="annot"><span class="annottext">Maybe [InstanceStatusDetails]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary%27"><span class="hs-identifier hs-type">InstanceStatusSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681155583"><span class="annot"><span class="annottext">Maybe [InstanceStatusDetails]
 details :: Maybe [InstanceStatusDetails]
 $sel:details:InstanceStatusSummary' :: InstanceStatusSummary -&gt; Maybe [InstanceStatusDetails]
-</span><a href="#local-6989586621681120737"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceStatusDetails]
-</span><a href="#local-6989586621681120737"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681120736"><span class="annot"><span class="annottext">s :: InstanceStatusSummary
-</span><a href="#local-6989586621681120736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary%27"><span class="hs-identifier hs-type">InstanceStatusSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681120735"><span class="annot"><span class="annottext">Maybe [InstanceStatusDetails]
-</span><a href="#local-6989586621681120735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStatusSummary
-</span><a href="#local-6989586621681120736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:InstanceStatusSummary' :: Maybe [InstanceStatusDetails]
+</span><a href="#local-6989586621681155583"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceStatusDetails]
+</span><a href="#local-6989586621681155583"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681155582"><span class="annot"><span class="annottext">s :: InstanceStatusSummary
+</span><a href="#local-6989586621681155582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary%27"><span class="hs-identifier hs-type">InstanceStatusSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681155581"><span class="annot"><span class="annottext">Maybe [InstanceStatusDetails]
+</span><a href="#local-6989586621681155581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStatusSummary
+</span><a href="#local-6989586621681155582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:InstanceStatusSummary' :: Maybe [InstanceStatusDetails]
 </span><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#%24sel%3Adetails%3AInstanceStatusSummary%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceStatusDetails]
-</span><a href="#local-6989586621681120735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary"><span class="hs-identifier hs-type">InstanceStatusSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceStatusDetails]
+</span><a href="#local-6989586621681155581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary"><span class="hs-identifier hs-type">InstanceStatusSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceStatusDetails]
   -&gt; f (Maybe [InstanceStatusDetails]))
  -&gt; InstanceStatusSummary -&gt; f InstanceStatusSummary)
 -&gt; ((Maybe [InstanceStatusDetails]
@@ -175,8 +175,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [InstanceStatusDetails]
   [InstanceStatusDetails]
   [InstanceStatusDetails]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The status.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#instanceStatusSummary_status"><span class="hs-identifier hs-type">instanceStatusSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary"><span class="hs-identifier hs-type">InstanceStatusSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SummaryStatus.html#SummaryStatus"><span class="hs-identifier hs-type">SummaryStatus</span></a></span><span>
@@ -191,21 +191,21 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      SummaryStatus
      SummaryStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary%27"><span class="hs-identifier hs-type">InstanceStatusSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681120730"><span class="annot"><span class="annottext">SummaryStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary%27"><span class="hs-identifier hs-type">InstanceStatusSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681155576"><span class="annot"><span class="annottext">SummaryStatus
 status :: SummaryStatus
 $sel:status:InstanceStatusSummary' :: InstanceStatusSummary -&gt; SummaryStatus
-</span><a href="#local-6989586621681120730"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SummaryStatus
-</span><a href="#local-6989586621681120730"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681120729"><span class="annot"><span class="annottext">s :: InstanceStatusSummary
-</span><a href="#local-6989586621681120729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary%27"><span class="hs-identifier hs-type">InstanceStatusSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681120728"><span class="annot"><span class="annottext">SummaryStatus
-</span><a href="#local-6989586621681120728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStatusSummary
-</span><a href="#local-6989586621681120729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:InstanceStatusSummary' :: SummaryStatus
+</span><a href="#local-6989586621681155576"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SummaryStatus
+</span><a href="#local-6989586621681155576"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681155575"><span class="annot"><span class="annottext">s :: InstanceStatusSummary
+</span><a href="#local-6989586621681155575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary%27"><span class="hs-identifier hs-type">InstanceStatusSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681155574"><span class="annot"><span class="annottext">SummaryStatus
+</span><a href="#local-6989586621681155574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceStatusSummary
+</span><a href="#local-6989586621681155575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:InstanceStatusSummary' :: SummaryStatus
 </span><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#%24sel%3Astatus%3AInstanceStatusSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SummaryStatus
-</span><a href="#local-6989586621681120728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary"><span class="hs-identifier hs-type">InstanceStatusSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681155574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary"><span class="hs-identifier hs-type">InstanceStatusSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary"><span class="hs-identifier hs-type">InstanceStatusSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621681120725"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceStatusSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681120723"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681120723"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621681155571"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceStatusSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681155569"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681155569"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">Maybe [InstanceStatusDetails]
 -&gt; SummaryStatus -&gt; InstanceStatusSummary
 </span><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary%27"><span class="hs-identifier hs-var">InstanceStatusSummary'</span></a></span><span>
@@ -215,7 +215,7 @@ $sel:status:InstanceStatusSummary' :: InstanceStatusSummary -&gt; SummaryStatus
 -&gt; Either String (SummaryStatus -&gt; InstanceStatusSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681120723"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681155569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;details&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -242,12 +242,12 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String InstanceStatusSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681120723"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String SummaryStatus
+</span><a href="#local-6989586621681155569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String SummaryStatus
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681120713"><span id="local-6989586621681120715"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary"><span class="hs-identifier hs-type">InstanceStatusSummary</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681155559"><span id="local-6989586621681155561"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary"><span class="hs-identifier hs-type">InstanceStatusSummary</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681120710"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary"><span class="hs-identifier hs-type">InstanceStatusSummary</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681155556"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceStatusSummary.html#InstanceStatusSummary"><span class="hs-identifier hs-type">InstanceStatusSummary</span></a></span></span><span>
 </span><span id="line-80"></span></pre></body></html>

@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-comment">-- hours of creating the test. If the status is @COMPLETE@, then the test</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- is finished, and you can use the @GetDeliverabilityTestReport@ operation</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- to view the results of the test.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679323773"><span id="local-6989586621679323774"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeliverabilityTestStatus"><span class="annot"><a href="Network.AWS.SESv2.Types.DeliverabilityTestStatus.html#DeliverabilityTestStatus"><span class="hs-identifier hs-var">DeliverabilityTestStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliverabilityTestStatus%27"><span class="annot"><a href="Network.AWS.SESv2.Types.DeliverabilityTestStatus.html#DeliverabilityTestStatus%27"><span class="hs-identifier hs-var">DeliverabilityTestStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679326072"><span id="local-6989586621679326073"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeliverabilityTestStatus"><span class="annot"><a href="Network.AWS.SESv2.Types.DeliverabilityTestStatus.html#DeliverabilityTestStatus"><span class="hs-identifier hs-var">DeliverabilityTestStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeliverabilityTestStatus%27"><span class="annot"><a href="Network.AWS.SESv2.Types.DeliverabilityTestStatus.html#DeliverabilityTestStatus%27"><span class="hs-identifier hs-var">DeliverabilityTestStatus'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeliverabilityTestStatus"><span class="annot"><span class="annottext">DeliverabilityTestStatus -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.DeliverabilityTestStatus.html#fromDeliverabilityTestStatus"><span class="hs-identifier hs-var hs-var">fromDeliverabilityTestStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679323765"><span id="local-6989586621679323767"><span id="local-6989586621679323769"><span class="annot"><span class="annottext">Int -&gt; DeliverabilityTestStatus -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326064"><span id="local-6989586621679326066"><span id="local-6989586621679326068"><span class="annot"><span class="annottext">Int -&gt; DeliverabilityTestStatus -&gt; ShowS
 [DeliverabilityTestStatus] -&gt; ShowS
 DeliverabilityTestStatus -&gt; String
 (Int -&gt; DeliverabilityTestStatus -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: DeliverabilityTestStatus -&gt; String
 showsPrec :: Int -&gt; DeliverabilityTestStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeliverabilityTestStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679323756"><span id="local-6989586621679323758"><span id="local-6989586621679323760"><span id="local-6989586621679323762"><span class="annot"><span class="annottext">ReadPrec [DeliverabilityTestStatus]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679326055"><span id="local-6989586621679326057"><span id="local-6989586621679326059"><span id="local-6989586621679326061"><span class="annot"><span class="annottext">ReadPrec [DeliverabilityTestStatus]
 ReadPrec DeliverabilityTestStatus
 Int -&gt; ReadS DeliverabilityTestStatus
 ReadS [DeliverabilityTestStatus]
@@ -78,7 +78,7 @@ $creadList :: ReadS [DeliverabilityTestStatus]
 readsPrec :: Int -&gt; ReadS DeliverabilityTestStatus
 $creadsPrec :: Int -&gt; ReadS DeliverabilityTestStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679323751"><span id="local-6989586621679323753"><span class="annot"><span class="annottext">DeliverabilityTestStatus -&gt; DeliverabilityTestStatus -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679326050"><span id="local-6989586621679326052"><span class="annot"><span class="annottext">DeliverabilityTestStatus -&gt; DeliverabilityTestStatus -&gt; Bool
 (DeliverabilityTestStatus -&gt; DeliverabilityTestStatus -&gt; Bool)
 -&gt; (DeliverabilityTestStatus -&gt; DeliverabilityTestStatus -&gt; Bool)
 -&gt; Eq DeliverabilityTestStatus
@@ -88,7 +88,7 @@ $c/= :: DeliverabilityTestStatus -&gt; DeliverabilityTestStatus -&gt; Bool
 == :: DeliverabilityTestStatus -&gt; DeliverabilityTestStatus -&gt; Bool
 $c== :: DeliverabilityTestStatus -&gt; DeliverabilityTestStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679323735"><span id="local-6989586621679323737"><span id="local-6989586621679323739"><span id="local-6989586621679323741"><span id="local-6989586621679323743"><span id="local-6989586621679323745"><span id="local-6989586621679323747"><span class="annot"><span class="annottext">Eq DeliverabilityTestStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679326034"><span id="local-6989586621679326036"><span id="local-6989586621679326038"><span id="local-6989586621679326040"><span id="local-6989586621679326042"><span id="local-6989586621679326044"><span id="local-6989586621679326046"><span class="annot"><span class="annottext">Eq DeliverabilityTestStatus
 Eq DeliverabilityTestStatus
 -&gt; (DeliverabilityTestStatus
     -&gt; DeliverabilityTestStatus -&gt; Ordering)
@@ -153,7 +153,7 @@ DeliverabilityTestStatus -&gt; Rep DeliverabilityTestStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679323727"><span id="local-6989586621679323729"><span class="annot"><span class="annottext">Int -&gt; DeliverabilityTestStatus -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679326026"><span id="local-6989586621679326028"><span class="annot"><span class="annottext">Int -&gt; DeliverabilityTestStatus -&gt; Int
 DeliverabilityTestStatus -&gt; Int
 (Int -&gt; DeliverabilityTestStatus -&gt; Int)
 -&gt; (DeliverabilityTestStatus -&gt; Int)
@@ -164,55 +164,55 @@ $chash :: DeliverabilityTestStatus -&gt; Int
 hashWithSalt :: Int -&gt; DeliverabilityTestStatus -&gt; Int
 $chashWithSalt :: Int -&gt; DeliverabilityTestStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679323724"><span class="annot"><span class="annottext">DeliverabilityTestStatus -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679326023"><span class="annot"><span class="annottext">DeliverabilityTestStatus -&gt; ()
 (DeliverabilityTestStatus -&gt; ()) -&gt; NFData DeliverabilityTestStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeliverabilityTestStatus -&gt; ()
 $crnf :: DeliverabilityTestStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679323721"><span class="annot"><span class="annottext">Text -&gt; Either String DeliverabilityTestStatus
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679326020"><span class="annot"><span class="annottext">Text -&gt; Either String DeliverabilityTestStatus
 (Text -&gt; Either String DeliverabilityTestStatus)
 -&gt; FromText DeliverabilityTestStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeliverabilityTestStatus
 $cfromText :: Text -&gt; Either String DeliverabilityTestStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679323718"><span class="annot"><span class="annottext">DeliverabilityTestStatus -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679326017"><span class="annot"><span class="annottext">DeliverabilityTestStatus -&gt; Text
 (DeliverabilityTestStatus -&gt; Text)
 -&gt; ToText DeliverabilityTestStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeliverabilityTestStatus -&gt; Text
 $ctoText :: DeliverabilityTestStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679323715"><span class="annot"><span class="annottext">DeliverabilityTestStatus -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679326014"><span class="annot"><span class="annottext">DeliverabilityTestStatus -&gt; ByteString
 (DeliverabilityTestStatus -&gt; ByteString)
 -&gt; ToByteString DeliverabilityTestStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeliverabilityTestStatus -&gt; ByteString
 $ctoBS :: DeliverabilityTestStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679323712"><span class="annot"><span class="annottext">DeliverabilityTestStatus -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679326011"><span class="annot"><span class="annottext">DeliverabilityTestStatus -&gt; ByteStringBuilder
 (DeliverabilityTestStatus -&gt; ByteStringBuilder)
 -&gt; ToLog DeliverabilityTestStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeliverabilityTestStatus -&gt; ByteStringBuilder
 $cbuild :: DeliverabilityTestStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679323709"><span class="annot"><span class="annottext">HeaderName -&gt; DeliverabilityTestStatus -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679326008"><span class="annot"><span class="annottext">HeaderName -&gt; DeliverabilityTestStatus -&gt; [Header]
 (HeaderName -&gt; DeliverabilityTestStatus -&gt; [Header])
 -&gt; ToHeader DeliverabilityTestStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeliverabilityTestStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeliverabilityTestStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679323706"><span class="annot"><span class="annottext">DeliverabilityTestStatus -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679326005"><span class="annot"><span class="annottext">DeliverabilityTestStatus -&gt; QueryString
 (DeliverabilityTestStatus -&gt; QueryString)
 -&gt; ToQuery DeliverabilityTestStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeliverabilityTestStatus -&gt; QueryString
 $ctoQuery :: DeliverabilityTestStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679323701"><span id="local-6989586621679323703"><span class="annot"><span class="annottext">Value -&gt; Parser [DeliverabilityTestStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679326000"><span id="local-6989586621679326002"><span class="annot"><span class="annottext">Value -&gt; Parser [DeliverabilityTestStatus]
 Value -&gt; Parser DeliverabilityTestStatus
 (Value -&gt; Parser DeliverabilityTestStatus)
 -&gt; (Value -&gt; Parser [DeliverabilityTestStatus])
@@ -224,7 +224,7 @@ $cparseJSONList :: Value -&gt; Parser [DeliverabilityTestStatus]
 parseJSON :: Value -&gt; Parser DeliverabilityTestStatus
 $cparseJSON :: Value -&gt; Parser DeliverabilityTestStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679323696"><span id="local-6989586621679323698"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeliverabilityTestStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679325995"><span id="local-6989586621679325997"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeliverabilityTestStatus]
 FromJSONKeyFunction DeliverabilityTestStatus
 FromJSONKeyFunction DeliverabilityTestStatus
 -&gt; FromJSONKeyFunction [DeliverabilityTestStatus]
@@ -236,7 +236,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeliverabilityTestStatus]
 fromJSONKey :: FromJSONKeyFunction DeliverabilityTestStatus
 $cfromJSONKey :: FromJSONKeyFunction DeliverabilityTestStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679323687"><span id="local-6989586621679323689"><span id="local-6989586621679323691"><span id="local-6989586621679323693"><span class="annot"><span class="annottext">[DeliverabilityTestStatus] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679325986"><span id="local-6989586621679325988"><span id="local-6989586621679325990"><span id="local-6989586621679325992"><span class="annot"><span class="annottext">[DeliverabilityTestStatus] -&gt; Encoding
 [DeliverabilityTestStatus] -&gt; Value
 DeliverabilityTestStatus -&gt; Encoding
 DeliverabilityTestStatus -&gt; Value
@@ -260,7 +260,7 @@ $ctoEncoding :: DeliverabilityTestStatus -&gt; Encoding
 toJSON :: DeliverabilityTestStatus -&gt; Value
 $ctoJSON :: DeliverabilityTestStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679323682"><span id="local-6989586621679323684"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeliverabilityTestStatus]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679325981"><span id="local-6989586621679325983"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeliverabilityTestStatus]
 ToJSONKeyFunction DeliverabilityTestStatus
 ToJSONKeyFunction DeliverabilityTestStatus
 -&gt; ToJSONKeyFunction [DeliverabilityTestStatus]
@@ -272,14 +272,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeliverabilityTestStatus]
 toJSONKey :: ToJSONKeyFunction DeliverabilityTestStatus
 $ctoJSONKey :: ToJSONKeyFunction DeliverabilityTestStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679323679"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeliverabilityTestStatus
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679325978"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeliverabilityTestStatus
 ([Node] -&gt; Either String DeliverabilityTestStatus)
 -&gt; FromXML DeliverabilityTestStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeliverabilityTestStatus
 $cparseXML :: [Node] -&gt; Either String DeliverabilityTestStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679323676"><span class="annot"><span class="annottext">DeliverabilityTestStatus -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679325975"><span class="annot"><span class="annottext">DeliverabilityTestStatus -&gt; XML
 (DeliverabilityTestStatus -&gt; XML) -&gt; ToXML DeliverabilityTestStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeliverabilityTestStatus -&gt; XML

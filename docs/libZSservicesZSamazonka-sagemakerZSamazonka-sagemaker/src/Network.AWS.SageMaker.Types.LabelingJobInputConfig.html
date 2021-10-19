@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Input configuration information for a labeling job.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLabelingJobInputConfig' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680312771"><span id="local-6989586621680312772"></span></span><span class="hs-keyword">data</span><span> </span><span id="LabelingJobInputConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig"><span class="hs-identifier hs-var">LabelingJobInputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LabelingJobInputConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig%27"><span class="hs-identifier hs-var">LabelingJobInputConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680314149"><span id="local-6989586621680314150"></span></span><span class="hs-keyword">data</span><span> </span><span id="LabelingJobInputConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig"><span class="hs-identifier hs-var">LabelingJobInputConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LabelingJobInputConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig%27"><span class="hs-identifier hs-var">LabelingJobInputConfig'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Attributes of the data specified by the customer.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AdataAttributes%3ALabelingJobInputConfig%27"><span class="annot"><span class="annottext">LabelingJobInputConfig -&gt; Maybe LabelingJobDataAttributes
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#%24sel%3AdataAttributes%3ALabelingJobInputConfig%27"><span class="hs-identifier hs-var hs-var">dataAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataAttributes.html#LabelingJobDataAttributes"><span class="hs-identifier hs-type">LabelingJobDataAttributes</span></a></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AdataSource%3ALabelingJobInputConfig%27"><span class="annot"><span class="annottext">LabelingJobInputConfig -&gt; LabelingJobDataSource
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#%24sel%3AdataSource%3ALabelingJobInputConfig%27"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource"><span class="hs-identifier hs-type">LabelingJobDataSource</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680312764"><span id="local-6989586621680312766"><span class="annot"><span class="annottext">LabelingJobInputConfig -&gt; LabelingJobInputConfig -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680314142"><span id="local-6989586621680314144"><span class="annot"><span class="annottext">LabelingJobInputConfig -&gt; LabelingJobInputConfig -&gt; Bool
 (LabelingJobInputConfig -&gt; LabelingJobInputConfig -&gt; Bool)
 -&gt; (LabelingJobInputConfig -&gt; LabelingJobInputConfig -&gt; Bool)
 -&gt; Eq LabelingJobInputConfig
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LabelingJobInputConfig -&gt; LabelingJobInputConfig -&gt; Bool
 == :: LabelingJobInputConfig -&gt; LabelingJobInputConfig -&gt; Bool
 $c== :: LabelingJobInputConfig -&gt; LabelingJobInputConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680312755"><span id="local-6989586621680312757"><span id="local-6989586621680312759"><span id="local-6989586621680312761"><span class="annot"><span class="annottext">ReadPrec [LabelingJobInputConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680314133"><span id="local-6989586621680314135"><span id="local-6989586621680314137"><span id="local-6989586621680314139"><span class="annot"><span class="annottext">ReadPrec [LabelingJobInputConfig]
 ReadPrec LabelingJobInputConfig
 Int -&gt; ReadS LabelingJobInputConfig
 ReadS [LabelingJobInputConfig]
@@ -65,7 +65,7 @@ readList :: ReadS [LabelingJobInputConfig]
 $creadList :: ReadS [LabelingJobInputConfig]
 readsPrec :: Int -&gt; ReadS LabelingJobInputConfig
 $creadsPrec :: Int -&gt; ReadS LabelingJobInputConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680312748"><span id="local-6989586621680312750"><span id="local-6989586621680312752"><span class="annot"><span class="annottext">Int -&gt; LabelingJobInputConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680314126"><span id="local-6989586621680314128"><span id="local-6989586621680314130"><span class="annot"><span class="annottext">Int -&gt; LabelingJobInputConfig -&gt; ShowS
 [LabelingJobInputConfig] -&gt; ShowS
 LabelingJobInputConfig -&gt; String
 (Int -&gt; LabelingJobInputConfig -&gt; ShowS)
@@ -108,8 +108,8 @@ $cfrom :: forall x. LabelingJobInputConfig -&gt; Rep LabelingJobInputConfig x
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource"><span class="hs-identifier hs-type">LabelingJobDataSource</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig"><span class="hs-identifier hs-type">LabelingJobInputConfig</span></a></span><span>
 </span><span id="line-54"></span><span id="newLabelingJobInputConfig"><span class="annot"><span class="annottext">newLabelingJobInputConfig :: LabelingJobDataSource -&gt; LabelingJobInputConfig
-</span><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#newLabelingJobInputConfig"><span class="hs-identifier hs-var hs-var">newLabelingJobInputConfig</span></a></span></span><span> </span><span id="local-6989586621680312742"><span class="annot"><span class="annottext">LabelingJobDataSource
-</span><a href="#local-6989586621680312742"><span class="hs-identifier hs-var">pDataSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#newLabelingJobInputConfig"><span class="hs-identifier hs-var hs-var">newLabelingJobInputConfig</span></a></span></span><span> </span><span id="local-6989586621680314120"><span class="annot"><span class="annottext">LabelingJobDataSource
+</span><a href="#local-6989586621680314120"><span class="hs-identifier hs-var">pDataSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">LabelingJobInputConfig' :: Maybe LabelingJobDataAttributes
 -&gt; LabelingJobDataSource -&gt; LabelingJobInputConfig
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig%27"><span class="hs-identifier hs-type">LabelingJobInputConfig'</span></a></span><span>
@@ -120,7 +120,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSource:LabelingJobInputConfig' :: LabelingJobDataSource
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#%24sel%3AdataSource%3ALabelingJobInputConfig%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LabelingJobDataSource
-</span><a href="#local-6989586621680312742"><span class="hs-identifier hs-var">pDataSource_</span></a></span><span>
+</span><a href="#local-6989586621680314120"><span class="hs-identifier hs-var">pDataSource_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | Attributes of the data specified by the customer.</span><span>
@@ -137,16 +137,16 @@ forall a. Maybe a
      (Maybe LabelingJobDataAttributes)
      (Maybe LabelingJobDataAttributes)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig%27"><span class="hs-identifier hs-type">LabelingJobInputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680312738"><span class="annot"><span class="annottext">Maybe LabelingJobDataAttributes
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig%27"><span class="hs-identifier hs-type">LabelingJobInputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680314116"><span class="annot"><span class="annottext">Maybe LabelingJobDataAttributes
 dataAttributes :: Maybe LabelingJobDataAttributes
 $sel:dataAttributes:LabelingJobInputConfig' :: LabelingJobInputConfig -&gt; Maybe LabelingJobDataAttributes
-</span><a href="#local-6989586621680312738"><span class="hs-identifier hs-var hs-var">dataAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobDataAttributes
-</span><a href="#local-6989586621680312738"><span class="hs-identifier hs-var">dataAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680312737"><span class="annot"><span class="annottext">s :: LabelingJobInputConfig
-</span><a href="#local-6989586621680312737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig%27"><span class="hs-identifier hs-type">LabelingJobInputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680312736"><span class="annot"><span class="annottext">Maybe LabelingJobDataAttributes
-</span><a href="#local-6989586621680312736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobInputConfig
-</span><a href="#local-6989586621680312737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataAttributes:LabelingJobInputConfig' :: Maybe LabelingJobDataAttributes
+</span><a href="#local-6989586621680314116"><span class="hs-identifier hs-var hs-var">dataAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobDataAttributes
+</span><a href="#local-6989586621680314116"><span class="hs-identifier hs-var">dataAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680314115"><span class="annot"><span class="annottext">s :: LabelingJobInputConfig
+</span><a href="#local-6989586621680314115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig%27"><span class="hs-identifier hs-type">LabelingJobInputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680314114"><span class="annot"><span class="annottext">Maybe LabelingJobDataAttributes
+</span><a href="#local-6989586621680314114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobInputConfig
+</span><a href="#local-6989586621680314115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataAttributes:LabelingJobInputConfig' :: Maybe LabelingJobDataAttributes
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#%24sel%3AdataAttributes%3ALabelingJobInputConfig%27"><span class="hs-identifier hs-var">dataAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobDataAttributes
-</span><a href="#local-6989586621680312736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig"><span class="hs-identifier hs-type">LabelingJobInputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680314114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig"><span class="hs-identifier hs-type">LabelingJobInputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The location of the input data.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#labelingJobInputConfig_dataSource"><span class="hs-identifier hs-type">labelingJobInputConfig_dataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig"><span class="hs-identifier hs-type">LabelingJobInputConfig</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobDataSource.html#LabelingJobDataSource"><span class="hs-identifier hs-type">LabelingJobDataSource</span></a></span><span>
@@ -161,19 +161,19 @@ $sel:dataAttributes:LabelingJobInputConfig' :: LabelingJobInputConfig -&gt; Mayb
      LabelingJobDataSource
      LabelingJobDataSource
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig%27"><span class="hs-identifier hs-type">LabelingJobInputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680312734"><span class="annot"><span class="annottext">LabelingJobDataSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig%27"><span class="hs-identifier hs-type">LabelingJobInputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680314112"><span class="annot"><span class="annottext">LabelingJobDataSource
 dataSource :: LabelingJobDataSource
 $sel:dataSource:LabelingJobInputConfig' :: LabelingJobInputConfig -&gt; LabelingJobDataSource
-</span><a href="#local-6989586621680312734"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobDataSource
-</span><a href="#local-6989586621680312734"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680312733"><span class="annot"><span class="annottext">s :: LabelingJobInputConfig
-</span><a href="#local-6989586621680312733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig%27"><span class="hs-identifier hs-type">LabelingJobInputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680312732"><span class="annot"><span class="annottext">LabelingJobDataSource
-</span><a href="#local-6989586621680312732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobInputConfig
-</span><a href="#local-6989586621680312733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSource:LabelingJobInputConfig' :: LabelingJobDataSource
+</span><a href="#local-6989586621680314112"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobDataSource
+</span><a href="#local-6989586621680314112"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680314111"><span class="annot"><span class="annottext">s :: LabelingJobInputConfig
+</span><a href="#local-6989586621680314111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig%27"><span class="hs-identifier hs-type">LabelingJobInputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680314110"><span class="annot"><span class="annottext">LabelingJobDataSource
+</span><a href="#local-6989586621680314110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LabelingJobInputConfig
+</span><a href="#local-6989586621680314111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSource:LabelingJobInputConfig' :: LabelingJobDataSource
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#%24sel%3AdataSource%3ALabelingJobInputConfig%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LabelingJobDataSource
-</span><a href="#local-6989586621680312732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig"><span class="hs-identifier hs-type">LabelingJobInputConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680314110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig"><span class="hs-identifier hs-type">LabelingJobInputConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680312729"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig"><span class="hs-identifier hs-type">LabelingJobInputConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621680312727"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LabelingJobInputConfig
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680314107"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig"><span class="hs-identifier hs-type">LabelingJobInputConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621680314105"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LabelingJobInputConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LabelingJobInputConfig)
@@ -183,8 +183,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LabelingJobInputConfig&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680312724"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680312724"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680314102"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680314102"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Maybe LabelingJobDataAttributes
 -&gt; LabelingJobDataSource -&gt; LabelingJobInputConfig
 </span><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig%27"><span class="hs-identifier hs-var">LabelingJobInputConfig'</span></a></span><span>
@@ -194,7 +194,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (LabelingJobDataSource -&gt; LabelingJobInputConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680312724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LabelingJobDataAttributes)
+</span><a href="#local-6989586621680314102"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe LabelingJobDataAttributes)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataAttributes&quot;</span></span><span class="hs-special">)</span><span>
@@ -202,25 +202,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser LabelingJobDataSource -&gt; Parser LabelingJobInputConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680312724"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser LabelingJobDataSource
+</span><a href="#local-6989586621680314102"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser LabelingJobDataSource
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataSource&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680312717"><span id="local-6989586621680312719"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig"><span class="hs-identifier hs-type">LabelingJobInputConfig</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680314095"><span id="local-6989586621680314097"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig"><span class="hs-identifier hs-type">LabelingJobInputConfig</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680312714"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig"><span class="hs-identifier hs-type">LabelingJobInputConfig</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680314092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig"><span class="hs-identifier hs-type">LabelingJobInputConfig</span></a></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680312706"><span id="local-6989586621680312708"><span id="local-6989586621680312710"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig"><span class="hs-identifier hs-type">LabelingJobInputConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621680312704"><span class="annot"><span class="annottext">toJSON :: LabelingJobInputConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig%27"><span class="hs-identifier hs-type">LabelingJobInputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680312701"><span id="local-6989586621680312702"><span class="annot"><span class="annottext">Maybe LabelingJobDataAttributes
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680314084"><span id="local-6989586621680314086"><span id="local-6989586621680314088"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig"><span class="hs-identifier hs-type">LabelingJobInputConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621680314082"><span class="annot"><span class="annottext">toJSON :: LabelingJobInputConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.LabelingJobInputConfig.html#LabelingJobInputConfig%27"><span class="hs-identifier hs-type">LabelingJobInputConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680314079"><span id="local-6989586621680314080"><span class="annot"><span class="annottext">Maybe LabelingJobDataAttributes
 LabelingJobDataSource
 dataSource :: LabelingJobDataSource
 dataAttributes :: Maybe LabelingJobDataAttributes
 $sel:dataSource:LabelingJobInputConfig' :: LabelingJobInputConfig -&gt; LabelingJobDataSource
 $sel:dataAttributes:LabelingJobInputConfig' :: LabelingJobInputConfig -&gt; Maybe LabelingJobDataAttributes
-</span><a href="#local-6989586621680312701"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680314079"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -234,14 +234,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe LabelingJobDataAttributes -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LabelingJobDataAttributes
-</span><a href="#local-6989586621680312702"><span class="hs-identifier hs-var">dataAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680314080"><span class="hs-identifier hs-var">dataAttributes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LabelingJobDataSource -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LabelingJobDataSource
-</span><a href="#local-6989586621680312701"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680314079"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

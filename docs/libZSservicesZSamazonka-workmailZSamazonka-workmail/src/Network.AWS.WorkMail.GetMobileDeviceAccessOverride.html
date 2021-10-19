@@ -1,0 +1,935 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Network.AWS.WorkMail.GetMobileDeviceAccessOverride</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the mobile device access override for the given WorkMail</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- organization, user, and device.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkMail.GetMobileDeviceAccessOverride</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride"><span class="hs-identifier">GetMobileDeviceAccessOverride</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#newGetMobileDeviceAccessOverride"><span class="hs-identifier">newGetMobileDeviceAccessOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverride_organizationId"><span class="hs-identifier">getMobileDeviceAccessOverride_organizationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverride_userId"><span class="hs-identifier">getMobileDeviceAccessOverride_userId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverride_deviceId"><span class="hs-identifier">getMobileDeviceAccessOverride_deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier">GetMobileDeviceAccessOverrideResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#newGetMobileDeviceAccessOverrideResponse"><span class="hs-identifier">newGetMobileDeviceAccessOverrideResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_effect"><span class="hs-identifier">getMobileDeviceAccessOverrideResponse_effect</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_userId"><span class="hs-identifier">getMobileDeviceAccessOverrideResponse_userId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_dateCreated"><span class="hs-identifier">getMobileDeviceAccessOverrideResponse_dateCreated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_dateModified"><span class="hs-identifier">getMobileDeviceAccessOverrideResponse_dateModified</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_deviceId"><span class="hs-identifier">getMobileDeviceAccessOverrideResponse_deviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_description"><span class="hs-identifier">getMobileDeviceAccessOverrideResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_httpStatus"><span class="hs-identifier">getMobileDeviceAccessOverrideResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.html"><span class="hs-identifier">Network.AWS.WorkMail.Types</span></a></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newGetMobileDeviceAccessOverride' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679289115"><span id="local-6989586621679289116"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMobileDeviceAccessOverride"><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride"><span class="hs-identifier hs-var">GetMobileDeviceAccessOverride</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMobileDeviceAccessOverride%27"><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride%27"><span class="hs-identifier hs-var">GetMobileDeviceAccessOverride'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon WorkMail organization to which you want to apply the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- override.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AorganizationId%3AGetMobileDeviceAccessOverride%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessOverride -&gt; Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AorganizationId%3AGetMobileDeviceAccessOverride%27"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Identifies the WorkMail user for the override. Accepts the following</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- types of user identities:</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   User ID: @12345678-1234-1234-1234-123456789012@ or</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     @S-1-1-12-1234567890-123456789-123456789-1234@</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   Email address: @user\@domain.tld@</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   User name: @user@</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AuserId%3AGetMobileDeviceAccessOverride%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessOverride -&gt; Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AuserId%3AGetMobileDeviceAccessOverride%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The mobile device to which the override applies. @DeviceId@ is case</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- insensitive.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AdeviceId%3AGetMobileDeviceAccessOverride%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessOverride -&gt; Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AdeviceId%3AGetMobileDeviceAccessOverride%27"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289107"><span id="local-6989586621679289109"><span class="annot"><span class="annottext">GetMobileDeviceAccessOverride
+-&gt; GetMobileDeviceAccessOverride -&gt; Bool
+(GetMobileDeviceAccessOverride
+ -&gt; GetMobileDeviceAccessOverride -&gt; Bool)
+-&gt; (GetMobileDeviceAccessOverride
+    -&gt; GetMobileDeviceAccessOverride -&gt; Bool)
+-&gt; Eq GetMobileDeviceAccessOverride
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetMobileDeviceAccessOverride
+-&gt; GetMobileDeviceAccessOverride -&gt; Bool
+$c/= :: GetMobileDeviceAccessOverride
+-&gt; GetMobileDeviceAccessOverride -&gt; Bool
+== :: GetMobileDeviceAccessOverride
+-&gt; GetMobileDeviceAccessOverride -&gt; Bool
+$c== :: GetMobileDeviceAccessOverride
+-&gt; GetMobileDeviceAccessOverride -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289098"><span id="local-6989586621679289100"><span id="local-6989586621679289102"><span id="local-6989586621679289104"><span class="annot"><span class="annottext">ReadPrec [GetMobileDeviceAccessOverride]
+ReadPrec GetMobileDeviceAccessOverride
+Int -&gt; ReadS GetMobileDeviceAccessOverride
+ReadS [GetMobileDeviceAccessOverride]
+(Int -&gt; ReadS GetMobileDeviceAccessOverride)
+-&gt; ReadS [GetMobileDeviceAccessOverride]
+-&gt; ReadPrec GetMobileDeviceAccessOverride
+-&gt; ReadPrec [GetMobileDeviceAccessOverride]
+-&gt; Read GetMobileDeviceAccessOverride
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetMobileDeviceAccessOverride]
+$creadListPrec :: ReadPrec [GetMobileDeviceAccessOverride]
+readPrec :: ReadPrec GetMobileDeviceAccessOverride
+$creadPrec :: ReadPrec GetMobileDeviceAccessOverride
+readList :: ReadS [GetMobileDeviceAccessOverride]
+$creadList :: ReadS [GetMobileDeviceAccessOverride]
+readsPrec :: Int -&gt; ReadS GetMobileDeviceAccessOverride
+$creadsPrec :: Int -&gt; ReadS GetMobileDeviceAccessOverride
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289091"><span id="local-6989586621679289093"><span id="local-6989586621679289095"><span class="annot"><span class="annottext">Int -&gt; GetMobileDeviceAccessOverride -&gt; ShowS
+[GetMobileDeviceAccessOverride] -&gt; ShowS
+GetMobileDeviceAccessOverride -&gt; String
+(Int -&gt; GetMobileDeviceAccessOverride -&gt; ShowS)
+-&gt; (GetMobileDeviceAccessOverride -&gt; String)
+-&gt; ([GetMobileDeviceAccessOverride] -&gt; ShowS)
+-&gt; Show GetMobileDeviceAccessOverride
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetMobileDeviceAccessOverride] -&gt; ShowS
+$cshowList :: [GetMobileDeviceAccessOverride] -&gt; ShowS
+show :: GetMobileDeviceAccessOverride -&gt; String
+$cshow :: GetMobileDeviceAccessOverride -&gt; String
+showsPrec :: Int -&gt; GetMobileDeviceAccessOverride -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetMobileDeviceAccessOverride -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetMobileDeviceAccessOverride
+ -&gt; Rep GetMobileDeviceAccessOverride x)
+-&gt; (forall x.
+    Rep GetMobileDeviceAccessOverride x
+    -&gt; GetMobileDeviceAccessOverride)
+-&gt; Generic GetMobileDeviceAccessOverride
+forall x.
+Rep GetMobileDeviceAccessOverride x
+-&gt; GetMobileDeviceAccessOverride
+forall x.
+GetMobileDeviceAccessOverride
+-&gt; Rep GetMobileDeviceAccessOverride x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetMobileDeviceAccessOverride x
+-&gt; GetMobileDeviceAccessOverride
+$cfrom :: forall x.
+GetMobileDeviceAccessOverride
+-&gt; Rep GetMobileDeviceAccessOverride x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'GetMobileDeviceAccessOverride' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'organizationId', 'getMobileDeviceAccessOverride_organizationId' - The Amazon WorkMail organization to which you want to apply the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- override.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'userId', 'getMobileDeviceAccessOverride_userId' - Identifies the WorkMail user for the override. Accepts the following</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- types of user identities:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- -   User ID: @12345678-1234-1234-1234-123456789012@ or</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--     @S-1-1-12-1234567890-123456789-123456789-1234@</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   Email address: @user\@domain.tld@</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- -   User name: @user@</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'deviceId', 'getMobileDeviceAccessOverride_deviceId' - The mobile device to which the override applies. @DeviceId@ is case</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- insensitive.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#newGetMobileDeviceAccessOverride"><span class="hs-identifier hs-type">newGetMobileDeviceAccessOverride</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'organizationId'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'userId'</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-comment">-- | 'deviceId'</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride</span></a></span><span>
+</span><span id="line-109"></span><span id="newGetMobileDeviceAccessOverride"><span class="annot"><span class="annottext">newGetMobileDeviceAccessOverride :: Text -&gt; Text -&gt; Text -&gt; GetMobileDeviceAccessOverride
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#newGetMobileDeviceAccessOverride"><span class="hs-identifier hs-var hs-var">newGetMobileDeviceAccessOverride</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679289086"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289086"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679289085"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289085"><span class="hs-identifier hs-var">pUserId_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679289084"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289084"><span class="hs-identifier hs-var">pDeviceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">GetMobileDeviceAccessOverride' :: Text -&gt; Text -&gt; Text -&gt; GetMobileDeviceAccessOverride
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride'</span></a></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:organizationId:GetMobileDeviceAccessOverride' :: Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AorganizationId%3AGetMobileDeviceAccessOverride%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289086"><span class="hs-identifier hs-var">pOrganizationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:userId:GetMobileDeviceAccessOverride' :: Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AuserId%3AGetMobileDeviceAccessOverride%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289085"><span class="hs-identifier hs-var">pUserId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:deviceId:GetMobileDeviceAccessOverride' :: Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AdeviceId%3AGetMobileDeviceAccessOverride%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289084"><span class="hs-identifier hs-var">pDeviceId_</span></a></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The Amazon WorkMail organization to which you want to apply the</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- override.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverride_organizationId"><span class="hs-identifier hs-type">getMobileDeviceAccessOverride_organizationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-123"></span><span id="getMobileDeviceAccessOverride_organizationId"><span class="annot"><span class="annottext">getMobileDeviceAccessOverride_organizationId :: (Text -&gt; f Text)
+-&gt; GetMobileDeviceAccessOverride -&gt; f GetMobileDeviceAccessOverride
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverride_organizationId"><span class="hs-identifier hs-var hs-var">getMobileDeviceAccessOverride_organizationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMobileDeviceAccessOverride -&gt; Text)
+-&gt; (GetMobileDeviceAccessOverride
+    -&gt; Text -&gt; GetMobileDeviceAccessOverride)
+-&gt; Lens
+     GetMobileDeviceAccessOverride
+     GetMobileDeviceAccessOverride
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289081"><span class="annot"><span class="annottext">Text
+organizationId :: Text
+$sel:organizationId:GetMobileDeviceAccessOverride' :: GetMobileDeviceAccessOverride -&gt; Text
+</span><a href="#local-6989586621679289081"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289081"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289080"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessOverride
+</span><a href="#local-6989586621679289080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289079"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessOverride
+</span><a href="#local-6989586621679289080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:GetMobileDeviceAccessOverride' :: Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AorganizationId%3AGetMobileDeviceAccessOverride%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Identifies the WorkMail user for the override. Accepts the following</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- types of user identities:</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   User ID: @12345678-1234-1234-1234-123456789012@ or</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--     @S-1-1-12-1234567890-123456789-123456789-1234@</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- -   Email address: @user\@domain.tld@</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- -   User name: @user@</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverride_userId"><span class="hs-identifier hs-type">getMobileDeviceAccessOverride_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-135"></span><span id="getMobileDeviceAccessOverride_userId"><span class="annot"><span class="annottext">getMobileDeviceAccessOverride_userId :: (Text -&gt; f Text)
+-&gt; GetMobileDeviceAccessOverride -&gt; f GetMobileDeviceAccessOverride
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverride_userId"><span class="hs-identifier hs-var hs-var">getMobileDeviceAccessOverride_userId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMobileDeviceAccessOverride -&gt; Text)
+-&gt; (GetMobileDeviceAccessOverride
+    -&gt; Text -&gt; GetMobileDeviceAccessOverride)
+-&gt; Lens
+     GetMobileDeviceAccessOverride
+     GetMobileDeviceAccessOverride
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289078"><span class="annot"><span class="annottext">Text
+userId :: Text
+$sel:userId:GetMobileDeviceAccessOverride' :: GetMobileDeviceAccessOverride -&gt; Text
+</span><a href="#local-6989586621679289078"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289078"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289077"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessOverride
+</span><a href="#local-6989586621679289077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289076"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessOverride
+</span><a href="#local-6989586621679289077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:GetMobileDeviceAccessOverride' :: Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AuserId%3AGetMobileDeviceAccessOverride%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The mobile device to which the override applies. @DeviceId@ is case</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- insensitive.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverride_deviceId"><span class="hs-identifier hs-type">getMobileDeviceAccessOverride_deviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-140"></span><span id="getMobileDeviceAccessOverride_deviceId"><span class="annot"><span class="annottext">getMobileDeviceAccessOverride_deviceId :: (Text -&gt; f Text)
+-&gt; GetMobileDeviceAccessOverride -&gt; f GetMobileDeviceAccessOverride
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverride_deviceId"><span class="hs-identifier hs-var hs-var">getMobileDeviceAccessOverride_deviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMobileDeviceAccessOverride -&gt; Text)
+-&gt; (GetMobileDeviceAccessOverride
+    -&gt; Text -&gt; GetMobileDeviceAccessOverride)
+-&gt; Lens
+     GetMobileDeviceAccessOverride
+     GetMobileDeviceAccessOverride
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289075"><span class="annot"><span class="annottext">Text
+deviceId :: Text
+$sel:deviceId:GetMobileDeviceAccessOverride' :: GetMobileDeviceAccessOverride -&gt; Text
+</span><a href="#local-6989586621679289075"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289075"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289074"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessOverride
+</span><a href="#local-6989586621679289074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289073"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessOverride
+</span><a href="#local-6989586621679289074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceId:GetMobileDeviceAccessOverride' :: Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AdeviceId%3AGetMobileDeviceAccessOverride%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride</span></a></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-147"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse</span></a></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679289069"><span class="annot"><span class="annottext">request :: GetMobileDeviceAccessOverride
+-&gt; Request GetMobileDeviceAccessOverride
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetMobileDeviceAccessOverride
+-&gt; Request GetMobileDeviceAccessOverride
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Network.AWS.WorkMail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679289065"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetMobileDeviceAccessOverride
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetMobileDeviceAccessOverride)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetMobileDeviceAccessOverride))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetMobileDeviceAccessOverride
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetMobileDeviceAccessOverride)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289062"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289062"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679289061"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679289061"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679289060"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289060"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe MobileDeviceAccessRuleEffect
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetMobileDeviceAccessOverrideResponse
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var">GetMobileDeviceAccessOverrideResponse'</span></a></span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MobileDeviceAccessRuleEffect
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; GetMobileDeviceAccessOverrideResponse)
+-&gt; Either String (Maybe MobileDeviceAccessRuleEffect)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetMobileDeviceAccessOverrideResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe MobileDeviceAccessRuleEffect)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Effect&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetMobileDeviceAccessOverrideResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetMobileDeviceAccessOverrideResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetMobileDeviceAccessOverrideResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; GetMobileDeviceAccessOverrideResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DateCreated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; GetMobileDeviceAccessOverrideResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Int -&gt; GetMobileDeviceAccessOverrideResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DateModified&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Int -&gt; GetMobileDeviceAccessOverrideResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; GetMobileDeviceAccessOverrideResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; GetMobileDeviceAccessOverrideResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetMobileDeviceAccessOverrideResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289060"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetMobileDeviceAccessOverrideResponse)
+-&gt; Either String Int
+-&gt; Either String GetMobileDeviceAccessOverrideResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679289062"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679289052"><span id="local-6989586621679289054"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride</span></a></span></span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289049"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride</span></a></span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679289045"><span class="annot"><span class="annottext">toHeaders :: GetMobileDeviceAccessOverride -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetMobileDeviceAccessOverride -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-173"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;WorkMailService.GetMobileDeviceAccessOverride&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-175"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-176"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-178"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-179"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-180"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289035"><span id="local-6989586621679289037"><span id="local-6989586621679289039"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679289033"><span class="annot"><span class="annottext">toJSON :: GetMobileDeviceAccessOverride -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289029"><span id="local-6989586621679289030"><span id="local-6989586621679289031"><span class="annot"><span class="annottext">Text
+deviceId :: Text
+userId :: Text
+organizationId :: Text
+$sel:deviceId:GetMobileDeviceAccessOverride' :: GetMobileDeviceAccessOverride -&gt; Text
+$sel:userId:GetMobileDeviceAccessOverride' :: GetMobileDeviceAccessOverride -&gt; Text
+$sel:organizationId:GetMobileDeviceAccessOverride' :: GetMobileDeviceAccessOverride -&gt; Text
+</span><a href="#local-6989586621679289029"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-188"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-189"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrganizationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289031"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289030"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeviceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289029"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679289023"><span class="annot"><span class="annottext">toPath :: GetMobileDeviceAccessOverride -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetMobileDeviceAccessOverride -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverride"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverride</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679289019"><span class="annot"><span class="annottext">toQuery :: GetMobileDeviceAccessOverride -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetMobileDeviceAccessOverride -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | /See:/ 'newGetMobileDeviceAccessOverrideResponse' smart constructor.</span><span>
+</span><span id="line-202"></span><span id="local-6989586621679289016"><span id="local-6989586621679289017"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMobileDeviceAccessOverrideResponse"><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-var">GetMobileDeviceAccessOverrideResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMobileDeviceAccessOverrideResponse%27"><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var">GetMobileDeviceAccessOverrideResponse'</span></a></span></span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The effect of the override, @ALLOW@ or @DENY@.</span><span>
+</span><span id="line-204"></span><span>    </span><span id="%24sel%3Aeffect%3AGetMobileDeviceAccessOverrideResponse%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessOverrideResponse
+-&gt; Maybe MobileDeviceAccessRuleEffect
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3Aeffect%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var hs-var">effect</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect"><span class="hs-identifier hs-type">MobileDeviceAccessRuleEffect</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | The WorkMail user to which the access override applies.</span><span>
+</span><span id="line-206"></span><span>    </span><span id="%24sel%3AuserId%3AGetMobileDeviceAccessOverrideResponse%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessOverrideResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AuserId%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- | The date the override was first created.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3AdateCreated%3AGetMobileDeviceAccessOverrideResponse%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessOverrideResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AdateCreated%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var hs-var">dateCreated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- | The date the description was last modified.</span><span>
+</span><span id="line-210"></span><span>    </span><span id="%24sel%3AdateModified%3AGetMobileDeviceAccessOverrideResponse%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessOverrideResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AdateModified%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var hs-var">dateModified</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- | The device to which the access override applies.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3AdeviceId%3AGetMobileDeviceAccessOverrideResponse%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessOverrideResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AdeviceId%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | A description of the override.</span><span>
+</span><span id="line-214"></span><span>    </span><span id="%24sel%3Adescription%3AGetMobileDeviceAccessOverrideResponse%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessOverrideResponse -&gt; Maybe Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3Adescription%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-216"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetMobileDeviceAccessOverrideResponse%27"><span class="annot"><span class="annottext">GetMobileDeviceAccessOverrideResponse -&gt; Int
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AhttpStatus%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289005"><span id="local-6989586621679289007"><span class="annot"><span class="annottext">GetMobileDeviceAccessOverrideResponse
+-&gt; GetMobileDeviceAccessOverrideResponse -&gt; Bool
+(GetMobileDeviceAccessOverrideResponse
+ -&gt; GetMobileDeviceAccessOverrideResponse -&gt; Bool)
+-&gt; (GetMobileDeviceAccessOverrideResponse
+    -&gt; GetMobileDeviceAccessOverrideResponse -&gt; Bool)
+-&gt; Eq GetMobileDeviceAccessOverrideResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetMobileDeviceAccessOverrideResponse
+-&gt; GetMobileDeviceAccessOverrideResponse -&gt; Bool
+$c/= :: GetMobileDeviceAccessOverrideResponse
+-&gt; GetMobileDeviceAccessOverrideResponse -&gt; Bool
+== :: GetMobileDeviceAccessOverrideResponse
+-&gt; GetMobileDeviceAccessOverrideResponse -&gt; Bool
+$c== :: GetMobileDeviceAccessOverrideResponse
+-&gt; GetMobileDeviceAccessOverrideResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288997"><span id="local-6989586621679288999"><span id="local-6989586621679289001"><span id="local-6989586621679289003"><span class="annot"><span class="annottext">ReadPrec [GetMobileDeviceAccessOverrideResponse]
+ReadPrec GetMobileDeviceAccessOverrideResponse
+Int -&gt; ReadS GetMobileDeviceAccessOverrideResponse
+ReadS [GetMobileDeviceAccessOverrideResponse]
+(Int -&gt; ReadS GetMobileDeviceAccessOverrideResponse)
+-&gt; ReadS [GetMobileDeviceAccessOverrideResponse]
+-&gt; ReadPrec GetMobileDeviceAccessOverrideResponse
+-&gt; ReadPrec [GetMobileDeviceAccessOverrideResponse]
+-&gt; Read GetMobileDeviceAccessOverrideResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetMobileDeviceAccessOverrideResponse]
+$creadListPrec :: ReadPrec [GetMobileDeviceAccessOverrideResponse]
+readPrec :: ReadPrec GetMobileDeviceAccessOverrideResponse
+$creadPrec :: ReadPrec GetMobileDeviceAccessOverrideResponse
+readList :: ReadS [GetMobileDeviceAccessOverrideResponse]
+$creadList :: ReadS [GetMobileDeviceAccessOverrideResponse]
+readsPrec :: Int -&gt; ReadS GetMobileDeviceAccessOverrideResponse
+$creadsPrec :: Int -&gt; ReadS GetMobileDeviceAccessOverrideResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288991"><span id="local-6989586621679288993"><span id="local-6989586621679288995"><span class="annot"><span class="annottext">Int -&gt; GetMobileDeviceAccessOverrideResponse -&gt; ShowS
+[GetMobileDeviceAccessOverrideResponse] -&gt; ShowS
+GetMobileDeviceAccessOverrideResponse -&gt; String
+(Int -&gt; GetMobileDeviceAccessOverrideResponse -&gt; ShowS)
+-&gt; (GetMobileDeviceAccessOverrideResponse -&gt; String)
+-&gt; ([GetMobileDeviceAccessOverrideResponse] -&gt; ShowS)
+-&gt; Show GetMobileDeviceAccessOverrideResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetMobileDeviceAccessOverrideResponse] -&gt; ShowS
+$cshowList :: [GetMobileDeviceAccessOverrideResponse] -&gt; ShowS
+show :: GetMobileDeviceAccessOverrideResponse -&gt; String
+$cshow :: GetMobileDeviceAccessOverrideResponse -&gt; String
+showsPrec :: Int -&gt; GetMobileDeviceAccessOverrideResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetMobileDeviceAccessOverrideResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetMobileDeviceAccessOverrideResponse
+ -&gt; Rep GetMobileDeviceAccessOverrideResponse x)
+-&gt; (forall x.
+    Rep GetMobileDeviceAccessOverrideResponse x
+    -&gt; GetMobileDeviceAccessOverrideResponse)
+-&gt; Generic GetMobileDeviceAccessOverrideResponse
+forall x.
+Rep GetMobileDeviceAccessOverrideResponse x
+-&gt; GetMobileDeviceAccessOverrideResponse
+forall x.
+GetMobileDeviceAccessOverrideResponse
+-&gt; Rep GetMobileDeviceAccessOverrideResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetMobileDeviceAccessOverrideResponse x
+-&gt; GetMobileDeviceAccessOverrideResponse
+$cfrom :: forall x.
+GetMobileDeviceAccessOverrideResponse
+-&gt; Rep GetMobileDeviceAccessOverrideResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- Create a value of 'GetMobileDeviceAccessOverrideResponse' with all optional fields omitted.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'effect', 'getMobileDeviceAccessOverrideResponse_effect' - The effect of the override, @ALLOW@ or @DENY@.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'userId', 'getMobileDeviceAccessOverrideResponse_userId' - The WorkMail user to which the access override applies.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'dateCreated', 'getMobileDeviceAccessOverrideResponse_dateCreated' - The date the override was first created.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'dateModified', 'getMobileDeviceAccessOverrideResponse_dateModified' - The date the description was last modified.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'deviceId', 'getMobileDeviceAccessOverrideResponse_deviceId' - The device to which the access override applies.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 'description', 'getMobileDeviceAccessOverrideResponse_description' - A description of the override.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- 'httpStatus', 'getMobileDeviceAccessOverrideResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#newGetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-type">newGetMobileDeviceAccessOverrideResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-243"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse</span></a></span><span>
+</span><span id="line-245"></span><span id="newGetMobileDeviceAccessOverrideResponse"><span class="annot"><span class="annottext">newGetMobileDeviceAccessOverrideResponse :: Int -&gt; GetMobileDeviceAccessOverrideResponse
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#newGetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-var hs-var">newGetMobileDeviceAccessOverrideResponse</span></a></span></span><span> </span><span id="local-6989586621679288988"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288988"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-246"></span><span>  </span><span class="annot"><span class="annottext">GetMobileDeviceAccessOverrideResponse' :: Maybe MobileDeviceAccessRuleEffect
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; GetMobileDeviceAccessOverrideResponse
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse'</span></a></span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:effect:GetMobileDeviceAccessOverrideResponse' :: Maybe MobileDeviceAccessRuleEffect
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3Aeffect%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var">effect</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-248"></span><span>        </span><span class="annot"><span class="annottext">Maybe MobileDeviceAccessRuleEffect
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:userId:GetMobileDeviceAccessOverrideResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AuserId%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:dateCreated:GetMobileDeviceAccessOverrideResponse' :: Maybe POSIX
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AdateCreated%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var">dateCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">$sel:dateModified:GetMobileDeviceAccessOverrideResponse' :: Maybe POSIX
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AdateModified%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var">dateModified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceId:GetMobileDeviceAccessOverrideResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AdeviceId%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:GetMobileDeviceAccessOverrideResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3Adescription%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetMobileDeviceAccessOverrideResponse' :: Int
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AhttpStatus%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288988"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-255"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | The effect of the override, @ALLOW@ or @DENY@.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_effect"><span class="hs-identifier hs-type">getMobileDeviceAccessOverrideResponse_effect</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MobileDeviceAccessRuleEffect.html#MobileDeviceAccessRuleEffect"><span class="hs-identifier hs-type">MobileDeviceAccessRuleEffect</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span id="getMobileDeviceAccessOverrideResponse_effect"><span class="annot"><span class="annottext">getMobileDeviceAccessOverrideResponse_effect :: (Maybe MobileDeviceAccessRuleEffect
+ -&gt; f (Maybe MobileDeviceAccessRuleEffect))
+-&gt; GetMobileDeviceAccessOverrideResponse
+-&gt; f GetMobileDeviceAccessOverrideResponse
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_effect"><span class="hs-identifier hs-var hs-var">getMobileDeviceAccessOverrideResponse_effect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMobileDeviceAccessOverrideResponse
+ -&gt; Maybe MobileDeviceAccessRuleEffect)
+-&gt; (GetMobileDeviceAccessOverrideResponse
+    -&gt; Maybe MobileDeviceAccessRuleEffect
+    -&gt; GetMobileDeviceAccessOverrideResponse)
+-&gt; Lens
+     GetMobileDeviceAccessOverrideResponse
+     GetMobileDeviceAccessOverrideResponse
+     (Maybe MobileDeviceAccessRuleEffect)
+     (Maybe MobileDeviceAccessRuleEffect)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288987"><span class="annot"><span class="annottext">Maybe MobileDeviceAccessRuleEffect
+effect :: Maybe MobileDeviceAccessRuleEffect
+$sel:effect:GetMobileDeviceAccessOverrideResponse' :: GetMobileDeviceAccessOverrideResponse
+-&gt; Maybe MobileDeviceAccessRuleEffect
+</span><a href="#local-6989586621679288987"><span class="hs-identifier hs-var hs-var">effect</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MobileDeviceAccessRuleEffect
+</span><a href="#local-6989586621679288987"><span class="hs-identifier hs-var">effect</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288986"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessOverrideResponse
+</span><a href="#local-6989586621679288986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288985"><span class="annot"><span class="annottext">Maybe MobileDeviceAccessRuleEffect
+</span><a href="#local-6989586621679288985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessOverrideResponse
+</span><a href="#local-6989586621679288986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effect:GetMobileDeviceAccessOverrideResponse' :: Maybe MobileDeviceAccessRuleEffect
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3Aeffect%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var">effect</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MobileDeviceAccessRuleEffect
+</span><a href="#local-6989586621679288985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | The WorkMail user to which the access override applies.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_userId"><span class="hs-identifier hs-type">getMobileDeviceAccessOverrideResponse_userId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="getMobileDeviceAccessOverrideResponse_userId"><span class="annot"><span class="annottext">getMobileDeviceAccessOverrideResponse_userId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetMobileDeviceAccessOverrideResponse
+-&gt; f GetMobileDeviceAccessOverrideResponse
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_userId"><span class="hs-identifier hs-var hs-var">getMobileDeviceAccessOverrideResponse_userId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMobileDeviceAccessOverrideResponse -&gt; Maybe Text)
+-&gt; (GetMobileDeviceAccessOverrideResponse
+    -&gt; Maybe Text -&gt; GetMobileDeviceAccessOverrideResponse)
+-&gt; Lens
+     GetMobileDeviceAccessOverrideResponse
+     GetMobileDeviceAccessOverrideResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288984"><span class="annot"><span class="annottext">Maybe Text
+userId :: Maybe Text
+$sel:userId:GetMobileDeviceAccessOverrideResponse' :: GetMobileDeviceAccessOverrideResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679288984"><span class="hs-identifier hs-var hs-var">userId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288984"><span class="hs-identifier hs-var">userId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288983"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessOverrideResponse
+</span><a href="#local-6989586621679288983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288982"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessOverrideResponse
+</span><a href="#local-6989586621679288983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userId:GetMobileDeviceAccessOverrideResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AuserId%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var">userId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | The date the override was first created.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_dateCreated"><span class="hs-identifier hs-type">getMobileDeviceAccessOverrideResponse_dateCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="getMobileDeviceAccessOverrideResponse_dateCreated"><span class="annot"><span class="annottext">getMobileDeviceAccessOverrideResponse_dateCreated :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetMobileDeviceAccessOverrideResponse
+-&gt; f GetMobileDeviceAccessOverrideResponse
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_dateCreated"><span class="hs-identifier hs-var hs-var">getMobileDeviceAccessOverrideResponse_dateCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMobileDeviceAccessOverrideResponse -&gt; Maybe POSIX)
+-&gt; (GetMobileDeviceAccessOverrideResponse
+    -&gt; Maybe POSIX -&gt; GetMobileDeviceAccessOverrideResponse)
+-&gt; Lens
+     GetMobileDeviceAccessOverrideResponse
+     GetMobileDeviceAccessOverrideResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288981"><span class="annot"><span class="annottext">Maybe POSIX
+dateCreated :: Maybe POSIX
+$sel:dateCreated:GetMobileDeviceAccessOverrideResponse' :: GetMobileDeviceAccessOverrideResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679288981"><span class="hs-identifier hs-var hs-var">dateCreated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679288981"><span class="hs-identifier hs-var">dateCreated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288980"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessOverrideResponse
+</span><a href="#local-6989586621679288980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288979"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679288979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessOverrideResponse
+</span><a href="#local-6989586621679288980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dateCreated:GetMobileDeviceAccessOverrideResponse' :: Maybe POSIX
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AdateCreated%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var">dateCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679288979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetMobileDeviceAccessOverrideResponse
+ -&gt; f GetMobileDeviceAccessOverrideResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetMobileDeviceAccessOverrideResponse
+-&gt; f GetMobileDeviceAccessOverrideResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | The date the description was last modified.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_dateModified"><span class="hs-identifier hs-type">getMobileDeviceAccessOverrideResponse_dateModified</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span id="getMobileDeviceAccessOverrideResponse_dateModified"><span class="annot"><span class="annottext">getMobileDeviceAccessOverrideResponse_dateModified :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetMobileDeviceAccessOverrideResponse
+-&gt; f GetMobileDeviceAccessOverrideResponse
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_dateModified"><span class="hs-identifier hs-var hs-var">getMobileDeviceAccessOverrideResponse_dateModified</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMobileDeviceAccessOverrideResponse -&gt; Maybe POSIX)
+-&gt; (GetMobileDeviceAccessOverrideResponse
+    -&gt; Maybe POSIX -&gt; GetMobileDeviceAccessOverrideResponse)
+-&gt; Lens
+     GetMobileDeviceAccessOverrideResponse
+     GetMobileDeviceAccessOverrideResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288975"><span class="annot"><span class="annottext">Maybe POSIX
+dateModified :: Maybe POSIX
+$sel:dateModified:GetMobileDeviceAccessOverrideResponse' :: GetMobileDeviceAccessOverrideResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679288975"><span class="hs-identifier hs-var hs-var">dateModified</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679288975"><span class="hs-identifier hs-var">dateModified</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288974"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessOverrideResponse
+</span><a href="#local-6989586621679288974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288973"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679288973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessOverrideResponse
+</span><a href="#local-6989586621679288974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dateModified:GetMobileDeviceAccessOverrideResponse' :: Maybe POSIX
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AdateModified%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var">dateModified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679288973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; GetMobileDeviceAccessOverrideResponse
+ -&gt; f GetMobileDeviceAccessOverrideResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; GetMobileDeviceAccessOverrideResponse
+-&gt; f GetMobileDeviceAccessOverrideResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | The device to which the access override applies.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_deviceId"><span class="hs-identifier hs-type">getMobileDeviceAccessOverrideResponse_deviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="getMobileDeviceAccessOverrideResponse_deviceId"><span class="annot"><span class="annottext">getMobileDeviceAccessOverrideResponse_deviceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetMobileDeviceAccessOverrideResponse
+-&gt; f GetMobileDeviceAccessOverrideResponse
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_deviceId"><span class="hs-identifier hs-var hs-var">getMobileDeviceAccessOverrideResponse_deviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMobileDeviceAccessOverrideResponse -&gt; Maybe Text)
+-&gt; (GetMobileDeviceAccessOverrideResponse
+    -&gt; Maybe Text -&gt; GetMobileDeviceAccessOverrideResponse)
+-&gt; Lens
+     GetMobileDeviceAccessOverrideResponse
+     GetMobileDeviceAccessOverrideResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288972"><span class="annot"><span class="annottext">Maybe Text
+deviceId :: Maybe Text
+$sel:deviceId:GetMobileDeviceAccessOverrideResponse' :: GetMobileDeviceAccessOverrideResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679288972"><span class="hs-identifier hs-var hs-var">deviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288972"><span class="hs-identifier hs-var">deviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288971"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessOverrideResponse
+</span><a href="#local-6989586621679288971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288970"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessOverrideResponse
+</span><a href="#local-6989586621679288971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceId:GetMobileDeviceAccessOverrideResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AdeviceId%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var">deviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | A description of the override.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_description"><span class="hs-identifier hs-type">getMobileDeviceAccessOverrideResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span id="getMobileDeviceAccessOverrideResponse_description"><span class="annot"><span class="annottext">getMobileDeviceAccessOverrideResponse_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetMobileDeviceAccessOverrideResponse
+-&gt; f GetMobileDeviceAccessOverrideResponse
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_description"><span class="hs-identifier hs-var hs-var">getMobileDeviceAccessOverrideResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMobileDeviceAccessOverrideResponse -&gt; Maybe Text)
+-&gt; (GetMobileDeviceAccessOverrideResponse
+    -&gt; Maybe Text -&gt; GetMobileDeviceAccessOverrideResponse)
+-&gt; Lens
+     GetMobileDeviceAccessOverrideResponse
+     GetMobileDeviceAccessOverrideResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288969"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:GetMobileDeviceAccessOverrideResponse' :: GetMobileDeviceAccessOverrideResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679288969"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288969"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288968"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessOverrideResponse
+</span><a href="#local-6989586621679288968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288967"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessOverrideResponse
+</span><a href="#local-6989586621679288968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:GetMobileDeviceAccessOverrideResponse' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3Adescription%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_httpStatus"><span class="hs-identifier hs-type">getMobileDeviceAccessOverrideResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-283"></span><span id="getMobileDeviceAccessOverrideResponse_httpStatus"><span class="annot"><span class="annottext">getMobileDeviceAccessOverrideResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetMobileDeviceAccessOverrideResponse
+-&gt; f GetMobileDeviceAccessOverrideResponse
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#getMobileDeviceAccessOverrideResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getMobileDeviceAccessOverrideResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetMobileDeviceAccessOverrideResponse -&gt; Int)
+-&gt; (GetMobileDeviceAccessOverrideResponse
+    -&gt; Int -&gt; GetMobileDeviceAccessOverrideResponse)
+-&gt; Lens
+     GetMobileDeviceAccessOverrideResponse
+     GetMobileDeviceAccessOverrideResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288966"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetMobileDeviceAccessOverrideResponse' :: GetMobileDeviceAccessOverrideResponse -&gt; Int
+</span><a href="#local-6989586621679288966"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288966"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288965"><span class="annot"><span class="annottext">s :: GetMobileDeviceAccessOverrideResponse
+</span><a href="#local-6989586621679288965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288964"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMobileDeviceAccessOverrideResponse
+</span><a href="#local-6989586621679288965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMobileDeviceAccessOverrideResponse' :: Int
+</span><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#%24sel%3AhttpStatus%3AGetMobileDeviceAccessOverrideResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-286"></span><span>  </span><span id="local-6989586621679288962"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkMail.GetMobileDeviceAccessOverride.html#GetMobileDeviceAccessOverrideResponse"><span class="hs-identifier hs-type">GetMobileDeviceAccessOverrideResponse</span></a></span></span><span>
+</span><span id="line-288"></span></pre></body></html>

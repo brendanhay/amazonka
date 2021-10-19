@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListBrokers' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679226816"><span id="local-6989586621679226817"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBrokers"><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers"><span class="hs-identifier hs-var">ListBrokers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBrokers%27"><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers%27"><span class="hs-identifier hs-var">ListBrokers'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679226984"><span id="local-6989586621679226985"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBrokers"><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers"><span class="hs-identifier hs-var">ListBrokers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBrokers%27"><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers%27"><span class="hs-identifier hs-var">ListBrokers'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token that specifies the next page of results Amazon MQ should</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- return. To request the first page, leave nextToken empty.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3AListBrokers%27"><span class="annot"><span class="annottext">ListBrokers -&gt; Maybe Text
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3AListBrokers%27"><span class="annot"><span class="annottext">ListBrokers -&gt; Maybe Natural
 </span><a href="Network.AWS.MQ.ListBrokers.html#%24sel%3AmaxResults%3AListBrokers%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226809"><span id="local-6989586621679226811"><span class="annot"><span class="annottext">ListBrokers -&gt; ListBrokers -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226977"><span id="local-6989586621679226979"><span class="annot"><span class="annottext">ListBrokers -&gt; ListBrokers -&gt; Bool
 (ListBrokers -&gt; ListBrokers -&gt; Bool)
 -&gt; (ListBrokers -&gt; ListBrokers -&gt; Bool) -&gt; Eq ListBrokers
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListBrokers -&gt; ListBrokers -&gt; Bool
 == :: ListBrokers -&gt; ListBrokers -&gt; Bool
 $c== :: ListBrokers -&gt; ListBrokers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226800"><span id="local-6989586621679226802"><span id="local-6989586621679226804"><span id="local-6989586621679226806"><span class="annot"><span class="annottext">ReadPrec [ListBrokers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226968"><span id="local-6989586621679226970"><span id="local-6989586621679226972"><span id="local-6989586621679226974"><span class="annot"><span class="annottext">ReadPrec [ListBrokers]
 ReadPrec ListBrokers
 Int -&gt; ReadS ListBrokers
 ReadS [ListBrokers]
@@ -89,7 +89,7 @@ readList :: ReadS [ListBrokers]
 $creadList :: ReadS [ListBrokers]
 readsPrec :: Int -&gt; ReadS ListBrokers
 $creadsPrec :: Int -&gt; ReadS ListBrokers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226793"><span id="local-6989586621679226795"><span id="local-6989586621679226797"><span class="annot"><span class="annottext">Int -&gt; ListBrokers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226961"><span id="local-6989586621679226963"><span id="local-6989586621679226965"><span class="annot"><span class="annottext">Int -&gt; ListBrokers -&gt; ShowS
 [ListBrokers] -&gt; ShowS
 ListBrokers -&gt; String
 (Int -&gt; ListBrokers -&gt; ShowS)
@@ -152,16 +152,16 @@ forall a. Maybe a
 -&gt; (ListBrokers -&gt; Maybe Text -&gt; ListBrokers)
 -&gt; Lens ListBrokers ListBrokers (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers%27"><span class="hs-identifier hs-type">ListBrokers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226787"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers%27"><span class="hs-identifier hs-type">ListBrokers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226955"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListBrokers' :: ListBrokers -&gt; Maybe Text
-</span><a href="#local-6989586621679226787"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226787"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226786"><span class="annot"><span class="annottext">s :: ListBrokers
-</span><a href="#local-6989586621679226786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers%27"><span class="hs-identifier hs-type">ListBrokers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226785"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBrokers
-</span><a href="#local-6989586621679226786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBrokers' :: Maybe Text
+</span><a href="#local-6989586621679226955"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226955"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226954"><span class="annot"><span class="annottext">s :: ListBrokers
+</span><a href="#local-6989586621679226954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers%27"><span class="hs-identifier hs-type">ListBrokers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226953"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBrokers
+</span><a href="#local-6989586621679226954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBrokers' :: Maybe Text
 </span><a href="Network.AWS.MQ.ListBrokers.html#%24sel%3AnextToken%3AListBrokers%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers"><span class="hs-identifier hs-type">ListBrokers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers"><span class="hs-identifier hs-type">ListBrokers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The maximum number of brokers that Amazon MQ can return per page (20 by</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- default). This value must be an integer from 5 to 100.</span><span>
@@ -172,28 +172,28 @@ $sel:nextToken:ListBrokers' :: ListBrokers -&gt; Maybe Text
 -&gt; (ListBrokers -&gt; Maybe Natural -&gt; ListBrokers)
 -&gt; Lens ListBrokers ListBrokers (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers%27"><span class="hs-identifier hs-type">ListBrokers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226784"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers%27"><span class="hs-identifier hs-type">ListBrokers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226952"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListBrokers' :: ListBrokers -&gt; Maybe Natural
-</span><a href="#local-6989586621679226784"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679226784"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226783"><span class="annot"><span class="annottext">s :: ListBrokers
-</span><a href="#local-6989586621679226783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers%27"><span class="hs-identifier hs-type">ListBrokers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226782"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679226782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBrokers
-</span><a href="#local-6989586621679226783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListBrokers' :: Maybe Natural
+</span><a href="#local-6989586621679226952"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679226952"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226951"><span class="annot"><span class="annottext">s :: ListBrokers
+</span><a href="#local-6989586621679226951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers%27"><span class="hs-identifier hs-type">ListBrokers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226950"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679226950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBrokers
+</span><a href="#local-6989586621679226951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListBrokers' :: Maybe Natural
 </span><a href="Network.AWS.MQ.ListBrokers.html#%24sel%3AmaxResults%3AListBrokers%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679226782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers"><span class="hs-identifier hs-type">ListBrokers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers"><span class="hs-identifier hs-type">ListBrokers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers"><span class="hs-identifier hs-type">ListBrokers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679226778"><span class="annot"><span class="annottext">page :: ListBrokers -&gt; AWSResponse ListBrokers -&gt; Maybe ListBrokers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679226776"><span class="annot"><span class="annottext">ListBrokers
-</span><a href="#local-6989586621679226776"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679226775"><span class="annot"><span class="annottext">AWSResponse ListBrokers
-</span><a href="#local-6989586621679226775"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679226946"><span class="annot"><span class="annottext">page :: ListBrokers -&gt; AWSResponse ListBrokers -&gt; Maybe ListBrokers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679226944"><span class="annot"><span class="annottext">ListBrokers
+</span><a href="#local-6989586621679226944"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679226943"><span class="annot"><span class="annottext">AWSResponse ListBrokers
+</span><a href="#local-6989586621679226943"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-98"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBrokers
 ListBrokersResponse
-</span><a href="#local-6989586621679226775"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679226943"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">ListBrokersResponse
 -&gt; Getting (First Text) ListBrokersResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -219,7 +219,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-103"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBrokers
 ListBrokersResponse
-</span><a href="#local-6989586621679226775"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679226943"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">ListBrokersResponse
 -&gt; Getting
      (First [BrokerSummary]) ListBrokersResponse [BrokerSummary]
@@ -260,7 +260,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">ListBrokers
-</span><a href="#local-6989586621679226776"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679226944"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">ListBrokers -&gt; (ListBrokers -&gt; ListBrokers) -&gt; ListBrokers
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -273,7 +273,7 @@ Lens ListBrokers ListBrokers (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListBrokers
 ListBrokersResponse
-</span><a href="#local-6989586621679226775"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679226943"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">ListBrokersResponse
 -&gt; Getting (First Text) ListBrokersResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -293,12 +293,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers"><span class="hs-identifier hs-type">ListBrokers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers"><span class="hs-identifier hs-type">ListBrokers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse"><span class="hs-identifier hs-type">ListBrokersResponse</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679226765"><span class="annot"><span class="annottext">request :: ListBrokers -&gt; Request ListBrokers
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679226933"><span class="annot"><span class="annottext">request :: ListBrokers -&gt; Request ListBrokers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListBrokers -&gt; Request ListBrokers
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MQ.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679226761"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679226929"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListBrokers
 -&gt; ClientResponse ClientBody
@@ -322,10 +322,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226758"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226758"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679226757"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679226757"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679226756"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226756"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679226926"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226926"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679226925"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679226925"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679226924"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226924"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [BrokerSummary] -&gt; Int -&gt; ListBrokersResponse
 </span><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse%27"><span class="hs-identifier hs-var">ListBrokersResponse'</span></a></span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [BrokerSummary] -&gt; Int -&gt; ListBrokersResponse)
@@ -334,7 +334,7 @@ MonadResource m =&gt;
      String (Maybe [BrokerSummary] -&gt; Int -&gt; ListBrokersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226756"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679226924"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -343,7 +343,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListBrokersResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226756"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BrokerSummary]))
+</span><a href="#local-6989586621679226924"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [BrokerSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;brokerSummaries&quot;</span></span><span>
@@ -362,15 +362,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226758"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226926"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226747"><span id="local-6989586621679226749"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers"><span class="hs-identifier hs-type">ListBrokers</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226915"><span id="local-6989586621679226917"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers"><span class="hs-identifier hs-type">ListBrokers</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226744"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers"><span class="hs-identifier hs-type">ListBrokers</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226912"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers"><span class="hs-identifier hs-type">ListBrokers</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers"><span class="hs-identifier hs-type">ListBrokers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679226740"><span class="annot"><span class="annottext">toHeaders :: ListBrokers -&gt; ResponseHeaders
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679226908"><span class="annot"><span class="annottext">toHeaders :: ListBrokers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListBrokers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -390,21 +390,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers"><span class="hs-identifier hs-type">ListBrokers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679226734"><span class="annot"><span class="annottext">toPath :: ListBrokers -&gt; ByteString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679226902"><span class="annot"><span class="annottext">toPath :: ListBrokers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListBrokers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/v1/brokers&quot;</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers"><span class="hs-identifier hs-type">ListBrokers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679226730"><span class="annot"><span class="annottext">toQuery :: ListBrokers -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers%27"><span class="hs-identifier hs-type">ListBrokers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226727"><span id="local-6989586621679226728"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679226898"><span class="annot"><span class="annottext">toQuery :: ListBrokers -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokers%27"><span class="hs-identifier hs-type">ListBrokers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226895"><span id="local-6989586621679226896"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListBrokers' :: ListBrokers -&gt; Maybe Natural
 $sel:nextToken:ListBrokers' :: ListBrokers -&gt; Maybe Text
-</span><a href="#local-6989586621679226727"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679226895"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -412,16 +412,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226728"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679226896"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679226727"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679226895"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newListBrokersResponse' smart constructor.</span><span>
-</span><span id="line-155"></span><span id="local-6989586621679226724"><span id="local-6989586621679226725"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBrokersResponse"><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse"><span class="hs-identifier hs-var">ListBrokersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBrokersResponse%27"><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse%27"><span class="hs-identifier hs-var">ListBrokersResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span id="local-6989586621679226892"><span id="local-6989586621679226893"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBrokersResponse"><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse"><span class="hs-identifier hs-var">ListBrokersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBrokersResponse%27"><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse%27"><span class="hs-identifier hs-var">ListBrokersResponse'</span></a></span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token that specifies the next page of results Amazon MQ should</span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-comment">-- return. To request the first page, leave nextToken empty.</span><span>
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3AnextToken%3AListBrokersResponse%27"><span class="annot"><span class="annottext">ListBrokersResponse -&gt; Maybe Text
@@ -433,7 +433,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-162"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListBrokersResponse%27"><span class="annot"><span class="annottext">ListBrokersResponse -&gt; Int
 </span><a href="Network.AWS.MQ.ListBrokers.html#%24sel%3AhttpStatus%3AListBrokersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226717"><span id="local-6989586621679226719"><span class="annot"><span class="annottext">ListBrokersResponse -&gt; ListBrokersResponse -&gt; Bool
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226885"><span id="local-6989586621679226887"><span class="annot"><span class="annottext">ListBrokersResponse -&gt; ListBrokersResponse -&gt; Bool
 (ListBrokersResponse -&gt; ListBrokersResponse -&gt; Bool)
 -&gt; (ListBrokersResponse -&gt; ListBrokersResponse -&gt; Bool)
 -&gt; Eq ListBrokersResponse
@@ -442,7 +442,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListBrokersResponse -&gt; ListBrokersResponse -&gt; Bool
 == :: ListBrokersResponse -&gt; ListBrokersResponse -&gt; Bool
 $c== :: ListBrokersResponse -&gt; ListBrokersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226709"><span id="local-6989586621679226711"><span id="local-6989586621679226713"><span id="local-6989586621679226715"><span class="annot"><span class="annottext">ReadPrec [ListBrokersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226877"><span id="local-6989586621679226879"><span id="local-6989586621679226881"><span id="local-6989586621679226883"><span class="annot"><span class="annottext">ReadPrec [ListBrokersResponse]
 ReadPrec ListBrokersResponse
 Int -&gt; ReadS ListBrokersResponse
 ReadS [ListBrokersResponse]
@@ -462,7 +462,7 @@ readList :: ReadS [ListBrokersResponse]
 $creadList :: ReadS [ListBrokersResponse]
 readsPrec :: Int -&gt; ReadS ListBrokersResponse
 $creadsPrec :: Int -&gt; ReadS ListBrokersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226703"><span id="local-6989586621679226705"><span id="local-6989586621679226707"><span class="annot"><span class="annottext">Int -&gt; ListBrokersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226871"><span id="local-6989586621679226873"><span id="local-6989586621679226875"><span class="annot"><span class="annottext">Int -&gt; ListBrokersResponse -&gt; ShowS
 [ListBrokersResponse] -&gt; ShowS
 ListBrokersResponse -&gt; String
 (Int -&gt; ListBrokersResponse -&gt; ShowS)
@@ -507,8 +507,8 @@ $cfrom :: forall x. ListBrokersResponse -&gt; Rep ListBrokersResponse x
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-183"></span><span>  </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse"><span class="hs-identifier hs-type">ListBrokersResponse</span></a></span><span>
 </span><span id="line-184"></span><span id="newListBrokersResponse"><span class="annot"><span class="annottext">newListBrokersResponse :: Int -&gt; ListBrokersResponse
-</span><a href="Network.AWS.MQ.ListBrokers.html#newListBrokersResponse"><span class="hs-identifier hs-var hs-var">newListBrokersResponse</span></a></span></span><span> </span><span id="local-6989586621679226700"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226700"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MQ.ListBrokers.html#newListBrokersResponse"><span class="hs-identifier hs-var hs-var">newListBrokersResponse</span></a></span></span><span> </span><span id="local-6989586621679226868"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226868"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">ListBrokersResponse' :: Maybe Text -&gt; Maybe [BrokerSummary] -&gt; Int -&gt; ListBrokersResponse
 </span><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse%27"><span class="hs-identifier hs-type">ListBrokersResponse'</span></a></span><span>
 </span><span id="line-186"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListBrokersResponse' :: Maybe Text
@@ -521,7 +521,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListBrokersResponse' :: Int
 </span><a href="Network.AWS.MQ.ListBrokers.html#%24sel%3AhttpStatus%3AListBrokersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226700"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679226868"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-189"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | The token that specifies the next page of results Amazon MQ should</span><span>
@@ -533,16 +533,16 @@ forall a. Maybe a
 -&gt; (ListBrokersResponse -&gt; Maybe Text -&gt; ListBrokersResponse)
 -&gt; Lens' ListBrokersResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse%27"><span class="hs-identifier hs-type">ListBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226699"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse%27"><span class="hs-identifier hs-type">ListBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226867"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListBrokersResponse' :: ListBrokersResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679226699"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226699"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226698"><span class="annot"><span class="annottext">s :: ListBrokersResponse
-</span><a href="#local-6989586621679226698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse%27"><span class="hs-identifier hs-type">ListBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226697"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBrokersResponse
-</span><a href="#local-6989586621679226698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBrokersResponse' :: Maybe Text
+</span><a href="#local-6989586621679226867"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226867"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226866"><span class="annot"><span class="annottext">s :: ListBrokersResponse
+</span><a href="#local-6989586621679226866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse%27"><span class="hs-identifier hs-type">ListBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226865"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679226865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBrokersResponse
+</span><a href="#local-6989586621679226866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListBrokersResponse' :: Maybe Text
 </span><a href="Network.AWS.MQ.ListBrokers.html#%24sel%3AnextToken%3AListBrokersResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679226697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse"><span class="hs-identifier hs-type">ListBrokersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse"><span class="hs-identifier hs-type">ListBrokersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | A list of information about all brokers.</span><span>
 </span><span id="line-197"></span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#listBrokersResponse_brokerSummaries"><span class="hs-identifier hs-type">listBrokersResponse_brokerSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse"><span class="hs-identifier hs-type">ListBrokersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MQ.Types.BrokerSummary.html#BrokerSummary"><span class="hs-identifier hs-type">BrokerSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -553,16 +553,16 @@ $sel:nextToken:ListBrokersResponse' :: ListBrokersResponse -&gt; Maybe Text
     -&gt; Maybe [BrokerSummary] -&gt; ListBrokersResponse)
 -&gt; Lens' ListBrokersResponse (Maybe [BrokerSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse%27"><span class="hs-identifier hs-type">ListBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226696"><span class="annot"><span class="annottext">Maybe [BrokerSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse%27"><span class="hs-identifier hs-type">ListBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226864"><span class="annot"><span class="annottext">Maybe [BrokerSummary]
 brokerSummaries :: Maybe [BrokerSummary]
 $sel:brokerSummaries:ListBrokersResponse' :: ListBrokersResponse -&gt; Maybe [BrokerSummary]
-</span><a href="#local-6989586621679226696"><span class="hs-identifier hs-var hs-var">brokerSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BrokerSummary]
-</span><a href="#local-6989586621679226696"><span class="hs-identifier hs-var">brokerSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226695"><span class="annot"><span class="annottext">s :: ListBrokersResponse
-</span><a href="#local-6989586621679226695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse%27"><span class="hs-identifier hs-type">ListBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226694"><span class="annot"><span class="annottext">Maybe [BrokerSummary]
-</span><a href="#local-6989586621679226694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBrokersResponse
-</span><a href="#local-6989586621679226695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerSummaries:ListBrokersResponse' :: Maybe [BrokerSummary]
+</span><a href="#local-6989586621679226864"><span class="hs-identifier hs-var hs-var">brokerSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BrokerSummary]
+</span><a href="#local-6989586621679226864"><span class="hs-identifier hs-var">brokerSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226863"><span class="annot"><span class="annottext">s :: ListBrokersResponse
+</span><a href="#local-6989586621679226863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse%27"><span class="hs-identifier hs-type">ListBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226862"><span class="annot"><span class="annottext">Maybe [BrokerSummary]
+</span><a href="#local-6989586621679226862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBrokersResponse
+</span><a href="#local-6989586621679226863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:brokerSummaries:ListBrokersResponse' :: Maybe [BrokerSummary]
 </span><a href="Network.AWS.MQ.ListBrokers.html#%24sel%3AbrokerSummaries%3AListBrokersResponse%27"><span class="hs-identifier hs-var">brokerSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BrokerSummary]
-</span><a href="#local-6989586621679226694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse"><span class="hs-identifier hs-type">ListBrokersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BrokerSummary] -&gt; f (Maybe [BrokerSummary]))
+</span><a href="#local-6989586621679226862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse"><span class="hs-identifier hs-type">ListBrokersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BrokerSummary] -&gt; f (Maybe [BrokerSummary]))
  -&gt; ListBrokersResponse -&gt; f ListBrokersResponse)
 -&gt; ((Maybe [BrokerSummary] -&gt; f (Maybe [BrokerSummary]))
     -&gt; Maybe [BrokerSummary] -&gt; f (Maybe [BrokerSummary]))
@@ -582,8 +582,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [BrokerSummary] [BrokerSummary] [BrokerSummary] [BrokerSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-201"></span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#listBrokersResponse_httpStatus"><span class="hs-identifier hs-type">listBrokersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse"><span class="hs-identifier hs-type">ListBrokersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -592,16 +592,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListBrokersResponse -&gt; Int -&gt; ListBrokersResponse)
 -&gt; Lens ListBrokersResponse ListBrokersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse%27"><span class="hs-identifier hs-type">ListBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226691"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse%27"><span class="hs-identifier hs-type">ListBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226859"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListBrokersResponse' :: ListBrokersResponse -&gt; Int
-</span><a href="#local-6989586621679226691"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226691"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226690"><span class="annot"><span class="annottext">s :: ListBrokersResponse
-</span><a href="#local-6989586621679226690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse%27"><span class="hs-identifier hs-type">ListBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226689"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBrokersResponse
-</span><a href="#local-6989586621679226690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBrokersResponse' :: Int
+</span><a href="#local-6989586621679226859"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226859"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226858"><span class="annot"><span class="annottext">s :: ListBrokersResponse
+</span><a href="#local-6989586621679226858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse%27"><span class="hs-identifier hs-type">ListBrokersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226857"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679226857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBrokersResponse
+</span><a href="#local-6989586621679226858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBrokersResponse' :: Int
 </span><a href="Network.AWS.MQ.ListBrokers.html#%24sel%3AhttpStatus%3AListBrokersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679226689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse"><span class="hs-identifier hs-type">ListBrokersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse"><span class="hs-identifier hs-type">ListBrokersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226687"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse"><span class="hs-identifier hs-type">ListBrokersResponse</span></a></span></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226855"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MQ.ListBrokers.html#ListBrokersResponse"><span class="hs-identifier hs-type">ListBrokersResponse</span></a></span></span><span>
 </span><span id="line-205"></span></pre></body></html>

@@ -27,27 +27,27 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Summary information about a plan.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newProvisionedProductPlanSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679401695"><span id="local-6989586621679401696"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProvisionedProductPlanSummary"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-var">ProvisionedProductPlanSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisionedProductPlanSummary%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">ProvisionedProductPlanSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679402141"><span id="local-6989586621679402142"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProvisionedProductPlanSummary"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-var">ProvisionedProductPlanSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisionedProductPlanSummary%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">ProvisionedProductPlanSummary'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The product identifier.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AprovisionProductId%3AProvisionedProductPlanSummary%27"><span class="annot"><span class="annottext">ProvisionedProductPlanSummary -&gt; Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisionProductId%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var hs-var">provisionProductId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The identifier of the provisioning artifact.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AprovisioningArtifactId%3AProvisionedProductPlanSummary%27"><span class="annot"><span class="annottext">ProvisionedProductPlanSummary -&gt; Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisioningArtifactId%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var hs-var">provisioningArtifactId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the plan.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AplanName%3AProvisionedProductPlanSummary%27"><span class="annot"><span class="annottext">ProvisionedProductPlanSummary -&gt; Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanName%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var hs-var">planName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The user-friendly name of the provisioned product.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AprovisionProductName%3AProvisionedProductPlanSummary%27"><span class="annot"><span class="annottext">ProvisionedProductPlanSummary -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisionProductName%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var hs-var">provisionProductName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The plan identifier.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AplanId%3AProvisionedProductPlanSummary%27"><span class="annot"><span class="annottext">ProvisionedProductPlanSummary -&gt; Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanId%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var hs-var">planId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The plan type.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AplanType%3AProvisionedProductPlanSummary%27"><span class="annot"><span class="annottext">ProvisionedProductPlanSummary -&gt; Maybe ProvisionedProductPlanType
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanType%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var hs-var">planType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType.html#ProvisionedProductPlanType"><span class="hs-identifier hs-type">ProvisionedProductPlanType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The user-friendly name of the provisioned product.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AprovisionProductName%3AProvisionedProductPlanSummary%27"><span class="annot"><span class="annottext">ProvisionedProductPlanSummary -&gt; Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisionProductName%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var hs-var">provisionProductName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the plan.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AplanName%3AProvisionedProductPlanSummary%27"><span class="annot"><span class="annottext">ProvisionedProductPlanSummary -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanName%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var hs-var">planName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The plan type.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AplanType%3AProvisionedProductPlanSummary%27"><span class="annot"><span class="annottext">ProvisionedProductPlanSummary -&gt; Maybe ProvisionedProductPlanType
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanType%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var hs-var">planType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType.html#ProvisionedProductPlanType"><span class="hs-identifier hs-type">ProvisionedProductPlanType</span></a></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401684"><span id="local-6989586621679401686"><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402130"><span id="local-6989586621679402132"><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
 -&gt; ProvisionedProductPlanSummary -&gt; Bool
 (ProvisionedProductPlanSummary
  -&gt; ProvisionedProductPlanSummary -&gt; Bool)
@@ -63,7 +63,7 @@ $c/= :: ProvisionedProductPlanSummary
 -&gt; ProvisionedProductPlanSummary -&gt; Bool
 $c== :: ProvisionedProductPlanSummary
 -&gt; ProvisionedProductPlanSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401675"><span id="local-6989586621679401677"><span id="local-6989586621679401679"><span id="local-6989586621679401681"><span class="annot"><span class="annottext">ReadPrec [ProvisionedProductPlanSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402121"><span id="local-6989586621679402123"><span id="local-6989586621679402125"><span id="local-6989586621679402127"><span class="annot"><span class="annottext">ReadPrec [ProvisionedProductPlanSummary]
 ReadPrec ProvisionedProductPlanSummary
 Int -&gt; ReadS ProvisionedProductPlanSummary
 ReadS [ProvisionedProductPlanSummary]
@@ -83,7 +83,7 @@ readList :: ReadS [ProvisionedProductPlanSummary]
 $creadList :: ReadS [ProvisionedProductPlanSummary]
 readsPrec :: Int -&gt; ReadS ProvisionedProductPlanSummary
 $creadsPrec :: Int -&gt; ReadS ProvisionedProductPlanSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401668"><span id="local-6989586621679401670"><span id="local-6989586621679401672"><span class="annot"><span class="annottext">Int -&gt; ProvisionedProductPlanSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402114"><span id="local-6989586621679402116"><span id="local-6989586621679402118"><span class="annot"><span class="annottext">Int -&gt; ProvisionedProductPlanSummary -&gt; ShowS
 [ProvisionedProductPlanSummary] -&gt; ShowS
 ProvisionedProductPlanSummary -&gt; String
 (Int -&gt; ProvisionedProductPlanSummary -&gt; ShowS)
@@ -133,13 +133,13 @@ ProvisionedProductPlanSummary
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- 'provisioningArtifactId', 'provisionedProductPlanSummary_provisioningArtifactId' - The identifier of the provisioning artifact.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'planName', 'provisionedProductPlanSummary_planName' - The name of the plan.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'provisionProductName', 'provisionedProductPlanSummary_provisionProductName' - The user-friendly name of the provisioned product.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- 'planId', 'provisionedProductPlanSummary_planId' - The plan identifier.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'planType', 'provisionedProductPlanSummary_planType' - The plan type.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'planName', 'provisionedProductPlanSummary_planName' - The name of the plan.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'provisionProductName', 'provisionedProductPlanSummary_provisionProductName' - The user-friendly name of the provisioned product.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'planType', 'provisionedProductPlanSummary_planType' - The plan type.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#newProvisionedProductPlanSummary"><span class="hs-identifier hs-type">newProvisionedProductPlanSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span>
 </span><span id="line-67"></span><span id="newProvisionedProductPlanSummary"><span class="annot"><span class="annottext">newProvisionedProductPlanSummary :: ProvisionedProductPlanSummary
@@ -148,8 +148,8 @@ ProvisionedProductPlanSummary
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe ProvisionedProductPlanType
 -&gt; Maybe Text
+-&gt; Maybe ProvisionedProductPlanType
 -&gt; ProvisionedProductPlanSummary
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:provisionProductId:ProvisionedProductPlanSummary' :: Maybe Text
@@ -161,20 +161,20 @@ forall a. Maybe a
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisioningArtifactId%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:planName:ProvisionedProductPlanSummary' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanName%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">planName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisionProductName:ProvisionedProductPlanSummary' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisionProductName%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">provisionProductName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:planId:ProvisionedProductPlanSummary' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanId%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">planId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:planType:ProvisionedProductPlanSummary' :: Maybe ProvisionedProductPlanType
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanType%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">planType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedProductPlanType
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:planName:ProvisionedProductPlanSummary' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanName%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">planName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisionProductName:ProvisionedProductPlanSummary' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisionProductName%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">provisionProductName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:planType:ProvisionedProductPlanSummary' :: Maybe ProvisionedProductPlanType
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanType%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">planType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedProductPlanType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
@@ -192,16 +192,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401659"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402105"><span class="annot"><span class="annottext">Maybe Text
 provisionProductId :: Maybe Text
 $sel:provisionProductId:ProvisionedProductPlanSummary' :: ProvisionedProductPlanSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679401659"><span class="hs-identifier hs-var hs-var">provisionProductId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401659"><span class="hs-identifier hs-var">provisionProductId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401658"><span class="annot"><span class="annottext">s :: ProvisionedProductPlanSummary
-</span><a href="#local-6989586621679401658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401657"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
-</span><a href="#local-6989586621679401658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionProductId:ProvisionedProductPlanSummary' :: Maybe Text
+</span><a href="#local-6989586621679402105"><span class="hs-identifier hs-var hs-var">provisionProductId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402105"><span class="hs-identifier hs-var">provisionProductId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402104"><span class="annot"><span class="annottext">s :: ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679402104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402103"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679402104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionProductId:ProvisionedProductPlanSummary' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisionProductId%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">provisionProductId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The identifier of the provisioning artifact.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_provisioningArtifactId"><span class="hs-identifier hs-type">provisionedProductPlanSummary_provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -216,22 +216,22 @@ $sel:provisionProductId:ProvisionedProductPlanSummary' :: ProvisionedProductPlan
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401655"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402101"><span class="annot"><span class="annottext">Maybe Text
 provisioningArtifactId :: Maybe Text
 $sel:provisioningArtifactId:ProvisionedProductPlanSummary' :: ProvisionedProductPlanSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679401655"><span class="hs-identifier hs-var hs-var">provisioningArtifactId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401655"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401654"><span class="annot"><span class="annottext">s :: ProvisionedProductPlanSummary
-</span><a href="#local-6989586621679401654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401653"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
-</span><a href="#local-6989586621679401654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioningArtifactId:ProvisionedProductPlanSummary' :: Maybe Text
+</span><a href="#local-6989586621679402101"><span class="hs-identifier hs-var hs-var">provisioningArtifactId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402101"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402100"><span class="annot"><span class="annottext">s :: ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679402100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402099"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679402100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisioningArtifactId:ProvisionedProductPlanSummary' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisioningArtifactId%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">provisioningArtifactId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | The name of the plan.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_planName"><span class="hs-identifier hs-type">provisionedProductPlanSummary_planName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="provisionedProductPlanSummary_planName"><span class="annot"><span class="annottext">provisionedProductPlanSummary_planName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-86"></span><span class="hs-comment">-- | The user-friendly name of the provisioned product.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_provisionProductName"><span class="hs-identifier hs-type">provisionedProductPlanSummary_provisionProductName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="provisionedProductPlanSummary_provisionProductName"><span class="annot"><span class="annottext">provisionedProductPlanSummary_provisionProductName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ProvisionedProductPlanSummary -&gt; f ProvisionedProductPlanSummary
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_planName"><span class="hs-identifier hs-var hs-var">provisionedProductPlanSummary_planName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedProductPlanSummary -&gt; Maybe Text)
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_provisionProductName"><span class="hs-identifier hs-var hs-var">provisionedProductPlanSummary_provisionProductName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedProductPlanSummary -&gt; Maybe Text)
 -&gt; (ProvisionedProductPlanSummary
     -&gt; Maybe Text -&gt; ProvisionedProductPlanSummary)
 -&gt; Lens
@@ -240,16 +240,16 @@ $sel:provisioningArtifactId:ProvisionedProductPlanSummary' :: ProvisionedProduct
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401651"><span class="annot"><span class="annottext">Maybe Text
-planName :: Maybe Text
-$sel:planName:ProvisionedProductPlanSummary' :: ProvisionedProductPlanSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679401651"><span class="hs-identifier hs-var hs-var">planName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401651"><span class="hs-identifier hs-var">planName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401650"><span class="annot"><span class="annottext">s :: ProvisionedProductPlanSummary
-</span><a href="#local-6989586621679401650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401649"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
-</span><a href="#local-6989586621679401650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:planName:ProvisionedProductPlanSummary' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanName%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">planName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402097"><span class="annot"><span class="annottext">Maybe Text
+provisionProductName :: Maybe Text
+$sel:provisionProductName:ProvisionedProductPlanSummary' :: ProvisionedProductPlanSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679402097"><span class="hs-identifier hs-var hs-var">provisionProductName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402097"><span class="hs-identifier hs-var">provisionProductName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402096"><span class="annot"><span class="annottext">s :: ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679402096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402095"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679402096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionProductName:ProvisionedProductPlanSummary' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisionProductName%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">provisionProductName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The plan identifier.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_planId"><span class="hs-identifier hs-type">provisionedProductPlanSummary_planId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -264,20 +264,44 @@ $sel:planName:ProvisionedProductPlanSummary' :: ProvisionedProductPlanSummary -&
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401647"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402093"><span class="annot"><span class="annottext">Maybe Text
 planId :: Maybe Text
 $sel:planId:ProvisionedProductPlanSummary' :: ProvisionedProductPlanSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679401647"><span class="hs-identifier hs-var hs-var">planId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401647"><span class="hs-identifier hs-var">planId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401646"><span class="annot"><span class="annottext">s :: ProvisionedProductPlanSummary
-</span><a href="#local-6989586621679401646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401645"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
-</span><a href="#local-6989586621679401646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:planId:ProvisionedProductPlanSummary' :: Maybe Text
+</span><a href="#local-6989586621679402093"><span class="hs-identifier hs-var hs-var">planId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402093"><span class="hs-identifier hs-var">planId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402092"><span class="annot"><span class="annottext">s :: ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679402092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402091"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679402092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:planId:ProvisionedProductPlanSummary' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanId%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">planId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The plan type.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_planType"><span class="hs-identifier hs-type">provisionedProductPlanSummary_planType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType.html#ProvisionedProductPlanType"><span class="hs-identifier hs-type">ProvisionedProductPlanType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="provisionedProductPlanSummary_planType"><span class="annot"><span class="annottext">provisionedProductPlanSummary_planType :: (Maybe ProvisionedProductPlanType
+</span><span id="line-94"></span><span class="hs-comment">-- | The name of the plan.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_planName"><span class="hs-identifier hs-type">provisionedProductPlanSummary_planName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="provisionedProductPlanSummary_planName"><span class="annot"><span class="annottext">provisionedProductPlanSummary_planName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ProvisionedProductPlanSummary -&gt; f ProvisionedProductPlanSummary
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_planName"><span class="hs-identifier hs-var hs-var">provisionedProductPlanSummary_planName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedProductPlanSummary -&gt; Maybe Text)
+-&gt; (ProvisionedProductPlanSummary
+    -&gt; Maybe Text -&gt; ProvisionedProductPlanSummary)
+-&gt; Lens
+     ProvisionedProductPlanSummary
+     ProvisionedProductPlanSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402089"><span class="annot"><span class="annottext">Maybe Text
+planName :: Maybe Text
+$sel:planName:ProvisionedProductPlanSummary' :: ProvisionedProductPlanSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679402089"><span class="hs-identifier hs-var hs-var">planName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402089"><span class="hs-identifier hs-var">planName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402088"><span class="annot"><span class="annottext">s :: ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679402088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402087"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679402088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:planName:ProvisionedProductPlanSummary' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanName%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">planName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679402087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The plan type.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_planType"><span class="hs-identifier hs-type">provisionedProductPlanSummary_planType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType.html#ProvisionedProductPlanType"><span class="hs-identifier hs-type">ProvisionedProductPlanType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="provisionedProductPlanSummary_planType"><span class="annot"><span class="annottext">provisionedProductPlanSummary_planType :: (Maybe ProvisionedProductPlanType
  -&gt; f (Maybe ProvisionedProductPlanType))
 -&gt; ProvisionedProductPlanSummary -&gt; f ProvisionedProductPlanSummary
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_planType"><span class="hs-identifier hs-var hs-var">provisionedProductPlanSummary_planType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedProductPlanSummary -&gt; Maybe ProvisionedProductPlanType)
@@ -290,43 +314,19 @@ $sel:planId:ProvisionedProductPlanSummary' :: ProvisionedProductPlanSummary -&gt
      (Maybe ProvisionedProductPlanType)
      (Maybe ProvisionedProductPlanType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401643"><span class="annot"><span class="annottext">Maybe ProvisionedProductPlanType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402085"><span class="annot"><span class="annottext">Maybe ProvisionedProductPlanType
 planType :: Maybe ProvisionedProductPlanType
 $sel:planType:ProvisionedProductPlanSummary' :: ProvisionedProductPlanSummary -&gt; Maybe ProvisionedProductPlanType
-</span><a href="#local-6989586621679401643"><span class="hs-identifier hs-var hs-var">planType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedProductPlanType
-</span><a href="#local-6989586621679401643"><span class="hs-identifier hs-var">planType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401642"><span class="annot"><span class="annottext">s :: ProvisionedProductPlanSummary
-</span><a href="#local-6989586621679401642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401641"><span class="annot"><span class="annottext">Maybe ProvisionedProductPlanType
-</span><a href="#local-6989586621679401641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
-</span><a href="#local-6989586621679401642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:planType:ProvisionedProductPlanSummary' :: Maybe ProvisionedProductPlanType
+</span><a href="#local-6989586621679402085"><span class="hs-identifier hs-var hs-var">planType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedProductPlanType
+</span><a href="#local-6989586621679402085"><span class="hs-identifier hs-var">planType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402084"><span class="annot"><span class="annottext">s :: ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679402084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402083"><span class="annot"><span class="annottext">Maybe ProvisionedProductPlanType
+</span><a href="#local-6989586621679402083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
+</span><a href="#local-6989586621679402084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:planType:ProvisionedProductPlanSummary' :: Maybe ProvisionedProductPlanType
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AplanType%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">planType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedProductPlanType
-</span><a href="#local-6989586621679401641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | The user-friendly name of the provisioned product.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_provisionProductName"><span class="hs-identifier hs-type">provisionedProductPlanSummary_provisionProductName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="provisionedProductPlanSummary_provisionProductName"><span class="annot"><span class="annottext">provisionedProductPlanSummary_provisionProductName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ProvisionedProductPlanSummary -&gt; f ProvisionedProductPlanSummary
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#provisionedProductPlanSummary_provisionProductName"><span class="hs-identifier hs-var hs-var">provisionedProductPlanSummary_provisionProductName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedProductPlanSummary -&gt; Maybe Text)
--&gt; (ProvisionedProductPlanSummary
-    -&gt; Maybe Text -&gt; ProvisionedProductPlanSummary)
--&gt; Lens
-     ProvisionedProductPlanSummary
-     ProvisionedProductPlanSummary
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401639"><span class="annot"><span class="annottext">Maybe Text
-provisionProductName :: Maybe Text
-$sel:provisionProductName:ProvisionedProductPlanSummary' :: ProvisionedProductPlanSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679401639"><span class="hs-identifier hs-var hs-var">provisionProductName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401639"><span class="hs-identifier hs-var">provisionProductName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401638"><span class="annot"><span class="annottext">s :: ProvisionedProductPlanSummary
-</span><a href="#local-6989586621679401638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401637"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedProductPlanSummary
-</span><a href="#local-6989586621679401638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionProductName:ProvisionedProductPlanSummary' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#%24sel%3AprovisionProductName%3AProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">provisionProductName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679402083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401634"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679401632"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProvisionedProductPlanSummary
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402080"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679402078"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProvisionedProductPlanSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProvisionedProductPlanSummary)
@@ -336,34 +336,34 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProvisionedProductPlanSummary&quot;</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679401629"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401629"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679402075"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679402075"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe ProvisionedProductPlanType
 -&gt; Maybe Text
+-&gt; Maybe ProvisionedProductPlanType
 -&gt; ProvisionedProductPlanSummary
 </span><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary%27"><span class="hs-identifier hs-var">ProvisionedProductPlanSummary'</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe ProvisionedProductPlanType
  -&gt; Maybe Text
+ -&gt; Maybe ProvisionedProductPlanType
  -&gt; ProvisionedProductPlanSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe ProvisionedProductPlanType
       -&gt; Maybe Text
+      -&gt; Maybe ProvisionedProductPlanType
       -&gt; ProvisionedProductPlanSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679402075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProvisionProductId&quot;</span></span><span class="hs-special">)</span><span>
@@ -371,79 +371,84 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe ProvisionedProductPlanType
    -&gt; Maybe Text
+   -&gt; Maybe ProvisionedProductPlanType
    -&gt; ProvisionedProductPlanSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe ProvisionedProductPlanType
       -&gt; Maybe Text
+      -&gt; Maybe ProvisionedProductPlanType
       -&gt; ProvisionedProductPlanSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679402075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProvisioningArtifactId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe ProvisionedProductPlanType
    -&gt; Maybe Text
+   -&gt; Maybe ProvisionedProductPlanType
+   -&gt; ProvisionedProductPlanSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ProvisionedProductPlanType
+      -&gt; ProvisionedProductPlanSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679402075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisionProductName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ProvisionedProductPlanType
    -&gt; ProvisionedProductPlanSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe ProvisionedProductPlanType
-      -&gt; Maybe Text
       -&gt; ProvisionedProductPlanSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PlanName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe ProvisionedProductPlanType
-   -&gt; Maybe Text
-   -&gt; ProvisionedProductPlanSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe ProvisionedProductPlanType
-      -&gt; Maybe Text -&gt; ProvisionedProductPlanSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679402075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlanId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ProvisionedProductPlanType
-   -&gt; Maybe Text -&gt; ProvisionedProductPlanSummary)
--&gt; Parser (Maybe ProvisionedProductPlanType)
--&gt; Parser (Maybe Text -&gt; ProvisionedProductPlanSummary)
+  (Maybe Text
+   -&gt; Maybe ProvisionedProductPlanType
+   -&gt; ProvisionedProductPlanSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ProvisionedProductPlanType -&gt; ProvisionedProductPlanSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProvisionedProductPlanType)
+</span><a href="#local-6989586621679402075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlanName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ProvisionedProductPlanType -&gt; ProvisionedProductPlanSummary)
+-&gt; Parser (Maybe ProvisionedProductPlanType)
+-&gt; Parser ProvisionedProductPlanSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679402075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProvisionedProductPlanType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlanType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ProvisionedProductPlanSummary)
--&gt; Parser (Maybe Text) -&gt; Parser ProvisionedProductPlanSummary
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679401629"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProvisionProductName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679401623"><span id="local-6989586621679401625"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679402069"><span id="local-6989586621679402071"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401620"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402066"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary.html#ProvisionedProductPlanSummary"><span class="hs-identifier hs-type">ProvisionedProductPlanSummary</span></a></span></span><span>
 </span><span id="line-121"></span></pre></body></html>

@@ -65,8 +65,8 @@
 </span><span id="line-65"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-identity-owner-tasks-management.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- /See:/ 'newDeleteEmailIdentityPolicy' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679346323"><span id="local-6989586621679346324"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEmailIdentityPolicy"><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy"><span class="hs-identifier hs-var">DeleteEmailIdentityPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEmailIdentityPolicy%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-var">DeleteEmailIdentityPolicy'</span></a></span></span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The email identity for which you want to delete a policy.</span><span>
+</span><span id="line-68"></span><span id="local-6989586621679348901"><span id="local-6989586621679348902"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEmailIdentityPolicy"><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy"><span class="hs-identifier hs-var">DeleteEmailIdentityPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEmailIdentityPolicy%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-var">DeleteEmailIdentityPolicy'</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The email identity.</span><span>
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AemailIdentity%3ADeleteEmailIdentityPolicy%27"><span class="annot"><span class="annottext">DeleteEmailIdentityPolicy -&gt; Text
 </span><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#%24sel%3AemailIdentity%3ADeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-var hs-var">emailIdentity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The name of the policy.</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3ApolicyName%3ADeleteEmailIdentityPolicy%27"><span class="annot"><span class="annottext">DeleteEmailIdentityPolicy -&gt; Text
 </span><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#%24sel%3ApolicyName%3ADeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346316"><span id="local-6989586621679346318"><span class="annot"><span class="annottext">DeleteEmailIdentityPolicy -&gt; DeleteEmailIdentityPolicy -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348894"><span id="local-6989586621679348896"><span class="annot"><span class="annottext">DeleteEmailIdentityPolicy -&gt; DeleteEmailIdentityPolicy -&gt; Bool
 (DeleteEmailIdentityPolicy -&gt; DeleteEmailIdentityPolicy -&gt; Bool)
 -&gt; (DeleteEmailIdentityPolicy -&gt; DeleteEmailIdentityPolicy -&gt; Bool)
 -&gt; Eq DeleteEmailIdentityPolicy
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteEmailIdentityPolicy -&gt; DeleteEmailIdentityPolicy -&gt; Bool
 == :: DeleteEmailIdentityPolicy -&gt; DeleteEmailIdentityPolicy -&gt; Bool
 $c== :: DeleteEmailIdentityPolicy -&gt; DeleteEmailIdentityPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346307"><span id="local-6989586621679346309"><span id="local-6989586621679346311"><span id="local-6989586621679346313"><span class="annot"><span class="annottext">ReadPrec [DeleteEmailIdentityPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348885"><span id="local-6989586621679348887"><span id="local-6989586621679348889"><span id="local-6989586621679348891"><span class="annot"><span class="annottext">ReadPrec [DeleteEmailIdentityPolicy]
 ReadPrec DeleteEmailIdentityPolicy
 Int -&gt; ReadS DeleteEmailIdentityPolicy
 ReadS [DeleteEmailIdentityPolicy]
@@ -105,7 +105,7 @@ readList :: ReadS [DeleteEmailIdentityPolicy]
 $creadList :: ReadS [DeleteEmailIdentityPolicy]
 readsPrec :: Int -&gt; ReadS DeleteEmailIdentityPolicy
 $creadsPrec :: Int -&gt; ReadS DeleteEmailIdentityPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346300"><span id="local-6989586621679346302"><span id="local-6989586621679346304"><span class="annot"><span class="annottext">Int -&gt; DeleteEmailIdentityPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348878"><span id="local-6989586621679348880"><span id="local-6989586621679348882"><span class="annot"><span class="annottext">Int -&gt; DeleteEmailIdentityPolicy -&gt; ShowS
 [DeleteEmailIdentityPolicy] -&gt; ShowS
 DeleteEmailIdentityPolicy -&gt; String
 (Int -&gt; DeleteEmailIdentityPolicy -&gt; ShowS)
@@ -145,7 +145,7 @@ DeleteEmailIdentityPolicy -&gt; Rep DeleteEmailIdentityPolicy x
 </span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'emailIdentity', 'deleteEmailIdentityPolicy_emailIdentity' - The email identity for which you want to delete a policy.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'emailIdentity', 'deleteEmailIdentityPolicy_emailIdentity' - The email identity.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- 'policyName', 'deleteEmailIdentityPolicy_policyName' - The name of the policy.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
@@ -159,22 +159,22 @@ DeleteEmailIdentityPolicy -&gt; Rep DeleteEmailIdentityPolicy x
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy</span></a></span><span>
 </span><span id="line-99"></span><span id="newDeleteEmailIdentityPolicy"><span class="annot"><span class="annottext">newDeleteEmailIdentityPolicy :: Text -&gt; Text -&gt; DeleteEmailIdentityPolicy
 </span><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#newDeleteEmailIdentityPolicy"><span class="hs-identifier hs-var hs-var">newDeleteEmailIdentityPolicy</span></a></span></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679346295"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346295"><span class="hs-identifier hs-var">pEmailIdentity_</span></a></span></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679346294"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346294"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679348873"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348873"><span class="hs-identifier hs-var">pEmailIdentity_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679348872"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348872"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">DeleteEmailIdentityPolicy' :: Text -&gt; Text -&gt; DeleteEmailIdentityPolicy
 </span><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy'</span></a></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:emailIdentity:DeleteEmailIdentityPolicy' :: Text
 </span><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#%24sel%3AemailIdentity%3ADeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-var">emailIdentity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346295"><span class="hs-identifier hs-var">pEmailIdentity_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679348873"><span class="hs-identifier hs-var">pEmailIdentity_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:policyName:DeleteEmailIdentityPolicy' :: Text
 </span><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#%24sel%3ApolicyName%3ADeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346294"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span>
+</span><a href="#local-6989586621679348872"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The email identity for which you want to delete a policy.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The email identity.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#deleteEmailIdentityPolicy_emailIdentity"><span class="hs-identifier hs-type">deleteEmailIdentityPolicy_emailIdentity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-110"></span><span id="deleteEmailIdentityPolicy_emailIdentity"><span class="annot"><span class="annottext">deleteEmailIdentityPolicy_emailIdentity :: (Text -&gt; f Text)
 -&gt; DeleteEmailIdentityPolicy -&gt; f DeleteEmailIdentityPolicy
@@ -183,16 +183,16 @@ DeleteEmailIdentityPolicy -&gt; Rep DeleteEmailIdentityPolicy x
 -&gt; Lens
      DeleteEmailIdentityPolicy DeleteEmailIdentityPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346291"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348869"><span class="annot"><span class="annottext">Text
 emailIdentity :: Text
 $sel:emailIdentity:DeleteEmailIdentityPolicy' :: DeleteEmailIdentityPolicy -&gt; Text
-</span><a href="#local-6989586621679346291"><span class="hs-identifier hs-var hs-var">emailIdentity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346291"><span class="hs-identifier hs-var">emailIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346290"><span class="annot"><span class="annottext">s :: DeleteEmailIdentityPolicy
-</span><a href="#local-6989586621679346290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346289"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEmailIdentityPolicy
-</span><a href="#local-6989586621679346290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailIdentity:DeleteEmailIdentityPolicy' :: Text
+</span><a href="#local-6989586621679348869"><span class="hs-identifier hs-var hs-var">emailIdentity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348869"><span class="hs-identifier hs-var">emailIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348868"><span class="annot"><span class="annottext">s :: DeleteEmailIdentityPolicy
+</span><a href="#local-6989586621679348868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348867"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEmailIdentityPolicy
+</span><a href="#local-6989586621679348868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailIdentity:DeleteEmailIdentityPolicy' :: Text
 </span><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#%24sel%3AemailIdentity%3ADeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-var">emailIdentity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The name of the policy.</span><span>
 </span><span id="line-113"></span><span class="hs-comment">--</span><span>
@@ -206,28 +206,28 @@ $sel:emailIdentity:DeleteEmailIdentityPolicy' :: DeleteEmailIdentityPolicy -&gt;
 -&gt; Lens
      DeleteEmailIdentityPolicy DeleteEmailIdentityPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346288"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348866"><span class="annot"><span class="annottext">Text
 policyName :: Text
 $sel:policyName:DeleteEmailIdentityPolicy' :: DeleteEmailIdentityPolicy -&gt; Text
-</span><a href="#local-6989586621679346288"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346288"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346287"><span class="annot"><span class="annottext">s :: DeleteEmailIdentityPolicy
-</span><a href="#local-6989586621679346287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346286"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEmailIdentityPolicy
-</span><a href="#local-6989586621679346287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:DeleteEmailIdentityPolicy' :: Text
+</span><a href="#local-6989586621679348866"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348866"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348865"><span class="annot"><span class="annottext">s :: DeleteEmailIdentityPolicy
+</span><a href="#local-6989586621679348865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348864"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEmailIdentityPolicy
+</span><a href="#local-6989586621679348865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:DeleteEmailIdentityPolicy' :: Text
 </span><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#%24sel%3ApolicyName%3ADeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicyResponse"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicyResponse</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679346282"><span class="annot"><span class="annottext">request :: DeleteEmailIdentityPolicy -&gt; Request DeleteEmailIdentityPolicy
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679348860"><span class="annot"><span class="annottext">request :: DeleteEmailIdentityPolicy -&gt; Request DeleteEmailIdentityPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeleteEmailIdentityPolicy -&gt; Request DeleteEmailIdentityPolicy
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679346278"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679348856"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteEmailIdentityPolicy
 -&gt; ClientResponse ClientBody
@@ -253,10 +253,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346275"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346275"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679346274"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679346274"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679346273"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679346273"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348853"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348853"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679348852"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679348852"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679348851"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679348851"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteEmailIdentityPolicyResponse
 </span><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-var">DeleteEmailIdentityPolicyResponse'</span></a></span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteEmailIdentityPolicyResponse)
@@ -268,15 +268,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346275"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348853"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346266"><span id="local-6989586621679346268"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy</span></a></span></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348844"><span id="local-6989586621679348846"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346263"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348841"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy</span></a></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679346259"><span class="annot"><span class="annottext">toHeaders :: DeleteEmailIdentityPolicy -&gt; ResponseHeaders
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679348837"><span class="annot"><span class="annottext">toHeaders :: DeleteEmailIdentityPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteEmailIdentityPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -296,13 +296,13 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679346253"><span class="annot"><span class="annottext">toPath :: DeleteEmailIdentityPolicy -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346250"><span id="local-6989586621679346251"><span class="annot"><span class="annottext">Text
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679348831"><span class="annot"><span class="annottext">toPath :: DeleteEmailIdentityPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy%27"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348828"><span id="local-6989586621679348829"><span class="annot"><span class="annottext">Text
 policyName :: Text
 emailIdentity :: Text
 $sel:policyName:DeleteEmailIdentityPolicy' :: DeleteEmailIdentityPolicy -&gt; Text
 $sel:emailIdentity:DeleteEmailIdentityPolicy' :: DeleteEmailIdentityPolicy -&gt; Text
-</span><a href="#local-6989586621679346250"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679348828"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -311,17 +311,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346251"><span class="hs-identifier hs-var">emailIdentity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679348829"><span class="hs-identifier hs-var">emailIdentity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/policies/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346250"><span class="hs-identifier hs-var">policyName</span></a></span><span>
+</span><a href="#local-6989586621679348828"><span class="hs-identifier hs-var">policyName</span></a></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicy"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679346246"><span class="annot"><span class="annottext">toQuery :: DeleteEmailIdentityPolicy -&gt; QueryString
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679348824"><span class="annot"><span class="annottext">toQuery :: DeleteEmailIdentityPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteEmailIdentityPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -332,12 +332,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-159"></span><span class="hs-comment">-- request fails.</span><span>
 </span><span id="line-160"></span><span class="hs-comment">--</span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- /See:/ 'newDeleteEmailIdentityPolicyResponse' smart constructor.</span><span>
-</span><span id="line-162"></span><span id="local-6989586621679346243"><span id="local-6989586621679346244"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEmailIdentityPolicyResponse"><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicyResponse"><span class="hs-identifier hs-var">DeleteEmailIdentityPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEmailIdentityPolicyResponse%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-var">DeleteEmailIdentityPolicyResponse'</span></a></span></span><span>
+</span><span id="line-162"></span><span id="local-6989586621679348821"><span id="local-6989586621679348822"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEmailIdentityPolicyResponse"><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicyResponse"><span class="hs-identifier hs-var">DeleteEmailIdentityPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEmailIdentityPolicyResponse%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-var">DeleteEmailIdentityPolicyResponse'</span></a></span></span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteEmailIdentityPolicyResponse%27"><span class="annot"><span class="annottext">DeleteEmailIdentityPolicyResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#%24sel%3AhttpStatus%3ADeleteEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346238"><span id="local-6989586621679346240"><span class="annot"><span class="annottext">DeleteEmailIdentityPolicyResponse
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348816"><span id="local-6989586621679348818"><span class="annot"><span class="annottext">DeleteEmailIdentityPolicyResponse
 -&gt; DeleteEmailIdentityPolicyResponse -&gt; Bool
 (DeleteEmailIdentityPolicyResponse
  -&gt; DeleteEmailIdentityPolicyResponse -&gt; Bool)
@@ -353,7 +353,7 @@ $c/= :: DeleteEmailIdentityPolicyResponse
 -&gt; DeleteEmailIdentityPolicyResponse -&gt; Bool
 $c== :: DeleteEmailIdentityPolicyResponse
 -&gt; DeleteEmailIdentityPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346230"><span id="local-6989586621679346232"><span id="local-6989586621679346234"><span id="local-6989586621679346236"><span class="annot"><span class="annottext">ReadPrec [DeleteEmailIdentityPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348808"><span id="local-6989586621679348810"><span id="local-6989586621679348812"><span id="local-6989586621679348814"><span class="annot"><span class="annottext">ReadPrec [DeleteEmailIdentityPolicyResponse]
 ReadPrec DeleteEmailIdentityPolicyResponse
 Int -&gt; ReadS DeleteEmailIdentityPolicyResponse
 ReadS [DeleteEmailIdentityPolicyResponse]
@@ -373,7 +373,7 @@ readList :: ReadS [DeleteEmailIdentityPolicyResponse]
 $creadList :: ReadS [DeleteEmailIdentityPolicyResponse]
 readsPrec :: Int -&gt; ReadS DeleteEmailIdentityPolicyResponse
 $creadsPrec :: Int -&gt; ReadS DeleteEmailIdentityPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346224"><span id="local-6989586621679346226"><span id="local-6989586621679346228"><span class="annot"><span class="annottext">Int -&gt; DeleteEmailIdentityPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348802"><span id="local-6989586621679348804"><span id="local-6989586621679348806"><span class="annot"><span class="annottext">Int -&gt; DeleteEmailIdentityPolicyResponse -&gt; ShowS
 [DeleteEmailIdentityPolicyResponse] -&gt; ShowS
 DeleteEmailIdentityPolicyResponse -&gt; String
 (Int -&gt; DeleteEmailIdentityPolicyResponse -&gt; ShowS)
@@ -425,14 +425,14 @@ DeleteEmailIdentityPolicyResponse
 </span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-180"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicyResponse"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicyResponse</span></a></span><span>
 </span><span id="line-181"></span><span id="newDeleteEmailIdentityPolicyResponse"><span class="annot"><span class="annottext">newDeleteEmailIdentityPolicyResponse :: Int -&gt; DeleteEmailIdentityPolicyResponse
-</span><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#newDeleteEmailIdentityPolicyResponse"><span class="hs-identifier hs-var hs-var">newDeleteEmailIdentityPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679346221"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346221"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#newDeleteEmailIdentityPolicyResponse"><span class="hs-identifier hs-var hs-var">newDeleteEmailIdentityPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679348799"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348799"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>  </span><span class="annot"><span class="annottext">DeleteEmailIdentityPolicyResponse' :: Int -&gt; DeleteEmailIdentityPolicyResponse
 </span><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicyResponse'</span></a></span><span>
 </span><span id="line-183"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteEmailIdentityPolicyResponse' :: Int
 </span><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#%24sel%3AhttpStatus%3ADeleteEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346221"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679348799"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -449,18 +449,18 @@ DeleteEmailIdentityPolicyResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346220"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348798"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteEmailIdentityPolicyResponse' :: DeleteEmailIdentityPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679346220"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346220"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346219"><span class="annot"><span class="annottext">s :: DeleteEmailIdentityPolicyResponse
-</span><a href="#local-6989586621679346219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346218"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEmailIdentityPolicyResponse
-</span><a href="#local-6989586621679346219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteEmailIdentityPolicyResponse' :: Int
+</span><a href="#local-6989586621679348798"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348798"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348797"><span class="annot"><span class="annottext">s :: DeleteEmailIdentityPolicyResponse
+</span><a href="#local-6989586621679348797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348796"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEmailIdentityPolicyResponse
+</span><a href="#local-6989586621679348797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteEmailIdentityPolicyResponse' :: Int
 </span><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#%24sel%3AhttpStatus%3ADeleteEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicyResponse"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicyResponse"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679346216"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679348794"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-193"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.DeleteEmailIdentityPolicy.html#DeleteEmailIdentityPolicyResponse"><span class="hs-identifier hs-type">DeleteEmailIdentityPolicyResponse</span></a></span></span><span>
 </span><span id="line-194"></span></pre></body></html>

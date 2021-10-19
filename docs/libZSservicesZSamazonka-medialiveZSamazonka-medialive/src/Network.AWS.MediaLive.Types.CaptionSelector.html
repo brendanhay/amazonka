@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- about where streams should be distributed.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCaptionSelector' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679917752"><span id="local-6989586621679917753"></span></span><span class="hs-keyword">data</span><span> </span><span id="CaptionSelector"><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-var">CaptionSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptionSelector%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector%27"><span class="hs-identifier hs-var">CaptionSelector'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679925263"><span id="local-6989586621679925264"></span></span><span class="hs-keyword">data</span><span> </span><span id="CaptionSelector"><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-var">CaptionSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptionSelector%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector%27"><span class="hs-identifier hs-var">CaptionSelector'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When specified this field indicates the three letter language code of</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the caption track to extract from the source.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AlanguageCode%3ACaptionSelector%27"><span class="annot"><span class="annottext">CaptionSelector -&gt; Maybe Text
@@ -42,7 +42,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Aname%3ACaptionSelector%27"><span class="annot"><span class="annottext">CaptionSelector -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#%24sel%3Aname%3ACaptionSelector%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679917744"><span id="local-6989586621679917746"><span class="annot"><span class="annottext">CaptionSelector -&gt; CaptionSelector -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679925255"><span id="local-6989586621679925257"><span class="annot"><span class="annottext">CaptionSelector -&gt; CaptionSelector -&gt; Bool
 (CaptionSelector -&gt; CaptionSelector -&gt; Bool)
 -&gt; (CaptionSelector -&gt; CaptionSelector -&gt; Bool)
 -&gt; Eq CaptionSelector
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CaptionSelector -&gt; CaptionSelector -&gt; Bool
 == :: CaptionSelector -&gt; CaptionSelector -&gt; Bool
 $c== :: CaptionSelector -&gt; CaptionSelector -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679917735"><span id="local-6989586621679917737"><span id="local-6989586621679917739"><span id="local-6989586621679917741"><span class="annot"><span class="annottext">ReadPrec [CaptionSelector]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679925246"><span id="local-6989586621679925248"><span id="local-6989586621679925250"><span id="local-6989586621679925252"><span class="annot"><span class="annottext">ReadPrec [CaptionSelector]
 ReadPrec CaptionSelector
 Int -&gt; ReadS CaptionSelector
 ReadS [CaptionSelector]
@@ -71,7 +71,7 @@ readList :: ReadS [CaptionSelector]
 $creadList :: ReadS [CaptionSelector]
 readsPrec :: Int -&gt; ReadS CaptionSelector
 $creadsPrec :: Int -&gt; ReadS CaptionSelector
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679917728"><span id="local-6989586621679917730"><span id="local-6989586621679917732"><span class="annot"><span class="annottext">Int -&gt; CaptionSelector -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679925239"><span id="local-6989586621679925241"><span id="local-6989586621679925243"><span class="annot"><span class="annottext">Int -&gt; CaptionSelector -&gt; ShowS
 [CaptionSelector] -&gt; ShowS
 CaptionSelector -&gt; String
 (Int -&gt; CaptionSelector -&gt; ShowS)
@@ -118,8 +118,8 @@ $cfrom :: forall x. CaptionSelector -&gt; Rep CaptionSelector x
 </span><span id="line-62"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-type">CaptionSelector</span></a></span><span>
 </span><span id="line-64"></span><span id="newCaptionSelector"><span class="annot"><span class="annottext">newCaptionSelector :: Text -&gt; CaptionSelector
-</span><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#newCaptionSelector"><span class="hs-identifier hs-var hs-var">newCaptionSelector</span></a></span></span><span> </span><span id="local-6989586621679917722"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679917722"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#newCaptionSelector"><span class="hs-identifier hs-var hs-var">newCaptionSelector</span></a></span></span><span> </span><span id="local-6989586621679925233"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679925233"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">CaptionSelector' :: Maybe Text
 -&gt; Maybe CaptionSelectorSettings -&gt; Text -&gt; CaptionSelector
 </span><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector%27"><span class="hs-identifier hs-type">CaptionSelector'</span></a></span><span>
@@ -133,7 +133,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CaptionSelector' :: Text
 </span><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#%24sel%3Aname%3ACaptionSelector%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679917722"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679925233"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | When specified this field indicates the three letter language code of</span><span>
@@ -145,16 +145,16 @@ forall a. Maybe a
 -&gt; (CaptionSelector -&gt; Maybe Text -&gt; CaptionSelector)
 -&gt; Lens CaptionSelector CaptionSelector (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector%27"><span class="hs-identifier hs-type">CaptionSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679917718"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector%27"><span class="hs-identifier hs-type">CaptionSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925229"><span class="annot"><span class="annottext">Maybe Text
 languageCode :: Maybe Text
 $sel:languageCode:CaptionSelector' :: CaptionSelector -&gt; Maybe Text
-</span><a href="#local-6989586621679917718"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679917718"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679917717"><span class="annot"><span class="annottext">s :: CaptionSelector
-</span><a href="#local-6989586621679917717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector%27"><span class="hs-identifier hs-type">CaptionSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679917716"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679917716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSelector
-</span><a href="#local-6989586621679917717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:CaptionSelector' :: Maybe Text
+</span><a href="#local-6989586621679925229"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679925229"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925228"><span class="annot"><span class="annottext">s :: CaptionSelector
+</span><a href="#local-6989586621679925228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector%27"><span class="hs-identifier hs-type">CaptionSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925227"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679925227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSelector
+</span><a href="#local-6989586621679925228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:CaptionSelector' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#%24sel%3AlanguageCode%3ACaptionSelector%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679917716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-type">CaptionSelector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679925227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-type">CaptionSelector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | Caption selector settings.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#captionSelector_selectorSettings"><span class="hs-identifier hs-type">captionSelector_selectorSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-type">CaptionSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelectorSettings.html#CaptionSelectorSettings"><span class="hs-identifier hs-type">CaptionSelectorSettings</span></a></span><span class="hs-special">)</span><span>
@@ -170,16 +170,16 @@ $sel:languageCode:CaptionSelector' :: CaptionSelector -&gt; Maybe Text
      (Maybe CaptionSelectorSettings)
      (Maybe CaptionSelectorSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector%27"><span class="hs-identifier hs-type">CaptionSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679917714"><span class="annot"><span class="annottext">Maybe CaptionSelectorSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector%27"><span class="hs-identifier hs-type">CaptionSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925225"><span class="annot"><span class="annottext">Maybe CaptionSelectorSettings
 selectorSettings :: Maybe CaptionSelectorSettings
 $sel:selectorSettings:CaptionSelector' :: CaptionSelector -&gt; Maybe CaptionSelectorSettings
-</span><a href="#local-6989586621679917714"><span class="hs-identifier hs-var hs-var">selectorSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CaptionSelectorSettings
-</span><a href="#local-6989586621679917714"><span class="hs-identifier hs-var">selectorSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679917713"><span class="annot"><span class="annottext">s :: CaptionSelector
-</span><a href="#local-6989586621679917713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector%27"><span class="hs-identifier hs-type">CaptionSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679917712"><span class="annot"><span class="annottext">Maybe CaptionSelectorSettings
-</span><a href="#local-6989586621679917712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSelector
-</span><a href="#local-6989586621679917713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectorSettings:CaptionSelector' :: Maybe CaptionSelectorSettings
+</span><a href="#local-6989586621679925225"><span class="hs-identifier hs-var hs-var">selectorSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CaptionSelectorSettings
+</span><a href="#local-6989586621679925225"><span class="hs-identifier hs-var">selectorSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925224"><span class="annot"><span class="annottext">s :: CaptionSelector
+</span><a href="#local-6989586621679925224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector%27"><span class="hs-identifier hs-type">CaptionSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925223"><span class="annot"><span class="annottext">Maybe CaptionSelectorSettings
+</span><a href="#local-6989586621679925223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSelector
+</span><a href="#local-6989586621679925224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectorSettings:CaptionSelector' :: Maybe CaptionSelectorSettings
 </span><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#%24sel%3AselectorSettings%3ACaptionSelector%27"><span class="hs-identifier hs-var">selectorSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CaptionSelectorSettings
-</span><a href="#local-6989586621679917712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-type">CaptionSelector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679925223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-type">CaptionSelector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Name identifier for a caption selector. This name is used to associate</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- this caption selector with one or more caption descriptions. Names must</span><span>
@@ -190,19 +190,19 @@ $sel:selectorSettings:CaptionSelector' :: CaptionSelector -&gt; Maybe CaptionSel
 -&gt; (CaptionSelector -&gt; Text -&gt; CaptionSelector)
 -&gt; Lens CaptionSelector CaptionSelector Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector%27"><span class="hs-identifier hs-type">CaptionSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679917710"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector%27"><span class="hs-identifier hs-type">CaptionSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925221"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CaptionSelector' :: CaptionSelector -&gt; Text
-</span><a href="#local-6989586621679917710"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679917710"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679917709"><span class="annot"><span class="annottext">s :: CaptionSelector
-</span><a href="#local-6989586621679917709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector%27"><span class="hs-identifier hs-type">CaptionSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679917708"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679917708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSelector
-</span><a href="#local-6989586621679917709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CaptionSelector' :: Text
+</span><a href="#local-6989586621679925221"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679925221"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679925220"><span class="annot"><span class="annottext">s :: CaptionSelector
+</span><a href="#local-6989586621679925220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector%27"><span class="hs-identifier hs-type">CaptionSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679925219"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679925219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaptionSelector
+</span><a href="#local-6989586621679925220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CaptionSelector' :: Text
 </span><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#%24sel%3Aname%3ACaptionSelector%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679917708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-type">CaptionSelector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679925219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-type">CaptionSelector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679917705"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-type">CaptionSelector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679917703"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CaptionSelector
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925216"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-type">CaptionSelector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679925214"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CaptionSelector
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CaptionSelector)
@@ -212,8 +212,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CaptionSelector&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679917700"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679917700"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679925211"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679925211"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe CaptionSelectorSettings -&gt; Text -&gt; CaptionSelector
 </span><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector%27"><span class="hs-identifier hs-var">CaptionSelector'</span></a></span><span>
@@ -224,7 +224,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe CaptionSelectorSettings -&gt; Text -&gt; CaptionSelector)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679917700"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679925211"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;languageCode&quot;</span></span><span class="hs-special">)</span><span>
@@ -233,7 +233,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; CaptionSelector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679917700"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CaptionSelectorSettings)
+</span><a href="#local-6989586621679925211"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CaptionSelectorSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;selectorSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -241,19 +241,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser CaptionSelector
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679917700"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679925211"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679917693"><span id="local-6989586621679917695"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-type">CaptionSelector</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925204"><span id="local-6989586621679925206"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-type">CaptionSelector</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679917690"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-type">CaptionSelector</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925201"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-type">CaptionSelector</span></a></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679917682"><span id="local-6989586621679917684"><span id="local-6989586621679917686"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-type">CaptionSelector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679917680"><span class="annot"><span class="annottext">toJSON :: CaptionSelector -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector%27"><span class="hs-identifier hs-type">CaptionSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679917676"><span id="local-6989586621679917677"><span id="local-6989586621679917678"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679925193"><span id="local-6989586621679925195"><span id="local-6989586621679925197"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector"><span class="hs-identifier hs-type">CaptionSelector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679925191"><span class="annot"><span class="annottext">toJSON :: CaptionSelector -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.CaptionSelector.html#CaptionSelector%27"><span class="hs-identifier hs-type">CaptionSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679925187"><span id="local-6989586621679925188"><span id="local-6989586621679925189"><span class="annot"><span class="annottext">Maybe Text
 Maybe CaptionSelectorSettings
 Text
 name :: Text
@@ -262,7 +262,7 @@ languageCode :: Maybe Text
 $sel:name:CaptionSelector' :: CaptionSelector -&gt; Text
 $sel:selectorSettings:CaptionSelector' :: CaptionSelector -&gt; Maybe CaptionSelectorSettings
 $sel:languageCode:CaptionSelector' :: CaptionSelector -&gt; Maybe Text
-</span><a href="#local-6989586621679917676"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679925187"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -274,7 +274,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679917678"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679925189"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;selectorSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CaptionSelectorSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -283,14 +283,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe CaptionSelectorSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CaptionSelectorSettings
-</span><a href="#local-6989586621679917677"><span class="hs-identifier hs-var">selectorSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679925188"><span class="hs-identifier hs-var">selectorSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679917676"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679925187"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span></pre></body></html>

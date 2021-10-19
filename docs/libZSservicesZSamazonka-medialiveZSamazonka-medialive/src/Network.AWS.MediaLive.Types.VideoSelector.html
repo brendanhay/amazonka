@@ -31,21 +31,21 @@
 </span><span id="line-31"></span><span class="hs-comment">-- have only a single video selector.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newVideoSelector' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679923502"><span id="local-6989586621679923503"></span></span><span class="hs-keyword">data</span><span> </span><span id="VideoSelector"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-var">VideoSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoSelector%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-var">VideoSelector'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Applies only if colorSpace is a value other than follow. This field</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- controls how the value in the colorSpace field will be used. fallback</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- means that when the input does include color space data, that data will</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- be used, but when the input has no color space data, the value in</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- colorSpace will be used. Choose fallback if your input is sometimes</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- missing color space data, but when it does have color space data, that</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- data is correct. force means to always use the value in colorSpace.</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Choose force if your input usually has no color space data or might have</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- unreliable color space data.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcolorSpaceUsage%3AVideoSelector%27"><span class="annot"><span class="annottext">VideoSelector -&gt; Maybe VideoSelectorColorSpaceUsage
-</span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#%24sel%3AcolorSpaceUsage%3AVideoSelector%27"><span class="hs-identifier hs-var hs-var">colorSpaceUsage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceUsage.html#VideoSelectorColorSpaceUsage"><span class="hs-identifier hs-type">VideoSelectorColorSpaceUsage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The video selector settings.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AselectorSettings%3AVideoSelector%27"><span class="annot"><span class="annottext">VideoSelector -&gt; Maybe VideoSelectorSettings
+</span><span id="line-34"></span><span id="local-6989586621679931017"><span id="local-6989586621679931018"></span></span><span class="hs-keyword">data</span><span> </span><span id="VideoSelector"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-var">VideoSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoSelector%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-var">VideoSelector'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The video selector settings.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AselectorSettings%3AVideoSelector%27"><span class="annot"><span class="annottext">VideoSelector -&gt; Maybe VideoSelectorSettings
 </span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#%24sel%3AselectorSettings%3AVideoSelector%27"><span class="hs-identifier hs-var hs-var">selectorSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Applies only if colorSpace is a value other than follow. This field</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- controls how the value in the colorSpace field will be used. fallback</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- means that when the input does include color space data, that data will</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- be used, but when the input has no color space data, the value in</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- colorSpace will be used. Choose fallback if your input is sometimes</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- missing color space data, but when it does have color space data, that</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- data is correct. force means to always use the value in colorSpace.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- Choose force if your input usually has no color space data or might have</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- unreliable color space data.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AcolorSpaceUsage%3AVideoSelector%27"><span class="annot"><span class="annottext">VideoSelector -&gt; Maybe VideoSelectorColorSpaceUsage
+</span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#%24sel%3AcolorSpaceUsage%3AVideoSelector%27"><span class="hs-identifier hs-var hs-var">colorSpaceUsage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceUsage.html#VideoSelectorColorSpaceUsage"><span class="hs-identifier hs-type">VideoSelectorColorSpaceUsage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Color space settings</span><span>
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AcolorSpaceSettings%3AVideoSelector%27"><span class="annot"><span class="annottext">VideoSelector -&gt; Maybe VideoSelectorColorSpaceSettings
 </span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#%24sel%3AcolorSpaceSettings%3AVideoSelector%27"><span class="hs-identifier hs-var hs-var">colorSpaceSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings"><span class="hs-identifier hs-type">VideoSelectorColorSpaceSettings</span></a></span><span class="hs-special">,</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AcolorSpace%3AVideoSelector%27"><span class="annot"><span class="annottext">VideoSelector -&gt; Maybe VideoSelectorColorSpace
 </span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#%24sel%3AcolorSpace%3AVideoSelector%27"><span class="hs-identifier hs-var hs-var">colorSpace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpace.html#VideoSelectorColorSpace"><span class="hs-identifier hs-type">VideoSelectorColorSpace</span></a></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679923493"><span id="local-6989586621679923495"><span class="annot"><span class="annottext">VideoSelector -&gt; VideoSelector -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679931008"><span id="local-6989586621679931010"><span class="annot"><span class="annottext">VideoSelector -&gt; VideoSelector -&gt; Bool
 (VideoSelector -&gt; VideoSelector -&gt; Bool)
 -&gt; (VideoSelector -&gt; VideoSelector -&gt; Bool) -&gt; Eq VideoSelector
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VideoSelector -&gt; VideoSelector -&gt; Bool
 == :: VideoSelector -&gt; VideoSelector -&gt; Bool
 $c== :: VideoSelector -&gt; VideoSelector -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679923484"><span id="local-6989586621679923486"><span id="local-6989586621679923488"><span id="local-6989586621679923490"><span class="annot"><span class="annottext">ReadPrec [VideoSelector]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679930999"><span id="local-6989586621679931001"><span id="local-6989586621679931003"><span id="local-6989586621679931005"><span class="annot"><span class="annottext">ReadPrec [VideoSelector]
 ReadPrec VideoSelector
 Int -&gt; ReadS VideoSelector
 ReadS [VideoSelector]
@@ -83,7 +83,7 @@ readList :: ReadS [VideoSelector]
 $creadList :: ReadS [VideoSelector]
 readsPrec :: Int -&gt; ReadS VideoSelector
 $creadsPrec :: Int -&gt; ReadS VideoSelector
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679923477"><span id="local-6989586621679923479"><span id="local-6989586621679923481"><span class="annot"><span class="annottext">Int -&gt; VideoSelector -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679930992"><span id="local-6989586621679930994"><span id="local-6989586621679930996"><span class="annot"><span class="annottext">Int -&gt; VideoSelector -&gt; ShowS
 [VideoSelector] -&gt; ShowS
 VideoSelector -&gt; String
 (Int -&gt; VideoSelector -&gt; ShowS)
@@ -117,17 +117,17 @@ $cfrom :: forall x. VideoSelector -&gt; Rep VideoSelector x
 </span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'colorSpaceUsage', 'videoSelector_colorSpaceUsage' - Applies only if colorSpace is a value other than follow. This field</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- controls how the value in the colorSpace field will be used. fallback</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- means that when the input does include color space data, that data will</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- be used, but when the input has no color space data, the value in</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- colorSpace will be used. Choose fallback if your input is sometimes</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- missing color space data, but when it does have color space data, that</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- data is correct. force means to always use the value in colorSpace.</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- Choose force if your input usually has no color space data or might have</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- unreliable color space data.</span><span>
-</span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'selectorSettings', 'videoSelector_selectorSettings' - The video selector settings.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'selectorSettings', 'videoSelector_selectorSettings' - The video selector settings.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'colorSpaceUsage', 'videoSelector_colorSpaceUsage' - Applies only if colorSpace is a value other than follow. This field</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- controls how the value in the colorSpace field will be used. fallback</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- means that when the input does include color space data, that data will</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- be used, but when the input has no color space data, the value in</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- colorSpace will be used. Choose fallback if your input is sometimes</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- missing color space data, but when it does have color space data, that</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- data is correct. force means to always use the value in colorSpace.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Choose force if your input usually has no color space data or might have</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- unreliable color space data.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- 'colorSpaceSettings', 'videoSelector_colorSpaceSettings' - Color space settings</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
@@ -138,18 +138,18 @@ $cfrom :: forall x. VideoSelector -&gt; Rep VideoSelector x
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span>
 </span><span id="line-83"></span><span id="newVideoSelector"><span class="annot"><span class="annottext">newVideoSelector :: VideoSelector
 </span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#newVideoSelector"><span class="hs-identifier hs-var hs-var">newVideoSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">VideoSelector' :: Maybe VideoSelectorColorSpaceUsage
--&gt; Maybe VideoSelectorSettings
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">VideoSelector' :: Maybe VideoSelectorSettings
+-&gt; Maybe VideoSelectorColorSpaceUsage
 -&gt; Maybe VideoSelectorColorSpaceSettings
 -&gt; Maybe VideoSelectorColorSpace
 -&gt; VideoSelector
 </span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:colorSpaceUsage:VideoSelector' :: Maybe VideoSelectorColorSpaceUsage
-</span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#%24sel%3AcolorSpaceUsage%3AVideoSelector%27"><span class="hs-identifier hs-var">colorSpaceUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceUsage
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:selectorSettings:VideoSelector' :: Maybe VideoSelectorSettings
+</span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#%24sel%3AselectorSettings%3AVideoSelector%27"><span class="hs-identifier hs-var">selectorSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorSettings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:selectorSettings:VideoSelector' :: Maybe VideoSelectorSettings
-</span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#%24sel%3AselectorSettings%3AVideoSelector%27"><span class="hs-identifier hs-var">selectorSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorSettings
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:colorSpaceUsage:VideoSelector' :: Maybe VideoSelectorColorSpaceUsage
+</span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#%24sel%3AcolorSpaceUsage%3AVideoSelector%27"><span class="hs-identifier hs-var">colorSpaceUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceUsage
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:colorSpaceSettings:VideoSelector' :: Maybe VideoSelectorColorSpaceSettings
@@ -162,17 +162,40 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | Applies only if colorSpace is a value other than follow. This field</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- controls how the value in the colorSpace field will be used. fallback</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- means that when the input does include color space data, that data will</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- be used, but when the input has no color space data, the value in</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- colorSpace will be used. Choose fallback if your input is sometimes</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- missing color space data, but when it does have color space data, that</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- data is correct. force means to always use the value in colorSpace.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- Choose force if your input usually has no color space data or might have</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- unreliable color space data.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#videoSelector_colorSpaceUsage"><span class="hs-identifier hs-type">videoSelector_colorSpaceUsage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceUsage.html#VideoSelectorColorSpaceUsage"><span class="hs-identifier hs-type">VideoSelectorColorSpaceUsage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="videoSelector_colorSpaceUsage"><span class="annot"><span class="annottext">videoSelector_colorSpaceUsage :: (Maybe VideoSelectorColorSpaceUsage
+</span><span id="line-91"></span><span class="hs-comment">-- | The video selector settings.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#videoSelector_selectorSettings"><span class="hs-identifier hs-type">videoSelector_selectorSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="videoSelector_selectorSettings"><span class="annot"><span class="annottext">videoSelector_selectorSettings :: (Maybe VideoSelectorSettings -&gt; f (Maybe VideoSelectorSettings))
+-&gt; VideoSelector -&gt; f VideoSelector
+</span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#videoSelector_selectorSettings"><span class="hs-identifier hs-var hs-var">videoSelector_selectorSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoSelector -&gt; Maybe VideoSelectorSettings)
+-&gt; (VideoSelector -&gt; Maybe VideoSelectorSettings -&gt; VideoSelector)
+-&gt; Lens
+     VideoSelector
+     VideoSelector
+     (Maybe VideoSelectorSettings)
+     (Maybe VideoSelectorSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679930983"><span class="annot"><span class="annottext">Maybe VideoSelectorSettings
+selectorSettings :: Maybe VideoSelectorSettings
+$sel:selectorSettings:VideoSelector' :: VideoSelector -&gt; Maybe VideoSelectorSettings
+</span><a href="#local-6989586621679930983"><span class="hs-identifier hs-var hs-var">selectorSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorSettings
+</span><a href="#local-6989586621679930983"><span class="hs-identifier hs-var">selectorSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679930982"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621679930982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679930981"><span class="annot"><span class="annottext">Maybe VideoSelectorSettings
+</span><a href="#local-6989586621679930981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621679930982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectorSettings:VideoSelector' :: Maybe VideoSelectorSettings
+</span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#%24sel%3AselectorSettings%3AVideoSelector%27"><span class="hs-identifier hs-var">selectorSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorSettings
+</span><a href="#local-6989586621679930981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | Applies only if colorSpace is a value other than follow. This field</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- controls how the value in the colorSpace field will be used. fallback</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- means that when the input does include color space data, that data will</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- be used, but when the input has no color space data, the value in</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- colorSpace will be used. Choose fallback if your input is sometimes</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- missing color space data, but when it does have color space data, that</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- data is correct. force means to always use the value in colorSpace.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Choose force if your input usually has no color space data or might have</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- unreliable color space data.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#videoSelector_colorSpaceUsage"><span class="hs-identifier hs-type">videoSelector_colorSpaceUsage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceUsage.html#VideoSelectorColorSpaceUsage"><span class="hs-identifier hs-type">VideoSelectorColorSpaceUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="videoSelector_colorSpaceUsage"><span class="annot"><span class="annottext">videoSelector_colorSpaceUsage :: (Maybe VideoSelectorColorSpaceUsage
  -&gt; f (Maybe VideoSelectorColorSpaceUsage))
 -&gt; VideoSelector -&gt; f VideoSelector
 </span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#videoSelector_colorSpaceUsage"><span class="hs-identifier hs-var hs-var">videoSelector_colorSpaceUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoSelector -&gt; Maybe VideoSelectorColorSpaceUsage)
@@ -184,39 +207,16 @@ forall a. Maybe a
      (Maybe VideoSelectorColorSpaceUsage)
      (Maybe VideoSelectorColorSpaceUsage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923468"><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceUsage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679930979"><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceUsage
 colorSpaceUsage :: Maybe VideoSelectorColorSpaceUsage
 $sel:colorSpaceUsage:VideoSelector' :: VideoSelector -&gt; Maybe VideoSelectorColorSpaceUsage
-</span><a href="#local-6989586621679923468"><span class="hs-identifier hs-var hs-var">colorSpaceUsage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceUsage
-</span><a href="#local-6989586621679923468"><span class="hs-identifier hs-var">colorSpaceUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923467"><span class="annot"><span class="annottext">s :: VideoSelector
-</span><a href="#local-6989586621679923467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923466"><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceUsage
-</span><a href="#local-6989586621679923466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
-</span><a href="#local-6989586621679923467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorSpaceUsage:VideoSelector' :: Maybe VideoSelectorColorSpaceUsage
+</span><a href="#local-6989586621679930979"><span class="hs-identifier hs-var hs-var">colorSpaceUsage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceUsage
+</span><a href="#local-6989586621679930979"><span class="hs-identifier hs-var">colorSpaceUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679930978"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621679930978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679930977"><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceUsage
+</span><a href="#local-6989586621679930977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621679930978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorSpaceUsage:VideoSelector' :: Maybe VideoSelectorColorSpaceUsage
 </span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#%24sel%3AcolorSpaceUsage%3AVideoSelector%27"><span class="hs-identifier hs-var">colorSpaceUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceUsage
-</span><a href="#local-6989586621679923466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | The video selector settings.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#videoSelector_selectorSettings"><span class="hs-identifier hs-type">videoSelector_selectorSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorSettings.html#VideoSelectorSettings"><span class="hs-identifier hs-type">VideoSelectorSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="videoSelector_selectorSettings"><span class="annot"><span class="annottext">videoSelector_selectorSettings :: (Maybe VideoSelectorSettings -&gt; f (Maybe VideoSelectorSettings))
--&gt; VideoSelector -&gt; f VideoSelector
-</span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#videoSelector_selectorSettings"><span class="hs-identifier hs-var hs-var">videoSelector_selectorSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoSelector -&gt; Maybe VideoSelectorSettings)
--&gt; (VideoSelector -&gt; Maybe VideoSelectorSettings -&gt; VideoSelector)
--&gt; Lens
-     VideoSelector
-     VideoSelector
-     (Maybe VideoSelectorSettings)
-     (Maybe VideoSelectorSettings)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923464"><span class="annot"><span class="annottext">Maybe VideoSelectorSettings
-selectorSettings :: Maybe VideoSelectorSettings
-$sel:selectorSettings:VideoSelector' :: VideoSelector -&gt; Maybe VideoSelectorSettings
-</span><a href="#local-6989586621679923464"><span class="hs-identifier hs-var hs-var">selectorSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorSettings
-</span><a href="#local-6989586621679923464"><span class="hs-identifier hs-var">selectorSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923463"><span class="annot"><span class="annottext">s :: VideoSelector
-</span><a href="#local-6989586621679923463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923462"><span class="annot"><span class="annottext">Maybe VideoSelectorSettings
-</span><a href="#local-6989586621679923462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
-</span><a href="#local-6989586621679923463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectorSettings:VideoSelector' :: Maybe VideoSelectorSettings
-</span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#%24sel%3AselectorSettings%3AVideoSelector%27"><span class="hs-identifier hs-var">selectorSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorSettings
-</span><a href="#local-6989586621679923462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679930977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- | Color space settings</span><span>
 </span><span id="line-108"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#videoSelector_colorSpaceSettings"><span class="hs-identifier hs-type">videoSelector_colorSpaceSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings.html#VideoSelectorColorSpaceSettings"><span class="hs-identifier hs-type">VideoSelectorColorSpaceSettings</span></a></span><span class="hs-special">)</span><span>
@@ -232,16 +232,16 @@ $sel:selectorSettings:VideoSelector' :: VideoSelector -&gt; Maybe VideoSelectorS
      (Maybe VideoSelectorColorSpaceSettings)
      (Maybe VideoSelectorColorSpaceSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923460"><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679930975"><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceSettings
 colorSpaceSettings :: Maybe VideoSelectorColorSpaceSettings
 $sel:colorSpaceSettings:VideoSelector' :: VideoSelector -&gt; Maybe VideoSelectorColorSpaceSettings
-</span><a href="#local-6989586621679923460"><span class="hs-identifier hs-var hs-var">colorSpaceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceSettings
-</span><a href="#local-6989586621679923460"><span class="hs-identifier hs-var">colorSpaceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923459"><span class="annot"><span class="annottext">s :: VideoSelector
-</span><a href="#local-6989586621679923459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923458"><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceSettings
-</span><a href="#local-6989586621679923458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
-</span><a href="#local-6989586621679923459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorSpaceSettings:VideoSelector' :: Maybe VideoSelectorColorSpaceSettings
+</span><a href="#local-6989586621679930975"><span class="hs-identifier hs-var hs-var">colorSpaceSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceSettings
+</span><a href="#local-6989586621679930975"><span class="hs-identifier hs-var">colorSpaceSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679930974"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621679930974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679930973"><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceSettings
+</span><a href="#local-6989586621679930973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621679930974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorSpaceSettings:VideoSelector' :: Maybe VideoSelectorColorSpaceSettings
 </span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#%24sel%3AcolorSpaceSettings%3AVideoSelector%27"><span class="hs-identifier hs-var">colorSpaceSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceSettings
-</span><a href="#local-6989586621679923458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679930973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | Specifies the color space of an input. This setting works in tandem with</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- colorSpaceUsage and a video description\'s colorSpaceSettingsChoice to</span><span>
@@ -259,19 +259,19 @@ $sel:colorSpaceSettings:VideoSelector' :: VideoSelector -&gt; Maybe VideoSelecto
      (Maybe VideoSelectorColorSpace)
      (Maybe VideoSelectorColorSpace)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923456"><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpace
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679930971"><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpace
 colorSpace :: Maybe VideoSelectorColorSpace
 $sel:colorSpace:VideoSelector' :: VideoSelector -&gt; Maybe VideoSelectorColorSpace
-</span><a href="#local-6989586621679923456"><span class="hs-identifier hs-var hs-var">colorSpace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpace
-</span><a href="#local-6989586621679923456"><span class="hs-identifier hs-var">colorSpace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679923455"><span class="annot"><span class="annottext">s :: VideoSelector
-</span><a href="#local-6989586621679923455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679923454"><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpace
-</span><a href="#local-6989586621679923454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
-</span><a href="#local-6989586621679923455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorSpace:VideoSelector' :: Maybe VideoSelectorColorSpace
+</span><a href="#local-6989586621679930971"><span class="hs-identifier hs-var hs-var">colorSpace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpace
+</span><a href="#local-6989586621679930971"><span class="hs-identifier hs-var">colorSpace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679930970"><span class="annot"><span class="annottext">s :: VideoSelector
+</span><a href="#local-6989586621679930970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679930969"><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpace
+</span><a href="#local-6989586621679930969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoSelector
+</span><a href="#local-6989586621679930970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:colorSpace:VideoSelector' :: Maybe VideoSelectorColorSpace
 </span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#%24sel%3AcolorSpace%3AVideoSelector%27"><span class="hs-identifier hs-var">colorSpace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpace
-</span><a href="#local-6989586621679923454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679930969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923451"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679923449"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VideoSelector
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679930966"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679930964"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VideoSelector
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser VideoSelector)
@@ -281,46 +281,46 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;VideoSelector&quot;</span></span><span>
-</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679923446"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679923446"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceUsage
--&gt; Maybe VideoSelectorSettings
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679930961"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679930961"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe VideoSelectorSettings
+-&gt; Maybe VideoSelectorColorSpaceUsage
 -&gt; Maybe VideoSelectorColorSpaceSettings
 -&gt; Maybe VideoSelectorColorSpace
 -&gt; VideoSelector
 </span><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-var">VideoSelector'</span></a></span><span>
-</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VideoSelectorColorSpaceUsage
- -&gt; Maybe VideoSelectorSettings
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VideoSelectorSettings
+ -&gt; Maybe VideoSelectorColorSpaceUsage
  -&gt; Maybe VideoSelectorColorSpaceSettings
  -&gt; Maybe VideoSelectorColorSpace
  -&gt; VideoSelector)
--&gt; Parser (Maybe VideoSelectorColorSpaceUsage)
+-&gt; Parser (Maybe VideoSelectorSettings)
 -&gt; Parser
-     (Maybe VideoSelectorSettings
+     (Maybe VideoSelectorColorSpaceUsage
       -&gt; Maybe VideoSelectorColorSpaceSettings
       -&gt; Maybe VideoSelectorColorSpace
       -&gt; VideoSelector)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679923446"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VideoSelectorColorSpaceUsage)
+</span><a href="#local-6989586621679930961"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VideoSelectorSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;colorSpaceUsage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;selectorSettings&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe VideoSelectorSettings
+  (Maybe VideoSelectorColorSpaceUsage
    -&gt; Maybe VideoSelectorColorSpaceSettings
    -&gt; Maybe VideoSelectorColorSpace
    -&gt; VideoSelector)
--&gt; Parser (Maybe VideoSelectorSettings)
+-&gt; Parser (Maybe VideoSelectorColorSpaceUsage)
 -&gt; Parser
      (Maybe VideoSelectorColorSpaceSettings
       -&gt; Maybe VideoSelectorColorSpace -&gt; VideoSelector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679923446"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VideoSelectorSettings)
+</span><a href="#local-6989586621679930961"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VideoSelectorColorSpaceUsage)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;selectorSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;colorSpaceUsage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe VideoSelectorColorSpaceSettings
    -&gt; Maybe VideoSelectorColorSpace -&gt; VideoSelector)
@@ -328,7 +328,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe VideoSelectorColorSpace -&gt; VideoSelector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679923446"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VideoSelectorColorSpaceSettings)
+</span><a href="#local-6989586621679930961"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VideoSelectorColorSpaceSettings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;colorSpaceSettings&quot;</span></span><span class="hs-special">)</span><span>
@@ -336,54 +336,54 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe VideoSelectorColorSpace) -&gt; Parser VideoSelector
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679923446"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VideoSelectorColorSpace)
+</span><a href="#local-6989586621679930961"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VideoSelectorColorSpace)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;colorSpace&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923440"><span id="local-6989586621679923442"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679930955"><span id="local-6989586621679930957"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923437"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679930952"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679923429"><span id="local-6989586621679923431"><span id="local-6989586621679923433"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679923427"><span class="annot"><span class="annottext">toJSON :: VideoSelector -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679923422"><span id="local-6989586621679923423"><span id="local-6989586621679923424"><span id="local-6989586621679923425"><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpace
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679930944"><span id="local-6989586621679930946"><span id="local-6989586621679930948"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector"><span class="hs-identifier hs-type">VideoSelector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679930942"><span class="annot"><span class="annottext">toJSON :: VideoSelector -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.VideoSelector.html#VideoSelector%27"><span class="hs-identifier hs-type">VideoSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679930937"><span id="local-6989586621679930938"><span id="local-6989586621679930939"><span id="local-6989586621679930940"><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpace
 Maybe VideoSelectorColorSpaceSettings
 Maybe VideoSelectorColorSpaceUsage
 Maybe VideoSelectorSettings
 colorSpace :: Maybe VideoSelectorColorSpace
 colorSpaceSettings :: Maybe VideoSelectorColorSpaceSettings
-selectorSettings :: Maybe VideoSelectorSettings
 colorSpaceUsage :: Maybe VideoSelectorColorSpaceUsage
+selectorSettings :: Maybe VideoSelectorSettings
 $sel:colorSpace:VideoSelector' :: VideoSelector -&gt; Maybe VideoSelectorColorSpace
 $sel:colorSpaceSettings:VideoSelector' :: VideoSelector -&gt; Maybe VideoSelectorColorSpaceSettings
-$sel:selectorSettings:VideoSelector' :: VideoSelector -&gt; Maybe VideoSelectorSettings
 $sel:colorSpaceUsage:VideoSelector' :: VideoSelector -&gt; Maybe VideoSelectorColorSpaceUsage
-</span><a href="#local-6989586621679923422"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:selectorSettings:VideoSelector' :: VideoSelector -&gt; Maybe VideoSelectorSettings
+</span><a href="#local-6989586621679930937"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;colorSpaceUsage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VideoSelectorColorSpaceUsage -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">(VideoSelectorColorSpaceUsage -&gt; Pair)
--&gt; Maybe VideoSelectorColorSpaceUsage -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceUsage
-</span><a href="#local-6989586621679923425"><span class="hs-identifier hs-var">colorSpaceUsage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;selectorSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VideoSelectorSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">(VideoSelectorSettings -&gt; Pair)
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">(VideoSelectorSettings -&gt; Pair)
 -&gt; Maybe VideoSelectorSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorSettings
-</span><a href="#local-6989586621679923424"><span class="hs-identifier hs-var">selectorSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679930940"><span class="hs-identifier hs-var">selectorSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;colorSpaceUsage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VideoSelectorColorSpaceUsage -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">(VideoSelectorColorSpaceUsage -&gt; Pair)
+-&gt; Maybe VideoSelectorColorSpaceUsage -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceUsage
+</span><a href="#local-6989586621679930939"><span class="hs-identifier hs-var">colorSpaceUsage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;colorSpaceSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VideoSelectorColorSpaceSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -392,7 +392,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe VideoSelectorColorSpaceSettings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpaceSettings
-</span><a href="#local-6989586621679923423"><span class="hs-identifier hs-var">colorSpaceSettings</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679930938"><span class="hs-identifier hs-var">colorSpaceSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;colorSpace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VideoSelectorColorSpace -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -400,7 +400,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe VideoSelectorColorSpace -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VideoSelectorColorSpace
-</span><a href="#local-6989586621679923422"><span class="hs-identifier hs-var">colorSpace</span></a></span><span>
+</span><a href="#local-6989586621679930937"><span class="hs-identifier hs-var">colorSpace</span></a></span><span>
 </span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span></pre></body></html>

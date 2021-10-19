@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621680288458"><span id="local-6989586621680288459"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AppSortKey"><span class="annot"><a href="Network.AWS.SageMaker.Types.AppSortKey.html#AppSortKey"><span class="hs-identifier hs-var">AppSortKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AppSortKey%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AppSortKey.html#AppSortKey%27"><span class="hs-identifier hs-var">AppSortKey'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621680289814"><span id="local-6989586621680289815"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AppSortKey"><span class="annot"><a href="Network.AWS.SageMaker.Types.AppSortKey.html#AppSortKey"><span class="hs-identifier hs-var">AppSortKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AppSortKey%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AppSortKey.html#AppSortKey%27"><span class="hs-identifier hs-var">AppSortKey'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAppSortKey"><span class="annot"><span class="annottext">AppSortKey -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.AppSortKey.html#fromAppSortKey"><span class="hs-identifier hs-var hs-var">fromAppSortKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680288450"><span id="local-6989586621680288452"><span id="local-6989586621680288454"><span class="annot"><span class="annottext">Int -&gt; AppSortKey -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680289806"><span id="local-6989586621680289808"><span id="local-6989586621680289810"><span class="annot"><span class="annottext">Int -&gt; AppSortKey -&gt; ShowS
 [AppSortKey] -&gt; ShowS
 AppSortKey -&gt; String
 (Int -&gt; AppSortKey -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: AppSortKey -&gt; String
 showsPrec :: Int -&gt; AppSortKey -&gt; ShowS
 $cshowsPrec :: Int -&gt; AppSortKey -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621680288441"><span id="local-6989586621680288443"><span id="local-6989586621680288445"><span id="local-6989586621680288447"><span class="annot"><span class="annottext">ReadPrec [AppSortKey]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621680289797"><span id="local-6989586621680289799"><span id="local-6989586621680289801"><span id="local-6989586621680289803"><span class="annot"><span class="annottext">ReadPrec [AppSortKey]
 ReadPrec AppSortKey
 Int -&gt; ReadS AppSortKey
 ReadS [AppSortKey]
@@ -71,7 +71,7 @@ $creadList :: ReadS [AppSortKey]
 readsPrec :: Int -&gt; ReadS AppSortKey
 $creadsPrec :: Int -&gt; ReadS AppSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680288436"><span id="local-6989586621680288438"><span class="annot"><span class="annottext">AppSortKey -&gt; AppSortKey -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680289792"><span id="local-6989586621680289794"><span class="annot"><span class="annottext">AppSortKey -&gt; AppSortKey -&gt; Bool
 (AppSortKey -&gt; AppSortKey -&gt; Bool)
 -&gt; (AppSortKey -&gt; AppSortKey -&gt; Bool) -&gt; Eq AppSortKey
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ $c/= :: AppSortKey -&gt; AppSortKey -&gt; Bool
 == :: AppSortKey -&gt; AppSortKey -&gt; Bool
 $c== :: AppSortKey -&gt; AppSortKey -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680288420"><span id="local-6989586621680288422"><span id="local-6989586621680288424"><span id="local-6989586621680288426"><span id="local-6989586621680288428"><span id="local-6989586621680288430"><span id="local-6989586621680288432"><span class="annot"><span class="annottext">Eq AppSortKey
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680289776"><span id="local-6989586621680289778"><span id="local-6989586621680289780"><span id="local-6989586621680289782"><span id="local-6989586621680289784"><span id="local-6989586621680289786"><span id="local-6989586621680289788"><span class="annot"><span class="annottext">Eq AppSortKey
 Eq AppSortKey
 -&gt; (AppSortKey -&gt; AppSortKey -&gt; Ordering)
 -&gt; (AppSortKey -&gt; AppSortKey -&gt; Bool)
@@ -130,7 +130,7 @@ $cfrom :: forall x. AppSortKey -&gt; Rep AppSortKey x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680288412"><span id="local-6989586621680288414"><span class="annot"><span class="annottext">Int -&gt; AppSortKey -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680289768"><span id="local-6989586621680289770"><span class="annot"><span class="annottext">Int -&gt; AppSortKey -&gt; Int
 AppSortKey -&gt; Int
 (Int -&gt; AppSortKey -&gt; Int)
 -&gt; (AppSortKey -&gt; Int) -&gt; Hashable AppSortKey
@@ -140,49 +140,49 @@ $chash :: AppSortKey -&gt; Int
 hashWithSalt :: Int -&gt; AppSortKey -&gt; Int
 $chashWithSalt :: Int -&gt; AppSortKey -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621680288409"><span class="annot"><span class="annottext">AppSortKey -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680289765"><span class="annot"><span class="annottext">AppSortKey -&gt; ()
 (AppSortKey -&gt; ()) -&gt; NFData AppSortKey
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AppSortKey -&gt; ()
 $crnf :: AppSortKey -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680288406"><span class="annot"><span class="annottext">Text -&gt; Either String AppSortKey
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680289762"><span class="annot"><span class="annottext">Text -&gt; Either String AppSortKey
 (Text -&gt; Either String AppSortKey) -&gt; FromText AppSortKey
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AppSortKey
 $cfromText :: Text -&gt; Either String AppSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680288403"><span class="annot"><span class="annottext">AppSortKey -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680289759"><span class="annot"><span class="annottext">AppSortKey -&gt; Text
 (AppSortKey -&gt; Text) -&gt; ToText AppSortKey
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AppSortKey -&gt; Text
 $ctoText :: AppSortKey -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680288400"><span class="annot"><span class="annottext">AppSortKey -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680289756"><span class="annot"><span class="annottext">AppSortKey -&gt; ByteString
 (AppSortKey -&gt; ByteString) -&gt; ToByteString AppSortKey
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AppSortKey -&gt; ByteString
 $ctoBS :: AppSortKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680288397"><span class="annot"><span class="annottext">AppSortKey -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680289753"><span class="annot"><span class="annottext">AppSortKey -&gt; ByteStringBuilder
 (AppSortKey -&gt; ByteStringBuilder) -&gt; ToLog AppSortKey
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AppSortKey -&gt; ByteStringBuilder
 $cbuild :: AppSortKey -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680288394"><span class="annot"><span class="annottext">HeaderName -&gt; AppSortKey -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680289750"><span class="annot"><span class="annottext">HeaderName -&gt; AppSortKey -&gt; [Header]
 (HeaderName -&gt; AppSortKey -&gt; [Header]) -&gt; ToHeader AppSortKey
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AppSortKey -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AppSortKey -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680288391"><span class="annot"><span class="annottext">AppSortKey -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680289747"><span class="annot"><span class="annottext">AppSortKey -&gt; QueryString
 (AppSortKey -&gt; QueryString) -&gt; ToQuery AppSortKey
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AppSortKey -&gt; QueryString
 $ctoQuery :: AppSortKey -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680288386"><span id="local-6989586621680288388"><span class="annot"><span class="annottext">Value -&gt; Parser [AppSortKey]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680289742"><span id="local-6989586621680289744"><span class="annot"><span class="annottext">Value -&gt; Parser [AppSortKey]
 Value -&gt; Parser AppSortKey
 (Value -&gt; Parser AppSortKey)
 -&gt; (Value -&gt; Parser [AppSortKey]) -&gt; FromJSON AppSortKey
@@ -193,7 +193,7 @@ $cparseJSONList :: Value -&gt; Parser [AppSortKey]
 parseJSON :: Value -&gt; Parser AppSortKey
 $cparseJSON :: Value -&gt; Parser AppSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680288381"><span id="local-6989586621680288383"><span class="annot"><span class="annottext">FromJSONKeyFunction [AppSortKey]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680289737"><span id="local-6989586621680289739"><span class="annot"><span class="annottext">FromJSONKeyFunction [AppSortKey]
 FromJSONKeyFunction AppSortKey
 FromJSONKeyFunction AppSortKey
 -&gt; FromJSONKeyFunction [AppSortKey] -&gt; FromJSONKey AppSortKey
@@ -204,7 +204,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AppSortKey]
 fromJSONKey :: FromJSONKeyFunction AppSortKey
 $cfromJSONKey :: FromJSONKeyFunction AppSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680288372"><span id="local-6989586621680288374"><span id="local-6989586621680288376"><span id="local-6989586621680288378"><span class="annot"><span class="annottext">[AppSortKey] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680289728"><span id="local-6989586621680289730"><span id="local-6989586621680289732"><span id="local-6989586621680289734"><span class="annot"><span class="annottext">[AppSortKey] -&gt; Encoding
 [AppSortKey] -&gt; Value
 AppSortKey -&gt; Encoding
 AppSortKey -&gt; Value
@@ -228,7 +228,7 @@ $ctoEncoding :: AppSortKey -&gt; Encoding
 toJSON :: AppSortKey -&gt; Value
 $ctoJSON :: AppSortKey -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680288367"><span id="local-6989586621680288369"><span class="annot"><span class="annottext">ToJSONKeyFunction [AppSortKey]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680289723"><span id="local-6989586621680289725"><span class="annot"><span class="annottext">ToJSONKeyFunction [AppSortKey]
 ToJSONKeyFunction AppSortKey
 ToJSONKeyFunction AppSortKey
 -&gt; ToJSONKeyFunction [AppSortKey] -&gt; ToJSONKey AppSortKey
@@ -239,13 +239,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AppSortKey]
 toJSONKey :: ToJSONKeyFunction AppSortKey
 $ctoJSONKey :: ToJSONKeyFunction AppSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680288364"><span class="annot"><span class="annottext">[Node] -&gt; Either String AppSortKey
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680289720"><span class="annot"><span class="annottext">[Node] -&gt; Either String AppSortKey
 ([Node] -&gt; Either String AppSortKey) -&gt; FromXML AppSortKey
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AppSortKey
 $cparseXML :: [Node] -&gt; Either String AppSortKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680288361"><span class="annot"><span class="annottext">AppSortKey -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680289717"><span class="annot"><span class="annottext">AppSortKey -&gt; XML
 (AppSortKey -&gt; XML) -&gt; ToXML AppSortKey
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AppSortKey -&gt; XML

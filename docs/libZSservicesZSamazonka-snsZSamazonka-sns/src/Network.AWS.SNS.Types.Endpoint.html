@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Endpoint for mobile app and device.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newEndpoint' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679191028"><span id="local-6989586621679191029"></span></span><span class="hs-keyword">data</span><span> </span><span id="Endpoint"><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-var">Endpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Endpoint%27"><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-var">Endpoint'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679191153"><span id="local-6989586621679191154"></span></span><span class="hs-keyword">data</span><span> </span><span id="Endpoint"><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-var">Endpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Endpoint%27"><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-var">Endpoint'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Attributes for endpoint.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aattributes%3AEndpoint%27"><span class="annot"><span class="annottext">Endpoint -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SNS.Types.Endpoint.html#%24sel%3Aattributes%3AEndpoint%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AendpointArn%3AEndpoint%27"><span class="annot"><span class="annottext">Endpoint -&gt; Maybe Text
 </span><a href="Network.AWS.SNS.Types.Endpoint.html#%24sel%3AendpointArn%3AEndpoint%27"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191021"><span id="local-6989586621679191023"><span class="annot"><span class="annottext">Endpoint -&gt; Endpoint -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191146"><span id="local-6989586621679191148"><span class="annot"><span class="annottext">Endpoint -&gt; Endpoint -&gt; Bool
 (Endpoint -&gt; Endpoint -&gt; Bool)
 -&gt; (Endpoint -&gt; Endpoint -&gt; Bool) -&gt; Eq Endpoint
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Endpoint -&gt; Endpoint -&gt; Bool
 == :: Endpoint -&gt; Endpoint -&gt; Bool
 $c== :: Endpoint -&gt; Endpoint -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191012"><span id="local-6989586621679191014"><span id="local-6989586621679191016"><span id="local-6989586621679191018"><span class="annot"><span class="annottext">ReadPrec [Endpoint]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191137"><span id="local-6989586621679191139"><span id="local-6989586621679191141"><span id="local-6989586621679191143"><span class="annot"><span class="annottext">ReadPrec [Endpoint]
 ReadPrec Endpoint
 Int -&gt; ReadS Endpoint
 ReadS [Endpoint]
@@ -62,7 +62,7 @@ readList :: ReadS [Endpoint]
 $creadList :: ReadS [Endpoint]
 readsPrec :: Int -&gt; ReadS Endpoint
 $creadsPrec :: Int -&gt; ReadS Endpoint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191005"><span id="local-6989586621679191007"><span id="local-6989586621679191009"><span class="annot"><span class="annottext">Int -&gt; Endpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191130"><span id="local-6989586621679191132"><span id="local-6989586621679191134"><span class="annot"><span class="annottext">Int -&gt; Endpoint -&gt; ShowS
 [Endpoint] -&gt; ShowS
 Endpoint -&gt; String
 (Int -&gt; Endpoint -&gt; ShowS)
@@ -124,16 +124,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190996"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191121"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 attributes :: Maybe (HashMap Text Text)
 $sel:attributes:Endpoint' :: Endpoint -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679190996"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679190996"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190995"><span class="annot"><span class="annottext">s :: Endpoint
-</span><a href="#local-6989586621679190995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190994"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679190994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
-</span><a href="#local-6989586621679190995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:Endpoint' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679191121"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679191121"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191120"><span class="annot"><span class="annottext">s :: Endpoint
+</span><a href="#local-6989586621679191120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191119"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679191119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679191120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:Endpoint' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SNS.Types.Endpoint.html#%24sel%3Aattributes%3AEndpoint%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679190994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679191119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; Endpoint -&gt; f Endpoint)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -159,8 +159,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | EndpointArn for mobile app and device.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#endpoint_endpointArn"><span class="hs-identifier hs-type">endpoint_endpointArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -169,21 +169,21 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (Endpoint -&gt; Maybe Text -&gt; Endpoint)
 -&gt; Lens Endpoint Endpoint (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679190989"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191114"><span class="annot"><span class="annottext">Maybe Text
 endpointArn :: Maybe Text
 $sel:endpointArn:Endpoint' :: Endpoint -&gt; Maybe Text
-</span><a href="#local-6989586621679190989"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190989"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679190988"><span class="annot"><span class="annottext">s :: Endpoint
-</span><a href="#local-6989586621679190988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679190987"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
-</span><a href="#local-6989586621679190988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:Endpoint' :: Maybe Text
+</span><a href="#local-6989586621679191114"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191114"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191113"><span class="annot"><span class="annottext">s :: Endpoint
+</span><a href="#local-6989586621679191113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-type">Endpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191112"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679191113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:Endpoint' :: Maybe Text
 </span><a href="Network.AWS.SNS.Types.Endpoint.html#%24sel%3AendpointArn%3AEndpoint%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679190987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679191112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679190984"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Endpoint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679190982"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679190982"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679191109"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Endpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679191107"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679191107"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; Endpoint
 </span><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint%27"><span class="hs-identifier hs-var">Endpoint'</span></a></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; Endpoint)
@@ -191,7 +191,7 @@ $sel:endpointArn:Endpoint' :: Endpoint -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; Endpoint)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679190982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679191107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -221,12 +221,12 @@ Text -&gt; Text -&gt; Text -&gt; [Node] -&gt; Either String (HashMap k v)
 -&gt; Either String (Maybe Text) -&gt; Either String Endpoint
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679190982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679191107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndpointArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190973"><span id="local-6989586621679190975"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191098"><span id="local-6989586621679191100"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679190970"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.Types.Endpoint.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span></span><span>
 </span><span id="line-75"></span></pre></body></html>

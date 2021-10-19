@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The structure containing configurations related to insights.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newInsightsConfiguration' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679252212"><span id="local-6989586621679252213"></span></span><span class="hs-keyword">data</span><span> </span><span id="InsightsConfiguration"><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-var">InsightsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InsightsConfiguration%27"><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration%27"><span class="hs-identifier hs-var">InsightsConfiguration'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679252484"><span id="local-6989586621679252485"></span></span><span class="hs-keyword">data</span><span> </span><span id="InsightsConfiguration"><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-var">InsightsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InsightsConfiguration%27"><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration%27"><span class="hs-identifier hs-var">InsightsConfiguration'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Set the NotificationsEnabled value to true to enable insights</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- notifications. Notifications can only be enabled on a group with</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- InsightsEnabled set to true.</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AinsightsEnabled%3AInsightsConfiguration%27"><span class="annot"><span class="annottext">InsightsConfiguration -&gt; Maybe Bool
 </span><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#%24sel%3AinsightsEnabled%3AInsightsConfiguration%27"><span class="hs-identifier hs-var hs-var">insightsEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252205"><span id="local-6989586621679252207"><span class="annot"><span class="annottext">InsightsConfiguration -&gt; InsightsConfiguration -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679252477"><span id="local-6989586621679252479"><span class="annot"><span class="annottext">InsightsConfiguration -&gt; InsightsConfiguration -&gt; Bool
 (InsightsConfiguration -&gt; InsightsConfiguration -&gt; Bool)
 -&gt; (InsightsConfiguration -&gt; InsightsConfiguration -&gt; Bool)
 -&gt; Eq InsightsConfiguration
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InsightsConfiguration -&gt; InsightsConfiguration -&gt; Bool
 == :: InsightsConfiguration -&gt; InsightsConfiguration -&gt; Bool
 $c== :: InsightsConfiguration -&gt; InsightsConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252196"><span id="local-6989586621679252198"><span id="local-6989586621679252200"><span id="local-6989586621679252202"><span class="annot"><span class="annottext">ReadPrec [InsightsConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252468"><span id="local-6989586621679252470"><span id="local-6989586621679252472"><span id="local-6989586621679252474"><span class="annot"><span class="annottext">ReadPrec [InsightsConfiguration]
 ReadPrec InsightsConfiguration
 Int -&gt; ReadS InsightsConfiguration
 ReadS [InsightsConfiguration]
@@ -66,7 +66,7 @@ readList :: ReadS [InsightsConfiguration]
 $creadList :: ReadS [InsightsConfiguration]
 readsPrec :: Int -&gt; ReadS InsightsConfiguration
 $creadsPrec :: Int -&gt; ReadS InsightsConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252189"><span id="local-6989586621679252191"><span id="local-6989586621679252193"><span class="annot"><span class="annottext">Int -&gt; InsightsConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679252461"><span id="local-6989586621679252463"><span id="local-6989586621679252465"><span class="annot"><span class="annottext">Int -&gt; InsightsConfiguration -&gt; ShowS
 [InsightsConfiguration] -&gt; ShowS
 InsightsConfiguration -&gt; String
 (Int -&gt; InsightsConfiguration -&gt; ShowS)
@@ -137,16 +137,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration%27"><span class="hs-identifier hs-type">InsightsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252180"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration%27"><span class="hs-identifier hs-type">InsightsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252452"><span class="annot"><span class="annottext">Maybe Bool
 notificationsEnabled :: Maybe Bool
 $sel:notificationsEnabled:InsightsConfiguration' :: InsightsConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679252180"><span class="hs-identifier hs-var hs-var">notificationsEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679252180"><span class="hs-identifier hs-var">notificationsEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252179"><span class="annot"><span class="annottext">s :: InsightsConfiguration
-</span><a href="#local-6989586621679252179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration%27"><span class="hs-identifier hs-type">InsightsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252178"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679252178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightsConfiguration
-</span><a href="#local-6989586621679252179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationsEnabled:InsightsConfiguration' :: Maybe Bool
+</span><a href="#local-6989586621679252452"><span class="hs-identifier hs-var hs-var">notificationsEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679252452"><span class="hs-identifier hs-var">notificationsEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252451"><span class="annot"><span class="annottext">s :: InsightsConfiguration
+</span><a href="#local-6989586621679252451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration%27"><span class="hs-identifier hs-type">InsightsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252450"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679252450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightsConfiguration
+</span><a href="#local-6989586621679252451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationsEnabled:InsightsConfiguration' :: Maybe Bool
 </span><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#%24sel%3AnotificationsEnabled%3AInsightsConfiguration%27"><span class="hs-identifier hs-var">notificationsEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679252178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-type">InsightsConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-type">InsightsConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | Set the InsightsEnabled value to true to enable insights or false to</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- disable insights.</span><span>
@@ -161,19 +161,19 @@ $sel:notificationsEnabled:InsightsConfiguration' :: InsightsConfiguration -&gt; 
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration%27"><span class="hs-identifier hs-type">InsightsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252176"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration%27"><span class="hs-identifier hs-type">InsightsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252448"><span class="annot"><span class="annottext">Maybe Bool
 insightsEnabled :: Maybe Bool
 $sel:insightsEnabled:InsightsConfiguration' :: InsightsConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679252176"><span class="hs-identifier hs-var hs-var">insightsEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679252176"><span class="hs-identifier hs-var">insightsEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252175"><span class="annot"><span class="annottext">s :: InsightsConfiguration
-</span><a href="#local-6989586621679252175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration%27"><span class="hs-identifier hs-type">InsightsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252174"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679252174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightsConfiguration
-</span><a href="#local-6989586621679252175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightsEnabled:InsightsConfiguration' :: Maybe Bool
+</span><a href="#local-6989586621679252448"><span class="hs-identifier hs-var hs-var">insightsEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679252448"><span class="hs-identifier hs-var">insightsEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679252447"><span class="annot"><span class="annottext">s :: InsightsConfiguration
+</span><a href="#local-6989586621679252447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration%27"><span class="hs-identifier hs-type">InsightsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679252446"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679252446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InsightsConfiguration
+</span><a href="#local-6989586621679252447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insightsEnabled:InsightsConfiguration' :: Maybe Bool
 </span><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#%24sel%3AinsightsEnabled%3AInsightsConfiguration%27"><span class="hs-identifier hs-var">insightsEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679252174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-type">InsightsConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679252446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-type">InsightsConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252171"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-type">InsightsConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679252169"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InsightsConfiguration
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252443"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-type">InsightsConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679252441"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InsightsConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InsightsConfiguration)
@@ -183,8 +183,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InsightsConfiguration&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252166"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252166"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679252438"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679252438"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Bool -&gt; InsightsConfiguration
 </span><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration%27"><span class="hs-identifier hs-var">InsightsConfiguration'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Bool -&gt; InsightsConfiguration)
@@ -192,7 +192,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Bool -&gt; InsightsConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252166"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679252438"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NotificationsEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -200,24 +200,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Bool) -&gt; Parser InsightsConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679252166"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679252438"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InsightsEnabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252160"><span id="local-6989586621679252162"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-type">InsightsConfiguration</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252432"><span id="local-6989586621679252434"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-type">InsightsConfiguration</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252157"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-type">InsightsConfiguration</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252429"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-type">InsightsConfiguration</span></a></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252149"><span id="local-6989586621679252151"><span id="local-6989586621679252153"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-type">InsightsConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679252147"><span class="annot"><span class="annottext">toJSON :: InsightsConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration%27"><span class="hs-identifier hs-type">InsightsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252144"><span id="local-6989586621679252145"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679252421"><span id="local-6989586621679252423"><span id="local-6989586621679252425"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration"><span class="hs-identifier hs-type">InsightsConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679252419"><span class="annot"><span class="annottext">toJSON :: InsightsConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.InsightsConfiguration.html#InsightsConfiguration%27"><span class="hs-identifier hs-type">InsightsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679252416"><span id="local-6989586621679252417"><span class="annot"><span class="annottext">Maybe Bool
 insightsEnabled :: Maybe Bool
 notificationsEnabled :: Maybe Bool
 $sel:insightsEnabled:InsightsConfiguration' :: InsightsConfiguration -&gt; Maybe Bool
 $sel:notificationsEnabled:InsightsConfiguration' :: InsightsConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679252144"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679252416"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -230,7 +230,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-93"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679252145"><span class="hs-identifier hs-var">notificationsEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679252417"><span class="hs-identifier hs-var">notificationsEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InsightsEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -238,7 +238,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679252144"><span class="hs-identifier hs-var">insightsEnabled</span></a></span><span>
+</span><a href="#local-6989586621679252416"><span class="hs-identifier hs-var">insightsEnabled</span></a></span><span>
 </span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span></pre></body></html>

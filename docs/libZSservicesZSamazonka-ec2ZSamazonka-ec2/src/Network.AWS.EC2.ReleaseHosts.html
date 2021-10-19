@@ -60,12 +60,12 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newReleaseHosts' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621681173673"><span id="local-6989586621681173674"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReleaseHosts"><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts"><span class="hs-identifier hs-var">ReleaseHosts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReleaseHosts%27"><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts%27"><span class="hs-identifier hs-var">ReleaseHosts'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621681209039"><span id="local-6989586621681209040"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReleaseHosts"><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts"><span class="hs-identifier hs-var">ReleaseHosts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReleaseHosts%27"><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts%27"><span class="hs-identifier hs-var">ReleaseHosts'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the Dedicated Hosts to release.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AhostIds%3AReleaseHosts%27"><span class="annot"><span class="annottext">ReleaseHosts -&gt; [Text]
 </span><a href="Network.AWS.EC2.ReleaseHosts.html#%24sel%3AhostIds%3AReleaseHosts%27"><span class="hs-identifier hs-var hs-var">hostIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681173667"><span id="local-6989586621681173669"><span class="annot"><span class="annottext">ReleaseHosts -&gt; ReleaseHosts -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681209033"><span id="local-6989586621681209035"><span class="annot"><span class="annottext">ReleaseHosts -&gt; ReleaseHosts -&gt; Bool
 (ReleaseHosts -&gt; ReleaseHosts -&gt; Bool)
 -&gt; (ReleaseHosts -&gt; ReleaseHosts -&gt; Bool) -&gt; Eq ReleaseHosts
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReleaseHosts -&gt; ReleaseHosts -&gt; Bool
 == :: ReleaseHosts -&gt; ReleaseHosts -&gt; Bool
 $c== :: ReleaseHosts -&gt; ReleaseHosts -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681173658"><span id="local-6989586621681173660"><span id="local-6989586621681173662"><span id="local-6989586621681173664"><span class="annot"><span class="annottext">ReadPrec [ReleaseHosts]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681209024"><span id="local-6989586621681209026"><span id="local-6989586621681209028"><span id="local-6989586621681209030"><span class="annot"><span class="annottext">ReadPrec [ReleaseHosts]
 ReadPrec ReleaseHosts
 Int -&gt; ReadS ReleaseHosts
 ReadS [ReleaseHosts]
@@ -93,7 +93,7 @@ readList :: ReadS [ReleaseHosts]
 $creadList :: ReadS [ReleaseHosts]
 readsPrec :: Int -&gt; ReadS ReleaseHosts
 $creadsPrec :: Int -&gt; ReadS ReleaseHosts
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681173651"><span id="local-6989586621681173653"><span id="local-6989586621681173655"><span class="annot"><span class="annottext">Int -&gt; ReleaseHosts -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681209017"><span id="local-6989586621681209019"><span id="local-6989586621681209021"><span class="annot"><span class="annottext">Int -&gt; ReleaseHosts -&gt; ShowS
 [ReleaseHosts] -&gt; ShowS
 ReleaseHosts -&gt; String
 (Int -&gt; ReleaseHosts -&gt; ShowS)
@@ -145,33 +145,33 @@ forall a. Monoid a =&gt; a
 -&gt; (ReleaseHosts -&gt; [Text] -&gt; ReleaseHosts)
 -&gt; Lens ReleaseHosts ReleaseHosts [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts%27"><span class="hs-identifier hs-type">ReleaseHosts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681173644"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts%27"><span class="hs-identifier hs-type">ReleaseHosts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681209010"><span class="annot"><span class="annottext">[Text]
 hostIds :: [Text]
 $sel:hostIds:ReleaseHosts' :: ReleaseHosts -&gt; [Text]
-</span><a href="#local-6989586621681173644"><span class="hs-identifier hs-var hs-var">hostIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681173644"><span class="hs-identifier hs-var">hostIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681173643"><span class="annot"><span class="annottext">s :: ReleaseHosts
-</span><a href="#local-6989586621681173643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts%27"><span class="hs-identifier hs-type">ReleaseHosts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681173642"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681173642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReleaseHosts
-</span><a href="#local-6989586621681173643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostIds:ReleaseHosts' :: [Text]
+</span><a href="#local-6989586621681209010"><span class="hs-identifier hs-var hs-var">hostIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681209010"><span class="hs-identifier hs-var">hostIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681209009"><span class="annot"><span class="annottext">s :: ReleaseHosts
+</span><a href="#local-6989586621681209009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts%27"><span class="hs-identifier hs-type">ReleaseHosts'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681209008"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681209008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReleaseHosts
+</span><a href="#local-6989586621681209009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostIds:ReleaseHosts' :: [Text]
 </span><a href="Network.AWS.EC2.ReleaseHosts.html#%24sel%3AhostIds%3AReleaseHosts%27"><span class="hs-identifier hs-var">hostIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681173642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts"><span class="hs-identifier hs-type">ReleaseHosts</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; ReleaseHosts -&gt; f ReleaseHosts)
+</span><a href="#local-6989586621681209008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts"><span class="hs-identifier hs-type">ReleaseHosts</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; ReleaseHosts -&gt; f ReleaseHosts)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; ReleaseHosts
 -&gt; f ReleaseHosts
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts"><span class="hs-identifier hs-type">ReleaseHosts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts"><span class="hs-identifier hs-type">ReleaseHosts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse"><span class="hs-identifier hs-type">ReleaseHostsResponse</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621681173636"><span class="annot"><span class="annottext">request :: ReleaseHosts -&gt; Request ReleaseHosts
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621681209002"><span class="annot"><span class="annottext">request :: ReleaseHosts -&gt; Request ReleaseHosts
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ReleaseHosts -&gt; Request ReleaseHosts
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621681173632"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621681208998"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ReleaseHosts
 -&gt; ClientResponse ClientBody
@@ -195,10 +195,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681173629"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681173629"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681173628"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681173628"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681173627"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681173627"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681208995"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681208995"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681208994"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681208994"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681208993"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681208993"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
 -&gt; Maybe [Text] -&gt; Int -&gt; ReleaseHostsResponse
 </span><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse%27"><span class="hs-identifier hs-var">ReleaseHostsResponse'</span></a></span><span>
@@ -208,7 +208,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Text] -&gt; Int -&gt; ReleaseHostsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681173627"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681208993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;unsuccessful&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -235,7 +235,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; ReleaseHostsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681173627"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681208993"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;successful&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -265,15 +265,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681173629"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681208995"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681173616"><span id="local-6989586621681173618"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts"><span class="hs-identifier hs-type">ReleaseHosts</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681208982"><span id="local-6989586621681208984"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts"><span class="hs-identifier hs-type">ReleaseHosts</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681173613"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts"><span class="hs-identifier hs-type">ReleaseHosts</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681208979"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts"><span class="hs-identifier hs-type">ReleaseHosts</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts"><span class="hs-identifier hs-type">ReleaseHosts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621681173609"><span class="annot"><span class="annottext">toHeaders :: ReleaseHosts -&gt; ResponseHeaders
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621681208975"><span class="annot"><span class="annottext">toHeaders :: ReleaseHosts -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ReleaseHosts -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -281,18 +281,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts"><span class="hs-identifier hs-type">ReleaseHosts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621681173604"><span class="annot"><span class="annottext">toPath :: ReleaseHosts -&gt; ByteString
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621681208970"><span class="annot"><span class="annottext">toPath :: ReleaseHosts -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ReleaseHosts -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts"><span class="hs-identifier hs-type">ReleaseHosts</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621681173600"><span class="annot"><span class="annottext">toQuery :: ReleaseHosts -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts%27"><span class="hs-identifier hs-type">ReleaseHosts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681173598"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621681208966"><span class="annot"><span class="annottext">toQuery :: ReleaseHosts -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHosts%27"><span class="hs-identifier hs-type">ReleaseHosts'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681208964"><span class="annot"><span class="annottext">[Text]
 hostIds :: [Text]
 $sel:hostIds:ReleaseHosts' :: ReleaseHosts -&gt; [Text]
-</span><a href="#local-6989586621681173598"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681208964"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -314,11 +314,11 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;HostId&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621681173598"><span class="hs-identifier hs-var">hostIds</span></a></span><span>
+</span><a href="#local-6989586621681208964"><span class="hs-identifier hs-var">hostIds</span></a></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | /See:/ 'newReleaseHostsResponse' smart constructor.</span><span>
-</span><span id="line-124"></span><span id="local-6989586621681173594"><span id="local-6989586621681173595"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReleaseHostsResponse"><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse"><span class="hs-identifier hs-var">ReleaseHostsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReleaseHostsResponse%27"><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse%27"><span class="hs-identifier hs-var">ReleaseHostsResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span id="local-6989586621681208960"><span id="local-6989586621681208961"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReleaseHostsResponse"><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse"><span class="hs-identifier hs-var">ReleaseHostsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReleaseHostsResponse%27"><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse%27"><span class="hs-identifier hs-var">ReleaseHostsResponse'</span></a></span></span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the Dedicated Hosts that could not be released, including an</span><span>
 </span><span id="line-126"></span><span>    </span><span class="hs-comment">-- error message.</span><span>
 </span><span id="line-127"></span><span>    </span><span id="%24sel%3Aunsuccessful%3AReleaseHostsResponse%27"><span class="annot"><span class="annottext">ReleaseHostsResponse -&gt; Maybe [UnsuccessfulItem]
@@ -330,7 +330,7 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3AReleaseHostsResponse%27"><span class="annot"><span class="annottext">ReleaseHostsResponse -&gt; Int
 </span><a href="Network.AWS.EC2.ReleaseHosts.html#%24sel%3AhttpStatus%3AReleaseHostsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681173587"><span id="local-6989586621681173589"><span class="annot"><span class="annottext">ReleaseHostsResponse -&gt; ReleaseHostsResponse -&gt; Bool
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681208953"><span id="local-6989586621681208955"><span class="annot"><span class="annottext">ReleaseHostsResponse -&gt; ReleaseHostsResponse -&gt; Bool
 (ReleaseHostsResponse -&gt; ReleaseHostsResponse -&gt; Bool)
 -&gt; (ReleaseHostsResponse -&gt; ReleaseHostsResponse -&gt; Bool)
 -&gt; Eq ReleaseHostsResponse
@@ -339,7 +339,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReleaseHostsResponse -&gt; ReleaseHostsResponse -&gt; Bool
 == :: ReleaseHostsResponse -&gt; ReleaseHostsResponse -&gt; Bool
 $c== :: ReleaseHostsResponse -&gt; ReleaseHostsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681173579"><span id="local-6989586621681173581"><span id="local-6989586621681173583"><span id="local-6989586621681173585"><span class="annot"><span class="annottext">ReadPrec [ReleaseHostsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681208945"><span id="local-6989586621681208947"><span id="local-6989586621681208949"><span id="local-6989586621681208951"><span class="annot"><span class="annottext">ReadPrec [ReleaseHostsResponse]
 ReadPrec ReleaseHostsResponse
 Int -&gt; ReadS ReleaseHostsResponse
 ReadS [ReleaseHostsResponse]
@@ -359,7 +359,7 @@ readList :: ReadS [ReleaseHostsResponse]
 $creadList :: ReadS [ReleaseHostsResponse]
 readsPrec :: Int -&gt; ReadS ReleaseHostsResponse
 $creadsPrec :: Int -&gt; ReadS ReleaseHostsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681173573"><span id="local-6989586621681173575"><span id="local-6989586621681173577"><span class="annot"><span class="annottext">Int -&gt; ReleaseHostsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681208939"><span id="local-6989586621681208941"><span id="local-6989586621681208943"><span class="annot"><span class="annottext">Int -&gt; ReleaseHostsResponse -&gt; ShowS
 [ReleaseHostsResponse] -&gt; ShowS
 ReleaseHostsResponse -&gt; String
 (Int -&gt; ReleaseHostsResponse -&gt; ShowS)
@@ -404,8 +404,8 @@ $cfrom :: forall x. ReleaseHostsResponse -&gt; Rep ReleaseHostsResponse x
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse"><span class="hs-identifier hs-type">ReleaseHostsResponse</span></a></span><span>
 </span><span id="line-153"></span><span id="newReleaseHostsResponse"><span class="annot"><span class="annottext">newReleaseHostsResponse :: Int -&gt; ReleaseHostsResponse
-</span><a href="Network.AWS.EC2.ReleaseHosts.html#newReleaseHostsResponse"><span class="hs-identifier hs-var hs-var">newReleaseHostsResponse</span></a></span></span><span> </span><span id="local-6989586621681173570"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681173570"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.ReleaseHosts.html#newReleaseHostsResponse"><span class="hs-identifier hs-var hs-var">newReleaseHostsResponse</span></a></span></span><span> </span><span id="local-6989586621681208936"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681208936"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">ReleaseHostsResponse' :: Maybe [UnsuccessfulItem]
 -&gt; Maybe [Text] -&gt; Int -&gt; ReleaseHostsResponse
 </span><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse%27"><span class="hs-identifier hs-type">ReleaseHostsResponse'</span></a></span><span>
@@ -420,7 +420,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ReleaseHostsResponse' :: Int
 </span><a href="Network.AWS.EC2.ReleaseHosts.html#%24sel%3AhttpStatus%3AReleaseHostsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681173570"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681208936"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The IDs of the Dedicated Hosts that could not be released, including an</span><span>
@@ -437,16 +437,16 @@ forall a. Maybe a
      (Maybe [UnsuccessfulItem])
      (Maybe [UnsuccessfulItem])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse%27"><span class="hs-identifier hs-type">ReleaseHostsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681173569"><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse%27"><span class="hs-identifier hs-type">ReleaseHostsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681208935"><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
 unsuccessful :: Maybe [UnsuccessfulItem]
 $sel:unsuccessful:ReleaseHostsResponse' :: ReleaseHostsResponse -&gt; Maybe [UnsuccessfulItem]
-</span><a href="#local-6989586621681173569"><span class="hs-identifier hs-var hs-var">unsuccessful</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
-</span><a href="#local-6989586621681173569"><span class="hs-identifier hs-var">unsuccessful</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681173568"><span class="annot"><span class="annottext">s :: ReleaseHostsResponse
-</span><a href="#local-6989586621681173568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse%27"><span class="hs-identifier hs-type">ReleaseHostsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681173567"><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
-</span><a href="#local-6989586621681173567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReleaseHostsResponse
-</span><a href="#local-6989586621681173568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unsuccessful:ReleaseHostsResponse' :: Maybe [UnsuccessfulItem]
+</span><a href="#local-6989586621681208935"><span class="hs-identifier hs-var hs-var">unsuccessful</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+</span><a href="#local-6989586621681208935"><span class="hs-identifier hs-var">unsuccessful</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681208934"><span class="annot"><span class="annottext">s :: ReleaseHostsResponse
+</span><a href="#local-6989586621681208934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse%27"><span class="hs-identifier hs-type">ReleaseHostsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681208933"><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+</span><a href="#local-6989586621681208933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReleaseHostsResponse
+</span><a href="#local-6989586621681208934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unsuccessful:ReleaseHostsResponse' :: Maybe [UnsuccessfulItem]
 </span><a href="Network.AWS.EC2.ReleaseHosts.html#%24sel%3Aunsuccessful%3AReleaseHostsResponse%27"><span class="hs-identifier hs-var">unsuccessful</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
-</span><a href="#local-6989586621681173567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse"><span class="hs-identifier hs-type">ReleaseHostsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
+</span><a href="#local-6989586621681208933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse"><span class="hs-identifier hs-type">ReleaseHostsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
  -&gt; ReleaseHostsResponse -&gt; f ReleaseHostsResponse)
 -&gt; ((Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
     -&gt; Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
@@ -472,8 +472,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [UnsuccessfulItem]
   [UnsuccessfulItem]
   [UnsuccessfulItem]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The IDs of the Dedicated Hosts that were successfully released.</span><span>
 </span><span id="line-167"></span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#releaseHostsResponse_successful"><span class="hs-identifier hs-type">releaseHostsResponse_successful</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse"><span class="hs-identifier hs-type">ReleaseHostsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -487,16 +487,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse%27"><span class="hs-identifier hs-type">ReleaseHostsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681173565"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse%27"><span class="hs-identifier hs-type">ReleaseHostsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681208931"><span class="annot"><span class="annottext">Maybe [Text]
 successful :: Maybe [Text]
 $sel:successful:ReleaseHostsResponse' :: ReleaseHostsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621681173565"><span class="hs-identifier hs-var hs-var">successful</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681173565"><span class="hs-identifier hs-var">successful</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681173564"><span class="annot"><span class="annottext">s :: ReleaseHostsResponse
-</span><a href="#local-6989586621681173564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse%27"><span class="hs-identifier hs-type">ReleaseHostsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681173563"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681173563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReleaseHostsResponse
-</span><a href="#local-6989586621681173564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successful:ReleaseHostsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621681208931"><span class="hs-identifier hs-var hs-var">successful</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681208931"><span class="hs-identifier hs-var">successful</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681208930"><span class="annot"><span class="annottext">s :: ReleaseHostsResponse
+</span><a href="#local-6989586621681208930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse%27"><span class="hs-identifier hs-type">ReleaseHostsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681208929"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681208929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReleaseHostsResponse
+</span><a href="#local-6989586621681208930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successful:ReleaseHostsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.ReleaseHosts.html#%24sel%3Asuccessful%3AReleaseHostsResponse%27"><span class="hs-identifier hs-var">successful</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681173563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse"><span class="hs-identifier hs-type">ReleaseHostsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681208929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse"><span class="hs-identifier hs-type">ReleaseHostsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ReleaseHostsResponse -&gt; f ReleaseHostsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -510,8 +510,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-171"></span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#releaseHostsResponse_httpStatus"><span class="hs-identifier hs-type">releaseHostsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse"><span class="hs-identifier hs-type">ReleaseHostsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -520,16 +520,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ReleaseHostsResponse -&gt; Int -&gt; ReleaseHostsResponse)
 -&gt; Lens ReleaseHostsResponse ReleaseHostsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse%27"><span class="hs-identifier hs-type">ReleaseHostsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681173562"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse%27"><span class="hs-identifier hs-type">ReleaseHostsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681208928"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ReleaseHostsResponse' :: ReleaseHostsResponse -&gt; Int
-</span><a href="#local-6989586621681173562"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681173562"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681173561"><span class="annot"><span class="annottext">s :: ReleaseHostsResponse
-</span><a href="#local-6989586621681173561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse%27"><span class="hs-identifier hs-type">ReleaseHostsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681173560"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681173560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReleaseHostsResponse
-</span><a href="#local-6989586621681173561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ReleaseHostsResponse' :: Int
+</span><a href="#local-6989586621681208928"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681208928"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681208927"><span class="annot"><span class="annottext">s :: ReleaseHostsResponse
+</span><a href="#local-6989586621681208927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse%27"><span class="hs-identifier hs-type">ReleaseHostsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681208926"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681208926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReleaseHostsResponse
+</span><a href="#local-6989586621681208927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ReleaseHostsResponse' :: Int
 </span><a href="Network.AWS.EC2.ReleaseHosts.html#%24sel%3AhttpStatus%3AReleaseHostsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681173560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse"><span class="hs-identifier hs-type">ReleaseHostsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681208926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse"><span class="hs-identifier hs-type">ReleaseHostsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681173558"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse"><span class="hs-identifier hs-type">ReleaseHostsResponse</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681208924"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ReleaseHosts.html#ReleaseHostsResponse"><span class="hs-identifier hs-type">ReleaseHostsResponse</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

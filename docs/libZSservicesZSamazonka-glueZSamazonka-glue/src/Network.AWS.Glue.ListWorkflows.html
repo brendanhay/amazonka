@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newListWorkflows' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679714629"><span id="local-6989586621679714630"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListWorkflows"><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows"><span class="hs-identifier hs-var">ListWorkflows</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListWorkflows%27"><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows%27"><span class="hs-identifier hs-var">ListWorkflows'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679716373"><span id="local-6989586621679716374"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListWorkflows"><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows"><span class="hs-identifier hs-var">ListWorkflows</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListWorkflows%27"><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows%27"><span class="hs-identifier hs-var">ListWorkflows'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A continuation token, if this is a continuation request.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AnextToken%3AListWorkflows%27"><span class="annot"><span class="annottext">ListWorkflows -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.ListWorkflows.html#%24sel%3AnextToken%3AListWorkflows%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AmaxResults%3AListWorkflows%27"><span class="annot"><span class="annottext">ListWorkflows -&gt; Maybe Natural
 </span><a href="Network.AWS.Glue.ListWorkflows.html#%24sel%3AmaxResults%3AListWorkflows%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679714622"><span id="local-6989586621679714624"><span class="annot"><span class="annottext">ListWorkflows -&gt; ListWorkflows -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679716366"><span id="local-6989586621679716368"><span class="annot"><span class="annottext">ListWorkflows -&gt; ListWorkflows -&gt; Bool
 (ListWorkflows -&gt; ListWorkflows -&gt; Bool)
 -&gt; (ListWorkflows -&gt; ListWorkflows -&gt; Bool) -&gt; Eq ListWorkflows
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListWorkflows -&gt; ListWorkflows -&gt; Bool
 == :: ListWorkflows -&gt; ListWorkflows -&gt; Bool
 $c== :: ListWorkflows -&gt; ListWorkflows -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679714613"><span id="local-6989586621679714615"><span id="local-6989586621679714617"><span id="local-6989586621679714619"><span class="annot"><span class="annottext">ReadPrec [ListWorkflows]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679716357"><span id="local-6989586621679716359"><span id="local-6989586621679716361"><span id="local-6989586621679716363"><span class="annot"><span class="annottext">ReadPrec [ListWorkflows]
 ReadPrec ListWorkflows
 Int -&gt; ReadS ListWorkflows
 ReadS [ListWorkflows]
@@ -85,7 +85,7 @@ readList :: ReadS [ListWorkflows]
 $creadList :: ReadS [ListWorkflows]
 readsPrec :: Int -&gt; ReadS ListWorkflows
 $creadsPrec :: Int -&gt; ReadS ListWorkflows
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679714606"><span id="local-6989586621679714608"><span id="local-6989586621679714610"><span class="annot"><span class="annottext">Int -&gt; ListWorkflows -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679716350"><span id="local-6989586621679716352"><span id="local-6989586621679716354"><span class="annot"><span class="annottext">Int -&gt; ListWorkflows -&gt; ShowS
 [ListWorkflows] -&gt; ShowS
 ListWorkflows -&gt; String
 (Int -&gt; ListWorkflows -&gt; ShowS)
@@ -145,16 +145,16 @@ forall a. Maybe a
 -&gt; (ListWorkflows -&gt; Maybe Text -&gt; ListWorkflows)
 -&gt; Lens ListWorkflows ListWorkflows (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows%27"><span class="hs-identifier hs-type">ListWorkflows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679714599"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows%27"><span class="hs-identifier hs-type">ListWorkflows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679716343"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListWorkflows' :: ListWorkflows -&gt; Maybe Text
-</span><a href="#local-6989586621679714599"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679714599"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679714598"><span class="annot"><span class="annottext">s :: ListWorkflows
-</span><a href="#local-6989586621679714598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows%27"><span class="hs-identifier hs-type">ListWorkflows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679714597"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679714597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkflows
-</span><a href="#local-6989586621679714598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListWorkflows' :: Maybe Text
+</span><a href="#local-6989586621679716343"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679716343"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679716342"><span class="annot"><span class="annottext">s :: ListWorkflows
+</span><a href="#local-6989586621679716342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows%27"><span class="hs-identifier hs-type">ListWorkflows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679716341"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679716341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkflows
+</span><a href="#local-6989586621679716342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListWorkflows' :: Maybe Text
 </span><a href="Network.AWS.Glue.ListWorkflows.html#%24sel%3AnextToken%3AListWorkflows%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679714597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows"><span class="hs-identifier hs-type">ListWorkflows</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679716341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows"><span class="hs-identifier hs-type">ListWorkflows</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The maximum size of a list to return.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#listWorkflows_maxResults"><span class="hs-identifier hs-type">listWorkflows_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows"><span class="hs-identifier hs-type">ListWorkflows</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -164,27 +164,27 @@ $sel:nextToken:ListWorkflows' :: ListWorkflows -&gt; Maybe Text
 -&gt; (ListWorkflows -&gt; Maybe Natural -&gt; ListWorkflows)
 -&gt; Lens ListWorkflows ListWorkflows (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows%27"><span class="hs-identifier hs-type">ListWorkflows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679714596"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows%27"><span class="hs-identifier hs-type">ListWorkflows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679716340"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListWorkflows' :: ListWorkflows -&gt; Maybe Natural
-</span><a href="#local-6989586621679714596"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679714596"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679714595"><span class="annot"><span class="annottext">s :: ListWorkflows
-</span><a href="#local-6989586621679714595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows%27"><span class="hs-identifier hs-type">ListWorkflows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679714594"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679714594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkflows
-</span><a href="#local-6989586621679714595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListWorkflows' :: Maybe Natural
+</span><a href="#local-6989586621679716340"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679716340"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679716339"><span class="annot"><span class="annottext">s :: ListWorkflows
+</span><a href="#local-6989586621679716339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows%27"><span class="hs-identifier hs-type">ListWorkflows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679716338"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679716338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkflows
+</span><a href="#local-6989586621679716339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListWorkflows' :: Maybe Natural
 </span><a href="Network.AWS.Glue.ListWorkflows.html#%24sel%3AmaxResults%3AListWorkflows%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679714594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows"><span class="hs-identifier hs-type">ListWorkflows</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679716338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows"><span class="hs-identifier hs-type">ListWorkflows</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows"><span class="hs-identifier hs-type">ListWorkflows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-89"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows"><span class="hs-identifier hs-type">ListWorkflows</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse"><span class="hs-identifier hs-type">ListWorkflowsResponse</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679714590"><span class="annot"><span class="annottext">request :: ListWorkflows -&gt; Request ListWorkflows
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679716334"><span class="annot"><span class="annottext">request :: ListWorkflows -&gt; Request ListWorkflows
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListWorkflows -&gt; Request ListWorkflows
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679714586"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679716330"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListWorkflows
 -&gt; ClientResponse ClientBody
@@ -208,10 +208,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679714583"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679714583"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679714582"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679714582"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679714581"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679714581"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679716327"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679716327"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679716326"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679716326"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679716325"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679716325"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; ListWorkflowsResponse
 </span><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse%27"><span class="hs-identifier hs-var">ListWorkflowsResponse'</span></a></span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
@@ -221,7 +221,7 @@ MonadResource m =&gt;
      String (Maybe (NonEmpty Text) -&gt; Int -&gt; ListWorkflowsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679714581"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679716325"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -231,7 +231,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListWorkflowsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679714581"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679716325"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Workflows&quot;</span></span><span class="hs-special">)</span><span>
@@ -243,15 +243,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679714583"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679716327"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679714573"><span id="local-6989586621679714575"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows"><span class="hs-identifier hs-type">ListWorkflows</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679716317"><span id="local-6989586621679716319"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows"><span class="hs-identifier hs-type">ListWorkflows</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679714570"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows"><span class="hs-identifier hs-type">ListWorkflows</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679716314"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows"><span class="hs-identifier hs-type">ListWorkflows</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows"><span class="hs-identifier hs-type">ListWorkflows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679714566"><span class="annot"><span class="annottext">toHeaders :: ListWorkflows -&gt; ResponseHeaders
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679716310"><span class="annot"><span class="annottext">toHeaders :: ListWorkflows -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListWorkflows -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -276,15 +276,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679714556"><span id="local-6989586621679714558"><span id="local-6989586621679714560"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows"><span class="hs-identifier hs-type">ListWorkflows</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679714554"><span class="annot"><span class="annottext">toJSON :: ListWorkflows -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows%27"><span class="hs-identifier hs-type">ListWorkflows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679714551"><span id="local-6989586621679714552"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679716300"><span id="local-6989586621679716302"><span id="local-6989586621679716304"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows"><span class="hs-identifier hs-type">ListWorkflows</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679716298"><span class="annot"><span class="annottext">toJSON :: ListWorkflows -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows%27"><span class="hs-identifier hs-type">ListWorkflows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679716295"><span id="local-6989586621679716296"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListWorkflows' :: ListWorkflows -&gt; Maybe Natural
 $sel:nextToken:ListWorkflows' :: ListWorkflows -&gt; Maybe Text
-</span><a href="#local-6989586621679714551"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679716295"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -296,26 +296,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679714552"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679716296"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679714551"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679716295"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows"><span class="hs-identifier hs-type">ListWorkflows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679714545"><span class="annot"><span class="annottext">toPath :: ListWorkflows -&gt; ByteString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679716289"><span class="annot"><span class="annottext">toPath :: ListWorkflows -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListWorkflows -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflows"><span class="hs-identifier hs-type">ListWorkflows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679714541"><span class="annot"><span class="annottext">toQuery :: ListWorkflows -&gt; QueryString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679716285"><span class="annot"><span class="annottext">toQuery :: ListWorkflows -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListWorkflows -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -323,7 +323,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newListWorkflowsResponse' smart constructor.</span><span>
-</span><span id="line-134"></span><span id="local-6989586621679714538"><span id="local-6989586621679714539"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListWorkflowsResponse"><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse"><span class="hs-identifier hs-var">ListWorkflowsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListWorkflowsResponse%27"><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse%27"><span class="hs-identifier hs-var">ListWorkflowsResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span id="local-6989586621679716282"><span id="local-6989586621679716283"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListWorkflowsResponse"><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse"><span class="hs-identifier hs-var">ListWorkflowsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListWorkflowsResponse%27"><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse%27"><span class="hs-identifier hs-var">ListWorkflowsResponse'</span></a></span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A continuation token, if not all workflow names have been returned.</span><span>
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3AnextToken%3AListWorkflowsResponse%27"><span class="annot"><span class="annottext">ListWorkflowsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.ListWorkflows.html#%24sel%3AnextToken%3AListWorkflowsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -334,7 +334,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListWorkflowsResponse%27"><span class="annot"><span class="annottext">ListWorkflowsResponse -&gt; Int
 </span><a href="Network.AWS.Glue.ListWorkflows.html#%24sel%3AhttpStatus%3AListWorkflowsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679714531"><span id="local-6989586621679714533"><span class="annot"><span class="annottext">ListWorkflowsResponse -&gt; ListWorkflowsResponse -&gt; Bool
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679716275"><span id="local-6989586621679716277"><span class="annot"><span class="annottext">ListWorkflowsResponse -&gt; ListWorkflowsResponse -&gt; Bool
 (ListWorkflowsResponse -&gt; ListWorkflowsResponse -&gt; Bool)
 -&gt; (ListWorkflowsResponse -&gt; ListWorkflowsResponse -&gt; Bool)
 -&gt; Eq ListWorkflowsResponse
@@ -343,7 +343,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListWorkflowsResponse -&gt; ListWorkflowsResponse -&gt; Bool
 == :: ListWorkflowsResponse -&gt; ListWorkflowsResponse -&gt; Bool
 $c== :: ListWorkflowsResponse -&gt; ListWorkflowsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679714523"><span id="local-6989586621679714525"><span id="local-6989586621679714527"><span id="local-6989586621679714529"><span class="annot"><span class="annottext">ReadPrec [ListWorkflowsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679716267"><span id="local-6989586621679716269"><span id="local-6989586621679716271"><span id="local-6989586621679716273"><span class="annot"><span class="annottext">ReadPrec [ListWorkflowsResponse]
 ReadPrec ListWorkflowsResponse
 Int -&gt; ReadS ListWorkflowsResponse
 ReadS [ListWorkflowsResponse]
@@ -363,7 +363,7 @@ readList :: ReadS [ListWorkflowsResponse]
 $creadList :: ReadS [ListWorkflowsResponse]
 readsPrec :: Int -&gt; ReadS ListWorkflowsResponse
 $creadsPrec :: Int -&gt; ReadS ListWorkflowsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679714517"><span id="local-6989586621679714519"><span id="local-6989586621679714521"><span class="annot"><span class="annottext">Int -&gt; ListWorkflowsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679716261"><span id="local-6989586621679716263"><span id="local-6989586621679716265"><span class="annot"><span class="annottext">Int -&gt; ListWorkflowsResponse -&gt; ShowS
 [ListWorkflowsResponse] -&gt; ShowS
 ListWorkflowsResponse -&gt; String
 (Int -&gt; ListWorkflowsResponse -&gt; ShowS)
@@ -407,8 +407,8 @@ $cfrom :: forall x. ListWorkflowsResponse -&gt; Rep ListWorkflowsResponse x
 </span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse"><span class="hs-identifier hs-type">ListWorkflowsResponse</span></a></span><span>
 </span><span id="line-161"></span><span id="newListWorkflowsResponse"><span class="annot"><span class="annottext">newListWorkflowsResponse :: Int -&gt; ListWorkflowsResponse
-</span><a href="Network.AWS.Glue.ListWorkflows.html#newListWorkflowsResponse"><span class="hs-identifier hs-var hs-var">newListWorkflowsResponse</span></a></span></span><span> </span><span id="local-6989586621679714514"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679714514"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.ListWorkflows.html#newListWorkflowsResponse"><span class="hs-identifier hs-var hs-var">newListWorkflowsResponse</span></a></span></span><span> </span><span id="local-6989586621679716258"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679716258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">ListWorkflowsResponse' :: Maybe Text -&gt; Maybe (NonEmpty Text) -&gt; Int -&gt; ListWorkflowsResponse
 </span><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse%27"><span class="hs-identifier hs-type">ListWorkflowsResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListWorkflowsResponse' :: Maybe Text
@@ -421,7 +421,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListWorkflowsResponse' :: Int
 </span><a href="Network.AWS.Glue.ListWorkflows.html#%24sel%3AhttpStatus%3AListWorkflowsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679714514"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679716258"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | A continuation token, if not all workflow names have been returned.</span><span>
@@ -436,16 +436,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse%27"><span class="hs-identifier hs-type">ListWorkflowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679714513"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse%27"><span class="hs-identifier hs-type">ListWorkflowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679716257"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListWorkflowsResponse' :: ListWorkflowsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679714513"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679714513"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679714512"><span class="annot"><span class="annottext">s :: ListWorkflowsResponse
-</span><a href="#local-6989586621679714512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse%27"><span class="hs-identifier hs-type">ListWorkflowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679714511"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679714511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkflowsResponse
-</span><a href="#local-6989586621679714512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListWorkflowsResponse' :: Maybe Text
+</span><a href="#local-6989586621679716257"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679716257"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679716256"><span class="annot"><span class="annottext">s :: ListWorkflowsResponse
+</span><a href="#local-6989586621679716256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse%27"><span class="hs-identifier hs-type">ListWorkflowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679716255"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679716255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkflowsResponse
+</span><a href="#local-6989586621679716256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListWorkflowsResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.ListWorkflows.html#%24sel%3AnextToken%3AListWorkflowsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679714511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse"><span class="hs-identifier hs-type">ListWorkflowsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679716255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse"><span class="hs-identifier hs-type">ListWorkflowsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | List of names of workflows in the account.</span><span>
 </span><span id="line-173"></span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#listWorkflowsResponse_workflows"><span class="hs-identifier hs-type">listWorkflowsResponse_workflows</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse"><span class="hs-identifier hs-type">ListWorkflowsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -460,16 +460,16 @@ $sel:nextToken:ListWorkflowsResponse' :: ListWorkflowsResponse -&gt; Maybe Text
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse%27"><span class="hs-identifier hs-type">ListWorkflowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679714510"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse%27"><span class="hs-identifier hs-type">ListWorkflowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679716254"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 workflows :: Maybe (NonEmpty Text)
 $sel:workflows:ListWorkflowsResponse' :: ListWorkflowsResponse -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679714510"><span class="hs-identifier hs-var hs-var">workflows</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679714510"><span class="hs-identifier hs-var">workflows</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679714509"><span class="annot"><span class="annottext">s :: ListWorkflowsResponse
-</span><a href="#local-6989586621679714509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse%27"><span class="hs-identifier hs-type">ListWorkflowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679714508"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679714508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkflowsResponse
-</span><a href="#local-6989586621679714509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflows:ListWorkflowsResponse' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679716254"><span class="hs-identifier hs-var hs-var">workflows</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679716254"><span class="hs-identifier hs-var">workflows</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679716253"><span class="annot"><span class="annottext">s :: ListWorkflowsResponse
+</span><a href="#local-6989586621679716253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse%27"><span class="hs-identifier hs-type">ListWorkflowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679716252"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679716252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkflowsResponse
+</span><a href="#local-6989586621679716253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workflows:ListWorkflowsResponse' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.Glue.ListWorkflows.html#%24sel%3Aworkflows%3AListWorkflowsResponse%27"><span class="hs-identifier hs-var">workflows</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679714508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse"><span class="hs-identifier hs-type">ListWorkflowsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679716252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse"><span class="hs-identifier hs-type">ListWorkflowsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; ListWorkflowsResponse -&gt; f ListWorkflowsResponse)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -489,8 +489,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#listWorkflowsResponse_httpStatus"><span class="hs-identifier hs-type">listWorkflowsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse"><span class="hs-identifier hs-type">ListWorkflowsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -499,16 +499,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListWorkflowsResponse -&gt; Int -&gt; ListWorkflowsResponse)
 -&gt; Lens ListWorkflowsResponse ListWorkflowsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse%27"><span class="hs-identifier hs-type">ListWorkflowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679714504"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse%27"><span class="hs-identifier hs-type">ListWorkflowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679716248"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListWorkflowsResponse' :: ListWorkflowsResponse -&gt; Int
-</span><a href="#local-6989586621679714504"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679714504"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679714503"><span class="annot"><span class="annottext">s :: ListWorkflowsResponse
-</span><a href="#local-6989586621679714503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse%27"><span class="hs-identifier hs-type">ListWorkflowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679714502"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679714502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkflowsResponse
-</span><a href="#local-6989586621679714503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListWorkflowsResponse' :: Int
+</span><a href="#local-6989586621679716248"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679716248"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679716247"><span class="annot"><span class="annottext">s :: ListWorkflowsResponse
+</span><a href="#local-6989586621679716247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse%27"><span class="hs-identifier hs-type">ListWorkflowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679716246"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679716246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkflowsResponse
+</span><a href="#local-6989586621679716247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListWorkflowsResponse' :: Int
 </span><a href="Network.AWS.Glue.ListWorkflows.html#%24sel%3AhttpStatus%3AListWorkflowsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679714502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse"><span class="hs-identifier hs-type">ListWorkflowsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679716246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse"><span class="hs-identifier hs-type">ListWorkflowsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679714500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse"><span class="hs-identifier hs-type">ListWorkflowsResponse</span></a></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679716244"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.ListWorkflows.html#ListWorkflowsResponse"><span class="hs-identifier hs-type">ListWorkflowsResponse</span></a></span></span><span>
 </span><span id="line-181"></span></pre></body></html>

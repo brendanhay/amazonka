@@ -29,27 +29,27 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | In-App Template Response.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newInAppTemplateResponse' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679614471"><span id="local-6989586621679614472"></span></span><span class="hs-keyword">data</span><span> </span><span id="InAppTemplateResponse"><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-var">InAppTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InAppTemplateResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-var">InAppTemplateResponse'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Custom config to be sent to client.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcustomConfig%3AInAppTemplateResponse%27"><span class="annot"><span class="annottext">InAppTemplateResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AcustomConfig%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var hs-var">customConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The description of the template.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AtemplateDescription%3AInAppTemplateResponse%27"><span class="annot"><span class="annottext">InAppTemplateResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AtemplateDescription%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var hs-var">templateDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The resource arn of the template.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aarn%3AInAppTemplateResponse%27"><span class="annot"><span class="annottext">InAppTemplateResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Aarn%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The layout of the message.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Alayout%3AInAppTemplateResponse%27"><span class="annot"><span class="annottext">InAppTemplateResponse -&gt; Maybe Layout
+</span><span id="line-32"></span><span id="local-6989586621679614972"><span id="local-6989586621679614973"></span></span><span class="hs-keyword">data</span><span> </span><span id="InAppTemplateResponse"><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-var">InAppTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InAppTemplateResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-var">InAppTemplateResponse'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The layout of the message.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Alayout%3AInAppTemplateResponse%27"><span class="annot"><span class="annottext">InAppTemplateResponse -&gt; Maybe Layout
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Alayout%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var hs-var">layout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Layout.html#Layout"><span class="hs-identifier hs-type">Layout</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The version id of the template.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aversion%3AInAppTemplateResponse%27"><span class="annot"><span class="annottext">InAppTemplateResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Aversion%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The content of the message, can include up to 5 modals. Each modal must</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- contain a message, a header, and background color. ImageUrl and buttons</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- are optional.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3Acontent%3AInAppTemplateResponse%27"><span class="annot"><span class="annottext">InAppTemplateResponse -&gt; Maybe [InAppMessageContent]
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The resource arn of the template.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aarn%3AInAppTemplateResponse%27"><span class="annot"><span class="annottext">InAppTemplateResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Aarn%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The description of the template.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtemplateDescription%3AInAppTemplateResponse%27"><span class="annot"><span class="annottext">InAppTemplateResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AtemplateDescription%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var hs-var">templateDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The content of the message, can include up to 5 modals. Each modal must</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- contain a message, a header, and background color. ImageUrl and buttons</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- are optional.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Acontent%3AInAppTemplateResponse%27"><span class="annot"><span class="annottext">InAppTemplateResponse -&gt; Maybe [InAppMessageContent]
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Acontent%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessageContent.html#InAppMessageContent"><span class="hs-identifier hs-type">InAppMessageContent</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Custom config to be sent to client.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcustomConfig%3AInAppTemplateResponse%27"><span class="annot"><span class="annottext">InAppTemplateResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AcustomConfig%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var hs-var">customConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The version id of the template.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aversion%3AInAppTemplateResponse%27"><span class="annot"><span class="annottext">InAppTemplateResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Aversion%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | A string-to-string map of key-value pairs that defines the tags to</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- associate with the message template. Each tag consists of a required tag</span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">-- key and an associated tag value.</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AtemplateType%3AInAppTemplateResponse%27"><span class="annot"><span class="annottext">InAppTemplateResponse -&gt; TemplateType
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AtemplateType%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var hs-var">templateType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateType.html#TemplateType"><span class="hs-identifier hs-type">TemplateType</span></a></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679614455"><span id="local-6989586621679614457"><span class="annot"><span class="annottext">InAppTemplateResponse -&gt; InAppTemplateResponse -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679614956"><span id="local-6989586621679614958"><span class="annot"><span class="annottext">InAppTemplateResponse -&gt; InAppTemplateResponse -&gt; Bool
 (InAppTemplateResponse -&gt; InAppTemplateResponse -&gt; Bool)
 -&gt; (InAppTemplateResponse -&gt; InAppTemplateResponse -&gt; Bool)
 -&gt; Eq InAppTemplateResponse
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InAppTemplateResponse -&gt; InAppTemplateResponse -&gt; Bool
 == :: InAppTemplateResponse -&gt; InAppTemplateResponse -&gt; Bool
 $c== :: InAppTemplateResponse -&gt; InAppTemplateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679614446"><span id="local-6989586621679614448"><span id="local-6989586621679614450"><span id="local-6989586621679614452"><span class="annot"><span class="annottext">ReadPrec [InAppTemplateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679614947"><span id="local-6989586621679614949"><span id="local-6989586621679614951"><span id="local-6989586621679614953"><span class="annot"><span class="annottext">ReadPrec [InAppTemplateResponse]
 ReadPrec InAppTemplateResponse
 Int -&gt; ReadS InAppTemplateResponse
 ReadS [InAppTemplateResponse]
@@ -97,7 +97,7 @@ readList :: ReadS [InAppTemplateResponse]
 $creadList :: ReadS [InAppTemplateResponse]
 readsPrec :: Int -&gt; ReadS InAppTemplateResponse
 $creadsPrec :: Int -&gt; ReadS InAppTemplateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679614439"><span id="local-6989586621679614441"><span id="local-6989586621679614443"><span class="annot"><span class="annottext">Int -&gt; InAppTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679614940"><span id="local-6989586621679614942"><span id="local-6989586621679614944"><span class="annot"><span class="annottext">Int -&gt; InAppTemplateResponse -&gt; ShowS
 [InAppTemplateResponse] -&gt; ShowS
 InAppTemplateResponse -&gt; String
 (Int -&gt; InAppTemplateResponse -&gt; ShowS)
@@ -131,19 +131,19 @@ $cfrom :: forall x. InAppTemplateResponse -&gt; Rep InAppTemplateResponse x
 </span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'customConfig', 'inAppTemplateResponse_customConfig' - Custom config to be sent to client.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'layout', 'inAppTemplateResponse_layout' - The layout of the message.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'templateDescription', 'inAppTemplateResponse_templateDescription' - The description of the template.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'arn', 'inAppTemplateResponse_arn' - The resource arn of the template.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'arn', 'inAppTemplateResponse_arn' - The resource arn of the template.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'templateDescription', 'inAppTemplateResponse_templateDescription' - The description of the template.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'layout', 'inAppTemplateResponse_layout' - The layout of the message.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'version', 'inAppTemplateResponse_version' - The version id of the template.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'content', 'inAppTemplateResponse_content' - The content of the message, can include up to 5 modals. Each modal must</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- contain a message, a header, and background color. ImageUrl and buttons</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- are optional.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'content', 'inAppTemplateResponse_content' - The content of the message, can include up to 5 modals. Each modal must</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- contain a message, a header, and background color. ImageUrl and buttons</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- are optional.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'customConfig', 'inAppTemplateResponse_customConfig' - Custom config to be sent to client.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'version', 'inAppTemplateResponse_version' - The version id of the template.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- 'tags', 'inAppTemplateResponse_tags' - A string-to-string map of key-value pairs that defines the tags to</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- associate with the message template. Each tag consists of a required tag</span><span>
@@ -168,20 +168,20 @@ $cfrom :: forall x. InAppTemplateResponse -&gt; Rep InAppTemplateResponse x
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span>
 </span><span id="line-105"></span><span id="newInAppTemplateResponse"><span class="annot"><span class="annottext">newInAppTemplateResponse :: Text -&gt; Text -&gt; Text -&gt; TemplateType -&gt; InAppTemplateResponse
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#newInAppTemplateResponse"><span class="hs-identifier hs-var hs-var">newInAppTemplateResponse</span></a></span></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679614433"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679614433"><span class="hs-identifier hs-var">pLastModifiedDate_</span></a></span></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679614432"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679614432"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679614431"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679614431"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679614430"><span class="annot"><span class="annottext">TemplateType
-</span><a href="#local-6989586621679614430"><span class="hs-identifier hs-var">pTemplateType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">InAppTemplateResponse' :: Maybe (HashMap Text Text)
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679614934"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614934"><span class="hs-identifier hs-var">pLastModifiedDate_</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679614933"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614933"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679614932"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614932"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679614931"><span class="annot"><span class="annottext">TemplateType
+</span><a href="#local-6989586621679614931"><span class="hs-identifier hs-var">pTemplateType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">InAppTemplateResponse' :: Maybe Layout
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Layout
 -&gt; Maybe Text
 -&gt; Maybe [InAppMessageContent]
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
 -&gt; Maybe (HashMap Text Text)
 -&gt; Text
 -&gt; Text
@@ -189,149 +189,51 @@ $cfrom :: forall x. InAppTemplateResponse -&gt; Rep InAppTemplateResponse x
 -&gt; TemplateType
 -&gt; InAppTemplateResponse
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:customConfig:InAppTemplateResponse' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AcustomConfig%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">customConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-111"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:layout:InAppTemplateResponse' :: Maybe Layout
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Alayout%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">layout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Layout
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:InAppTemplateResponse' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Aarn%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateDescription:InAppTemplateResponse' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AtemplateDescription%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">templateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:InAppTemplateResponse' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Aarn%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:content:InAppTemplateResponse' :: Maybe [InAppMessageContent]
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Acontent%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:layout:InAppTemplateResponse' :: Maybe Layout
-</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Alayout%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">layout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Layout
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:customConfig:InAppTemplateResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AcustomConfig%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">customConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:version:InAppTemplateResponse' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Aversion%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:content:InAppTemplateResponse' :: Maybe [InAppMessageContent]
-</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Acontent%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:InAppTemplateResponse' :: Maybe (HashMap Text Text)
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:InAppTemplateResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Atags%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:InAppTemplateResponse' :: Text
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:InAppTemplateResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AlastModifiedDate%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679614433"><span class="hs-identifier hs-var">pLastModifiedDate_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationDate:InAppTemplateResponse' :: Text
+</span><a href="#local-6989586621679614934"><span class="hs-identifier hs-var">pLastModifiedDate_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationDate:InAppTemplateResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AcreationDate%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679614432"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateName:InAppTemplateResponse' :: Text
+</span><a href="#local-6989586621679614933"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateName:InAppTemplateResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AtemplateName%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679614431"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateType:InAppTemplateResponse' :: TemplateType
+</span><a href="#local-6989586621679614932"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:templateType:InAppTemplateResponse' :: TemplateType
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AtemplateType%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">templateType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TemplateType
-</span><a href="#local-6989586621679614430"><span class="hs-identifier hs-var">pTemplateType_</span></a></span><span>
-</span><span id="line-123"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | Custom config to be sent to client.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_customConfig"><span class="hs-identifier hs-type">inAppTemplateResponse_customConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="inAppTemplateResponse_customConfig"><span class="annot"><span class="annottext">inAppTemplateResponse_customConfig :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
--&gt; InAppTemplateResponse -&gt; f InAppTemplateResponse
-</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_customConfig"><span class="hs-identifier hs-var hs-var">inAppTemplateResponse_customConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateResponse -&gt; Maybe (HashMap Text Text))
--&gt; (InAppTemplateResponse
-    -&gt; Maybe (HashMap Text Text) -&gt; InAppTemplateResponse)
--&gt; Lens
-     InAppTemplateResponse
-     InAppTemplateResponse
-     (Maybe (HashMap Text Text))
-     (Maybe (HashMap Text Text))
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614426"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-customConfig :: Maybe (HashMap Text Text)
-$sel:customConfig:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679614426"><span class="hs-identifier hs-var hs-var">customConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679614426"><span class="hs-identifier hs-var">customConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614425"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
-</span><a href="#local-6989586621679614425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614424"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679614424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
-</span><a href="#local-6989586621679614425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customConfig:InAppTemplateResponse' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AcustomConfig%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">customConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679614424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
- -&gt; InAppTemplateResponse -&gt; f InAppTemplateResponse)
--&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
-    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
--&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
--&gt; InAppTemplateResponse
--&gt; f InAppTemplateResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
--&gt; Iso
-     (Maybe (HashMap Text Text))
-     (Maybe (HashMap Text Text))
-     (Maybe (HashMap Text Text))
-     (Maybe (HashMap Text Text))
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The description of the template.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_templateDescription"><span class="hs-identifier hs-type">inAppTemplateResponse_templateDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="inAppTemplateResponse_templateDescription"><span class="annot"><span class="annottext">inAppTemplateResponse_templateDescription :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InAppTemplateResponse -&gt; f InAppTemplateResponse
-</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_templateDescription"><span class="hs-identifier hs-var hs-var">inAppTemplateResponse_templateDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateResponse -&gt; Maybe Text)
--&gt; (InAppTemplateResponse -&gt; Maybe Text -&gt; InAppTemplateResponse)
--&gt; Lens
-     InAppTemplateResponse
-     InAppTemplateResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614419"><span class="annot"><span class="annottext">Maybe Text
-templateDescription :: Maybe Text
-$sel:templateDescription:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679614419"><span class="hs-identifier hs-var hs-var">templateDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679614419"><span class="hs-identifier hs-var">templateDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614418"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
-</span><a href="#local-6989586621679614418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614417"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679614417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
-</span><a href="#local-6989586621679614418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateDescription:InAppTemplateResponse' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AtemplateDescription%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">templateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679614417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | The resource arn of the template.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_arn"><span class="hs-identifier hs-type">inAppTemplateResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="inAppTemplateResponse_arn"><span class="annot"><span class="annottext">inAppTemplateResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InAppTemplateResponse -&gt; f InAppTemplateResponse
-</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_arn"><span class="hs-identifier hs-var hs-var">inAppTemplateResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateResponse -&gt; Maybe Text)
--&gt; (InAppTemplateResponse -&gt; Maybe Text -&gt; InAppTemplateResponse)
--&gt; Lens
-     InAppTemplateResponse
-     InAppTemplateResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614415"><span class="annot"><span class="annottext">Maybe Text
-arn :: Maybe Text
-$sel:arn:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679614415"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679614415"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614414"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
-</span><a href="#local-6989586621679614414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614413"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679614413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
-</span><a href="#local-6989586621679614414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:InAppTemplateResponse' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Aarn%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679614413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | The layout of the message.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_layout"><span class="hs-identifier hs-type">inAppTemplateResponse_layout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Layout.html#Layout"><span class="hs-identifier hs-type">Layout</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="inAppTemplateResponse_layout"><span class="annot"><span class="annottext">inAppTemplateResponse_layout :: (Maybe Layout -&gt; f (Maybe Layout))
+</span><a href="#local-6989586621679614931"><span class="hs-identifier hs-var">pTemplateType_</span></a></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The layout of the message.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_layout"><span class="hs-identifier hs-type">inAppTemplateResponse_layout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Layout.html#Layout"><span class="hs-identifier hs-type">Layout</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="inAppTemplateResponse_layout"><span class="annot"><span class="annottext">inAppTemplateResponse_layout :: (Maybe Layout -&gt; f (Maybe Layout))
 -&gt; InAppTemplateResponse -&gt; f InAppTemplateResponse
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_layout"><span class="hs-identifier hs-var hs-var">inAppTemplateResponse_layout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateResponse -&gt; Maybe Layout)
 -&gt; (InAppTemplateResponse -&gt; Maybe Layout -&gt; InAppTemplateResponse)
@@ -341,22 +243,22 @@ $sel:arn:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Maybe Text
      (Maybe Layout)
      (Maybe Layout)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614411"><span class="annot"><span class="annottext">Maybe Layout
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614927"><span class="annot"><span class="annottext">Maybe Layout
 layout :: Maybe Layout
 $sel:layout:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Maybe Layout
-</span><a href="#local-6989586621679614411"><span class="hs-identifier hs-var hs-var">layout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Layout
-</span><a href="#local-6989586621679614411"><span class="hs-identifier hs-var">layout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614410"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
-</span><a href="#local-6989586621679614410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614409"><span class="annot"><span class="annottext">Maybe Layout
-</span><a href="#local-6989586621679614409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
-</span><a href="#local-6989586621679614410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layout:InAppTemplateResponse' :: Maybe Layout
+</span><a href="#local-6989586621679614927"><span class="hs-identifier hs-var hs-var">layout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Layout
+</span><a href="#local-6989586621679614927"><span class="hs-identifier hs-var">layout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614926"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
+</span><a href="#local-6989586621679614926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614925"><span class="annot"><span class="annottext">Maybe Layout
+</span><a href="#local-6989586621679614925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
+</span><a href="#local-6989586621679614926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layout:InAppTemplateResponse' :: Maybe Layout
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Alayout%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">layout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Layout
-</span><a href="#local-6989586621679614409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | The version id of the template.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_version"><span class="hs-identifier hs-type">inAppTemplateResponse_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="inAppTemplateResponse_version"><span class="annot"><span class="annottext">inAppTemplateResponse_version :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679614925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The resource arn of the template.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_arn"><span class="hs-identifier hs-type">inAppTemplateResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="inAppTemplateResponse_arn"><span class="annot"><span class="annottext">inAppTemplateResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; InAppTemplateResponse -&gt; f InAppTemplateResponse
-</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_version"><span class="hs-identifier hs-var hs-var">inAppTemplateResponse_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateResponse -&gt; Maybe Text)
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_arn"><span class="hs-identifier hs-var hs-var">inAppTemplateResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateResponse -&gt; Maybe Text)
 -&gt; (InAppTemplateResponse -&gt; Maybe Text -&gt; InAppTemplateResponse)
 -&gt; Lens
      InAppTemplateResponse
@@ -364,22 +266,45 @@ $sel:layout:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Maybe Layout
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614407"><span class="annot"><span class="annottext">Maybe Text
-version :: Maybe Text
-$sel:version:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679614407"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679614407"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614406"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
-</span><a href="#local-6989586621679614406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614405"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679614405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
-</span><a href="#local-6989586621679614406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:InAppTemplateResponse' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Aversion%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679614405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- | The content of the message, can include up to 5 modals. Each modal must</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- contain a message, a header, and background color. ImageUrl and buttons</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- are optional.</span><span>
-</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_content"><span class="hs-identifier hs-type">inAppTemplateResponse_content</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessageContent.html#InAppMessageContent"><span class="hs-identifier hs-type">InAppMessageContent</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span id="inAppTemplateResponse_content"><span class="annot"><span class="annottext">inAppTemplateResponse_content :: (Maybe [InAppMessageContent] -&gt; f (Maybe [InAppMessageContent]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614923"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679614923"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614923"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614922"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
+</span><a href="#local-6989586621679614922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614921"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
+</span><a href="#local-6989586621679614922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:InAppTemplateResponse' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Aarn%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The description of the template.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_templateDescription"><span class="hs-identifier hs-type">inAppTemplateResponse_templateDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="inAppTemplateResponse_templateDescription"><span class="annot"><span class="annottext">inAppTemplateResponse_templateDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InAppTemplateResponse -&gt; f InAppTemplateResponse
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_templateDescription"><span class="hs-identifier hs-var hs-var">inAppTemplateResponse_templateDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateResponse -&gt; Maybe Text)
+-&gt; (InAppTemplateResponse -&gt; Maybe Text -&gt; InAppTemplateResponse)
+-&gt; Lens
+     InAppTemplateResponse
+     InAppTemplateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614919"><span class="annot"><span class="annottext">Maybe Text
+templateDescription :: Maybe Text
+$sel:templateDescription:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679614919"><span class="hs-identifier hs-var hs-var">templateDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614919"><span class="hs-identifier hs-var">templateDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614918"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
+</span><a href="#local-6989586621679614918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614917"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
+</span><a href="#local-6989586621679614918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateDescription:InAppTemplateResponse' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AtemplateDescription%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">templateDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The content of the message, can include up to 5 modals. Each modal must</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- contain a message, a header, and background color. ImageUrl and buttons</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- are optional.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_content"><span class="hs-identifier hs-type">inAppTemplateResponse_content</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppMessageContent.html#InAppMessageContent"><span class="hs-identifier hs-type">InAppMessageContent</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="inAppTemplateResponse_content"><span class="annot"><span class="annottext">inAppTemplateResponse_content :: (Maybe [InAppMessageContent] -&gt; f (Maybe [InAppMessageContent]))
 -&gt; InAppTemplateResponse -&gt; f InAppTemplateResponse
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_content"><span class="hs-identifier hs-var hs-var">inAppTemplateResponse_content</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateResponse -&gt; Maybe [InAppMessageContent])
 -&gt; (InAppTemplateResponse
@@ -390,16 +315,16 @@ $sel:version:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Maybe Text
      (Maybe [InAppMessageContent])
      (Maybe [InAppMessageContent])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614403"><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614915"><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
 content :: Maybe [InAppMessageContent]
 $sel:content:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Maybe [InAppMessageContent]
-</span><a href="#local-6989586621679614403"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
-</span><a href="#local-6989586621679614403"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614402"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
-</span><a href="#local-6989586621679614402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614401"><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
-</span><a href="#local-6989586621679614401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
-</span><a href="#local-6989586621679614402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:InAppTemplateResponse' :: Maybe [InAppMessageContent]
+</span><a href="#local-6989586621679614915"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
+</span><a href="#local-6989586621679614915"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614914"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
+</span><a href="#local-6989586621679614914"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614913"><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
+</span><a href="#local-6989586621679614913"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
+</span><a href="#local-6989586621679614914"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:InAppTemplateResponse' :: Maybe [InAppMessageContent]
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Acontent%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
-</span><a href="#local-6989586621679614401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InAppMessageContent] -&gt; f (Maybe [InAppMessageContent]))
+</span><a href="#local-6989586621679614913"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InAppMessageContent] -&gt; f (Maybe [InAppMessageContent]))
  -&gt; InAppTemplateResponse -&gt; f InAppTemplateResponse)
 -&gt; ((Maybe [InAppMessageContent]
      -&gt; f (Maybe [InAppMessageContent]))
@@ -426,16 +351,14 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [InAppMessageContent]
   [InAppMessageContent]
   [InAppMessageContent]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- | A string-to-string map of key-value pairs that defines the tags to</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- associate with the message template. Each tag consists of a required tag</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- key and an associated tag value.</span><span>
-</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_tags"><span class="hs-identifier hs-type">inAppTemplateResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span id="inAppTemplateResponse_tags"><span class="annot"><span class="annottext">inAppTemplateResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | Custom config to be sent to client.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_customConfig"><span class="hs-identifier hs-type">inAppTemplateResponse_customConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="inAppTemplateResponse_customConfig"><span class="annot"><span class="annottext">inAppTemplateResponse_customConfig :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; InAppTemplateResponse -&gt; f InAppTemplateResponse
-</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_tags"><span class="hs-identifier hs-var hs-var">inAppTemplateResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateResponse -&gt; Maybe (HashMap Text Text))
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_customConfig"><span class="hs-identifier hs-var hs-var">inAppTemplateResponse_customConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateResponse -&gt; Maybe (HashMap Text Text))
 -&gt; (InAppTemplateResponse
     -&gt; Maybe (HashMap Text Text) -&gt; InAppTemplateResponse)
 -&gt; Lens
@@ -444,16 +367,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614399"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-tags :: Maybe (HashMap Text Text)
-$sel:tags:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679614399"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679614399"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614398"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
-</span><a href="#local-6989586621679614398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614397"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679614397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
-</span><a href="#local-6989586621679614398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:InAppTemplateResponse' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Atags%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679614397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614908"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+customConfig :: Maybe (HashMap Text Text)
+$sel:customConfig:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679614908"><span class="hs-identifier hs-var hs-var">customConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679614908"><span class="hs-identifier hs-var">customConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614907"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
+</span><a href="#local-6989586621679614907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614906"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679614906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
+</span><a href="#local-6989586621679614907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customConfig:InAppTemplateResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AcustomConfig%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">customConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679614906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; InAppTemplateResponse -&gt; f InAppTemplateResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -479,69 +402,145 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- | The last modified date of the template.</span><span>
-</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_lastModifiedDate"><span class="hs-identifier hs-type">inAppTemplateResponse_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-159"></span><span id="inAppTemplateResponse_lastModifiedDate"><span class="annot"><span class="annottext">inAppTemplateResponse_lastModifiedDate :: (Text -&gt; f Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The version id of the template.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_version"><span class="hs-identifier hs-type">inAppTemplateResponse_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="inAppTemplateResponse_version"><span class="annot"><span class="annottext">inAppTemplateResponse_version :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InAppTemplateResponse -&gt; f InAppTemplateResponse
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_version"><span class="hs-identifier hs-var hs-var">inAppTemplateResponse_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateResponse -&gt; Maybe Text)
+-&gt; (InAppTemplateResponse -&gt; Maybe Text -&gt; InAppTemplateResponse)
+-&gt; Lens
+     InAppTemplateResponse
+     InAppTemplateResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614904"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679614904"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614904"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614903"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
+</span><a href="#local-6989586621679614903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614902"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
+</span><a href="#local-6989586621679614903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:InAppTemplateResponse' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Aversion%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679614902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | A string-to-string map of key-value pairs that defines the tags to</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- associate with the message template. Each tag consists of a required tag</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- key and an associated tag value.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_tags"><span class="hs-identifier hs-type">inAppTemplateResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="inAppTemplateResponse_tags"><span class="annot"><span class="annottext">inAppTemplateResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; InAppTemplateResponse -&gt; f InAppTemplateResponse
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_tags"><span class="hs-identifier hs-var hs-var">inAppTemplateResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (InAppTemplateResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; InAppTemplateResponse)
+-&gt; Lens
+     InAppTemplateResponse
+     InAppTemplateResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614900"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679614900"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679614900"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614899"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
+</span><a href="#local-6989586621679614899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614898"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679614898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
+</span><a href="#local-6989586621679614899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:InAppTemplateResponse' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3Atags%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679614898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; InAppTemplateResponse -&gt; f InAppTemplateResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; InAppTemplateResponse
+-&gt; f InAppTemplateResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The last modified date of the template.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_lastModifiedDate"><span class="hs-identifier hs-type">inAppTemplateResponse_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-158"></span><span id="inAppTemplateResponse_lastModifiedDate"><span class="annot"><span class="annottext">inAppTemplateResponse_lastModifiedDate :: (Text -&gt; f Text)
 -&gt; InAppTemplateResponse -&gt; f InAppTemplateResponse
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_lastModifiedDate"><span class="hs-identifier hs-var hs-var">inAppTemplateResponse_lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateResponse -&gt; Text)
 -&gt; (InAppTemplateResponse -&gt; Text -&gt; InAppTemplateResponse)
 -&gt; Lens InAppTemplateResponse InAppTemplateResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614395"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614896"><span class="annot"><span class="annottext">Text
 lastModifiedDate :: Text
 $sel:lastModifiedDate:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Text
-</span><a href="#local-6989586621679614395"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679614395"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614394"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
-</span><a href="#local-6989586621679614394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614393"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679614393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
-</span><a href="#local-6989586621679614394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:InAppTemplateResponse' :: Text
+</span><a href="#local-6989586621679614896"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614896"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614895"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
+</span><a href="#local-6989586621679614895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614894"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
+</span><a href="#local-6989586621679614895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:InAppTemplateResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AlastModifiedDate%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679614393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- | The creation date of the template.</span><span>
-</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_creationDate"><span class="hs-identifier hs-type">inAppTemplateResponse_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-163"></span><span id="inAppTemplateResponse_creationDate"><span class="annot"><span class="annottext">inAppTemplateResponse_creationDate :: (Text -&gt; f Text)
+</span><a href="#local-6989586621679614894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The creation date of the template.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_creationDate"><span class="hs-identifier hs-type">inAppTemplateResponse_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-162"></span><span id="inAppTemplateResponse_creationDate"><span class="annot"><span class="annottext">inAppTemplateResponse_creationDate :: (Text -&gt; f Text)
 -&gt; InAppTemplateResponse -&gt; f InAppTemplateResponse
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_creationDate"><span class="hs-identifier hs-var hs-var">inAppTemplateResponse_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateResponse -&gt; Text)
 -&gt; (InAppTemplateResponse -&gt; Text -&gt; InAppTemplateResponse)
 -&gt; Lens InAppTemplateResponse InAppTemplateResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614391"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614892"><span class="annot"><span class="annottext">Text
 creationDate :: Text
 $sel:creationDate:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Text
-</span><a href="#local-6989586621679614391"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679614391"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614390"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
-</span><a href="#local-6989586621679614390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614389"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679614389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
-</span><a href="#local-6989586621679614390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:InAppTemplateResponse' :: Text
+</span><a href="#local-6989586621679614892"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614892"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614891"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
+</span><a href="#local-6989586621679614891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614890"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
+</span><a href="#local-6989586621679614891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:InAppTemplateResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AcreationDate%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679614389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- | The name of the template.</span><span>
-</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_templateName"><span class="hs-identifier hs-type">inAppTemplateResponse_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-167"></span><span id="inAppTemplateResponse_templateName"><span class="annot"><span class="annottext">inAppTemplateResponse_templateName :: (Text -&gt; f Text)
+</span><a href="#local-6989586621679614890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The name of the template.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_templateName"><span class="hs-identifier hs-type">inAppTemplateResponse_templateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-166"></span><span id="inAppTemplateResponse_templateName"><span class="annot"><span class="annottext">inAppTemplateResponse_templateName :: (Text -&gt; f Text)
 -&gt; InAppTemplateResponse -&gt; f InAppTemplateResponse
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_templateName"><span class="hs-identifier hs-var hs-var">inAppTemplateResponse_templateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateResponse -&gt; Text)
 -&gt; (InAppTemplateResponse -&gt; Text -&gt; InAppTemplateResponse)
 -&gt; Lens InAppTemplateResponse InAppTemplateResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614387"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614888"><span class="annot"><span class="annottext">Text
 templateName :: Text
 $sel:templateName:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Text
-</span><a href="#local-6989586621679614387"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679614387"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614386"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
-</span><a href="#local-6989586621679614386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614385"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679614385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
-</span><a href="#local-6989586621679614386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:InAppTemplateResponse' :: Text
+</span><a href="#local-6989586621679614888"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614888"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614887"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
+</span><a href="#local-6989586621679614887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614886"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679614886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
+</span><a href="#local-6989586621679614887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:InAppTemplateResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AtemplateName%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679614385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- | The type of the template.</span><span>
-</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_templateType"><span class="hs-identifier hs-type">inAppTemplateResponse_templateType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateType.html#TemplateType"><span class="hs-identifier hs-type">TemplateType</span></a></span><span>
-</span><span id="line-171"></span><span id="inAppTemplateResponse_templateType"><span class="annot"><span class="annottext">inAppTemplateResponse_templateType :: (TemplateType -&gt; f TemplateType)
+</span><a href="#local-6989586621679614886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The type of the template.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_templateType"><span class="hs-identifier hs-type">inAppTemplateResponse_templateType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.TemplateType.html#TemplateType"><span class="hs-identifier hs-type">TemplateType</span></a></span><span>
+</span><span id="line-170"></span><span id="inAppTemplateResponse_templateType"><span class="annot"><span class="annottext">inAppTemplateResponse_templateType :: (TemplateType -&gt; f TemplateType)
 -&gt; InAppTemplateResponse -&gt; f InAppTemplateResponse
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#inAppTemplateResponse_templateType"><span class="hs-identifier hs-var hs-var">inAppTemplateResponse_templateType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InAppTemplateResponse -&gt; TemplateType)
 -&gt; (InAppTemplateResponse -&gt; TemplateType -&gt; InAppTemplateResponse)
@@ -551,36 +550,36 @@ $sel:templateName:InAppTemplateResponse' :: InAppTemplateResponse -&gt; Text
      TemplateType
      TemplateType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614383"><span class="annot"><span class="annottext">TemplateType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679614884"><span class="annot"><span class="annottext">TemplateType
 templateType :: TemplateType
 $sel:templateType:InAppTemplateResponse' :: InAppTemplateResponse -&gt; TemplateType
-</span><a href="#local-6989586621679614383"><span class="hs-identifier hs-var hs-var">templateType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateType
-</span><a href="#local-6989586621679614383"><span class="hs-identifier hs-var">templateType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614382"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
-</span><a href="#local-6989586621679614382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614381"><span class="annot"><span class="annottext">TemplateType
-</span><a href="#local-6989586621679614381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
-</span><a href="#local-6989586621679614382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateType:InAppTemplateResponse' :: TemplateType
+</span><a href="#local-6989586621679614884"><span class="hs-identifier hs-var hs-var">templateType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TemplateType
+</span><a href="#local-6989586621679614884"><span class="hs-identifier hs-var">templateType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679614883"><span class="annot"><span class="annottext">s :: InAppTemplateResponse
+</span><a href="#local-6989586621679614883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-type">InAppTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679614882"><span class="annot"><span class="annottext">TemplateType
+</span><a href="#local-6989586621679614882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InAppTemplateResponse
+</span><a href="#local-6989586621679614883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateType:InAppTemplateResponse' :: TemplateType
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#%24sel%3AtemplateType%3AInAppTemplateResponse%27"><span class="hs-identifier hs-var">templateType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TemplateType
-</span><a href="#local-6989586621679614381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679614378"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679614376"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InAppTemplateResponse
+</span><a href="#local-6989586621679614882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679614879"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679614877"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InAppTemplateResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InAppTemplateResponse)
 -&gt; Value
 -&gt; Parser InAppTemplateResponse
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InAppTemplateResponse&quot;</span></span><span>
-</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679614373"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679614373"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679614874"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679614874"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">Maybe Layout
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Layout
 -&gt; Maybe Text
 -&gt; Maybe [InAppMessageContent]
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
 -&gt; Maybe (HashMap Text Text)
 -&gt; Text
 -&gt; Text
@@ -588,25 +587,25 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; TemplateType
 -&gt; InAppTemplateResponse
 </span><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse%27"><span class="hs-identifier hs-var">InAppTemplateResponse'</span></a></span><span>
-</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text)
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Layout
  -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Layout
  -&gt; Maybe Text
  -&gt; Maybe [InAppMessageContent]
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
  -&gt; Maybe (HashMap Text Text)
  -&gt; Text
  -&gt; Text
  -&gt; Text
  -&gt; TemplateType
  -&gt; InAppTemplateResponse)
--&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser (Maybe Layout)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Layout
-      -&gt; Maybe Text
       -&gt; Maybe [InAppMessageContent]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
       -&gt; Maybe (HashMap Text Text)
       -&gt; Text
       -&gt; Text
@@ -615,102 +614,45 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; InAppTemplateResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679614373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CustomConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
--&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Layout
-   -&gt; Maybe Text
-   -&gt; Maybe [InAppMessageContent]
-   -&gt; Maybe (HashMap Text Text)
-   -&gt; Text
-   -&gt; Text
-   -&gt; Text
-   -&gt; TemplateType
-   -&gt; InAppTemplateResponse)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Layout
-      -&gt; Maybe Text
-      -&gt; Maybe [InAppMessageContent]
-      -&gt; Maybe (HashMap Text Text)
-      -&gt; Text
-      -&gt; Text
-      -&gt; Text
-      -&gt; TemplateType
-      -&gt; InAppTemplateResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679614373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TemplateDescription&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Layout
-   -&gt; Maybe Text
-   -&gt; Maybe [InAppMessageContent]
-   -&gt; Maybe (HashMap Text Text)
-   -&gt; Text
-   -&gt; Text
-   -&gt; Text
-   -&gt; TemplateType
-   -&gt; InAppTemplateResponse)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Layout
-      -&gt; Maybe Text
-      -&gt; Maybe [InAppMessageContent]
-      -&gt; Maybe (HashMap Text Text)
-      -&gt; Text
-      -&gt; Text
-      -&gt; Text
-      -&gt; TemplateType
-      -&gt; InAppTemplateResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679614373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Layout
-   -&gt; Maybe Text
-   -&gt; Maybe [InAppMessageContent]
-   -&gt; Maybe (HashMap Text Text)
-   -&gt; Text
-   -&gt; Text
-   -&gt; Text
-   -&gt; TemplateType
-   -&gt; InAppTemplateResponse)
--&gt; Parser (Maybe Layout)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe [InAppMessageContent]
-      -&gt; Maybe (HashMap Text Text)
-      -&gt; Text
-      -&gt; Text
-      -&gt; Text
-      -&gt; TemplateType
-      -&gt; InAppTemplateResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679614373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Layout)
+</span><a href="#local-6989586621679614874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Layout)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Layout&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [InAppMessageContent]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; TemplateType
+   -&gt; InAppTemplateResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [InAppMessageContent]
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; TemplateType
+      -&gt; InAppTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679614874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe [InAppMessageContent]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
    -&gt; Maybe (HashMap Text Text)
    -&gt; Text
    -&gt; Text
@@ -721,6 +663,8 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser
      (Maybe [InAppMessageContent]
       -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
       -&gt; Text
       -&gt; Text
       -&gt; Text
@@ -728,12 +672,14 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; InAppTemplateResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679614373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679614874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;TemplateDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe [InAppMessageContent]
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
    -&gt; Maybe (HashMap Text Text)
    -&gt; Text
    -&gt; Text
@@ -743,10 +689,16 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [InAppMessageContent])
 -&gt; Parser
      (Maybe (HashMap Text Text)
-      -&gt; Text -&gt; Text -&gt; Text -&gt; TemplateType -&gt; InAppTemplateResponse)
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; TemplateType
+      -&gt; InAppTemplateResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679614373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InAppMessageContent]))
+</span><a href="#local-6989586621679614874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InAppMessageContent]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Content&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [InAppMessageContent]))
@@ -756,7 +708,54 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InAppMessageContent]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; TemplateType
+   -&gt; InAppTemplateResponse)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; TemplateType
+      -&gt; InAppTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679614874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; TemplateType
+   -&gt; InAppTemplateResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Text -&gt; Text -&gt; Text -&gt; TemplateType -&gt; InAppTemplateResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679614874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe (HashMap Text Text)
    -&gt; Text -&gt; Text -&gt; Text -&gt; TemplateType -&gt; InAppTemplateResponse)
 -&gt; Parser (Maybe (HashMap Text Text))
@@ -764,7 +763,7 @@ forall a. Monoid a =&gt; a
      (Text -&gt; Text -&gt; Text -&gt; TemplateType -&gt; InAppTemplateResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679614373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679614874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -773,44 +772,44 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Text -&gt; Text -&gt; Text -&gt; TemplateType -&gt; InAppTemplateResponse)
 -&gt; Parser Text
 -&gt; Parser (Text -&gt; Text -&gt; TemplateType -&gt; InAppTemplateResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679614373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679614874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; TemplateType -&gt; InAppTemplateResponse)
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; TemplateType -&gt; InAppTemplateResponse)
 -&gt; Parser Text
 -&gt; Parser (Text -&gt; TemplateType -&gt; InAppTemplateResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679614373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679614874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; TemplateType -&gt; InAppTemplateResponse)
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; TemplateType -&gt; InAppTemplateResponse)
 -&gt; Parser Text -&gt; Parser (TemplateType -&gt; InAppTemplateResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679614373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679614874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TemplateName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser (TemplateType -&gt; InAppTemplateResponse)
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser (TemplateType -&gt; InAppTemplateResponse)
 -&gt; Parser TemplateType -&gt; Parser InAppTemplateResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679614373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TemplateType
+</span><a href="#local-6989586621679614874"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TemplateType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TemplateType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679614365"><span id="local-6989586621679614367"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span></span></span><span>
-</span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679614362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span></span><span>
-</span><span id="line-195"></span></pre></body></html>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679614866"><span id="local-6989586621679614868"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span></span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679614863"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.InAppTemplateResponse.html#InAppTemplateResponse"><span class="hs-identifier hs-type">InAppTemplateResponse</span></a></span></span><span>
+</span><span id="line-194"></span></pre></body></html>

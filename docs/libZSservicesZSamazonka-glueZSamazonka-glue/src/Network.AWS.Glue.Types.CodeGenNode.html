@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Represents a node in a directed acyclic graph (DAG)</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCodeGenNode' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679679132"><span id="local-6989586621679679133"></span></span><span class="hs-keyword">data</span><span> </span><span id="CodeGenNode"><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-var">CodeGenNode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeGenNode%27"><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-var">CodeGenNode'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679680774"><span id="local-6989586621679680775"></span></span><span class="hs-keyword">data</span><span> </span><span id="CodeGenNode"><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-var">CodeGenNode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CodeGenNode%27"><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-var">CodeGenNode'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The line number of the node.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AlineNumber%3ACodeGenNode%27"><span class="annot"><span class="annottext">CodeGenNode -&gt; Maybe Int
 </span><a href="Network.AWS.Glue.Types.CodeGenNode.html#%24sel%3AlineNumber%3ACodeGenNode%27"><span class="hs-identifier hs-var hs-var">lineNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Aargs%3ACodeGenNode%27"><span class="annot"><span class="annottext">CodeGenNode -&gt; [CodeGenNodeArg]
 </span><a href="Network.AWS.Glue.Types.CodeGenNode.html#%24sel%3Aargs%3ACodeGenNode%27"><span class="hs-identifier hs-var hs-var">args</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNodeArg.html#CodeGenNodeArg"><span class="hs-identifier hs-type">CodeGenNodeArg</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679679123"><span id="local-6989586621679679125"><span class="annot"><span class="annottext">CodeGenNode -&gt; CodeGenNode -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679680765"><span id="local-6989586621679680767"><span class="annot"><span class="annottext">CodeGenNode -&gt; CodeGenNode -&gt; Bool
 (CodeGenNode -&gt; CodeGenNode -&gt; Bool)
 -&gt; (CodeGenNode -&gt; CodeGenNode -&gt; Bool) -&gt; Eq CodeGenNode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CodeGenNode -&gt; CodeGenNode -&gt; Bool
 == :: CodeGenNode -&gt; CodeGenNode -&gt; Bool
 $c== :: CodeGenNode -&gt; CodeGenNode -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679679114"><span id="local-6989586621679679116"><span id="local-6989586621679679118"><span id="local-6989586621679679120"><span class="annot"><span class="annottext">ReadPrec [CodeGenNode]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679680756"><span id="local-6989586621679680758"><span id="local-6989586621679680760"><span id="local-6989586621679680762"><span class="annot"><span class="annottext">ReadPrec [CodeGenNode]
 ReadPrec CodeGenNode
 Int -&gt; ReadS CodeGenNode
 ReadS [CodeGenNode]
@@ -69,7 +69,7 @@ readList :: ReadS [CodeGenNode]
 $creadList :: ReadS [CodeGenNode]
 readsPrec :: Int -&gt; ReadS CodeGenNode
 $creadsPrec :: Int -&gt; ReadS CodeGenNode
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679679107"><span id="local-6989586621679679109"><span id="local-6989586621679679111"><span class="annot"><span class="annottext">Int -&gt; CodeGenNode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679680749"><span id="local-6989586621679680751"><span id="local-6989586621679680753"><span class="annot"><span class="annottext">Int -&gt; CodeGenNode -&gt; ShowS
 [CodeGenNode] -&gt; ShowS
 CodeGenNode -&gt; String
 (Int -&gt; CodeGenNode -&gt; ShowS)
@@ -117,9 +117,9 @@ $cfrom :: forall x. CodeGenNode -&gt; Rep CodeGenNode x
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span>
 </span><span id="line-63"></span><span id="newCodeGenNode"><span class="annot"><span class="annottext">newCodeGenNode :: Text -&gt; Text -&gt; CodeGenNode
-</span><a href="Network.AWS.Glue.Types.CodeGenNode.html#newCodeGenNode"><span class="hs-identifier hs-var hs-var">newCodeGenNode</span></a></span></span><span> </span><span id="local-6989586621679679101"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679679101"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679679100"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679679100"><span class="hs-identifier hs-var">pNodeType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.Types.CodeGenNode.html#newCodeGenNode"><span class="hs-identifier hs-var hs-var">newCodeGenNode</span></a></span></span><span> </span><span id="local-6989586621679680743"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679680743"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679680742"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679680742"><span class="hs-identifier hs-var">pNodeType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">CodeGenNode' :: Maybe Int -&gt; Text -&gt; Text -&gt; [CodeGenNodeArg] -&gt; CodeGenNode
 </span><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lineNumber:CodeGenNode' :: Maybe Int
@@ -128,10 +128,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:CodeGenNode' :: Text
 </span><a href="Network.AWS.Glue.Types.CodeGenNode.html#%24sel%3Aid%3ACodeGenNode%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679679101"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679680743"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodeType:CodeGenNode' :: Text
 </span><a href="Network.AWS.Glue.Types.CodeGenNode.html#%24sel%3AnodeType%3ACodeGenNode%27"><span class="hs-identifier hs-var">nodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679679100"><span class="hs-identifier hs-var">pNodeType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679680742"><span class="hs-identifier hs-var">pNodeType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:args:CodeGenNode' :: [CodeGenNodeArg]
 </span><a href="Network.AWS.Glue.Types.CodeGenNode.html#%24sel%3Aargs%3ACodeGenNode%27"><span class="hs-identifier hs-var">args</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[CodeGenNodeArg]
 forall a. Monoid a =&gt; a
@@ -145,16 +145,16 @@ forall a. Monoid a =&gt; a
 -&gt; (CodeGenNode -&gt; Maybe Int -&gt; CodeGenNode)
 -&gt; Lens CodeGenNode CodeGenNode (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679096"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680738"><span class="annot"><span class="annottext">Maybe Int
 lineNumber :: Maybe Int
 $sel:lineNumber:CodeGenNode' :: CodeGenNode -&gt; Maybe Int
-</span><a href="#local-6989586621679679096"><span class="hs-identifier hs-var hs-var">lineNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679679096"><span class="hs-identifier hs-var">lineNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679679095"><span class="annot"><span class="annottext">s :: CodeGenNode
-</span><a href="#local-6989586621679679095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679679094"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679679094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeGenNode
-</span><a href="#local-6989586621679679095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lineNumber:CodeGenNode' :: Maybe Int
+</span><a href="#local-6989586621679680738"><span class="hs-identifier hs-var hs-var">lineNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679680738"><span class="hs-identifier hs-var">lineNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679680737"><span class="annot"><span class="annottext">s :: CodeGenNode
+</span><a href="#local-6989586621679680737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679680736"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679680736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeGenNode
+</span><a href="#local-6989586621679680737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lineNumber:CodeGenNode' :: Maybe Int
 </span><a href="Network.AWS.Glue.Types.CodeGenNode.html#%24sel%3AlineNumber%3ACodeGenNode%27"><span class="hs-identifier hs-var">lineNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679679094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679680736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | A node identifier that is unique within the node\'s graph.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#codeGenNode_id"><span class="hs-identifier hs-type">codeGenNode_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -163,16 +163,16 @@ $sel:lineNumber:CodeGenNode' :: CodeGenNode -&gt; Maybe Int
 -&gt; (CodeGenNode -&gt; Text -&gt; CodeGenNode)
 -&gt; Lens CodeGenNode CodeGenNode Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679092"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680734"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:CodeGenNode' :: CodeGenNode -&gt; Text
-</span><a href="#local-6989586621679679092"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679679092"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679679091"><span class="annot"><span class="annottext">s :: CodeGenNode
-</span><a href="#local-6989586621679679091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679679090"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679679090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeGenNode
-</span><a href="#local-6989586621679679091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:CodeGenNode' :: Text
+</span><a href="#local-6989586621679680734"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679680734"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679680733"><span class="annot"><span class="annottext">s :: CodeGenNode
+</span><a href="#local-6989586621679680733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679680732"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679680732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeGenNode
+</span><a href="#local-6989586621679680733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:CodeGenNode' :: Text
 </span><a href="Network.AWS.Glue.Types.CodeGenNode.html#%24sel%3Aid%3ACodeGenNode%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679679090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679680732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The type of node that this is.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#codeGenNode_nodeType"><span class="hs-identifier hs-type">codeGenNode_nodeType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -181,16 +181,16 @@ $sel:id:CodeGenNode' :: CodeGenNode -&gt; Text
 -&gt; (CodeGenNode -&gt; Text -&gt; CodeGenNode)
 -&gt; Lens CodeGenNode CodeGenNode Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679088"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680730"><span class="annot"><span class="annottext">Text
 nodeType :: Text
 $sel:nodeType:CodeGenNode' :: CodeGenNode -&gt; Text
-</span><a href="#local-6989586621679679088"><span class="hs-identifier hs-var hs-var">nodeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679679088"><span class="hs-identifier hs-var">nodeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679679087"><span class="annot"><span class="annottext">s :: CodeGenNode
-</span><a href="#local-6989586621679679087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679679086"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679679086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeGenNode
-</span><a href="#local-6989586621679679087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeType:CodeGenNode' :: Text
+</span><a href="#local-6989586621679680730"><span class="hs-identifier hs-var hs-var">nodeType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679680730"><span class="hs-identifier hs-var">nodeType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679680729"><span class="annot"><span class="annottext">s :: CodeGenNode
+</span><a href="#local-6989586621679680729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679680728"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679680728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeGenNode
+</span><a href="#local-6989586621679680729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeType:CodeGenNode' :: Text
 </span><a href="Network.AWS.Glue.Types.CodeGenNode.html#%24sel%3AnodeType%3ACodeGenNode%27"><span class="hs-identifier hs-var">nodeType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679679086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679680728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | Properties of the node, in the form of name-value pairs.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#codeGenNode_args"><span class="hs-identifier hs-type">codeGenNode_args</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNodeArg.html#CodeGenNodeArg"><span class="hs-identifier hs-type">CodeGenNodeArg</span></a></span><span class="hs-special">]</span><span>
@@ -200,16 +200,16 @@ $sel:nodeType:CodeGenNode' :: CodeGenNode -&gt; Text
 -&gt; (CodeGenNode -&gt; [CodeGenNodeArg] -&gt; CodeGenNode)
 -&gt; Lens CodeGenNode CodeGenNode [CodeGenNodeArg] [CodeGenNodeArg]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679084"><span class="annot"><span class="annottext">[CodeGenNodeArg]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680726"><span class="annot"><span class="annottext">[CodeGenNodeArg]
 args :: [CodeGenNodeArg]
 $sel:args:CodeGenNode' :: CodeGenNode -&gt; [CodeGenNodeArg]
-</span><a href="#local-6989586621679679084"><span class="hs-identifier hs-var hs-var">args</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[CodeGenNodeArg]
-</span><a href="#local-6989586621679679084"><span class="hs-identifier hs-var">args</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679679083"><span class="annot"><span class="annottext">s :: CodeGenNode
-</span><a href="#local-6989586621679679083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679679082"><span class="annot"><span class="annottext">[CodeGenNodeArg]
-</span><a href="#local-6989586621679679082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeGenNode
-</span><a href="#local-6989586621679679083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:args:CodeGenNode' :: [CodeGenNodeArg]
+</span><a href="#local-6989586621679680726"><span class="hs-identifier hs-var hs-var">args</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[CodeGenNodeArg]
+</span><a href="#local-6989586621679680726"><span class="hs-identifier hs-var">args</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679680725"><span class="annot"><span class="annottext">s :: CodeGenNode
+</span><a href="#local-6989586621679680725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679680724"><span class="annot"><span class="annottext">[CodeGenNodeArg]
+</span><a href="#local-6989586621679680724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CodeGenNode
+</span><a href="#local-6989586621679680725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:args:CodeGenNode' :: [CodeGenNodeArg]
 </span><a href="Network.AWS.Glue.Types.CodeGenNode.html#%24sel%3Aargs%3ACodeGenNode%27"><span class="hs-identifier hs-var">args</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[CodeGenNodeArg]
-</span><a href="#local-6989586621679679082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([CodeGenNodeArg] -&gt; f [CodeGenNodeArg])
+</span><a href="#local-6989586621679680724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([CodeGenNodeArg] -&gt; f [CodeGenNodeArg])
  -&gt; CodeGenNode -&gt; f CodeGenNode)
 -&gt; (([CodeGenNodeArg] -&gt; f [CodeGenNodeArg])
     -&gt; [CodeGenNodeArg] -&gt; f [CodeGenNodeArg])
@@ -219,11 +219,11 @@ $sel:args:CodeGenNode' :: CodeGenNode -&gt; [CodeGenNodeArg]
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([CodeGenNodeArg] -&gt; f [CodeGenNodeArg])
 -&gt; [CodeGenNodeArg] -&gt; f [CodeGenNodeArg]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679077"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679679075"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CodeGenNode
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680719"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679680717"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CodeGenNode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CodeGenNode) -&gt; Value -&gt; Parser CodeGenNode
@@ -231,8 +231,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CodeGenNode&quot;</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679679072"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679072"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679680714"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679680714"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; Text -&gt; Text -&gt; [CodeGenNodeArg] -&gt; CodeGenNode
 </span><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-var">CodeGenNode'</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Text -&gt; Text -&gt; [CodeGenNodeArg] -&gt; CodeGenNode)
@@ -240,7 +240,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; [CodeGenNodeArg] -&gt; CodeGenNode)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679680714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LineNumber&quot;</span></span><span class="hs-special">)</span><span>
@@ -248,7 +248,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; [CodeGenNodeArg] -&gt; CodeGenNode)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679680714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -256,7 +256,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser ([CodeGenNodeArg] -&gt; CodeGenNode)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679680714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NodeType&quot;</span></span><span class="hs-special">)</span><span>
@@ -264,7 +264,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser [CodeGenNodeArg] -&gt; Parser CodeGenNode
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [CodeGenNodeArg])
+</span><a href="#local-6989586621679680714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [CodeGenNodeArg])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Args&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [CodeGenNodeArg])
@@ -275,13 +275,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679064"><span id="local-6989586621679679066"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680706"><span id="local-6989586621679680708"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680703"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679053"><span id="local-6989586621679679055"><span id="local-6989586621679679057"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679679051"><span class="annot"><span class="annottext">toJSON :: CodeGenNode -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679046"><span id="local-6989586621679679047"><span id="local-6989586621679679048"><span id="local-6989586621679679049"><span class="annot"><span class="annottext">[CodeGenNodeArg]
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680695"><span id="local-6989586621679680697"><span id="local-6989586621679680699"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode"><span class="hs-identifier hs-type">CodeGenNode</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679680693"><span class="annot"><span class="annottext">toJSON :: CodeGenNode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.CodeGenNode.html#CodeGenNode%27"><span class="hs-identifier hs-type">CodeGenNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680688"><span id="local-6989586621679680689"><span id="local-6989586621679680690"><span id="local-6989586621679680691"><span class="annot"><span class="annottext">[CodeGenNodeArg]
 Maybe Int
 Text
 args :: [CodeGenNodeArg]
@@ -292,7 +292,7 @@ $sel:args:CodeGenNode' :: CodeGenNode -&gt; [CodeGenNodeArg]
 $sel:nodeType:CodeGenNode' :: CodeGenNode -&gt; Text
 $sel:id:CodeGenNode' :: CodeGenNode -&gt; Text
 $sel:lineNumber:CodeGenNode' :: CodeGenNode -&gt; Maybe Int
-</span><a href="#local-6989586621679679046"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679680688"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -304,28 +304,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679679049"><span class="hs-identifier hs-var">lineNumber</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679680691"><span class="hs-identifier hs-var">lineNumber</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679679048"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679680690"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NodeType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679679047"><span class="hs-identifier hs-var">nodeType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679680689"><span class="hs-identifier hs-var">nodeType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Args&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CodeGenNodeArg] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[CodeGenNodeArg]
-</span><a href="#local-6989586621679679046"><span class="hs-identifier hs-var">args</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679680688"><span class="hs-identifier hs-var">args</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span></pre></body></html>

@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- | Specify Sample Adaptive Offset (SAO) filter strength. Adaptive mode</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- dynamically selects best strength based on content</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679967798"><span id="local-6989586621679967799"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265SampleAdaptiveOffsetFilterMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SampleAdaptiveOffsetFilterMode.html#H265SampleAdaptiveOffsetFilterMode"><span class="hs-identifier hs-var">H265SampleAdaptiveOffsetFilterMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265SampleAdaptiveOffsetFilterMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SampleAdaptiveOffsetFilterMode.html#H265SampleAdaptiveOffsetFilterMode%27"><span class="hs-identifier hs-var">H265SampleAdaptiveOffsetFilterMode'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679972422"><span id="local-6989586621679972423"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H265SampleAdaptiveOffsetFilterMode"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SampleAdaptiveOffsetFilterMode.html#H265SampleAdaptiveOffsetFilterMode"><span class="hs-identifier hs-var">H265SampleAdaptiveOffsetFilterMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H265SampleAdaptiveOffsetFilterMode%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.H265SampleAdaptiveOffsetFilterMode.html#H265SampleAdaptiveOffsetFilterMode%27"><span class="hs-identifier hs-var">H265SampleAdaptiveOffsetFilterMode'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH265SampleAdaptiveOffsetFilterMode"><span class="annot"><span class="annottext">H265SampleAdaptiveOffsetFilterMode -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.H265SampleAdaptiveOffsetFilterMode.html#fromH265SampleAdaptiveOffsetFilterMode"><span class="hs-identifier hs-var hs-var">fromH265SampleAdaptiveOffsetFilterMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679967790"><span id="local-6989586621679967792"><span id="local-6989586621679967794"><span class="annot"><span class="annottext">Int -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679972414"><span id="local-6989586621679972416"><span id="local-6989586621679972418"><span class="annot"><span class="annottext">Int -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; ShowS
 [H265SampleAdaptiveOffsetFilterMode] -&gt; ShowS
 H265SampleAdaptiveOffsetFilterMode -&gt; String
 (Int -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: H265SampleAdaptiveOffsetFilterMode -&gt; String
 showsPrec :: Int -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679967781"><span id="local-6989586621679967783"><span id="local-6989586621679967785"><span id="local-6989586621679967787"><span class="annot"><span class="annottext">ReadPrec [H265SampleAdaptiveOffsetFilterMode]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679972405"><span id="local-6989586621679972407"><span id="local-6989586621679972409"><span id="local-6989586621679972411"><span class="annot"><span class="annottext">ReadPrec [H265SampleAdaptiveOffsetFilterMode]
 ReadPrec H265SampleAdaptiveOffsetFilterMode
 Int -&gt; ReadS H265SampleAdaptiveOffsetFilterMode
 ReadS [H265SampleAdaptiveOffsetFilterMode]
@@ -75,7 +75,7 @@ $creadList :: ReadS [H265SampleAdaptiveOffsetFilterMode]
 readsPrec :: Int -&gt; ReadS H265SampleAdaptiveOffsetFilterMode
 $creadsPrec :: Int -&gt; ReadS H265SampleAdaptiveOffsetFilterMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679967776"><span id="local-6989586621679967778"><span class="annot"><span class="annottext">H265SampleAdaptiveOffsetFilterMode
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679972400"><span id="local-6989586621679972402"><span class="annot"><span class="annottext">H265SampleAdaptiveOffsetFilterMode
 -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; Bool
 (H265SampleAdaptiveOffsetFilterMode
  -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; Bool)
@@ -92,7 +92,7 @@ $c/= :: H265SampleAdaptiveOffsetFilterMode
 $c== :: H265SampleAdaptiveOffsetFilterMode
 -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679967760"><span id="local-6989586621679967762"><span id="local-6989586621679967764"><span id="local-6989586621679967766"><span id="local-6989586621679967768"><span id="local-6989586621679967770"><span id="local-6989586621679967772"><span class="annot"><span class="annottext">Eq H265SampleAdaptiveOffsetFilterMode
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679972384"><span id="local-6989586621679972386"><span id="local-6989586621679972388"><span id="local-6989586621679972390"><span id="local-6989586621679972392"><span id="local-6989586621679972394"><span id="local-6989586621679972396"><span class="annot"><span class="annottext">Eq H265SampleAdaptiveOffsetFilterMode
 Eq H265SampleAdaptiveOffsetFilterMode
 -&gt; (H265SampleAdaptiveOffsetFilterMode
     -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; Ordering)
@@ -186,7 +186,7 @@ H265SampleAdaptiveOffsetFilterMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679967752"><span id="local-6989586621679967754"><span class="annot"><span class="annottext">Int -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679972376"><span id="local-6989586621679972378"><span class="annot"><span class="annottext">Int -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; Int
 H265SampleAdaptiveOffsetFilterMode -&gt; Int
 (Int -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; Int)
 -&gt; (H265SampleAdaptiveOffsetFilterMode -&gt; Int)
@@ -197,56 +197,56 @@ $chash :: H265SampleAdaptiveOffsetFilterMode -&gt; Int
 hashWithSalt :: Int -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; Int
 $chashWithSalt :: Int -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679967749"><span class="annot"><span class="annottext">H265SampleAdaptiveOffsetFilterMode -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679972373"><span class="annot"><span class="annottext">H265SampleAdaptiveOffsetFilterMode -&gt; ()
 (H265SampleAdaptiveOffsetFilterMode -&gt; ())
 -&gt; NFData H265SampleAdaptiveOffsetFilterMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H265SampleAdaptiveOffsetFilterMode -&gt; ()
 $crnf :: H265SampleAdaptiveOffsetFilterMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679967746"><span class="annot"><span class="annottext">Text -&gt; Either String H265SampleAdaptiveOffsetFilterMode
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679972370"><span class="annot"><span class="annottext">Text -&gt; Either String H265SampleAdaptiveOffsetFilterMode
 (Text -&gt; Either String H265SampleAdaptiveOffsetFilterMode)
 -&gt; FromText H265SampleAdaptiveOffsetFilterMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H265SampleAdaptiveOffsetFilterMode
 $cfromText :: Text -&gt; Either String H265SampleAdaptiveOffsetFilterMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679967743"><span class="annot"><span class="annottext">H265SampleAdaptiveOffsetFilterMode -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679972367"><span class="annot"><span class="annottext">H265SampleAdaptiveOffsetFilterMode -&gt; Text
 (H265SampleAdaptiveOffsetFilterMode -&gt; Text)
 -&gt; ToText H265SampleAdaptiveOffsetFilterMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H265SampleAdaptiveOffsetFilterMode -&gt; Text
 $ctoText :: H265SampleAdaptiveOffsetFilterMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679967740"><span class="annot"><span class="annottext">H265SampleAdaptiveOffsetFilterMode -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679972364"><span class="annot"><span class="annottext">H265SampleAdaptiveOffsetFilterMode -&gt; ByteString
 (H265SampleAdaptiveOffsetFilterMode -&gt; ByteString)
 -&gt; ToByteString H265SampleAdaptiveOffsetFilterMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H265SampleAdaptiveOffsetFilterMode -&gt; ByteString
 $ctoBS :: H265SampleAdaptiveOffsetFilterMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679967737"><span class="annot"><span class="annottext">H265SampleAdaptiveOffsetFilterMode -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679972361"><span class="annot"><span class="annottext">H265SampleAdaptiveOffsetFilterMode -&gt; ByteStringBuilder
 (H265SampleAdaptiveOffsetFilterMode -&gt; ByteStringBuilder)
 -&gt; ToLog H265SampleAdaptiveOffsetFilterMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H265SampleAdaptiveOffsetFilterMode -&gt; ByteStringBuilder
 $cbuild :: H265SampleAdaptiveOffsetFilterMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679967734"><span class="annot"><span class="annottext">HeaderName -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679972358"><span class="annot"><span class="annottext">HeaderName -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; [Header]
 (HeaderName -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; [Header])
 -&gt; ToHeader H265SampleAdaptiveOffsetFilterMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H265SampleAdaptiveOffsetFilterMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679967731"><span class="annot"><span class="annottext">H265SampleAdaptiveOffsetFilterMode -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679972355"><span class="annot"><span class="annottext">H265SampleAdaptiveOffsetFilterMode -&gt; QueryString
 (H265SampleAdaptiveOffsetFilterMode -&gt; QueryString)
 -&gt; ToQuery H265SampleAdaptiveOffsetFilterMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H265SampleAdaptiveOffsetFilterMode -&gt; QueryString
 $ctoQuery :: H265SampleAdaptiveOffsetFilterMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679967726"><span id="local-6989586621679967728"><span class="annot"><span class="annottext">Value -&gt; Parser [H265SampleAdaptiveOffsetFilterMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679972350"><span id="local-6989586621679972352"><span class="annot"><span class="annottext">Value -&gt; Parser [H265SampleAdaptiveOffsetFilterMode]
 Value -&gt; Parser H265SampleAdaptiveOffsetFilterMode
 (Value -&gt; Parser H265SampleAdaptiveOffsetFilterMode)
 -&gt; (Value -&gt; Parser [H265SampleAdaptiveOffsetFilterMode])
@@ -258,7 +258,7 @@ $cparseJSONList :: Value -&gt; Parser [H265SampleAdaptiveOffsetFilterMode]
 parseJSON :: Value -&gt; Parser H265SampleAdaptiveOffsetFilterMode
 $cparseJSON :: Value -&gt; Parser H265SampleAdaptiveOffsetFilterMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679967721"><span id="local-6989586621679967723"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265SampleAdaptiveOffsetFilterMode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679972345"><span id="local-6989586621679972347"><span class="annot"><span class="annottext">FromJSONKeyFunction [H265SampleAdaptiveOffsetFilterMode]
 FromJSONKeyFunction H265SampleAdaptiveOffsetFilterMode
 FromJSONKeyFunction H265SampleAdaptiveOffsetFilterMode
 -&gt; FromJSONKeyFunction [H265SampleAdaptiveOffsetFilterMode]
@@ -270,7 +270,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H265SampleAdaptiveOffsetFilterMode]
 fromJSONKey :: FromJSONKeyFunction H265SampleAdaptiveOffsetFilterMode
 $cfromJSONKey :: FromJSONKeyFunction H265SampleAdaptiveOffsetFilterMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679967712"><span id="local-6989586621679967714"><span id="local-6989586621679967716"><span id="local-6989586621679967718"><span class="annot"><span class="annottext">[H265SampleAdaptiveOffsetFilterMode] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679972336"><span id="local-6989586621679972338"><span id="local-6989586621679972340"><span id="local-6989586621679972342"><span class="annot"><span class="annottext">[H265SampleAdaptiveOffsetFilterMode] -&gt; Encoding
 [H265SampleAdaptiveOffsetFilterMode] -&gt; Value
 H265SampleAdaptiveOffsetFilterMode -&gt; Encoding
 H265SampleAdaptiveOffsetFilterMode -&gt; Value
@@ -294,7 +294,7 @@ $ctoEncoding :: H265SampleAdaptiveOffsetFilterMode -&gt; Encoding
 toJSON :: H265SampleAdaptiveOffsetFilterMode -&gt; Value
 $ctoJSON :: H265SampleAdaptiveOffsetFilterMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679967707"><span id="local-6989586621679967709"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265SampleAdaptiveOffsetFilterMode]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679972331"><span id="local-6989586621679972333"><span class="annot"><span class="annottext">ToJSONKeyFunction [H265SampleAdaptiveOffsetFilterMode]
 ToJSONKeyFunction H265SampleAdaptiveOffsetFilterMode
 ToJSONKeyFunction H265SampleAdaptiveOffsetFilterMode
 -&gt; ToJSONKeyFunction [H265SampleAdaptiveOffsetFilterMode]
@@ -306,14 +306,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H265SampleAdaptiveOffsetFilterMode]
 toJSONKey :: ToJSONKeyFunction H265SampleAdaptiveOffsetFilterMode
 $ctoJSONKey :: ToJSONKeyFunction H265SampleAdaptiveOffsetFilterMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679967704"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265SampleAdaptiveOffsetFilterMode
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679972328"><span class="annot"><span class="annottext">[Node] -&gt; Either String H265SampleAdaptiveOffsetFilterMode
 ([Node] -&gt; Either String H265SampleAdaptiveOffsetFilterMode)
 -&gt; FromXML H265SampleAdaptiveOffsetFilterMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H265SampleAdaptiveOffsetFilterMode
 $cparseXML :: [Node] -&gt; Either String H265SampleAdaptiveOffsetFilterMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679967701"><span class="annot"><span class="annottext">H265SampleAdaptiveOffsetFilterMode -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679972325"><span class="annot"><span class="annottext">H265SampleAdaptiveOffsetFilterMode -&gt; XML
 (H265SampleAdaptiveOffsetFilterMode -&gt; XML)
 -&gt; ToXML H265SampleAdaptiveOffsetFilterMode
 forall a. (a -&gt; XML) -&gt; ToXML a

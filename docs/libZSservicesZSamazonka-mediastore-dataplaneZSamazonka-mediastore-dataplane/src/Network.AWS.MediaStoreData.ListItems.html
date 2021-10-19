@@ -30,17 +30,17 @@
 </span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#newListItems"><span class="hs-identifier">newListItems</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItems_nextToken"><span class="hs-identifier">listItems_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItems_maxResults"><span class="hs-identifier">listItems_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItems_path"><span class="hs-identifier">listItems_path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItems_path"><span class="hs-identifier">listItems_path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItems_nextToken"><span class="hs-identifier">listItems_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItems_maxResults"><span class="hs-identifier">listItems_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier">ListItemsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#newListItemsResponse"><span class="hs-identifier">newListItemsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItemsResponse_nextToken"><span class="hs-identifier">listItemsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItemsResponse_items"><span class="hs-identifier">listItemsResponse_items</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItemsResponse_items"><span class="hs-identifier">listItemsResponse_items</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItemsResponse_nextToken"><span class="hs-identifier">listItemsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItemsResponse_httpStatus"><span class="hs-identifier">listItemsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span class="hs-keyword">where</span><span>
@@ -53,33 +53,33 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListItems' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679148060"><span id="local-6989586621679148061"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListItems"><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-var">ListItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListItems%27"><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-var">ListItems'</span></a></span></span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token that identifies which batch of results that you want to see.</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- For example, you submit a @ListItems@ request with @MaxResults@ set at</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- 500. The service returns the first batch of results (up to 500) and a</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- @NextToken@ value. To see the next batch of results, you can submit the</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- @ListItems@ request a second time and specify the @NextToken@ value.</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Tokens expire after 15 minutes.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AnextToken%3AListItems%27"><span class="annot"><span class="annottext">ListItems -&gt; Maybe Text
+</span><span id="line-56"></span><span id="local-6989586621679148065"><span id="local-6989586621679148066"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListItems"><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-var">ListItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListItems%27"><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-var">ListItems'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path in the container from which to retrieve items. Format: \&lt;folder</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- name&gt;\/\&lt;folder name&gt;\/\&lt;file name&gt;</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Apath%3AListItems%27"><span class="annot"><span class="annottext">ListItems -&gt; Maybe Text
+</span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3Apath%3AListItems%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The token that identifies which batch of results that you want to see.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- For example, you submit a @ListItems@ request with @MaxResults@ set at</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- 500. The service returns the first batch of results (up to 500) and a</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- @NextToken@ value. To see the next batch of results, you can submit the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @ListItems@ request a second time and specify the @NextToken@ value.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- Tokens expire after 15 minutes.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AnextToken%3AListItems%27"><span class="annot"><span class="annottext">ListItems -&gt; Maybe Text
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AnextToken%3AListItems%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return per API request. For example,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- you submit a @ListItems@ request with @MaxResults@ set at 500. Although</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- 2,000 items match your request, the service returns no more than the</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- first 500 items. (The service also returns a @NextToken@ value that you</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- can use to fetch the next batch of results.) The service might return</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- fewer results than the @MaxResults@ value.</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- If @MaxResults@ is not included in the request, the service defaults to</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- pagination with a maximum of 1,000 results per page.</span><span>
-</span><span id="line-74"></span><span>    </span><span id="%24sel%3AmaxResults%3AListItems%27"><span class="annot"><span class="annottext">ListItems -&gt; Maybe Natural
-</span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AmaxResults%3AListItems%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The path in the container from which to retrieve items. Format: \&lt;folder</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- name&gt;\/\&lt;folder name&gt;\/\&lt;file name&gt;</span><span>
-</span><span id="line-77"></span><span>    </span><span id="%24sel%3Apath%3AListItems%27"><span class="annot"><span class="annottext">ListItems -&gt; Maybe Text
-</span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3Apath%3AListItems%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return per API request. For example,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- you submit a @ListItems@ request with @MaxResults@ set at 500. Although</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- 2,000 items match your request, the service returns no more than the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- first 500 items. (The service also returns a @NextToken@ value that you</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- can use to fetch the next batch of results.) The service might return</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- fewer results than the @MaxResults@ value.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- If @MaxResults@ is not included in the request, the service defaults to</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- pagination with a maximum of 1,000 results per page.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AmaxResults%3AListItems%27"><span class="annot"><span class="annottext">ListItems -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AmaxResults%3AListItems%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679148052"><span id="local-6989586621679148054"><span class="annot"><span class="annottext">ListItems -&gt; ListItems -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679148057"><span id="local-6989586621679148059"><span class="annot"><span class="annottext">ListItems -&gt; ListItems -&gt; Bool
 (ListItems -&gt; ListItems -&gt; Bool)
 -&gt; (ListItems -&gt; ListItems -&gt; Bool) -&gt; Eq ListItems
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListItems -&gt; ListItems -&gt; Bool
 == :: ListItems -&gt; ListItems -&gt; Bool
 $c== :: ListItems -&gt; ListItems -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148043"><span id="local-6989586621679148045"><span id="local-6989586621679148047"><span id="local-6989586621679148049"><span class="annot"><span class="annottext">ReadPrec [ListItems]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148048"><span id="local-6989586621679148050"><span id="local-6989586621679148052"><span id="local-6989586621679148054"><span class="annot"><span class="annottext">ReadPrec [ListItems]
 ReadPrec ListItems
 Int -&gt; ReadS ListItems
 ReadS [ListItems]
@@ -107,7 +107,7 @@ readList :: ReadS [ListItems]
 $creadList :: ReadS [ListItems]
 readsPrec :: Int -&gt; ReadS ListItems
 $creadsPrec :: Int -&gt; ReadS ListItems
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148036"><span id="local-6989586621679148038"><span id="local-6989586621679148040"><span class="annot"><span class="annottext">Int -&gt; ListItems -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679148041"><span id="local-6989586621679148043"><span id="local-6989586621679148045"><span class="annot"><span class="annottext">Int -&gt; ListItems -&gt; ShowS
 [ListItems] -&gt; ShowS
 ListItems -&gt; String
 (Int -&gt; ListItems -&gt; ShowS)
@@ -140,126 +140,126 @@ $cfrom :: forall x. ListItems -&gt; Rep ListItems x
 </span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'nextToken', 'listItems_nextToken' - The token that identifies which batch of results that you want to see.</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- For example, you submit a @ListItems@ request with @MaxResults@ set at</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 500. The service returns the first batch of results (up to 500) and a</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- @NextToken@ value. To see the next batch of results, you can submit the</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- @ListItems@ request a second time and specify the @NextToken@ value.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- Tokens expire after 15 minutes.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'maxResults', 'listItems_maxResults' - The maximum number of results to return per API request. For example,</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- you submit a @ListItems@ request with @MaxResults@ set at 500. Although</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 2,000 items match your request, the service returns no more than the</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- first 500 items. (The service also returns a @NextToken@ value that you</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- can use to fetch the next batch of results.) The service might return</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- fewer results than the @MaxResults@ value.</span><span>
-</span><span id="line-103"></span><span class="hs-comment">--</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- If @MaxResults@ is not included in the request, the service defaults to</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- pagination with a maximum of 1,000 results per page.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'path', 'listItems_path' - The path in the container from which to retrieve items. Format: \&lt;folder</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- name&gt;\/\&lt;folder name&gt;\/\&lt;file name&gt;</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'nextToken', 'listItems_nextToken' - The token that identifies which batch of results that you want to see.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- For example, you submit a @ListItems@ request with @MaxResults@ set at</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 500. The service returns the first batch of results (up to 500) and a</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- @NextToken@ value. To see the next batch of results, you can submit the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- @ListItems@ request a second time and specify the @NextToken@ value.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Tokens expire after 15 minutes.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'maxResults', 'listItems_maxResults' - The maximum number of results to return per API request. For example,</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- you submit a @ListItems@ request with @MaxResults@ set at 500. Although</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 2,000 items match your request, the service returns no more than the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- first 500 items. (The service also returns a @NextToken@ value that you</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- can use to fetch the next batch of results.) The service might return</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- fewer results than the @MaxResults@ value.</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'path', 'listItems_path' - The path in the container from which to retrieve items. Format: \&lt;folder</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- name&gt;\/\&lt;folder name&gt;\/\&lt;file name&gt;</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- If @MaxResults@ is not included in the request, the service defaults to</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- pagination with a maximum of 1,000 results per page.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#newListItems"><span class="hs-identifier hs-type">newListItems</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span>
 </span><span id="line-111"></span><span id="newListItems"><span class="annot"><span class="annottext">newListItems :: ListItems
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#newListItems"><span class="hs-identifier hs-var hs-var">newListItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">ListItems' :: Maybe Text -&gt; Maybe Natural -&gt; Maybe Text -&gt; ListItems
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">ListItems' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; ListItems
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListItems' :: Maybe Text
+</span><span id="line-113"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:path:ListItems' :: Maybe Text
+</span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3Apath%3AListItems%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListItems' :: Maybe Text
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AnextToken%3AListItems%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListItems' :: Maybe Natural
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListItems' :: Maybe Natural
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AmaxResults%3AListItems%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:path:ListItems' :: Maybe Text
-</span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3Apath%3AListItems%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The token that identifies which batch of results that you want to see.</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- For example, you submit a @ListItems@ request with @MaxResults@ set at</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- 500. The service returns the first batch of results (up to 500) and a</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- @NextToken@ value. To see the next batch of results, you can submit the</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- @ListItems@ request a second time and specify the @NextToken@ value.</span><span>
-</span><span id="line-123"></span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- Tokens expire after 15 minutes.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItems_nextToken"><span class="hs-identifier hs-type">listItems_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="listItems_nextToken"><span class="annot"><span class="annottext">listItems_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListItems -&gt; f ListItems
-</span><a href="Network.AWS.MediaStoreData.ListItems.html#listItems_nextToken"><span class="hs-identifier hs-var hs-var">listItems_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListItems -&gt; Maybe Text)
--&gt; (ListItems -&gt; Maybe Text -&gt; ListItems)
--&gt; Lens ListItems ListItems (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148030"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListItems' :: ListItems -&gt; Maybe Text
-</span><a href="#local-6989586621679148030"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679148030"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148029"><span class="annot"><span class="annottext">s :: ListItems
-</span><a href="#local-6989586621679148029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148028"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679148028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItems
-</span><a href="#local-6989586621679148029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListItems' :: Maybe Text
-</span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AnextToken%3AListItems%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679148028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | The maximum number of results to return per API request. For example,</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- you submit a @ListItems@ request with @MaxResults@ set at 500. Although</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- 2,000 items match your request, the service returns no more than the</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- first 500 items. (The service also returns a @NextToken@ value that you</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- can use to fetch the next batch of results.) The service might return</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- fewer results than the @MaxResults@ value.</span><span>
-</span><span id="line-134"></span><span class="hs-comment">--</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- If @MaxResults@ is not included in the request, the service defaults to</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- pagination with a maximum of 1,000 results per page.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItems_maxResults"><span class="hs-identifier hs-type">listItems_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="listItems_maxResults"><span class="annot"><span class="annottext">listItems_maxResults :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; ListItems -&gt; f ListItems
-</span><a href="Network.AWS.MediaStoreData.ListItems.html#listItems_maxResults"><span class="hs-identifier hs-var hs-var">listItems_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListItems -&gt; Maybe Natural)
--&gt; (ListItems -&gt; Maybe Natural -&gt; ListItems)
--&gt; Lens ListItems ListItems (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148027"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:ListItems' :: ListItems -&gt; Maybe Natural
-</span><a href="#local-6989586621679148027"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679148027"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148026"><span class="annot"><span class="annottext">s :: ListItems
-</span><a href="#local-6989586621679148026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148025"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679148025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItems
-</span><a href="#local-6989586621679148026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListItems' :: Maybe Natural
-</span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AmaxResults%3AListItems%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679148025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | The path in the container from which to retrieve items. Format: \&lt;folder</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- name&gt;\/\&lt;folder name&gt;\/\&lt;file name&gt;</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItems_path"><span class="hs-identifier hs-type">listItems_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="listItems_path"><span class="annot"><span class="annottext">listItems_path :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListItems -&gt; f ListItems
+</span><span id="line-118"></span><span class="hs-comment">-- | The path in the container from which to retrieve items. Format: \&lt;folder</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- name&gt;\/\&lt;folder name&gt;\/\&lt;file name&gt;</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItems_path"><span class="hs-identifier hs-type">listItems_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="listItems_path"><span class="annot"><span class="annottext">listItems_path :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListItems -&gt; f ListItems
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#listItems_path"><span class="hs-identifier hs-var hs-var">listItems_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListItems -&gt; Maybe Text)
 -&gt; (ListItems -&gt; Maybe Text -&gt; ListItems)
 -&gt; Lens ListItems ListItems (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148024"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148035"><span class="annot"><span class="annottext">Maybe Text
 path :: Maybe Text
 $sel:path:ListItems' :: ListItems -&gt; Maybe Text
-</span><a href="#local-6989586621679148024"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679148024"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148023"><span class="annot"><span class="annottext">s :: ListItems
-</span><a href="#local-6989586621679148023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148022"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679148022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItems
-</span><a href="#local-6989586621679148023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:ListItems' :: Maybe Text
+</span><a href="#local-6989586621679148035"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679148035"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148034"><span class="annot"><span class="annottext">s :: ListItems
+</span><a href="#local-6989586621679148034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148033"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679148033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItems
+</span><a href="#local-6989586621679148034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:ListItems' :: Maybe Text
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3Apath%3AListItems%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679148022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679148033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The token that identifies which batch of results that you want to see.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- For example, you submit a @ListItems@ request with @MaxResults@ set at</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 500. The service returns the first batch of results (up to 500) and a</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- @NextToken@ value. To see the next batch of results, you can submit the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- @ListItems@ request a second time and specify the @NextToken@ value.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Tokens expire after 15 minutes.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItems_nextToken"><span class="hs-identifier hs-type">listItems_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="listItems_nextToken"><span class="annot"><span class="annottext">listItems_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListItems -&gt; f ListItems
+</span><a href="Network.AWS.MediaStoreData.ListItems.html#listItems_nextToken"><span class="hs-identifier hs-var hs-var">listItems_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListItems -&gt; Maybe Text)
+-&gt; (ListItems -&gt; Maybe Text -&gt; ListItems)
+-&gt; Lens ListItems ListItems (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148032"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListItems' :: ListItems -&gt; Maybe Text
+</span><a href="#local-6989586621679148032"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679148032"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148031"><span class="annot"><span class="annottext">s :: ListItems
+</span><a href="#local-6989586621679148031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148030"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679148030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItems
+</span><a href="#local-6989586621679148031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListItems' :: Maybe Text
+</span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AnextToken%3AListItems%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679148030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The maximum number of results to return per API request. For example,</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- you submit a @ListItems@ request with @MaxResults@ set at 500. Although</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 2,000 items match your request, the service returns no more than the</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- first 500 items. (The service also returns a @NextToken@ value that you</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- can use to fetch the next batch of results.) The service might return</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- fewer results than the @MaxResults@ value.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- If @MaxResults@ is not included in the request, the service defaults to</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- pagination with a maximum of 1,000 results per page.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItems_maxResults"><span class="hs-identifier hs-type">listItems_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="listItems_maxResults"><span class="annot"><span class="annottext">listItems_maxResults :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; ListItems -&gt; f ListItems
+</span><a href="Network.AWS.MediaStoreData.ListItems.html#listItems_maxResults"><span class="hs-identifier hs-var hs-var">listItems_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListItems -&gt; Maybe Natural)
+-&gt; (ListItems -&gt; Maybe Natural -&gt; ListItems)
+-&gt; Lens ListItems ListItems (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679148029"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListItems' :: ListItems -&gt; Maybe Natural
+</span><a href="#local-6989586621679148029"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679148029"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679148028"><span class="annot"><span class="annottext">s :: ListItems
+</span><a href="#local-6989586621679148028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679148027"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679148027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItems
+</span><a href="#local-6989586621679148028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListItems' :: Maybe Natural
+</span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AmaxResults%3AListItems%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679148027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679148018"><span class="annot"><span class="annottext">page :: ListItems -&gt; AWSResponse ListItems -&gt; Maybe ListItems
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679148016"><span class="annot"><span class="annottext">ListItems
-</span><a href="#local-6989586621679148016"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679148015"><span class="annot"><span class="annottext">AWSResponse ListItems
-</span><a href="#local-6989586621679148015"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679148023"><span class="annot"><span class="annottext">page :: ListItems -&gt; AWSResponse ListItems -&gt; Maybe ListItems
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679148021"><span class="annot"><span class="annottext">ListItems
+</span><a href="#local-6989586621679148021"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679148020"><span class="annot"><span class="annottext">AWSResponse ListItems
+</span><a href="#local-6989586621679148020"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-148"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListItems
 ListItemsResponse
-</span><a href="#local-6989586621679148015"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679148020"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">ListItemsResponse
 -&gt; Getting (First Text) ListItemsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -285,7 +285,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-153"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListItems
 ListItemsResponse
-</span><a href="#local-6989586621679148015"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679148020"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">ListItemsResponse
 -&gt; Getting (First [Item]) ListItemsResponse [Item] -&gt; Maybe [Item]
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -314,7 +314,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ListItems
-</span><a href="#local-6989586621679148016"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679148021"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">ListItems -&gt; (ListItems -&gt; ListItems) -&gt; ListItems
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -327,7 +327,7 @@ Lens ListItems ListItems (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListItems
 ListItemsResponse
-</span><a href="#local-6989586621679148015"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679148020"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">ListItemsResponse
 -&gt; Getting (First Text) ListItemsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -347,12 +347,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679148005"><span class="annot"><span class="annottext">request :: ListItems -&gt; Request ListItems
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679148010"><span class="annot"><span class="annottext">request :: ListItems -&gt; Request ListItems
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListItems -&gt; Request ListItems
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaStoreData.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679148001"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679148006"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListItems
 -&gt; ClientResponse ClientBody
@@ -376,27 +376,18 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679147998"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679147998"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679147997"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679147997"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679147996"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679147996"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Item] -&gt; Int -&gt; ListItemsResponse
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679148003"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679148003"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679148002"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679148002"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679148001"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679148001"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Item] -&gt; Maybe Text -&gt; Int -&gt; ListItemsResponse
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-var">ListItemsResponse'</span></a></span><span>
-</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Item] -&gt; Int -&gt; ListItemsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe [Item] -&gt; Int -&gt; ListItemsResponse)
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Item] -&gt; Maybe Text -&gt; Int -&gt; ListItemsResponse)
+-&gt; Either String (Maybe [Item])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListItemsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679147996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Item] -&gt; Int -&gt; ListItemsResponse)
--&gt; Either String (Maybe [Item])
--&gt; Either String (Int -&gt; ListItemsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679147996"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Item]))
+</span><a href="#local-6989586621679148001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Item]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Item]))
@@ -405,6 +396,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Item]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListItemsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListItemsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679148001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListItemsResponse)
 -&gt; Either String Int -&gt; Either String ListItemsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -413,15 +413,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679147998"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679148003"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679147987"><span id="local-6989586621679147989"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679147992"><span id="local-6989586621679147994"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span></span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679147984"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679147989"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679147980"><span class="annot"><span class="annottext">toHeaders :: ListItems -&gt; ResponseHeaders
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679147985"><span class="annot"><span class="annottext">toHeaders :: ListItems -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListItems -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -429,60 +429,60 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679147975"><span class="annot"><span class="annottext">toPath :: ListItems -&gt; ByteString
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679147980"><span class="annot"><span class="annottext">toPath :: ListItems -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListItems -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems"><span class="hs-identifier hs-type">ListItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679147971"><span class="annot"><span class="annottext">toQuery :: ListItems -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147967"><span id="local-6989586621679147968"><span id="local-6989586621679147969"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679147976"><span class="annot"><span class="annottext">toQuery :: ListItems -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItems%27"><span class="hs-identifier hs-type">ListItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147972"><span id="local-6989586621679147973"><span id="local-6989586621679147974"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
-path :: Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
-$sel:path:ListItems' :: ListItems -&gt; Maybe Text
+path :: Maybe Text
 $sel:maxResults:ListItems' :: ListItems -&gt; Maybe Natural
 $sel:nextToken:ListItems' :: ListItems -&gt; Maybe Text
-</span><a href="#local-6989586621679147967"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:path:ListItems' :: ListItems -&gt; Maybe Text
+</span><a href="#local-6989586621679147972"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679147969"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679147968"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Path&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679147967"><span class="hs-identifier hs-var">path</span></a></span><span>
+</span><a href="#local-6989586621679147974"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679147973"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679147972"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-192"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- | /See:/ 'newListItemsResponse' smart constructor.</span><span>
-</span><span id="line-195"></span><span id="local-6989586621679147964"><span id="local-6989586621679147965"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListItemsResponse"><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-var">ListItemsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListItemsResponse%27"><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-var">ListItemsResponse'</span></a></span></span><span>
-</span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token that can be used in a request to view the next set of results.</span><span>
-</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- For example, you submit a @ListItems@ request that matches 2,000 items</span><span>
-</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- with @MaxResults@ set at 500. The service returns the first batch of</span><span>
-</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- results (up to 500) and a @NextToken@ value that can be used to fetch</span><span>
-</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- the next batch of results.</span><span>
-</span><span id="line-201"></span><span>    </span><span id="%24sel%3AnextToken%3AListItemsResponse%27"><span class="annot"><span class="annottext">ListItemsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AnextToken%3AListItemsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- | The metadata entries for the folders and objects at the requested path.</span><span>
-</span><span id="line-203"></span><span>    </span><span id="%24sel%3Aitems%3AListItemsResponse%27"><span class="annot"><span class="annottext">ListItemsResponse -&gt; Maybe [Item]
+</span><span id="line-195"></span><span id="local-6989586621679147969"><span id="local-6989586621679147970"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListItemsResponse"><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-var">ListItemsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListItemsResponse%27"><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-var">ListItemsResponse'</span></a></span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The metadata entries for the folders and objects at the requested path.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3Aitems%3AListItemsResponse%27"><span class="annot"><span class="annottext">ListItemsResponse -&gt; Maybe [Item]
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3Aitems%3AListItemsResponse%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | The token that can be used in a request to view the next set of results.</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- For example, you submit a @ListItems@ request that matches 2,000 items</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- with @MaxResults@ set at 500. The service returns the first batch of</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- results (up to 500) and a @NextToken@ value that can be used to fetch</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- the next batch of results.</span><span>
+</span><span id="line-203"></span><span>    </span><span id="%24sel%3AnextToken%3AListItemsResponse%27"><span class="annot"><span class="annottext">ListItemsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AnextToken%3AListItemsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-205"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListItemsResponse%27"><span class="annot"><span class="annottext">ListItemsResponse -&gt; Int
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AhttpStatus%3AListItemsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-206"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-207"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679147957"><span id="local-6989586621679147959"><span class="annot"><span class="annottext">ListItemsResponse -&gt; ListItemsResponse -&gt; Bool
+</span><span id="line-207"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679147962"><span id="local-6989586621679147964"><span class="annot"><span class="annottext">ListItemsResponse -&gt; ListItemsResponse -&gt; Bool
 (ListItemsResponse -&gt; ListItemsResponse -&gt; Bool)
 -&gt; (ListItemsResponse -&gt; ListItemsResponse -&gt; Bool)
 -&gt; Eq ListItemsResponse
@@ -491,7 +491,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListItemsResponse -&gt; ListItemsResponse -&gt; Bool
 == :: ListItemsResponse -&gt; ListItemsResponse -&gt; Bool
 $c== :: ListItemsResponse -&gt; ListItemsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679147949"><span id="local-6989586621679147951"><span id="local-6989586621679147953"><span id="local-6989586621679147955"><span class="annot"><span class="annottext">ReadPrec [ListItemsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679147954"><span id="local-6989586621679147956"><span id="local-6989586621679147958"><span id="local-6989586621679147960"><span class="annot"><span class="annottext">ReadPrec [ListItemsResponse]
 ReadPrec ListItemsResponse
 Int -&gt; ReadS ListItemsResponse
 ReadS [ListItemsResponse]
@@ -511,7 +511,7 @@ readList :: ReadS [ListItemsResponse]
 $creadList :: ReadS [ListItemsResponse]
 readsPrec :: Int -&gt; ReadS ListItemsResponse
 $creadsPrec :: Int -&gt; ReadS ListItemsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679147943"><span id="local-6989586621679147945"><span id="local-6989586621679147947"><span class="annot"><span class="annottext">Int -&gt; ListItemsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679147948"><span id="local-6989586621679147950"><span id="local-6989586621679147952"><span class="annot"><span class="annottext">Int -&gt; ListItemsResponse -&gt; ShowS
 [ListItemsResponse] -&gt; ShowS
 ListItemsResponse -&gt; String
 (Int -&gt; ListItemsResponse -&gt; ShowS)
@@ -545,13 +545,13 @@ $cfrom :: forall x. ListItemsResponse -&gt; Rep ListItemsResponse x
 </span><span id="line-214"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-216"></span><span class="hs-comment">--</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- 'nextToken', 'listItemsResponse_nextToken' - The token that can be used in a request to view the next set of results.</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- For example, you submit a @ListItems@ request that matches 2,000 items</span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- with @MaxResults@ set at 500. The service returns the first batch of</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- results (up to 500) and a @NextToken@ value that can be used to fetch</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- the next batch of results.</span><span>
-</span><span id="line-222"></span><span class="hs-comment">--</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- 'items', 'listItemsResponse_items' - The metadata entries for the folders and objects at the requested path.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'items', 'listItemsResponse_items' - The metadata entries for the folders and objects at the requested path.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'nextToken', 'listItemsResponse_nextToken' - The token that can be used in a request to view the next set of results.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- For example, you submit a @ListItems@ request that matches 2,000 items</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- with @MaxResults@ set at 500. The service returns the first batch of</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- results (up to 500) and a @NextToken@ value that can be used to fetch</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- the next batch of results.</span><span>
 </span><span id="line-224"></span><span class="hs-comment">--</span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- 'httpStatus', 'listItemsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-226"></span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#newListItemsResponse"><span class="hs-identifier hs-type">newListItemsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -559,30 +559,64 @@ $cfrom :: forall x. ListItemsResponse -&gt; Rep ListItemsResponse x
 </span><span id="line-228"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-229"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span>
 </span><span id="line-230"></span><span id="newListItemsResponse"><span class="annot"><span class="annottext">newListItemsResponse :: Int -&gt; ListItemsResponse
-</span><a href="Network.AWS.MediaStoreData.ListItems.html#newListItemsResponse"><span class="hs-identifier hs-var hs-var">newListItemsResponse</span></a></span></span><span> </span><span id="local-6989586621679147940"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679147940"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-231"></span><span>  </span><span class="annot"><span class="annottext">ListItemsResponse' :: Maybe Text -&gt; Maybe [Item] -&gt; Int -&gt; ListItemsResponse
+</span><a href="Network.AWS.MediaStoreData.ListItems.html#newListItemsResponse"><span class="hs-identifier hs-var hs-var">newListItemsResponse</span></a></span></span><span> </span><span id="local-6989586621679147945"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679147945"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><span class="annottext">ListItemsResponse' :: Maybe [Item] -&gt; Maybe Text -&gt; Int -&gt; ListItemsResponse
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span>
-</span><span id="line-232"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListItemsResponse' :: Maybe Text
-</span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AnextToken%3AListItemsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-232"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:items:ListItemsResponse' :: Maybe [Item]
+</span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3Aitems%3AListItemsResponse%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Item]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:items:ListItemsResponse' :: Maybe [Item]
-</span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3Aitems%3AListItemsResponse%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Item]
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListItemsResponse' :: Maybe Text
+</span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AnextToken%3AListItemsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListItemsResponse' :: Int
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AhttpStatus%3AListItemsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679147940"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679147945"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-235"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-236"></span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- | The token that can be used in a request to view the next set of results.</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- For example, you submit a @ListItems@ request that matches 2,000 items</span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- with @MaxResults@ set at 500. The service returns the first batch of</span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- results (up to 500) and a @NextToken@ value that can be used to fetch</span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- the next batch of results.</span><span>
-</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItemsResponse_nextToken"><span class="hs-identifier hs-type">listItemsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-243"></span><span id="listItemsResponse_nextToken"><span class="annot"><span class="annottext">listItemsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-237"></span><span class="hs-comment">-- | The metadata entries for the folders and objects at the requested path.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItemsResponse_items"><span class="hs-identifier hs-type">listItemsResponse_items</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="listItemsResponse_items"><span class="annot"><span class="annottext">listItemsResponse_items :: (Maybe [Item] -&gt; f (Maybe [Item]))
+-&gt; ListItemsResponse -&gt; f ListItemsResponse
+</span><a href="Network.AWS.MediaStoreData.ListItems.html#listItemsResponse_items"><span class="hs-identifier hs-var hs-var">listItemsResponse_items</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListItemsResponse -&gt; Maybe [Item])
+-&gt; (ListItemsResponse -&gt; Maybe [Item] -&gt; ListItemsResponse)
+-&gt; Lens' ListItemsResponse (Maybe [Item])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147944"><span class="annot"><span class="annottext">Maybe [Item]
+items :: Maybe [Item]
+$sel:items:ListItemsResponse' :: ListItemsResponse -&gt; Maybe [Item]
+</span><a href="#local-6989586621679147944"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Item]
+</span><a href="#local-6989586621679147944"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679147943"><span class="annot"><span class="annottext">s :: ListItemsResponse
+</span><a href="#local-6989586621679147943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679147942"><span class="annot"><span class="annottext">Maybe [Item]
+</span><a href="#local-6989586621679147942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItemsResponse
+</span><a href="#local-6989586621679147943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:ListItemsResponse' :: Maybe [Item]
+</span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3Aitems%3AListItemsResponse%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Item]
+</span><a href="#local-6989586621679147942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Item] -&gt; f (Maybe [Item]))
+ -&gt; ListItemsResponse -&gt; f ListItemsResponse)
+-&gt; ((Maybe [Item] -&gt; f (Maybe [Item]))
+    -&gt; Maybe [Item] -&gt; f (Maybe [Item]))
+-&gt; (Maybe [Item] -&gt; f (Maybe [Item]))
+-&gt; ListItemsResponse
+-&gt; f ListItemsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Item] [Item] [Item] [Item]
+-&gt; Iso (Maybe [Item]) (Maybe [Item]) (Maybe [Item]) (Maybe [Item])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Item] [Item] [Item] [Item]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | The token that can be used in a request to view the next set of results.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- For example, you submit a @ListItems@ request that matches 2,000 items</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- with @MaxResults@ set at 500. The service returns the first batch of</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- results (up to 500) and a @NextToken@ value that can be used to fetch</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- the next batch of results.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItemsResponse_nextToken"><span class="hs-identifier hs-type">listItemsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="listItemsResponse_nextToken"><span class="annot"><span class="annottext">listItemsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListItemsResponse -&gt; f ListItemsResponse
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#listItemsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listItemsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListItemsResponse -&gt; Maybe Text)
 -&gt; (ListItemsResponse -&gt; Maybe Text -&gt; ListItemsResponse)
@@ -598,40 +632,6 @@ $sel:nextToken:ListItemsResponse' :: ListItemsResponse -&gt; Maybe Text
 </span><a href="#local-6989586621679147938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListItemsResponse' :: Maybe Text
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AnextToken%3AListItemsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 </span><a href="#local-6989586621679147937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-244"></span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- | The metadata entries for the folders and objects at the requested path.</span><span>
-</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItemsResponse_items"><span class="hs-identifier hs-type">listItemsResponse_items</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-247"></span><span id="listItemsResponse_items"><span class="annot"><span class="annottext">listItemsResponse_items :: (Maybe [Item] -&gt; f (Maybe [Item]))
--&gt; ListItemsResponse -&gt; f ListItemsResponse
-</span><a href="Network.AWS.MediaStoreData.ListItems.html#listItemsResponse_items"><span class="hs-identifier hs-var hs-var">listItemsResponse_items</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListItemsResponse -&gt; Maybe [Item])
--&gt; (ListItemsResponse -&gt; Maybe [Item] -&gt; ListItemsResponse)
--&gt; Lens' ListItemsResponse (Maybe [Item])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147936"><span class="annot"><span class="annottext">Maybe [Item]
-items :: Maybe [Item]
-$sel:items:ListItemsResponse' :: ListItemsResponse -&gt; Maybe [Item]
-</span><a href="#local-6989586621679147936"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Item]
-</span><a href="#local-6989586621679147936"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679147935"><span class="annot"><span class="annottext">s :: ListItemsResponse
-</span><a href="#local-6989586621679147935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679147934"><span class="annot"><span class="annottext">Maybe [Item]
-</span><a href="#local-6989586621679147934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItemsResponse
-</span><a href="#local-6989586621679147935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:ListItemsResponse' :: Maybe [Item]
-</span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3Aitems%3AListItemsResponse%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Item]
-</span><a href="#local-6989586621679147934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Item] -&gt; f (Maybe [Item]))
- -&gt; ListItemsResponse -&gt; f ListItemsResponse)
--&gt; ((Maybe [Item] -&gt; f (Maybe [Item]))
-    -&gt; Maybe [Item] -&gt; f (Maybe [Item]))
--&gt; (Maybe [Item] -&gt; f (Maybe [Item]))
--&gt; ListItemsResponse
--&gt; f ListItemsResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Item] [Item] [Item] [Item]
--&gt; Iso (Maybe [Item]) (Maybe [Item]) (Maybe [Item]) (Maybe [Item])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Item] [Item] [Item] [Item]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-250"></span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#listItemsResponse_httpStatus"><span class="hs-identifier hs-type">listItemsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -640,16 +640,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListItemsResponse -&gt; Int -&gt; ListItemsResponse)
 -&gt; Lens ListItemsResponse ListItemsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147931"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679147936"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListItemsResponse' :: ListItemsResponse -&gt; Int
-</span><a href="#local-6989586621679147931"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679147931"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679147930"><span class="annot"><span class="annottext">s :: ListItemsResponse
-</span><a href="#local-6989586621679147930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679147929"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679147929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItemsResponse
-</span><a href="#local-6989586621679147930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListItemsResponse' :: Int
+</span><a href="#local-6989586621679147936"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679147936"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679147935"><span class="annot"><span class="annottext">s :: ListItemsResponse
+</span><a href="#local-6989586621679147935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse%27"><span class="hs-identifier hs-type">ListItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679147934"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679147934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListItemsResponse
+</span><a href="#local-6989586621679147935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListItemsResponse' :: Int
 </span><a href="Network.AWS.MediaStoreData.ListItems.html#%24sel%3AhttpStatus%3AListItemsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679147929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679147934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679147927"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679147932"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStoreData.ListItems.html#ListItemsResponse"><span class="hs-identifier hs-type">ListItemsResponse</span></a></span></span><span>
 </span><span id="line-254"></span></pre></body></html>

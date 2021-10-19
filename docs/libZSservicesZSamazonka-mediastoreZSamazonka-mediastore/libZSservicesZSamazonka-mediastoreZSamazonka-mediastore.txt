@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-mediastoreZSamazonka-mediastore
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.MediaStore.Types.ContainerLevelMetrics
@@ -67,7 +67,7 @@ module Network.AWS.MediaStore.Types.Container
 --   
 --   <i>See:</i> <a>newContainer</a> smart constructor.
 data Container
-Container' :: Maybe POSIX -> Maybe ContainerStatus -> Maybe Text -> Maybe Bool -> Maybe Text -> Maybe Text -> Container
+Container' :: Maybe POSIX -> Maybe ContainerStatus -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Container
 
 -- | Unix timestamp.
 [$sel:creationTime:Container'] :: Container -> Maybe POSIX
@@ -79,6 +79,14 @@ Container' :: Maybe POSIX -> Maybe ContainerStatus -> Maybe Text -> Maybe Bool -
 --   to <tt>ACTIVE</tt>.
 [$sel:status:Container'] :: Container -> Maybe ContainerStatus
 
+-- | The state of access logging on the container. This value is
+--   <tt>false</tt> by default, indicating that AWS Elemental MediaStore
+--   does not send access logs to Amazon CloudWatch Logs. When you enable
+--   access logging on the container, MediaStore changes this value to
+--   <tt>true</tt>, indicating that the service delivers access logs for
+--   objects stored in that container to CloudWatch Logs.
+[$sel:accessLoggingEnabled:Container'] :: Container -> Maybe Bool
+
 -- | The Amazon Resource Name (ARN) of the container. The ARN has the
 --   following format:
 --   
@@ -88,14 +96,6 @@ Container' :: Maybe POSIX -> Maybe ContainerStatus -> Maybe Text -> Maybe Bool -
 --   For example:
 --   arn:aws:mediastore:us-west-2:111122223333:container/movies
 [$sel:arn:Container'] :: Container -> Maybe Text
-
--- | The state of access logging on the container. This value is
---   <tt>false</tt> by default, indicating that AWS Elemental MediaStore
---   does not send access logs to Amazon CloudWatch Logs. When you enable
---   access logging on the container, MediaStore changes this value to
---   <tt>true</tt>, indicating that the service delivers access logs for
---   objects stored in that container to CloudWatch Logs.
-[$sel:accessLoggingEnabled:Container'] :: Container -> Maybe Bool
 
 -- | The name of the container.
 [$sel:name:Container'] :: Container -> Maybe Text
@@ -123,15 +123,6 @@ Container' :: Maybe POSIX -> Maybe ContainerStatus -> Maybe Text -> Maybe Bool -
 --   service is creating the container, the status is <tt>CREATING</tt>.
 --   When the endpoint is available, the status changes to <tt>ACTIVE</tt>.
 --   
---   <a>$sel:arn:Container'</a>, <a>container_arn</a> - The Amazon Resource
---   Name (ARN) of the container. The ARN has the following format:
---   
---   arn:aws:&lt;region&gt;:&lt;account that owns this
---   container&gt;:container/&lt;name of container&gt;
---   
---   For example:
---   arn:aws:mediastore:us-west-2:111122223333:container/movies
---   
 --   <a>$sel:accessLoggingEnabled:Container'</a>,
 --   <a>container_accessLoggingEnabled</a> - The state of access logging on
 --   the container. This value is <tt>false</tt> by default, indicating
@@ -140,6 +131,15 @@ Container' :: Maybe POSIX -> Maybe ContainerStatus -> Maybe Text -> Maybe Bool -
 --   MediaStore changes this value to <tt>true</tt>, indicating that the
 --   service delivers access logs for objects stored in that container to
 --   CloudWatch Logs.
+--   
+--   <a>$sel:arn:Container'</a>, <a>container_arn</a> - The Amazon Resource
+--   Name (ARN) of the container. The ARN has the following format:
+--   
+--   arn:aws:&lt;region&gt;:&lt;account that owns this
+--   container&gt;:container/&lt;name of container&gt;
+--   
+--   For example:
+--   arn:aws:mediastore:us-west-2:111122223333:container/movies
 --   
 --   <a>$sel:name:Container'</a>, <a>container_name</a> - The name of the
 --   container.
@@ -161,6 +161,14 @@ container_creationTime :: Lens' Container (Maybe UTCTime)
 --   to <tt>ACTIVE</tt>.
 container_status :: Lens' Container (Maybe ContainerStatus)
 
+-- | The state of access logging on the container. This value is
+--   <tt>false</tt> by default, indicating that AWS Elemental MediaStore
+--   does not send access logs to Amazon CloudWatch Logs. When you enable
+--   access logging on the container, MediaStore changes this value to
+--   <tt>true</tt>, indicating that the service delivers access logs for
+--   objects stored in that container to CloudWatch Logs.
+container_accessLoggingEnabled :: Lens' Container (Maybe Bool)
+
 -- | The Amazon Resource Name (ARN) of the container. The ARN has the
 --   following format:
 --   
@@ -170,14 +178,6 @@ container_status :: Lens' Container (Maybe ContainerStatus)
 --   For example:
 --   arn:aws:mediastore:us-west-2:111122223333:container/movies
 container_arn :: Lens' Container (Maybe Text)
-
--- | The state of access logging on the container. This value is
---   <tt>false</tt> by default, indicating that AWS Elemental MediaStore
---   does not send access logs to Amazon CloudWatch Logs. When you enable
---   access logging on the container, MediaStore changes this value to
---   <tt>true</tt>, indicating that the service delivers access logs for
---   objects stored in that container to CloudWatch Logs.
-container_accessLoggingEnabled :: Lens' Container (Maybe Bool)
 
 -- | The name of the container.
 container_name :: Lens' Container (Maybe Text)
@@ -557,6 +557,12 @@ module Network.AWS.MediaStore.Types
 --   configuration.
 defaultService :: Service
 
+-- | The policy that you specified in the request does not exist.
+_PolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The CORS policy that you specified in the request does not exist.
+_CorsPolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+
 -- | The container that you specified in the request already exists or is
 --   being updated.
 _ContainerInUseException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -564,17 +570,11 @@ _ContainerInUseException :: AsError a => Getting (First ServiceError) a ServiceE
 -- | The service is temporarily unavailable.
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The policy that you specified in the request does not exist.
-_PolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The CORS policy that you specified in the request does not exist.
-_CorsPolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The container that you specified in the request does not exist.
+_ContainerNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | A service limit has been exceeded.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The container that you specified in the request does not exist.
-_ContainerNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 newtype ContainerLevelMetrics
 ContainerLevelMetrics' :: Text -> ContainerLevelMetrics
 [fromContainerLevelMetrics] :: ContainerLevelMetrics -> Text
@@ -599,7 +599,7 @@ pattern MethodName_PUT :: MethodName
 --   
 --   <i>See:</i> <a>newContainer</a> smart constructor.
 data Container
-Container' :: Maybe POSIX -> Maybe ContainerStatus -> Maybe Text -> Maybe Bool -> Maybe Text -> Maybe Text -> Container
+Container' :: Maybe POSIX -> Maybe ContainerStatus -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Container
 
 -- | Unix timestamp.
 [$sel:creationTime:Container'] :: Container -> Maybe POSIX
@@ -611,6 +611,14 @@ Container' :: Maybe POSIX -> Maybe ContainerStatus -> Maybe Text -> Maybe Bool -
 --   to <tt>ACTIVE</tt>.
 [$sel:status:Container'] :: Container -> Maybe ContainerStatus
 
+-- | The state of access logging on the container. This value is
+--   <tt>false</tt> by default, indicating that AWS Elemental MediaStore
+--   does not send access logs to Amazon CloudWatch Logs. When you enable
+--   access logging on the container, MediaStore changes this value to
+--   <tt>true</tt>, indicating that the service delivers access logs for
+--   objects stored in that container to CloudWatch Logs.
+[$sel:accessLoggingEnabled:Container'] :: Container -> Maybe Bool
+
 -- | The Amazon Resource Name (ARN) of the container. The ARN has the
 --   following format:
 --   
@@ -620,14 +628,6 @@ Container' :: Maybe POSIX -> Maybe ContainerStatus -> Maybe Text -> Maybe Bool -
 --   For example:
 --   arn:aws:mediastore:us-west-2:111122223333:container/movies
 [$sel:arn:Container'] :: Container -> Maybe Text
-
--- | The state of access logging on the container. This value is
---   <tt>false</tt> by default, indicating that AWS Elemental MediaStore
---   does not send access logs to Amazon CloudWatch Logs. When you enable
---   access logging on the container, MediaStore changes this value to
---   <tt>true</tt>, indicating that the service delivers access logs for
---   objects stored in that container to CloudWatch Logs.
-[$sel:accessLoggingEnabled:Container'] :: Container -> Maybe Bool
 
 -- | The name of the container.
 [$sel:name:Container'] :: Container -> Maybe Text
@@ -655,15 +655,6 @@ Container' :: Maybe POSIX -> Maybe ContainerStatus -> Maybe Text -> Maybe Bool -
 --   service is creating the container, the status is <tt>CREATING</tt>.
 --   When the endpoint is available, the status changes to <tt>ACTIVE</tt>.
 --   
---   <a>$sel:arn:Container'</a>, <a>container_arn</a> - The Amazon Resource
---   Name (ARN) of the container. The ARN has the following format:
---   
---   arn:aws:&lt;region&gt;:&lt;account that owns this
---   container&gt;:container/&lt;name of container&gt;
---   
---   For example:
---   arn:aws:mediastore:us-west-2:111122223333:container/movies
---   
 --   <a>$sel:accessLoggingEnabled:Container'</a>,
 --   <a>container_accessLoggingEnabled</a> - The state of access logging on
 --   the container. This value is <tt>false</tt> by default, indicating
@@ -672,6 +663,15 @@ Container' :: Maybe POSIX -> Maybe ContainerStatus -> Maybe Text -> Maybe Bool -
 --   MediaStore changes this value to <tt>true</tt>, indicating that the
 --   service delivers access logs for objects stored in that container to
 --   CloudWatch Logs.
+--   
+--   <a>$sel:arn:Container'</a>, <a>container_arn</a> - The Amazon Resource
+--   Name (ARN) of the container. The ARN has the following format:
+--   
+--   arn:aws:&lt;region&gt;:&lt;account that owns this
+--   container&gt;:container/&lt;name of container&gt;
+--   
+--   For example:
+--   arn:aws:mediastore:us-west-2:111122223333:container/movies
 --   
 --   <a>$sel:name:Container'</a>, <a>container_name</a> - The name of the
 --   container.
@@ -693,6 +693,14 @@ container_creationTime :: Lens' Container (Maybe UTCTime)
 --   to <tt>ACTIVE</tt>.
 container_status :: Lens' Container (Maybe ContainerStatus)
 
+-- | The state of access logging on the container. This value is
+--   <tt>false</tt> by default, indicating that AWS Elemental MediaStore
+--   does not send access logs to Amazon CloudWatch Logs. When you enable
+--   access logging on the container, MediaStore changes this value to
+--   <tt>true</tt>, indicating that the service delivers access logs for
+--   objects stored in that container to CloudWatch Logs.
+container_accessLoggingEnabled :: Lens' Container (Maybe Bool)
+
 -- | The Amazon Resource Name (ARN) of the container. The ARN has the
 --   following format:
 --   
@@ -702,14 +710,6 @@ container_status :: Lens' Container (Maybe ContainerStatus)
 --   For example:
 --   arn:aws:mediastore:us-west-2:111122223333:container/movies
 container_arn :: Lens' Container (Maybe Text)
-
--- | The state of access logging on the container. This value is
---   <tt>false</tt> by default, indicating that AWS Elemental MediaStore
---   does not send access logs to Amazon CloudWatch Logs. When you enable
---   access logging on the container, MediaStore changes this value to
---   <tt>true</tt>, indicating that the service delivers access logs for
---   objects stored in that container to CloudWatch Logs.
-container_accessLoggingEnabled :: Lens' Container (Maybe Bool)
 
 -- | The name of the container.
 container_name :: Lens' Container (Maybe Text)
@@ -2885,6 +2885,12 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.UntagResource.Unt
 
 module Network.AWS.MediaStore.Lens
 
+-- | The name of the container that you want to stop access logging on.
+stopAccessLogging_containerName :: Lens' StopAccessLogging Text
+
+-- | The response's http status code.
+stopAccessLoggingResponse_httpStatus :: Lens' StopAccessLoggingResponse Int
+
 -- | The name of the container that you want to assign the object lifecycle
 --   policy to.
 putLifecyclePolicy_containerName :: Lens' PutLifecyclePolicy Text
@@ -2895,159 +2901,20 @@ putLifecyclePolicy_lifecyclePolicy :: Lens' PutLifecyclePolicy Text
 -- | The response's http status code.
 putLifecyclePolicyResponse_httpStatus :: Lens' PutLifecyclePolicyResponse Int
 
--- | The name of the container that you want to assign the CORS policy to.
-putCorsPolicy_containerName :: Lens' PutCorsPolicy Text
-
--- | The CORS policy to apply to the container.
-putCorsPolicy_corsPolicy :: Lens' PutCorsPolicy (NonEmpty CorsRule)
-
--- | The response's http status code.
-putCorsPolicyResponse_httpStatus :: Lens' PutCorsPolicyResponse Int
-
--- | The name of the container to delete.
-deleteContainer_containerName :: Lens' DeleteContainer Text
-
--- | The response's http status code.
-deleteContainerResponse_httpStatus :: Lens' DeleteContainerResponse Int
-
--- | The name of the container.
-putContainerPolicy_containerName :: Lens' PutContainerPolicy Text
-
--- | The contents of the policy, which includes the following:
---   
---   <ul>
---   <li>One <tt>Version</tt> tag</li>
---   <li>One <tt>Statement</tt> tag that contains the standard tags for the
---   policy.</li>
---   </ul>
-putContainerPolicy_policy :: Lens' PutContainerPolicy Text
-
--- | The response's http status code.
-putContainerPolicyResponse_httpStatus :: Lens' PutContainerPolicyResponse Int
-
--- | The name of the container that the policy is assigned to.
-getCorsPolicy_containerName :: Lens' GetCorsPolicy Text
-
--- | The response's http status code.
-getCorsPolicyResponse_httpStatus :: Lens' GetCorsPolicyResponse Int
-
--- | The CORS policy assigned to the container.
-getCorsPolicyResponse_corsPolicy :: Lens' GetCorsPolicyResponse (NonEmpty CorsRule)
-
--- | The Amazon Resource Name (ARN) for the container.
-untagResource_resource :: Lens' UntagResource Text
-
--- | A comma-separated list of keys for tags that you want to remove from
---   the container. For example, if your container has two tags
---   (customer:CompanyA and priority:High) and you want to remove one of
---   the tags (priority:High), you specify the key for the tag that you
---   want to remove (priority).
-untagResource_tagKeys :: Lens' UntagResource [Text]
-
--- | The response's http status code.
-untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-
--- | The Amazon Resource Name (ARN) for the container.
-tagResource_resource :: Lens' TagResource Text
-
--- | An array of key:value pairs that you want to add to the container. You
---   need to specify only the tags that you want to add or update. For
---   example, suppose a container already has two tags (customer:CompanyA
---   and priority:High). You want to change the priority tag and also add a
---   third tag (type:Contract). For TagResource, you specify the following
---   tags: priority:Medium, type:Contract. The result is that your
---   container has three tags: customer:CompanyA, priority:Medium, and
---   type:Contract.
-tagResource_tags :: Lens' TagResource (NonEmpty Tag)
-
--- | The response's http status code.
-tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-
--- | The name of the container that is associated with the metric policy
---   that you want to delete.
-deleteMetricPolicy_containerName :: Lens' DeleteMetricPolicy Text
-
--- | The response's http status code.
-deleteMetricPolicyResponse_httpStatus :: Lens' DeleteMetricPolicyResponse Int
-
--- | The name of the container to query.
-describeContainer_containerName :: Lens' DescribeContainer (Maybe Text)
-
--- | The name of the queried container.
-describeContainerResponse_container :: Lens' DescribeContainerResponse (Maybe Container)
-
--- | The response's http status code.
-describeContainerResponse_httpStatus :: Lens' DescribeContainerResponse Int
-
--- | The name of the container that is associated with the metric policy.
-getMetricPolicy_containerName :: Lens' GetMetricPolicy Text
-
--- | The response's http status code.
-getMetricPolicyResponse_httpStatus :: Lens' GetMetricPolicyResponse Int
-
--- | The metric policy that is associated with the specific container.
-getMetricPolicyResponse_metricPolicy :: Lens' GetMetricPolicyResponse MetricPolicy
-
--- | The name of the container that you want to stop access logging on.
-stopAccessLogging_containerName :: Lens' StopAccessLogging Text
-
--- | The response's http status code.
-stopAccessLoggingResponse_httpStatus :: Lens' StopAccessLoggingResponse Int
-
--- | The name of the container that you want to start access logging on.
-startAccessLogging_containerName :: Lens' StartAccessLogging Text
-
--- | The response's http status code.
-startAccessLoggingResponse_httpStatus :: Lens' StartAccessLoggingResponse Int
-
 -- | The name of the container that holds the object lifecycle policy.
 deleteLifecyclePolicy_containerName :: Lens' DeleteLifecyclePolicy Text
 
 -- | The response's http status code.
 deleteLifecyclePolicyResponse_httpStatus :: Lens' DeleteLifecyclePolicyResponse Int
 
--- | The name of the container to remove the policy from.
-deleteCorsPolicy_containerName :: Lens' DeleteCorsPolicy Text
+-- | The Amazon Resource Name (ARN) for the container.
+listTagsForResource_resource :: Lens' ListTagsForResource Text
+
+-- | An array of key:value pairs that are assigned to the container.
+listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (NonEmpty Tag))
 
 -- | The response's http status code.
-deleteCorsPolicyResponse_httpStatus :: Lens' DeleteCorsPolicyResponse Int
-
--- | The name of the container.
-getContainerPolicy_containerName :: Lens' GetContainerPolicy Text
-
--- | The response's http status code.
-getContainerPolicyResponse_httpStatus :: Lens' GetContainerPolicyResponse Int
-
--- | The contents of the access policy.
-getContainerPolicyResponse_policy :: Lens' GetContainerPolicyResponse Text
-
--- | The name of the container that holds the policy.
-deleteContainerPolicy_containerName :: Lens' DeleteContainerPolicy Text
-
--- | The response's http status code.
-deleteContainerPolicyResponse_httpStatus :: Lens' DeleteContainerPolicyResponse Int
-
--- | Only if you used <tt>MaxResults</tt> in the first command, enter the
---   token (which was included in the previous response) to obtain the next
---   set of containers. This token is included in a response only if there
---   actually are more containers to list.
-listContainers_nextToken :: Lens' ListContainers (Maybe Text)
-
--- | Enter the maximum number of containers in the response. Use from 1 to
---   255 characters.
-listContainers_maxResults :: Lens' ListContainers (Maybe Natural)
-
--- | <tt>NextToken</tt> is the token to use in the next call to
---   <tt>ListContainers</tt>. This token is returned only if you included
---   the <tt>MaxResults</tt> tag in the original command, and only if there
---   are still containers to return.
-listContainersResponse_nextToken :: Lens' ListContainersResponse (Maybe Text)
-
--- | The response's http status code.
-listContainersResponse_httpStatus :: Lens' ListContainersResponse Int
-
--- | The names of the containers.
-listContainersResponse_containers :: Lens' ListContainersResponse [Container]
+listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
 
 -- | An array of key:value pairs that you define. These values can be
 --   anything that you want. Typically, the tag key represents a category
@@ -3089,15 +2956,79 @@ createContainerResponse_httpStatus :: Lens' CreateContainerResponse Int
 --   DescribeContainer or ListContainers.
 createContainerResponse_container :: Lens' CreateContainerResponse Container
 
--- | The name of the container that the object lifecycle policy is assigned
---   to.
-getLifecyclePolicy_containerName :: Lens' GetLifecyclePolicy Text
+-- | Only if you used <tt>MaxResults</tt> in the first command, enter the
+--   token (which was included in the previous response) to obtain the next
+--   set of containers. This token is included in a response only if there
+--   actually are more containers to list.
+listContainers_nextToken :: Lens' ListContainers (Maybe Text)
+
+-- | Enter the maximum number of containers in the response. Use from 1 to
+--   255 characters.
+listContainers_maxResults :: Lens' ListContainers (Maybe Natural)
+
+-- | <tt>NextToken</tt> is the token to use in the next call to
+--   <tt>ListContainers</tt>. This token is returned only if you included
+--   the <tt>MaxResults</tt> tag in the original command, and only if there
+--   are still containers to return.
+listContainersResponse_nextToken :: Lens' ListContainersResponse (Maybe Text)
 
 -- | The response's http status code.
-getLifecyclePolicyResponse_httpStatus :: Lens' GetLifecyclePolicyResponse Int
+listContainersResponse_httpStatus :: Lens' ListContainersResponse Int
 
--- | The object lifecycle policy that is assigned to the container.
-getLifecyclePolicyResponse_lifecyclePolicy :: Lens' GetLifecyclePolicyResponse Text
+-- | The names of the containers.
+listContainersResponse_containers :: Lens' ListContainersResponse [Container]
+
+-- | The name of the container to delete.
+deleteContainer_containerName :: Lens' DeleteContainer Text
+
+-- | The response's http status code.
+deleteContainerResponse_httpStatus :: Lens' DeleteContainerResponse Int
+
+-- | The name of the container that you want to assign the CORS policy to.
+putCorsPolicy_containerName :: Lens' PutCorsPolicy Text
+
+-- | The CORS policy to apply to the container.
+putCorsPolicy_corsPolicy :: Lens' PutCorsPolicy (NonEmpty CorsRule)
+
+-- | The response's http status code.
+putCorsPolicyResponse_httpStatus :: Lens' PutCorsPolicyResponse Int
+
+-- | The name of the container to remove the policy from.
+deleteCorsPolicy_containerName :: Lens' DeleteCorsPolicy Text
+
+-- | The response's http status code.
+deleteCorsPolicyResponse_httpStatus :: Lens' DeleteCorsPolicyResponse Int
+
+-- | The name of the container that you want to start access logging on.
+startAccessLogging_containerName :: Lens' StartAccessLogging Text
+
+-- | The response's http status code.
+startAccessLoggingResponse_httpStatus :: Lens' StartAccessLoggingResponse Int
+
+-- | The name of the container to query.
+describeContainer_containerName :: Lens' DescribeContainer (Maybe Text)
+
+-- | The name of the queried container.
+describeContainerResponse_container :: Lens' DescribeContainerResponse (Maybe Container)
+
+-- | The response's http status code.
+describeContainerResponse_httpStatus :: Lens' DescribeContainerResponse Int
+
+-- | The name of the container that is associated with the metric policy.
+getMetricPolicy_containerName :: Lens' GetMetricPolicy Text
+
+-- | The response's http status code.
+getMetricPolicyResponse_httpStatus :: Lens' GetMetricPolicyResponse Int
+
+-- | The metric policy that is associated with the specific container.
+getMetricPolicyResponse_metricPolicy :: Lens' GetMetricPolicyResponse MetricPolicy
+
+-- | The name of the container that is associated with the metric policy
+--   that you want to delete.
+deleteMetricPolicy_containerName :: Lens' DeleteMetricPolicy Text
+
+-- | The response's http status code.
+deleteMetricPolicyResponse_httpStatus :: Lens' DeleteMetricPolicyResponse Int
 
 -- | The name of the container that you want to add the metric policy to.
 putMetricPolicy_containerName :: Lens' PutMetricPolicy Text
@@ -3125,14 +3056,83 @@ putMetricPolicy_metricPolicy :: Lens' PutMetricPolicy MetricPolicy
 -- | The response's http status code.
 putMetricPolicyResponse_httpStatus :: Lens' PutMetricPolicyResponse Int
 
--- | The Amazon Resource Name (ARN) for the container.
-listTagsForResource_resource :: Lens' ListTagsForResource Text
-
--- | An array of key:value pairs that are assigned to the container.
-listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (NonEmpty Tag))
+-- | The name of the container that the object lifecycle policy is assigned
+--   to.
+getLifecyclePolicy_containerName :: Lens' GetLifecyclePolicy Text
 
 -- | The response's http status code.
-listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
+getLifecyclePolicyResponse_httpStatus :: Lens' GetLifecyclePolicyResponse Int
+
+-- | The object lifecycle policy that is assigned to the container.
+getLifecyclePolicyResponse_lifecyclePolicy :: Lens' GetLifecyclePolicyResponse Text
+
+-- | The Amazon Resource Name (ARN) for the container.
+tagResource_resource :: Lens' TagResource Text
+
+-- | An array of key:value pairs that you want to add to the container. You
+--   need to specify only the tags that you want to add or update. For
+--   example, suppose a container already has two tags (customer:CompanyA
+--   and priority:High). You want to change the priority tag and also add a
+--   third tag (type:Contract). For TagResource, you specify the following
+--   tags: priority:Medium, type:Contract. The result is that your
+--   container has three tags: customer:CompanyA, priority:Medium, and
+--   type:Contract.
+tagResource_tags :: Lens' TagResource (NonEmpty Tag)
+
+-- | The response's http status code.
+tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
+
+-- | The name of the container that the policy is assigned to.
+getCorsPolicy_containerName :: Lens' GetCorsPolicy Text
+
+-- | The response's http status code.
+getCorsPolicyResponse_httpStatus :: Lens' GetCorsPolicyResponse Int
+
+-- | The CORS policy assigned to the container.
+getCorsPolicyResponse_corsPolicy :: Lens' GetCorsPolicyResponse (NonEmpty CorsRule)
+
+-- | The Amazon Resource Name (ARN) for the container.
+untagResource_resource :: Lens' UntagResource Text
+
+-- | A comma-separated list of keys for tags that you want to remove from
+--   the container. For example, if your container has two tags
+--   (customer:CompanyA and priority:High) and you want to remove one of
+--   the tags (priority:High), you specify the key for the tag that you
+--   want to remove (priority).
+untagResource_tagKeys :: Lens' UntagResource [Text]
+
+-- | The response's http status code.
+untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
+
+-- | The name of the container that holds the policy.
+deleteContainerPolicy_containerName :: Lens' DeleteContainerPolicy Text
+
+-- | The response's http status code.
+deleteContainerPolicyResponse_httpStatus :: Lens' DeleteContainerPolicyResponse Int
+
+-- | The name of the container.
+putContainerPolicy_containerName :: Lens' PutContainerPolicy Text
+
+-- | The contents of the policy, which includes the following:
+--   
+--   <ul>
+--   <li>One <tt>Version</tt> tag</li>
+--   <li>One <tt>Statement</tt> tag that contains the standard tags for the
+--   policy.</li>
+--   </ul>
+putContainerPolicy_policy :: Lens' PutContainerPolicy Text
+
+-- | The response's http status code.
+putContainerPolicyResponse_httpStatus :: Lens' PutContainerPolicyResponse Int
+
+-- | The name of the container.
+getContainerPolicy_containerName :: Lens' GetContainerPolicy Text
+
+-- | The response's http status code.
+getContainerPolicyResponse_httpStatus :: Lens' GetContainerPolicyResponse Int
+
+-- | The contents of the access policy.
+getContainerPolicyResponse_policy :: Lens' GetContainerPolicyResponse Text
 
 -- | Unix timestamp.
 container_creationTime :: Lens' Container (Maybe UTCTime)
@@ -3144,6 +3144,14 @@ container_creationTime :: Lens' Container (Maybe UTCTime)
 --   to <tt>ACTIVE</tt>.
 container_status :: Lens' Container (Maybe ContainerStatus)
 
+-- | The state of access logging on the container. This value is
+--   <tt>false</tt> by default, indicating that AWS Elemental MediaStore
+--   does not send access logs to Amazon CloudWatch Logs. When you enable
+--   access logging on the container, MediaStore changes this value to
+--   <tt>true</tt>, indicating that the service delivers access logs for
+--   objects stored in that container to CloudWatch Logs.
+container_accessLoggingEnabled :: Lens' Container (Maybe Bool)
+
 -- | The Amazon Resource Name (ARN) of the container. The ARN has the
 --   following format:
 --   
@@ -3153,14 +3161,6 @@ container_status :: Lens' Container (Maybe ContainerStatus)
 --   For example:
 --   arn:aws:mediastore:us-west-2:111122223333:container/movies
 container_arn :: Lens' Container (Maybe Text)
-
--- | The state of access logging on the container. This value is
---   <tt>false</tt> by default, indicating that AWS Elemental MediaStore
---   does not send access logs to Amazon CloudWatch Logs. When you enable
---   access logging on the container, MediaStore changes this value to
---   <tt>true</tt>, indicating that the service delivers access logs for
---   objects stored in that container to CloudWatch Logs.
-container_accessLoggingEnabled :: Lens' Container (Maybe Bool)
 
 -- | The name of the container.
 container_name :: Lens' Container (Maybe Text)
@@ -3253,6 +3253,12 @@ module Network.AWS.MediaStore
 --   configuration.
 defaultService :: Service
 
+-- | The policy that you specified in the request does not exist.
+_PolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The CORS policy that you specified in the request does not exist.
+_CorsPolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+
 -- | The container that you specified in the request already exists or is
 --   being updated.
 _ContainerInUseException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -3260,17 +3266,47 @@ _ContainerInUseException :: AsError a => Getting (First ServiceError) a ServiceE
 -- | The service is temporarily unavailable.
 _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The policy that you specified in the request does not exist.
-_PolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The CORS policy that you specified in the request does not exist.
-_CorsPolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The container that you specified in the request does not exist.
+_ContainerNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | A service limit has been exceeded.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The container that you specified in the request does not exist.
-_ContainerNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | <i>See:</i> <a>newStopAccessLogging</a> smart constructor.
+data StopAccessLogging
+StopAccessLogging' :: Text -> StopAccessLogging
+
+-- | Create a value of <a>StopAccessLogging</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:containerName:StopAccessLogging'</a>,
+--   <a>stopAccessLogging_containerName</a> - The name of the container
+--   that you want to stop access logging on.
+newStopAccessLogging :: Text -> StopAccessLogging
+
+-- | <i>See:</i> <a>newStopAccessLoggingResponse</a> smart constructor.
+data StopAccessLoggingResponse
+StopAccessLoggingResponse' :: Int -> StopAccessLoggingResponse
+
+-- | Create a value of <a>StopAccessLoggingResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:StopAccessLoggingResponse'</a>,
+--   <a>stopAccessLoggingResponse_httpStatus</a> - The response's http
+--   status code.
+newStopAccessLoggingResponse :: Int -> StopAccessLoggingResponse
 
 -- | <i>See:</i> <a>newPutLifecyclePolicy</a> smart constructor.
 data PutLifecyclePolicy
@@ -3312,6 +3348,239 @@ PutLifecyclePolicyResponse' :: Int -> PutLifecyclePolicyResponse
 --   status code.
 newPutLifecyclePolicyResponse :: Int -> PutLifecyclePolicyResponse
 
+-- | <i>See:</i> <a>newDeleteLifecyclePolicy</a> smart constructor.
+data DeleteLifecyclePolicy
+DeleteLifecyclePolicy' :: Text -> DeleteLifecyclePolicy
+
+-- | Create a value of <a>DeleteLifecyclePolicy</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:containerName:DeleteLifecyclePolicy'</a>,
+--   <a>deleteLifecyclePolicy_containerName</a> - The name of the container
+--   that holds the object lifecycle policy.
+newDeleteLifecyclePolicy :: Text -> DeleteLifecyclePolicy
+
+-- | <i>See:</i> <a>newDeleteLifecyclePolicyResponse</a> smart constructor.
+data DeleteLifecyclePolicyResponse
+DeleteLifecyclePolicyResponse' :: Int -> DeleteLifecyclePolicyResponse
+
+-- | Create a value of <a>DeleteLifecyclePolicyResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:DeleteLifecyclePolicyResponse'</a>,
+--   <a>deleteLifecyclePolicyResponse_httpStatus</a> - The response's http
+--   status code.
+newDeleteLifecyclePolicyResponse :: Int -> DeleteLifecyclePolicyResponse
+
+-- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
+data ListTagsForResource
+ListTagsForResource' :: Text -> ListTagsForResource
+
+-- | Create a value of <a>ListTagsForResource</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:resource:ListTagsForResource'</a>,
+--   <a>listTagsForResource_resource</a> - The Amazon Resource Name (ARN)
+--   for the container.
+newListTagsForResource :: Text -> ListTagsForResource
+
+-- | <i>See:</i> <a>newListTagsForResourceResponse</a> smart constructor.
+data ListTagsForResourceResponse
+ListTagsForResourceResponse' :: Maybe (NonEmpty Tag) -> Int -> ListTagsForResourceResponse
+
+-- | Create a value of <a>ListTagsForResourceResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:tags:ListTagsForResourceResponse'</a>,
+--   <a>listTagsForResourceResponse_tags</a> - An array of key:value pairs
+--   that are assigned to the container.
+--   
+--   <a>$sel:httpStatus:ListTagsForResourceResponse'</a>,
+--   <a>listTagsForResourceResponse_httpStatus</a> - The response's http
+--   status code.
+newListTagsForResourceResponse :: Int -> ListTagsForResourceResponse
+
+-- | <i>See:</i> <a>newCreateContainer</a> smart constructor.
+data CreateContainer
+CreateContainer' :: Maybe (NonEmpty Tag) -> Text -> CreateContainer
+
+-- | Create a value of <a>CreateContainer</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:tags:CreateContainer'</a>, <a>createContainer_tags</a> - An
+--   array of key:value pairs that you define. These values can be anything
+--   that you want. Typically, the tag key represents a category (such as
+--   "environment") and the tag value represents a specific value within
+--   that category (such as "test," "development," or "production"). You
+--   can add up to 50 tags to each container. For more information about
+--   tagging, including naming and usage conventions, see <a>Tagging
+--   Resources in MediaStore</a>.
+--   
+--   <a>$sel:containerName:CreateContainer'</a>,
+--   <a>createContainer_containerName</a> - The name for the container. The
+--   name must be from 1 to 255 characters. Container names must be unique
+--   to your AWS account within a specific region. As an example, you could
+--   create a container named <tt>movies</tt> in every region, as long as
+--   you don’t have an existing container with that name.
+newCreateContainer :: Text -> CreateContainer
+
+-- | <i>See:</i> <a>newCreateContainerResponse</a> smart constructor.
+data CreateContainerResponse
+CreateContainerResponse' :: Int -> Container -> CreateContainerResponse
+
+-- | Create a value of <a>CreateContainerResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:CreateContainerResponse'</a>,
+--   <a>createContainerResponse_httpStatus</a> - The response's http status
+--   code.
+--   
+--   <a>$sel:container:CreateContainerResponse'</a>,
+--   <a>createContainerResponse_container</a> - ContainerARN: The Amazon
+--   Resource Name (ARN) of the newly created container. The ARN has the
+--   following format: arn:aws:&lt;region&gt;:&lt;account that owns this
+--   container&gt;:container/&lt;name of container&gt;. For example:
+--   arn:aws:mediastore:us-west-2:111122223333:container/movies
+--   
+--   ContainerName: The container name as specified in the request.
+--   
+--   CreationTime: Unix time stamp.
+--   
+--   Status: The status of container creation or deletion. The status is
+--   one of the following: <tt>CREATING</tt>, <tt>ACTIVE</tt>, or
+--   <tt>DELETING</tt>. While the service is creating the container, the
+--   status is <tt>CREATING</tt>. When an endpoint is available, the status
+--   changes to <tt>ACTIVE</tt>.
+--   
+--   The return value does not include the container's endpoint. To make
+--   downstream requests, you must obtain this value by using
+--   DescribeContainer or ListContainers.
+newCreateContainerResponse :: Int -> Container -> CreateContainerResponse
+
+-- | <i>See:</i> <a>newListContainers</a> smart constructor.
+data ListContainers
+ListContainers' :: Maybe Text -> Maybe Natural -> ListContainers
+
+-- | Create a value of <a>ListContainers</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListContainers'</a>, <a>listContainers_nextToken</a>
+--   - Only if you used <tt>MaxResults</tt> in the first command, enter the
+--   token (which was included in the previous response) to obtain the next
+--   set of containers. This token is included in a response only if there
+--   actually are more containers to list.
+--   
+--   <a>$sel:maxResults:ListContainers'</a>,
+--   <a>listContainers_maxResults</a> - Enter the maximum number of
+--   containers in the response. Use from 1 to 255 characters.
+newListContainers :: ListContainers
+
+-- | <i>See:</i> <a>newListContainersResponse</a> smart constructor.
+data ListContainersResponse
+ListContainersResponse' :: Maybe Text -> Int -> [Container] -> ListContainersResponse
+
+-- | Create a value of <a>ListContainersResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListContainers'</a>,
+--   <a>listContainersResponse_nextToken</a> - <tt>NextToken</tt> is the
+--   token to use in the next call to <tt>ListContainers</tt>. This token
+--   is returned only if you included the <tt>MaxResults</tt> tag in the
+--   original command, and only if there are still containers to return.
+--   
+--   <a>$sel:httpStatus:ListContainersResponse'</a>,
+--   <a>listContainersResponse_httpStatus</a> - The response's http status
+--   code.
+--   
+--   <a>$sel:containers:ListContainersResponse'</a>,
+--   <a>listContainersResponse_containers</a> - The names of the
+--   containers.
+newListContainersResponse :: Int -> ListContainersResponse
+
+-- | <i>See:</i> <a>newDeleteContainer</a> smart constructor.
+data DeleteContainer
+DeleteContainer' :: Text -> DeleteContainer
+
+-- | Create a value of <a>DeleteContainer</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:containerName:DeleteContainer'</a>,
+--   <a>deleteContainer_containerName</a> - The name of the container to
+--   delete.
+newDeleteContainer :: Text -> DeleteContainer
+
+-- | <i>See:</i> <a>newDeleteContainerResponse</a> smart constructor.
+data DeleteContainerResponse
+DeleteContainerResponse' :: Int -> DeleteContainerResponse
+
+-- | Create a value of <a>DeleteContainerResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:DeleteContainerResponse'</a>,
+--   <a>deleteContainerResponse_httpStatus</a> - The response's http status
+--   code.
+newDeleteContainerResponse :: Int -> DeleteContainerResponse
+
 -- | <i>See:</i> <a>newPutCorsPolicy</a> smart constructor.
 data PutCorsPolicy
 PutCorsPolicy' :: Text -> NonEmpty CorsRule -> PutCorsPolicy
@@ -3351,11 +3620,11 @@ PutCorsPolicyResponse' :: Int -> PutCorsPolicyResponse
 --   code.
 newPutCorsPolicyResponse :: Int -> PutCorsPolicyResponse
 
--- | <i>See:</i> <a>newDeleteContainer</a> smart constructor.
-data DeleteContainer
-DeleteContainer' :: Text -> DeleteContainer
+-- | <i>See:</i> <a>newDeleteCorsPolicy</a> smart constructor.
+data DeleteCorsPolicy
+DeleteCorsPolicy' :: Text -> DeleteCorsPolicy
 
--- | Create a value of <a>DeleteContainer</a> with all optional fields
+-- | Create a value of <a>DeleteCorsPolicy</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3364,16 +3633,16 @@ DeleteContainer' :: Text -> DeleteContainer
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:containerName:DeleteContainer'</a>,
---   <a>deleteContainer_containerName</a> - The name of the container to
---   delete.
-newDeleteContainer :: Text -> DeleteContainer
+--   <a>$sel:containerName:DeleteCorsPolicy'</a>,
+--   <a>deleteCorsPolicy_containerName</a> - The name of the container to
+--   remove the policy from.
+newDeleteCorsPolicy :: Text -> DeleteCorsPolicy
 
--- | <i>See:</i> <a>newDeleteContainerResponse</a> smart constructor.
-data DeleteContainerResponse
-DeleteContainerResponse' :: Int -> DeleteContainerResponse
+-- | <i>See:</i> <a>newDeleteCorsPolicyResponse</a> smart constructor.
+data DeleteCorsPolicyResponse
+DeleteCorsPolicyResponse' :: Int -> DeleteCorsPolicyResponse
 
--- | Create a value of <a>DeleteContainerResponse</a> with all optional
+-- | Create a value of <a>DeleteCorsPolicyResponse</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3382,16 +3651,16 @@ DeleteContainerResponse' :: Int -> DeleteContainerResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:DeleteContainerResponse'</a>,
---   <a>deleteContainerResponse_httpStatus</a> - The response's http status
---   code.
-newDeleteContainerResponse :: Int -> DeleteContainerResponse
+--   <a>$sel:httpStatus:DeleteCorsPolicyResponse'</a>,
+--   <a>deleteCorsPolicyResponse_httpStatus</a> - The response's http
+--   status code.
+newDeleteCorsPolicyResponse :: Int -> DeleteCorsPolicyResponse
 
--- | <i>See:</i> <a>newPutContainerPolicy</a> smart constructor.
-data PutContainerPolicy
-PutContainerPolicy' :: Text -> Text -> PutContainerPolicy
+-- | <i>See:</i> <a>newStartAccessLogging</a> smart constructor.
+data StartAccessLogging
+StartAccessLogging' :: Text -> StartAccessLogging
 
--- | Create a value of <a>PutContainerPolicy</a> with all optional fields
+-- | Create a value of <a>StartAccessLogging</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3400,25 +3669,188 @@ PutContainerPolicy' :: Text -> Text -> PutContainerPolicy
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:containerName:PutContainerPolicy'</a>,
---   <a>putContainerPolicy_containerName</a> - The name of the container.
+--   <a>$sel:containerName:StartAccessLogging'</a>,
+--   <a>startAccessLogging_containerName</a> - The name of the container
+--   that you want to start access logging on.
+newStartAccessLogging :: Text -> StartAccessLogging
+
+-- | <i>See:</i> <a>newStartAccessLoggingResponse</a> smart constructor.
+data StartAccessLoggingResponse
+StartAccessLoggingResponse' :: Int -> StartAccessLoggingResponse
+
+-- | Create a value of <a>StartAccessLoggingResponse</a> with all optional
+--   fields omitted.
 --   
---   <a>$sel:policy:PutContainerPolicy'</a>,
---   <a>putContainerPolicy_policy</a> - The contents of the policy, which
---   includes the following:
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:StartAccessLoggingResponse'</a>,
+--   <a>startAccessLoggingResponse_httpStatus</a> - The response's http
+--   status code.
+newStartAccessLoggingResponse :: Int -> StartAccessLoggingResponse
+
+-- | <i>See:</i> <a>newDescribeContainer</a> smart constructor.
+data DescribeContainer
+DescribeContainer' :: Maybe Text -> DescribeContainer
+
+-- | Create a value of <a>DescribeContainer</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:containerName:DescribeContainer'</a>,
+--   <a>describeContainer_containerName</a> - The name of the container to
+--   query.
+newDescribeContainer :: DescribeContainer
+
+-- | <i>See:</i> <a>newDescribeContainerResponse</a> smart constructor.
+data DescribeContainerResponse
+DescribeContainerResponse' :: Maybe Container -> Int -> DescribeContainerResponse
+
+-- | Create a value of <a>DescribeContainerResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:container:DescribeContainerResponse'</a>,
+--   <a>describeContainerResponse_container</a> - The name of the queried
+--   container.
+--   
+--   <a>$sel:httpStatus:DescribeContainerResponse'</a>,
+--   <a>describeContainerResponse_httpStatus</a> - The response's http
+--   status code.
+newDescribeContainerResponse :: Int -> DescribeContainerResponse
+
+-- | <i>See:</i> <a>newGetMetricPolicy</a> smart constructor.
+data GetMetricPolicy
+GetMetricPolicy' :: Text -> GetMetricPolicy
+
+-- | Create a value of <a>GetMetricPolicy</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:containerName:GetMetricPolicy'</a>,
+--   <a>getMetricPolicy_containerName</a> - The name of the container that
+--   is associated with the metric policy.
+newGetMetricPolicy :: Text -> GetMetricPolicy
+
+-- | <i>See:</i> <a>newGetMetricPolicyResponse</a> smart constructor.
+data GetMetricPolicyResponse
+GetMetricPolicyResponse' :: Int -> MetricPolicy -> GetMetricPolicyResponse
+
+-- | Create a value of <a>GetMetricPolicyResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:GetMetricPolicyResponse'</a>,
+--   <a>getMetricPolicyResponse_httpStatus</a> - The response's http status
+--   code.
+--   
+--   <a>$sel:metricPolicy:GetMetricPolicyResponse'</a>,
+--   <a>getMetricPolicyResponse_metricPolicy</a> - The metric policy that
+--   is associated with the specific container.
+newGetMetricPolicyResponse :: Int -> MetricPolicy -> GetMetricPolicyResponse
+
+-- | <i>See:</i> <a>newDeleteMetricPolicy</a> smart constructor.
+data DeleteMetricPolicy
+DeleteMetricPolicy' :: Text -> DeleteMetricPolicy
+
+-- | Create a value of <a>DeleteMetricPolicy</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:containerName:DeleteMetricPolicy'</a>,
+--   <a>deleteMetricPolicy_containerName</a> - The name of the container
+--   that is associated with the metric policy that you want to delete.
+newDeleteMetricPolicy :: Text -> DeleteMetricPolicy
+
+-- | <i>See:</i> <a>newDeleteMetricPolicyResponse</a> smart constructor.
+data DeleteMetricPolicyResponse
+DeleteMetricPolicyResponse' :: Int -> DeleteMetricPolicyResponse
+
+-- | Create a value of <a>DeleteMetricPolicyResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:DeleteMetricPolicyResponse'</a>,
+--   <a>deleteMetricPolicyResponse_httpStatus</a> - The response's http
+--   status code.
+newDeleteMetricPolicyResponse :: Int -> DeleteMetricPolicyResponse
+
+-- | <i>See:</i> <a>newPutMetricPolicy</a> smart constructor.
+data PutMetricPolicy
+PutMetricPolicy' :: Text -> MetricPolicy -> PutMetricPolicy
+
+-- | Create a value of <a>PutMetricPolicy</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:containerName:PutMetricPolicy'</a>,
+--   <a>putMetricPolicy_containerName</a> - The name of the container that
+--   you want to add the metric policy to.
+--   
+--   <a>$sel:metricPolicy:PutMetricPolicy'</a>,
+--   <a>putMetricPolicy_metricPolicy</a> - The metric policy that you want
+--   to associate with the container. In the policy, you must indicate
+--   whether you want MediaStore to send container-level metrics. You can
+--   also include up to five rules to define groups of objects that you
+--   want MediaStore to send object-level metrics for. If you include rules
+--   in the policy, construct each rule with both of the following:
 --   
 --   <ul>
---   <li>One <tt>Version</tt> tag</li>
---   <li>One <tt>Statement</tt> tag that contains the standard tags for the
---   policy.</li>
+--   <li>An object group that defines which objects to include in the
+--   group. The definition can be a path or a file name, but it can't have
+--   more than 900 characters. Valid characters are: a-z, A-Z, 0-9, _
+--   (underscore), = (equal), : (colon), . (period), - (hyphen), ~ (tilde),
+--   / (forward slash), and * (asterisk). Wildcards (*) are
+--   acceptable.</li>
+--   <li>An object group name that allows you to refer to the object group.
+--   The name can't have more than 30 characters. Valid characters are:
+--   a-z, A-Z, 0-9, and _ (underscore).</li>
 --   </ul>
-newPutContainerPolicy :: Text -> Text -> PutContainerPolicy
+newPutMetricPolicy :: Text -> MetricPolicy -> PutMetricPolicy
 
--- | <i>See:</i> <a>newPutContainerPolicyResponse</a> smart constructor.
-data PutContainerPolicyResponse
-PutContainerPolicyResponse' :: Int -> PutContainerPolicyResponse
+-- | <i>See:</i> <a>newPutMetricPolicyResponse</a> smart constructor.
+data PutMetricPolicyResponse
+PutMetricPolicyResponse' :: Int -> PutMetricPolicyResponse
 
--- | Create a value of <a>PutContainerPolicyResponse</a> with all optional
+-- | Create a value of <a>PutMetricPolicyResponse</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3427,10 +3859,94 @@ PutContainerPolicyResponse' :: Int -> PutContainerPolicyResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:PutContainerPolicyResponse'</a>,
---   <a>putContainerPolicyResponse_httpStatus</a> - The response's http
+--   <a>$sel:httpStatus:PutMetricPolicyResponse'</a>,
+--   <a>putMetricPolicyResponse_httpStatus</a> - The response's http status
+--   code.
+newPutMetricPolicyResponse :: Int -> PutMetricPolicyResponse
+
+-- | <i>See:</i> <a>newGetLifecyclePolicy</a> smart constructor.
+data GetLifecyclePolicy
+GetLifecyclePolicy' :: Text -> GetLifecyclePolicy
+
+-- | Create a value of <a>GetLifecyclePolicy</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:containerName:GetLifecyclePolicy'</a>,
+--   <a>getLifecyclePolicy_containerName</a> - The name of the container
+--   that the object lifecycle policy is assigned to.
+newGetLifecyclePolicy :: Text -> GetLifecyclePolicy
+
+-- | <i>See:</i> <a>newGetLifecyclePolicyResponse</a> smart constructor.
+data GetLifecyclePolicyResponse
+GetLifecyclePolicyResponse' :: Int -> Text -> GetLifecyclePolicyResponse
+
+-- | Create a value of <a>GetLifecyclePolicyResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:GetLifecyclePolicyResponse'</a>,
+--   <a>getLifecyclePolicyResponse_httpStatus</a> - The response's http
 --   status code.
-newPutContainerPolicyResponse :: Int -> PutContainerPolicyResponse
+--   
+--   <a>$sel:lifecyclePolicy:GetLifecyclePolicyResponse'</a>,
+--   <a>getLifecyclePolicyResponse_lifecyclePolicy</a> - The object
+--   lifecycle policy that is assigned to the container.
+newGetLifecyclePolicyResponse :: Int -> Text -> GetLifecyclePolicyResponse
+
+-- | <i>See:</i> <a>newTagResource</a> smart constructor.
+data TagResource
+TagResource' :: Text -> NonEmpty Tag -> TagResource
+
+-- | Create a value of <a>TagResource</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:resource:TagResource'</a>, <a>tagResource_resource</a> - The
+--   Amazon Resource Name (ARN) for the container.
+--   
+--   <a>$sel:tags:TagResource'</a>, <a>tagResource_tags</a> - An array of
+--   key:value pairs that you want to add to the container. You need to
+--   specify only the tags that you want to add or update. For example,
+--   suppose a container already has two tags (customer:CompanyA and
+--   priority:High). You want to change the priority tag and also add a
+--   third tag (type:Contract). For TagResource, you specify the following
+--   tags: priority:Medium, type:Contract. The result is that your
+--   container has three tags: customer:CompanyA, priority:Medium, and
+--   type:Contract.
+newTagResource :: Text -> NonEmpty Tag -> TagResource
+
+-- | <i>See:</i> <a>newTagResourceResponse</a> smart constructor.
+data TagResourceResponse
+TagResourceResponse' :: Int -> TagResourceResponse
+
+-- | Create a value of <a>TagResourceResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:TagResourceResponse'</a>,
+--   <a>tagResourceResponse_httpStatus</a> - The response's http status
+--   code.
+newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | <i>See:</i> <a>newGetCorsPolicy</a> smart constructor.
 data GetCorsPolicy
@@ -3514,73 +4030,11 @@ UntagResourceResponse' :: Int -> UntagResourceResponse
 --   code.
 newUntagResourceResponse :: Int -> UntagResourceResponse
 
--- | <i>See:</i> <a>newTagResource</a> smart constructor.
-data TagResource
-TagResource' :: Text -> NonEmpty Tag -> TagResource
+-- | <i>See:</i> <a>newDeleteContainerPolicy</a> smart constructor.
+data DeleteContainerPolicy
+DeleteContainerPolicy' :: Text -> DeleteContainerPolicy
 
--- | Create a value of <a>TagResource</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:resource:TagResource'</a>, <a>tagResource_resource</a> - The
---   Amazon Resource Name (ARN) for the container.
---   
---   <a>$sel:tags:TagResource'</a>, <a>tagResource_tags</a> - An array of
---   key:value pairs that you want to add to the container. You need to
---   specify only the tags that you want to add or update. For example,
---   suppose a container already has two tags (customer:CompanyA and
---   priority:High). You want to change the priority tag and also add a
---   third tag (type:Contract). For TagResource, you specify the following
---   tags: priority:Medium, type:Contract. The result is that your
---   container has three tags: customer:CompanyA, priority:Medium, and
---   type:Contract.
-newTagResource :: Text -> NonEmpty Tag -> TagResource
-
--- | <i>See:</i> <a>newTagResourceResponse</a> smart constructor.
-data TagResourceResponse
-TagResourceResponse' :: Int -> TagResourceResponse
-
--- | Create a value of <a>TagResourceResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:TagResourceResponse'</a>,
---   <a>tagResourceResponse_httpStatus</a> - The response's http status
---   code.
-newTagResourceResponse :: Int -> TagResourceResponse
-
--- | <i>See:</i> <a>newDeleteMetricPolicy</a> smart constructor.
-data DeleteMetricPolicy
-DeleteMetricPolicy' :: Text -> DeleteMetricPolicy
-
--- | Create a value of <a>DeleteMetricPolicy</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:containerName:DeleteMetricPolicy'</a>,
---   <a>deleteMetricPolicy_containerName</a> - The name of the container
---   that is associated with the metric policy that you want to delete.
-newDeleteMetricPolicy :: Text -> DeleteMetricPolicy
-
--- | <i>See:</i> <a>newDeleteMetricPolicyResponse</a> smart constructor.
-data DeleteMetricPolicyResponse
-DeleteMetricPolicyResponse' :: Int -> DeleteMetricPolicyResponse
-
--- | Create a value of <a>DeleteMetricPolicyResponse</a> with all optional
+-- | Create a value of <a>DeleteContainerPolicy</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3589,186 +4043,16 @@ DeleteMetricPolicyResponse' :: Int -> DeleteMetricPolicyResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:DeleteMetricPolicyResponse'</a>,
---   <a>deleteMetricPolicyResponse_httpStatus</a> - The response's http
---   status code.
-newDeleteMetricPolicyResponse :: Int -> DeleteMetricPolicyResponse
+--   <a>$sel:containerName:DeleteContainerPolicy'</a>,
+--   <a>deleteContainerPolicy_containerName</a> - The name of the container
+--   that holds the policy.
+newDeleteContainerPolicy :: Text -> DeleteContainerPolicy
 
--- | <i>See:</i> <a>newDescribeContainer</a> smart constructor.
-data DescribeContainer
-DescribeContainer' :: Maybe Text -> DescribeContainer
+-- | <i>See:</i> <a>newDeleteContainerPolicyResponse</a> smart constructor.
+data DeleteContainerPolicyResponse
+DeleteContainerPolicyResponse' :: Int -> DeleteContainerPolicyResponse
 
--- | Create a value of <a>DescribeContainer</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:containerName:DescribeContainer'</a>,
---   <a>describeContainer_containerName</a> - The name of the container to
---   query.
-newDescribeContainer :: DescribeContainer
-
--- | <i>See:</i> <a>newDescribeContainerResponse</a> smart constructor.
-data DescribeContainerResponse
-DescribeContainerResponse' :: Maybe Container -> Int -> DescribeContainerResponse
-
--- | Create a value of <a>DescribeContainerResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:container:DescribeContainerResponse'</a>,
---   <a>describeContainerResponse_container</a> - The name of the queried
---   container.
---   
---   <a>$sel:httpStatus:DescribeContainerResponse'</a>,
---   <a>describeContainerResponse_httpStatus</a> - The response's http
---   status code.
-newDescribeContainerResponse :: Int -> DescribeContainerResponse
-
--- | <i>See:</i> <a>newGetMetricPolicy</a> smart constructor.
-data GetMetricPolicy
-GetMetricPolicy' :: Text -> GetMetricPolicy
-
--- | Create a value of <a>GetMetricPolicy</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:containerName:GetMetricPolicy'</a>,
---   <a>getMetricPolicy_containerName</a> - The name of the container that
---   is associated with the metric policy.
-newGetMetricPolicy :: Text -> GetMetricPolicy
-
--- | <i>See:</i> <a>newGetMetricPolicyResponse</a> smart constructor.
-data GetMetricPolicyResponse
-GetMetricPolicyResponse' :: Int -> MetricPolicy -> GetMetricPolicyResponse
-
--- | Create a value of <a>GetMetricPolicyResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:GetMetricPolicyResponse'</a>,
---   <a>getMetricPolicyResponse_httpStatus</a> - The response's http status
---   code.
---   
---   <a>$sel:metricPolicy:GetMetricPolicyResponse'</a>,
---   <a>getMetricPolicyResponse_metricPolicy</a> - The metric policy that
---   is associated with the specific container.
-newGetMetricPolicyResponse :: Int -> MetricPolicy -> GetMetricPolicyResponse
-
--- | <i>See:</i> <a>newStopAccessLogging</a> smart constructor.
-data StopAccessLogging
-StopAccessLogging' :: Text -> StopAccessLogging
-
--- | Create a value of <a>StopAccessLogging</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:containerName:StopAccessLogging'</a>,
---   <a>stopAccessLogging_containerName</a> - The name of the container
---   that you want to stop access logging on.
-newStopAccessLogging :: Text -> StopAccessLogging
-
--- | <i>See:</i> <a>newStopAccessLoggingResponse</a> smart constructor.
-data StopAccessLoggingResponse
-StopAccessLoggingResponse' :: Int -> StopAccessLoggingResponse
-
--- | Create a value of <a>StopAccessLoggingResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:StopAccessLoggingResponse'</a>,
---   <a>stopAccessLoggingResponse_httpStatus</a> - The response's http
---   status code.
-newStopAccessLoggingResponse :: Int -> StopAccessLoggingResponse
-
--- | <i>See:</i> <a>newStartAccessLogging</a> smart constructor.
-data StartAccessLogging
-StartAccessLogging' :: Text -> StartAccessLogging
-
--- | Create a value of <a>StartAccessLogging</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:containerName:StartAccessLogging'</a>,
---   <a>startAccessLogging_containerName</a> - The name of the container
---   that you want to start access logging on.
-newStartAccessLogging :: Text -> StartAccessLogging
-
--- | <i>See:</i> <a>newStartAccessLoggingResponse</a> smart constructor.
-data StartAccessLoggingResponse
-StartAccessLoggingResponse' :: Int -> StartAccessLoggingResponse
-
--- | Create a value of <a>StartAccessLoggingResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:StartAccessLoggingResponse'</a>,
---   <a>startAccessLoggingResponse_httpStatus</a> - The response's http
---   status code.
-newStartAccessLoggingResponse :: Int -> StartAccessLoggingResponse
-
--- | <i>See:</i> <a>newDeleteLifecyclePolicy</a> smart constructor.
-data DeleteLifecyclePolicy
-DeleteLifecyclePolicy' :: Text -> DeleteLifecyclePolicy
-
--- | Create a value of <a>DeleteLifecyclePolicy</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:containerName:DeleteLifecyclePolicy'</a>,
---   <a>deleteLifecyclePolicy_containerName</a> - The name of the container
---   that holds the object lifecycle policy.
-newDeleteLifecyclePolicy :: Text -> DeleteLifecyclePolicy
-
--- | <i>See:</i> <a>newDeleteLifecyclePolicyResponse</a> smart constructor.
-data DeleteLifecyclePolicyResponse
-DeleteLifecyclePolicyResponse' :: Int -> DeleteLifecyclePolicyResponse
-
--- | Create a value of <a>DeleteLifecyclePolicyResponse</a> with all
+-- | Create a value of <a>DeleteContainerPolicyResponse</a> with all
 --   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3777,16 +4061,16 @@ DeleteLifecyclePolicyResponse' :: Int -> DeleteLifecyclePolicyResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:DeleteLifecyclePolicyResponse'</a>,
---   <a>deleteLifecyclePolicyResponse_httpStatus</a> - The response's http
+--   <a>$sel:httpStatus:DeleteContainerPolicyResponse'</a>,
+--   <a>deleteContainerPolicyResponse_httpStatus</a> - The response's http
 --   status code.
-newDeleteLifecyclePolicyResponse :: Int -> DeleteLifecyclePolicyResponse
+newDeleteContainerPolicyResponse :: Int -> DeleteContainerPolicyResponse
 
--- | <i>See:</i> <a>newDeleteCorsPolicy</a> smart constructor.
-data DeleteCorsPolicy
-DeleteCorsPolicy' :: Text -> DeleteCorsPolicy
+-- | <i>See:</i> <a>newPutContainerPolicy</a> smart constructor.
+data PutContainerPolicy
+PutContainerPolicy' :: Text -> Text -> PutContainerPolicy
 
--- | Create a value of <a>DeleteCorsPolicy</a> with all optional fields
+-- | Create a value of <a>PutContainerPolicy</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3795,16 +4079,25 @@ DeleteCorsPolicy' :: Text -> DeleteCorsPolicy
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:containerName:DeleteCorsPolicy'</a>,
---   <a>deleteCorsPolicy_containerName</a> - The name of the container to
---   remove the policy from.
-newDeleteCorsPolicy :: Text -> DeleteCorsPolicy
+--   <a>$sel:containerName:PutContainerPolicy'</a>,
+--   <a>putContainerPolicy_containerName</a> - The name of the container.
+--   
+--   <a>$sel:policy:PutContainerPolicy'</a>,
+--   <a>putContainerPolicy_policy</a> - The contents of the policy, which
+--   includes the following:
+--   
+--   <ul>
+--   <li>One <tt>Version</tt> tag</li>
+--   <li>One <tt>Statement</tt> tag that contains the standard tags for the
+--   policy.</li>
+--   </ul>
+newPutContainerPolicy :: Text -> Text -> PutContainerPolicy
 
--- | <i>See:</i> <a>newDeleteCorsPolicyResponse</a> smart constructor.
-data DeleteCorsPolicyResponse
-DeleteCorsPolicyResponse' :: Int -> DeleteCorsPolicyResponse
+-- | <i>See:</i> <a>newPutContainerPolicyResponse</a> smart constructor.
+data PutContainerPolicyResponse
+PutContainerPolicyResponse' :: Int -> PutContainerPolicyResponse
 
--- | Create a value of <a>DeleteCorsPolicyResponse</a> with all optional
+-- | Create a value of <a>PutContainerPolicyResponse</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3813,10 +4106,10 @@ DeleteCorsPolicyResponse' :: Int -> DeleteCorsPolicyResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:DeleteCorsPolicyResponse'</a>,
---   <a>deleteCorsPolicyResponse_httpStatus</a> - The response's http
+--   <a>$sel:httpStatus:PutContainerPolicyResponse'</a>,
+--   <a>putContainerPolicyResponse_httpStatus</a> - The response's http
 --   status code.
-newDeleteCorsPolicyResponse :: Int -> DeleteCorsPolicyResponse
+newPutContainerPolicyResponse :: Int -> PutContainerPolicyResponse
 
 -- | <i>See:</i> <a>newGetContainerPolicy</a> smart constructor.
 data GetContainerPolicy
@@ -3856,299 +4149,6 @@ GetContainerPolicyResponse' :: Int -> Text -> GetContainerPolicyResponse
 --   <a>getContainerPolicyResponse_policy</a> - The contents of the access
 --   policy.
 newGetContainerPolicyResponse :: Int -> Text -> GetContainerPolicyResponse
-
--- | <i>See:</i> <a>newDeleteContainerPolicy</a> smart constructor.
-data DeleteContainerPolicy
-DeleteContainerPolicy' :: Text -> DeleteContainerPolicy
-
--- | Create a value of <a>DeleteContainerPolicy</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:containerName:DeleteContainerPolicy'</a>,
---   <a>deleteContainerPolicy_containerName</a> - The name of the container
---   that holds the policy.
-newDeleteContainerPolicy :: Text -> DeleteContainerPolicy
-
--- | <i>See:</i> <a>newDeleteContainerPolicyResponse</a> smart constructor.
-data DeleteContainerPolicyResponse
-DeleteContainerPolicyResponse' :: Int -> DeleteContainerPolicyResponse
-
--- | Create a value of <a>DeleteContainerPolicyResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:DeleteContainerPolicyResponse'</a>,
---   <a>deleteContainerPolicyResponse_httpStatus</a> - The response's http
---   status code.
-newDeleteContainerPolicyResponse :: Int -> DeleteContainerPolicyResponse
-
--- | <i>See:</i> <a>newListContainers</a> smart constructor.
-data ListContainers
-ListContainers' :: Maybe Text -> Maybe Natural -> ListContainers
-
--- | Create a value of <a>ListContainers</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListContainers'</a>, <a>listContainers_nextToken</a>
---   - Only if you used <tt>MaxResults</tt> in the first command, enter the
---   token (which was included in the previous response) to obtain the next
---   set of containers. This token is included in a response only if there
---   actually are more containers to list.
---   
---   <a>$sel:maxResults:ListContainers'</a>,
---   <a>listContainers_maxResults</a> - Enter the maximum number of
---   containers in the response. Use from 1 to 255 characters.
-newListContainers :: ListContainers
-
--- | <i>See:</i> <a>newListContainersResponse</a> smart constructor.
-data ListContainersResponse
-ListContainersResponse' :: Maybe Text -> Int -> [Container] -> ListContainersResponse
-
--- | Create a value of <a>ListContainersResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListContainers'</a>,
---   <a>listContainersResponse_nextToken</a> - <tt>NextToken</tt> is the
---   token to use in the next call to <tt>ListContainers</tt>. This token
---   is returned only if you included the <tt>MaxResults</tt> tag in the
---   original command, and only if there are still containers to return.
---   
---   <a>$sel:httpStatus:ListContainersResponse'</a>,
---   <a>listContainersResponse_httpStatus</a> - The response's http status
---   code.
---   
---   <a>$sel:containers:ListContainersResponse'</a>,
---   <a>listContainersResponse_containers</a> - The names of the
---   containers.
-newListContainersResponse :: Int -> ListContainersResponse
-
--- | <i>See:</i> <a>newCreateContainer</a> smart constructor.
-data CreateContainer
-CreateContainer' :: Maybe (NonEmpty Tag) -> Text -> CreateContainer
-
--- | Create a value of <a>CreateContainer</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:tags:CreateContainer'</a>, <a>createContainer_tags</a> - An
---   array of key:value pairs that you define. These values can be anything
---   that you want. Typically, the tag key represents a category (such as
---   "environment") and the tag value represents a specific value within
---   that category (such as "test," "development," or "production"). You
---   can add up to 50 tags to each container. For more information about
---   tagging, including naming and usage conventions, see <a>Tagging
---   Resources in MediaStore</a>.
---   
---   <a>$sel:containerName:CreateContainer'</a>,
---   <a>createContainer_containerName</a> - The name for the container. The
---   name must be from 1 to 255 characters. Container names must be unique
---   to your AWS account within a specific region. As an example, you could
---   create a container named <tt>movies</tt> in every region, as long as
---   you don’t have an existing container with that name.
-newCreateContainer :: Text -> CreateContainer
-
--- | <i>See:</i> <a>newCreateContainerResponse</a> smart constructor.
-data CreateContainerResponse
-CreateContainerResponse' :: Int -> Container -> CreateContainerResponse
-
--- | Create a value of <a>CreateContainerResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:CreateContainerResponse'</a>,
---   <a>createContainerResponse_httpStatus</a> - The response's http status
---   code.
---   
---   <a>$sel:container:CreateContainerResponse'</a>,
---   <a>createContainerResponse_container</a> - ContainerARN: The Amazon
---   Resource Name (ARN) of the newly created container. The ARN has the
---   following format: arn:aws:&lt;region&gt;:&lt;account that owns this
---   container&gt;:container/&lt;name of container&gt;. For example:
---   arn:aws:mediastore:us-west-2:111122223333:container/movies
---   
---   ContainerName: The container name as specified in the request.
---   
---   CreationTime: Unix time stamp.
---   
---   Status: The status of container creation or deletion. The status is
---   one of the following: <tt>CREATING</tt>, <tt>ACTIVE</tt>, or
---   <tt>DELETING</tt>. While the service is creating the container, the
---   status is <tt>CREATING</tt>. When an endpoint is available, the status
---   changes to <tt>ACTIVE</tt>.
---   
---   The return value does not include the container's endpoint. To make
---   downstream requests, you must obtain this value by using
---   DescribeContainer or ListContainers.
-newCreateContainerResponse :: Int -> Container -> CreateContainerResponse
-
--- | <i>See:</i> <a>newGetLifecyclePolicy</a> smart constructor.
-data GetLifecyclePolicy
-GetLifecyclePolicy' :: Text -> GetLifecyclePolicy
-
--- | Create a value of <a>GetLifecyclePolicy</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:containerName:GetLifecyclePolicy'</a>,
---   <a>getLifecyclePolicy_containerName</a> - The name of the container
---   that the object lifecycle policy is assigned to.
-newGetLifecyclePolicy :: Text -> GetLifecyclePolicy
-
--- | <i>See:</i> <a>newGetLifecyclePolicyResponse</a> smart constructor.
-data GetLifecyclePolicyResponse
-GetLifecyclePolicyResponse' :: Int -> Text -> GetLifecyclePolicyResponse
-
--- | Create a value of <a>GetLifecyclePolicyResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:GetLifecyclePolicyResponse'</a>,
---   <a>getLifecyclePolicyResponse_httpStatus</a> - The response's http
---   status code.
---   
---   <a>$sel:lifecyclePolicy:GetLifecyclePolicyResponse'</a>,
---   <a>getLifecyclePolicyResponse_lifecyclePolicy</a> - The object
---   lifecycle policy that is assigned to the container.
-newGetLifecyclePolicyResponse :: Int -> Text -> GetLifecyclePolicyResponse
-
--- | <i>See:</i> <a>newPutMetricPolicy</a> smart constructor.
-data PutMetricPolicy
-PutMetricPolicy' :: Text -> MetricPolicy -> PutMetricPolicy
-
--- | Create a value of <a>PutMetricPolicy</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:containerName:PutMetricPolicy'</a>,
---   <a>putMetricPolicy_containerName</a> - The name of the container that
---   you want to add the metric policy to.
---   
---   <a>$sel:metricPolicy:PutMetricPolicy'</a>,
---   <a>putMetricPolicy_metricPolicy</a> - The metric policy that you want
---   to associate with the container. In the policy, you must indicate
---   whether you want MediaStore to send container-level metrics. You can
---   also include up to five rules to define groups of objects that you
---   want MediaStore to send object-level metrics for. If you include rules
---   in the policy, construct each rule with both of the following:
---   
---   <ul>
---   <li>An object group that defines which objects to include in the
---   group. The definition can be a path or a file name, but it can't have
---   more than 900 characters. Valid characters are: a-z, A-Z, 0-9, _
---   (underscore), = (equal), : (colon), . (period), - (hyphen), ~ (tilde),
---   / (forward slash), and * (asterisk). Wildcards (*) are
---   acceptable.</li>
---   <li>An object group name that allows you to refer to the object group.
---   The name can't have more than 30 characters. Valid characters are:
---   a-z, A-Z, 0-9, and _ (underscore).</li>
---   </ul>
-newPutMetricPolicy :: Text -> MetricPolicy -> PutMetricPolicy
-
--- | <i>See:</i> <a>newPutMetricPolicyResponse</a> smart constructor.
-data PutMetricPolicyResponse
-PutMetricPolicyResponse' :: Int -> PutMetricPolicyResponse
-
--- | Create a value of <a>PutMetricPolicyResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:PutMetricPolicyResponse'</a>,
---   <a>putMetricPolicyResponse_httpStatus</a> - The response's http status
---   code.
-newPutMetricPolicyResponse :: Int -> PutMetricPolicyResponse
-
--- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
-data ListTagsForResource
-ListTagsForResource' :: Text -> ListTagsForResource
-
--- | Create a value of <a>ListTagsForResource</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:resource:ListTagsForResource'</a>,
---   <a>listTagsForResource_resource</a> - The Amazon Resource Name (ARN)
---   for the container.
-newListTagsForResource :: Text -> ListTagsForResource
-
--- | <i>See:</i> <a>newListTagsForResourceResponse</a> smart constructor.
-data ListTagsForResourceResponse
-ListTagsForResourceResponse' :: Maybe (NonEmpty Tag) -> Int -> ListTagsForResourceResponse
-
--- | Create a value of <a>ListTagsForResourceResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:tags:ListTagsForResourceResponse'</a>,
---   <a>listTagsForResourceResponse_tags</a> - An array of key:value pairs
---   that are assigned to the container.
---   
---   <a>$sel:httpStatus:ListTagsForResourceResponse'</a>,
---   <a>listTagsForResourceResponse_httpStatus</a> - The response's http
---   status code.
-newListTagsForResourceResponse :: Int -> ListTagsForResourceResponse
 newtype ContainerLevelMetrics
 ContainerLevelMetrics' :: Text -> ContainerLevelMetrics
 [fromContainerLevelMetrics] :: ContainerLevelMetrics -> Text
@@ -4173,7 +4173,7 @@ pattern MethodName_PUT :: MethodName
 --   
 --   <i>See:</i> <a>newContainer</a> smart constructor.
 data Container
-Container' :: Maybe POSIX -> Maybe ContainerStatus -> Maybe Text -> Maybe Bool -> Maybe Text -> Maybe Text -> Container
+Container' :: Maybe POSIX -> Maybe ContainerStatus -> Maybe Bool -> Maybe Text -> Maybe Text -> Maybe Text -> Container
 
 -- | Create a value of <a>Container</a> with all optional fields omitted.
 --   
@@ -4192,15 +4192,6 @@ Container' :: Maybe POSIX -> Maybe ContainerStatus -> Maybe Text -> Maybe Bool -
 --   service is creating the container, the status is <tt>CREATING</tt>.
 --   When the endpoint is available, the status changes to <tt>ACTIVE</tt>.
 --   
---   <a>$sel:arn:Container'</a>, <a>container_arn</a> - The Amazon Resource
---   Name (ARN) of the container. The ARN has the following format:
---   
---   arn:aws:&lt;region&gt;:&lt;account that owns this
---   container&gt;:container/&lt;name of container&gt;
---   
---   For example:
---   arn:aws:mediastore:us-west-2:111122223333:container/movies
---   
 --   <a>$sel:accessLoggingEnabled:Container'</a>,
 --   <a>container_accessLoggingEnabled</a> - The state of access logging on
 --   the container. This value is <tt>false</tt> by default, indicating
@@ -4209,6 +4200,15 @@ Container' :: Maybe POSIX -> Maybe ContainerStatus -> Maybe Text -> Maybe Bool -
 --   MediaStore changes this value to <tt>true</tt>, indicating that the
 --   service delivers access logs for objects stored in that container to
 --   CloudWatch Logs.
+--   
+--   <a>$sel:arn:Container'</a>, <a>container_arn</a> - The Amazon Resource
+--   Name (ARN) of the container. The ARN has the following format:
+--   
+--   arn:aws:&lt;region&gt;:&lt;account that owns this
+--   container&gt;:container/&lt;name of container&gt;
+--   
+--   For example:
+--   arn:aws:mediastore:us-west-2:111122223333:container/movies
 --   
 --   <a>$sel:name:Container'</a>, <a>container_name</a> - The name of the
 --   container.

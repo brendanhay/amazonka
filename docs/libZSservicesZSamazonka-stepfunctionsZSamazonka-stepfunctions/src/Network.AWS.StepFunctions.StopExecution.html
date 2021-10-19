@@ -29,8 +29,8 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#newStopExecution"><span class="hs-identifier">newStopExecution</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#stopExecution_cause"><span class="hs-identifier">stopExecution_cause</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#stopExecution_error"><span class="hs-identifier">stopExecution_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#stopExecution_error"><span class="hs-identifier">stopExecution_error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#stopExecution_cause"><span class="hs-identifier">stopExecution_cause</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#stopExecution_executionArn"><span class="hs-identifier">stopExecution_executionArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -51,18 +51,18 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.html"><span class="hs-identifier">Network.AWS.StepFunctions.Types</span></a></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newStopExecution' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679229530"><span id="local-6989586621679229531"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopExecution"><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-var">StopExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopExecution%27"><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution%27"><span class="hs-identifier hs-var">StopExecution'</span></a></span></span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A more detailed explanation of the cause of the failure.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3Acause%3AStopExecution%27"><span class="annot"><span class="annottext">StopExecution -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3Acause%3AStopExecution%27"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The error code of the failure.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aerror%3AStopExecution%27"><span class="annot"><span class="annottext">StopExecution -&gt; Maybe (Sensitive Text)
+</span><span id="line-54"></span><span id="local-6989586621679229577"><span id="local-6989586621679229578"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopExecution"><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-var">StopExecution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopExecution%27"><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution%27"><span class="hs-identifier hs-var">StopExecution'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error code of the failure.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Aerror%3AStopExecution%27"><span class="annot"><span class="annottext">StopExecution -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3Aerror%3AStopExecution%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | A more detailed explanation of the cause of the failure.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Acause%3AStopExecution%27"><span class="annot"><span class="annottext">StopExecution -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3Acause%3AStopExecution%27"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the execution to stop.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AexecutionArn%3AStopExecution%27"><span class="annot"><span class="annottext">StopExecution -&gt; Text
 </span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3AexecutionArn%3AStopExecution%27"><span class="hs-identifier hs-var hs-var">executionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229522"><span id="local-6989586621679229524"><span class="annot"><span class="annottext">StopExecution -&gt; StopExecution -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229569"><span id="local-6989586621679229571"><span class="annot"><span class="annottext">StopExecution -&gt; StopExecution -&gt; Bool
 (StopExecution -&gt; StopExecution -&gt; Bool)
 -&gt; (StopExecution -&gt; StopExecution -&gt; Bool) -&gt; Eq StopExecution
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopExecution -&gt; StopExecution -&gt; Bool
 == :: StopExecution -&gt; StopExecution -&gt; Bool
 $c== :: StopExecution -&gt; StopExecution -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229515"><span id="local-6989586621679229517"><span id="local-6989586621679229519"><span class="annot"><span class="annottext">Int -&gt; StopExecution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229562"><span id="local-6989586621679229564"><span id="local-6989586621679229566"><span class="annot"><span class="annottext">Int -&gt; StopExecution -&gt; ShowS
 [StopExecution] -&gt; ShowS
 StopExecution -&gt; String
 (Int -&gt; StopExecution -&gt; ShowS)
@@ -104,9 +104,9 @@ $cfrom :: forall x. StopExecution -&gt; Rep StopExecution x
 </span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'cause', 'stopExecution_cause' - A more detailed explanation of the cause of the failure.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'error', 'stopExecution_error' - The error code of the failure.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'error', 'stopExecution_error' - The error code of the failure.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'cause', 'stopExecution_cause' - A more detailed explanation of the cause of the failure.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- 'executionArn', 'stopExecution_executionArn' - The Amazon Resource Name (ARN) of the execution to stop.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#newStopExecution"><span class="hs-identifier hs-type">newStopExecution</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -114,28 +114,28 @@ $cfrom :: forall x. StopExecution -&gt; Rep StopExecution x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span><span>
 </span><span id="line-81"></span><span id="newStopExecution"><span class="annot"><span class="annottext">newStopExecution :: Text -&gt; StopExecution
-</span><a href="Network.AWS.StepFunctions.StopExecution.html#newStopExecution"><span class="hs-identifier hs-var hs-var">newStopExecution</span></a></span></span><span> </span><span id="local-6989586621679229510"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229510"><span class="hs-identifier hs-var">pExecutionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StepFunctions.StopExecution.html#newStopExecution"><span class="hs-identifier hs-var hs-var">newStopExecution</span></a></span></span><span> </span><span id="local-6989586621679229557"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229557"><span class="hs-identifier hs-var">pExecutionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">StopExecution' :: Maybe (Sensitive Text)
 -&gt; Maybe (Sensitive Text) -&gt; Text -&gt; StopExecution
 </span><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution%27"><span class="hs-identifier hs-type">StopExecution'</span></a></span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cause:StopExecution' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3Acause%3AStopExecution%27"><span class="hs-identifier hs-var">cause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:error:StopExecution' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3Aerror%3AStopExecution%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:error:StopExecution' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3Aerror%3AStopExecution%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:cause:StopExecution' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3Acause%3AStopExecution%27"><span class="hs-identifier hs-var">cause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:executionArn:StopExecution' :: Text
 </span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3AexecutionArn%3AStopExecution%27"><span class="hs-identifier hs-var">executionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229510"><span class="hs-identifier hs-var">pExecutionArn_</span></a></span><span>
+</span><a href="#local-6989586621679229557"><span class="hs-identifier hs-var">pExecutionArn_</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | A more detailed explanation of the cause of the failure.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#stopExecution_cause"><span class="hs-identifier hs-type">stopExecution_cause</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="stopExecution_cause"><span class="annot"><span class="annottext">stopExecution_cause :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StopExecution -&gt; f StopExecution
-</span><a href="Network.AWS.StepFunctions.StopExecution.html#stopExecution_cause"><span class="hs-identifier hs-var hs-var">stopExecution_cause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopExecution -&gt; Maybe (Sensitive Text))
+</span><span id="line-88"></span><span class="hs-comment">-- | The error code of the failure.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#stopExecution_error"><span class="hs-identifier hs-type">stopExecution_error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="stopExecution_error"><span class="annot"><span class="annottext">stopExecution_error :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StopExecution -&gt; f StopExecution
+</span><a href="Network.AWS.StepFunctions.StopExecution.html#stopExecution_error"><span class="hs-identifier hs-var hs-var">stopExecution_error</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopExecution -&gt; Maybe (Sensitive Text))
 -&gt; (StopExecution -&gt; Maybe (Sensitive Text) -&gt; StopExecution)
 -&gt; Lens
      StopExecution
@@ -143,16 +143,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution%27"><span class="hs-identifier hs-type">StopExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229507"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-cause :: Maybe (Sensitive Text)
-$sel:cause:StopExecution' :: StopExecution -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679229507"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679229507"><span class="hs-identifier hs-var">cause</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229506"><span class="annot"><span class="annottext">s :: StopExecution
-</span><a href="#local-6989586621679229506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution%27"><span class="hs-identifier hs-type">StopExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229505"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679229505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopExecution
-</span><a href="#local-6989586621679229506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cause:StopExecution' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3Acause%3AStopExecution%27"><span class="hs-identifier hs-var">cause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679229505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution%27"><span class="hs-identifier hs-type">StopExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229554"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+error :: Maybe (Sensitive Text)
+$sel:error:StopExecution' :: StopExecution -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679229554"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679229554"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229553"><span class="annot"><span class="annottext">s :: StopExecution
+</span><a href="#local-6989586621679229553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution%27"><span class="hs-identifier hs-type">StopExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229552"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679229552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopExecution
+</span><a href="#local-6989586621679229553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:StopExecution' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3Aerror%3AStopExecution%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679229552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; StopExecution -&gt; f StopExecution)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -173,10 +173,10 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | The error code of the failure.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#stopExecution_error"><span class="hs-identifier hs-type">stopExecution_error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="stopExecution_error"><span class="annot"><span class="annottext">stopExecution_error :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StopExecution -&gt; f StopExecution
-</span><a href="Network.AWS.StepFunctions.StopExecution.html#stopExecution_error"><span class="hs-identifier hs-var hs-var">stopExecution_error</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopExecution -&gt; Maybe (Sensitive Text))
+</span><span id="line-92"></span><span class="hs-comment">-- | A more detailed explanation of the cause of the failure.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#stopExecution_cause"><span class="hs-identifier hs-type">stopExecution_cause</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="stopExecution_cause"><span class="annot"><span class="annottext">stopExecution_cause :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StopExecution -&gt; f StopExecution
+</span><a href="Network.AWS.StepFunctions.StopExecution.html#stopExecution_cause"><span class="hs-identifier hs-var hs-var">stopExecution_cause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopExecution -&gt; Maybe (Sensitive Text))
 -&gt; (StopExecution -&gt; Maybe (Sensitive Text) -&gt; StopExecution)
 -&gt; Lens
      StopExecution
@@ -184,16 +184,16 @@ forall a. Iso' (Sensitive a) a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution%27"><span class="hs-identifier hs-type">StopExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229501"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-error :: Maybe (Sensitive Text)
-$sel:error:StopExecution' :: StopExecution -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679229501"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679229501"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229500"><span class="annot"><span class="annottext">s :: StopExecution
-</span><a href="#local-6989586621679229500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution%27"><span class="hs-identifier hs-type">StopExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229499"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679229499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopExecution
-</span><a href="#local-6989586621679229500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:StopExecution' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3Aerror%3AStopExecution%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679229499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution%27"><span class="hs-identifier hs-type">StopExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229548"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+cause :: Maybe (Sensitive Text)
+$sel:cause:StopExecution' :: StopExecution -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679229548"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679229548"><span class="hs-identifier hs-var">cause</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229547"><span class="annot"><span class="annottext">s :: StopExecution
+</span><a href="#local-6989586621679229547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution%27"><span class="hs-identifier hs-type">StopExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229546"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679229546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopExecution
+</span><a href="#local-6989586621679229547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cause:StopExecution' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3Acause%3AStopExecution%27"><span class="hs-identifier hs-var">cause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679229546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; StopExecution -&gt; f StopExecution)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -221,27 +221,27 @@ forall a. Iso' (Sensitive a) a
 -&gt; (StopExecution -&gt; Text -&gt; StopExecution)
 -&gt; Lens StopExecution StopExecution Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution%27"><span class="hs-identifier hs-type">StopExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229498"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution%27"><span class="hs-identifier hs-type">StopExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229545"><span class="annot"><span class="annottext">Text
 executionArn :: Text
 $sel:executionArn:StopExecution' :: StopExecution -&gt; Text
-</span><a href="#local-6989586621679229498"><span class="hs-identifier hs-var hs-var">executionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229498"><span class="hs-identifier hs-var">executionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229497"><span class="annot"><span class="annottext">s :: StopExecution
-</span><a href="#local-6989586621679229497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution%27"><span class="hs-identifier hs-type">StopExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229496"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopExecution
-</span><a href="#local-6989586621679229497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionArn:StopExecution' :: Text
+</span><a href="#local-6989586621679229545"><span class="hs-identifier hs-var hs-var">executionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229545"><span class="hs-identifier hs-var">executionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229544"><span class="annot"><span class="annottext">s :: StopExecution
+</span><a href="#local-6989586621679229544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution%27"><span class="hs-identifier hs-type">StopExecution'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229543"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopExecution
+</span><a href="#local-6989586621679229544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionArn:StopExecution' :: Text
 </span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3AexecutionArn%3AStopExecution%27"><span class="hs-identifier hs-var">executionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse"><span class="hs-identifier hs-type">StopExecutionResponse</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679229492"><span class="annot"><span class="annottext">request :: StopExecution -&gt; Request StopExecution
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679229539"><span class="annot"><span class="annottext">request :: StopExecution -&gt; Request StopExecution
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopExecution -&gt; Request StopExecution
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StepFunctions.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679229488"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679229535"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopExecution
 -&gt; ClientResponse ClientBody
@@ -265,10 +265,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229485"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229485"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229484"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679229484"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229483"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679229483"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229532"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229532"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229531"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679229531"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229530"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; POSIX -&gt; StopExecutionResponse
 </span><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse%27"><span class="hs-identifier hs-var">StopExecutionResponse'</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; POSIX -&gt; StopExecutionResponse)
@@ -280,23 +280,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229485"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229532"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either String (POSIX -&gt; StopExecutionResponse)
 -&gt; Either String POSIX -&gt; Either String StopExecutionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679229483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
+</span><a href="#local-6989586621679229530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stopDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229475"><span id="local-6989586621679229477"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229522"><span id="local-6989586621679229524"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229472"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679229468"><span class="annot"><span class="annottext">toHeaders :: StopExecution -&gt; ResponseHeaders
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679229515"><span class="annot"><span class="annottext">toHeaders :: StopExecution -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopExecution -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -323,55 +323,55 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229458"><span id="local-6989586621679229460"><span id="local-6989586621679229462"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679229456"><span class="annot"><span class="annottext">toJSON :: StopExecution -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution%27"><span class="hs-identifier hs-type">StopExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229452"><span id="local-6989586621679229453"><span id="local-6989586621679229454"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229505"><span id="local-6989586621679229507"><span id="local-6989586621679229509"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679229503"><span class="annot"><span class="annottext">toJSON :: StopExecution -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution%27"><span class="hs-identifier hs-type">StopExecution'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229499"><span id="local-6989586621679229500"><span id="local-6989586621679229501"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 Text
 executionArn :: Text
-error :: Maybe (Sensitive Text)
 cause :: Maybe (Sensitive Text)
+error :: Maybe (Sensitive Text)
 $sel:executionArn:StopExecution' :: StopExecution -&gt; Text
-$sel:error:StopExecution' :: StopExecution -&gt; Maybe (Sensitive Text)
 $sel:cause:StopExecution' :: StopExecution -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679229452"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:error:StopExecution' :: StopExecution -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679229499"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-136"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;cause&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679229454"><span class="hs-identifier hs-var">cause</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-137"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;error&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679229453"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229501"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cause&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679229500"><span class="hs-identifier hs-var">cause</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;executionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679229452"><span class="hs-identifier hs-var">executionArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229499"><span class="hs-identifier hs-var">executionArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679229446"><span class="annot"><span class="annottext">toPath :: StopExecution -&gt; ByteString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679229493"><span class="annot"><span class="annottext">toPath :: StopExecution -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopExecution -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecution"><span class="hs-identifier hs-type">StopExecution</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679229442"><span class="annot"><span class="annottext">toQuery :: StopExecution -&gt; QueryString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679229489"><span class="annot"><span class="annottext">toQuery :: StopExecution -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopExecution -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -379,7 +379,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newStopExecutionResponse' smart constructor.</span><span>
-</span><span id="line-149"></span><span id="local-6989586621679229439"><span id="local-6989586621679229440"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopExecutionResponse"><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse"><span class="hs-identifier hs-var">StopExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopExecutionResponse%27"><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse%27"><span class="hs-identifier hs-var">StopExecutionResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span id="local-6989586621679229486"><span id="local-6989586621679229487"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopExecutionResponse"><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse"><span class="hs-identifier hs-var">StopExecutionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopExecutionResponse%27"><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse%27"><span class="hs-identifier hs-var">StopExecutionResponse'</span></a></span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopExecutionResponse%27"><span class="annot"><span class="annottext">StopExecutionResponse -&gt; Int
 </span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3AhttpStatus%3AStopExecutionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -387,7 +387,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AstopDate%3AStopExecutionResponse%27"><span class="annot"><span class="annottext">StopExecutionResponse -&gt; POSIX
 </span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3AstopDate%3AStopExecutionResponse%27"><span class="hs-identifier hs-var hs-var">stopDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229433"><span id="local-6989586621679229435"><span class="annot"><span class="annottext">StopExecutionResponse -&gt; StopExecutionResponse -&gt; Bool
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229480"><span id="local-6989586621679229482"><span class="annot"><span class="annottext">StopExecutionResponse -&gt; StopExecutionResponse -&gt; Bool
 (StopExecutionResponse -&gt; StopExecutionResponse -&gt; Bool)
 -&gt; (StopExecutionResponse -&gt; StopExecutionResponse -&gt; Bool)
 -&gt; Eq StopExecutionResponse
@@ -396,7 +396,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopExecutionResponse -&gt; StopExecutionResponse -&gt; Bool
 == :: StopExecutionResponse -&gt; StopExecutionResponse -&gt; Bool
 $c== :: StopExecutionResponse -&gt; StopExecutionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229425"><span id="local-6989586621679229427"><span id="local-6989586621679229429"><span id="local-6989586621679229431"><span class="annot"><span class="annottext">ReadPrec [StopExecutionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229472"><span id="local-6989586621679229474"><span id="local-6989586621679229476"><span id="local-6989586621679229478"><span class="annot"><span class="annottext">ReadPrec [StopExecutionResponse]
 ReadPrec StopExecutionResponse
 Int -&gt; ReadS StopExecutionResponse
 ReadS [StopExecutionResponse]
@@ -416,7 +416,7 @@ readList :: ReadS [StopExecutionResponse]
 $creadList :: ReadS [StopExecutionResponse]
 readsPrec :: Int -&gt; ReadS StopExecutionResponse
 $creadsPrec :: Int -&gt; ReadS StopExecutionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229418"><span id="local-6989586621679229420"><span id="local-6989586621679229422"><span class="annot"><span class="annottext">Int -&gt; StopExecutionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229465"><span id="local-6989586621679229467"><span id="local-6989586621679229469"><span class="annot"><span class="annottext">Int -&gt; StopExecutionResponse -&gt; ShowS
 [StopExecutionResponse] -&gt; ShowS
 StopExecutionResponse -&gt; String
 (Int -&gt; StopExecutionResponse -&gt; ShowS)
@@ -460,14 +460,14 @@ $cfrom :: forall x. StopExecutionResponse -&gt; Rep StopExecutionResponse x
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse"><span class="hs-identifier hs-type">StopExecutionResponse</span></a></span><span>
 </span><span id="line-174"></span><span id="newStopExecutionResponse"><span class="annot"><span class="annottext">newStopExecutionResponse :: Int -&gt; UTCTime -&gt; StopExecutionResponse
-</span><a href="Network.AWS.StepFunctions.StopExecution.html#newStopExecutionResponse"><span class="hs-identifier hs-var hs-var">newStopExecutionResponse</span></a></span></span><span> </span><span id="local-6989586621679229415"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229415"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679229414"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679229414"><span class="hs-identifier hs-var">pStopDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StepFunctions.StopExecution.html#newStopExecutionResponse"><span class="hs-identifier hs-var hs-var">newStopExecutionResponse</span></a></span></span><span> </span><span id="local-6989586621679229462"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229462"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679229461"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679229461"><span class="hs-identifier hs-var">pStopDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">StopExecutionResponse' :: Int -&gt; POSIX -&gt; StopExecutionResponse
 </span><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse%27"><span class="hs-identifier hs-type">StopExecutionResponse'</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:StopExecutionResponse' :: Int
 </span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3AhttpStatus%3AStopExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229415"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679229462"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:stopDate:StopExecutionResponse' :: POSIX
 </span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3AstopDate%3AStopExecutionResponse%27"><span class="hs-identifier hs-var">stopDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -476,7 +476,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679229414"><span class="hs-identifier hs-var">pStopDate_</span></a></span><span>
+</span><a href="#local-6989586621679229461"><span class="hs-identifier hs-var">pStopDate_</span></a></span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -486,16 +486,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (StopExecutionResponse -&gt; Int -&gt; StopExecutionResponse)
 -&gt; Lens StopExecutionResponse StopExecutionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse%27"><span class="hs-identifier hs-type">StopExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229411"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse%27"><span class="hs-identifier hs-type">StopExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229458"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopExecutionResponse' :: StopExecutionResponse -&gt; Int
-</span><a href="#local-6989586621679229411"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229411"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229410"><span class="annot"><span class="annottext">s :: StopExecutionResponse
-</span><a href="#local-6989586621679229410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse%27"><span class="hs-identifier hs-type">StopExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229409"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopExecutionResponse
-</span><a href="#local-6989586621679229410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopExecutionResponse' :: Int
+</span><a href="#local-6989586621679229458"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229458"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229457"><span class="annot"><span class="annottext">s :: StopExecutionResponse
+</span><a href="#local-6989586621679229457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse%27"><span class="hs-identifier hs-type">StopExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229456"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopExecutionResponse
+</span><a href="#local-6989586621679229457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopExecutionResponse' :: Int
 </span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3AhttpStatus%3AStopExecutionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679229409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse"><span class="hs-identifier hs-type">StopExecutionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679229456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse"><span class="hs-identifier hs-type">StopExecutionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | The date the execution is stopped.</span><span>
 </span><span id="line-185"></span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#stopExecutionResponse_stopDate"><span class="hs-identifier hs-type">stopExecutionResponse_stopDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse"><span class="hs-identifier hs-type">StopExecutionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -505,16 +505,16 @@ $sel:httpStatus:StopExecutionResponse' :: StopExecutionResponse -&gt; Int
 -&gt; (StopExecutionResponse -&gt; POSIX -&gt; StopExecutionResponse)
 -&gt; Lens StopExecutionResponse StopExecutionResponse POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse%27"><span class="hs-identifier hs-type">StopExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229408"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse%27"><span class="hs-identifier hs-type">StopExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229455"><span class="annot"><span class="annottext">POSIX
 stopDate :: POSIX
 $sel:stopDate:StopExecutionResponse' :: StopExecutionResponse -&gt; POSIX
-</span><a href="#local-6989586621679229408"><span class="hs-identifier hs-var hs-var">stopDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679229408"><span class="hs-identifier hs-var">stopDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229407"><span class="annot"><span class="annottext">s :: StopExecutionResponse
-</span><a href="#local-6989586621679229407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse%27"><span class="hs-identifier hs-type">StopExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229406"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679229406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopExecutionResponse
-</span><a href="#local-6989586621679229407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopDate:StopExecutionResponse' :: POSIX
+</span><a href="#local-6989586621679229455"><span class="hs-identifier hs-var hs-var">stopDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679229455"><span class="hs-identifier hs-var">stopDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229454"><span class="annot"><span class="annottext">s :: StopExecutionResponse
+</span><a href="#local-6989586621679229454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse%27"><span class="hs-identifier hs-type">StopExecutionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229453"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679229453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopExecutionResponse
+</span><a href="#local-6989586621679229454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopDate:StopExecutionResponse' :: POSIX
 </span><a href="Network.AWS.StepFunctions.StopExecution.html#%24sel%3AstopDate%3AStopExecutionResponse%27"><span class="hs-identifier hs-var">stopDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679229406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse"><span class="hs-identifier hs-type">StopExecutionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+</span><a href="#local-6989586621679229453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse"><span class="hs-identifier hs-type">StopExecutionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
  -&gt; StopExecutionResponse -&gt; f StopExecutionResponse)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -525,5 +525,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229404"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse"><span class="hs-identifier hs-type">StopExecutionResponse</span></a></span></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229451"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.StopExecution.html#StopExecutionResponse"><span class="hs-identifier hs-type">StopExecutionResponse</span></a></span></span><span>
 </span><span id="line-189"></span></pre></body></html>

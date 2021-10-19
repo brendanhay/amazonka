@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679226438"><span id="local-6989586621679226439"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TransferOption"><span class="annot"><a href="Network.AWS.Snowball.Types.TransferOption.html#TransferOption"><span class="hs-identifier hs-var">TransferOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransferOption%27"><span class="annot"><a href="Network.AWS.Snowball.Types.TransferOption.html#TransferOption%27"><span class="hs-identifier hs-var">TransferOption'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679226498"><span id="local-6989586621679226499"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TransferOption"><span class="annot"><a href="Network.AWS.Snowball.Types.TransferOption.html#TransferOption"><span class="hs-identifier hs-var">TransferOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransferOption%27"><span class="annot"><a href="Network.AWS.Snowball.Types.TransferOption.html#TransferOption%27"><span class="hs-identifier hs-var">TransferOption'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTransferOption"><span class="annot"><span class="annottext">TransferOption -&gt; Text
 </span><a href="Network.AWS.Snowball.Types.TransferOption.html#fromTransferOption"><span class="hs-identifier hs-var hs-var">fromTransferOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679226430"><span id="local-6989586621679226432"><span id="local-6989586621679226434"><span class="annot"><span class="annottext">Int -&gt; TransferOption -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679226490"><span id="local-6989586621679226492"><span id="local-6989586621679226494"><span class="annot"><span class="annottext">Int -&gt; TransferOption -&gt; ShowS
 [TransferOption] -&gt; ShowS
 TransferOption -&gt; String
 (Int -&gt; TransferOption -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: TransferOption -&gt; String
 showsPrec :: Int -&gt; TransferOption -&gt; ShowS
 $cshowsPrec :: Int -&gt; TransferOption -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679226421"><span id="local-6989586621679226423"><span id="local-6989586621679226425"><span id="local-6989586621679226427"><span class="annot"><span class="annottext">ReadPrec [TransferOption]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679226481"><span id="local-6989586621679226483"><span id="local-6989586621679226485"><span id="local-6989586621679226487"><span class="annot"><span class="annottext">ReadPrec [TransferOption]
 ReadPrec TransferOption
 Int -&gt; ReadS TransferOption
 ReadS [TransferOption]
@@ -73,7 +73,7 @@ $creadList :: ReadS [TransferOption]
 readsPrec :: Int -&gt; ReadS TransferOption
 $creadsPrec :: Int -&gt; ReadS TransferOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679226416"><span id="local-6989586621679226418"><span class="annot"><span class="annottext">TransferOption -&gt; TransferOption -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679226476"><span id="local-6989586621679226478"><span class="annot"><span class="annottext">TransferOption -&gt; TransferOption -&gt; Bool
 (TransferOption -&gt; TransferOption -&gt; Bool)
 -&gt; (TransferOption -&gt; TransferOption -&gt; Bool) -&gt; Eq TransferOption
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: TransferOption -&gt; TransferOption -&gt; Bool
 == :: TransferOption -&gt; TransferOption -&gt; Bool
 $c== :: TransferOption -&gt; TransferOption -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679226400"><span id="local-6989586621679226402"><span id="local-6989586621679226404"><span id="local-6989586621679226406"><span id="local-6989586621679226408"><span id="local-6989586621679226410"><span id="local-6989586621679226412"><span class="annot"><span class="annottext">Eq TransferOption
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679226460"><span id="local-6989586621679226462"><span id="local-6989586621679226464"><span id="local-6989586621679226466"><span id="local-6989586621679226468"><span id="local-6989586621679226470"><span id="local-6989586621679226472"><span class="annot"><span class="annottext">Eq TransferOption
 Eq TransferOption
 -&gt; (TransferOption -&gt; TransferOption -&gt; Ordering)
 -&gt; (TransferOption -&gt; TransferOption -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. TransferOption -&gt; Rep TransferOption x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679226392"><span id="local-6989586621679226394"><span class="annot"><span class="annottext">Int -&gt; TransferOption -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679226452"><span id="local-6989586621679226454"><span class="annot"><span class="annottext">Int -&gt; TransferOption -&gt; Int
 TransferOption -&gt; Int
 (Int -&gt; TransferOption -&gt; Int)
 -&gt; (TransferOption -&gt; Int) -&gt; Hashable TransferOption
@@ -143,50 +143,50 @@ $chash :: TransferOption -&gt; Int
 hashWithSalt :: Int -&gt; TransferOption -&gt; Int
 $chashWithSalt :: Int -&gt; TransferOption -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679226389"><span class="annot"><span class="annottext">TransferOption -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679226449"><span class="annot"><span class="annottext">TransferOption -&gt; ()
 (TransferOption -&gt; ()) -&gt; NFData TransferOption
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TransferOption -&gt; ()
 $crnf :: TransferOption -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679226386"><span class="annot"><span class="annottext">Text -&gt; Either String TransferOption
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679226446"><span class="annot"><span class="annottext">Text -&gt; Either String TransferOption
 (Text -&gt; Either String TransferOption) -&gt; FromText TransferOption
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TransferOption
 $cfromText :: Text -&gt; Either String TransferOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679226383"><span class="annot"><span class="annottext">TransferOption -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679226443"><span class="annot"><span class="annottext">TransferOption -&gt; Text
 (TransferOption -&gt; Text) -&gt; ToText TransferOption
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TransferOption -&gt; Text
 $ctoText :: TransferOption -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679226380"><span class="annot"><span class="annottext">TransferOption -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679226440"><span class="annot"><span class="annottext">TransferOption -&gt; ByteString
 (TransferOption -&gt; ByteString) -&gt; ToByteString TransferOption
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TransferOption -&gt; ByteString
 $ctoBS :: TransferOption -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679226377"><span class="annot"><span class="annottext">TransferOption -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679226437"><span class="annot"><span class="annottext">TransferOption -&gt; ByteStringBuilder
 (TransferOption -&gt; ByteStringBuilder) -&gt; ToLog TransferOption
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TransferOption -&gt; ByteStringBuilder
 $cbuild :: TransferOption -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679226374"><span class="annot"><span class="annottext">HeaderName -&gt; TransferOption -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679226434"><span class="annot"><span class="annottext">HeaderName -&gt; TransferOption -&gt; [Header]
 (HeaderName -&gt; TransferOption -&gt; [Header])
 -&gt; ToHeader TransferOption
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TransferOption -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TransferOption -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679226371"><span class="annot"><span class="annottext">TransferOption -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679226431"><span class="annot"><span class="annottext">TransferOption -&gt; QueryString
 (TransferOption -&gt; QueryString) -&gt; ToQuery TransferOption
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TransferOption -&gt; QueryString
 $ctoQuery :: TransferOption -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679226366"><span id="local-6989586621679226368"><span class="annot"><span class="annottext">Value -&gt; Parser [TransferOption]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679226426"><span id="local-6989586621679226428"><span class="annot"><span class="annottext">Value -&gt; Parser [TransferOption]
 Value -&gt; Parser TransferOption
 (Value -&gt; Parser TransferOption)
 -&gt; (Value -&gt; Parser [TransferOption]) -&gt; FromJSON TransferOption
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [TransferOption]
 parseJSON :: Value -&gt; Parser TransferOption
 $cparseJSON :: Value -&gt; Parser TransferOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679226361"><span id="local-6989586621679226363"><span class="annot"><span class="annottext">FromJSONKeyFunction [TransferOption]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679226421"><span id="local-6989586621679226423"><span class="annot"><span class="annottext">FromJSONKeyFunction [TransferOption]
 FromJSONKeyFunction TransferOption
 FromJSONKeyFunction TransferOption
 -&gt; FromJSONKeyFunction [TransferOption]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TransferOption]
 fromJSONKey :: FromJSONKeyFunction TransferOption
 $cfromJSONKey :: FromJSONKeyFunction TransferOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679226352"><span id="local-6989586621679226354"><span id="local-6989586621679226356"><span id="local-6989586621679226358"><span class="annot"><span class="annottext">[TransferOption] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679226412"><span id="local-6989586621679226414"><span id="local-6989586621679226416"><span id="local-6989586621679226418"><span class="annot"><span class="annottext">[TransferOption] -&gt; Encoding
 [TransferOption] -&gt; Value
 TransferOption -&gt; Encoding
 TransferOption -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: TransferOption -&gt; Encoding
 toJSON :: TransferOption -&gt; Value
 $ctoJSON :: TransferOption -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679226347"><span id="local-6989586621679226349"><span class="annot"><span class="annottext">ToJSONKeyFunction [TransferOption]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679226407"><span id="local-6989586621679226409"><span class="annot"><span class="annottext">ToJSONKeyFunction [TransferOption]
 ToJSONKeyFunction TransferOption
 ToJSONKeyFunction TransferOption
 -&gt; ToJSONKeyFunction [TransferOption] -&gt; ToJSONKey TransferOption
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TransferOption]
 toJSONKey :: ToJSONKeyFunction TransferOption
 $ctoJSONKey :: ToJSONKeyFunction TransferOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679226344"><span class="annot"><span class="annottext">[Node] -&gt; Either String TransferOption
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679226404"><span class="annot"><span class="annottext">[Node] -&gt; Either String TransferOption
 ([Node] -&gt; Either String TransferOption) -&gt; FromXML TransferOption
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TransferOption
 $cparseXML :: [Node] -&gt; Either String TransferOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679226341"><span class="annot"><span class="annottext">TransferOption -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679226401"><span class="annot"><span class="annottext">TransferOption -&gt; XML
 (TransferOption -&gt; XML) -&gt; ToXML TransferOption
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TransferOption -&gt; XML

@@ -60,13 +60,13 @@
 </span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#newCreateCase"><span class="hs-identifier">newCreateCase</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_serviceCode"><span class="hs-identifier">createCase_serviceCode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_categoryCode"><span class="hs-identifier">createCase_categoryCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_severityCode"><span class="hs-identifier">createCase_severityCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_issueType"><span class="hs-identifier">createCase_issueType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_ccEmailAddresses"><span class="hs-identifier">createCase_ccEmailAddresses</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_issueType"><span class="hs-identifier">createCase_issueType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_attachmentSetId"><span class="hs-identifier">createCase_attachmentSetId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_severityCode"><span class="hs-identifier">createCase_severityCode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_language"><span class="hs-identifier">createCase_language</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_language"><span class="hs-identifier">createCase_language</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_categoryCode"><span class="hs-identifier">createCase_categoryCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_serviceCode"><span class="hs-identifier">createCase_serviceCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_attachmentSetId"><span class="hs-identifier">createCase_attachmentSetId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_subject"><span class="hs-identifier">createCase_subject</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_communicationBody"><span class="hs-identifier">createCase_communicationBody</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>
@@ -88,49 +88,49 @@
 </span><span id="line-88"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.html"><span class="hs-identifier">Network.AWS.Support.Types</span></a></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | /See:/ 'newCreateCase' smart constructor.</span><span>
-</span><span id="line-91"></span><span id="local-6989586621679175219"><span id="local-6989586621679175220"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCase"><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-var">CreateCase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCase%27"><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-var">CreateCase'</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The code for the AWS service. You can use the DescribeServices operation</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- to get the possible @serviceCode@ values.</span><span>
-</span><span id="line-94"></span><span>    </span><span id="%24sel%3AserviceCode%3ACreateCase%27"><span class="annot"><span class="annottext">CreateCase -&gt; Maybe Text
-</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AserviceCode%3ACreateCase%27"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The category of problem for the support case. You also use the</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- DescribeServices operation to get the category code for a service. Each</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- AWS service defines its own set of category codes.</span><span>
-</span><span id="line-98"></span><span>    </span><span id="%24sel%3AcategoryCode%3ACreateCase%27"><span class="annot"><span class="annottext">CreateCase -&gt; Maybe Text
-</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AcategoryCode%3ACreateCase%27"><span class="hs-identifier hs-var hs-var">categoryCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | A list of email addresses that AWS Support copies on case</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- correspondence. AWS Support identifies the account that creates the case</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- when you specify your AWS credentials in an HTTP POST method or use the</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- &lt;http://aws.amazon.com/tools/ AWS SDKs&gt;.</span><span>
-</span><span id="line-103"></span><span>    </span><span id="%24sel%3AccEmailAddresses%3ACreateCase%27"><span class="annot"><span class="annottext">CreateCase -&gt; Maybe [Text]
-</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AccEmailAddresses%3ACreateCase%27"><span class="hs-identifier hs-var hs-var">ccEmailAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span id="local-6989586621679175325"><span id="local-6989586621679175326"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCase"><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-var">CreateCase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCase%27"><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-var">CreateCase'</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value that indicates the urgency of the case. This value determines</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- the response time according to your service level agreement with AWS</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- Support. You can use the DescribeSeverityLevels operation to get the</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- possible values for @severityCode@.</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- For more information, see SeverityLevel and</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity Choosing a Severity&gt;</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- in the /AWS Support User Guide/.</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- The availability of severity levels depends on the support plan for the</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- AWS account.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AseverityCode%3ACreateCase%27"><span class="annot"><span class="annottext">CreateCase -&gt; Maybe Text
+</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AseverityCode%3ACreateCase%27"><span class="hs-identifier hs-var hs-var">severityCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | The type of issue for the case. You can specify @customer-service@ or</span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-comment">-- @technical@. If you don\'t specify a value, the default is @technical@.</span><span>
 </span><span id="line-106"></span><span>    </span><span id="%24sel%3AissueType%3ACreateCase%27"><span class="annot"><span class="annottext">CreateCase -&gt; Maybe Text
 </span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AissueType%3ACreateCase%27"><span class="hs-identifier hs-var hs-var">issueType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | The ID of a set of one or more attachments for the case. Create the set</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- by using the AddAttachmentsToSet operation.</span><span>
-</span><span id="line-109"></span><span>    </span><span id="%24sel%3AattachmentSetId%3ACreateCase%27"><span class="annot"><span class="annottext">CreateCase -&gt; Maybe Text
-</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AattachmentSetId%3ACreateCase%27"><span class="hs-identifier hs-var hs-var">attachmentSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | A value that indicates the urgency of the case. This value determines</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- the response time according to your service level agreement with AWS</span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- Support. You can use the DescribeSeverityLevels operation to get the</span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- possible values for @severityCode@.</span><span>
-</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- For more information, see SeverityLevel and</span><span>
-</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity Choosing a Severity&gt;</span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- in the /AWS Support User Guide/.</span><span>
-</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- The availability of severity levels depends on the support plan for the</span><span>
-</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- AWS account.</span><span>
-</span><span id="line-121"></span><span>    </span><span id="%24sel%3AseverityCode%3ACreateCase%27"><span class="annot"><span class="annottext">CreateCase -&gt; Maybe Text
-</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AseverityCode%3ACreateCase%27"><span class="hs-identifier hs-var hs-var">severityCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- | The language in which AWS Support handles the case. You must specify the</span><span>
-</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- ISO 639-1 code for the @language@ parameter if you want support in that</span><span>
-</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- language. Currently, English (\&quot;en\&quot;) and Japanese (\&quot;ja\&quot;) are</span><span>
-</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- supported.</span><span>
-</span><span id="line-126"></span><span>    </span><span id="%24sel%3Alanguage%3ACreateCase%27"><span class="annot"><span class="annottext">CreateCase -&gt; Maybe Text
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | A list of email addresses that AWS Support copies on case</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- correspondence. AWS Support identifies the account that creates the case</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- when you specify your AWS credentials in an HTTP POST method or use the</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- &lt;http://aws.amazon.com/tools/ AWS SDKs&gt;.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AccEmailAddresses%3ACreateCase%27"><span class="annot"><span class="annottext">CreateCase -&gt; Maybe [Text]
+</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AccEmailAddresses%3ACreateCase%27"><span class="hs-identifier hs-var hs-var">ccEmailAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The language in which AWS Support handles the case. You must specify the</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- ISO 639-1 code for the @language@ parameter if you want support in that</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- language. Currently, English (\&quot;en\&quot;) and Japanese (\&quot;ja\&quot;) are</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- supported.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3Alanguage%3ACreateCase%27"><span class="annot"><span class="annottext">CreateCase -&gt; Maybe Text
 </span><a href="Network.AWS.Support.CreateCase.html#%24sel%3Alanguage%3ACreateCase%27"><span class="hs-identifier hs-var hs-var">language</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The category of problem for the support case. You also use the</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- DescribeServices operation to get the category code for a service. Each</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- AWS service defines its own set of category codes.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AcategoryCode%3ACreateCase%27"><span class="annot"><span class="annottext">CreateCase -&gt; Maybe Text
+</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AcategoryCode%3ACreateCase%27"><span class="hs-identifier hs-var hs-var">categoryCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The code for the AWS service. You can use the DescribeServices operation</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- to get the possible @serviceCode@ values.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3AserviceCode%3ACreateCase%27"><span class="annot"><span class="annottext">CreateCase -&gt; Maybe Text
+</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AserviceCode%3ACreateCase%27"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- | The ID of a set of one or more attachments for the case. Create the set</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- by using the AddAttachmentsToSet operation.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AattachmentSetId%3ACreateCase%27"><span class="annot"><span class="annottext">CreateCase -&gt; Maybe Text
+</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AattachmentSetId%3ACreateCase%27"><span class="hs-identifier hs-var hs-var">attachmentSetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | The title of the support case. The title appears in the __Subject__</span><span>
 </span><span id="line-128"></span><span>    </span><span class="hs-comment">-- field on the AWS Support Center</span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/support/home#/case/create Create Case&gt;</span><span>
@@ -144,7 +144,7 @@
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3AcommunicationBody%3ACreateCase%27"><span class="annot"><span class="annottext">CreateCase -&gt; Text
 </span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AcommunicationBody%3ACreateCase%27"><span class="hs-identifier hs-var hs-var">communicationBody</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175205"><span id="local-6989586621679175207"><span class="annot"><span class="annottext">CreateCase -&gt; CreateCase -&gt; Bool
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175311"><span id="local-6989586621679175313"><span class="annot"><span class="annottext">CreateCase -&gt; CreateCase -&gt; Bool
 (CreateCase -&gt; CreateCase -&gt; Bool)
 -&gt; (CreateCase -&gt; CreateCase -&gt; Bool) -&gt; Eq CreateCase
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -152,7 +152,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateCase -&gt; CreateCase -&gt; Bool
 == :: CreateCase -&gt; CreateCase -&gt; Bool
 $c== :: CreateCase -&gt; CreateCase -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175196"><span id="local-6989586621679175198"><span id="local-6989586621679175200"><span id="local-6989586621679175202"><span class="annot"><span class="annottext">ReadPrec [CreateCase]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175302"><span id="local-6989586621679175304"><span id="local-6989586621679175306"><span id="local-6989586621679175308"><span class="annot"><span class="annottext">ReadPrec [CreateCase]
 ReadPrec CreateCase
 Int -&gt; ReadS CreateCase
 ReadS [CreateCase]
@@ -172,7 +172,7 @@ readList :: ReadS [CreateCase]
 $creadList :: ReadS [CreateCase]
 readsPrec :: Int -&gt; ReadS CreateCase
 $creadsPrec :: Int -&gt; ReadS CreateCase
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175189"><span id="local-6989586621679175191"><span id="local-6989586621679175193"><span class="annot"><span class="annottext">Int -&gt; CreateCase -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175295"><span id="local-6989586621679175297"><span id="local-6989586621679175299"><span class="annot"><span class="annottext">Int -&gt; CreateCase -&gt; ShowS
 [CreateCase] -&gt; ShowS
 CreateCase -&gt; String
 (Int -&gt; CreateCase -&gt; ShowS)
@@ -205,40 +205,40 @@ $cfrom :: forall x. CreateCase -&gt; Rep CreateCase x
 </span><span id="line-145"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-147"></span><span class="hs-comment">--</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- 'serviceCode', 'createCase_serviceCode' - The code for the AWS service. You can use the DescribeServices operation</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- to get the possible @serviceCode@ values.</span><span>
-</span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- 'categoryCode', 'createCase_categoryCode' - The category of problem for the support case. You also use the</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- DescribeServices operation to get the category code for a service. Each</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- AWS service defines its own set of category codes.</span><span>
-</span><span id="line-154"></span><span class="hs-comment">--</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- 'ccEmailAddresses', 'createCase_ccEmailAddresses' - A list of email addresses that AWS Support copies on case</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- correspondence. AWS Support identifies the account that creates the case</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- when you specify your AWS credentials in an HTTP POST method or use the</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/tools/ AWS SDKs&gt;.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'severityCode', 'createCase_severityCode' - A value that indicates the urgency of the case. This value determines</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- the response time according to your service level agreement with AWS</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Support. You can use the DescribeSeverityLevels operation to get the</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- possible values for @severityCode@.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- For more information, see SeverityLevel and</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity Choosing a Severity&gt;</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- in the /AWS Support User Guide/.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- The availability of severity levels depends on the support plan for the</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- AWS account.</span><span>
 </span><span id="line-159"></span><span class="hs-comment">--</span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- 'issueType', 'createCase_issueType' - The type of issue for the case. You can specify @customer-service@ or</span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- @technical@. If you don\'t specify a value, the default is @technical@.</span><span>
 </span><span id="line-162"></span><span class="hs-comment">--</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- 'attachmentSetId', 'createCase_attachmentSetId' - The ID of a set of one or more attachments for the case. Create the set</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- by using the AddAttachmentsToSet operation.</span><span>
-</span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- 'severityCode', 'createCase_severityCode' - A value that indicates the urgency of the case. This value determines</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- the response time according to your service level agreement with AWS</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- Support. You can use the DescribeSeverityLevels operation to get the</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- possible values for @severityCode@.</span><span>
-</span><span id="line-170"></span><span class="hs-comment">--</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- For more information, see SeverityLevel and</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity Choosing a Severity&gt;</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- in the /AWS Support User Guide/.</span><span>
-</span><span id="line-174"></span><span class="hs-comment">--</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- The availability of severity levels depends on the support plan for the</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- AWS account.</span><span>
-</span><span id="line-177"></span><span class="hs-comment">--</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- 'language', 'createCase_language' - The language in which AWS Support handles the case. You must specify the</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- ISO 639-1 code for the @language@ parameter if you want support in that</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- language. Currently, English (\&quot;en\&quot;) and Japanese (\&quot;ja\&quot;) are</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- supported.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'ccEmailAddresses', 'createCase_ccEmailAddresses' - A list of email addresses that AWS Support copies on case</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- correspondence. AWS Support identifies the account that creates the case</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- when you specify your AWS credentials in an HTTP POST method or use the</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/tools/ AWS SDKs&gt;.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'language', 'createCase_language' - The language in which AWS Support handles the case. You must specify the</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- ISO 639-1 code for the @language@ parameter if you want support in that</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- language. Currently, English (\&quot;en\&quot;) and Japanese (\&quot;ja\&quot;) are</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- supported.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'categoryCode', 'createCase_categoryCode' - The category of problem for the support case. You also use the</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- DescribeServices operation to get the category code for a service. Each</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- AWS service defines its own set of category codes.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'serviceCode', 'createCase_serviceCode' - The code for the AWS service. You can use the DescribeServices operation</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- to get the possible @serviceCode@ values.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- 'attachmentSetId', 'createCase_attachmentSetId' - The ID of a set of one or more attachments for the case. Create the set</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- by using the AddAttachmentsToSet operation.</span><span>
 </span><span id="line-182"></span><span class="hs-comment">--</span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- 'subject', 'createCase_subject' - The title of the support case. The title appears in the __Subject__</span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- field on the AWS Support Center</span><span>
@@ -256,9 +256,9 @@ $cfrom :: forall x. CreateCase -&gt; Rep CreateCase x
 </span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span>
 </span><span id="line-198"></span><span id="newCreateCase"><span class="annot"><span class="annottext">newCreateCase :: Text -&gt; Text -&gt; CreateCase
-</span><a href="Network.AWS.Support.CreateCase.html#newCreateCase"><span class="hs-identifier hs-var hs-var">newCreateCase</span></a></span></span><span> </span><span id="local-6989586621679175184"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175184"><span class="hs-identifier hs-var">pSubject_</span></a></span></span><span> </span><span id="local-6989586621679175183"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175183"><span class="hs-identifier hs-var">pCommunicationBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Support.CreateCase.html#newCreateCase"><span class="hs-identifier hs-var hs-var">newCreateCase</span></a></span></span><span> </span><span id="local-6989586621679175290"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175290"><span class="hs-identifier hs-var">pSubject_</span></a></span></span><span> </span><span id="local-6989586621679175289"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175289"><span class="hs-identifier hs-var">pCommunicationBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">CreateCase' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [Text]
@@ -270,101 +270,109 @@ $cfrom :: forall x. CreateCase -&gt; Rep CreateCase x
 -&gt; Text
 -&gt; CreateCase
 </span><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span>
-</span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceCode:CreateCase' :: Maybe Text
-</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AserviceCode%3ACreateCase%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:severityCode:CreateCase' :: Maybe Text
+</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AseverityCode%3ACreateCase%27"><span class="hs-identifier hs-var">severityCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:categoryCode:CreateCase' :: Maybe Text
-</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AcategoryCode%3ACreateCase%27"><span class="hs-identifier hs-var">categoryCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:issueType:CreateCase' :: Maybe Text
+</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AissueType%3ACreateCase%27"><span class="hs-identifier hs-var">issueType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:ccEmailAddresses:CreateCase' :: Maybe [Text]
 </span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AccEmailAddresses%3ACreateCase%27"><span class="hs-identifier hs-var">ccEmailAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:issueType:CreateCase' :: Maybe Text
-</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AissueType%3ACreateCase%27"><span class="hs-identifier hs-var">issueType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:attachmentSetId:CreateCase' :: Maybe Text
-</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AattachmentSetId%3ACreateCase%27"><span class="hs-identifier hs-var">attachmentSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:severityCode:CreateCase' :: Maybe Text
-</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AseverityCode%3ACreateCase%27"><span class="hs-identifier hs-var">severityCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:language:CreateCase' :: Maybe Text
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:language:CreateCase' :: Maybe Text
 </span><a href="Network.AWS.Support.CreateCase.html#%24sel%3Alanguage%3ACreateCase%27"><span class="hs-identifier hs-var">language</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:categoryCode:CreateCase' :: Maybe Text
+</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AcategoryCode%3ACreateCase%27"><span class="hs-identifier hs-var">categoryCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceCode:CreateCase' :: Maybe Text
+</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AserviceCode%3ACreateCase%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:attachmentSetId:CreateCase' :: Maybe Text
+</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AattachmentSetId%3ACreateCase%27"><span class="hs-identifier hs-var">attachmentSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:subject:CreateCase' :: Text
 </span><a href="Network.AWS.Support.CreateCase.html#%24sel%3Asubject%3ACreateCase%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175184"><span class="hs-identifier hs-var">pSubject_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175290"><span class="hs-identifier hs-var">pSubject_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:communicationBody:CreateCase' :: Text
 </span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AcommunicationBody%3ACreateCase%27"><span class="hs-identifier hs-var">communicationBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175183"><span class="hs-identifier hs-var">pCommunicationBody_</span></a></span><span>
+</span><a href="#local-6989586621679175289"><span class="hs-identifier hs-var">pCommunicationBody_</span></a></span><span>
 </span><span id="line-209"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- | The code for the AWS service. You can use the DescribeServices operation</span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- to get the possible @serviceCode@ values.</span><span>
-</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_serviceCode"><span class="hs-identifier hs-type">createCase_serviceCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-214"></span><span id="createCase_serviceCode"><span class="annot"><span class="annottext">createCase_serviceCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateCase -&gt; f CreateCase
-</span><a href="Network.AWS.Support.CreateCase.html#createCase_serviceCode"><span class="hs-identifier hs-var hs-var">createCase_serviceCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCase -&gt; Maybe Text)
+</span><span id="line-211"></span><span class="hs-comment">-- | A value that indicates the urgency of the case. This value determines</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- the response time according to your service level agreement with AWS</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Support. You can use the DescribeSeverityLevels operation to get the</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- possible values for @severityCode@.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- For more information, see SeverityLevel and</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity Choosing a Severity&gt;</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- in the /AWS Support User Guide/.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- The availability of severity levels depends on the support plan for the</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- AWS account.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_severityCode"><span class="hs-identifier hs-type">createCase_severityCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="createCase_severityCode"><span class="annot"><span class="annottext">createCase_severityCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateCase -&gt; f CreateCase
+</span><a href="Network.AWS.Support.CreateCase.html#createCase_severityCode"><span class="hs-identifier hs-var hs-var">createCase_severityCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCase -&gt; Maybe Text)
 -&gt; (CreateCase -&gt; Maybe Text -&gt; CreateCase)
 -&gt; Lens CreateCase CreateCase (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175180"><span class="annot"><span class="annottext">Maybe Text
-serviceCode :: Maybe Text
-$sel:serviceCode:CreateCase' :: CreateCase -&gt; Maybe Text
-</span><a href="#local-6989586621679175180"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175180"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175179"><span class="annot"><span class="annottext">s :: CreateCase
-</span><a href="#local-6989586621679175179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175178"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCase
-</span><a href="#local-6989586621679175179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCode:CreateCase' :: Maybe Text
-</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AserviceCode%3ACreateCase%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- | The category of problem for the support case. You also use the</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- DescribeServices operation to get the category code for a service. Each</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- AWS service defines its own set of category codes.</span><span>
-</span><span id="line-219"></span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_categoryCode"><span class="hs-identifier hs-type">createCase_categoryCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-220"></span><span id="createCase_categoryCode"><span class="annot"><span class="annottext">createCase_categoryCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateCase -&gt; f CreateCase
-</span><a href="Network.AWS.Support.CreateCase.html#createCase_categoryCode"><span class="hs-identifier hs-var hs-var">createCase_categoryCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCase -&gt; Maybe Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175286"><span class="annot"><span class="annottext">Maybe Text
+severityCode :: Maybe Text
+$sel:severityCode:CreateCase' :: CreateCase -&gt; Maybe Text
+</span><a href="#local-6989586621679175286"><span class="hs-identifier hs-var hs-var">severityCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175286"><span class="hs-identifier hs-var">severityCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175285"><span class="annot"><span class="annottext">s :: CreateCase
+</span><a href="#local-6989586621679175285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175284"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCase
+</span><a href="#local-6989586621679175285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severityCode:CreateCase' :: Maybe Text
+</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AseverityCode%3ACreateCase%27"><span class="hs-identifier hs-var">severityCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The type of issue for the case. You can specify @customer-service@ or</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- @technical@. If you don\'t specify a value, the default is @technical@.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_issueType"><span class="hs-identifier hs-type">createCase_issueType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="createCase_issueType"><span class="annot"><span class="annottext">createCase_issueType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateCase -&gt; f CreateCase
+</span><a href="Network.AWS.Support.CreateCase.html#createCase_issueType"><span class="hs-identifier hs-var hs-var">createCase_issueType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCase -&gt; Maybe Text)
 -&gt; (CreateCase -&gt; Maybe Text -&gt; CreateCase)
 -&gt; Lens CreateCase CreateCase (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175177"><span class="annot"><span class="annottext">Maybe Text
-categoryCode :: Maybe Text
-$sel:categoryCode:CreateCase' :: CreateCase -&gt; Maybe Text
-</span><a href="#local-6989586621679175177"><span class="hs-identifier hs-var hs-var">categoryCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175177"><span class="hs-identifier hs-var">categoryCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175176"><span class="annot"><span class="annottext">s :: CreateCase
-</span><a href="#local-6989586621679175176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175175"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCase
-</span><a href="#local-6989586621679175176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:categoryCode:CreateCase' :: Maybe Text
-</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AcategoryCode%3ACreateCase%27"><span class="hs-identifier hs-var">categoryCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- | A list of email addresses that AWS Support copies on case</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- correspondence. AWS Support identifies the account that creates the case</span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- when you specify your AWS credentials in an HTTP POST method or use the</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/tools/ AWS SDKs&gt;.</span><span>
-</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_ccEmailAddresses"><span class="hs-identifier hs-type">createCase_ccEmailAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-227"></span><span id="createCase_ccEmailAddresses"><span class="annot"><span class="annottext">createCase_ccEmailAddresses :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CreateCase -&gt; f CreateCase
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175283"><span class="annot"><span class="annottext">Maybe Text
+issueType :: Maybe Text
+$sel:issueType:CreateCase' :: CreateCase -&gt; Maybe Text
+</span><a href="#local-6989586621679175283"><span class="hs-identifier hs-var hs-var">issueType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175283"><span class="hs-identifier hs-var">issueType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175282"><span class="annot"><span class="annottext">s :: CreateCase
+</span><a href="#local-6989586621679175282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175281"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCase
+</span><a href="#local-6989586621679175282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issueType:CreateCase' :: Maybe Text
+</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AissueType%3ACreateCase%27"><span class="hs-identifier hs-var">issueType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | A list of email addresses that AWS Support copies on case</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- correspondence. AWS Support identifies the account that creates the case</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- when you specify your AWS credentials in an HTTP POST method or use the</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/tools/ AWS SDKs&gt;.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_ccEmailAddresses"><span class="hs-identifier hs-type">createCase_ccEmailAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="createCase_ccEmailAddresses"><span class="annot"><span class="annottext">createCase_ccEmailAddresses :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CreateCase -&gt; f CreateCase
 </span><a href="Network.AWS.Support.CreateCase.html#createCase_ccEmailAddresses"><span class="hs-identifier hs-var hs-var">createCase_ccEmailAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCase -&gt; Maybe [Text])
 -&gt; (CreateCase -&gt; Maybe [Text] -&gt; CreateCase)
 -&gt; Lens CreateCase CreateCase (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175174"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175280"><span class="annot"><span class="annottext">Maybe [Text]
 ccEmailAddresses :: Maybe [Text]
 $sel:ccEmailAddresses:CreateCase' :: CreateCase -&gt; Maybe [Text]
-</span><a href="#local-6989586621679175174"><span class="hs-identifier hs-var hs-var">ccEmailAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679175174"><span class="hs-identifier hs-var">ccEmailAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175173"><span class="annot"><span class="annottext">s :: CreateCase
-</span><a href="#local-6989586621679175173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175172"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679175172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCase
-</span><a href="#local-6989586621679175173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ccEmailAddresses:CreateCase' :: Maybe [Text]
+</span><a href="#local-6989586621679175280"><span class="hs-identifier hs-var hs-var">ccEmailAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679175280"><span class="hs-identifier hs-var">ccEmailAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175279"><span class="annot"><span class="annottext">s :: CreateCase
+</span><a href="#local-6989586621679175279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175278"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679175278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCase
+</span><a href="#local-6989586621679175279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ccEmailAddresses:CreateCase' :: Maybe [Text]
 </span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AccEmailAddresses%3ACreateCase%27"><span class="hs-identifier hs-var">ccEmailAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679175172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CreateCase -&gt; f CreateCase)
+</span><a href="#local-6989586621679175278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CreateCase -&gt; f CreateCase)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -377,95 +385,87 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- | The type of issue for the case. You can specify @customer-service@ or</span><span>
-</span><span id="line-230"></span><span class="hs-comment">-- @technical@. If you don\'t specify a value, the default is @technical@.</span><span>
-</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_issueType"><span class="hs-identifier hs-type">createCase_issueType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-232"></span><span id="createCase_issueType"><span class="annot"><span class="annottext">createCase_issueType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateCase -&gt; f CreateCase
-</span><a href="Network.AWS.Support.CreateCase.html#createCase_issueType"><span class="hs-identifier hs-var hs-var">createCase_issueType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCase -&gt; Maybe Text)
--&gt; (CreateCase -&gt; Maybe Text -&gt; CreateCase)
--&gt; Lens CreateCase CreateCase (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175168"><span class="annot"><span class="annottext">Maybe Text
-issueType :: Maybe Text
-$sel:issueType:CreateCase' :: CreateCase -&gt; Maybe Text
-</span><a href="#local-6989586621679175168"><span class="hs-identifier hs-var hs-var">issueType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175168"><span class="hs-identifier hs-var">issueType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175167"><span class="annot"><span class="annottext">s :: CreateCase
-</span><a href="#local-6989586621679175167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175166"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCase
-</span><a href="#local-6989586621679175167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:issueType:CreateCase' :: Maybe Text
-</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AissueType%3ACreateCase%27"><span class="hs-identifier hs-var">issueType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- | The ID of a set of one or more attachments for the case. Create the set</span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- by using the AddAttachmentsToSet operation.</span><span>
-</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_attachmentSetId"><span class="hs-identifier hs-type">createCase_attachmentSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-237"></span><span id="createCase_attachmentSetId"><span class="annot"><span class="annottext">createCase_attachmentSetId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateCase -&gt; f CreateCase
-</span><a href="Network.AWS.Support.CreateCase.html#createCase_attachmentSetId"><span class="hs-identifier hs-var hs-var">createCase_attachmentSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCase -&gt; Maybe Text)
--&gt; (CreateCase -&gt; Maybe Text -&gt; CreateCase)
--&gt; Lens CreateCase CreateCase (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175165"><span class="annot"><span class="annottext">Maybe Text
-attachmentSetId :: Maybe Text
-$sel:attachmentSetId:CreateCase' :: CreateCase -&gt; Maybe Text
-</span><a href="#local-6989586621679175165"><span class="hs-identifier hs-var hs-var">attachmentSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175165"><span class="hs-identifier hs-var">attachmentSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175164"><span class="annot"><span class="annottext">s :: CreateCase
-</span><a href="#local-6989586621679175164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175163"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCase
-</span><a href="#local-6989586621679175164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachmentSetId:CreateCase' :: Maybe Text
-</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AattachmentSetId%3ACreateCase%27"><span class="hs-identifier hs-var">attachmentSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-238"></span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- | A value that indicates the urgency of the case. This value determines</span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- the response time according to your service level agreement with AWS</span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- Support. You can use the DescribeSeverityLevels operation to get the</span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- possible values for @severityCode@.</span><span>
-</span><span id="line-243"></span><span class="hs-comment">--</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- For more information, see SeverityLevel and</span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity Choosing a Severity&gt;</span><span>
-</span><span id="line-246"></span><span class="hs-comment">-- in the /AWS Support User Guide/.</span><span>
-</span><span id="line-247"></span><span class="hs-comment">--</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- The availability of severity levels depends on the support plan for the</span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- AWS account.</span><span>
-</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_severityCode"><span class="hs-identifier hs-type">createCase_severityCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-251"></span><span id="createCase_severityCode"><span class="annot"><span class="annottext">createCase_severityCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateCase -&gt; f CreateCase
-</span><a href="Network.AWS.Support.CreateCase.html#createCase_severityCode"><span class="hs-identifier hs-var hs-var">createCase_severityCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCase -&gt; Maybe Text)
--&gt; (CreateCase -&gt; Maybe Text -&gt; CreateCase)
--&gt; Lens CreateCase CreateCase (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175162"><span class="annot"><span class="annottext">Maybe Text
-severityCode :: Maybe Text
-$sel:severityCode:CreateCase' :: CreateCase -&gt; Maybe Text
-</span><a href="#local-6989586621679175162"><span class="hs-identifier hs-var hs-var">severityCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175162"><span class="hs-identifier hs-var">severityCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175161"><span class="annot"><span class="annottext">s :: CreateCase
-</span><a href="#local-6989586621679175161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175160"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCase
-</span><a href="#local-6989586621679175161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severityCode:CreateCase' :: Maybe Text
-</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AseverityCode%3ACreateCase%27"><span class="hs-identifier hs-var">severityCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- | The language in which AWS Support handles the case. You must specify the</span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- ISO 639-1 code for the @language@ parameter if you want support in that</span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- language. Currently, English (\&quot;en\&quot;) and Japanese (\&quot;ja\&quot;) are</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- supported.</span><span>
-</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_language"><span class="hs-identifier hs-type">createCase_language</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-258"></span><span id="createCase_language"><span class="annot"><span class="annottext">createCase_language :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateCase -&gt; f CreateCase
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The language in which AWS Support handles the case. You must specify the</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- ISO 639-1 code for the @language@ parameter if you want support in that</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- language. Currently, English (\&quot;en\&quot;) and Japanese (\&quot;ja\&quot;) are</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- supported.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_language"><span class="hs-identifier hs-type">createCase_language</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="createCase_language"><span class="annot"><span class="annottext">createCase_language :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateCase -&gt; f CreateCase
 </span><a href="Network.AWS.Support.CreateCase.html#createCase_language"><span class="hs-identifier hs-var hs-var">createCase_language</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCase -&gt; Maybe Text)
 -&gt; (CreateCase -&gt; Maybe Text -&gt; CreateCase)
 -&gt; Lens CreateCase CreateCase (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175159"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175274"><span class="annot"><span class="annottext">Maybe Text
 language :: Maybe Text
 $sel:language:CreateCase' :: CreateCase -&gt; Maybe Text
-</span><a href="#local-6989586621679175159"><span class="hs-identifier hs-var hs-var">language</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175159"><span class="hs-identifier hs-var">language</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175158"><span class="annot"><span class="annottext">s :: CreateCase
-</span><a href="#local-6989586621679175158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175157"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCase
-</span><a href="#local-6989586621679175158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:language:CreateCase' :: Maybe Text
+</span><a href="#local-6989586621679175274"><span class="hs-identifier hs-var hs-var">language</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175274"><span class="hs-identifier hs-var">language</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175273"><span class="annot"><span class="annottext">s :: CreateCase
+</span><a href="#local-6989586621679175273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175272"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCase
+</span><a href="#local-6989586621679175273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:language:CreateCase' :: Maybe Text
 </span><a href="Network.AWS.Support.CreateCase.html#%24sel%3Alanguage%3ACreateCase%27"><span class="hs-identifier hs-var">language</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The category of problem for the support case. You also use the</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- DescribeServices operation to get the category code for a service. Each</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- AWS service defines its own set of category codes.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_categoryCode"><span class="hs-identifier hs-type">createCase_categoryCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="createCase_categoryCode"><span class="annot"><span class="annottext">createCase_categoryCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateCase -&gt; f CreateCase
+</span><a href="Network.AWS.Support.CreateCase.html#createCase_categoryCode"><span class="hs-identifier hs-var hs-var">createCase_categoryCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCase -&gt; Maybe Text)
+-&gt; (CreateCase -&gt; Maybe Text -&gt; CreateCase)
+-&gt; Lens CreateCase CreateCase (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175271"><span class="annot"><span class="annottext">Maybe Text
+categoryCode :: Maybe Text
+$sel:categoryCode:CreateCase' :: CreateCase -&gt; Maybe Text
+</span><a href="#local-6989586621679175271"><span class="hs-identifier hs-var hs-var">categoryCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175271"><span class="hs-identifier hs-var">categoryCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175270"><span class="annot"><span class="annottext">s :: CreateCase
+</span><a href="#local-6989586621679175270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175269"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCase
+</span><a href="#local-6989586621679175270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:categoryCode:CreateCase' :: Maybe Text
+</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AcategoryCode%3ACreateCase%27"><span class="hs-identifier hs-var">categoryCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The code for the AWS service. You can use the DescribeServices operation</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- to get the possible @serviceCode@ values.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_serviceCode"><span class="hs-identifier hs-type">createCase_serviceCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="createCase_serviceCode"><span class="annot"><span class="annottext">createCase_serviceCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateCase -&gt; f CreateCase
+</span><a href="Network.AWS.Support.CreateCase.html#createCase_serviceCode"><span class="hs-identifier hs-var hs-var">createCase_serviceCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCase -&gt; Maybe Text)
+-&gt; (CreateCase -&gt; Maybe Text -&gt; CreateCase)
+-&gt; Lens CreateCase CreateCase (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175268"><span class="annot"><span class="annottext">Maybe Text
+serviceCode :: Maybe Text
+$sel:serviceCode:CreateCase' :: CreateCase -&gt; Maybe Text
+</span><a href="#local-6989586621679175268"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175268"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175267"><span class="annot"><span class="annottext">s :: CreateCase
+</span><a href="#local-6989586621679175267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175266"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCase
+</span><a href="#local-6989586621679175267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCode:CreateCase' :: Maybe Text
+</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AserviceCode%3ACreateCase%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The ID of a set of one or more attachments for the case. Create the set</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- by using the AddAttachmentsToSet operation.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCase_attachmentSetId"><span class="hs-identifier hs-type">createCase_attachmentSetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="createCase_attachmentSetId"><span class="annot"><span class="annottext">createCase_attachmentSetId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateCase -&gt; f CreateCase
+</span><a href="Network.AWS.Support.CreateCase.html#createCase_attachmentSetId"><span class="hs-identifier hs-var hs-var">createCase_attachmentSetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateCase -&gt; Maybe Text)
+-&gt; (CreateCase -&gt; Maybe Text -&gt; CreateCase)
+-&gt; Lens CreateCase CreateCase (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175265"><span class="annot"><span class="annottext">Maybe Text
+attachmentSetId :: Maybe Text
+$sel:attachmentSetId:CreateCase' :: CreateCase -&gt; Maybe Text
+</span><a href="#local-6989586621679175265"><span class="hs-identifier hs-var hs-var">attachmentSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175265"><span class="hs-identifier hs-var">attachmentSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175264"><span class="annot"><span class="annottext">s :: CreateCase
+</span><a href="#local-6989586621679175264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175263"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCase
+</span><a href="#local-6989586621679175264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachmentSetId:CreateCase' :: Maybe Text
+</span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AattachmentSetId%3ACreateCase%27"><span class="hs-identifier hs-var">attachmentSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-comment">-- | The title of the support case. The title appears in the __Subject__</span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- field on the AWS Support Center</span><span>
@@ -477,16 +477,16 @@ $sel:language:CreateCase' :: CreateCase -&gt; Maybe Text
 -&gt; (CreateCase -&gt; Text -&gt; CreateCase)
 -&gt; Lens CreateCase CreateCase Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175156"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175262"><span class="annot"><span class="annottext">Text
 subject :: Text
 $sel:subject:CreateCase' :: CreateCase -&gt; Text
-</span><a href="#local-6989586621679175156"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175156"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175155"><span class="annot"><span class="annottext">s :: CreateCase
-</span><a href="#local-6989586621679175155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175154"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCase
-</span><a href="#local-6989586621679175155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:CreateCase' :: Text
+</span><a href="#local-6989586621679175262"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175262"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175261"><span class="annot"><span class="annottext">s :: CreateCase
+</span><a href="#local-6989586621679175261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175260"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCase
+</span><a href="#local-6989586621679175261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:CreateCase' :: Text
 </span><a href="Network.AWS.Support.CreateCase.html#%24sel%3Asubject%3ACreateCase%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- | The communication body text that describes the issue. This text appears</span><span>
 </span><span id="line-268"></span><span class="hs-comment">-- in the __Description__ field on the AWS Support Center</span><span>
@@ -498,25 +498,25 @@ $sel:subject:CreateCase' :: CreateCase -&gt; Text
 -&gt; (CreateCase -&gt; Text -&gt; CreateCase)
 -&gt; Lens CreateCase CreateCase Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175153"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175259"><span class="annot"><span class="annottext">Text
 communicationBody :: Text
 $sel:communicationBody:CreateCase' :: CreateCase -&gt; Text
-</span><a href="#local-6989586621679175153"><span class="hs-identifier hs-var hs-var">communicationBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175153"><span class="hs-identifier hs-var">communicationBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175152"><span class="annot"><span class="annottext">s :: CreateCase
-</span><a href="#local-6989586621679175152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175151"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCase
-</span><a href="#local-6989586621679175152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:communicationBody:CreateCase' :: Text
+</span><a href="#local-6989586621679175259"><span class="hs-identifier hs-var hs-var">communicationBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175259"><span class="hs-identifier hs-var">communicationBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175258"><span class="annot"><span class="annottext">s :: CreateCase
+</span><a href="#local-6989586621679175258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175257"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCase
+</span><a href="#local-6989586621679175258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:communicationBody:CreateCase' :: Text
 </span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AcommunicationBody%3ACreateCase%27"><span class="hs-identifier hs-var">communicationBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-275"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse"><span class="hs-identifier hs-type">CreateCaseResponse</span></a></span><span>
-</span><span id="line-276"></span><span>  </span><span id="local-6989586621679175147"><span class="annot"><span class="annottext">request :: CreateCase -&gt; Request CreateCase
+</span><span id="line-276"></span><span>  </span><span id="local-6989586621679175253"><span class="annot"><span class="annottext">request :: CreateCase -&gt; Request CreateCase
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateCase -&gt; Request CreateCase
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Support.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-277"></span><span>  </span><span id="local-6989586621679175143"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-277"></span><span>  </span><span id="local-6989586621679175249"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateCase
 -&gt; ClientResponse ClientBody
@@ -540,10 +540,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-279"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175140"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175140"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175139"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679175139"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175138"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175138"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-279"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175246"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175246"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175245"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679175245"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175244"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175244"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-280"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateCaseResponse
 </span><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse%27"><span class="hs-identifier hs-var">CreateCaseResponse'</span></a></span><span>
 </span><span id="line-281"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateCaseResponse)
@@ -551,7 +551,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateCaseResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175138"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679175244"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;caseId&quot;</span></span><span class="hs-special">)</span><span>
@@ -563,15 +563,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175140"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175246"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-283"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
-</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175130"><span id="local-6989586621679175132"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span></span></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175236"><span id="local-6989586621679175238"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span></span></span><span>
 </span><span id="line-286"></span><span>
-</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175127"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175233"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span></span><span>
 </span><span id="line-288"></span><span>
 </span><span id="line-289"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-290"></span><span>  </span><span id="local-6989586621679175123"><span class="annot"><span class="annottext">toHeaders :: CreateCase -&gt; ResponseHeaders
+</span><span id="line-290"></span><span>  </span><span id="local-6989586621679175229"><span class="annot"><span class="annottext">toHeaders :: CreateCase -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-291"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateCase -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -598,49 +598,49 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-301"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-302"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-303"></span><span>
-</span><span id="line-304"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175113"><span id="local-6989586621679175115"><span id="local-6989586621679175117"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-305"></span><span>  </span><span id="local-6989586621679175111"><span class="annot"><span class="annottext">toJSON :: CreateCase -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175101"><span id="local-6989586621679175102"><span id="local-6989586621679175103"><span id="local-6989586621679175104"><span id="local-6989586621679175105"><span id="local-6989586621679175106"><span id="local-6989586621679175107"><span id="local-6989586621679175108"><span id="local-6989586621679175109"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-304"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175219"><span id="local-6989586621679175221"><span id="local-6989586621679175223"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-305"></span><span>  </span><span id="local-6989586621679175217"><span class="annot"><span class="annottext">toJSON :: CreateCase -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase%27"><span class="hs-identifier hs-type">CreateCase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175207"><span id="local-6989586621679175208"><span id="local-6989586621679175209"><span id="local-6989586621679175210"><span id="local-6989586621679175211"><span id="local-6989586621679175212"><span id="local-6989586621679175213"><span id="local-6989586621679175214"><span id="local-6989586621679175215"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 Text
 communicationBody :: Text
 subject :: Text
-language :: Maybe Text
-severityCode :: Maybe Text
 attachmentSetId :: Maybe Text
-issueType :: Maybe Text
-ccEmailAddresses :: Maybe [Text]
-categoryCode :: Maybe Text
 serviceCode :: Maybe Text
+categoryCode :: Maybe Text
+language :: Maybe Text
+ccEmailAddresses :: Maybe [Text]
+issueType :: Maybe Text
+severityCode :: Maybe Text
 $sel:communicationBody:CreateCase' :: CreateCase -&gt; Text
 $sel:subject:CreateCase' :: CreateCase -&gt; Text
-$sel:language:CreateCase' :: CreateCase -&gt; Maybe Text
-$sel:severityCode:CreateCase' :: CreateCase -&gt; Maybe Text
 $sel:attachmentSetId:CreateCase' :: CreateCase -&gt; Maybe Text
-$sel:issueType:CreateCase' :: CreateCase -&gt; Maybe Text
-$sel:ccEmailAddresses:CreateCase' :: CreateCase -&gt; Maybe [Text]
-$sel:categoryCode:CreateCase' :: CreateCase -&gt; Maybe Text
 $sel:serviceCode:CreateCase' :: CreateCase -&gt; Maybe Text
-</span><a href="#local-6989586621679175101"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:categoryCode:CreateCase' :: CreateCase -&gt; Maybe Text
+$sel:language:CreateCase' :: CreateCase -&gt; Maybe Text
+$sel:ccEmailAddresses:CreateCase' :: CreateCase -&gt; Maybe [Text]
+$sel:issueType:CreateCase' :: CreateCase -&gt; Maybe Text
+$sel:severityCode:CreateCase' :: CreateCase -&gt; Maybe Text
+</span><a href="#local-6989586621679175207"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-306"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-307"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-308"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;serviceCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;severityCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175109"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175215"><span class="hs-identifier hs-var">severityCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-309"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;categoryCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;issueType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175108"><span class="hs-identifier hs-var">categoryCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175214"><span class="hs-identifier hs-var">issueType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-310"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ccEmailAddresses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -648,43 +648,43 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-311"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679175107"><span class="hs-identifier hs-var">ccEmailAddresses</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175213"><span class="hs-identifier hs-var">ccEmailAddresses</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-312"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;issueType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175106"><span class="hs-identifier hs-var">issueType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-313"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;attachmentSetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-314"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175105"><span class="hs-identifier hs-var">attachmentSetId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-315"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;severityCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175104"><span class="hs-identifier hs-var">severityCode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-316"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;language&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175103"><span class="hs-identifier hs-var">language</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175212"><span class="hs-identifier hs-var">language</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;categoryCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175211"><span class="hs-identifier hs-var">categoryCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serviceCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175210"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;attachmentSetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175209"><span class="hs-identifier hs-var">attachmentSetId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-317"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;subject&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175102"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175208"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-318"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -692,19 +692,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;communicationBody&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175101"><span class="hs-identifier hs-var">communicationBody</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175207"><span class="hs-identifier hs-var">communicationBody</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-320"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-321"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-322"></span><span>
 </span><span id="line-323"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-324"></span><span>  </span><span id="local-6989586621679175095"><span class="annot"><span class="annottext">toPath :: CreateCase -&gt; ByteString
+</span><span id="line-324"></span><span>  </span><span id="local-6989586621679175201"><span class="annot"><span class="annottext">toPath :: CreateCase -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateCase -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-325"></span><span>
 </span><span id="line-326"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCase"><span class="hs-identifier hs-type">CreateCase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-327"></span><span>  </span><span id="local-6989586621679175091"><span class="annot"><span class="annottext">toQuery :: CreateCase -&gt; QueryString
+</span><span id="line-327"></span><span>  </span><span id="local-6989586621679175197"><span class="annot"><span class="annottext">toQuery :: CreateCase -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateCase -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -715,7 +715,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-330"></span><span class="hs-comment">-- CreateCase operation.</span><span>
 </span><span id="line-331"></span><span class="hs-comment">--</span><span>
 </span><span id="line-332"></span><span class="hs-comment">-- /See:/ 'newCreateCaseResponse' smart constructor.</span><span>
-</span><span id="line-333"></span><span id="local-6989586621679175088"><span id="local-6989586621679175089"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCaseResponse"><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse"><span class="hs-identifier hs-var">CreateCaseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCaseResponse%27"><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse%27"><span class="hs-identifier hs-var">CreateCaseResponse'</span></a></span></span><span>
+</span><span id="line-333"></span><span id="local-6989586621679175194"><span id="local-6989586621679175195"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateCaseResponse"><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse"><span class="hs-identifier hs-var">CreateCaseResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateCaseResponse%27"><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse%27"><span class="hs-identifier hs-var">CreateCaseResponse'</span></a></span></span><span>
 </span><span id="line-334"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The support case ID requested or returned in the call. The case ID is an</span><span>
 </span><span id="line-335"></span><span>    </span><span class="hs-comment">-- alphanumeric string in the following format:</span><span>
 </span><span id="line-336"></span><span>    </span><span class="hs-comment">-- case-/12345678910-2013-c4c1d2bf33c5cf47/</span><span>
@@ -725,7 +725,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-339"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateCaseResponse%27"><span class="annot"><span class="annottext">CreateCaseResponse -&gt; Int
 </span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AhttpStatus%3ACreateCaseResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-340"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-341"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175082"><span id="local-6989586621679175084"><span class="annot"><span class="annottext">CreateCaseResponse -&gt; CreateCaseResponse -&gt; Bool
+</span><span id="line-341"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175188"><span id="local-6989586621679175190"><span class="annot"><span class="annottext">CreateCaseResponse -&gt; CreateCaseResponse -&gt; Bool
 (CreateCaseResponse -&gt; CreateCaseResponse -&gt; Bool)
 -&gt; (CreateCaseResponse -&gt; CreateCaseResponse -&gt; Bool)
 -&gt; Eq CreateCaseResponse
@@ -734,7 +734,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateCaseResponse -&gt; CreateCaseResponse -&gt; Bool
 == :: CreateCaseResponse -&gt; CreateCaseResponse -&gt; Bool
 $c== :: CreateCaseResponse -&gt; CreateCaseResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175074"><span id="local-6989586621679175076"><span id="local-6989586621679175078"><span id="local-6989586621679175080"><span class="annot"><span class="annottext">ReadPrec [CreateCaseResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175180"><span id="local-6989586621679175182"><span id="local-6989586621679175184"><span id="local-6989586621679175186"><span class="annot"><span class="annottext">ReadPrec [CreateCaseResponse]
 ReadPrec CreateCaseResponse
 Int -&gt; ReadS CreateCaseResponse
 ReadS [CreateCaseResponse]
@@ -754,7 +754,7 @@ readList :: ReadS [CreateCaseResponse]
 $creadList :: ReadS [CreateCaseResponse]
 readsPrec :: Int -&gt; ReadS CreateCaseResponse
 $creadsPrec :: Int -&gt; ReadS CreateCaseResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175068"><span id="local-6989586621679175070"><span id="local-6989586621679175072"><span class="annot"><span class="annottext">Int -&gt; CreateCaseResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175174"><span id="local-6989586621679175176"><span id="local-6989586621679175178"><span class="annot"><span class="annottext">Int -&gt; CreateCaseResponse -&gt; ShowS
 [CreateCaseResponse] -&gt; ShowS
 CreateCaseResponse -&gt; String
 (Int -&gt; CreateCaseResponse -&gt; ShowS)
@@ -798,8 +798,8 @@ $cfrom :: forall x. CreateCaseResponse -&gt; Rep CreateCaseResponse x
 </span><span id="line-358"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-359"></span><span>  </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse"><span class="hs-identifier hs-type">CreateCaseResponse</span></a></span><span>
 </span><span id="line-360"></span><span id="newCreateCaseResponse"><span class="annot"><span class="annottext">newCreateCaseResponse :: Int -&gt; CreateCaseResponse
-</span><a href="Network.AWS.Support.CreateCase.html#newCreateCaseResponse"><span class="hs-identifier hs-var hs-var">newCreateCaseResponse</span></a></span></span><span> </span><span id="local-6989586621679175065"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175065"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Support.CreateCase.html#newCreateCaseResponse"><span class="hs-identifier hs-var hs-var">newCreateCaseResponse</span></a></span></span><span> </span><span id="local-6989586621679175171"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175171"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-361"></span><span>  </span><span class="annot"><span class="annottext">CreateCaseResponse' :: Maybe Text -&gt; Int -&gt; CreateCaseResponse
 </span><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse%27"><span class="hs-identifier hs-type">CreateCaseResponse'</span></a></span><span>
 </span><span id="line-362"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:caseId:CreateCaseResponse' :: Maybe Text
@@ -808,7 +808,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-363"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCaseResponse' :: Int
 </span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AhttpStatus%3ACreateCaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175065"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679175171"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-364"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-365"></span><span>
 </span><span id="line-366"></span><span class="hs-comment">-- | The support case ID requested or returned in the call. The case ID is an</span><span>
@@ -822,16 +822,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateCaseResponse CreateCaseResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse%27"><span class="hs-identifier hs-type">CreateCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175064"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse%27"><span class="hs-identifier hs-type">CreateCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175170"><span class="annot"><span class="annottext">Maybe Text
 caseId :: Maybe Text
 $sel:caseId:CreateCaseResponse' :: CreateCaseResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679175064"><span class="hs-identifier hs-var hs-var">caseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175064"><span class="hs-identifier hs-var">caseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175063"><span class="annot"><span class="annottext">s :: CreateCaseResponse
-</span><a href="#local-6989586621679175063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse%27"><span class="hs-identifier hs-type">CreateCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175062"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCaseResponse
-</span><a href="#local-6989586621679175063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:caseId:CreateCaseResponse' :: Maybe Text
+</span><a href="#local-6989586621679175170"><span class="hs-identifier hs-var hs-var">caseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175170"><span class="hs-identifier hs-var">caseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175169"><span class="annot"><span class="annottext">s :: CreateCaseResponse
+</span><a href="#local-6989586621679175169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse%27"><span class="hs-identifier hs-type">CreateCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175168"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCaseResponse
+</span><a href="#local-6989586621679175169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:caseId:CreateCaseResponse' :: Maybe Text
 </span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AcaseId%3ACreateCaseResponse%27"><span class="hs-identifier hs-var">caseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse"><span class="hs-identifier hs-type">CreateCaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse"><span class="hs-identifier hs-type">CreateCaseResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-371"></span><span>
 </span><span id="line-372"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-373"></span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#createCaseResponse_httpStatus"><span class="hs-identifier hs-type">createCaseResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse"><span class="hs-identifier hs-type">CreateCaseResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -840,16 +840,16 @@ $sel:caseId:CreateCaseResponse' :: CreateCaseResponse -&gt; Maybe Text
 -&gt; (CreateCaseResponse -&gt; Int -&gt; CreateCaseResponse)
 -&gt; Lens CreateCaseResponse CreateCaseResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse%27"><span class="hs-identifier hs-type">CreateCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175061"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse%27"><span class="hs-identifier hs-type">CreateCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175167"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateCaseResponse' :: CreateCaseResponse -&gt; Int
-</span><a href="#local-6989586621679175061"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175061"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175060"><span class="annot"><span class="annottext">s :: CreateCaseResponse
-</span><a href="#local-6989586621679175060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse%27"><span class="hs-identifier hs-type">CreateCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175059"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCaseResponse
-</span><a href="#local-6989586621679175060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCaseResponse' :: Int
+</span><a href="#local-6989586621679175167"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175167"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175166"><span class="annot"><span class="annottext">s :: CreateCaseResponse
+</span><a href="#local-6989586621679175166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse%27"><span class="hs-identifier hs-type">CreateCaseResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175165"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateCaseResponse
+</span><a href="#local-6989586621679175166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateCaseResponse' :: Int
 </span><a href="Network.AWS.Support.CreateCase.html#%24sel%3AhttpStatus%3ACreateCaseResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse"><span class="hs-identifier hs-type">CreateCaseResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse"><span class="hs-identifier hs-type">CreateCaseResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-375"></span><span>
-</span><span id="line-376"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175057"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse"><span class="hs-identifier hs-type">CreateCaseResponse</span></a></span></span><span>
+</span><span id="line-376"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175163"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.CreateCase.html#CreateCaseResponse"><span class="hs-identifier hs-type">CreateCaseResponse</span></a></span></span><span>
 </span><span id="line-377"></span></pre></body></html>

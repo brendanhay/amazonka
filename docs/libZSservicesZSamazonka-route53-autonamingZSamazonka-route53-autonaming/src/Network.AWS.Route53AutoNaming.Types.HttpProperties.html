@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A complex type that contains the name of an HTTP namespace.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newHttpProperties' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679220113"><span id="local-6989586621679220114"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpProperties"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties"><span class="hs-identifier hs-var">HttpProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpProperties%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties%27"><span class="hs-identifier hs-var">HttpProperties'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679220241"><span id="local-6989586621679220242"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpProperties"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties"><span class="hs-identifier hs-var">HttpProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpProperties%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties%27"><span class="hs-identifier hs-var">HttpProperties'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of an HTTP namespace.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AhttpName%3AHttpProperties%27"><span class="annot"><span class="annottext">HttpProperties -&gt; Maybe Text
 </span><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#%24sel%3AhttpName%3AHttpProperties%27"><span class="hs-identifier hs-var hs-var">httpName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220107"><span id="local-6989586621679220109"><span class="annot"><span class="annottext">HttpProperties -&gt; HttpProperties -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220235"><span id="local-6989586621679220237"><span class="annot"><span class="annottext">HttpProperties -&gt; HttpProperties -&gt; Bool
 (HttpProperties -&gt; HttpProperties -&gt; Bool)
 -&gt; (HttpProperties -&gt; HttpProperties -&gt; Bool) -&gt; Eq HttpProperties
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HttpProperties -&gt; HttpProperties -&gt; Bool
 == :: HttpProperties -&gt; HttpProperties -&gt; Bool
 $c== :: HttpProperties -&gt; HttpProperties -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220098"><span id="local-6989586621679220100"><span id="local-6989586621679220102"><span id="local-6989586621679220104"><span class="annot"><span class="annottext">ReadPrec [HttpProperties]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220226"><span id="local-6989586621679220228"><span id="local-6989586621679220230"><span id="local-6989586621679220232"><span class="annot"><span class="annottext">ReadPrec [HttpProperties]
 ReadPrec HttpProperties
 Int -&gt; ReadS HttpProperties
 ReadS [HttpProperties]
@@ -59,7 +59,7 @@ readList :: ReadS [HttpProperties]
 $creadList :: ReadS [HttpProperties]
 readsPrec :: Int -&gt; ReadS HttpProperties
 $creadsPrec :: Int -&gt; ReadS HttpProperties
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220091"><span id="local-6989586621679220093"><span id="local-6989586621679220095"><span class="annot"><span class="annottext">Int -&gt; HttpProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220219"><span id="local-6989586621679220221"><span id="local-6989586621679220223"><span class="annot"><span class="annottext">Int -&gt; HttpProperties -&gt; ShowS
 [HttpProperties] -&gt; ShowS
 HttpProperties -&gt; String
 (Int -&gt; HttpProperties -&gt; ShowS)
@@ -112,19 +112,19 @@ forall a. Maybe a
 -&gt; (HttpProperties -&gt; Maybe Text -&gt; HttpProperties)
 -&gt; Lens HttpProperties HttpProperties (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties%27"><span class="hs-identifier hs-type">HttpProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220082"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties%27"><span class="hs-identifier hs-type">HttpProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220210"><span class="annot"><span class="annottext">Maybe Text
 httpName :: Maybe Text
 $sel:httpName:HttpProperties' :: HttpProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679220082"><span class="hs-identifier hs-var hs-var">httpName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679220082"><span class="hs-identifier hs-var">httpName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220081"><span class="annot"><span class="annottext">s :: HttpProperties
-</span><a href="#local-6989586621679220081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties%27"><span class="hs-identifier hs-type">HttpProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220080"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679220080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpProperties
-</span><a href="#local-6989586621679220081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpName:HttpProperties' :: Maybe Text
+</span><a href="#local-6989586621679220210"><span class="hs-identifier hs-var hs-var">httpName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220210"><span class="hs-identifier hs-var">httpName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220209"><span class="annot"><span class="annottext">s :: HttpProperties
+</span><a href="#local-6989586621679220209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties%27"><span class="hs-identifier hs-type">HttpProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220208"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpProperties
+</span><a href="#local-6989586621679220209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpName:HttpProperties' :: Maybe Text
 </span><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#%24sel%3AhttpName%3AHttpProperties%27"><span class="hs-identifier hs-var">httpName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679220080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties"><span class="hs-identifier hs-type">HttpProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties"><span class="hs-identifier hs-type">HttpProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220077"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties"><span class="hs-identifier hs-type">HttpProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679220075"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HttpProperties
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220205"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties"><span class="hs-identifier hs-type">HttpProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679220203"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HttpProperties
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HttpProperties)
@@ -134,20 +134,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HttpProperties&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679220072"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679220072"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679220200"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220200"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; HttpProperties
 </span><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties%27"><span class="hs-identifier hs-var">HttpProperties'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; HttpProperties)
 -&gt; Parser (Maybe Text) -&gt; Parser HttpProperties
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679220072"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679220200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HttpName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220066"><span id="local-6989586621679220068"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties"><span class="hs-identifier hs-type">HttpProperties</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220194"><span id="local-6989586621679220196"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties"><span class="hs-identifier hs-type">HttpProperties</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220063"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties"><span class="hs-identifier hs-type">HttpProperties</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220191"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpProperties.html#HttpProperties"><span class="hs-identifier hs-type">HttpProperties</span></a></span></span><span>
 </span><span id="line-64"></span></pre></body></html>

@@ -28,31 +28,31 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Pinpoint.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEvent' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679609729"><span id="local-6989586621679609730"></span></span><span class="hs-keyword">data</span><span> </span><span id="Event"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-var">Event</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Event%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-var">Event'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679610213"><span id="local-6989586621679610214"></span></span><span class="hs-keyword">data</span><span> </span><span id="Event"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-var">Event</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Event%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-var">Event'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the SDK that\'s running on the client device.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AclientSdkVersion%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AclientSdkVersion%3AEvent%27"><span class="hs-identifier hs-var hs-var">clientSdkVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The title of the app that\'s recording the event.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AappTitle%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AappTitle%3AEvent%27"><span class="hs-identifier hs-var hs-var">appTitle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the SDK that\'s being used to record the event.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsdkName%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AsdkName%3AEvent%27"><span class="hs-identifier hs-var hs-var">sdkName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | One or more custom attributes that are associated with the event.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aattributes%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3Aattributes%3AEvent%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | One or more custom metrics that are associated with the event.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Ametrics%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe (HashMap Text Double)
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | One or more custom metrics that are associated with the event.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Ametrics%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe (HashMap Text Double)
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3Ametrics%3AEvent%27"><span class="hs-identifier hs-var hs-var">metrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The package name of the app that\'s recording the event.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AappPackageName%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AappPackageName%3AEvent%27"><span class="hs-identifier hs-var hs-var">appPackageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Information about the session in which the event occurred.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Asession%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Session
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3Asession%3AEvent%27"><span class="hs-identifier hs-var hs-var">session</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The version number of the app that\'s recording the event.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AappVersionCode%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The version number of the app that\'s recording the event.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AappVersionCode%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AappVersionCode%3AEvent%27"><span class="hs-identifier hs-var hs-var">appVersionCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The title of the app that\'s recording the event.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AappTitle%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AappTitle%3AEvent%27"><span class="hs-identifier hs-var hs-var">appTitle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The package name of the app that\'s recording the event.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AappPackageName%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AappPackageName%3AEvent%27"><span class="hs-identifier hs-var hs-var">appPackageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | One or more custom attributes that are associated with the event.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aattributes%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3Aattributes%3AEvent%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the SDK that\'s being used to record the event.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AsdkName%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AsdkName%3AEvent%27"><span class="hs-identifier hs-var hs-var">sdkName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Information about the session in which the event occurred.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Asession%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Maybe Session
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3Asession%3AEvent%27"><span class="hs-identifier hs-var hs-var">session</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The name of the event.</span><span>
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AeventType%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Text
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AeventType%3AEvent%27"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -60,14 +60,14 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3Atimestamp%3AEvent%27"><span class="annot"><span class="annottext">Event -&gt; Text
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3Atimestamp%3AEvent%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679609714"><span id="local-6989586621679609716"><span class="annot"><span class="annottext">Event -&gt; Event -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679610198"><span id="local-6989586621679610200"><span class="annot"><span class="annottext">Event -&gt; Event -&gt; Bool
 (Event -&gt; Event -&gt; Bool) -&gt; (Event -&gt; Event -&gt; Bool) -&gt; Eq Event
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Event -&gt; Event -&gt; Bool
 $c/= :: Event -&gt; Event -&gt; Bool
 == :: Event -&gt; Event -&gt; Bool
 $c== :: Event -&gt; Event -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609705"><span id="local-6989586621679609707"><span id="local-6989586621679609709"><span id="local-6989586621679609711"><span class="annot"><span class="annottext">ReadPrec [Event]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610189"><span id="local-6989586621679610191"><span id="local-6989586621679610193"><span id="local-6989586621679610195"><span class="annot"><span class="annottext">ReadPrec [Event]
 ReadPrec Event
 Int -&gt; ReadS Event
 ReadS [Event]
@@ -87,7 +87,7 @@ readList :: ReadS [Event]
 $creadList :: ReadS [Event]
 readsPrec :: Int -&gt; ReadS Event
 $creadsPrec :: Int -&gt; ReadS Event
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679609698"><span id="local-6989586621679609700"><span id="local-6989586621679609702"><span class="annot"><span class="annottext">Int -&gt; Event -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679610182"><span id="local-6989586621679610184"><span id="local-6989586621679610186"><span class="annot"><span class="annottext">Int -&gt; Event -&gt; ShowS
 [Event] -&gt; ShowS
 Event -&gt; String
 (Int -&gt; Event -&gt; ShowS)
@@ -120,19 +120,19 @@ $cfrom :: forall x. Event -&gt; Rep Event x
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- 'clientSdkVersion', 'event_clientSdkVersion' - The version of the SDK that\'s running on the client device.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'appTitle', 'event_appTitle' - The title of the app that\'s recording the event.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'metrics', 'event_metrics' - One or more custom metrics that are associated with the event.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'sdkName', 'event_sdkName' - The name of the SDK that\'s being used to record the event.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'appVersionCode', 'event_appVersionCode' - The version number of the app that\'s recording the event.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'attributes', 'event_attributes' - One or more custom attributes that are associated with the event.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'appTitle', 'event_appTitle' - The title of the app that\'s recording the event.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'metrics', 'event_metrics' - One or more custom metrics that are associated with the event.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'appPackageName', 'event_appPackageName' - The package name of the app that\'s recording the event.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'appPackageName', 'event_appPackageName' - The package name of the app that\'s recording the event.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'attributes', 'event_attributes' - One or more custom attributes that are associated with the event.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'session', 'event_session' - Information about the session in which the event occurred.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'sdkName', 'event_sdkName' - The name of the SDK that\'s being used to record the event.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'appVersionCode', 'event_appVersionCode' - The version number of the app that\'s recording the event.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'session', 'event_session' - Information about the session in which the event occurred.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- 'eventType', 'event_eventType' - The name of the event.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
@@ -144,17 +144,17 @@ $cfrom :: forall x. Event -&gt; Rep Event x
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span>
 </span><span id="line-88"></span><span id="newEvent"><span class="annot"><span class="annottext">newEvent :: Text -&gt; Text -&gt; Event
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#newEvent"><span class="hs-identifier hs-var hs-var">newEvent</span></a></span></span><span> </span><span id="local-6989586621679609692"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679609692"><span class="hs-identifier hs-var">pEventType_</span></a></span></span><span> </span><span id="local-6989586621679609691"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679609691"><span class="hs-identifier hs-var">pTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#newEvent"><span class="hs-identifier hs-var hs-var">newEvent</span></a></span></span><span> </span><span id="local-6989586621679610176"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679610176"><span class="hs-identifier hs-var">pEventType_</span></a></span></span><span> </span><span id="local-6989586621679610175"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679610175"><span class="hs-identifier hs-var">pTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">Event' :: Maybe Text
+-&gt; Maybe (HashMap Text Double)
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe (HashMap Text Text)
--&gt; Maybe (HashMap Text Double)
 -&gt; Maybe Text
 -&gt; Maybe Session
--&gt; Maybe Text
 -&gt; Text
 -&gt; Text
 -&gt; Event
@@ -163,40 +163,40 @@ $cfrom :: forall x. Event -&gt; Rep Event x
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AclientSdkVersion%3AEvent%27"><span class="hs-identifier hs-var">clientSdkVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:appTitle:Event' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AappTitle%3AEvent%27"><span class="hs-identifier hs-var">appTitle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:sdkName:Event' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AsdkName%3AEvent%27"><span class="hs-identifier hs-var">sdkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:Event' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3Aattributes%3AEvent%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:metrics:Event' :: Maybe (HashMap Text Double)
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:metrics:Event' :: Maybe (HashMap Text Double)
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3Ametrics%3AEvent%27"><span class="hs-identifier hs-var">metrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Double)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:appPackageName:Event' :: Maybe Text
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:appVersionCode:Event' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AappVersionCode%3AEvent%27"><span class="hs-identifier hs-var">appVersionCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:appTitle:Event' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AappTitle%3AEvent%27"><span class="hs-identifier hs-var">appTitle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:appPackageName:Event' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AappPackageName%3AEvent%27"><span class="hs-identifier hs-var">appPackageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:session:Event' :: Maybe Session
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3Asession%3AEvent%27"><span class="hs-identifier hs-var">session</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Session
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:Event' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3Aattributes%3AEvent%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:appVersionCode:Event' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AappVersionCode%3AEvent%27"><span class="hs-identifier hs-var">appVersionCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:sdkName:Event' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AsdkName%3AEvent%27"><span class="hs-identifier hs-var">sdkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:session:Event' :: Maybe Session
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3Asession%3AEvent%27"><span class="hs-identifier hs-var">session</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Session
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventType:Event' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AeventType%3AEvent%27"><span class="hs-identifier hs-var">eventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679609692"><span class="hs-identifier hs-var">pEventType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610176"><span class="hs-identifier hs-var">pEventType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:timestamp:Event' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3Atimestamp%3AEvent%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679609691"><span class="hs-identifier hs-var">pTimestamp_</span></a></span><span>
+</span><a href="#local-6989586621679610175"><span class="hs-identifier hs-var">pTimestamp_</span></a></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The version of the SDK that\'s running on the client device.</span><span>
@@ -206,103 +206,20 @@ forall a. Maybe a
 -&gt; (Event -&gt; Maybe Text -&gt; Event)
 -&gt; Lens Event Event (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609687"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610171"><span class="annot"><span class="annottext">Maybe Text
 clientSdkVersion :: Maybe Text
 $sel:clientSdkVersion:Event' :: Event -&gt; Maybe Text
-</span><a href="#local-6989586621679609687"><span class="hs-identifier hs-var hs-var">clientSdkVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609687"><span class="hs-identifier hs-var">clientSdkVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609686"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679609686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609685"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679609686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientSdkVersion:Event' :: Maybe Text
+</span><a href="#local-6989586621679610171"><span class="hs-identifier hs-var hs-var">clientSdkVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610171"><span class="hs-identifier hs-var">clientSdkVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610170"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679610170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610169"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679610170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientSdkVersion:Event' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AclientSdkVersion%3AEvent%27"><span class="hs-identifier hs-var">clientSdkVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | The title of the app that\'s recording the event.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#event_appTitle"><span class="hs-identifier hs-type">event_appTitle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="event_appTitle"><span class="annot"><span class="annottext">event_appTitle :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Event -&gt; f Event
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#event_appTitle"><span class="hs-identifier hs-var hs-var">event_appTitle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe Text)
--&gt; (Event -&gt; Maybe Text -&gt; Event)
--&gt; Lens Event Event (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609683"><span class="annot"><span class="annottext">Maybe Text
-appTitle :: Maybe Text
-$sel:appTitle:Event' :: Event -&gt; Maybe Text
-</span><a href="#local-6989586621679609683"><span class="hs-identifier hs-var hs-var">appTitle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609683"><span class="hs-identifier hs-var">appTitle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609682"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679609682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609681"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679609682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appTitle:Event' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AappTitle%3AEvent%27"><span class="hs-identifier hs-var">appTitle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The name of the SDK that\'s being used to record the event.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#event_sdkName"><span class="hs-identifier hs-type">event_sdkName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="event_sdkName"><span class="annot"><span class="annottext">event_sdkName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Event -&gt; f Event
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#event_sdkName"><span class="hs-identifier hs-var hs-var">event_sdkName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe Text)
--&gt; (Event -&gt; Maybe Text -&gt; Event)
--&gt; Lens Event Event (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609679"><span class="annot"><span class="annottext">Maybe Text
-sdkName :: Maybe Text
-$sel:sdkName:Event' :: Event -&gt; Maybe Text
-</span><a href="#local-6989586621679609679"><span class="hs-identifier hs-var hs-var">sdkName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609679"><span class="hs-identifier hs-var">sdkName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609678"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679609678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609677"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679609678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sdkName:Event' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AsdkName%3AEvent%27"><span class="hs-identifier hs-var">sdkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | One or more custom attributes that are associated with the event.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#event_attributes"><span class="hs-identifier hs-type">event_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="event_attributes"><span class="annot"><span class="annottext">event_attributes :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
--&gt; Event -&gt; f Event
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#event_attributes"><span class="hs-identifier hs-var hs-var">event_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe (HashMap Text Text))
--&gt; (Event -&gt; Maybe (HashMap Text Text) -&gt; Event)
--&gt; Lens
-     Event Event (Maybe (HashMap Text Text)) (Maybe (HashMap Text Text))
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609675"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-attributes :: Maybe (HashMap Text Text)
-$sel:attributes:Event' :: Event -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679609675"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679609675"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609674"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679609674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609673"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679609673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679609674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:Event' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3Aattributes%3AEvent%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679609673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
- -&gt; Event -&gt; f Event)
--&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
-    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
--&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
--&gt; Event
--&gt; f Event
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
--&gt; Iso
-     (Maybe (HashMap Text Text))
-     (Maybe (HashMap Text Text))
-     (Maybe (HashMap Text Text))
-     (Maybe (HashMap Text Text))
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | One or more custom metrics that are associated with the event.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#event_metrics"><span class="hs-identifier hs-type">event_metrics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="event_metrics"><span class="annot"><span class="annottext">event_metrics :: (Maybe (HashMap Text Double) -&gt; f (Maybe (HashMap Text Double)))
+</span><span id="line-106"></span><span class="hs-comment">-- | One or more custom metrics that are associated with the event.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#event_metrics"><span class="hs-identifier hs-type">event_metrics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="event_metrics"><span class="annot"><span class="annottext">event_metrics :: (Maybe (HashMap Text Double) -&gt; f (Maybe (HashMap Text Double)))
 -&gt; Event -&gt; f Event
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#event_metrics"><span class="hs-identifier hs-var hs-var">event_metrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe (HashMap Text Double))
 -&gt; (Event -&gt; Maybe (HashMap Text Double) -&gt; Event)
@@ -312,16 +229,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe (HashMap Text Double))
      (Maybe (HashMap Text Double))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609668"><span class="annot"><span class="annottext">Maybe (HashMap Text Double)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610167"><span class="annot"><span class="annottext">Maybe (HashMap Text Double)
 metrics :: Maybe (HashMap Text Double)
 $sel:metrics:Event' :: Event -&gt; Maybe (HashMap Text Double)
-</span><a href="#local-6989586621679609668"><span class="hs-identifier hs-var hs-var">metrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Double)
-</span><a href="#local-6989586621679609668"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609667"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679609667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609666"><span class="annot"><span class="annottext">Maybe (HashMap Text Double)
-</span><a href="#local-6989586621679609666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679609667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metrics:Event' :: Maybe (HashMap Text Double)
+</span><a href="#local-6989586621679610167"><span class="hs-identifier hs-var hs-var">metrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Double)
+</span><a href="#local-6989586621679610167"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610166"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679610166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610165"><span class="annot"><span class="annottext">Maybe (HashMap Text Double)
+</span><a href="#local-6989586621679610165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679610166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metrics:Event' :: Maybe (HashMap Text Double)
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3Ametrics%3AEvent%27"><span class="hs-identifier hs-var">metrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Double)
-</span><a href="#local-6989586621679609666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Double) -&gt; f (Maybe (HashMap Text Double)))
+</span><a href="#local-6989586621679610165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Double) -&gt; f (Maybe (HashMap Text Double)))
  -&gt; Event -&gt; f Event)
 -&gt; ((Maybe (HashMap Text Double)
      -&gt; f (Maybe (HashMap Text Double)))
@@ -348,62 +265,145 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Double)
   (HashMap Text Double)
   (HashMap Text Double)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | The package name of the app that\'s recording the event.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#event_appPackageName"><span class="hs-identifier hs-type">event_appPackageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="event_appPackageName"><span class="annot"><span class="annottext">event_appPackageName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Event -&gt; f Event
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#event_appPackageName"><span class="hs-identifier hs-var hs-var">event_appPackageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe Text)
--&gt; (Event -&gt; Maybe Text -&gt; Event)
--&gt; Lens Event Event (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609664"><span class="annot"><span class="annottext">Maybe Text
-appPackageName :: Maybe Text
-$sel:appPackageName:Event' :: Event -&gt; Maybe Text
-</span><a href="#local-6989586621679609664"><span class="hs-identifier hs-var hs-var">appPackageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609664"><span class="hs-identifier hs-var">appPackageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609663"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679609663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609662"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679609663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appPackageName:Event' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AappPackageName%3AEvent%27"><span class="hs-identifier hs-var">appPackageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | Information about the session in which the event occurred.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#event_session"><span class="hs-identifier hs-type">event_session</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="event_session"><span class="annot"><span class="annottext">event_session :: (Maybe Session -&gt; f (Maybe Session)) -&gt; Event -&gt; f Event
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#event_session"><span class="hs-identifier hs-var hs-var">event_session</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe Session)
--&gt; (Event -&gt; Maybe Session -&gt; Event)
--&gt; Lens Event Event (Maybe Session) (Maybe Session)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609660"><span class="annot"><span class="annottext">Maybe Session
-session :: Maybe Session
-$sel:session:Event' :: Event -&gt; Maybe Session
-</span><a href="#local-6989586621679609660"><span class="hs-identifier hs-var hs-var">session</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Session
-</span><a href="#local-6989586621679609660"><span class="hs-identifier hs-var">session</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609659"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679609659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609658"><span class="annot"><span class="annottext">Maybe Session
-</span><a href="#local-6989586621679609658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679609659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:session:Event' :: Maybe Session
-</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3Asession%3AEvent%27"><span class="hs-identifier hs-var">session</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Session
-</span><a href="#local-6989586621679609658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The version number of the app that\'s recording the event.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#event_appVersionCode"><span class="hs-identifier hs-type">event_appVersionCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="event_appVersionCode"><span class="annot"><span class="annottext">event_appVersionCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Event -&gt; f Event
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The version number of the app that\'s recording the event.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#event_appVersionCode"><span class="hs-identifier hs-type">event_appVersionCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="event_appVersionCode"><span class="annot"><span class="annottext">event_appVersionCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Event -&gt; f Event
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#event_appVersionCode"><span class="hs-identifier hs-var hs-var">event_appVersionCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe Text)
 -&gt; (Event -&gt; Maybe Text -&gt; Event)
 -&gt; Lens Event Event (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609656"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610160"><span class="annot"><span class="annottext">Maybe Text
 appVersionCode :: Maybe Text
 $sel:appVersionCode:Event' :: Event -&gt; Maybe Text
-</span><a href="#local-6989586621679609656"><span class="hs-identifier hs-var hs-var">appVersionCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609656"><span class="hs-identifier hs-var">appVersionCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609655"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679609655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609654"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679609655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appVersionCode:Event' :: Maybe Text
+</span><a href="#local-6989586621679610160"><span class="hs-identifier hs-var hs-var">appVersionCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610160"><span class="hs-identifier hs-var">appVersionCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610159"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679610159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610158"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679610159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appVersionCode:Event' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AappVersionCode%3AEvent%27"><span class="hs-identifier hs-var">appVersionCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The title of the app that\'s recording the event.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#event_appTitle"><span class="hs-identifier hs-type">event_appTitle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="event_appTitle"><span class="annot"><span class="annottext">event_appTitle :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Event -&gt; f Event
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#event_appTitle"><span class="hs-identifier hs-var hs-var">event_appTitle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe Text)
+-&gt; (Event -&gt; Maybe Text -&gt; Event)
+-&gt; Lens Event Event (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610156"><span class="annot"><span class="annottext">Maybe Text
+appTitle :: Maybe Text
+$sel:appTitle:Event' :: Event -&gt; Maybe Text
+</span><a href="#local-6989586621679610156"><span class="hs-identifier hs-var hs-var">appTitle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610156"><span class="hs-identifier hs-var">appTitle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610155"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679610155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610154"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679610155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appTitle:Event' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AappTitle%3AEvent%27"><span class="hs-identifier hs-var">appTitle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The package name of the app that\'s recording the event.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#event_appPackageName"><span class="hs-identifier hs-type">event_appPackageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="event_appPackageName"><span class="annot"><span class="annottext">event_appPackageName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Event -&gt; f Event
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#event_appPackageName"><span class="hs-identifier hs-var hs-var">event_appPackageName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe Text)
+-&gt; (Event -&gt; Maybe Text -&gt; Event)
+-&gt; Lens Event Event (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610152"><span class="annot"><span class="annottext">Maybe Text
+appPackageName :: Maybe Text
+$sel:appPackageName:Event' :: Event -&gt; Maybe Text
+</span><a href="#local-6989586621679610152"><span class="hs-identifier hs-var hs-var">appPackageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610152"><span class="hs-identifier hs-var">appPackageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610151"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679610151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610150"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679610151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appPackageName:Event' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AappPackageName%3AEvent%27"><span class="hs-identifier hs-var">appPackageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | One or more custom attributes that are associated with the event.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#event_attributes"><span class="hs-identifier hs-type">event_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="event_attributes"><span class="annot"><span class="annottext">event_attributes :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Event -&gt; f Event
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#event_attributes"><span class="hs-identifier hs-var hs-var">event_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe (HashMap Text Text))
+-&gt; (Event -&gt; Maybe (HashMap Text Text) -&gt; Event)
+-&gt; Lens
+     Event Event (Maybe (HashMap Text Text)) (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610148"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+attributes :: Maybe (HashMap Text Text)
+$sel:attributes:Event' :: Event -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679610148"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679610148"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610147"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679610147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610146"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679610146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679610147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:Event' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3Aattributes%3AEvent%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679610146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Event -&gt; f Event)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Event
+-&gt; f Event
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The name of the SDK that\'s being used to record the event.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#event_sdkName"><span class="hs-identifier hs-type">event_sdkName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="event_sdkName"><span class="annot"><span class="annottext">event_sdkName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Event -&gt; f Event
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#event_sdkName"><span class="hs-identifier hs-var hs-var">event_sdkName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe Text)
+-&gt; (Event -&gt; Maybe Text -&gt; Event)
+-&gt; Lens Event Event (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610144"><span class="annot"><span class="annottext">Maybe Text
+sdkName :: Maybe Text
+$sel:sdkName:Event' :: Event -&gt; Maybe Text
+</span><a href="#local-6989586621679610144"><span class="hs-identifier hs-var hs-var">sdkName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610144"><span class="hs-identifier hs-var">sdkName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610143"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679610143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610142"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679610143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sdkName:Event' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AsdkName%3AEvent%27"><span class="hs-identifier hs-var">sdkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | Information about the session in which the event occurred.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#event_session"><span class="hs-identifier hs-type">event_session</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="event_session"><span class="annot"><span class="annottext">event_session :: (Maybe Session -&gt; f (Maybe Session)) -&gt; Event -&gt; f Event
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#event_session"><span class="hs-identifier hs-var hs-var">event_session</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Maybe Session)
+-&gt; (Event -&gt; Maybe Session -&gt; Event)
+-&gt; Lens Event Event (Maybe Session) (Maybe Session)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610140"><span class="annot"><span class="annottext">Maybe Session
+session :: Maybe Session
+$sel:session:Event' :: Event -&gt; Maybe Session
+</span><a href="#local-6989586621679610140"><span class="hs-identifier hs-var hs-var">session</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Session
+</span><a href="#local-6989586621679610140"><span class="hs-identifier hs-var">session</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610139"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679610139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610138"><span class="annot"><span class="annottext">Maybe Session
+</span><a href="#local-6989586621679610138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679610139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:session:Event' :: Maybe Session
+</span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3Asession%3AEvent%27"><span class="hs-identifier hs-var">session</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Session
+</span><a href="#local-6989586621679610138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The name of the event.</span><span>
 </span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#event_eventType"><span class="hs-identifier hs-type">event_eventType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -411,16 +411,16 @@ $sel:appVersionCode:Event' :: Event -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#event_eventType"><span class="hs-identifier hs-var hs-var">event_eventType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Text)
 -&gt; (Event -&gt; Text -&gt; Event) -&gt; Lens Event Event Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609652"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610136"><span class="annot"><span class="annottext">Text
 eventType :: Text
 $sel:eventType:Event' :: Event -&gt; Text
-</span><a href="#local-6989586621679609652"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679609652"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609651"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679609651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609650"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679609650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679609651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventType:Event' :: Text
+</span><a href="#local-6989586621679610136"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679610136"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610135"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679610135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610134"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679610134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679610135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventType:Event' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3AeventType%3AEvent%27"><span class="hs-identifier hs-var">eventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679609650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The date and time, in ISO 8601 format, when the event occurred.</span><span>
 </span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#event_timestamp"><span class="hs-identifier hs-type">event_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -428,49 +428,49 @@ $sel:eventType:Event' :: Event -&gt; Text
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#event_timestamp"><span class="hs-identifier hs-var hs-var">event_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Event -&gt; Text)
 -&gt; (Event -&gt; Text -&gt; Event) -&gt; Lens Event Event Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609648"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610132"><span class="annot"><span class="annottext">Text
 timestamp :: Text
 $sel:timestamp:Event' :: Event -&gt; Text
-</span><a href="#local-6989586621679609648"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679609648"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679609647"><span class="annot"><span class="annottext">s :: Event
-</span><a href="#local-6989586621679609647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679609646"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679609646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
-</span><a href="#local-6989586621679609647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:Event' :: Text
+</span><a href="#local-6989586621679610132"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679610132"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679610131"><span class="annot"><span class="annottext">s :: Event
+</span><a href="#local-6989586621679610131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679610130"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679610130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Event
+</span><a href="#local-6989586621679610131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:Event' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.Event.html#%24sel%3Atimestamp%3AEvent%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679609646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609642"><span id="local-6989586621679609644"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610126"><span id="local-6989586621679610128"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609639"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610123"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679609631"><span id="local-6989586621679609633"><span id="local-6989586621679609635"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679609629"><span class="annot"><span class="annottext">toJSON :: Event -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679609618"><span id="local-6989586621679609619"><span id="local-6989586621679609620"><span id="local-6989586621679609621"><span id="local-6989586621679609622"><span id="local-6989586621679609623"><span id="local-6989586621679609624"><span id="local-6989586621679609625"><span id="local-6989586621679609626"><span id="local-6989586621679609627"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679610115"><span id="local-6989586621679610117"><span id="local-6989586621679610119"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event"><span class="hs-identifier hs-type">Event</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679610113"><span class="annot"><span class="annottext">toJSON :: Event -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.Event.html#Event%27"><span class="hs-identifier hs-type">Event'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679610102"><span id="local-6989586621679610103"><span id="local-6989586621679610104"><span id="local-6989586621679610105"><span id="local-6989586621679610106"><span id="local-6989586621679610107"><span id="local-6989586621679610108"><span id="local-6989586621679610109"><span id="local-6989586621679610110"><span id="local-6989586621679610111"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text Double)
 Maybe (HashMap Text Text)
 Maybe Session
 Text
 timestamp :: Text
 eventType :: Text
-appVersionCode :: Maybe Text
 session :: Maybe Session
-appPackageName :: Maybe Text
-metrics :: Maybe (HashMap Text Double)
-attributes :: Maybe (HashMap Text Text)
 sdkName :: Maybe Text
+attributes :: Maybe (HashMap Text Text)
+appPackageName :: Maybe Text
 appTitle :: Maybe Text
+appVersionCode :: Maybe Text
+metrics :: Maybe (HashMap Text Double)
 clientSdkVersion :: Maybe Text
 $sel:timestamp:Event' :: Event -&gt; Text
 $sel:eventType:Event' :: Event -&gt; Text
-$sel:appVersionCode:Event' :: Event -&gt; Maybe Text
 $sel:session:Event' :: Event -&gt; Maybe Session
-$sel:appPackageName:Event' :: Event -&gt; Maybe Text
-$sel:metrics:Event' :: Event -&gt; Maybe (HashMap Text Double)
-$sel:attributes:Event' :: Event -&gt; Maybe (HashMap Text Text)
 $sel:sdkName:Event' :: Event -&gt; Maybe Text
+$sel:attributes:Event' :: Event -&gt; Maybe (HashMap Text Text)
+$sel:appPackageName:Event' :: Event -&gt; Maybe Text
 $sel:appTitle:Event' :: Event -&gt; Maybe Text
+$sel:appVersionCode:Event' :: Event -&gt; Maybe Text
+$sel:metrics:Event' :: Event -&gt; Maybe (HashMap Text Double)
 $sel:clientSdkVersion:Event' :: Event -&gt; Maybe Text
-</span><a href="#local-6989586621679609618"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679610102"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -483,37 +483,30 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609627"><span class="hs-identifier hs-var">clientSdkVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610111"><span class="hs-identifier hs-var">clientSdkVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AppTitle&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609626"><span class="hs-identifier hs-var">appTitle</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SdkName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609625"><span class="hs-identifier hs-var">sdkName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
--&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679609624"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Metrics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Double -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Double -&gt; Pair)
 -&gt; Maybe (HashMap Text Double) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Double)
-</span><a href="#local-6989586621679609623"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610110"><span class="hs-identifier hs-var">metrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AppVersionCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610109"><span class="hs-identifier hs-var">appVersionCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AppTitle&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610108"><span class="hs-identifier hs-var">appTitle</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AppPackageName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -521,36 +514,43 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609622"><span class="hs-identifier hs-var">appPackageName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610107"><span class="hs-identifier hs-var">appPackageName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679610106"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SdkName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679610105"><span class="hs-identifier hs-var">sdkName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Session&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Session -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Session -&gt; Pair) -&gt; Maybe Session -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Session
-</span><a href="#local-6989586621679609621"><span class="hs-identifier hs-var">session</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AppVersionCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679609620"><span class="hs-identifier hs-var">appVersionCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610104"><span class="hs-identifier hs-var">session</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679609619"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679610103"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679609618"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679610102"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679364714"><span id="local-6989586621679364715"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OfferingTransactionType"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.OfferingTransactionType.html#OfferingTransactionType"><span class="hs-identifier hs-var">OfferingTransactionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OfferingTransactionType%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.OfferingTransactionType.html#OfferingTransactionType%27"><span class="hs-identifier hs-var">OfferingTransactionType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679364951"><span id="local-6989586621679364952"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OfferingTransactionType"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.OfferingTransactionType.html#OfferingTransactionType"><span class="hs-identifier hs-var">OfferingTransactionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OfferingTransactionType%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.OfferingTransactionType.html#OfferingTransactionType%27"><span class="hs-identifier hs-var">OfferingTransactionType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOfferingTransactionType"><span class="annot"><span class="annottext">OfferingTransactionType -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.Types.OfferingTransactionType.html#fromOfferingTransactionType"><span class="hs-identifier hs-var hs-var">fromOfferingTransactionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364706"><span id="local-6989586621679364708"><span id="local-6989586621679364710"><span class="annot"><span class="annottext">Int -&gt; OfferingTransactionType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364943"><span id="local-6989586621679364945"><span id="local-6989586621679364947"><span class="annot"><span class="annottext">Int -&gt; OfferingTransactionType -&gt; ShowS
 [OfferingTransactionType] -&gt; ShowS
 OfferingTransactionType -&gt; String
 (Int -&gt; OfferingTransactionType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: OfferingTransactionType -&gt; String
 showsPrec :: Int -&gt; OfferingTransactionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; OfferingTransactionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679364697"><span id="local-6989586621679364699"><span id="local-6989586621679364701"><span id="local-6989586621679364703"><span class="annot"><span class="annottext">ReadPrec [OfferingTransactionType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679364934"><span id="local-6989586621679364936"><span id="local-6989586621679364938"><span id="local-6989586621679364940"><span class="annot"><span class="annottext">ReadPrec [OfferingTransactionType]
 ReadPrec OfferingTransactionType
 Int -&gt; ReadS OfferingTransactionType
 ReadS [OfferingTransactionType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [OfferingTransactionType]
 readsPrec :: Int -&gt; ReadS OfferingTransactionType
 $creadsPrec :: Int -&gt; ReadS OfferingTransactionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679364692"><span id="local-6989586621679364694"><span class="annot"><span class="annottext">OfferingTransactionType -&gt; OfferingTransactionType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679364929"><span id="local-6989586621679364931"><span class="annot"><span class="annottext">OfferingTransactionType -&gt; OfferingTransactionType -&gt; Bool
 (OfferingTransactionType -&gt; OfferingTransactionType -&gt; Bool)
 -&gt; (OfferingTransactionType -&gt; OfferingTransactionType -&gt; Bool)
 -&gt; Eq OfferingTransactionType
@@ -83,7 +83,7 @@ $c/= :: OfferingTransactionType -&gt; OfferingTransactionType -&gt; Bool
 == :: OfferingTransactionType -&gt; OfferingTransactionType -&gt; Bool
 $c== :: OfferingTransactionType -&gt; OfferingTransactionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679364676"><span id="local-6989586621679364678"><span id="local-6989586621679364680"><span id="local-6989586621679364682"><span id="local-6989586621679364684"><span id="local-6989586621679364686"><span id="local-6989586621679364688"><span class="annot"><span class="annottext">Eq OfferingTransactionType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679364913"><span id="local-6989586621679364915"><span id="local-6989586621679364917"><span id="local-6989586621679364919"><span id="local-6989586621679364921"><span id="local-6989586621679364923"><span id="local-6989586621679364925"><span class="annot"><span class="annottext">Eq OfferingTransactionType
 Eq OfferingTransactionType
 -&gt; (OfferingTransactionType -&gt; OfferingTransactionType -&gt; Ordering)
 -&gt; (OfferingTransactionType -&gt; OfferingTransactionType -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. OfferingTransactionType -&gt; Rep OfferingTransactionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364668"><span id="local-6989586621679364670"><span class="annot"><span class="annottext">Int -&gt; OfferingTransactionType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364905"><span id="local-6989586621679364907"><span class="annot"><span class="annottext">Int -&gt; OfferingTransactionType -&gt; Int
 OfferingTransactionType -&gt; Int
 (Int -&gt; OfferingTransactionType -&gt; Int)
 -&gt; (OfferingTransactionType -&gt; Int)
@@ -154,54 +154,54 @@ $chash :: OfferingTransactionType -&gt; Int
 hashWithSalt :: Int -&gt; OfferingTransactionType -&gt; Int
 $chashWithSalt :: Int -&gt; OfferingTransactionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679364665"><span class="annot"><span class="annottext">OfferingTransactionType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679364902"><span class="annot"><span class="annottext">OfferingTransactionType -&gt; ()
 (OfferingTransactionType -&gt; ()) -&gt; NFData OfferingTransactionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OfferingTransactionType -&gt; ()
 $crnf :: OfferingTransactionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679364662"><span class="annot"><span class="annottext">Text -&gt; Either String OfferingTransactionType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679364899"><span class="annot"><span class="annottext">Text -&gt; Either String OfferingTransactionType
 (Text -&gt; Either String OfferingTransactionType)
 -&gt; FromText OfferingTransactionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OfferingTransactionType
 $cfromText :: Text -&gt; Either String OfferingTransactionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679364659"><span class="annot"><span class="annottext">OfferingTransactionType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679364896"><span class="annot"><span class="annottext">OfferingTransactionType -&gt; Text
 (OfferingTransactionType -&gt; Text) -&gt; ToText OfferingTransactionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OfferingTransactionType -&gt; Text
 $ctoText :: OfferingTransactionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679364656"><span class="annot"><span class="annottext">OfferingTransactionType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679364893"><span class="annot"><span class="annottext">OfferingTransactionType -&gt; ByteString
 (OfferingTransactionType -&gt; ByteString)
 -&gt; ToByteString OfferingTransactionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OfferingTransactionType -&gt; ByteString
 $ctoBS :: OfferingTransactionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679364653"><span class="annot"><span class="annottext">OfferingTransactionType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679364890"><span class="annot"><span class="annottext">OfferingTransactionType -&gt; ByteStringBuilder
 (OfferingTransactionType -&gt; ByteStringBuilder)
 -&gt; ToLog OfferingTransactionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OfferingTransactionType -&gt; ByteStringBuilder
 $cbuild :: OfferingTransactionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679364650"><span class="annot"><span class="annottext">HeaderName -&gt; OfferingTransactionType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679364887"><span class="annot"><span class="annottext">HeaderName -&gt; OfferingTransactionType -&gt; [Header]
 (HeaderName -&gt; OfferingTransactionType -&gt; [Header])
 -&gt; ToHeader OfferingTransactionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OfferingTransactionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OfferingTransactionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679364647"><span class="annot"><span class="annottext">OfferingTransactionType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679364884"><span class="annot"><span class="annottext">OfferingTransactionType -&gt; QueryString
 (OfferingTransactionType -&gt; QueryString)
 -&gt; ToQuery OfferingTransactionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OfferingTransactionType -&gt; QueryString
 $ctoQuery :: OfferingTransactionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679364642"><span id="local-6989586621679364644"><span class="annot"><span class="annottext">Value -&gt; Parser [OfferingTransactionType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679364879"><span id="local-6989586621679364881"><span class="annot"><span class="annottext">Value -&gt; Parser [OfferingTransactionType]
 Value -&gt; Parser OfferingTransactionType
 (Value -&gt; Parser OfferingTransactionType)
 -&gt; (Value -&gt; Parser [OfferingTransactionType])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [OfferingTransactionType]
 parseJSON :: Value -&gt; Parser OfferingTransactionType
 $cparseJSON :: Value -&gt; Parser OfferingTransactionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679364637"><span id="local-6989586621679364639"><span class="annot"><span class="annottext">FromJSONKeyFunction [OfferingTransactionType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679364874"><span id="local-6989586621679364876"><span class="annot"><span class="annottext">FromJSONKeyFunction [OfferingTransactionType]
 FromJSONKeyFunction OfferingTransactionType
 FromJSONKeyFunction OfferingTransactionType
 -&gt; FromJSONKeyFunction [OfferingTransactionType]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OfferingTransactionType]
 fromJSONKey :: FromJSONKeyFunction OfferingTransactionType
 $cfromJSONKey :: FromJSONKeyFunction OfferingTransactionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679364628"><span id="local-6989586621679364630"><span id="local-6989586621679364632"><span id="local-6989586621679364634"><span class="annot"><span class="annottext">[OfferingTransactionType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679364865"><span id="local-6989586621679364867"><span id="local-6989586621679364869"><span id="local-6989586621679364871"><span class="annot"><span class="annottext">[OfferingTransactionType] -&gt; Encoding
 [OfferingTransactionType] -&gt; Value
 OfferingTransactionType -&gt; Encoding
 OfferingTransactionType -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: OfferingTransactionType -&gt; Encoding
 toJSON :: OfferingTransactionType -&gt; Value
 $ctoJSON :: OfferingTransactionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679364623"><span id="local-6989586621679364625"><span class="annot"><span class="annottext">ToJSONKeyFunction [OfferingTransactionType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679364860"><span id="local-6989586621679364862"><span class="annot"><span class="annottext">ToJSONKeyFunction [OfferingTransactionType]
 ToJSONKeyFunction OfferingTransactionType
 ToJSONKeyFunction OfferingTransactionType
 -&gt; ToJSONKeyFunction [OfferingTransactionType]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OfferingTransactionType]
 toJSONKey :: ToJSONKeyFunction OfferingTransactionType
 $ctoJSONKey :: ToJSONKeyFunction OfferingTransactionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679364620"><span class="annot"><span class="annottext">[Node] -&gt; Either String OfferingTransactionType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679364857"><span class="annot"><span class="annottext">[Node] -&gt; Either String OfferingTransactionType
 ([Node] -&gt; Either String OfferingTransactionType)
 -&gt; FromXML OfferingTransactionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OfferingTransactionType
 $cparseXML :: [Node] -&gt; Either String OfferingTransactionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679364617"><span class="annot"><span class="annottext">OfferingTransactionType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679364854"><span class="annot"><span class="annottext">OfferingTransactionType -&gt; XML
 (OfferingTransactionType -&gt; XML) -&gt; ToXML OfferingTransactionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: OfferingTransactionType -&gt; XML

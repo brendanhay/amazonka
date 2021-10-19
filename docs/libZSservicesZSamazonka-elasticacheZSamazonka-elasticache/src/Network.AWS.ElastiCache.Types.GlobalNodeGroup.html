@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- group.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newGlobalNodeGroup' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679399568"><span id="local-6989586621679399569"></span></span><span class="hs-keyword">data</span><span> </span><span id="GlobalNodeGroup"><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-var">GlobalNodeGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GlobalNodeGroup%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-var">GlobalNodeGroup'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the global node group</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AglobalNodeGroupId%3AGlobalNodeGroup%27"><span class="annot"><span class="annottext">GlobalNodeGroup -&gt; Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#%24sel%3AglobalNodeGroupId%3AGlobalNodeGroup%27"><span class="hs-identifier hs-var hs-var">globalNodeGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The keyspace for this node group</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aslots%3AGlobalNodeGroup%27"><span class="annot"><span class="annottext">GlobalNodeGroup -&gt; Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#%24sel%3Aslots%3AGlobalNodeGroup%27"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679400089"><span id="local-6989586621679400090"></span></span><span class="hs-keyword">data</span><span> </span><span id="GlobalNodeGroup"><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-var">GlobalNodeGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GlobalNodeGroup%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-var">GlobalNodeGroup'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The keyspace for this node group</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aslots%3AGlobalNodeGroup%27"><span class="annot"><span class="annottext">GlobalNodeGroup -&gt; Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#%24sel%3Aslots%3AGlobalNodeGroup%27"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the global node group</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AglobalNodeGroupId%3AGlobalNodeGroup%27"><span class="annot"><span class="annottext">GlobalNodeGroup -&gt; Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#%24sel%3AglobalNodeGroupId%3AGlobalNodeGroup%27"><span class="hs-identifier hs-var hs-var">globalNodeGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399561"><span id="local-6989586621679399563"><span class="annot"><span class="annottext">GlobalNodeGroup -&gt; GlobalNodeGroup -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679400082"><span id="local-6989586621679400084"><span class="annot"><span class="annottext">GlobalNodeGroup -&gt; GlobalNodeGroup -&gt; Bool
 (GlobalNodeGroup -&gt; GlobalNodeGroup -&gt; Bool)
 -&gt; (GlobalNodeGroup -&gt; GlobalNodeGroup -&gt; Bool)
 -&gt; Eq GlobalNodeGroup
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GlobalNodeGroup -&gt; GlobalNodeGroup -&gt; Bool
 == :: GlobalNodeGroup -&gt; GlobalNodeGroup -&gt; Bool
 $c== :: GlobalNodeGroup -&gt; GlobalNodeGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399552"><span id="local-6989586621679399554"><span id="local-6989586621679399556"><span id="local-6989586621679399558"><span class="annot"><span class="annottext">ReadPrec [GlobalNodeGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400073"><span id="local-6989586621679400075"><span id="local-6989586621679400077"><span id="local-6989586621679400079"><span class="annot"><span class="annottext">ReadPrec [GlobalNodeGroup]
 ReadPrec GlobalNodeGroup
 Int -&gt; ReadS GlobalNodeGroup
 ReadS [GlobalNodeGroup]
@@ -64,7 +64,7 @@ readList :: ReadS [GlobalNodeGroup]
 $creadList :: ReadS [GlobalNodeGroup]
 readsPrec :: Int -&gt; ReadS GlobalNodeGroup
 $creadsPrec :: Int -&gt; ReadS GlobalNodeGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399545"><span id="local-6989586621679399547"><span id="local-6989586621679399549"><span class="annot"><span class="annottext">Int -&gt; GlobalNodeGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400066"><span id="local-6989586621679400068"><span id="local-6989586621679400070"><span class="annot"><span class="annottext">Int -&gt; GlobalNodeGroup -&gt; ShowS
 [GlobalNodeGroup] -&gt; ShowS
 GlobalNodeGroup -&gt; String
 (Int -&gt; GlobalNodeGroup -&gt; ShowS)
@@ -98,89 +98,88 @@ $cfrom :: forall x. GlobalNodeGroup -&gt; Rep GlobalNodeGroup x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'globalNodeGroupId', 'globalNodeGroup_globalNodeGroupId' - The name of the global node group</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'slots', 'globalNodeGroup_slots' - The keyspace for this node group</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'slots', 'globalNodeGroup_slots' - The keyspace for this node group</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'globalNodeGroupId', 'globalNodeGroup_globalNodeGroupId' - The name of the global node group</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#newGlobalNodeGroup"><span class="hs-identifier hs-type">newGlobalNodeGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span><span>
 </span><span id="line-51"></span><span id="newGlobalNodeGroup"><span class="annot"><span class="annottext">newGlobalNodeGroup :: GlobalNodeGroup
 </span><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#newGlobalNodeGroup"><span class="hs-identifier hs-var hs-var">newGlobalNodeGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">GlobalNodeGroup' :: Maybe Text -&gt; Maybe Text -&gt; GlobalNodeGroup
 </span><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-type">GlobalNodeGroup'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalNodeGroupId:GlobalNodeGroup' :: Maybe Text
-</span><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#%24sel%3AglobalNodeGroupId%3AGlobalNodeGroup%27"><span class="hs-identifier hs-var">globalNodeGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:slots:GlobalNodeGroup' :: Maybe Text
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:slots:GlobalNodeGroup' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#%24sel%3Aslots%3AGlobalNodeGroup%27"><span class="hs-identifier hs-var">slots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | The name of the global node group</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#globalNodeGroup_globalNodeGroupId"><span class="hs-identifier hs-type">globalNodeGroup_globalNodeGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="globalNodeGroup_globalNodeGroupId"><span class="annot"><span class="annottext">globalNodeGroup_globalNodeGroupId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GlobalNodeGroup -&gt; f GlobalNodeGroup
-</span><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#globalNodeGroup_globalNodeGroupId"><span class="hs-identifier hs-var hs-var">globalNodeGroup_globalNodeGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalNodeGroup -&gt; Maybe Text)
--&gt; (GlobalNodeGroup -&gt; Maybe Text -&gt; GlobalNodeGroup)
--&gt; Lens GlobalNodeGroup GlobalNodeGroup (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-type">GlobalNodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399536"><span class="annot"><span class="annottext">Maybe Text
-globalNodeGroupId :: Maybe Text
-$sel:globalNodeGroupId:GlobalNodeGroup' :: GlobalNodeGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679399536"><span class="hs-identifier hs-var hs-var">globalNodeGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399536"><span class="hs-identifier hs-var">globalNodeGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399535"><span class="annot"><span class="annottext">s :: GlobalNodeGroup
-</span><a href="#local-6989586621679399535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-type">GlobalNodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399534"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalNodeGroup
-</span><a href="#local-6989586621679399535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalNodeGroupId:GlobalNodeGroup' :: Maybe Text
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:globalNodeGroupId:GlobalNodeGroup' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#%24sel%3AglobalNodeGroupId%3AGlobalNodeGroup%27"><span class="hs-identifier hs-var">globalNodeGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The keyspace for this node group</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#globalNodeGroup_slots"><span class="hs-identifier hs-type">globalNodeGroup_slots</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="globalNodeGroup_slots"><span class="annot"><span class="annottext">globalNodeGroup_slots :: (Maybe Text -&gt; f (Maybe Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The keyspace for this node group</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#globalNodeGroup_slots"><span class="hs-identifier hs-type">globalNodeGroup_slots</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="globalNodeGroup_slots"><span class="annot"><span class="annottext">globalNodeGroup_slots :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GlobalNodeGroup -&gt; f GlobalNodeGroup
 </span><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#globalNodeGroup_slots"><span class="hs-identifier hs-var hs-var">globalNodeGroup_slots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalNodeGroup -&gt; Maybe Text)
 -&gt; (GlobalNodeGroup -&gt; Maybe Text -&gt; GlobalNodeGroup)
 -&gt; Lens GlobalNodeGroup GlobalNodeGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-type">GlobalNodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399532"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-type">GlobalNodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400057"><span class="annot"><span class="annottext">Maybe Text
 slots :: Maybe Text
 $sel:slots:GlobalNodeGroup' :: GlobalNodeGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679399532"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399532"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399531"><span class="annot"><span class="annottext">s :: GlobalNodeGroup
-</span><a href="#local-6989586621679399531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-type">GlobalNodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399530"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalNodeGroup
-</span><a href="#local-6989586621679399531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slots:GlobalNodeGroup' :: Maybe Text
+</span><a href="#local-6989586621679400057"><span class="hs-identifier hs-var hs-var">slots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400057"><span class="hs-identifier hs-var">slots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400056"><span class="annot"><span class="annottext">s :: GlobalNodeGroup
+</span><a href="#local-6989586621679400056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-type">GlobalNodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400055"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalNodeGroup
+</span><a href="#local-6989586621679400056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slots:GlobalNodeGroup' :: Maybe Text
 </span><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#%24sel%3Aslots%3AGlobalNodeGroup%27"><span class="hs-identifier hs-var">slots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679399527"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String GlobalNodeGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679399525"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679399525"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; GlobalNodeGroup
+</span><a href="#local-6989586621679400055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The name of the global node group</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#globalNodeGroup_globalNodeGroupId"><span class="hs-identifier hs-type">globalNodeGroup_globalNodeGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="globalNodeGroup_globalNodeGroupId"><span class="annot"><span class="annottext">globalNodeGroup_globalNodeGroupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GlobalNodeGroup -&gt; f GlobalNodeGroup
+</span><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#globalNodeGroup_globalNodeGroupId"><span class="hs-identifier hs-var hs-var">globalNodeGroup_globalNodeGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GlobalNodeGroup -&gt; Maybe Text)
+-&gt; (GlobalNodeGroup -&gt; Maybe Text -&gt; GlobalNodeGroup)
+-&gt; Lens GlobalNodeGroup GlobalNodeGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-type">GlobalNodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400053"><span class="annot"><span class="annottext">Maybe Text
+globalNodeGroupId :: Maybe Text
+$sel:globalNodeGroupId:GlobalNodeGroup' :: GlobalNodeGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679400053"><span class="hs-identifier hs-var hs-var">globalNodeGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400053"><span class="hs-identifier hs-var">globalNodeGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400052"><span class="annot"><span class="annottext">s :: GlobalNodeGroup
+</span><a href="#local-6989586621679400052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-type">GlobalNodeGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400051"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GlobalNodeGroup
+</span><a href="#local-6989586621679400052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalNodeGroupId:GlobalNodeGroup' :: Maybe Text
+</span><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#%24sel%3AglobalNodeGroupId%3AGlobalNodeGroup%27"><span class="hs-identifier hs-var">globalNodeGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679400048"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String GlobalNodeGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679400046"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679400046"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; GlobalNodeGroup
 </span><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup%27"><span class="hs-identifier hs-var">GlobalNodeGroup'</span></a></span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; GlobalNodeGroup)
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; GlobalNodeGroup)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; GlobalNodeGroup)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679399525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;GlobalNodeGroupId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; GlobalNodeGroup)
--&gt; Either String (Maybe Text) -&gt; Either String GlobalNodeGroup
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679399525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679400046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Slots&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399519"><span id="local-6989586621679399521"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span></span></span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399516"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span></span><span>
-</span><span id="line-75"></span></pre></body></html>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; GlobalNodeGroup)
+-&gt; Either String (Maybe Text) -&gt; Either String GlobalNodeGroup
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679400046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlobalNodeGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400040"><span id="local-6989586621679400042"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span></span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400037"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.GlobalNodeGroup.html#GlobalNodeGroup"><span class="hs-identifier hs-type">GlobalNodeGroup</span></a></span></span><span>
+</span><span id="line-74"></span></pre></body></html>

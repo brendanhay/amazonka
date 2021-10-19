@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621681063441"><span id="local-6989586621681063442"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CopyTagsFromSource"><span class="annot"><a href="Network.AWS.EC2.Types.CopyTagsFromSource.html#CopyTagsFromSource"><span class="hs-identifier hs-var">CopyTagsFromSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyTagsFromSource%27"><span class="annot"><a href="Network.AWS.EC2.Types.CopyTagsFromSource.html#CopyTagsFromSource%27"><span class="hs-identifier hs-var">CopyTagsFromSource'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681097016"><span id="local-6989586621681097017"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CopyTagsFromSource"><span class="annot"><a href="Network.AWS.EC2.Types.CopyTagsFromSource.html#CopyTagsFromSource"><span class="hs-identifier hs-var">CopyTagsFromSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyTagsFromSource%27"><span class="annot"><a href="Network.AWS.EC2.Types.CopyTagsFromSource.html#CopyTagsFromSource%27"><span class="hs-identifier hs-var">CopyTagsFromSource'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCopyTagsFromSource"><span class="annot"><span class="annottext">CopyTagsFromSource -&gt; Text
 </span><a href="Network.AWS.EC2.Types.CopyTagsFromSource.html#fromCopyTagsFromSource"><span class="hs-identifier hs-var hs-var">fromCopyTagsFromSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681063433"><span id="local-6989586621681063435"><span id="local-6989586621681063437"><span class="annot"><span class="annottext">Int -&gt; CopyTagsFromSource -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681097008"><span id="local-6989586621681097010"><span id="local-6989586621681097012"><span class="annot"><span class="annottext">Int -&gt; CopyTagsFromSource -&gt; ShowS
 [CopyTagsFromSource] -&gt; ShowS
 CopyTagsFromSource -&gt; String
 (Int -&gt; CopyTagsFromSource -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CopyTagsFromSource -&gt; String
 showsPrec :: Int -&gt; CopyTagsFromSource -&gt; ShowS
 $cshowsPrec :: Int -&gt; CopyTagsFromSource -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621681063424"><span id="local-6989586621681063426"><span id="local-6989586621681063428"><span id="local-6989586621681063430"><span class="annot"><span class="annottext">ReadPrec [CopyTagsFromSource]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621681096999"><span id="local-6989586621681097001"><span id="local-6989586621681097003"><span id="local-6989586621681097005"><span class="annot"><span class="annottext">ReadPrec [CopyTagsFromSource]
 ReadPrec CopyTagsFromSource
 Int -&gt; ReadS CopyTagsFromSource
 ReadS [CopyTagsFromSource]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CopyTagsFromSource]
 readsPrec :: Int -&gt; ReadS CopyTagsFromSource
 $creadsPrec :: Int -&gt; ReadS CopyTagsFromSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681063419"><span id="local-6989586621681063421"><span class="annot"><span class="annottext">CopyTagsFromSource -&gt; CopyTagsFromSource -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681096994"><span id="local-6989586621681096996"><span class="annot"><span class="annottext">CopyTagsFromSource -&gt; CopyTagsFromSource -&gt; Bool
 (CopyTagsFromSource -&gt; CopyTagsFromSource -&gt; Bool)
 -&gt; (CopyTagsFromSource -&gt; CopyTagsFromSource -&gt; Bool)
 -&gt; Eq CopyTagsFromSource
@@ -82,7 +82,7 @@ $c/= :: CopyTagsFromSource -&gt; CopyTagsFromSource -&gt; Bool
 == :: CopyTagsFromSource -&gt; CopyTagsFromSource -&gt; Bool
 $c== :: CopyTagsFromSource -&gt; CopyTagsFromSource -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681063403"><span id="local-6989586621681063405"><span id="local-6989586621681063407"><span id="local-6989586621681063409"><span id="local-6989586621681063411"><span id="local-6989586621681063413"><span id="local-6989586621681063415"><span class="annot"><span class="annottext">Eq CopyTagsFromSource
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681096978"><span id="local-6989586621681096980"><span id="local-6989586621681096982"><span id="local-6989586621681096984"><span id="local-6989586621681096986"><span id="local-6989586621681096988"><span id="local-6989586621681096990"><span class="annot"><span class="annottext">Eq CopyTagsFromSource
 Eq CopyTagsFromSource
 -&gt; (CopyTagsFromSource -&gt; CopyTagsFromSource -&gt; Ordering)
 -&gt; (CopyTagsFromSource -&gt; CopyTagsFromSource -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. CopyTagsFromSource -&gt; Rep CopyTagsFromSource x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681063395"><span id="local-6989586621681063397"><span class="annot"><span class="annottext">Int -&gt; CopyTagsFromSource -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681096970"><span id="local-6989586621681096972"><span class="annot"><span class="annottext">Int -&gt; CopyTagsFromSource -&gt; Int
 CopyTagsFromSource -&gt; Int
 (Int -&gt; CopyTagsFromSource -&gt; Int)
 -&gt; (CopyTagsFromSource -&gt; Int) -&gt; Hashable CopyTagsFromSource
@@ -143,53 +143,53 @@ $chash :: CopyTagsFromSource -&gt; Int
 hashWithSalt :: Int -&gt; CopyTagsFromSource -&gt; Int
 $chashWithSalt :: Int -&gt; CopyTagsFromSource -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681063392"><span class="annot"><span class="annottext">CopyTagsFromSource -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681096967"><span class="annot"><span class="annottext">CopyTagsFromSource -&gt; ()
 (CopyTagsFromSource -&gt; ()) -&gt; NFData CopyTagsFromSource
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CopyTagsFromSource -&gt; ()
 $crnf :: CopyTagsFromSource -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681063389"><span class="annot"><span class="annottext">Text -&gt; Either String CopyTagsFromSource
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681096964"><span class="annot"><span class="annottext">Text -&gt; Either String CopyTagsFromSource
 (Text -&gt; Either String CopyTagsFromSource)
 -&gt; FromText CopyTagsFromSource
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CopyTagsFromSource
 $cfromText :: Text -&gt; Either String CopyTagsFromSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681063386"><span class="annot"><span class="annottext">CopyTagsFromSource -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681096961"><span class="annot"><span class="annottext">CopyTagsFromSource -&gt; Text
 (CopyTagsFromSource -&gt; Text) -&gt; ToText CopyTagsFromSource
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CopyTagsFromSource -&gt; Text
 $ctoText :: CopyTagsFromSource -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681063383"><span class="annot"><span class="annottext">CopyTagsFromSource -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681096958"><span class="annot"><span class="annottext">CopyTagsFromSource -&gt; ByteString
 (CopyTagsFromSource -&gt; ByteString)
 -&gt; ToByteString CopyTagsFromSource
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CopyTagsFromSource -&gt; ByteString
 $ctoBS :: CopyTagsFromSource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681063380"><span class="annot"><span class="annottext">CopyTagsFromSource -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681096955"><span class="annot"><span class="annottext">CopyTagsFromSource -&gt; ByteStringBuilder
 (CopyTagsFromSource -&gt; ByteStringBuilder)
 -&gt; ToLog CopyTagsFromSource
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CopyTagsFromSource -&gt; ByteStringBuilder
 $cbuild :: CopyTagsFromSource -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681063377"><span class="annot"><span class="annottext">HeaderName -&gt; CopyTagsFromSource -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681096952"><span class="annot"><span class="annottext">HeaderName -&gt; CopyTagsFromSource -&gt; [Header]
 (HeaderName -&gt; CopyTagsFromSource -&gt; [Header])
 -&gt; ToHeader CopyTagsFromSource
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CopyTagsFromSource -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CopyTagsFromSource -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681063374"><span class="annot"><span class="annottext">CopyTagsFromSource -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681096949"><span class="annot"><span class="annottext">CopyTagsFromSource -&gt; QueryString
 (CopyTagsFromSource -&gt; QueryString) -&gt; ToQuery CopyTagsFromSource
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CopyTagsFromSource -&gt; QueryString
 $ctoQuery :: CopyTagsFromSource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681063369"><span id="local-6989586621681063371"><span class="annot"><span class="annottext">Value -&gt; Parser [CopyTagsFromSource]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681096944"><span id="local-6989586621681096946"><span class="annot"><span class="annottext">Value -&gt; Parser [CopyTagsFromSource]
 Value -&gt; Parser CopyTagsFromSource
 (Value -&gt; Parser CopyTagsFromSource)
 -&gt; (Value -&gt; Parser [CopyTagsFromSource])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [CopyTagsFromSource]
 parseJSON :: Value -&gt; Parser CopyTagsFromSource
 $cparseJSON :: Value -&gt; Parser CopyTagsFromSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681063364"><span id="local-6989586621681063366"><span class="annot"><span class="annottext">FromJSONKeyFunction [CopyTagsFromSource]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681096939"><span id="local-6989586621681096941"><span class="annot"><span class="annottext">FromJSONKeyFunction [CopyTagsFromSource]
 FromJSONKeyFunction CopyTagsFromSource
 FromJSONKeyFunction CopyTagsFromSource
 -&gt; FromJSONKeyFunction [CopyTagsFromSource]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CopyTagsFromSource]
 fromJSONKey :: FromJSONKeyFunction CopyTagsFromSource
 $cfromJSONKey :: FromJSONKeyFunction CopyTagsFromSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681063355"><span id="local-6989586621681063357"><span id="local-6989586621681063359"><span id="local-6989586621681063361"><span class="annot"><span class="annottext">[CopyTagsFromSource] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681096930"><span id="local-6989586621681096932"><span id="local-6989586621681096934"><span id="local-6989586621681096936"><span class="annot"><span class="annottext">[CopyTagsFromSource] -&gt; Encoding
 [CopyTagsFromSource] -&gt; Value
 CopyTagsFromSource -&gt; Encoding
 CopyTagsFromSource -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: CopyTagsFromSource -&gt; Encoding
 toJSON :: CopyTagsFromSource -&gt; Value
 $ctoJSON :: CopyTagsFromSource -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681063350"><span id="local-6989586621681063352"><span class="annot"><span class="annottext">ToJSONKeyFunction [CopyTagsFromSource]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681096925"><span id="local-6989586621681096927"><span class="annot"><span class="annottext">ToJSONKeyFunction [CopyTagsFromSource]
 ToJSONKeyFunction CopyTagsFromSource
 ToJSONKeyFunction CopyTagsFromSource
 -&gt; ToJSONKeyFunction [CopyTagsFromSource]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CopyTagsFromSource]
 toJSONKey :: ToJSONKeyFunction CopyTagsFromSource
 $ctoJSONKey :: ToJSONKeyFunction CopyTagsFromSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681063347"><span class="annot"><span class="annottext">[Node] -&gt; Either String CopyTagsFromSource
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681096922"><span class="annot"><span class="annottext">[Node] -&gt; Either String CopyTagsFromSource
 ([Node] -&gt; Either String CopyTagsFromSource)
 -&gt; FromXML CopyTagsFromSource
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CopyTagsFromSource
 $cparseXML :: [Node] -&gt; Either String CopyTagsFromSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681063344"><span class="annot"><span class="annottext">CopyTagsFromSource -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681096919"><span class="annot"><span class="annottext">CopyTagsFromSource -&gt; XML
 (CopyTagsFromSource -&gt; XML) -&gt; ToXML CopyTagsFromSource
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CopyTagsFromSource -&gt; XML

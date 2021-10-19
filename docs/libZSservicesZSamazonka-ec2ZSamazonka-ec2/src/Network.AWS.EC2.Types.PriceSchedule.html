@@ -28,32 +28,32 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the price for a Reserved Instance.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newPriceSchedule' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681103880"><span id="local-6989586621681103881"></span></span><span class="hs-keyword">data</span><span> </span><span id="PriceSchedule"><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-var">PriceSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PriceSchedule%27"><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-var">PriceSchedule'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681138588"><span id="local-6989586621681138589"></span></span><span class="hs-keyword">data</span><span> </span><span id="PriceSchedule"><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-var">PriceSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PriceSchedule%27"><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-var">PriceSchedule'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The currency for transacting the Reserved Instance resale. At this time,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the only supported currency is @USD@.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AcurrencyCode%3APriceSchedule%27"><span class="annot"><span class="annottext">PriceSchedule -&gt; Maybe CurrencyCodeValues
 </span><a href="Network.AWS.EC2.Types.PriceSchedule.html#%24sel%3AcurrencyCode%3APriceSchedule%27"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CurrencyCodeValues.html#CurrencyCodeValues"><span class="hs-identifier hs-type">CurrencyCodeValues</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The current price schedule, as determined by the term remaining for the</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Reserved Instance in the listing.</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- A specific price schedule is always in effect, but only one price</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- schedule can be active at any time. Take, for example, a Reserved</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Instance listing that has five months remaining in its term. When you</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- specify price schedules for five months and two months, this means that</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- schedule 1, covering the first three months of the remaining term, will</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- be active during months 5, 4, and 3. Then schedule 2, covering the last</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- two months of the term, will be active for months 2 and 1.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aactive%3APriceSchedule%27"><span class="annot"><span class="annottext">PriceSchedule -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.Types.PriceSchedule.html#%24sel%3Aactive%3APriceSchedule%27"><span class="hs-identifier hs-var hs-var">active</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The number of months remaining in the reservation. For example, 2 is the</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- second to the last month before the capacity reservation expires.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aterm%3APriceSchedule%27"><span class="annot"><span class="annottext">PriceSchedule -&gt; Maybe Integer
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The number of months remaining in the reservation. For example, 2 is the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- second to the last month before the capacity reservation expires.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aterm%3APriceSchedule%27"><span class="annot"><span class="annottext">PriceSchedule -&gt; Maybe Integer
 </span><a href="Network.AWS.EC2.Types.PriceSchedule.html#%24sel%3Aterm%3APriceSchedule%27"><span class="hs-identifier hs-var hs-var">term</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The current price schedule, as determined by the term remaining for the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Reserved Instance in the listing.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- A specific price schedule is always in effect, but only one price</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- schedule can be active at any time. Take, for example, a Reserved</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Instance listing that has five months remaining in its term. When you</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- specify price schedules for five months and two months, this means that</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- schedule 1, covering the first three months of the remaining term, will</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- be active during months 5, 4, and 3. Then schedule 2, covering the last</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- two months of the term, will be active for months 2 and 1.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aactive%3APriceSchedule%27"><span class="annot"><span class="annottext">PriceSchedule -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.Types.PriceSchedule.html#%24sel%3Aactive%3APriceSchedule%27"><span class="hs-identifier hs-var hs-var">active</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The fixed price for the term.</span><span>
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3Aprice%3APriceSchedule%27"><span class="annot"><span class="annottext">PriceSchedule -&gt; Maybe Double
 </span><a href="Network.AWS.EC2.Types.PriceSchedule.html#%24sel%3Aprice%3APriceSchedule%27"><span class="hs-identifier hs-var hs-var">price</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681103871"><span id="local-6989586621681103873"><span class="annot"><span class="annottext">PriceSchedule -&gt; PriceSchedule -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681138579"><span id="local-6989586621681138581"><span class="annot"><span class="annottext">PriceSchedule -&gt; PriceSchedule -&gt; Bool
 (PriceSchedule -&gt; PriceSchedule -&gt; Bool)
 -&gt; (PriceSchedule -&gt; PriceSchedule -&gt; Bool) -&gt; Eq PriceSchedule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PriceSchedule -&gt; PriceSchedule -&gt; Bool
 == :: PriceSchedule -&gt; PriceSchedule -&gt; Bool
 $c== :: PriceSchedule -&gt; PriceSchedule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681103862"><span id="local-6989586621681103864"><span id="local-6989586621681103866"><span id="local-6989586621681103868"><span class="annot"><span class="annottext">ReadPrec [PriceSchedule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681138570"><span id="local-6989586621681138572"><span id="local-6989586621681138574"><span id="local-6989586621681138576"><span class="annot"><span class="annottext">ReadPrec [PriceSchedule]
 ReadPrec PriceSchedule
 Int -&gt; ReadS PriceSchedule
 ReadS [PriceSchedule]
@@ -81,7 +81,7 @@ readList :: ReadS [PriceSchedule]
 $creadList :: ReadS [PriceSchedule]
 readsPrec :: Int -&gt; ReadS PriceSchedule
 $creadsPrec :: Int -&gt; ReadS PriceSchedule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681103855"><span id="local-6989586621681103857"><span id="local-6989586621681103859"><span class="annot"><span class="annottext">Int -&gt; PriceSchedule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681138563"><span id="local-6989586621681138565"><span id="local-6989586621681138567"><span class="annot"><span class="annottext">Int -&gt; PriceSchedule -&gt; ShowS
 [PriceSchedule] -&gt; ShowS
 PriceSchedule -&gt; String
 (Int -&gt; PriceSchedule -&gt; ShowS)
@@ -118,19 +118,19 @@ $cfrom :: forall x. PriceSchedule -&gt; Rep PriceSchedule x
 </span><span id="line-62"></span><span class="hs-comment">-- 'currencyCode', 'priceSchedule_currencyCode' - The currency for transacting the Reserved Instance resale. At this time,</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- the only supported currency is @USD@.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'active', 'priceSchedule_active' - The current price schedule, as determined by the term remaining for the</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- Reserved Instance in the listing.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'term', 'priceSchedule_term' - The number of months remaining in the reservation. For example, 2 is the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- second to the last month before the capacity reservation expires.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- A specific price schedule is always in effect, but only one price</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- schedule can be active at any time. Take, for example, a Reserved</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- Instance listing that has five months remaining in its term. When you</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- specify price schedules for five months and two months, this means that</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- schedule 1, covering the first three months of the remaining term, will</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- be active during months 5, 4, and 3. Then schedule 2, covering the last</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- two months of the term, will be active for months 2 and 1.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'term', 'priceSchedule_term' - The number of months remaining in the reservation. For example, 2 is the</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- second to the last month before the capacity reservation expires.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'active', 'priceSchedule_active' - The current price schedule, as determined by the term remaining for the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Reserved Instance in the listing.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- A specific price schedule is always in effect, but only one price</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- schedule can be active at any time. Take, for example, a Reserved</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Instance listing that has five months remaining in its term. When you</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- specify price schedules for five months and two months, this means that</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- schedule 1, covering the first three months of the remaining term, will</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- be active during months 5, 4, and 3. Then schedule 2, covering the last</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- two months of the term, will be active for months 2 and 1.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- 'price', 'priceSchedule_price' - The fixed price for the term.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#newPriceSchedule"><span class="hs-identifier hs-type">newPriceSchedule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -138,18 +138,18 @@ $cfrom :: forall x. PriceSchedule -&gt; Rep PriceSchedule x
 </span><span id="line-82"></span><span id="newPriceSchedule"><span class="annot"><span class="annottext">newPriceSchedule :: PriceSchedule
 </span><a href="Network.AWS.EC2.Types.PriceSchedule.html#newPriceSchedule"><span class="hs-identifier hs-var hs-var">newPriceSchedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">PriceSchedule' :: Maybe CurrencyCodeValues
--&gt; Maybe Bool -&gt; Maybe Integer -&gt; Maybe Double -&gt; PriceSchedule
+-&gt; Maybe Integer -&gt; Maybe Bool -&gt; Maybe Double -&gt; PriceSchedule
 </span><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-type">PriceSchedule'</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:currencyCode:PriceSchedule' :: Maybe CurrencyCodeValues
 </span><a href="Network.AWS.EC2.Types.PriceSchedule.html#%24sel%3AcurrencyCode%3APriceSchedule%27"><span class="hs-identifier hs-var">currencyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:active:PriceSchedule' :: Maybe Bool
-</span><a href="Network.AWS.EC2.Types.PriceSchedule.html#%24sel%3Aactive%3APriceSchedule%27"><span class="hs-identifier hs-var">active</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:term:PriceSchedule' :: Maybe Integer
+</span><a href="Network.AWS.EC2.Types.PriceSchedule.html#%24sel%3Aterm%3APriceSchedule%27"><span class="hs-identifier hs-var">term</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:term:PriceSchedule' :: Maybe Integer
-</span><a href="Network.AWS.EC2.Types.PriceSchedule.html#%24sel%3Aterm%3APriceSchedule%27"><span class="hs-identifier hs-var">term</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:active:PriceSchedule' :: Maybe Bool
+</span><a href="Network.AWS.EC2.Types.PriceSchedule.html#%24sel%3Aactive%3APriceSchedule%27"><span class="hs-identifier hs-var">active</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:price:PriceSchedule' :: Maybe Double
@@ -171,63 +171,63 @@ forall a. Maybe a
      (Maybe CurrencyCodeValues)
      (Maybe CurrencyCodeValues)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-type">PriceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681103846"><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-type">PriceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681138554"><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
 currencyCode :: Maybe CurrencyCodeValues
 $sel:currencyCode:PriceSchedule' :: PriceSchedule -&gt; Maybe CurrencyCodeValues
-</span><a href="#local-6989586621681103846"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
-</span><a href="#local-6989586621681103846"><span class="hs-identifier hs-var">currencyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681103845"><span class="annot"><span class="annottext">s :: PriceSchedule
-</span><a href="#local-6989586621681103845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-type">PriceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681103844"><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
-</span><a href="#local-6989586621681103844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PriceSchedule
-</span><a href="#local-6989586621681103845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currencyCode:PriceSchedule' :: Maybe CurrencyCodeValues
+</span><a href="#local-6989586621681138554"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
+</span><a href="#local-6989586621681138554"><span class="hs-identifier hs-var">currencyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681138553"><span class="annot"><span class="annottext">s :: PriceSchedule
+</span><a href="#local-6989586621681138553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-type">PriceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681138552"><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
+</span><a href="#local-6989586621681138552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PriceSchedule
+</span><a href="#local-6989586621681138553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currencyCode:PriceSchedule' :: Maybe CurrencyCodeValues
 </span><a href="Network.AWS.EC2.Types.PriceSchedule.html#%24sel%3AcurrencyCode%3APriceSchedule%27"><span class="hs-identifier hs-var">currencyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
-</span><a href="#local-6989586621681103844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-type">PriceSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681138552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-type">PriceSchedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | The current price schedule, as determined by the term remaining for the</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- Reserved Instance in the listing.</span><span>
-</span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- A specific price schedule is always in effect, but only one price</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- schedule can be active at any time. Take, for example, a Reserved</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- Instance listing that has five months remaining in its term. When you</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- specify price schedules for five months and two months, this means that</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- schedule 1, covering the first three months of the remaining term, will</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- be active during months 5, 4, and 3. Then schedule 2, covering the last</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- two months of the term, will be active for months 2 and 1.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#priceSchedule_active"><span class="hs-identifier hs-type">priceSchedule_active</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-type">PriceSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="priceSchedule_active"><span class="annot"><span class="annottext">priceSchedule_active :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; PriceSchedule -&gt; f PriceSchedule
-</span><a href="Network.AWS.EC2.Types.PriceSchedule.html#priceSchedule_active"><span class="hs-identifier hs-var hs-var">priceSchedule_active</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PriceSchedule -&gt; Maybe Bool)
--&gt; (PriceSchedule -&gt; Maybe Bool -&gt; PriceSchedule)
--&gt; Lens PriceSchedule PriceSchedule (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-type">PriceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681103842"><span class="annot"><span class="annottext">Maybe Bool
-active :: Maybe Bool
-$sel:active:PriceSchedule' :: PriceSchedule -&gt; Maybe Bool
-</span><a href="#local-6989586621681103842"><span class="hs-identifier hs-var hs-var">active</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681103842"><span class="hs-identifier hs-var">active</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681103841"><span class="annot"><span class="annottext">s :: PriceSchedule
-</span><a href="#local-6989586621681103841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-type">PriceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681103840"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681103840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PriceSchedule
-</span><a href="#local-6989586621681103841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:active:PriceSchedule' :: Maybe Bool
-</span><a href="Network.AWS.EC2.Types.PriceSchedule.html#%24sel%3Aactive%3APriceSchedule%27"><span class="hs-identifier hs-var">active</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681103840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-type">PriceSchedule</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The number of months remaining in the reservation. For example, 2 is the</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- second to the last month before the capacity reservation expires.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#priceSchedule_term"><span class="hs-identifier hs-type">priceSchedule_term</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-type">PriceSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="priceSchedule_term"><span class="annot"><span class="annottext">priceSchedule_term :: (Maybe Integer -&gt; f (Maybe Integer))
+</span><span id="line-95"></span><span class="hs-comment">-- | The number of months remaining in the reservation. For example, 2 is the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- second to the last month before the capacity reservation expires.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#priceSchedule_term"><span class="hs-identifier hs-type">priceSchedule_term</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-type">PriceSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="priceSchedule_term"><span class="annot"><span class="annottext">priceSchedule_term :: (Maybe Integer -&gt; f (Maybe Integer))
 -&gt; PriceSchedule -&gt; f PriceSchedule
 </span><a href="Network.AWS.EC2.Types.PriceSchedule.html#priceSchedule_term"><span class="hs-identifier hs-var hs-var">priceSchedule_term</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PriceSchedule -&gt; Maybe Integer)
 -&gt; (PriceSchedule -&gt; Maybe Integer -&gt; PriceSchedule)
 -&gt; Lens PriceSchedule PriceSchedule (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-type">PriceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681103838"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-type">PriceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681138550"><span class="annot"><span class="annottext">Maybe Integer
 term :: Maybe Integer
 $sel:term:PriceSchedule' :: PriceSchedule -&gt; Maybe Integer
-</span><a href="#local-6989586621681103838"><span class="hs-identifier hs-var hs-var">term</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681103838"><span class="hs-identifier hs-var">term</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681103837"><span class="annot"><span class="annottext">s :: PriceSchedule
-</span><a href="#local-6989586621681103837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-type">PriceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681103836"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681103836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PriceSchedule
-</span><a href="#local-6989586621681103837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:term:PriceSchedule' :: Maybe Integer
+</span><a href="#local-6989586621681138550"><span class="hs-identifier hs-var hs-var">term</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681138550"><span class="hs-identifier hs-var">term</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681138549"><span class="annot"><span class="annottext">s :: PriceSchedule
+</span><a href="#local-6989586621681138549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-type">PriceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681138548"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681138548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PriceSchedule
+</span><a href="#local-6989586621681138549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:term:PriceSchedule' :: Maybe Integer
 </span><a href="Network.AWS.EC2.Types.PriceSchedule.html#%24sel%3Aterm%3APriceSchedule%27"><span class="hs-identifier hs-var">term</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681103836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-type">PriceSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681138548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-type">PriceSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The current price schedule, as determined by the term remaining for the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Reserved Instance in the listing.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- A specific price schedule is always in effect, but only one price</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- schedule can be active at any time. Take, for example, a Reserved</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Instance listing that has five months remaining in its term. When you</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- specify price schedules for five months and two months, this means that</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- schedule 1, covering the first three months of the remaining term, will</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- be active during months 5, 4, and 3. Then schedule 2, covering the last</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- two months of the term, will be active for months 2 and 1.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#priceSchedule_active"><span class="hs-identifier hs-type">priceSchedule_active</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-type">PriceSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="priceSchedule_active"><span class="annot"><span class="annottext">priceSchedule_active :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; PriceSchedule -&gt; f PriceSchedule
+</span><a href="Network.AWS.EC2.Types.PriceSchedule.html#priceSchedule_active"><span class="hs-identifier hs-var hs-var">priceSchedule_active</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PriceSchedule -&gt; Maybe Bool)
+-&gt; (PriceSchedule -&gt; Maybe Bool -&gt; PriceSchedule)
+-&gt; Lens PriceSchedule PriceSchedule (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-type">PriceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681138546"><span class="annot"><span class="annottext">Maybe Bool
+active :: Maybe Bool
+$sel:active:PriceSchedule' :: PriceSchedule -&gt; Maybe Bool
+</span><a href="#local-6989586621681138546"><span class="hs-identifier hs-var hs-var">active</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681138546"><span class="hs-identifier hs-var">active</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681138545"><span class="annot"><span class="annottext">s :: PriceSchedule
+</span><a href="#local-6989586621681138545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-type">PriceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681138544"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681138544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PriceSchedule
+</span><a href="#local-6989586621681138545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:active:PriceSchedule' :: Maybe Bool
+</span><a href="Network.AWS.EC2.Types.PriceSchedule.html#%24sel%3Aactive%3APriceSchedule%27"><span class="hs-identifier hs-var">active</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681138544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-type">PriceSchedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The fixed price for the term.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#priceSchedule_price"><span class="hs-identifier hs-type">priceSchedule_price</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-type">PriceSchedule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
@@ -237,66 +237,66 @@ $sel:term:PriceSchedule' :: PriceSchedule -&gt; Maybe Integer
 -&gt; (PriceSchedule -&gt; Maybe Double -&gt; PriceSchedule)
 -&gt; Lens PriceSchedule PriceSchedule (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-type">PriceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681103834"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-type">PriceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681138542"><span class="annot"><span class="annottext">Maybe Double
 price :: Maybe Double
 $sel:price:PriceSchedule' :: PriceSchedule -&gt; Maybe Double
-</span><a href="#local-6989586621681103834"><span class="hs-identifier hs-var hs-var">price</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621681103834"><span class="hs-identifier hs-var">price</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681103833"><span class="annot"><span class="annottext">s :: PriceSchedule
-</span><a href="#local-6989586621681103833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-type">PriceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681103832"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621681103832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PriceSchedule
-</span><a href="#local-6989586621681103833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:price:PriceSchedule' :: Maybe Double
+</span><a href="#local-6989586621681138542"><span class="hs-identifier hs-var hs-var">price</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621681138542"><span class="hs-identifier hs-var">price</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681138541"><span class="annot"><span class="annottext">s :: PriceSchedule
+</span><a href="#local-6989586621681138541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-type">PriceSchedule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681138540"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621681138540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PriceSchedule
+</span><a href="#local-6989586621681138541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:price:PriceSchedule' :: Maybe Double
 </span><a href="Network.AWS.EC2.Types.PriceSchedule.html#%24sel%3Aprice%3APriceSchedule%27"><span class="hs-identifier hs-var">price</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621681103832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-type">PriceSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681138540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-type">PriceSchedule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-type">PriceSchedule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621681103829"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PriceSchedule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681103827"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681103827"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621681138537"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PriceSchedule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681138535"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681138535"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
--&gt; Maybe Bool -&gt; Maybe Integer -&gt; Maybe Double -&gt; PriceSchedule
+-&gt; Maybe Integer -&gt; Maybe Bool -&gt; Maybe Double -&gt; PriceSchedule
 </span><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule%27"><span class="hs-identifier hs-var">PriceSchedule'</span></a></span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">(Maybe CurrencyCodeValues
- -&gt; Maybe Bool -&gt; Maybe Integer -&gt; Maybe Double -&gt; PriceSchedule)
+ -&gt; Maybe Integer -&gt; Maybe Bool -&gt; Maybe Double -&gt; PriceSchedule)
 -&gt; Either String (Maybe CurrencyCodeValues)
 -&gt; Either
      String
-     (Maybe Bool -&gt; Maybe Integer -&gt; Maybe Double -&gt; PriceSchedule)
+     (Maybe Integer -&gt; Maybe Bool -&gt; Maybe Double -&gt; PriceSchedule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681103827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CurrencyCodeValues)
+</span><a href="#local-6989586621681138535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CurrencyCodeValues)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;currencyCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Bool -&gt; Maybe Integer -&gt; Maybe Double -&gt; PriceSchedule)
--&gt; Either String (Maybe Bool)
--&gt; Either String (Maybe Integer -&gt; Maybe Double -&gt; PriceSchedule)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681103827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;active&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Integer -&gt; Maybe Double -&gt; PriceSchedule)
+  (Maybe Integer -&gt; Maybe Bool -&gt; Maybe Double -&gt; PriceSchedule)
 -&gt; Either String (Maybe Integer)
--&gt; Either String (Maybe Double -&gt; PriceSchedule)
+-&gt; Either String (Maybe Bool -&gt; Maybe Double -&gt; PriceSchedule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681103827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621681138535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;term&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; Maybe Double -&gt; PriceSchedule)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Maybe Double -&gt; PriceSchedule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681138535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;active&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Double -&gt; PriceSchedule)
 -&gt; Either String (Maybe Double) -&gt; Either String PriceSchedule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681103827"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621681138535"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;price&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681103821"><span id="local-6989586621681103823"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-type">PriceSchedule</span></a></span></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681138529"><span id="local-6989586621681138531"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-type">PriceSchedule</span></a></span></span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681103818"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-type">PriceSchedule</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681138526"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PriceSchedule.html#PriceSchedule"><span class="hs-identifier hs-type">PriceSchedule</span></a></span></span><span>
 </span><span id="line-128"></span></pre></body></html>

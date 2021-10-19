@@ -27,36 +27,36 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Includes information about the specified association execution.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAssociationExecutionTarget' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679804196"><span id="local-6989586621679804197"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociationExecutionTarget"><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-var">AssociationExecutionTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationExecutionTarget%27"><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-var">AssociationExecutionTarget'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource ID, for example, the instance ID where the association ran.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AresourceId%3AAssociationExecutionTarget%27"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AresourceId%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The association execution status.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3AAssociationExecutionTarget%27"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3Astatus%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Detailed information about the execution status.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AdetailedStatus%3AAssociationExecutionTarget%27"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AdetailedStatus%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var hs-var">detailedStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The date of the last execution.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlastExecutionDate%3AAssociationExecutionTarget%27"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; Maybe POSIX
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AlastExecutionDate%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var hs-var">lastExecutionDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The resource type, for example, instance.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AresourceType%3AAssociationExecutionTarget%27"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AresourceType%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The location where the association details are saved.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AoutputSource%3AAssociationExecutionTarget%27"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; Maybe OutputSource
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AoutputSource%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var hs-var">outputSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OutputSource.html#OutputSource"><span class="hs-identifier hs-type">OutputSource</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The execution ID.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AexecutionId%3AAssociationExecutionTarget%27"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AexecutionId%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var hs-var">executionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The association ID.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AassociationId%3AAssociationExecutionTarget%27"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679805866"><span id="local-6989586621679805867"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociationExecutionTarget"><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-var">AssociationExecutionTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationExecutionTarget%27"><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-var">AssociationExecutionTarget'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The association ID.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AassociationId%3AAssociationExecutionTarget%27"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AassociationId%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Detailed information about the execution status.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdetailedStatus%3AAssociationExecutionTarget%27"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AdetailedStatus%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var hs-var">detailedStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The association execution status.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3AAssociationExecutionTarget%27"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3Astatus%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The execution ID.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AexecutionId%3AAssociationExecutionTarget%27"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AexecutionId%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var hs-var">executionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The resource ID, for example, the instance ID where the association ran.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AresourceId%3AAssociationExecutionTarget%27"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AresourceId%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The resource type, for example, instance.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AresourceType%3AAssociationExecutionTarget%27"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AresourceType%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The location where the association details are saved.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AoutputSource%3AAssociationExecutionTarget%27"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; Maybe OutputSource
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AoutputSource%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var hs-var">outputSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OutputSource.html#OutputSource"><span class="hs-identifier hs-type">OutputSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The date of the last execution.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AlastExecutionDate%3AAssociationExecutionTarget%27"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; Maybe POSIX
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AlastExecutionDate%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var hs-var">lastExecutionDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The association version.</span><span>
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AassociationVersion%3AAssociationExecutionTarget%27"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AassociationVersion%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var hs-var">associationVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679804182"><span id="local-6989586621679804184"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; AssociationExecutionTarget -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679805852"><span id="local-6989586621679805854"><span class="annot"><span class="annottext">AssociationExecutionTarget -&gt; AssociationExecutionTarget -&gt; Bool
 (AssociationExecutionTarget -&gt; AssociationExecutionTarget -&gt; Bool)
 -&gt; (AssociationExecutionTarget
     -&gt; AssociationExecutionTarget -&gt; Bool)
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociationExecutionTarget -&gt; AssociationExecutionTarget -&gt; Bool
 == :: AssociationExecutionTarget -&gt; AssociationExecutionTarget -&gt; Bool
 $c== :: AssociationExecutionTarget -&gt; AssociationExecutionTarget -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804173"><span id="local-6989586621679804175"><span id="local-6989586621679804177"><span id="local-6989586621679804179"><span class="annot"><span class="annottext">ReadPrec [AssociationExecutionTarget]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805843"><span id="local-6989586621679805845"><span id="local-6989586621679805847"><span id="local-6989586621679805849"><span class="annot"><span class="annottext">ReadPrec [AssociationExecutionTarget]
 ReadPrec AssociationExecutionTarget
 Int -&gt; ReadS AssociationExecutionTarget
 ReadS [AssociationExecutionTarget]
@@ -86,7 +86,7 @@ readList :: ReadS [AssociationExecutionTarget]
 $creadList :: ReadS [AssociationExecutionTarget]
 readsPrec :: Int -&gt; ReadS AssociationExecutionTarget
 $creadsPrec :: Int -&gt; ReadS AssociationExecutionTarget
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679804166"><span id="local-6989586621679804168"><span id="local-6989586621679804170"><span class="annot"><span class="annottext">Int -&gt; AssociationExecutionTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805836"><span id="local-6989586621679805838"><span id="local-6989586621679805840"><span class="annot"><span class="annottext">Int -&gt; AssociationExecutionTarget -&gt; ShowS
 [AssociationExecutionTarget] -&gt; ShowS
 AssociationExecutionTarget -&gt; String
 (Int -&gt; AssociationExecutionTarget -&gt; ShowS)
@@ -126,21 +126,21 @@ AssociationExecutionTarget -&gt; Rep AssociationExecutionTarget x
 </span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'resourceId', 'associationExecutionTarget_resourceId' - The resource ID, for example, the instance ID where the association ran.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'associationId', 'associationExecutionTarget_associationId' - The association ID.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'status', 'associationExecutionTarget_status' - The association execution status.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'detailedStatus', 'associationExecutionTarget_detailedStatus' - Detailed information about the execution status.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'detailedStatus', 'associationExecutionTarget_detailedStatus' - Detailed information about the execution status.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'status', 'associationExecutionTarget_status' - The association execution status.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'lastExecutionDate', 'associationExecutionTarget_lastExecutionDate' - The date of the last execution.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'executionId', 'associationExecutionTarget_executionId' - The execution ID.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'resourceType', 'associationExecutionTarget_resourceType' - The resource type, for example, instance.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'resourceId', 'associationExecutionTarget_resourceId' - The resource ID, for example, the instance ID where the association ran.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'outputSource', 'associationExecutionTarget_outputSource' - The location where the association details are saved.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'resourceType', 'associationExecutionTarget_resourceType' - The resource type, for example, instance.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'executionId', 'associationExecutionTarget_executionId' - The execution ID.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'outputSource', 'associationExecutionTarget_outputSource' - The location where the association details are saved.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'associationId', 'associationExecutionTarget_associationId' - The association ID.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'lastExecutionDate', 'associationExecutionTarget_lastExecutionDate' - The date of the last execution.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- 'associationVersion', 'associationExecutionTarget_associationVersion' - The association version.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#newAssociationExecutionTarget"><span class="hs-identifier hs-type">newAssociationExecutionTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -150,45 +150,45 @@ AssociationExecutionTarget -&gt; Rep AssociationExecutionTarget x
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">AssociationExecutionTarget' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe OutputSource
--&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; AssociationExecutionTarget
 </span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceId:AssociationExecutionTarget' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AresourceId%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:associationId:AssociationExecutionTarget' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AassociationId%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:AssociationExecutionTarget' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3Astatus%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:detailedStatus:AssociationExecutionTarget' :: Maybe Text
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:detailedStatus:AssociationExecutionTarget' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AdetailedStatus%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">detailedStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastExecutionDate:AssociationExecutionTarget' :: Maybe POSIX
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AlastExecutionDate%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">lastExecutionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:AssociationExecutionTarget' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3Astatus%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:AssociationExecutionTarget' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AresourceType%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputSource:AssociationExecutionTarget' :: Maybe OutputSource
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AoutputSource%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">outputSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputSource
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:executionId:AssociationExecutionTarget' :: Maybe Text
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:executionId:AssociationExecutionTarget' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AexecutionId%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">executionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:associationId:AssociationExecutionTarget' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AassociationId%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceId:AssociationExecutionTarget' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AresourceId%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:AssociationExecutionTarget' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AresourceType%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputSource:AssociationExecutionTarget' :: Maybe OutputSource
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AoutputSource%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">outputSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputSource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastExecutionDate:AssociationExecutionTarget' :: Maybe POSIX
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AlastExecutionDate%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">lastExecutionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:associationVersion:AssociationExecutionTarget' :: Maybe Text
@@ -197,11 +197,11 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The resource ID, for example, the instance ID where the association ran.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_resourceId"><span class="hs-identifier hs-type">associationExecutionTarget_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="associationExecutionTarget_resourceId"><span class="annot"><span class="annottext">associationExecutionTarget_resourceId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-93"></span><span class="hs-comment">-- | The association ID.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_associationId"><span class="hs-identifier hs-type">associationExecutionTarget_associationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="associationExecutionTarget_associationId"><span class="annot"><span class="annottext">associationExecutionTarget_associationId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AssociationExecutionTarget -&gt; f AssociationExecutionTarget
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_resourceId"><span class="hs-identifier hs-var hs-var">associationExecutionTarget_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationExecutionTarget -&gt; Maybe Text)
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_associationId"><span class="hs-identifier hs-var hs-var">associationExecutionTarget_associationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationExecutionTarget -&gt; Maybe Text)
 -&gt; (AssociationExecutionTarget
     -&gt; Maybe Text -&gt; AssociationExecutionTarget)
 -&gt; Lens
@@ -210,44 +210,20 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804157"><span class="annot"><span class="annottext">Maybe Text
-resourceId :: Maybe Text
-$sel:resourceId:AssociationExecutionTarget' :: AssociationExecutionTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679804157"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804157"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804156"><span class="annot"><span class="annottext">s :: AssociationExecutionTarget
-</span><a href="#local-6989586621679804156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804155"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTarget
-</span><a href="#local-6989586621679804156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:AssociationExecutionTarget' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AresourceId%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805827"><span class="annot"><span class="annottext">Maybe Text
+associationId :: Maybe Text
+$sel:associationId:AssociationExecutionTarget' :: AssociationExecutionTarget -&gt; Maybe Text
+</span><a href="#local-6989586621679805827"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805827"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805826"><span class="annot"><span class="annottext">s :: AssociationExecutionTarget
+</span><a href="#local-6989586621679805826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805825"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTarget
+</span><a href="#local-6989586621679805826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationId:AssociationExecutionTarget' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AassociationId%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The association execution status.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_status"><span class="hs-identifier hs-type">associationExecutionTarget_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="associationExecutionTarget_status"><span class="annot"><span class="annottext">associationExecutionTarget_status :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AssociationExecutionTarget -&gt; f AssociationExecutionTarget
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_status"><span class="hs-identifier hs-var hs-var">associationExecutionTarget_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationExecutionTarget -&gt; Maybe Text)
--&gt; (AssociationExecutionTarget
-    -&gt; Maybe Text -&gt; AssociationExecutionTarget)
--&gt; Lens
-     AssociationExecutionTarget
-     AssociationExecutionTarget
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804153"><span class="annot"><span class="annottext">Maybe Text
-status :: Maybe Text
-$sel:status:AssociationExecutionTarget' :: AssociationExecutionTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679804153"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804153"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804152"><span class="annot"><span class="annottext">s :: AssociationExecutionTarget
-</span><a href="#local-6989586621679804152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804151"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTarget
-</span><a href="#local-6989586621679804152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AssociationExecutionTarget' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3Astatus%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | Detailed information about the execution status.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_detailedStatus"><span class="hs-identifier hs-type">associationExecutionTarget_detailedStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="associationExecutionTarget_detailedStatus"><span class="annot"><span class="annottext">associationExecutionTarget_detailedStatus :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-97"></span><span class="hs-comment">-- | Detailed information about the execution status.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_detailedStatus"><span class="hs-identifier hs-type">associationExecutionTarget_detailedStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="associationExecutionTarget_detailedStatus"><span class="annot"><span class="annottext">associationExecutionTarget_detailedStatus :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AssociationExecutionTarget -&gt; f AssociationExecutionTarget
 </span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_detailedStatus"><span class="hs-identifier hs-var hs-var">associationExecutionTarget_detailedStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationExecutionTarget -&gt; Maybe Text)
 -&gt; (AssociationExecutionTarget
@@ -258,20 +234,140 @@ $sel:status:AssociationExecutionTarget' :: AssociationExecutionTarget -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804149"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805823"><span class="annot"><span class="annottext">Maybe Text
 detailedStatus :: Maybe Text
 $sel:detailedStatus:AssociationExecutionTarget' :: AssociationExecutionTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679804149"><span class="hs-identifier hs-var hs-var">detailedStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804149"><span class="hs-identifier hs-var">detailedStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804148"><span class="annot"><span class="annottext">s :: AssociationExecutionTarget
-</span><a href="#local-6989586621679804148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804147"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTarget
-</span><a href="#local-6989586621679804148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detailedStatus:AssociationExecutionTarget' :: Maybe Text
+</span><a href="#local-6989586621679805823"><span class="hs-identifier hs-var hs-var">detailedStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805823"><span class="hs-identifier hs-var">detailedStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805822"><span class="annot"><span class="annottext">s :: AssociationExecutionTarget
+</span><a href="#local-6989586621679805822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805821"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTarget
+</span><a href="#local-6989586621679805822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detailedStatus:AssociationExecutionTarget' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AdetailedStatus%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">detailedStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679805821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The association execution status.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_status"><span class="hs-identifier hs-type">associationExecutionTarget_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="associationExecutionTarget_status"><span class="annot"><span class="annottext">associationExecutionTarget_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociationExecutionTarget -&gt; f AssociationExecutionTarget
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_status"><span class="hs-identifier hs-var hs-var">associationExecutionTarget_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationExecutionTarget -&gt; Maybe Text)
+-&gt; (AssociationExecutionTarget
+    -&gt; Maybe Text -&gt; AssociationExecutionTarget)
+-&gt; Lens
+     AssociationExecutionTarget
+     AssociationExecutionTarget
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805819"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:AssociationExecutionTarget' :: AssociationExecutionTarget -&gt; Maybe Text
+</span><a href="#local-6989586621679805819"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805819"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805818"><span class="annot"><span class="annottext">s :: AssociationExecutionTarget
+</span><a href="#local-6989586621679805818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805817"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTarget
+</span><a href="#local-6989586621679805818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AssociationExecutionTarget' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3Astatus%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The date of the last execution.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_lastExecutionDate"><span class="hs-identifier hs-type">associationExecutionTarget_lastExecutionDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="associationExecutionTarget_lastExecutionDate"><span class="annot"><span class="annottext">associationExecutionTarget_lastExecutionDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-105"></span><span class="hs-comment">-- | The execution ID.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_executionId"><span class="hs-identifier hs-type">associationExecutionTarget_executionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="associationExecutionTarget_executionId"><span class="annot"><span class="annottext">associationExecutionTarget_executionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociationExecutionTarget -&gt; f AssociationExecutionTarget
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_executionId"><span class="hs-identifier hs-var hs-var">associationExecutionTarget_executionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationExecutionTarget -&gt; Maybe Text)
+-&gt; (AssociationExecutionTarget
+    -&gt; Maybe Text -&gt; AssociationExecutionTarget)
+-&gt; Lens
+     AssociationExecutionTarget
+     AssociationExecutionTarget
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805815"><span class="annot"><span class="annottext">Maybe Text
+executionId :: Maybe Text
+$sel:executionId:AssociationExecutionTarget' :: AssociationExecutionTarget -&gt; Maybe Text
+</span><a href="#local-6989586621679805815"><span class="hs-identifier hs-var hs-var">executionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805815"><span class="hs-identifier hs-var">executionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805814"><span class="annot"><span class="annottext">s :: AssociationExecutionTarget
+</span><a href="#local-6989586621679805814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805813"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTarget
+</span><a href="#local-6989586621679805814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionId:AssociationExecutionTarget' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AexecutionId%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">executionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The resource ID, for example, the instance ID where the association ran.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_resourceId"><span class="hs-identifier hs-type">associationExecutionTarget_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="associationExecutionTarget_resourceId"><span class="annot"><span class="annottext">associationExecutionTarget_resourceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociationExecutionTarget -&gt; f AssociationExecutionTarget
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_resourceId"><span class="hs-identifier hs-var hs-var">associationExecutionTarget_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationExecutionTarget -&gt; Maybe Text)
+-&gt; (AssociationExecutionTarget
+    -&gt; Maybe Text -&gt; AssociationExecutionTarget)
+-&gt; Lens
+     AssociationExecutionTarget
+     AssociationExecutionTarget
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805811"><span class="annot"><span class="annottext">Maybe Text
+resourceId :: Maybe Text
+$sel:resourceId:AssociationExecutionTarget' :: AssociationExecutionTarget -&gt; Maybe Text
+</span><a href="#local-6989586621679805811"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805811"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805810"><span class="annot"><span class="annottext">s :: AssociationExecutionTarget
+</span><a href="#local-6989586621679805810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805809"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTarget
+</span><a href="#local-6989586621679805810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:AssociationExecutionTarget' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AresourceId%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The resource type, for example, instance.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_resourceType"><span class="hs-identifier hs-type">associationExecutionTarget_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="associationExecutionTarget_resourceType"><span class="annot"><span class="annottext">associationExecutionTarget_resourceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociationExecutionTarget -&gt; f AssociationExecutionTarget
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_resourceType"><span class="hs-identifier hs-var hs-var">associationExecutionTarget_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationExecutionTarget -&gt; Maybe Text)
+-&gt; (AssociationExecutionTarget
+    -&gt; Maybe Text -&gt; AssociationExecutionTarget)
+-&gt; Lens
+     AssociationExecutionTarget
+     AssociationExecutionTarget
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805807"><span class="annot"><span class="annottext">Maybe Text
+resourceType :: Maybe Text
+$sel:resourceType:AssociationExecutionTarget' :: AssociationExecutionTarget -&gt; Maybe Text
+</span><a href="#local-6989586621679805807"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805807"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805806"><span class="annot"><span class="annottext">s :: AssociationExecutionTarget
+</span><a href="#local-6989586621679805806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805805"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTarget
+</span><a href="#local-6989586621679805806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:AssociationExecutionTarget' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AresourceType%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The location where the association details are saved.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_outputSource"><span class="hs-identifier hs-type">associationExecutionTarget_outputSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OutputSource.html#OutputSource"><span class="hs-identifier hs-type">OutputSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="associationExecutionTarget_outputSource"><span class="annot"><span class="annottext">associationExecutionTarget_outputSource :: (Maybe OutputSource -&gt; f (Maybe OutputSource))
+-&gt; AssociationExecutionTarget -&gt; f AssociationExecutionTarget
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_outputSource"><span class="hs-identifier hs-var hs-var">associationExecutionTarget_outputSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationExecutionTarget -&gt; Maybe OutputSource)
+-&gt; (AssociationExecutionTarget
+    -&gt; Maybe OutputSource -&gt; AssociationExecutionTarget)
+-&gt; Lens
+     AssociationExecutionTarget
+     AssociationExecutionTarget
+     (Maybe OutputSource)
+     (Maybe OutputSource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805803"><span class="annot"><span class="annottext">Maybe OutputSource
+outputSource :: Maybe OutputSource
+$sel:outputSource:AssociationExecutionTarget' :: AssociationExecutionTarget -&gt; Maybe OutputSource
+</span><a href="#local-6989586621679805803"><span class="hs-identifier hs-var hs-var">outputSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OutputSource
+</span><a href="#local-6989586621679805803"><span class="hs-identifier hs-var">outputSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805802"><span class="annot"><span class="annottext">s :: AssociationExecutionTarget
+</span><a href="#local-6989586621679805802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805801"><span class="annot"><span class="annottext">Maybe OutputSource
+</span><a href="#local-6989586621679805801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTarget
+</span><a href="#local-6989586621679805802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputSource:AssociationExecutionTarget' :: Maybe OutputSource
+</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AoutputSource%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">outputSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputSource
+</span><a href="#local-6989586621679805801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The date of the last execution.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_lastExecutionDate"><span class="hs-identifier hs-type">associationExecutionTarget_lastExecutionDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="associationExecutionTarget_lastExecutionDate"><span class="annot"><span class="annottext">associationExecutionTarget_lastExecutionDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; AssociationExecutionTarget -&gt; f AssociationExecutionTarget
 </span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_lastExecutionDate"><span class="hs-identifier hs-var hs-var">associationExecutionTarget_lastExecutionDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationExecutionTarget -&gt; Maybe POSIX)
 -&gt; (AssociationExecutionTarget
@@ -282,16 +378,16 @@ $sel:detailedStatus:AssociationExecutionTarget' :: AssociationExecutionTarget -&
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804145"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805799"><span class="annot"><span class="annottext">Maybe POSIX
 lastExecutionDate :: Maybe POSIX
 $sel:lastExecutionDate:AssociationExecutionTarget' :: AssociationExecutionTarget -&gt; Maybe POSIX
-</span><a href="#local-6989586621679804145"><span class="hs-identifier hs-var hs-var">lastExecutionDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679804145"><span class="hs-identifier hs-var">lastExecutionDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804144"><span class="annot"><span class="annottext">s :: AssociationExecutionTarget
-</span><a href="#local-6989586621679804144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804143"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679804143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTarget
-</span><a href="#local-6989586621679804144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastExecutionDate:AssociationExecutionTarget' :: Maybe POSIX
+</span><a href="#local-6989586621679805799"><span class="hs-identifier hs-var hs-var">lastExecutionDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679805799"><span class="hs-identifier hs-var">lastExecutionDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805798"><span class="annot"><span class="annottext">s :: AssociationExecutionTarget
+</span><a href="#local-6989586621679805798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805797"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679805797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTarget
+</span><a href="#local-6989586621679805798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastExecutionDate:AssociationExecutionTarget' :: Maybe POSIX
 </span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AlastExecutionDate%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">lastExecutionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679804143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679805797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; AssociationExecutionTarget -&gt; f AssociationExecutionTarget)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -307,102 +403,6 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | The resource type, for example, instance.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_resourceType"><span class="hs-identifier hs-type">associationExecutionTarget_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="associationExecutionTarget_resourceType"><span class="annot"><span class="annottext">associationExecutionTarget_resourceType :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AssociationExecutionTarget -&gt; f AssociationExecutionTarget
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_resourceType"><span class="hs-identifier hs-var hs-var">associationExecutionTarget_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationExecutionTarget -&gt; Maybe Text)
--&gt; (AssociationExecutionTarget
-    -&gt; Maybe Text -&gt; AssociationExecutionTarget)
--&gt; Lens
-     AssociationExecutionTarget
-     AssociationExecutionTarget
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804138"><span class="annot"><span class="annottext">Maybe Text
-resourceType :: Maybe Text
-$sel:resourceType:AssociationExecutionTarget' :: AssociationExecutionTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679804138"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804138"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804137"><span class="annot"><span class="annottext">s :: AssociationExecutionTarget
-</span><a href="#local-6989586621679804137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804136"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTarget
-</span><a href="#local-6989586621679804137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:AssociationExecutionTarget' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AresourceType%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The location where the association details are saved.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_outputSource"><span class="hs-identifier hs-type">associationExecutionTarget_outputSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OutputSource.html#OutputSource"><span class="hs-identifier hs-type">OutputSource</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="associationExecutionTarget_outputSource"><span class="annot"><span class="annottext">associationExecutionTarget_outputSource :: (Maybe OutputSource -&gt; f (Maybe OutputSource))
--&gt; AssociationExecutionTarget -&gt; f AssociationExecutionTarget
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_outputSource"><span class="hs-identifier hs-var hs-var">associationExecutionTarget_outputSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationExecutionTarget -&gt; Maybe OutputSource)
--&gt; (AssociationExecutionTarget
-    -&gt; Maybe OutputSource -&gt; AssociationExecutionTarget)
--&gt; Lens
-     AssociationExecutionTarget
-     AssociationExecutionTarget
-     (Maybe OutputSource)
-     (Maybe OutputSource)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804134"><span class="annot"><span class="annottext">Maybe OutputSource
-outputSource :: Maybe OutputSource
-$sel:outputSource:AssociationExecutionTarget' :: AssociationExecutionTarget -&gt; Maybe OutputSource
-</span><a href="#local-6989586621679804134"><span class="hs-identifier hs-var hs-var">outputSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OutputSource
-</span><a href="#local-6989586621679804134"><span class="hs-identifier hs-var">outputSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804133"><span class="annot"><span class="annottext">s :: AssociationExecutionTarget
-</span><a href="#local-6989586621679804133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804132"><span class="annot"><span class="annottext">Maybe OutputSource
-</span><a href="#local-6989586621679804132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTarget
-</span><a href="#local-6989586621679804133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputSource:AssociationExecutionTarget' :: Maybe OutputSource
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AoutputSource%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">outputSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputSource
-</span><a href="#local-6989586621679804132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | The execution ID.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_executionId"><span class="hs-identifier hs-type">associationExecutionTarget_executionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="associationExecutionTarget_executionId"><span class="annot"><span class="annottext">associationExecutionTarget_executionId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AssociationExecutionTarget -&gt; f AssociationExecutionTarget
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_executionId"><span class="hs-identifier hs-var hs-var">associationExecutionTarget_executionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationExecutionTarget -&gt; Maybe Text)
--&gt; (AssociationExecutionTarget
-    -&gt; Maybe Text -&gt; AssociationExecutionTarget)
--&gt; Lens
-     AssociationExecutionTarget
-     AssociationExecutionTarget
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804130"><span class="annot"><span class="annottext">Maybe Text
-executionId :: Maybe Text
-$sel:executionId:AssociationExecutionTarget' :: AssociationExecutionTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679804130"><span class="hs-identifier hs-var hs-var">executionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804130"><span class="hs-identifier hs-var">executionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804129"><span class="annot"><span class="annottext">s :: AssociationExecutionTarget
-</span><a href="#local-6989586621679804129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804128"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTarget
-</span><a href="#local-6989586621679804129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionId:AssociationExecutionTarget' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AexecutionId%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">executionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- | The association ID.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_associationId"><span class="hs-identifier hs-type">associationExecutionTarget_associationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="associationExecutionTarget_associationId"><span class="annot"><span class="annottext">associationExecutionTarget_associationId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AssociationExecutionTarget -&gt; f AssociationExecutionTarget
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_associationId"><span class="hs-identifier hs-var hs-var">associationExecutionTarget_associationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationExecutionTarget -&gt; Maybe Text)
--&gt; (AssociationExecutionTarget
-    -&gt; Maybe Text -&gt; AssociationExecutionTarget)
--&gt; Lens
-     AssociationExecutionTarget
-     AssociationExecutionTarget
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804126"><span class="annot"><span class="annottext">Maybe Text
-associationId :: Maybe Text
-$sel:associationId:AssociationExecutionTarget' :: AssociationExecutionTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679804126"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804126"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804125"><span class="annot"><span class="annottext">s :: AssociationExecutionTarget
-</span><a href="#local-6989586621679804125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804124"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTarget
-</span><a href="#local-6989586621679804125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationId:AssociationExecutionTarget' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AassociationId%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The association version.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#associationExecutionTarget_associationVersion"><span class="hs-identifier hs-type">associationExecutionTarget_associationVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -417,19 +417,19 @@ $sel:associationId:AssociationExecutionTarget' :: AssociationExecutionTarget -&g
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679804122"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805792"><span class="annot"><span class="annottext">Maybe Text
 associationVersion :: Maybe Text
 $sel:associationVersion:AssociationExecutionTarget' :: AssociationExecutionTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679804122"><span class="hs-identifier hs-var hs-var">associationVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804122"><span class="hs-identifier hs-var">associationVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679804121"><span class="annot"><span class="annottext">s :: AssociationExecutionTarget
-</span><a href="#local-6989586621679804121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679804120"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTarget
-</span><a href="#local-6989586621679804121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationVersion:AssociationExecutionTarget' :: Maybe Text
+</span><a href="#local-6989586621679805792"><span class="hs-identifier hs-var hs-var">associationVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805792"><span class="hs-identifier hs-var">associationVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805791"><span class="annot"><span class="annottext">s :: AssociationExecutionTarget
+</span><a href="#local-6989586621679805791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-type">AssociationExecutionTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805790"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679805790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationExecutionTarget
+</span><a href="#local-6989586621679805791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationVersion:AssociationExecutionTarget' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#%24sel%3AassociationVersion%3AAssociationExecutionTarget%27"><span class="hs-identifier hs-var">associationVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679804120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679805790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804117"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679804115"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssociationExecutionTarget
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805787"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679805785"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssociationExecutionTarget
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AssociationExecutionTarget)
@@ -439,185 +439,185 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AssociationExecutionTarget&quot;</span></span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679804112"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804112"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679805782"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679805782"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe OutputSource
--&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; AssociationExecutionTarget
 </span><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget%27"><span class="hs-identifier hs-var">AssociationExecutionTarget'</span></a></span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe OutputSource
- -&gt; Maybe Text
- -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; AssociationExecutionTarget)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe OutputSource
-      -&gt; Maybe Text
-      -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; AssociationExecutionTarget)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679805782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ResourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;AssociationId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe OutputSource
-   -&gt; Maybe Text
-   -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; AssociationExecutionTarget)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe OutputSource
       -&gt; Maybe POSIX
       -&gt; Maybe Text
-      -&gt; Maybe OutputSource
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; AssociationExecutionTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe OutputSource
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; AssociationExecutionTarget)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe OutputSource
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; AssociationExecutionTarget)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679805782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DetailedStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe OutputSource
-   -&gt; Maybe Text
-   -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; AssociationExecutionTarget)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe OutputSource
-      -&gt; Maybe Text
-      -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; AssociationExecutionTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679805782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastExecutionDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe OutputSource
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; AssociationExecutionTarget)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe OutputSource
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; AssociationExecutionTarget)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679805782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExecutionId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe OutputSource
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
-   -&gt; Maybe Text
+   -&gt; AssociationExecutionTarget)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe OutputSource
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; AssociationExecutionTarget)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679805782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe OutputSource
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; AssociationExecutionTarget)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe OutputSource
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; AssociationExecutionTarget)
+      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; AssociationExecutionTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679805782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe OutputSource
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; AssociationExecutionTarget)
+   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; AssociationExecutionTarget)
 -&gt; Parser (Maybe OutputSource)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; AssociationExecutionTarget)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; AssociationExecutionTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OutputSource)
+</span><a href="#local-6989586621679805782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OutputSource)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OutputSource&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; AssociationExecutionTarget)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; AssociationExecutionTarget)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ExecutionId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; AssociationExecutionTarget)
--&gt; Parser (Maybe Text)
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; AssociationExecutionTarget)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser (Maybe Text -&gt; AssociationExecutionTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679805782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AssociationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LastExecutionDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AssociationExecutionTarget)
 -&gt; Parser (Maybe Text) -&gt; Parser AssociationExecutionTarget
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679804112"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679805782"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AssociationVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804106"><span id="local-6989586621679804108"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805776"><span id="local-6989586621679805778"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span></span></span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679804103"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805773"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.AssociationExecutionTarget.html#AssociationExecutionTarget"><span class="hs-identifier hs-type">AssociationExecutionTarget</span></a></span></span><span>
 </span><span id="line-149"></span></pre></body></html>

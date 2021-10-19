@@ -41,8 +41,8 @@
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#newListJobTemplatesResponse"><span class="hs-identifier">newListJobTemplatesResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#listJobTemplatesResponse_nextToken"><span class="hs-identifier">listJobTemplatesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#listJobTemplatesResponse_jobTemplates"><span class="hs-identifier">listJobTemplatesResponse_jobTemplates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#listJobTemplatesResponse_jobTemplates"><span class="hs-identifier">listJobTemplatesResponse_jobTemplates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#listJobTemplatesResponse_nextToken"><span class="hs-identifier">listJobTemplatesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#listJobTemplatesResponse_httpStatus"><span class="hs-identifier">listJobTemplatesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span class="hs-keyword">where</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListJobTemplates' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679823181"><span id="local-6989586621679823182"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobTemplates"><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates"><span class="hs-identifier hs-var">ListJobTemplates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobTemplates%27"><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates%27"><span class="hs-identifier hs-var">ListJobTemplates'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679824123"><span id="local-6989586621679824124"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobTemplates"><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates"><span class="hs-identifier hs-var">ListJobTemplates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobTemplates%27"><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates%27"><span class="hs-identifier hs-var">ListJobTemplates'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to return the next set of results in the list.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AnextToken%3AListJobTemplates%27"><span class="annot"><span class="annottext">ListJobTemplates -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.ListJobTemplates.html#%24sel%3AnextToken%3AListJobTemplates%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxResults%3AListJobTemplates%27"><span class="annot"><span class="annottext">ListJobTemplates -&gt; Maybe Natural
 </span><a href="Network.AWS.IoT.ListJobTemplates.html#%24sel%3AmaxResults%3AListJobTemplates%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679823174"><span id="local-6989586621679823176"><span class="annot"><span class="annottext">ListJobTemplates -&gt; ListJobTemplates -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679824116"><span id="local-6989586621679824118"><span class="annot"><span class="annottext">ListJobTemplates -&gt; ListJobTemplates -&gt; Bool
 (ListJobTemplates -&gt; ListJobTemplates -&gt; Bool)
 -&gt; (ListJobTemplates -&gt; ListJobTemplates -&gt; Bool)
 -&gt; Eq ListJobTemplates
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListJobTemplates -&gt; ListJobTemplates -&gt; Bool
 == :: ListJobTemplates -&gt; ListJobTemplates -&gt; Bool
 $c== :: ListJobTemplates -&gt; ListJobTemplates -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823165"><span id="local-6989586621679823167"><span id="local-6989586621679823169"><span id="local-6989586621679823171"><span class="annot"><span class="annottext">ReadPrec [ListJobTemplates]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824107"><span id="local-6989586621679824109"><span id="local-6989586621679824111"><span id="local-6989586621679824113"><span class="annot"><span class="annottext">ReadPrec [ListJobTemplates]
 ReadPrec ListJobTemplates
 Int -&gt; ReadS ListJobTemplates
 ReadS [ListJobTemplates]
@@ -92,7 +92,7 @@ readList :: ReadS [ListJobTemplates]
 $creadList :: ReadS [ListJobTemplates]
 readsPrec :: Int -&gt; ReadS ListJobTemplates
 $creadsPrec :: Int -&gt; ReadS ListJobTemplates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823158"><span id="local-6989586621679823160"><span id="local-6989586621679823162"><span class="annot"><span class="annottext">Int -&gt; ListJobTemplates -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824100"><span id="local-6989586621679824102"><span id="local-6989586621679824104"><span class="annot"><span class="annottext">Int -&gt; ListJobTemplates -&gt; ShowS
 [ListJobTemplates] -&gt; ShowS
 ListJobTemplates -&gt; String
 (Int -&gt; ListJobTemplates -&gt; ShowS)
@@ -153,16 +153,16 @@ forall a. Maybe a
 -&gt; (ListJobTemplates -&gt; Maybe Text -&gt; ListJobTemplates)
 -&gt; Lens ListJobTemplates ListJobTemplates (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates%27"><span class="hs-identifier hs-type">ListJobTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823152"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates%27"><span class="hs-identifier hs-type">ListJobTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824094"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListJobTemplates' :: ListJobTemplates -&gt; Maybe Text
-</span><a href="#local-6989586621679823152"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823152"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823151"><span class="annot"><span class="annottext">s :: ListJobTemplates
-</span><a href="#local-6989586621679823151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates%27"><span class="hs-identifier hs-type">ListJobTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823150"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobTemplates
-</span><a href="#local-6989586621679823151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJobTemplates' :: Maybe Text
+</span><a href="#local-6989586621679824094"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824094"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824093"><span class="annot"><span class="annottext">s :: ListJobTemplates
+</span><a href="#local-6989586621679824093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates%27"><span class="hs-identifier hs-type">ListJobTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824092"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobTemplates
+</span><a href="#local-6989586621679824093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJobTemplates' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListJobTemplates.html#%24sel%3AnextToken%3AListJobTemplates%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates"><span class="hs-identifier hs-type">ListJobTemplates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679824092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates"><span class="hs-identifier hs-type">ListJobTemplates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The maximum number of results to return in the list.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#listJobTemplates_maxResults"><span class="hs-identifier hs-type">listJobTemplates_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates"><span class="hs-identifier hs-type">ListJobTemplates</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -173,29 +173,29 @@ $sel:nextToken:ListJobTemplates' :: ListJobTemplates -&gt; Maybe Text
 -&gt; Lens
      ListJobTemplates ListJobTemplates (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates%27"><span class="hs-identifier hs-type">ListJobTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823149"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates%27"><span class="hs-identifier hs-type">ListJobTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824091"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListJobTemplates' :: ListJobTemplates -&gt; Maybe Natural
-</span><a href="#local-6989586621679823149"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679823149"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823148"><span class="annot"><span class="annottext">s :: ListJobTemplates
-</span><a href="#local-6989586621679823148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates%27"><span class="hs-identifier hs-type">ListJobTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823147"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679823147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobTemplates
-</span><a href="#local-6989586621679823148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListJobTemplates' :: Maybe Natural
+</span><a href="#local-6989586621679824091"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679824091"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824090"><span class="annot"><span class="annottext">s :: ListJobTemplates
+</span><a href="#local-6989586621679824090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates%27"><span class="hs-identifier hs-type">ListJobTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824089"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679824089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobTemplates
+</span><a href="#local-6989586621679824090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListJobTemplates' :: Maybe Natural
 </span><a href="Network.AWS.IoT.ListJobTemplates.html#%24sel%3AmaxResults%3AListJobTemplates%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679823147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates"><span class="hs-identifier hs-type">ListJobTemplates</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679824089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates"><span class="hs-identifier hs-type">ListJobTemplates</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates"><span class="hs-identifier hs-type">ListJobTemplates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679823143"><span class="annot"><span class="annottext">page :: ListJobTemplates
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679824085"><span class="annot"><span class="annottext">page :: ListJobTemplates
 -&gt; AWSResponse ListJobTemplates -&gt; Maybe ListJobTemplates
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679823141"><span class="annot"><span class="annottext">ListJobTemplates
-</span><a href="#local-6989586621679823141"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679823140"><span class="annot"><span class="annottext">AWSResponse ListJobTemplates
-</span><a href="#local-6989586621679823140"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679824083"><span class="annot"><span class="annottext">ListJobTemplates
+</span><a href="#local-6989586621679824083"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679824082"><span class="annot"><span class="annottext">AWSResponse ListJobTemplates
+</span><a href="#local-6989586621679824082"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-96"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobTemplates
 ListJobTemplatesResponse
-</span><a href="#local-6989586621679823140"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679824082"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">ListJobTemplatesResponse
 -&gt; Getting (First Text) ListJobTemplatesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -224,7 +224,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-102"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobTemplates
 ListJobTemplatesResponse
-</span><a href="#local-6989586621679823140"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679824082"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">ListJobTemplatesResponse
 -&gt; Getting
      (First [JobTemplateSummary])
@@ -270,7 +270,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">ListJobTemplates
-</span><a href="#local-6989586621679823141"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679824083"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">ListJobTemplates
 -&gt; (ListJobTemplates -&gt; ListJobTemplates) -&gt; ListJobTemplates
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -284,7 +284,7 @@ Lens ListJobTemplates ListJobTemplates (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListJobTemplates
 ListJobTemplatesResponse
-</span><a href="#local-6989586621679823140"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679824082"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ListJobTemplatesResponse
 -&gt; Getting (First Text) ListJobTemplatesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -309,12 +309,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates"><span class="hs-identifier hs-type">ListJobTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse"><span class="hs-identifier hs-type">ListJobTemplatesResponse</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679823130"><span class="annot"><span class="annottext">request :: ListJobTemplates -&gt; Request ListJobTemplates
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679824072"><span class="annot"><span class="annottext">request :: ListJobTemplates -&gt; Request ListJobTemplates
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListJobTemplates -&gt; Request ListJobTemplates
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679823126"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679824068"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListJobTemplates
 -&gt; ClientResponse ClientBody
@@ -338,33 +338,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679823123"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823123"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679823122"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679823122"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679823121"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679823121"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [JobTemplateSummary] -&gt; Int -&gt; ListJobTemplatesResponse
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679824065"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679824065"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679824064"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679824064"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679824063"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679824063"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe [JobTemplateSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListJobTemplatesResponse
 </span><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse%27"><span class="hs-identifier hs-var">ListJobTemplatesResponse'</span></a></span><span>
-</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [JobTemplateSummary] -&gt; Int -&gt; ListJobTemplatesResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [JobTemplateSummary] -&gt; Int -&gt; ListJobTemplatesResponse)
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [JobTemplateSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListJobTemplatesResponse)
+-&gt; Either String (Maybe [JobTemplateSummary])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListJobTemplatesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679823121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [JobTemplateSummary] -&gt; Int -&gt; ListJobTemplatesResponse)
--&gt; Either String (Maybe [JobTemplateSummary])
--&gt; Either String (Int -&gt; ListJobTemplatesResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679823121"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679824063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [JobTemplateSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -375,6 +362,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [JobTemplateSummary]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListJobTemplatesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListJobTemplatesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679824063"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListJobTemplatesResponse)
 -&gt; Either String Int -&gt; Either String ListJobTemplatesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -383,15 +379,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823123"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679824065"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679823112"><span id="local-6989586621679823114"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates"><span class="hs-identifier hs-type">ListJobTemplates</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824054"><span id="local-6989586621679824056"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates"><span class="hs-identifier hs-type">ListJobTemplates</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679823109"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates"><span class="hs-identifier hs-type">ListJobTemplates</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824051"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates"><span class="hs-identifier hs-type">ListJobTemplates</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates"><span class="hs-identifier hs-type">ListJobTemplates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679823105"><span class="annot"><span class="annottext">toHeaders :: ListJobTemplates -&gt; ResponseHeaders
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679824047"><span class="annot"><span class="annottext">toHeaders :: ListJobTemplates -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListJobTemplates -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -399,21 +395,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates"><span class="hs-identifier hs-type">ListJobTemplates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679823100"><span class="annot"><span class="annottext">toPath :: ListJobTemplates -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679824042"><span class="annot"><span class="annottext">toPath :: ListJobTemplates -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListJobTemplates -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/job-templates&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates"><span class="hs-identifier hs-type">ListJobTemplates</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679823096"><span class="annot"><span class="annottext">toQuery :: ListJobTemplates -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates%27"><span class="hs-identifier hs-type">ListJobTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823093"><span id="local-6989586621679823094"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679824038"><span class="annot"><span class="annottext">toQuery :: ListJobTemplates -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplates%27"><span class="hs-identifier hs-type">ListJobTemplates'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824035"><span id="local-6989586621679824036"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListJobTemplates' :: ListJobTemplates -&gt; Maybe Natural
 $sel:nextToken:ListJobTemplates' :: ListJobTemplates -&gt; Maybe Text
-</span><a href="#local-6989586621679823093"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679824035"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -421,28 +417,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823094"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679824036"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679823093"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679824035"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | /See:/ 'newListJobTemplatesResponse' smart constructor.</span><span>
-</span><span id="line-147"></span><span id="local-6989586621679823090"><span id="local-6989586621679823091"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobTemplatesResponse"><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse"><span class="hs-identifier hs-var">ListJobTemplatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobTemplatesResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse%27"><span class="hs-identifier hs-var">ListJobTemplatesResponse'</span></a></span></span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results, or __null__ if there are no</span><span>
-</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
-</span><span id="line-150"></span><span>    </span><span id="%24sel%3AnextToken%3AListJobTemplatesResponse%27"><span class="annot"><span class="annottext">ListJobTemplatesResponse -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.ListJobTemplates.html#%24sel%3AnextToken%3AListJobTemplatesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | A list of objects that contain information about the job templates.</span><span>
-</span><span id="line-152"></span><span>    </span><span id="%24sel%3AjobTemplates%3AListJobTemplatesResponse%27"><span class="annot"><span class="annottext">ListJobTemplatesResponse -&gt; Maybe [JobTemplateSummary]
+</span><span id="line-147"></span><span id="local-6989586621679824032"><span id="local-6989586621679824033"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListJobTemplatesResponse"><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse"><span class="hs-identifier hs-var">ListJobTemplatesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListJobTemplatesResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse%27"><span class="hs-identifier hs-var">ListJobTemplatesResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of objects that contain information about the job templates.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AjobTemplates%3AListJobTemplatesResponse%27"><span class="annot"><span class="annottext">ListJobTemplatesResponse -&gt; Maybe [JobTemplateSummary]
 </span><a href="Network.AWS.IoT.ListJobTemplates.html#%24sel%3AjobTemplates%3AListJobTemplatesResponse%27"><span class="hs-identifier hs-var hs-var">jobTemplates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.JobTemplateSummary.html#JobTemplateSummary"><span class="hs-identifier hs-type">JobTemplateSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The token for the next set of results, or __null__ if there are no</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AnextToken%3AListJobTemplatesResponse%27"><span class="annot"><span class="annottext">ListJobTemplatesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.ListJobTemplates.html#%24sel%3AnextToken%3AListJobTemplatesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListJobTemplatesResponse%27"><span class="annot"><span class="annottext">ListJobTemplatesResponse -&gt; Int
 </span><a href="Network.AWS.IoT.ListJobTemplates.html#%24sel%3AhttpStatus%3AListJobTemplatesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679823083"><span id="local-6989586621679823085"><span class="annot"><span class="annottext">ListJobTemplatesResponse -&gt; ListJobTemplatesResponse -&gt; Bool
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679824025"><span id="local-6989586621679824027"><span class="annot"><span class="annottext">ListJobTemplatesResponse -&gt; ListJobTemplatesResponse -&gt; Bool
 (ListJobTemplatesResponse -&gt; ListJobTemplatesResponse -&gt; Bool)
 -&gt; (ListJobTemplatesResponse -&gt; ListJobTemplatesResponse -&gt; Bool)
 -&gt; Eq ListJobTemplatesResponse
@@ -451,7 +447,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListJobTemplatesResponse -&gt; ListJobTemplatesResponse -&gt; Bool
 == :: ListJobTemplatesResponse -&gt; ListJobTemplatesResponse -&gt; Bool
 $c== :: ListJobTemplatesResponse -&gt; ListJobTemplatesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823075"><span id="local-6989586621679823077"><span id="local-6989586621679823079"><span id="local-6989586621679823081"><span class="annot"><span class="annottext">ReadPrec [ListJobTemplatesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824017"><span id="local-6989586621679824019"><span id="local-6989586621679824021"><span id="local-6989586621679824023"><span class="annot"><span class="annottext">ReadPrec [ListJobTemplatesResponse]
 ReadPrec ListJobTemplatesResponse
 Int -&gt; ReadS ListJobTemplatesResponse
 ReadS [ListJobTemplatesResponse]
@@ -471,7 +467,7 @@ readList :: ReadS [ListJobTemplatesResponse]
 $creadList :: ReadS [ListJobTemplatesResponse]
 readsPrec :: Int -&gt; ReadS ListJobTemplatesResponse
 $creadsPrec :: Int -&gt; ReadS ListJobTemplatesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679823069"><span id="local-6989586621679823071"><span id="local-6989586621679823073"><span class="annot"><span class="annottext">Int -&gt; ListJobTemplatesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824011"><span id="local-6989586621679824013"><span id="local-6989586621679824015"><span class="annot"><span class="annottext">Int -&gt; ListJobTemplatesResponse -&gt; ShowS
 [ListJobTemplatesResponse] -&gt; ShowS
 ListJobTemplatesResponse -&gt; String
 (Int -&gt; ListJobTemplatesResponse -&gt; ShowS)
@@ -511,10 +507,10 @@ ListJobTemplatesResponse -&gt; Rep ListJobTemplatesResponse x
 </span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- 'nextToken', 'listJobTemplatesResponse_nextToken' - The token for the next set of results, or __null__ if there are no</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- additional results.</span><span>
-</span><span id="line-168"></span><span class="hs-comment">--</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- 'jobTemplates', 'listJobTemplatesResponse_jobTemplates' - A list of objects that contain information about the job templates.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'jobTemplates', 'listJobTemplatesResponse_jobTemplates' - A list of objects that contain information about the job templates.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'nextToken', 'listJobTemplatesResponse_nextToken' - The token for the next set of results, or __null__ if there are no</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- additional results.</span><span>
 </span><span id="line-170"></span><span class="hs-comment">--</span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- 'httpStatus', 'listJobTemplatesResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#newListJobTemplatesResponse"><span class="hs-identifier hs-type">newListJobTemplatesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -522,65 +518,44 @@ ListJobTemplatesResponse -&gt; Rep ListJobTemplatesResponse x
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse"><span class="hs-identifier hs-type">ListJobTemplatesResponse</span></a></span><span>
 </span><span id="line-176"></span><span id="newListJobTemplatesResponse"><span class="annot"><span class="annottext">newListJobTemplatesResponse :: Int -&gt; ListJobTemplatesResponse
-</span><a href="Network.AWS.IoT.ListJobTemplates.html#newListJobTemplatesResponse"><span class="hs-identifier hs-var hs-var">newListJobTemplatesResponse</span></a></span></span><span> </span><span id="local-6989586621679823066"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823066"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">ListJobTemplatesResponse' :: Maybe Text
--&gt; Maybe [JobTemplateSummary] -&gt; Int -&gt; ListJobTemplatesResponse
+</span><a href="Network.AWS.IoT.ListJobTemplates.html#newListJobTemplatesResponse"><span class="hs-identifier hs-var hs-var">newListJobTemplatesResponse</span></a></span></span><span> </span><span id="local-6989586621679824008"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679824008"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">ListJobTemplatesResponse' :: Maybe [JobTemplateSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListJobTemplatesResponse
 </span><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse%27"><span class="hs-identifier hs-type">ListJobTemplatesResponse'</span></a></span><span>
-</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListJobTemplatesResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.ListJobTemplates.html#%24sel%3AnextToken%3AListJobTemplatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobTemplates:ListJobTemplatesResponse' :: Maybe [JobTemplateSummary]
+</span><a href="Network.AWS.IoT.ListJobTemplates.html#%24sel%3AjobTemplates%3AListJobTemplatesResponse%27"><span class="hs-identifier hs-var">jobTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe [JobTemplateSummary]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobTemplates:ListJobTemplatesResponse' :: Maybe [JobTemplateSummary]
-</span><a href="Network.AWS.IoT.ListJobTemplates.html#%24sel%3AjobTemplates%3AListJobTemplatesResponse%27"><span class="hs-identifier hs-var">jobTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobTemplateSummary]
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListJobTemplatesResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.ListJobTemplates.html#%24sel%3AnextToken%3AListJobTemplatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobTemplatesResponse' :: Int
 </span><a href="Network.AWS.IoT.ListJobTemplates.html#%24sel%3AhttpStatus%3AListJobTemplatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823066"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679824008"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- | The token for the next set of results, or __null__ if there are no</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- additional results.</span><span>
-</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#listJobTemplatesResponse_nextToken"><span class="hs-identifier hs-type">listJobTemplatesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse"><span class="hs-identifier hs-type">ListJobTemplatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span id="listJobTemplatesResponse_nextToken"><span class="annot"><span class="annottext">listJobTemplatesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListJobTemplatesResponse -&gt; f ListJobTemplatesResponse
-</span><a href="Network.AWS.IoT.ListJobTemplates.html#listJobTemplatesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listJobTemplatesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobTemplatesResponse -&gt; Maybe Text)
--&gt; (ListJobTemplatesResponse
-    -&gt; Maybe Text -&gt; ListJobTemplatesResponse)
--&gt; Lens' ListJobTemplatesResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse%27"><span class="hs-identifier hs-type">ListJobTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823065"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListJobTemplatesResponse' :: ListJobTemplatesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679823065"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823065"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823064"><span class="annot"><span class="annottext">s :: ListJobTemplatesResponse
-</span><a href="#local-6989586621679823064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse%27"><span class="hs-identifier hs-type">ListJobTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823063"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobTemplatesResponse
-</span><a href="#local-6989586621679823064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJobTemplatesResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.ListJobTemplates.html#%24sel%3AnextToken%3AListJobTemplatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679823063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse"><span class="hs-identifier hs-type">ListJobTemplatesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- | A list of objects that contain information about the job templates.</span><span>
-</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#listJobTemplatesResponse_jobTemplates"><span class="hs-identifier hs-type">listJobTemplatesResponse_jobTemplates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse"><span class="hs-identifier hs-type">ListJobTemplatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.JobTemplateSummary.html#JobTemplateSummary"><span class="hs-identifier hs-type">JobTemplateSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span id="listJobTemplatesResponse_jobTemplates"><span class="annot"><span class="annottext">listJobTemplatesResponse_jobTemplates :: (Maybe [JobTemplateSummary] -&gt; f (Maybe [JobTemplateSummary]))
+</span><span id="line-184"></span><span class="hs-comment">-- | A list of objects that contain information about the job templates.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#listJobTemplatesResponse_jobTemplates"><span class="hs-identifier hs-type">listJobTemplatesResponse_jobTemplates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse"><span class="hs-identifier hs-type">ListJobTemplatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.JobTemplateSummary.html#JobTemplateSummary"><span class="hs-identifier hs-type">JobTemplateSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="listJobTemplatesResponse_jobTemplates"><span class="annot"><span class="annottext">listJobTemplatesResponse_jobTemplates :: (Maybe [JobTemplateSummary] -&gt; f (Maybe [JobTemplateSummary]))
 -&gt; ListJobTemplatesResponse -&gt; f ListJobTemplatesResponse
 </span><a href="Network.AWS.IoT.ListJobTemplates.html#listJobTemplatesResponse_jobTemplates"><span class="hs-identifier hs-var hs-var">listJobTemplatesResponse_jobTemplates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobTemplatesResponse -&gt; Maybe [JobTemplateSummary])
 -&gt; (ListJobTemplatesResponse
     -&gt; Maybe [JobTemplateSummary] -&gt; ListJobTemplatesResponse)
 -&gt; Lens' ListJobTemplatesResponse (Maybe [JobTemplateSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse%27"><span class="hs-identifier hs-type">ListJobTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823062"><span class="annot"><span class="annottext">Maybe [JobTemplateSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse%27"><span class="hs-identifier hs-type">ListJobTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824007"><span class="annot"><span class="annottext">Maybe [JobTemplateSummary]
 jobTemplates :: Maybe [JobTemplateSummary]
 $sel:jobTemplates:ListJobTemplatesResponse' :: ListJobTemplatesResponse -&gt; Maybe [JobTemplateSummary]
-</span><a href="#local-6989586621679823062"><span class="hs-identifier hs-var hs-var">jobTemplates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobTemplateSummary]
-</span><a href="#local-6989586621679823062"><span class="hs-identifier hs-var">jobTemplates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823061"><span class="annot"><span class="annottext">s :: ListJobTemplatesResponse
-</span><a href="#local-6989586621679823061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse%27"><span class="hs-identifier hs-type">ListJobTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823060"><span class="annot"><span class="annottext">Maybe [JobTemplateSummary]
-</span><a href="#local-6989586621679823060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobTemplatesResponse
-</span><a href="#local-6989586621679823061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobTemplates:ListJobTemplatesResponse' :: Maybe [JobTemplateSummary]
+</span><a href="#local-6989586621679824007"><span class="hs-identifier hs-var hs-var">jobTemplates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobTemplateSummary]
+</span><a href="#local-6989586621679824007"><span class="hs-identifier hs-var">jobTemplates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824006"><span class="annot"><span class="annottext">s :: ListJobTemplatesResponse
+</span><a href="#local-6989586621679824006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse%27"><span class="hs-identifier hs-type">ListJobTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824005"><span class="annot"><span class="annottext">Maybe [JobTemplateSummary]
+</span><a href="#local-6989586621679824005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobTemplatesResponse
+</span><a href="#local-6989586621679824006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobTemplates:ListJobTemplatesResponse' :: Maybe [JobTemplateSummary]
 </span><a href="Network.AWS.IoT.ListJobTemplates.html#%24sel%3AjobTemplates%3AListJobTemplatesResponse%27"><span class="hs-identifier hs-var">jobTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobTemplateSummary]
-</span><a href="#local-6989586621679823060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse"><span class="hs-identifier hs-type">ListJobTemplatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobTemplateSummary] -&gt; f (Maybe [JobTemplateSummary]))
+</span><a href="#local-6989586621679824005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse"><span class="hs-identifier hs-type">ListJobTemplatesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobTemplateSummary] -&gt; f (Maybe [JobTemplateSummary]))
  -&gt; ListJobTemplatesResponse -&gt; f ListJobTemplatesResponse)
 -&gt; ((Maybe [JobTemplateSummary] -&gt; f (Maybe [JobTemplateSummary]))
     -&gt; Maybe [JobTemplateSummary] -&gt; f (Maybe [JobTemplateSummary]))
@@ -606,8 +581,29 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [JobTemplateSummary]
   [JobTemplateSummary]
   [JobTemplateSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The token for the next set of results, or __null__ if there are no</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#listJobTemplatesResponse_nextToken"><span class="hs-identifier hs-type">listJobTemplatesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse"><span class="hs-identifier hs-type">ListJobTemplatesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="listJobTemplatesResponse_nextToken"><span class="annot"><span class="annottext">listJobTemplatesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListJobTemplatesResponse -&gt; f ListJobTemplatesResponse
+</span><a href="Network.AWS.IoT.ListJobTemplates.html#listJobTemplatesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listJobTemplatesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListJobTemplatesResponse -&gt; Maybe Text)
+-&gt; (ListJobTemplatesResponse
+    -&gt; Maybe Text -&gt; ListJobTemplatesResponse)
+-&gt; Lens' ListJobTemplatesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse%27"><span class="hs-identifier hs-type">ListJobTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824002"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListJobTemplatesResponse' :: ListJobTemplatesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679824002"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824002"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824001"><span class="annot"><span class="annottext">s :: ListJobTemplatesResponse
+</span><a href="#local-6989586621679824001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse%27"><span class="hs-identifier hs-type">ListJobTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824000"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobTemplatesResponse
+</span><a href="#local-6989586621679824001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListJobTemplatesResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.ListJobTemplates.html#%24sel%3AnextToken%3AListJobTemplatesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679824000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse"><span class="hs-identifier hs-type">ListJobTemplatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-194"></span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#listJobTemplatesResponse_httpStatus"><span class="hs-identifier hs-type">listJobTemplatesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse"><span class="hs-identifier hs-type">ListJobTemplatesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -617,16 +613,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListJobTemplatesResponse -&gt; Int -&gt; ListJobTemplatesResponse)
 -&gt; Lens ListJobTemplatesResponse ListJobTemplatesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse%27"><span class="hs-identifier hs-type">ListJobTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823057"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse%27"><span class="hs-identifier hs-type">ListJobTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679823999"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListJobTemplatesResponse' :: ListJobTemplatesResponse -&gt; Int
-</span><a href="#local-6989586621679823057"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823057"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823056"><span class="annot"><span class="annottext">s :: ListJobTemplatesResponse
-</span><a href="#local-6989586621679823056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse%27"><span class="hs-identifier hs-type">ListJobTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823055"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobTemplatesResponse
-</span><a href="#local-6989586621679823056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobTemplatesResponse' :: Int
+</span><a href="#local-6989586621679823999"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679823999"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679823998"><span class="annot"><span class="annottext">s :: ListJobTemplatesResponse
+</span><a href="#local-6989586621679823998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse%27"><span class="hs-identifier hs-type">ListJobTemplatesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679823997"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679823997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListJobTemplatesResponse
+</span><a href="#local-6989586621679823998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListJobTemplatesResponse' :: Int
 </span><a href="Network.AWS.IoT.ListJobTemplates.html#%24sel%3AhttpStatus%3AListJobTemplatesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679823055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse"><span class="hs-identifier hs-type">ListJobTemplatesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679823997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse"><span class="hs-identifier hs-type">ListJobTemplatesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679823053"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse"><span class="hs-identifier hs-type">ListJobTemplatesResponse</span></a></span></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679823995"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListJobTemplates.html#ListJobTemplatesResponse"><span class="hs-identifier hs-type">ListJobTemplatesResponse</span></a></span></span><span>
 </span><span id="line-198"></span></pre></body></html>

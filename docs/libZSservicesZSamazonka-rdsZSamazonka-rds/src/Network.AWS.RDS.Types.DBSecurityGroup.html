@@ -31,31 +31,31 @@
 </span><span id="line-31"></span><span class="hs-comment">-- @DescribeDBSecurityGroups@ action.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newDBSecurityGroup' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679761074"><span id="local-6989586621679761075"></span></span><span class="hs-keyword">data</span><span> </span><span id="DBSecurityGroup"><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-var">DBSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DBSecurityGroup%27"><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-var">DBSecurityGroup'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Provides the Amazon Web Services ID of the owner of a specific DB</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- security group.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AownerId%3ADBSecurityGroup%27"><span class="annot"><span class="annottext">DBSecurityGroup -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AownerId%3ADBSecurityGroup%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Specifies the name of the DB security group.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdbSecurityGroupName%3ADBSecurityGroup%27"><span class="annot"><span class="annottext">DBSecurityGroup -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AdbSecurityGroupName%3ADBSecurityGroup%27"><span class="hs-identifier hs-var hs-var">dbSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Contains a list of @IPRange@ elements.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AiPRanges%3ADBSecurityGroup%27"><span class="annot"><span class="annottext">DBSecurityGroup -&gt; Maybe [IPRange]
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AiPRanges%3ADBSecurityGroup%27"><span class="hs-identifier hs-var hs-var">iPRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.IPRange.html#IPRange"><span class="hs-identifier hs-type">IPRange</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Provides the description of the DB security group.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AdbSecurityGroupDescription%3ADBSecurityGroup%27"><span class="annot"><span class="annottext">DBSecurityGroup -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AdbSecurityGroupDescription%3ADBSecurityGroup%27"><span class="hs-identifier hs-var hs-var">dbSecurityGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Contains a list of @EC2SecurityGroup@ elements.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AeC2SecurityGroups%3ADBSecurityGroup%27"><span class="annot"><span class="annottext">DBSecurityGroup -&gt; Maybe [EC2SecurityGroup]
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AeC2SecurityGroups%3ADBSecurityGroup%27"><span class="hs-identifier hs-var hs-var">eC2SecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.EC2SecurityGroup.html#EC2SecurityGroup"><span class="hs-identifier hs-type">EC2SecurityGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Provides the VpcId of the DB security group.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AvpcId%3ADBSecurityGroup%27"><span class="annot"><span class="annottext">DBSecurityGroup -&gt; Maybe Text
+</span><span id="line-34"></span><span id="local-6989586621679762123"><span id="local-6989586621679762124"></span></span><span class="hs-keyword">data</span><span> </span><span id="DBSecurityGroup"><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-var">DBSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DBSecurityGroup%27"><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-var">DBSecurityGroup'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Provides the VpcId of the DB security group.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AvpcId%3ADBSecurityGroup%27"><span class="annot"><span class="annottext">DBSecurityGroup -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AvpcId%3ADBSecurityGroup%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the DB security group.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AdbSecurityGroupArn%3ADBSecurityGroup%27"><span class="annot"><span class="annottext">DBSecurityGroup -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AdbSecurityGroupArn%3ADBSecurityGroup%27"><span class="hs-identifier hs-var hs-var">dbSecurityGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Provides the Amazon Web Services ID of the owner of a specific DB</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- security group.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AownerId%3ADBSecurityGroup%27"><span class="annot"><span class="annottext">DBSecurityGroup -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AownerId%3ADBSecurityGroup%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the DB security group.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdbSecurityGroupArn%3ADBSecurityGroup%27"><span class="annot"><span class="annottext">DBSecurityGroup -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AdbSecurityGroupArn%3ADBSecurityGroup%27"><span class="hs-identifier hs-var hs-var">dbSecurityGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Contains a list of @IPRange@ elements.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AiPRanges%3ADBSecurityGroup%27"><span class="annot"><span class="annottext">DBSecurityGroup -&gt; Maybe [IPRange]
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AiPRanges%3ADBSecurityGroup%27"><span class="hs-identifier hs-var hs-var">iPRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.IPRange.html#IPRange"><span class="hs-identifier hs-type">IPRange</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Specifies the name of the DB security group.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AdbSecurityGroupName%3ADBSecurityGroup%27"><span class="annot"><span class="annottext">DBSecurityGroup -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AdbSecurityGroupName%3ADBSecurityGroup%27"><span class="hs-identifier hs-var hs-var">dbSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Contains a list of @EC2SecurityGroup@ elements.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AeC2SecurityGroups%3ADBSecurityGroup%27"><span class="annot"><span class="annottext">DBSecurityGroup -&gt; Maybe [EC2SecurityGroup]
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AeC2SecurityGroups%3ADBSecurityGroup%27"><span class="hs-identifier hs-var hs-var">eC2SecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.EC2SecurityGroup.html#EC2SecurityGroup"><span class="hs-identifier hs-type">EC2SecurityGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Provides the description of the DB security group.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AdbSecurityGroupDescription%3ADBSecurityGroup%27"><span class="annot"><span class="annottext">DBSecurityGroup -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AdbSecurityGroupDescription%3ADBSecurityGroup%27"><span class="hs-identifier hs-var hs-var">dbSecurityGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679761062"><span id="local-6989586621679761064"><span class="annot"><span class="annottext">DBSecurityGroup -&gt; DBSecurityGroup -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679762111"><span id="local-6989586621679762113"><span class="annot"><span class="annottext">DBSecurityGroup -&gt; DBSecurityGroup -&gt; Bool
 (DBSecurityGroup -&gt; DBSecurityGroup -&gt; Bool)
 -&gt; (DBSecurityGroup -&gt; DBSecurityGroup -&gt; Bool)
 -&gt; Eq DBSecurityGroup
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DBSecurityGroup -&gt; DBSecurityGroup -&gt; Bool
 == :: DBSecurityGroup -&gt; DBSecurityGroup -&gt; Bool
 $c== :: DBSecurityGroup -&gt; DBSecurityGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679761053"><span id="local-6989586621679761055"><span id="local-6989586621679761057"><span id="local-6989586621679761059"><span class="annot"><span class="annottext">ReadPrec [DBSecurityGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679762102"><span id="local-6989586621679762104"><span id="local-6989586621679762106"><span id="local-6989586621679762108"><span class="annot"><span class="annottext">ReadPrec [DBSecurityGroup]
 ReadPrec DBSecurityGroup
 Int -&gt; ReadS DBSecurityGroup
 ReadS [DBSecurityGroup]
@@ -84,7 +84,7 @@ readList :: ReadS [DBSecurityGroup]
 $creadList :: ReadS [DBSecurityGroup]
 readsPrec :: Int -&gt; ReadS DBSecurityGroup
 $creadsPrec :: Int -&gt; ReadS DBSecurityGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679761046"><span id="local-6989586621679761048"><span id="local-6989586621679761050"><span class="annot"><span class="annottext">Int -&gt; DBSecurityGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679762095"><span id="local-6989586621679762097"><span id="local-6989586621679762099"><span class="annot"><span class="annottext">Int -&gt; DBSecurityGroup -&gt; ShowS
 [DBSecurityGroup] -&gt; ShowS
 DBSecurityGroup -&gt; String
 (Int -&gt; DBSecurityGroup -&gt; ShowS)
@@ -118,121 +118,140 @@ $cfrom :: forall x. DBSecurityGroup -&gt; Rep DBSecurityGroup x
 </span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'ownerId', 'dbSecurityGroup_ownerId' - Provides the Amazon Web Services ID of the owner of a specific DB</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- security group.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'dbSecurityGroupName', 'dbSecurityGroup_dbSecurityGroupName' - Specifies the name of the DB security group.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'vpcId', 'dbSecurityGroup_vpcId' - Provides the VpcId of the DB security group.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'ownerId', 'dbSecurityGroup_ownerId' - Provides the Amazon Web Services ID of the owner of a specific DB</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- security group.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'iPRanges', 'dbSecurityGroup_iPRanges' - Contains a list of @IPRange@ elements.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'dbSecurityGroupArn', 'dbSecurityGroup_dbSecurityGroupArn' - The Amazon Resource Name (ARN) for the DB security group.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'dbSecurityGroupDescription', 'dbSecurityGroup_dbSecurityGroupDescription' - Provides the description of the DB security group.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'iPRanges', 'dbSecurityGroup_iPRanges' - Contains a list of @IPRange@ elements.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'eC2SecurityGroups', 'dbSecurityGroup_eC2SecurityGroups' - Contains a list of @EC2SecurityGroup@ elements.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'dbSecurityGroupName', 'dbSecurityGroup_dbSecurityGroupName' - Specifies the name of the DB security group.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'vpcId', 'dbSecurityGroup_vpcId' - Provides the VpcId of the DB security group.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'eC2SecurityGroups', 'dbSecurityGroup_eC2SecurityGroups' - Contains a list of @EC2SecurityGroup@ elements.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'dbSecurityGroupArn', 'dbSecurityGroup_dbSecurityGroupArn' - The Amazon Resource Name (ARN) for the DB security group.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'dbSecurityGroupDescription', 'dbSecurityGroup_dbSecurityGroupDescription' - Provides the description of the DB security group.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#newDBSecurityGroup"><span class="hs-identifier hs-type">newDBSecurityGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span>
 </span><span id="line-77"></span><span id="newDBSecurityGroup"><span class="annot"><span class="annottext">newDBSecurityGroup :: DBSecurityGroup
 </span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#newDBSecurityGroup"><span class="hs-identifier hs-var hs-var">newDBSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DBSecurityGroup' :: Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe [IPRange]
 -&gt; Maybe Text
 -&gt; Maybe [EC2SecurityGroup]
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; DBSecurityGroup
 </span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ownerId:DBSecurityGroup' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AownerId%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbSecurityGroupName:DBSecurityGroup' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AdbSecurityGroupName%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:iPRanges:DBSecurityGroup' :: Maybe [IPRange]
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AiPRanges%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">iPRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IPRange]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbSecurityGroupDescription:DBSecurityGroup' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AdbSecurityGroupDescription%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">dbSecurityGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:eC2SecurityGroups:DBSecurityGroup' :: Maybe [EC2SecurityGroup]
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AeC2SecurityGroups%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">eC2SecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:DBSecurityGroup' :: Maybe Text
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpcId:DBSecurityGroup' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AvpcId%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbSecurityGroupArn:DBSecurityGroup' :: Maybe Text
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerId:DBSecurityGroup' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AownerId%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbSecurityGroupArn:DBSecurityGroup' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AdbSecurityGroupArn%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">dbSecurityGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:iPRanges:DBSecurityGroup' :: Maybe [IPRange]
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AiPRanges%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">iPRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IPRange]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbSecurityGroupName:DBSecurityGroup' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AdbSecurityGroupName%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:eC2SecurityGroups:DBSecurityGroup' :: Maybe [EC2SecurityGroup]
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AeC2SecurityGroups%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">eC2SecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbSecurityGroupDescription:DBSecurityGroup' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AdbSecurityGroupDescription%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">dbSecurityGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | Provides the Amazon Web Services ID of the owner of a specific DB</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- security group.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_ownerId"><span class="hs-identifier hs-type">dbSecurityGroup_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="dbSecurityGroup_ownerId"><span class="annot"><span class="annottext">dbSecurityGroup_ownerId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-88"></span><span class="hs-comment">-- | Provides the VpcId of the DB security group.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_vpcId"><span class="hs-identifier hs-type">dbSecurityGroup_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="dbSecurityGroup_vpcId"><span class="annot"><span class="annottext">dbSecurityGroup_vpcId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DBSecurityGroup -&gt; f DBSecurityGroup
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_vpcId"><span class="hs-identifier hs-var hs-var">dbSecurityGroup_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBSecurityGroup -&gt; Maybe Text)
+-&gt; (DBSecurityGroup -&gt; Maybe Text -&gt; DBSecurityGroup)
+-&gt; Lens DBSecurityGroup DBSecurityGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679762086"><span class="annot"><span class="annottext">Maybe Text
+vpcId :: Maybe Text
+$sel:vpcId:DBSecurityGroup' :: DBSecurityGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679762086"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679762086"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679762085"><span class="annot"><span class="annottext">s :: DBSecurityGroup
+</span><a href="#local-6989586621679762085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679762084"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679762084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSecurityGroup
+</span><a href="#local-6989586621679762085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:DBSecurityGroup' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AvpcId%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679762084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | Provides the Amazon Web Services ID of the owner of a specific DB</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- security group.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_ownerId"><span class="hs-identifier hs-type">dbSecurityGroup_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="dbSecurityGroup_ownerId"><span class="annot"><span class="annottext">dbSecurityGroup_ownerId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DBSecurityGroup -&gt; f DBSecurityGroup
 </span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_ownerId"><span class="hs-identifier hs-var hs-var">dbSecurityGroup_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBSecurityGroup -&gt; Maybe Text)
 -&gt; (DBSecurityGroup -&gt; Maybe Text -&gt; DBSecurityGroup)
 -&gt; Lens DBSecurityGroup DBSecurityGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679761037"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679762082"><span class="annot"><span class="annottext">Maybe Text
 ownerId :: Maybe Text
 $sel:ownerId:DBSecurityGroup' :: DBSecurityGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679761037"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679761037"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679761036"><span class="annot"><span class="annottext">s :: DBSecurityGroup
-</span><a href="#local-6989586621679761036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679761035"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679761035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSecurityGroup
-</span><a href="#local-6989586621679761036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:DBSecurityGroup' :: Maybe Text
+</span><a href="#local-6989586621679762082"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679762082"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679762081"><span class="annot"><span class="annottext">s :: DBSecurityGroup
+</span><a href="#local-6989586621679762081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679762080"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679762080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSecurityGroup
+</span><a href="#local-6989586621679762081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:DBSecurityGroup' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AownerId%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679761035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | Specifies the name of the DB security group.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_dbSecurityGroupName"><span class="hs-identifier hs-type">dbSecurityGroup_dbSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="dbSecurityGroup_dbSecurityGroupName"><span class="annot"><span class="annottext">dbSecurityGroup_dbSecurityGroupName :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679762080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the DB security group.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_dbSecurityGroupArn"><span class="hs-identifier hs-type">dbSecurityGroup_dbSecurityGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="dbSecurityGroup_dbSecurityGroupArn"><span class="annot"><span class="annottext">dbSecurityGroup_dbSecurityGroupArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DBSecurityGroup -&gt; f DBSecurityGroup
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_dbSecurityGroupName"><span class="hs-identifier hs-var hs-var">dbSecurityGroup_dbSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBSecurityGroup -&gt; Maybe Text)
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_dbSecurityGroupArn"><span class="hs-identifier hs-var hs-var">dbSecurityGroup_dbSecurityGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBSecurityGroup -&gt; Maybe Text)
 -&gt; (DBSecurityGroup -&gt; Maybe Text -&gt; DBSecurityGroup)
 -&gt; Lens DBSecurityGroup DBSecurityGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679761033"><span class="annot"><span class="annottext">Maybe Text
-dbSecurityGroupName :: Maybe Text
-$sel:dbSecurityGroupName:DBSecurityGroup' :: DBSecurityGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679761033"><span class="hs-identifier hs-var hs-var">dbSecurityGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679761033"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679761032"><span class="annot"><span class="annottext">s :: DBSecurityGroup
-</span><a href="#local-6989586621679761032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679761031"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679761031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSecurityGroup
-</span><a href="#local-6989586621679761032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSecurityGroupName:DBSecurityGroup' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AdbSecurityGroupName%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679761031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | Contains a list of @IPRange@ elements.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_iPRanges"><span class="hs-identifier hs-type">dbSecurityGroup_iPRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.IPRange.html#IPRange"><span class="hs-identifier hs-type">IPRange</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="dbSecurityGroup_iPRanges"><span class="annot"><span class="annottext">dbSecurityGroup_iPRanges :: (Maybe [IPRange] -&gt; f (Maybe [IPRange]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679762078"><span class="annot"><span class="annottext">Maybe Text
+dbSecurityGroupArn :: Maybe Text
+$sel:dbSecurityGroupArn:DBSecurityGroup' :: DBSecurityGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679762078"><span class="hs-identifier hs-var hs-var">dbSecurityGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679762078"><span class="hs-identifier hs-var">dbSecurityGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679762077"><span class="annot"><span class="annottext">s :: DBSecurityGroup
+</span><a href="#local-6989586621679762077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679762076"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679762076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSecurityGroup
+</span><a href="#local-6989586621679762077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSecurityGroupArn:DBSecurityGroup' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AdbSecurityGroupArn%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">dbSecurityGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679762076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Contains a list of @IPRange@ elements.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_iPRanges"><span class="hs-identifier hs-type">dbSecurityGroup_iPRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.IPRange.html#IPRange"><span class="hs-identifier hs-type">IPRange</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="dbSecurityGroup_iPRanges"><span class="annot"><span class="annottext">dbSecurityGroup_iPRanges :: (Maybe [IPRange] -&gt; f (Maybe [IPRange]))
 -&gt; DBSecurityGroup -&gt; f DBSecurityGroup
 </span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_iPRanges"><span class="hs-identifier hs-var hs-var">dbSecurityGroup_iPRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBSecurityGroup -&gt; Maybe [IPRange])
 -&gt; (DBSecurityGroup -&gt; Maybe [IPRange] -&gt; DBSecurityGroup)
 -&gt; Lens
      DBSecurityGroup DBSecurityGroup (Maybe [IPRange]) (Maybe [IPRange])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679761029"><span class="annot"><span class="annottext">Maybe [IPRange]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679762074"><span class="annot"><span class="annottext">Maybe [IPRange]
 iPRanges :: Maybe [IPRange]
 $sel:iPRanges:DBSecurityGroup' :: DBSecurityGroup -&gt; Maybe [IPRange]
-</span><a href="#local-6989586621679761029"><span class="hs-identifier hs-var hs-var">iPRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IPRange]
-</span><a href="#local-6989586621679761029"><span class="hs-identifier hs-var">iPRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679761028"><span class="annot"><span class="annottext">s :: DBSecurityGroup
-</span><a href="#local-6989586621679761028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679761027"><span class="annot"><span class="annottext">Maybe [IPRange]
-</span><a href="#local-6989586621679761027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSecurityGroup
-</span><a href="#local-6989586621679761028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iPRanges:DBSecurityGroup' :: Maybe [IPRange]
+</span><a href="#local-6989586621679762074"><span class="hs-identifier hs-var hs-var">iPRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [IPRange]
+</span><a href="#local-6989586621679762074"><span class="hs-identifier hs-var">iPRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679762073"><span class="annot"><span class="annottext">s :: DBSecurityGroup
+</span><a href="#local-6989586621679762073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679762072"><span class="annot"><span class="annottext">Maybe [IPRange]
+</span><a href="#local-6989586621679762072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSecurityGroup
+</span><a href="#local-6989586621679762073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iPRanges:DBSecurityGroup' :: Maybe [IPRange]
 </span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AiPRanges%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">iPRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [IPRange]
-</span><a href="#local-6989586621679761027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IPRange] -&gt; f (Maybe [IPRange]))
+</span><a href="#local-6989586621679762072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [IPRange] -&gt; f (Maybe [IPRange]))
  -&gt; DBSecurityGroup -&gt; f DBSecurityGroup)
 -&gt; ((Maybe [IPRange] -&gt; f (Maybe [IPRange]))
     -&gt; Maybe [IPRange] -&gt; f (Maybe [IPRange]))
@@ -250,31 +269,31 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [IPRange] [IPRange] [IPRange] [IPRange]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | Provides the description of the DB security group.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_dbSecurityGroupDescription"><span class="hs-identifier hs-type">dbSecurityGroup_dbSecurityGroupDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="dbSecurityGroup_dbSecurityGroupDescription"><span class="annot"><span class="annottext">dbSecurityGroup_dbSecurityGroupDescription :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | Specifies the name of the DB security group.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_dbSecurityGroupName"><span class="hs-identifier hs-type">dbSecurityGroup_dbSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="dbSecurityGroup_dbSecurityGroupName"><span class="annot"><span class="annottext">dbSecurityGroup_dbSecurityGroupName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DBSecurityGroup -&gt; f DBSecurityGroup
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_dbSecurityGroupDescription"><span class="hs-identifier hs-var hs-var">dbSecurityGroup_dbSecurityGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBSecurityGroup -&gt; Maybe Text)
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_dbSecurityGroupName"><span class="hs-identifier hs-var hs-var">dbSecurityGroup_dbSecurityGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBSecurityGroup -&gt; Maybe Text)
 -&gt; (DBSecurityGroup -&gt; Maybe Text -&gt; DBSecurityGroup)
 -&gt; Lens DBSecurityGroup DBSecurityGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679761022"><span class="annot"><span class="annottext">Maybe Text
-dbSecurityGroupDescription :: Maybe Text
-$sel:dbSecurityGroupDescription:DBSecurityGroup' :: DBSecurityGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679761022"><span class="hs-identifier hs-var hs-var">dbSecurityGroupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679761022"><span class="hs-identifier hs-var">dbSecurityGroupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679761021"><span class="annot"><span class="annottext">s :: DBSecurityGroup
-</span><a href="#local-6989586621679761021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679761020"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679761020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSecurityGroup
-</span><a href="#local-6989586621679761021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSecurityGroupDescription:DBSecurityGroup' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AdbSecurityGroupDescription%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">dbSecurityGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679761020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | Contains a list of @EC2SecurityGroup@ elements.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_eC2SecurityGroups"><span class="hs-identifier hs-type">dbSecurityGroup_eC2SecurityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.EC2SecurityGroup.html#EC2SecurityGroup"><span class="hs-identifier hs-type">EC2SecurityGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="dbSecurityGroup_eC2SecurityGroups"><span class="annot"><span class="annottext">dbSecurityGroup_eC2SecurityGroups :: (Maybe [EC2SecurityGroup] -&gt; f (Maybe [EC2SecurityGroup]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679762067"><span class="annot"><span class="annottext">Maybe Text
+dbSecurityGroupName :: Maybe Text
+$sel:dbSecurityGroupName:DBSecurityGroup' :: DBSecurityGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679762067"><span class="hs-identifier hs-var hs-var">dbSecurityGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679762067"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679762066"><span class="annot"><span class="annottext">s :: DBSecurityGroup
+</span><a href="#local-6989586621679762066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679762065"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679762065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSecurityGroup
+</span><a href="#local-6989586621679762066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSecurityGroupName:DBSecurityGroup' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AdbSecurityGroupName%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">dbSecurityGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679762065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | Contains a list of @EC2SecurityGroup@ elements.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_eC2SecurityGroups"><span class="hs-identifier hs-type">dbSecurityGroup_eC2SecurityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.RDS.Types.EC2SecurityGroup.html#EC2SecurityGroup"><span class="hs-identifier hs-type">EC2SecurityGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="dbSecurityGroup_eC2SecurityGroups"><span class="annot"><span class="annottext">dbSecurityGroup_eC2SecurityGroups :: (Maybe [EC2SecurityGroup] -&gt; f (Maybe [EC2SecurityGroup]))
 -&gt; DBSecurityGroup -&gt; f DBSecurityGroup
 </span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_eC2SecurityGroups"><span class="hs-identifier hs-var hs-var">dbSecurityGroup_eC2SecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBSecurityGroup -&gt; Maybe [EC2SecurityGroup])
 -&gt; (DBSecurityGroup -&gt; Maybe [EC2SecurityGroup] -&gt; DBSecurityGroup)
@@ -284,16 +303,16 @@ $sel:dbSecurityGroupDescription:DBSecurityGroup' :: DBSecurityGroup -&gt; Maybe 
      (Maybe [EC2SecurityGroup])
      (Maybe [EC2SecurityGroup])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679761018"><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679762063"><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
 eC2SecurityGroups :: Maybe [EC2SecurityGroup]
 $sel:eC2SecurityGroups:DBSecurityGroup' :: DBSecurityGroup -&gt; Maybe [EC2SecurityGroup]
-</span><a href="#local-6989586621679761018"><span class="hs-identifier hs-var hs-var">eC2SecurityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
-</span><a href="#local-6989586621679761018"><span class="hs-identifier hs-var">eC2SecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679761017"><span class="annot"><span class="annottext">s :: DBSecurityGroup
-</span><a href="#local-6989586621679761017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679761016"><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
-</span><a href="#local-6989586621679761016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSecurityGroup
-</span><a href="#local-6989586621679761017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2SecurityGroups:DBSecurityGroup' :: Maybe [EC2SecurityGroup]
+</span><a href="#local-6989586621679762063"><span class="hs-identifier hs-var hs-var">eC2SecurityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
+</span><a href="#local-6989586621679762063"><span class="hs-identifier hs-var">eC2SecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679762062"><span class="annot"><span class="annottext">s :: DBSecurityGroup
+</span><a href="#local-6989586621679762062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679762061"><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
+</span><a href="#local-6989586621679762061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSecurityGroup
+</span><a href="#local-6989586621679762062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eC2SecurityGroups:DBSecurityGroup' :: Maybe [EC2SecurityGroup]
 </span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AeC2SecurityGroups%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">eC2SecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EC2SecurityGroup]
-</span><a href="#local-6989586621679761016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EC2SecurityGroup] -&gt; f (Maybe [EC2SecurityGroup]))
+</span><a href="#local-6989586621679762061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EC2SecurityGroup] -&gt; f (Maybe [EC2SecurityGroup]))
  -&gt; DBSecurityGroup -&gt; f DBSecurityGroup)
 -&gt; ((Maybe [EC2SecurityGroup] -&gt; f (Maybe [EC2SecurityGroup]))
     -&gt; Maybe [EC2SecurityGroup] -&gt; f (Maybe [EC2SecurityGroup]))
@@ -319,68 +338,74 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [EC2SecurityGroup]
   [EC2SecurityGroup]
   [EC2SecurityGroup]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | Provides the VpcId of the DB security group.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_vpcId"><span class="hs-identifier hs-type">dbSecurityGroup_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="dbSecurityGroup_vpcId"><span class="annot"><span class="annottext">dbSecurityGroup_vpcId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DBSecurityGroup -&gt; f DBSecurityGroup
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_vpcId"><span class="hs-identifier hs-var hs-var">dbSecurityGroup_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBSecurityGroup -&gt; Maybe Text)
--&gt; (DBSecurityGroup -&gt; Maybe Text -&gt; DBSecurityGroup)
--&gt; Lens DBSecurityGroup DBSecurityGroup (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679761014"><span class="annot"><span class="annottext">Maybe Text
-vpcId :: Maybe Text
-$sel:vpcId:DBSecurityGroup' :: DBSecurityGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679761014"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679761014"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679761013"><span class="annot"><span class="annottext">s :: DBSecurityGroup
-</span><a href="#local-6989586621679761013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679761012"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679761012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSecurityGroup
-</span><a href="#local-6989586621679761013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:DBSecurityGroup' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AvpcId%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679761012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the DB security group.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_dbSecurityGroupArn"><span class="hs-identifier hs-type">dbSecurityGroup_dbSecurityGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="dbSecurityGroup_dbSecurityGroupArn"><span class="annot"><span class="annottext">dbSecurityGroup_dbSecurityGroupArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-113"></span><span class="hs-comment">-- | Provides the description of the DB security group.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_dbSecurityGroupDescription"><span class="hs-identifier hs-type">dbSecurityGroup_dbSecurityGroupDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="dbSecurityGroup_dbSecurityGroupDescription"><span class="annot"><span class="annottext">dbSecurityGroup_dbSecurityGroupDescription :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DBSecurityGroup -&gt; f DBSecurityGroup
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_dbSecurityGroupArn"><span class="hs-identifier hs-var hs-var">dbSecurityGroup_dbSecurityGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBSecurityGroup -&gt; Maybe Text)
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#dbSecurityGroup_dbSecurityGroupDescription"><span class="hs-identifier hs-var hs-var">dbSecurityGroup_dbSecurityGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DBSecurityGroup -&gt; Maybe Text)
 -&gt; (DBSecurityGroup -&gt; Maybe Text -&gt; DBSecurityGroup)
 -&gt; Lens DBSecurityGroup DBSecurityGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679761010"><span class="annot"><span class="annottext">Maybe Text
-dbSecurityGroupArn :: Maybe Text
-$sel:dbSecurityGroupArn:DBSecurityGroup' :: DBSecurityGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679761010"><span class="hs-identifier hs-var hs-var">dbSecurityGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679761010"><span class="hs-identifier hs-var">dbSecurityGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679761009"><span class="annot"><span class="annottext">s :: DBSecurityGroup
-</span><a href="#local-6989586621679761009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679761008"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679761008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSecurityGroup
-</span><a href="#local-6989586621679761009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSecurityGroupArn:DBSecurityGroup' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AdbSecurityGroupArn%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">dbSecurityGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679761008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679762059"><span class="annot"><span class="annottext">Maybe Text
+dbSecurityGroupDescription :: Maybe Text
+$sel:dbSecurityGroupDescription:DBSecurityGroup' :: DBSecurityGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679762059"><span class="hs-identifier hs-var hs-var">dbSecurityGroupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679762059"><span class="hs-identifier hs-var">dbSecurityGroupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679762058"><span class="annot"><span class="annottext">s :: DBSecurityGroup
+</span><a href="#local-6989586621679762058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-type">DBSecurityGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679762057"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679762057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DBSecurityGroup
+</span><a href="#local-6989586621679762058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSecurityGroupDescription:DBSecurityGroup' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#%24sel%3AdbSecurityGroupDescription%3ADBSecurityGroup%27"><span class="hs-identifier hs-var">dbSecurityGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679762057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679761005"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DBSecurityGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679761003"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679761003"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679762054"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DBSecurityGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679762052"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679762052"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [IPRange]
 -&gt; Maybe Text
 -&gt; Maybe [EC2SecurityGroup]
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; DBSecurityGroup
 </span><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup%27"><span class="hs-identifier hs-var">DBSecurityGroup'</span></a></span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe [IPRange]
  -&gt; Maybe Text
  -&gt; Maybe [EC2SecurityGroup]
  -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; DBSecurityGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [IPRange]
+      -&gt; Maybe Text
+      -&gt; Maybe [EC2SecurityGroup]
+      -&gt; Maybe Text
+      -&gt; DBSecurityGroup)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679762052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [IPRange]
+   -&gt; Maybe Text
+   -&gt; Maybe [EC2SecurityGroup]
+   -&gt; Maybe Text
+   -&gt; DBSecurityGroup)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
@@ -389,21 +414,19 @@ $sel:dbSecurityGroupArn:DBSecurityGroup' :: DBSecurityGroup -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe [EC2SecurityGroup]
       -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; DBSecurityGroup)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679761003"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679762052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OwnerId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe [IPRange]
    -&gt; Maybe Text
    -&gt; Maybe [EC2SecurityGroup]
-   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; DBSecurityGroup)
 -&gt; Either String (Maybe Text)
@@ -413,33 +436,28 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe Text
       -&gt; Maybe [EC2SecurityGroup]
       -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; DBSecurityGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679761003"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679762052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DBSecurityGroupName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;DBSecurityGroupArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe [IPRange]
    -&gt; Maybe Text
    -&gt; Maybe [EC2SecurityGroup]
-   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; DBSecurityGroup)
 -&gt; Either String (Maybe [IPRange])
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe [EC2SecurityGroup]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; DBSecurityGroup)
+      -&gt; Maybe [EC2SecurityGroup] -&gt; Maybe Text -&gt; DBSecurityGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679761003"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679762052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IPRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -447,7 +465,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-123"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-124"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [IPRange]))
 -&gt; Either String (Maybe [IPRange])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -460,43 +478,36 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IPRange&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe [EC2SecurityGroup]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; DBSecurityGroup)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [EC2SecurityGroup]
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; DBSecurityGroup)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679761003"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DBSecurityGroupDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe [EC2SecurityGroup]
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; DBSecurityGroup)
+  (Maybe Text
+   -&gt; Maybe [EC2SecurityGroup] -&gt; Maybe Text -&gt; DBSecurityGroup)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [EC2SecurityGroup] -&gt; Maybe Text -&gt; DBSecurityGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679762052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DBSecurityGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe [EC2SecurityGroup] -&gt; Maybe Text -&gt; DBSecurityGroup)
 -&gt; Either String (Maybe [EC2SecurityGroup])
--&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; DBSecurityGroup)
+-&gt; Either String (Maybe Text -&gt; DBSecurityGroup)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679761003"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679762052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EC2SecurityGroups&quot;</span></span><span>
-</span><span id="line-127"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-128"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-128"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-129"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [EC2SecurityGroup]))
 -&gt; Either String (Maybe [EC2SecurityGroup])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -509,26 +520,17 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EC2SecurityGroup&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; DBSecurityGroup)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Text -&gt; DBSecurityGroup)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679761003"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;VpcId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; DBSecurityGroup)
 -&gt; Either String (Maybe Text) -&gt; Either String DBSecurityGroup
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679761003"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679762052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DBSecurityGroupArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;DBSecurityGroupDescription&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679760994"><span id="local-6989586621679760996"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679762043"><span id="local-6989586621679762045"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span></span></span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679760991"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679762040"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSecurityGroup.html#DBSecurityGroup"><span class="hs-identifier hs-type">DBSecurityGroup</span></a></span></span><span>
 </span><span id="line-136"></span></pre></body></html>

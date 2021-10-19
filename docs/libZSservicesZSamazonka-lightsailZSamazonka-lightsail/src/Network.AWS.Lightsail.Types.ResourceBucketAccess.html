@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679620619"><span id="local-6989586621679620620"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceBucketAccess"><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceBucketAccess.html#ResourceBucketAccess"><span class="hs-identifier hs-var">ResourceBucketAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceBucketAccess%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceBucketAccess.html#ResourceBucketAccess%27"><span class="hs-identifier hs-var">ResourceBucketAccess'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679621526"><span id="local-6989586621679621527"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceBucketAccess"><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceBucketAccess.html#ResourceBucketAccess"><span class="hs-identifier hs-var">ResourceBucketAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceBucketAccess%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceBucketAccess.html#ResourceBucketAccess%27"><span class="hs-identifier hs-var">ResourceBucketAccess'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResourceBucketAccess"><span class="annot"><span class="annottext">ResourceBucketAccess -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.ResourceBucketAccess.html#fromResourceBucketAccess"><span class="hs-identifier hs-var hs-var">fromResourceBucketAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679620611"><span id="local-6989586621679620613"><span id="local-6989586621679620615"><span class="annot"><span class="annottext">Int -&gt; ResourceBucketAccess -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679621518"><span id="local-6989586621679621520"><span id="local-6989586621679621522"><span class="annot"><span class="annottext">Int -&gt; ResourceBucketAccess -&gt; ShowS
 [ResourceBucketAccess] -&gt; ShowS
 ResourceBucketAccess -&gt; String
 (Int -&gt; ResourceBucketAccess -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ResourceBucketAccess -&gt; String
 showsPrec :: Int -&gt; ResourceBucketAccess -&gt; ShowS
 $cshowsPrec :: Int -&gt; ResourceBucketAccess -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679620602"><span id="local-6989586621679620604"><span id="local-6989586621679620606"><span id="local-6989586621679620608"><span class="annot"><span class="annottext">ReadPrec [ResourceBucketAccess]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679621509"><span id="local-6989586621679621511"><span id="local-6989586621679621513"><span id="local-6989586621679621515"><span class="annot"><span class="annottext">ReadPrec [ResourceBucketAccess]
 ReadPrec ResourceBucketAccess
 Int -&gt; ReadS ResourceBucketAccess
 ReadS [ResourceBucketAccess]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ResourceBucketAccess]
 readsPrec :: Int -&gt; ReadS ResourceBucketAccess
 $creadsPrec :: Int -&gt; ReadS ResourceBucketAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679620597"><span id="local-6989586621679620599"><span class="annot"><span class="annottext">ResourceBucketAccess -&gt; ResourceBucketAccess -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679621504"><span id="local-6989586621679621506"><span class="annot"><span class="annottext">ResourceBucketAccess -&gt; ResourceBucketAccess -&gt; Bool
 (ResourceBucketAccess -&gt; ResourceBucketAccess -&gt; Bool)
 -&gt; (ResourceBucketAccess -&gt; ResourceBucketAccess -&gt; Bool)
 -&gt; Eq ResourceBucketAccess
@@ -82,7 +82,7 @@ $c/= :: ResourceBucketAccess -&gt; ResourceBucketAccess -&gt; Bool
 == :: ResourceBucketAccess -&gt; ResourceBucketAccess -&gt; Bool
 $c== :: ResourceBucketAccess -&gt; ResourceBucketAccess -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679620581"><span id="local-6989586621679620583"><span id="local-6989586621679620585"><span id="local-6989586621679620587"><span id="local-6989586621679620589"><span id="local-6989586621679620591"><span id="local-6989586621679620593"><span class="annot"><span class="annottext">Eq ResourceBucketAccess
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679621488"><span id="local-6989586621679621490"><span id="local-6989586621679621492"><span id="local-6989586621679621494"><span id="local-6989586621679621496"><span id="local-6989586621679621498"><span id="local-6989586621679621500"><span class="annot"><span class="annottext">Eq ResourceBucketAccess
 Eq ResourceBucketAccess
 -&gt; (ResourceBucketAccess -&gt; ResourceBucketAccess -&gt; Ordering)
 -&gt; (ResourceBucketAccess -&gt; ResourceBucketAccess -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. ResourceBucketAccess -&gt; Rep ResourceBucketAccess x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679620573"><span id="local-6989586621679620575"><span class="annot"><span class="annottext">Int -&gt; ResourceBucketAccess -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679621480"><span id="local-6989586621679621482"><span class="annot"><span class="annottext">Int -&gt; ResourceBucketAccess -&gt; Int
 ResourceBucketAccess -&gt; Int
 (Int -&gt; ResourceBucketAccess -&gt; Int)
 -&gt; (ResourceBucketAccess -&gt; Int) -&gt; Hashable ResourceBucketAccess
@@ -150,54 +150,54 @@ $chash :: ResourceBucketAccess -&gt; Int
 hashWithSalt :: Int -&gt; ResourceBucketAccess -&gt; Int
 $chashWithSalt :: Int -&gt; ResourceBucketAccess -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679620570"><span class="annot"><span class="annottext">ResourceBucketAccess -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679621477"><span class="annot"><span class="annottext">ResourceBucketAccess -&gt; ()
 (ResourceBucketAccess -&gt; ()) -&gt; NFData ResourceBucketAccess
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ResourceBucketAccess -&gt; ()
 $crnf :: ResourceBucketAccess -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679620567"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceBucketAccess
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679621474"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceBucketAccess
 (Text -&gt; Either String ResourceBucketAccess)
 -&gt; FromText ResourceBucketAccess
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ResourceBucketAccess
 $cfromText :: Text -&gt; Either String ResourceBucketAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679620564"><span class="annot"><span class="annottext">ResourceBucketAccess -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679621471"><span class="annot"><span class="annottext">ResourceBucketAccess -&gt; Text
 (ResourceBucketAccess -&gt; Text) -&gt; ToText ResourceBucketAccess
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ResourceBucketAccess -&gt; Text
 $ctoText :: ResourceBucketAccess -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679620561"><span class="annot"><span class="annottext">ResourceBucketAccess -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679621468"><span class="annot"><span class="annottext">ResourceBucketAccess -&gt; ByteString
 (ResourceBucketAccess -&gt; ByteString)
 -&gt; ToByteString ResourceBucketAccess
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ResourceBucketAccess -&gt; ByteString
 $ctoBS :: ResourceBucketAccess -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679620558"><span class="annot"><span class="annottext">ResourceBucketAccess -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679621465"><span class="annot"><span class="annottext">ResourceBucketAccess -&gt; ByteStringBuilder
 (ResourceBucketAccess -&gt; ByteStringBuilder)
 -&gt; ToLog ResourceBucketAccess
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ResourceBucketAccess -&gt; ByteStringBuilder
 $cbuild :: ResourceBucketAccess -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679620555"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceBucketAccess -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679621462"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceBucketAccess -&gt; [Header]
 (HeaderName -&gt; ResourceBucketAccess -&gt; [Header])
 -&gt; ToHeader ResourceBucketAccess
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ResourceBucketAccess -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ResourceBucketAccess -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679620552"><span class="annot"><span class="annottext">ResourceBucketAccess -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679621459"><span class="annot"><span class="annottext">ResourceBucketAccess -&gt; QueryString
 (ResourceBucketAccess -&gt; QueryString)
 -&gt; ToQuery ResourceBucketAccess
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ResourceBucketAccess -&gt; QueryString
 $ctoQuery :: ResourceBucketAccess -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679620547"><span id="local-6989586621679620549"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceBucketAccess]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679621454"><span id="local-6989586621679621456"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceBucketAccess]
 Value -&gt; Parser ResourceBucketAccess
 (Value -&gt; Parser ResourceBucketAccess)
 -&gt; (Value -&gt; Parser [ResourceBucketAccess])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [ResourceBucketAccess]
 parseJSON :: Value -&gt; Parser ResourceBucketAccess
 $cparseJSON :: Value -&gt; Parser ResourceBucketAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679620542"><span id="local-6989586621679620544"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceBucketAccess]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679621449"><span id="local-6989586621679621451"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceBucketAccess]
 FromJSONKeyFunction ResourceBucketAccess
 FromJSONKeyFunction ResourceBucketAccess
 -&gt; FromJSONKeyFunction [ResourceBucketAccess]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ResourceBucketAccess]
 fromJSONKey :: FromJSONKeyFunction ResourceBucketAccess
 $cfromJSONKey :: FromJSONKeyFunction ResourceBucketAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679620533"><span id="local-6989586621679620535"><span id="local-6989586621679620537"><span id="local-6989586621679620539"><span class="annot"><span class="annottext">[ResourceBucketAccess] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679621440"><span id="local-6989586621679621442"><span id="local-6989586621679621444"><span id="local-6989586621679621446"><span class="annot"><span class="annottext">[ResourceBucketAccess] -&gt; Encoding
 [ResourceBucketAccess] -&gt; Value
 ResourceBucketAccess -&gt; Encoding
 ResourceBucketAccess -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: ResourceBucketAccess -&gt; Encoding
 toJSON :: ResourceBucketAccess -&gt; Value
 $ctoJSON :: ResourceBucketAccess -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679620528"><span id="local-6989586621679620530"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceBucketAccess]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679621435"><span id="local-6989586621679621437"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceBucketAccess]
 ToJSONKeyFunction ResourceBucketAccess
 ToJSONKeyFunction ResourceBucketAccess
 -&gt; ToJSONKeyFunction [ResourceBucketAccess]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ResourceBucketAccess]
 toJSONKey :: ToJSONKeyFunction ResourceBucketAccess
 $ctoJSONKey :: ToJSONKeyFunction ResourceBucketAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679620525"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceBucketAccess
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679621432"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceBucketAccess
 ([Node] -&gt; Either String ResourceBucketAccess)
 -&gt; FromXML ResourceBucketAccess
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ResourceBucketAccess
 $cparseXML :: [Node] -&gt; Either String ResourceBucketAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679620522"><span class="annot"><span class="annottext">ResourceBucketAccess -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679621429"><span class="annot"><span class="annottext">ResourceBucketAccess -&gt; XML
 (ResourceBucketAccess -&gt; XML) -&gt; ToXML ResourceBucketAccess
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ResourceBucketAccess -&gt; XML

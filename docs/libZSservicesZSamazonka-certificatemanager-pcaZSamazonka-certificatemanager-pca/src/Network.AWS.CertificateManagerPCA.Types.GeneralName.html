@@ -32,33 +32,33 @@
 </span><span id="line-32"></span><span class="hs-comment">-- option results in an @InvalidArgsException@ error.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newGeneralName' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679210252"><span id="local-6989586621679210253"></span></span><span class="hs-keyword">data</span><span> </span><span id="GeneralName"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-var">GeneralName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GeneralName%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-var">GeneralName'</span></a></span></span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents @GeneralName@ as an @EdiPartyName@ object.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AediPartyName%3AGeneralName%27"><span class="annot"><span class="annottext">GeneralName -&gt; Maybe EdiPartyName
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AediPartyName%3AGeneralName%27"><span class="hs-identifier hs-var hs-var">ediPartyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-type">EdiPartyName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Represents @GeneralName@ using an @OtherName@ object.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AotherName%3AGeneralName%27"><span class="annot"><span class="annottext">GeneralName -&gt; Maybe OtherName
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AotherName%3AGeneralName%27"><span class="hs-identifier hs-var hs-var">otherName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.OtherName.html#OtherName"><span class="hs-identifier hs-type">OtherName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Represents @GeneralName@ as a URI.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AuniformResourceIdentifier%3AGeneralName%27"><span class="annot"><span class="annottext">GeneralName -&gt; Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AuniformResourceIdentifier%3AGeneralName%27"><span class="hs-identifier hs-var hs-var">uniformResourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Represents @GeneralName@ as an IPv4 or IPv6 address.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AipAddress%3AGeneralName%27"><span class="annot"><span class="annottext">GeneralName -&gt; Maybe Text
+</span><span id="line-35"></span><span id="local-6989586621679210311"><span id="local-6989586621679210312"></span></span><span class="hs-keyword">data</span><span> </span><span id="GeneralName"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-var">GeneralName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GeneralName%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-var">GeneralName'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Represents @GeneralName@ as an IPv4 or IPv6 address.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AipAddress%3AGeneralName%27"><span class="annot"><span class="annottext">GeneralName -&gt; Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AipAddress%3AGeneralName%27"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Represents @GeneralName@ as a DNS name.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AdnsName%3AGeneralName%27"><span class="annot"><span class="annottext">GeneralName -&gt; Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AdnsName%3AGeneralName%27"><span class="hs-identifier hs-var hs-var">dnsName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AdirectoryName%3AGeneralName%27"><span class="annot"><span class="annottext">GeneralName -&gt; Maybe ASN1Subject
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AdirectoryName%3AGeneralName%27"><span class="hs-identifier hs-var hs-var">directoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Represents @GeneralName@ as an</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc822 RFC 822&gt; email address.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3Arfc822Name%3AGeneralName%27"><span class="annot"><span class="annottext">GeneralName -&gt; Maybe Text
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Represents @GeneralName@ as a URI.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AuniformResourceIdentifier%3AGeneralName%27"><span class="annot"><span class="annottext">GeneralName -&gt; Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AuniformResourceIdentifier%3AGeneralName%27"><span class="hs-identifier hs-var hs-var">uniformResourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Represents @GeneralName@ as an object identifier (OID).</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AregisteredId%3AGeneralName%27"><span class="annot"><span class="annottext">GeneralName -&gt; Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AregisteredId%3AGeneralName%27"><span class="hs-identifier hs-var hs-var">registeredId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Represents @GeneralName@ as an @EdiPartyName@ object.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AediPartyName%3AGeneralName%27"><span class="annot"><span class="annottext">GeneralName -&gt; Maybe EdiPartyName
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AediPartyName%3AGeneralName%27"><span class="hs-identifier hs-var hs-var">ediPartyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-type">EdiPartyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Represents @GeneralName@ as an</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc822 RFC 822&gt; email address.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Arfc822Name%3AGeneralName%27"><span class="annot"><span class="annottext">GeneralName -&gt; Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3Arfc822Name%3AGeneralName%27"><span class="hs-identifier hs-var hs-var">rfc822Name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Represents @GeneralName@ as an object identifier (OID).</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AregisteredId%3AGeneralName%27"><span class="annot"><span class="annottext">GeneralName -&gt; Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AregisteredId%3AGeneralName%27"><span class="hs-identifier hs-var hs-var">registeredId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Represents @GeneralName@ using an @OtherName@ object.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AotherName%3AGeneralName%27"><span class="annot"><span class="annottext">GeneralName -&gt; Maybe OtherName
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AotherName%3AGeneralName%27"><span class="hs-identifier hs-var hs-var">otherName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.OtherName.html#OtherName"><span class="hs-identifier hs-type">OtherName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Represents @GeneralName@ as a DNS name.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AdnsName%3AGeneralName%27"><span class="annot"><span class="annottext">GeneralName -&gt; Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AdnsName%3AGeneralName%27"><span class="hs-identifier hs-var hs-var">dnsName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AdirectoryName%3AGeneralName%27"><span class="annot"><span class="annottext">GeneralName -&gt; Maybe ASN1Subject
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AdirectoryName%3AGeneralName%27"><span class="hs-identifier hs-var hs-var">directoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210239"><span id="local-6989586621679210241"><span class="annot"><span class="annottext">GeneralName -&gt; GeneralName -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210298"><span id="local-6989586621679210300"><span class="annot"><span class="annottext">GeneralName -&gt; GeneralName -&gt; Bool
 (GeneralName -&gt; GeneralName -&gt; Bool)
 -&gt; (GeneralName -&gt; GeneralName -&gt; Bool) -&gt; Eq GeneralName
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GeneralName -&gt; GeneralName -&gt; Bool
 == :: GeneralName -&gt; GeneralName -&gt; Bool
 $c== :: GeneralName -&gt; GeneralName -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210230"><span id="local-6989586621679210232"><span id="local-6989586621679210234"><span id="local-6989586621679210236"><span class="annot"><span class="annottext">ReadPrec [GeneralName]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210289"><span id="local-6989586621679210291"><span id="local-6989586621679210293"><span id="local-6989586621679210295"><span class="annot"><span class="annottext">ReadPrec [GeneralName]
 ReadPrec GeneralName
 Int -&gt; ReadS GeneralName
 ReadS [GeneralName]
@@ -86,7 +86,7 @@ readList :: ReadS [GeneralName]
 $creadList :: ReadS [GeneralName]
 readsPrec :: Int -&gt; ReadS GeneralName
 $creadsPrec :: Int -&gt; ReadS GeneralName
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210223"><span id="local-6989586621679210225"><span id="local-6989586621679210227"><span class="annot"><span class="annottext">Int -&gt; GeneralName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210282"><span id="local-6989586621679210284"><span id="local-6989586621679210286"><span class="annot"><span class="annottext">Int -&gt; GeneralName -&gt; ShowS
 [GeneralName] -&gt; ShowS
 GeneralName -&gt; String
 (Int -&gt; GeneralName -&gt; ShowS)
@@ -120,222 +120,222 @@ $cfrom :: forall x. GeneralName -&gt; Rep GeneralName x
 </span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'ediPartyName', 'generalName_ediPartyName' - Represents @GeneralName@ as an @EdiPartyName@ object.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'ipAddress', 'generalName_ipAddress' - Represents @GeneralName@ as an IPv4 or IPv6 address.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'otherName', 'generalName_otherName' - Represents @GeneralName@ using an @OtherName@ object.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'uniformResourceIdentifier', 'generalName_uniformResourceIdentifier' - Represents @GeneralName@ as a URI.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'uniformResourceIdentifier', 'generalName_uniformResourceIdentifier' - Represents @GeneralName@ as a URI.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'registeredId', 'generalName_registeredId' - Represents @GeneralName@ as an object identifier (OID).</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'ipAddress', 'generalName_ipAddress' - Represents @GeneralName@ as an IPv4 or IPv6 address.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'ediPartyName', 'generalName_ediPartyName' - Represents @GeneralName@ as an @EdiPartyName@ object.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'dnsName', 'generalName_dnsName' - Represents @GeneralName@ as a DNS name.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'directoryName', 'generalName_directoryName' - Undocumented member.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'rfc822Name', 'generalName_rfc822Name' - Represents @GeneralName@ as an</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc822 RFC 822&gt; email address.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'rfc822Name', 'generalName_rfc822Name' - Represents @GeneralName@ as an</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc822 RFC 822&gt; email address.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'otherName', 'generalName_otherName' - Represents @GeneralName@ using an @OtherName@ object.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'dnsName', 'generalName_dnsName' - Represents @GeneralName@ as a DNS name.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'registeredId', 'generalName_registeredId' - Represents @GeneralName@ as an object identifier (OID).</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'directoryName', 'generalName_directoryName' - Undocumented member.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#newGeneralName"><span class="hs-identifier hs-type">newGeneralName</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span>
 </span><span id="line-81"></span><span id="newGeneralName"><span class="annot"><span class="annottext">newGeneralName :: GeneralName
 </span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#newGeneralName"><span class="hs-identifier hs-var hs-var">newGeneralName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">GeneralName' :: Maybe EdiPartyName
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">GeneralName' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe EdiPartyName
+-&gt; Maybe Text
 -&gt; Maybe OtherName
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe ASN1Subject
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; GeneralName
 </span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ediPartyName:GeneralName' :: Maybe EdiPartyName
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AediPartyName%3AGeneralName%27"><span class="hs-identifier hs-var">ediPartyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EdiPartyName
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:otherName:GeneralName' :: Maybe OtherName
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AotherName%3AGeneralName%27"><span class="hs-identifier hs-var">otherName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OtherName
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:uniformResourceIdentifier:GeneralName' :: Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AuniformResourceIdentifier%3AGeneralName%27"><span class="hs-identifier hs-var">uniformResourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipAddress:GeneralName' :: Maybe Text
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ipAddress:GeneralName' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AipAddress%3AGeneralName%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:dnsName:GeneralName' :: Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AdnsName%3AGeneralName%27"><span class="hs-identifier hs-var">dnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:uniformResourceIdentifier:GeneralName' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AuniformResourceIdentifier%3AGeneralName%27"><span class="hs-identifier hs-var">uniformResourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:directoryName:GeneralName' :: Maybe ASN1Subject
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AdirectoryName%3AGeneralName%27"><span class="hs-identifier hs-var">directoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ASN1Subject
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:registeredId:GeneralName' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AregisteredId%3AGeneralName%27"><span class="hs-identifier hs-var">registeredId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:rfc822Name:GeneralName' :: Maybe Text
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:ediPartyName:GeneralName' :: Maybe EdiPartyName
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AediPartyName%3AGeneralName%27"><span class="hs-identifier hs-var">ediPartyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EdiPartyName
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:rfc822Name:GeneralName' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3Arfc822Name%3AGeneralName%27"><span class="hs-identifier hs-var">rfc822Name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:registeredId:GeneralName' :: Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AregisteredId%3AGeneralName%27"><span class="hs-identifier hs-var">registeredId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:otherName:GeneralName' :: Maybe OtherName
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AotherName%3AGeneralName%27"><span class="hs-identifier hs-var">otherName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OtherName
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:dnsName:GeneralName' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AdnsName%3AGeneralName%27"><span class="hs-identifier hs-var">dnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:directoryName:GeneralName' :: Maybe ASN1Subject
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AdirectoryName%3AGeneralName%27"><span class="hs-identifier hs-var">directoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ASN1Subject
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | Represents @GeneralName@ as an @EdiPartyName@ object.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_ediPartyName"><span class="hs-identifier hs-type">generalName_ediPartyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-type">EdiPartyName</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="generalName_ediPartyName"><span class="annot"><span class="annottext">generalName_ediPartyName :: (Maybe EdiPartyName -&gt; f (Maybe EdiPartyName))
+</span><span id="line-93"></span><span class="hs-comment">-- | Represents @GeneralName@ as an IPv4 or IPv6 address.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_ipAddress"><span class="hs-identifier hs-type">generalName_ipAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="generalName_ipAddress"><span class="annot"><span class="annottext">generalName_ipAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GeneralName -&gt; f GeneralName
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_ipAddress"><span class="hs-identifier hs-var hs-var">generalName_ipAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GeneralName -&gt; Maybe Text)
+-&gt; (GeneralName -&gt; Maybe Text -&gt; GeneralName)
+-&gt; Lens GeneralName GeneralName (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210273"><span class="annot"><span class="annottext">Maybe Text
+ipAddress :: Maybe Text
+$sel:ipAddress:GeneralName' :: GeneralName -&gt; Maybe Text
+</span><a href="#local-6989586621679210273"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210273"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210272"><span class="annot"><span class="annottext">s :: GeneralName
+</span><a href="#local-6989586621679210272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210271"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneralName
+</span><a href="#local-6989586621679210272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:GeneralName' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AipAddress%3AGeneralName%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Represents @GeneralName@ as a URI.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_uniformResourceIdentifier"><span class="hs-identifier hs-type">generalName_uniformResourceIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="generalName_uniformResourceIdentifier"><span class="annot"><span class="annottext">generalName_uniformResourceIdentifier :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GeneralName -&gt; f GeneralName
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_uniformResourceIdentifier"><span class="hs-identifier hs-var hs-var">generalName_uniformResourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GeneralName -&gt; Maybe Text)
+-&gt; (GeneralName -&gt; Maybe Text -&gt; GeneralName)
+-&gt; Lens GeneralName GeneralName (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210269"><span class="annot"><span class="annottext">Maybe Text
+uniformResourceIdentifier :: Maybe Text
+$sel:uniformResourceIdentifier:GeneralName' :: GeneralName -&gt; Maybe Text
+</span><a href="#local-6989586621679210269"><span class="hs-identifier hs-var hs-var">uniformResourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210269"><span class="hs-identifier hs-var">uniformResourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210268"><span class="annot"><span class="annottext">s :: GeneralName
+</span><a href="#local-6989586621679210268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210267"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneralName
+</span><a href="#local-6989586621679210268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uniformResourceIdentifier:GeneralName' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AuniformResourceIdentifier%3AGeneralName%27"><span class="hs-identifier hs-var">uniformResourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | Represents @GeneralName@ as an object identifier (OID).</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_registeredId"><span class="hs-identifier hs-type">generalName_registeredId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="generalName_registeredId"><span class="annot"><span class="annottext">generalName_registeredId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GeneralName -&gt; f GeneralName
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_registeredId"><span class="hs-identifier hs-var hs-var">generalName_registeredId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GeneralName -&gt; Maybe Text)
+-&gt; (GeneralName -&gt; Maybe Text -&gt; GeneralName)
+-&gt; Lens GeneralName GeneralName (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210265"><span class="annot"><span class="annottext">Maybe Text
+registeredId :: Maybe Text
+$sel:registeredId:GeneralName' :: GeneralName -&gt; Maybe Text
+</span><a href="#local-6989586621679210265"><span class="hs-identifier hs-var hs-var">registeredId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210265"><span class="hs-identifier hs-var">registeredId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210264"><span class="annot"><span class="annottext">s :: GeneralName
+</span><a href="#local-6989586621679210264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210263"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneralName
+</span><a href="#local-6989586621679210264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registeredId:GeneralName' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AregisteredId%3AGeneralName%27"><span class="hs-identifier hs-var">registeredId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | Represents @GeneralName@ as an @EdiPartyName@ object.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_ediPartyName"><span class="hs-identifier hs-type">generalName_ediPartyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.EdiPartyName.html#EdiPartyName"><span class="hs-identifier hs-type">EdiPartyName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="generalName_ediPartyName"><span class="annot"><span class="annottext">generalName_ediPartyName :: (Maybe EdiPartyName -&gt; f (Maybe EdiPartyName))
 -&gt; GeneralName -&gt; f GeneralName
 </span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_ediPartyName"><span class="hs-identifier hs-var hs-var">generalName_ediPartyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GeneralName -&gt; Maybe EdiPartyName)
 -&gt; (GeneralName -&gt; Maybe EdiPartyName -&gt; GeneralName)
 -&gt; Lens
      GeneralName GeneralName (Maybe EdiPartyName) (Maybe EdiPartyName)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210214"><span class="annot"><span class="annottext">Maybe EdiPartyName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210261"><span class="annot"><span class="annottext">Maybe EdiPartyName
 ediPartyName :: Maybe EdiPartyName
 $sel:ediPartyName:GeneralName' :: GeneralName -&gt; Maybe EdiPartyName
-</span><a href="#local-6989586621679210214"><span class="hs-identifier hs-var hs-var">ediPartyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EdiPartyName
-</span><a href="#local-6989586621679210214"><span class="hs-identifier hs-var">ediPartyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210213"><span class="annot"><span class="annottext">s :: GeneralName
-</span><a href="#local-6989586621679210213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210212"><span class="annot"><span class="annottext">Maybe EdiPartyName
-</span><a href="#local-6989586621679210212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneralName
-</span><a href="#local-6989586621679210213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ediPartyName:GeneralName' :: Maybe EdiPartyName
+</span><a href="#local-6989586621679210261"><span class="hs-identifier hs-var hs-var">ediPartyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EdiPartyName
+</span><a href="#local-6989586621679210261"><span class="hs-identifier hs-var">ediPartyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210260"><span class="annot"><span class="annottext">s :: GeneralName
+</span><a href="#local-6989586621679210260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210259"><span class="annot"><span class="annottext">Maybe EdiPartyName
+</span><a href="#local-6989586621679210259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneralName
+</span><a href="#local-6989586621679210260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ediPartyName:GeneralName' :: Maybe EdiPartyName
 </span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AediPartyName%3AGeneralName%27"><span class="hs-identifier hs-var">ediPartyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EdiPartyName
-</span><a href="#local-6989586621679210212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | Represents @GeneralName@ using an @OtherName@ object.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_otherName"><span class="hs-identifier hs-type">generalName_otherName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.OtherName.html#OtherName"><span class="hs-identifier hs-type">OtherName</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="generalName_otherName"><span class="annot"><span class="annottext">generalName_otherName :: (Maybe OtherName -&gt; f (Maybe OtherName))
+</span><a href="#local-6989586621679210259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | Represents @GeneralName@ as an</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc822 RFC 822&gt; email address.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_rfc822Name"><span class="hs-identifier hs-type">generalName_rfc822Name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="generalName_rfc822Name"><span class="annot"><span class="annottext">generalName_rfc822Name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GeneralName -&gt; f GeneralName
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_rfc822Name"><span class="hs-identifier hs-var hs-var">generalName_rfc822Name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GeneralName -&gt; Maybe Text)
+-&gt; (GeneralName -&gt; Maybe Text -&gt; GeneralName)
+-&gt; Lens GeneralName GeneralName (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210257"><span class="annot"><span class="annottext">Maybe Text
+rfc822Name :: Maybe Text
+$sel:rfc822Name:GeneralName' :: GeneralName -&gt; Maybe Text
+</span><a href="#local-6989586621679210257"><span class="hs-identifier hs-var hs-var">rfc822Name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210257"><span class="hs-identifier hs-var">rfc822Name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210256"><span class="annot"><span class="annottext">s :: GeneralName
+</span><a href="#local-6989586621679210256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210255"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneralName
+</span><a href="#local-6989586621679210256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rfc822Name:GeneralName' :: Maybe Text
+</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3Arfc822Name%3AGeneralName%27"><span class="hs-identifier hs-var">rfc822Name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | Represents @GeneralName@ using an @OtherName@ object.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_otherName"><span class="hs-identifier hs-type">generalName_otherName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.OtherName.html#OtherName"><span class="hs-identifier hs-type">OtherName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="generalName_otherName"><span class="annot"><span class="annottext">generalName_otherName :: (Maybe OtherName -&gt; f (Maybe OtherName))
 -&gt; GeneralName -&gt; f GeneralName
 </span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_otherName"><span class="hs-identifier hs-var hs-var">generalName_otherName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GeneralName -&gt; Maybe OtherName)
 -&gt; (GeneralName -&gt; Maybe OtherName -&gt; GeneralName)
 -&gt; Lens GeneralName GeneralName (Maybe OtherName) (Maybe OtherName)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210210"><span class="annot"><span class="annottext">Maybe OtherName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210253"><span class="annot"><span class="annottext">Maybe OtherName
 otherName :: Maybe OtherName
 $sel:otherName:GeneralName' :: GeneralName -&gt; Maybe OtherName
-</span><a href="#local-6989586621679210210"><span class="hs-identifier hs-var hs-var">otherName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OtherName
-</span><a href="#local-6989586621679210210"><span class="hs-identifier hs-var">otherName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210209"><span class="annot"><span class="annottext">s :: GeneralName
-</span><a href="#local-6989586621679210209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210208"><span class="annot"><span class="annottext">Maybe OtherName
-</span><a href="#local-6989586621679210208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneralName
-</span><a href="#local-6989586621679210209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otherName:GeneralName' :: Maybe OtherName
+</span><a href="#local-6989586621679210253"><span class="hs-identifier hs-var hs-var">otherName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OtherName
+</span><a href="#local-6989586621679210253"><span class="hs-identifier hs-var">otherName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210252"><span class="annot"><span class="annottext">s :: GeneralName
+</span><a href="#local-6989586621679210252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210251"><span class="annot"><span class="annottext">Maybe OtherName
+</span><a href="#local-6989586621679210251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneralName
+</span><a href="#local-6989586621679210252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otherName:GeneralName' :: Maybe OtherName
 </span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AotherName%3AGeneralName%27"><span class="hs-identifier hs-var">otherName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OtherName
-</span><a href="#local-6989586621679210208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | Represents @GeneralName@ as a URI.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_uniformResourceIdentifier"><span class="hs-identifier hs-type">generalName_uniformResourceIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="generalName_uniformResourceIdentifier"><span class="annot"><span class="annottext">generalName_uniformResourceIdentifier :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GeneralName -&gt; f GeneralName
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_uniformResourceIdentifier"><span class="hs-identifier hs-var hs-var">generalName_uniformResourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GeneralName -&gt; Maybe Text)
--&gt; (GeneralName -&gt; Maybe Text -&gt; GeneralName)
--&gt; Lens GeneralName GeneralName (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210206"><span class="annot"><span class="annottext">Maybe Text
-uniformResourceIdentifier :: Maybe Text
-$sel:uniformResourceIdentifier:GeneralName' :: GeneralName -&gt; Maybe Text
-</span><a href="#local-6989586621679210206"><span class="hs-identifier hs-var hs-var">uniformResourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210206"><span class="hs-identifier hs-var">uniformResourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210205"><span class="annot"><span class="annottext">s :: GeneralName
-</span><a href="#local-6989586621679210205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210204"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneralName
-</span><a href="#local-6989586621679210205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uniformResourceIdentifier:GeneralName' :: Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AuniformResourceIdentifier%3AGeneralName%27"><span class="hs-identifier hs-var">uniformResourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | Represents @GeneralName@ as an IPv4 or IPv6 address.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_ipAddress"><span class="hs-identifier hs-type">generalName_ipAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="generalName_ipAddress"><span class="annot"><span class="annottext">generalName_ipAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GeneralName -&gt; f GeneralName
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_ipAddress"><span class="hs-identifier hs-var hs-var">generalName_ipAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GeneralName -&gt; Maybe Text)
--&gt; (GeneralName -&gt; Maybe Text -&gt; GeneralName)
--&gt; Lens GeneralName GeneralName (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210202"><span class="annot"><span class="annottext">Maybe Text
-ipAddress :: Maybe Text
-$sel:ipAddress:GeneralName' :: GeneralName -&gt; Maybe Text
-</span><a href="#local-6989586621679210202"><span class="hs-identifier hs-var hs-var">ipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210202"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210201"><span class="annot"><span class="annottext">s :: GeneralName
-</span><a href="#local-6989586621679210201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210200"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneralName
-</span><a href="#local-6989586621679210201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipAddress:GeneralName' :: Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AipAddress%3AGeneralName%27"><span class="hs-identifier hs-var">ipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | Represents @GeneralName@ as a DNS name.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_dnsName"><span class="hs-identifier hs-type">generalName_dnsName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="generalName_dnsName"><span class="annot"><span class="annottext">generalName_dnsName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GeneralName -&gt; f GeneralName
+</span><a href="#local-6989586621679210251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | Represents @GeneralName@ as a DNS name.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_dnsName"><span class="hs-identifier hs-type">generalName_dnsName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="generalName_dnsName"><span class="annot"><span class="annottext">generalName_dnsName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GeneralName -&gt; f GeneralName
 </span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_dnsName"><span class="hs-identifier hs-var hs-var">generalName_dnsName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GeneralName -&gt; Maybe Text)
 -&gt; (GeneralName -&gt; Maybe Text -&gt; GeneralName)
 -&gt; Lens GeneralName GeneralName (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210198"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210249"><span class="annot"><span class="annottext">Maybe Text
 dnsName :: Maybe Text
 $sel:dnsName:GeneralName' :: GeneralName -&gt; Maybe Text
-</span><a href="#local-6989586621679210198"><span class="hs-identifier hs-var hs-var">dnsName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210198"><span class="hs-identifier hs-var">dnsName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210197"><span class="annot"><span class="annottext">s :: GeneralName
-</span><a href="#local-6989586621679210197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210196"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneralName
-</span><a href="#local-6989586621679210197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsName:GeneralName' :: Maybe Text
+</span><a href="#local-6989586621679210249"><span class="hs-identifier hs-var hs-var">dnsName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210249"><span class="hs-identifier hs-var">dnsName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210248"><span class="annot"><span class="annottext">s :: GeneralName
+</span><a href="#local-6989586621679210248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210247"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneralName
+</span><a href="#local-6989586621679210248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dnsName:GeneralName' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AdnsName%3AGeneralName%27"><span class="hs-identifier hs-var">dnsName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_directoryName"><span class="hs-identifier hs-type">generalName_directoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="generalName_directoryName"><span class="annot"><span class="annottext">generalName_directoryName :: (Maybe ASN1Subject -&gt; f (Maybe ASN1Subject))
+</span><a href="#local-6989586621679210247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_directoryName"><span class="hs-identifier hs-type">generalName_directoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ASN1Subject.html#ASN1Subject"><span class="hs-identifier hs-type">ASN1Subject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="generalName_directoryName"><span class="annot"><span class="annottext">generalName_directoryName :: (Maybe ASN1Subject -&gt; f (Maybe ASN1Subject))
 -&gt; GeneralName -&gt; f GeneralName
 </span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_directoryName"><span class="hs-identifier hs-var hs-var">generalName_directoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GeneralName -&gt; Maybe ASN1Subject)
 -&gt; (GeneralName -&gt; Maybe ASN1Subject -&gt; GeneralName)
 -&gt; Lens
      GeneralName GeneralName (Maybe ASN1Subject) (Maybe ASN1Subject)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210194"><span class="annot"><span class="annottext">Maybe ASN1Subject
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210245"><span class="annot"><span class="annottext">Maybe ASN1Subject
 directoryName :: Maybe ASN1Subject
 $sel:directoryName:GeneralName' :: GeneralName -&gt; Maybe ASN1Subject
-</span><a href="#local-6989586621679210194"><span class="hs-identifier hs-var hs-var">directoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ASN1Subject
-</span><a href="#local-6989586621679210194"><span class="hs-identifier hs-var">directoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210193"><span class="annot"><span class="annottext">s :: GeneralName
-</span><a href="#local-6989586621679210193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210192"><span class="annot"><span class="annottext">Maybe ASN1Subject
-</span><a href="#local-6989586621679210192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneralName
-</span><a href="#local-6989586621679210193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryName:GeneralName' :: Maybe ASN1Subject
+</span><a href="#local-6989586621679210245"><span class="hs-identifier hs-var hs-var">directoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ASN1Subject
+</span><a href="#local-6989586621679210245"><span class="hs-identifier hs-var">directoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210244"><span class="annot"><span class="annottext">s :: GeneralName
+</span><a href="#local-6989586621679210244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210243"><span class="annot"><span class="annottext">Maybe ASN1Subject
+</span><a href="#local-6989586621679210243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneralName
+</span><a href="#local-6989586621679210244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryName:GeneralName' :: Maybe ASN1Subject
 </span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AdirectoryName%3AGeneralName%27"><span class="hs-identifier hs-var">directoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ASN1Subject
-</span><a href="#local-6989586621679210192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | Represents @GeneralName@ as an</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc822 RFC 822&gt; email address.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_rfc822Name"><span class="hs-identifier hs-type">generalName_rfc822Name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="generalName_rfc822Name"><span class="annot"><span class="annottext">generalName_rfc822Name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GeneralName -&gt; f GeneralName
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_rfc822Name"><span class="hs-identifier hs-var hs-var">generalName_rfc822Name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GeneralName -&gt; Maybe Text)
--&gt; (GeneralName -&gt; Maybe Text -&gt; GeneralName)
--&gt; Lens GeneralName GeneralName (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210190"><span class="annot"><span class="annottext">Maybe Text
-rfc822Name :: Maybe Text
-$sel:rfc822Name:GeneralName' :: GeneralName -&gt; Maybe Text
-</span><a href="#local-6989586621679210190"><span class="hs-identifier hs-var hs-var">rfc822Name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210190"><span class="hs-identifier hs-var">rfc822Name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210189"><span class="annot"><span class="annottext">s :: GeneralName
-</span><a href="#local-6989586621679210189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210188"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneralName
-</span><a href="#local-6989586621679210189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rfc822Name:GeneralName' :: Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3Arfc822Name%3AGeneralName%27"><span class="hs-identifier hs-var">rfc822Name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | Represents @GeneralName@ as an object identifier (OID).</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_registeredId"><span class="hs-identifier hs-type">generalName_registeredId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="generalName_registeredId"><span class="annot"><span class="annottext">generalName_registeredId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GeneralName -&gt; f GeneralName
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#generalName_registeredId"><span class="hs-identifier hs-var hs-var">generalName_registeredId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GeneralName -&gt; Maybe Text)
--&gt; (GeneralName -&gt; Maybe Text -&gt; GeneralName)
--&gt; Lens GeneralName GeneralName (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210186"><span class="annot"><span class="annottext">Maybe Text
-registeredId :: Maybe Text
-$sel:registeredId:GeneralName' :: GeneralName -&gt; Maybe Text
-</span><a href="#local-6989586621679210186"><span class="hs-identifier hs-var hs-var">registeredId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210186"><span class="hs-identifier hs-var">registeredId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210185"><span class="annot"><span class="annottext">s :: GeneralName
-</span><a href="#local-6989586621679210185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210184"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeneralName
-</span><a href="#local-6989586621679210185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registeredId:GeneralName' :: Maybe Text
-</span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#%24sel%3AregisteredId%3AGeneralName%27"><span class="hs-identifier hs-var">registeredId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210181"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679210179"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GeneralName
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210240"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679210238"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GeneralName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser GeneralName) -&gt; Value -&gt; Parser GeneralName
@@ -343,235 +343,241 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;GeneralName&quot;</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210176"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210176"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe EdiPartyName
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210235"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210235"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe EdiPartyName
+-&gt; Maybe Text
 -&gt; Maybe OtherName
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe ASN1Subject
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; GeneralName
 </span><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-var">GeneralName'</span></a></span><span>
-</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EdiPartyName
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe EdiPartyName
+ -&gt; Maybe Text
  -&gt; Maybe OtherName
  -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe ASN1Subject
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; GeneralName)
--&gt; Parser (Maybe EdiPartyName)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe OtherName
+     (Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe EdiPartyName
       -&gt; Maybe Text
+      -&gt; Maybe OtherName
       -&gt; Maybe Text
       -&gt; Maybe ASN1Subject
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; GeneralName)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EdiPartyName)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EdiPartyName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe OtherName
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ASN1Subject
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; GeneralName)
--&gt; Parser (Maybe OtherName)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ASN1Subject
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; GeneralName)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OtherName)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OtherName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ASN1Subject
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; GeneralName)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ASN1Subject
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; GeneralName)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;UniformResourceIdentifier&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ASN1Subject
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; GeneralName)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe ASN1Subject -&gt; Maybe Text -&gt; Maybe Text -&gt; GeneralName)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IpAddress&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe ASN1Subject -&gt; Maybe Text -&gt; Maybe Text -&gt; GeneralName)
+   -&gt; Maybe Text
+   -&gt; Maybe EdiPartyName
+   -&gt; Maybe Text
+   -&gt; Maybe OtherName
+   -&gt; Maybe Text
+   -&gt; Maybe ASN1Subject
+   -&gt; GeneralName)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe ASN1Subject -&gt; Maybe Text -&gt; Maybe Text -&gt; GeneralName)
+     (Maybe Text
+      -&gt; Maybe EdiPartyName
+      -&gt; Maybe Text
+      -&gt; Maybe OtherName
+      -&gt; Maybe Text
+      -&gt; Maybe ASN1Subject
+      -&gt; GeneralName)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DnsName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ASN1Subject -&gt; Maybe Text -&gt; Maybe Text -&gt; GeneralName)
--&gt; Parser (Maybe ASN1Subject)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; GeneralName)
+</span><span class="hs-string">&quot;UniformResourceIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe EdiPartyName
+   -&gt; Maybe Text
+   -&gt; Maybe OtherName
+   -&gt; Maybe Text
+   -&gt; Maybe ASN1Subject
+   -&gt; GeneralName)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe EdiPartyName
+      -&gt; Maybe Text
+      -&gt; Maybe OtherName
+      -&gt; Maybe Text
+      -&gt; Maybe ASN1Subject
+      -&gt; GeneralName)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ASN1Subject)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DirectoryName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; GeneralName)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; GeneralName)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Rfc822Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; GeneralName)
--&gt; Parser (Maybe Text) -&gt; Parser GeneralName
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679210235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegisteredId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EdiPartyName
+   -&gt; Maybe Text
+   -&gt; Maybe OtherName
+   -&gt; Maybe Text
+   -&gt; Maybe ASN1Subject
+   -&gt; GeneralName)
+-&gt; Parser (Maybe EdiPartyName)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe OtherName
+      -&gt; Maybe Text
+      -&gt; Maybe ASN1Subject
+      -&gt; GeneralName)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EdiPartyName)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EdiPartyName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe OtherName
+   -&gt; Maybe Text
+   -&gt; Maybe ASN1Subject
+   -&gt; GeneralName)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe OtherName -&gt; Maybe Text -&gt; Maybe ASN1Subject -&gt; GeneralName)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Rfc822Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe OtherName -&gt; Maybe Text -&gt; Maybe ASN1Subject -&gt; GeneralName)
+-&gt; Parser (Maybe OtherName)
+-&gt; Parser (Maybe Text -&gt; Maybe ASN1Subject -&gt; GeneralName)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OtherName)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OtherName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe ASN1Subject -&gt; GeneralName)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe ASN1Subject -&gt; GeneralName)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DnsName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ASN1Subject -&gt; GeneralName)
+-&gt; Parser (Maybe ASN1Subject) -&gt; Parser GeneralName
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ASN1Subject)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DirectoryName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210170"><span id="local-6989586621679210172"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210229"><span id="local-6989586621679210231"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210167"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210226"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span></span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210159"><span id="local-6989586621679210161"><span id="local-6989586621679210163"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679210157"><span class="annot"><span class="annottext">toJSON :: GeneralName -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210148"><span id="local-6989586621679210149"><span id="local-6989586621679210150"><span id="local-6989586621679210151"><span id="local-6989586621679210152"><span id="local-6989586621679210153"><span id="local-6989586621679210154"><span id="local-6989586621679210155"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210218"><span id="local-6989586621679210220"><span id="local-6989586621679210222"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName"><span class="hs-identifier hs-type">GeneralName</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679210216"><span class="annot"><span class="annottext">toJSON :: GeneralName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.GeneralName.html#GeneralName%27"><span class="hs-identifier hs-type">GeneralName'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210207"><span id="local-6989586621679210208"><span id="local-6989586621679210209"><span id="local-6989586621679210210"><span id="local-6989586621679210211"><span id="local-6989586621679210212"><span id="local-6989586621679210213"><span id="local-6989586621679210214"><span class="annot"><span class="annottext">Maybe Text
 Maybe ASN1Subject
 Maybe EdiPartyName
 Maybe OtherName
-registeredId :: Maybe Text
-rfc822Name :: Maybe Text
 directoryName :: Maybe ASN1Subject
 dnsName :: Maybe Text
-ipAddress :: Maybe Text
-uniformResourceIdentifier :: Maybe Text
 otherName :: Maybe OtherName
+rfc822Name :: Maybe Text
 ediPartyName :: Maybe EdiPartyName
-$sel:registeredId:GeneralName' :: GeneralName -&gt; Maybe Text
-$sel:rfc822Name:GeneralName' :: GeneralName -&gt; Maybe Text
+registeredId :: Maybe Text
+uniformResourceIdentifier :: Maybe Text
+ipAddress :: Maybe Text
 $sel:directoryName:GeneralName' :: GeneralName -&gt; Maybe ASN1Subject
 $sel:dnsName:GeneralName' :: GeneralName -&gt; Maybe Text
-$sel:ipAddress:GeneralName' :: GeneralName -&gt; Maybe Text
-$sel:uniformResourceIdentifier:GeneralName' :: GeneralName -&gt; Maybe Text
 $sel:otherName:GeneralName' :: GeneralName -&gt; Maybe OtherName
+$sel:rfc822Name:GeneralName' :: GeneralName -&gt; Maybe Text
 $sel:ediPartyName:GeneralName' :: GeneralName -&gt; Maybe EdiPartyName
-</span><a href="#local-6989586621679210148"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:registeredId:GeneralName' :: GeneralName -&gt; Maybe Text
+$sel:uniformResourceIdentifier:GeneralName' :: GeneralName -&gt; Maybe Text
+$sel:ipAddress:GeneralName' :: GeneralName -&gt; Maybe Text
+</span><a href="#local-6989586621679210207"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-150"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EdiPartyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EdiPartyName -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EdiPartyName -&gt; Pair) -&gt; Maybe EdiPartyName -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EdiPartyName
-</span><a href="#local-6989586621679210155"><span class="hs-identifier hs-var">ediPartyName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OtherName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OtherName -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OtherName -&gt; Pair) -&gt; Maybe OtherName -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OtherName
-</span><a href="#local-6989586621679210154"><span class="hs-identifier hs-var">otherName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;UniformResourceIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210153"><span class="hs-identifier hs-var">uniformResourceIdentifier</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IpAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210152"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DnsName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><a href="#local-6989586621679210214"><span class="hs-identifier hs-var">ipAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UniformResourceIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210151"><span class="hs-identifier hs-var">dnsName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DirectoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ASN1Subject -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ASN1Subject -&gt; Pair) -&gt; Maybe ASN1Subject -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ASN1Subject
-</span><a href="#local-6989586621679210150"><span class="hs-identifier hs-var">directoryName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Rfc822Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210149"><span class="hs-identifier hs-var">rfc822Name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210213"><span class="hs-identifier hs-var">uniformResourceIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegisteredId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679210148"><span class="hs-identifier hs-var">registeredId</span></a></span><span>
+</span><a href="#local-6989586621679210212"><span class="hs-identifier hs-var">registeredId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EdiPartyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EdiPartyName -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(EdiPartyName -&gt; Pair) -&gt; Maybe EdiPartyName -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EdiPartyName
+</span><a href="#local-6989586621679210211"><span class="hs-identifier hs-var">ediPartyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Rfc822Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210210"><span class="hs-identifier hs-var">rfc822Name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OtherName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OtherName -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(OtherName -&gt; Pair) -&gt; Maybe OtherName -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OtherName
+</span><a href="#local-6989586621679210209"><span class="hs-identifier hs-var">otherName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DnsName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679210208"><span class="hs-identifier hs-var">dnsName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DirectoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ASN1Subject -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ASN1Subject -&gt; Pair) -&gt; Maybe ASN1Subject -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ASN1Subject
+</span><a href="#local-6989586621679210207"><span class="hs-identifier hs-var">directoryName</span></a></span><span>
 </span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span></pre></body></html>

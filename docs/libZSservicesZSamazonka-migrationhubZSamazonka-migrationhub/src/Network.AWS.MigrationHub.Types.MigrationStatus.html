@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679169692"><span id="local-6989586621679169693"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MigrationStatus"><span class="annot"><a href="Network.AWS.MigrationHub.Types.MigrationStatus.html#MigrationStatus"><span class="hs-identifier hs-var">MigrationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MigrationStatus%27"><span class="annot"><a href="Network.AWS.MigrationHub.Types.MigrationStatus.html#MigrationStatus%27"><span class="hs-identifier hs-var">MigrationStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679169727"><span id="local-6989586621679169728"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MigrationStatus"><span class="annot"><a href="Network.AWS.MigrationHub.Types.MigrationStatus.html#MigrationStatus"><span class="hs-identifier hs-var">MigrationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MigrationStatus%27"><span class="annot"><a href="Network.AWS.MigrationHub.Types.MigrationStatus.html#MigrationStatus%27"><span class="hs-identifier hs-var">MigrationStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMigrationStatus"><span class="annot"><span class="annottext">MigrationStatus -&gt; Text
 </span><a href="Network.AWS.MigrationHub.Types.MigrationStatus.html#fromMigrationStatus"><span class="hs-identifier hs-var hs-var">fromMigrationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679169684"><span id="local-6989586621679169686"><span id="local-6989586621679169688"><span class="annot"><span class="annottext">Int -&gt; MigrationStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679169719"><span id="local-6989586621679169721"><span id="local-6989586621679169723"><span class="annot"><span class="annottext">Int -&gt; MigrationStatus -&gt; ShowS
 [MigrationStatus] -&gt; ShowS
 MigrationStatus -&gt; String
 (Int -&gt; MigrationStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: MigrationStatus -&gt; String
 showsPrec :: Int -&gt; MigrationStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; MigrationStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679169675"><span id="local-6989586621679169677"><span id="local-6989586621679169679"><span id="local-6989586621679169681"><span class="annot"><span class="annottext">ReadPrec [MigrationStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679169710"><span id="local-6989586621679169712"><span id="local-6989586621679169714"><span id="local-6989586621679169716"><span class="annot"><span class="annottext">ReadPrec [MigrationStatus]
 ReadPrec MigrationStatus
 Int -&gt; ReadS MigrationStatus
 ReadS [MigrationStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [MigrationStatus]
 readsPrec :: Int -&gt; ReadS MigrationStatus
 $creadsPrec :: Int -&gt; ReadS MigrationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679169670"><span id="local-6989586621679169672"><span class="annot"><span class="annottext">MigrationStatus -&gt; MigrationStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679169705"><span id="local-6989586621679169707"><span class="annot"><span class="annottext">MigrationStatus -&gt; MigrationStatus -&gt; Bool
 (MigrationStatus -&gt; MigrationStatus -&gt; Bool)
 -&gt; (MigrationStatus -&gt; MigrationStatus -&gt; Bool)
 -&gt; Eq MigrationStatus
@@ -84,7 +84,7 @@ $c/= :: MigrationStatus -&gt; MigrationStatus -&gt; Bool
 == :: MigrationStatus -&gt; MigrationStatus -&gt; Bool
 $c== :: MigrationStatus -&gt; MigrationStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679169654"><span id="local-6989586621679169656"><span id="local-6989586621679169658"><span id="local-6989586621679169660"><span id="local-6989586621679169662"><span id="local-6989586621679169664"><span id="local-6989586621679169666"><span class="annot"><span class="annottext">Eq MigrationStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679169689"><span id="local-6989586621679169691"><span id="local-6989586621679169693"><span id="local-6989586621679169695"><span id="local-6989586621679169697"><span id="local-6989586621679169699"><span id="local-6989586621679169701"><span class="annot"><span class="annottext">Eq MigrationStatus
 Eq MigrationStatus
 -&gt; (MigrationStatus -&gt; MigrationStatus -&gt; Ordering)
 -&gt; (MigrationStatus -&gt; MigrationStatus -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. MigrationStatus -&gt; Rep MigrationStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679169646"><span id="local-6989586621679169648"><span class="annot"><span class="annottext">Int -&gt; MigrationStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679169681"><span id="local-6989586621679169683"><span class="annot"><span class="annottext">Int -&gt; MigrationStatus -&gt; Int
 MigrationStatus -&gt; Int
 (Int -&gt; MigrationStatus -&gt; Int)
 -&gt; (MigrationStatus -&gt; Int) -&gt; Hashable MigrationStatus
@@ -145,50 +145,50 @@ $chash :: MigrationStatus -&gt; Int
 hashWithSalt :: Int -&gt; MigrationStatus -&gt; Int
 $chashWithSalt :: Int -&gt; MigrationStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679169643"><span class="annot"><span class="annottext">MigrationStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679169678"><span class="annot"><span class="annottext">MigrationStatus -&gt; ()
 (MigrationStatus -&gt; ()) -&gt; NFData MigrationStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MigrationStatus -&gt; ()
 $crnf :: MigrationStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679169640"><span class="annot"><span class="annottext">Text -&gt; Either String MigrationStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679169675"><span class="annot"><span class="annottext">Text -&gt; Either String MigrationStatus
 (Text -&gt; Either String MigrationStatus) -&gt; FromText MigrationStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MigrationStatus
 $cfromText :: Text -&gt; Either String MigrationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679169637"><span class="annot"><span class="annottext">MigrationStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679169672"><span class="annot"><span class="annottext">MigrationStatus -&gt; Text
 (MigrationStatus -&gt; Text) -&gt; ToText MigrationStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MigrationStatus -&gt; Text
 $ctoText :: MigrationStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679169634"><span class="annot"><span class="annottext">MigrationStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679169669"><span class="annot"><span class="annottext">MigrationStatus -&gt; ByteString
 (MigrationStatus -&gt; ByteString) -&gt; ToByteString MigrationStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MigrationStatus -&gt; ByteString
 $ctoBS :: MigrationStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679169631"><span class="annot"><span class="annottext">MigrationStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679169666"><span class="annot"><span class="annottext">MigrationStatus -&gt; ByteStringBuilder
 (MigrationStatus -&gt; ByteStringBuilder) -&gt; ToLog MigrationStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MigrationStatus -&gt; ByteStringBuilder
 $cbuild :: MigrationStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679169628"><span class="annot"><span class="annottext">HeaderName -&gt; MigrationStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679169663"><span class="annot"><span class="annottext">HeaderName -&gt; MigrationStatus -&gt; [Header]
 (HeaderName -&gt; MigrationStatus -&gt; [Header])
 -&gt; ToHeader MigrationStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MigrationStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MigrationStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679169625"><span class="annot"><span class="annottext">MigrationStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679169660"><span class="annot"><span class="annottext">MigrationStatus -&gt; QueryString
 (MigrationStatus -&gt; QueryString) -&gt; ToQuery MigrationStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MigrationStatus -&gt; QueryString
 $ctoQuery :: MigrationStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679169620"><span id="local-6989586621679169622"><span class="annot"><span class="annottext">Value -&gt; Parser [MigrationStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679169655"><span id="local-6989586621679169657"><span class="annot"><span class="annottext">Value -&gt; Parser [MigrationStatus]
 Value -&gt; Parser MigrationStatus
 (Value -&gt; Parser MigrationStatus)
 -&gt; (Value -&gt; Parser [MigrationStatus]) -&gt; FromJSON MigrationStatus
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [MigrationStatus]
 parseJSON :: Value -&gt; Parser MigrationStatus
 $cparseJSON :: Value -&gt; Parser MigrationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679169615"><span id="local-6989586621679169617"><span class="annot"><span class="annottext">FromJSONKeyFunction [MigrationStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679169650"><span id="local-6989586621679169652"><span class="annot"><span class="annottext">FromJSONKeyFunction [MigrationStatus]
 FromJSONKeyFunction MigrationStatus
 FromJSONKeyFunction MigrationStatus
 -&gt; FromJSONKeyFunction [MigrationStatus]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MigrationStatus]
 fromJSONKey :: FromJSONKeyFunction MigrationStatus
 $cfromJSONKey :: FromJSONKeyFunction MigrationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679169606"><span id="local-6989586621679169608"><span id="local-6989586621679169610"><span id="local-6989586621679169612"><span class="annot"><span class="annottext">[MigrationStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679169641"><span id="local-6989586621679169643"><span id="local-6989586621679169645"><span id="local-6989586621679169647"><span class="annot"><span class="annottext">[MigrationStatus] -&gt; Encoding
 [MigrationStatus] -&gt; Value
 MigrationStatus -&gt; Encoding
 MigrationStatus -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: MigrationStatus -&gt; Encoding
 toJSON :: MigrationStatus -&gt; Value
 $ctoJSON :: MigrationStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679169601"><span id="local-6989586621679169603"><span class="annot"><span class="annottext">ToJSONKeyFunction [MigrationStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679169636"><span id="local-6989586621679169638"><span class="annot"><span class="annottext">ToJSONKeyFunction [MigrationStatus]
 ToJSONKeyFunction MigrationStatus
 ToJSONKeyFunction MigrationStatus
 -&gt; ToJSONKeyFunction [MigrationStatus] -&gt; ToJSONKey MigrationStatus
@@ -246,14 +246,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MigrationStatus]
 toJSONKey :: ToJSONKeyFunction MigrationStatus
 $ctoJSONKey :: ToJSONKeyFunction MigrationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679169598"><span class="annot"><span class="annottext">[Node] -&gt; Either String MigrationStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679169633"><span class="annot"><span class="annottext">[Node] -&gt; Either String MigrationStatus
 ([Node] -&gt; Either String MigrationStatus)
 -&gt; FromXML MigrationStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MigrationStatus
 $cparseXML :: [Node] -&gt; Either String MigrationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679169595"><span class="annot"><span class="annottext">MigrationStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679169630"><span class="annot"><span class="annottext">MigrationStatus -&gt; XML
 (MigrationStatus -&gt; XML) -&gt; ToXML MigrationStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MigrationStatus -&gt; XML

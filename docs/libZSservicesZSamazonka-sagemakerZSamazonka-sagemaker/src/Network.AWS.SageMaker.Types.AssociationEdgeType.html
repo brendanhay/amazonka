@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621680289994"><span id="local-6989586621680289995"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssociationEdgeType"><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType"><span class="hs-identifier hs-var">AssociationEdgeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationEdgeType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType%27"><span class="hs-identifier hs-var">AssociationEdgeType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680291352"><span id="local-6989586621680291353"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssociationEdgeType"><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType"><span class="hs-identifier hs-var">AssociationEdgeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationEdgeType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AssociationEdgeType.html#AssociationEdgeType%27"><span class="hs-identifier hs-var">AssociationEdgeType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAssociationEdgeType"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.AssociationEdgeType.html#fromAssociationEdgeType"><span class="hs-identifier hs-var hs-var">fromAssociationEdgeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680289986"><span id="local-6989586621680289988"><span id="local-6989586621680289990"><span class="annot"><span class="annottext">Int -&gt; AssociationEdgeType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680291344"><span id="local-6989586621680291346"><span id="local-6989586621680291348"><span class="annot"><span class="annottext">Int -&gt; AssociationEdgeType -&gt; ShowS
 [AssociationEdgeType] -&gt; ShowS
 AssociationEdgeType -&gt; String
 (Int -&gt; AssociationEdgeType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: AssociationEdgeType -&gt; String
 showsPrec :: Int -&gt; AssociationEdgeType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AssociationEdgeType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680289977"><span id="local-6989586621680289979"><span id="local-6989586621680289981"><span id="local-6989586621680289983"><span class="annot"><span class="annottext">ReadPrec [AssociationEdgeType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680291335"><span id="local-6989586621680291337"><span id="local-6989586621680291339"><span id="local-6989586621680291341"><span class="annot"><span class="annottext">ReadPrec [AssociationEdgeType]
 ReadPrec AssociationEdgeType
 Int -&gt; ReadS AssociationEdgeType
 ReadS [AssociationEdgeType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [AssociationEdgeType]
 readsPrec :: Int -&gt; ReadS AssociationEdgeType
 $creadsPrec :: Int -&gt; ReadS AssociationEdgeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680289972"><span id="local-6989586621680289974"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680291330"><span id="local-6989586621680291332"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
 (AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool)
 -&gt; (AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool)
 -&gt; Eq AssociationEdgeType
@@ -84,7 +84,7 @@ $c/= :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
 == :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
 $c== :: AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680289956"><span id="local-6989586621680289958"><span id="local-6989586621680289960"><span id="local-6989586621680289962"><span id="local-6989586621680289964"><span id="local-6989586621680289966"><span id="local-6989586621680289968"><span class="annot"><span class="annottext">Eq AssociationEdgeType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680291314"><span id="local-6989586621680291316"><span id="local-6989586621680291318"><span id="local-6989586621680291320"><span id="local-6989586621680291322"><span id="local-6989586621680291324"><span id="local-6989586621680291326"><span class="annot"><span class="annottext">Eq AssociationEdgeType
 Eq AssociationEdgeType
 -&gt; (AssociationEdgeType -&gt; AssociationEdgeType -&gt; Ordering)
 -&gt; (AssociationEdgeType -&gt; AssociationEdgeType -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. AssociationEdgeType -&gt; Rep AssociationEdgeType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680289948"><span id="local-6989586621680289950"><span class="annot"><span class="annottext">Int -&gt; AssociationEdgeType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680291306"><span id="local-6989586621680291308"><span class="annot"><span class="annottext">Int -&gt; AssociationEdgeType -&gt; Int
 AssociationEdgeType -&gt; Int
 (Int -&gt; AssociationEdgeType -&gt; Int)
 -&gt; (AssociationEdgeType -&gt; Int) -&gt; Hashable AssociationEdgeType
@@ -147,53 +147,53 @@ $chash :: AssociationEdgeType -&gt; Int
 hashWithSalt :: Int -&gt; AssociationEdgeType -&gt; Int
 $chashWithSalt :: Int -&gt; AssociationEdgeType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680289945"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680291303"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; ()
 (AssociationEdgeType -&gt; ()) -&gt; NFData AssociationEdgeType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AssociationEdgeType -&gt; ()
 $crnf :: AssociationEdgeType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680289942"><span class="annot"><span class="annottext">Text -&gt; Either String AssociationEdgeType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680291300"><span class="annot"><span class="annottext">Text -&gt; Either String AssociationEdgeType
 (Text -&gt; Either String AssociationEdgeType)
 -&gt; FromText AssociationEdgeType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AssociationEdgeType
 $cfromText :: Text -&gt; Either String AssociationEdgeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680289939"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680291297"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; Text
 (AssociationEdgeType -&gt; Text) -&gt; ToText AssociationEdgeType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AssociationEdgeType -&gt; Text
 $ctoText :: AssociationEdgeType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680289936"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680291294"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; ByteString
 (AssociationEdgeType -&gt; ByteString)
 -&gt; ToByteString AssociationEdgeType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AssociationEdgeType -&gt; ByteString
 $ctoBS :: AssociationEdgeType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680289933"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680291291"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; ByteStringBuilder
 (AssociationEdgeType -&gt; ByteStringBuilder)
 -&gt; ToLog AssociationEdgeType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AssociationEdgeType -&gt; ByteStringBuilder
 $cbuild :: AssociationEdgeType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680289930"><span class="annot"><span class="annottext">HeaderName -&gt; AssociationEdgeType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680291288"><span class="annot"><span class="annottext">HeaderName -&gt; AssociationEdgeType -&gt; [Header]
 (HeaderName -&gt; AssociationEdgeType -&gt; [Header])
 -&gt; ToHeader AssociationEdgeType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AssociationEdgeType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AssociationEdgeType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680289927"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680291285"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; QueryString
 (AssociationEdgeType -&gt; QueryString) -&gt; ToQuery AssociationEdgeType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AssociationEdgeType -&gt; QueryString
 $ctoQuery :: AssociationEdgeType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680289922"><span id="local-6989586621680289924"><span class="annot"><span class="annottext">Value -&gt; Parser [AssociationEdgeType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680291280"><span id="local-6989586621680291282"><span class="annot"><span class="annottext">Value -&gt; Parser [AssociationEdgeType]
 Value -&gt; Parser AssociationEdgeType
 (Value -&gt; Parser AssociationEdgeType)
 -&gt; (Value -&gt; Parser [AssociationEdgeType])
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [AssociationEdgeType]
 parseJSON :: Value -&gt; Parser AssociationEdgeType
 $cparseJSON :: Value -&gt; Parser AssociationEdgeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680289917"><span id="local-6989586621680289919"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssociationEdgeType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680291275"><span id="local-6989586621680291277"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssociationEdgeType]
 FromJSONKeyFunction AssociationEdgeType
 FromJSONKeyFunction AssociationEdgeType
 -&gt; FromJSONKeyFunction [AssociationEdgeType]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AssociationEdgeType]
 fromJSONKey :: FromJSONKeyFunction AssociationEdgeType
 $cfromJSONKey :: FromJSONKeyFunction AssociationEdgeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680289908"><span id="local-6989586621680289910"><span id="local-6989586621680289912"><span id="local-6989586621680289914"><span class="annot"><span class="annottext">[AssociationEdgeType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680291266"><span id="local-6989586621680291268"><span id="local-6989586621680291270"><span id="local-6989586621680291272"><span class="annot"><span class="annottext">[AssociationEdgeType] -&gt; Encoding
 [AssociationEdgeType] -&gt; Value
 AssociationEdgeType -&gt; Encoding
 AssociationEdgeType -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: AssociationEdgeType -&gt; Encoding
 toJSON :: AssociationEdgeType -&gt; Value
 $ctoJSON :: AssociationEdgeType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680289903"><span id="local-6989586621680289905"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssociationEdgeType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680291261"><span id="local-6989586621680291263"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssociationEdgeType]
 ToJSONKeyFunction AssociationEdgeType
 ToJSONKeyFunction AssociationEdgeType
 -&gt; ToJSONKeyFunction [AssociationEdgeType]
@@ -253,14 +253,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AssociationEdgeType]
 toJSONKey :: ToJSONKeyFunction AssociationEdgeType
 $ctoJSONKey :: ToJSONKeyFunction AssociationEdgeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680289900"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssociationEdgeType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680291258"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssociationEdgeType
 ([Node] -&gt; Either String AssociationEdgeType)
 -&gt; FromXML AssociationEdgeType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AssociationEdgeType
 $cparseXML :: [Node] -&gt; Either String AssociationEdgeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680289897"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680291255"><span class="annot"><span class="annottext">AssociationEdgeType -&gt; XML
 (AssociationEdgeType -&gt; XML) -&gt; ToXML AssociationEdgeType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AssociationEdgeType -&gt; XML

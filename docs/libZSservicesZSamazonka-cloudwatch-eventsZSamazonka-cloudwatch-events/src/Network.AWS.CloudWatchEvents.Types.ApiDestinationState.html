@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679298308"><span id="local-6989586621679298309"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApiDestinationState"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ApiDestinationState.html#ApiDestinationState"><span class="hs-identifier hs-var">ApiDestinationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiDestinationState%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ApiDestinationState.html#ApiDestinationState%27"><span class="hs-identifier hs-var">ApiDestinationState'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679298486"><span id="local-6989586621679298487"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ApiDestinationState"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ApiDestinationState.html#ApiDestinationState"><span class="hs-identifier hs-var">ApiDestinationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApiDestinationState%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ApiDestinationState.html#ApiDestinationState%27"><span class="hs-identifier hs-var">ApiDestinationState'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromApiDestinationState"><span class="annot"><span class="annottext">ApiDestinationState -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.ApiDestinationState.html#fromApiDestinationState"><span class="hs-identifier hs-var hs-var">fromApiDestinationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298300"><span id="local-6989586621679298302"><span id="local-6989586621679298304"><span class="annot"><span class="annottext">Int -&gt; ApiDestinationState -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298478"><span id="local-6989586621679298480"><span id="local-6989586621679298482"><span class="annot"><span class="annottext">Int -&gt; ApiDestinationState -&gt; ShowS
 [ApiDestinationState] -&gt; ShowS
 ApiDestinationState -&gt; String
 (Int -&gt; ApiDestinationState -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ApiDestinationState -&gt; String
 showsPrec :: Int -&gt; ApiDestinationState -&gt; ShowS
 $cshowsPrec :: Int -&gt; ApiDestinationState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679298291"><span id="local-6989586621679298293"><span id="local-6989586621679298295"><span id="local-6989586621679298297"><span class="annot"><span class="annottext">ReadPrec [ApiDestinationState]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679298469"><span id="local-6989586621679298471"><span id="local-6989586621679298473"><span id="local-6989586621679298475"><span class="annot"><span class="annottext">ReadPrec [ApiDestinationState]
 ReadPrec ApiDestinationState
 Int -&gt; ReadS ApiDestinationState
 ReadS [ApiDestinationState]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ApiDestinationState]
 readsPrec :: Int -&gt; ReadS ApiDestinationState
 $creadsPrec :: Int -&gt; ReadS ApiDestinationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679298286"><span id="local-6989586621679298288"><span class="annot"><span class="annottext">ApiDestinationState -&gt; ApiDestinationState -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679298464"><span id="local-6989586621679298466"><span class="annot"><span class="annottext">ApiDestinationState -&gt; ApiDestinationState -&gt; Bool
 (ApiDestinationState -&gt; ApiDestinationState -&gt; Bool)
 -&gt; (ApiDestinationState -&gt; ApiDestinationState -&gt; Bool)
 -&gt; Eq ApiDestinationState
@@ -82,7 +82,7 @@ $c/= :: ApiDestinationState -&gt; ApiDestinationState -&gt; Bool
 == :: ApiDestinationState -&gt; ApiDestinationState -&gt; Bool
 $c== :: ApiDestinationState -&gt; ApiDestinationState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679298270"><span id="local-6989586621679298272"><span id="local-6989586621679298274"><span id="local-6989586621679298276"><span id="local-6989586621679298278"><span id="local-6989586621679298280"><span id="local-6989586621679298282"><span class="annot"><span class="annottext">Eq ApiDestinationState
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679298448"><span id="local-6989586621679298450"><span id="local-6989586621679298452"><span id="local-6989586621679298454"><span id="local-6989586621679298456"><span id="local-6989586621679298458"><span id="local-6989586621679298460"><span class="annot"><span class="annottext">Eq ApiDestinationState
 Eq ApiDestinationState
 -&gt; (ApiDestinationState -&gt; ApiDestinationState -&gt; Ordering)
 -&gt; (ApiDestinationState -&gt; ApiDestinationState -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. ApiDestinationState -&gt; Rep ApiDestinationState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298262"><span id="local-6989586621679298264"><span class="annot"><span class="annottext">Int -&gt; ApiDestinationState -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298440"><span id="local-6989586621679298442"><span class="annot"><span class="annottext">Int -&gt; ApiDestinationState -&gt; Int
 ApiDestinationState -&gt; Int
 (Int -&gt; ApiDestinationState -&gt; Int)
 -&gt; (ApiDestinationState -&gt; Int) -&gt; Hashable ApiDestinationState
@@ -145,53 +145,53 @@ $chash :: ApiDestinationState -&gt; Int
 hashWithSalt :: Int -&gt; ApiDestinationState -&gt; Int
 $chashWithSalt :: Int -&gt; ApiDestinationState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679298259"><span class="annot"><span class="annottext">ApiDestinationState -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679298437"><span class="annot"><span class="annottext">ApiDestinationState -&gt; ()
 (ApiDestinationState -&gt; ()) -&gt; NFData ApiDestinationState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ApiDestinationState -&gt; ()
 $crnf :: ApiDestinationState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679298256"><span class="annot"><span class="annottext">Text -&gt; Either String ApiDestinationState
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679298434"><span class="annot"><span class="annottext">Text -&gt; Either String ApiDestinationState
 (Text -&gt; Either String ApiDestinationState)
 -&gt; FromText ApiDestinationState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ApiDestinationState
 $cfromText :: Text -&gt; Either String ApiDestinationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679298253"><span class="annot"><span class="annottext">ApiDestinationState -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679298431"><span class="annot"><span class="annottext">ApiDestinationState -&gt; Text
 (ApiDestinationState -&gt; Text) -&gt; ToText ApiDestinationState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ApiDestinationState -&gt; Text
 $ctoText :: ApiDestinationState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679298250"><span class="annot"><span class="annottext">ApiDestinationState -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679298428"><span class="annot"><span class="annottext">ApiDestinationState -&gt; ByteString
 (ApiDestinationState -&gt; ByteString)
 -&gt; ToByteString ApiDestinationState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ApiDestinationState -&gt; ByteString
 $ctoBS :: ApiDestinationState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679298247"><span class="annot"><span class="annottext">ApiDestinationState -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679298425"><span class="annot"><span class="annottext">ApiDestinationState -&gt; ByteStringBuilder
 (ApiDestinationState -&gt; ByteStringBuilder)
 -&gt; ToLog ApiDestinationState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ApiDestinationState -&gt; ByteStringBuilder
 $cbuild :: ApiDestinationState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679298244"><span class="annot"><span class="annottext">HeaderName -&gt; ApiDestinationState -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679298422"><span class="annot"><span class="annottext">HeaderName -&gt; ApiDestinationState -&gt; [Header]
 (HeaderName -&gt; ApiDestinationState -&gt; [Header])
 -&gt; ToHeader ApiDestinationState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ApiDestinationState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ApiDestinationState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679298241"><span class="annot"><span class="annottext">ApiDestinationState -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679298419"><span class="annot"><span class="annottext">ApiDestinationState -&gt; QueryString
 (ApiDestinationState -&gt; QueryString) -&gt; ToQuery ApiDestinationState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ApiDestinationState -&gt; QueryString
 $ctoQuery :: ApiDestinationState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298236"><span id="local-6989586621679298238"><span class="annot"><span class="annottext">Value -&gt; Parser [ApiDestinationState]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298414"><span id="local-6989586621679298416"><span class="annot"><span class="annottext">Value -&gt; Parser [ApiDestinationState]
 Value -&gt; Parser ApiDestinationState
 (Value -&gt; Parser ApiDestinationState)
 -&gt; (Value -&gt; Parser [ApiDestinationState])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [ApiDestinationState]
 parseJSON :: Value -&gt; Parser ApiDestinationState
 $cparseJSON :: Value -&gt; Parser ApiDestinationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298231"><span id="local-6989586621679298233"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApiDestinationState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298409"><span id="local-6989586621679298411"><span class="annot"><span class="annottext">FromJSONKeyFunction [ApiDestinationState]
 FromJSONKeyFunction ApiDestinationState
 FromJSONKeyFunction ApiDestinationState
 -&gt; FromJSONKeyFunction [ApiDestinationState]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ApiDestinationState]
 fromJSONKey :: FromJSONKeyFunction ApiDestinationState
 $cfromJSONKey :: FromJSONKeyFunction ApiDestinationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298222"><span id="local-6989586621679298224"><span id="local-6989586621679298226"><span id="local-6989586621679298228"><span class="annot"><span class="annottext">[ApiDestinationState] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298400"><span id="local-6989586621679298402"><span id="local-6989586621679298404"><span id="local-6989586621679298406"><span class="annot"><span class="annottext">[ApiDestinationState] -&gt; Encoding
 [ApiDestinationState] -&gt; Value
 ApiDestinationState -&gt; Encoding
 ApiDestinationState -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: ApiDestinationState -&gt; Encoding
 toJSON :: ApiDestinationState -&gt; Value
 $ctoJSON :: ApiDestinationState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679298217"><span id="local-6989586621679298219"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApiDestinationState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679298395"><span id="local-6989586621679298397"><span class="annot"><span class="annottext">ToJSONKeyFunction [ApiDestinationState]
 ToJSONKeyFunction ApiDestinationState
 ToJSONKeyFunction ApiDestinationState
 -&gt; ToJSONKeyFunction [ApiDestinationState]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ApiDestinationState]
 toJSONKey :: ToJSONKeyFunction ApiDestinationState
 $ctoJSONKey :: ToJSONKeyFunction ApiDestinationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679298214"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApiDestinationState
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679298392"><span class="annot"><span class="annottext">[Node] -&gt; Either String ApiDestinationState
 ([Node] -&gt; Either String ApiDestinationState)
 -&gt; FromXML ApiDestinationState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ApiDestinationState
 $cparseXML :: [Node] -&gt; Either String ApiDestinationState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679298211"><span class="annot"><span class="annottext">ApiDestinationState -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679298389"><span class="annot"><span class="annottext">ApiDestinationState -&gt; XML
 (ApiDestinationState -&gt; XML) -&gt; ToXML ApiDestinationState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ApiDestinationState -&gt; XML

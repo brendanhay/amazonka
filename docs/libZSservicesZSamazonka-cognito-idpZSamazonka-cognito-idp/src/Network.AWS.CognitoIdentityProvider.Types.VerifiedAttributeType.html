@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679437184"><span id="local-6989586621679437185"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VerifiedAttributeType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.VerifiedAttributeType.html#VerifiedAttributeType"><span class="hs-identifier hs-var">VerifiedAttributeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifiedAttributeType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.VerifiedAttributeType.html#VerifiedAttributeType%27"><span class="hs-identifier hs-var">VerifiedAttributeType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679437651"><span id="local-6989586621679437652"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VerifiedAttributeType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.VerifiedAttributeType.html#VerifiedAttributeType"><span class="hs-identifier hs-var">VerifiedAttributeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifiedAttributeType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.VerifiedAttributeType.html#VerifiedAttributeType%27"><span class="hs-identifier hs-var">VerifiedAttributeType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVerifiedAttributeType"><span class="annot"><span class="annottext">VerifiedAttributeType -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.VerifiedAttributeType.html#fromVerifiedAttributeType"><span class="hs-identifier hs-var hs-var">fromVerifiedAttributeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679437176"><span id="local-6989586621679437178"><span id="local-6989586621679437180"><span class="annot"><span class="annottext">Int -&gt; VerifiedAttributeType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679437643"><span id="local-6989586621679437645"><span id="local-6989586621679437647"><span class="annot"><span class="annottext">Int -&gt; VerifiedAttributeType -&gt; ShowS
 [VerifiedAttributeType] -&gt; ShowS
 VerifiedAttributeType -&gt; String
 (Int -&gt; VerifiedAttributeType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: VerifiedAttributeType -&gt; String
 showsPrec :: Int -&gt; VerifiedAttributeType -&gt; ShowS
 $cshowsPrec :: Int -&gt; VerifiedAttributeType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679437167"><span id="local-6989586621679437169"><span id="local-6989586621679437171"><span id="local-6989586621679437173"><span class="annot"><span class="annottext">ReadPrec [VerifiedAttributeType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679437634"><span id="local-6989586621679437636"><span id="local-6989586621679437638"><span id="local-6989586621679437640"><span class="annot"><span class="annottext">ReadPrec [VerifiedAttributeType]
 ReadPrec VerifiedAttributeType
 Int -&gt; ReadS VerifiedAttributeType
 ReadS [VerifiedAttributeType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [VerifiedAttributeType]
 readsPrec :: Int -&gt; ReadS VerifiedAttributeType
 $creadsPrec :: Int -&gt; ReadS VerifiedAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679437162"><span id="local-6989586621679437164"><span class="annot"><span class="annottext">VerifiedAttributeType -&gt; VerifiedAttributeType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679437629"><span id="local-6989586621679437631"><span class="annot"><span class="annottext">VerifiedAttributeType -&gt; VerifiedAttributeType -&gt; Bool
 (VerifiedAttributeType -&gt; VerifiedAttributeType -&gt; Bool)
 -&gt; (VerifiedAttributeType -&gt; VerifiedAttributeType -&gt; Bool)
 -&gt; Eq VerifiedAttributeType
@@ -82,7 +82,7 @@ $c/= :: VerifiedAttributeType -&gt; VerifiedAttributeType -&gt; Bool
 == :: VerifiedAttributeType -&gt; VerifiedAttributeType -&gt; Bool
 $c== :: VerifiedAttributeType -&gt; VerifiedAttributeType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679437146"><span id="local-6989586621679437148"><span id="local-6989586621679437150"><span id="local-6989586621679437152"><span id="local-6989586621679437154"><span id="local-6989586621679437156"><span id="local-6989586621679437158"><span class="annot"><span class="annottext">Eq VerifiedAttributeType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679437613"><span id="local-6989586621679437615"><span id="local-6989586621679437617"><span id="local-6989586621679437619"><span id="local-6989586621679437621"><span id="local-6989586621679437623"><span id="local-6989586621679437625"><span class="annot"><span class="annottext">Eq VerifiedAttributeType
 Eq VerifiedAttributeType
 -&gt; (VerifiedAttributeType -&gt; VerifiedAttributeType -&gt; Ordering)
 -&gt; (VerifiedAttributeType -&gt; VerifiedAttributeType -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. VerifiedAttributeType -&gt; Rep VerifiedAttributeType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679437138"><span id="local-6989586621679437140"><span class="annot"><span class="annottext">Int -&gt; VerifiedAttributeType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679437605"><span id="local-6989586621679437607"><span class="annot"><span class="annottext">Int -&gt; VerifiedAttributeType -&gt; Int
 VerifiedAttributeType -&gt; Int
 (Int -&gt; VerifiedAttributeType -&gt; Int)
 -&gt; (VerifiedAttributeType -&gt; Int) -&gt; Hashable VerifiedAttributeType
@@ -150,54 +150,54 @@ $chash :: VerifiedAttributeType -&gt; Int
 hashWithSalt :: Int -&gt; VerifiedAttributeType -&gt; Int
 $chashWithSalt :: Int -&gt; VerifiedAttributeType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679437135"><span class="annot"><span class="annottext">VerifiedAttributeType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679437602"><span class="annot"><span class="annottext">VerifiedAttributeType -&gt; ()
 (VerifiedAttributeType -&gt; ()) -&gt; NFData VerifiedAttributeType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VerifiedAttributeType -&gt; ()
 $crnf :: VerifiedAttributeType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679437132"><span class="annot"><span class="annottext">Text -&gt; Either String VerifiedAttributeType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679437599"><span class="annot"><span class="annottext">Text -&gt; Either String VerifiedAttributeType
 (Text -&gt; Either String VerifiedAttributeType)
 -&gt; FromText VerifiedAttributeType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VerifiedAttributeType
 $cfromText :: Text -&gt; Either String VerifiedAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679437129"><span class="annot"><span class="annottext">VerifiedAttributeType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679437596"><span class="annot"><span class="annottext">VerifiedAttributeType -&gt; Text
 (VerifiedAttributeType -&gt; Text) -&gt; ToText VerifiedAttributeType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VerifiedAttributeType -&gt; Text
 $ctoText :: VerifiedAttributeType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679437126"><span class="annot"><span class="annottext">VerifiedAttributeType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679437593"><span class="annot"><span class="annottext">VerifiedAttributeType -&gt; ByteString
 (VerifiedAttributeType -&gt; ByteString)
 -&gt; ToByteString VerifiedAttributeType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VerifiedAttributeType -&gt; ByteString
 $ctoBS :: VerifiedAttributeType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679437123"><span class="annot"><span class="annottext">VerifiedAttributeType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679437590"><span class="annot"><span class="annottext">VerifiedAttributeType -&gt; ByteStringBuilder
 (VerifiedAttributeType -&gt; ByteStringBuilder)
 -&gt; ToLog VerifiedAttributeType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VerifiedAttributeType -&gt; ByteStringBuilder
 $cbuild :: VerifiedAttributeType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679437120"><span class="annot"><span class="annottext">HeaderName -&gt; VerifiedAttributeType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679437587"><span class="annot"><span class="annottext">HeaderName -&gt; VerifiedAttributeType -&gt; [Header]
 (HeaderName -&gt; VerifiedAttributeType -&gt; [Header])
 -&gt; ToHeader VerifiedAttributeType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VerifiedAttributeType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VerifiedAttributeType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679437117"><span class="annot"><span class="annottext">VerifiedAttributeType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679437584"><span class="annot"><span class="annottext">VerifiedAttributeType -&gt; QueryString
 (VerifiedAttributeType -&gt; QueryString)
 -&gt; ToQuery VerifiedAttributeType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VerifiedAttributeType -&gt; QueryString
 $ctoQuery :: VerifiedAttributeType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679437112"><span id="local-6989586621679437114"><span class="annot"><span class="annottext">Value -&gt; Parser [VerifiedAttributeType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679437579"><span id="local-6989586621679437581"><span class="annot"><span class="annottext">Value -&gt; Parser [VerifiedAttributeType]
 Value -&gt; Parser VerifiedAttributeType
 (Value -&gt; Parser VerifiedAttributeType)
 -&gt; (Value -&gt; Parser [VerifiedAttributeType])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [VerifiedAttributeType]
 parseJSON :: Value -&gt; Parser VerifiedAttributeType
 $cparseJSON :: Value -&gt; Parser VerifiedAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679437107"><span id="local-6989586621679437109"><span class="annot"><span class="annottext">FromJSONKeyFunction [VerifiedAttributeType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679437574"><span id="local-6989586621679437576"><span class="annot"><span class="annottext">FromJSONKeyFunction [VerifiedAttributeType]
 FromJSONKeyFunction VerifiedAttributeType
 FromJSONKeyFunction VerifiedAttributeType
 -&gt; FromJSONKeyFunction [VerifiedAttributeType]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VerifiedAttributeType]
 fromJSONKey :: FromJSONKeyFunction VerifiedAttributeType
 $cfromJSONKey :: FromJSONKeyFunction VerifiedAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679437098"><span id="local-6989586621679437100"><span id="local-6989586621679437102"><span id="local-6989586621679437104"><span class="annot"><span class="annottext">[VerifiedAttributeType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679437565"><span id="local-6989586621679437567"><span id="local-6989586621679437569"><span id="local-6989586621679437571"><span class="annot"><span class="annottext">[VerifiedAttributeType] -&gt; Encoding
 [VerifiedAttributeType] -&gt; Value
 VerifiedAttributeType -&gt; Encoding
 VerifiedAttributeType -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: VerifiedAttributeType -&gt; Encoding
 toJSON :: VerifiedAttributeType -&gt; Value
 $ctoJSON :: VerifiedAttributeType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679437093"><span id="local-6989586621679437095"><span class="annot"><span class="annottext">ToJSONKeyFunction [VerifiedAttributeType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679437560"><span id="local-6989586621679437562"><span class="annot"><span class="annottext">ToJSONKeyFunction [VerifiedAttributeType]
 ToJSONKeyFunction VerifiedAttributeType
 ToJSONKeyFunction VerifiedAttributeType
 -&gt; ToJSONKeyFunction [VerifiedAttributeType]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VerifiedAttributeType]
 toJSONKey :: ToJSONKeyFunction VerifiedAttributeType
 $ctoJSONKey :: ToJSONKeyFunction VerifiedAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679437090"><span class="annot"><span class="annottext">[Node] -&gt; Either String VerifiedAttributeType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679437557"><span class="annot"><span class="annottext">[Node] -&gt; Either String VerifiedAttributeType
 ([Node] -&gt; Either String VerifiedAttributeType)
 -&gt; FromXML VerifiedAttributeType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VerifiedAttributeType
 $cparseXML :: [Node] -&gt; Either String VerifiedAttributeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679437087"><span class="annot"><span class="annottext">VerifiedAttributeType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679437554"><span class="annot"><span class="annottext">VerifiedAttributeType -&gt; XML
 (VerifiedAttributeType -&gt; XML) -&gt; ToXML VerifiedAttributeType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: VerifiedAttributeType -&gt; XML

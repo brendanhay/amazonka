@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621681051416"><span id="local-6989586621681051417"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AddressAttributeName"><span class="annot"><a href="Network.AWS.EC2.Types.AddressAttributeName.html#AddressAttributeName"><span class="hs-identifier hs-var">AddressAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddressAttributeName%27"><span class="annot"><a href="Network.AWS.EC2.Types.AddressAttributeName.html#AddressAttributeName%27"><span class="hs-identifier hs-var">AddressAttributeName'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681084611"><span id="local-6989586621681084612"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AddressAttributeName"><span class="annot"><a href="Network.AWS.EC2.Types.AddressAttributeName.html#AddressAttributeName"><span class="hs-identifier hs-var">AddressAttributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddressAttributeName%27"><span class="annot"><a href="Network.AWS.EC2.Types.AddressAttributeName.html#AddressAttributeName%27"><span class="hs-identifier hs-var">AddressAttributeName'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAddressAttributeName"><span class="annot"><span class="annottext">AddressAttributeName -&gt; Text
 </span><a href="Network.AWS.EC2.Types.AddressAttributeName.html#fromAddressAttributeName"><span class="hs-identifier hs-var hs-var">fromAddressAttributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681051408"><span id="local-6989586621681051410"><span id="local-6989586621681051412"><span class="annot"><span class="annottext">Int -&gt; AddressAttributeName -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681084603"><span id="local-6989586621681084605"><span id="local-6989586621681084607"><span class="annot"><span class="annottext">Int -&gt; AddressAttributeName -&gt; ShowS
 [AddressAttributeName] -&gt; ShowS
 AddressAttributeName -&gt; String
 (Int -&gt; AddressAttributeName -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: AddressAttributeName -&gt; String
 showsPrec :: Int -&gt; AddressAttributeName -&gt; ShowS
 $cshowsPrec :: Int -&gt; AddressAttributeName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621681051399"><span id="local-6989586621681051401"><span id="local-6989586621681051403"><span id="local-6989586621681051405"><span class="annot"><span class="annottext">ReadPrec [AddressAttributeName]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621681084594"><span id="local-6989586621681084596"><span id="local-6989586621681084598"><span id="local-6989586621681084600"><span class="annot"><span class="annottext">ReadPrec [AddressAttributeName]
 ReadPrec AddressAttributeName
 Int -&gt; ReadS AddressAttributeName
 ReadS [AddressAttributeName]
@@ -72,7 +72,7 @@ $creadList :: ReadS [AddressAttributeName]
 readsPrec :: Int -&gt; ReadS AddressAttributeName
 $creadsPrec :: Int -&gt; ReadS AddressAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681051394"><span id="local-6989586621681051396"><span class="annot"><span class="annottext">AddressAttributeName -&gt; AddressAttributeName -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681084589"><span id="local-6989586621681084591"><span class="annot"><span class="annottext">AddressAttributeName -&gt; AddressAttributeName -&gt; Bool
 (AddressAttributeName -&gt; AddressAttributeName -&gt; Bool)
 -&gt; (AddressAttributeName -&gt; AddressAttributeName -&gt; Bool)
 -&gt; Eq AddressAttributeName
@@ -82,7 +82,7 @@ $c/= :: AddressAttributeName -&gt; AddressAttributeName -&gt; Bool
 == :: AddressAttributeName -&gt; AddressAttributeName -&gt; Bool
 $c== :: AddressAttributeName -&gt; AddressAttributeName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681051378"><span id="local-6989586621681051380"><span id="local-6989586621681051382"><span id="local-6989586621681051384"><span id="local-6989586621681051386"><span id="local-6989586621681051388"><span id="local-6989586621681051390"><span class="annot"><span class="annottext">Eq AddressAttributeName
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681084573"><span id="local-6989586621681084575"><span id="local-6989586621681084577"><span id="local-6989586621681084579"><span id="local-6989586621681084581"><span id="local-6989586621681084583"><span id="local-6989586621681084585"><span class="annot"><span class="annottext">Eq AddressAttributeName
 Eq AddressAttributeName
 -&gt; (AddressAttributeName -&gt; AddressAttributeName -&gt; Ordering)
 -&gt; (AddressAttributeName -&gt; AddressAttributeName -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. AddressAttributeName -&gt; Rep AddressAttributeName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681051370"><span id="local-6989586621681051372"><span class="annot"><span class="annottext">Int -&gt; AddressAttributeName -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681084565"><span id="local-6989586621681084567"><span class="annot"><span class="annottext">Int -&gt; AddressAttributeName -&gt; Int
 AddressAttributeName -&gt; Int
 (Int -&gt; AddressAttributeName -&gt; Int)
 -&gt; (AddressAttributeName -&gt; Int) -&gt; Hashable AddressAttributeName
@@ -150,54 +150,54 @@ $chash :: AddressAttributeName -&gt; Int
 hashWithSalt :: Int -&gt; AddressAttributeName -&gt; Int
 $chashWithSalt :: Int -&gt; AddressAttributeName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681051367"><span class="annot"><span class="annottext">AddressAttributeName -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681084562"><span class="annot"><span class="annottext">AddressAttributeName -&gt; ()
 (AddressAttributeName -&gt; ()) -&gt; NFData AddressAttributeName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AddressAttributeName -&gt; ()
 $crnf :: AddressAttributeName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681051364"><span class="annot"><span class="annottext">Text -&gt; Either String AddressAttributeName
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681084559"><span class="annot"><span class="annottext">Text -&gt; Either String AddressAttributeName
 (Text -&gt; Either String AddressAttributeName)
 -&gt; FromText AddressAttributeName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AddressAttributeName
 $cfromText :: Text -&gt; Either String AddressAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681051361"><span class="annot"><span class="annottext">AddressAttributeName -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681084556"><span class="annot"><span class="annottext">AddressAttributeName -&gt; Text
 (AddressAttributeName -&gt; Text) -&gt; ToText AddressAttributeName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AddressAttributeName -&gt; Text
 $ctoText :: AddressAttributeName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681051358"><span class="annot"><span class="annottext">AddressAttributeName -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681084553"><span class="annot"><span class="annottext">AddressAttributeName -&gt; ByteString
 (AddressAttributeName -&gt; ByteString)
 -&gt; ToByteString AddressAttributeName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AddressAttributeName -&gt; ByteString
 $ctoBS :: AddressAttributeName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681051355"><span class="annot"><span class="annottext">AddressAttributeName -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681084550"><span class="annot"><span class="annottext">AddressAttributeName -&gt; ByteStringBuilder
 (AddressAttributeName -&gt; ByteStringBuilder)
 -&gt; ToLog AddressAttributeName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AddressAttributeName -&gt; ByteStringBuilder
 $cbuild :: AddressAttributeName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681051352"><span class="annot"><span class="annottext">HeaderName -&gt; AddressAttributeName -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681084547"><span class="annot"><span class="annottext">HeaderName -&gt; AddressAttributeName -&gt; [Header]
 (HeaderName -&gt; AddressAttributeName -&gt; [Header])
 -&gt; ToHeader AddressAttributeName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AddressAttributeName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AddressAttributeName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681051349"><span class="annot"><span class="annottext">AddressAttributeName -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681084544"><span class="annot"><span class="annottext">AddressAttributeName -&gt; QueryString
 (AddressAttributeName -&gt; QueryString)
 -&gt; ToQuery AddressAttributeName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AddressAttributeName -&gt; QueryString
 $ctoQuery :: AddressAttributeName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681051344"><span id="local-6989586621681051346"><span class="annot"><span class="annottext">Value -&gt; Parser [AddressAttributeName]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681084539"><span id="local-6989586621681084541"><span class="annot"><span class="annottext">Value -&gt; Parser [AddressAttributeName]
 Value -&gt; Parser AddressAttributeName
 (Value -&gt; Parser AddressAttributeName)
 -&gt; (Value -&gt; Parser [AddressAttributeName])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [AddressAttributeName]
 parseJSON :: Value -&gt; Parser AddressAttributeName
 $cparseJSON :: Value -&gt; Parser AddressAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681051339"><span id="local-6989586621681051341"><span class="annot"><span class="annottext">FromJSONKeyFunction [AddressAttributeName]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681084534"><span id="local-6989586621681084536"><span class="annot"><span class="annottext">FromJSONKeyFunction [AddressAttributeName]
 FromJSONKeyFunction AddressAttributeName
 FromJSONKeyFunction AddressAttributeName
 -&gt; FromJSONKeyFunction [AddressAttributeName]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AddressAttributeName]
 fromJSONKey :: FromJSONKeyFunction AddressAttributeName
 $cfromJSONKey :: FromJSONKeyFunction AddressAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681051330"><span id="local-6989586621681051332"><span id="local-6989586621681051334"><span id="local-6989586621681051336"><span class="annot"><span class="annottext">[AddressAttributeName] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681084525"><span id="local-6989586621681084527"><span id="local-6989586621681084529"><span id="local-6989586621681084531"><span class="annot"><span class="annottext">[AddressAttributeName] -&gt; Encoding
 [AddressAttributeName] -&gt; Value
 AddressAttributeName -&gt; Encoding
 AddressAttributeName -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: AddressAttributeName -&gt; Encoding
 toJSON :: AddressAttributeName -&gt; Value
 $ctoJSON :: AddressAttributeName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681051325"><span id="local-6989586621681051327"><span class="annot"><span class="annottext">ToJSONKeyFunction [AddressAttributeName]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681084520"><span id="local-6989586621681084522"><span class="annot"><span class="annottext">ToJSONKeyFunction [AddressAttributeName]
 ToJSONKeyFunction AddressAttributeName
 ToJSONKeyFunction AddressAttributeName
 -&gt; ToJSONKeyFunction [AddressAttributeName]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AddressAttributeName]
 toJSONKey :: ToJSONKeyFunction AddressAttributeName
 $ctoJSONKey :: ToJSONKeyFunction AddressAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681051322"><span class="annot"><span class="annottext">[Node] -&gt; Either String AddressAttributeName
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681084517"><span class="annot"><span class="annottext">[Node] -&gt; Either String AddressAttributeName
 ([Node] -&gt; Either String AddressAttributeName)
 -&gt; FromXML AddressAttributeName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AddressAttributeName
 $cparseXML :: [Node] -&gt; Either String AddressAttributeName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681051319"><span class="annot"><span class="annottext">AddressAttributeName -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681084514"><span class="annot"><span class="annottext">AddressAttributeName -&gt; XML
 (AddressAttributeName -&gt; XML) -&gt; ToXML AddressAttributeName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AddressAttributeName -&gt; XML

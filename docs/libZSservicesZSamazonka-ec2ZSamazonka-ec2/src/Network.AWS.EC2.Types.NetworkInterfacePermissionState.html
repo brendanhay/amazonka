@@ -28,16 +28,16 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the state of a network interface permission.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newNetworkInterfacePermissionState' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681095213"><span id="local-6989586621681095214"></span></span><span class="hs-keyword">data</span><span> </span><span id="NetworkInterfacePermissionState"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState"><span class="hs-identifier hs-var">NetworkInterfacePermissionState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkInterfacePermissionState%27"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState%27"><span class="hs-identifier hs-var">NetworkInterfacePermissionState'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A status message, if applicable.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AstatusMessage%3ANetworkInterfacePermissionState%27"><span class="annot"><span class="annottext">NetworkInterfacePermissionState -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#%24sel%3AstatusMessage%3ANetworkInterfacePermissionState%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The state of the permission.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astate%3ANetworkInterfacePermissionState%27"><span class="annot"><span class="annottext">NetworkInterfacePermissionState
+</span><span id="line-31"></span><span id="local-6989586621681129906"><span id="local-6989586621681129907"></span></span><span class="hs-keyword">data</span><span> </span><span id="NetworkInterfacePermissionState"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState"><span class="hs-identifier hs-var">NetworkInterfacePermissionState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkInterfacePermissionState%27"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState%27"><span class="hs-identifier hs-var">NetworkInterfacePermissionState'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the permission.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astate%3ANetworkInterfacePermissionState%27"><span class="annot"><span class="annottext">NetworkInterfacePermissionState
 -&gt; Maybe NetworkInterfacePermissionStateCode
-</span><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#%24sel%3Astate%3ANetworkInterfacePermissionState%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionStateCode.html#NetworkInterfacePermissionStateCode"><span class="hs-identifier hs-type">NetworkInterfacePermissionStateCode</span></a></span><span>
+</span><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#%24sel%3Astate%3ANetworkInterfacePermissionState%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionStateCode.html#NetworkInterfacePermissionStateCode"><span class="hs-identifier hs-type">NetworkInterfacePermissionStateCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A status message, if applicable.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AstatusMessage%3ANetworkInterfacePermissionState%27"><span class="annot"><span class="annottext">NetworkInterfacePermissionState -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#%24sel%3AstatusMessage%3ANetworkInterfacePermissionState%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681095206"><span id="local-6989586621681095208"><span class="annot"><span class="annottext">NetworkInterfacePermissionState
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681129899"><span id="local-6989586621681129901"><span class="annot"><span class="annottext">NetworkInterfacePermissionState
 -&gt; NetworkInterfacePermissionState -&gt; Bool
 (NetworkInterfacePermissionState
  -&gt; NetworkInterfacePermissionState -&gt; Bool)
@@ -53,7 +53,7 @@ $c/= :: NetworkInterfacePermissionState
 -&gt; NetworkInterfacePermissionState -&gt; Bool
 $c== :: NetworkInterfacePermissionState
 -&gt; NetworkInterfacePermissionState -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681095197"><span id="local-6989586621681095199"><span id="local-6989586621681095201"><span id="local-6989586621681095203"><span class="annot"><span class="annottext">ReadPrec [NetworkInterfacePermissionState]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681129890"><span id="local-6989586621681129892"><span id="local-6989586621681129894"><span id="local-6989586621681129896"><span class="annot"><span class="annottext">ReadPrec [NetworkInterfacePermissionState]
 ReadPrec NetworkInterfacePermissionState
 Int -&gt; ReadS NetworkInterfacePermissionState
 ReadS [NetworkInterfacePermissionState]
@@ -73,7 +73,7 @@ readList :: ReadS [NetworkInterfacePermissionState]
 $creadList :: ReadS [NetworkInterfacePermissionState]
 readsPrec :: Int -&gt; ReadS NetworkInterfacePermissionState
 $creadsPrec :: Int -&gt; ReadS NetworkInterfacePermissionState
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681095190"><span id="local-6989586621681095192"><span id="local-6989586621681095194"><span class="annot"><span class="annottext">Int -&gt; NetworkInterfacePermissionState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681129883"><span id="local-6989586621681129885"><span id="local-6989586621681129887"><span class="annot"><span class="annottext">Int -&gt; NetworkInterfacePermissionState -&gt; ShowS
 [NetworkInterfacePermissionState] -&gt; ShowS
 NetworkInterfacePermissionState -&gt; String
 (Int -&gt; NetworkInterfacePermissionState -&gt; ShowS)
@@ -119,56 +119,30 @@ NetworkInterfacePermissionState
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'statusMessage', 'networkInterfacePermissionState_statusMessage' - A status message, if applicable.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'state', 'networkInterfacePermissionState_state' - The state of the permission.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'state', 'networkInterfacePermissionState_state' - The state of the permission.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'statusMessage', 'networkInterfacePermissionState_statusMessage' - A status message, if applicable.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#newNetworkInterfacePermissionState"><span class="hs-identifier hs-type">newNetworkInterfacePermissionState</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState"><span class="hs-identifier hs-type">NetworkInterfacePermissionState</span></a></span><span>
 </span><span id="line-52"></span><span id="newNetworkInterfacePermissionState"><span class="annot"><span class="annottext">newNetworkInterfacePermissionState :: NetworkInterfacePermissionState
 </span><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#newNetworkInterfacePermissionState"><span class="hs-identifier hs-var hs-var">newNetworkInterfacePermissionState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">NetworkInterfacePermissionState' :: Maybe Text
--&gt; Maybe NetworkInterfacePermissionStateCode
--&gt; NetworkInterfacePermissionState
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">NetworkInterfacePermissionState' :: Maybe NetworkInterfacePermissionStateCode
+-&gt; Maybe Text -&gt; NetworkInterfacePermissionState
 </span><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState%27"><span class="hs-identifier hs-type">NetworkInterfacePermissionState'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statusMessage:NetworkInterfacePermissionState' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#%24sel%3AstatusMessage%3ANetworkInterfacePermissionState%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:NetworkInterfacePermissionState' :: Maybe NetworkInterfacePermissionStateCode
+</span><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#%24sel%3Astate%3ANetworkInterfacePermissionState%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe NetworkInterfacePermissionStateCode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:NetworkInterfacePermissionState' :: Maybe NetworkInterfacePermissionStateCode
-</span><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#%24sel%3Astate%3ANetworkInterfacePermissionState%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterfacePermissionStateCode
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusMessage:NetworkInterfacePermissionState' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#%24sel%3AstatusMessage%3ANetworkInterfacePermissionState%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | A status message, if applicable.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#networkInterfacePermissionState_statusMessage"><span class="hs-identifier hs-type">networkInterfacePermissionState_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState"><span class="hs-identifier hs-type">NetworkInterfacePermissionState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="networkInterfacePermissionState_statusMessage"><span class="annot"><span class="annottext">networkInterfacePermissionState_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
--&gt; NetworkInterfacePermissionState
--&gt; f NetworkInterfacePermissionState
-</span><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#networkInterfacePermissionState_statusMessage"><span class="hs-identifier hs-var hs-var">networkInterfacePermissionState_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkInterfacePermissionState -&gt; Maybe Text)
--&gt; (NetworkInterfacePermissionState
-    -&gt; Maybe Text -&gt; NetworkInterfacePermissionState)
--&gt; Lens
-     NetworkInterfacePermissionState
-     NetworkInterfacePermissionState
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState%27"><span class="hs-identifier hs-type">NetworkInterfacePermissionState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681095181"><span class="annot"><span class="annottext">Maybe Text
-statusMessage :: Maybe Text
-$sel:statusMessage:NetworkInterfacePermissionState' :: NetworkInterfacePermissionState -&gt; Maybe Text
-</span><a href="#local-6989586621681095181"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681095181"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681095180"><span class="annot"><span class="annottext">s :: NetworkInterfacePermissionState
-</span><a href="#local-6989586621681095180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState%27"><span class="hs-identifier hs-type">NetworkInterfacePermissionState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681095179"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681095179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterfacePermissionState
-</span><a href="#local-6989586621681095180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:NetworkInterfacePermissionState' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#%24sel%3AstatusMessage%3ANetworkInterfacePermissionState%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681095179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState"><span class="hs-identifier hs-type">NetworkInterfacePermissionState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The state of the permission.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#networkInterfacePermissionState_state"><span class="hs-identifier hs-type">networkInterfacePermissionState_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState"><span class="hs-identifier hs-type">NetworkInterfacePermissionState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionStateCode.html#NetworkInterfacePermissionStateCode"><span class="hs-identifier hs-type">NetworkInterfacePermissionStateCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="networkInterfacePermissionState_state"><span class="annot"><span class="annottext">networkInterfacePermissionState_state :: (Maybe NetworkInterfacePermissionStateCode
+</span><span id="line-59"></span><span class="hs-comment">-- | The state of the permission.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#networkInterfacePermissionState_state"><span class="hs-identifier hs-type">networkInterfacePermissionState_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState"><span class="hs-identifier hs-type">NetworkInterfacePermissionState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionStateCode.html#NetworkInterfacePermissionStateCode"><span class="hs-identifier hs-type">NetworkInterfacePermissionStateCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="networkInterfacePermissionState_state"><span class="annot"><span class="annottext">networkInterfacePermissionState_state :: (Maybe NetworkInterfacePermissionStateCode
  -&gt; f (Maybe NetworkInterfacePermissionStateCode))
 -&gt; NetworkInterfacePermissionState
 -&gt; f NetworkInterfacePermissionState
@@ -183,60 +157,77 @@ $sel:statusMessage:NetworkInterfacePermissionState' :: NetworkInterfacePermissio
      (Maybe NetworkInterfacePermissionStateCode)
      (Maybe NetworkInterfacePermissionStateCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState%27"><span class="hs-identifier hs-type">NetworkInterfacePermissionState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681095177"><span class="annot"><span class="annottext">Maybe NetworkInterfacePermissionStateCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState%27"><span class="hs-identifier hs-type">NetworkInterfacePermissionState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681129874"><span class="annot"><span class="annottext">Maybe NetworkInterfacePermissionStateCode
 state :: Maybe NetworkInterfacePermissionStateCode
 $sel:state:NetworkInterfacePermissionState' :: NetworkInterfacePermissionState
 -&gt; Maybe NetworkInterfacePermissionStateCode
-</span><a href="#local-6989586621681095177"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterfacePermissionStateCode
-</span><a href="#local-6989586621681095177"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681095176"><span class="annot"><span class="annottext">s :: NetworkInterfacePermissionState
-</span><a href="#local-6989586621681095176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState%27"><span class="hs-identifier hs-type">NetworkInterfacePermissionState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681095175"><span class="annot"><span class="annottext">Maybe NetworkInterfacePermissionStateCode
-</span><a href="#local-6989586621681095175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterfacePermissionState
-</span><a href="#local-6989586621681095176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:NetworkInterfacePermissionState' :: Maybe NetworkInterfacePermissionStateCode
+</span><a href="#local-6989586621681129874"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterfacePermissionStateCode
+</span><a href="#local-6989586621681129874"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681129873"><span class="annot"><span class="annottext">s :: NetworkInterfacePermissionState
+</span><a href="#local-6989586621681129873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState%27"><span class="hs-identifier hs-type">NetworkInterfacePermissionState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681129872"><span class="annot"><span class="annottext">Maybe NetworkInterfacePermissionStateCode
+</span><a href="#local-6989586621681129872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterfacePermissionState
+</span><a href="#local-6989586621681129873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:NetworkInterfacePermissionState' :: Maybe NetworkInterfacePermissionStateCode
 </span><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#%24sel%3Astate%3ANetworkInterfacePermissionState%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterfacePermissionStateCode
-</span><a href="#local-6989586621681095175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState"><span class="hs-identifier hs-type">NetworkInterfacePermissionState</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681129872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState"><span class="hs-identifier hs-type">NetworkInterfacePermissionState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | A status message, if applicable.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#networkInterfacePermissionState_statusMessage"><span class="hs-identifier hs-type">networkInterfacePermissionState_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState"><span class="hs-identifier hs-type">NetworkInterfacePermissionState</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="networkInterfacePermissionState_statusMessage"><span class="annot"><span class="annottext">networkInterfacePermissionState_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NetworkInterfacePermissionState
+-&gt; f NetworkInterfacePermissionState
+</span><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#networkInterfacePermissionState_statusMessage"><span class="hs-identifier hs-var hs-var">networkInterfacePermissionState_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkInterfacePermissionState -&gt; Maybe Text)
+-&gt; (NetworkInterfacePermissionState
+    -&gt; Maybe Text -&gt; NetworkInterfacePermissionState)
+-&gt; Lens
+     NetworkInterfacePermissionState
+     NetworkInterfacePermissionState
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState%27"><span class="hs-identifier hs-type">NetworkInterfacePermissionState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681129870"><span class="annot"><span class="annottext">Maybe Text
+statusMessage :: Maybe Text
+$sel:statusMessage:NetworkInterfacePermissionState' :: NetworkInterfacePermissionState -&gt; Maybe Text
+</span><a href="#local-6989586621681129870"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681129870"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681129869"><span class="annot"><span class="annottext">s :: NetworkInterfacePermissionState
+</span><a href="#local-6989586621681129869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState%27"><span class="hs-identifier hs-type">NetworkInterfacePermissionState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681129868"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681129868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkInterfacePermissionState
+</span><a href="#local-6989586621681129869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:NetworkInterfacePermissionState' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#%24sel%3AstatusMessage%3ANetworkInterfacePermissionState%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681129868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState"><span class="hs-identifier hs-type">NetworkInterfacePermissionState</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState"><span class="hs-identifier hs-type">NetworkInterfacePermissionState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621681095172"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NetworkInterfacePermissionState
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681095170"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681095170"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe NetworkInterfacePermissionStateCode
--&gt; NetworkInterfacePermissionState
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621681129865"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NetworkInterfacePermissionState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681129863"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681129863"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe NetworkInterfacePermissionStateCode
+-&gt; Maybe Text -&gt; NetworkInterfacePermissionState
 </span><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState%27"><span class="hs-identifier hs-var">NetworkInterfacePermissionState'</span></a></span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe NetworkInterfacePermissionStateCode
- -&gt; NetworkInterfacePermissionState)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe NetworkInterfacePermissionStateCode
-      -&gt; NetworkInterfacePermissionState)
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe NetworkInterfacePermissionStateCode
+ -&gt; Maybe Text -&gt; NetworkInterfacePermissionState)
+-&gt; Either String (Maybe NetworkInterfacePermissionStateCode)
+-&gt; Either String (Maybe Text -&gt; NetworkInterfacePermissionState)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681095170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;statusMessage&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe NetworkInterfacePermissionStateCode
-   -&gt; NetworkInterfacePermissionState)
--&gt; Either String (Maybe NetworkInterfacePermissionStateCode)
--&gt; Either String NetworkInterfacePermissionState
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681095170"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681129863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text
 -&gt; Either String (Maybe NetworkInterfacePermissionStateCode)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; NetworkInterfacePermissionState)
+-&gt; Either String (Maybe Text)
+-&gt; Either String NetworkInterfacePermissionState
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681129863"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621681095164"><span id="local-6989586621681095166"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621681129857"><span id="local-6989586621681129859"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState"><span class="hs-identifier hs-type">NetworkInterfacePermissionState</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621681095161"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621681129854"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfacePermissionState.html#NetworkInterfacePermissionState"><span class="hs-identifier hs-type">NetworkInterfacePermissionState</span></a></span></span><span>
 </span><span id="line-80"></span></pre></body></html>

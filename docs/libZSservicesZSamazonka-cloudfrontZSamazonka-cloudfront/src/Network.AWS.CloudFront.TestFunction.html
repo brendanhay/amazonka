@@ -64,7 +64,7 @@
 </span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newTestFunction' smart constructor.</span><span>
-</span><span id="line-67"></span><span id="local-6989586621679408499"><span id="local-6989586621679408500"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestFunction"><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-var">TestFunction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestFunction%27"><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-var">TestFunction'</span></a></span></span><span>
+</span><span id="line-67"></span><span id="local-6989586621679408781"><span id="local-6989586621679408782"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestFunction"><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-var">TestFunction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestFunction%27"><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-var">TestFunction'</span></a></span></span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The stage of the function that you are testing, either @DEVELOPMENT@ or</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- @LIVE@.</span><span>
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3Astage%3ATestFunction%27"><span class="annot"><span class="annottext">TestFunction -&gt; Maybe FunctionStage
@@ -83,7 +83,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AeventObject%3ATestFunction%27"><span class="annot"><span class="annottext">TestFunction -&gt; Sensitive Base64
 </span><a href="Network.AWS.CloudFront.TestFunction.html#%24sel%3AeventObject%3ATestFunction%27"><span class="hs-identifier hs-var hs-var">eventObject</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679408490"><span id="local-6989586621679408492"><span class="annot"><span class="annottext">TestFunction -&gt; TestFunction -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679408772"><span id="local-6989586621679408774"><span class="annot"><span class="annottext">TestFunction -&gt; TestFunction -&gt; Bool
 (TestFunction -&gt; TestFunction -&gt; Bool)
 -&gt; (TestFunction -&gt; TestFunction -&gt; Bool) -&gt; Eq TestFunction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -91,7 +91,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TestFunction -&gt; TestFunction -&gt; Bool
 == :: TestFunction -&gt; TestFunction -&gt; Bool
 $c== :: TestFunction -&gt; TestFunction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408483"><span id="local-6989586621679408485"><span id="local-6989586621679408487"><span class="annot"><span class="annottext">Int -&gt; TestFunction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408765"><span id="local-6989586621679408767"><span id="local-6989586621679408769"><span class="annot"><span class="annottext">Int -&gt; TestFunction -&gt; ShowS
 [TestFunction] -&gt; ShowS
 TestFunction -&gt; String
 (Int -&gt; TestFunction -&gt; ShowS)
@@ -150,10 +150,10 @@ $cfrom :: forall x. TestFunction -&gt; Rep TestFunction x
 </span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span><span>
 </span><span id="line-116"></span><span id="newTestFunction"><span class="annot"><span class="annottext">newTestFunction :: Text -&gt; Text -&gt; ByteString -&gt; TestFunction
-</span><a href="Network.AWS.CloudFront.TestFunction.html#newTestFunction"><span class="hs-identifier hs-var hs-var">newTestFunction</span></a></span></span><span> </span><span id="local-6989586621679408478"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679408478"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679408477"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679408477"><span class="hs-identifier hs-var">pIfMatch_</span></a></span></span><span> </span><span id="local-6989586621679408476"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679408476"><span class="hs-identifier hs-var">pEventObject_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.TestFunction.html#newTestFunction"><span class="hs-identifier hs-var hs-var">newTestFunction</span></a></span></span><span> </span><span id="local-6989586621679408760"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408760"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679408759"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408759"><span class="hs-identifier hs-var">pIfMatch_</span></a></span></span><span> </span><span id="local-6989586621679408758"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679408758"><span class="hs-identifier hs-var">pEventObject_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">TestFunction' :: Maybe FunctionStage
 -&gt; Text -&gt; Text -&gt; Sensitive Base64 -&gt; TestFunction
 </span><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span>
@@ -163,10 +163,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:TestFunction' :: Text
 </span><a href="Network.AWS.CloudFront.TestFunction.html#%24sel%3Aname%3ATestFunction%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679408478"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679408760"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:ifMatch:TestFunction' :: Text
 </span><a href="Network.AWS.CloudFront.TestFunction.html#%24sel%3AifMatch%3ATestFunction%27"><span class="hs-identifier hs-var">ifMatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679408477"><span class="hs-identifier hs-var">pIfMatch_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679408759"><span class="hs-identifier hs-var">pIfMatch_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventObject:TestFunction' :: Sensitive Base64
 </span><a href="Network.AWS.CloudFront.TestFunction.html#%24sel%3AeventObject%3ATestFunction%27"><span class="hs-identifier hs-var">eventObject</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Tagged Base64 (Identity Base64)
@@ -188,7 +188,7 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Sensitive Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679408476"><span class="hs-identifier hs-var">pEventObject_</span></a></span><span>
+</span><a href="#local-6989586621679408758"><span class="hs-identifier hs-var">pEventObject_</span></a></span><span>
 </span><span id="line-124"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | The stage of the function that you are testing, either @DEVELOPMENT@ or</span><span>
@@ -204,16 +204,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe FunctionStage)
      (Maybe FunctionStage)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408469"><span class="annot"><span class="annottext">Maybe FunctionStage
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408751"><span class="annot"><span class="annottext">Maybe FunctionStage
 stage :: Maybe FunctionStage
 $sel:stage:TestFunction' :: TestFunction -&gt; Maybe FunctionStage
-</span><a href="#local-6989586621679408469"><span class="hs-identifier hs-var hs-var">stage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionStage
-</span><a href="#local-6989586621679408469"><span class="hs-identifier hs-var">stage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408468"><span class="annot"><span class="annottext">s :: TestFunction
-</span><a href="#local-6989586621679408468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408467"><span class="annot"><span class="annottext">Maybe FunctionStage
-</span><a href="#local-6989586621679408467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestFunction
-</span><a href="#local-6989586621679408468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stage:TestFunction' :: Maybe FunctionStage
+</span><a href="#local-6989586621679408751"><span class="hs-identifier hs-var hs-var">stage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionStage
+</span><a href="#local-6989586621679408751"><span class="hs-identifier hs-var">stage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408750"><span class="annot"><span class="annottext">s :: TestFunction
+</span><a href="#local-6989586621679408750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408749"><span class="annot"><span class="annottext">Maybe FunctionStage
+</span><a href="#local-6989586621679408749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestFunction
+</span><a href="#local-6989586621679408750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stage:TestFunction' :: Maybe FunctionStage
 </span><a href="Network.AWS.CloudFront.TestFunction.html#%24sel%3Astage%3ATestFunction%27"><span class="hs-identifier hs-var">stage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FunctionStage
-</span><a href="#local-6989586621679408467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | The name of the function that you are testing.</span><span>
 </span><span id="line-132"></span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#testFunction_name"><span class="hs-identifier hs-type">testFunction_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -222,16 +222,16 @@ $sel:stage:TestFunction' :: TestFunction -&gt; Maybe FunctionStage
 -&gt; (TestFunction -&gt; Text -&gt; TestFunction)
 -&gt; Lens TestFunction TestFunction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408466"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408748"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:TestFunction' :: TestFunction -&gt; Text
-</span><a href="#local-6989586621679408466"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679408466"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408465"><span class="annot"><span class="annottext">s :: TestFunction
-</span><a href="#local-6989586621679408465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408464"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679408464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestFunction
-</span><a href="#local-6989586621679408465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:TestFunction' :: Text
+</span><a href="#local-6989586621679408748"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408748"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408747"><span class="annot"><span class="annottext">s :: TestFunction
+</span><a href="#local-6989586621679408747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408746"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestFunction
+</span><a href="#local-6989586621679408747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:TestFunction' :: Text
 </span><a href="Network.AWS.CloudFront.TestFunction.html#%24sel%3Aname%3ATestFunction%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679408464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The current version (@ETag@ value) of the function that you are testing,</span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- which you can get using @DescribeFunction@.</span><span>
@@ -241,16 +241,16 @@ $sel:name:TestFunction' :: TestFunction -&gt; Text
 -&gt; (TestFunction -&gt; Text -&gt; TestFunction)
 -&gt; Lens TestFunction TestFunction Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408463"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408745"><span class="annot"><span class="annottext">Text
 ifMatch :: Text
 $sel:ifMatch:TestFunction' :: TestFunction -&gt; Text
-</span><a href="#local-6989586621679408463"><span class="hs-identifier hs-var hs-var">ifMatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679408463"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408462"><span class="annot"><span class="annottext">s :: TestFunction
-</span><a href="#local-6989586621679408462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408461"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679408461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestFunction
-</span><a href="#local-6989586621679408462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ifMatch:TestFunction' :: Text
+</span><a href="#local-6989586621679408745"><span class="hs-identifier hs-var hs-var">ifMatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408745"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408744"><span class="annot"><span class="annottext">s :: TestFunction
+</span><a href="#local-6989586621679408744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408743"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679408743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestFunction
+</span><a href="#local-6989586621679408744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ifMatch:TestFunction' :: Text
 </span><a href="Network.AWS.CloudFront.TestFunction.html#%24sel%3AifMatch%3ATestFunction%27"><span class="hs-identifier hs-var">ifMatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679408461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | The event object to test the function with. For more information about</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- the structure of the event object, see</span><span>
@@ -267,16 +267,16 @@ $sel:ifMatch:TestFunction' :: TestFunction -&gt; Text
 -&gt; Lens
      TestFunction TestFunction (Sensitive Base64) (Sensitive Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408460"><span class="annot"><span class="annottext">Sensitive Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408742"><span class="annot"><span class="annottext">Sensitive Base64
 eventObject :: Sensitive Base64
 $sel:eventObject:TestFunction' :: TestFunction -&gt; Sensitive Base64
-</span><a href="#local-6989586621679408460"><span class="hs-identifier hs-var hs-var">eventObject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Base64
-</span><a href="#local-6989586621679408460"><span class="hs-identifier hs-var">eventObject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408459"><span class="annot"><span class="annottext">s :: TestFunction
-</span><a href="#local-6989586621679408459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408458"><span class="annot"><span class="annottext">Sensitive Base64
-</span><a href="#local-6989586621679408458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestFunction
-</span><a href="#local-6989586621679408459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventObject:TestFunction' :: Sensitive Base64
+</span><a href="#local-6989586621679408742"><span class="hs-identifier hs-var hs-var">eventObject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Base64
+</span><a href="#local-6989586621679408742"><span class="hs-identifier hs-var">eventObject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408741"><span class="annot"><span class="annottext">s :: TestFunction
+</span><a href="#local-6989586621679408741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408740"><span class="annot"><span class="annottext">Sensitive Base64
+</span><a href="#local-6989586621679408740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestFunction
+</span><a href="#local-6989586621679408741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventObject:TestFunction' :: Sensitive Base64
 </span><a href="Network.AWS.CloudFront.TestFunction.html#%24sel%3AeventObject%3ATestFunction%27"><span class="hs-identifier hs-var">eventObject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Base64
-</span><a href="#local-6989586621679408458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Base64 -&gt; f (Sensitive Base64))
+</span><a href="#local-6989586621679408740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Base64 -&gt; f (Sensitive Base64))
  -&gt; TestFunction -&gt; f TestFunction)
 -&gt; ((ByteString -&gt; f ByteString)
     -&gt; Sensitive Base64 -&gt; f (Sensitive Base64))
@@ -298,12 +298,12 @@ Iso' Base64 ByteString
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse"><span class="hs-identifier hs-type">TestFunctionResponse</span></a></span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679408454"><span class="annot"><span class="annottext">request :: TestFunction -&gt; Request TestFunction
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679408736"><span class="annot"><span class="annottext">request :: TestFunction -&gt; Request TestFunction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TestFunction -&gt; Request TestFunction
 forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postXML</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679408450"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679408732"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TestFunction
 -&gt; ClientResponse ClientBody
@@ -327,10 +327,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679408447"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679408447"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679408446"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679408446"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679408445"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679408445"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679408729"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679408729"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679408728"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679408728"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679408727"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679408727"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">Maybe TestResult -&gt; Int -&gt; TestFunctionResponse
 </span><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse%27"><span class="hs-identifier hs-var">TestFunctionResponse'</span></a></span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TestResult -&gt; Int -&gt; TestFunctionResponse)
@@ -340,7 +340,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String (Maybe TestResult)
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679408445"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408727"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; TestFunctionResponse)
 -&gt; Either String Int -&gt; Either String TestFunctionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -349,15 +349,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679408447"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408729"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408437"><span id="local-6989586621679408439"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408719"><span id="local-6989586621679408721"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span></span></span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408434"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408716"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679408430"><span class="annot"><span class="annottext">toElement :: TestFunction -&gt; Element
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679408712"><span class="annot"><span class="annottext">toElement :: TestFunction -&gt; Element
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; TestFunction -&gt; Element
 forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
@@ -366,8 +366,8 @@ forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
 </span><span class="hs-string">&quot;{http://cloudfront.amazonaws.com/doc/2020-05-31/}TestFunctionRequest&quot;</span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679408425"><span class="annot"><span class="annottext">toHeaders :: TestFunction -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408420"><span id="local-6989586621679408421"><span id="local-6989586621679408422"><span id="local-6989586621679408423"><span class="annot"><span class="annottext">Maybe FunctionStage
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679408707"><span class="annot"><span class="annottext">toHeaders :: TestFunction -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408702"><span id="local-6989586621679408703"><span id="local-6989586621679408704"><span id="local-6989586621679408705"><span class="annot"><span class="annottext">Maybe FunctionStage
 Text
 Sensitive Base64
 eventObject :: Sensitive Base64
@@ -378,18 +378,18 @@ $sel:eventObject:TestFunction' :: TestFunction -&gt; Sensitive Base64
 $sel:ifMatch:TestFunction' :: TestFunction -&gt; Text
 $sel:name:TestFunction' :: TestFunction -&gt; Text
 $sel:stage:TestFunction' :: TestFunction -&gt; Maybe FunctionStage
-</span><a href="#local-6989586621679408420"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679408702"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;If-Match&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679408421"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679408703"><span class="hs-identifier hs-var">ifMatch</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679408416"><span class="annot"><span class="annottext">toPath :: TestFunction -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408411"><span id="local-6989586621679408412"><span id="local-6989586621679408413"><span id="local-6989586621679408414"><span class="annot"><span class="annottext">Maybe FunctionStage
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679408698"><span class="annot"><span class="annottext">toPath :: TestFunction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408693"><span id="local-6989586621679408694"><span id="local-6989586621679408695"><span id="local-6989586621679408696"><span class="annot"><span class="annottext">Maybe FunctionStage
 Text
 Sensitive Base64
 eventObject :: Sensitive Base64
@@ -400,7 +400,7 @@ $sel:eventObject:TestFunction' :: TestFunction -&gt; Sensitive Base64
 $sel:ifMatch:TestFunction' :: TestFunction -&gt; Text
 $sel:name:TestFunction' :: TestFunction -&gt; Text
 $sel:stage:TestFunction' :: TestFunction -&gt; Maybe FunctionStage
-</span><a href="#local-6989586621679408411"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679408693"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -408,11 +408,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2020-05-31/function/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679408413"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679408695"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/test&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679408407"><span class="annot"><span class="annottext">toQuery :: TestFunction -&gt; QueryString
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679408689"><span class="annot"><span class="annottext">toQuery :: TestFunction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; TestFunction -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -420,8 +420,8 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction"><span class="hs-identifier hs-type">TestFunction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679408402"><span class="annot"><span class="annottext">toXML :: TestFunction -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408397"><span id="local-6989586621679408398"><span id="local-6989586621679408399"><span id="local-6989586621679408400"><span class="annot"><span class="annottext">Maybe FunctionStage
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679408684"><span class="annot"><span class="annottext">toXML :: TestFunction -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunction%27"><span class="hs-identifier hs-type">TestFunction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408679"><span id="local-6989586621679408680"><span id="local-6989586621679408681"><span id="local-6989586621679408682"><span class="annot"><span class="annottext">Maybe FunctionStage
 Text
 Sensitive Base64
 eventObject :: Sensitive Base64
@@ -432,7 +432,7 @@ $sel:eventObject:TestFunction' :: TestFunction -&gt; Sensitive Base64
 $sel:ifMatch:TestFunction' :: TestFunction -&gt; Text
 $sel:name:TestFunction' :: TestFunction -&gt; Text
 $sel:stage:TestFunction' :: TestFunction -&gt; Maybe FunctionStage
-</span><a href="#local-6989586621679408397"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679408679"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -440,16 +440,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Stage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe FunctionStage -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe FunctionStage
-</span><a href="#local-6989586621679408400"><span class="hs-identifier hs-var">stage</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679408682"><span class="hs-identifier hs-var">stage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;EventObject&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Sensitive Base64 -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Base64
-</span><a href="#local-6989586621679408397"><span class="hs-identifier hs-var">eventObject</span></a></span><span>
+</span><a href="#local-6989586621679408679"><span class="hs-identifier hs-var">eventObject</span></a></span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | /See:/ 'newTestFunctionResponse' smart constructor.</span><span>
-</span><span id="line-191"></span><span id="local-6989586621679408394"><span id="local-6989586621679408395"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestFunctionResponse"><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse"><span class="hs-identifier hs-var">TestFunctionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestFunctionResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse%27"><span class="hs-identifier hs-var">TestFunctionResponse'</span></a></span></span><span>
+</span><span id="line-191"></span><span id="local-6989586621679408676"><span id="local-6989586621679408677"></span></span><span class="hs-keyword">data</span><span> </span><span id="TestFunctionResponse"><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse"><span class="hs-identifier hs-var">TestFunctionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TestFunctionResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse%27"><span class="hs-identifier hs-var">TestFunctionResponse'</span></a></span></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that represents the result of running the function with the</span><span>
 </span><span id="line-193"></span><span>    </span><span class="hs-comment">-- provided event object.</span><span>
 </span><span id="line-194"></span><span>    </span><span id="%24sel%3AtestResult%3ATestFunctionResponse%27"><span class="annot"><span class="annottext">TestFunctionResponse -&gt; Maybe TestResult
@@ -458,7 +458,7 @@ forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span id="line-196"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATestFunctionResponse%27"><span class="annot"><span class="annottext">TestFunctionResponse -&gt; Int
 </span><a href="Network.AWS.CloudFront.TestFunction.html#%24sel%3AhttpStatus%3ATestFunctionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-197"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679408388"><span id="local-6989586621679408390"><span class="annot"><span class="annottext">TestFunctionResponse -&gt; TestFunctionResponse -&gt; Bool
+</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679408670"><span id="local-6989586621679408672"><span class="annot"><span class="annottext">TestFunctionResponse -&gt; TestFunctionResponse -&gt; Bool
 (TestFunctionResponse -&gt; TestFunctionResponse -&gt; Bool)
 -&gt; (TestFunctionResponse -&gt; TestFunctionResponse -&gt; Bool)
 -&gt; Eq TestFunctionResponse
@@ -467,7 +467,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TestFunctionResponse -&gt; TestFunctionResponse -&gt; Bool
 == :: TestFunctionResponse -&gt; TestFunctionResponse -&gt; Bool
 $c== :: TestFunctionResponse -&gt; TestFunctionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408380"><span id="local-6989586621679408382"><span id="local-6989586621679408384"><span id="local-6989586621679408386"><span class="annot"><span class="annottext">ReadPrec [TestFunctionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408662"><span id="local-6989586621679408664"><span id="local-6989586621679408666"><span id="local-6989586621679408668"><span class="annot"><span class="annottext">ReadPrec [TestFunctionResponse]
 ReadPrec TestFunctionResponse
 Int -&gt; ReadS TestFunctionResponse
 ReadS [TestFunctionResponse]
@@ -487,7 +487,7 @@ readList :: ReadS [TestFunctionResponse]
 $creadList :: ReadS [TestFunctionResponse]
 readsPrec :: Int -&gt; ReadS TestFunctionResponse
 $creadsPrec :: Int -&gt; ReadS TestFunctionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408373"><span id="local-6989586621679408375"><span id="local-6989586621679408377"><span class="annot"><span class="annottext">Int -&gt; TestFunctionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679408655"><span id="local-6989586621679408657"><span id="local-6989586621679408659"><span class="annot"><span class="annottext">Int -&gt; TestFunctionResponse -&gt; ShowS
 [TestFunctionResponse] -&gt; ShowS
 TestFunctionResponse -&gt; String
 (Int -&gt; TestFunctionResponse -&gt; ShowS)
@@ -530,8 +530,8 @@ $cfrom :: forall x. TestFunctionResponse -&gt; Rep TestFunctionResponse x
 </span><span id="line-214"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse"><span class="hs-identifier hs-type">TestFunctionResponse</span></a></span><span>
 </span><span id="line-216"></span><span id="newTestFunctionResponse"><span class="annot"><span class="annottext">newTestFunctionResponse :: Int -&gt; TestFunctionResponse
-</span><a href="Network.AWS.CloudFront.TestFunction.html#newTestFunctionResponse"><span class="hs-identifier hs-var hs-var">newTestFunctionResponse</span></a></span></span><span> </span><span id="local-6989586621679408370"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679408370"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.TestFunction.html#newTestFunctionResponse"><span class="hs-identifier hs-var hs-var">newTestFunctionResponse</span></a></span></span><span> </span><span id="local-6989586621679408652"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679408652"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">TestFunctionResponse' :: Maybe TestResult -&gt; Int -&gt; TestFunctionResponse
 </span><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse%27"><span class="hs-identifier hs-type">TestFunctionResponse'</span></a></span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:testResult:TestFunctionResponse' :: Maybe TestResult
@@ -540,7 +540,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:TestFunctionResponse' :: Int
 </span><a href="Network.AWS.CloudFront.TestFunction.html#%24sel%3AhttpStatus%3ATestFunctionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679408370"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679408652"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | An object that represents the result of running the function with the</span><span>
@@ -557,16 +557,16 @@ forall a. Maybe a
      (Maybe TestResult)
      (Maybe TestResult)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse%27"><span class="hs-identifier hs-type">TestFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408369"><span class="annot"><span class="annottext">Maybe TestResult
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse%27"><span class="hs-identifier hs-type">TestFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408651"><span class="annot"><span class="annottext">Maybe TestResult
 testResult :: Maybe TestResult
 $sel:testResult:TestFunctionResponse' :: TestFunctionResponse -&gt; Maybe TestResult
-</span><a href="#local-6989586621679408369"><span class="hs-identifier hs-var hs-var">testResult</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TestResult
-</span><a href="#local-6989586621679408369"><span class="hs-identifier hs-var">testResult</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408368"><span class="annot"><span class="annottext">s :: TestFunctionResponse
-</span><a href="#local-6989586621679408368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse%27"><span class="hs-identifier hs-type">TestFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408367"><span class="annot"><span class="annottext">Maybe TestResult
-</span><a href="#local-6989586621679408367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestFunctionResponse
-</span><a href="#local-6989586621679408368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:testResult:TestFunctionResponse' :: Maybe TestResult
+</span><a href="#local-6989586621679408651"><span class="hs-identifier hs-var hs-var">testResult</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TestResult
+</span><a href="#local-6989586621679408651"><span class="hs-identifier hs-var">testResult</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408650"><span class="annot"><span class="annottext">s :: TestFunctionResponse
+</span><a href="#local-6989586621679408650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse%27"><span class="hs-identifier hs-type">TestFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408649"><span class="annot"><span class="annottext">Maybe TestResult
+</span><a href="#local-6989586621679408649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestFunctionResponse
+</span><a href="#local-6989586621679408650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:testResult:TestFunctionResponse' :: Maybe TestResult
 </span><a href="Network.AWS.CloudFront.TestFunction.html#%24sel%3AtestResult%3ATestFunctionResponse%27"><span class="hs-identifier hs-var">testResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TestResult
-</span><a href="#local-6989586621679408367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse"><span class="hs-identifier hs-type">TestFunctionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse"><span class="hs-identifier hs-type">TestFunctionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-228"></span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#testFunctionResponse_httpStatus"><span class="hs-identifier hs-type">testFunctionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse"><span class="hs-identifier hs-type">TestFunctionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -575,16 +575,16 @@ $sel:testResult:TestFunctionResponse' :: TestFunctionResponse -&gt; Maybe TestRe
 -&gt; (TestFunctionResponse -&gt; Int -&gt; TestFunctionResponse)
 -&gt; Lens TestFunctionResponse TestFunctionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse%27"><span class="hs-identifier hs-type">TestFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408366"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse%27"><span class="hs-identifier hs-type">TestFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679408648"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:TestFunctionResponse' :: TestFunctionResponse -&gt; Int
-</span><a href="#local-6989586621679408366"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679408366"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408365"><span class="annot"><span class="annottext">s :: TestFunctionResponse
-</span><a href="#local-6989586621679408365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse%27"><span class="hs-identifier hs-type">TestFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408364"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679408364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestFunctionResponse
-</span><a href="#local-6989586621679408365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TestFunctionResponse' :: Int
+</span><a href="#local-6989586621679408648"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679408648"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679408647"><span class="annot"><span class="annottext">s :: TestFunctionResponse
+</span><a href="#local-6989586621679408647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse%27"><span class="hs-identifier hs-type">TestFunctionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679408646"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679408646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TestFunctionResponse
+</span><a href="#local-6989586621679408647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TestFunctionResponse' :: Int
 </span><a href="Network.AWS.CloudFront.TestFunction.html#%24sel%3AhttpStatus%3ATestFunctionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679408364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse"><span class="hs-identifier hs-type">TestFunctionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679408646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse"><span class="hs-identifier hs-type">TestFunctionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse"><span class="hs-identifier hs-type">TestFunctionResponse</span></a></span></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679408644"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.TestFunction.html#TestFunctionResponse"><span class="hs-identifier hs-type">TestFunctionResponse</span></a></span></span><span>
 </span><span id="line-232"></span></pre></body></html>

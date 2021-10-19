@@ -29,35 +29,35 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes the result of the purchase.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newPurchase' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681107030"><span id="local-6989586621681107031"></span></span><span class="hs-keyword">data</span><span> </span><span id="Purchase"><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-var">Purchase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Purchase%27"><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-var">Purchase'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the Dedicated Hosts associated with the reservation.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AhostIdSet%3APurchase%27"><span class="annot"><span class="annottext">Purchase -&gt; Maybe [Text]
-</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AhostIdSet%3APurchase%27"><span class="hs-identifier hs-var hs-var">hostIdSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The instance family on the Dedicated Host that the reservation can be</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- associated with.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AinstanceFamily%3APurchase%27"><span class="annot"><span class="annottext">Purchase -&gt; Maybe Text
+</span><span id="line-32"></span><span id="local-6989586621681141744"><span id="local-6989586621681141745"></span></span><span class="hs-keyword">data</span><span> </span><span id="Purchase"><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-var">Purchase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Purchase%27"><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-var">Purchase'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The instance family on the Dedicated Host that the reservation can be</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- associated with.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AinstanceFamily%3APurchase%27"><span class="annot"><span class="annottext">Purchase -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AinstanceFamily%3APurchase%27"><span class="hs-identifier hs-var hs-var">instanceFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The payment option for the reservation.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3ApaymentOption%3APurchase%27"><span class="annot"><span class="annottext">Purchase -&gt; Maybe PaymentOption
-</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3ApaymentOption%3APurchase%27"><span class="hs-identifier hs-var hs-var">paymentOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PaymentOption.html#PaymentOption"><span class="hs-identifier hs-type">PaymentOption</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The upfront price of the reservation.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AupfrontPrice%3APurchase%27"><span class="annot"><span class="annottext">Purchase -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AupfrontPrice%3APurchase%27"><span class="hs-identifier hs-var hs-var">upfrontPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The duration of the reservation\'s term in seconds.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aduration%3APurchase%27"><span class="annot"><span class="annottext">Purchase -&gt; Maybe Int
-</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3Aduration%3APurchase%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The ID of the reservation.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AhostReservationId%3APurchase%27"><span class="annot"><span class="annottext">Purchase -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AhostReservationId%3APurchase%27"><span class="hs-identifier hs-var hs-var">hostReservationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The currency in which the @UpfrontPrice@ and @HourlyPrice@ amounts are</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- specified. At this time, the only supported currency is @USD@.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcurrencyCode%3APurchase%27"><span class="annot"><span class="annottext">Purchase -&gt; Maybe CurrencyCodeValues
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The currency in which the @UpfrontPrice@ and @HourlyPrice@ amounts are</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- specified. At this time, the only supported currency is @USD@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcurrencyCode%3APurchase%27"><span class="annot"><span class="annottext">Purchase -&gt; Maybe CurrencyCodeValues
 </span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AcurrencyCode%3APurchase%27"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CurrencyCodeValues.html#CurrencyCodeValues"><span class="hs-identifier hs-type">CurrencyCodeValues</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The hourly price of the reservation per hour.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AhourlyPrice%3APurchase%27"><span class="annot"><span class="annottext">Purchase -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AhourlyPrice%3APurchase%27"><span class="hs-identifier hs-var hs-var">hourlyPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The ID of the reservation.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AhostReservationId%3APurchase%27"><span class="annot"><span class="annottext">Purchase -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AhostReservationId%3APurchase%27"><span class="hs-identifier hs-var hs-var">hostReservationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The hourly price of the reservation per hour.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AhourlyPrice%3APurchase%27"><span class="annot"><span class="annottext">Purchase -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AhourlyPrice%3APurchase%27"><span class="hs-identifier hs-var hs-var">hourlyPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The upfront price of the reservation.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AupfrontPrice%3APurchase%27"><span class="annot"><span class="annottext">Purchase -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AupfrontPrice%3APurchase%27"><span class="hs-identifier hs-var hs-var">upfrontPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The IDs of the Dedicated Hosts associated with the reservation.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AhostIdSet%3APurchase%27"><span class="annot"><span class="annottext">Purchase -&gt; Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AhostIdSet%3APurchase%27"><span class="hs-identifier hs-var hs-var">hostIdSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The duration of the reservation\'s term in seconds.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Aduration%3APurchase%27"><span class="annot"><span class="annottext">Purchase -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3Aduration%3APurchase%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The payment option for the reservation.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3ApaymentOption%3APurchase%27"><span class="annot"><span class="annottext">Purchase -&gt; Maybe PaymentOption
+</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3ApaymentOption%3APurchase%27"><span class="hs-identifier hs-var hs-var">paymentOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PaymentOption.html#PaymentOption"><span class="hs-identifier hs-type">PaymentOption</span></a></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681107017"><span id="local-6989586621681107019"><span class="annot"><span class="annottext">Purchase -&gt; Purchase -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681141731"><span id="local-6989586621681141733"><span class="annot"><span class="annottext">Purchase -&gt; Purchase -&gt; Bool
 (Purchase -&gt; Purchase -&gt; Bool)
 -&gt; (Purchase -&gt; Purchase -&gt; Bool) -&gt; Eq Purchase
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Purchase -&gt; Purchase -&gt; Bool
 == :: Purchase -&gt; Purchase -&gt; Bool
 $c== :: Purchase -&gt; Purchase -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681107008"><span id="local-6989586621681107010"><span id="local-6989586621681107012"><span id="local-6989586621681107014"><span class="annot"><span class="annottext">ReadPrec [Purchase]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681141722"><span id="local-6989586621681141724"><span id="local-6989586621681141726"><span id="local-6989586621681141728"><span class="annot"><span class="annottext">ReadPrec [Purchase]
 ReadPrec Purchase
 Int -&gt; ReadS Purchase
 ReadS [Purchase]
@@ -85,7 +85,7 @@ readList :: ReadS [Purchase]
 $creadList :: ReadS [Purchase]
 readsPrec :: Int -&gt; ReadS Purchase
 $creadsPrec :: Int -&gt; ReadS Purchase
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681107001"><span id="local-6989586621681107003"><span id="local-6989586621681107005"><span class="annot"><span class="annottext">Int -&gt; Purchase -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681141715"><span id="local-6989586621681141717"><span id="local-6989586621681141719"><span class="annot"><span class="annottext">Int -&gt; Purchase -&gt; ShowS
 [Purchase] -&gt; ShowS
 Purchase -&gt; String
 (Int -&gt; Purchase -&gt; ShowS)
@@ -116,88 +116,185 @@ $cfrom :: forall x. Purchase -&gt; Rep Purchase x
 </span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'hostIdSet', 'purchase_hostIdSet' - The IDs of the Dedicated Hosts associated with the reservation.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'instanceFamily', 'purchase_instanceFamily' - The instance family on the Dedicated Host that the reservation can be</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- associated with.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'paymentOption', 'purchase_paymentOption' - The payment option for the reservation.</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'upfrontPrice', 'purchase_upfrontPrice' - The upfront price of the reservation.</span><span>
-</span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'duration', 'purchase_duration' - The duration of the reservation\'s term in seconds.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'hostReservationId', 'purchase_hostReservationId' - The ID of the reservation.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'currencyCode', 'purchase_currencyCode' - The currency in which the @UpfrontPrice@ and @HourlyPrice@ amounts are</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- specified. At this time, the only supported currency is @USD@.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'instanceFamily', 'purchase_instanceFamily' - The instance family on the Dedicated Host that the reservation can be</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- associated with.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'currencyCode', 'purchase_currencyCode' - The currency in which the @UpfrontPrice@ and @HourlyPrice@ amounts are</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- specified. At this time, the only supported currency is @USD@.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'hostReservationId', 'purchase_hostReservationId' - The ID of the reservation.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'hourlyPrice', 'purchase_hourlyPrice' - The hourly price of the reservation per hour.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'upfrontPrice', 'purchase_upfrontPrice' - The upfront price of the reservation.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'hostIdSet', 'purchase_hostIdSet' - The IDs of the Dedicated Hosts associated with the reservation.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'duration', 'purchase_duration' - The duration of the reservation\'s term in seconds.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'hourlyPrice', 'purchase_hourlyPrice' - The hourly price of the reservation per hour.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'paymentOption', 'purchase_paymentOption' - The payment option for the reservation.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#newPurchase"><span class="hs-identifier hs-type">newPurchase</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span>
 </span><span id="line-81"></span><span id="newPurchase"><span class="annot"><span class="annottext">newPurchase :: Purchase
 </span><a href="Network.AWS.EC2.Types.Purchase.html#newPurchase"><span class="hs-identifier hs-var hs-var">newPurchase</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">Purchase' :: Maybe [Text]
--&gt; Maybe Text
--&gt; Maybe PaymentOption
--&gt; Maybe Text
--&gt; Maybe Int
--&gt; Maybe Text
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">Purchase' :: Maybe Text
 -&gt; Maybe CurrencyCodeValues
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Int
+-&gt; Maybe PaymentOption
 -&gt; Purchase
 </span><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hostIdSet:Purchase' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AhostIdSet%3APurchase%27"><span class="hs-identifier hs-var">hostIdSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceFamily:Purchase' :: Maybe Text
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceFamily:Purchase' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AinstanceFamily%3APurchase%27"><span class="hs-identifier hs-var">instanceFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:paymentOption:Purchase' :: Maybe PaymentOption
-</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3ApaymentOption%3APurchase%27"><span class="hs-identifier hs-var">paymentOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PaymentOption
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:upfrontPrice:Purchase' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AupfrontPrice%3APurchase%27"><span class="hs-identifier hs-var">upfrontPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:duration:Purchase' :: Maybe Int
-</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3Aduration%3APurchase%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:hostReservationId:Purchase' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AhostReservationId%3APurchase%27"><span class="hs-identifier hs-var">hostReservationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:currencyCode:Purchase' :: Maybe CurrencyCodeValues
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:currencyCode:Purchase' :: Maybe CurrencyCodeValues
 </span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AcurrencyCode%3APurchase%27"><span class="hs-identifier hs-var">currencyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:hourlyPrice:Purchase' :: Maybe Text
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:hostReservationId:Purchase' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AhostReservationId%3APurchase%27"><span class="hs-identifier hs-var">hostReservationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:hourlyPrice:Purchase' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AhourlyPrice%3APurchase%27"><span class="hs-identifier hs-var">hourlyPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:upfrontPrice:Purchase' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AupfrontPrice%3APurchase%27"><span class="hs-identifier hs-var">upfrontPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:hostIdSet:Purchase' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AhostIdSet%3APurchase%27"><span class="hs-identifier hs-var">hostIdSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:duration:Purchase' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3Aduration%3APurchase%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:paymentOption:Purchase' :: Maybe PaymentOption
+</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3ApaymentOption%3APurchase%27"><span class="hs-identifier hs-var">paymentOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PaymentOption
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The IDs of the Dedicated Hosts associated with the reservation.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#purchase_hostIdSet"><span class="hs-identifier hs-type">purchase_hostIdSet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="purchase_hostIdSet"><span class="annot"><span class="annottext">purchase_hostIdSet :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Purchase -&gt; f Purchase
+</span><span id="line-93"></span><span class="hs-comment">-- | The instance family on the Dedicated Host that the reservation can be</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- associated with.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#purchase_instanceFamily"><span class="hs-identifier hs-type">purchase_instanceFamily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="purchase_instanceFamily"><span class="annot"><span class="annottext">purchase_instanceFamily :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Purchase -&gt; f Purchase
+</span><a href="Network.AWS.EC2.Types.Purchase.html#purchase_instanceFamily"><span class="hs-identifier hs-var hs-var">purchase_instanceFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Purchase -&gt; Maybe Text)
+-&gt; (Purchase -&gt; Maybe Text -&gt; Purchase)
+-&gt; Lens Purchase Purchase (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141706"><span class="annot"><span class="annottext">Maybe Text
+instanceFamily :: Maybe Text
+$sel:instanceFamily:Purchase' :: Purchase -&gt; Maybe Text
+</span><a href="#local-6989586621681141706"><span class="hs-identifier hs-var hs-var">instanceFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141706"><span class="hs-identifier hs-var">instanceFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141705"><span class="annot"><span class="annottext">s :: Purchase
+</span><a href="#local-6989586621681141705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141704"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Purchase
+</span><a href="#local-6989586621681141705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceFamily:Purchase' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AinstanceFamily%3APurchase%27"><span class="hs-identifier hs-var">instanceFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The currency in which the @UpfrontPrice@ and @HourlyPrice@ amounts are</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- specified. At this time, the only supported currency is @USD@.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#purchase_currencyCode"><span class="hs-identifier hs-type">purchase_currencyCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CurrencyCodeValues.html#CurrencyCodeValues"><span class="hs-identifier hs-type">CurrencyCodeValues</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="purchase_currencyCode"><span class="annot"><span class="annottext">purchase_currencyCode :: (Maybe CurrencyCodeValues -&gt; f (Maybe CurrencyCodeValues))
+-&gt; Purchase -&gt; f Purchase
+</span><a href="Network.AWS.EC2.Types.Purchase.html#purchase_currencyCode"><span class="hs-identifier hs-var hs-var">purchase_currencyCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Purchase -&gt; Maybe CurrencyCodeValues)
+-&gt; (Purchase -&gt; Maybe CurrencyCodeValues -&gt; Purchase)
+-&gt; Lens
+     Purchase
+     Purchase
+     (Maybe CurrencyCodeValues)
+     (Maybe CurrencyCodeValues)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141702"><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
+currencyCode :: Maybe CurrencyCodeValues
+$sel:currencyCode:Purchase' :: Purchase -&gt; Maybe CurrencyCodeValues
+</span><a href="#local-6989586621681141702"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
+</span><a href="#local-6989586621681141702"><span class="hs-identifier hs-var">currencyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141701"><span class="annot"><span class="annottext">s :: Purchase
+</span><a href="#local-6989586621681141701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141700"><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
+</span><a href="#local-6989586621681141700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Purchase
+</span><a href="#local-6989586621681141701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currencyCode:Purchase' :: Maybe CurrencyCodeValues
+</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AcurrencyCode%3APurchase%27"><span class="hs-identifier hs-var">currencyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
+</span><a href="#local-6989586621681141700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The ID of the reservation.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#purchase_hostReservationId"><span class="hs-identifier hs-type">purchase_hostReservationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="purchase_hostReservationId"><span class="annot"><span class="annottext">purchase_hostReservationId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Purchase -&gt; f Purchase
+</span><a href="Network.AWS.EC2.Types.Purchase.html#purchase_hostReservationId"><span class="hs-identifier hs-var hs-var">purchase_hostReservationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Purchase -&gt; Maybe Text)
+-&gt; (Purchase -&gt; Maybe Text -&gt; Purchase)
+-&gt; Lens Purchase Purchase (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141698"><span class="annot"><span class="annottext">Maybe Text
+hostReservationId :: Maybe Text
+$sel:hostReservationId:Purchase' :: Purchase -&gt; Maybe Text
+</span><a href="#local-6989586621681141698"><span class="hs-identifier hs-var hs-var">hostReservationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141698"><span class="hs-identifier hs-var">hostReservationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141697"><span class="annot"><span class="annottext">s :: Purchase
+</span><a href="#local-6989586621681141697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141696"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Purchase
+</span><a href="#local-6989586621681141697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostReservationId:Purchase' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AhostReservationId%3APurchase%27"><span class="hs-identifier hs-var">hostReservationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The hourly price of the reservation per hour.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#purchase_hourlyPrice"><span class="hs-identifier hs-type">purchase_hourlyPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="purchase_hourlyPrice"><span class="annot"><span class="annottext">purchase_hourlyPrice :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Purchase -&gt; f Purchase
+</span><a href="Network.AWS.EC2.Types.Purchase.html#purchase_hourlyPrice"><span class="hs-identifier hs-var hs-var">purchase_hourlyPrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Purchase -&gt; Maybe Text)
+-&gt; (Purchase -&gt; Maybe Text -&gt; Purchase)
+-&gt; Lens Purchase Purchase (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141694"><span class="annot"><span class="annottext">Maybe Text
+hourlyPrice :: Maybe Text
+$sel:hourlyPrice:Purchase' :: Purchase -&gt; Maybe Text
+</span><a href="#local-6989586621681141694"><span class="hs-identifier hs-var hs-var">hourlyPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141694"><span class="hs-identifier hs-var">hourlyPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141693"><span class="annot"><span class="annottext">s :: Purchase
+</span><a href="#local-6989586621681141693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141692"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Purchase
+</span><a href="#local-6989586621681141693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hourlyPrice:Purchase' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AhourlyPrice%3APurchase%27"><span class="hs-identifier hs-var">hourlyPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The upfront price of the reservation.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#purchase_upfrontPrice"><span class="hs-identifier hs-type">purchase_upfrontPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="purchase_upfrontPrice"><span class="annot"><span class="annottext">purchase_upfrontPrice :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Purchase -&gt; f Purchase
+</span><a href="Network.AWS.EC2.Types.Purchase.html#purchase_upfrontPrice"><span class="hs-identifier hs-var hs-var">purchase_upfrontPrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Purchase -&gt; Maybe Text)
+-&gt; (Purchase -&gt; Maybe Text -&gt; Purchase)
+-&gt; Lens Purchase Purchase (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141690"><span class="annot"><span class="annottext">Maybe Text
+upfrontPrice :: Maybe Text
+$sel:upfrontPrice:Purchase' :: Purchase -&gt; Maybe Text
+</span><a href="#local-6989586621681141690"><span class="hs-identifier hs-var hs-var">upfrontPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141690"><span class="hs-identifier hs-var">upfrontPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141689"><span class="annot"><span class="annottext">s :: Purchase
+</span><a href="#local-6989586621681141689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141688"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Purchase
+</span><a href="#local-6989586621681141689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:upfrontPrice:Purchase' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AupfrontPrice%3APurchase%27"><span class="hs-identifier hs-var">upfrontPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681141688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The IDs of the Dedicated Hosts associated with the reservation.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#purchase_hostIdSet"><span class="hs-identifier hs-type">purchase_hostIdSet</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="purchase_hostIdSet"><span class="annot"><span class="annottext">purchase_hostIdSet :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Purchase -&gt; f Purchase
 </span><a href="Network.AWS.EC2.Types.Purchase.html#purchase_hostIdSet"><span class="hs-identifier hs-var hs-var">purchase_hostIdSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Purchase -&gt; Maybe [Text])
 -&gt; (Purchase -&gt; Maybe [Text] -&gt; Purchase)
 -&gt; Lens Purchase Purchase (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106992"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141686"><span class="annot"><span class="annottext">Maybe [Text]
 hostIdSet :: Maybe [Text]
 $sel:hostIdSet:Purchase' :: Purchase -&gt; Maybe [Text]
-</span><a href="#local-6989586621681106992"><span class="hs-identifier hs-var hs-var">hostIdSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681106992"><span class="hs-identifier hs-var">hostIdSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106991"><span class="annot"><span class="annottext">s :: Purchase
-</span><a href="#local-6989586621681106991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106990"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681106990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Purchase
-</span><a href="#local-6989586621681106991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostIdSet:Purchase' :: Maybe [Text]
+</span><a href="#local-6989586621681141686"><span class="hs-identifier hs-var hs-var">hostIdSet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681141686"><span class="hs-identifier hs-var">hostIdSet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141685"><span class="annot"><span class="annottext">s :: Purchase
+</span><a href="#local-6989586621681141685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141684"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681141684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Purchase
+</span><a href="#local-6989586621681141685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostIdSet:Purchase' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AhostIdSet%3APurchase%27"><span class="hs-identifier hs-var">hostIdSet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681106990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Purchase -&gt; f Purchase)
+</span><a href="#local-6989586621681141684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Purchase -&gt; f Purchase)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -210,181 +307,178 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The instance family on the Dedicated Host that the reservation can be</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- associated with.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#purchase_instanceFamily"><span class="hs-identifier hs-type">purchase_instanceFamily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="purchase_instanceFamily"><span class="annot"><span class="annottext">purchase_instanceFamily :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Purchase -&gt; f Purchase
-</span><a href="Network.AWS.EC2.Types.Purchase.html#purchase_instanceFamily"><span class="hs-identifier hs-var hs-var">purchase_instanceFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Purchase -&gt; Maybe Text)
--&gt; (Purchase -&gt; Maybe Text -&gt; Purchase)
--&gt; Lens Purchase Purchase (Maybe Text) (Maybe Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The duration of the reservation\'s term in seconds.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#purchase_duration"><span class="hs-identifier hs-type">purchase_duration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="purchase_duration"><span class="annot"><span class="annottext">purchase_duration :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Purchase -&gt; f Purchase
+</span><a href="Network.AWS.EC2.Types.Purchase.html#purchase_duration"><span class="hs-identifier hs-var hs-var">purchase_duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Purchase -&gt; Maybe Int)
+-&gt; (Purchase -&gt; Maybe Int -&gt; Purchase)
+-&gt; Lens Purchase Purchase (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106985"><span class="annot"><span class="annottext">Maybe Text
-instanceFamily :: Maybe Text
-$sel:instanceFamily:Purchase' :: Purchase -&gt; Maybe Text
-</span><a href="#local-6989586621681106985"><span class="hs-identifier hs-var hs-var">instanceFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106985"><span class="hs-identifier hs-var">instanceFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106984"><span class="annot"><span class="annottext">s :: Purchase
-</span><a href="#local-6989586621681106984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106983"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Purchase
-</span><a href="#local-6989586621681106984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceFamily:Purchase' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AinstanceFamily%3APurchase%27"><span class="hs-identifier hs-var">instanceFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | The payment option for the reservation.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#purchase_paymentOption"><span class="hs-identifier hs-type">purchase_paymentOption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PaymentOption.html#PaymentOption"><span class="hs-identifier hs-type">PaymentOption</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="purchase_paymentOption"><span class="annot"><span class="annottext">purchase_paymentOption :: (Maybe PaymentOption -&gt; f (Maybe PaymentOption))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141679"><span class="annot"><span class="annottext">Maybe Int
+duration :: Maybe Int
+$sel:duration:Purchase' :: Purchase -&gt; Maybe Int
+</span><a href="#local-6989586621681141679"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681141679"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141678"><span class="annot"><span class="annottext">s :: Purchase
+</span><a href="#local-6989586621681141678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141677"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681141677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Purchase
+</span><a href="#local-6989586621681141678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:Purchase' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3Aduration%3APurchase%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681141677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The payment option for the reservation.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#purchase_paymentOption"><span class="hs-identifier hs-type">purchase_paymentOption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PaymentOption.html#PaymentOption"><span class="hs-identifier hs-type">PaymentOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="purchase_paymentOption"><span class="annot"><span class="annottext">purchase_paymentOption :: (Maybe PaymentOption -&gt; f (Maybe PaymentOption))
 -&gt; Purchase -&gt; f Purchase
 </span><a href="Network.AWS.EC2.Types.Purchase.html#purchase_paymentOption"><span class="hs-identifier hs-var hs-var">purchase_paymentOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Purchase -&gt; Maybe PaymentOption)
 -&gt; (Purchase -&gt; Maybe PaymentOption -&gt; Purchase)
 -&gt; Lens
      Purchase Purchase (Maybe PaymentOption) (Maybe PaymentOption)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106981"><span class="annot"><span class="annottext">Maybe PaymentOption
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681141675"><span class="annot"><span class="annottext">Maybe PaymentOption
 paymentOption :: Maybe PaymentOption
 $sel:paymentOption:Purchase' :: Purchase -&gt; Maybe PaymentOption
-</span><a href="#local-6989586621681106981"><span class="hs-identifier hs-var hs-var">paymentOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PaymentOption
-</span><a href="#local-6989586621681106981"><span class="hs-identifier hs-var">paymentOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106980"><span class="annot"><span class="annottext">s :: Purchase
-</span><a href="#local-6989586621681106980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106979"><span class="annot"><span class="annottext">Maybe PaymentOption
-</span><a href="#local-6989586621681106979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Purchase
-</span><a href="#local-6989586621681106980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paymentOption:Purchase' :: Maybe PaymentOption
+</span><a href="#local-6989586621681141675"><span class="hs-identifier hs-var hs-var">paymentOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PaymentOption
+</span><a href="#local-6989586621681141675"><span class="hs-identifier hs-var">paymentOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681141674"><span class="annot"><span class="annottext">s :: Purchase
+</span><a href="#local-6989586621681141674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681141673"><span class="annot"><span class="annottext">Maybe PaymentOption
+</span><a href="#local-6989586621681141673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Purchase
+</span><a href="#local-6989586621681141674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paymentOption:Purchase' :: Maybe PaymentOption
 </span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3ApaymentOption%3APurchase%27"><span class="hs-identifier hs-var">paymentOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PaymentOption
-</span><a href="#local-6989586621681106979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | The upfront price of the reservation.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#purchase_upfrontPrice"><span class="hs-identifier hs-type">purchase_upfrontPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="purchase_upfrontPrice"><span class="annot"><span class="annottext">purchase_upfrontPrice :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Purchase -&gt; f Purchase
-</span><a href="Network.AWS.EC2.Types.Purchase.html#purchase_upfrontPrice"><span class="hs-identifier hs-var hs-var">purchase_upfrontPrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Purchase -&gt; Maybe Text)
--&gt; (Purchase -&gt; Maybe Text -&gt; Purchase)
--&gt; Lens Purchase Purchase (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106977"><span class="annot"><span class="annottext">Maybe Text
-upfrontPrice :: Maybe Text
-$sel:upfrontPrice:Purchase' :: Purchase -&gt; Maybe Text
-</span><a href="#local-6989586621681106977"><span class="hs-identifier hs-var hs-var">upfrontPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106977"><span class="hs-identifier hs-var">upfrontPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106976"><span class="annot"><span class="annottext">s :: Purchase
-</span><a href="#local-6989586621681106976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106975"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Purchase
-</span><a href="#local-6989586621681106976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:upfrontPrice:Purchase' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AupfrontPrice%3APurchase%27"><span class="hs-identifier hs-var">upfrontPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The duration of the reservation\'s term in seconds.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#purchase_duration"><span class="hs-identifier hs-type">purchase_duration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="purchase_duration"><span class="annot"><span class="annottext">purchase_duration :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Purchase -&gt; f Purchase
-</span><a href="Network.AWS.EC2.Types.Purchase.html#purchase_duration"><span class="hs-identifier hs-var hs-var">purchase_duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Purchase -&gt; Maybe Int)
--&gt; (Purchase -&gt; Maybe Int -&gt; Purchase)
--&gt; Lens Purchase Purchase (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106973"><span class="annot"><span class="annottext">Maybe Int
-duration :: Maybe Int
-$sel:duration:Purchase' :: Purchase -&gt; Maybe Int
-</span><a href="#local-6989586621681106973"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681106973"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106972"><span class="annot"><span class="annottext">s :: Purchase
-</span><a href="#local-6989586621681106972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106971"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681106971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Purchase
-</span><a href="#local-6989586621681106972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:Purchase' :: Maybe Int
-</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3Aduration%3APurchase%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681106971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The ID of the reservation.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#purchase_hostReservationId"><span class="hs-identifier hs-type">purchase_hostReservationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="purchase_hostReservationId"><span class="annot"><span class="annottext">purchase_hostReservationId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Purchase -&gt; f Purchase
-</span><a href="Network.AWS.EC2.Types.Purchase.html#purchase_hostReservationId"><span class="hs-identifier hs-var hs-var">purchase_hostReservationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Purchase -&gt; Maybe Text)
--&gt; (Purchase -&gt; Maybe Text -&gt; Purchase)
--&gt; Lens Purchase Purchase (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106969"><span class="annot"><span class="annottext">Maybe Text
-hostReservationId :: Maybe Text
-$sel:hostReservationId:Purchase' :: Purchase -&gt; Maybe Text
-</span><a href="#local-6989586621681106969"><span class="hs-identifier hs-var hs-var">hostReservationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106969"><span class="hs-identifier hs-var">hostReservationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106968"><span class="annot"><span class="annottext">s :: Purchase
-</span><a href="#local-6989586621681106968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106967"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Purchase
-</span><a href="#local-6989586621681106968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostReservationId:Purchase' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AhostReservationId%3APurchase%27"><span class="hs-identifier hs-var">hostReservationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The currency in which the @UpfrontPrice@ and @HourlyPrice@ amounts are</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- specified. At this time, the only supported currency is @USD@.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#purchase_currencyCode"><span class="hs-identifier hs-type">purchase_currencyCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CurrencyCodeValues.html#CurrencyCodeValues"><span class="hs-identifier hs-type">CurrencyCodeValues</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="purchase_currencyCode"><span class="annot"><span class="annottext">purchase_currencyCode :: (Maybe CurrencyCodeValues -&gt; f (Maybe CurrencyCodeValues))
--&gt; Purchase -&gt; f Purchase
-</span><a href="Network.AWS.EC2.Types.Purchase.html#purchase_currencyCode"><span class="hs-identifier hs-var hs-var">purchase_currencyCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Purchase -&gt; Maybe CurrencyCodeValues)
--&gt; (Purchase -&gt; Maybe CurrencyCodeValues -&gt; Purchase)
--&gt; Lens
-     Purchase
-     Purchase
-     (Maybe CurrencyCodeValues)
-     (Maybe CurrencyCodeValues)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106965"><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
-currencyCode :: Maybe CurrencyCodeValues
-$sel:currencyCode:Purchase' :: Purchase -&gt; Maybe CurrencyCodeValues
-</span><a href="#local-6989586621681106965"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
-</span><a href="#local-6989586621681106965"><span class="hs-identifier hs-var">currencyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106964"><span class="annot"><span class="annottext">s :: Purchase
-</span><a href="#local-6989586621681106964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106963"><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
-</span><a href="#local-6989586621681106963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Purchase
-</span><a href="#local-6989586621681106964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currencyCode:Purchase' :: Maybe CurrencyCodeValues
-</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AcurrencyCode%3APurchase%27"><span class="hs-identifier hs-var">currencyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CurrencyCodeValues
-</span><a href="#local-6989586621681106963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The hourly price of the reservation per hour.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#purchase_hourlyPrice"><span class="hs-identifier hs-type">purchase_hourlyPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="purchase_hourlyPrice"><span class="annot"><span class="annottext">purchase_hourlyPrice :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Purchase -&gt; f Purchase
-</span><a href="Network.AWS.EC2.Types.Purchase.html#purchase_hourlyPrice"><span class="hs-identifier hs-var hs-var">purchase_hourlyPrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Purchase -&gt; Maybe Text)
--&gt; (Purchase -&gt; Maybe Text -&gt; Purchase)
--&gt; Lens Purchase Purchase (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106961"><span class="annot"><span class="annottext">Maybe Text
-hourlyPrice :: Maybe Text
-$sel:hourlyPrice:Purchase' :: Purchase -&gt; Maybe Text
-</span><a href="#local-6989586621681106961"><span class="hs-identifier hs-var hs-var">hourlyPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106961"><span class="hs-identifier hs-var">hourlyPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106960"><span class="annot"><span class="annottext">s :: Purchase
-</span><a href="#local-6989586621681106960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-type">Purchase'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106959"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Purchase
-</span><a href="#local-6989586621681106960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hourlyPrice:Purchase' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.Purchase.html#%24sel%3AhourlyPrice%3APurchase%27"><span class="hs-identifier hs-var">hourlyPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681106959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681141673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621681106956"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Purchase
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681106954"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681106954"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text]
--&gt; Maybe Text
--&gt; Maybe PaymentOption
--&gt; Maybe Text
--&gt; Maybe Int
--&gt; Maybe Text
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621681141670"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Purchase
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681141668"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681141668"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe CurrencyCodeValues
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Int
+-&gt; Maybe PaymentOption
 -&gt; Purchase
 </span><a href="Network.AWS.EC2.Types.Purchase.html#Purchase%27"><span class="hs-identifier hs-var">Purchase'</span></a></span><span>
-</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text]
- -&gt; Maybe Text
- -&gt; Maybe PaymentOption
- -&gt; Maybe Text
- -&gt; Maybe Int
- -&gt; Maybe Text
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe CurrencyCodeValues
  -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe Int
+ -&gt; Maybe PaymentOption
  -&gt; Purchase)
--&gt; Either String (Maybe [Text])
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe CurrencyCodeValues
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Int
+      -&gt; Maybe PaymentOption
+      -&gt; Purchase)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681141668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceFamily&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe CurrencyCodeValues
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Int
+   -&gt; Maybe PaymentOption
+   -&gt; Purchase)
+-&gt; Either String (Maybe CurrencyCodeValues)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe PaymentOption
       -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
       -&gt; Maybe Int
-      -&gt; Maybe Text
-      -&gt; Maybe CurrencyCodeValues
-      -&gt; Maybe Text
+      -&gt; Maybe PaymentOption
       -&gt; Purchase)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681106954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681141668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CurrencyCodeValues)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;currencyCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Int
+   -&gt; Maybe PaymentOption
+   -&gt; Purchase)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Int
+      -&gt; Maybe PaymentOption
+      -&gt; Purchase)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681141668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hostReservationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Int
+   -&gt; Maybe PaymentOption
+   -&gt; Purchase)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [Text] -&gt; Maybe Int -&gt; Maybe PaymentOption -&gt; Purchase)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681141668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hourlyPrice&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [Text] -&gt; Maybe Int -&gt; Maybe PaymentOption -&gt; Purchase)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Text] -&gt; Maybe Int -&gt; Maybe PaymentOption -&gt; Purchase)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681141668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;upfrontPrice&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text] -&gt; Maybe Int -&gt; Maybe PaymentOption -&gt; Purchase)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Maybe Int -&gt; Maybe PaymentOption -&gt; Purchase)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681141668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;hostIdSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -392,7 +486,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-131"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-136"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Text]))
 -&gt; Either String (Maybe [Text])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -405,127 +499,26 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe PaymentOption
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; Maybe CurrencyCodeValues
-   -&gt; Maybe Text
-   -&gt; Purchase)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe PaymentOption
-      -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Text
-      -&gt; Maybe CurrencyCodeValues
-      -&gt; Maybe Text
-      -&gt; Purchase)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681106954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;instanceFamily&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe PaymentOption
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; Maybe CurrencyCodeValues
-   -&gt; Maybe Text
-   -&gt; Purchase)
--&gt; Either String (Maybe PaymentOption)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe Int
-      -&gt; Maybe Text
-      -&gt; Maybe CurrencyCodeValues
-      -&gt; Maybe Text
-      -&gt; Purchase)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681106954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PaymentOption)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;paymentOption&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; Maybe CurrencyCodeValues
-   -&gt; Maybe Text
-   -&gt; Purchase)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Int
-      -&gt; Maybe Text
-      -&gt; Maybe CurrencyCodeValues
-      -&gt; Maybe Text
-      -&gt; Purchase)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681106954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;upfrontPrice&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Int
-   -&gt; Maybe Text
-   -&gt; Maybe CurrencyCodeValues
-   -&gt; Maybe Text
-   -&gt; Purchase)
+</span><span id="line-137"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; Maybe PaymentOption -&gt; Purchase)
 -&gt; Either String (Maybe Int)
--&gt; Either
-     String
-     (Maybe Text -&gt; Maybe CurrencyCodeValues -&gt; Maybe Text -&gt; Purchase)
+-&gt; Either String (Maybe PaymentOption -&gt; Purchase)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681106954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621681141668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;duration&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text -&gt; Maybe CurrencyCodeValues -&gt; Maybe Text -&gt; Purchase)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe CurrencyCodeValues -&gt; Maybe Text -&gt; Purchase)
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe PaymentOption -&gt; Purchase)
+-&gt; Either String (Maybe PaymentOption) -&gt; Either String Purchase
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681106954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681141668"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PaymentOption)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;hostReservationId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe CurrencyCodeValues -&gt; Maybe Text -&gt; Purchase)
--&gt; Either String (Maybe CurrencyCodeValues)
--&gt; Either String (Maybe Text -&gt; Purchase)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681106954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CurrencyCodeValues)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;currencyCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Purchase)
--&gt; Either String (Maybe Text) -&gt; Either String Purchase
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681106954"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;hourlyPrice&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;paymentOption&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681106945"><span id="local-6989586621681106947"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681141659"><span id="local-6989586621681141661"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681106942"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681141656"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Purchase.html#Purchase"><span class="hs-identifier hs-type">Purchase</span></a></span></span><span>
 </span><span id="line-144"></span></pre></body></html>

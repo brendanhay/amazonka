@@ -29,48 +29,48 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Used as the request parameter in the ListAssessmentRuns action.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAssessmentRunFilter' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679250092"><span id="local-6989586621679250093"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssessmentRunFilter"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-var">AssessmentRunFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssessmentRunFilter%27"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-var">AssessmentRunFilter'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679250464"><span id="local-6989586621679250465"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssessmentRunFilter"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-var">AssessmentRunFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssessmentRunFilter%27"><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-var">AssessmentRunFilter'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For a record to match a filter, one of the values specified for this</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- data type property must be the exact match of the value of the</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- __assessmentRunState__ property of the AssessmentRun data type.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Astates%3AAssessmentRunFilter%27"><span class="annot"><span class="annottext">AssessmentRunFilter -&gt; Maybe [AssessmentRunState]
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3Astates%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var hs-var">states</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunState.html#AssessmentRunState"><span class="hs-identifier hs-type">AssessmentRunState</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- data type property must inclusively match any value between the</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- specified minimum and maximum values of the __durationInSeconds__</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- property of the AssessmentRun data type.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdurationRange%3AAssessmentRunFilter%27"><span class="annot"><span class="annottext">AssessmentRunFilter -&gt; Maybe DurationRange
-</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AdurationRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var hs-var">durationRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.DurationRange.html#DurationRange"><span class="hs-identifier hs-type">DurationRange</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- data type property must be contained in the list of values of the</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- __rulesPackages__ property of the AssessmentRun data type.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3ArulesPackageArns%3AAssessmentRunFilter%27"><span class="annot"><span class="annottext">AssessmentRunFilter -&gt; Maybe [Text]
-</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3ArulesPackageArns%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- data type property must match the __stateChangedAt__ property of the</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- AssessmentRun data type.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AstateChangeTimeRange%3AAssessmentRunFilter%27"><span class="annot"><span class="annottext">AssessmentRunFilter -&gt; Maybe TimestampRange
-</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AstateChangeTimeRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var hs-var">stateChangeTimeRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- data type property must inclusively match any value between the</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- specified minimum and maximum values of the __startTime__ property of</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- the AssessmentRun data type.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AstartTimeRange%3AAssessmentRunFilter%27"><span class="annot"><span class="annottext">AssessmentRunFilter -&gt; Maybe TimestampRange
-</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AstartTimeRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var hs-var">startTimeRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, an explicit value or a string containing</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- a wildcard that is specified for this data type property must match the</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- value of the __assessmentRunName__ property of the AssessmentRun data</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- type.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnamePattern%3AAssessmentRunFilter%27"><span class="annot"><span class="annottext">AssessmentRunFilter -&gt; Maybe Text
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, an explicit value or a string containing</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- a wildcard that is specified for this data type property must match the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- value of the __assessmentRunName__ property of the AssessmentRun data</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AnamePattern%3AAssessmentRunFilter%27"><span class="annot"><span class="annottext">AssessmentRunFilter -&gt; Maybe Text
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AnamePattern%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var hs-var">namePattern</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- data type property must inclusively match any value between the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- specified minimum and maximum values of the __startTime__ property of</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- the AssessmentRun data type.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AstartTimeRange%3AAssessmentRunFilter%27"><span class="annot"><span class="annottext">AssessmentRunFilter -&gt; Maybe TimestampRange
+</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AstartTimeRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var hs-var">startTimeRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- data type property must match the __stateChangedAt__ property of the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- AssessmentRun data type.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AstateChangeTimeRange%3AAssessmentRunFilter%27"><span class="annot"><span class="annottext">AssessmentRunFilter -&gt; Maybe TimestampRange
+</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AstateChangeTimeRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var hs-var">stateChangeTimeRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- data type property must be contained in the list of values of the</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- __rulesPackages__ property of the AssessmentRun data type.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3ArulesPackageArns%3AAssessmentRunFilter%27"><span class="annot"><span class="annottext">AssessmentRunFilter -&gt; Maybe [Text]
+</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3ArulesPackageArns%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- data type property must inclusively match any value between the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- specified minimum and maximum values of the __completedAt__ property of</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the AssessmentRun data type.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AcompletionTimeRange%3AAssessmentRunFilter%27"><span class="annot"><span class="annottext">AssessmentRunFilter -&gt; Maybe TimestampRange
+</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AcompletionTimeRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var hs-var">completionTimeRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- data type property must inclusively match any value between the</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- specified minimum and maximum values of the __completedAt__ property of</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the AssessmentRun data type.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AcompletionTimeRange%3AAssessmentRunFilter%27"><span class="annot"><span class="annottext">AssessmentRunFilter -&gt; Maybe TimestampRange
-</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AcompletionTimeRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var hs-var">completionTimeRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- specified minimum and maximum values of the __durationInSeconds__</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- property of the AssessmentRun data type.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AdurationRange%3AAssessmentRunFilter%27"><span class="annot"><span class="annottext">AssessmentRunFilter -&gt; Maybe DurationRange
+</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AdurationRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var hs-var">durationRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.DurationRange.html#DurationRange"><span class="hs-identifier hs-type">DurationRange</span></a></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250080"><span id="local-6989586621679250082"><span class="annot"><span class="annottext">AssessmentRunFilter -&gt; AssessmentRunFilter -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250452"><span id="local-6989586621679250454"><span class="annot"><span class="annottext">AssessmentRunFilter -&gt; AssessmentRunFilter -&gt; Bool
 (AssessmentRunFilter -&gt; AssessmentRunFilter -&gt; Bool)
 -&gt; (AssessmentRunFilter -&gt; AssessmentRunFilter -&gt; Bool)
 -&gt; Eq AssessmentRunFilter
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssessmentRunFilter -&gt; AssessmentRunFilter -&gt; Bool
 == :: AssessmentRunFilter -&gt; AssessmentRunFilter -&gt; Bool
 $c== :: AssessmentRunFilter -&gt; AssessmentRunFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250071"><span id="local-6989586621679250073"><span id="local-6989586621679250075"><span id="local-6989586621679250077"><span class="annot"><span class="annottext">ReadPrec [AssessmentRunFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250443"><span id="local-6989586621679250445"><span id="local-6989586621679250447"><span id="local-6989586621679250449"><span class="annot"><span class="annottext">ReadPrec [AssessmentRunFilter]
 ReadPrec AssessmentRunFilter
 Int -&gt; ReadS AssessmentRunFilter
 ReadS [AssessmentRunFilter]
@@ -99,7 +99,7 @@ readList :: ReadS [AssessmentRunFilter]
 $creadList :: ReadS [AssessmentRunFilter]
 readsPrec :: Int -&gt; ReadS AssessmentRunFilter
 $creadsPrec :: Int -&gt; ReadS AssessmentRunFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250064"><span id="local-6989586621679250066"><span id="local-6989586621679250068"><span class="annot"><span class="annottext">Int -&gt; AssessmentRunFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250436"><span id="local-6989586621679250438"><span id="local-6989586621679250440"><span class="annot"><span class="annottext">Int -&gt; AssessmentRunFilter -&gt; ShowS
 [AssessmentRunFilter] -&gt; ShowS
 AssessmentRunFilter -&gt; String
 (Int -&gt; AssessmentRunFilter -&gt; ShowS)
@@ -137,72 +137,72 @@ $cfrom :: forall x. AssessmentRunFilter -&gt; Rep AssessmentRunFilter x
 </span><span id="line-77"></span><span class="hs-comment">-- data type property must be the exact match of the value of the</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- __assessmentRunState__ property of the AssessmentRun data type.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'durationRange', 'assessmentRunFilter_durationRange' - For a record to match a filter, the value that is specified for this</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- data type property must inclusively match any value between the</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- specified minimum and maximum values of the __durationInSeconds__</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- property of the AssessmentRun data type.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'namePattern', 'assessmentRunFilter_namePattern' - For a record to match a filter, an explicit value or a string containing</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- a wildcard that is specified for this data type property must match the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- value of the __assessmentRunName__ property of the AssessmentRun data</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- type.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'rulesPackageArns', 'assessmentRunFilter_rulesPackageArns' - For a record to match a filter, the value that is specified for this</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- data type property must be contained in the list of values of the</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- __rulesPackages__ property of the AssessmentRun data type.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'stateChangeTimeRange', 'assessmentRunFilter_stateChangeTimeRange' - For a record to match a filter, the value that is specified for this</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- data type property must match the __stateChangedAt__ property of the</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- AssessmentRun data type.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'startTimeRange', 'assessmentRunFilter_startTimeRange' - For a record to match a filter, the value that is specified for this</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- data type property must inclusively match any value between the</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- specified minimum and maximum values of the __startTime__ property of</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- the AssessmentRun data type.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'startTimeRange', 'assessmentRunFilter_startTimeRange' - For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- data type property must inclusively match any value between the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- specified minimum and maximum values of the __startTime__ property of</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- the AssessmentRun data type.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'stateChangeTimeRange', 'assessmentRunFilter_stateChangeTimeRange' - For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- data type property must match the __stateChangedAt__ property of the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- AssessmentRun data type.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'rulesPackageArns', 'assessmentRunFilter_rulesPackageArns' - For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- data type property must be contained in the list of values of the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- __rulesPackages__ property of the AssessmentRun data type.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'namePattern', 'assessmentRunFilter_namePattern' - For a record to match a filter, an explicit value or a string containing</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- a wildcard that is specified for this data type property must match the</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- value of the __assessmentRunName__ property of the AssessmentRun data</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'completionTimeRange', 'assessmentRunFilter_completionTimeRange' - For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- data type property must inclusively match any value between the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- specified minimum and maximum values of the __completedAt__ property of</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- the AssessmentRun data type.</span><span>
 </span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'completionTimeRange', 'assessmentRunFilter_completionTimeRange' - For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'durationRange', 'assessmentRunFilter_durationRange' - For a record to match a filter, the value that is specified for this</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- data type property must inclusively match any value between the</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- specified minimum and maximum values of the __completedAt__ property of</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- the AssessmentRun data type.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- specified minimum and maximum values of the __durationInSeconds__</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- property of the AssessmentRun data type.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#newAssessmentRunFilter"><span class="hs-identifier hs-type">newAssessmentRunFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span>
 </span><span id="line-109"></span><span id="newAssessmentRunFilter"><span class="annot"><span class="annottext">newAssessmentRunFilter :: AssessmentRunFilter
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#newAssessmentRunFilter"><span class="hs-identifier hs-var hs-var">newAssessmentRunFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><span class="annottext">AssessmentRunFilter' :: Maybe [AssessmentRunState]
--&gt; Maybe DurationRange
--&gt; Maybe [Text]
--&gt; Maybe TimestampRange
--&gt; Maybe TimestampRange
 -&gt; Maybe Text
 -&gt; Maybe TimestampRange
+-&gt; Maybe TimestampRange
+-&gt; Maybe [Text]
+-&gt; Maybe TimestampRange
+-&gt; Maybe DurationRange
 -&gt; AssessmentRunFilter
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:states:AssessmentRunFilter' :: Maybe [AssessmentRunState]
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3Astates%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">states</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AssessmentRunState]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:durationRange:AssessmentRunFilter' :: Maybe DurationRange
-</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AdurationRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">durationRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DurationRange
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:namePattern:AssessmentRunFilter' :: Maybe Text
+</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AnamePattern%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">namePattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:rulesPackageArns:AssessmentRunFilter' :: Maybe [Text]
-</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3ArulesPackageArns%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTimeRange:AssessmentRunFilter' :: Maybe TimestampRange
+</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AstartTimeRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">startTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateChangeTimeRange:AssessmentRunFilter' :: Maybe TimestampRange
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AstateChangeTimeRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">stateChangeTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTimeRange:AssessmentRunFilter' :: Maybe TimestampRange
-</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AstartTimeRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">startTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:rulesPackageArns:AssessmentRunFilter' :: Maybe [Text]
+</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3ArulesPackageArns%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:namePattern:AssessmentRunFilter' :: Maybe Text
-</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AnamePattern%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">namePattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:completionTimeRange:AssessmentRunFilter' :: Maybe TimestampRange
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:completionTimeRange:AssessmentRunFilter' :: Maybe TimestampRange
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AcompletionTimeRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">completionTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:durationRange:AssessmentRunFilter' :: Maybe DurationRange
+</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AdurationRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">durationRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DurationRange
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
@@ -222,16 +222,16 @@ forall a. Maybe a
      (Maybe [AssessmentRunState])
      (Maybe [AssessmentRunState])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250055"><span class="annot"><span class="annottext">Maybe [AssessmentRunState]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250427"><span class="annot"><span class="annottext">Maybe [AssessmentRunState]
 states :: Maybe [AssessmentRunState]
 $sel:states:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe [AssessmentRunState]
-</span><a href="#local-6989586621679250055"><span class="hs-identifier hs-var hs-var">states</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AssessmentRunState]
-</span><a href="#local-6989586621679250055"><span class="hs-identifier hs-var">states</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250054"><span class="annot"><span class="annottext">s :: AssessmentRunFilter
-</span><a href="#local-6989586621679250054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250053"><span class="annot"><span class="annottext">Maybe [AssessmentRunState]
-</span><a href="#local-6989586621679250053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunFilter
-</span><a href="#local-6989586621679250054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:states:AssessmentRunFilter' :: Maybe [AssessmentRunState]
+</span><a href="#local-6989586621679250427"><span class="hs-identifier hs-var hs-var">states</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AssessmentRunState]
+</span><a href="#local-6989586621679250427"><span class="hs-identifier hs-var">states</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250426"><span class="annot"><span class="annottext">s :: AssessmentRunFilter
+</span><a href="#local-6989586621679250426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250425"><span class="annot"><span class="annottext">Maybe [AssessmentRunState]
+</span><a href="#local-6989586621679250425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunFilter
+</span><a href="#local-6989586621679250426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:states:AssessmentRunFilter' :: Maybe [AssessmentRunState]
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3Astates%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">states</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AssessmentRunState]
-</span><a href="#local-6989586621679250053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AssessmentRunState] -&gt; f (Maybe [AssessmentRunState]))
+</span><a href="#local-6989586621679250425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AssessmentRunState] -&gt; f (Maybe [AssessmentRunState]))
  -&gt; AssessmentRunFilter -&gt; f AssessmentRunFilter)
 -&gt; ((Maybe [AssessmentRunState] -&gt; f (Maybe [AssessmentRunState]))
     -&gt; Maybe [AssessmentRunState] -&gt; f (Maybe [AssessmentRunState]))
@@ -257,41 +257,90 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AssessmentRunState]
   [AssessmentRunState]
   [AssessmentRunState]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- data type property must inclusively match any value between the</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- specified minimum and maximum values of the __durationInSeconds__</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- property of the AssessmentRun data type.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_durationRange"><span class="hs-identifier hs-type">assessmentRunFilter_durationRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.DurationRange.html#DurationRange"><span class="hs-identifier hs-type">DurationRange</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="assessmentRunFilter_durationRange"><span class="annot"><span class="annottext">assessmentRunFilter_durationRange :: (Maybe DurationRange -&gt; f (Maybe DurationRange))
+</span><span id="line-126"></span><span class="hs-comment">-- | For a record to match a filter, an explicit value or a string containing</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- a wildcard that is specified for this data type property must match the</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- value of the __assessmentRunName__ property of the AssessmentRun data</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_namePattern"><span class="hs-identifier hs-type">assessmentRunFilter_namePattern</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="assessmentRunFilter_namePattern"><span class="annot"><span class="annottext">assessmentRunFilter_namePattern :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AssessmentRunFilter -&gt; f AssessmentRunFilter
-</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_durationRange"><span class="hs-identifier hs-var hs-var">assessmentRunFilter_durationRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentRunFilter -&gt; Maybe DurationRange)
+</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_namePattern"><span class="hs-identifier hs-var hs-var">assessmentRunFilter_namePattern</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentRunFilter -&gt; Maybe Text)
+-&gt; (AssessmentRunFilter -&gt; Maybe Text -&gt; AssessmentRunFilter)
+-&gt; Lens
+     AssessmentRunFilter AssessmentRunFilter (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250420"><span class="annot"><span class="annottext">Maybe Text
+namePattern :: Maybe Text
+$sel:namePattern:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe Text
+</span><a href="#local-6989586621679250420"><span class="hs-identifier hs-var hs-var">namePattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250420"><span class="hs-identifier hs-var">namePattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250419"><span class="annot"><span class="annottext">s :: AssessmentRunFilter
+</span><a href="#local-6989586621679250419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250418"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunFilter
+</span><a href="#local-6989586621679250419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namePattern:AssessmentRunFilter' :: Maybe Text
+</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AnamePattern%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">namePattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- data type property must inclusively match any value between the</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- specified minimum and maximum values of the __startTime__ property of</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- the AssessmentRun data type.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_startTimeRange"><span class="hs-identifier hs-type">assessmentRunFilter_startTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="assessmentRunFilter_startTimeRange"><span class="annot"><span class="annottext">assessmentRunFilter_startTimeRange :: (Maybe TimestampRange -&gt; f (Maybe TimestampRange))
+-&gt; AssessmentRunFilter -&gt; f AssessmentRunFilter
+</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_startTimeRange"><span class="hs-identifier hs-var hs-var">assessmentRunFilter_startTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentRunFilter -&gt; Maybe TimestampRange)
 -&gt; (AssessmentRunFilter
-    -&gt; Maybe DurationRange -&gt; AssessmentRunFilter)
+    -&gt; Maybe TimestampRange -&gt; AssessmentRunFilter)
 -&gt; Lens
      AssessmentRunFilter
      AssessmentRunFilter
-     (Maybe DurationRange)
-     (Maybe DurationRange)
+     (Maybe TimestampRange)
+     (Maybe TimestampRange)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250048"><span class="annot"><span class="annottext">Maybe DurationRange
-durationRange :: Maybe DurationRange
-$sel:durationRange:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe DurationRange
-</span><a href="#local-6989586621679250048"><span class="hs-identifier hs-var hs-var">durationRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DurationRange
-</span><a href="#local-6989586621679250048"><span class="hs-identifier hs-var">durationRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250047"><span class="annot"><span class="annottext">s :: AssessmentRunFilter
-</span><a href="#local-6989586621679250047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250046"><span class="annot"><span class="annottext">Maybe DurationRange
-</span><a href="#local-6989586621679250046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunFilter
-</span><a href="#local-6989586621679250047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationRange:AssessmentRunFilter' :: Maybe DurationRange
-</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AdurationRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">durationRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DurationRange
-</span><a href="#local-6989586621679250046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- data type property must be contained in the list of values of the</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- __rulesPackages__ property of the AssessmentRun data type.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_rulesPackageArns"><span class="hs-identifier hs-type">assessmentRunFilter_rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="assessmentRunFilter_rulesPackageArns"><span class="annot"><span class="annottext">assessmentRunFilter_rulesPackageArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250416"><span class="annot"><span class="annottext">Maybe TimestampRange
+startTimeRange :: Maybe TimestampRange
+$sel:startTimeRange:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe TimestampRange
+</span><a href="#local-6989586621679250416"><span class="hs-identifier hs-var hs-var">startTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><a href="#local-6989586621679250416"><span class="hs-identifier hs-var">startTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250415"><span class="annot"><span class="annottext">s :: AssessmentRunFilter
+</span><a href="#local-6989586621679250415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250414"><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><a href="#local-6989586621679250414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunFilter
+</span><a href="#local-6989586621679250415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTimeRange:AssessmentRunFilter' :: Maybe TimestampRange
+</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AstartTimeRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">startTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><a href="#local-6989586621679250414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- data type property must match the __stateChangedAt__ property of the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- AssessmentRun data type.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_stateChangeTimeRange"><span class="hs-identifier hs-type">assessmentRunFilter_stateChangeTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="assessmentRunFilter_stateChangeTimeRange"><span class="annot"><span class="annottext">assessmentRunFilter_stateChangeTimeRange :: (Maybe TimestampRange -&gt; f (Maybe TimestampRange))
+-&gt; AssessmentRunFilter -&gt; f AssessmentRunFilter
+</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_stateChangeTimeRange"><span class="hs-identifier hs-var hs-var">assessmentRunFilter_stateChangeTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentRunFilter -&gt; Maybe TimestampRange)
+-&gt; (AssessmentRunFilter
+    -&gt; Maybe TimestampRange -&gt; AssessmentRunFilter)
+-&gt; Lens
+     AssessmentRunFilter
+     AssessmentRunFilter
+     (Maybe TimestampRange)
+     (Maybe TimestampRange)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250412"><span class="annot"><span class="annottext">Maybe TimestampRange
+stateChangeTimeRange :: Maybe TimestampRange
+$sel:stateChangeTimeRange:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe TimestampRange
+</span><a href="#local-6989586621679250412"><span class="hs-identifier hs-var hs-var">stateChangeTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><a href="#local-6989586621679250412"><span class="hs-identifier hs-var">stateChangeTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250411"><span class="annot"><span class="annottext">s :: AssessmentRunFilter
+</span><a href="#local-6989586621679250411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250410"><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><a href="#local-6989586621679250410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunFilter
+</span><a href="#local-6989586621679250411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateChangeTimeRange:AssessmentRunFilter' :: Maybe TimestampRange
+</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AstateChangeTimeRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">stateChangeTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><a href="#local-6989586621679250410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- data type property must be contained in the list of values of the</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- __rulesPackages__ property of the AssessmentRun data type.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_rulesPackageArns"><span class="hs-identifier hs-type">assessmentRunFilter_rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="assessmentRunFilter_rulesPackageArns"><span class="annot"><span class="annottext">assessmentRunFilter_rulesPackageArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; AssessmentRunFilter -&gt; f AssessmentRunFilter
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_rulesPackageArns"><span class="hs-identifier hs-var hs-var">assessmentRunFilter_rulesPackageArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentRunFilter -&gt; Maybe [Text])
 -&gt; (AssessmentRunFilter -&gt; Maybe [Text] -&gt; AssessmentRunFilter)
@@ -301,16 +350,16 @@ $sel:durationRange:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe Durat
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250044"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250408"><span class="annot"><span class="annottext">Maybe [Text]
 rulesPackageArns :: Maybe [Text]
 $sel:rulesPackageArns:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe [Text]
-</span><a href="#local-6989586621679250044"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679250044"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250043"><span class="annot"><span class="annottext">s :: AssessmentRunFilter
-</span><a href="#local-6989586621679250043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250042"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679250042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunFilter
-</span><a href="#local-6989586621679250043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rulesPackageArns:AssessmentRunFilter' :: Maybe [Text]
+</span><a href="#local-6989586621679250408"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250408"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250407"><span class="annot"><span class="annottext">s :: AssessmentRunFilter
+</span><a href="#local-6989586621679250407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250406"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunFilter
+</span><a href="#local-6989586621679250407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rulesPackageArns:AssessmentRunFilter' :: Maybe [Text]
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3ArulesPackageArns%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679250042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679250406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; AssessmentRunFilter -&gt; f AssessmentRunFilter)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -324,91 +373,15 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- data type property must match the __stateChangedAt__ property of the</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- AssessmentRun data type.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_stateChangeTimeRange"><span class="hs-identifier hs-type">assessmentRunFilter_stateChangeTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="assessmentRunFilter_stateChangeTimeRange"><span class="annot"><span class="annottext">assessmentRunFilter_stateChangeTimeRange :: (Maybe TimestampRange -&gt; f (Maybe TimestampRange))
--&gt; AssessmentRunFilter -&gt; f AssessmentRunFilter
-</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_stateChangeTimeRange"><span class="hs-identifier hs-var hs-var">assessmentRunFilter_stateChangeTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentRunFilter -&gt; Maybe TimestampRange)
--&gt; (AssessmentRunFilter
-    -&gt; Maybe TimestampRange -&gt; AssessmentRunFilter)
--&gt; Lens
-     AssessmentRunFilter
-     AssessmentRunFilter
-     (Maybe TimestampRange)
-     (Maybe TimestampRange)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250040"><span class="annot"><span class="annottext">Maybe TimestampRange
-stateChangeTimeRange :: Maybe TimestampRange
-$sel:stateChangeTimeRange:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe TimestampRange
-</span><a href="#local-6989586621679250040"><span class="hs-identifier hs-var hs-var">stateChangeTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
-</span><a href="#local-6989586621679250040"><span class="hs-identifier hs-var">stateChangeTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250039"><span class="annot"><span class="annottext">s :: AssessmentRunFilter
-</span><a href="#local-6989586621679250039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250038"><span class="annot"><span class="annottext">Maybe TimestampRange
-</span><a href="#local-6989586621679250038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunFilter
-</span><a href="#local-6989586621679250039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateChangeTimeRange:AssessmentRunFilter' :: Maybe TimestampRange
-</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AstateChangeTimeRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">stateChangeTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
-</span><a href="#local-6989586621679250038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- data type property must inclusively match any value between the</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- specified minimum and maximum values of the __startTime__ property of</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- the AssessmentRun data type.</span><span>
-</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_startTimeRange"><span class="hs-identifier hs-type">assessmentRunFilter_startTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span id="assessmentRunFilter_startTimeRange"><span class="annot"><span class="annottext">assessmentRunFilter_startTimeRange :: (Maybe TimestampRange -&gt; f (Maybe TimestampRange))
--&gt; AssessmentRunFilter -&gt; f AssessmentRunFilter
-</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_startTimeRange"><span class="hs-identifier hs-var hs-var">assessmentRunFilter_startTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentRunFilter -&gt; Maybe TimestampRange)
--&gt; (AssessmentRunFilter
-    -&gt; Maybe TimestampRange -&gt; AssessmentRunFilter)
--&gt; Lens
-     AssessmentRunFilter
-     AssessmentRunFilter
-     (Maybe TimestampRange)
-     (Maybe TimestampRange)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250036"><span class="annot"><span class="annottext">Maybe TimestampRange
-startTimeRange :: Maybe TimestampRange
-$sel:startTimeRange:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe TimestampRange
-</span><a href="#local-6989586621679250036"><span class="hs-identifier hs-var hs-var">startTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
-</span><a href="#local-6989586621679250036"><span class="hs-identifier hs-var">startTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250035"><span class="annot"><span class="annottext">s :: AssessmentRunFilter
-</span><a href="#local-6989586621679250035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250034"><span class="annot"><span class="annottext">Maybe TimestampRange
-</span><a href="#local-6989586621679250034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunFilter
-</span><a href="#local-6989586621679250035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTimeRange:AssessmentRunFilter' :: Maybe TimestampRange
-</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AstartTimeRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">startTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
-</span><a href="#local-6989586621679250034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- | For a record to match a filter, an explicit value or a string containing</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- a wildcard that is specified for this data type property must match the</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- value of the __assessmentRunName__ property of the AssessmentRun data</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- type.</span><span>
-</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_namePattern"><span class="hs-identifier hs-type">assessmentRunFilter_namePattern</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span id="assessmentRunFilter_namePattern"><span class="annot"><span class="annottext">assessmentRunFilter_namePattern :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AssessmentRunFilter -&gt; f AssessmentRunFilter
-</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_namePattern"><span class="hs-identifier hs-var hs-var">assessmentRunFilter_namePattern</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentRunFilter -&gt; Maybe Text)
--&gt; (AssessmentRunFilter -&gt; Maybe Text -&gt; AssessmentRunFilter)
--&gt; Lens
-     AssessmentRunFilter AssessmentRunFilter (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250032"><span class="annot"><span class="annottext">Maybe Text
-namePattern :: Maybe Text
-$sel:namePattern:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679250032"><span class="hs-identifier hs-var hs-var">namePattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250032"><span class="hs-identifier hs-var">namePattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250031"><span class="annot"><span class="annottext">s :: AssessmentRunFilter
-</span><a href="#local-6989586621679250031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250030"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunFilter
-</span><a href="#local-6989586621679250031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namePattern:AssessmentRunFilter' :: Maybe Text
-</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AnamePattern%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">namePattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- data type property must inclusively match any value between the</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- specified minimum and maximum values of the __completedAt__ property of</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- the AssessmentRun data type.</span><span>
-</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_completionTimeRange"><span class="hs-identifier hs-type">assessmentRunFilter_completionTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span id="assessmentRunFilter_completionTimeRange"><span class="annot"><span class="annottext">assessmentRunFilter_completionTimeRange :: (Maybe TimestampRange -&gt; f (Maybe TimestampRange))
+</span><span id="line-152"></span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- data type property must inclusively match any value between the</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- specified minimum and maximum values of the __completedAt__ property of</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- the AssessmentRun data type.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_completionTimeRange"><span class="hs-identifier hs-type">assessmentRunFilter_completionTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="assessmentRunFilter_completionTimeRange"><span class="annot"><span class="annottext">assessmentRunFilter_completionTimeRange :: (Maybe TimestampRange -&gt; f (Maybe TimestampRange))
 -&gt; AssessmentRunFilter -&gt; f AssessmentRunFilter
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_completionTimeRange"><span class="hs-identifier hs-var hs-var">assessmentRunFilter_completionTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentRunFilter -&gt; Maybe TimestampRange)
 -&gt; (AssessmentRunFilter
@@ -419,43 +392,70 @@ $sel:namePattern:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe Text
      (Maybe TimestampRange)
      (Maybe TimestampRange)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250028"><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250404"><span class="annot"><span class="annottext">Maybe TimestampRange
 completionTimeRange :: Maybe TimestampRange
 $sel:completionTimeRange:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe TimestampRange
-</span><a href="#local-6989586621679250028"><span class="hs-identifier hs-var hs-var">completionTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
-</span><a href="#local-6989586621679250028"><span class="hs-identifier hs-var">completionTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250027"><span class="annot"><span class="annottext">s :: AssessmentRunFilter
-</span><a href="#local-6989586621679250027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250026"><span class="annot"><span class="annottext">Maybe TimestampRange
-</span><a href="#local-6989586621679250026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunFilter
-</span><a href="#local-6989586621679250027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completionTimeRange:AssessmentRunFilter' :: Maybe TimestampRange
+</span><a href="#local-6989586621679250404"><span class="hs-identifier hs-var hs-var">completionTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><a href="#local-6989586621679250404"><span class="hs-identifier hs-var">completionTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250403"><span class="annot"><span class="annottext">s :: AssessmentRunFilter
+</span><a href="#local-6989586621679250403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250402"><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><a href="#local-6989586621679250402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunFilter
+</span><a href="#local-6989586621679250403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completionTimeRange:AssessmentRunFilter' :: Maybe TimestampRange
 </span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AcompletionTimeRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">completionTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
-</span><a href="#local-6989586621679250026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- data type property must inclusively match any value between the</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- specified minimum and maximum values of the __durationInSeconds__</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- property of the AssessmentRun data type.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_durationRange"><span class="hs-identifier hs-type">assessmentRunFilter_durationRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.DurationRange.html#DurationRange"><span class="hs-identifier hs-type">DurationRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="assessmentRunFilter_durationRange"><span class="annot"><span class="annottext">assessmentRunFilter_durationRange :: (Maybe DurationRange -&gt; f (Maybe DurationRange))
+-&gt; AssessmentRunFilter -&gt; f AssessmentRunFilter
+</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#assessmentRunFilter_durationRange"><span class="hs-identifier hs-var hs-var">assessmentRunFilter_durationRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssessmentRunFilter -&gt; Maybe DurationRange)
+-&gt; (AssessmentRunFilter
+    -&gt; Maybe DurationRange -&gt; AssessmentRunFilter)
+-&gt; Lens
+     AssessmentRunFilter
+     AssessmentRunFilter
+     (Maybe DurationRange)
+     (Maybe DurationRange)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250400"><span class="annot"><span class="annottext">Maybe DurationRange
+durationRange :: Maybe DurationRange
+$sel:durationRange:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe DurationRange
+</span><a href="#local-6989586621679250400"><span class="hs-identifier hs-var hs-var">durationRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DurationRange
+</span><a href="#local-6989586621679250400"><span class="hs-identifier hs-var">durationRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250399"><span class="annot"><span class="annottext">s :: AssessmentRunFilter
+</span><a href="#local-6989586621679250399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250398"><span class="annot"><span class="annottext">Maybe DurationRange
+</span><a href="#local-6989586621679250398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssessmentRunFilter
+</span><a href="#local-6989586621679250399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationRange:AssessmentRunFilter' :: Maybe DurationRange
+</span><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#%24sel%3AdurationRange%3AAssessmentRunFilter%27"><span class="hs-identifier hs-var">durationRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DurationRange
+</span><a href="#local-6989586621679250398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250022"><span id="local-6989586621679250024"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250394"><span id="local-6989586621679250396"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span></span></span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250019"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250391"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span></span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250011"><span id="local-6989586621679250013"><span id="local-6989586621679250015"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679250009"><span class="annot"><span class="annottext">toJSON :: AssessmentRunFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250001"><span id="local-6989586621679250002"><span id="local-6989586621679250003"><span id="local-6989586621679250004"><span id="local-6989586621679250005"><span id="local-6989586621679250006"><span id="local-6989586621679250007"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250383"><span id="local-6989586621679250385"><span id="local-6989586621679250387"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter"><span class="hs-identifier hs-type">AssessmentRunFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679250381"><span class="annot"><span class="annottext">toJSON :: AssessmentRunFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.AssessmentRunFilter.html#AssessmentRunFilter%27"><span class="hs-identifier hs-type">AssessmentRunFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250373"><span id="local-6989586621679250374"><span id="local-6989586621679250375"><span id="local-6989586621679250376"><span id="local-6989586621679250377"><span id="local-6989586621679250378"><span id="local-6989586621679250379"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe [AssessmentRunState]
 Maybe Text
 Maybe DurationRange
 Maybe TimestampRange
-completionTimeRange :: Maybe TimestampRange
-namePattern :: Maybe Text
-startTimeRange :: Maybe TimestampRange
-stateChangeTimeRange :: Maybe TimestampRange
-rulesPackageArns :: Maybe [Text]
 durationRange :: Maybe DurationRange
+completionTimeRange :: Maybe TimestampRange
+rulesPackageArns :: Maybe [Text]
+stateChangeTimeRange :: Maybe TimestampRange
+startTimeRange :: Maybe TimestampRange
+namePattern :: Maybe Text
 states :: Maybe [AssessmentRunState]
-$sel:completionTimeRange:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe TimestampRange
-$sel:namePattern:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe Text
-$sel:startTimeRange:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe TimestampRange
-$sel:stateChangeTimeRange:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe TimestampRange
-$sel:rulesPackageArns:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe [Text]
 $sel:durationRange:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe DurationRange
+$sel:completionTimeRange:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe TimestampRange
+$sel:rulesPackageArns:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe [Text]
+$sel:stateChangeTimeRange:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe TimestampRange
+$sel:startTimeRange:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe TimestampRange
+$sel:namePattern:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe Text
 $sel:states:AssessmentRunFilter' :: AssessmentRunFilter -&gt; Maybe [AssessmentRunState]
-</span><a href="#local-6989586621679250001"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679250373"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -468,22 +468,22 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [AssessmentRunState] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AssessmentRunState]
-</span><a href="#local-6989586621679250007"><span class="hs-identifier hs-var">states</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250379"><span class="hs-identifier hs-var">states</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;durationRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DurationRange -&gt; Pair
+</span><span class="hs-string">&quot;namePattern&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DurationRange -&gt; Pair) -&gt; Maybe DurationRange -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DurationRange
-</span><a href="#local-6989586621679250006"><span class="hs-identifier hs-var">durationRange</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250378"><span class="hs-identifier hs-var">namePattern</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;rulesPackageArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+</span><span class="hs-string">&quot;startTimeRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimestampRange -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">(TimestampRange -&gt; Pair) -&gt; Maybe TimestampRange -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679250005"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><a href="#local-6989586621679250377"><span class="hs-identifier hs-var">startTimeRange</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stateChangeTimeRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimestampRange -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -491,30 +491,30 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">(TimestampRange -&gt; Pair) -&gt; Maybe TimestampRange -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
-</span><a href="#local-6989586621679250004"><span class="hs-identifier hs-var">stateChangeTimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250376"><span class="hs-identifier hs-var">stateChangeTimeRange</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;startTimeRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimestampRange -&gt; Pair
+</span><span class="hs-string">&quot;rulesPackageArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>              </span><span class="annot"><span class="annottext">(TimestampRange -&gt; Pair) -&gt; Maybe TimestampRange -&gt; Maybe Pair
+</span><span id="line-181"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
-</span><a href="#local-6989586621679250003"><span class="hs-identifier hs-var">startTimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250375"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;namePattern&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250002"><span class="hs-identifier hs-var">namePattern</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;completionTimeRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimestampRange -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">(TimestampRange -&gt; Pair) -&gt; Maybe TimestampRange -&gt; Maybe Pair
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">(TimestampRange -&gt; Pair) -&gt; Maybe TimestampRange -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
-</span><a href="#local-6989586621679250001"><span class="hs-identifier hs-var">completionTimeRange</span></a></span><span>
+</span><a href="#local-6989586621679250374"><span class="hs-identifier hs-var">completionTimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;durationRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DurationRange -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DurationRange -&gt; Pair) -&gt; Maybe DurationRange -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DurationRange
+</span><a href="#local-6989586621679250373"><span class="hs-identifier hs-var">durationRange</span></a></span><span>
 </span><span id="line-185"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span></pre></body></html>

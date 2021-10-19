@@ -27,33 +27,33 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about the columns in a query execution result.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newColumnInfo' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679215850"><span id="local-6989586621679215851"></span></span><span class="hs-keyword">data</span><span> </span><span id="ColumnInfo"><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-var">ColumnInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ColumnInfo%27"><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-var">ColumnInfo'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The catalog to which the query results belong.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcatalogName%3AColumnInfo%27"><span class="annot"><span class="annottext">ColumnInfo -&gt; Maybe Text
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AcatalogName%3AColumnInfo%27"><span class="hs-identifier hs-var hs-var">catalogName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The table name for the query results.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AtableName%3AColumnInfo%27"><span class="annot"><span class="annottext">ColumnInfo -&gt; Maybe Text
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AtableName%3AColumnInfo%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | For @DECIMAL@ data types, specifies the total number of digits, up to</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- 38. For performance reasons, we recommend up to 18 digits.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aprecision%3AColumnInfo%27"><span class="annot"><span class="annottext">ColumnInfo -&gt; Maybe Int
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Aprecision%3AColumnInfo%27"><span class="hs-identifier hs-var hs-var">precision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Indicates whether values in the column are case-sensitive.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcaseSensitive%3AColumnInfo%27"><span class="annot"><span class="annottext">ColumnInfo -&gt; Maybe Bool
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AcaseSensitive%3AColumnInfo%27"><span class="hs-identifier hs-var hs-var">caseSensitive</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Indicates the column\'s nullable status.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Anullable%3AColumnInfo%27"><span class="annot"><span class="annottext">ColumnInfo -&gt; Maybe ColumnNullable
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Anullable%3AColumnInfo%27"><span class="hs-identifier hs-var hs-var">nullable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnNullable.html#ColumnNullable"><span class="hs-identifier hs-type">ColumnNullable</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A column label.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Alabel%3AColumnInfo%27"><span class="annot"><span class="annottext">ColumnInfo -&gt; Maybe Text
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Alabel%3AColumnInfo%27"><span class="hs-keyword hs-var hs-var">label</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The schema name (database name) to which the query results belong.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AschemaName%3AColumnInfo%27"><span class="annot"><span class="annottext">ColumnInfo -&gt; Maybe Text
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AschemaName%3AColumnInfo%27"><span class="hs-identifier hs-var hs-var">schemaName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | For @DECIMAL@ data types, specifies the total number of digits in the</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- fractional part of the value. Defaults to 0.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3Ascale%3AColumnInfo%27"><span class="annot"><span class="annottext">ColumnInfo -&gt; Maybe Int
+</span><span id="line-30"></span><span id="local-6989586621679216007"><span id="local-6989586621679216008"></span></span><span class="hs-keyword">data</span><span> </span><span id="ColumnInfo"><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-var">ColumnInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ColumnInfo%27"><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-var">ColumnInfo'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For @DECIMAL@ data types, specifies the total number of digits in the</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- fractional part of the value. Defaults to 0.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Ascale%3AColumnInfo%27"><span class="annot"><span class="annottext">ColumnInfo -&gt; Maybe Int
 </span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Ascale%3AColumnInfo%27"><span class="hs-identifier hs-var hs-var">scale</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | For @DECIMAL@ data types, specifies the total number of digits, up to</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- 38. For performance reasons, we recommend up to 18 digits.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aprecision%3AColumnInfo%27"><span class="annot"><span class="annottext">ColumnInfo -&gt; Maybe Int
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Aprecision%3AColumnInfo%27"><span class="hs-identifier hs-var hs-var">precision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The schema name (database name) to which the query results belong.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AschemaName%3AColumnInfo%27"><span class="annot"><span class="annottext">ColumnInfo -&gt; Maybe Text
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AschemaName%3AColumnInfo%27"><span class="hs-identifier hs-var hs-var">schemaName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The catalog to which the query results belong.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcatalogName%3AColumnInfo%27"><span class="annot"><span class="annottext">ColumnInfo -&gt; Maybe Text
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AcatalogName%3AColumnInfo%27"><span class="hs-identifier hs-var hs-var">catalogName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Indicates whether values in the column are case-sensitive.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcaseSensitive%3AColumnInfo%27"><span class="annot"><span class="annottext">ColumnInfo -&gt; Maybe Bool
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AcaseSensitive%3AColumnInfo%27"><span class="hs-identifier hs-var hs-var">caseSensitive</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A column label.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Alabel%3AColumnInfo%27"><span class="annot"><span class="annottext">ColumnInfo -&gt; Maybe Text
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Alabel%3AColumnInfo%27"><span class="hs-keyword hs-var hs-var">label</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The table name for the query results.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AtableName%3AColumnInfo%27"><span class="annot"><span class="annottext">ColumnInfo -&gt; Maybe Text
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AtableName%3AColumnInfo%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Indicates the column\'s nullable status.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Anullable%3AColumnInfo%27"><span class="annot"><span class="annottext">ColumnInfo -&gt; Maybe ColumnNullable
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Anullable%3AColumnInfo%27"><span class="hs-identifier hs-var hs-var">nullable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnNullable.html#ColumnNullable"><span class="hs-identifier hs-type">ColumnNullable</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The name of the column.</span><span>
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3Aname%3AColumnInfo%27"><span class="annot"><span class="annottext">ColumnInfo -&gt; Text
 </span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Aname%3AColumnInfo%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Atype%27%3AColumnInfo%27"><span class="annot"><span class="annottext">ColumnInfo -&gt; Text
 </span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Atype%27%3AColumnInfo%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215835"><span id="local-6989586621679215837"><span class="annot"><span class="annottext">ColumnInfo -&gt; ColumnInfo -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215992"><span id="local-6989586621679215994"><span class="annot"><span class="annottext">ColumnInfo -&gt; ColumnInfo -&gt; Bool
 (ColumnInfo -&gt; ColumnInfo -&gt; Bool)
 -&gt; (ColumnInfo -&gt; ColumnInfo -&gt; Bool) -&gt; Eq ColumnInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ColumnInfo -&gt; ColumnInfo -&gt; Bool
 == :: ColumnInfo -&gt; ColumnInfo -&gt; Bool
 $c== :: ColumnInfo -&gt; ColumnInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215826"><span id="local-6989586621679215828"><span id="local-6989586621679215830"><span id="local-6989586621679215832"><span class="annot"><span class="annottext">ReadPrec [ColumnInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215983"><span id="local-6989586621679215985"><span id="local-6989586621679215987"><span id="local-6989586621679215989"><span class="annot"><span class="annottext">ReadPrec [ColumnInfo]
 ReadPrec ColumnInfo
 Int -&gt; ReadS ColumnInfo
 ReadS [ColumnInfo]
@@ -89,7 +89,7 @@ readList :: ReadS [ColumnInfo]
 $creadList :: ReadS [ColumnInfo]
 readsPrec :: Int -&gt; ReadS ColumnInfo
 $creadsPrec :: Int -&gt; ReadS ColumnInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215819"><span id="local-6989586621679215821"><span id="local-6989586621679215823"><span class="annot"><span class="annottext">Int -&gt; ColumnInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215976"><span id="local-6989586621679215978"><span id="local-6989586621679215980"><span class="annot"><span class="annottext">Int -&gt; ColumnInfo -&gt; ShowS
 [ColumnInfo] -&gt; ShowS
 ColumnInfo -&gt; String
 (Int -&gt; ColumnInfo -&gt; ShowS)
@@ -122,23 +122,23 @@ $cfrom :: forall x. ColumnInfo -&gt; Rep ColumnInfo x
 </span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'catalogName', 'columnInfo_catalogName' - The catalog to which the query results belong.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'tableName', 'columnInfo_tableName' - The table name for the query results.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'precision', 'columnInfo_precision' - For @DECIMAL@ data types, specifies the total number of digits, up to</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 38. For performance reasons, we recommend up to 18 digits.</span><span>
-</span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'caseSensitive', 'columnInfo_caseSensitive' - Indicates whether values in the column are case-sensitive.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'nullable', 'columnInfo_nullable' - Indicates the column\'s nullable status.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'label', 'columnInfo_label' - A column label.</span><span>
-</span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'schemaName', 'columnInfo_schemaName' - The schema name (database name) to which the query results belong.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'scale', 'columnInfo_scale' - For @DECIMAL@ data types, specifies the total number of digits in the</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- fractional part of the value. Defaults to 0.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'scale', 'columnInfo_scale' - For @DECIMAL@ data types, specifies the total number of digits in the</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- fractional part of the value. Defaults to 0.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'precision', 'columnInfo_precision' - For @DECIMAL@ data types, specifies the total number of digits, up to</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 38. For performance reasons, we recommend up to 18 digits.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'schemaName', 'columnInfo_schemaName' - The schema name (database name) to which the query results belong.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'catalogName', 'columnInfo_catalogName' - The catalog to which the query results belong.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'caseSensitive', 'columnInfo_caseSensitive' - Indicates whether values in the column are case-sensitive.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'label', 'columnInfo_label' - A column label.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'tableName', 'columnInfo_tableName' - The table name for the query results.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'nullable', 'columnInfo_nullable' - Indicates the column\'s nullable status.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- 'name', 'columnInfo_name' - The name of the column.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
@@ -150,208 +150,208 @@ $cfrom :: forall x. ColumnInfo -&gt; Rep ColumnInfo x
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span>
 </span><span id="line-91"></span><span id="newColumnInfo"><span class="annot"><span class="annottext">newColumnInfo :: Text -&gt; Text -&gt; ColumnInfo
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#newColumnInfo"><span class="hs-identifier hs-var hs-var">newColumnInfo</span></a></span></span><span> </span><span id="local-6989586621679215813"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215813"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679215812"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215812"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">ColumnInfo' :: Maybe Text
--&gt; Maybe Text
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#newColumnInfo"><span class="hs-identifier hs-var hs-var">newColumnInfo</span></a></span></span><span> </span><span id="local-6989586621679215970"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215970"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679215969"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215969"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">ColumnInfo' :: Maybe Int
 -&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe ColumnNullable
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Int
 -&gt; Text
 -&gt; Text
 -&gt; ColumnInfo
 </span><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:catalogName:ColumnInfo' :: Maybe Text
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AcatalogName%3AColumnInfo%27"><span class="hs-identifier hs-var">catalogName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scale:ColumnInfo' :: Maybe Int
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Ascale%3AColumnInfo%27"><span class="hs-identifier hs-var">scale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:ColumnInfo' :: Maybe Text
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AtableName%3AColumnInfo%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:precision:ColumnInfo' :: Maybe Int
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:precision:ColumnInfo' :: Maybe Int
 </span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Aprecision%3AColumnInfo%27"><span class="hs-identifier hs-var">precision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:caseSensitive:ColumnInfo' :: Maybe Bool
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AcaseSensitive%3AColumnInfo%27"><span class="hs-identifier hs-var">caseSensitive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaName:ColumnInfo' :: Maybe Text
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AschemaName%3AColumnInfo%27"><span class="hs-identifier hs-var">schemaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:nullable:ColumnInfo' :: Maybe ColumnNullable
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Anullable%3AColumnInfo%27"><span class="hs-identifier hs-var">nullable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ColumnNullable
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:catalogName:ColumnInfo' :: Maybe Text
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AcatalogName%3AColumnInfo%27"><span class="hs-identifier hs-var">catalogName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:caseSensitive:ColumnInfo' :: Maybe Bool
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AcaseSensitive%3AColumnInfo%27"><span class="hs-identifier hs-var">caseSensitive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:label:ColumnInfo' :: Maybe Text
 </span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Alabel%3AColumnInfo%27"><span class="hs-keyword hs-var">label</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaName:ColumnInfo' :: Maybe Text
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AschemaName%3AColumnInfo%27"><span class="hs-identifier hs-var">schemaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:ColumnInfo' :: Maybe Text
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AtableName%3AColumnInfo%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:scale:ColumnInfo' :: Maybe Int
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Ascale%3AColumnInfo%27"><span class="hs-identifier hs-var">scale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:nullable:ColumnInfo' :: Maybe ColumnNullable
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Anullable%3AColumnInfo%27"><span class="hs-identifier hs-var">nullable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ColumnNullable
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ColumnInfo' :: Text
 </span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Aname%3AColumnInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215813"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215970"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ColumnInfo' :: Text
 </span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Atype%27%3AColumnInfo%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215812"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679215969"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The catalog to which the query results belong.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_catalogName"><span class="hs-identifier hs-type">columnInfo_catalogName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="columnInfo_catalogName"><span class="annot"><span class="annottext">columnInfo_catalogName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ColumnInfo -&gt; f ColumnInfo
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_catalogName"><span class="hs-identifier hs-var hs-var">columnInfo_catalogName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnInfo -&gt; Maybe Text)
--&gt; (ColumnInfo -&gt; Maybe Text -&gt; ColumnInfo)
--&gt; Lens ColumnInfo ColumnInfo (Maybe Text) (Maybe Text)
+</span><span id="line-105"></span><span class="hs-comment">-- | For @DECIMAL@ data types, specifies the total number of digits in the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- fractional part of the value. Defaults to 0.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_scale"><span class="hs-identifier hs-type">columnInfo_scale</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="columnInfo_scale"><span class="annot"><span class="annottext">columnInfo_scale :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ColumnInfo -&gt; f ColumnInfo
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_scale"><span class="hs-identifier hs-var hs-var">columnInfo_scale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnInfo -&gt; Maybe Int)
+-&gt; (ColumnInfo -&gt; Maybe Int -&gt; ColumnInfo)
+-&gt; Lens ColumnInfo ColumnInfo (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215808"><span class="annot"><span class="annottext">Maybe Text
-catalogName :: Maybe Text
-$sel:catalogName:ColumnInfo' :: ColumnInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679215808"><span class="hs-identifier hs-var hs-var">catalogName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215808"><span class="hs-identifier hs-var">catalogName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215807"><span class="annot"><span class="annottext">s :: ColumnInfo
-</span><a href="#local-6989586621679215807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215806"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
-</span><a href="#local-6989586621679215807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogName:ColumnInfo' :: Maybe Text
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AcatalogName%3AColumnInfo%27"><span class="hs-identifier hs-var">catalogName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | The table name for the query results.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_tableName"><span class="hs-identifier hs-type">columnInfo_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="columnInfo_tableName"><span class="annot"><span class="annottext">columnInfo_tableName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ColumnInfo -&gt; f ColumnInfo
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_tableName"><span class="hs-identifier hs-var hs-var">columnInfo_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnInfo -&gt; Maybe Text)
--&gt; (ColumnInfo -&gt; Maybe Text -&gt; ColumnInfo)
--&gt; Lens ColumnInfo ColumnInfo (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215804"><span class="annot"><span class="annottext">Maybe Text
-tableName :: Maybe Text
-$sel:tableName:ColumnInfo' :: ColumnInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679215804"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215804"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215803"><span class="annot"><span class="annottext">s :: ColumnInfo
-</span><a href="#local-6989586621679215803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215802"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
-</span><a href="#local-6989586621679215803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:ColumnInfo' :: Maybe Text
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AtableName%3AColumnInfo%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | For @DECIMAL@ data types, specifies the total number of digits, up to</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- 38. For performance reasons, we recommend up to 18 digits.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_precision"><span class="hs-identifier hs-type">columnInfo_precision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="columnInfo_precision"><span class="annot"><span class="annottext">columnInfo_precision :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ColumnInfo -&gt; f ColumnInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215965"><span class="annot"><span class="annottext">Maybe Int
+scale :: Maybe Int
+$sel:scale:ColumnInfo' :: ColumnInfo -&gt; Maybe Int
+</span><a href="#local-6989586621679215965"><span class="hs-identifier hs-var hs-var">scale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679215965"><span class="hs-identifier hs-var">scale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215964"><span class="annot"><span class="annottext">s :: ColumnInfo
+</span><a href="#local-6989586621679215964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215963"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679215963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
+</span><a href="#local-6989586621679215964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scale:ColumnInfo' :: Maybe Int
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Ascale%3AColumnInfo%27"><span class="hs-identifier hs-var">scale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679215963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | For @DECIMAL@ data types, specifies the total number of digits, up to</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 38. For performance reasons, we recommend up to 18 digits.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_precision"><span class="hs-identifier hs-type">columnInfo_precision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="columnInfo_precision"><span class="annot"><span class="annottext">columnInfo_precision :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ColumnInfo -&gt; f ColumnInfo
 </span><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_precision"><span class="hs-identifier hs-var hs-var">columnInfo_precision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnInfo -&gt; Maybe Int)
 -&gt; (ColumnInfo -&gt; Maybe Int -&gt; ColumnInfo)
 -&gt; Lens ColumnInfo ColumnInfo (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215800"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215961"><span class="annot"><span class="annottext">Maybe Int
 precision :: Maybe Int
 $sel:precision:ColumnInfo' :: ColumnInfo -&gt; Maybe Int
-</span><a href="#local-6989586621679215800"><span class="hs-identifier hs-var hs-var">precision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679215800"><span class="hs-identifier hs-var">precision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215799"><span class="annot"><span class="annottext">s :: ColumnInfo
-</span><a href="#local-6989586621679215799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215798"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679215798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
-</span><a href="#local-6989586621679215799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:precision:ColumnInfo' :: Maybe Int
+</span><a href="#local-6989586621679215961"><span class="hs-identifier hs-var hs-var">precision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679215961"><span class="hs-identifier hs-var">precision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215960"><span class="annot"><span class="annottext">s :: ColumnInfo
+</span><a href="#local-6989586621679215960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215959"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679215959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
+</span><a href="#local-6989586621679215960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:precision:ColumnInfo' :: Maybe Int
 </span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Aprecision%3AColumnInfo%27"><span class="hs-identifier hs-var">precision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679215798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | Indicates whether values in the column are case-sensitive.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_caseSensitive"><span class="hs-identifier hs-type">columnInfo_caseSensitive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="columnInfo_caseSensitive"><span class="annot"><span class="annottext">columnInfo_caseSensitive :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; ColumnInfo -&gt; f ColumnInfo
+</span><a href="#local-6989586621679215959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The schema name (database name) to which the query results belong.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_schemaName"><span class="hs-identifier hs-type">columnInfo_schemaName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="columnInfo_schemaName"><span class="annot"><span class="annottext">columnInfo_schemaName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ColumnInfo -&gt; f ColumnInfo
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_schemaName"><span class="hs-identifier hs-var hs-var">columnInfo_schemaName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnInfo -&gt; Maybe Text)
+-&gt; (ColumnInfo -&gt; Maybe Text -&gt; ColumnInfo)
+-&gt; Lens ColumnInfo ColumnInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215957"><span class="annot"><span class="annottext">Maybe Text
+schemaName :: Maybe Text
+$sel:schemaName:ColumnInfo' :: ColumnInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679215957"><span class="hs-identifier hs-var hs-var">schemaName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215957"><span class="hs-identifier hs-var">schemaName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215956"><span class="annot"><span class="annottext">s :: ColumnInfo
+</span><a href="#local-6989586621679215956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215955"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
+</span><a href="#local-6989586621679215956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaName:ColumnInfo' :: Maybe Text
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AschemaName%3AColumnInfo%27"><span class="hs-identifier hs-var">schemaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The catalog to which the query results belong.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_catalogName"><span class="hs-identifier hs-type">columnInfo_catalogName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="columnInfo_catalogName"><span class="annot"><span class="annottext">columnInfo_catalogName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ColumnInfo -&gt; f ColumnInfo
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_catalogName"><span class="hs-identifier hs-var hs-var">columnInfo_catalogName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnInfo -&gt; Maybe Text)
+-&gt; (ColumnInfo -&gt; Maybe Text -&gt; ColumnInfo)
+-&gt; Lens ColumnInfo ColumnInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215953"><span class="annot"><span class="annottext">Maybe Text
+catalogName :: Maybe Text
+$sel:catalogName:ColumnInfo' :: ColumnInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679215953"><span class="hs-identifier hs-var hs-var">catalogName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215953"><span class="hs-identifier hs-var">catalogName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215952"><span class="annot"><span class="annottext">s :: ColumnInfo
+</span><a href="#local-6989586621679215952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215951"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
+</span><a href="#local-6989586621679215952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogName:ColumnInfo' :: Maybe Text
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AcatalogName%3AColumnInfo%27"><span class="hs-identifier hs-var">catalogName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Indicates whether values in the column are case-sensitive.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_caseSensitive"><span class="hs-identifier hs-type">columnInfo_caseSensitive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="columnInfo_caseSensitive"><span class="annot"><span class="annottext">columnInfo_caseSensitive :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; ColumnInfo -&gt; f ColumnInfo
 </span><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_caseSensitive"><span class="hs-identifier hs-var hs-var">columnInfo_caseSensitive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnInfo -&gt; Maybe Bool)
 -&gt; (ColumnInfo -&gt; Maybe Bool -&gt; ColumnInfo)
 -&gt; Lens ColumnInfo ColumnInfo (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215796"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215949"><span class="annot"><span class="annottext">Maybe Bool
 caseSensitive :: Maybe Bool
 $sel:caseSensitive:ColumnInfo' :: ColumnInfo -&gt; Maybe Bool
-</span><a href="#local-6989586621679215796"><span class="hs-identifier hs-var hs-var">caseSensitive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679215796"><span class="hs-identifier hs-var">caseSensitive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215795"><span class="annot"><span class="annottext">s :: ColumnInfo
-</span><a href="#local-6989586621679215795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215794"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679215794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
-</span><a href="#local-6989586621679215795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:caseSensitive:ColumnInfo' :: Maybe Bool
+</span><a href="#local-6989586621679215949"><span class="hs-identifier hs-var hs-var">caseSensitive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679215949"><span class="hs-identifier hs-var">caseSensitive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215948"><span class="annot"><span class="annottext">s :: ColumnInfo
+</span><a href="#local-6989586621679215948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215947"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679215947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
+</span><a href="#local-6989586621679215948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:caseSensitive:ColumnInfo' :: Maybe Bool
 </span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AcaseSensitive%3AColumnInfo%27"><span class="hs-identifier hs-var">caseSensitive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679215794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | Indicates the column\'s nullable status.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_nullable"><span class="hs-identifier hs-type">columnInfo_nullable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnNullable.html#ColumnNullable"><span class="hs-identifier hs-type">ColumnNullable</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="columnInfo_nullable"><span class="annot"><span class="annottext">columnInfo_nullable :: (Maybe ColumnNullable -&gt; f (Maybe ColumnNullable))
+</span><a href="#local-6989586621679215947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | A column label.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_label"><span class="hs-identifier hs-type">columnInfo_label</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="columnInfo_label"><span class="annot"><span class="annottext">columnInfo_label :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ColumnInfo -&gt; f ColumnInfo
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_label"><span class="hs-identifier hs-var hs-var">columnInfo_label</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnInfo -&gt; Maybe Text)
+-&gt; (ColumnInfo -&gt; Maybe Text -&gt; ColumnInfo)
+-&gt; Lens ColumnInfo ColumnInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215945"><span class="annot"><span class="annottext">Maybe Text
+label :: Maybe Text
+$sel:label:ColumnInfo' :: ColumnInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679215945"><span class="hs-keyword hs-var hs-var">label</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215945"><span class="hs-keyword hs-var">label</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215944"><span class="annot"><span class="annottext">s :: ColumnInfo
+</span><a href="#local-6989586621679215944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215943"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
+</span><a href="#local-6989586621679215944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:label:ColumnInfo' :: Maybe Text
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Alabel%3AColumnInfo%27"><span class="hs-keyword hs-var">label</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The table name for the query results.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_tableName"><span class="hs-identifier hs-type">columnInfo_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="columnInfo_tableName"><span class="annot"><span class="annottext">columnInfo_tableName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ColumnInfo -&gt; f ColumnInfo
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_tableName"><span class="hs-identifier hs-var hs-var">columnInfo_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnInfo -&gt; Maybe Text)
+-&gt; (ColumnInfo -&gt; Maybe Text -&gt; ColumnInfo)
+-&gt; Lens ColumnInfo ColumnInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215941"><span class="annot"><span class="annottext">Maybe Text
+tableName :: Maybe Text
+$sel:tableName:ColumnInfo' :: ColumnInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679215941"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215941"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215940"><span class="annot"><span class="annottext">s :: ColumnInfo
+</span><a href="#local-6989586621679215940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215939"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
+</span><a href="#local-6989586621679215940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:ColumnInfo' :: Maybe Text
+</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AtableName%3AColumnInfo%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | Indicates the column\'s nullable status.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_nullable"><span class="hs-identifier hs-type">columnInfo_nullable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnNullable.html#ColumnNullable"><span class="hs-identifier hs-type">ColumnNullable</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="columnInfo_nullable"><span class="annot"><span class="annottext">columnInfo_nullable :: (Maybe ColumnNullable -&gt; f (Maybe ColumnNullable))
 -&gt; ColumnInfo -&gt; f ColumnInfo
 </span><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_nullable"><span class="hs-identifier hs-var hs-var">columnInfo_nullable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnInfo -&gt; Maybe ColumnNullable)
 -&gt; (ColumnInfo -&gt; Maybe ColumnNullable -&gt; ColumnInfo)
 -&gt; Lens
      ColumnInfo ColumnInfo (Maybe ColumnNullable) (Maybe ColumnNullable)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215792"><span class="annot"><span class="annottext">Maybe ColumnNullable
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215937"><span class="annot"><span class="annottext">Maybe ColumnNullable
 nullable :: Maybe ColumnNullable
 $sel:nullable:ColumnInfo' :: ColumnInfo -&gt; Maybe ColumnNullable
-</span><a href="#local-6989586621679215792"><span class="hs-identifier hs-var hs-var">nullable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ColumnNullable
-</span><a href="#local-6989586621679215792"><span class="hs-identifier hs-var">nullable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215791"><span class="annot"><span class="annottext">s :: ColumnInfo
-</span><a href="#local-6989586621679215791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215790"><span class="annot"><span class="annottext">Maybe ColumnNullable
-</span><a href="#local-6989586621679215790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
-</span><a href="#local-6989586621679215791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nullable:ColumnInfo' :: Maybe ColumnNullable
+</span><a href="#local-6989586621679215937"><span class="hs-identifier hs-var hs-var">nullable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ColumnNullable
+</span><a href="#local-6989586621679215937"><span class="hs-identifier hs-var">nullable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215936"><span class="annot"><span class="annottext">s :: ColumnInfo
+</span><a href="#local-6989586621679215936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215935"><span class="annot"><span class="annottext">Maybe ColumnNullable
+</span><a href="#local-6989586621679215935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
+</span><a href="#local-6989586621679215936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nullable:ColumnInfo' :: Maybe ColumnNullable
 </span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Anullable%3AColumnInfo%27"><span class="hs-identifier hs-var">nullable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ColumnNullable
-</span><a href="#local-6989586621679215790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | A column label.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_label"><span class="hs-identifier hs-type">columnInfo_label</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="columnInfo_label"><span class="annot"><span class="annottext">columnInfo_label :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ColumnInfo -&gt; f ColumnInfo
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_label"><span class="hs-identifier hs-var hs-var">columnInfo_label</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnInfo -&gt; Maybe Text)
--&gt; (ColumnInfo -&gt; Maybe Text -&gt; ColumnInfo)
--&gt; Lens ColumnInfo ColumnInfo (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215788"><span class="annot"><span class="annottext">Maybe Text
-label :: Maybe Text
-$sel:label:ColumnInfo' :: ColumnInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679215788"><span class="hs-keyword hs-var hs-var">label</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215788"><span class="hs-keyword hs-var">label</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215787"><span class="annot"><span class="annottext">s :: ColumnInfo
-</span><a href="#local-6989586621679215787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215786"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
-</span><a href="#local-6989586621679215787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:label:ColumnInfo' :: Maybe Text
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Alabel%3AColumnInfo%27"><span class="hs-keyword hs-var">label</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The schema name (database name) to which the query results belong.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_schemaName"><span class="hs-identifier hs-type">columnInfo_schemaName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="columnInfo_schemaName"><span class="annot"><span class="annottext">columnInfo_schemaName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ColumnInfo -&gt; f ColumnInfo
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_schemaName"><span class="hs-identifier hs-var hs-var">columnInfo_schemaName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnInfo -&gt; Maybe Text)
--&gt; (ColumnInfo -&gt; Maybe Text -&gt; ColumnInfo)
--&gt; Lens ColumnInfo ColumnInfo (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215784"><span class="annot"><span class="annottext">Maybe Text
-schemaName :: Maybe Text
-$sel:schemaName:ColumnInfo' :: ColumnInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679215784"><span class="hs-identifier hs-var hs-var">schemaName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215784"><span class="hs-identifier hs-var">schemaName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215783"><span class="annot"><span class="annottext">s :: ColumnInfo
-</span><a href="#local-6989586621679215783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215782"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
-</span><a href="#local-6989586621679215783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaName:ColumnInfo' :: Maybe Text
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3AschemaName%3AColumnInfo%27"><span class="hs-identifier hs-var">schemaName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | For @DECIMAL@ data types, specifies the total number of digits in the</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- fractional part of the value. Defaults to 0.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_scale"><span class="hs-identifier hs-type">columnInfo_scale</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="columnInfo_scale"><span class="annot"><span class="annottext">columnInfo_scale :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ColumnInfo -&gt; f ColumnInfo
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_scale"><span class="hs-identifier hs-var hs-var">columnInfo_scale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ColumnInfo -&gt; Maybe Int)
--&gt; (ColumnInfo -&gt; Maybe Int -&gt; ColumnInfo)
--&gt; Lens ColumnInfo ColumnInfo (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215780"><span class="annot"><span class="annottext">Maybe Int
-scale :: Maybe Int
-$sel:scale:ColumnInfo' :: ColumnInfo -&gt; Maybe Int
-</span><a href="#local-6989586621679215780"><span class="hs-identifier hs-var hs-var">scale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679215780"><span class="hs-identifier hs-var">scale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215779"><span class="annot"><span class="annottext">s :: ColumnInfo
-</span><a href="#local-6989586621679215779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215778"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679215778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
-</span><a href="#local-6989586621679215779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scale:ColumnInfo' :: Maybe Int
-</span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Ascale%3AColumnInfo%27"><span class="hs-identifier hs-var">scale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679215778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The name of the column.</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_name"><span class="hs-identifier hs-type">columnInfo_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -360,16 +360,16 @@ $sel:scale:ColumnInfo' :: ColumnInfo -&gt; Maybe Int
 -&gt; (ColumnInfo -&gt; Text -&gt; ColumnInfo)
 -&gt; Lens ColumnInfo ColumnInfo Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215776"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215933"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:ColumnInfo' :: ColumnInfo -&gt; Text
-</span><a href="#local-6989586621679215776"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215776"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215775"><span class="annot"><span class="annottext">s :: ColumnInfo
-</span><a href="#local-6989586621679215775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215774"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
-</span><a href="#local-6989586621679215775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ColumnInfo' :: Text
+</span><a href="#local-6989586621679215933"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215933"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215932"><span class="annot"><span class="annottext">s :: ColumnInfo
+</span><a href="#local-6989586621679215932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215931"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
+</span><a href="#local-6989586621679215932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ColumnInfo' :: Text
 </span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Aname%3AColumnInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The data type of the column.</span><span>
 </span><span id="line-144"></span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#columnInfo_type"><span class="hs-identifier hs-type">columnInfo_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -378,19 +378,19 @@ $sel:name:ColumnInfo' :: ColumnInfo -&gt; Text
 -&gt; (ColumnInfo -&gt; Text -&gt; ColumnInfo)
 -&gt; Lens ColumnInfo ColumnInfo Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215772"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215929"><span class="annot"><span class="annottext">Text
 type' :: Text
 $sel:type':ColumnInfo' :: ColumnInfo -&gt; Text
-</span><a href="#local-6989586621679215772"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215772"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215771"><span class="annot"><span class="annottext">s :: ColumnInfo
-</span><a href="#local-6989586621679215771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215770"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
-</span><a href="#local-6989586621679215771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ColumnInfo' :: Text
+</span><a href="#local-6989586621679215929"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215929"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215928"><span class="annot"><span class="annottext">s :: ColumnInfo
+</span><a href="#local-6989586621679215928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-type">ColumnInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215927"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679215927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ColumnInfo
+</span><a href="#local-6989586621679215928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ColumnInfo' :: Text
 </span><a href="Network.AWS.Athena.Types.ColumnInfo.html#%24sel%3Atype%27%3AColumnInfo%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679215770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215767"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679215765"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ColumnInfo
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215924"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679215922"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ColumnInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ColumnInfo) -&gt; Value -&gt; Parser ColumnInfo
@@ -398,191 +398,202 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ColumnInfo&quot;</span></span><span>
-</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215762"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215762"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215919"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215919"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe ColumnNullable
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Int
 -&gt; Text
 -&gt; Text
 -&gt; ColumnInfo
 </span><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo%27"><span class="hs-identifier hs-var">ColumnInfo'</span></a></span><span>
-</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
  -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe ColumnNullable
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Int
  -&gt; Text
  -&gt; Text
  -&gt; ColumnInfo)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Int)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Int
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe ColumnNullable
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Int
       -&gt; Text
       -&gt; Text
       -&gt; ColumnInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679215919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CatalogName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Scale&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Int
-   -&gt; Maybe Bool
-   -&gt; Maybe ColumnNullable
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Int
-   -&gt; Text
-   -&gt; Text
-   -&gt; ColumnInfo)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Int
-      -&gt; Maybe Bool
-      -&gt; Maybe ColumnNullable
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Int
-      -&gt; Text
-      -&gt; Text
-      -&gt; ColumnInfo)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TableName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe ColumnNullable
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Int
    -&gt; Text
    -&gt; Text
    -&gt; ColumnInfo)
 -&gt; Parser (Maybe Int)
 -&gt; Parser
-     (Maybe Bool
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe ColumnNullable
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Int
       -&gt; Text
       -&gt; Text
       -&gt; ColumnInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679215919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Precision&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Bool
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe ColumnNullable
+   -&gt; Text
+   -&gt; Text
+   -&gt; ColumnInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ColumnNullable
+      -&gt; Text
+      -&gt; Text
+      -&gt; ColumnInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SchemaName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Int
+   -&gt; Maybe ColumnNullable
+   -&gt; Text
+   -&gt; Text
+   -&gt; ColumnInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ColumnNullable
+      -&gt; Text
+      -&gt; Text
+      -&gt; ColumnInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CatalogName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ColumnNullable
    -&gt; Text
    -&gt; Text
    -&gt; ColumnInfo)
 -&gt; Parser (Maybe Bool)
 -&gt; Parser
-     (Maybe ColumnNullable
+     (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Int
+      -&gt; Maybe ColumnNullable
       -&gt; Text
       -&gt; Text
       -&gt; ColumnInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679215919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CaseSensitive&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ColumnNullable
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Int
+   -&gt; Maybe ColumnNullable
    -&gt; Text
    -&gt; Text
    -&gt; ColumnInfo)
--&gt; Parser (Maybe ColumnNullable)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe Int -&gt; Text -&gt; Text -&gt; ColumnInfo)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ColumnNullable)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Nullable&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe Int -&gt; Text -&gt; Text -&gt; ColumnInfo)
 -&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe Int -&gt; Text -&gt; Text -&gt; ColumnInfo)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe ColumnNullable -&gt; Text -&gt; Text -&gt; ColumnInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679215919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Label&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Int -&gt; Text -&gt; Text -&gt; ColumnInfo)
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe ColumnNullable -&gt; Text -&gt; Text -&gt; ColumnInfo)
 -&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Int -&gt; Text -&gt; Text -&gt; ColumnInfo)
+-&gt; Parser (Maybe ColumnNullable -&gt; Text -&gt; Text -&gt; ColumnInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679215919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SchemaName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Text -&gt; Text -&gt; ColumnInfo)
--&gt; Parser (Maybe Int) -&gt; Parser (Text -&gt; Text -&gt; ColumnInfo)
+</span><span class="hs-string">&quot;TableName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ColumnNullable -&gt; Text -&gt; Text -&gt; ColumnInfo)
+-&gt; Parser (Maybe ColumnNullable)
+-&gt; Parser (Text -&gt; Text -&gt; ColumnInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679215919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ColumnNullable)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Scale&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Nullable&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; ColumnInfo)
 -&gt; Parser Text -&gt; Parser (Text -&gt; ColumnInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679215919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ColumnInfo) -&gt; Parser Text -&gt; Parser ColumnInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215762"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679215919"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215755"><span id="local-6989586621679215757"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215912"><span id="local-6989586621679215914"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span></span></span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215752"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215909"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.ColumnInfo.html#ColumnInfo"><span class="hs-identifier hs-type">ColumnInfo</span></a></span></span><span>
 </span><span id="line-168"></span></pre></body></html>

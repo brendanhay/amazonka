@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribePermissions' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679387545"><span id="local-6989586621679387546"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePermissions"><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions"><span class="hs-identifier hs-var">DescribePermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePermissions%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions%27"><span class="hs-identifier hs-var">DescribePermissions'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679387959"><span id="local-6989586621679387960"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePermissions"><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions"><span class="hs-identifier hs-var">DescribePermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePermissions%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions%27"><span class="hs-identifier hs-var">DescribePermissions'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user\'s IAM ARN. This can also be a federated user\'s ARN. For more</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- information about IAM ARNs, see</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers&gt;.</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AstackId%3ADescribePermissions%27"><span class="annot"><span class="annottext">DescribePermissions -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.DescribePermissions.html#%24sel%3AstackId%3ADescribePermissions%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387538"><span id="local-6989586621679387540"><span class="annot"><span class="annottext">DescribePermissions -&gt; DescribePermissions -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387952"><span id="local-6989586621679387954"><span class="annot"><span class="annottext">DescribePermissions -&gt; DescribePermissions -&gt; Bool
 (DescribePermissions -&gt; DescribePermissions -&gt; Bool)
 -&gt; (DescribePermissions -&gt; DescribePermissions -&gt; Bool)
 -&gt; Eq DescribePermissions
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribePermissions -&gt; DescribePermissions -&gt; Bool
 == :: DescribePermissions -&gt; DescribePermissions -&gt; Bool
 $c== :: DescribePermissions -&gt; DescribePermissions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387529"><span id="local-6989586621679387531"><span id="local-6989586621679387533"><span id="local-6989586621679387535"><span class="annot"><span class="annottext">ReadPrec [DescribePermissions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387943"><span id="local-6989586621679387945"><span id="local-6989586621679387947"><span id="local-6989586621679387949"><span class="annot"><span class="annottext">ReadPrec [DescribePermissions]
 ReadPrec DescribePermissions
 Int -&gt; ReadS DescribePermissions
 ReadS [DescribePermissions]
@@ -93,7 +93,7 @@ readList :: ReadS [DescribePermissions]
 $creadList :: ReadS [DescribePermissions]
 readsPrec :: Int -&gt; ReadS DescribePermissions
 $creadsPrec :: Int -&gt; ReadS DescribePermissions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387522"><span id="local-6989586621679387524"><span id="local-6989586621679387526"><span class="annot"><span class="annottext">Int -&gt; DescribePermissions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387936"><span id="local-6989586621679387938"><span id="local-6989586621679387940"><span class="annot"><span class="annottext">Int -&gt; DescribePermissions -&gt; ShowS
 [DescribePermissions] -&gt; ShowS
 DescribePermissions -&gt; String
 (Int -&gt; DescribePermissions -&gt; ShowS)
@@ -159,16 +159,16 @@ forall a. Maybe a
 -&gt; Lens
      DescribePermissions DescribePermissions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions%27"><span class="hs-identifier hs-type">DescribePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387515"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions%27"><span class="hs-identifier hs-type">DescribePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387929"><span class="annot"><span class="annottext">Maybe Text
 iamUserArn :: Maybe Text
 $sel:iamUserArn:DescribePermissions' :: DescribePermissions -&gt; Maybe Text
-</span><a href="#local-6989586621679387515"><span class="hs-identifier hs-var hs-var">iamUserArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387515"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387514"><span class="annot"><span class="annottext">s :: DescribePermissions
-</span><a href="#local-6989586621679387514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions%27"><span class="hs-identifier hs-type">DescribePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387513"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePermissions
-</span><a href="#local-6989586621679387514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamUserArn:DescribePermissions' :: Maybe Text
+</span><a href="#local-6989586621679387929"><span class="hs-identifier hs-var hs-var">iamUserArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387929"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387928"><span class="annot"><span class="annottext">s :: DescribePermissions
+</span><a href="#local-6989586621679387928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions%27"><span class="hs-identifier hs-type">DescribePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387927"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePermissions
+</span><a href="#local-6989586621679387928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamUserArn:DescribePermissions' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.DescribePermissions.html#%24sel%3AiamUserArn%3ADescribePermissions%27"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions"><span class="hs-identifier hs-type">DescribePermissions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions"><span class="hs-identifier hs-type">DescribePermissions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The stack ID.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#describePermissions_stackId"><span class="hs-identifier hs-type">describePermissions_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions"><span class="hs-identifier hs-type">DescribePermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -179,27 +179,27 @@ $sel:iamUserArn:DescribePermissions' :: DescribePermissions -&gt; Maybe Text
 -&gt; Lens
      DescribePermissions DescribePermissions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions%27"><span class="hs-identifier hs-type">DescribePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387512"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions%27"><span class="hs-identifier hs-type">DescribePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387926"><span class="annot"><span class="annottext">Maybe Text
 stackId :: Maybe Text
 $sel:stackId:DescribePermissions' :: DescribePermissions -&gt; Maybe Text
-</span><a href="#local-6989586621679387512"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387512"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387511"><span class="annot"><span class="annottext">s :: DescribePermissions
-</span><a href="#local-6989586621679387511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions%27"><span class="hs-identifier hs-type">DescribePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387510"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePermissions
-</span><a href="#local-6989586621679387511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:DescribePermissions' :: Maybe Text
+</span><a href="#local-6989586621679387926"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387926"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387925"><span class="annot"><span class="annottext">s :: DescribePermissions
+</span><a href="#local-6989586621679387925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions%27"><span class="hs-identifier hs-type">DescribePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387924"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePermissions
+</span><a href="#local-6989586621679387925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:DescribePermissions' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.DescribePermissions.html#%24sel%3AstackId%3ADescribePermissions%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions"><span class="hs-identifier hs-type">DescribePermissions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions"><span class="hs-identifier hs-type">DescribePermissions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions"><span class="hs-identifier hs-type">DescribePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions"><span class="hs-identifier hs-type">DescribePermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse"><span class="hs-identifier hs-type">DescribePermissionsResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679387506"><span class="annot"><span class="annottext">request :: DescribePermissions -&gt; Request DescribePermissions
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679387920"><span class="annot"><span class="annottext">request :: DescribePermissions -&gt; Request DescribePermissions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribePermissions -&gt; Request DescribePermissions
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679387502"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679387916"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribePermissions
 -&gt; ClientResponse ClientBody
@@ -225,10 +225,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387499"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387499"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387498"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679387498"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387497"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387497"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387913"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387913"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387912"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679387912"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387911"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387911"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Permission] -&gt; Int -&gt; DescribePermissionsResponse
 </span><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse%27"><span class="hs-identifier hs-var">DescribePermissionsResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Permission] -&gt; Int -&gt; DescribePermissionsResponse)
@@ -236,7 +236,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribePermissionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679387497"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Permission]))
+</span><a href="#local-6989586621679387911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Permission]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Permissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Permission]))
@@ -253,15 +253,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387499"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387913"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387488"><span id="local-6989586621679387490"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions"><span class="hs-identifier hs-type">DescribePermissions</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387902"><span id="local-6989586621679387904"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions"><span class="hs-identifier hs-type">DescribePermissions</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387485"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions"><span class="hs-identifier hs-type">DescribePermissions</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387899"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions"><span class="hs-identifier hs-type">DescribePermissions</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions"><span class="hs-identifier hs-type">DescribePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679387481"><span class="annot"><span class="annottext">toHeaders :: DescribePermissions -&gt; ResponseHeaders
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679387895"><span class="annot"><span class="annottext">toHeaders :: DescribePermissions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribePermissions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -288,14 +288,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387471"><span id="local-6989586621679387473"><span id="local-6989586621679387475"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions"><span class="hs-identifier hs-type">DescribePermissions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679387469"><span class="annot"><span class="annottext">toJSON :: DescribePermissions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions%27"><span class="hs-identifier hs-type">DescribePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387466"><span id="local-6989586621679387467"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387885"><span id="local-6989586621679387887"><span id="local-6989586621679387889"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions"><span class="hs-identifier hs-type">DescribePermissions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679387883"><span class="annot"><span class="annottext">toJSON :: DescribePermissions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions%27"><span class="hs-identifier hs-type">DescribePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387880"><span id="local-6989586621679387881"><span class="annot"><span class="annottext">Maybe Text
 stackId :: Maybe Text
 iamUserArn :: Maybe Text
 $sel:stackId:DescribePermissions' :: DescribePermissions -&gt; Maybe Text
 $sel:iamUserArn:DescribePermissions' :: DescribePermissions -&gt; Maybe Text
-</span><a href="#local-6989586621679387466"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679387880"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -307,26 +307,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387467"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387881"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387466"><span class="hs-identifier hs-var">stackId</span></a></span><span>
+</span><a href="#local-6989586621679387880"><span class="hs-identifier hs-var">stackId</span></a></span><span>
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions"><span class="hs-identifier hs-type">DescribePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679387460"><span class="annot"><span class="annottext">toPath :: DescribePermissions -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679387874"><span class="annot"><span class="annottext">toPath :: DescribePermissions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribePermissions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissions"><span class="hs-identifier hs-type">DescribePermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679387456"><span class="annot"><span class="annottext">toQuery :: DescribePermissions -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679387870"><span class="annot"><span class="annottext">toQuery :: DescribePermissions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribePermissions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -336,7 +336,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-145"></span><span class="hs-comment">-- | Contains the response to a @DescribePermissions@ request.</span><span>
 </span><span id="line-146"></span><span class="hs-comment">--</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- /See:/ 'newDescribePermissionsResponse' smart constructor.</span><span>
-</span><span id="line-148"></span><span id="local-6989586621679387453"><span id="local-6989586621679387454"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePermissionsResponse"><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse"><span class="hs-identifier hs-var">DescribePermissionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePermissionsResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse%27"><span class="hs-identifier hs-var">DescribePermissionsResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span id="local-6989586621679387867"><span id="local-6989586621679387868"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePermissionsResponse"><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse"><span class="hs-identifier hs-var">DescribePermissionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePermissionsResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse%27"><span class="hs-identifier hs-var">DescribePermissionsResponse'</span></a></span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of @Permission@ objects that describe the stack permissions.</span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-comment">-- -   If the request object contains only a stack ID, the array contains a</span><span>
@@ -355,7 +355,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribePermissionsResponse%27"><span class="annot"><span class="annottext">DescribePermissionsResponse -&gt; Int
 </span><a href="Network.AWS.OpsWorks.DescribePermissions.html#%24sel%3AhttpStatus%3ADescribePermissionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387447"><span id="local-6989586621679387449"><span class="annot"><span class="annottext">DescribePermissionsResponse -&gt; DescribePermissionsResponse -&gt; Bool
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387861"><span id="local-6989586621679387863"><span class="annot"><span class="annottext">DescribePermissionsResponse -&gt; DescribePermissionsResponse -&gt; Bool
 (DescribePermissionsResponse
  -&gt; DescribePermissionsResponse -&gt; Bool)
 -&gt; (DescribePermissionsResponse
@@ -366,7 +366,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribePermissionsResponse -&gt; DescribePermissionsResponse -&gt; Bool
 == :: DescribePermissionsResponse -&gt; DescribePermissionsResponse -&gt; Bool
 $c== :: DescribePermissionsResponse -&gt; DescribePermissionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387439"><span id="local-6989586621679387441"><span id="local-6989586621679387443"><span id="local-6989586621679387445"><span class="annot"><span class="annottext">ReadPrec [DescribePermissionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387853"><span id="local-6989586621679387855"><span id="local-6989586621679387857"><span id="local-6989586621679387859"><span class="annot"><span class="annottext">ReadPrec [DescribePermissionsResponse]
 ReadPrec DescribePermissionsResponse
 Int -&gt; ReadS DescribePermissionsResponse
 ReadS [DescribePermissionsResponse]
@@ -386,7 +386,7 @@ readList :: ReadS [DescribePermissionsResponse]
 $creadList :: ReadS [DescribePermissionsResponse]
 readsPrec :: Int -&gt; ReadS DescribePermissionsResponse
 $creadsPrec :: Int -&gt; ReadS DescribePermissionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387433"><span id="local-6989586621679387435"><span id="local-6989586621679387437"><span class="annot"><span class="annottext">Int -&gt; DescribePermissionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387847"><span id="local-6989586621679387849"><span id="local-6989586621679387851"><span class="annot"><span class="annottext">Int -&gt; DescribePermissionsResponse -&gt; ShowS
 [DescribePermissionsResponse] -&gt; ShowS
 DescribePermissionsResponse -&gt; String
 (Int -&gt; DescribePermissionsResponse -&gt; ShowS)
@@ -445,8 +445,8 @@ DescribePermissionsResponse -&gt; Rep DescribePermissionsResponse x
 </span><span id="line-191"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse"><span class="hs-identifier hs-type">DescribePermissionsResponse</span></a></span><span>
 </span><span id="line-193"></span><span id="newDescribePermissionsResponse"><span class="annot"><span class="annottext">newDescribePermissionsResponse :: Int -&gt; DescribePermissionsResponse
-</span><a href="Network.AWS.OpsWorks.DescribePermissions.html#newDescribePermissionsResponse"><span class="hs-identifier hs-var hs-var">newDescribePermissionsResponse</span></a></span></span><span> </span><span id="local-6989586621679387430"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387430"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.DescribePermissions.html#newDescribePermissionsResponse"><span class="hs-identifier hs-var hs-var">newDescribePermissionsResponse</span></a></span></span><span> </span><span id="local-6989586621679387844"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387844"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-194"></span><span>  </span><span class="annot"><span class="annottext">DescribePermissionsResponse' :: Maybe [Permission] -&gt; Int -&gt; DescribePermissionsResponse
 </span><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse%27"><span class="hs-identifier hs-type">DescribePermissionsResponse'</span></a></span><span>
 </span><span id="line-195"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:permissions:DescribePermissionsResponse' :: Maybe [Permission]
@@ -456,7 +456,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePermissionsResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.DescribePermissions.html#%24sel%3AhttpStatus%3ADescribePermissionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387430"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679387844"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-198"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | An array of @Permission@ objects that describe the stack permissions.</span><span>
@@ -483,16 +483,16 @@ forall a. Maybe a
      (Maybe [Permission])
      (Maybe [Permission])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse%27"><span class="hs-identifier hs-type">DescribePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387429"><span class="annot"><span class="annottext">Maybe [Permission]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse%27"><span class="hs-identifier hs-type">DescribePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387843"><span class="annot"><span class="annottext">Maybe [Permission]
 permissions :: Maybe [Permission]
 $sel:permissions:DescribePermissionsResponse' :: DescribePermissionsResponse -&gt; Maybe [Permission]
-</span><a href="#local-6989586621679387429"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Permission]
-</span><a href="#local-6989586621679387429"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387428"><span class="annot"><span class="annottext">s :: DescribePermissionsResponse
-</span><a href="#local-6989586621679387428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse%27"><span class="hs-identifier hs-type">DescribePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387427"><span class="annot"><span class="annottext">Maybe [Permission]
-</span><a href="#local-6989586621679387427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePermissionsResponse
-</span><a href="#local-6989586621679387428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:DescribePermissionsResponse' :: Maybe [Permission]
+</span><a href="#local-6989586621679387843"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Permission]
+</span><a href="#local-6989586621679387843"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387842"><span class="annot"><span class="annottext">s :: DescribePermissionsResponse
+</span><a href="#local-6989586621679387842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse%27"><span class="hs-identifier hs-type">DescribePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387841"><span class="annot"><span class="annottext">Maybe [Permission]
+</span><a href="#local-6989586621679387841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePermissionsResponse
+</span><a href="#local-6989586621679387842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:DescribePermissionsResponse' :: Maybe [Permission]
 </span><a href="Network.AWS.OpsWorks.DescribePermissions.html#%24sel%3Apermissions%3ADescribePermissionsResponse%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Permission]
-</span><a href="#local-6989586621679387427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse"><span class="hs-identifier hs-type">DescribePermissionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Permission] -&gt; f (Maybe [Permission]))
+</span><a href="#local-6989586621679387841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse"><span class="hs-identifier hs-type">DescribePermissionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Permission] -&gt; f (Maybe [Permission]))
  -&gt; DescribePermissionsResponse -&gt; f DescribePermissionsResponse)
 -&gt; ((Maybe [Permission] -&gt; f (Maybe [Permission]))
     -&gt; Maybe [Permission] -&gt; f (Maybe [Permission]))
@@ -510,8 +510,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Permission] [Permission] [Permission] [Permission]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-216"></span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#describePermissionsResponse_httpStatus"><span class="hs-identifier hs-type">describePermissionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse"><span class="hs-identifier hs-type">DescribePermissionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -523,16 +523,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      DescribePermissionsResponse DescribePermissionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse%27"><span class="hs-identifier hs-type">DescribePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387423"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse%27"><span class="hs-identifier hs-type">DescribePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387837"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribePermissionsResponse' :: DescribePermissionsResponse -&gt; Int
-</span><a href="#local-6989586621679387423"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387423"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387422"><span class="annot"><span class="annottext">s :: DescribePermissionsResponse
-</span><a href="#local-6989586621679387422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse%27"><span class="hs-identifier hs-type">DescribePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387421"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePermissionsResponse
-</span><a href="#local-6989586621679387422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePermissionsResponse' :: Int
+</span><a href="#local-6989586621679387837"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387837"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387836"><span class="annot"><span class="annottext">s :: DescribePermissionsResponse
+</span><a href="#local-6989586621679387836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse%27"><span class="hs-identifier hs-type">DescribePermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387835"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePermissionsResponse
+</span><a href="#local-6989586621679387836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePermissionsResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.DescribePermissions.html#%24sel%3AhttpStatus%3ADescribePermissionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse"><span class="hs-identifier hs-type">DescribePermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse"><span class="hs-identifier hs-type">DescribePermissionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387419"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse"><span class="hs-identifier hs-type">DescribePermissionsResponse</span></a></span></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387833"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribePermissions.html#DescribePermissionsResponse"><span class="hs-identifier hs-type">DescribePermissionsResponse</span></a></span></span><span>
 </span><span id="line-220"></span></pre></body></html>

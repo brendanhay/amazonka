@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-iot-jobs-dataplaneZSamazonka-iot-jobs-dataplane
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.IoTJobsData.Types.JobExecutionStatus
@@ -110,27 +110,34 @@ module Network.AWS.IoTJobsData.Types.JobExecution
 --   
 --   <i>See:</i> <a>newJobExecution</a> smart constructor.
 data JobExecution
-JobExecution' :: Maybe Integer -> Maybe JobExecutionStatus -> Maybe (HashMap Text Text) -> Maybe Text -> Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Text -> Maybe Integer -> Maybe Text -> Maybe Integer -> JobExecution
-
--- | The time, in milliseconds since the epoch, when the job execution was
---   started.
-[$sel:startedAt:JobExecution'] :: JobExecution -> Maybe Integer
+JobExecution' :: Maybe JobExecutionStatus -> Maybe Text -> Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Text -> Maybe (HashMap Text Text) -> Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Text -> JobExecution
 
 -- | The status of the job execution. Can be one of: "QUEUED",
 --   "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or
 --   "REMOVED".
 [$sel:status:JobExecution'] :: JobExecution -> Maybe JobExecutionStatus
 
--- | A collection of name/value pairs that describe the status of the job
---   execution.
-[$sel:statusDetails:JobExecution'] :: JobExecution -> Maybe (HashMap Text Text)
+-- | The unique identifier you assigned to this job when it was created.
+[$sel:jobId:JobExecution'] :: JobExecution -> Maybe Text
 
--- | The name of the thing that is executing the job.
-[$sel:thingName:JobExecution'] :: JobExecution -> Maybe Text
+-- | The time, in milliseconds since the epoch, when the job execution was
+--   last updated.
+[$sel:lastUpdatedAt:JobExecution'] :: JobExecution -> Maybe Integer
+
+-- | The estimated number of seconds that remain before the job execution
+--   status will be changed to <tt>TIMED_OUT</tt>.
+[$sel:approximateSecondsBeforeTimedOut:JobExecution'] :: JobExecution -> Maybe Integer
 
 -- | The time, in milliseconds since the epoch, when the job execution was
 --   enqueued.
 [$sel:queuedAt:JobExecution'] :: JobExecution -> Maybe Integer
+
+-- | The content of the job document.
+[$sel:jobDocument:JobExecution'] :: JobExecution -> Maybe Text
+
+-- | A collection of name/value pairs that describe the status of the job
+--   execution.
+[$sel:statusDetails:JobExecution'] :: JobExecution -> Maybe (HashMap Text Text)
 
 -- | A number that identifies a particular job execution on a particular
 --   device. It can be used later in commands that return or update job
@@ -141,19 +148,12 @@ JobExecution' :: Maybe Integer -> Maybe JobExecutionStatus -> Maybe (HashMap Tex
 --   incremented each time they are updated by a device.
 [$sel:versionNumber:JobExecution'] :: JobExecution -> Maybe Integer
 
--- | The content of the job document.
-[$sel:jobDocument:JobExecution'] :: JobExecution -> Maybe Text
-
--- | The estimated number of seconds that remain before the job execution
---   status will be changed to <tt>TIMED_OUT</tt>.
-[$sel:approximateSecondsBeforeTimedOut:JobExecution'] :: JobExecution -> Maybe Integer
-
--- | The unique identifier you assigned to this job when it was created.
-[$sel:jobId:JobExecution'] :: JobExecution -> Maybe Text
-
 -- | The time, in milliseconds since the epoch, when the job execution was
---   last updated.
-[$sel:lastUpdatedAt:JobExecution'] :: JobExecution -> Maybe Integer
+--   started.
+[$sel:startedAt:JobExecution'] :: JobExecution -> Maybe Integer
+
+-- | The name of the thing that is executing the job.
+[$sel:thingName:JobExecution'] :: JobExecution -> Maybe Text
 
 -- | Create a value of <a>JobExecution</a> with all optional fields
 --   omitted.
@@ -164,24 +164,32 @@ JobExecution' :: Maybe Integer -> Maybe JobExecutionStatus -> Maybe (HashMap Tex
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:startedAt:JobExecution'</a>, <a>jobExecution_startedAt</a> -
---   The time, in milliseconds since the epoch, when the job execution was
---   started.
---   
 --   <a>$sel:status:JobExecution'</a>, <a>jobExecution_status</a> - The
 --   status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS",
 --   "FAILED", "SUCCESS", "CANCELED", "REJECTED", or "REMOVED".
 --   
---   <a>$sel:statusDetails:JobExecution'</a>,
---   <a>jobExecution_statusDetails</a> - A collection of name/value pairs
---   that describe the status of the job execution.
+--   <a>$sel:jobId:JobExecution'</a>, <a>jobExecution_jobId</a> - The
+--   unique identifier you assigned to this job when it was created.
 --   
---   <a>$sel:thingName:JobExecution'</a>, <a>jobExecution_thingName</a> -
---   The name of the thing that is executing the job.
+--   <a>$sel:lastUpdatedAt:JobExecution'</a>,
+--   <a>jobExecution_lastUpdatedAt</a> - The time, in milliseconds since
+--   the epoch, when the job execution was last updated.
+--   
+--   <a>$sel:approximateSecondsBeforeTimedOut:JobExecution'</a>,
+--   <a>jobExecution_approximateSecondsBeforeTimedOut</a> - The estimated
+--   number of seconds that remain before the job execution status will be
+--   changed to <tt>TIMED_OUT</tt>.
 --   
 --   <a>$sel:queuedAt:JobExecution'</a>, <a>jobExecution_queuedAt</a> - The
 --   time, in milliseconds since the epoch, when the job execution was
 --   enqueued.
+--   
+--   <a>$sel:jobDocument:JobExecution'</a>, <a>jobExecution_jobDocument</a>
+--   - The content of the job document.
+--   
+--   <a>$sel:statusDetails:JobExecution'</a>,
+--   <a>jobExecution_statusDetails</a> - A collection of name/value pairs
+--   that describe the status of the job execution.
 --   
 --   <a>$sel:executionNumber:JobExecution'</a>,
 --   <a>jobExecution_executionNumber</a> - A number that identifies a
@@ -193,41 +201,40 @@ JobExecution' :: Maybe Integer -> Maybe JobExecutionStatus -> Maybe (HashMap Tex
 --   Job execution versions are incremented each time they are updated by a
 --   device.
 --   
---   <a>$sel:jobDocument:JobExecution'</a>, <a>jobExecution_jobDocument</a>
---   - The content of the job document.
---   
---   <a>$sel:approximateSecondsBeforeTimedOut:JobExecution'</a>,
---   <a>jobExecution_approximateSecondsBeforeTimedOut</a> - The estimated
---   number of seconds that remain before the job execution status will be
---   changed to <tt>TIMED_OUT</tt>.
---   
---   <a>$sel:jobId:JobExecution'</a>, <a>jobExecution_jobId</a> - The
---   unique identifier you assigned to this job when it was created.
---   
---   <a>$sel:lastUpdatedAt:JobExecution'</a>,
---   <a>jobExecution_lastUpdatedAt</a> - The time, in milliseconds since
---   the epoch, when the job execution was last updated.
-newJobExecution :: JobExecution
-
--- | The time, in milliseconds since the epoch, when the job execution was
+--   <a>$sel:startedAt:JobExecution'</a>, <a>jobExecution_startedAt</a> -
+--   The time, in milliseconds since the epoch, when the job execution was
 --   started.
-jobExecution_startedAt :: Lens' JobExecution (Maybe Integer)
+--   
+--   <a>$sel:thingName:JobExecution'</a>, <a>jobExecution_thingName</a> -
+--   The name of the thing that is executing the job.
+newJobExecution :: JobExecution
 
 -- | The status of the job execution. Can be one of: "QUEUED",
 --   "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or
 --   "REMOVED".
 jobExecution_status :: Lens' JobExecution (Maybe JobExecutionStatus)
 
--- | A collection of name/value pairs that describe the status of the job
---   execution.
-jobExecution_statusDetails :: Lens' JobExecution (Maybe (HashMap Text Text))
+-- | The unique identifier you assigned to this job when it was created.
+jobExecution_jobId :: Lens' JobExecution (Maybe Text)
 
--- | The name of the thing that is executing the job.
-jobExecution_thingName :: Lens' JobExecution (Maybe Text)
+-- | The time, in milliseconds since the epoch, when the job execution was
+--   last updated.
+jobExecution_lastUpdatedAt :: Lens' JobExecution (Maybe Integer)
+
+-- | The estimated number of seconds that remain before the job execution
+--   status will be changed to <tt>TIMED_OUT</tt>.
+jobExecution_approximateSecondsBeforeTimedOut :: Lens' JobExecution (Maybe Integer)
 
 -- | The time, in milliseconds since the epoch, when the job execution was
 --   enqueued.
 jobExecution_queuedAt :: Lens' JobExecution (Maybe Integer)
+
+-- | The content of the job document.
+jobExecution_jobDocument :: Lens' JobExecution (Maybe Text)
+
+-- | A collection of name/value pairs that describe the status of the job
+--   execution.
+jobExecution_statusDetails :: Lens' JobExecution (Maybe (HashMap Text Text))
 
 -- | A number that identifies a particular job execution on a particular
 --   device. It can be used later in commands that return or update job
@@ -238,19 +245,12 @@ jobExecution_executionNumber :: Lens' JobExecution (Maybe Integer)
 --   incremented each time they are updated by a device.
 jobExecution_versionNumber :: Lens' JobExecution (Maybe Integer)
 
--- | The content of the job document.
-jobExecution_jobDocument :: Lens' JobExecution (Maybe Text)
-
--- | The estimated number of seconds that remain before the job execution
---   status will be changed to <tt>TIMED_OUT</tt>.
-jobExecution_approximateSecondsBeforeTimedOut :: Lens' JobExecution (Maybe Integer)
-
--- | The unique identifier you assigned to this job when it was created.
-jobExecution_jobId :: Lens' JobExecution (Maybe Text)
-
 -- | The time, in milliseconds since the epoch, when the job execution was
---   last updated.
-jobExecution_lastUpdatedAt :: Lens' JobExecution (Maybe Integer)
+--   started.
+jobExecution_startedAt :: Lens' JobExecution (Maybe Integer)
+
+-- | The name of the thing that is executing the job.
+jobExecution_thingName :: Lens' JobExecution (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.IoTJobsData.Types.JobExecution.JobExecution
 instance GHC.Show.Show Network.AWS.IoTJobsData.Types.JobExecution.JobExecution
 instance GHC.Read.Read Network.AWS.IoTJobsData.Types.JobExecution.JobExecution
@@ -266,11 +266,14 @@ module Network.AWS.IoTJobsData.Types.JobExecutionSummary
 --   
 --   <i>See:</i> <a>newJobExecutionSummary</a> smart constructor.
 data JobExecutionSummary
-JobExecutionSummary' :: Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Text -> Maybe Integer -> JobExecutionSummary
+JobExecutionSummary' :: Maybe Text -> Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Integer -> JobExecutionSummary
 
--- | The time, in milliseconds since the epoch, when the job execution
---   started.
-[$sel:startedAt:JobExecutionSummary'] :: JobExecutionSummary -> Maybe Integer
+-- | The unique identifier you assigned to this job when it was created.
+[$sel:jobId:JobExecutionSummary'] :: JobExecutionSummary -> Maybe Text
+
+-- | The time, in milliseconds since the epoch, when the job execution was
+--   last updated.
+[$sel:lastUpdatedAt:JobExecutionSummary'] :: JobExecutionSummary -> Maybe Integer
 
 -- | The time, in milliseconds since the epoch, when the job execution was
 --   enqueued.
@@ -284,12 +287,9 @@ JobExecutionSummary' :: Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe
 --   incremented each time AWS IoT Jobs receives an update from a device.
 [$sel:versionNumber:JobExecutionSummary'] :: JobExecutionSummary -> Maybe Integer
 
--- | The unique identifier you assigned to this job when it was created.
-[$sel:jobId:JobExecutionSummary'] :: JobExecutionSummary -> Maybe Text
-
--- | The time, in milliseconds since the epoch, when the job execution was
---   last updated.
-[$sel:lastUpdatedAt:JobExecutionSummary'] :: JobExecutionSummary -> Maybe Integer
+-- | The time, in milliseconds since the epoch, when the job execution
+--   started.
+[$sel:startedAt:JobExecutionSummary'] :: JobExecutionSummary -> Maybe Integer
 
 -- | Create a value of <a>JobExecutionSummary</a> with all optional fields
 --   omitted.
@@ -300,9 +300,13 @@ JobExecutionSummary' :: Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:startedAt:JobExecutionSummary'</a>,
---   <a>jobExecutionSummary_startedAt</a> - The time, in milliseconds since
---   the epoch, when the job execution started.
+--   <a>$sel:jobId:JobExecutionSummary'</a>,
+--   <a>jobExecutionSummary_jobId</a> - The unique identifier you assigned
+--   to this job when it was created.
+--   
+--   <a>$sel:lastUpdatedAt:JobExecutionSummary'</a>,
+--   <a>jobExecutionSummary_lastUpdatedAt</a> - The time, in milliseconds
+--   since the epoch, when the job execution was last updated.
 --   
 --   <a>$sel:queuedAt:JobExecutionSummary'</a>,
 --   <a>jobExecutionSummary_queuedAt</a> - The time, in milliseconds since
@@ -317,18 +321,17 @@ JobExecutionSummary' :: Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe
 --   execution. Job execution versions are incremented each time AWS IoT
 --   Jobs receives an update from a device.
 --   
---   <a>$sel:jobId:JobExecutionSummary'</a>,
---   <a>jobExecutionSummary_jobId</a> - The unique identifier you assigned
---   to this job when it was created.
---   
---   <a>$sel:lastUpdatedAt:JobExecutionSummary'</a>,
---   <a>jobExecutionSummary_lastUpdatedAt</a> - The time, in milliseconds
---   since the epoch, when the job execution was last updated.
+--   <a>$sel:startedAt:JobExecutionSummary'</a>,
+--   <a>jobExecutionSummary_startedAt</a> - The time, in milliseconds since
+--   the epoch, when the job execution started.
 newJobExecutionSummary :: JobExecutionSummary
 
--- | The time, in milliseconds since the epoch, when the job execution
---   started.
-jobExecutionSummary_startedAt :: Lens' JobExecutionSummary (Maybe Integer)
+-- | The unique identifier you assigned to this job when it was created.
+jobExecutionSummary_jobId :: Lens' JobExecutionSummary (Maybe Text)
+
+-- | The time, in milliseconds since the epoch, when the job execution was
+--   last updated.
+jobExecutionSummary_lastUpdatedAt :: Lens' JobExecutionSummary (Maybe Integer)
 
 -- | The time, in milliseconds since the epoch, when the job execution was
 --   enqueued.
@@ -342,12 +345,9 @@ jobExecutionSummary_executionNumber :: Lens' JobExecutionSummary (Maybe Integer)
 --   incremented each time AWS IoT Jobs receives an update from a device.
 jobExecutionSummary_versionNumber :: Lens' JobExecutionSummary (Maybe Integer)
 
--- | The unique identifier you assigned to this job when it was created.
-jobExecutionSummary_jobId :: Lens' JobExecutionSummary (Maybe Text)
-
--- | The time, in milliseconds since the epoch, when the job execution was
---   last updated.
-jobExecutionSummary_lastUpdatedAt :: Lens' JobExecutionSummary (Maybe Integer)
+-- | The time, in milliseconds since the epoch, when the job execution
+--   started.
+jobExecutionSummary_startedAt :: Lens' JobExecutionSummary (Maybe Integer)
 instance GHC.Generics.Generic Network.AWS.IoTJobsData.Types.JobExecutionSummary.JobExecutionSummary
 instance GHC.Show.Show Network.AWS.IoTJobsData.Types.JobExecutionSummary.JobExecutionSummary
 instance GHC.Read.Read Network.AWS.IoTJobsData.Types.JobExecutionSummary.JobExecutionSummary
@@ -366,22 +366,19 @@ defaultService :: Service
 -- | The job is in a terminal state.
 _TerminalStateException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The certificate is invalid.
-_CertificateValidationException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The service is temporarily unavailable.
-_ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The rate exceeds the limit.
-_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | The contents of the request were invalid. For example, this code is
 --   returned when an UpdateJobExecution request contains invalid status
 --   details. The message contains details about the error.
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The specified resource does not exist.
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The certificate is invalid.
+_CertificateValidationException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The rate exceeds the limit.
+_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The service is temporarily unavailable.
+_ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | An update attempted to change the job execution to a state that is
 --   invalid because of the job execution's current state (for example, an
@@ -389,6 +386,9 @@ _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a Servic
 --   this case, the body of the error message also contains the
 --   executionState field.
 _InvalidStateTransitionException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The specified resource does not exist.
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 newtype JobExecutionStatus
 JobExecutionStatus' :: Text -> JobExecutionStatus
 [fromJobExecutionStatus] :: JobExecutionStatus -> Text
@@ -405,27 +405,34 @@ pattern JobExecutionStatus_TIMED_OUT :: JobExecutionStatus
 --   
 --   <i>See:</i> <a>newJobExecution</a> smart constructor.
 data JobExecution
-JobExecution' :: Maybe Integer -> Maybe JobExecutionStatus -> Maybe (HashMap Text Text) -> Maybe Text -> Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Text -> Maybe Integer -> Maybe Text -> Maybe Integer -> JobExecution
-
--- | The time, in milliseconds since the epoch, when the job execution was
---   started.
-[$sel:startedAt:JobExecution'] :: JobExecution -> Maybe Integer
+JobExecution' :: Maybe JobExecutionStatus -> Maybe Text -> Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Text -> Maybe (HashMap Text Text) -> Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Text -> JobExecution
 
 -- | The status of the job execution. Can be one of: "QUEUED",
 --   "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or
 --   "REMOVED".
 [$sel:status:JobExecution'] :: JobExecution -> Maybe JobExecutionStatus
 
--- | A collection of name/value pairs that describe the status of the job
---   execution.
-[$sel:statusDetails:JobExecution'] :: JobExecution -> Maybe (HashMap Text Text)
+-- | The unique identifier you assigned to this job when it was created.
+[$sel:jobId:JobExecution'] :: JobExecution -> Maybe Text
 
--- | The name of the thing that is executing the job.
-[$sel:thingName:JobExecution'] :: JobExecution -> Maybe Text
+-- | The time, in milliseconds since the epoch, when the job execution was
+--   last updated.
+[$sel:lastUpdatedAt:JobExecution'] :: JobExecution -> Maybe Integer
+
+-- | The estimated number of seconds that remain before the job execution
+--   status will be changed to <tt>TIMED_OUT</tt>.
+[$sel:approximateSecondsBeforeTimedOut:JobExecution'] :: JobExecution -> Maybe Integer
 
 -- | The time, in milliseconds since the epoch, when the job execution was
 --   enqueued.
 [$sel:queuedAt:JobExecution'] :: JobExecution -> Maybe Integer
+
+-- | The content of the job document.
+[$sel:jobDocument:JobExecution'] :: JobExecution -> Maybe Text
+
+-- | A collection of name/value pairs that describe the status of the job
+--   execution.
+[$sel:statusDetails:JobExecution'] :: JobExecution -> Maybe (HashMap Text Text)
 
 -- | A number that identifies a particular job execution on a particular
 --   device. It can be used later in commands that return or update job
@@ -436,19 +443,12 @@ JobExecution' :: Maybe Integer -> Maybe JobExecutionStatus -> Maybe (HashMap Tex
 --   incremented each time they are updated by a device.
 [$sel:versionNumber:JobExecution'] :: JobExecution -> Maybe Integer
 
--- | The content of the job document.
-[$sel:jobDocument:JobExecution'] :: JobExecution -> Maybe Text
-
--- | The estimated number of seconds that remain before the job execution
---   status will be changed to <tt>TIMED_OUT</tt>.
-[$sel:approximateSecondsBeforeTimedOut:JobExecution'] :: JobExecution -> Maybe Integer
-
--- | The unique identifier you assigned to this job when it was created.
-[$sel:jobId:JobExecution'] :: JobExecution -> Maybe Text
-
 -- | The time, in milliseconds since the epoch, when the job execution was
---   last updated.
-[$sel:lastUpdatedAt:JobExecution'] :: JobExecution -> Maybe Integer
+--   started.
+[$sel:startedAt:JobExecution'] :: JobExecution -> Maybe Integer
+
+-- | The name of the thing that is executing the job.
+[$sel:thingName:JobExecution'] :: JobExecution -> Maybe Text
 
 -- | Create a value of <a>JobExecution</a> with all optional fields
 --   omitted.
@@ -459,24 +459,32 @@ JobExecution' :: Maybe Integer -> Maybe JobExecutionStatus -> Maybe (HashMap Tex
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:startedAt:JobExecution'</a>, <a>jobExecution_startedAt</a> -
---   The time, in milliseconds since the epoch, when the job execution was
---   started.
---   
 --   <a>$sel:status:JobExecution'</a>, <a>jobExecution_status</a> - The
 --   status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS",
 --   "FAILED", "SUCCESS", "CANCELED", "REJECTED", or "REMOVED".
 --   
---   <a>$sel:statusDetails:JobExecution'</a>,
---   <a>jobExecution_statusDetails</a> - A collection of name/value pairs
---   that describe the status of the job execution.
+--   <a>$sel:jobId:JobExecution'</a>, <a>jobExecution_jobId</a> - The
+--   unique identifier you assigned to this job when it was created.
 --   
---   <a>$sel:thingName:JobExecution'</a>, <a>jobExecution_thingName</a> -
---   The name of the thing that is executing the job.
+--   <a>$sel:lastUpdatedAt:JobExecution'</a>,
+--   <a>jobExecution_lastUpdatedAt</a> - The time, in milliseconds since
+--   the epoch, when the job execution was last updated.
+--   
+--   <a>$sel:approximateSecondsBeforeTimedOut:JobExecution'</a>,
+--   <a>jobExecution_approximateSecondsBeforeTimedOut</a> - The estimated
+--   number of seconds that remain before the job execution status will be
+--   changed to <tt>TIMED_OUT</tt>.
 --   
 --   <a>$sel:queuedAt:JobExecution'</a>, <a>jobExecution_queuedAt</a> - The
 --   time, in milliseconds since the epoch, when the job execution was
 --   enqueued.
+--   
+--   <a>$sel:jobDocument:JobExecution'</a>, <a>jobExecution_jobDocument</a>
+--   - The content of the job document.
+--   
+--   <a>$sel:statusDetails:JobExecution'</a>,
+--   <a>jobExecution_statusDetails</a> - A collection of name/value pairs
+--   that describe the status of the job execution.
 --   
 --   <a>$sel:executionNumber:JobExecution'</a>,
 --   <a>jobExecution_executionNumber</a> - A number that identifies a
@@ -488,41 +496,40 @@ JobExecution' :: Maybe Integer -> Maybe JobExecutionStatus -> Maybe (HashMap Tex
 --   Job execution versions are incremented each time they are updated by a
 --   device.
 --   
---   <a>$sel:jobDocument:JobExecution'</a>, <a>jobExecution_jobDocument</a>
---   - The content of the job document.
---   
---   <a>$sel:approximateSecondsBeforeTimedOut:JobExecution'</a>,
---   <a>jobExecution_approximateSecondsBeforeTimedOut</a> - The estimated
---   number of seconds that remain before the job execution status will be
---   changed to <tt>TIMED_OUT</tt>.
---   
---   <a>$sel:jobId:JobExecution'</a>, <a>jobExecution_jobId</a> - The
---   unique identifier you assigned to this job when it was created.
---   
---   <a>$sel:lastUpdatedAt:JobExecution'</a>,
---   <a>jobExecution_lastUpdatedAt</a> - The time, in milliseconds since
---   the epoch, when the job execution was last updated.
-newJobExecution :: JobExecution
-
--- | The time, in milliseconds since the epoch, when the job execution was
+--   <a>$sel:startedAt:JobExecution'</a>, <a>jobExecution_startedAt</a> -
+--   The time, in milliseconds since the epoch, when the job execution was
 --   started.
-jobExecution_startedAt :: Lens' JobExecution (Maybe Integer)
+--   
+--   <a>$sel:thingName:JobExecution'</a>, <a>jobExecution_thingName</a> -
+--   The name of the thing that is executing the job.
+newJobExecution :: JobExecution
 
 -- | The status of the job execution. Can be one of: "QUEUED",
 --   "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or
 --   "REMOVED".
 jobExecution_status :: Lens' JobExecution (Maybe JobExecutionStatus)
 
--- | A collection of name/value pairs that describe the status of the job
---   execution.
-jobExecution_statusDetails :: Lens' JobExecution (Maybe (HashMap Text Text))
+-- | The unique identifier you assigned to this job when it was created.
+jobExecution_jobId :: Lens' JobExecution (Maybe Text)
 
--- | The name of the thing that is executing the job.
-jobExecution_thingName :: Lens' JobExecution (Maybe Text)
+-- | The time, in milliseconds since the epoch, when the job execution was
+--   last updated.
+jobExecution_lastUpdatedAt :: Lens' JobExecution (Maybe Integer)
+
+-- | The estimated number of seconds that remain before the job execution
+--   status will be changed to <tt>TIMED_OUT</tt>.
+jobExecution_approximateSecondsBeforeTimedOut :: Lens' JobExecution (Maybe Integer)
 
 -- | The time, in milliseconds since the epoch, when the job execution was
 --   enqueued.
 jobExecution_queuedAt :: Lens' JobExecution (Maybe Integer)
+
+-- | The content of the job document.
+jobExecution_jobDocument :: Lens' JobExecution (Maybe Text)
+
+-- | A collection of name/value pairs that describe the status of the job
+--   execution.
+jobExecution_statusDetails :: Lens' JobExecution (Maybe (HashMap Text Text))
 
 -- | A number that identifies a particular job execution on a particular
 --   device. It can be used later in commands that return or update job
@@ -533,19 +540,12 @@ jobExecution_executionNumber :: Lens' JobExecution (Maybe Integer)
 --   incremented each time they are updated by a device.
 jobExecution_versionNumber :: Lens' JobExecution (Maybe Integer)
 
--- | The content of the job document.
-jobExecution_jobDocument :: Lens' JobExecution (Maybe Text)
-
--- | The estimated number of seconds that remain before the job execution
---   status will be changed to <tt>TIMED_OUT</tt>.
-jobExecution_approximateSecondsBeforeTimedOut :: Lens' JobExecution (Maybe Integer)
-
--- | The unique identifier you assigned to this job when it was created.
-jobExecution_jobId :: Lens' JobExecution (Maybe Text)
-
 -- | The time, in milliseconds since the epoch, when the job execution was
---   last updated.
-jobExecution_lastUpdatedAt :: Lens' JobExecution (Maybe Integer)
+--   started.
+jobExecution_startedAt :: Lens' JobExecution (Maybe Integer)
+
+-- | The name of the thing that is executing the job.
+jobExecution_thingName :: Lens' JobExecution (Maybe Text)
 
 -- | Contains data about the state of a job execution.
 --   
@@ -607,11 +607,14 @@ jobExecutionState_versionNumber :: Lens' JobExecutionState (Maybe Integer)
 --   
 --   <i>See:</i> <a>newJobExecutionSummary</a> smart constructor.
 data JobExecutionSummary
-JobExecutionSummary' :: Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Text -> Maybe Integer -> JobExecutionSummary
+JobExecutionSummary' :: Maybe Text -> Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Integer -> JobExecutionSummary
 
--- | The time, in milliseconds since the epoch, when the job execution
---   started.
-[$sel:startedAt:JobExecutionSummary'] :: JobExecutionSummary -> Maybe Integer
+-- | The unique identifier you assigned to this job when it was created.
+[$sel:jobId:JobExecutionSummary'] :: JobExecutionSummary -> Maybe Text
+
+-- | The time, in milliseconds since the epoch, when the job execution was
+--   last updated.
+[$sel:lastUpdatedAt:JobExecutionSummary'] :: JobExecutionSummary -> Maybe Integer
 
 -- | The time, in milliseconds since the epoch, when the job execution was
 --   enqueued.
@@ -625,12 +628,9 @@ JobExecutionSummary' :: Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe
 --   incremented each time AWS IoT Jobs receives an update from a device.
 [$sel:versionNumber:JobExecutionSummary'] :: JobExecutionSummary -> Maybe Integer
 
--- | The unique identifier you assigned to this job when it was created.
-[$sel:jobId:JobExecutionSummary'] :: JobExecutionSummary -> Maybe Text
-
--- | The time, in milliseconds since the epoch, when the job execution was
---   last updated.
-[$sel:lastUpdatedAt:JobExecutionSummary'] :: JobExecutionSummary -> Maybe Integer
+-- | The time, in milliseconds since the epoch, when the job execution
+--   started.
+[$sel:startedAt:JobExecutionSummary'] :: JobExecutionSummary -> Maybe Integer
 
 -- | Create a value of <a>JobExecutionSummary</a> with all optional fields
 --   omitted.
@@ -641,9 +641,13 @@ JobExecutionSummary' :: Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:startedAt:JobExecutionSummary'</a>,
---   <a>jobExecutionSummary_startedAt</a> - The time, in milliseconds since
---   the epoch, when the job execution started.
+--   <a>$sel:jobId:JobExecutionSummary'</a>,
+--   <a>jobExecutionSummary_jobId</a> - The unique identifier you assigned
+--   to this job when it was created.
+--   
+--   <a>$sel:lastUpdatedAt:JobExecutionSummary'</a>,
+--   <a>jobExecutionSummary_lastUpdatedAt</a> - The time, in milliseconds
+--   since the epoch, when the job execution was last updated.
 --   
 --   <a>$sel:queuedAt:JobExecutionSummary'</a>,
 --   <a>jobExecutionSummary_queuedAt</a> - The time, in milliseconds since
@@ -658,18 +662,17 @@ JobExecutionSummary' :: Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe
 --   execution. Job execution versions are incremented each time AWS IoT
 --   Jobs receives an update from a device.
 --   
---   <a>$sel:jobId:JobExecutionSummary'</a>,
---   <a>jobExecutionSummary_jobId</a> - The unique identifier you assigned
---   to this job when it was created.
---   
---   <a>$sel:lastUpdatedAt:JobExecutionSummary'</a>,
---   <a>jobExecutionSummary_lastUpdatedAt</a> - The time, in milliseconds
---   since the epoch, when the job execution was last updated.
+--   <a>$sel:startedAt:JobExecutionSummary'</a>,
+--   <a>jobExecutionSummary_startedAt</a> - The time, in milliseconds since
+--   the epoch, when the job execution started.
 newJobExecutionSummary :: JobExecutionSummary
 
--- | The time, in milliseconds since the epoch, when the job execution
---   started.
-jobExecutionSummary_startedAt :: Lens' JobExecutionSummary (Maybe Integer)
+-- | The unique identifier you assigned to this job when it was created.
+jobExecutionSummary_jobId :: Lens' JobExecutionSummary (Maybe Text)
+
+-- | The time, in milliseconds since the epoch, when the job execution was
+--   last updated.
+jobExecutionSummary_lastUpdatedAt :: Lens' JobExecutionSummary (Maybe Integer)
 
 -- | The time, in milliseconds since the epoch, when the job execution was
 --   enqueued.
@@ -683,12 +686,9 @@ jobExecutionSummary_executionNumber :: Lens' JobExecutionSummary (Maybe Integer)
 --   incremented each time AWS IoT Jobs receives an update from a device.
 jobExecutionSummary_versionNumber :: Lens' JobExecutionSummary (Maybe Integer)
 
--- | The unique identifier you assigned to this job when it was created.
-jobExecutionSummary_jobId :: Lens' JobExecutionSummary (Maybe Text)
-
--- | The time, in milliseconds since the epoch, when the job execution was
---   last updated.
-jobExecutionSummary_lastUpdatedAt :: Lens' JobExecutionSummary (Maybe Integer)
+-- | The time, in milliseconds since the epoch, when the job execution
+--   started.
+jobExecutionSummary_startedAt :: Lens' JobExecutionSummary (Maybe Integer)
 
 
 -- | Gets and starts the next pending (status IN_PROGRESS or QUEUED) job
@@ -697,11 +697,7 @@ module Network.AWS.IoTJobsData.StartNextPendingJobExecution
 
 -- | <i>See:</i> <a>newStartNextPendingJobExecution</a> smart constructor.
 data StartNextPendingJobExecution
-StartNextPendingJobExecution' :: Maybe (HashMap Text Text) -> Maybe Integer -> Text -> StartNextPendingJobExecution
-
--- | A collection of name/value pairs that describe the status of the job
---   execution. If not specified, the statusDetails are unchanged.
-[$sel:statusDetails:StartNextPendingJobExecution'] :: StartNextPendingJobExecution -> Maybe (HashMap Text Text)
+StartNextPendingJobExecution' :: Maybe Integer -> Maybe (HashMap Text Text) -> Text -> StartNextPendingJobExecution
 
 -- | Specifies the amount of time this device has to finish execution of
 --   this job. If the job execution status is not set to a terminal state
@@ -715,6 +711,10 @@ StartNextPendingJobExecution' :: Maybe (HashMap Text Text) -> Maybe Integer -> T
 --   field <tt>timeoutConfig</tt>).
 [$sel:stepTimeoutInMinutes:StartNextPendingJobExecution'] :: StartNextPendingJobExecution -> Maybe Integer
 
+-- | A collection of name/value pairs that describe the status of the job
+--   execution. If not specified, the statusDetails are unchanged.
+[$sel:statusDetails:StartNextPendingJobExecution'] :: StartNextPendingJobExecution -> Maybe (HashMap Text Text)
+
 -- | The name of the thing associated with the device.
 [$sel:thingName:StartNextPendingJobExecution'] :: StartNextPendingJobExecution -> Text
 
@@ -726,11 +726,6 @@ StartNextPendingJobExecution' :: Maybe (HashMap Text Text) -> Maybe Integer -> T
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
---   
---   <a>$sel:statusDetails:StartNextPendingJobExecution'</a>,
---   <a>startNextPendingJobExecution_statusDetails</a> - A collection of
---   name/value pairs that describe the status of the job execution. If not
---   specified, the statusDetails are unchanged.
 --   
 --   <a>$sel:stepTimeoutInMinutes:StartNextPendingJobExecution'</a>,
 --   <a>startNextPendingJobExecution_stepTimeoutInMinutes</a> - Specifies
@@ -745,14 +740,15 @@ StartNextPendingJobExecution' :: Maybe (HashMap Text Text) -> Maybe Integer -> T
 --   been specified when the job was created (<tt>CreateJob</tt> using
 --   field <tt>timeoutConfig</tt>).
 --   
+--   <a>$sel:statusDetails:StartNextPendingJobExecution'</a>,
+--   <a>startNextPendingJobExecution_statusDetails</a> - A collection of
+--   name/value pairs that describe the status of the job execution. If not
+--   specified, the statusDetails are unchanged.
+--   
 --   <a>$sel:thingName:StartNextPendingJobExecution'</a>,
 --   <a>startNextPendingJobExecution_thingName</a> - The name of the thing
 --   associated with the device.
 newStartNextPendingJobExecution :: Text -> StartNextPendingJobExecution
-
--- | A collection of name/value pairs that describe the status of the job
---   execution. If not specified, the statusDetails are unchanged.
-startNextPendingJobExecution_statusDetails :: Lens' StartNextPendingJobExecution (Maybe (HashMap Text Text))
 
 -- | Specifies the amount of time this device has to finish execution of
 --   this job. If the job execution status is not set to a terminal state
@@ -765,6 +761,10 @@ startNextPendingJobExecution_statusDetails :: Lens' StartNextPendingJobExecution
 --   been specified when the job was created (<tt>CreateJob</tt> using
 --   field <tt>timeoutConfig</tt>).
 startNextPendingJobExecution_stepTimeoutInMinutes :: Lens' StartNextPendingJobExecution (Maybe Integer)
+
+-- | A collection of name/value pairs that describe the status of the job
+--   execution. If not specified, the statusDetails are unchanged.
+startNextPendingJobExecution_statusDetails :: Lens' StartNextPendingJobExecution (Maybe (HashMap Text Text))
 
 -- | The name of the thing associated with the device.
 startNextPendingJobExecution_thingName :: Lens' StartNextPendingJobExecution Text
@@ -1031,28 +1031,11 @@ module Network.AWS.IoTJobsData.UpdateJobExecution
 
 -- | <i>See:</i> <a>newUpdateJobExecution</a> smart constructor.
 data UpdateJobExecution
-UpdateJobExecution' :: Maybe Bool -> Maybe Integer -> Maybe Bool -> Maybe (HashMap Text Text) -> Maybe Integer -> Maybe Integer -> Text -> Text -> JobExecutionStatus -> UpdateJobExecution
+UpdateJobExecution' :: Maybe Bool -> Maybe Integer -> Maybe (HashMap Text Text) -> Maybe Integer -> Maybe Integer -> Maybe Bool -> Text -> Text -> JobExecutionStatus -> UpdateJobExecution
 
 -- | Optional. When set to true, the response contains the job document.
 --   The default is false.
 [$sel:includeJobDocument:UpdateJobExecution'] :: UpdateJobExecution -> Maybe Bool
-
--- | Optional. The expected current version of the job execution. Each time
---   you update the job execution, its version is incremented. If the
---   version of the job execution stored in Jobs does not match, the update
---   is rejected with a VersionMismatch error, and an ErrorResponse that
---   contains the current job execution status data is returned. (This
---   makes it unnecessary to perform a separate DescribeJobExecution
---   request in order to obtain the job execution status data.)
-[$sel:expectedVersion:UpdateJobExecution'] :: UpdateJobExecution -> Maybe Integer
-
--- | Optional. When included and set to true, the response contains the
---   JobExecutionState data. The default is false.
-[$sel:includeJobExecutionState:UpdateJobExecution'] :: UpdateJobExecution -> Maybe Bool
-
--- | Optional. A collection of name/value pairs that describe the status of
---   the job execution. If not specified, the statusDetails are unchanged.
-[$sel:statusDetails:UpdateJobExecution'] :: UpdateJobExecution -> Maybe (HashMap Text Text)
 
 -- | Specifies the amount of time this device has to finish execution of
 --   this job. If the job execution status is not set to a terminal state
@@ -1066,9 +1049,26 @@ UpdateJobExecution' :: Maybe Bool -> Maybe Integer -> Maybe Bool -> Maybe (HashM
 --   <tt>timeoutConfig</tt>).
 [$sel:stepTimeoutInMinutes:UpdateJobExecution'] :: UpdateJobExecution -> Maybe Integer
 
+-- | Optional. A collection of name/value pairs that describe the status of
+--   the job execution. If not specified, the statusDetails are unchanged.
+[$sel:statusDetails:UpdateJobExecution'] :: UpdateJobExecution -> Maybe (HashMap Text Text)
+
 -- | Optional. A number that identifies a particular job execution on a
 --   particular device.
 [$sel:executionNumber:UpdateJobExecution'] :: UpdateJobExecution -> Maybe Integer
+
+-- | Optional. The expected current version of the job execution. Each time
+--   you update the job execution, its version is incremented. If the
+--   version of the job execution stored in Jobs does not match, the update
+--   is rejected with a VersionMismatch error, and an ErrorResponse that
+--   contains the current job execution status data is returned. (This
+--   makes it unnecessary to perform a separate DescribeJobExecution
+--   request in order to obtain the job execution status data.)
+[$sel:expectedVersion:UpdateJobExecution'] :: UpdateJobExecution -> Maybe Integer
+
+-- | Optional. When included and set to true, the response contains the
+--   JobExecutionState data. The default is false.
+[$sel:includeJobExecutionState:UpdateJobExecution'] :: UpdateJobExecution -> Maybe Bool
 
 -- | The unique identifier assigned to this job when it was created.
 [$sel:jobId:UpdateJobExecution'] :: UpdateJobExecution -> Text
@@ -1093,6 +1093,28 @@ UpdateJobExecution' :: Maybe Bool -> Maybe Integer -> Maybe Bool -> Maybe (HashM
 --   <a>updateJobExecution_includeJobDocument</a> - Optional. When set to
 --   true, the response contains the job document. The default is false.
 --   
+--   <a>$sel:stepTimeoutInMinutes:UpdateJobExecution'</a>,
+--   <a>updateJobExecution_stepTimeoutInMinutes</a> - Specifies the amount
+--   of time this device has to finish execution of this job. If the job
+--   execution status is not set to a terminal state before this timer
+--   expires, or before the timer is reset (by again calling
+--   <tt>UpdateJobExecution</tt>, setting the status to
+--   <tt>IN_PROGRESS</tt> and specifying a new timeout value in this field)
+--   the job execution status will be automatically set to
+--   <tt>TIMED_OUT</tt>. Note that setting or resetting this timeout has no
+--   effect on that job execution timeout which may have been specified
+--   when the job was created (<tt>CreateJob</tt> using field
+--   <tt>timeoutConfig</tt>).
+--   
+--   <a>$sel:statusDetails:UpdateJobExecution'</a>,
+--   <a>updateJobExecution_statusDetails</a> - Optional. A collection of
+--   name/value pairs that describe the status of the job execution. If not
+--   specified, the statusDetails are unchanged.
+--   
+--   <a>$sel:executionNumber:UpdateJobExecution'</a>,
+--   <a>updateJobExecution_executionNumber</a> - Optional. A number that
+--   identifies a particular job execution on a particular device.
+--   
 --   <a>$sel:expectedVersion:UpdateJobExecution'</a>,
 --   <a>updateJobExecution_expectedVersion</a> - Optional. The expected
 --   current version of the job execution. Each time you update the job
@@ -1107,28 +1129,6 @@ UpdateJobExecution' :: Maybe Bool -> Maybe Integer -> Maybe Bool -> Maybe (HashM
 --   <a>updateJobExecution_includeJobExecutionState</a> - Optional. When
 --   included and set to true, the response contains the JobExecutionState
 --   data. The default is false.
---   
---   <a>$sel:statusDetails:UpdateJobExecution'</a>,
---   <a>updateJobExecution_statusDetails</a> - Optional. A collection of
---   name/value pairs that describe the status of the job execution. If not
---   specified, the statusDetails are unchanged.
---   
---   <a>$sel:stepTimeoutInMinutes:UpdateJobExecution'</a>,
---   <a>updateJobExecution_stepTimeoutInMinutes</a> - Specifies the amount
---   of time this device has to finish execution of this job. If the job
---   execution status is not set to a terminal state before this timer
---   expires, or before the timer is reset (by again calling
---   <tt>UpdateJobExecution</tt>, setting the status to
---   <tt>IN_PROGRESS</tt> and specifying a new timeout value in this field)
---   the job execution status will be automatically set to
---   <tt>TIMED_OUT</tt>. Note that setting or resetting this timeout has no
---   effect on that job execution timeout which may have been specified
---   when the job was created (<tt>CreateJob</tt> using field
---   <tt>timeoutConfig</tt>).
---   
---   <a>$sel:executionNumber:UpdateJobExecution'</a>,
---   <a>updateJobExecution_executionNumber</a> - Optional. A number that
---   identifies a particular job execution on a particular device.
 --   
 --   <a>$sel:jobId:UpdateJobExecution'</a>, <a>updateJobExecution_jobId</a>
 --   - The unique identifier assigned to this job when it was created.
@@ -1147,6 +1147,26 @@ newUpdateJobExecution :: Text -> Text -> JobExecutionStatus -> UpdateJobExecutio
 --   The default is false.
 updateJobExecution_includeJobDocument :: Lens' UpdateJobExecution (Maybe Bool)
 
+-- | Specifies the amount of time this device has to finish execution of
+--   this job. If the job execution status is not set to a terminal state
+--   before this timer expires, or before the timer is reset (by again
+--   calling <tt>UpdateJobExecution</tt>, setting the status to
+--   <tt>IN_PROGRESS</tt> and specifying a new timeout value in this field)
+--   the job execution status will be automatically set to
+--   <tt>TIMED_OUT</tt>. Note that setting or resetting this timeout has no
+--   effect on that job execution timeout which may have been specified
+--   when the job was created (<tt>CreateJob</tt> using field
+--   <tt>timeoutConfig</tt>).
+updateJobExecution_stepTimeoutInMinutes :: Lens' UpdateJobExecution (Maybe Integer)
+
+-- | Optional. A collection of name/value pairs that describe the status of
+--   the job execution. If not specified, the statusDetails are unchanged.
+updateJobExecution_statusDetails :: Lens' UpdateJobExecution (Maybe (HashMap Text Text))
+
+-- | Optional. A number that identifies a particular job execution on a
+--   particular device.
+updateJobExecution_executionNumber :: Lens' UpdateJobExecution (Maybe Integer)
+
 -- | Optional. The expected current version of the job execution. Each time
 --   you update the job execution, its version is incremented. If the
 --   version of the job execution stored in Jobs does not match, the update
@@ -1160,26 +1180,6 @@ updateJobExecution_expectedVersion :: Lens' UpdateJobExecution (Maybe Integer)
 --   JobExecutionState data. The default is false.
 updateJobExecution_includeJobExecutionState :: Lens' UpdateJobExecution (Maybe Bool)
 
--- | Optional. A collection of name/value pairs that describe the status of
---   the job execution. If not specified, the statusDetails are unchanged.
-updateJobExecution_statusDetails :: Lens' UpdateJobExecution (Maybe (HashMap Text Text))
-
--- | Specifies the amount of time this device has to finish execution of
---   this job. If the job execution status is not set to a terminal state
---   before this timer expires, or before the timer is reset (by again
---   calling <tt>UpdateJobExecution</tt>, setting the status to
---   <tt>IN_PROGRESS</tt> and specifying a new timeout value in this field)
---   the job execution status will be automatically set to
---   <tt>TIMED_OUT</tt>. Note that setting or resetting this timeout has no
---   effect on that job execution timeout which may have been specified
---   when the job was created (<tt>CreateJob</tt> using field
---   <tt>timeoutConfig</tt>).
-updateJobExecution_stepTimeoutInMinutes :: Lens' UpdateJobExecution (Maybe Integer)
-
--- | Optional. A number that identifies a particular job execution on a
---   particular device.
-updateJobExecution_executionNumber :: Lens' UpdateJobExecution (Maybe Integer)
-
 -- | The unique identifier assigned to this job when it was created.
 updateJobExecution_jobId :: Lens' UpdateJobExecution Text
 
@@ -1192,13 +1192,13 @@ updateJobExecution_status :: Lens' UpdateJobExecution JobExecutionStatus
 
 -- | <i>See:</i> <a>newUpdateJobExecutionResponse</a> smart constructor.
 data UpdateJobExecutionResponse
-UpdateJobExecutionResponse' :: Maybe JobExecutionState -> Maybe Text -> Int -> UpdateJobExecutionResponse
-
--- | A JobExecutionState object.
-[$sel:executionState:UpdateJobExecutionResponse'] :: UpdateJobExecutionResponse -> Maybe JobExecutionState
+UpdateJobExecutionResponse' :: Maybe Text -> Maybe JobExecutionState -> Int -> UpdateJobExecutionResponse
 
 -- | The contents of the Job Documents.
 [$sel:jobDocument:UpdateJobExecutionResponse'] :: UpdateJobExecutionResponse -> Maybe Text
+
+-- | A JobExecutionState object.
+[$sel:executionState:UpdateJobExecutionResponse'] :: UpdateJobExecutionResponse -> Maybe JobExecutionState
 
 -- | The response's http status code.
 [$sel:httpStatus:UpdateJobExecutionResponse'] :: UpdateJobExecutionResponse -> Int
@@ -1212,24 +1212,24 @@ UpdateJobExecutionResponse' :: Maybe JobExecutionState -> Maybe Text -> Int -> U
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:executionState:UpdateJobExecutionResponse'</a>,
---   <a>updateJobExecutionResponse_executionState</a> - A JobExecutionState
---   object.
---   
 --   <a>$sel:jobDocument:UpdateJobExecutionResponse'</a>,
 --   <a>updateJobExecutionResponse_jobDocument</a> - The contents of the
 --   Job Documents.
+--   
+--   <a>$sel:executionState:UpdateJobExecutionResponse'</a>,
+--   <a>updateJobExecutionResponse_executionState</a> - A JobExecutionState
+--   object.
 --   
 --   <a>$sel:httpStatus:UpdateJobExecutionResponse'</a>,
 --   <a>updateJobExecutionResponse_httpStatus</a> - The response's http
 --   status code.
 newUpdateJobExecutionResponse :: Int -> UpdateJobExecutionResponse
 
--- | A JobExecutionState object.
-updateJobExecutionResponse_executionState :: Lens' UpdateJobExecutionResponse (Maybe JobExecutionState)
-
 -- | The contents of the Job Documents.
 updateJobExecutionResponse_jobDocument :: Lens' UpdateJobExecutionResponse (Maybe Text)
+
+-- | A JobExecutionState object.
+updateJobExecutionResponse_executionState :: Lens' UpdateJobExecutionResponse (Maybe JobExecutionState)
 
 -- | The response's http status code.
 updateJobExecutionResponse_httpStatus :: Lens' UpdateJobExecutionResponse Int
@@ -1253,21 +1253,29 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IoTJobsData.UpdateJobExecuti
 
 module Network.AWS.IoTJobsData.Lens
 
--- | The name of the thing that is executing the job.
-getPendingJobExecutions_thingName :: Lens' GetPendingJobExecutions Text
-
--- | A list of JobExecutionSummary objects with status IN_PROGRESS.
-getPendingJobExecutionsResponse_inProgressJobs :: Lens' GetPendingJobExecutionsResponse (Maybe [JobExecutionSummary])
-
--- | A list of JobExecutionSummary objects with status QUEUED.
-getPendingJobExecutionsResponse_queuedJobs :: Lens' GetPendingJobExecutionsResponse (Maybe [JobExecutionSummary])
-
--- | The response's http status code.
-getPendingJobExecutionsResponse_httpStatus :: Lens' GetPendingJobExecutionsResponse Int
-
 -- | Optional. When set to true, the response contains the job document.
 --   The default is false.
 updateJobExecution_includeJobDocument :: Lens' UpdateJobExecution (Maybe Bool)
+
+-- | Specifies the amount of time this device has to finish execution of
+--   this job. If the job execution status is not set to a terminal state
+--   before this timer expires, or before the timer is reset (by again
+--   calling <tt>UpdateJobExecution</tt>, setting the status to
+--   <tt>IN_PROGRESS</tt> and specifying a new timeout value in this field)
+--   the job execution status will be automatically set to
+--   <tt>TIMED_OUT</tt>. Note that setting or resetting this timeout has no
+--   effect on that job execution timeout which may have been specified
+--   when the job was created (<tt>CreateJob</tt> using field
+--   <tt>timeoutConfig</tt>).
+updateJobExecution_stepTimeoutInMinutes :: Lens' UpdateJobExecution (Maybe Integer)
+
+-- | Optional. A collection of name/value pairs that describe the status of
+--   the job execution. If not specified, the statusDetails are unchanged.
+updateJobExecution_statusDetails :: Lens' UpdateJobExecution (Maybe (HashMap Text Text))
+
+-- | Optional. A number that identifies a particular job execution on a
+--   particular device.
+updateJobExecution_executionNumber :: Lens' UpdateJobExecution (Maybe Integer)
 
 -- | Optional. The expected current version of the job execution. Each time
 --   you update the job execution, its version is incremented. If the
@@ -1282,26 +1290,6 @@ updateJobExecution_expectedVersion :: Lens' UpdateJobExecution (Maybe Integer)
 --   JobExecutionState data. The default is false.
 updateJobExecution_includeJobExecutionState :: Lens' UpdateJobExecution (Maybe Bool)
 
--- | Optional. A collection of name/value pairs that describe the status of
---   the job execution. If not specified, the statusDetails are unchanged.
-updateJobExecution_statusDetails :: Lens' UpdateJobExecution (Maybe (HashMap Text Text))
-
--- | Specifies the amount of time this device has to finish execution of
---   this job. If the job execution status is not set to a terminal state
---   before this timer expires, or before the timer is reset (by again
---   calling <tt>UpdateJobExecution</tt>, setting the status to
---   <tt>IN_PROGRESS</tt> and specifying a new timeout value in this field)
---   the job execution status will be automatically set to
---   <tt>TIMED_OUT</tt>. Note that setting or resetting this timeout has no
---   effect on that job execution timeout which may have been specified
---   when the job was created (<tt>CreateJob</tt> using field
---   <tt>timeoutConfig</tt>).
-updateJobExecution_stepTimeoutInMinutes :: Lens' UpdateJobExecution (Maybe Integer)
-
--- | Optional. A number that identifies a particular job execution on a
---   particular device.
-updateJobExecution_executionNumber :: Lens' UpdateJobExecution (Maybe Integer)
-
 -- | The unique identifier assigned to this job when it was created.
 updateJobExecution_jobId :: Lens' UpdateJobExecution Text
 
@@ -1312,14 +1300,39 @@ updateJobExecution_thingName :: Lens' UpdateJobExecution Text
 --   REJECTED). This must be specified on every update.
 updateJobExecution_status :: Lens' UpdateJobExecution JobExecutionStatus
 
--- | A JobExecutionState object.
-updateJobExecutionResponse_executionState :: Lens' UpdateJobExecutionResponse (Maybe JobExecutionState)
-
 -- | The contents of the Job Documents.
 updateJobExecutionResponse_jobDocument :: Lens' UpdateJobExecutionResponse (Maybe Text)
 
+-- | A JobExecutionState object.
+updateJobExecutionResponse_executionState :: Lens' UpdateJobExecutionResponse (Maybe JobExecutionState)
+
 -- | The response's http status code.
 updateJobExecutionResponse_httpStatus :: Lens' UpdateJobExecutionResponse Int
+
+-- | Specifies the amount of time this device has to finish execution of
+--   this job. If the job execution status is not set to a terminal state
+--   before this timer expires, or before the timer is reset (by calling
+--   <tt>UpdateJobExecution</tt>, setting the status to
+--   <tt>IN_PROGRESS</tt> and specifying a new timeout value in field
+--   <tt>stepTimeoutInMinutes</tt>) the job execution status will be
+--   automatically set to <tt>TIMED_OUT</tt>. Note that setting this
+--   timeout has no effect on that job execution timeout which may have
+--   been specified when the job was created (<tt>CreateJob</tt> using
+--   field <tt>timeoutConfig</tt>).
+startNextPendingJobExecution_stepTimeoutInMinutes :: Lens' StartNextPendingJobExecution (Maybe Integer)
+
+-- | A collection of name/value pairs that describe the status of the job
+--   execution. If not specified, the statusDetails are unchanged.
+startNextPendingJobExecution_statusDetails :: Lens' StartNextPendingJobExecution (Maybe (HashMap Text Text))
+
+-- | The name of the thing associated with the device.
+startNextPendingJobExecution_thingName :: Lens' StartNextPendingJobExecution Text
+
+-- | A JobExecution object.
+startNextPendingJobExecutionResponse_execution :: Lens' StartNextPendingJobExecutionResponse (Maybe JobExecution)
+
+-- | The response's http status code.
+startNextPendingJobExecutionResponse_httpStatus :: Lens' StartNextPendingJobExecutionResponse Int
 
 -- | Optional. When set to true, the response contains the job document.
 --   The default is false.
@@ -1343,50 +1356,44 @@ describeJobExecutionResponse_execution :: Lens' DescribeJobExecutionResponse (Ma
 -- | The response's http status code.
 describeJobExecutionResponse_httpStatus :: Lens' DescribeJobExecutionResponse Int
 
--- | A collection of name/value pairs that describe the status of the job
---   execution. If not specified, the statusDetails are unchanged.
-startNextPendingJobExecution_statusDetails :: Lens' StartNextPendingJobExecution (Maybe (HashMap Text Text))
+-- | The name of the thing that is executing the job.
+getPendingJobExecutions_thingName :: Lens' GetPendingJobExecutions Text
 
--- | Specifies the amount of time this device has to finish execution of
---   this job. If the job execution status is not set to a terminal state
---   before this timer expires, or before the timer is reset (by calling
---   <tt>UpdateJobExecution</tt>, setting the status to
---   <tt>IN_PROGRESS</tt> and specifying a new timeout value in field
---   <tt>stepTimeoutInMinutes</tt>) the job execution status will be
---   automatically set to <tt>TIMED_OUT</tt>. Note that setting this
---   timeout has no effect on that job execution timeout which may have
---   been specified when the job was created (<tt>CreateJob</tt> using
---   field <tt>timeoutConfig</tt>).
-startNextPendingJobExecution_stepTimeoutInMinutes :: Lens' StartNextPendingJobExecution (Maybe Integer)
+-- | A list of JobExecutionSummary objects with status IN_PROGRESS.
+getPendingJobExecutionsResponse_inProgressJobs :: Lens' GetPendingJobExecutionsResponse (Maybe [JobExecutionSummary])
 
--- | The name of the thing associated with the device.
-startNextPendingJobExecution_thingName :: Lens' StartNextPendingJobExecution Text
-
--- | A JobExecution object.
-startNextPendingJobExecutionResponse_execution :: Lens' StartNextPendingJobExecutionResponse (Maybe JobExecution)
+-- | A list of JobExecutionSummary objects with status QUEUED.
+getPendingJobExecutionsResponse_queuedJobs :: Lens' GetPendingJobExecutionsResponse (Maybe [JobExecutionSummary])
 
 -- | The response's http status code.
-startNextPendingJobExecutionResponse_httpStatus :: Lens' StartNextPendingJobExecutionResponse Int
-
--- | The time, in milliseconds since the epoch, when the job execution was
---   started.
-jobExecution_startedAt :: Lens' JobExecution (Maybe Integer)
+getPendingJobExecutionsResponse_httpStatus :: Lens' GetPendingJobExecutionsResponse Int
 
 -- | The status of the job execution. Can be one of: "QUEUED",
 --   "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or
 --   "REMOVED".
 jobExecution_status :: Lens' JobExecution (Maybe JobExecutionStatus)
 
--- | A collection of name/value pairs that describe the status of the job
---   execution.
-jobExecution_statusDetails :: Lens' JobExecution (Maybe (HashMap Text Text))
+-- | The unique identifier you assigned to this job when it was created.
+jobExecution_jobId :: Lens' JobExecution (Maybe Text)
 
--- | The name of the thing that is executing the job.
-jobExecution_thingName :: Lens' JobExecution (Maybe Text)
+-- | The time, in milliseconds since the epoch, when the job execution was
+--   last updated.
+jobExecution_lastUpdatedAt :: Lens' JobExecution (Maybe Integer)
+
+-- | The estimated number of seconds that remain before the job execution
+--   status will be changed to <tt>TIMED_OUT</tt>.
+jobExecution_approximateSecondsBeforeTimedOut :: Lens' JobExecution (Maybe Integer)
 
 -- | The time, in milliseconds since the epoch, when the job execution was
 --   enqueued.
 jobExecution_queuedAt :: Lens' JobExecution (Maybe Integer)
+
+-- | The content of the job document.
+jobExecution_jobDocument :: Lens' JobExecution (Maybe Text)
+
+-- | A collection of name/value pairs that describe the status of the job
+--   execution.
+jobExecution_statusDetails :: Lens' JobExecution (Maybe (HashMap Text Text))
 
 -- | A number that identifies a particular job execution on a particular
 --   device. It can be used later in commands that return or update job
@@ -1397,19 +1404,12 @@ jobExecution_executionNumber :: Lens' JobExecution (Maybe Integer)
 --   incremented each time they are updated by a device.
 jobExecution_versionNumber :: Lens' JobExecution (Maybe Integer)
 
--- | The content of the job document.
-jobExecution_jobDocument :: Lens' JobExecution (Maybe Text)
-
--- | The estimated number of seconds that remain before the job execution
---   status will be changed to <tt>TIMED_OUT</tt>.
-jobExecution_approximateSecondsBeforeTimedOut :: Lens' JobExecution (Maybe Integer)
-
--- | The unique identifier you assigned to this job when it was created.
-jobExecution_jobId :: Lens' JobExecution (Maybe Text)
-
 -- | The time, in milliseconds since the epoch, when the job execution was
---   last updated.
-jobExecution_lastUpdatedAt :: Lens' JobExecution (Maybe Integer)
+--   started.
+jobExecution_startedAt :: Lens' JobExecution (Maybe Integer)
+
+-- | The name of the thing that is executing the job.
+jobExecution_thingName :: Lens' JobExecution (Maybe Text)
 
 -- | The status of the job execution. Can be one of: "QUEUED",
 --   "IN_PROGRESS", "FAILED", "SUCCESS", "CANCELED", "REJECTED", or
@@ -1424,9 +1424,12 @@ jobExecutionState_statusDetails :: Lens' JobExecutionState (Maybe (HashMap Text 
 --   incremented each time they are updated by a device.
 jobExecutionState_versionNumber :: Lens' JobExecutionState (Maybe Integer)
 
--- | The time, in milliseconds since the epoch, when the job execution
---   started.
-jobExecutionSummary_startedAt :: Lens' JobExecutionSummary (Maybe Integer)
+-- | The unique identifier you assigned to this job when it was created.
+jobExecutionSummary_jobId :: Lens' JobExecutionSummary (Maybe Text)
+
+-- | The time, in milliseconds since the epoch, when the job execution was
+--   last updated.
+jobExecutionSummary_lastUpdatedAt :: Lens' JobExecutionSummary (Maybe Integer)
 
 -- | The time, in milliseconds since the epoch, when the job execution was
 --   enqueued.
@@ -1440,12 +1443,9 @@ jobExecutionSummary_executionNumber :: Lens' JobExecutionSummary (Maybe Integer)
 --   incremented each time AWS IoT Jobs receives an update from a device.
 jobExecutionSummary_versionNumber :: Lens' JobExecutionSummary (Maybe Integer)
 
--- | The unique identifier you assigned to this job when it was created.
-jobExecutionSummary_jobId :: Lens' JobExecutionSummary (Maybe Text)
-
--- | The time, in milliseconds since the epoch, when the job execution was
---   last updated.
-jobExecutionSummary_lastUpdatedAt :: Lens' JobExecutionSummary (Maybe Integer)
+-- | The time, in milliseconds since the epoch, when the job execution
+--   started.
+jobExecutionSummary_startedAt :: Lens' JobExecutionSummary (Maybe Integer)
 
 
 module Network.AWS.IoTJobsData.Waiters
@@ -1481,22 +1481,19 @@ defaultService :: Service
 -- | The job is in a terminal state.
 _TerminalStateException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The certificate is invalid.
-_CertificateValidationException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The service is temporarily unavailable.
-_ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The rate exceeds the limit.
-_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | The contents of the request were invalid. For example, this code is
 --   returned when an UpdateJobExecution request contains invalid status
 --   details. The message contains details about the error.
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The specified resource does not exist.
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The certificate is invalid.
+_CertificateValidationException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The rate exceeds the limit.
+_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The service is temporarily unavailable.
+_ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | An update attempted to change the job execution to a state that is
 --   invalid because of the job execution's current state (for example, an
@@ -1505,54 +1502,12 @@ _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a Servic
 --   executionState field.
 _InvalidStateTransitionException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | <i>See:</i> <a>newGetPendingJobExecutions</a> smart constructor.
-data GetPendingJobExecutions
-GetPendingJobExecutions' :: Text -> GetPendingJobExecutions
-
--- | Create a value of <a>GetPendingJobExecutions</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:thingName:GetPendingJobExecutions'</a>,
---   <a>getPendingJobExecutions_thingName</a> - The name of the thing that
---   is executing the job.
-newGetPendingJobExecutions :: Text -> GetPendingJobExecutions
-
--- | <i>See:</i> <a>newGetPendingJobExecutionsResponse</a> smart
---   constructor.
-data GetPendingJobExecutionsResponse
-GetPendingJobExecutionsResponse' :: Maybe [JobExecutionSummary] -> Maybe [JobExecutionSummary] -> Int -> GetPendingJobExecutionsResponse
-
--- | Create a value of <a>GetPendingJobExecutionsResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:inProgressJobs:GetPendingJobExecutionsResponse'</a>,
---   <a>getPendingJobExecutionsResponse_inProgressJobs</a> - A list of
---   JobExecutionSummary objects with status IN_PROGRESS.
---   
---   <a>$sel:queuedJobs:GetPendingJobExecutionsResponse'</a>,
---   <a>getPendingJobExecutionsResponse_queuedJobs</a> - A list of
---   JobExecutionSummary objects with status QUEUED.
---   
---   <a>$sel:httpStatus:GetPendingJobExecutionsResponse'</a>,
---   <a>getPendingJobExecutionsResponse_httpStatus</a> - The response's
---   http status code.
-newGetPendingJobExecutionsResponse :: Int -> GetPendingJobExecutionsResponse
+-- | The specified resource does not exist.
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | <i>See:</i> <a>newUpdateJobExecution</a> smart constructor.
 data UpdateJobExecution
-UpdateJobExecution' :: Maybe Bool -> Maybe Integer -> Maybe Bool -> Maybe (HashMap Text Text) -> Maybe Integer -> Maybe Integer -> Text -> Text -> JobExecutionStatus -> UpdateJobExecution
+UpdateJobExecution' :: Maybe Bool -> Maybe Integer -> Maybe (HashMap Text Text) -> Maybe Integer -> Maybe Integer -> Maybe Bool -> Text -> Text -> JobExecutionStatus -> UpdateJobExecution
 
 -- | Create a value of <a>UpdateJobExecution</a> with all optional fields
 --   omitted.
@@ -1566,6 +1521,28 @@ UpdateJobExecution' :: Maybe Bool -> Maybe Integer -> Maybe Bool -> Maybe (HashM
 --   <a>$sel:includeJobDocument:UpdateJobExecution'</a>,
 --   <a>updateJobExecution_includeJobDocument</a> - Optional. When set to
 --   true, the response contains the job document. The default is false.
+--   
+--   <a>$sel:stepTimeoutInMinutes:UpdateJobExecution'</a>,
+--   <a>updateJobExecution_stepTimeoutInMinutes</a> - Specifies the amount
+--   of time this device has to finish execution of this job. If the job
+--   execution status is not set to a terminal state before this timer
+--   expires, or before the timer is reset (by again calling
+--   <tt>UpdateJobExecution</tt>, setting the status to
+--   <tt>IN_PROGRESS</tt> and specifying a new timeout value in this field)
+--   the job execution status will be automatically set to
+--   <tt>TIMED_OUT</tt>. Note that setting or resetting this timeout has no
+--   effect on that job execution timeout which may have been specified
+--   when the job was created (<tt>CreateJob</tt> using field
+--   <tt>timeoutConfig</tt>).
+--   
+--   <a>$sel:statusDetails:UpdateJobExecution'</a>,
+--   <a>updateJobExecution_statusDetails</a> - Optional. A collection of
+--   name/value pairs that describe the status of the job execution. If not
+--   specified, the statusDetails are unchanged.
+--   
+--   <a>$sel:executionNumber:UpdateJobExecution'</a>,
+--   <a>updateJobExecution_executionNumber</a> - Optional. A number that
+--   identifies a particular job execution on a particular device.
 --   
 --   <a>$sel:expectedVersion:UpdateJobExecution'</a>,
 --   <a>updateJobExecution_expectedVersion</a> - Optional. The expected
@@ -1582,28 +1559,6 @@ UpdateJobExecution' :: Maybe Bool -> Maybe Integer -> Maybe Bool -> Maybe (HashM
 --   included and set to true, the response contains the JobExecutionState
 --   data. The default is false.
 --   
---   <a>$sel:statusDetails:UpdateJobExecution'</a>,
---   <a>updateJobExecution_statusDetails</a> - Optional. A collection of
---   name/value pairs that describe the status of the job execution. If not
---   specified, the statusDetails are unchanged.
---   
---   <a>$sel:stepTimeoutInMinutes:UpdateJobExecution'</a>,
---   <a>updateJobExecution_stepTimeoutInMinutes</a> - Specifies the amount
---   of time this device has to finish execution of this job. If the job
---   execution status is not set to a terminal state before this timer
---   expires, or before the timer is reset (by again calling
---   <tt>UpdateJobExecution</tt>, setting the status to
---   <tt>IN_PROGRESS</tt> and specifying a new timeout value in this field)
---   the job execution status will be automatically set to
---   <tt>TIMED_OUT</tt>. Note that setting or resetting this timeout has no
---   effect on that job execution timeout which may have been specified
---   when the job was created (<tt>CreateJob</tt> using field
---   <tt>timeoutConfig</tt>).
---   
---   <a>$sel:executionNumber:UpdateJobExecution'</a>,
---   <a>updateJobExecution_executionNumber</a> - Optional. A number that
---   identifies a particular job execution on a particular device.
---   
 --   <a>$sel:jobId:UpdateJobExecution'</a>, <a>updateJobExecution_jobId</a>
 --   - The unique identifier assigned to this job when it was created.
 --   
@@ -1619,7 +1574,7 @@ newUpdateJobExecution :: Text -> Text -> JobExecutionStatus -> UpdateJobExecutio
 
 -- | <i>See:</i> <a>newUpdateJobExecutionResponse</a> smart constructor.
 data UpdateJobExecutionResponse
-UpdateJobExecutionResponse' :: Maybe JobExecutionState -> Maybe Text -> Int -> UpdateJobExecutionResponse
+UpdateJobExecutionResponse' :: Maybe Text -> Maybe JobExecutionState -> Int -> UpdateJobExecutionResponse
 
 -- | Create a value of <a>UpdateJobExecutionResponse</a> with all optional
 --   fields omitted.
@@ -1630,18 +1585,77 @@ UpdateJobExecutionResponse' :: Maybe JobExecutionState -> Maybe Text -> Int -> U
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:executionState:UpdateJobExecutionResponse'</a>,
---   <a>updateJobExecutionResponse_executionState</a> - A JobExecutionState
---   object.
---   
 --   <a>$sel:jobDocument:UpdateJobExecutionResponse'</a>,
 --   <a>updateJobExecutionResponse_jobDocument</a> - The contents of the
 --   Job Documents.
+--   
+--   <a>$sel:executionState:UpdateJobExecutionResponse'</a>,
+--   <a>updateJobExecutionResponse_executionState</a> - A JobExecutionState
+--   object.
 --   
 --   <a>$sel:httpStatus:UpdateJobExecutionResponse'</a>,
 --   <a>updateJobExecutionResponse_httpStatus</a> - The response's http
 --   status code.
 newUpdateJobExecutionResponse :: Int -> UpdateJobExecutionResponse
+
+-- | <i>See:</i> <a>newStartNextPendingJobExecution</a> smart constructor.
+data StartNextPendingJobExecution
+StartNextPendingJobExecution' :: Maybe Integer -> Maybe (HashMap Text Text) -> Text -> StartNextPendingJobExecution
+
+-- | Create a value of <a>StartNextPendingJobExecution</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:stepTimeoutInMinutes:StartNextPendingJobExecution'</a>,
+--   <a>startNextPendingJobExecution_stepTimeoutInMinutes</a> - Specifies
+--   the amount of time this device has to finish execution of this job. If
+--   the job execution status is not set to a terminal state before this
+--   timer expires, or before the timer is reset (by calling
+--   <tt>UpdateJobExecution</tt>, setting the status to
+--   <tt>IN_PROGRESS</tt> and specifying a new timeout value in field
+--   <tt>stepTimeoutInMinutes</tt>) the job execution status will be
+--   automatically set to <tt>TIMED_OUT</tt>. Note that setting this
+--   timeout has no effect on that job execution timeout which may have
+--   been specified when the job was created (<tt>CreateJob</tt> using
+--   field <tt>timeoutConfig</tt>).
+--   
+--   <a>$sel:statusDetails:StartNextPendingJobExecution'</a>,
+--   <a>startNextPendingJobExecution_statusDetails</a> - A collection of
+--   name/value pairs that describe the status of the job execution. If not
+--   specified, the statusDetails are unchanged.
+--   
+--   <a>$sel:thingName:StartNextPendingJobExecution'</a>,
+--   <a>startNextPendingJobExecution_thingName</a> - The name of the thing
+--   associated with the device.
+newStartNextPendingJobExecution :: Text -> StartNextPendingJobExecution
+
+-- | <i>See:</i> <a>newStartNextPendingJobExecutionResponse</a> smart
+--   constructor.
+data StartNextPendingJobExecutionResponse
+StartNextPendingJobExecutionResponse' :: Maybe JobExecution -> Int -> StartNextPendingJobExecutionResponse
+
+-- | Create a value of <a>StartNextPendingJobExecutionResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:execution:StartNextPendingJobExecutionResponse'</a>,
+--   <a>startNextPendingJobExecutionResponse_execution</a> - A JobExecution
+--   object.
+--   
+--   <a>$sel:httpStatus:StartNextPendingJobExecutionResponse'</a>,
+--   <a>startNextPendingJobExecutionResponse_httpStatus</a> - The
+--   response's http status code.
+newStartNextPendingJobExecutionResponse :: Int -> StartNextPendingJobExecutionResponse
 
 -- | <i>See:</i> <a>newDescribeJobExecution</a> smart constructor.
 data DescribeJobExecution
@@ -1696,12 +1710,12 @@ DescribeJobExecutionResponse' :: Maybe JobExecution -> Int -> DescribeJobExecuti
 --   status code.
 newDescribeJobExecutionResponse :: Int -> DescribeJobExecutionResponse
 
--- | <i>See:</i> <a>newStartNextPendingJobExecution</a> smart constructor.
-data StartNextPendingJobExecution
-StartNextPendingJobExecution' :: Maybe (HashMap Text Text) -> Maybe Integer -> Text -> StartNextPendingJobExecution
+-- | <i>See:</i> <a>newGetPendingJobExecutions</a> smart constructor.
+data GetPendingJobExecutions
+GetPendingJobExecutions' :: Text -> GetPendingJobExecutions
 
--- | Create a value of <a>StartNextPendingJobExecution</a> with all
---   optional fields omitted.
+-- | Create a value of <a>GetPendingJobExecutions</a> with all optional
+--   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -1709,35 +1723,17 @@ StartNextPendingJobExecution' :: Maybe (HashMap Text Text) -> Maybe Integer -> T
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:statusDetails:StartNextPendingJobExecution'</a>,
---   <a>startNextPendingJobExecution_statusDetails</a> - A collection of
---   name/value pairs that describe the status of the job execution. If not
---   specified, the statusDetails are unchanged.
---   
---   <a>$sel:stepTimeoutInMinutes:StartNextPendingJobExecution'</a>,
---   <a>startNextPendingJobExecution_stepTimeoutInMinutes</a> - Specifies
---   the amount of time this device has to finish execution of this job. If
---   the job execution status is not set to a terminal state before this
---   timer expires, or before the timer is reset (by calling
---   <tt>UpdateJobExecution</tt>, setting the status to
---   <tt>IN_PROGRESS</tt> and specifying a new timeout value in field
---   <tt>stepTimeoutInMinutes</tt>) the job execution status will be
---   automatically set to <tt>TIMED_OUT</tt>. Note that setting this
---   timeout has no effect on that job execution timeout which may have
---   been specified when the job was created (<tt>CreateJob</tt> using
---   field <tt>timeoutConfig</tt>).
---   
---   <a>$sel:thingName:StartNextPendingJobExecution'</a>,
---   <a>startNextPendingJobExecution_thingName</a> - The name of the thing
---   associated with the device.
-newStartNextPendingJobExecution :: Text -> StartNextPendingJobExecution
+--   <a>$sel:thingName:GetPendingJobExecutions'</a>,
+--   <a>getPendingJobExecutions_thingName</a> - The name of the thing that
+--   is executing the job.
+newGetPendingJobExecutions :: Text -> GetPendingJobExecutions
 
--- | <i>See:</i> <a>newStartNextPendingJobExecutionResponse</a> smart
+-- | <i>See:</i> <a>newGetPendingJobExecutionsResponse</a> smart
 --   constructor.
-data StartNextPendingJobExecutionResponse
-StartNextPendingJobExecutionResponse' :: Maybe JobExecution -> Int -> StartNextPendingJobExecutionResponse
+data GetPendingJobExecutionsResponse
+GetPendingJobExecutionsResponse' :: Maybe [JobExecutionSummary] -> Maybe [JobExecutionSummary] -> Int -> GetPendingJobExecutionsResponse
 
--- | Create a value of <a>StartNextPendingJobExecutionResponse</a> with all
+-- | Create a value of <a>GetPendingJobExecutionsResponse</a> with all
 --   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -1746,14 +1742,18 @@ StartNextPendingJobExecutionResponse' :: Maybe JobExecution -> Int -> StartNextP
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:execution:StartNextPendingJobExecutionResponse'</a>,
---   <a>startNextPendingJobExecutionResponse_execution</a> - A JobExecution
---   object.
+--   <a>$sel:inProgressJobs:GetPendingJobExecutionsResponse'</a>,
+--   <a>getPendingJobExecutionsResponse_inProgressJobs</a> - A list of
+--   JobExecutionSummary objects with status IN_PROGRESS.
 --   
---   <a>$sel:httpStatus:StartNextPendingJobExecutionResponse'</a>,
---   <a>startNextPendingJobExecutionResponse_httpStatus</a> - The
---   response's http status code.
-newStartNextPendingJobExecutionResponse :: Int -> StartNextPendingJobExecutionResponse
+--   <a>$sel:queuedJobs:GetPendingJobExecutionsResponse'</a>,
+--   <a>getPendingJobExecutionsResponse_queuedJobs</a> - A list of
+--   JobExecutionSummary objects with status QUEUED.
+--   
+--   <a>$sel:httpStatus:GetPendingJobExecutionsResponse'</a>,
+--   <a>getPendingJobExecutionsResponse_httpStatus</a> - The response's
+--   http status code.
+newGetPendingJobExecutionsResponse :: Int -> GetPendingJobExecutionsResponse
 newtype JobExecutionStatus
 JobExecutionStatus' :: Text -> JobExecutionStatus
 [fromJobExecutionStatus] :: JobExecutionStatus -> Text
@@ -1770,7 +1770,7 @@ pattern JobExecutionStatus_TIMED_OUT :: JobExecutionStatus
 --   
 --   <i>See:</i> <a>newJobExecution</a> smart constructor.
 data JobExecution
-JobExecution' :: Maybe Integer -> Maybe JobExecutionStatus -> Maybe (HashMap Text Text) -> Maybe Text -> Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Text -> Maybe Integer -> Maybe Text -> Maybe Integer -> JobExecution
+JobExecution' :: Maybe JobExecutionStatus -> Maybe Text -> Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Text -> Maybe (HashMap Text Text) -> Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Text -> JobExecution
 
 -- | Create a value of <a>JobExecution</a> with all optional fields
 --   omitted.
@@ -1781,24 +1781,32 @@ JobExecution' :: Maybe Integer -> Maybe JobExecutionStatus -> Maybe (HashMap Tex
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:startedAt:JobExecution'</a>, <a>jobExecution_startedAt</a> -
---   The time, in milliseconds since the epoch, when the job execution was
---   started.
---   
 --   <a>$sel:status:JobExecution'</a>, <a>jobExecution_status</a> - The
 --   status of the job execution. Can be one of: "QUEUED", "IN_PROGRESS",
 --   "FAILED", "SUCCESS", "CANCELED", "REJECTED", or "REMOVED".
 --   
---   <a>$sel:statusDetails:JobExecution'</a>,
---   <a>jobExecution_statusDetails</a> - A collection of name/value pairs
---   that describe the status of the job execution.
+--   <a>$sel:jobId:JobExecution'</a>, <a>jobExecution_jobId</a> - The
+--   unique identifier you assigned to this job when it was created.
 --   
---   <a>$sel:thingName:JobExecution'</a>, <a>jobExecution_thingName</a> -
---   The name of the thing that is executing the job.
+--   <a>$sel:lastUpdatedAt:JobExecution'</a>,
+--   <a>jobExecution_lastUpdatedAt</a> - The time, in milliseconds since
+--   the epoch, when the job execution was last updated.
+--   
+--   <a>$sel:approximateSecondsBeforeTimedOut:JobExecution'</a>,
+--   <a>jobExecution_approximateSecondsBeforeTimedOut</a> - The estimated
+--   number of seconds that remain before the job execution status will be
+--   changed to <tt>TIMED_OUT</tt>.
 --   
 --   <a>$sel:queuedAt:JobExecution'</a>, <a>jobExecution_queuedAt</a> - The
 --   time, in milliseconds since the epoch, when the job execution was
 --   enqueued.
+--   
+--   <a>$sel:jobDocument:JobExecution'</a>, <a>jobExecution_jobDocument</a>
+--   - The content of the job document.
+--   
+--   <a>$sel:statusDetails:JobExecution'</a>,
+--   <a>jobExecution_statusDetails</a> - A collection of name/value pairs
+--   that describe the status of the job execution.
 --   
 --   <a>$sel:executionNumber:JobExecution'</a>,
 --   <a>jobExecution_executionNumber</a> - A number that identifies a
@@ -1810,20 +1818,12 @@ JobExecution' :: Maybe Integer -> Maybe JobExecutionStatus -> Maybe (HashMap Tex
 --   Job execution versions are incremented each time they are updated by a
 --   device.
 --   
---   <a>$sel:jobDocument:JobExecution'</a>, <a>jobExecution_jobDocument</a>
---   - The content of the job document.
+--   <a>$sel:startedAt:JobExecution'</a>, <a>jobExecution_startedAt</a> -
+--   The time, in milliseconds since the epoch, when the job execution was
+--   started.
 --   
---   <a>$sel:approximateSecondsBeforeTimedOut:JobExecution'</a>,
---   <a>jobExecution_approximateSecondsBeforeTimedOut</a> - The estimated
---   number of seconds that remain before the job execution status will be
---   changed to <tt>TIMED_OUT</tt>.
---   
---   <a>$sel:jobId:JobExecution'</a>, <a>jobExecution_jobId</a> - The
---   unique identifier you assigned to this job when it was created.
---   
---   <a>$sel:lastUpdatedAt:JobExecution'</a>,
---   <a>jobExecution_lastUpdatedAt</a> - The time, in milliseconds since
---   the epoch, when the job execution was last updated.
+--   <a>$sel:thingName:JobExecution'</a>, <a>jobExecution_thingName</a> -
+--   The name of the thing that is executing the job.
 newJobExecution :: JobExecution
 
 -- | Contains data about the state of a job execution.
@@ -1860,7 +1860,7 @@ newJobExecutionState :: JobExecutionState
 --   
 --   <i>See:</i> <a>newJobExecutionSummary</a> smart constructor.
 data JobExecutionSummary
-JobExecutionSummary' :: Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Text -> Maybe Integer -> JobExecutionSummary
+JobExecutionSummary' :: Maybe Text -> Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe Integer -> JobExecutionSummary
 
 -- | Create a value of <a>JobExecutionSummary</a> with all optional fields
 --   omitted.
@@ -1871,9 +1871,13 @@ JobExecutionSummary' :: Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:startedAt:JobExecutionSummary'</a>,
---   <a>jobExecutionSummary_startedAt</a> - The time, in milliseconds since
---   the epoch, when the job execution started.
+--   <a>$sel:jobId:JobExecutionSummary'</a>,
+--   <a>jobExecutionSummary_jobId</a> - The unique identifier you assigned
+--   to this job when it was created.
+--   
+--   <a>$sel:lastUpdatedAt:JobExecutionSummary'</a>,
+--   <a>jobExecutionSummary_lastUpdatedAt</a> - The time, in milliseconds
+--   since the epoch, when the job execution was last updated.
 --   
 --   <a>$sel:queuedAt:JobExecutionSummary'</a>,
 --   <a>jobExecutionSummary_queuedAt</a> - The time, in milliseconds since
@@ -1888,11 +1892,7 @@ JobExecutionSummary' :: Maybe Integer -> Maybe Integer -> Maybe Integer -> Maybe
 --   execution. Job execution versions are incremented each time AWS IoT
 --   Jobs receives an update from a device.
 --   
---   <a>$sel:jobId:JobExecutionSummary'</a>,
---   <a>jobExecutionSummary_jobId</a> - The unique identifier you assigned
---   to this job when it was created.
---   
---   <a>$sel:lastUpdatedAt:JobExecutionSummary'</a>,
---   <a>jobExecutionSummary_lastUpdatedAt</a> - The time, in milliseconds
---   since the epoch, when the job execution was last updated.
+--   <a>$sel:startedAt:JobExecutionSummary'</a>,
+--   <a>jobExecutionSummary_startedAt</a> - The time, in milliseconds since
+--   the epoch, when the job execution started.
 newJobExecutionSummary :: JobExecutionSummary

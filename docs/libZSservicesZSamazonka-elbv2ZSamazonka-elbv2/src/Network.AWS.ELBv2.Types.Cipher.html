@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about a cipher used in a policy.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCipher' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679246856"><span id="local-6989586621679246857"></span></span><span class="hs-keyword">data</span><span> </span><span id="Cipher"><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher"><span class="hs-identifier hs-var">Cipher</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Cipher%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher%27"><span class="hs-identifier hs-var">Cipher'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679249553"><span id="local-6989586621679249554"></span></span><span class="hs-keyword">data</span><span> </span><span id="Cipher"><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher"><span class="hs-identifier hs-var">Cipher</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Cipher%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher%27"><span class="hs-identifier hs-var">Cipher'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The priority of the cipher.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Apriority%3ACipher%27"><span class="annot"><span class="annottext">Cipher -&gt; Maybe Int
 </span><a href="Network.AWS.ELBv2.Types.Cipher.html#%24sel%3Apriority%3ACipher%27"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3ACipher%27"><span class="annot"><span class="annottext">Cipher -&gt; Maybe Text
 </span><a href="Network.AWS.ELBv2.Types.Cipher.html#%24sel%3Aname%3ACipher%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246849"><span id="local-6989586621679246851"><span class="annot"><span class="annottext">Cipher -&gt; Cipher -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249546"><span id="local-6989586621679249548"><span class="annot"><span class="annottext">Cipher -&gt; Cipher -&gt; Bool
 (Cipher -&gt; Cipher -&gt; Bool)
 -&gt; (Cipher -&gt; Cipher -&gt; Bool) -&gt; Eq Cipher
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Cipher -&gt; Cipher -&gt; Bool
 == :: Cipher -&gt; Cipher -&gt; Bool
 $c== :: Cipher -&gt; Cipher -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246840"><span id="local-6989586621679246842"><span id="local-6989586621679246844"><span id="local-6989586621679246846"><span class="annot"><span class="annottext">ReadPrec [Cipher]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249537"><span id="local-6989586621679249539"><span id="local-6989586621679249541"><span id="local-6989586621679249543"><span class="annot"><span class="annottext">ReadPrec [Cipher]
 ReadPrec Cipher
 Int -&gt; ReadS Cipher
 ReadS [Cipher]
@@ -62,7 +62,7 @@ readList :: ReadS [Cipher]
 $creadList :: ReadS [Cipher]
 readsPrec :: Int -&gt; ReadS Cipher
 $creadsPrec :: Int -&gt; ReadS Cipher
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246833"><span id="local-6989586621679246835"><span id="local-6989586621679246837"><span class="annot"><span class="annottext">Int -&gt; Cipher -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249530"><span id="local-6989586621679249532"><span id="local-6989586621679249534"><span class="annot"><span class="annottext">Int -&gt; Cipher -&gt; ShowS
 [Cipher] -&gt; ShowS
 Cipher -&gt; String
 (Int -&gt; Cipher -&gt; ShowS)
@@ -119,16 +119,16 @@ forall a. Maybe a
 -&gt; (Cipher -&gt; Maybe Int -&gt; Cipher)
 -&gt; Lens Cipher Cipher (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher%27"><span class="hs-identifier hs-type">Cipher'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246824"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher%27"><span class="hs-identifier hs-type">Cipher'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249521"><span class="annot"><span class="annottext">Maybe Int
 priority :: Maybe Int
 $sel:priority:Cipher' :: Cipher -&gt; Maybe Int
-</span><a href="#local-6989586621679246824"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679246824"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246823"><span class="annot"><span class="annottext">s :: Cipher
-</span><a href="#local-6989586621679246823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher%27"><span class="hs-identifier hs-type">Cipher'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246822"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679246822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cipher
-</span><a href="#local-6989586621679246823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:Cipher' :: Maybe Int
+</span><a href="#local-6989586621679249521"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679249521"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249520"><span class="annot"><span class="annottext">s :: Cipher
+</span><a href="#local-6989586621679249520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher%27"><span class="hs-identifier hs-type">Cipher'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249519"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679249519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cipher
+</span><a href="#local-6989586621679249520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:Cipher' :: Maybe Int
 </span><a href="Network.AWS.ELBv2.Types.Cipher.html#%24sel%3Apriority%3ACipher%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679246822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher"><span class="hs-identifier hs-type">Cipher</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher"><span class="hs-identifier hs-type">Cipher</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The name of the cipher.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#cipher_name"><span class="hs-identifier hs-type">cipher_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher"><span class="hs-identifier hs-type">Cipher</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -137,21 +137,21 @@ $sel:priority:Cipher' :: Cipher -&gt; Maybe Int
 -&gt; (Cipher -&gt; Maybe Text -&gt; Cipher)
 -&gt; Lens Cipher Cipher (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher%27"><span class="hs-identifier hs-type">Cipher'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246820"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher%27"><span class="hs-identifier hs-type">Cipher'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249517"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Cipher' :: Cipher -&gt; Maybe Text
-</span><a href="#local-6989586621679246820"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246820"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246819"><span class="annot"><span class="annottext">s :: Cipher
-</span><a href="#local-6989586621679246819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher%27"><span class="hs-identifier hs-type">Cipher'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246818"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cipher
-</span><a href="#local-6989586621679246819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Cipher' :: Maybe Text
+</span><a href="#local-6989586621679249517"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249517"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249516"><span class="annot"><span class="annottext">s :: Cipher
+</span><a href="#local-6989586621679249516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher%27"><span class="hs-identifier hs-type">Cipher'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249515"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Cipher
+</span><a href="#local-6989586621679249516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Cipher' :: Maybe Text
 </span><a href="Network.AWS.ELBv2.Types.Cipher.html#%24sel%3Aname%3ACipher%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679246818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher"><span class="hs-identifier hs-type">Cipher</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher"><span class="hs-identifier hs-type">Cipher</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher"><span class="hs-identifier hs-type">Cipher</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679246815"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Cipher
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679246813"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679246813"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679249512"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Cipher
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679249510"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679249510"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Text -&gt; Cipher
 </span><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher%27"><span class="hs-identifier hs-var">Cipher'</span></a></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Text -&gt; Cipher)
@@ -159,7 +159,7 @@ $sel:name:Cipher' :: Cipher -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; Cipher)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679246813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679249510"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Priority&quot;</span></span><span class="hs-special">)</span><span>
@@ -167,12 +167,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String Cipher
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679246813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679249510"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246807"><span id="local-6989586621679246809"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher"><span class="hs-identifier hs-type">Cipher</span></a></span></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249504"><span id="local-6989586621679249506"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher"><span class="hs-identifier hs-type">Cipher</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246804"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher"><span class="hs-identifier hs-type">Cipher</span></a></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249501"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELBv2.Types.Cipher.html#Cipher"><span class="hs-identifier hs-type">Cipher</span></a></span></span><span>
 </span><span id="line-73"></span></pre></body></html>

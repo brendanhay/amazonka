@@ -30,8 +30,8 @@
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#createProtectionGroup_resourceType"><span class="hs-identifier">createProtectionGroup_resourceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#createProtectionGroup_tags"><span class="hs-identifier">createProtectionGroup_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#createProtectionGroup_members"><span class="hs-identifier">createProtectionGroup_members</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#createProtectionGroup_members"><span class="hs-identifier">createProtectionGroup_members</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#createProtectionGroup_tags"><span class="hs-identifier">createProtectionGroup_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#createProtectionGroup_protectionGroupId"><span class="hs-identifier">createProtectionGroup_protectionGroupId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#createProtectionGroup_aggregation"><span class="hs-identifier">createProtectionGroup_aggregation</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#createProtectionGroup_pattern"><span class="hs-identifier">createProtectionGroup_pattern</span></a></span><span class="hs-special">,</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.html"><span class="hs-identifier">Network.AWS.Shield.Types</span></a></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newCreateProtectionGroup' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679210386"><span id="local-6989586621679210387"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProtectionGroup"><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-var">CreateProtectionGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProtectionGroup%27"><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-var">CreateProtectionGroup'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679210536"><span id="local-6989586621679210537"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProtectionGroup"><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-var">CreateProtectionGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProtectionGroup%27"><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-var">CreateProtectionGroup'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource type to include in the protection group. All protected</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- resources of this type are included in the protection group. Newly</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- protected resources of this type are automatically added to the group.</span><span>
@@ -61,14 +61,14 @@
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- must not set it for any other @Pattern@ setting.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AresourceType%3ACreateProtectionGroup%27"><span class="annot"><span class="annottext">CreateProtectionGroup -&gt; Maybe ProtectedResourceType
 </span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3AresourceType%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectedResourceType.html#ProtectedResourceType"><span class="hs-identifier hs-type">ProtectedResourceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | One or more tag key-value pairs for the protection group.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3Atags%3ACreateProtectionGroup%27"><span class="annot"><span class="annottext">CreateProtectionGroup -&gt; Maybe [Tag]
-</span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3Atags%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Shield.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the resources to include in the</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- protection group. You must set this when you set @Pattern@ to</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3Amembers%3ACreateProtectionGroup%27"><span class="annot"><span class="annottext">CreateProtectionGroup -&gt; Maybe [Text]
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the resources to include in the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- protection group. You must set this when you set @Pattern@ to</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Amembers%3ACreateProtectionGroup%27"><span class="annot"><span class="annottext">CreateProtectionGroup -&gt; Maybe [Text]
 </span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3Amembers%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var hs-var">members</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | One or more tag key-value pairs for the protection group.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Atags%3ACreateProtectionGroup%27"><span class="annot"><span class="annottext">CreateProtectionGroup -&gt; Maybe [Tag]
+</span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3Atags%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Shield.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The name of the protection group. You use this to identify the</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- protection group in lists and to manage the protection group, for</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- example to update, delete, or describe it.</span><span>
@@ -98,7 +98,7 @@
 </span><span id="line-93"></span><span>    </span><span id="%24sel%3Apattern%27%3ACreateProtectionGroup%27"><span class="annot"><span class="annottext">CreateProtectionGroup -&gt; ProtectionGroupPattern
 </span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3Apattern%27%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var hs-var">pattern'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.ProtectionGroupPattern.html#ProtectionGroupPattern"><span class="hs-identifier hs-type">ProtectionGroupPattern</span></a></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210375"><span id="local-6989586621679210377"><span class="annot"><span class="annottext">CreateProtectionGroup -&gt; CreateProtectionGroup -&gt; Bool
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210525"><span id="local-6989586621679210527"><span class="annot"><span class="annottext">CreateProtectionGroup -&gt; CreateProtectionGroup -&gt; Bool
 (CreateProtectionGroup -&gt; CreateProtectionGroup -&gt; Bool)
 -&gt; (CreateProtectionGroup -&gt; CreateProtectionGroup -&gt; Bool)
 -&gt; Eq CreateProtectionGroup
@@ -107,7 +107,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateProtectionGroup -&gt; CreateProtectionGroup -&gt; Bool
 == :: CreateProtectionGroup -&gt; CreateProtectionGroup -&gt; Bool
 $c== :: CreateProtectionGroup -&gt; CreateProtectionGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210366"><span id="local-6989586621679210368"><span id="local-6989586621679210370"><span id="local-6989586621679210372"><span class="annot"><span class="annottext">ReadPrec [CreateProtectionGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210516"><span id="local-6989586621679210518"><span id="local-6989586621679210520"><span id="local-6989586621679210522"><span class="annot"><span class="annottext">ReadPrec [CreateProtectionGroup]
 ReadPrec CreateProtectionGroup
 Int -&gt; ReadS CreateProtectionGroup
 ReadS [CreateProtectionGroup]
@@ -127,7 +127,7 @@ readList :: ReadS [CreateProtectionGroup]
 $creadList :: ReadS [CreateProtectionGroup]
 readsPrec :: Int -&gt; ReadS CreateProtectionGroup
 $creadsPrec :: Int -&gt; ReadS CreateProtectionGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210359"><span id="local-6989586621679210361"><span id="local-6989586621679210363"><span class="annot"><span class="annottext">Int -&gt; CreateProtectionGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210509"><span id="local-6989586621679210511"><span id="local-6989586621679210513"><span class="annot"><span class="annottext">Int -&gt; CreateProtectionGroup -&gt; ShowS
 [CreateProtectionGroup] -&gt; ShowS
 CreateProtectionGroup -&gt; String
 (Int -&gt; CreateProtectionGroup -&gt; ShowS)
@@ -167,11 +167,11 @@ $cfrom :: forall x. CreateProtectionGroup -&gt; Rep CreateProtectionGroup x
 </span><span id="line-108"></span><span class="hs-comment">-- You must set this when you set @Pattern@ to @BY_RESOURCE_TYPE@ and you</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- must not set it for any other @Pattern@ setting.</span><span>
 </span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- 'tags', 'createProtectionGroup_tags' - One or more tag key-value pairs for the protection group.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- 'members', 'createProtectionGroup_members' - The Amazon Resource Names (ARNs) of the resources to include in the</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- protection group. You must set this when you set @Pattern@ to</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'members', 'createProtectionGroup_members' - The Amazon Resource Names (ARNs) of the resources to include in the</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- protection group. You must set this when you set @Pattern@ to</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'tags', 'createProtectionGroup_tags' - One or more tag key-value pairs for the protection group.</span><span>
 </span><span id="line-116"></span><span class="hs-comment">--</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- 'protectionGroupId', 'createProtectionGroup_protectionGroupId' - The name of the protection group. You use this to identify the</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- protection group in lists and to manage the protection group, for</span><span>
@@ -210,15 +210,15 @@ $cfrom :: forall x. CreateProtectionGroup -&gt; Rep CreateProtectionGroup x
 -&gt; ProtectionGroupPattern
 -&gt; CreateProtectionGroup
 </span><a href="Network.AWS.Shield.CreateProtectionGroup.html#newCreateProtectionGroup"><span class="hs-identifier hs-var hs-var">newCreateProtectionGroup</span></a></span></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679210354"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210354"><span class="hs-identifier hs-var">pProtectionGroupId_</span></a></span></span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679210353"><span class="annot"><span class="annottext">ProtectionGroupAggregation
-</span><a href="#local-6989586621679210353"><span class="hs-identifier hs-var">pAggregation_</span></a></span></span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679210352"><span class="annot"><span class="annottext">ProtectionGroupPattern
-</span><a href="#local-6989586621679210352"><span class="hs-identifier hs-var">pPattern_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679210504"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210504"><span class="hs-identifier hs-var">pProtectionGroupId_</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679210503"><span class="annot"><span class="annottext">ProtectionGroupAggregation
+</span><a href="#local-6989586621679210503"><span class="hs-identifier hs-var">pAggregation_</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679210502"><span class="annot"><span class="annottext">ProtectionGroupPattern
+</span><a href="#local-6989586621679210502"><span class="hs-identifier hs-var">pPattern_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">CreateProtectionGroup' :: Maybe ProtectedResourceType
--&gt; Maybe [Tag]
 -&gt; Maybe [Text]
+-&gt; Maybe [Tag]
 -&gt; Text
 -&gt; ProtectionGroupAggregation
 -&gt; ProtectionGroupPattern
@@ -229,23 +229,23 @@ $cfrom :: forall x. CreateProtectionGroup -&gt; Rep CreateProtectionGroup x
 </span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe ProtectedResourceType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateProtectionGroup' :: Maybe [Tag]
-</span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3Atags%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">$sel:members:CreateProtectionGroup' :: Maybe [Text]
+</span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3Amembers%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">members</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:members:CreateProtectionGroup' :: Maybe [Text]
-</span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3Amembers%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">members</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateProtectionGroup' :: Maybe [Tag]
+</span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3Atags%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">$sel:protectionGroupId:CreateProtectionGroup' :: Text
 </span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3AprotectionGroupId%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">protectionGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210354"><span class="hs-identifier hs-var">pProtectionGroupId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210504"><span class="hs-identifier hs-var">pProtectionGroupId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">$sel:aggregation:CreateProtectionGroup' :: ProtectionGroupAggregation
 </span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3Aaggregation%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">aggregation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupAggregation
-</span><a href="#local-6989586621679210353"><span class="hs-identifier hs-var">pAggregation_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210503"><span class="hs-identifier hs-var">pAggregation_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">$sel:pattern':CreateProtectionGroup' :: ProtectionGroupPattern
 </span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3Apattern%27%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">pattern'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupPattern
-</span><a href="#local-6989586621679210352"><span class="hs-identifier hs-var">pPattern_</span></a></span><span>
+</span><a href="#local-6989586621679210502"><span class="hs-identifier hs-var">pPattern_</span></a></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | The resource type to include in the protection group. All protected</span><span>
@@ -265,60 +265,22 @@ forall a. Maybe a
      (Maybe ProtectedResourceType)
      (Maybe ProtectedResourceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210349"><span class="annot"><span class="annottext">Maybe ProtectedResourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210499"><span class="annot"><span class="annottext">Maybe ProtectedResourceType
 resourceType :: Maybe ProtectedResourceType
 $sel:resourceType:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Maybe ProtectedResourceType
-</span><a href="#local-6989586621679210349"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProtectedResourceType
-</span><a href="#local-6989586621679210349"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210348"><span class="annot"><span class="annottext">s :: CreateProtectionGroup
-</span><a href="#local-6989586621679210348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210347"><span class="annot"><span class="annottext">Maybe ProtectedResourceType
-</span><a href="#local-6989586621679210347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroup
-</span><a href="#local-6989586621679210348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:CreateProtectionGroup' :: Maybe ProtectedResourceType
+</span><a href="#local-6989586621679210499"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProtectedResourceType
+</span><a href="#local-6989586621679210499"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210498"><span class="annot"><span class="annottext">s :: CreateProtectionGroup
+</span><a href="#local-6989586621679210498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210497"><span class="annot"><span class="annottext">Maybe ProtectedResourceType
+</span><a href="#local-6989586621679210497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroup
+</span><a href="#local-6989586621679210498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:CreateProtectionGroup' :: Maybe ProtectedResourceType
 </span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3AresourceType%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProtectedResourceType
-</span><a href="#local-6989586621679210347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- | One or more tag key-value pairs for the protection group.</span><span>
-</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#createProtectionGroup_tags"><span class="hs-identifier hs-type">createProtectionGroup_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Shield.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span id="createProtectionGroup_tags"><span class="annot"><span class="annottext">createProtectionGroup_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; CreateProtectionGroup -&gt; f CreateProtectionGroup
-</span><a href="Network.AWS.Shield.CreateProtectionGroup.html#createProtectionGroup_tags"><span class="hs-identifier hs-var hs-var">createProtectionGroup_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProtectionGroup -&gt; Maybe [Tag])
--&gt; (CreateProtectionGroup -&gt; Maybe [Tag] -&gt; CreateProtectionGroup)
--&gt; Lens
-     CreateProtectionGroup
-     CreateProtectionGroup
-     (Maybe [Tag])
-     (Maybe [Tag])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210346"><span class="annot"><span class="annottext">Maybe [Tag]
-tags :: Maybe [Tag]
-$sel:tags:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679210346"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679210346"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210345"><span class="annot"><span class="annottext">s :: CreateProtectionGroup
-</span><a href="#local-6989586621679210345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210344"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679210344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroup
-</span><a href="#local-6989586621679210345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateProtectionGroup' :: Maybe [Tag]
-</span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3Atags%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679210344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
- -&gt; CreateProtectionGroup -&gt; f CreateProtectionGroup)
--&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
-    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; CreateProtectionGroup
--&gt; f CreateProtectionGroup
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
--&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the resources to include in the</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- protection group. You must set this when you set @Pattern@ to</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.</span><span>
-</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#createProtectionGroup_members"><span class="hs-identifier hs-type">createProtectionGroup_members</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-179"></span><span id="createProtectionGroup_members"><span class="annot"><span class="annottext">createProtectionGroup_members :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-171"></span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of the resources to include in the</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- protection group. You must set this when you set @Pattern@ to</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- @ARBITRARY@ and you must not set it for any other @Pattern@ setting.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#createProtectionGroup_members"><span class="hs-identifier hs-type">createProtectionGroup_members</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="createProtectionGroup_members"><span class="annot"><span class="annottext">createProtectionGroup_members :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; CreateProtectionGroup -&gt; f CreateProtectionGroup
 </span><a href="Network.AWS.Shield.CreateProtectionGroup.html#createProtectionGroup_members"><span class="hs-identifier hs-var hs-var">createProtectionGroup_members</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProtectionGroup -&gt; Maybe [Text])
 -&gt; (CreateProtectionGroup -&gt; Maybe [Text] -&gt; CreateProtectionGroup)
@@ -328,16 +290,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210340"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210496"><span class="annot"><span class="annottext">Maybe [Text]
 members :: Maybe [Text]
 $sel:members:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Maybe [Text]
-</span><a href="#local-6989586621679210340"><span class="hs-identifier hs-var hs-var">members</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679210340"><span class="hs-identifier hs-var">members</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210339"><span class="annot"><span class="annottext">s :: CreateProtectionGroup
-</span><a href="#local-6989586621679210339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210338"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679210338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroup
-</span><a href="#local-6989586621679210339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:members:CreateProtectionGroup' :: Maybe [Text]
+</span><a href="#local-6989586621679210496"><span class="hs-identifier hs-var hs-var">members</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679210496"><span class="hs-identifier hs-var">members</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210495"><span class="annot"><span class="annottext">s :: CreateProtectionGroup
+</span><a href="#local-6989586621679210495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210494"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679210494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroup
+</span><a href="#local-6989586621679210495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:members:CreateProtectionGroup' :: Maybe [Text]
 </span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3Amembers%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">members</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679210338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679210494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; CreateProtectionGroup -&gt; f CreateProtectionGroup)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -351,8 +313,46 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | One or more tag key-value pairs for the protection group.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#createProtectionGroup_tags"><span class="hs-identifier hs-type">createProtectionGroup_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Shield.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="createProtectionGroup_tags"><span class="annot"><span class="annottext">createProtectionGroup_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateProtectionGroup -&gt; f CreateProtectionGroup
+</span><a href="Network.AWS.Shield.CreateProtectionGroup.html#createProtectionGroup_tags"><span class="hs-identifier hs-var hs-var">createProtectionGroup_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateProtectionGroup -&gt; Maybe [Tag])
+-&gt; (CreateProtectionGroup -&gt; Maybe [Tag] -&gt; CreateProtectionGroup)
+-&gt; Lens
+     CreateProtectionGroup
+     CreateProtectionGroup
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210490"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679210490"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679210490"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210489"><span class="annot"><span class="annottext">s :: CreateProtectionGroup
+</span><a href="#local-6989586621679210489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210488"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679210488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroup
+</span><a href="#local-6989586621679210489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateProtectionGroup' :: Maybe [Tag]
+</span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3Atags%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679210488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateProtectionGroup -&gt; f CreateProtectionGroup)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateProtectionGroup
+-&gt; f CreateProtectionGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The name of the protection group. You use this to identify the</span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- protection group in lists and to manage the protection group, for</span><span>
@@ -364,16 +364,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateProtectionGroup -&gt; Text -&gt; CreateProtectionGroup)
 -&gt; Lens CreateProtectionGroup CreateProtectionGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210337"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210487"><span class="annot"><span class="annottext">Text
 protectionGroupId :: Text
 $sel:protectionGroupId:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Text
-</span><a href="#local-6989586621679210337"><span class="hs-identifier hs-var hs-var">protectionGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210337"><span class="hs-identifier hs-var">protectionGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210336"><span class="annot"><span class="annottext">s :: CreateProtectionGroup
-</span><a href="#local-6989586621679210336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210335"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroup
-</span><a href="#local-6989586621679210336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protectionGroupId:CreateProtectionGroup' :: Text
+</span><a href="#local-6989586621679210487"><span class="hs-identifier hs-var hs-var">protectionGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210487"><span class="hs-identifier hs-var">protectionGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210486"><span class="annot"><span class="annottext">s :: CreateProtectionGroup
+</span><a href="#local-6989586621679210486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210485"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroup
+</span><a href="#local-6989586621679210486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protectionGroupId:CreateProtectionGroup' :: Text
 </span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3AprotectionGroupId%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">protectionGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-comment">-- | Defines how Shield combines resource data for the group in order to</span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- detect, mitigate, and report events.</span><span>
@@ -402,16 +402,16 @@ $sel:protectionGroupId:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Tex
      ProtectionGroupAggregation
      ProtectionGroupAggregation
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210334"><span class="annot"><span class="annottext">ProtectionGroupAggregation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210484"><span class="annot"><span class="annottext">ProtectionGroupAggregation
 aggregation :: ProtectionGroupAggregation
 $sel:aggregation:CreateProtectionGroup' :: CreateProtectionGroup -&gt; ProtectionGroupAggregation
-</span><a href="#local-6989586621679210334"><span class="hs-identifier hs-var hs-var">aggregation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupAggregation
-</span><a href="#local-6989586621679210334"><span class="hs-identifier hs-var">aggregation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210333"><span class="annot"><span class="annottext">s :: CreateProtectionGroup
-</span><a href="#local-6989586621679210333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210332"><span class="annot"><span class="annottext">ProtectionGroupAggregation
-</span><a href="#local-6989586621679210332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroup
-</span><a href="#local-6989586621679210333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregation:CreateProtectionGroup' :: ProtectionGroupAggregation
+</span><a href="#local-6989586621679210484"><span class="hs-identifier hs-var hs-var">aggregation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupAggregation
+</span><a href="#local-6989586621679210484"><span class="hs-identifier hs-var">aggregation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210483"><span class="annot"><span class="annottext">s :: CreateProtectionGroup
+</span><a href="#local-6989586621679210483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210482"><span class="annot"><span class="annottext">ProtectionGroupAggregation
+</span><a href="#local-6989586621679210482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroup
+</span><a href="#local-6989586621679210483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregation:CreateProtectionGroup' :: ProtectionGroupAggregation
 </span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3Aaggregation%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">aggregation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupAggregation
-</span><a href="#local-6989586621679210332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | The criteria to use to choose the protected resources for inclusion in</span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- the group. You can include all resources that have protections, provide</span><span>
@@ -429,27 +429,27 @@ $sel:aggregation:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Protectio
      ProtectionGroupPattern
      ProtectionGroupPattern
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210331"><span class="annot"><span class="annottext">ProtectionGroupPattern
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210481"><span class="annot"><span class="annottext">ProtectionGroupPattern
 pattern' :: ProtectionGroupPattern
 $sel:pattern':CreateProtectionGroup' :: CreateProtectionGroup -&gt; ProtectionGroupPattern
-</span><a href="#local-6989586621679210331"><span class="hs-identifier hs-var hs-var">pattern'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupPattern
-</span><a href="#local-6989586621679210331"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210330"><span class="annot"><span class="annottext">s :: CreateProtectionGroup
-</span><a href="#local-6989586621679210330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210329"><span class="annot"><span class="annottext">ProtectionGroupPattern
-</span><a href="#local-6989586621679210329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroup
-</span><a href="#local-6989586621679210330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pattern':CreateProtectionGroup' :: ProtectionGroupPattern
+</span><a href="#local-6989586621679210481"><span class="hs-identifier hs-var hs-var">pattern'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupPattern
+</span><a href="#local-6989586621679210481"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210480"><span class="annot"><span class="annottext">s :: CreateProtectionGroup
+</span><a href="#local-6989586621679210480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210479"><span class="annot"><span class="annottext">ProtectionGroupPattern
+</span><a href="#local-6989586621679210479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroup
+</span><a href="#local-6989586621679210480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pattern':CreateProtectionGroup' :: ProtectionGroupPattern
 </span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3Apattern%27%3ACreateProtectionGroup%27"><span class="hs-identifier hs-var">pattern'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ProtectionGroupPattern
-</span><a href="#local-6989586621679210329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-213"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-214"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>      </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse"><span class="hs-identifier hs-type">CreateProtectionGroupResponse</span></a></span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679210325"><span class="annot"><span class="annottext">request :: CreateProtectionGroup -&gt; Request CreateProtectionGroup
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679210475"><span class="annot"><span class="annottext">request :: CreateProtectionGroup -&gt; Request CreateProtectionGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateProtectionGroup -&gt; Request CreateProtectionGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Shield.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679210321"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679210471"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateProtectionGroup
 -&gt; ClientResponse ClientBody
@@ -475,10 +475,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210318"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679210318"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679210317"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679210317"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679210316"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679210316"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210468"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210468"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679210467"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679210467"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679210466"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679210466"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-220"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreateProtectionGroupResponse
 </span><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse%27"><span class="hs-identifier hs-var">CreateProtectionGroupResponse'</span></a></span><span>
 </span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreateProtectionGroupResponse)
@@ -489,15 +489,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679210318"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210468"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210309"><span id="local-6989586621679210311"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span></span></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210459"><span id="local-6989586621679210461"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span></span></span><span>
 </span><span id="line-225"></span><span>
-</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210306"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210456"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span></span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679210302"><span class="annot"><span class="annottext">toHeaders :: CreateProtectionGroup -&gt; ResponseHeaders
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679210452"><span class="annot"><span class="annottext">toHeaders :: CreateProtectionGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-230"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateProtectionGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -524,9 +524,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-240"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-241"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span><span>
-</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210292"><span id="local-6989586621679210294"><span id="local-6989586621679210296"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621679210290"><span class="annot"><span class="annottext">toJSON :: CreateProtectionGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210283"><span id="local-6989586621679210284"><span id="local-6989586621679210285"><span id="local-6989586621679210286"><span id="local-6989586621679210287"><span id="local-6989586621679210288"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210442"><span id="local-6989586621679210444"><span id="local-6989586621679210446"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679210440"><span class="annot"><span class="annottext">toJSON :: CreateProtectionGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup%27"><span class="hs-identifier hs-type">CreateProtectionGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210433"><span id="local-6989586621679210434"><span id="local-6989586621679210435"><span id="local-6989586621679210436"><span id="local-6989586621679210437"><span id="local-6989586621679210438"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe [Tag]
 Maybe ProtectedResourceType
 Text
@@ -535,16 +535,16 @@ ProtectionGroupPattern
 pattern' :: ProtectionGroupPattern
 aggregation :: ProtectionGroupAggregation
 protectionGroupId :: Text
-members :: Maybe [Text]
 tags :: Maybe [Tag]
+members :: Maybe [Text]
 resourceType :: Maybe ProtectedResourceType
 $sel:pattern':CreateProtectionGroup' :: CreateProtectionGroup -&gt; ProtectionGroupPattern
 $sel:aggregation:CreateProtectionGroup' :: CreateProtectionGroup -&gt; ProtectionGroupAggregation
 $sel:protectionGroupId:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Text
-$sel:members:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Maybe [Text]
 $sel:tags:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Maybe [Tag]
+$sel:members:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Maybe [Text]
 $sel:resourceType:CreateProtectionGroup' :: CreateProtectionGroup -&gt; Maybe ProtectedResourceType
-</span><a href="#local-6989586621679210283"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679210433"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-245"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -557,21 +557,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ProtectedResourceType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProtectedResourceType
-</span><a href="#local-6989586621679210288"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210438"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-248"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679210287"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-249"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Members&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679210286"><span class="hs-identifier hs-var">members</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210437"><span class="hs-identifier hs-var">members</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679210436"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -579,33 +579,33 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ProtectionGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210285"><span class="hs-identifier hs-var">protectionGroupId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210435"><span class="hs-identifier hs-var">protectionGroupId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-252"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Aggregation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProtectionGroupAggregation -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ProtectionGroupAggregation
-</span><a href="#local-6989586621679210284"><span class="hs-identifier hs-var">aggregation</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210434"><span class="hs-identifier hs-var">aggregation</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Pattern&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProtectionGroupPattern -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ProtectionGroupPattern
-</span><a href="#local-6989586621679210283"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210433"><span class="hs-identifier hs-var">pattern'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-255"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-258"></span><span>  </span><span id="local-6989586621679210277"><span class="annot"><span class="annottext">toPath :: CreateProtectionGroup -&gt; ByteString
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679210427"><span class="annot"><span class="annottext">toPath :: CreateProtectionGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateProtectionGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-259"></span><span>
 </span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroup"><span class="hs-identifier hs-type">CreateProtectionGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-261"></span><span>  </span><span id="local-6989586621679210273"><span class="annot"><span class="annottext">toQuery :: CreateProtectionGroup -&gt; QueryString
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679210423"><span class="annot"><span class="annottext">toQuery :: CreateProtectionGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateProtectionGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -613,12 +613,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-comment">-- | /See:/ 'newCreateProtectionGroupResponse' smart constructor.</span><span>
-</span><span id="line-264"></span><span id="local-6989586621679210270"><span id="local-6989586621679210271"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProtectionGroupResponse"><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse"><span class="hs-identifier hs-var">CreateProtectionGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProtectionGroupResponse%27"><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse%27"><span class="hs-identifier hs-var">CreateProtectionGroupResponse'</span></a></span></span><span>
+</span><span id="line-264"></span><span id="local-6989586621679210420"><span id="local-6989586621679210421"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateProtectionGroupResponse"><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse"><span class="hs-identifier hs-var">CreateProtectionGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateProtectionGroupResponse%27"><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse%27"><span class="hs-identifier hs-var">CreateProtectionGroupResponse'</span></a></span></span><span>
 </span><span id="line-265"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-266"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateProtectionGroupResponse%27"><span class="annot"><span class="annottext">CreateProtectionGroupResponse -&gt; Int
 </span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3AhttpStatus%3ACreateProtectionGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-267"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-268"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210265"><span id="local-6989586621679210267"><span class="annot"><span class="annottext">CreateProtectionGroupResponse
+</span><span id="line-268"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210415"><span id="local-6989586621679210417"><span class="annot"><span class="annottext">CreateProtectionGroupResponse
 -&gt; CreateProtectionGroupResponse -&gt; Bool
 (CreateProtectionGroupResponse
  -&gt; CreateProtectionGroupResponse -&gt; Bool)
@@ -634,7 +634,7 @@ $c/= :: CreateProtectionGroupResponse
 -&gt; CreateProtectionGroupResponse -&gt; Bool
 $c== :: CreateProtectionGroupResponse
 -&gt; CreateProtectionGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210257"><span id="local-6989586621679210259"><span id="local-6989586621679210261"><span id="local-6989586621679210263"><span class="annot"><span class="annottext">ReadPrec [CreateProtectionGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210407"><span id="local-6989586621679210409"><span id="local-6989586621679210411"><span id="local-6989586621679210413"><span class="annot"><span class="annottext">ReadPrec [CreateProtectionGroupResponse]
 ReadPrec CreateProtectionGroupResponse
 Int -&gt; ReadS CreateProtectionGroupResponse
 ReadS [CreateProtectionGroupResponse]
@@ -654,7 +654,7 @@ readList :: ReadS [CreateProtectionGroupResponse]
 $creadList :: ReadS [CreateProtectionGroupResponse]
 readsPrec :: Int -&gt; ReadS CreateProtectionGroupResponse
 $creadsPrec :: Int -&gt; ReadS CreateProtectionGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210251"><span id="local-6989586621679210253"><span id="local-6989586621679210255"><span class="annot"><span class="annottext">Int -&gt; CreateProtectionGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210401"><span id="local-6989586621679210403"><span id="local-6989586621679210405"><span class="annot"><span class="annottext">Int -&gt; CreateProtectionGroupResponse -&gt; ShowS
 [CreateProtectionGroupResponse] -&gt; ShowS
 CreateProtectionGroupResponse -&gt; String
 (Int -&gt; CreateProtectionGroupResponse -&gt; ShowS)
@@ -706,14 +706,14 @@ CreateProtectionGroupResponse
 </span><span id="line-281"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-282"></span><span>  </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse"><span class="hs-identifier hs-type">CreateProtectionGroupResponse</span></a></span><span>
 </span><span id="line-283"></span><span id="newCreateProtectionGroupResponse"><span class="annot"><span class="annottext">newCreateProtectionGroupResponse :: Int -&gt; CreateProtectionGroupResponse
-</span><a href="Network.AWS.Shield.CreateProtectionGroup.html#newCreateProtectionGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateProtectionGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679210248"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679210248"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Shield.CreateProtectionGroup.html#newCreateProtectionGroupResponse"><span class="hs-identifier hs-var hs-var">newCreateProtectionGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679210398"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210398"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-284"></span><span>  </span><span class="annot"><span class="annottext">CreateProtectionGroupResponse' :: Int -&gt; CreateProtectionGroupResponse
 </span><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse%27"><span class="hs-identifier hs-type">CreateProtectionGroupResponse'</span></a></span><span>
 </span><span id="line-285"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProtectionGroupResponse' :: Int
 </span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3AhttpStatus%3ACreateProtectionGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-286"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679210248"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679210398"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-287"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-288"></span><span>
 </span><span id="line-289"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -726,16 +726,16 @@ CreateProtectionGroupResponse
 -&gt; Lens
      CreateProtectionGroupResponse CreateProtectionGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse%27"><span class="hs-identifier hs-type">CreateProtectionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210247"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse%27"><span class="hs-identifier hs-type">CreateProtectionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210397"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateProtectionGroupResponse' :: CreateProtectionGroupResponse -&gt; Int
-</span><a href="#local-6989586621679210247"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679210247"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210246"><span class="annot"><span class="annottext">s :: CreateProtectionGroupResponse
-</span><a href="#local-6989586621679210246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse%27"><span class="hs-identifier hs-type">CreateProtectionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210245"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679210245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroupResponse
-</span><a href="#local-6989586621679210246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProtectionGroupResponse' :: Int
+</span><a href="#local-6989586621679210397"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210397"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210396"><span class="annot"><span class="annottext">s :: CreateProtectionGroupResponse
+</span><a href="#local-6989586621679210396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse%27"><span class="hs-identifier hs-type">CreateProtectionGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210395"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679210395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateProtectionGroupResponse
+</span><a href="#local-6989586621679210396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateProtectionGroupResponse' :: Int
 </span><a href="Network.AWS.Shield.CreateProtectionGroup.html#%24sel%3AhttpStatus%3ACreateProtectionGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679210245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse"><span class="hs-identifier hs-type">CreateProtectionGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse"><span class="hs-identifier hs-type">CreateProtectionGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-292"></span><span>
-</span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210243"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse"><span class="hs-identifier hs-type">CreateProtectionGroupResponse</span></a></span></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210393"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.CreateProtectionGroup.html#CreateProtectionGroupResponse"><span class="hs-identifier hs-type">CreateProtectionGroupResponse</span></a></span></span><span>
 </span><span id="line-294"></span></pre></body></html>

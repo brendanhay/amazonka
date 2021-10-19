@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- learning transform.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newEvaluationMetrics' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679701725"><span id="local-6989586621679701726"></span></span><span class="hs-keyword">data</span><span> </span><span id="EvaluationMetrics"><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics"><span class="hs-identifier hs-var">EvaluationMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EvaluationMetrics%27"><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics%27"><span class="hs-identifier hs-var">EvaluationMetrics'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679703433"><span id="local-6989586621679703434"></span></span><span class="hs-keyword">data</span><span> </span><span id="EvaluationMetrics"><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics"><span class="hs-identifier hs-var">EvaluationMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EvaluationMetrics%27"><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics%27"><span class="hs-identifier hs-var">EvaluationMetrics'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The evaluation metrics for the find matches algorithm.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AfindMatchesMetrics%3AEvaluationMetrics%27"><span class="annot"><span class="annottext">EvaluationMetrics -&gt; Maybe FindMatchesMetrics
 </span><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#%24sel%3AfindMatchesMetrics%3AEvaluationMetrics%27"><span class="hs-identifier hs-var hs-var">findMatchesMetrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.FindMatchesMetrics.html#FindMatchesMetrics"><span class="hs-identifier hs-type">FindMatchesMetrics</span></a></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AtransformType%3AEvaluationMetrics%27"><span class="annot"><span class="annottext">EvaluationMetrics -&gt; TransformType
 </span><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#%24sel%3AtransformType%3AEvaluationMetrics%27"><span class="hs-identifier hs-var hs-var">transformType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformType.html#TransformType"><span class="hs-identifier hs-type">TransformType</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679701718"><span id="local-6989586621679701720"><span class="annot"><span class="annottext">EvaluationMetrics -&gt; EvaluationMetrics -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679703426"><span id="local-6989586621679703428"><span class="annot"><span class="annottext">EvaluationMetrics -&gt; EvaluationMetrics -&gt; Bool
 (EvaluationMetrics -&gt; EvaluationMetrics -&gt; Bool)
 -&gt; (EvaluationMetrics -&gt; EvaluationMetrics -&gt; Bool)
 -&gt; Eq EvaluationMetrics
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EvaluationMetrics -&gt; EvaluationMetrics -&gt; Bool
 == :: EvaluationMetrics -&gt; EvaluationMetrics -&gt; Bool
 $c== :: EvaluationMetrics -&gt; EvaluationMetrics -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679701709"><span id="local-6989586621679701711"><span id="local-6989586621679701713"><span id="local-6989586621679701715"><span class="annot"><span class="annottext">ReadPrec [EvaluationMetrics]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679703417"><span id="local-6989586621679703419"><span id="local-6989586621679703421"><span id="local-6989586621679703423"><span class="annot"><span class="annottext">ReadPrec [EvaluationMetrics]
 ReadPrec EvaluationMetrics
 Int -&gt; ReadS EvaluationMetrics
 ReadS [EvaluationMetrics]
@@ -66,7 +66,7 @@ readList :: ReadS [EvaluationMetrics]
 $creadList :: ReadS [EvaluationMetrics]
 readsPrec :: Int -&gt; ReadS EvaluationMetrics
 $creadsPrec :: Int -&gt; ReadS EvaluationMetrics
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679701702"><span id="local-6989586621679701704"><span id="local-6989586621679701706"><span class="annot"><span class="annottext">Int -&gt; EvaluationMetrics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679703410"><span id="local-6989586621679703412"><span id="local-6989586621679703414"><span class="annot"><span class="annottext">Int -&gt; EvaluationMetrics -&gt; ShowS
 [EvaluationMetrics] -&gt; ShowS
 EvaluationMetrics -&gt; String
 (Int -&gt; EvaluationMetrics -&gt; ShowS)
@@ -108,8 +108,8 @@ $cfrom :: forall x. EvaluationMetrics -&gt; Rep EvaluationMetrics x
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformType.html#TransformType"><span class="hs-identifier hs-type">TransformType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics"><span class="hs-identifier hs-type">EvaluationMetrics</span></a></span><span>
 </span><span id="line-55"></span><span id="newEvaluationMetrics"><span class="annot"><span class="annottext">newEvaluationMetrics :: TransformType -&gt; EvaluationMetrics
-</span><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#newEvaluationMetrics"><span class="hs-identifier hs-var hs-var">newEvaluationMetrics</span></a></span></span><span> </span><span id="local-6989586621679701696"><span class="annot"><span class="annottext">TransformType
-</span><a href="#local-6989586621679701696"><span class="hs-identifier hs-var">pTransformType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#newEvaluationMetrics"><span class="hs-identifier hs-var hs-var">newEvaluationMetrics</span></a></span></span><span> </span><span id="local-6989586621679703404"><span class="annot"><span class="annottext">TransformType
+</span><a href="#local-6989586621679703404"><span class="hs-identifier hs-var">pTransformType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">EvaluationMetrics' :: Maybe FindMatchesMetrics -&gt; TransformType -&gt; EvaluationMetrics
 </span><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics%27"><span class="hs-identifier hs-type">EvaluationMetrics'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:findMatchesMetrics:EvaluationMetrics' :: Maybe FindMatchesMetrics
@@ -119,7 +119,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:transformType:EvaluationMetrics' :: TransformType
 </span><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#%24sel%3AtransformType%3AEvaluationMetrics%27"><span class="hs-identifier hs-var">transformType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TransformType
-</span><a href="#local-6989586621679701696"><span class="hs-identifier hs-var">pTransformType_</span></a></span><span>
+</span><a href="#local-6989586621679703404"><span class="hs-identifier hs-var">pTransformType_</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The evaluation metrics for the find matches algorithm.</span><span>
@@ -135,16 +135,16 @@ forall a. Maybe a
      (Maybe FindMatchesMetrics)
      (Maybe FindMatchesMetrics)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics%27"><span class="hs-identifier hs-type">EvaluationMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701692"><span class="annot"><span class="annottext">Maybe FindMatchesMetrics
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics%27"><span class="hs-identifier hs-type">EvaluationMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679703400"><span class="annot"><span class="annottext">Maybe FindMatchesMetrics
 findMatchesMetrics :: Maybe FindMatchesMetrics
 $sel:findMatchesMetrics:EvaluationMetrics' :: EvaluationMetrics -&gt; Maybe FindMatchesMetrics
-</span><a href="#local-6989586621679701692"><span class="hs-identifier hs-var hs-var">findMatchesMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FindMatchesMetrics
-</span><a href="#local-6989586621679701692"><span class="hs-identifier hs-var">findMatchesMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701691"><span class="annot"><span class="annottext">s :: EvaluationMetrics
-</span><a href="#local-6989586621679701691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics%27"><span class="hs-identifier hs-type">EvaluationMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701690"><span class="annot"><span class="annottext">Maybe FindMatchesMetrics
-</span><a href="#local-6989586621679701690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluationMetrics
-</span><a href="#local-6989586621679701691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findMatchesMetrics:EvaluationMetrics' :: Maybe FindMatchesMetrics
+</span><a href="#local-6989586621679703400"><span class="hs-identifier hs-var hs-var">findMatchesMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FindMatchesMetrics
+</span><a href="#local-6989586621679703400"><span class="hs-identifier hs-var">findMatchesMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679703399"><span class="annot"><span class="annottext">s :: EvaluationMetrics
+</span><a href="#local-6989586621679703399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics%27"><span class="hs-identifier hs-type">EvaluationMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679703398"><span class="annot"><span class="annottext">Maybe FindMatchesMetrics
+</span><a href="#local-6989586621679703398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluationMetrics
+</span><a href="#local-6989586621679703399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findMatchesMetrics:EvaluationMetrics' :: Maybe FindMatchesMetrics
 </span><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#%24sel%3AfindMatchesMetrics%3AEvaluationMetrics%27"><span class="hs-identifier hs-var">findMatchesMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FindMatchesMetrics
-</span><a href="#local-6989586621679701690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics"><span class="hs-identifier hs-type">EvaluationMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679703398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics"><span class="hs-identifier hs-type">EvaluationMetrics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The type of machine learning transform.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#evaluationMetrics_transformType"><span class="hs-identifier hs-type">evaluationMetrics_transformType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics"><span class="hs-identifier hs-type">EvaluationMetrics</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TransformType.html#TransformType"><span class="hs-identifier hs-type">TransformType</span></a></span><span>
@@ -155,19 +155,19 @@ $sel:findMatchesMetrics:EvaluationMetrics' :: EvaluationMetrics -&gt; Maybe Find
 -&gt; Lens
      EvaluationMetrics EvaluationMetrics TransformType TransformType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics%27"><span class="hs-identifier hs-type">EvaluationMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679701688"><span class="annot"><span class="annottext">TransformType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics%27"><span class="hs-identifier hs-type">EvaluationMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679703396"><span class="annot"><span class="annottext">TransformType
 transformType :: TransformType
 $sel:transformType:EvaluationMetrics' :: EvaluationMetrics -&gt; TransformType
-</span><a href="#local-6989586621679701688"><span class="hs-identifier hs-var hs-var">transformType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformType
-</span><a href="#local-6989586621679701688"><span class="hs-identifier hs-var">transformType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679701687"><span class="annot"><span class="annottext">s :: EvaluationMetrics
-</span><a href="#local-6989586621679701687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics%27"><span class="hs-identifier hs-type">EvaluationMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679701686"><span class="annot"><span class="annottext">TransformType
-</span><a href="#local-6989586621679701686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluationMetrics
-</span><a href="#local-6989586621679701687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformType:EvaluationMetrics' :: TransformType
+</span><a href="#local-6989586621679703396"><span class="hs-identifier hs-var hs-var">transformType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformType
+</span><a href="#local-6989586621679703396"><span class="hs-identifier hs-var">transformType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679703395"><span class="annot"><span class="annottext">s :: EvaluationMetrics
+</span><a href="#local-6989586621679703395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics%27"><span class="hs-identifier hs-type">EvaluationMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679703394"><span class="annot"><span class="annottext">TransformType
+</span><a href="#local-6989586621679703394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EvaluationMetrics
+</span><a href="#local-6989586621679703395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transformType:EvaluationMetrics' :: TransformType
 </span><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#%24sel%3AtransformType%3AEvaluationMetrics%27"><span class="hs-identifier hs-var">transformType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TransformType
-</span><a href="#local-6989586621679701686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics"><span class="hs-identifier hs-type">EvaluationMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679703394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics"><span class="hs-identifier hs-type">EvaluationMetrics</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701683"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics"><span class="hs-identifier hs-type">EvaluationMetrics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679701681"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EvaluationMetrics
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679703391"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics"><span class="hs-identifier hs-type">EvaluationMetrics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679703389"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EvaluationMetrics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EvaluationMetrics)
@@ -177,8 +177,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EvaluationMetrics&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679701678"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679701678"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679703386"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679703386"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe FindMatchesMetrics -&gt; TransformType -&gt; EvaluationMetrics
 </span><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics%27"><span class="hs-identifier hs-var">EvaluationMetrics'</span></a></span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FindMatchesMetrics -&gt; TransformType -&gt; EvaluationMetrics)
@@ -186,7 +186,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (TransformType -&gt; EvaluationMetrics)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679701678"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FindMatchesMetrics)
+</span><a href="#local-6989586621679703386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FindMatchesMetrics)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FindMatchesMetrics&quot;</span></span><span class="hs-special">)</span><span>
@@ -194,13 +194,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser TransformType -&gt; Parser EvaluationMetrics
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679701678"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TransformType
+</span><a href="#local-6989586621679703386"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser TransformType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TransformType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701671"><span id="local-6989586621679701673"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics"><span class="hs-identifier hs-type">EvaluationMetrics</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679703379"><span id="local-6989586621679703381"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics"><span class="hs-identifier hs-type">EvaluationMetrics</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679701668"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics"><span class="hs-identifier hs-type">EvaluationMetrics</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679703376"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.EvaluationMetrics.html#EvaluationMetrics"><span class="hs-identifier hs-type">EvaluationMetrics</span></a></span></span><span>
 </span><span id="line-83"></span></pre></body></html>

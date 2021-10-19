@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The builder used to build the custom platform.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newBuilder' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679299114"><span id="local-6989586621679299115"></span></span><span class="hs-keyword">data</span><span> </span><span id="Builder"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Builder.html#Builder"><span class="hs-identifier hs-var">Builder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Builder%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Builder.html#Builder%27"><span class="hs-identifier hs-var">Builder'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679299391"><span id="local-6989586621679299392"></span></span><span class="hs-keyword">data</span><span> </span><span id="Builder"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Builder.html#Builder"><span class="hs-identifier hs-var">Builder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Builder%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Builder.html#Builder%27"><span class="hs-identifier hs-var">Builder'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the builder.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aarn%3ABuilder%27"><span class="annot"><span class="annottext">Builder -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Builder.html#%24sel%3Aarn%3ABuilder%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299108"><span id="local-6989586621679299110"><span class="annot"><span class="annottext">Builder -&gt; Builder -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299385"><span id="local-6989586621679299387"><span class="annot"><span class="annottext">Builder -&gt; Builder -&gt; Bool
 (Builder -&gt; Builder -&gt; Bool)
 -&gt; (Builder -&gt; Builder -&gt; Bool) -&gt; Eq Builder
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Builder -&gt; Builder -&gt; Bool
 == :: Builder -&gt; Builder -&gt; Bool
 $c== :: Builder -&gt; Builder -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299099"><span id="local-6989586621679299101"><span id="local-6989586621679299103"><span id="local-6989586621679299105"><span class="annot"><span class="annottext">ReadPrec [Builder]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299376"><span id="local-6989586621679299378"><span id="local-6989586621679299380"><span id="local-6989586621679299382"><span class="annot"><span class="annottext">ReadPrec [Builder]
 ReadPrec Builder
 Int -&gt; ReadS Builder
 ReadS [Builder]
@@ -59,7 +59,7 @@ readList :: ReadS [Builder]
 $creadList :: ReadS [Builder]
 readsPrec :: Int -&gt; ReadS Builder
 $creadsPrec :: Int -&gt; ReadS Builder
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299092"><span id="local-6989586621679299094"><span id="local-6989586621679299096"><span class="annot"><span class="annottext">Int -&gt; Builder -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299369"><span id="local-6989586621679299371"><span id="local-6989586621679299373"><span class="annot"><span class="annottext">Int -&gt; Builder -&gt; ShowS
 [Builder] -&gt; ShowS
 Builder -&gt; String
 (Int -&gt; Builder -&gt; ShowS)
@@ -107,31 +107,31 @@ forall a. Maybe a
 -&gt; (Builder -&gt; Maybe Text -&gt; Builder)
 -&gt; Lens Builder Builder (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Builder.html#Builder%27"><span class="hs-identifier hs-type">Builder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299083"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Builder.html#Builder%27"><span class="hs-identifier hs-type">Builder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299360"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:Builder' :: Builder -&gt; Maybe Text
-</span><a href="#local-6989586621679299083"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299083"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299082"><span class="annot"><span class="annottext">s :: Builder
-</span><a href="#local-6989586621679299082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Builder.html#Builder%27"><span class="hs-identifier hs-type">Builder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299081"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Builder
-</span><a href="#local-6989586621679299082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Builder' :: Maybe Text
+</span><a href="#local-6989586621679299360"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299360"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299359"><span class="annot"><span class="annottext">s :: Builder
+</span><a href="#local-6989586621679299359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Builder.html#Builder%27"><span class="hs-identifier hs-type">Builder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299358"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Builder
+</span><a href="#local-6989586621679299359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Builder' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Builder.html#%24sel%3Aarn%3ABuilder%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679299081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Builder.html#Builder"><span class="hs-identifier hs-type">Builder</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Builder.html#Builder"><span class="hs-identifier hs-type">Builder</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Builder.html#Builder"><span class="hs-identifier hs-type">Builder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-53"></span><span>  </span><span id="local-6989586621679299078"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Builder
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679299076"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299076"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Builder
+</span><span id="line-53"></span><span>  </span><span id="local-6989586621679299355"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Builder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679299353"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679299353"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Builder
 </span><a href="Network.AWS.ElasticBeanstalk.Types.Builder.html#Builder%27"><span class="hs-identifier hs-var">Builder'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Builder)
 -&gt; Either String (Maybe Text) -&gt; Either String Builder
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679299076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679299353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ARN&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299070"><span id="local-6989586621679299072"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Builder.html#Builder"><span class="hs-identifier hs-type">Builder</span></a></span></span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299347"><span id="local-6989586621679299349"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Builder.html#Builder"><span class="hs-identifier hs-type">Builder</span></a></span></span></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299067"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Builder.html#Builder"><span class="hs-identifier hs-type">Builder</span></a></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299344"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Builder.html#Builder"><span class="hs-identifier hs-type">Builder</span></a></span></span><span>
 </span><span id="line-58"></span></pre></body></html>

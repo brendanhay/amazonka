@@ -28,26 +28,26 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | The record of an upcoming or in-progress managed action.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newManagedAction' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679303615"><span id="local-6989586621679303616"></span></span><span class="hs-keyword">data</span><span> </span><span id="ManagedAction"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-var">ManagedAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ManagedAction%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-var">ManagedAction'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679303898"><span id="local-6989586621679303899"></span></span><span class="hs-keyword">data</span><span> </span><span id="ManagedAction"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-var">ManagedAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ManagedAction%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-var">ManagedAction'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the managed action. If the action is @Scheduled@, you can</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- apply it immediately with ApplyEnvironmentManagedAction.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3AManagedAction%27"><span class="annot"><span class="annottext">ManagedAction -&gt; Maybe ActionStatus
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3Astatus%3AManagedAction%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ActionStatus.html#ActionStatus"><span class="hs-identifier hs-type">ActionStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The type of managed action.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AactionType%3AManagedAction%27"><span class="annot"><span class="annottext">ManagedAction -&gt; Maybe ActionType
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AactionType%3AManagedAction%27"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the managed action.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AactionId%3AManagedAction%27"><span class="annot"><span class="annottext">ManagedAction -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the managed action.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AactionId%3AManagedAction%27"><span class="annot"><span class="annottext">ManagedAction -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AactionId%3AManagedAction%27"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A description of the managed action.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AactionDescription%3AManagedAction%27"><span class="annot"><span class="annottext">ManagedAction -&gt; Maybe Text
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The start time of the maintenance window in which the managed action</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- will execute.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AwindowStartTime%3AManagedAction%27"><span class="annot"><span class="annottext">ManagedAction -&gt; Maybe ISO8601
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AwindowStartTime%3AManagedAction%27"><span class="hs-identifier hs-var hs-var">windowStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A description of the managed action.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AactionDescription%3AManagedAction%27"><span class="annot"><span class="annottext">ManagedAction -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AactionDescription%3AManagedAction%27"><span class="hs-identifier hs-var hs-var">actionDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The start time of the maintenance window in which the managed action</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- will execute.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AwindowStartTime%3AManagedAction%27"><span class="annot"><span class="annottext">ManagedAction -&gt; Maybe ISO8601
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AwindowStartTime%3AManagedAction%27"><span class="hs-identifier hs-var hs-var">windowStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The type of managed action.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AactionType%3AManagedAction%27"><span class="annot"><span class="annottext">ManagedAction -&gt; Maybe ActionType
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AactionType%3AManagedAction%27"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303605"><span id="local-6989586621679303607"><span class="annot"><span class="annottext">ManagedAction -&gt; ManagedAction -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303888"><span id="local-6989586621679303890"><span class="annot"><span class="annottext">ManagedAction -&gt; ManagedAction -&gt; Bool
 (ManagedAction -&gt; ManagedAction -&gt; Bool)
 -&gt; (ManagedAction -&gt; ManagedAction -&gt; Bool) -&gt; Eq ManagedAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ManagedAction -&gt; ManagedAction -&gt; Bool
 == :: ManagedAction -&gt; ManagedAction -&gt; Bool
 $c== :: ManagedAction -&gt; ManagedAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303596"><span id="local-6989586621679303598"><span id="local-6989586621679303600"><span id="local-6989586621679303602"><span class="annot"><span class="annottext">ReadPrec [ManagedAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303879"><span id="local-6989586621679303881"><span id="local-6989586621679303883"><span id="local-6989586621679303885"><span class="annot"><span class="annottext">ReadPrec [ManagedAction]
 ReadPrec ManagedAction
 Int -&gt; ReadS ManagedAction
 ReadS [ManagedAction]
@@ -75,7 +75,7 @@ readList :: ReadS [ManagedAction]
 $creadList :: ReadS [ManagedAction]
 readsPrec :: Int -&gt; ReadS ManagedAction
 $creadsPrec :: Int -&gt; ReadS ManagedAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303589"><span id="local-6989586621679303591"><span id="local-6989586621679303593"><span class="annot"><span class="annottext">Int -&gt; ManagedAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303872"><span id="local-6989586621679303874"><span id="local-6989586621679303876"><span class="annot"><span class="annottext">Int -&gt; ManagedAction -&gt; ShowS
 [ManagedAction] -&gt; ShowS
 ManagedAction -&gt; String
 (Int -&gt; ManagedAction -&gt; ShowS)
@@ -112,43 +112,43 @@ $cfrom :: forall x. ManagedAction -&gt; Rep ManagedAction x
 </span><span id="line-55"></span><span class="hs-comment">-- 'status', 'managedAction_status' - The status of the managed action. If the action is @Scheduled@, you can</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- apply it immediately with ApplyEnvironmentManagedAction.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'actionType', 'managedAction_actionType' - The type of managed action.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'actionId', 'managedAction_actionId' - A unique identifier for the managed action.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'actionId', 'managedAction_actionId' - A unique identifier for the managed action.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'actionDescription', 'managedAction_actionDescription' - A description of the managed action.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'windowStartTime', 'managedAction_windowStartTime' - The start time of the maintenance window in which the managed action</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- will execute.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'windowStartTime', 'managedAction_windowStartTime' - The start time of the maintenance window in which the managed action</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- will execute.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'actionDescription', 'managedAction_actionDescription' - A description of the managed action.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'actionType', 'managedAction_actionType' - The type of managed action.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#newManagedAction"><span class="hs-identifier hs-type">newManagedAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span>
 </span><span id="line-68"></span><span id="newManagedAction"><span class="annot"><span class="annottext">newManagedAction :: ManagedAction
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#newManagedAction"><span class="hs-identifier hs-var hs-var">newManagedAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">ManagedAction' :: Maybe ActionStatus
--&gt; Maybe ActionType
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe ActionType
 -&gt; ManagedAction
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ManagedAction' :: Maybe ActionStatus
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3Astatus%3AManagedAction%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionType:ManagedAction' :: Maybe ActionType
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AactionType%3AManagedAction%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionType
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionId:ManagedAction' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AactionId%3AManagedAction%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionId:ManagedAction' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AactionId%3AManagedAction%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:windowStartTime:ManagedAction' :: Maybe ISO8601
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AwindowStartTime%3AManagedAction%27"><span class="hs-identifier hs-var">windowStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionDescription:ManagedAction' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AactionDescription%3AManagedAction%27"><span class="hs-identifier hs-var">actionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:windowStartTime:ManagedAction' :: Maybe ISO8601
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AwindowStartTime%3AManagedAction%27"><span class="hs-identifier hs-var">windowStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionType:ManagedAction' :: Maybe ActionType
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AactionType%3AManagedAction%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
@@ -166,92 +166,54 @@ forall a. Maybe a
      (Maybe ActionStatus)
      (Maybe ActionStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303580"><span class="annot"><span class="annottext">Maybe ActionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303863"><span class="annot"><span class="annottext">Maybe ActionStatus
 status :: Maybe ActionStatus
 $sel:status:ManagedAction' :: ManagedAction -&gt; Maybe ActionStatus
-</span><a href="#local-6989586621679303580"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionStatus
-</span><a href="#local-6989586621679303580"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303579"><span class="annot"><span class="annottext">s :: ManagedAction
-</span><a href="#local-6989586621679303579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303578"><span class="annot"><span class="annottext">Maybe ActionStatus
-</span><a href="#local-6989586621679303578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedAction
-</span><a href="#local-6989586621679303579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ManagedAction' :: Maybe ActionStatus
+</span><a href="#local-6989586621679303863"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionStatus
+</span><a href="#local-6989586621679303863"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303862"><span class="annot"><span class="annottext">s :: ManagedAction
+</span><a href="#local-6989586621679303862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303861"><span class="annot"><span class="annottext">Maybe ActionStatus
+</span><a href="#local-6989586621679303861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedAction
+</span><a href="#local-6989586621679303862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ManagedAction' :: Maybe ActionStatus
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3Astatus%3AManagedAction%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionStatus
-</span><a href="#local-6989586621679303578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | The type of managed action.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#managedAction_actionType"><span class="hs-identifier hs-type">managedAction_actionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="managedAction_actionType"><span class="annot"><span class="annottext">managedAction_actionType :: (Maybe ActionType -&gt; f (Maybe ActionType))
--&gt; ManagedAction -&gt; f ManagedAction
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#managedAction_actionType"><span class="hs-identifier hs-var hs-var">managedAction_actionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ManagedAction -&gt; Maybe ActionType)
--&gt; (ManagedAction -&gt; Maybe ActionType -&gt; ManagedAction)
--&gt; Lens
-     ManagedAction ManagedAction (Maybe ActionType) (Maybe ActionType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303576"><span class="annot"><span class="annottext">Maybe ActionType
-actionType :: Maybe ActionType
-$sel:actionType:ManagedAction' :: ManagedAction -&gt; Maybe ActionType
-</span><a href="#local-6989586621679303576"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionType
-</span><a href="#local-6989586621679303576"><span class="hs-identifier hs-var">actionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303575"><span class="annot"><span class="annottext">s :: ManagedAction
-</span><a href="#local-6989586621679303575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303574"><span class="annot"><span class="annottext">Maybe ActionType
-</span><a href="#local-6989586621679303574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedAction
-</span><a href="#local-6989586621679303575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionType:ManagedAction' :: Maybe ActionType
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AactionType%3AManagedAction%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionType
-</span><a href="#local-6989586621679303574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | A unique identifier for the managed action.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#managedAction_actionId"><span class="hs-identifier hs-type">managedAction_actionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="managedAction_actionId"><span class="annot"><span class="annottext">managedAction_actionId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ManagedAction -&gt; f ManagedAction
+</span><span id="line-82"></span><span class="hs-comment">-- | A unique identifier for the managed action.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#managedAction_actionId"><span class="hs-identifier hs-type">managedAction_actionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="managedAction_actionId"><span class="annot"><span class="annottext">managedAction_actionId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ManagedAction -&gt; f ManagedAction
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#managedAction_actionId"><span class="hs-identifier hs-var hs-var">managedAction_actionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ManagedAction -&gt; Maybe Text)
 -&gt; (ManagedAction -&gt; Maybe Text -&gt; ManagedAction)
 -&gt; Lens ManagedAction ManagedAction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303572"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303859"><span class="annot"><span class="annottext">Maybe Text
 actionId :: Maybe Text
 $sel:actionId:ManagedAction' :: ManagedAction -&gt; Maybe Text
-</span><a href="#local-6989586621679303572"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679303572"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303571"><span class="annot"><span class="annottext">s :: ManagedAction
-</span><a href="#local-6989586621679303571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303570"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679303570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedAction
-</span><a href="#local-6989586621679303571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionId:ManagedAction' :: Maybe Text
+</span><a href="#local-6989586621679303859"><span class="hs-identifier hs-var hs-var">actionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303859"><span class="hs-identifier hs-var">actionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303858"><span class="annot"><span class="annottext">s :: ManagedAction
+</span><a href="#local-6989586621679303858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303857"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedAction
+</span><a href="#local-6989586621679303858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionId:ManagedAction' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AactionId%3AManagedAction%27"><span class="hs-identifier hs-var">actionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679303570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | A description of the managed action.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#managedAction_actionDescription"><span class="hs-identifier hs-type">managedAction_actionDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="managedAction_actionDescription"><span class="annot"><span class="annottext">managedAction_actionDescription :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ManagedAction -&gt; f ManagedAction
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#managedAction_actionDescription"><span class="hs-identifier hs-var hs-var">managedAction_actionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ManagedAction -&gt; Maybe Text)
--&gt; (ManagedAction -&gt; Maybe Text -&gt; ManagedAction)
--&gt; Lens ManagedAction ManagedAction (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303568"><span class="annot"><span class="annottext">Maybe Text
-actionDescription :: Maybe Text
-$sel:actionDescription:ManagedAction' :: ManagedAction -&gt; Maybe Text
-</span><a href="#local-6989586621679303568"><span class="hs-identifier hs-var hs-var">actionDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679303568"><span class="hs-identifier hs-var">actionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303567"><span class="annot"><span class="annottext">s :: ManagedAction
-</span><a href="#local-6989586621679303567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303566"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679303566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedAction
-</span><a href="#local-6989586621679303567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionDescription:ManagedAction' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AactionDescription%3AManagedAction%27"><span class="hs-identifier hs-var">actionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679303566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The start time of the maintenance window in which the managed action</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- will execute.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#managedAction_windowStartTime"><span class="hs-identifier hs-type">managedAction_windowStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="managedAction_windowStartTime"><span class="annot"><span class="annottext">managedAction_windowStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679303857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The start time of the maintenance window in which the managed action</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- will execute.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#managedAction_windowStartTime"><span class="hs-identifier hs-type">managedAction_windowStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="managedAction_windowStartTime"><span class="annot"><span class="annottext">managedAction_windowStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ManagedAction -&gt; f ManagedAction
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#managedAction_windowStartTime"><span class="hs-identifier hs-var hs-var">managedAction_windowStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ManagedAction -&gt; Maybe ISO8601)
 -&gt; (ManagedAction -&gt; Maybe ISO8601 -&gt; ManagedAction)
 -&gt; Lens ManagedAction ManagedAction (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303564"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303855"><span class="annot"><span class="annottext">Maybe ISO8601
 windowStartTime :: Maybe ISO8601
 $sel:windowStartTime:ManagedAction' :: ManagedAction -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679303564"><span class="hs-identifier hs-var hs-var">windowStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679303564"><span class="hs-identifier hs-var">windowStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303563"><span class="annot"><span class="annottext">s :: ManagedAction
-</span><a href="#local-6989586621679303563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303562"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679303562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedAction
-</span><a href="#local-6989586621679303563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:windowStartTime:ManagedAction' :: Maybe ISO8601
+</span><a href="#local-6989586621679303855"><span class="hs-identifier hs-var hs-var">windowStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679303855"><span class="hs-identifier hs-var">windowStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303854"><span class="annot"><span class="annottext">s :: ManagedAction
+</span><a href="#local-6989586621679303854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303853"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679303853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedAction
+</span><a href="#local-6989586621679303854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:windowStartTime:ManagedAction' :: Maybe ISO8601
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AwindowStartTime%3AManagedAction%27"><span class="hs-identifier hs-var">windowStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679303562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679303853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; ManagedAction -&gt; f ManagedAction)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -268,77 +230,123 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | A description of the managed action.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#managedAction_actionDescription"><span class="hs-identifier hs-type">managedAction_actionDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="managedAction_actionDescription"><span class="annot"><span class="annottext">managedAction_actionDescription :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ManagedAction -&gt; f ManagedAction
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#managedAction_actionDescription"><span class="hs-identifier hs-var hs-var">managedAction_actionDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ManagedAction -&gt; Maybe Text)
+-&gt; (ManagedAction -&gt; Maybe Text -&gt; ManagedAction)
+-&gt; Lens ManagedAction ManagedAction (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303848"><span class="annot"><span class="annottext">Maybe Text
+actionDescription :: Maybe Text
+$sel:actionDescription:ManagedAction' :: ManagedAction -&gt; Maybe Text
+</span><a href="#local-6989586621679303848"><span class="hs-identifier hs-var hs-var">actionDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303848"><span class="hs-identifier hs-var">actionDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303847"><span class="annot"><span class="annottext">s :: ManagedAction
+</span><a href="#local-6989586621679303847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303846"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedAction
+</span><a href="#local-6989586621679303847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionDescription:ManagedAction' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AactionDescription%3AManagedAction%27"><span class="hs-identifier hs-var">actionDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The type of managed action.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#managedAction_actionType"><span class="hs-identifier hs-type">managedAction_actionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="managedAction_actionType"><span class="annot"><span class="annottext">managedAction_actionType :: (Maybe ActionType -&gt; f (Maybe ActionType))
+-&gt; ManagedAction -&gt; f ManagedAction
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#managedAction_actionType"><span class="hs-identifier hs-var hs-var">managedAction_actionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ManagedAction -&gt; Maybe ActionType)
+-&gt; (ManagedAction -&gt; Maybe ActionType -&gt; ManagedAction)
+-&gt; Lens
+     ManagedAction ManagedAction (Maybe ActionType) (Maybe ActionType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303844"><span class="annot"><span class="annottext">Maybe ActionType
+actionType :: Maybe ActionType
+$sel:actionType:ManagedAction' :: ManagedAction -&gt; Maybe ActionType
+</span><a href="#local-6989586621679303844"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionType
+</span><a href="#local-6989586621679303844"><span class="hs-identifier hs-var">actionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303843"><span class="annot"><span class="annottext">s :: ManagedAction
+</span><a href="#local-6989586621679303843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-type">ManagedAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303842"><span class="annot"><span class="annottext">Maybe ActionType
+</span><a href="#local-6989586621679303842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ManagedAction
+</span><a href="#local-6989586621679303843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionType:ManagedAction' :: Maybe ActionType
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#%24sel%3AactionType%3AManagedAction%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionType
+</span><a href="#local-6989586621679303842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679303556"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ManagedAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679303554"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679303554"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679303839"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ManagedAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679303837"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679303837"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">Maybe ActionStatus
--&gt; Maybe ActionType
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe ActionType
 -&gt; ManagedAction
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction%27"><span class="hs-identifier hs-var">ManagedAction'</span></a></span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ActionStatus
- -&gt; Maybe ActionType
- -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe ActionType
  -&gt; ManagedAction)
 -&gt; Either String (Maybe ActionStatus)
 -&gt; Either
      String
-     (Maybe ActionType
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; ManagedAction)
+     (Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe ActionType
+      -&gt; ManagedAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679303554"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ActionStatus)
+</span><a href="#local-6989586621679303837"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ActionStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe ActionType
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; ManagedAction)
--&gt; Either String (Maybe ActionType)
--&gt; Either
-     String (Maybe Text -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; ManagedAction)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679303554"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ActionType)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ActionType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Maybe Text -&gt; Maybe ISO8601 -&gt; ManagedAction)
+  (Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe ActionType
+   -&gt; ManagedAction)
 -&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Text -&gt; Maybe ISO8601 -&gt; ManagedAction)
+-&gt; Either
+     String
+     (Maybe ISO8601 -&gt; Maybe Text -&gt; Maybe ActionType -&gt; ManagedAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679303554"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679303837"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ActionId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe ISO8601 -&gt; ManagedAction)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe ISO8601 -&gt; ManagedAction)
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601 -&gt; Maybe Text -&gt; Maybe ActionType -&gt; ManagedAction)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe Text -&gt; Maybe ActionType -&gt; ManagedAction)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679303554"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ActionDescription&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; ManagedAction)
--&gt; Either String (Maybe ISO8601) -&gt; Either String ManagedAction
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679303554"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679303837"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WindowStartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe ActionType -&gt; ManagedAction)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe ActionType -&gt; ManagedAction)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679303837"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActionDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ActionType -&gt; ManagedAction)
+-&gt; Either String (Maybe ActionType) -&gt; Either String ManagedAction
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679303837"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ActionType)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActionType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303548"><span id="local-6989586621679303550"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303831"><span id="local-6989586621679303833"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303545"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303828"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ManagedAction.html#ManagedAction"><span class="hs-identifier hs-type">ManagedAction</span></a></span></span><span>
 </span><span id="line-111"></span></pre></body></html>

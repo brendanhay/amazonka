@@ -27,20 +27,20 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The current account setting for a resource.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSetting' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679460635"><span id="local-6989586621679460636"></span></span><span class="hs-keyword">data</span><span> </span><span id="Setting"><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-var">Setting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Setting%27"><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting%27"><span class="hs-identifier hs-var">Setting'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon ECS resource name.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aname%3ASetting%27"><span class="annot"><span class="annottext">Setting -&gt; Maybe SettingName
+</span><span id="line-30"></span><span id="local-6989586621679461359"><span id="local-6989586621679461360"></span></span><span class="hs-keyword">data</span><span> </span><span id="Setting"><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-var">Setting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Setting%27"><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting%27"><span class="hs-identifier hs-var">Setting'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether the account setting is enabled or disabled for the specified</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Avalue%3ASetting%27"><span class="annot"><span class="annottext">Setting -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.Types.Setting.html#%24sel%3Avalue%3ASetting%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The Amazon ECS resource name.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aname%3ASetting%27"><span class="annot"><span class="annottext">Setting -&gt; Maybe SettingName
 </span><a href="Network.AWS.ECS.Types.Setting.html#%24sel%3Aname%3ASetting%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SettingName.html#SettingName"><span class="hs-identifier hs-type">SettingName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The ARN of the principal, which can be an IAM user, IAM role, or the</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- root user. If this field is omitted, the authenticated user is assumed.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AprincipalArn%3ASetting%27"><span class="annot"><span class="annottext">Setting -&gt; Maybe Text
-</span><a href="Network.AWS.ECS.Types.Setting.html#%24sel%3AprincipalArn%3ASetting%27"><span class="hs-identifier hs-var hs-var">principalArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Whether the account setting is enabled or disabled for the specified</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- resource.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Avalue%3ASetting%27"><span class="annot"><span class="annottext">Setting -&gt; Maybe Text
-</span><a href="Network.AWS.ECS.Types.Setting.html#%24sel%3Avalue%3ASetting%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ARN of the principal, which can be an IAM user, IAM role, or the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- root user. If this field is omitted, the authenticated user is assumed.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AprincipalArn%3ASetting%27"><span class="annot"><span class="annottext">Setting -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.Types.Setting.html#%24sel%3AprincipalArn%3ASetting%27"><span class="hs-identifier hs-var hs-var">principalArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679460627"><span id="local-6989586621679460629"><span class="annot"><span class="annottext">Setting -&gt; Setting -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679461351"><span id="local-6989586621679461353"><span class="annot"><span class="annottext">Setting -&gt; Setting -&gt; Bool
 (Setting -&gt; Setting -&gt; Bool)
 -&gt; (Setting -&gt; Setting -&gt; Bool) -&gt; Eq Setting
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Setting -&gt; Setting -&gt; Bool
 == :: Setting -&gt; Setting -&gt; Bool
 $c== :: Setting -&gt; Setting -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460618"><span id="local-6989586621679460620"><span id="local-6989586621679460622"><span id="local-6989586621679460624"><span class="annot"><span class="annottext">ReadPrec [Setting]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461342"><span id="local-6989586621679461344"><span id="local-6989586621679461346"><span id="local-6989586621679461348"><span class="annot"><span class="annottext">ReadPrec [Setting]
 ReadPrec Setting
 Int -&gt; ReadS Setting
 ReadS [Setting]
@@ -68,7 +68,7 @@ readList :: ReadS [Setting]
 $creadList :: ReadS [Setting]
 readsPrec :: Int -&gt; ReadS Setting
 $creadsPrec :: Int -&gt; ReadS Setting
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460611"><span id="local-6989586621679460613"><span id="local-6989586621679460615"><span class="annot"><span class="annottext">Int -&gt; Setting -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679461335"><span id="local-6989586621679461337"><span id="local-6989586621679461339"><span class="annot"><span class="annottext">Int -&gt; Setting -&gt; ShowS
 [Setting] -&gt; ShowS
 Setting -&gt; String
 (Int -&gt; Setting -&gt; ShowS)
@@ -99,130 +99,130 @@ $cfrom :: forall x. Setting -&gt; Rep Setting x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'name', 'setting_name' - The Amazon ECS resource name.</span><span>
-</span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'principalArn', 'setting_principalArn' - The ARN of the principal, which can be an IAM user, IAM role, or the</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- root user. If this field is omitted, the authenticated user is assumed.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'value', 'setting_value' - Whether the account setting is enabled or disabled for the specified</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'name', 'setting_name' - The Amazon ECS resource name.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'value', 'setting_value' - Whether the account setting is enabled or disabled for the specified</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'principalArn', 'setting_principalArn' - The ARN of the principal, which can be an IAM user, IAM role, or the</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- root user. If this field is omitted, the authenticated user is assumed.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#newSetting"><span class="hs-identifier hs-type">newSetting</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span><span>
 </span><span id="line-59"></span><span id="newSetting"><span class="annot"><span class="annottext">newSetting :: Setting
 </span><a href="Network.AWS.ECS.Types.Setting.html#newSetting"><span class="hs-identifier hs-var hs-var">newSetting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">Setting' :: Maybe SettingName -&gt; Maybe Text -&gt; Maybe Text -&gt; Setting
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">Setting' :: Maybe Text -&gt; Maybe SettingName -&gt; Maybe Text -&gt; Setting
 </span><a href="Network.AWS.ECS.Types.Setting.html#Setting%27"><span class="hs-identifier hs-type">Setting'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:Setting' :: Maybe SettingName
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:Setting' :: Maybe Text
+</span><a href="Network.AWS.ECS.Types.Setting.html#%24sel%3Avalue%3ASetting%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Setting' :: Maybe SettingName
 </span><a href="Network.AWS.ECS.Types.Setting.html#%24sel%3Aname%3ASetting%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SettingName
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:principalArn:Setting' :: Maybe Text
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:principalArn:Setting' :: Maybe Text
 </span><a href="Network.AWS.ECS.Types.Setting.html#%24sel%3AprincipalArn%3ASetting%27"><span class="hs-identifier hs-var">principalArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:Setting' :: Maybe Text
-</span><a href="Network.AWS.ECS.Types.Setting.html#%24sel%3Avalue%3ASetting%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | The Amazon ECS resource name.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#setting_name"><span class="hs-identifier hs-type">setting_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SettingName.html#SettingName"><span class="hs-identifier hs-type">SettingName</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="setting_name"><span class="annot"><span class="annottext">setting_name :: (Maybe SettingName -&gt; f (Maybe SettingName))
+</span><span id="line-66"></span><span class="hs-comment">-- | Whether the account setting is enabled or disabled for the specified</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#setting_value"><span class="hs-identifier hs-type">setting_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="setting_value"><span class="annot"><span class="annottext">setting_value :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Setting -&gt; f Setting
+</span><a href="Network.AWS.ECS.Types.Setting.html#setting_value"><span class="hs-identifier hs-var hs-var">setting_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Setting -&gt; Maybe Text)
+-&gt; (Setting -&gt; Maybe Text -&gt; Setting)
+-&gt; Lens Setting Setting (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting%27"><span class="hs-identifier hs-type">Setting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461326"><span class="annot"><span class="annottext">Maybe Text
+value :: Maybe Text
+$sel:value:Setting' :: Setting -&gt; Maybe Text
+</span><a href="#local-6989586621679461326"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461326"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461325"><span class="annot"><span class="annottext">s :: Setting
+</span><a href="#local-6989586621679461325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting%27"><span class="hs-identifier hs-type">Setting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461324"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Setting
+</span><a href="#local-6989586621679461325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Setting' :: Maybe Text
+</span><a href="Network.AWS.ECS.Types.Setting.html#%24sel%3Avalue%3ASetting%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The Amazon ECS resource name.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#setting_name"><span class="hs-identifier hs-type">setting_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.SettingName.html#SettingName"><span class="hs-identifier hs-type">SettingName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="setting_name"><span class="annot"><span class="annottext">setting_name :: (Maybe SettingName -&gt; f (Maybe SettingName))
 -&gt; Setting -&gt; f Setting
 </span><a href="Network.AWS.ECS.Types.Setting.html#setting_name"><span class="hs-identifier hs-var hs-var">setting_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Setting -&gt; Maybe SettingName)
 -&gt; (Setting -&gt; Maybe SettingName -&gt; Setting)
 -&gt; Lens Setting Setting (Maybe SettingName) (Maybe SettingName)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting%27"><span class="hs-identifier hs-type">Setting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460602"><span class="annot"><span class="annottext">Maybe SettingName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting%27"><span class="hs-identifier hs-type">Setting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461322"><span class="annot"><span class="annottext">Maybe SettingName
 name :: Maybe SettingName
 $sel:name:Setting' :: Setting -&gt; Maybe SettingName
-</span><a href="#local-6989586621679460602"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SettingName
-</span><a href="#local-6989586621679460602"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460601"><span class="annot"><span class="annottext">s :: Setting
-</span><a href="#local-6989586621679460601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting%27"><span class="hs-identifier hs-type">Setting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460600"><span class="annot"><span class="annottext">Maybe SettingName
-</span><a href="#local-6989586621679460600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Setting
-</span><a href="#local-6989586621679460601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Setting' :: Maybe SettingName
+</span><a href="#local-6989586621679461322"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SettingName
+</span><a href="#local-6989586621679461322"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461321"><span class="annot"><span class="annottext">s :: Setting
+</span><a href="#local-6989586621679461321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting%27"><span class="hs-identifier hs-type">Setting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461320"><span class="annot"><span class="annottext">Maybe SettingName
+</span><a href="#local-6989586621679461320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Setting
+</span><a href="#local-6989586621679461321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Setting' :: Maybe SettingName
 </span><a href="Network.AWS.ECS.Types.Setting.html#%24sel%3Aname%3ASetting%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SettingName
-</span><a href="#local-6989586621679460600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | The ARN of the principal, which can be an IAM user, IAM role, or the</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- root user. If this field is omitted, the authenticated user is assumed.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#setting_principalArn"><span class="hs-identifier hs-type">setting_principalArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="setting_principalArn"><span class="annot"><span class="annottext">setting_principalArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Setting -&gt; f Setting
+</span><a href="#local-6989586621679461320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The ARN of the principal, which can be an IAM user, IAM role, or the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- root user. If this field is omitted, the authenticated user is assumed.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#setting_principalArn"><span class="hs-identifier hs-type">setting_principalArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="setting_principalArn"><span class="annot"><span class="annottext">setting_principalArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Setting -&gt; f Setting
 </span><a href="Network.AWS.ECS.Types.Setting.html#setting_principalArn"><span class="hs-identifier hs-var hs-var">setting_principalArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Setting -&gt; Maybe Text)
 -&gt; (Setting -&gt; Maybe Text -&gt; Setting)
 -&gt; Lens Setting Setting (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting%27"><span class="hs-identifier hs-type">Setting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460598"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting%27"><span class="hs-identifier hs-type">Setting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679461318"><span class="annot"><span class="annottext">Maybe Text
 principalArn :: Maybe Text
 $sel:principalArn:Setting' :: Setting -&gt; Maybe Text
-</span><a href="#local-6989586621679460598"><span class="hs-identifier hs-var hs-var">principalArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460598"><span class="hs-identifier hs-var">principalArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460597"><span class="annot"><span class="annottext">s :: Setting
-</span><a href="#local-6989586621679460597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting%27"><span class="hs-identifier hs-type">Setting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460596"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Setting
-</span><a href="#local-6989586621679460597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalArn:Setting' :: Maybe Text
+</span><a href="#local-6989586621679461318"><span class="hs-identifier hs-var hs-var">principalArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461318"><span class="hs-identifier hs-var">principalArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679461317"><span class="annot"><span class="annottext">s :: Setting
+</span><a href="#local-6989586621679461317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting%27"><span class="hs-identifier hs-type">Setting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679461316"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679461316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Setting
+</span><a href="#local-6989586621679461317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principalArn:Setting' :: Maybe Text
 </span><a href="Network.AWS.ECS.Types.Setting.html#%24sel%3AprincipalArn%3ASetting%27"><span class="hs-identifier hs-var">principalArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | Whether the account setting is enabled or disabled for the specified</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- resource.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#setting_value"><span class="hs-identifier hs-type">setting_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="setting_value"><span class="annot"><span class="annottext">setting_value :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Setting -&gt; f Setting
-</span><a href="Network.AWS.ECS.Types.Setting.html#setting_value"><span class="hs-identifier hs-var hs-var">setting_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Setting -&gt; Maybe Text)
--&gt; (Setting -&gt; Maybe Text -&gt; Setting)
--&gt; Lens Setting Setting (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting%27"><span class="hs-identifier hs-type">Setting'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460594"><span class="annot"><span class="annottext">Maybe Text
-value :: Maybe Text
-$sel:value:Setting' :: Setting -&gt; Maybe Text
-</span><a href="#local-6989586621679460594"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460594"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460593"><span class="annot"><span class="annottext">s :: Setting
-</span><a href="#local-6989586621679460593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting%27"><span class="hs-identifier hs-type">Setting'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460592"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Setting
-</span><a href="#local-6989586621679460593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Setting' :: Maybe Text
-</span><a href="Network.AWS.ECS.Types.Setting.html#%24sel%3Avalue%3ASetting%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679460592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679461316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460589"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679460587"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Setting
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461313"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679461311"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Setting
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Setting) -&gt; Value -&gt; Parser Setting
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Setting&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679460584"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679460584"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe SettingName -&gt; Maybe Text -&gt; Maybe Text -&gt; Setting
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679461308"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461308"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe SettingName -&gt; Maybe Text -&gt; Setting
 </span><a href="Network.AWS.ECS.Types.Setting.html#Setting%27"><span class="hs-identifier hs-var">Setting'</span></a></span><span>
-</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SettingName -&gt; Maybe Text -&gt; Maybe Text -&gt; Setting)
--&gt; Parser (Maybe SettingName)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Setting)
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe SettingName -&gt; Maybe Text -&gt; Setting)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe SettingName -&gt; Maybe Text -&gt; Setting)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679460584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SettingName)
+</span><a href="#local-6989586621679461308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe SettingName -&gt; Maybe Text -&gt; Setting)
+-&gt; Parser (Maybe SettingName) -&gt; Parser (Maybe Text -&gt; Setting)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679461308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SettingName)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Setting)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Setting)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679460584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;principalArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Setting)
 -&gt; Parser (Maybe Text) -&gt; Parser Setting
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679460584"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679461308"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;principalArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460578"><span id="local-6989586621679460580"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461302"><span id="local-6989586621679461304"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460575"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679461299"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.Setting.html#Setting"><span class="hs-identifier hs-type">Setting</span></a></span></span><span>
 </span><span id="line-94"></span></pre></body></html>

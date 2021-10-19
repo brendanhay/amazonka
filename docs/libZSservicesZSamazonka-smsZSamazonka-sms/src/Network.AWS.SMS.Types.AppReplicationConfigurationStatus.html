@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679244190"><span id="local-6989586621679244191"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AppReplicationConfigurationStatus"><span class="annot"><a href="Network.AWS.SMS.Types.AppReplicationConfigurationStatus.html#AppReplicationConfigurationStatus"><span class="hs-identifier hs-var">AppReplicationConfigurationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AppReplicationConfigurationStatus%27"><span class="annot"><a href="Network.AWS.SMS.Types.AppReplicationConfigurationStatus.html#AppReplicationConfigurationStatus%27"><span class="hs-identifier hs-var">AppReplicationConfigurationStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679244319"><span id="local-6989586621679244320"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AppReplicationConfigurationStatus"><span class="annot"><a href="Network.AWS.SMS.Types.AppReplicationConfigurationStatus.html#AppReplicationConfigurationStatus"><span class="hs-identifier hs-var">AppReplicationConfigurationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AppReplicationConfigurationStatus%27"><span class="annot"><a href="Network.AWS.SMS.Types.AppReplicationConfigurationStatus.html#AppReplicationConfigurationStatus%27"><span class="hs-identifier hs-var">AppReplicationConfigurationStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAppReplicationConfigurationStatus"><span class="annot"><span class="annottext">AppReplicationConfigurationStatus -&gt; Text
 </span><a href="Network.AWS.SMS.Types.AppReplicationConfigurationStatus.html#fromAppReplicationConfigurationStatus"><span class="hs-identifier hs-var hs-var">fromAppReplicationConfigurationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244182"><span id="local-6989586621679244184"><span id="local-6989586621679244186"><span class="annot"><span class="annottext">Int -&gt; AppReplicationConfigurationStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244311"><span id="local-6989586621679244313"><span id="local-6989586621679244315"><span class="annot"><span class="annottext">Int -&gt; AppReplicationConfigurationStatus -&gt; ShowS
 [AppReplicationConfigurationStatus] -&gt; ShowS
 AppReplicationConfigurationStatus -&gt; String
 (Int -&gt; AppReplicationConfigurationStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: AppReplicationConfigurationStatus -&gt; String
 showsPrec :: Int -&gt; AppReplicationConfigurationStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; AppReplicationConfigurationStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679244173"><span id="local-6989586621679244175"><span id="local-6989586621679244177"><span id="local-6989586621679244179"><span class="annot"><span class="annottext">ReadPrec [AppReplicationConfigurationStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679244302"><span id="local-6989586621679244304"><span id="local-6989586621679244306"><span id="local-6989586621679244308"><span class="annot"><span class="annottext">ReadPrec [AppReplicationConfigurationStatus]
 ReadPrec AppReplicationConfigurationStatus
 Int -&gt; ReadS AppReplicationConfigurationStatus
 ReadS [AppReplicationConfigurationStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [AppReplicationConfigurationStatus]
 readsPrec :: Int -&gt; ReadS AppReplicationConfigurationStatus
 $creadsPrec :: Int -&gt; ReadS AppReplicationConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679244168"><span id="local-6989586621679244170"><span class="annot"><span class="annottext">AppReplicationConfigurationStatus
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679244297"><span id="local-6989586621679244299"><span class="annot"><span class="annottext">AppReplicationConfigurationStatus
 -&gt; AppReplicationConfigurationStatus -&gt; Bool
 (AppReplicationConfigurationStatus
  -&gt; AppReplicationConfigurationStatus -&gt; Bool)
@@ -89,7 +89,7 @@ $c/= :: AppReplicationConfigurationStatus
 $c== :: AppReplicationConfigurationStatus
 -&gt; AppReplicationConfigurationStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679244152"><span id="local-6989586621679244154"><span id="local-6989586621679244156"><span id="local-6989586621679244158"><span id="local-6989586621679244160"><span id="local-6989586621679244162"><span id="local-6989586621679244164"><span class="annot"><span class="annottext">Eq AppReplicationConfigurationStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679244281"><span id="local-6989586621679244283"><span id="local-6989586621679244285"><span id="local-6989586621679244287"><span id="local-6989586621679244289"><span id="local-6989586621679244291"><span id="local-6989586621679244293"><span class="annot"><span class="annottext">Eq AppReplicationConfigurationStatus
 Eq AppReplicationConfigurationStatus
 -&gt; (AppReplicationConfigurationStatus
     -&gt; AppReplicationConfigurationStatus -&gt; Ordering)
@@ -183,7 +183,7 @@ AppReplicationConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244144"><span id="local-6989586621679244146"><span class="annot"><span class="annottext">Int -&gt; AppReplicationConfigurationStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244273"><span id="local-6989586621679244275"><span class="annot"><span class="annottext">Int -&gt; AppReplicationConfigurationStatus -&gt; Int
 AppReplicationConfigurationStatus -&gt; Int
 (Int -&gt; AppReplicationConfigurationStatus -&gt; Int)
 -&gt; (AppReplicationConfigurationStatus -&gt; Int)
@@ -194,56 +194,56 @@ $chash :: AppReplicationConfigurationStatus -&gt; Int
 hashWithSalt :: Int -&gt; AppReplicationConfigurationStatus -&gt; Int
 $chashWithSalt :: Int -&gt; AppReplicationConfigurationStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679244141"><span class="annot"><span class="annottext">AppReplicationConfigurationStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679244270"><span class="annot"><span class="annottext">AppReplicationConfigurationStatus -&gt; ()
 (AppReplicationConfigurationStatus -&gt; ())
 -&gt; NFData AppReplicationConfigurationStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AppReplicationConfigurationStatus -&gt; ()
 $crnf :: AppReplicationConfigurationStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679244138"><span class="annot"><span class="annottext">Text -&gt; Either String AppReplicationConfigurationStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679244267"><span class="annot"><span class="annottext">Text -&gt; Either String AppReplicationConfigurationStatus
 (Text -&gt; Either String AppReplicationConfigurationStatus)
 -&gt; FromText AppReplicationConfigurationStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AppReplicationConfigurationStatus
 $cfromText :: Text -&gt; Either String AppReplicationConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679244135"><span class="annot"><span class="annottext">AppReplicationConfigurationStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679244264"><span class="annot"><span class="annottext">AppReplicationConfigurationStatus -&gt; Text
 (AppReplicationConfigurationStatus -&gt; Text)
 -&gt; ToText AppReplicationConfigurationStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AppReplicationConfigurationStatus -&gt; Text
 $ctoText :: AppReplicationConfigurationStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679244132"><span class="annot"><span class="annottext">AppReplicationConfigurationStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679244261"><span class="annot"><span class="annottext">AppReplicationConfigurationStatus -&gt; ByteString
 (AppReplicationConfigurationStatus -&gt; ByteString)
 -&gt; ToByteString AppReplicationConfigurationStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AppReplicationConfigurationStatus -&gt; ByteString
 $ctoBS :: AppReplicationConfigurationStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679244129"><span class="annot"><span class="annottext">AppReplicationConfigurationStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679244258"><span class="annot"><span class="annottext">AppReplicationConfigurationStatus -&gt; ByteStringBuilder
 (AppReplicationConfigurationStatus -&gt; ByteStringBuilder)
 -&gt; ToLog AppReplicationConfigurationStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AppReplicationConfigurationStatus -&gt; ByteStringBuilder
 $cbuild :: AppReplicationConfigurationStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679244126"><span class="annot"><span class="annottext">HeaderName -&gt; AppReplicationConfigurationStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679244255"><span class="annot"><span class="annottext">HeaderName -&gt; AppReplicationConfigurationStatus -&gt; [Header]
 (HeaderName -&gt; AppReplicationConfigurationStatus -&gt; [Header])
 -&gt; ToHeader AppReplicationConfigurationStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AppReplicationConfigurationStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AppReplicationConfigurationStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679244123"><span class="annot"><span class="annottext">AppReplicationConfigurationStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679244252"><span class="annot"><span class="annottext">AppReplicationConfigurationStatus -&gt; QueryString
 (AppReplicationConfigurationStatus -&gt; QueryString)
 -&gt; ToQuery AppReplicationConfigurationStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AppReplicationConfigurationStatus -&gt; QueryString
 $ctoQuery :: AppReplicationConfigurationStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679244118"><span id="local-6989586621679244120"><span class="annot"><span class="annottext">Value -&gt; Parser [AppReplicationConfigurationStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679244247"><span id="local-6989586621679244249"><span class="annot"><span class="annottext">Value -&gt; Parser [AppReplicationConfigurationStatus]
 Value -&gt; Parser AppReplicationConfigurationStatus
 (Value -&gt; Parser AppReplicationConfigurationStatus)
 -&gt; (Value -&gt; Parser [AppReplicationConfigurationStatus])
@@ -255,7 +255,7 @@ $cparseJSONList :: Value -&gt; Parser [AppReplicationConfigurationStatus]
 parseJSON :: Value -&gt; Parser AppReplicationConfigurationStatus
 $cparseJSON :: Value -&gt; Parser AppReplicationConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679244113"><span id="local-6989586621679244115"><span class="annot"><span class="annottext">FromJSONKeyFunction [AppReplicationConfigurationStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679244242"><span id="local-6989586621679244244"><span class="annot"><span class="annottext">FromJSONKeyFunction [AppReplicationConfigurationStatus]
 FromJSONKeyFunction AppReplicationConfigurationStatus
 FromJSONKeyFunction AppReplicationConfigurationStatus
 -&gt; FromJSONKeyFunction [AppReplicationConfigurationStatus]
@@ -267,7 +267,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AppReplicationConfigurationStatus]
 fromJSONKey :: FromJSONKeyFunction AppReplicationConfigurationStatus
 $cfromJSONKey :: FromJSONKeyFunction AppReplicationConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679244104"><span id="local-6989586621679244106"><span id="local-6989586621679244108"><span id="local-6989586621679244110"><span class="annot"><span class="annottext">[AppReplicationConfigurationStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679244233"><span id="local-6989586621679244235"><span id="local-6989586621679244237"><span id="local-6989586621679244239"><span class="annot"><span class="annottext">[AppReplicationConfigurationStatus] -&gt; Encoding
 [AppReplicationConfigurationStatus] -&gt; Value
 AppReplicationConfigurationStatus -&gt; Encoding
 AppReplicationConfigurationStatus -&gt; Value
@@ -291,7 +291,7 @@ $ctoEncoding :: AppReplicationConfigurationStatus -&gt; Encoding
 toJSON :: AppReplicationConfigurationStatus -&gt; Value
 $ctoJSON :: AppReplicationConfigurationStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679244099"><span id="local-6989586621679244101"><span class="annot"><span class="annottext">ToJSONKeyFunction [AppReplicationConfigurationStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679244228"><span id="local-6989586621679244230"><span class="annot"><span class="annottext">ToJSONKeyFunction [AppReplicationConfigurationStatus]
 ToJSONKeyFunction AppReplicationConfigurationStatus
 ToJSONKeyFunction AppReplicationConfigurationStatus
 -&gt; ToJSONKeyFunction [AppReplicationConfigurationStatus]
@@ -303,14 +303,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AppReplicationConfigurationStatus]
 toJSONKey :: ToJSONKeyFunction AppReplicationConfigurationStatus
 $ctoJSONKey :: ToJSONKeyFunction AppReplicationConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679244096"><span class="annot"><span class="annottext">[Node] -&gt; Either String AppReplicationConfigurationStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679244225"><span class="annot"><span class="annottext">[Node] -&gt; Either String AppReplicationConfigurationStatus
 ([Node] -&gt; Either String AppReplicationConfigurationStatus)
 -&gt; FromXML AppReplicationConfigurationStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AppReplicationConfigurationStatus
 $cparseXML :: [Node] -&gt; Either String AppReplicationConfigurationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679244093"><span class="annot"><span class="annottext">AppReplicationConfigurationStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679244222"><span class="annot"><span class="annottext">AppReplicationConfigurationStatus -&gt; XML
 (AppReplicationConfigurationStatus -&gt; XML)
 -&gt; ToXML AppReplicationConfigurationStatus
 forall a. (a -&gt; XML) -&gt; ToXML a

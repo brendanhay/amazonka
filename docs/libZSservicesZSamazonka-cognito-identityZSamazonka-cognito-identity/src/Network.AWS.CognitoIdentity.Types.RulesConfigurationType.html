@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A container for rules.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRulesConfigurationType' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679183766"><span id="local-6989586621679183767"></span></span><span class="hs-keyword">data</span><span> </span><span id="RulesConfigurationType"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType"><span class="hs-identifier hs-var">RulesConfigurationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RulesConfigurationType%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType%27"><span class="hs-identifier hs-var">RulesConfigurationType'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679183930"><span id="local-6989586621679183931"></span></span><span class="hs-keyword">data</span><span> </span><span id="RulesConfigurationType"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType"><span class="hs-identifier hs-var">RulesConfigurationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RulesConfigurationType%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType%27"><span class="hs-identifier hs-var">RulesConfigurationType'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of rules. You can specify up to 25 rules per identity provider.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Rules are evaluated in order. The first one to match specifies the role.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Arules%3ARulesConfigurationType%27"><span class="annot"><span class="annottext">RulesConfigurationType -&gt; NonEmpty MappingRule
 </span><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#%24sel%3Arules%3ARulesConfigurationType%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183760"><span id="local-6989586621679183762"><span class="annot"><span class="annottext">RulesConfigurationType -&gt; RulesConfigurationType -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183924"><span id="local-6989586621679183926"><span class="annot"><span class="annottext">RulesConfigurationType -&gt; RulesConfigurationType -&gt; Bool
 (RulesConfigurationType -&gt; RulesConfigurationType -&gt; Bool)
 -&gt; (RulesConfigurationType -&gt; RulesConfigurationType -&gt; Bool)
 -&gt; Eq RulesConfigurationType
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RulesConfigurationType -&gt; RulesConfigurationType -&gt; Bool
 == :: RulesConfigurationType -&gt; RulesConfigurationType -&gt; Bool
 $c== :: RulesConfigurationType -&gt; RulesConfigurationType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183751"><span id="local-6989586621679183753"><span id="local-6989586621679183755"><span id="local-6989586621679183757"><span class="annot"><span class="annottext">ReadPrec [RulesConfigurationType]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183915"><span id="local-6989586621679183917"><span id="local-6989586621679183919"><span id="local-6989586621679183921"><span class="annot"><span class="annottext">ReadPrec [RulesConfigurationType]
 ReadPrec RulesConfigurationType
 Int -&gt; ReadS RulesConfigurationType
 ReadS [RulesConfigurationType]
@@ -63,7 +63,7 @@ readList :: ReadS [RulesConfigurationType]
 $creadList :: ReadS [RulesConfigurationType]
 readsPrec :: Int -&gt; ReadS RulesConfigurationType
 $creadsPrec :: Int -&gt; ReadS RulesConfigurationType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183744"><span id="local-6989586621679183746"><span id="local-6989586621679183748"><span class="annot"><span class="annottext">Int -&gt; RulesConfigurationType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183908"><span id="local-6989586621679183910"><span id="local-6989586621679183912"><span class="annot"><span class="annottext">Int -&gt; RulesConfigurationType -&gt; ShowS
 [RulesConfigurationType] -&gt; ShowS
 RulesConfigurationType -&gt; String
 (Int -&gt; RulesConfigurationType -&gt; ShowS)
@@ -106,21 +106,21 @@ $cfrom :: forall x. RulesConfigurationType -&gt; Rep RulesConfigurationType x
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.MappingRule.html#MappingRule"><span class="hs-identifier hs-type">MappingRule</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType"><span class="hs-identifier hs-type">RulesConfigurationType</span></a></span><span>
 </span><span id="line-53"></span><span id="newRulesConfigurationType"><span class="annot"><span class="annottext">newRulesConfigurationType :: NonEmpty MappingRule -&gt; RulesConfigurationType
-</span><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#newRulesConfigurationType"><span class="hs-identifier hs-var hs-var">newRulesConfigurationType</span></a></span></span><span> </span><span id="local-6989586621679183738"><span class="annot"><span class="annottext">NonEmpty MappingRule
-</span><a href="#local-6989586621679183738"><span class="hs-identifier hs-var">pRules_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#newRulesConfigurationType"><span class="hs-identifier hs-var hs-var">newRulesConfigurationType</span></a></span></span><span> </span><span id="local-6989586621679183902"><span class="annot"><span class="annottext">NonEmpty MappingRule
+</span><a href="#local-6989586621679183902"><span class="hs-identifier hs-var">pRules_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">RulesConfigurationType' :: NonEmpty MappingRule -&gt; RulesConfigurationType
 </span><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType%27"><span class="hs-identifier hs-type">RulesConfigurationType'</span></a></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rules:RulesConfigurationType' :: NonEmpty MappingRule
 </span><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#%24sel%3Arules%3ARulesConfigurationType%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty MappingRule) (Identity (NonEmpty MappingRule))
 -&gt; Tagged (NonEmpty MappingRule) (Identity (NonEmpty MappingRule))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty MappingRule) (Identity (NonEmpty MappingRule))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty MappingRule) (Identity (NonEmpty MappingRule))
  -&gt; Tagged (NonEmpty MappingRule) (Identity (NonEmpty MappingRule)))
 -&gt; NonEmpty MappingRule -&gt; NonEmpty MappingRule
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty MappingRule
-</span><a href="#local-6989586621679183738"><span class="hs-identifier hs-var">pRules_</span></a></span><span>
+</span><a href="#local-6989586621679183902"><span class="hs-identifier hs-var">pRules_</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | An array of rules. You can specify up to 25 rules per identity provider.</span><span>
@@ -138,16 +138,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (NonEmpty MappingRule)
      (NonEmpty MappingRule)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType%27"><span class="hs-identifier hs-type">RulesConfigurationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183732"><span class="annot"><span class="annottext">NonEmpty MappingRule
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType%27"><span class="hs-identifier hs-type">RulesConfigurationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183896"><span class="annot"><span class="annottext">NonEmpty MappingRule
 rules :: NonEmpty MappingRule
 $sel:rules:RulesConfigurationType' :: RulesConfigurationType -&gt; NonEmpty MappingRule
-</span><a href="#local-6989586621679183732"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty MappingRule
-</span><a href="#local-6989586621679183732"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183731"><span class="annot"><span class="annottext">s :: RulesConfigurationType
-</span><a href="#local-6989586621679183731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType%27"><span class="hs-identifier hs-type">RulesConfigurationType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183730"><span class="annot"><span class="annottext">NonEmpty MappingRule
-</span><a href="#local-6989586621679183730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RulesConfigurationType
-</span><a href="#local-6989586621679183731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:RulesConfigurationType' :: NonEmpty MappingRule
+</span><a href="#local-6989586621679183896"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty MappingRule
+</span><a href="#local-6989586621679183896"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679183895"><span class="annot"><span class="annottext">s :: RulesConfigurationType
+</span><a href="#local-6989586621679183895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType%27"><span class="hs-identifier hs-type">RulesConfigurationType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679183894"><span class="annot"><span class="annottext">NonEmpty MappingRule
+</span><a href="#local-6989586621679183894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RulesConfigurationType
+</span><a href="#local-6989586621679183895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:RulesConfigurationType' :: NonEmpty MappingRule
 </span><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#%24sel%3Arules%3ARulesConfigurationType%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty MappingRule
-</span><a href="#local-6989586621679183730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType"><span class="hs-identifier hs-type">RulesConfigurationType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty MappingRule -&gt; f (NonEmpty MappingRule))
+</span><a href="#local-6989586621679183894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType"><span class="hs-identifier hs-type">RulesConfigurationType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty MappingRule -&gt; f (NonEmpty MappingRule))
  -&gt; RulesConfigurationType -&gt; f RulesConfigurationType)
 -&gt; ((NonEmpty MappingRule -&gt; f (NonEmpty MappingRule))
     -&gt; NonEmpty MappingRule -&gt; f (NonEmpty MappingRule))
@@ -157,11 +157,11 @@ $sel:rules:RulesConfigurationType' :: RulesConfigurationType -&gt; NonEmpty Mapp
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty MappingRule -&gt; f (NonEmpty MappingRule))
 -&gt; NonEmpty MappingRule -&gt; f (NonEmpty MappingRule)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183726"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType"><span class="hs-identifier hs-type">RulesConfigurationType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679183724"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RulesConfigurationType
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183890"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType"><span class="hs-identifier hs-type">RulesConfigurationType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679183888"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RulesConfigurationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RulesConfigurationType)
@@ -171,30 +171,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RulesConfigurationType&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679183721"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183721"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679183885"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679183885"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">NonEmpty MappingRule -&gt; RulesConfigurationType
 </span><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType%27"><span class="hs-identifier hs-var">RulesConfigurationType'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(NonEmpty MappingRule -&gt; RulesConfigurationType)
 -&gt; Parser (NonEmpty MappingRule) -&gt; Parser RulesConfigurationType
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679183721"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty MappingRule)
+</span><a href="#local-6989586621679183885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty MappingRule)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Rules&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183715"><span id="local-6989586621679183717"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType"><span class="hs-identifier hs-type">RulesConfigurationType</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183879"><span id="local-6989586621679183881"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType"><span class="hs-identifier hs-type">RulesConfigurationType</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183712"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType"><span class="hs-identifier hs-type">RulesConfigurationType</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183876"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType"><span class="hs-identifier hs-type">RulesConfigurationType</span></a></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183704"><span id="local-6989586621679183706"><span id="local-6989586621679183708"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType"><span class="hs-identifier hs-type">RulesConfigurationType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679183702"><span class="annot"><span class="annottext">toJSON :: RulesConfigurationType -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType%27"><span class="hs-identifier hs-type">RulesConfigurationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183700"><span class="annot"><span class="annottext">NonEmpty MappingRule
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679183868"><span id="local-6989586621679183870"><span id="local-6989586621679183872"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType"><span class="hs-identifier hs-type">RulesConfigurationType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679183866"><span class="annot"><span class="annottext">toJSON :: RulesConfigurationType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.RulesConfigurationType.html#RulesConfigurationType%27"><span class="hs-identifier hs-type">RulesConfigurationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679183864"><span class="annot"><span class="annottext">NonEmpty MappingRule
 rules :: NonEmpty MappingRule
 $sel:rules:RulesConfigurationType' :: RulesConfigurationType -&gt; NonEmpty MappingRule
-</span><a href="#local-6989586621679183700"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679183864"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -206,6 +206,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Rules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty MappingRule -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty MappingRule
-</span><a href="#local-6989586621679183700"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679183864"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span></pre></body></html>

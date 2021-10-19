@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | If set to TRUE_PEAK, calculate and log the TruePeak for each output\'s</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- audio track loudness.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679936307"><span id="local-6989586621679936308"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AudioNormalizationPeakCalculation"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationPeakCalculation.html#AudioNormalizationPeakCalculation"><span class="hs-identifier hs-var">AudioNormalizationPeakCalculation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioNormalizationPeakCalculation%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationPeakCalculation.html#AudioNormalizationPeakCalculation%27"><span class="hs-identifier hs-var">AudioNormalizationPeakCalculation'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679940928"><span id="local-6989586621679940929"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AudioNormalizationPeakCalculation"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationPeakCalculation.html#AudioNormalizationPeakCalculation"><span class="hs-identifier hs-var">AudioNormalizationPeakCalculation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioNormalizationPeakCalculation%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioNormalizationPeakCalculation.html#AudioNormalizationPeakCalculation%27"><span class="hs-identifier hs-var">AudioNormalizationPeakCalculation'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAudioNormalizationPeakCalculation"><span class="annot"><span class="annottext">AudioNormalizationPeakCalculation -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.AudioNormalizationPeakCalculation.html#fromAudioNormalizationPeakCalculation"><span class="hs-identifier hs-var hs-var">fromAudioNormalizationPeakCalculation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679936299"><span id="local-6989586621679936301"><span id="local-6989586621679936303"><span class="annot"><span class="annottext">Int -&gt; AudioNormalizationPeakCalculation -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679940920"><span id="local-6989586621679940922"><span id="local-6989586621679940924"><span class="annot"><span class="annottext">Int -&gt; AudioNormalizationPeakCalculation -&gt; ShowS
 [AudioNormalizationPeakCalculation] -&gt; ShowS
 AudioNormalizationPeakCalculation -&gt; String
 (Int -&gt; AudioNormalizationPeakCalculation -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: AudioNormalizationPeakCalculation -&gt; String
 showsPrec :: Int -&gt; AudioNormalizationPeakCalculation -&gt; ShowS
 $cshowsPrec :: Int -&gt; AudioNormalizationPeakCalculation -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679936290"><span id="local-6989586621679936292"><span id="local-6989586621679936294"><span id="local-6989586621679936296"><span class="annot"><span class="annottext">ReadPrec [AudioNormalizationPeakCalculation]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679940911"><span id="local-6989586621679940913"><span id="local-6989586621679940915"><span id="local-6989586621679940917"><span class="annot"><span class="annottext">ReadPrec [AudioNormalizationPeakCalculation]
 ReadPrec AudioNormalizationPeakCalculation
 Int -&gt; ReadS AudioNormalizationPeakCalculation
 ReadS [AudioNormalizationPeakCalculation]
@@ -74,7 +74,7 @@ $creadList :: ReadS [AudioNormalizationPeakCalculation]
 readsPrec :: Int -&gt; ReadS AudioNormalizationPeakCalculation
 $creadsPrec :: Int -&gt; ReadS AudioNormalizationPeakCalculation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679936285"><span id="local-6989586621679936287"><span class="annot"><span class="annottext">AudioNormalizationPeakCalculation
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679940906"><span id="local-6989586621679940908"><span class="annot"><span class="annottext">AudioNormalizationPeakCalculation
 -&gt; AudioNormalizationPeakCalculation -&gt; Bool
 (AudioNormalizationPeakCalculation
  -&gt; AudioNormalizationPeakCalculation -&gt; Bool)
@@ -91,7 +91,7 @@ $c/= :: AudioNormalizationPeakCalculation
 $c== :: AudioNormalizationPeakCalculation
 -&gt; AudioNormalizationPeakCalculation -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679936269"><span id="local-6989586621679936271"><span id="local-6989586621679936273"><span id="local-6989586621679936275"><span id="local-6989586621679936277"><span id="local-6989586621679936279"><span id="local-6989586621679936281"><span class="annot"><span class="annottext">Eq AudioNormalizationPeakCalculation
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679940890"><span id="local-6989586621679940892"><span id="local-6989586621679940894"><span id="local-6989586621679940896"><span id="local-6989586621679940898"><span id="local-6989586621679940900"><span id="local-6989586621679940902"><span class="annot"><span class="annottext">Eq AudioNormalizationPeakCalculation
 Eq AudioNormalizationPeakCalculation
 -&gt; (AudioNormalizationPeakCalculation
     -&gt; AudioNormalizationPeakCalculation -&gt; Ordering)
@@ -185,7 +185,7 @@ AudioNormalizationPeakCalculation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679936261"><span id="local-6989586621679936263"><span class="annot"><span class="annottext">Int -&gt; AudioNormalizationPeakCalculation -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679940882"><span id="local-6989586621679940884"><span class="annot"><span class="annottext">Int -&gt; AudioNormalizationPeakCalculation -&gt; Int
 AudioNormalizationPeakCalculation -&gt; Int
 (Int -&gt; AudioNormalizationPeakCalculation -&gt; Int)
 -&gt; (AudioNormalizationPeakCalculation -&gt; Int)
@@ -196,56 +196,56 @@ $chash :: AudioNormalizationPeakCalculation -&gt; Int
 hashWithSalt :: Int -&gt; AudioNormalizationPeakCalculation -&gt; Int
 $chashWithSalt :: Int -&gt; AudioNormalizationPeakCalculation -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679936258"><span class="annot"><span class="annottext">AudioNormalizationPeakCalculation -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679940879"><span class="annot"><span class="annottext">AudioNormalizationPeakCalculation -&gt; ()
 (AudioNormalizationPeakCalculation -&gt; ())
 -&gt; NFData AudioNormalizationPeakCalculation
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AudioNormalizationPeakCalculation -&gt; ()
 $crnf :: AudioNormalizationPeakCalculation -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679936255"><span class="annot"><span class="annottext">Text -&gt; Either String AudioNormalizationPeakCalculation
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679940876"><span class="annot"><span class="annottext">Text -&gt; Either String AudioNormalizationPeakCalculation
 (Text -&gt; Either String AudioNormalizationPeakCalculation)
 -&gt; FromText AudioNormalizationPeakCalculation
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AudioNormalizationPeakCalculation
 $cfromText :: Text -&gt; Either String AudioNormalizationPeakCalculation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679936252"><span class="annot"><span class="annottext">AudioNormalizationPeakCalculation -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679940873"><span class="annot"><span class="annottext">AudioNormalizationPeakCalculation -&gt; Text
 (AudioNormalizationPeakCalculation -&gt; Text)
 -&gt; ToText AudioNormalizationPeakCalculation
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AudioNormalizationPeakCalculation -&gt; Text
 $ctoText :: AudioNormalizationPeakCalculation -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679936249"><span class="annot"><span class="annottext">AudioNormalizationPeakCalculation -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679940870"><span class="annot"><span class="annottext">AudioNormalizationPeakCalculation -&gt; ByteString
 (AudioNormalizationPeakCalculation -&gt; ByteString)
 -&gt; ToByteString AudioNormalizationPeakCalculation
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AudioNormalizationPeakCalculation -&gt; ByteString
 $ctoBS :: AudioNormalizationPeakCalculation -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679936246"><span class="annot"><span class="annottext">AudioNormalizationPeakCalculation -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679940867"><span class="annot"><span class="annottext">AudioNormalizationPeakCalculation -&gt; ByteStringBuilder
 (AudioNormalizationPeakCalculation -&gt; ByteStringBuilder)
 -&gt; ToLog AudioNormalizationPeakCalculation
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AudioNormalizationPeakCalculation -&gt; ByteStringBuilder
 $cbuild :: AudioNormalizationPeakCalculation -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679936243"><span class="annot"><span class="annottext">HeaderName -&gt; AudioNormalizationPeakCalculation -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679940864"><span class="annot"><span class="annottext">HeaderName -&gt; AudioNormalizationPeakCalculation -&gt; [Header]
 (HeaderName -&gt; AudioNormalizationPeakCalculation -&gt; [Header])
 -&gt; ToHeader AudioNormalizationPeakCalculation
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AudioNormalizationPeakCalculation -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AudioNormalizationPeakCalculation -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679936240"><span class="annot"><span class="annottext">AudioNormalizationPeakCalculation -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679940861"><span class="annot"><span class="annottext">AudioNormalizationPeakCalculation -&gt; QueryString
 (AudioNormalizationPeakCalculation -&gt; QueryString)
 -&gt; ToQuery AudioNormalizationPeakCalculation
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AudioNormalizationPeakCalculation -&gt; QueryString
 $ctoQuery :: AudioNormalizationPeakCalculation -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679936235"><span id="local-6989586621679936237"><span class="annot"><span class="annottext">Value -&gt; Parser [AudioNormalizationPeakCalculation]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679940856"><span id="local-6989586621679940858"><span class="annot"><span class="annottext">Value -&gt; Parser [AudioNormalizationPeakCalculation]
 Value -&gt; Parser AudioNormalizationPeakCalculation
 (Value -&gt; Parser AudioNormalizationPeakCalculation)
 -&gt; (Value -&gt; Parser [AudioNormalizationPeakCalculation])
@@ -257,7 +257,7 @@ $cparseJSONList :: Value -&gt; Parser [AudioNormalizationPeakCalculation]
 parseJSON :: Value -&gt; Parser AudioNormalizationPeakCalculation
 $cparseJSON :: Value -&gt; Parser AudioNormalizationPeakCalculation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679936230"><span id="local-6989586621679936232"><span class="annot"><span class="annottext">FromJSONKeyFunction [AudioNormalizationPeakCalculation]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679940851"><span id="local-6989586621679940853"><span class="annot"><span class="annottext">FromJSONKeyFunction [AudioNormalizationPeakCalculation]
 FromJSONKeyFunction AudioNormalizationPeakCalculation
 FromJSONKeyFunction AudioNormalizationPeakCalculation
 -&gt; FromJSONKeyFunction [AudioNormalizationPeakCalculation]
@@ -269,7 +269,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AudioNormalizationPeakCalculation]
 fromJSONKey :: FromJSONKeyFunction AudioNormalizationPeakCalculation
 $cfromJSONKey :: FromJSONKeyFunction AudioNormalizationPeakCalculation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679936221"><span id="local-6989586621679936223"><span id="local-6989586621679936225"><span id="local-6989586621679936227"><span class="annot"><span class="annottext">[AudioNormalizationPeakCalculation] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679940842"><span id="local-6989586621679940844"><span id="local-6989586621679940846"><span id="local-6989586621679940848"><span class="annot"><span class="annottext">[AudioNormalizationPeakCalculation] -&gt; Encoding
 [AudioNormalizationPeakCalculation] -&gt; Value
 AudioNormalizationPeakCalculation -&gt; Encoding
 AudioNormalizationPeakCalculation -&gt; Value
@@ -293,7 +293,7 @@ $ctoEncoding :: AudioNormalizationPeakCalculation -&gt; Encoding
 toJSON :: AudioNormalizationPeakCalculation -&gt; Value
 $ctoJSON :: AudioNormalizationPeakCalculation -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679936216"><span id="local-6989586621679936218"><span class="annot"><span class="annottext">ToJSONKeyFunction [AudioNormalizationPeakCalculation]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679940837"><span id="local-6989586621679940839"><span class="annot"><span class="annottext">ToJSONKeyFunction [AudioNormalizationPeakCalculation]
 ToJSONKeyFunction AudioNormalizationPeakCalculation
 ToJSONKeyFunction AudioNormalizationPeakCalculation
 -&gt; ToJSONKeyFunction [AudioNormalizationPeakCalculation]
@@ -305,14 +305,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AudioNormalizationPeakCalculation]
 toJSONKey :: ToJSONKeyFunction AudioNormalizationPeakCalculation
 $ctoJSONKey :: ToJSONKeyFunction AudioNormalizationPeakCalculation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679936213"><span class="annot"><span class="annottext">[Node] -&gt; Either String AudioNormalizationPeakCalculation
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679940834"><span class="annot"><span class="annottext">[Node] -&gt; Either String AudioNormalizationPeakCalculation
 ([Node] -&gt; Either String AudioNormalizationPeakCalculation)
 -&gt; FromXML AudioNormalizationPeakCalculation
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AudioNormalizationPeakCalculation
 $cparseXML :: [Node] -&gt; Either String AudioNormalizationPeakCalculation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679936210"><span class="annot"><span class="annottext">AudioNormalizationPeakCalculation -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679940831"><span class="annot"><span class="annottext">AudioNormalizationPeakCalculation -&gt; XML
 (AudioNormalizationPeakCalculation -&gt; XML)
 -&gt; ToXML AudioNormalizationPeakCalculation
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- domain.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSubnetAssociation' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681136411"><span id="local-6989586621681136412"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubnetAssociation"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation"><span class="hs-identifier hs-var">SubnetAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubnetAssociation%27"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation%27"><span class="hs-identifier hs-var">SubnetAssociation'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681171547"><span id="local-6989586621681171548"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubnetAssociation"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation"><span class="hs-identifier hs-var">SubnetAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubnetAssociation%27"><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation%27"><span class="hs-identifier hs-var">SubnetAssociation'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the subnet association.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Astate%3ASubnetAssociation%27"><span class="annot"><span class="annottext">SubnetAssociation
 -&gt; Maybe TransitGatewayMulitcastDomainAssociationState
@@ -38,7 +38,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AsubnetId%3ASubnetAssociation%27"><span class="annot"><span class="annottext">SubnetAssociation -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.SubnetAssociation.html#%24sel%3AsubnetId%3ASubnetAssociation%27"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681136404"><span id="local-6989586621681136406"><span class="annot"><span class="annottext">SubnetAssociation -&gt; SubnetAssociation -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681171540"><span id="local-6989586621681171542"><span class="annot"><span class="annottext">SubnetAssociation -&gt; SubnetAssociation -&gt; Bool
 (SubnetAssociation -&gt; SubnetAssociation -&gt; Bool)
 -&gt; (SubnetAssociation -&gt; SubnetAssociation -&gt; Bool)
 -&gt; Eq SubnetAssociation
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SubnetAssociation -&gt; SubnetAssociation -&gt; Bool
 == :: SubnetAssociation -&gt; SubnetAssociation -&gt; Bool
 $c== :: SubnetAssociation -&gt; SubnetAssociation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681136395"><span id="local-6989586621681136397"><span id="local-6989586621681136399"><span id="local-6989586621681136401"><span class="annot"><span class="annottext">ReadPrec [SubnetAssociation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681171531"><span id="local-6989586621681171533"><span id="local-6989586621681171535"><span id="local-6989586621681171537"><span class="annot"><span class="annottext">ReadPrec [SubnetAssociation]
 ReadPrec SubnetAssociation
 Int -&gt; ReadS SubnetAssociation
 ReadS [SubnetAssociation]
@@ -67,7 +67,7 @@ readList :: ReadS [SubnetAssociation]
 $creadList :: ReadS [SubnetAssociation]
 readsPrec :: Int -&gt; ReadS SubnetAssociation
 $creadsPrec :: Int -&gt; ReadS SubnetAssociation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681136388"><span id="local-6989586621681136390"><span id="local-6989586621681136392"><span class="annot"><span class="annottext">Int -&gt; SubnetAssociation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681171524"><span id="local-6989586621681171526"><span id="local-6989586621681171528"><span class="annot"><span class="annottext">Int -&gt; SubnetAssociation -&gt; ShowS
 [SubnetAssociation] -&gt; ShowS
 SubnetAssociation -&gt; String
 (Int -&gt; SubnetAssociation -&gt; ShowS)
@@ -137,17 +137,17 @@ forall a. Maybe a
      (Maybe TransitGatewayMulitcastDomainAssociationState)
      (Maybe TransitGatewayMulitcastDomainAssociationState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation%27"><span class="hs-identifier hs-type">SubnetAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136379"><span class="annot"><span class="annottext">Maybe TransitGatewayMulitcastDomainAssociationState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation%27"><span class="hs-identifier hs-type">SubnetAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681171515"><span class="annot"><span class="annottext">Maybe TransitGatewayMulitcastDomainAssociationState
 state :: Maybe TransitGatewayMulitcastDomainAssociationState
 $sel:state:SubnetAssociation' :: SubnetAssociation
 -&gt; Maybe TransitGatewayMulitcastDomainAssociationState
-</span><a href="#local-6989586621681136379"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulitcastDomainAssociationState
-</span><a href="#local-6989586621681136379"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136378"><span class="annot"><span class="annottext">s :: SubnetAssociation
-</span><a href="#local-6989586621681136378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation%27"><span class="hs-identifier hs-type">SubnetAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136377"><span class="annot"><span class="annottext">Maybe TransitGatewayMulitcastDomainAssociationState
-</span><a href="#local-6989586621681136377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetAssociation
-</span><a href="#local-6989586621681136378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:SubnetAssociation' :: Maybe TransitGatewayMulitcastDomainAssociationState
+</span><a href="#local-6989586621681171515"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulitcastDomainAssociationState
+</span><a href="#local-6989586621681171515"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681171514"><span class="annot"><span class="annottext">s :: SubnetAssociation
+</span><a href="#local-6989586621681171514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation%27"><span class="hs-identifier hs-type">SubnetAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681171513"><span class="annot"><span class="annottext">Maybe TransitGatewayMulitcastDomainAssociationState
+</span><a href="#local-6989586621681171513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetAssociation
+</span><a href="#local-6989586621681171514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:SubnetAssociation' :: Maybe TransitGatewayMulitcastDomainAssociationState
 </span><a href="Network.AWS.EC2.Types.SubnetAssociation.html#%24sel%3Astate%3ASubnetAssociation%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulitcastDomainAssociationState
-</span><a href="#local-6989586621681136377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation"><span class="hs-identifier hs-type">SubnetAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681171513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation"><span class="hs-identifier hs-type">SubnetAssociation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The ID of the subnet.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#subnetAssociation_subnetId"><span class="hs-identifier hs-type">subnetAssociation_subnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation"><span class="hs-identifier hs-type">SubnetAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -158,21 +158,21 @@ $sel:state:SubnetAssociation' :: SubnetAssociation
 -&gt; Lens
      SubnetAssociation SubnetAssociation (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation%27"><span class="hs-identifier hs-type">SubnetAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681136375"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation%27"><span class="hs-identifier hs-type">SubnetAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681171511"><span class="annot"><span class="annottext">Maybe Text
 subnetId :: Maybe Text
 $sel:subnetId:SubnetAssociation' :: SubnetAssociation -&gt; Maybe Text
-</span><a href="#local-6989586621681136375"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681136375"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681136374"><span class="annot"><span class="annottext">s :: SubnetAssociation
-</span><a href="#local-6989586621681136374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation%27"><span class="hs-identifier hs-type">SubnetAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681136373"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681136373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetAssociation
-</span><a href="#local-6989586621681136374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:SubnetAssociation' :: Maybe Text
+</span><a href="#local-6989586621681171511"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171511"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681171510"><span class="annot"><span class="annottext">s :: SubnetAssociation
+</span><a href="#local-6989586621681171510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation%27"><span class="hs-identifier hs-type">SubnetAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681171509"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681171509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubnetAssociation
+</span><a href="#local-6989586621681171510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:SubnetAssociation' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.SubnetAssociation.html#%24sel%3AsubnetId%3ASubnetAssociation%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681136373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation"><span class="hs-identifier hs-type">SubnetAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681171509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation"><span class="hs-identifier hs-type">SubnetAssociation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation"><span class="hs-identifier hs-type">SubnetAssociation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621681136370"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SubnetAssociation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681136368"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681136368"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621681171506"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SubnetAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681171504"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681171504"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulitcastDomainAssociationState
 -&gt; Maybe Text -&gt; SubnetAssociation
 </span><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation%27"><span class="hs-identifier hs-var">SubnetAssociation'</span></a></span><span>
@@ -183,7 +183,7 @@ $sel:subnetId:SubnetAssociation' :: SubnetAssociation -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; SubnetAssociation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681136368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681171504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text
 -&gt; Either
      String (Maybe TransitGatewayMulitcastDomainAssociationState)
@@ -194,12 +194,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String SubnetAssociation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681136368"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681171504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;subnetId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681136362"><span id="local-6989586621681136364"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation"><span class="hs-identifier hs-type">SubnetAssociation</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681171498"><span id="local-6989586621681171500"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation"><span class="hs-identifier hs-type">SubnetAssociation</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681136359"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation"><span class="hs-identifier hs-type">SubnetAssociation</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681171495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetAssociation.html#SubnetAssociation"><span class="hs-identifier hs-type">SubnetAssociation</span></a></span></span><span>
 </span><span id="line-76"></span></pre></body></html>

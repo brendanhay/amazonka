@@ -49,13 +49,13 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDetectDominantLanguage' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679361555"><span id="local-6989586621679361556"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectDominantLanguage"><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage"><span class="hs-identifier hs-var">DetectDominantLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectDominantLanguage%27"><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage%27"><span class="hs-identifier hs-var">DetectDominantLanguage'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679361863"><span id="local-6989586621679361864"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectDominantLanguage"><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage"><span class="hs-identifier hs-var">DetectDominantLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectDominantLanguage%27"><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage%27"><span class="hs-identifier hs-var">DetectDominantLanguage'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A UTF-8 text string. Each string should contain at least 20 characters</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- and must contain fewer that 5,000 bytes of UTF-8 encoded characters.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Atext%3ADetectDominantLanguage%27"><span class="annot"><span class="annottext">DetectDominantLanguage -&gt; Sensitive Text
 </span><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#%24sel%3Atext%3ADetectDominantLanguage%27"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679361549"><span id="local-6989586621679361551"><span class="annot"><span class="annottext">DetectDominantLanguage -&gt; DetectDominantLanguage -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679361857"><span id="local-6989586621679361859"><span class="annot"><span class="annottext">DetectDominantLanguage -&gt; DetectDominantLanguage -&gt; Bool
 (DetectDominantLanguage -&gt; DetectDominantLanguage -&gt; Bool)
 -&gt; (DetectDominantLanguage -&gt; DetectDominantLanguage -&gt; Bool)
 -&gt; Eq DetectDominantLanguage
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetectDominantLanguage -&gt; DetectDominantLanguage -&gt; Bool
 == :: DetectDominantLanguage -&gt; DetectDominantLanguage -&gt; Bool
 $c== :: DetectDominantLanguage -&gt; DetectDominantLanguage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361542"><span id="local-6989586621679361544"><span id="local-6989586621679361546"><span class="annot"><span class="annottext">Int -&gt; DetectDominantLanguage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361850"><span id="local-6989586621679361852"><span id="local-6989586621679361854"><span class="annot"><span class="annottext">Int -&gt; DetectDominantLanguage -&gt; ShowS
 [DetectDominantLanguage] -&gt; ShowS
 DetectDominantLanguage -&gt; String
 (Int -&gt; DetectDominantLanguage -&gt; ShowS)
@@ -106,8 +106,8 @@ $cfrom :: forall x. DetectDominantLanguage -&gt; Rep DetectDominantLanguage x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage"><span class="hs-identifier hs-type">DetectDominantLanguage</span></a></span><span>
 </span><span id="line-73"></span><span id="newDetectDominantLanguage"><span class="annot"><span class="annottext">newDetectDominantLanguage :: Text -&gt; DetectDominantLanguage
-</span><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#newDetectDominantLanguage"><span class="hs-identifier hs-var hs-var">newDetectDominantLanguage</span></a></span></span><span> </span><span id="local-6989586621679361537"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679361537"><span class="hs-identifier hs-var">pText_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#newDetectDominantLanguage"><span class="hs-identifier hs-var hs-var">newDetectDominantLanguage</span></a></span></span><span> </span><span id="local-6989586621679361845"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679361845"><span class="hs-identifier hs-var">pText_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">DetectDominantLanguage' :: Sensitive Text -&gt; DetectDominantLanguage
 </span><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage%27"><span class="hs-identifier hs-type">DetectDominantLanguage'</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:text:DetectDominantLanguage' :: Sensitive Text
@@ -120,7 +120,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679361537"><span class="hs-identifier hs-var">pText_</span></a></span><span>
+</span><a href="#local-6989586621679361845"><span class="hs-identifier hs-var">pText_</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | A UTF-8 text string. Each string should contain at least 20 characters</span><span>
@@ -137,16 +137,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Sensitive Text)
      (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage%27"><span class="hs-identifier hs-type">DetectDominantLanguage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361532"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage%27"><span class="hs-identifier hs-type">DetectDominantLanguage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361840"><span class="annot"><span class="annottext">Sensitive Text
 text :: Sensitive Text
 $sel:text:DetectDominantLanguage' :: DetectDominantLanguage -&gt; Sensitive Text
-</span><a href="#local-6989586621679361532"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679361532"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361531"><span class="annot"><span class="annottext">s :: DetectDominantLanguage
-</span><a href="#local-6989586621679361531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage%27"><span class="hs-identifier hs-type">DetectDominantLanguage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361530"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679361530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectDominantLanguage
-</span><a href="#local-6989586621679361531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:DetectDominantLanguage' :: Sensitive Text
+</span><a href="#local-6989586621679361840"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679361840"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361839"><span class="annot"><span class="annottext">s :: DetectDominantLanguage
+</span><a href="#local-6989586621679361839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage%27"><span class="hs-identifier hs-type">DetectDominantLanguage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361838"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679361838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectDominantLanguage
+</span><a href="#local-6989586621679361839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:DetectDominantLanguage' :: Sensitive Text
 </span><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#%24sel%3Atext%3ADetectDominantLanguage%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679361530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage"><span class="hs-identifier hs-type">DetectDominantLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679361838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage"><span class="hs-identifier hs-type">DetectDominantLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; DetectDominantLanguage -&gt; f DetectDominantLanguage)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -161,12 +161,12 @@ forall a. Iso' (Sensitive a) a
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage"><span class="hs-identifier hs-type">DetectDominantLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse"><span class="hs-identifier hs-type">DetectDominantLanguageResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679361525"><span class="annot"><span class="annottext">request :: DetectDominantLanguage -&gt; Request DetectDominantLanguage
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679361833"><span class="annot"><span class="annottext">request :: DetectDominantLanguage -&gt; Request DetectDominantLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DetectDominantLanguage -&gt; Request DetectDominantLanguage
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Comprehend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679361521"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679361829"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DetectDominantLanguage
 -&gt; ClientResponse ClientBody
@@ -192,10 +192,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679361518"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361518"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679361517"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679361517"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679361516"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679361516"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679361826"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361826"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679361825"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679361825"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679361824"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679361824"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DominantLanguage] -&gt; Int -&gt; DetectDominantLanguageResponse
 </span><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse%27"><span class="hs-identifier hs-var">DetectDominantLanguageResponse'</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [DominantLanguage] -&gt; Int -&gt; DetectDominantLanguageResponse)
@@ -203,7 +203,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DetectDominantLanguageResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679361516"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DominantLanguage]))
+</span><a href="#local-6989586621679361824"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [DominantLanguage]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Languages&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [DominantLanguage]))
@@ -222,15 +222,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361518"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679361826"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361507"><span id="local-6989586621679361509"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage"><span class="hs-identifier hs-type">DetectDominantLanguage</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361815"><span id="local-6989586621679361817"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage"><span class="hs-identifier hs-type">DetectDominantLanguage</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361504"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage"><span class="hs-identifier hs-type">DetectDominantLanguage</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361812"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage"><span class="hs-identifier hs-type">DetectDominantLanguage</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage"><span class="hs-identifier hs-type">DetectDominantLanguage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679361500"><span class="annot"><span class="annottext">toHeaders :: DetectDominantLanguage -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679361808"><span class="annot"><span class="annottext">toHeaders :: DetectDominantLanguage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DetectDominantLanguage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -257,12 +257,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361490"><span id="local-6989586621679361492"><span id="local-6989586621679361494"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage"><span class="hs-identifier hs-type">DetectDominantLanguage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679361488"><span class="annot"><span class="annottext">toJSON :: DetectDominantLanguage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage%27"><span class="hs-identifier hs-type">DetectDominantLanguage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361486"><span class="annot"><span class="annottext">Sensitive Text
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361798"><span id="local-6989586621679361800"><span id="local-6989586621679361802"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage"><span class="hs-identifier hs-type">DetectDominantLanguage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679361796"><span class="annot"><span class="annottext">toJSON :: DetectDominantLanguage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage%27"><span class="hs-identifier hs-type">DetectDominantLanguage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361794"><span class="annot"><span class="annottext">Sensitive Text
 text :: Sensitive Text
 $sel:text:DetectDominantLanguage' :: DetectDominantLanguage -&gt; Sensitive Text
-</span><a href="#local-6989586621679361486"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679361794"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -274,18 +274,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Text&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679361486"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679361794"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage"><span class="hs-identifier hs-type">DetectDominantLanguage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679361480"><span class="annot"><span class="annottext">toPath :: DetectDominantLanguage -&gt; ByteString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679361788"><span class="annot"><span class="annottext">toPath :: DetectDominantLanguage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DetectDominantLanguage -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguage"><span class="hs-identifier hs-type">DetectDominantLanguage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679361476"><span class="annot"><span class="annottext">toQuery :: DetectDominantLanguage -&gt; QueryString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679361784"><span class="annot"><span class="annottext">toQuery :: DetectDominantLanguage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DetectDominantLanguage -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -293,7 +293,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newDetectDominantLanguageResponse' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679361473"><span id="local-6989586621679361474"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectDominantLanguageResponse"><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse"><span class="hs-identifier hs-var">DetectDominantLanguageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectDominantLanguageResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse%27"><span class="hs-identifier hs-var">DetectDominantLanguageResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span id="local-6989586621679361781"><span id="local-6989586621679361782"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectDominantLanguageResponse"><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse"><span class="hs-identifier hs-var">DetectDominantLanguageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectDominantLanguageResponse%27"><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse%27"><span class="hs-identifier hs-var">DetectDominantLanguageResponse'</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The languages that Amazon Comprehend detected in the input text. For</span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-comment">-- each language, the response returns the RFC 5646 language code and the</span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-comment">-- level of confidence that Amazon Comprehend has in the accuracy of its</span><span>
@@ -306,7 +306,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADetectDominantLanguageResponse%27"><span class="annot"><span class="annottext">DetectDominantLanguageResponse -&gt; Int
 </span><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#%24sel%3AhttpStatus%3ADetectDominantLanguageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679361467"><span id="local-6989586621679361469"><span class="annot"><span class="annottext">DetectDominantLanguageResponse
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679361775"><span id="local-6989586621679361777"><span class="annot"><span class="annottext">DetectDominantLanguageResponse
 -&gt; DetectDominantLanguageResponse -&gt; Bool
 (DetectDominantLanguageResponse
  -&gt; DetectDominantLanguageResponse -&gt; Bool)
@@ -322,7 +322,7 @@ $c/= :: DetectDominantLanguageResponse
 -&gt; DetectDominantLanguageResponse -&gt; Bool
 $c== :: DetectDominantLanguageResponse
 -&gt; DetectDominantLanguageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361461"><span id="local-6989586621679361463"><span id="local-6989586621679361465"><span class="annot"><span class="annottext">Int -&gt; DetectDominantLanguageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361769"><span id="local-6989586621679361771"><span id="local-6989586621679361773"><span class="annot"><span class="annottext">Int -&gt; DetectDominantLanguageResponse -&gt; ShowS
 [DetectDominantLanguageResponse] -&gt; ShowS
 DetectDominantLanguageResponse -&gt; String
 (Int -&gt; DetectDominantLanguageResponse -&gt; ShowS)
@@ -381,8 +381,8 @@ DetectDominantLanguageResponse
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse"><span class="hs-identifier hs-type">DetectDominantLanguageResponse</span></a></span><span>
 </span><span id="line-163"></span><span id="newDetectDominantLanguageResponse"><span class="annot"><span class="annottext">newDetectDominantLanguageResponse :: Int -&gt; DetectDominantLanguageResponse
-</span><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#newDetectDominantLanguageResponse"><span class="hs-identifier hs-var hs-var">newDetectDominantLanguageResponse</span></a></span></span><span> </span><span id="local-6989586621679361458"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361458"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#newDetectDominantLanguageResponse"><span class="hs-identifier hs-var hs-var">newDetectDominantLanguageResponse</span></a></span></span><span> </span><span id="local-6989586621679361766"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361766"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">DetectDominantLanguageResponse' :: Maybe [DominantLanguage] -&gt; Int -&gt; DetectDominantLanguageResponse
 </span><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">DetectDominantLanguageResponse'</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:languages:DetectDominantLanguageResponse' :: Maybe [DominantLanguage]
@@ -392,7 +392,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DetectDominantLanguageResponse' :: Int
 </span><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#%24sel%3AhttpStatus%3ADetectDominantLanguageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361458"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679361766"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | The languages that Amazon Comprehend detected in the input text. For</span><span>
@@ -414,16 +414,16 @@ forall a. Maybe a
      (Maybe [DominantLanguage])
      (Maybe [DominantLanguage])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">DetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361457"><span class="annot"><span class="annottext">Maybe [DominantLanguage]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">DetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361765"><span class="annot"><span class="annottext">Maybe [DominantLanguage]
 languages :: Maybe [DominantLanguage]
 $sel:languages:DetectDominantLanguageResponse' :: DetectDominantLanguageResponse -&gt; Maybe [DominantLanguage]
-</span><a href="#local-6989586621679361457"><span class="hs-identifier hs-var hs-var">languages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DominantLanguage]
-</span><a href="#local-6989586621679361457"><span class="hs-identifier hs-var">languages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361456"><span class="annot"><span class="annottext">s :: DetectDominantLanguageResponse
-</span><a href="#local-6989586621679361456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">DetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361455"><span class="annot"><span class="annottext">Maybe [DominantLanguage]
-</span><a href="#local-6989586621679361455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectDominantLanguageResponse
-</span><a href="#local-6989586621679361456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languages:DetectDominantLanguageResponse' :: Maybe [DominantLanguage]
+</span><a href="#local-6989586621679361765"><span class="hs-identifier hs-var hs-var">languages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DominantLanguage]
+</span><a href="#local-6989586621679361765"><span class="hs-identifier hs-var">languages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361764"><span class="annot"><span class="annottext">s :: DetectDominantLanguageResponse
+</span><a href="#local-6989586621679361764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">DetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361763"><span class="annot"><span class="annottext">Maybe [DominantLanguage]
+</span><a href="#local-6989586621679361763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectDominantLanguageResponse
+</span><a href="#local-6989586621679361764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languages:DetectDominantLanguageResponse' :: Maybe [DominantLanguage]
 </span><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#%24sel%3Alanguages%3ADetectDominantLanguageResponse%27"><span class="hs-identifier hs-var">languages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DominantLanguage]
-</span><a href="#local-6989586621679361455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse"><span class="hs-identifier hs-type">DetectDominantLanguageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DominantLanguage] -&gt; f (Maybe [DominantLanguage]))
+</span><a href="#local-6989586621679361763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse"><span class="hs-identifier hs-type">DetectDominantLanguageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DominantLanguage] -&gt; f (Maybe [DominantLanguage]))
  -&gt; DetectDominantLanguageResponse
  -&gt; f DetectDominantLanguageResponse)
 -&gt; ((Maybe [DominantLanguage] -&gt; f (Maybe [DominantLanguage]))
@@ -450,8 +450,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [DominantLanguage]
   [DominantLanguage]
   [DominantLanguage]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-180"></span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#detectDominantLanguageResponse_httpStatus"><span class="hs-identifier hs-type">detectDominantLanguageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse"><span class="hs-identifier hs-type">DetectDominantLanguageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -467,18 +467,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">DetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361452"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">DetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361760"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DetectDominantLanguageResponse' :: DetectDominantLanguageResponse -&gt; Int
-</span><a href="#local-6989586621679361452"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361452"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361451"><span class="annot"><span class="annottext">s :: DetectDominantLanguageResponse
-</span><a href="#local-6989586621679361451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">DetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361450"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectDominantLanguageResponse
-</span><a href="#local-6989586621679361451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DetectDominantLanguageResponse' :: Int
+</span><a href="#local-6989586621679361760"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361760"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361759"><span class="annot"><span class="annottext">s :: DetectDominantLanguageResponse
+</span><a href="#local-6989586621679361759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse%27"><span class="hs-identifier hs-type">DetectDominantLanguageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361758"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679361758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectDominantLanguageResponse
+</span><a href="#local-6989586621679361759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DetectDominantLanguageResponse' :: Int
 </span><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#%24sel%3AhttpStatus%3ADetectDominantLanguageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679361450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse"><span class="hs-identifier hs-type">DetectDominantLanguageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679361758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse"><span class="hs-identifier hs-type">DetectDominantLanguageResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679361448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679361756"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.DetectDominantLanguage.html#DetectDominantLanguageResponse"><span class="hs-identifier hs-type">DetectDominantLanguageResponse</span></a></span></span><span>
 </span><span id="line-186"></span></pre></body></html>

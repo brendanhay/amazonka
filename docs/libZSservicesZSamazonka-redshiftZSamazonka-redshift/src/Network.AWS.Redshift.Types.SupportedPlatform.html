@@ -27,11 +27,11 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A list of supported platforms for orderable clusters.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSupportedPlatform' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679498040"><span id="local-6989586621679498041"></span></span><span class="hs-keyword">data</span><span> </span><span id="SupportedPlatform"><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#SupportedPlatform"><span class="hs-identifier hs-var">SupportedPlatform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SupportedPlatform%27"><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#SupportedPlatform%27"><span class="hs-identifier hs-var">SupportedPlatform'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679498698"><span id="local-6989586621679498699"></span></span><span class="hs-keyword">data</span><span> </span><span id="SupportedPlatform"><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#SupportedPlatform"><span class="hs-identifier hs-var">SupportedPlatform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SupportedPlatform%27"><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#SupportedPlatform%27"><span class="hs-identifier hs-var">SupportedPlatform'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Aname%3ASupportedPlatform%27"><span class="annot"><span class="annottext">SupportedPlatform -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#%24sel%3Aname%3ASupportedPlatform%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679498034"><span id="local-6989586621679498036"><span class="annot"><span class="annottext">SupportedPlatform -&gt; SupportedPlatform -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679498692"><span id="local-6989586621679498694"><span class="annot"><span class="annottext">SupportedPlatform -&gt; SupportedPlatform -&gt; Bool
 (SupportedPlatform -&gt; SupportedPlatform -&gt; Bool)
 -&gt; (SupportedPlatform -&gt; SupportedPlatform -&gt; Bool)
 -&gt; Eq SupportedPlatform
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SupportedPlatform -&gt; SupportedPlatform -&gt; Bool
 == :: SupportedPlatform -&gt; SupportedPlatform -&gt; Bool
 $c== :: SupportedPlatform -&gt; SupportedPlatform -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679498025"><span id="local-6989586621679498027"><span id="local-6989586621679498029"><span id="local-6989586621679498031"><span class="annot"><span class="annottext">ReadPrec [SupportedPlatform]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679498683"><span id="local-6989586621679498685"><span id="local-6989586621679498687"><span id="local-6989586621679498689"><span class="annot"><span class="annottext">ReadPrec [SupportedPlatform]
 ReadPrec SupportedPlatform
 Int -&gt; ReadS SupportedPlatform
 ReadS [SupportedPlatform]
@@ -60,7 +60,7 @@ readList :: ReadS [SupportedPlatform]
 $creadList :: ReadS [SupportedPlatform]
 readsPrec :: Int -&gt; ReadS SupportedPlatform
 $creadsPrec :: Int -&gt; ReadS SupportedPlatform
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679498018"><span id="local-6989586621679498020"><span id="local-6989586621679498022"><span class="annot"><span class="annottext">Int -&gt; SupportedPlatform -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679498676"><span id="local-6989586621679498678"><span id="local-6989586621679498680"><span class="annot"><span class="annottext">Int -&gt; SupportedPlatform -&gt; ShowS
 [SupportedPlatform] -&gt; ShowS
 SupportedPlatform -&gt; String
 (Int -&gt; SupportedPlatform -&gt; ShowS)
@@ -114,32 +114,32 @@ forall a. Maybe a
 -&gt; Lens
      SupportedPlatform SupportedPlatform (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#SupportedPlatform%27"><span class="hs-identifier hs-type">SupportedPlatform'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679498009"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#SupportedPlatform%27"><span class="hs-identifier hs-type">SupportedPlatform'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679498667"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:SupportedPlatform' :: SupportedPlatform -&gt; Maybe Text
-</span><a href="#local-6989586621679498009"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679498009"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679498008"><span class="annot"><span class="annottext">s :: SupportedPlatform
-</span><a href="#local-6989586621679498008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#SupportedPlatform%27"><span class="hs-identifier hs-type">SupportedPlatform'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679498007"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679498007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SupportedPlatform
-</span><a href="#local-6989586621679498008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SupportedPlatform' :: Maybe Text
+</span><a href="#local-6989586621679498667"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679498667"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679498666"><span class="annot"><span class="annottext">s :: SupportedPlatform
+</span><a href="#local-6989586621679498666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#SupportedPlatform%27"><span class="hs-identifier hs-type">SupportedPlatform'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679498665"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679498665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SupportedPlatform
+</span><a href="#local-6989586621679498666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:SupportedPlatform' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#%24sel%3Aname%3ASupportedPlatform%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679498007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#SupportedPlatform"><span class="hs-identifier hs-type">SupportedPlatform</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679498665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#SupportedPlatform"><span class="hs-identifier hs-type">SupportedPlatform</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#SupportedPlatform"><span class="hs-identifier hs-type">SupportedPlatform</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679498004"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SupportedPlatform
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679498002"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679498002"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679498662"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SupportedPlatform
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679498660"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679498660"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; SupportedPlatform
 </span><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#SupportedPlatform%27"><span class="hs-identifier hs-var">SupportedPlatform'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; SupportedPlatform)
 -&gt; Either String (Maybe Text) -&gt; Either String SupportedPlatform
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679498002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679498660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679497996"><span id="local-6989586621679497998"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#SupportedPlatform"><span class="hs-identifier hs-type">SupportedPlatform</span></a></span></span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679498654"><span id="local-6989586621679498656"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#SupportedPlatform"><span class="hs-identifier hs-type">SupportedPlatform</span></a></span></span></span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679497993"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#SupportedPlatform"><span class="hs-identifier hs-type">SupportedPlatform</span></a></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679498651"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#SupportedPlatform"><span class="hs-identifier hs-type">SupportedPlatform</span></a></span></span><span>
 </span><span id="line-60"></span></pre></body></html>

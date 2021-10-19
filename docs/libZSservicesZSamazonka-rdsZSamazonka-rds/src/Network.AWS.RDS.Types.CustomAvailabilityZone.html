@@ -31,24 +31,24 @@
 </span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html RDS on VMware User Guide.&gt;</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newCustomAvailabilityZone' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679769640"><span id="local-6989586621679769641"></span></span><span class="hs-keyword">data</span><span> </span><span id="CustomAvailabilityZone"><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-var">CustomAvailabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomAvailabilityZone%27"><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-var">CustomAvailabilityZone'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the custom AZ.</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Amazon RDS generates a unique identifier when a custom AZ is created.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcustomAvailabilityZoneId%3ACustomAvailabilityZone%27"><span class="annot"><span class="annottext">CustomAvailabilityZone -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#%24sel%3AcustomAvailabilityZoneId%3ACustomAvailabilityZone%27"><span class="hs-identifier hs-var hs-var">customAvailabilityZoneId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the custom AZ.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcustomAvailabilityZoneName%3ACustomAvailabilityZone%27"><span class="annot"><span class="annottext">CustomAvailabilityZone -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#%24sel%3AcustomAvailabilityZoneName%3ACustomAvailabilityZone%27"><span class="hs-identifier hs-var hs-var">customAvailabilityZoneName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Information about the virtual private network (VPN) between the VMware</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- vSphere cluster and the Amazon Web Services website.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AvpnDetails%3ACustomAvailabilityZone%27"><span class="annot"><span class="annottext">CustomAvailabilityZone -&gt; Maybe VpnDetails
+</span><span id="line-34"></span><span id="local-6989586621679770721"><span id="local-6989586621679770722"></span></span><span class="hs-keyword">data</span><span> </span><span id="CustomAvailabilityZone"><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-var">CustomAvailabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CustomAvailabilityZone%27"><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-var">CustomAvailabilityZone'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the virtual private network (VPN) between the VMware</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- vSphere cluster and the Amazon Web Services website.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AvpnDetails%3ACustomAvailabilityZone%27"><span class="annot"><span class="annottext">CustomAvailabilityZone -&gt; Maybe VpnDetails
 </span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#%24sel%3AvpnDetails%3ACustomAvailabilityZone%27"><span class="hs-identifier hs-var hs-var">vpnDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.VpnDetails.html#VpnDetails"><span class="hs-identifier hs-type">VpnDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the custom AZ.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcustomAvailabilityZoneName%3ACustomAvailabilityZone%27"><span class="annot"><span class="annottext">CustomAvailabilityZone -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#%24sel%3AcustomAvailabilityZoneName%3ACustomAvailabilityZone%27"><span class="hs-identifier hs-var hs-var">customAvailabilityZoneName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The identifier of the custom AZ.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Amazon RDS generates a unique identifier when a custom AZ is created.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcustomAvailabilityZoneId%3ACustomAvailabilityZone%27"><span class="annot"><span class="annottext">CustomAvailabilityZone -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#%24sel%3AcustomAvailabilityZoneId%3ACustomAvailabilityZone%27"><span class="hs-identifier hs-var hs-var">customAvailabilityZoneId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The status of the custom AZ.</span><span>
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AcustomAvailabilityZoneStatus%3ACustomAvailabilityZone%27"><span class="annot"><span class="annottext">CustomAvailabilityZone -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#%24sel%3AcustomAvailabilityZoneStatus%3ACustomAvailabilityZone%27"><span class="hs-identifier hs-var hs-var">customAvailabilityZoneStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679769631"><span id="local-6989586621679769633"><span class="annot"><span class="annottext">CustomAvailabilityZone -&gt; CustomAvailabilityZone -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679770712"><span id="local-6989586621679770714"><span class="annot"><span class="annottext">CustomAvailabilityZone -&gt; CustomAvailabilityZone -&gt; Bool
 (CustomAvailabilityZone -&gt; CustomAvailabilityZone -&gt; Bool)
 -&gt; (CustomAvailabilityZone -&gt; CustomAvailabilityZone -&gt; Bool)
 -&gt; Eq CustomAvailabilityZone
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CustomAvailabilityZone -&gt; CustomAvailabilityZone -&gt; Bool
 == :: CustomAvailabilityZone -&gt; CustomAvailabilityZone -&gt; Bool
 $c== :: CustomAvailabilityZone -&gt; CustomAvailabilityZone -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679769624"><span id="local-6989586621679769626"><span id="local-6989586621679769628"><span class="annot"><span class="annottext">Int -&gt; CustomAvailabilityZone -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679770705"><span id="local-6989586621679770707"><span id="local-6989586621679770709"><span class="annot"><span class="annottext">Int -&gt; CustomAvailabilityZone -&gt; ShowS
 [CustomAvailabilityZone] -&gt; ShowS
 CustomAvailabilityZone -&gt; String
 (Int -&gt; CustomAvailabilityZone -&gt; ShowS)
@@ -92,37 +92,34 @@ $cfrom :: forall x. CustomAvailabilityZone -&gt; Rep CustomAvailabilityZone x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'customAvailabilityZoneId', 'customAvailabilityZone_customAvailabilityZoneId' - The identifier of the custom AZ.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- Amazon RDS generates a unique identifier when a custom AZ is created.</span><span>
-</span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'customAvailabilityZoneName', 'customAvailabilityZone_customAvailabilityZoneName' - The name of the custom AZ.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'vpnDetails', 'customAvailabilityZone_vpnDetails' - Information about the virtual private network (VPN) between the VMware</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- vSphere cluster and the Amazon Web Services website.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'vpnDetails', 'customAvailabilityZone_vpnDetails' - Information about the virtual private network (VPN) between the VMware</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- vSphere cluster and the Amazon Web Services website.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'customAvailabilityZoneName', 'customAvailabilityZone_customAvailabilityZoneName' - The name of the custom AZ.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'customAvailabilityZoneId', 'customAvailabilityZone_customAvailabilityZoneId' - The identifier of the custom AZ.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Amazon RDS generates a unique identifier when a custom AZ is created.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- 'customAvailabilityZoneStatus', 'customAvailabilityZone_customAvailabilityZoneStatus' - The status of the custom AZ.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#newCustomAvailabilityZone"><span class="hs-identifier hs-type">newCustomAvailabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span><span>
 </span><span id="line-69"></span><span id="newCustomAvailabilityZone"><span class="annot"><span class="annottext">newCustomAvailabilityZone :: CustomAvailabilityZone
 </span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#newCustomAvailabilityZone"><span class="hs-identifier hs-var hs-var">newCustomAvailabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">CustomAvailabilityZone' :: Maybe Text
--&gt; Maybe Text
--&gt; Maybe VpnDetails
--&gt; Maybe Text
--&gt; CustomAvailabilityZone
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">CustomAvailabilityZone' :: Maybe VpnDetails
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CustomAvailabilityZone
 </span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-type">CustomAvailabilityZone'</span></a></span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:customAvailabilityZoneId:CustomAvailabilityZone' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#%24sel%3AcustomAvailabilityZoneId%3ACustomAvailabilityZone%27"><span class="hs-identifier hs-var">customAvailabilityZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpnDetails:CustomAvailabilityZone' :: Maybe VpnDetails
+</span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#%24sel%3AvpnDetails%3ACustomAvailabilityZone%27"><span class="hs-identifier hs-var">vpnDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe VpnDetails
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:customAvailabilityZoneName:CustomAvailabilityZone' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#%24sel%3AcustomAvailabilityZoneName%3ACustomAvailabilityZone%27"><span class="hs-identifier hs-var">customAvailabilityZoneName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpnDetails:CustomAvailabilityZone' :: Maybe VpnDetails
-</span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#%24sel%3AvpnDetails%3ACustomAvailabilityZone%27"><span class="hs-identifier hs-var">vpnDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpnDetails
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:customAvailabilityZoneId:CustomAvailabilityZone' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#%24sel%3AcustomAvailabilityZoneId%3ACustomAvailabilityZone%27"><span class="hs-identifier hs-var">customAvailabilityZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:customAvailabilityZoneStatus:CustomAvailabilityZone' :: Maybe Text
@@ -131,58 +128,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The identifier of the custom AZ.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- Amazon RDS generates a unique identifier when a custom AZ is created.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#customAvailabilityZone_customAvailabilityZoneId"><span class="hs-identifier hs-type">customAvailabilityZone_customAvailabilityZoneId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="customAvailabilityZone_customAvailabilityZoneId"><span class="annot"><span class="annottext">customAvailabilityZone_customAvailabilityZoneId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CustomAvailabilityZone -&gt; f CustomAvailabilityZone
-</span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#customAvailabilityZone_customAvailabilityZoneId"><span class="hs-identifier hs-var hs-var">customAvailabilityZone_customAvailabilityZoneId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomAvailabilityZone -&gt; Maybe Text)
--&gt; (CustomAvailabilityZone -&gt; Maybe Text -&gt; CustomAvailabilityZone)
--&gt; Lens
-     CustomAvailabilityZone
-     CustomAvailabilityZone
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-type">CustomAvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679769615"><span class="annot"><span class="annottext">Maybe Text
-customAvailabilityZoneId :: Maybe Text
-$sel:customAvailabilityZoneId:CustomAvailabilityZone' :: CustomAvailabilityZone -&gt; Maybe Text
-</span><a href="#local-6989586621679769615"><span class="hs-identifier hs-var hs-var">customAvailabilityZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679769615"><span class="hs-identifier hs-var">customAvailabilityZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679769614"><span class="annot"><span class="annottext">s :: CustomAvailabilityZone
-</span><a href="#local-6989586621679769614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-type">CustomAvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679769613"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679769613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomAvailabilityZone
-</span><a href="#local-6989586621679769614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customAvailabilityZoneId:CustomAvailabilityZone' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#%24sel%3AcustomAvailabilityZoneId%3ACustomAvailabilityZone%27"><span class="hs-identifier hs-var">customAvailabilityZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679769613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The name of the custom AZ.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#customAvailabilityZone_customAvailabilityZoneName"><span class="hs-identifier hs-type">customAvailabilityZone_customAvailabilityZoneName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="customAvailabilityZone_customAvailabilityZoneName"><span class="annot"><span class="annottext">customAvailabilityZone_customAvailabilityZoneName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CustomAvailabilityZone -&gt; f CustomAvailabilityZone
-</span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#customAvailabilityZone_customAvailabilityZoneName"><span class="hs-identifier hs-var hs-var">customAvailabilityZone_customAvailabilityZoneName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomAvailabilityZone -&gt; Maybe Text)
--&gt; (CustomAvailabilityZone -&gt; Maybe Text -&gt; CustomAvailabilityZone)
--&gt; Lens
-     CustomAvailabilityZone
-     CustomAvailabilityZone
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-type">CustomAvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679769611"><span class="annot"><span class="annottext">Maybe Text
-customAvailabilityZoneName :: Maybe Text
-$sel:customAvailabilityZoneName:CustomAvailabilityZone' :: CustomAvailabilityZone -&gt; Maybe Text
-</span><a href="#local-6989586621679769611"><span class="hs-identifier hs-var hs-var">customAvailabilityZoneName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679769611"><span class="hs-identifier hs-var">customAvailabilityZoneName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679769610"><span class="annot"><span class="annottext">s :: CustomAvailabilityZone
-</span><a href="#local-6989586621679769610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-type">CustomAvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679769609"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679769609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomAvailabilityZone
-</span><a href="#local-6989586621679769610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customAvailabilityZoneName:CustomAvailabilityZone' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#%24sel%3AcustomAvailabilityZoneName%3ACustomAvailabilityZone%27"><span class="hs-identifier hs-var">customAvailabilityZoneName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679769609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | Information about the virtual private network (VPN) between the VMware</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- vSphere cluster and the Amazon Web Services website.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#customAvailabilityZone_vpnDetails"><span class="hs-identifier hs-type">customAvailabilityZone_vpnDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.VpnDetails.html#VpnDetails"><span class="hs-identifier hs-type">VpnDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="customAvailabilityZone_vpnDetails"><span class="annot"><span class="annottext">customAvailabilityZone_vpnDetails :: (Maybe VpnDetails -&gt; f (Maybe VpnDetails))
+</span><span id="line-78"></span><span class="hs-comment">-- | Information about the virtual private network (VPN) between the VMware</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- vSphere cluster and the Amazon Web Services website.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#customAvailabilityZone_vpnDetails"><span class="hs-identifier hs-type">customAvailabilityZone_vpnDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.VpnDetails.html#VpnDetails"><span class="hs-identifier hs-type">VpnDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="customAvailabilityZone_vpnDetails"><span class="annot"><span class="annottext">customAvailabilityZone_vpnDetails :: (Maybe VpnDetails -&gt; f (Maybe VpnDetails))
 -&gt; CustomAvailabilityZone -&gt; f CustomAvailabilityZone
 </span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#customAvailabilityZone_vpnDetails"><span class="hs-identifier hs-var hs-var">customAvailabilityZone_vpnDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomAvailabilityZone -&gt; Maybe VpnDetails)
 -&gt; (CustomAvailabilityZone
@@ -193,16 +142,64 @@ $sel:customAvailabilityZoneName:CustomAvailabilityZone' :: CustomAvailabilityZon
      (Maybe VpnDetails)
      (Maybe VpnDetails)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-type">CustomAvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679769607"><span class="annot"><span class="annottext">Maybe VpnDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-type">CustomAvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679770696"><span class="annot"><span class="annottext">Maybe VpnDetails
 vpnDetails :: Maybe VpnDetails
 $sel:vpnDetails:CustomAvailabilityZone' :: CustomAvailabilityZone -&gt; Maybe VpnDetails
-</span><a href="#local-6989586621679769607"><span class="hs-identifier hs-var hs-var">vpnDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpnDetails
-</span><a href="#local-6989586621679769607"><span class="hs-identifier hs-var">vpnDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679769606"><span class="annot"><span class="annottext">s :: CustomAvailabilityZone
-</span><a href="#local-6989586621679769606"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-type">CustomAvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679769605"><span class="annot"><span class="annottext">Maybe VpnDetails
-</span><a href="#local-6989586621679769605"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomAvailabilityZone
-</span><a href="#local-6989586621679769606"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpnDetails:CustomAvailabilityZone' :: Maybe VpnDetails
+</span><a href="#local-6989586621679770696"><span class="hs-identifier hs-var hs-var">vpnDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpnDetails
+</span><a href="#local-6989586621679770696"><span class="hs-identifier hs-var">vpnDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679770695"><span class="annot"><span class="annottext">s :: CustomAvailabilityZone
+</span><a href="#local-6989586621679770695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-type">CustomAvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679770694"><span class="annot"><span class="annottext">Maybe VpnDetails
+</span><a href="#local-6989586621679770694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomAvailabilityZone
+</span><a href="#local-6989586621679770695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpnDetails:CustomAvailabilityZone' :: Maybe VpnDetails
 </span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#%24sel%3AvpnDetails%3ACustomAvailabilityZone%27"><span class="hs-identifier hs-var">vpnDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpnDetails
-</span><a href="#local-6989586621679769605"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679770694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The name of the custom AZ.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#customAvailabilityZone_customAvailabilityZoneName"><span class="hs-identifier hs-type">customAvailabilityZone_customAvailabilityZoneName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="customAvailabilityZone_customAvailabilityZoneName"><span class="annot"><span class="annottext">customAvailabilityZone_customAvailabilityZoneName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CustomAvailabilityZone -&gt; f CustomAvailabilityZone
+</span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#customAvailabilityZone_customAvailabilityZoneName"><span class="hs-identifier hs-var hs-var">customAvailabilityZone_customAvailabilityZoneName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomAvailabilityZone -&gt; Maybe Text)
+-&gt; (CustomAvailabilityZone -&gt; Maybe Text -&gt; CustomAvailabilityZone)
+-&gt; Lens
+     CustomAvailabilityZone
+     CustomAvailabilityZone
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-type">CustomAvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679770692"><span class="annot"><span class="annottext">Maybe Text
+customAvailabilityZoneName :: Maybe Text
+$sel:customAvailabilityZoneName:CustomAvailabilityZone' :: CustomAvailabilityZone -&gt; Maybe Text
+</span><a href="#local-6989586621679770692"><span class="hs-identifier hs-var hs-var">customAvailabilityZoneName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679770692"><span class="hs-identifier hs-var">customAvailabilityZoneName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679770691"><span class="annot"><span class="annottext">s :: CustomAvailabilityZone
+</span><a href="#local-6989586621679770691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-type">CustomAvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679770690"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679770690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomAvailabilityZone
+</span><a href="#local-6989586621679770691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customAvailabilityZoneName:CustomAvailabilityZone' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#%24sel%3AcustomAvailabilityZoneName%3ACustomAvailabilityZone%27"><span class="hs-identifier hs-var">customAvailabilityZoneName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679770690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The identifier of the custom AZ.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Amazon RDS generates a unique identifier when a custom AZ is created.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#customAvailabilityZone_customAvailabilityZoneId"><span class="hs-identifier hs-type">customAvailabilityZone_customAvailabilityZoneId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="customAvailabilityZone_customAvailabilityZoneId"><span class="annot"><span class="annottext">customAvailabilityZone_customAvailabilityZoneId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CustomAvailabilityZone -&gt; f CustomAvailabilityZone
+</span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#customAvailabilityZone_customAvailabilityZoneId"><span class="hs-identifier hs-var hs-var">customAvailabilityZone_customAvailabilityZoneId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CustomAvailabilityZone -&gt; Maybe Text)
+-&gt; (CustomAvailabilityZone -&gt; Maybe Text -&gt; CustomAvailabilityZone)
+-&gt; Lens
+     CustomAvailabilityZone
+     CustomAvailabilityZone
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-type">CustomAvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679770688"><span class="annot"><span class="annottext">Maybe Text
+customAvailabilityZoneId :: Maybe Text
+$sel:customAvailabilityZoneId:CustomAvailabilityZone' :: CustomAvailabilityZone -&gt; Maybe Text
+</span><a href="#local-6989586621679770688"><span class="hs-identifier hs-var hs-var">customAvailabilityZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679770688"><span class="hs-identifier hs-var">customAvailabilityZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679770687"><span class="annot"><span class="annottext">s :: CustomAvailabilityZone
+</span><a href="#local-6989586621679770687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-type">CustomAvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679770686"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679770686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomAvailabilityZone
+</span><a href="#local-6989586621679770687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customAvailabilityZoneId:CustomAvailabilityZone' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#%24sel%3AcustomAvailabilityZoneId%3ACustomAvailabilityZone%27"><span class="hs-identifier hs-var">customAvailabilityZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679770686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The status of the custom AZ.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#customAvailabilityZone_customAvailabilityZoneStatus"><span class="hs-identifier hs-type">customAvailabilityZone_customAvailabilityZoneStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -216,77 +213,71 @@ $sel:vpnDetails:CustomAvailabilityZone' :: CustomAvailabilityZone -&gt; Maybe Vp
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-type">CustomAvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679769603"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-type">CustomAvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679770684"><span class="annot"><span class="annottext">Maybe Text
 customAvailabilityZoneStatus :: Maybe Text
 $sel:customAvailabilityZoneStatus:CustomAvailabilityZone' :: CustomAvailabilityZone -&gt; Maybe Text
-</span><a href="#local-6989586621679769603"><span class="hs-identifier hs-var hs-var">customAvailabilityZoneStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679769603"><span class="hs-identifier hs-var">customAvailabilityZoneStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679769602"><span class="annot"><span class="annottext">s :: CustomAvailabilityZone
-</span><a href="#local-6989586621679769602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-type">CustomAvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679769601"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679769601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomAvailabilityZone
-</span><a href="#local-6989586621679769602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customAvailabilityZoneStatus:CustomAvailabilityZone' :: Maybe Text
+</span><a href="#local-6989586621679770684"><span class="hs-identifier hs-var hs-var">customAvailabilityZoneStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679770684"><span class="hs-identifier hs-var">customAvailabilityZoneStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679770683"><span class="annot"><span class="annottext">s :: CustomAvailabilityZone
+</span><a href="#local-6989586621679770683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-type">CustomAvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679770682"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679770682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomAvailabilityZone
+</span><a href="#local-6989586621679770683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customAvailabilityZoneStatus:CustomAvailabilityZone' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#%24sel%3AcustomAvailabilityZoneStatus%3ACustomAvailabilityZone%27"><span class="hs-identifier hs-var">customAvailabilityZoneStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679769601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679770682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679769598"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CustomAvailabilityZone
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679769596"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679769596"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
--&gt; Maybe VpnDetails
--&gt; Maybe Text
--&gt; CustomAvailabilityZone
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679770679"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CustomAvailabilityZone
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679770677"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679770677"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">Maybe VpnDetails
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CustomAvailabilityZone
 </span><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone%27"><span class="hs-identifier hs-var">CustomAvailabilityZone'</span></a></span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">(Maybe VpnDetails
  -&gt; Maybe Text
- -&gt; Maybe VpnDetails
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; CustomAvailabilityZone)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe VpnDetails)
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe VpnDetails -&gt; Maybe Text -&gt; CustomAvailabilityZone)
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CustomAvailabilityZone)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679769596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CustomAvailabilityZoneId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe VpnDetails -&gt; Maybe Text -&gt; CustomAvailabilityZone)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe VpnDetails -&gt; Maybe Text -&gt; CustomAvailabilityZone)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679769596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CustomAvailabilityZoneName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe VpnDetails -&gt; Maybe Text -&gt; CustomAvailabilityZone)
--&gt; Either String (Maybe VpnDetails)
--&gt; Either String (Maybe Text -&gt; CustomAvailabilityZone)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679769596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VpnDetails)
+</span><a href="#local-6989586621679770677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VpnDetails)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VpnDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CustomAvailabilityZone)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; CustomAvailabilityZone)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679770677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomAvailabilityZoneName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; CustomAvailabilityZone)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; CustomAvailabilityZone)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679770677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomAvailabilityZoneId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; CustomAvailabilityZone)
 -&gt; Either String (Maybe Text)
 -&gt; Either String CustomAvailabilityZone
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679769596"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679770677"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CustomAvailabilityZoneStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679769590"><span id="local-6989586621679769592"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679770671"><span id="local-6989586621679770673"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679769587"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679770668"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.CustomAvailabilityZone.html#CustomAvailabilityZone"><span class="hs-identifier hs-type">CustomAvailabilityZone</span></a></span></span><span>
 </span><span id="line-108"></span></pre></body></html>

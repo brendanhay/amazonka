@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span id="local-6989586621679403384"><span id="local-6989586621679403385"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OrganizationRuleStatus"><span class="annot"><a href="Network.AWS.Config.Types.OrganizationRuleStatus.html#OrganizationRuleStatus"><span class="hs-identifier hs-var">OrganizationRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationRuleStatus%27"><span class="annot"><a href="Network.AWS.Config.Types.OrganizationRuleStatus.html#OrganizationRuleStatus%27"><span class="hs-identifier hs-var">OrganizationRuleStatus'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679403976"><span id="local-6989586621679403977"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OrganizationRuleStatus"><span class="annot"><a href="Network.AWS.Config.Types.OrganizationRuleStatus.html#OrganizationRuleStatus"><span class="hs-identifier hs-var">OrganizationRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationRuleStatus%27"><span class="annot"><a href="Network.AWS.Config.Types.OrganizationRuleStatus.html#OrganizationRuleStatus%27"><span class="hs-identifier hs-var">OrganizationRuleStatus'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOrganizationRuleStatus"><span class="annot"><span class="annottext">OrganizationRuleStatus -&gt; Text
 </span><a href="Network.AWS.Config.Types.OrganizationRuleStatus.html#fromOrganizationRuleStatus"><span class="hs-identifier hs-var hs-var">fromOrganizationRuleStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679403376"><span id="local-6989586621679403378"><span id="local-6989586621679403380"><span class="annot"><span class="annottext">Int -&gt; OrganizationRuleStatus -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679403968"><span id="local-6989586621679403970"><span id="local-6989586621679403972"><span class="annot"><span class="annottext">Int -&gt; OrganizationRuleStatus -&gt; ShowS
 [OrganizationRuleStatus] -&gt; ShowS
 OrganizationRuleStatus -&gt; String
 (Int -&gt; OrganizationRuleStatus -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: OrganizationRuleStatus -&gt; String
 showsPrec :: Int -&gt; OrganizationRuleStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; OrganizationRuleStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679403367"><span id="local-6989586621679403369"><span id="local-6989586621679403371"><span id="local-6989586621679403373"><span class="annot"><span class="annottext">ReadPrec [OrganizationRuleStatus]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679403959"><span id="local-6989586621679403961"><span id="local-6989586621679403963"><span id="local-6989586621679403965"><span class="annot"><span class="annottext">ReadPrec [OrganizationRuleStatus]
 ReadPrec OrganizationRuleStatus
 Int -&gt; ReadS OrganizationRuleStatus
 ReadS [OrganizationRuleStatus]
@@ -79,7 +79,7 @@ $creadList :: ReadS [OrganizationRuleStatus]
 readsPrec :: Int -&gt; ReadS OrganizationRuleStatus
 $creadsPrec :: Int -&gt; ReadS OrganizationRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679403362"><span id="local-6989586621679403364"><span class="annot"><span class="annottext">OrganizationRuleStatus -&gt; OrganizationRuleStatus -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679403954"><span id="local-6989586621679403956"><span class="annot"><span class="annottext">OrganizationRuleStatus -&gt; OrganizationRuleStatus -&gt; Bool
 (OrganizationRuleStatus -&gt; OrganizationRuleStatus -&gt; Bool)
 -&gt; (OrganizationRuleStatus -&gt; OrganizationRuleStatus -&gt; Bool)
 -&gt; Eq OrganizationRuleStatus
@@ -89,7 +89,7 @@ $c/= :: OrganizationRuleStatus -&gt; OrganizationRuleStatus -&gt; Bool
 == :: OrganizationRuleStatus -&gt; OrganizationRuleStatus -&gt; Bool
 $c== :: OrganizationRuleStatus -&gt; OrganizationRuleStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679403346"><span id="local-6989586621679403348"><span id="local-6989586621679403350"><span id="local-6989586621679403352"><span id="local-6989586621679403354"><span id="local-6989586621679403356"><span id="local-6989586621679403358"><span class="annot"><span class="annottext">Eq OrganizationRuleStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679403938"><span id="local-6989586621679403940"><span id="local-6989586621679403942"><span id="local-6989586621679403944"><span id="local-6989586621679403946"><span id="local-6989586621679403948"><span id="local-6989586621679403950"><span class="annot"><span class="annottext">Eq OrganizationRuleStatus
 Eq OrganizationRuleStatus
 -&gt; (OrganizationRuleStatus -&gt; OrganizationRuleStatus -&gt; Ordering)
 -&gt; (OrganizationRuleStatus -&gt; OrganizationRuleStatus -&gt; Bool)
@@ -148,7 +148,7 @@ $cfrom :: forall x. OrganizationRuleStatus -&gt; Rep OrganizationRuleStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679403338"><span id="local-6989586621679403340"><span class="annot"><span class="annottext">Int -&gt; OrganizationRuleStatus -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679403930"><span id="local-6989586621679403932"><span class="annot"><span class="annottext">Int -&gt; OrganizationRuleStatus -&gt; Int
 OrganizationRuleStatus -&gt; Int
 (Int -&gt; OrganizationRuleStatus -&gt; Int)
 -&gt; (OrganizationRuleStatus -&gt; Int)
@@ -159,54 +159,54 @@ $chash :: OrganizationRuleStatus -&gt; Int
 hashWithSalt :: Int -&gt; OrganizationRuleStatus -&gt; Int
 $chashWithSalt :: Int -&gt; OrganizationRuleStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679403335"><span class="annot"><span class="annottext">OrganizationRuleStatus -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679403927"><span class="annot"><span class="annottext">OrganizationRuleStatus -&gt; ()
 (OrganizationRuleStatus -&gt; ()) -&gt; NFData OrganizationRuleStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OrganizationRuleStatus -&gt; ()
 $crnf :: OrganizationRuleStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679403332"><span class="annot"><span class="annottext">Text -&gt; Either String OrganizationRuleStatus
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679403924"><span class="annot"><span class="annottext">Text -&gt; Either String OrganizationRuleStatus
 (Text -&gt; Either String OrganizationRuleStatus)
 -&gt; FromText OrganizationRuleStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OrganizationRuleStatus
 $cfromText :: Text -&gt; Either String OrganizationRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679403329"><span class="annot"><span class="annottext">OrganizationRuleStatus -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679403921"><span class="annot"><span class="annottext">OrganizationRuleStatus -&gt; Text
 (OrganizationRuleStatus -&gt; Text) -&gt; ToText OrganizationRuleStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OrganizationRuleStatus -&gt; Text
 $ctoText :: OrganizationRuleStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679403326"><span class="annot"><span class="annottext">OrganizationRuleStatus -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679403918"><span class="annot"><span class="annottext">OrganizationRuleStatus -&gt; ByteString
 (OrganizationRuleStatus -&gt; ByteString)
 -&gt; ToByteString OrganizationRuleStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OrganizationRuleStatus -&gt; ByteString
 $ctoBS :: OrganizationRuleStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679403323"><span class="annot"><span class="annottext">OrganizationRuleStatus -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679403915"><span class="annot"><span class="annottext">OrganizationRuleStatus -&gt; ByteStringBuilder
 (OrganizationRuleStatus -&gt; ByteStringBuilder)
 -&gt; ToLog OrganizationRuleStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OrganizationRuleStatus -&gt; ByteStringBuilder
 $cbuild :: OrganizationRuleStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679403320"><span class="annot"><span class="annottext">HeaderName -&gt; OrganizationRuleStatus -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679403912"><span class="annot"><span class="annottext">HeaderName -&gt; OrganizationRuleStatus -&gt; [Header]
 (HeaderName -&gt; OrganizationRuleStatus -&gt; [Header])
 -&gt; ToHeader OrganizationRuleStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OrganizationRuleStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OrganizationRuleStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679403317"><span class="annot"><span class="annottext">OrganizationRuleStatus -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679403909"><span class="annot"><span class="annottext">OrganizationRuleStatus -&gt; QueryString
 (OrganizationRuleStatus -&gt; QueryString)
 -&gt; ToQuery OrganizationRuleStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OrganizationRuleStatus -&gt; QueryString
 $ctoQuery :: OrganizationRuleStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679403312"><span id="local-6989586621679403314"><span class="annot"><span class="annottext">Value -&gt; Parser [OrganizationRuleStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679403904"><span id="local-6989586621679403906"><span class="annot"><span class="annottext">Value -&gt; Parser [OrganizationRuleStatus]
 Value -&gt; Parser OrganizationRuleStatus
 (Value -&gt; Parser OrganizationRuleStatus)
 -&gt; (Value -&gt; Parser [OrganizationRuleStatus])
@@ -218,7 +218,7 @@ $cparseJSONList :: Value -&gt; Parser [OrganizationRuleStatus]
 parseJSON :: Value -&gt; Parser OrganizationRuleStatus
 $cparseJSON :: Value -&gt; Parser OrganizationRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679403307"><span id="local-6989586621679403309"><span class="annot"><span class="annottext">FromJSONKeyFunction [OrganizationRuleStatus]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679403899"><span id="local-6989586621679403901"><span class="annot"><span class="annottext">FromJSONKeyFunction [OrganizationRuleStatus]
 FromJSONKeyFunction OrganizationRuleStatus
 FromJSONKeyFunction OrganizationRuleStatus
 -&gt; FromJSONKeyFunction [OrganizationRuleStatus]
@@ -230,7 +230,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OrganizationRuleStatus]
 fromJSONKey :: FromJSONKeyFunction OrganizationRuleStatus
 $cfromJSONKey :: FromJSONKeyFunction OrganizationRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679403298"><span id="local-6989586621679403300"><span id="local-6989586621679403302"><span id="local-6989586621679403304"><span class="annot"><span class="annottext">[OrganizationRuleStatus] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679403890"><span id="local-6989586621679403892"><span id="local-6989586621679403894"><span id="local-6989586621679403896"><span class="annot"><span class="annottext">[OrganizationRuleStatus] -&gt; Encoding
 [OrganizationRuleStatus] -&gt; Value
 OrganizationRuleStatus -&gt; Encoding
 OrganizationRuleStatus -&gt; Value
@@ -254,7 +254,7 @@ $ctoEncoding :: OrganizationRuleStatus -&gt; Encoding
 toJSON :: OrganizationRuleStatus -&gt; Value
 $ctoJSON :: OrganizationRuleStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679403293"><span id="local-6989586621679403295"><span class="annot"><span class="annottext">ToJSONKeyFunction [OrganizationRuleStatus]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679403885"><span id="local-6989586621679403887"><span class="annot"><span class="annottext">ToJSONKeyFunction [OrganizationRuleStatus]
 ToJSONKeyFunction OrganizationRuleStatus
 ToJSONKeyFunction OrganizationRuleStatus
 -&gt; ToJSONKeyFunction [OrganizationRuleStatus]
@@ -266,14 +266,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OrganizationRuleStatus]
 toJSONKey :: ToJSONKeyFunction OrganizationRuleStatus
 $ctoJSONKey :: ToJSONKeyFunction OrganizationRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679403290"><span class="annot"><span class="annottext">[Node] -&gt; Either String OrganizationRuleStatus
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679403882"><span class="annot"><span class="annottext">[Node] -&gt; Either String OrganizationRuleStatus
 ([Node] -&gt; Either String OrganizationRuleStatus)
 -&gt; FromXML OrganizationRuleStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OrganizationRuleStatus
 $cparseXML :: [Node] -&gt; Either String OrganizationRuleStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679403287"><span class="annot"><span class="annottext">OrganizationRuleStatus -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679403879"><span class="annot"><span class="annottext">OrganizationRuleStatus -&gt; XML
 (OrganizationRuleStatus -&gt; XML) -&gt; ToXML OrganizationRuleStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: OrganizationRuleStatus -&gt; XML

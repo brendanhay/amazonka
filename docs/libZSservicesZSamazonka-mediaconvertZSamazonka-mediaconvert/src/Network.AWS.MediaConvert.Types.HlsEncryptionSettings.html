@@ -32,44 +32,44 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | Settings for HLS encryption</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newHlsEncryptionSettings' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621680001160"><span id="local-6989586621680001161"></span></span><span class="hs-keyword">data</span><span> </span><span id="HlsEncryptionSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-var">HlsEncryptionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsEncryptionSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-var">HlsEncryptionSettings'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621680006088"><span id="local-6989586621680006089"></span></span><span class="hs-keyword">data</span><span> </span><span id="HlsEncryptionSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-var">HlsEncryptionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsEncryptionSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-var">HlsEncryptionSettings'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Enable this setting to insert the EXT-X-SESSION-KEY element into the</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- master playlist. This allows for offline Apple HLS FairPlay content</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- protection.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AofflineEncrypted%3AHlsEncryptionSettings%27"><span class="annot"><span class="annottext">HlsEncryptionSettings -&gt; Maybe HlsOfflineEncrypted
 </span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AofflineEncrypted%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var hs-var">offlineEncrypted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsOfflineEncrypted.html#HlsOfflineEncrypted"><span class="hs-identifier hs-type">HlsOfflineEncrypted</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | If your output group type is HLS, DASH, or Microsoft Smooth, use these</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- settings when doing DRM encryption with a SPEKE-compliant key provider.</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- instead.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AspekeKeyProvider%3AHlsEncryptionSettings%27"><span class="annot"><span class="annottext">HlsEncryptionSettings -&gt; Maybe SpekeKeyProvider
-</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AspekeKeyProvider%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var hs-var">spekeKeyProvider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Encrypts the segments with the given encryption scheme. Leave blank to</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- disable. Selecting \'Disabled\' in the web interface also disables</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- encryption.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AencryptionMethod%3AHlsEncryptionSettings%27"><span class="annot"><span class="annottext">HlsEncryptionSettings -&gt; Maybe HlsEncryptionType
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Encrypts the segments with the given encryption scheme. Leave blank to</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- disable. Selecting \'Disabled\' in the web interface also disables</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- encryption.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AencryptionMethod%3AHlsEncryptionSettings%27"><span class="annot"><span class="annottext">HlsEncryptionSettings -&gt; Maybe HlsEncryptionType
 </span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AencryptionMethod%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var hs-var">encryptionMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionType.html#HlsEncryptionType"><span class="hs-identifier hs-type">HlsEncryptionType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | This is a 128-bit, 16-byte hex value represented by a 32-character text</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- string. If this parameter is not set then the Initialization Vector will</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- follow the segment number by default.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AconstantInitializationVector%3AHlsEncryptionSettings%27"><span class="annot"><span class="annottext">HlsEncryptionSettings -&gt; Maybe Text
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | This is a 128-bit, 16-byte hex value represented by a 32-character text</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- string. If this parameter is not set then the Initialization Vector will</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- follow the segment number by default.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AconstantInitializationVector%3AHlsEncryptionSettings%27"><span class="annot"><span class="annottext">HlsEncryptionSettings -&gt; Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AconstantInitializationVector%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var hs-var">constantInitializationVector</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The Initialization Vector is a 128-bit number used in conjunction with</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- the key for encrypting blocks. If set to INCLUDE, Initialization Vector</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- is listed in the manifest. Otherwise Initialization Vector is not in the</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- manifest.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3AinitializationVectorInManifest%3AHlsEncryptionSettings%27"><span class="annot"><span class="annottext">HlsEncryptionSettings -&gt; Maybe HlsInitializationVectorInManifest
-</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AinitializationVectorInManifest%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var hs-var">initializationVectorInManifest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsInitializationVectorInManifest.html#HlsInitializationVectorInManifest"><span class="hs-identifier hs-type">HlsInitializationVectorInManifest</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Use these settings to set up encryption with a static key provider.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AstaticKeyProvider%3AHlsEncryptionSettings%27"><span class="annot"><span class="annottext">HlsEncryptionSettings -&gt; Maybe StaticKeyProvider
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Specify whether your DRM encryption key is static or from a key provider</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- that follows the SPEKE standard. For more information about SPEKE, see</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/speke\/latest\/documentation\/what-is-speke.html.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Atype%27%3AHlsEncryptionSettings%27"><span class="annot"><span class="annottext">HlsEncryptionSettings -&gt; Maybe HlsKeyProviderType
+</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3Atype%27%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsKeyProviderType.html#HlsKeyProviderType"><span class="hs-identifier hs-type">HlsKeyProviderType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Use these settings to set up encryption with a static key provider.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AstaticKeyProvider%3AHlsEncryptionSettings%27"><span class="annot"><span class="annottext">HlsEncryptionSettings -&gt; Maybe StaticKeyProvider
 </span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AstaticKeyProvider%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var hs-var">staticKeyProvider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Specify whether your DRM encryption key is static or from a key provider</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- that follows the SPEKE standard. For more information about SPEKE, see</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/speke\/latest\/documentation\/what-is-speke.html.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3Atype%27%3AHlsEncryptionSettings%27"><span class="annot"><span class="annottext">HlsEncryptionSettings -&gt; Maybe HlsKeyProviderType
-</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3Atype%27%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsKeyProviderType.html#HlsKeyProviderType"><span class="hs-identifier hs-type">HlsKeyProviderType</span></a></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | If your output group type is HLS, DASH, or Microsoft Smooth, use these</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- settings when doing DRM encryption with a SPEKE-compliant key provider.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- instead.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AspekeKeyProvider%3AHlsEncryptionSettings%27"><span class="annot"><span class="annottext">HlsEncryptionSettings -&gt; Maybe SpekeKeyProvider
+</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AspekeKeyProvider%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var hs-var">spekeKeyProvider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The Initialization Vector is a 128-bit number used in conjunction with</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- the key for encrypting blocks. If set to INCLUDE, Initialization Vector</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- is listed in the manifest. Otherwise Initialization Vector is not in the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- manifest.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AinitializationVectorInManifest%3AHlsEncryptionSettings%27"><span class="annot"><span class="annottext">HlsEncryptionSettings -&gt; Maybe HlsInitializationVectorInManifest
+</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AinitializationVectorInManifest%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var hs-var">initializationVectorInManifest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsInitializationVectorInManifest.html#HlsInitializationVectorInManifest"><span class="hs-identifier hs-type">HlsInitializationVectorInManifest</span></a></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680001148"><span id="local-6989586621680001150"><span class="annot"><span class="annottext">HlsEncryptionSettings -&gt; HlsEncryptionSettings -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680006076"><span id="local-6989586621680006078"><span class="annot"><span class="annottext">HlsEncryptionSettings -&gt; HlsEncryptionSettings -&gt; Bool
 (HlsEncryptionSettings -&gt; HlsEncryptionSettings -&gt; Bool)
 -&gt; (HlsEncryptionSettings -&gt; HlsEncryptionSettings -&gt; Bool)
 -&gt; Eq HlsEncryptionSettings
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HlsEncryptionSettings -&gt; HlsEncryptionSettings -&gt; Bool
 == :: HlsEncryptionSettings -&gt; HlsEncryptionSettings -&gt; Bool
 $c== :: HlsEncryptionSettings -&gt; HlsEncryptionSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680001139"><span id="local-6989586621680001141"><span id="local-6989586621680001143"><span id="local-6989586621680001145"><span class="annot"><span class="annottext">ReadPrec [HlsEncryptionSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680006067"><span id="local-6989586621680006069"><span id="local-6989586621680006071"><span id="local-6989586621680006073"><span class="annot"><span class="annottext">ReadPrec [HlsEncryptionSettings]
 ReadPrec HlsEncryptionSettings
 Int -&gt; ReadS HlsEncryptionSettings
 ReadS [HlsEncryptionSettings]
@@ -98,7 +98,7 @@ readList :: ReadS [HlsEncryptionSettings]
 $creadList :: ReadS [HlsEncryptionSettings]
 readsPrec :: Int -&gt; ReadS HlsEncryptionSettings
 $creadsPrec :: Int -&gt; ReadS HlsEncryptionSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680001132"><span id="local-6989586621680001134"><span id="local-6989586621680001136"><span class="annot"><span class="annottext">Int -&gt; HlsEncryptionSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680006060"><span id="local-6989586621680006062"><span id="local-6989586621680006064"><span class="annot"><span class="annottext">Int -&gt; HlsEncryptionSettings -&gt; ShowS
 [HlsEncryptionSettings] -&gt; ShowS
 HlsEncryptionSettings -&gt; String
 (Int -&gt; HlsEncryptionSettings -&gt; ShowS)
@@ -136,40 +136,40 @@ $cfrom :: forall x. HlsEncryptionSettings -&gt; Rep HlsEncryptionSettings x
 </span><span id="line-76"></span><span class="hs-comment">-- master playlist. This allows for offline Apple HLS FairPlay content</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- protection.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'spekeKeyProvider', 'hlsEncryptionSettings_spekeKeyProvider' - If your output group type is HLS, DASH, or Microsoft Smooth, use these</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- settings when doing DRM encryption with a SPEKE-compliant key provider.</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- instead.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'encryptionMethod', 'hlsEncryptionSettings_encryptionMethod' - Encrypts the segments with the given encryption scheme. Leave blank to</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- disable. Selecting \'Disabled\' in the web interface also disables</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- encryption.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'constantInitializationVector', 'hlsEncryptionSettings_constantInitializationVector' - This is a 128-bit, 16-byte hex value represented by a 32-character text</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- string. If this parameter is not set then the Initialization Vector will</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- follow the segment number by default.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'initializationVectorInManifest', 'hlsEncryptionSettings_initializationVectorInManifest' - The Initialization Vector is a 128-bit number used in conjunction with</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- the key for encrypting blocks. If set to INCLUDE, Initialization Vector</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- is listed in the manifest. Otherwise Initialization Vector is not in the</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- manifest.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'staticKeyProvider', 'hlsEncryptionSettings_staticKeyProvider' - Use these settings to set up encryption with a static key provider.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'type'', 'hlsEncryptionSettings_type' - Specify whether your DRM encryption key is static or from a key provider</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- that follows the SPEKE standard. For more information about SPEKE, see</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/speke\/latest\/documentation\/what-is-speke.html.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'encryptionMethod', 'hlsEncryptionSettings_encryptionMethod' - Encrypts the segments with the given encryption scheme. Leave blank to</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- disable. Selecting \'Disabled\' in the web interface also disables</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- encryption.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'constantInitializationVector', 'hlsEncryptionSettings_constantInitializationVector' - This is a 128-bit, 16-byte hex value represented by a 32-character text</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- string. If this parameter is not set then the Initialization Vector will</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- follow the segment number by default.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'type'', 'hlsEncryptionSettings_type' - Specify whether your DRM encryption key is static or from a key provider</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- that follows the SPEKE standard. For more information about SPEKE, see</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/speke\/latest\/documentation\/what-is-speke.html.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'staticKeyProvider', 'hlsEncryptionSettings_staticKeyProvider' - Use these settings to set up encryption with a static key provider.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'spekeKeyProvider', 'hlsEncryptionSettings_spekeKeyProvider' - If your output group type is HLS, DASH, or Microsoft Smooth, use these</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- settings when doing DRM encryption with a SPEKE-compliant key provider.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- instead.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'initializationVectorInManifest', 'hlsEncryptionSettings_initializationVectorInManifest' - The Initialization Vector is a 128-bit number used in conjunction with</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- the key for encrypting blocks. If set to INCLUDE, Initialization Vector</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- is listed in the manifest. Otherwise Initialization Vector is not in the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- manifest.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#newHlsEncryptionSettings"><span class="hs-identifier hs-type">newHlsEncryptionSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span>
 </span><span id="line-104"></span><span id="newHlsEncryptionSettings"><span class="annot"><span class="annottext">newHlsEncryptionSettings :: HlsEncryptionSettings
 </span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#newHlsEncryptionSettings"><span class="hs-identifier hs-var hs-var">newHlsEncryptionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">HlsEncryptionSettings' :: Maybe HlsOfflineEncrypted
--&gt; Maybe SpekeKeyProvider
 -&gt; Maybe HlsEncryptionType
 -&gt; Maybe Text
--&gt; Maybe HlsInitializationVectorInManifest
--&gt; Maybe StaticKeyProvider
 -&gt; Maybe HlsKeyProviderType
+-&gt; Maybe StaticKeyProvider
+-&gt; Maybe SpekeKeyProvider
+-&gt; Maybe HlsInitializationVectorInManifest
 -&gt; HlsEncryptionSettings
 </span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:offlineEncrypted:HlsEncryptionSettings' :: Maybe HlsOfflineEncrypted
@@ -177,28 +177,28 @@ $cfrom :: forall x. HlsEncryptionSettings -&gt; Rep HlsEncryptionSettings x
 </span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Maybe HlsOfflineEncrypted
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:spekeKeyProvider:HlsEncryptionSettings' :: Maybe SpekeKeyProvider
-</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AspekeKeyProvider%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionMethod:HlsEncryptionSettings' :: Maybe HlsEncryptionType
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryptionMethod:HlsEncryptionSettings' :: Maybe HlsEncryptionType
 </span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AencryptionMethod%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">encryptionMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsEncryptionType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:constantInitializationVector:HlsEncryptionSettings' :: Maybe Text
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:constantInitializationVector:HlsEncryptionSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AconstantInitializationVector%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">constantInitializationVector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:initializationVectorInManifest:HlsEncryptionSettings' :: Maybe HlsInitializationVectorInManifest
-</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AinitializationVectorInManifest%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">initializationVectorInManifest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsInitializationVectorInManifest
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':HlsEncryptionSettings' :: Maybe HlsKeyProviderType
+</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3Atype%27%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsKeyProviderType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:staticKeyProvider:HlsEncryptionSettings' :: Maybe StaticKeyProvider
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:staticKeyProvider:HlsEncryptionSettings' :: Maybe StaticKeyProvider
 </span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AstaticKeyProvider%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">staticKeyProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StaticKeyProvider
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':HlsEncryptionSettings' :: Maybe HlsKeyProviderType
-</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3Atype%27%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsKeyProviderType
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:spekeKeyProvider:HlsEncryptionSettings' :: Maybe SpekeKeyProvider
+</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AspekeKeyProvider%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:initializationVectorInManifest:HlsEncryptionSettings' :: Maybe HlsInitializationVectorInManifest
+</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AinitializationVectorInManifest%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">initializationVectorInManifest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsInitializationVectorInManifest
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
@@ -218,49 +218,22 @@ forall a. Maybe a
      (Maybe HlsOfflineEncrypted)
      (Maybe HlsOfflineEncrypted)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680001123"><span class="annot"><span class="annottext">Maybe HlsOfflineEncrypted
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006051"><span class="annot"><span class="annottext">Maybe HlsOfflineEncrypted
 offlineEncrypted :: Maybe HlsOfflineEncrypted
 $sel:offlineEncrypted:HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe HlsOfflineEncrypted
-</span><a href="#local-6989586621680001123"><span class="hs-identifier hs-var hs-var">offlineEncrypted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsOfflineEncrypted
-</span><a href="#local-6989586621680001123"><span class="hs-identifier hs-var">offlineEncrypted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680001122"><span class="annot"><span class="annottext">s :: HlsEncryptionSettings
-</span><a href="#local-6989586621680001122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680001121"><span class="annot"><span class="annottext">Maybe HlsOfflineEncrypted
-</span><a href="#local-6989586621680001121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsEncryptionSettings
-</span><a href="#local-6989586621680001122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offlineEncrypted:HlsEncryptionSettings' :: Maybe HlsOfflineEncrypted
+</span><a href="#local-6989586621680006051"><span class="hs-identifier hs-var hs-var">offlineEncrypted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsOfflineEncrypted
+</span><a href="#local-6989586621680006051"><span class="hs-identifier hs-var">offlineEncrypted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680006050"><span class="annot"><span class="annottext">s :: HlsEncryptionSettings
+</span><a href="#local-6989586621680006050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680006049"><span class="annot"><span class="annottext">Maybe HlsOfflineEncrypted
+</span><a href="#local-6989586621680006049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsEncryptionSettings
+</span><a href="#local-6989586621680006050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:offlineEncrypted:HlsEncryptionSettings' :: Maybe HlsOfflineEncrypted
 </span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AofflineEncrypted%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">offlineEncrypted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsOfflineEncrypted
-</span><a href="#local-6989586621680001121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680006049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | If your output group type is HLS, DASH, or Microsoft Smooth, use these</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- settings when doing DRM encryption with a SPEKE-compliant key provider.</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- instead.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_spekeKeyProvider"><span class="hs-identifier hs-type">hlsEncryptionSettings_spekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="hlsEncryptionSettings_spekeKeyProvider"><span class="annot"><span class="annottext">hlsEncryptionSettings_spekeKeyProvider :: (Maybe SpekeKeyProvider -&gt; f (Maybe SpekeKeyProvider))
--&gt; HlsEncryptionSettings -&gt; f HlsEncryptionSettings
-</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_spekeKeyProvider"><span class="hs-identifier hs-var hs-var">hlsEncryptionSettings_spekeKeyProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsEncryptionSettings -&gt; Maybe SpekeKeyProvider)
--&gt; (HlsEncryptionSettings
-    -&gt; Maybe SpekeKeyProvider -&gt; HlsEncryptionSettings)
--&gt; Lens
-     HlsEncryptionSettings
-     HlsEncryptionSettings
-     (Maybe SpekeKeyProvider)
-     (Maybe SpekeKeyProvider)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680001119"><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
-spekeKeyProvider :: Maybe SpekeKeyProvider
-$sel:spekeKeyProvider:HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe SpekeKeyProvider
-</span><a href="#local-6989586621680001119"><span class="hs-identifier hs-var hs-var">spekeKeyProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
-</span><a href="#local-6989586621680001119"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680001118"><span class="annot"><span class="annottext">s :: HlsEncryptionSettings
-</span><a href="#local-6989586621680001118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680001117"><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
-</span><a href="#local-6989586621680001117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsEncryptionSettings
-</span><a href="#local-6989586621680001118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spekeKeyProvider:HlsEncryptionSettings' :: Maybe SpekeKeyProvider
-</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AspekeKeyProvider%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
-</span><a href="#local-6989586621680001117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | Encrypts the segments with the given encryption scheme. Leave blank to</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- disable. Selecting \'Disabled\' in the web interface also disables</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- encryption.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_encryptionMethod"><span class="hs-identifier hs-type">hlsEncryptionSettings_encryptionMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionType.html#HlsEncryptionType"><span class="hs-identifier hs-type">HlsEncryptionType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="hlsEncryptionSettings_encryptionMethod"><span class="annot"><span class="annottext">hlsEncryptionSettings_encryptionMethod :: (Maybe HlsEncryptionType -&gt; f (Maybe HlsEncryptionType))
+</span><span id="line-122"></span><span class="hs-comment">-- | Encrypts the segments with the given encryption scheme. Leave blank to</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- disable. Selecting \'Disabled\' in the web interface also disables</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- encryption.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_encryptionMethod"><span class="hs-identifier hs-type">hlsEncryptionSettings_encryptionMethod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionType.html#HlsEncryptionType"><span class="hs-identifier hs-type">HlsEncryptionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="hlsEncryptionSettings_encryptionMethod"><span class="annot"><span class="annottext">hlsEncryptionSettings_encryptionMethod :: (Maybe HlsEncryptionType -&gt; f (Maybe HlsEncryptionType))
 -&gt; HlsEncryptionSettings -&gt; f HlsEncryptionSettings
 </span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_encryptionMethod"><span class="hs-identifier hs-var hs-var">hlsEncryptionSettings_encryptionMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsEncryptionSettings -&gt; Maybe HlsEncryptionType)
 -&gt; (HlsEncryptionSettings
@@ -271,22 +244,22 @@ $sel:spekeKeyProvider:HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Mayb
      (Maybe HlsEncryptionType)
      (Maybe HlsEncryptionType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680001115"><span class="annot"><span class="annottext">Maybe HlsEncryptionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006047"><span class="annot"><span class="annottext">Maybe HlsEncryptionType
 encryptionMethod :: Maybe HlsEncryptionType
 $sel:encryptionMethod:HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe HlsEncryptionType
-</span><a href="#local-6989586621680001115"><span class="hs-identifier hs-var hs-var">encryptionMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsEncryptionType
-</span><a href="#local-6989586621680001115"><span class="hs-identifier hs-var">encryptionMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680001114"><span class="annot"><span class="annottext">s :: HlsEncryptionSettings
-</span><a href="#local-6989586621680001114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680001113"><span class="annot"><span class="annottext">Maybe HlsEncryptionType
-</span><a href="#local-6989586621680001113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsEncryptionSettings
-</span><a href="#local-6989586621680001114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionMethod:HlsEncryptionSettings' :: Maybe HlsEncryptionType
+</span><a href="#local-6989586621680006047"><span class="hs-identifier hs-var hs-var">encryptionMethod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsEncryptionType
+</span><a href="#local-6989586621680006047"><span class="hs-identifier hs-var">encryptionMethod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680006046"><span class="annot"><span class="annottext">s :: HlsEncryptionSettings
+</span><a href="#local-6989586621680006046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680006045"><span class="annot"><span class="annottext">Maybe HlsEncryptionType
+</span><a href="#local-6989586621680006045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsEncryptionSettings
+</span><a href="#local-6989586621680006046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionMethod:HlsEncryptionSettings' :: Maybe HlsEncryptionType
 </span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AencryptionMethod%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">encryptionMethod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsEncryptionType
-</span><a href="#local-6989586621680001113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | This is a 128-bit, 16-byte hex value represented by a 32-character text</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- string. If this parameter is not set then the Initialization Vector will</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- follow the segment number by default.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_constantInitializationVector"><span class="hs-identifier hs-type">hlsEncryptionSettings_constantInitializationVector</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="hlsEncryptionSettings_constantInitializationVector"><span class="annot"><span class="annottext">hlsEncryptionSettings_constantInitializationVector :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621680006045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | This is a 128-bit, 16-byte hex value represented by a 32-character text</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- string. If this parameter is not set then the Initialization Vector will</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- follow the segment number by default.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_constantInitializationVector"><span class="hs-identifier hs-type">hlsEncryptionSettings_constantInitializationVector</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="hlsEncryptionSettings_constantInitializationVector"><span class="annot"><span class="annottext">hlsEncryptionSettings_constantInitializationVector :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; HlsEncryptionSettings -&gt; f HlsEncryptionSettings
 </span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_constantInitializationVector"><span class="hs-identifier hs-var hs-var">hlsEncryptionSettings_constantInitializationVector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsEncryptionSettings -&gt; Maybe Text)
 -&gt; (HlsEncryptionSettings -&gt; Maybe Text -&gt; HlsEncryptionSettings)
@@ -296,23 +269,100 @@ $sel:encryptionMethod:HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680001111"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006043"><span class="annot"><span class="annottext">Maybe Text
 constantInitializationVector :: Maybe Text
 $sel:constantInitializationVector:HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe Text
-</span><a href="#local-6989586621680001111"><span class="hs-identifier hs-var hs-var">constantInitializationVector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680001111"><span class="hs-identifier hs-var">constantInitializationVector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680001110"><span class="annot"><span class="annottext">s :: HlsEncryptionSettings
-</span><a href="#local-6989586621680001110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680001109"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680001109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsEncryptionSettings
-</span><a href="#local-6989586621680001110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constantInitializationVector:HlsEncryptionSettings' :: Maybe Text
+</span><a href="#local-6989586621680006043"><span class="hs-identifier hs-var hs-var">constantInitializationVector</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680006043"><span class="hs-identifier hs-var">constantInitializationVector</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680006042"><span class="annot"><span class="annottext">s :: HlsEncryptionSettings
+</span><a href="#local-6989586621680006042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680006041"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680006041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsEncryptionSettings
+</span><a href="#local-6989586621680006042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constantInitializationVector:HlsEncryptionSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AconstantInitializationVector%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">constantInitializationVector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680001109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | The Initialization Vector is a 128-bit number used in conjunction with</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- the key for encrypting blocks. If set to INCLUDE, Initialization Vector</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- is listed in the manifest. Otherwise Initialization Vector is not in the</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- manifest.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_initializationVectorInManifest"><span class="hs-identifier hs-type">hlsEncryptionSettings_initializationVectorInManifest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsInitializationVectorInManifest.html#HlsInitializationVectorInManifest"><span class="hs-identifier hs-type">HlsInitializationVectorInManifest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="hlsEncryptionSettings_initializationVectorInManifest"><span class="annot"><span class="annottext">hlsEncryptionSettings_initializationVectorInManifest :: (Maybe HlsInitializationVectorInManifest
+</span><a href="#local-6989586621680006041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | Specify whether your DRM encryption key is static or from a key provider</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- that follows the SPEKE standard. For more information about SPEKE, see</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/speke\/latest\/documentation\/what-is-speke.html.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_type"><span class="hs-identifier hs-type">hlsEncryptionSettings_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsKeyProviderType.html#HlsKeyProviderType"><span class="hs-identifier hs-type">HlsKeyProviderType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="hlsEncryptionSettings_type"><span class="annot"><span class="annottext">hlsEncryptionSettings_type :: (Maybe HlsKeyProviderType -&gt; f (Maybe HlsKeyProviderType))
+-&gt; HlsEncryptionSettings -&gt; f HlsEncryptionSettings
+</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_type"><span class="hs-identifier hs-var hs-var">hlsEncryptionSettings_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsEncryptionSettings -&gt; Maybe HlsKeyProviderType)
+-&gt; (HlsEncryptionSettings
+    -&gt; Maybe HlsKeyProviderType -&gt; HlsEncryptionSettings)
+-&gt; Lens
+     HlsEncryptionSettings
+     HlsEncryptionSettings
+     (Maybe HlsKeyProviderType)
+     (Maybe HlsKeyProviderType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006039"><span class="annot"><span class="annottext">Maybe HlsKeyProviderType
+type' :: Maybe HlsKeyProviderType
+$sel:type':HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe HlsKeyProviderType
+</span><a href="#local-6989586621680006039"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsKeyProviderType
+</span><a href="#local-6989586621680006039"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680006038"><span class="annot"><span class="annottext">s :: HlsEncryptionSettings
+</span><a href="#local-6989586621680006038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680006037"><span class="annot"><span class="annottext">Maybe HlsKeyProviderType
+</span><a href="#local-6989586621680006037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsEncryptionSettings
+</span><a href="#local-6989586621680006038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':HlsEncryptionSettings' :: Maybe HlsKeyProviderType
+</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3Atype%27%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsKeyProviderType
+</span><a href="#local-6989586621680006037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | Use these settings to set up encryption with a static key provider.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_staticKeyProvider"><span class="hs-identifier hs-type">hlsEncryptionSettings_staticKeyProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="hlsEncryptionSettings_staticKeyProvider"><span class="annot"><span class="annottext">hlsEncryptionSettings_staticKeyProvider :: (Maybe StaticKeyProvider -&gt; f (Maybe StaticKeyProvider))
+-&gt; HlsEncryptionSettings -&gt; f HlsEncryptionSettings
+</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_staticKeyProvider"><span class="hs-identifier hs-var hs-var">hlsEncryptionSettings_staticKeyProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsEncryptionSettings -&gt; Maybe StaticKeyProvider)
+-&gt; (HlsEncryptionSettings
+    -&gt; Maybe StaticKeyProvider -&gt; HlsEncryptionSettings)
+-&gt; Lens
+     HlsEncryptionSettings
+     HlsEncryptionSettings
+     (Maybe StaticKeyProvider)
+     (Maybe StaticKeyProvider)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006035"><span class="annot"><span class="annottext">Maybe StaticKeyProvider
+staticKeyProvider :: Maybe StaticKeyProvider
+$sel:staticKeyProvider:HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe StaticKeyProvider
+</span><a href="#local-6989586621680006035"><span class="hs-identifier hs-var hs-var">staticKeyProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StaticKeyProvider
+</span><a href="#local-6989586621680006035"><span class="hs-identifier hs-var">staticKeyProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680006034"><span class="annot"><span class="annottext">s :: HlsEncryptionSettings
+</span><a href="#local-6989586621680006034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680006033"><span class="annot"><span class="annottext">Maybe StaticKeyProvider
+</span><a href="#local-6989586621680006033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsEncryptionSettings
+</span><a href="#local-6989586621680006034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:staticKeyProvider:HlsEncryptionSettings' :: Maybe StaticKeyProvider
+</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AstaticKeyProvider%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">staticKeyProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StaticKeyProvider
+</span><a href="#local-6989586621680006033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | If your output group type is HLS, DASH, or Microsoft Smooth, use these</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- settings when doing DRM encryption with a SPEKE-compliant key provider.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- If your output group type is CMAF, use the SpekeKeyProviderCmaf settings</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- instead.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_spekeKeyProvider"><span class="hs-identifier hs-type">hlsEncryptionSettings_spekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SpekeKeyProvider.html#SpekeKeyProvider"><span class="hs-identifier hs-type">SpekeKeyProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="hlsEncryptionSettings_spekeKeyProvider"><span class="annot"><span class="annottext">hlsEncryptionSettings_spekeKeyProvider :: (Maybe SpekeKeyProvider -&gt; f (Maybe SpekeKeyProvider))
+-&gt; HlsEncryptionSettings -&gt; f HlsEncryptionSettings
+</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_spekeKeyProvider"><span class="hs-identifier hs-var hs-var">hlsEncryptionSettings_spekeKeyProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsEncryptionSettings -&gt; Maybe SpekeKeyProvider)
+-&gt; (HlsEncryptionSettings
+    -&gt; Maybe SpekeKeyProvider -&gt; HlsEncryptionSettings)
+-&gt; Lens
+     HlsEncryptionSettings
+     HlsEncryptionSettings
+     (Maybe SpekeKeyProvider)
+     (Maybe SpekeKeyProvider)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006031"><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
+spekeKeyProvider :: Maybe SpekeKeyProvider
+$sel:spekeKeyProvider:HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe SpekeKeyProvider
+</span><a href="#local-6989586621680006031"><span class="hs-identifier hs-var hs-var">spekeKeyProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
+</span><a href="#local-6989586621680006031"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680006030"><span class="annot"><span class="annottext">s :: HlsEncryptionSettings
+</span><a href="#local-6989586621680006030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680006029"><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
+</span><a href="#local-6989586621680006029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsEncryptionSettings
+</span><a href="#local-6989586621680006030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spekeKeyProvider:HlsEncryptionSettings' :: Maybe SpekeKeyProvider
+</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AspekeKeyProvider%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
+</span><a href="#local-6989586621680006029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The Initialization Vector is a 128-bit number used in conjunction with</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- the key for encrypting blocks. If set to INCLUDE, Initialization Vector</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- is listed in the manifest. Otherwise Initialization Vector is not in the</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- manifest.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_initializationVectorInManifest"><span class="hs-identifier hs-type">hlsEncryptionSettings_initializationVectorInManifest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsInitializationVectorInManifest.html#HlsInitializationVectorInManifest"><span class="hs-identifier hs-type">HlsInitializationVectorInManifest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="hlsEncryptionSettings_initializationVectorInManifest"><span class="annot"><span class="annottext">hlsEncryptionSettings_initializationVectorInManifest :: (Maybe HlsInitializationVectorInManifest
  -&gt; f (Maybe HlsInitializationVectorInManifest))
 -&gt; HlsEncryptionSettings -&gt; f HlsEncryptionSettings
 </span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_initializationVectorInManifest"><span class="hs-identifier hs-var hs-var">hlsEncryptionSettings_initializationVectorInManifest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsEncryptionSettings -&gt; Maybe HlsInitializationVectorInManifest)
@@ -325,69 +375,19 @@ $sel:constantInitializationVector:HlsEncryptionSettings' :: HlsEncryptionSetting
      (Maybe HlsInitializationVectorInManifest)
      (Maybe HlsInitializationVectorInManifest)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680001107"><span class="annot"><span class="annottext">Maybe HlsInitializationVectorInManifest
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006027"><span class="annot"><span class="annottext">Maybe HlsInitializationVectorInManifest
 initializationVectorInManifest :: Maybe HlsInitializationVectorInManifest
 $sel:initializationVectorInManifest:HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe HlsInitializationVectorInManifest
-</span><a href="#local-6989586621680001107"><span class="hs-identifier hs-var hs-var">initializationVectorInManifest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsInitializationVectorInManifest
-</span><a href="#local-6989586621680001107"><span class="hs-identifier hs-var">initializationVectorInManifest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680001106"><span class="annot"><span class="annottext">s :: HlsEncryptionSettings
-</span><a href="#local-6989586621680001106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680001105"><span class="annot"><span class="annottext">Maybe HlsInitializationVectorInManifest
-</span><a href="#local-6989586621680001105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsEncryptionSettings
-</span><a href="#local-6989586621680001106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initializationVectorInManifest:HlsEncryptionSettings' :: Maybe HlsInitializationVectorInManifest
+</span><a href="#local-6989586621680006027"><span class="hs-identifier hs-var hs-var">initializationVectorInManifest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsInitializationVectorInManifest
+</span><a href="#local-6989586621680006027"><span class="hs-identifier hs-var">initializationVectorInManifest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680006026"><span class="annot"><span class="annottext">s :: HlsEncryptionSettings
+</span><a href="#local-6989586621680006026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680006025"><span class="annot"><span class="annottext">Maybe HlsInitializationVectorInManifest
+</span><a href="#local-6989586621680006025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsEncryptionSettings
+</span><a href="#local-6989586621680006026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initializationVectorInManifest:HlsEncryptionSettings' :: Maybe HlsInitializationVectorInManifest
 </span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AinitializationVectorInManifest%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">initializationVectorInManifest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsInitializationVectorInManifest
-</span><a href="#local-6989586621680001105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- | Use these settings to set up encryption with a static key provider.</span><span>
-</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_staticKeyProvider"><span class="hs-identifier hs-type">hlsEncryptionSettings_staticKeyProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.StaticKeyProvider.html#StaticKeyProvider"><span class="hs-identifier hs-type">StaticKeyProvider</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span id="hlsEncryptionSettings_staticKeyProvider"><span class="annot"><span class="annottext">hlsEncryptionSettings_staticKeyProvider :: (Maybe StaticKeyProvider -&gt; f (Maybe StaticKeyProvider))
--&gt; HlsEncryptionSettings -&gt; f HlsEncryptionSettings
-</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_staticKeyProvider"><span class="hs-identifier hs-var hs-var">hlsEncryptionSettings_staticKeyProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsEncryptionSettings -&gt; Maybe StaticKeyProvider)
--&gt; (HlsEncryptionSettings
-    -&gt; Maybe StaticKeyProvider -&gt; HlsEncryptionSettings)
--&gt; Lens
-     HlsEncryptionSettings
-     HlsEncryptionSettings
-     (Maybe StaticKeyProvider)
-     (Maybe StaticKeyProvider)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680001103"><span class="annot"><span class="annottext">Maybe StaticKeyProvider
-staticKeyProvider :: Maybe StaticKeyProvider
-$sel:staticKeyProvider:HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe StaticKeyProvider
-</span><a href="#local-6989586621680001103"><span class="hs-identifier hs-var hs-var">staticKeyProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StaticKeyProvider
-</span><a href="#local-6989586621680001103"><span class="hs-identifier hs-var">staticKeyProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680001102"><span class="annot"><span class="annottext">s :: HlsEncryptionSettings
-</span><a href="#local-6989586621680001102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680001101"><span class="annot"><span class="annottext">Maybe StaticKeyProvider
-</span><a href="#local-6989586621680001101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsEncryptionSettings
-</span><a href="#local-6989586621680001102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:staticKeyProvider:HlsEncryptionSettings' :: Maybe StaticKeyProvider
-</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3AstaticKeyProvider%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">staticKeyProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StaticKeyProvider
-</span><a href="#local-6989586621680001101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- | Specify whether your DRM encryption key is static or from a key provider</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- that follows the SPEKE standard. For more information about SPEKE, see</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/speke\/latest\/documentation\/what-is-speke.html.</span><span>
-</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_type"><span class="hs-identifier hs-type">hlsEncryptionSettings_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsKeyProviderType.html#HlsKeyProviderType"><span class="hs-identifier hs-type">HlsKeyProviderType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span id="hlsEncryptionSettings_type"><span class="annot"><span class="annottext">hlsEncryptionSettings_type :: (Maybe HlsKeyProviderType -&gt; f (Maybe HlsKeyProviderType))
--&gt; HlsEncryptionSettings -&gt; f HlsEncryptionSettings
-</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#hlsEncryptionSettings_type"><span class="hs-identifier hs-var hs-var">hlsEncryptionSettings_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsEncryptionSettings -&gt; Maybe HlsKeyProviderType)
--&gt; (HlsEncryptionSettings
-    -&gt; Maybe HlsKeyProviderType -&gt; HlsEncryptionSettings)
--&gt; Lens
-     HlsEncryptionSettings
-     HlsEncryptionSettings
-     (Maybe HlsKeyProviderType)
-     (Maybe HlsKeyProviderType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680001099"><span class="annot"><span class="annottext">Maybe HlsKeyProviderType
-type' :: Maybe HlsKeyProviderType
-$sel:type':HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe HlsKeyProviderType
-</span><a href="#local-6989586621680001099"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsKeyProviderType
-</span><a href="#local-6989586621680001099"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680001098"><span class="annot"><span class="annottext">s :: HlsEncryptionSettings
-</span><a href="#local-6989586621680001098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680001097"><span class="annot"><span class="annottext">Maybe HlsKeyProviderType
-</span><a href="#local-6989586621680001097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsEncryptionSettings
-</span><a href="#local-6989586621680001098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':HlsEncryptionSettings' :: Maybe HlsKeyProviderType
-</span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#%24sel%3Atype%27%3AHlsEncryptionSettings%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsKeyProviderType
-</span><a href="#local-6989586621680001097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680006025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680001094"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621680001092"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HlsEncryptionSettings
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680006022"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621680006020"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HlsEncryptionSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HlsEncryptionSettings)
@@ -397,165 +397,169 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HlsEncryptionSettings&quot;</span></span><span>
-</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680001089"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680001089"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680006017"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680006017"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe HlsOfflineEncrypted
--&gt; Maybe SpekeKeyProvider
 -&gt; Maybe HlsEncryptionType
 -&gt; Maybe Text
--&gt; Maybe HlsInitializationVectorInManifest
--&gt; Maybe StaticKeyProvider
 -&gt; Maybe HlsKeyProviderType
+-&gt; Maybe StaticKeyProvider
+-&gt; Maybe SpekeKeyProvider
+-&gt; Maybe HlsInitializationVectorInManifest
 -&gt; HlsEncryptionSettings
 </span><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-var">HlsEncryptionSettings'</span></a></span><span>
 </span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">(Maybe HlsOfflineEncrypted
- -&gt; Maybe SpekeKeyProvider
  -&gt; Maybe HlsEncryptionType
  -&gt; Maybe Text
- -&gt; Maybe HlsInitializationVectorInManifest
- -&gt; Maybe StaticKeyProvider
  -&gt; Maybe HlsKeyProviderType
+ -&gt; Maybe StaticKeyProvider
+ -&gt; Maybe SpekeKeyProvider
+ -&gt; Maybe HlsInitializationVectorInManifest
  -&gt; HlsEncryptionSettings)
 -&gt; Parser (Maybe HlsOfflineEncrypted)
 -&gt; Parser
-     (Maybe SpekeKeyProvider
-      -&gt; Maybe HlsEncryptionType
+     (Maybe HlsEncryptionType
       -&gt; Maybe Text
-      -&gt; Maybe HlsInitializationVectorInManifest
-      -&gt; Maybe StaticKeyProvider
       -&gt; Maybe HlsKeyProviderType
+      -&gt; Maybe StaticKeyProvider
+      -&gt; Maybe SpekeKeyProvider
+      -&gt; Maybe HlsInitializationVectorInManifest
       -&gt; HlsEncryptionSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680001089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsOfflineEncrypted)
+</span><a href="#local-6989586621680006017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsOfflineEncrypted)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;offlineEncrypted&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe SpekeKeyProvider
-   -&gt; Maybe HlsEncryptionType
-   -&gt; Maybe Text
-   -&gt; Maybe HlsInitializationVectorInManifest
-   -&gt; Maybe StaticKeyProvider
-   -&gt; Maybe HlsKeyProviderType
-   -&gt; HlsEncryptionSettings)
--&gt; Parser (Maybe SpekeKeyProvider)
--&gt; Parser
-     (Maybe HlsEncryptionType
-      -&gt; Maybe Text
-      -&gt; Maybe HlsInitializationVectorInManifest
-      -&gt; Maybe StaticKeyProvider
-      -&gt; Maybe HlsKeyProviderType
-      -&gt; HlsEncryptionSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680001089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SpekeKeyProvider)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;spekeKeyProvider&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe HlsEncryptionType
    -&gt; Maybe Text
-   -&gt; Maybe HlsInitializationVectorInManifest
-   -&gt; Maybe StaticKeyProvider
    -&gt; Maybe HlsKeyProviderType
+   -&gt; Maybe StaticKeyProvider
+   -&gt; Maybe SpekeKeyProvider
+   -&gt; Maybe HlsInitializationVectorInManifest
    -&gt; HlsEncryptionSettings)
 -&gt; Parser (Maybe HlsEncryptionType)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe HlsInitializationVectorInManifest
-      -&gt; Maybe StaticKeyProvider
       -&gt; Maybe HlsKeyProviderType
+      -&gt; Maybe StaticKeyProvider
+      -&gt; Maybe SpekeKeyProvider
+      -&gt; Maybe HlsInitializationVectorInManifest
       -&gt; HlsEncryptionSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680001089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsEncryptionType)
+</span><a href="#local-6989586621680006017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsEncryptionType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;encryptionMethod&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe HlsInitializationVectorInManifest
-   -&gt; Maybe StaticKeyProvider
    -&gt; Maybe HlsKeyProviderType
+   -&gt; Maybe StaticKeyProvider
+   -&gt; Maybe SpekeKeyProvider
+   -&gt; Maybe HlsInitializationVectorInManifest
    -&gt; HlsEncryptionSettings)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe HlsInitializationVectorInManifest
+     (Maybe HlsKeyProviderType
       -&gt; Maybe StaticKeyProvider
-      -&gt; Maybe HlsKeyProviderType
+      -&gt; Maybe SpekeKeyProvider
+      -&gt; Maybe HlsInitializationVectorInManifest
       -&gt; HlsEncryptionSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680001089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680006017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;constantInitializationVector&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe HlsInitializationVectorInManifest
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe HlsKeyProviderType
    -&gt; Maybe StaticKeyProvider
-   -&gt; Maybe HlsKeyProviderType
+   -&gt; Maybe SpekeKeyProvider
+   -&gt; Maybe HlsInitializationVectorInManifest
    -&gt; HlsEncryptionSettings)
--&gt; Parser (Maybe HlsInitializationVectorInManifest)
+-&gt; Parser (Maybe HlsKeyProviderType)
 -&gt; Parser
      (Maybe StaticKeyProvider
-      -&gt; Maybe HlsKeyProviderType -&gt; HlsEncryptionSettings)
+      -&gt; Maybe SpekeKeyProvider
+      -&gt; Maybe HlsInitializationVectorInManifest
+      -&gt; HlsEncryptionSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680001089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsInitializationVectorInManifest)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;initializationVectorInManifest&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe StaticKeyProvider
-   -&gt; Maybe HlsKeyProviderType -&gt; HlsEncryptionSettings)
--&gt; Parser (Maybe StaticKeyProvider)
--&gt; Parser (Maybe HlsKeyProviderType -&gt; HlsEncryptionSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680001089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StaticKeyProvider)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;staticKeyProvider&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe HlsKeyProviderType -&gt; HlsEncryptionSettings)
--&gt; Parser (Maybe HlsKeyProviderType)
--&gt; Parser HlsEncryptionSettings
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680001089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsKeyProviderType)
+</span><a href="#local-6989586621680006017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsKeyProviderType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe StaticKeyProvider
+   -&gt; Maybe SpekeKeyProvider
+   -&gt; Maybe HlsInitializationVectorInManifest
+   -&gt; HlsEncryptionSettings)
+-&gt; Parser (Maybe StaticKeyProvider)
+-&gt; Parser
+     (Maybe SpekeKeyProvider
+      -&gt; Maybe HlsInitializationVectorInManifest
+      -&gt; HlsEncryptionSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680006017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StaticKeyProvider)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;staticKeyProvider&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SpekeKeyProvider
+   -&gt; Maybe HlsInitializationVectorInManifest
+   -&gt; HlsEncryptionSettings)
+-&gt; Parser (Maybe SpekeKeyProvider)
+-&gt; Parser
+     (Maybe HlsInitializationVectorInManifest -&gt; HlsEncryptionSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680006017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SpekeKeyProvider)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;spekeKeyProvider&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe HlsInitializationVectorInManifest -&gt; HlsEncryptionSettings)
+-&gt; Parser (Maybe HlsInitializationVectorInManifest)
+-&gt; Parser HlsEncryptionSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680006017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HlsInitializationVectorInManifest)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;initializationVectorInManifest&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680001083"><span id="local-6989586621680001085"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680006011"><span id="local-6989586621680006013"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span></span></span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680001080"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680006008"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span></span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680001072"><span id="local-6989586621680001074"><span id="local-6989586621680001076"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621680001070"><span class="annot"><span class="annottext">toJSON :: HlsEncryptionSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680001062"><span id="local-6989586621680001063"><span id="local-6989586621680001064"><span id="local-6989586621680001065"><span id="local-6989586621680001066"><span id="local-6989586621680001067"><span id="local-6989586621680001068"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680006000"><span id="local-6989586621680006002"><span id="local-6989586621680006004"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings"><span class="hs-identifier hs-type">HlsEncryptionSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621680005998"><span class="annot"><span class="annottext">toJSON :: HlsEncryptionSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsEncryptionSettings.html#HlsEncryptionSettings%27"><span class="hs-identifier hs-type">HlsEncryptionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005990"><span id="local-6989586621680005991"><span id="local-6989586621680005992"><span id="local-6989586621680005993"><span id="local-6989586621680005994"><span id="local-6989586621680005995"><span id="local-6989586621680005996"><span class="annot"><span class="annottext">Maybe Text
 Maybe HlsEncryptionType
 Maybe HlsInitializationVectorInManifest
 Maybe HlsKeyProviderType
 Maybe HlsOfflineEncrypted
 Maybe SpekeKeyProvider
 Maybe StaticKeyProvider
-type' :: Maybe HlsKeyProviderType
-staticKeyProvider :: Maybe StaticKeyProvider
 initializationVectorInManifest :: Maybe HlsInitializationVectorInManifest
+spekeKeyProvider :: Maybe SpekeKeyProvider
+staticKeyProvider :: Maybe StaticKeyProvider
+type' :: Maybe HlsKeyProviderType
 constantInitializationVector :: Maybe Text
 encryptionMethod :: Maybe HlsEncryptionType
-spekeKeyProvider :: Maybe SpekeKeyProvider
 offlineEncrypted :: Maybe HlsOfflineEncrypted
-$sel:type':HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe HlsKeyProviderType
-$sel:staticKeyProvider:HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe StaticKeyProvider
 $sel:initializationVectorInManifest:HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe HlsInitializationVectorInManifest
+$sel:spekeKeyProvider:HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe SpekeKeyProvider
+$sel:staticKeyProvider:HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe StaticKeyProvider
+$sel:type':HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe HlsKeyProviderType
 $sel:constantInitializationVector:HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe Text
 $sel:encryptionMethod:HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe HlsEncryptionType
-$sel:spekeKeyProvider:HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe SpekeKeyProvider
 $sel:offlineEncrypted:HlsEncryptionSettings' :: HlsEncryptionSettings -&gt; Maybe HlsOfflineEncrypted
-</span><a href="#local-6989586621680001062"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680005990"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -569,58 +573,58 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe HlsOfflineEncrypted -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HlsOfflineEncrypted
-</span><a href="#local-6989586621680001068"><span class="hs-identifier hs-var">offlineEncrypted</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680005996"><span class="hs-identifier hs-var">offlineEncrypted</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;spekeKeyProvider&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SpekeKeyProvider -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">(SpekeKeyProvider -&gt; Pair) -&gt; Maybe SpekeKeyProvider -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
-</span><a href="#local-6989586621680001067"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;encryptionMethod&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HlsEncryptionType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">(HlsEncryptionType -&gt; Pair)
+</span><span id="line-184"></span><span>              </span><span class="annot"><span class="annottext">(HlsEncryptionType -&gt; Pair)
 -&gt; Maybe HlsEncryptionType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HlsEncryptionType
-</span><a href="#local-6989586621680001066"><span class="hs-identifier hs-var">encryptionMethod</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680005995"><span class="hs-identifier hs-var">encryptionMethod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;constantInitializationVector&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680001065"><span class="hs-identifier hs-var">constantInitializationVector</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;initializationVectorInManifest&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HlsInitializationVectorInManifest -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span>              </span><span class="annot"><span class="annottext">(HlsInitializationVectorInManifest -&gt; Pair)
--&gt; Maybe HlsInitializationVectorInManifest -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HlsInitializationVectorInManifest
-</span><a href="#local-6989586621680001064"><span class="hs-identifier hs-var">initializationVectorInManifest</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;staticKeyProvider&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StaticKeyProvider -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span>              </span><span class="annot"><span class="annottext">(StaticKeyProvider -&gt; Pair)
--&gt; Maybe StaticKeyProvider -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StaticKeyProvider
-</span><a href="#local-6989586621680001063"><span class="hs-identifier hs-var">staticKeyProvider</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-193"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680005994"><span class="hs-identifier hs-var">constantInitializationVector</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HlsKeyProviderType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HlsKeyProviderType -&gt; Pair)
 -&gt; Maybe HlsKeyProviderType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HlsKeyProviderType
-</span><a href="#local-6989586621680001062"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><a href="#local-6989586621680005993"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;staticKeyProvider&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; StaticKeyProvider -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>              </span><span class="annot"><span class="annottext">(StaticKeyProvider -&gt; Pair)
+-&gt; Maybe StaticKeyProvider -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe StaticKeyProvider
+</span><a href="#local-6989586621680005992"><span class="hs-identifier hs-var">staticKeyProvider</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;spekeKeyProvider&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SpekeKeyProvider -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>              </span><span class="annot"><span class="annottext">(SpekeKeyProvider -&gt; Pair) -&gt; Maybe SpekeKeyProvider -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SpekeKeyProvider
+</span><a href="#local-6989586621680005991"><span class="hs-identifier hs-var">spekeKeyProvider</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;initializationVectorInManifest&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HlsInitializationVectorInManifest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>              </span><span class="annot"><span class="annottext">(HlsInitializationVectorInManifest -&gt; Pair)
+-&gt; Maybe HlsInitializationVectorInManifest -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HlsInitializationVectorInManifest
+</span><a href="#local-6989586621680005990"><span class="hs-identifier hs-var">initializationVectorInManifest</span></a></span><span>
 </span><span id="line-194"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span></pre></body></html>

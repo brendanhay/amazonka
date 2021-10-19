@@ -72,11 +72,11 @@
 </span><span id="line-72"></span><span class="hs-comment">-- to shut down.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- /See:/ 'newShutdownGateway' smart constructor.</span><span>
-</span><span id="line-75"></span><span id="local-6989586621679372994"><span id="local-6989586621679372995"></span></span><span class="hs-keyword">data</span><span> </span><span id="ShutdownGateway"><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway"><span class="hs-identifier hs-var">ShutdownGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShutdownGateway%27"><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway%27"><span class="hs-identifier hs-var">ShutdownGateway'</span></a></span></span><span>
+</span><span id="line-75"></span><span id="local-6989586621679377504"><span id="local-6989586621679377505"></span></span><span class="hs-keyword">data</span><span> </span><span id="ShutdownGateway"><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway"><span class="hs-identifier hs-var">ShutdownGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShutdownGateway%27"><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway%27"><span class="hs-identifier hs-var">ShutdownGateway'</span></a></span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AgatewayARN%3AShutdownGateway%27"><span class="annot"><span class="annottext">ShutdownGateway -&gt; Text
 </span><a href="Network.AWS.StorageGateway.ShutdownGateway.html#%24sel%3AgatewayARN%3AShutdownGateway%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679372988"><span id="local-6989586621679372990"><span class="annot"><span class="annottext">ShutdownGateway -&gt; ShutdownGateway -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377498"><span id="local-6989586621679377500"><span class="annot"><span class="annottext">ShutdownGateway -&gt; ShutdownGateway -&gt; Bool
 (ShutdownGateway -&gt; ShutdownGateway -&gt; Bool)
 -&gt; (ShutdownGateway -&gt; ShutdownGateway -&gt; Bool)
 -&gt; Eq ShutdownGateway
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ShutdownGateway -&gt; ShutdownGateway -&gt; Bool
 == :: ShutdownGateway -&gt; ShutdownGateway -&gt; Bool
 $c== :: ShutdownGateway -&gt; ShutdownGateway -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372979"><span id="local-6989586621679372981"><span id="local-6989586621679372983"><span id="local-6989586621679372985"><span class="annot"><span class="annottext">ReadPrec [ShutdownGateway]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377489"><span id="local-6989586621679377491"><span id="local-6989586621679377493"><span id="local-6989586621679377495"><span class="annot"><span class="annottext">ReadPrec [ShutdownGateway]
 ReadPrec ShutdownGateway
 Int -&gt; ReadS ShutdownGateway
 ReadS [ShutdownGateway]
@@ -105,7 +105,7 @@ readList :: ReadS [ShutdownGateway]
 $creadList :: ReadS [ShutdownGateway]
 readsPrec :: Int -&gt; ReadS ShutdownGateway
 $creadsPrec :: Int -&gt; ReadS ShutdownGateway
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372972"><span id="local-6989586621679372974"><span id="local-6989586621679372976"><span class="annot"><span class="annottext">Int -&gt; ShutdownGateway -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377482"><span id="local-6989586621679377484"><span id="local-6989586621679377486"><span class="annot"><span class="annottext">Int -&gt; ShutdownGateway -&gt; ShowS
 [ShutdownGateway] -&gt; ShowS
 ShutdownGateway -&gt; String
 (Int -&gt; ShutdownGateway -&gt; ShowS)
@@ -145,12 +145,12 @@ $cfrom :: forall x. ShutdownGateway -&gt; Rep ShutdownGateway x
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway"><span class="hs-identifier hs-type">ShutdownGateway</span></a></span><span>
 </span><span id="line-93"></span><span id="newShutdownGateway"><span class="annot"><span class="annottext">newShutdownGateway :: Text -&gt; ShutdownGateway
-</span><a href="Network.AWS.StorageGateway.ShutdownGateway.html#newShutdownGateway"><span class="hs-identifier hs-var hs-var">newShutdownGateway</span></a></span></span><span> </span><span id="local-6989586621679372967"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372967"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.ShutdownGateway.html#newShutdownGateway"><span class="hs-identifier hs-var hs-var">newShutdownGateway</span></a></span></span><span> </span><span id="local-6989586621679377477"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377477"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">ShutdownGateway' :: Text -&gt; ShutdownGateway
 </span><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway%27"><span class="hs-identifier hs-type">ShutdownGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:ShutdownGateway' :: Text
 </span><a href="Network.AWS.StorageGateway.ShutdownGateway.html#%24sel%3AgatewayARN%3AShutdownGateway%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372967"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679377477"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#shutdownGateway_gatewayARN"><span class="hs-identifier hs-type">shutdownGateway_gatewayARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway"><span class="hs-identifier hs-type">ShutdownGateway</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -159,27 +159,27 @@ $cfrom :: forall x. ShutdownGateway -&gt; Rep ShutdownGateway x
 -&gt; (ShutdownGateway -&gt; Text -&gt; ShutdownGateway)
 -&gt; Lens ShutdownGateway ShutdownGateway Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway%27"><span class="hs-identifier hs-type">ShutdownGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372964"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway%27"><span class="hs-identifier hs-type">ShutdownGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377474"><span class="annot"><span class="annottext">Text
 gatewayARN :: Text
 $sel:gatewayARN:ShutdownGateway' :: ShutdownGateway -&gt; Text
-</span><a href="#local-6989586621679372964"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372964"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372963"><span class="annot"><span class="annottext">s :: ShutdownGateway
-</span><a href="#local-6989586621679372963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway%27"><span class="hs-identifier hs-type">ShutdownGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372962"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShutdownGateway
-</span><a href="#local-6989586621679372963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:ShutdownGateway' :: Text
+</span><a href="#local-6989586621679377474"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377474"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377473"><span class="annot"><span class="annottext">s :: ShutdownGateway
+</span><a href="#local-6989586621679377473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway%27"><span class="hs-identifier hs-type">ShutdownGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377472"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679377472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShutdownGateway
+</span><a href="#local-6989586621679377473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:ShutdownGateway' :: Text
 </span><a href="Network.AWS.StorageGateway.ShutdownGateway.html#%24sel%3AgatewayARN%3AShutdownGateway%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway"><span class="hs-identifier hs-type">ShutdownGateway</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway"><span class="hs-identifier hs-type">ShutdownGateway</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway"><span class="hs-identifier hs-type">ShutdownGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway"><span class="hs-identifier hs-type">ShutdownGateway</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse"><span class="hs-identifier hs-type">ShutdownGatewayResponse</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679372958"><span class="annot"><span class="annottext">request :: ShutdownGateway -&gt; Request ShutdownGateway
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679377468"><span class="annot"><span class="annottext">request :: ShutdownGateway -&gt; Request ShutdownGateway
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ShutdownGateway -&gt; Request ShutdownGateway
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679372954"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679377464"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ShutdownGateway
 -&gt; ClientResponse ClientBody
@@ -203,10 +203,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679372951"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679372951"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679372950"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679372950"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679372949"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372949"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377461"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377461"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679377460"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679377460"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679377459"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377459"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; ShutdownGatewayResponse
 </span><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse%27"><span class="hs-identifier hs-var">ShutdownGatewayResponse'</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; ShutdownGatewayResponse)
@@ -214,7 +214,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ShutdownGatewayResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679377459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span class="hs-special">)</span><span>
@@ -226,15 +226,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679372951"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377461"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372941"><span id="local-6989586621679372943"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway"><span class="hs-identifier hs-type">ShutdownGateway</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377451"><span id="local-6989586621679377453"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway"><span class="hs-identifier hs-type">ShutdownGateway</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372938"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway"><span class="hs-identifier hs-type">ShutdownGateway</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway"><span class="hs-identifier hs-type">ShutdownGateway</span></a></span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway"><span class="hs-identifier hs-type">ShutdownGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679372934"><span class="annot"><span class="annottext">toHeaders :: ShutdownGateway -&gt; ResponseHeaders
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679377444"><span class="annot"><span class="annottext">toHeaders :: ShutdownGateway -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ShutdownGateway -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -261,12 +261,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372924"><span id="local-6989586621679372926"><span id="local-6989586621679372928"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway"><span class="hs-identifier hs-type">ShutdownGateway</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679372922"><span class="annot"><span class="annottext">toJSON :: ShutdownGateway -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway%27"><span class="hs-identifier hs-type">ShutdownGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372920"><span class="annot"><span class="annottext">Text
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377434"><span id="local-6989586621679377436"><span id="local-6989586621679377438"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway"><span class="hs-identifier hs-type">ShutdownGateway</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679377432"><span class="annot"><span class="annottext">toJSON :: ShutdownGateway -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway%27"><span class="hs-identifier hs-type">ShutdownGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377430"><span class="annot"><span class="annottext">Text
 gatewayARN :: Text
 $sel:gatewayARN:ShutdownGateway' :: ShutdownGateway -&gt; Text
-</span><a href="#local-6989586621679372920"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679377430"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -278,18 +278,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372920"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679377430"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway"><span class="hs-identifier hs-type">ShutdownGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679372914"><span class="annot"><span class="annottext">toPath :: ShutdownGateway -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679377424"><span class="annot"><span class="annottext">toPath :: ShutdownGateway -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ShutdownGateway -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGateway"><span class="hs-identifier hs-type">ShutdownGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679372910"><span class="annot"><span class="annottext">toQuery :: ShutdownGateway -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679377420"><span class="annot"><span class="annottext">toQuery :: ShutdownGateway -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ShutdownGateway -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -300,14 +300,14 @@ forall a. Monoid a =&gt; a
 </span><span id="line-146"></span><span class="hs-comment">-- that was shut down.</span><span>
 </span><span id="line-147"></span><span class="hs-comment">--</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- /See:/ 'newShutdownGatewayResponse' smart constructor.</span><span>
-</span><span id="line-149"></span><span id="local-6989586621679372907"><span id="local-6989586621679372908"></span></span><span class="hs-keyword">data</span><span> </span><span id="ShutdownGatewayResponse"><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse"><span class="hs-identifier hs-var">ShutdownGatewayResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShutdownGatewayResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse%27"><span class="hs-identifier hs-var">ShutdownGatewayResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span id="local-6989586621679377417"><span id="local-6989586621679377418"></span></span><span class="hs-keyword">data</span><span> </span><span id="ShutdownGatewayResponse"><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse"><span class="hs-identifier hs-var">ShutdownGatewayResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShutdownGatewayResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse%27"><span class="hs-identifier hs-var">ShutdownGatewayResponse'</span></a></span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AgatewayARN%3AShutdownGatewayResponse%27"><span class="annot"><span class="annottext">ShutdownGatewayResponse -&gt; Maybe Text
 </span><a href="Network.AWS.StorageGateway.ShutdownGateway.html#%24sel%3AgatewayARN%3AShutdownGatewayResponse%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3AShutdownGatewayResponse%27"><span class="annot"><span class="annottext">ShutdownGatewayResponse -&gt; Int
 </span><a href="Network.AWS.StorageGateway.ShutdownGateway.html#%24sel%3AhttpStatus%3AShutdownGatewayResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679372901"><span id="local-6989586621679372903"><span class="annot"><span class="annottext">ShutdownGatewayResponse -&gt; ShutdownGatewayResponse -&gt; Bool
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377411"><span id="local-6989586621679377413"><span class="annot"><span class="annottext">ShutdownGatewayResponse -&gt; ShutdownGatewayResponse -&gt; Bool
 (ShutdownGatewayResponse -&gt; ShutdownGatewayResponse -&gt; Bool)
 -&gt; (ShutdownGatewayResponse -&gt; ShutdownGatewayResponse -&gt; Bool)
 -&gt; Eq ShutdownGatewayResponse
@@ -316,7 +316,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ShutdownGatewayResponse -&gt; ShutdownGatewayResponse -&gt; Bool
 == :: ShutdownGatewayResponse -&gt; ShutdownGatewayResponse -&gt; Bool
 $c== :: ShutdownGatewayResponse -&gt; ShutdownGatewayResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372893"><span id="local-6989586621679372895"><span id="local-6989586621679372897"><span id="local-6989586621679372899"><span class="annot"><span class="annottext">ReadPrec [ShutdownGatewayResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377403"><span id="local-6989586621679377405"><span id="local-6989586621679377407"><span id="local-6989586621679377409"><span class="annot"><span class="annottext">ReadPrec [ShutdownGatewayResponse]
 ReadPrec ShutdownGatewayResponse
 Int -&gt; ReadS ShutdownGatewayResponse
 ReadS [ShutdownGatewayResponse]
@@ -336,7 +336,7 @@ readList :: ReadS [ShutdownGatewayResponse]
 $creadList :: ReadS [ShutdownGatewayResponse]
 readsPrec :: Int -&gt; ReadS ShutdownGatewayResponse
 $creadsPrec :: Int -&gt; ReadS ShutdownGatewayResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372887"><span id="local-6989586621679372889"><span id="local-6989586621679372891"><span class="annot"><span class="annottext">Int -&gt; ShutdownGatewayResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377397"><span id="local-6989586621679377399"><span id="local-6989586621679377401"><span class="annot"><span class="annottext">Int -&gt; ShutdownGatewayResponse -&gt; ShowS
 [ShutdownGatewayResponse] -&gt; ShowS
 ShutdownGatewayResponse -&gt; String
 (Int -&gt; ShutdownGatewayResponse -&gt; ShowS)
@@ -380,8 +380,8 @@ $cfrom :: forall x. ShutdownGatewayResponse -&gt; Rep ShutdownGatewayResponse x
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse"><span class="hs-identifier hs-type">ShutdownGatewayResponse</span></a></span><span>
 </span><span id="line-171"></span><span id="newShutdownGatewayResponse"><span class="annot"><span class="annottext">newShutdownGatewayResponse :: Int -&gt; ShutdownGatewayResponse
-</span><a href="Network.AWS.StorageGateway.ShutdownGateway.html#newShutdownGatewayResponse"><span class="hs-identifier hs-var hs-var">newShutdownGatewayResponse</span></a></span></span><span> </span><span id="local-6989586621679372884"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679372884"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.StorageGateway.ShutdownGateway.html#newShutdownGatewayResponse"><span class="hs-identifier hs-var hs-var">newShutdownGatewayResponse</span></a></span></span><span> </span><span id="local-6989586621679377394"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377394"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">ShutdownGatewayResponse' :: Maybe Text -&gt; Int -&gt; ShutdownGatewayResponse
 </span><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse%27"><span class="hs-identifier hs-type">ShutdownGatewayResponse'</span></a></span><span>
 </span><span id="line-173"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gatewayARN:ShutdownGatewayResponse' :: Maybe Text
@@ -391,7 +391,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ShutdownGatewayResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.ShutdownGateway.html#%24sel%3AhttpStatus%3AShutdownGatewayResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679372884"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679377394"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -407,16 +407,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse%27"><span class="hs-identifier hs-type">ShutdownGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372883"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse%27"><span class="hs-identifier hs-type">ShutdownGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377393"><span class="annot"><span class="annottext">Maybe Text
 gatewayARN :: Maybe Text
 $sel:gatewayARN:ShutdownGatewayResponse' :: ShutdownGatewayResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679372883"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372883"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372882"><span class="annot"><span class="annottext">s :: ShutdownGatewayResponse
-</span><a href="#local-6989586621679372882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse%27"><span class="hs-identifier hs-type">ShutdownGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372881"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShutdownGatewayResponse
-</span><a href="#local-6989586621679372882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:ShutdownGatewayResponse' :: Maybe Text
+</span><a href="#local-6989586621679377393"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377393"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377392"><span class="annot"><span class="annottext">s :: ShutdownGatewayResponse
+</span><a href="#local-6989586621679377392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse%27"><span class="hs-identifier hs-type">ShutdownGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377391"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShutdownGatewayResponse
+</span><a href="#local-6989586621679377392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:ShutdownGatewayResponse' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.ShutdownGateway.html#%24sel%3AgatewayARN%3AShutdownGatewayResponse%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679372881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse"><span class="hs-identifier hs-type">ShutdownGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse"><span class="hs-identifier hs-type">ShutdownGatewayResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-183"></span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#shutdownGatewayResponse_httpStatus"><span class="hs-identifier hs-type">shutdownGatewayResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse"><span class="hs-identifier hs-type">ShutdownGatewayResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -426,16 +426,16 @@ $sel:gatewayARN:ShutdownGatewayResponse' :: ShutdownGatewayResponse -&gt; Maybe 
 -&gt; (ShutdownGatewayResponse -&gt; Int -&gt; ShutdownGatewayResponse)
 -&gt; Lens ShutdownGatewayResponse ShutdownGatewayResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse%27"><span class="hs-identifier hs-type">ShutdownGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372880"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse%27"><span class="hs-identifier hs-type">ShutdownGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377390"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ShutdownGatewayResponse' :: ShutdownGatewayResponse -&gt; Int
-</span><a href="#local-6989586621679372880"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679372880"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372879"><span class="annot"><span class="annottext">s :: ShutdownGatewayResponse
-</span><a href="#local-6989586621679372879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse%27"><span class="hs-identifier hs-type">ShutdownGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372878"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679372878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShutdownGatewayResponse
-</span><a href="#local-6989586621679372879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ShutdownGatewayResponse' :: Int
+</span><a href="#local-6989586621679377390"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377390"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377389"><span class="annot"><span class="annottext">s :: ShutdownGatewayResponse
+</span><a href="#local-6989586621679377389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse%27"><span class="hs-identifier hs-type">ShutdownGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377388"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679377388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ShutdownGatewayResponse
+</span><a href="#local-6989586621679377389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ShutdownGatewayResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.ShutdownGateway.html#%24sel%3AhttpStatus%3AShutdownGatewayResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679372878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse"><span class="hs-identifier hs-type">ShutdownGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse"><span class="hs-identifier hs-type">ShutdownGatewayResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372876"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse"><span class="hs-identifier hs-type">ShutdownGatewayResponse</span></a></span></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377386"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ShutdownGateway.html#ShutdownGatewayResponse"><span class="hs-identifier hs-type">ShutdownGatewayResponse</span></a></span></span><span>
 </span><span id="line-187"></span></pre></body></html>

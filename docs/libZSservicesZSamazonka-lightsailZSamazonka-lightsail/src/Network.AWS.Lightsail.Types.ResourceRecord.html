@@ -27,18 +27,18 @@
 </span><span id="line-27"></span><span class="hs-comment">-- DNS to validate it for an Amazon Lightsail certificate.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newResourceRecord' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679620936"><span id="local-6989586621679620937"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceRecord"><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-var">ResourceRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceRecord%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-var">ResourceRecord'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the record.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aname%3AResourceRecord%27"><span class="annot"><span class="annottext">ResourceRecord -&gt; Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#%24sel%3Aname%3AResourceRecord%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The value for the DNS record.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3AResourceRecord%27"><span class="annot"><span class="annottext">ResourceRecord -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679621843"><span id="local-6989586621679621844"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceRecord"><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-var">ResourceRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceRecord%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-var">ResourceRecord'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value for the DNS record.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalue%3AResourceRecord%27"><span class="annot"><span class="annottext">ResourceRecord -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#%24sel%3Avalue%3AResourceRecord%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the record.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3AResourceRecord%27"><span class="annot"><span class="annottext">ResourceRecord -&gt; Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#%24sel%3Aname%3AResourceRecord%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The DNS record type.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Atype%27%3AResourceRecord%27"><span class="annot"><span class="annottext">ResourceRecord -&gt; Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#%24sel%3Atype%27%3AResourceRecord%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679620928"><span id="local-6989586621679620930"><span class="annot"><span class="annottext">ResourceRecord -&gt; ResourceRecord -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679621835"><span id="local-6989586621679621837"><span class="annot"><span class="annottext">ResourceRecord -&gt; ResourceRecord -&gt; Bool
 (ResourceRecord -&gt; ResourceRecord -&gt; Bool)
 -&gt; (ResourceRecord -&gt; ResourceRecord -&gt; Bool) -&gt; Eq ResourceRecord
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceRecord -&gt; ResourceRecord -&gt; Bool
 == :: ResourceRecord -&gt; ResourceRecord -&gt; Bool
 $c== :: ResourceRecord -&gt; ResourceRecord -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679620919"><span id="local-6989586621679620921"><span id="local-6989586621679620923"><span id="local-6989586621679620925"><span class="annot"><span class="annottext">ReadPrec [ResourceRecord]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679621826"><span id="local-6989586621679621828"><span id="local-6989586621679621830"><span id="local-6989586621679621832"><span class="annot"><span class="annottext">ReadPrec [ResourceRecord]
 ReadPrec ResourceRecord
 Int -&gt; ReadS ResourceRecord
 ReadS [ResourceRecord]
@@ -66,7 +66,7 @@ readList :: ReadS [ResourceRecord]
 $creadList :: ReadS [ResourceRecord]
 readsPrec :: Int -&gt; ReadS ResourceRecord
 $creadsPrec :: Int -&gt; ReadS ResourceRecord
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679620912"><span id="local-6989586621679620914"><span id="local-6989586621679620916"><span class="annot"><span class="annottext">Int -&gt; ResourceRecord -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679621819"><span id="local-6989586621679621821"><span id="local-6989586621679621823"><span class="annot"><span class="annottext">Int -&gt; ResourceRecord -&gt; ShowS
 [ResourceRecord] -&gt; ShowS
 ResourceRecord -&gt; String
 (Int -&gt; ResourceRecord -&gt; ShowS)
@@ -100,9 +100,9 @@ $cfrom :: forall x. ResourceRecord -&gt; Rep ResourceRecord x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'name', 'resourceRecord_name' - The name of the record.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'value', 'resourceRecord_value' - The value for the DNS record.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'value', 'resourceRecord_value' - The value for the DNS record.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'name', 'resourceRecord_name' - The name of the record.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- 'type'', 'resourceRecord_type' - The DNS record type.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#newResourceRecord"><span class="hs-identifier hs-type">newResourceRecord</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -111,12 +111,12 @@ $cfrom :: forall x. ResourceRecord -&gt; Rep ResourceRecord x
 </span><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#newResourceRecord"><span class="hs-identifier hs-var hs-var">newResourceRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">ResourceRecord' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ResourceRecord
 </span><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:ResourceRecord' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#%24sel%3Aname%3AResourceRecord%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:ResourceRecord' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#%24sel%3Avalue%3AResourceRecord%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:ResourceRecord' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#%24sel%3Avalue%3AResourceRecord%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ResourceRecord' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#%24sel%3Aname%3AResourceRecord%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ResourceRecord' :: Maybe Text
@@ -125,43 +125,43 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The name of the record.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#resourceRecord_name"><span class="hs-identifier hs-type">resourceRecord_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="resourceRecord_name"><span class="annot"><span class="annottext">resourceRecord_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ResourceRecord -&gt; f ResourceRecord
-</span><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#resourceRecord_name"><span class="hs-identifier hs-var hs-var">resourceRecord_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceRecord -&gt; Maybe Text)
--&gt; (ResourceRecord -&gt; Maybe Text -&gt; ResourceRecord)
--&gt; Lens ResourceRecord ResourceRecord (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620903"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:ResourceRecord' :: ResourceRecord -&gt; Maybe Text
-</span><a href="#local-6989586621679620903"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620903"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620902"><span class="annot"><span class="annottext">s :: ResourceRecord
-</span><a href="#local-6989586621679620902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620901"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecord
-</span><a href="#local-6989586621679620902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ResourceRecord' :: Maybe Text
-</span><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#%24sel%3Aname%3AResourceRecord%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | The value for the DNS record.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#resourceRecord_value"><span class="hs-identifier hs-type">resourceRecord_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="resourceRecord_value"><span class="annot"><span class="annottext">resourceRecord_value :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-62"></span><span class="hs-comment">-- | The value for the DNS record.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#resourceRecord_value"><span class="hs-identifier hs-type">resourceRecord_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="resourceRecord_value"><span class="annot"><span class="annottext">resourceRecord_value :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ResourceRecord -&gt; f ResourceRecord
 </span><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#resourceRecord_value"><span class="hs-identifier hs-var hs-var">resourceRecord_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceRecord -&gt; Maybe Text)
 -&gt; (ResourceRecord -&gt; Maybe Text -&gt; ResourceRecord)
 -&gt; Lens ResourceRecord ResourceRecord (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620899"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679621810"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:ResourceRecord' :: ResourceRecord -&gt; Maybe Text
-</span><a href="#local-6989586621679620899"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620899"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620898"><span class="annot"><span class="annottext">s :: ResourceRecord
-</span><a href="#local-6989586621679620898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620897"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecord
-</span><a href="#local-6989586621679620898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ResourceRecord' :: Maybe Text
+</span><a href="#local-6989586621679621810"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621810"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679621809"><span class="annot"><span class="annottext">s :: ResourceRecord
+</span><a href="#local-6989586621679621809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679621808"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecord
+</span><a href="#local-6989586621679621809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ResourceRecord' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#%24sel%3Avalue%3AResourceRecord%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679621808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The name of the record.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#resourceRecord_name"><span class="hs-identifier hs-type">resourceRecord_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="resourceRecord_name"><span class="annot"><span class="annottext">resourceRecord_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResourceRecord -&gt; f ResourceRecord
+</span><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#resourceRecord_name"><span class="hs-identifier hs-var hs-var">resourceRecord_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceRecord -&gt; Maybe Text)
+-&gt; (ResourceRecord -&gt; Maybe Text -&gt; ResourceRecord)
+-&gt; Lens ResourceRecord ResourceRecord (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679621806"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ResourceRecord' :: ResourceRecord -&gt; Maybe Text
+</span><a href="#local-6989586621679621806"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621806"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679621805"><span class="annot"><span class="annottext">s :: ResourceRecord
+</span><a href="#local-6989586621679621805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679621804"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecord
+</span><a href="#local-6989586621679621805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ResourceRecord' :: Maybe Text
+</span><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#%24sel%3Aname%3AResourceRecord%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The DNS record type.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#resourceRecord_type"><span class="hs-identifier hs-type">resourceRecord_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -171,19 +171,19 @@ $sel:value:ResourceRecord' :: ResourceRecord -&gt; Maybe Text
 -&gt; (ResourceRecord -&gt; Maybe Text -&gt; ResourceRecord)
 -&gt; Lens ResourceRecord ResourceRecord (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679620895"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679621802"><span class="annot"><span class="annottext">Maybe Text
 type' :: Maybe Text
 $sel:type':ResourceRecord' :: ResourceRecord -&gt; Maybe Text
-</span><a href="#local-6989586621679620895"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620895"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679620894"><span class="annot"><span class="annottext">s :: ResourceRecord
-</span><a href="#local-6989586621679620894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679620893"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecord
-</span><a href="#local-6989586621679620894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ResourceRecord' :: Maybe Text
+</span><a href="#local-6989586621679621802"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621802"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679621801"><span class="annot"><span class="annottext">s :: ResourceRecord
+</span><a href="#local-6989586621679621801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-type">ResourceRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679621800"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679621800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceRecord
+</span><a href="#local-6989586621679621801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ResourceRecord' :: Maybe Text
 </span><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#%24sel%3Atype%27%3AResourceRecord%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679620893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679621800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679620890"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679620888"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceRecord
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679621797"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679621795"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceRecord
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceRecord)
@@ -193,8 +193,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceRecord&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679620885"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679620885"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679621792"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679621792"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ResourceRecord
 </span><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord%27"><span class="hs-identifier hs-var">ResourceRecord'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ResourceRecord)
@@ -202,29 +202,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ResourceRecord)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679620885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679621792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ResourceRecord)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ResourceRecord)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679620885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679621792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ResourceRecord)
 -&gt; Parser (Maybe Text) -&gt; Parser ResourceRecord
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679620885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679621792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679620879"><span id="local-6989586621679620881"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679621786"><span id="local-6989586621679621788"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679620876"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679621783"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ResourceRecord.html#ResourceRecord"><span class="hs-identifier hs-type">ResourceRecord</span></a></span></span><span>
 </span><span id="line-88"></span></pre></body></html>

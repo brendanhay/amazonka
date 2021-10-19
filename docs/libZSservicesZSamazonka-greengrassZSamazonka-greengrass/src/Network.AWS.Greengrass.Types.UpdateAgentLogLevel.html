@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- | The minimum level of log statements that should be logged by the OTA</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- Agent during an update.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679347732"><span id="local-6989586621679347733"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UpdateAgentLogLevel"><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel"><span class="hs-identifier hs-var">UpdateAgentLogLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAgentLogLevel%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel%27"><span class="hs-identifier hs-var">UpdateAgentLogLevel'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679347993"><span id="local-6989586621679347994"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UpdateAgentLogLevel"><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel"><span class="hs-identifier hs-var">UpdateAgentLogLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateAgentLogLevel%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#UpdateAgentLogLevel%27"><span class="hs-identifier hs-var">UpdateAgentLogLevel'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUpdateAgentLogLevel"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; Text
 </span><a href="Network.AWS.Greengrass.Types.UpdateAgentLogLevel.html#fromUpdateAgentLogLevel"><span class="hs-identifier hs-var hs-var">fromUpdateAgentLogLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347724"><span id="local-6989586621679347726"><span id="local-6989586621679347728"><span class="annot"><span class="annottext">Int -&gt; UpdateAgentLogLevel -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347985"><span id="local-6989586621679347987"><span id="local-6989586621679347989"><span class="annot"><span class="annottext">Int -&gt; UpdateAgentLogLevel -&gt; ShowS
 [UpdateAgentLogLevel] -&gt; ShowS
 UpdateAgentLogLevel -&gt; String
 (Int -&gt; UpdateAgentLogLevel -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: UpdateAgentLogLevel -&gt; String
 showsPrec :: Int -&gt; UpdateAgentLogLevel -&gt; ShowS
 $cshowsPrec :: Int -&gt; UpdateAgentLogLevel -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679347715"><span id="local-6989586621679347717"><span id="local-6989586621679347719"><span id="local-6989586621679347721"><span class="annot"><span class="annottext">ReadPrec [UpdateAgentLogLevel]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679347976"><span id="local-6989586621679347978"><span id="local-6989586621679347980"><span id="local-6989586621679347982"><span class="annot"><span class="annottext">ReadPrec [UpdateAgentLogLevel]
 ReadPrec UpdateAgentLogLevel
 Int -&gt; ReadS UpdateAgentLogLevel
 ReadS [UpdateAgentLogLevel]
@@ -80,7 +80,7 @@ $creadList :: ReadS [UpdateAgentLogLevel]
 readsPrec :: Int -&gt; ReadS UpdateAgentLogLevel
 $creadsPrec :: Int -&gt; ReadS UpdateAgentLogLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679347710"><span id="local-6989586621679347712"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679347971"><span id="local-6989586621679347973"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
 (UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool)
 -&gt; (UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool)
 -&gt; Eq UpdateAgentLogLevel
@@ -90,7 +90,7 @@ $c/= :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
 == :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
 $c== :: UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679347694"><span id="local-6989586621679347696"><span id="local-6989586621679347698"><span id="local-6989586621679347700"><span id="local-6989586621679347702"><span id="local-6989586621679347704"><span id="local-6989586621679347706"><span class="annot"><span class="annottext">Eq UpdateAgentLogLevel
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679347955"><span id="local-6989586621679347957"><span id="local-6989586621679347959"><span id="local-6989586621679347961"><span id="local-6989586621679347963"><span id="local-6989586621679347965"><span id="local-6989586621679347967"><span class="annot"><span class="annottext">Eq UpdateAgentLogLevel
 Eq UpdateAgentLogLevel
 -&gt; (UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Ordering)
 -&gt; (UpdateAgentLogLevel -&gt; UpdateAgentLogLevel -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. UpdateAgentLogLevel -&gt; Rep UpdateAgentLogLevel x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347686"><span id="local-6989586621679347688"><span class="annot"><span class="annottext">Int -&gt; UpdateAgentLogLevel -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679347947"><span id="local-6989586621679347949"><span class="annot"><span class="annottext">Int -&gt; UpdateAgentLogLevel -&gt; Int
 UpdateAgentLogLevel -&gt; Int
 (Int -&gt; UpdateAgentLogLevel -&gt; Int)
 -&gt; (UpdateAgentLogLevel -&gt; Int) -&gt; Hashable UpdateAgentLogLevel
@@ -153,53 +153,53 @@ $chash :: UpdateAgentLogLevel -&gt; Int
 hashWithSalt :: Int -&gt; UpdateAgentLogLevel -&gt; Int
 $chashWithSalt :: Int -&gt; UpdateAgentLogLevel -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679347683"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679347944"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; ()
 (UpdateAgentLogLevel -&gt; ()) -&gt; NFData UpdateAgentLogLevel
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UpdateAgentLogLevel -&gt; ()
 $crnf :: UpdateAgentLogLevel -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679347680"><span class="annot"><span class="annottext">Text -&gt; Either String UpdateAgentLogLevel
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679347941"><span class="annot"><span class="annottext">Text -&gt; Either String UpdateAgentLogLevel
 (Text -&gt; Either String UpdateAgentLogLevel)
 -&gt; FromText UpdateAgentLogLevel
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UpdateAgentLogLevel
 $cfromText :: Text -&gt; Either String UpdateAgentLogLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679347677"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679347938"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; Text
 (UpdateAgentLogLevel -&gt; Text) -&gt; ToText UpdateAgentLogLevel
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UpdateAgentLogLevel -&gt; Text
 $ctoText :: UpdateAgentLogLevel -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679347674"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679347935"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; ByteString
 (UpdateAgentLogLevel -&gt; ByteString)
 -&gt; ToByteString UpdateAgentLogLevel
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UpdateAgentLogLevel -&gt; ByteString
 $ctoBS :: UpdateAgentLogLevel -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679347671"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679347932"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; ByteStringBuilder
 (UpdateAgentLogLevel -&gt; ByteStringBuilder)
 -&gt; ToLog UpdateAgentLogLevel
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UpdateAgentLogLevel -&gt; ByteStringBuilder
 $cbuild :: UpdateAgentLogLevel -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679347668"><span class="annot"><span class="annottext">HeaderName -&gt; UpdateAgentLogLevel -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679347929"><span class="annot"><span class="annottext">HeaderName -&gt; UpdateAgentLogLevel -&gt; [Header]
 (HeaderName -&gt; UpdateAgentLogLevel -&gt; [Header])
 -&gt; ToHeader UpdateAgentLogLevel
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UpdateAgentLogLevel -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UpdateAgentLogLevel -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679347665"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679347926"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; QueryString
 (UpdateAgentLogLevel -&gt; QueryString) -&gt; ToQuery UpdateAgentLogLevel
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UpdateAgentLogLevel -&gt; QueryString
 $ctoQuery :: UpdateAgentLogLevel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679347660"><span id="local-6989586621679347662"><span class="annot"><span class="annottext">Value -&gt; Parser [UpdateAgentLogLevel]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679347921"><span id="local-6989586621679347923"><span class="annot"><span class="annottext">Value -&gt; Parser [UpdateAgentLogLevel]
 Value -&gt; Parser UpdateAgentLogLevel
 (Value -&gt; Parser UpdateAgentLogLevel)
 -&gt; (Value -&gt; Parser [UpdateAgentLogLevel])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [UpdateAgentLogLevel]
 parseJSON :: Value -&gt; Parser UpdateAgentLogLevel
 $cparseJSON :: Value -&gt; Parser UpdateAgentLogLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679347655"><span id="local-6989586621679347657"><span class="annot"><span class="annottext">FromJSONKeyFunction [UpdateAgentLogLevel]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679347916"><span id="local-6989586621679347918"><span class="annot"><span class="annottext">FromJSONKeyFunction [UpdateAgentLogLevel]
 FromJSONKeyFunction UpdateAgentLogLevel
 FromJSONKeyFunction UpdateAgentLogLevel
 -&gt; FromJSONKeyFunction [UpdateAgentLogLevel]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UpdateAgentLogLevel]
 fromJSONKey :: FromJSONKeyFunction UpdateAgentLogLevel
 $cfromJSONKey :: FromJSONKeyFunction UpdateAgentLogLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679347646"><span id="local-6989586621679347648"><span id="local-6989586621679347650"><span id="local-6989586621679347652"><span class="annot"><span class="annottext">[UpdateAgentLogLevel] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679347907"><span id="local-6989586621679347909"><span id="local-6989586621679347911"><span id="local-6989586621679347913"><span class="annot"><span class="annottext">[UpdateAgentLogLevel] -&gt; Encoding
 [UpdateAgentLogLevel] -&gt; Value
 UpdateAgentLogLevel -&gt; Encoding
 UpdateAgentLogLevel -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: UpdateAgentLogLevel -&gt; Encoding
 toJSON :: UpdateAgentLogLevel -&gt; Value
 $ctoJSON :: UpdateAgentLogLevel -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679347641"><span id="local-6989586621679347643"><span class="annot"><span class="annottext">ToJSONKeyFunction [UpdateAgentLogLevel]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679347902"><span id="local-6989586621679347904"><span class="annot"><span class="annottext">ToJSONKeyFunction [UpdateAgentLogLevel]
 ToJSONKeyFunction UpdateAgentLogLevel
 ToJSONKeyFunction UpdateAgentLogLevel
 -&gt; ToJSONKeyFunction [UpdateAgentLogLevel]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UpdateAgentLogLevel]
 toJSONKey :: ToJSONKeyFunction UpdateAgentLogLevel
 $ctoJSONKey :: ToJSONKeyFunction UpdateAgentLogLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679347638"><span class="annot"><span class="annottext">[Node] -&gt; Either String UpdateAgentLogLevel
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679347899"><span class="annot"><span class="annottext">[Node] -&gt; Either String UpdateAgentLogLevel
 ([Node] -&gt; Either String UpdateAgentLogLevel)
 -&gt; FromXML UpdateAgentLogLevel
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UpdateAgentLogLevel
 $cparseXML :: [Node] -&gt; Either String UpdateAgentLogLevel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679347635"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679347896"><span class="annot"><span class="annottext">UpdateAgentLogLevel -&gt; XML
 (UpdateAgentLogLevel -&gt; XML) -&gt; ToXML UpdateAgentLogLevel
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: UpdateAgentLogLevel -&gt; XML

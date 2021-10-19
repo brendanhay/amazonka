@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- maximum size of a replication configuration is 2 MB.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newReplicationConfiguration' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679554917"><span id="local-6989586621679554918"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicationConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-var">ReplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration%27"><span class="hs-identifier hs-var">ReplicationConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679555559"><span id="local-6989586621679555560"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicationConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-var">ReplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration%27"><span class="hs-identifier hs-var">ReplicationConfiguration'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Identity and Access Management</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- (IAM) role that Amazon S3 assumes when replicating objects. For more</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
@@ -43,7 +43,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3Arules%3AReplicationConfiguration%27"><span class="annot"><span class="annottext">ReplicationConfiguration -&gt; [ReplicationRule]
 </span><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#%24sel%3Arules%3AReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationRule.html#ReplicationRule"><span class="hs-identifier hs-type">ReplicationRule</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679554910"><span id="local-6989586621679554912"><span class="annot"><span class="annottext">ReplicationConfiguration -&gt; ReplicationConfiguration -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679555552"><span id="local-6989586621679555554"><span class="annot"><span class="annottext">ReplicationConfiguration -&gt; ReplicationConfiguration -&gt; Bool
 (ReplicationConfiguration -&gt; ReplicationConfiguration -&gt; Bool)
 -&gt; (ReplicationConfiguration -&gt; ReplicationConfiguration -&gt; Bool)
 -&gt; Eq ReplicationConfiguration
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReplicationConfiguration -&gt; ReplicationConfiguration -&gt; Bool
 == :: ReplicationConfiguration -&gt; ReplicationConfiguration -&gt; Bool
 $c== :: ReplicationConfiguration -&gt; ReplicationConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679554901"><span id="local-6989586621679554903"><span id="local-6989586621679554905"><span id="local-6989586621679554907"><span class="annot"><span class="annottext">ReadPrec [ReplicationConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555543"><span id="local-6989586621679555545"><span id="local-6989586621679555547"><span id="local-6989586621679555549"><span class="annot"><span class="annottext">ReadPrec [ReplicationConfiguration]
 ReadPrec ReplicationConfiguration
 Int -&gt; ReadS ReplicationConfiguration
 ReadS [ReplicationConfiguration]
@@ -72,7 +72,7 @@ readList :: ReadS [ReplicationConfiguration]
 $creadList :: ReadS [ReplicationConfiguration]
 readsPrec :: Int -&gt; ReadS ReplicationConfiguration
 $creadsPrec :: Int -&gt; ReadS ReplicationConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679554894"><span id="local-6989586621679554896"><span id="local-6989586621679554898"><span class="annot"><span class="annottext">Int -&gt; ReplicationConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555536"><span id="local-6989586621679555538"><span id="local-6989586621679555540"><span class="annot"><span class="annottext">Int -&gt; ReplicationConfiguration -&gt; ShowS
 [ReplicationConfiguration] -&gt; ShowS
 ReplicationConfiguration -&gt; String
 (Int -&gt; ReplicationConfiguration -&gt; ShowS)
@@ -126,13 +126,13 @@ ReplicationConfiguration -&gt; Rep ReplicationConfiguration x
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span><span>
 </span><span id="line-67"></span><span id="newReplicationConfiguration"><span class="annot"><span class="annottext">newReplicationConfiguration :: Text -&gt; ReplicationConfiguration
-</span><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#newReplicationConfiguration"><span class="hs-identifier hs-var hs-var">newReplicationConfiguration</span></a></span></span><span> </span><span id="local-6989586621679554888"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679554888"><span class="hs-identifier hs-var">pRole_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#newReplicationConfiguration"><span class="hs-identifier hs-var hs-var">newReplicationConfiguration</span></a></span></span><span> </span><span id="local-6989586621679555530"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679555530"><span class="hs-identifier hs-var">pRole_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">ReplicationConfiguration' :: Text -&gt; [ReplicationRule] -&gt; ReplicationConfiguration
 </span><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration%27"><span class="hs-identifier hs-type">ReplicationConfiguration'</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:role':ReplicationConfiguration' :: Text
 </span><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#%24sel%3Arole%27%3AReplicationConfiguration%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679554888"><span class="hs-identifier hs-var">pRole_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679555530"><span class="hs-identifier hs-var">pRole_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:rules:ReplicationConfiguration' :: [ReplicationRule]
 </span><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#%24sel%3Arules%3AReplicationConfiguration%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ReplicationRule]
 forall a. Monoid a =&gt; a
@@ -151,16 +151,16 @@ forall a. Monoid a =&gt; a
 -&gt; (ReplicationConfiguration -&gt; Text -&gt; ReplicationConfiguration)
 -&gt; Lens ReplicationConfiguration ReplicationConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration%27"><span class="hs-identifier hs-type">ReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554884"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration%27"><span class="hs-identifier hs-type">ReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555526"><span class="annot"><span class="annottext">Text
 role' :: Text
 $sel:role':ReplicationConfiguration' :: ReplicationConfiguration -&gt; Text
-</span><a href="#local-6989586621679554884"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679554884"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679554883"><span class="annot"><span class="annottext">s :: ReplicationConfiguration
-</span><a href="#local-6989586621679554883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration%27"><span class="hs-identifier hs-type">ReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679554882"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679554882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfiguration
-</span><a href="#local-6989586621679554883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:role':ReplicationConfiguration' :: Text
+</span><a href="#local-6989586621679555526"><span class="hs-identifier hs-var hs-var">role'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679555526"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555525"><span class="annot"><span class="annottext">s :: ReplicationConfiguration
+</span><a href="#local-6989586621679555525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration%27"><span class="hs-identifier hs-type">ReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555524"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679555524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfiguration
+</span><a href="#local-6989586621679555525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:role':ReplicationConfiguration' :: Text
 </span><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#%24sel%3Arole%27%3AReplicationConfiguration%27"><span class="hs-identifier hs-var">role'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679554882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679555524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | A container for one or more replication rules. A replication</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- configuration must have at least one rule and can contain a maximum of</span><span>
@@ -177,16 +177,16 @@ $sel:role':ReplicationConfiguration' :: ReplicationConfiguration -&gt; Text
      [ReplicationRule]
      [ReplicationRule]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration%27"><span class="hs-identifier hs-type">ReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554880"><span class="annot"><span class="annottext">[ReplicationRule]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration%27"><span class="hs-identifier hs-type">ReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555522"><span class="annot"><span class="annottext">[ReplicationRule]
 rules :: [ReplicationRule]
 $sel:rules:ReplicationConfiguration' :: ReplicationConfiguration -&gt; [ReplicationRule]
-</span><a href="#local-6989586621679554880"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ReplicationRule]
-</span><a href="#local-6989586621679554880"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679554879"><span class="annot"><span class="annottext">s :: ReplicationConfiguration
-</span><a href="#local-6989586621679554879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration%27"><span class="hs-identifier hs-type">ReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679554878"><span class="annot"><span class="annottext">[ReplicationRule]
-</span><a href="#local-6989586621679554878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfiguration
-</span><a href="#local-6989586621679554879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:ReplicationConfiguration' :: [ReplicationRule]
+</span><a href="#local-6989586621679555522"><span class="hs-identifier hs-var hs-var">rules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ReplicationRule]
+</span><a href="#local-6989586621679555522"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555521"><span class="annot"><span class="annottext">s :: ReplicationConfiguration
+</span><a href="#local-6989586621679555521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration%27"><span class="hs-identifier hs-type">ReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555520"><span class="annot"><span class="annottext">[ReplicationRule]
+</span><a href="#local-6989586621679555520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfiguration
+</span><a href="#local-6989586621679555521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rules:ReplicationConfiguration' :: [ReplicationRule]
 </span><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#%24sel%3Arules%3AReplicationConfiguration%27"><span class="hs-identifier hs-var">rules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ReplicationRule]
-</span><a href="#local-6989586621679554878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ReplicationRule] -&gt; f [ReplicationRule])
+</span><a href="#local-6989586621679555520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ReplicationRule] -&gt; f [ReplicationRule])
  -&gt; ReplicationConfiguration -&gt; f ReplicationConfiguration)
 -&gt; (([ReplicationRule] -&gt; f [ReplicationRule])
     -&gt; [ReplicationRule] -&gt; f [ReplicationRule])
@@ -196,13 +196,13 @@ $sel:rules:ReplicationConfiguration' :: ReplicationConfiguration -&gt; [Replicat
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ReplicationRule] -&gt; f [ReplicationRule])
 -&gt; [ReplicationRule] -&gt; f [ReplicationRule]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679554873"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReplicationConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679554871"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679554871"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679555515"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReplicationConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679555513"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679555513"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; [ReplicationRule] -&gt; ReplicationConfiguration
 </span><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration%27"><span class="hs-identifier hs-var">ReplicationConfiguration'</span></a></span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; [ReplicationRule] -&gt; ReplicationConfiguration)
@@ -210,7 +210,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Either String ([ReplicationRule] -&gt; ReplicationConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679554871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679555513"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Role&quot;</span></span><span class="hs-special">)</span><span>
@@ -222,21 +222,21 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Rule&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679554871"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679555513"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679554864"><span id="local-6989586621679554866"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555506"><span id="local-6989586621679555508"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679554861"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration"><span class="hs-identifier hs-type">ReplicationConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679554857"><span class="annot"><span class="annottext">toXML :: ReplicationConfiguration -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration%27"><span class="hs-identifier hs-type">ReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679554854"><span id="local-6989586621679554855"><span class="annot"><span class="annottext">[ReplicationRule]
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679555499"><span class="annot"><span class="annottext">toXML :: ReplicationConfiguration -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ReplicationConfiguration.html#ReplicationConfiguration%27"><span class="hs-identifier hs-type">ReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555496"><span id="local-6989586621679555497"><span class="annot"><span class="annottext">[ReplicationRule]
 Text
 rules :: [ReplicationRule]
 role' :: Text
 $sel:rules:ReplicationConfiguration' :: ReplicationConfiguration -&gt; [ReplicationRule]
 $sel:role':ReplicationConfiguration' :: ReplicationConfiguration -&gt; Text
-</span><a href="#local-6989586621679554854"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679555496"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -244,9 +244,9 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Role&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679554855"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Name -&gt; [ReplicationRule] -&gt; XML
+</span><a href="#local-6989586621679555497"><span class="hs-identifier hs-var">role'</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Name -&gt; [ReplicationRule] -&gt; XML
 forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Rule&quot;</span></span><span> </span><span class="annot"><span class="annottext">[ReplicationRule]
-</span><a href="#local-6989586621679554854"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679555496"><span class="hs-identifier hs-var">rules</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span></pre></body></html>

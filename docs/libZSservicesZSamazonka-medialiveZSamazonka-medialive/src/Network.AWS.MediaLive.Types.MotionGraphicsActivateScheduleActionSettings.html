@@ -27,23 +27,23 @@
 </span><span id="line-27"></span><span class="hs-comment">-- stream.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMotionGraphicsActivateScheduleActionSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679897225"><span id="local-6989586621679897226"></span></span><span class="hs-keyword">data</span><span> </span><span id="MotionGraphicsActivateScheduleActionSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-var">MotionGraphicsActivateScheduleActionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MotionGraphicsActivateScheduleActionSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var">MotionGraphicsActivateScheduleActionSettings'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Duration (in milliseconds) that motion graphics should render on to the</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- video stream. Leaving out this property or setting to 0 will result in</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- rendering continuing until a deactivate action is processed.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aduration%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Natural
-</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3Aduration%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679903895"><span id="local-6989586621679903896"></span></span><span class="hs-keyword">data</span><span> </span><span id="MotionGraphicsActivateScheduleActionSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-var">MotionGraphicsActivateScheduleActionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MotionGraphicsActivateScheduleActionSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var">MotionGraphicsActivateScheduleActionSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | URI of the HTML5 content to be rendered into the live stream.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aurl%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3Aurl%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Documentation update needed</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Ausername%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3Ausername%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Key used to extract the password from EC2 Parameter store</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3ApasswordParam%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3ApasswordParam%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">passwordParam</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Documentation update needed</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Ausername%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3Ausername%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | URI of the HTML5 content to be rendered into the live stream.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aurl%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3Aurl%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Duration (in milliseconds) that motion graphics should render on to the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- video stream. Leaving out this property or setting to 0 will result in</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- rendering continuing until a deactivate action is processed.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aduration%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3Aduration%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679897216"><span id="local-6989586621679897218"><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679903886"><span id="local-6989586621679903888"><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings
 -&gt; MotionGraphicsActivateScheduleActionSettings -&gt; Bool
 (MotionGraphicsActivateScheduleActionSettings
  -&gt; MotionGraphicsActivateScheduleActionSettings -&gt; Bool)
@@ -59,7 +59,7 @@ $c/= :: MotionGraphicsActivateScheduleActionSettings
 -&gt; MotionGraphicsActivateScheduleActionSettings -&gt; Bool
 $c== :: MotionGraphicsActivateScheduleActionSettings
 -&gt; MotionGraphicsActivateScheduleActionSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679897207"><span id="local-6989586621679897209"><span id="local-6989586621679897211"><span id="local-6989586621679897213"><span class="annot"><span class="annottext">ReadPrec [MotionGraphicsActivateScheduleActionSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679903877"><span id="local-6989586621679903879"><span id="local-6989586621679903881"><span id="local-6989586621679903883"><span class="annot"><span class="annottext">ReadPrec [MotionGraphicsActivateScheduleActionSettings]
 ReadPrec MotionGraphicsActivateScheduleActionSettings
 Int -&gt; ReadS MotionGraphicsActivateScheduleActionSettings
 ReadS [MotionGraphicsActivateScheduleActionSettings]
@@ -79,7 +79,7 @@ readList :: ReadS [MotionGraphicsActivateScheduleActionSettings]
 $creadList :: ReadS [MotionGraphicsActivateScheduleActionSettings]
 readsPrec :: Int -&gt; ReadS MotionGraphicsActivateScheduleActionSettings
 $creadsPrec :: Int -&gt; ReadS MotionGraphicsActivateScheduleActionSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679897200"><span id="local-6989586621679897202"><span id="local-6989586621679897204"><span class="annot"><span class="annottext">Int -&gt; MotionGraphicsActivateScheduleActionSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679903870"><span id="local-6989586621679903872"><span id="local-6989586621679903874"><span class="annot"><span class="annottext">Int -&gt; MotionGraphicsActivateScheduleActionSettings -&gt; ShowS
 [MotionGraphicsActivateScheduleActionSettings] -&gt; ShowS
 MotionGraphicsActivateScheduleActionSettings -&gt; String
 (Int -&gt; MotionGraphicsActivateScheduleActionSettings -&gt; ShowS)
@@ -125,125 +125,48 @@ MotionGraphicsActivateScheduleActionSettings
 </span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'duration', 'motionGraphicsActivateScheduleActionSettings_duration' - Duration (in milliseconds) that motion graphics should render on to the</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- video stream. Leaving out this property or setting to 0 will result in</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- rendering continuing until a deactivate action is processed.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'url', 'motionGraphicsActivateScheduleActionSettings_url' - URI of the HTML5 content to be rendered into the live stream.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'username', 'motionGraphicsActivateScheduleActionSettings_username' - Documentation update needed</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- 'passwordParam', 'motionGraphicsActivateScheduleActionSettings_passwordParam' - Key used to extract the password from EC2 Parameter store</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'username', 'motionGraphicsActivateScheduleActionSettings_username' - Documentation update needed</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'url', 'motionGraphicsActivateScheduleActionSettings_url' - URI of the HTML5 content to be rendered into the live stream.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'duration', 'motionGraphicsActivateScheduleActionSettings_duration' - Duration (in milliseconds) that motion graphics should render on to the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- video stream. Leaving out this property or setting to 0 will result in</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- rendering continuing until a deactivate action is processed.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#newMotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">newMotionGraphicsActivateScheduleActionSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span>
 </span><span id="line-63"></span><span id="newMotionGraphicsActivateScheduleActionSettings"><span class="annot"><span class="annottext">newMotionGraphicsActivateScheduleActionSettings :: MotionGraphicsActivateScheduleActionSettings
 </span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#newMotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-var hs-var">newMotionGraphicsActivateScheduleActionSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings' :: Maybe Natural
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; MotionGraphicsActivateScheduleActionSettings
 </span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:duration:MotionGraphicsActivateScheduleActionSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3Aduration%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:url:MotionGraphicsActivateScheduleActionSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3Aurl%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:passwordParam:MotionGraphicsActivateScheduleActionSettings' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3ApasswordParam%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var">passwordParam</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:MotionGraphicsActivateScheduleActionSettings' :: Maybe Text
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:MotionGraphicsActivateScheduleActionSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3Ausername%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:MotionGraphicsActivateScheduleActionSettings' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3Aurl%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:passwordParam:MotionGraphicsActivateScheduleActionSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3ApasswordParam%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var">passwordParam</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:duration:MotionGraphicsActivateScheduleActionSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3Aduration%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | Duration (in milliseconds) that motion graphics should render on to the</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- video stream. Leaving out this property or setting to 0 will result in</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- rendering continuing until a deactivate action is processed.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#motionGraphicsActivateScheduleActionSettings_duration"><span class="hs-identifier hs-type">motionGraphicsActivateScheduleActionSettings_duration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="motionGraphicsActivateScheduleActionSettings_duration"><span class="annot"><span class="annottext">motionGraphicsActivateScheduleActionSettings_duration :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; MotionGraphicsActivateScheduleActionSettings
--&gt; f MotionGraphicsActivateScheduleActionSettings
-</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#motionGraphicsActivateScheduleActionSettings_duration"><span class="hs-identifier hs-var hs-var">motionGraphicsActivateScheduleActionSettings_duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Natural)
--&gt; (MotionGraphicsActivateScheduleActionSettings
-    -&gt; Maybe Natural -&gt; MotionGraphicsActivateScheduleActionSettings)
--&gt; Lens
-     MotionGraphicsActivateScheduleActionSettings
-     MotionGraphicsActivateScheduleActionSettings
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679897191"><span class="annot"><span class="annottext">Maybe Natural
-duration :: Maybe Natural
-$sel:duration:MotionGraphicsActivateScheduleActionSettings' :: MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679897191"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679897191"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679897190"><span class="annot"><span class="annottext">s :: MotionGraphicsActivateScheduleActionSettings
-</span><a href="#local-6989586621679897190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679897189"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679897189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings
-</span><a href="#local-6989586621679897190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:MotionGraphicsActivateScheduleActionSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3Aduration%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679897189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | Key used to extract the password from EC2 Parameter store</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#motionGraphicsActivateScheduleActionSettings_passwordParam"><span class="hs-identifier hs-type">motionGraphicsActivateScheduleActionSettings_passwordParam</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="motionGraphicsActivateScheduleActionSettings_passwordParam"><span class="annot"><span class="annottext">motionGraphicsActivateScheduleActionSettings_passwordParam :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MotionGraphicsActivateScheduleActionSettings
--&gt; f MotionGraphicsActivateScheduleActionSettings
-</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#motionGraphicsActivateScheduleActionSettings_passwordParam"><span class="hs-identifier hs-var hs-var">motionGraphicsActivateScheduleActionSettings_passwordParam</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text)
--&gt; (MotionGraphicsActivateScheduleActionSettings
-    -&gt; Maybe Text -&gt; MotionGraphicsActivateScheduleActionSettings)
--&gt; Lens
-     MotionGraphicsActivateScheduleActionSettings
-     MotionGraphicsActivateScheduleActionSettings
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679897187"><span class="annot"><span class="annottext">Maybe Text
-passwordParam :: Maybe Text
-$sel:passwordParam:MotionGraphicsActivateScheduleActionSettings' :: MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679897187"><span class="hs-identifier hs-var hs-var">passwordParam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679897187"><span class="hs-identifier hs-var">passwordParam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679897186"><span class="annot"><span class="annottext">s :: MotionGraphicsActivateScheduleActionSettings
-</span><a href="#local-6989586621679897186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679897185"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679897185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings
-</span><a href="#local-6989586621679897186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:passwordParam:MotionGraphicsActivateScheduleActionSettings' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3ApasswordParam%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var">passwordParam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679897185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | Documentation update needed</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#motionGraphicsActivateScheduleActionSettings_username"><span class="hs-identifier hs-type">motionGraphicsActivateScheduleActionSettings_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="motionGraphicsActivateScheduleActionSettings_username"><span class="annot"><span class="annottext">motionGraphicsActivateScheduleActionSettings_username :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MotionGraphicsActivateScheduleActionSettings
--&gt; f MotionGraphicsActivateScheduleActionSettings
-</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#motionGraphicsActivateScheduleActionSettings_username"><span class="hs-identifier hs-var hs-var">motionGraphicsActivateScheduleActionSettings_username</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text)
--&gt; (MotionGraphicsActivateScheduleActionSettings
-    -&gt; Maybe Text -&gt; MotionGraphicsActivateScheduleActionSettings)
--&gt; Lens
-     MotionGraphicsActivateScheduleActionSettings
-     MotionGraphicsActivateScheduleActionSettings
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679897183"><span class="annot"><span class="annottext">Maybe Text
-username :: Maybe Text
-$sel:username:MotionGraphicsActivateScheduleActionSettings' :: MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679897183"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679897183"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679897182"><span class="annot"><span class="annottext">s :: MotionGraphicsActivateScheduleActionSettings
-</span><a href="#local-6989586621679897182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679897181"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679897181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings
-</span><a href="#local-6989586621679897182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:MotionGraphicsActivateScheduleActionSettings' :: Maybe Text
-</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3Ausername%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679897181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | URI of the HTML5 content to be rendered into the live stream.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#motionGraphicsActivateScheduleActionSettings_url"><span class="hs-identifier hs-type">motionGraphicsActivateScheduleActionSettings_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="motionGraphicsActivateScheduleActionSettings_url"><span class="annot"><span class="annottext">motionGraphicsActivateScheduleActionSettings_url :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-73"></span><span class="hs-comment">-- | URI of the HTML5 content to be rendered into the live stream.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#motionGraphicsActivateScheduleActionSettings_url"><span class="hs-identifier hs-type">motionGraphicsActivateScheduleActionSettings_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="motionGraphicsActivateScheduleActionSettings_url"><span class="annot"><span class="annottext">motionGraphicsActivateScheduleActionSettings_url :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; MotionGraphicsActivateScheduleActionSettings
 -&gt; f MotionGraphicsActivateScheduleActionSettings
 </span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#motionGraphicsActivateScheduleActionSettings_url"><span class="hs-identifier hs-var hs-var">motionGraphicsActivateScheduleActionSettings_url</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text)
@@ -255,22 +178,99 @@ $sel:username:MotionGraphicsActivateScheduleActionSettings' :: MotionGraphicsAct
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679897179"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903861"><span class="annot"><span class="annottext">Maybe Text
 url :: Maybe Text
 $sel:url:MotionGraphicsActivateScheduleActionSettings' :: MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679897179"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679897179"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679897178"><span class="annot"><span class="annottext">s :: MotionGraphicsActivateScheduleActionSettings
-</span><a href="#local-6989586621679897178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679897177"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679897177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings
-</span><a href="#local-6989586621679897178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:MotionGraphicsActivateScheduleActionSettings' :: Maybe Text
+</span><a href="#local-6989586621679903861"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903861"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903860"><span class="annot"><span class="annottext">s :: MotionGraphicsActivateScheduleActionSettings
+</span><a href="#local-6989586621679903860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903859"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings
+</span><a href="#local-6989586621679903860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:MotionGraphicsActivateScheduleActionSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3Aurl%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679897177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679903859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | Documentation update needed</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#motionGraphicsActivateScheduleActionSettings_username"><span class="hs-identifier hs-type">motionGraphicsActivateScheduleActionSettings_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="motionGraphicsActivateScheduleActionSettings_username"><span class="annot"><span class="annottext">motionGraphicsActivateScheduleActionSettings_username :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MotionGraphicsActivateScheduleActionSettings
+-&gt; f MotionGraphicsActivateScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#motionGraphicsActivateScheduleActionSettings_username"><span class="hs-identifier hs-var hs-var">motionGraphicsActivateScheduleActionSettings_username</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text)
+-&gt; (MotionGraphicsActivateScheduleActionSettings
+    -&gt; Maybe Text -&gt; MotionGraphicsActivateScheduleActionSettings)
+-&gt; Lens
+     MotionGraphicsActivateScheduleActionSettings
+     MotionGraphicsActivateScheduleActionSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903857"><span class="annot"><span class="annottext">Maybe Text
+username :: Maybe Text
+$sel:username:MotionGraphicsActivateScheduleActionSettings' :: MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679903857"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903857"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903856"><span class="annot"><span class="annottext">s :: MotionGraphicsActivateScheduleActionSettings
+</span><a href="#local-6989586621679903856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903855"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings
+</span><a href="#local-6989586621679903856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:MotionGraphicsActivateScheduleActionSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3Ausername%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | Key used to extract the password from EC2 Parameter store</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#motionGraphicsActivateScheduleActionSettings_passwordParam"><span class="hs-identifier hs-type">motionGraphicsActivateScheduleActionSettings_passwordParam</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="motionGraphicsActivateScheduleActionSettings_passwordParam"><span class="annot"><span class="annottext">motionGraphicsActivateScheduleActionSettings_passwordParam :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MotionGraphicsActivateScheduleActionSettings
+-&gt; f MotionGraphicsActivateScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#motionGraphicsActivateScheduleActionSettings_passwordParam"><span class="hs-identifier hs-var hs-var">motionGraphicsActivateScheduleActionSettings_passwordParam</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text)
+-&gt; (MotionGraphicsActivateScheduleActionSettings
+    -&gt; Maybe Text -&gt; MotionGraphicsActivateScheduleActionSettings)
+-&gt; Lens
+     MotionGraphicsActivateScheduleActionSettings
+     MotionGraphicsActivateScheduleActionSettings
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903853"><span class="annot"><span class="annottext">Maybe Text
+passwordParam :: Maybe Text
+$sel:passwordParam:MotionGraphicsActivateScheduleActionSettings' :: MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679903853"><span class="hs-identifier hs-var hs-var">passwordParam</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903853"><span class="hs-identifier hs-var">passwordParam</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903852"><span class="annot"><span class="annottext">s :: MotionGraphicsActivateScheduleActionSettings
+</span><a href="#local-6989586621679903852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903851"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings
+</span><a href="#local-6989586621679903852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:passwordParam:MotionGraphicsActivateScheduleActionSettings' :: Maybe Text
+</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3ApasswordParam%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var">passwordParam</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Duration (in milliseconds) that motion graphics should render on to the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- video stream. Leaving out this property or setting to 0 will result in</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- rendering continuing until a deactivate action is processed.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#motionGraphicsActivateScheduleActionSettings_duration"><span class="hs-identifier hs-type">motionGraphicsActivateScheduleActionSettings_duration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="motionGraphicsActivateScheduleActionSettings_duration"><span class="annot"><span class="annottext">motionGraphicsActivateScheduleActionSettings_duration :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; MotionGraphicsActivateScheduleActionSettings
+-&gt; f MotionGraphicsActivateScheduleActionSettings
+</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#motionGraphicsActivateScheduleActionSettings_duration"><span class="hs-identifier hs-var hs-var">motionGraphicsActivateScheduleActionSettings_duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Natural)
+-&gt; (MotionGraphicsActivateScheduleActionSettings
+    -&gt; Maybe Natural -&gt; MotionGraphicsActivateScheduleActionSettings)
+-&gt; Lens
+     MotionGraphicsActivateScheduleActionSettings
+     MotionGraphicsActivateScheduleActionSettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903849"><span class="annot"><span class="annottext">Maybe Natural
+duration :: Maybe Natural
+$sel:duration:MotionGraphicsActivateScheduleActionSettings' :: MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679903849"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679903849"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679903848"><span class="annot"><span class="annottext">s :: MotionGraphicsActivateScheduleActionSettings
+</span><a href="#local-6989586621679903848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679903847"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679903847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MotionGraphicsActivateScheduleActionSettings
+</span><a href="#local-6989586621679903848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:MotionGraphicsActivateScheduleActionSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#%24sel%3Aduration%3AMotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679903847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679897174"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679903844"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679897172"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MotionGraphicsActivateScheduleActionSettings
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679903842"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MotionGraphicsActivateScheduleActionSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MotionGraphicsActivateScheduleActionSettings)
@@ -280,127 +280,128 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MotionGraphicsActivateScheduleActionSettings&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679897169"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679897169"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679903839"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679903839"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; MotionGraphicsActivateScheduleActionSettings
 </span><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-var">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span>
-</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe Text
+ -&gt; Maybe Natural
  -&gt; MotionGraphicsActivateScheduleActionSettings)
--&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Text
+      -&gt; Maybe Natural
       -&gt; MotionGraphicsActivateScheduleActionSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679897169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679903839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;duration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;url&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Text
+   -&gt; Maybe Natural
    -&gt; MotionGraphicsActivateScheduleActionSettings)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text -&gt; MotionGraphicsActivateScheduleActionSettings)
+      -&gt; Maybe Natural -&gt; MotionGraphicsActivateScheduleActionSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679897169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;passwordParam&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text -&gt; MotionGraphicsActivateScheduleActionSettings)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text -&gt; MotionGraphicsActivateScheduleActionSettings)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679897169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679903839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;username&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MotionGraphicsActivateScheduleActionSettings)
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Natural -&gt; MotionGraphicsActivateScheduleActionSettings)
 -&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Natural -&gt; MotionGraphicsActivateScheduleActionSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679903839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;passwordParam&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural -&gt; MotionGraphicsActivateScheduleActionSettings)
+-&gt; Parser (Maybe Natural)
 -&gt; Parser MotionGraphicsActivateScheduleActionSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679897169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679903839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;url&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;duration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679897163"><span id="local-6989586621679897165"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679903833"><span id="local-6989586621679903835"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679897160"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679903830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679897152"><span id="local-6989586621679897154"><span id="local-6989586621679897156"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679903822"><span id="local-6989586621679903824"><span id="local-6989586621679903826"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings</span></a></span></span></span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679897150"><span class="annot"><span class="annottext">toJSON :: MotionGraphicsActivateScheduleActionSettings -&gt; Value
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679903820"><span class="annot"><span class="annottext">toJSON :: MotionGraphicsActivateScheduleActionSettings -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span>
-</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679897145"><span id="local-6989586621679897146"><span id="local-6989586621679897147"><span id="local-6989586621679897148"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings.html#MotionGraphicsActivateScheduleActionSettings%27"><span class="hs-identifier hs-type">MotionGraphicsActivateScheduleActionSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679903815"><span id="local-6989586621679903816"><span id="local-6989586621679903817"><span id="local-6989586621679903818"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
-url :: Maybe Text
-username :: Maybe Text
-passwordParam :: Maybe Text
 duration :: Maybe Natural
-$sel:url:MotionGraphicsActivateScheduleActionSettings' :: MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text
-$sel:username:MotionGraphicsActivateScheduleActionSettings' :: MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text
-$sel:passwordParam:MotionGraphicsActivateScheduleActionSettings' :: MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text
+passwordParam :: Maybe Text
+username :: Maybe Text
+url :: Maybe Text
 $sel:duration:MotionGraphicsActivateScheduleActionSettings' :: MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679897145"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:passwordParam:MotionGraphicsActivateScheduleActionSettings' :: MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text
+$sel:username:MotionGraphicsActivateScheduleActionSettings' :: MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text
+$sel:url:MotionGraphicsActivateScheduleActionSettings' :: MotionGraphicsActivateScheduleActionSettings -&gt; Maybe Text
+</span><a href="#local-6989586621679903815"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-122"></span><span>            </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;duration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679897148"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;passwordParam&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679897147"><span class="hs-identifier hs-var">passwordParam</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679897146"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;url&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679897145"><span class="hs-identifier hs-var">url</span></a></span><span>
+</span><a href="#local-6989586621679903818"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903817"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;passwordParam&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679903816"><span class="hs-identifier hs-var">passwordParam</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;duration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679903815"><span class="hs-identifier hs-var">duration</span></a></span><span>
 </span><span id="line-126"></span><span>            </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>        </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span></pre></body></html>

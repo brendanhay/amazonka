@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679340738"><span id="local-6989586621679340739"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentReadAction"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReadAction.html#DocumentReadAction"><span class="hs-identifier hs-var">DocumentReadAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentReadAction%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReadAction.html#DocumentReadAction%27"><span class="hs-identifier hs-var">DocumentReadAction'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679341000"><span id="local-6989586621679341001"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DocumentReadAction"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReadAction.html#DocumentReadAction"><span class="hs-identifier hs-var">DocumentReadAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentReadAction%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentReadAction.html#DocumentReadAction%27"><span class="hs-identifier hs-var">DocumentReadAction'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDocumentReadAction"><span class="annot"><span class="annottext">DocumentReadAction -&gt; Text
 </span><a href="Network.AWS.Comprehend.Types.DocumentReadAction.html#fromDocumentReadAction"><span class="hs-identifier hs-var hs-var">fromDocumentReadAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679340730"><span id="local-6989586621679340732"><span id="local-6989586621679340734"><span class="annot"><span class="annottext">Int -&gt; DocumentReadAction -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679340992"><span id="local-6989586621679340994"><span id="local-6989586621679340996"><span class="annot"><span class="annottext">Int -&gt; DocumentReadAction -&gt; ShowS
 [DocumentReadAction] -&gt; ShowS
 DocumentReadAction -&gt; String
 (Int -&gt; DocumentReadAction -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: DocumentReadAction -&gt; String
 showsPrec :: Int -&gt; DocumentReadAction -&gt; ShowS
 $cshowsPrec :: Int -&gt; DocumentReadAction -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679340721"><span id="local-6989586621679340723"><span id="local-6989586621679340725"><span id="local-6989586621679340727"><span class="annot"><span class="annottext">ReadPrec [DocumentReadAction]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679340983"><span id="local-6989586621679340985"><span id="local-6989586621679340987"><span id="local-6989586621679340989"><span class="annot"><span class="annottext">ReadPrec [DocumentReadAction]
 ReadPrec DocumentReadAction
 Int -&gt; ReadS DocumentReadAction
 ReadS [DocumentReadAction]
@@ -72,7 +72,7 @@ $creadList :: ReadS [DocumentReadAction]
 readsPrec :: Int -&gt; ReadS DocumentReadAction
 $creadsPrec :: Int -&gt; ReadS DocumentReadAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679340716"><span id="local-6989586621679340718"><span class="annot"><span class="annottext">DocumentReadAction -&gt; DocumentReadAction -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679340978"><span id="local-6989586621679340980"><span class="annot"><span class="annottext">DocumentReadAction -&gt; DocumentReadAction -&gt; Bool
 (DocumentReadAction -&gt; DocumentReadAction -&gt; Bool)
 -&gt; (DocumentReadAction -&gt; DocumentReadAction -&gt; Bool)
 -&gt; Eq DocumentReadAction
@@ -82,7 +82,7 @@ $c/= :: DocumentReadAction -&gt; DocumentReadAction -&gt; Bool
 == :: DocumentReadAction -&gt; DocumentReadAction -&gt; Bool
 $c== :: DocumentReadAction -&gt; DocumentReadAction -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679340700"><span id="local-6989586621679340702"><span id="local-6989586621679340704"><span id="local-6989586621679340706"><span id="local-6989586621679340708"><span id="local-6989586621679340710"><span id="local-6989586621679340712"><span class="annot"><span class="annottext">Eq DocumentReadAction
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679340962"><span id="local-6989586621679340964"><span id="local-6989586621679340966"><span id="local-6989586621679340968"><span id="local-6989586621679340970"><span id="local-6989586621679340972"><span id="local-6989586621679340974"><span class="annot"><span class="annottext">Eq DocumentReadAction
 Eq DocumentReadAction
 -&gt; (DocumentReadAction -&gt; DocumentReadAction -&gt; Ordering)
 -&gt; (DocumentReadAction -&gt; DocumentReadAction -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. DocumentReadAction -&gt; Rep DocumentReadAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679340692"><span id="local-6989586621679340694"><span class="annot"><span class="annottext">Int -&gt; DocumentReadAction -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679340954"><span id="local-6989586621679340956"><span class="annot"><span class="annottext">Int -&gt; DocumentReadAction -&gt; Int
 DocumentReadAction -&gt; Int
 (Int -&gt; DocumentReadAction -&gt; Int)
 -&gt; (DocumentReadAction -&gt; Int) -&gt; Hashable DocumentReadAction
@@ -143,53 +143,53 @@ $chash :: DocumentReadAction -&gt; Int
 hashWithSalt :: Int -&gt; DocumentReadAction -&gt; Int
 $chashWithSalt :: Int -&gt; DocumentReadAction -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679340689"><span class="annot"><span class="annottext">DocumentReadAction -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679340951"><span class="annot"><span class="annottext">DocumentReadAction -&gt; ()
 (DocumentReadAction -&gt; ()) -&gt; NFData DocumentReadAction
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DocumentReadAction -&gt; ()
 $crnf :: DocumentReadAction -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679340686"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentReadAction
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679340948"><span class="annot"><span class="annottext">Text -&gt; Either String DocumentReadAction
 (Text -&gt; Either String DocumentReadAction)
 -&gt; FromText DocumentReadAction
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DocumentReadAction
 $cfromText :: Text -&gt; Either String DocumentReadAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679340683"><span class="annot"><span class="annottext">DocumentReadAction -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679340945"><span class="annot"><span class="annottext">DocumentReadAction -&gt; Text
 (DocumentReadAction -&gt; Text) -&gt; ToText DocumentReadAction
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DocumentReadAction -&gt; Text
 $ctoText :: DocumentReadAction -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679340680"><span class="annot"><span class="annottext">DocumentReadAction -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679340942"><span class="annot"><span class="annottext">DocumentReadAction -&gt; ByteString
 (DocumentReadAction -&gt; ByteString)
 -&gt; ToByteString DocumentReadAction
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DocumentReadAction -&gt; ByteString
 $ctoBS :: DocumentReadAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679340677"><span class="annot"><span class="annottext">DocumentReadAction -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679340939"><span class="annot"><span class="annottext">DocumentReadAction -&gt; ByteStringBuilder
 (DocumentReadAction -&gt; ByteStringBuilder)
 -&gt; ToLog DocumentReadAction
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DocumentReadAction -&gt; ByteStringBuilder
 $cbuild :: DocumentReadAction -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679340674"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentReadAction -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679340936"><span class="annot"><span class="annottext">HeaderName -&gt; DocumentReadAction -&gt; [Header]
 (HeaderName -&gt; DocumentReadAction -&gt; [Header])
 -&gt; ToHeader DocumentReadAction
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DocumentReadAction -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DocumentReadAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679340671"><span class="annot"><span class="annottext">DocumentReadAction -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679340933"><span class="annot"><span class="annottext">DocumentReadAction -&gt; QueryString
 (DocumentReadAction -&gt; QueryString) -&gt; ToQuery DocumentReadAction
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DocumentReadAction -&gt; QueryString
 $ctoQuery :: DocumentReadAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679340666"><span id="local-6989586621679340668"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentReadAction]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679340928"><span id="local-6989586621679340930"><span class="annot"><span class="annottext">Value -&gt; Parser [DocumentReadAction]
 Value -&gt; Parser DocumentReadAction
 (Value -&gt; Parser DocumentReadAction)
 -&gt; (Value -&gt; Parser [DocumentReadAction])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [DocumentReadAction]
 parseJSON :: Value -&gt; Parser DocumentReadAction
 $cparseJSON :: Value -&gt; Parser DocumentReadAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679340661"><span id="local-6989586621679340663"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentReadAction]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679340923"><span id="local-6989586621679340925"><span class="annot"><span class="annottext">FromJSONKeyFunction [DocumentReadAction]
 FromJSONKeyFunction DocumentReadAction
 FromJSONKeyFunction DocumentReadAction
 -&gt; FromJSONKeyFunction [DocumentReadAction]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DocumentReadAction]
 fromJSONKey :: FromJSONKeyFunction DocumentReadAction
 $cfromJSONKey :: FromJSONKeyFunction DocumentReadAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679340652"><span id="local-6989586621679340654"><span id="local-6989586621679340656"><span id="local-6989586621679340658"><span class="annot"><span class="annottext">[DocumentReadAction] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679340914"><span id="local-6989586621679340916"><span id="local-6989586621679340918"><span id="local-6989586621679340920"><span class="annot"><span class="annottext">[DocumentReadAction] -&gt; Encoding
 [DocumentReadAction] -&gt; Value
 DocumentReadAction -&gt; Encoding
 DocumentReadAction -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: DocumentReadAction -&gt; Encoding
 toJSON :: DocumentReadAction -&gt; Value
 $ctoJSON :: DocumentReadAction -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679340647"><span id="local-6989586621679340649"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentReadAction]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679340909"><span id="local-6989586621679340911"><span class="annot"><span class="annottext">ToJSONKeyFunction [DocumentReadAction]
 ToJSONKeyFunction DocumentReadAction
 ToJSONKeyFunction DocumentReadAction
 -&gt; ToJSONKeyFunction [DocumentReadAction]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DocumentReadAction]
 toJSONKey :: ToJSONKeyFunction DocumentReadAction
 $ctoJSONKey :: ToJSONKeyFunction DocumentReadAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679340644"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentReadAction
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679340906"><span class="annot"><span class="annottext">[Node] -&gt; Either String DocumentReadAction
 ([Node] -&gt; Either String DocumentReadAction)
 -&gt; FromXML DocumentReadAction
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DocumentReadAction
 $cparseXML :: [Node] -&gt; Either String DocumentReadAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679340641"><span class="annot"><span class="annottext">DocumentReadAction -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679340903"><span class="annot"><span class="annottext">DocumentReadAction -&gt; XML
 (DocumentReadAction -&gt; XML) -&gt; ToXML DocumentReadAction
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DocumentReadAction -&gt; XML

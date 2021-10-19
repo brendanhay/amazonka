@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- CodePipeline when there is a job to be worked on by a partner action.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newThirdPartyJob' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679282762"><span id="local-6989586621679282763"></span></span><span class="hs-keyword">data</span><span> </span><span id="ThirdPartyJob"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob"><span class="hs-identifier hs-var">ThirdPartyJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThirdPartyJob%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob%27"><span class="hs-identifier hs-var">ThirdPartyJob'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679282972"><span id="local-6989586621679282973"></span></span><span class="hs-keyword">data</span><span> </span><span id="ThirdPartyJob"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob"><span class="hs-identifier hs-var">ThirdPartyJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThirdPartyJob%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob%27"><span class="hs-identifier hs-var">ThirdPartyJob'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @clientToken@ portion of the @clientId@ and @clientToken@ pair used</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- to verify that the calling entity is allowed access to the job and its</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- details.</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AjobId%3AThirdPartyJob%27"><span class="annot"><span class="annottext">ThirdPartyJob -&gt; Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#%24sel%3AjobId%3AThirdPartyJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282755"><span id="local-6989586621679282757"><span class="annot"><span class="annottext">ThirdPartyJob -&gt; ThirdPartyJob -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282965"><span id="local-6989586621679282967"><span class="annot"><span class="annottext">ThirdPartyJob -&gt; ThirdPartyJob -&gt; Bool
 (ThirdPartyJob -&gt; ThirdPartyJob -&gt; Bool)
 -&gt; (ThirdPartyJob -&gt; ThirdPartyJob -&gt; Bool) -&gt; Eq ThirdPartyJob
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ThirdPartyJob -&gt; ThirdPartyJob -&gt; Bool
 == :: ThirdPartyJob -&gt; ThirdPartyJob -&gt; Bool
 $c== :: ThirdPartyJob -&gt; ThirdPartyJob -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282746"><span id="local-6989586621679282748"><span id="local-6989586621679282750"><span id="local-6989586621679282752"><span class="annot"><span class="annottext">ReadPrec [ThirdPartyJob]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282956"><span id="local-6989586621679282958"><span id="local-6989586621679282960"><span id="local-6989586621679282962"><span class="annot"><span class="annottext">ReadPrec [ThirdPartyJob]
 ReadPrec ThirdPartyJob
 Int -&gt; ReadS ThirdPartyJob
 ReadS [ThirdPartyJob]
@@ -65,7 +65,7 @@ readList :: ReadS [ThirdPartyJob]
 $creadList :: ReadS [ThirdPartyJob]
 readsPrec :: Int -&gt; ReadS ThirdPartyJob
 $creadsPrec :: Int -&gt; ReadS ThirdPartyJob
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282739"><span id="local-6989586621679282741"><span id="local-6989586621679282743"><span class="annot"><span class="annottext">Int -&gt; ThirdPartyJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282949"><span id="local-6989586621679282951"><span id="local-6989586621679282953"><span class="annot"><span class="annottext">Int -&gt; ThirdPartyJob -&gt; ShowS
 [ThirdPartyJob] -&gt; ShowS
 ThirdPartyJob -&gt; String
 (Int -&gt; ThirdPartyJob -&gt; ShowS)
@@ -129,16 +129,16 @@ forall a. Maybe a
 -&gt; (ThirdPartyJob -&gt; Maybe Text -&gt; ThirdPartyJob)
 -&gt; Lens ThirdPartyJob ThirdPartyJob (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob%27"><span class="hs-identifier hs-type">ThirdPartyJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282730"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob%27"><span class="hs-identifier hs-type">ThirdPartyJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282940"><span class="annot"><span class="annottext">Maybe Text
 clientId :: Maybe Text
 $sel:clientId:ThirdPartyJob' :: ThirdPartyJob -&gt; Maybe Text
-</span><a href="#local-6989586621679282730"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679282730"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282729"><span class="annot"><span class="annottext">s :: ThirdPartyJob
-</span><a href="#local-6989586621679282729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob%27"><span class="hs-identifier hs-type">ThirdPartyJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282728"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679282728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThirdPartyJob
-</span><a href="#local-6989586621679282729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:ThirdPartyJob' :: Maybe Text
+</span><a href="#local-6989586621679282940"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282940"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282939"><span class="annot"><span class="annottext">s :: ThirdPartyJob
+</span><a href="#local-6989586621679282939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob%27"><span class="hs-identifier hs-type">ThirdPartyJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282938"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThirdPartyJob
+</span><a href="#local-6989586621679282939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:ThirdPartyJob' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#%24sel%3AclientId%3AThirdPartyJob%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679282728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob"><span class="hs-identifier hs-type">ThirdPartyJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob"><span class="hs-identifier hs-type">ThirdPartyJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The identifier used to identify the job in AWS CodePipeline.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#thirdPartyJob_jobId"><span class="hs-identifier hs-type">thirdPartyJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob"><span class="hs-identifier hs-type">ThirdPartyJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -147,19 +147,19 @@ $sel:clientId:ThirdPartyJob' :: ThirdPartyJob -&gt; Maybe Text
 -&gt; (ThirdPartyJob -&gt; Maybe Text -&gt; ThirdPartyJob)
 -&gt; Lens ThirdPartyJob ThirdPartyJob (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob%27"><span class="hs-identifier hs-type">ThirdPartyJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282726"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob%27"><span class="hs-identifier hs-type">ThirdPartyJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282936"><span class="annot"><span class="annottext">Maybe Text
 jobId :: Maybe Text
 $sel:jobId:ThirdPartyJob' :: ThirdPartyJob -&gt; Maybe Text
-</span><a href="#local-6989586621679282726"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679282726"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282725"><span class="annot"><span class="annottext">s :: ThirdPartyJob
-</span><a href="#local-6989586621679282725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob%27"><span class="hs-identifier hs-type">ThirdPartyJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282724"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679282724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThirdPartyJob
-</span><a href="#local-6989586621679282725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:ThirdPartyJob' :: Maybe Text
+</span><a href="#local-6989586621679282936"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282936"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282935"><span class="annot"><span class="annottext">s :: ThirdPartyJob
+</span><a href="#local-6989586621679282935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob%27"><span class="hs-identifier hs-type">ThirdPartyJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282934"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThirdPartyJob
+</span><a href="#local-6989586621679282935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:ThirdPartyJob' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#%24sel%3AjobId%3AThirdPartyJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679282724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob"><span class="hs-identifier hs-type">ThirdPartyJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob"><span class="hs-identifier hs-type">ThirdPartyJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282721"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob"><span class="hs-identifier hs-type">ThirdPartyJob</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679282719"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ThirdPartyJob
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282931"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob"><span class="hs-identifier hs-type">ThirdPartyJob</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679282929"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ThirdPartyJob
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ThirdPartyJob)
@@ -169,15 +169,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ThirdPartyJob&quot;</span></span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679282716"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679282716"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679282926"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679282926"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; ThirdPartyJob
 </span><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob%27"><span class="hs-identifier hs-var">ThirdPartyJob'</span></a></span><span>
 </span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; ThirdPartyJob)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ThirdPartyJob)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679282716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679282926"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;clientId&quot;</span></span><span class="hs-special">)</span><span>
@@ -185,13 +185,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser ThirdPartyJob
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679282716"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679282926"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;jobId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282710"><span id="local-6989586621679282712"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob"><span class="hs-identifier hs-type">ThirdPartyJob</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282920"><span id="local-6989586621679282922"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob"><span class="hs-identifier hs-type">ThirdPartyJob</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282707"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob"><span class="hs-identifier hs-type">ThirdPartyJob</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282917"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.ThirdPartyJob.html#ThirdPartyJob"><span class="hs-identifier hs-type">ThirdPartyJob</span></a></span></span><span>
 </span><span id="line-84"></span></pre></body></html>

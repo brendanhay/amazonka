@@ -26,28 +26,28 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about a Lambda function specified in a deployment.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLambdaFunctionInfo' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679309385"><span id="local-6989586621679309386"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaFunctionInfo"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-var">LambdaFunctionInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaFunctionInfo%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-var">LambdaFunctionInfo'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The alias of a Lambda function. For more information, see</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html AWS Lambda Function Aliases&gt;</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- in the /AWS Lambda Developer Guide/.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AfunctionAlias%3ALambdaFunctionInfo%27"><span class="annot"><span class="annottext">LambdaFunctionInfo -&gt; Maybe Text
-</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AfunctionAlias%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var hs-var">functionAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The version of a Lambda function that production traffic points to.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcurrentVersion%3ALambdaFunctionInfo%27"><span class="annot"><span class="annottext">LambdaFunctionInfo -&gt; Maybe Text
+</span><span id="line-29"></span><span id="local-6989586621679309671"><span id="local-6989586621679309672"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaFunctionInfo"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-var">LambdaFunctionInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaFunctionInfo%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-var">LambdaFunctionInfo'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of a Lambda function that production traffic points to.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AcurrentVersion%3ALambdaFunctionInfo%27"><span class="annot"><span class="annottext">LambdaFunctionInfo -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AcurrentVersion%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The version of a Lambda function that production traffic points to after</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the Lambda function is deployed.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtargetVersion%3ALambdaFunctionInfo%27"><span class="annot"><span class="annottext">LambdaFunctionInfo -&gt; Maybe Text
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The alias of a Lambda function. For more information, see</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html AWS Lambda Function Aliases&gt;</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- in the /AWS Lambda Developer Guide/.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AfunctionAlias%3ALambdaFunctionInfo%27"><span class="annot"><span class="annottext">LambdaFunctionInfo -&gt; Maybe Text
+</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AfunctionAlias%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var hs-var">functionAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of a Lambda function.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AfunctionName%3ALambdaFunctionInfo%27"><span class="annot"><span class="annottext">LambdaFunctionInfo -&gt; Maybe Text
+</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AfunctionName%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The version of a Lambda function that production traffic points to after</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- the Lambda function is deployed.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AtargetVersion%3ALambdaFunctionInfo%27"><span class="annot"><span class="annottext">LambdaFunctionInfo -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AtargetVersion%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var hs-var">targetVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The percentage of production traffic that the target version of a Lambda</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- function receives.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AtargetVersionWeight%3ALambdaFunctionInfo%27"><span class="annot"><span class="annottext">LambdaFunctionInfo -&gt; Maybe Double
-</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AtargetVersionWeight%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var hs-var">targetVersionWeight</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of a Lambda function.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AfunctionName%3ALambdaFunctionInfo%27"><span class="annot"><span class="annottext">LambdaFunctionInfo -&gt; Maybe Text
-</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AfunctionName%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The percentage of production traffic that the target version of a Lambda</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- function receives.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AtargetVersionWeight%3ALambdaFunctionInfo%27"><span class="annot"><span class="annottext">LambdaFunctionInfo -&gt; Maybe Double
+</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AtargetVersionWeight%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var hs-var">targetVersionWeight</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309375"><span id="local-6989586621679309377"><span class="annot"><span class="annottext">LambdaFunctionInfo -&gt; LambdaFunctionInfo -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309661"><span id="local-6989586621679309663"><span class="annot"><span class="annottext">LambdaFunctionInfo -&gt; LambdaFunctionInfo -&gt; Bool
 (LambdaFunctionInfo -&gt; LambdaFunctionInfo -&gt; Bool)
 -&gt; (LambdaFunctionInfo -&gt; LambdaFunctionInfo -&gt; Bool)
 -&gt; Eq LambdaFunctionInfo
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LambdaFunctionInfo -&gt; LambdaFunctionInfo -&gt; Bool
 == :: LambdaFunctionInfo -&gt; LambdaFunctionInfo -&gt; Bool
 $c== :: LambdaFunctionInfo -&gt; LambdaFunctionInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309366"><span id="local-6989586621679309368"><span id="local-6989586621679309370"><span id="local-6989586621679309372"><span class="annot"><span class="annottext">ReadPrec [LambdaFunctionInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309652"><span id="local-6989586621679309654"><span id="local-6989586621679309656"><span id="local-6989586621679309658"><span class="annot"><span class="annottext">ReadPrec [LambdaFunctionInfo]
 ReadPrec LambdaFunctionInfo
 Int -&gt; ReadS LambdaFunctionInfo
 ReadS [LambdaFunctionInfo]
@@ -76,7 +76,7 @@ readList :: ReadS [LambdaFunctionInfo]
 $creadList :: ReadS [LambdaFunctionInfo]
 readsPrec :: Int -&gt; ReadS LambdaFunctionInfo
 $creadsPrec :: Int -&gt; ReadS LambdaFunctionInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309359"><span id="local-6989586621679309361"><span id="local-6989586621679309363"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309645"><span id="local-6989586621679309647"><span id="local-6989586621679309649"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionInfo -&gt; ShowS
 [LambdaFunctionInfo] -&gt; ShowS
 LambdaFunctionInfo -&gt; String
 (Int -&gt; LambdaFunctionInfo -&gt; ShowS)
@@ -110,19 +110,19 @@ $cfrom :: forall x. LambdaFunctionInfo -&gt; Rep LambdaFunctionInfo x
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'functionAlias', 'lambdaFunctionInfo_functionAlias' - The alias of a Lambda function. For more information, see</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html AWS Lambda Function Aliases&gt;</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- in the /AWS Lambda Developer Guide/.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'currentVersion', 'lambdaFunctionInfo_currentVersion' - The version of a Lambda function that production traffic points to.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'currentVersion', 'lambdaFunctionInfo_currentVersion' - The version of a Lambda function that production traffic points to.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'functionAlias', 'lambdaFunctionInfo_functionAlias' - The alias of a Lambda function. For more information, see</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html AWS Lambda Function Aliases&gt;</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- in the /AWS Lambda Developer Guide/.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'targetVersion', 'lambdaFunctionInfo_targetVersion' - The version of a Lambda function that production traffic points to after</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- the Lambda function is deployed.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'targetVersionWeight', 'lambdaFunctionInfo_targetVersionWeight' - The percentage of production traffic that the target version of a Lambda</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- function receives.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'functionName', 'lambdaFunctionInfo_functionName' - The name of a Lambda function.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'functionName', 'lambdaFunctionInfo_functionName' - The name of a Lambda function.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'targetVersion', 'lambdaFunctionInfo_targetVersion' - The version of a Lambda function that production traffic points to after</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- the Lambda function is deployed.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'targetVersionWeight', 'lambdaFunctionInfo_targetVersionWeight' - The percentage of production traffic that the target version of a Lambda</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- function receives.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#newLambdaFunctionInfo"><span class="hs-identifier hs-type">newLambdaFunctionInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span>
 </span><span id="line-70"></span><span id="newLambdaFunctionInfo"><span class="annot"><span class="annottext">newLambdaFunctionInfo :: LambdaFunctionInfo
@@ -130,139 +130,139 @@ $cfrom :: forall x. LambdaFunctionInfo -&gt; Rep LambdaFunctionInfo x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">LambdaFunctionInfo' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Double
 -&gt; Maybe Text
+-&gt; Maybe Double
 -&gt; LambdaFunctionInfo
 </span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:functionAlias:LambdaFunctionInfo' :: Maybe Text
-</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AfunctionAlias%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var">functionAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:currentVersion:LambdaFunctionInfo' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AcurrentVersion%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:currentVersion:LambdaFunctionInfo' :: Maybe Text
-</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AcurrentVersion%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:functionAlias:LambdaFunctionInfo' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AfunctionAlias%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var">functionAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetVersion:LambdaFunctionInfo' :: Maybe Text
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:functionName:LambdaFunctionInfo' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AfunctionName%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetVersion:LambdaFunctionInfo' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AtargetVersion%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var">targetVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetVersionWeight:LambdaFunctionInfo' :: Maybe Double
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetVersionWeight:LambdaFunctionInfo' :: Maybe Double
 </span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AtargetVersionWeight%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var">targetVersionWeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:functionName:LambdaFunctionInfo' :: Maybe Text
-</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AfunctionName%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The alias of a Lambda function. For more information, see</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html AWS Lambda Function Aliases&gt;</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- in the /AWS Lambda Developer Guide/.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#lambdaFunctionInfo_functionAlias"><span class="hs-identifier hs-type">lambdaFunctionInfo_functionAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="lambdaFunctionInfo_functionAlias"><span class="annot"><span class="annottext">lambdaFunctionInfo_functionAlias :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LambdaFunctionInfo -&gt; f LambdaFunctionInfo
-</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#lambdaFunctionInfo_functionAlias"><span class="hs-identifier hs-var hs-var">lambdaFunctionInfo_functionAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaFunctionInfo -&gt; Maybe Text)
--&gt; (LambdaFunctionInfo -&gt; Maybe Text -&gt; LambdaFunctionInfo)
--&gt; Lens
-     LambdaFunctionInfo LambdaFunctionInfo (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309350"><span class="annot"><span class="annottext">Maybe Text
-functionAlias :: Maybe Text
-$sel:functionAlias:LambdaFunctionInfo' :: LambdaFunctionInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679309350"><span class="hs-identifier hs-var hs-var">functionAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309350"><span class="hs-identifier hs-var">functionAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309349"><span class="annot"><span class="annottext">s :: LambdaFunctionInfo
-</span><a href="#local-6989586621679309349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309348"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionInfo
-</span><a href="#local-6989586621679309349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionAlias:LambdaFunctionInfo' :: Maybe Text
-</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AfunctionAlias%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var">functionAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | The version of a Lambda function that production traffic points to.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#lambdaFunctionInfo_currentVersion"><span class="hs-identifier hs-type">lambdaFunctionInfo_currentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="lambdaFunctionInfo_currentVersion"><span class="annot"><span class="annottext">lambdaFunctionInfo_currentVersion :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-80"></span><span class="hs-comment">-- | The version of a Lambda function that production traffic points to.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#lambdaFunctionInfo_currentVersion"><span class="hs-identifier hs-type">lambdaFunctionInfo_currentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="lambdaFunctionInfo_currentVersion"><span class="annot"><span class="annottext">lambdaFunctionInfo_currentVersion :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; LambdaFunctionInfo -&gt; f LambdaFunctionInfo
 </span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#lambdaFunctionInfo_currentVersion"><span class="hs-identifier hs-var hs-var">lambdaFunctionInfo_currentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaFunctionInfo -&gt; Maybe Text)
 -&gt; (LambdaFunctionInfo -&gt; Maybe Text -&gt; LambdaFunctionInfo)
 -&gt; Lens
      LambdaFunctionInfo LambdaFunctionInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309346"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309636"><span class="annot"><span class="annottext">Maybe Text
 currentVersion :: Maybe Text
 $sel:currentVersion:LambdaFunctionInfo' :: LambdaFunctionInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679309346"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309346"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309345"><span class="annot"><span class="annottext">s :: LambdaFunctionInfo
-</span><a href="#local-6989586621679309345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309344"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionInfo
-</span><a href="#local-6989586621679309345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentVersion:LambdaFunctionInfo' :: Maybe Text
+</span><a href="#local-6989586621679309636"><span class="hs-identifier hs-var hs-var">currentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309636"><span class="hs-identifier hs-var">currentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309635"><span class="annot"><span class="annottext">s :: LambdaFunctionInfo
+</span><a href="#local-6989586621679309635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309634"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionInfo
+</span><a href="#local-6989586621679309635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currentVersion:LambdaFunctionInfo' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AcurrentVersion%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var">currentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The version of a Lambda function that production traffic points to after</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- the Lambda function is deployed.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#lambdaFunctionInfo_targetVersion"><span class="hs-identifier hs-type">lambdaFunctionInfo_targetVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="lambdaFunctionInfo_targetVersion"><span class="annot"><span class="annottext">lambdaFunctionInfo_targetVersion :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679309634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The alias of a Lambda function. For more information, see</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html AWS Lambda Function Aliases&gt;</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- in the /AWS Lambda Developer Guide/.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#lambdaFunctionInfo_functionAlias"><span class="hs-identifier hs-type">lambdaFunctionInfo_functionAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="lambdaFunctionInfo_functionAlias"><span class="annot"><span class="annottext">lambdaFunctionInfo_functionAlias :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; LambdaFunctionInfo -&gt; f LambdaFunctionInfo
-</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#lambdaFunctionInfo_targetVersion"><span class="hs-identifier hs-var hs-var">lambdaFunctionInfo_targetVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaFunctionInfo -&gt; Maybe Text)
+</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#lambdaFunctionInfo_functionAlias"><span class="hs-identifier hs-var hs-var">lambdaFunctionInfo_functionAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaFunctionInfo -&gt; Maybe Text)
 -&gt; (LambdaFunctionInfo -&gt; Maybe Text -&gt; LambdaFunctionInfo)
 -&gt; Lens
      LambdaFunctionInfo LambdaFunctionInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309342"><span class="annot"><span class="annottext">Maybe Text
-targetVersion :: Maybe Text
-$sel:targetVersion:LambdaFunctionInfo' :: LambdaFunctionInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679309342"><span class="hs-identifier hs-var hs-var">targetVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309342"><span class="hs-identifier hs-var">targetVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309341"><span class="annot"><span class="annottext">s :: LambdaFunctionInfo
-</span><a href="#local-6989586621679309341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309340"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionInfo
-</span><a href="#local-6989586621679309341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetVersion:LambdaFunctionInfo' :: Maybe Text
-</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AtargetVersion%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var">targetVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | The percentage of production traffic that the target version of a Lambda</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- function receives.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#lambdaFunctionInfo_targetVersionWeight"><span class="hs-identifier hs-type">lambdaFunctionInfo_targetVersionWeight</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="lambdaFunctionInfo_targetVersionWeight"><span class="annot"><span class="annottext">lambdaFunctionInfo_targetVersionWeight :: (Maybe Double -&gt; f (Maybe Double))
--&gt; LambdaFunctionInfo -&gt; f LambdaFunctionInfo
-</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#lambdaFunctionInfo_targetVersionWeight"><span class="hs-identifier hs-var hs-var">lambdaFunctionInfo_targetVersionWeight</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaFunctionInfo -&gt; Maybe Double)
--&gt; (LambdaFunctionInfo -&gt; Maybe Double -&gt; LambdaFunctionInfo)
--&gt; Lens
-     LambdaFunctionInfo LambdaFunctionInfo (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309338"><span class="annot"><span class="annottext">Maybe Double
-targetVersionWeight :: Maybe Double
-$sel:targetVersionWeight:LambdaFunctionInfo' :: LambdaFunctionInfo -&gt; Maybe Double
-</span><a href="#local-6989586621679309338"><span class="hs-identifier hs-var hs-var">targetVersionWeight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679309338"><span class="hs-identifier hs-var">targetVersionWeight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309337"><span class="annot"><span class="annottext">s :: LambdaFunctionInfo
-</span><a href="#local-6989586621679309337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309336"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679309336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionInfo
-</span><a href="#local-6989586621679309337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetVersionWeight:LambdaFunctionInfo' :: Maybe Double
-</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AtargetVersionWeight%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var">targetVersionWeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679309336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The name of a Lambda function.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#lambdaFunctionInfo_functionName"><span class="hs-identifier hs-type">lambdaFunctionInfo_functionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="lambdaFunctionInfo_functionName"><span class="annot"><span class="annottext">lambdaFunctionInfo_functionName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309632"><span class="annot"><span class="annottext">Maybe Text
+functionAlias :: Maybe Text
+$sel:functionAlias:LambdaFunctionInfo' :: LambdaFunctionInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679309632"><span class="hs-identifier hs-var hs-var">functionAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309632"><span class="hs-identifier hs-var">functionAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309631"><span class="annot"><span class="annottext">s :: LambdaFunctionInfo
+</span><a href="#local-6989586621679309631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309630"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionInfo
+</span><a href="#local-6989586621679309631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionAlias:LambdaFunctionInfo' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AfunctionAlias%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var">functionAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The name of a Lambda function.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#lambdaFunctionInfo_functionName"><span class="hs-identifier hs-type">lambdaFunctionInfo_functionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="lambdaFunctionInfo_functionName"><span class="annot"><span class="annottext">lambdaFunctionInfo_functionName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; LambdaFunctionInfo -&gt; f LambdaFunctionInfo
 </span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#lambdaFunctionInfo_functionName"><span class="hs-identifier hs-var hs-var">lambdaFunctionInfo_functionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaFunctionInfo -&gt; Maybe Text)
 -&gt; (LambdaFunctionInfo -&gt; Maybe Text -&gt; LambdaFunctionInfo)
 -&gt; Lens
      LambdaFunctionInfo LambdaFunctionInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309334"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309628"><span class="annot"><span class="annottext">Maybe Text
 functionName :: Maybe Text
 $sel:functionName:LambdaFunctionInfo' :: LambdaFunctionInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679309334"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309334"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309333"><span class="annot"><span class="annottext">s :: LambdaFunctionInfo
-</span><a href="#local-6989586621679309333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309332"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionInfo
-</span><a href="#local-6989586621679309333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionName:LambdaFunctionInfo' :: Maybe Text
+</span><a href="#local-6989586621679309628"><span class="hs-identifier hs-var hs-var">functionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309628"><span class="hs-identifier hs-var">functionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309627"><span class="annot"><span class="annottext">s :: LambdaFunctionInfo
+</span><a href="#local-6989586621679309627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309626"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionInfo
+</span><a href="#local-6989586621679309627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functionName:LambdaFunctionInfo' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AfunctionName%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var">functionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The version of a Lambda function that production traffic points to after</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- the Lambda function is deployed.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#lambdaFunctionInfo_targetVersion"><span class="hs-identifier hs-type">lambdaFunctionInfo_targetVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="lambdaFunctionInfo_targetVersion"><span class="annot"><span class="annottext">lambdaFunctionInfo_targetVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LambdaFunctionInfo -&gt; f LambdaFunctionInfo
+</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#lambdaFunctionInfo_targetVersion"><span class="hs-identifier hs-var hs-var">lambdaFunctionInfo_targetVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaFunctionInfo -&gt; Maybe Text)
+-&gt; (LambdaFunctionInfo -&gt; Maybe Text -&gt; LambdaFunctionInfo)
+-&gt; Lens
+     LambdaFunctionInfo LambdaFunctionInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309624"><span class="annot"><span class="annottext">Maybe Text
+targetVersion :: Maybe Text
+$sel:targetVersion:LambdaFunctionInfo' :: LambdaFunctionInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679309624"><span class="hs-identifier hs-var hs-var">targetVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309624"><span class="hs-identifier hs-var">targetVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309623"><span class="annot"><span class="annottext">s :: LambdaFunctionInfo
+</span><a href="#local-6989586621679309623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309622"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionInfo
+</span><a href="#local-6989586621679309623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetVersion:LambdaFunctionInfo' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AtargetVersion%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var">targetVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679309622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The percentage of production traffic that the target version of a Lambda</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- function receives.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#lambdaFunctionInfo_targetVersionWeight"><span class="hs-identifier hs-type">lambdaFunctionInfo_targetVersionWeight</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="lambdaFunctionInfo_targetVersionWeight"><span class="annot"><span class="annottext">lambdaFunctionInfo_targetVersionWeight :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; LambdaFunctionInfo -&gt; f LambdaFunctionInfo
+</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#lambdaFunctionInfo_targetVersionWeight"><span class="hs-identifier hs-var hs-var">lambdaFunctionInfo_targetVersionWeight</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaFunctionInfo -&gt; Maybe Double)
+-&gt; (LambdaFunctionInfo -&gt; Maybe Double -&gt; LambdaFunctionInfo)
+-&gt; Lens
+     LambdaFunctionInfo LambdaFunctionInfo (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309620"><span class="annot"><span class="annottext">Maybe Double
+targetVersionWeight :: Maybe Double
+$sel:targetVersionWeight:LambdaFunctionInfo' :: LambdaFunctionInfo -&gt; Maybe Double
+</span><a href="#local-6989586621679309620"><span class="hs-identifier hs-var hs-var">targetVersionWeight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679309620"><span class="hs-identifier hs-var">targetVersionWeight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309619"><span class="annot"><span class="annottext">s :: LambdaFunctionInfo
+</span><a href="#local-6989586621679309619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-type">LambdaFunctionInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309618"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679309618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionInfo
+</span><a href="#local-6989586621679309619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetVersionWeight:LambdaFunctionInfo' :: Maybe Double
+</span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#%24sel%3AtargetVersionWeight%3ALambdaFunctionInfo%27"><span class="hs-identifier hs-var">targetVersionWeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679309618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309329"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679309327"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LambdaFunctionInfo
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309615"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679309613"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LambdaFunctionInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LambdaFunctionInfo)
@@ -272,73 +272,73 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LambdaFunctionInfo&quot;</span></span><span>
-</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309324"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309324"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309610"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309610"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Double
 -&gt; Maybe Text
+-&gt; Maybe Double
 -&gt; LambdaFunctionInfo
 </span><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo%27"><span class="hs-identifier hs-var">LambdaFunctionInfo'</span></a></span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe Double
  -&gt; Maybe Text
+ -&gt; Maybe Double
  -&gt; LambdaFunctionInfo)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe Double -&gt; Maybe Text -&gt; LambdaFunctionInfo)
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Double -&gt; LambdaFunctionInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;functionAlias&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe Double -&gt; Maybe Text -&gt; LambdaFunctionInfo)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text -&gt; Maybe Double -&gt; Maybe Text -&gt; LambdaFunctionInfo)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679309610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;currentVersion&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text -&gt; Maybe Double -&gt; Maybe Text -&gt; LambdaFunctionInfo)
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Double -&gt; LambdaFunctionInfo)
 -&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Double -&gt; Maybe Text -&gt; LambdaFunctionInfo)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Double -&gt; LambdaFunctionInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679309610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;targetVersion&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Maybe Text -&gt; LambdaFunctionInfo)
--&gt; Parser (Maybe Double)
--&gt; Parser (Maybe Text -&gt; LambdaFunctionInfo)
+</span><span class="hs-string">&quot;functionAlias&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Double -&gt; LambdaFunctionInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Double -&gt; LambdaFunctionInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;targetVersionWeight&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; LambdaFunctionInfo)
--&gt; Parser (Maybe Text) -&gt; Parser LambdaFunctionInfo
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309324"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679309610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;functionName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Double -&gt; LambdaFunctionInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Double -&gt; LambdaFunctionInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;targetVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; LambdaFunctionInfo)
+-&gt; Parser (Maybe Double) -&gt; Parser LambdaFunctionInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;targetVersionWeight&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309318"><span id="local-6989586621679309320"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309604"><span id="local-6989586621679309606"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309315"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309601"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.LambdaFunctionInfo.html#LambdaFunctionInfo"><span class="hs-identifier hs-type">LambdaFunctionInfo</span></a></span></span><span>
 </span><span id="line-120"></span></pre></body></html>

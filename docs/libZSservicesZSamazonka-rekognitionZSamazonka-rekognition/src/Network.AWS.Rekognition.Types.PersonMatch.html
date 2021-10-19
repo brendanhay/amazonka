@@ -32,20 +32,20 @@
 </span><span id="line-32"></span><span class="hs-comment">-- video. An array of @PersonMatch@ objects is returned by GetFaceSearch.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newPersonMatch' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679332306"><span id="local-6989586621679332307"></span></span><span class="hs-keyword">data</span><span> </span><span id="PersonMatch"><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-var">PersonMatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PersonMatch%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch%27"><span class="hs-identifier hs-var">PersonMatch'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679332597"><span id="local-6989586621679332598"></span></span><span class="hs-keyword">data</span><span> </span><span id="PersonMatch"><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-var">PersonMatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PersonMatch%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch%27"><span class="hs-identifier hs-var">PersonMatch'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the faces in the input collection that match the face</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- of a person in the video.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AfaceMatches%3APersonMatch%27"><span class="annot"><span class="annottext">PersonMatch -&gt; Maybe [FaceMatch]
 </span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#%24sel%3AfaceMatches%3APersonMatch%27"><span class="hs-identifier hs-var hs-var">faceMatches</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceMatch.html#FaceMatch"><span class="hs-identifier hs-type">FaceMatch</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds from the beginning of the video, that the</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- person was matched in the video.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Atimestamp%3APersonMatch%27"><span class="annot"><span class="annottext">PersonMatch -&gt; Maybe Integer
-</span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#%24sel%3Atimestamp%3APersonMatch%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Information about the matched person.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aperson%3APersonMatch%27"><span class="annot"><span class="annottext">PersonMatch -&gt; Maybe PersonDetail
-</span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#%24sel%3Aperson%3APersonMatch%27"><span class="hs-identifier hs-var hs-var">person</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonDetail.html#PersonDetail"><span class="hs-identifier hs-type">PersonDetail</span></a></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Information about the matched person.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aperson%3APersonMatch%27"><span class="annot"><span class="annottext">PersonMatch -&gt; Maybe PersonDetail
+</span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#%24sel%3Aperson%3APersonMatch%27"><span class="hs-identifier hs-var hs-var">person</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonDetail.html#PersonDetail"><span class="hs-identifier hs-type">PersonDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds from the beginning of the video, that the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- person was matched in the video.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Atimestamp%3APersonMatch%27"><span class="annot"><span class="annottext">PersonMatch -&gt; Maybe Integer
+</span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#%24sel%3Atimestamp%3APersonMatch%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332298"><span id="local-6989586621679332300"><span class="annot"><span class="annottext">PersonMatch -&gt; PersonMatch -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332589"><span id="local-6989586621679332591"><span class="annot"><span class="annottext">PersonMatch -&gt; PersonMatch -&gt; Bool
 (PersonMatch -&gt; PersonMatch -&gt; Bool)
 -&gt; (PersonMatch -&gt; PersonMatch -&gt; Bool) -&gt; Eq PersonMatch
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PersonMatch -&gt; PersonMatch -&gt; Bool
 == :: PersonMatch -&gt; PersonMatch -&gt; Bool
 $c== :: PersonMatch -&gt; PersonMatch -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332289"><span id="local-6989586621679332291"><span id="local-6989586621679332293"><span id="local-6989586621679332295"><span class="annot"><span class="annottext">ReadPrec [PersonMatch]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332580"><span id="local-6989586621679332582"><span id="local-6989586621679332584"><span id="local-6989586621679332586"><span class="annot"><span class="annottext">ReadPrec [PersonMatch]
 ReadPrec PersonMatch
 Int -&gt; ReadS PersonMatch
 ReadS [PersonMatch]
@@ -73,7 +73,7 @@ readList :: ReadS [PersonMatch]
 $creadList :: ReadS [PersonMatch]
 readsPrec :: Int -&gt; ReadS PersonMatch
 $creadsPrec :: Int -&gt; ReadS PersonMatch
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332282"><span id="local-6989586621679332284"><span id="local-6989586621679332286"><span class="annot"><span class="annottext">Int -&gt; PersonMatch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332573"><span id="local-6989586621679332575"><span id="local-6989586621679332577"><span class="annot"><span class="annottext">Int -&gt; PersonMatch -&gt; ShowS
 [PersonMatch] -&gt; ShowS
 PersonMatch -&gt; String
 (Int -&gt; PersonMatch -&gt; ShowS)
@@ -110,27 +110,27 @@ $cfrom :: forall x. PersonMatch -&gt; Rep PersonMatch x
 </span><span id="line-55"></span><span class="hs-comment">-- 'faceMatches', 'personMatch_faceMatches' - Information about the faces in the input collection that match the face</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- of a person in the video.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'timestamp', 'personMatch_timestamp' - The time, in milliseconds from the beginning of the video, that the</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- person was matched in the video.</span><span>
-</span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'person', 'personMatch_person' - Information about the matched person.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'person', 'personMatch_person' - Information about the matched person.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'timestamp', 'personMatch_timestamp' - The time, in milliseconds from the beginning of the video, that the</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- person was matched in the video.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#newPersonMatch"><span class="hs-identifier hs-type">newPersonMatch</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span><span>
 </span><span id="line-64"></span><span id="newPersonMatch"><span class="annot"><span class="annottext">newPersonMatch :: PersonMatch
 </span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#newPersonMatch"><span class="hs-identifier hs-var hs-var">newPersonMatch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">PersonMatch' :: Maybe [FaceMatch]
--&gt; Maybe Integer -&gt; Maybe PersonDetail -&gt; PersonMatch
+-&gt; Maybe PersonDetail -&gt; Maybe Integer -&gt; PersonMatch
 </span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch%27"><span class="hs-identifier hs-type">PersonMatch'</span></a></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:faceMatches:PersonMatch' :: Maybe [FaceMatch]
 </span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#%24sel%3AfaceMatches%3APersonMatch%27"><span class="hs-identifier hs-var">faceMatches</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FaceMatch]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:timestamp:PersonMatch' :: Maybe Integer
-</span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#%24sel%3Atimestamp%3APersonMatch%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:person:PersonMatch' :: Maybe PersonDetail
+</span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#%24sel%3Aperson%3APersonMatch%27"><span class="hs-identifier hs-var">person</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PersonDetail
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:person:PersonMatch' :: Maybe PersonDetail
-</span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#%24sel%3Aperson%3APersonMatch%27"><span class="hs-identifier hs-var">person</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PersonDetail
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:timestamp:PersonMatch' :: Maybe Integer
+</span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#%24sel%3Atimestamp%3APersonMatch%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
@@ -145,16 +145,16 @@ forall a. Maybe a
 -&gt; Lens
      PersonMatch PersonMatch (Maybe [FaceMatch]) (Maybe [FaceMatch])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch%27"><span class="hs-identifier hs-type">PersonMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332273"><span class="annot"><span class="annottext">Maybe [FaceMatch]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch%27"><span class="hs-identifier hs-type">PersonMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332564"><span class="annot"><span class="annottext">Maybe [FaceMatch]
 faceMatches :: Maybe [FaceMatch]
 $sel:faceMatches:PersonMatch' :: PersonMatch -&gt; Maybe [FaceMatch]
-</span><a href="#local-6989586621679332273"><span class="hs-identifier hs-var hs-var">faceMatches</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FaceMatch]
-</span><a href="#local-6989586621679332273"><span class="hs-identifier hs-var">faceMatches</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332272"><span class="annot"><span class="annottext">s :: PersonMatch
-</span><a href="#local-6989586621679332272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch%27"><span class="hs-identifier hs-type">PersonMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332271"><span class="annot"><span class="annottext">Maybe [FaceMatch]
-</span><a href="#local-6989586621679332271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PersonMatch
-</span><a href="#local-6989586621679332272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceMatches:PersonMatch' :: Maybe [FaceMatch]
+</span><a href="#local-6989586621679332564"><span class="hs-identifier hs-var hs-var">faceMatches</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FaceMatch]
+</span><a href="#local-6989586621679332564"><span class="hs-identifier hs-var">faceMatches</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332563"><span class="annot"><span class="annottext">s :: PersonMatch
+</span><a href="#local-6989586621679332563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch%27"><span class="hs-identifier hs-type">PersonMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332562"><span class="annot"><span class="annottext">Maybe [FaceMatch]
+</span><a href="#local-6989586621679332562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PersonMatch
+</span><a href="#local-6989586621679332563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:faceMatches:PersonMatch' :: Maybe [FaceMatch]
 </span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#%24sel%3AfaceMatches%3APersonMatch%27"><span class="hs-identifier hs-var">faceMatches</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FaceMatch]
-</span><a href="#local-6989586621679332271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FaceMatch] -&gt; f (Maybe [FaceMatch]))
+</span><a href="#local-6989586621679332562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FaceMatch] -&gt; f (Maybe [FaceMatch]))
  -&gt; PersonMatch -&gt; f PersonMatch)
 -&gt; ((Maybe [FaceMatch] -&gt; f (Maybe [FaceMatch]))
     -&gt; Maybe [FaceMatch] -&gt; f (Maybe [FaceMatch]))
@@ -172,51 +172,51 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [FaceMatch] [FaceMatch] [FaceMatch] [FaceMatch]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | The time, in milliseconds from the beginning of the video, that the</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- person was matched in the video.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#personMatch_timestamp"><span class="hs-identifier hs-type">personMatch_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="personMatch_timestamp"><span class="annot"><span class="annottext">personMatch_timestamp :: (Maybe Integer -&gt; f (Maybe Integer))
--&gt; PersonMatch -&gt; f PersonMatch
-</span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#personMatch_timestamp"><span class="hs-identifier hs-var hs-var">personMatch_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PersonMatch -&gt; Maybe Integer)
--&gt; (PersonMatch -&gt; Maybe Integer -&gt; PersonMatch)
--&gt; Lens PersonMatch PersonMatch (Maybe Integer) (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch%27"><span class="hs-identifier hs-type">PersonMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332266"><span class="annot"><span class="annottext">Maybe Integer
-timestamp :: Maybe Integer
-$sel:timestamp:PersonMatch' :: PersonMatch -&gt; Maybe Integer
-</span><a href="#local-6989586621679332266"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332266"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332265"><span class="annot"><span class="annottext">s :: PersonMatch
-</span><a href="#local-6989586621679332265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch%27"><span class="hs-identifier hs-type">PersonMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332264"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PersonMatch
-</span><a href="#local-6989586621679332265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:PersonMatch' :: Maybe Integer
-</span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#%24sel%3Atimestamp%3APersonMatch%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679332264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | Information about the matched person.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#personMatch_person"><span class="hs-identifier hs-type">personMatch_person</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonDetail.html#PersonDetail"><span class="hs-identifier hs-type">PersonDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="personMatch_person"><span class="annot"><span class="annottext">personMatch_person :: (Maybe PersonDetail -&gt; f (Maybe PersonDetail))
+</span><span id="line-76"></span><span class="hs-comment">-- | Information about the matched person.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#personMatch_person"><span class="hs-identifier hs-type">personMatch_person</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonDetail.html#PersonDetail"><span class="hs-identifier hs-type">PersonDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="personMatch_person"><span class="annot"><span class="annottext">personMatch_person :: (Maybe PersonDetail -&gt; f (Maybe PersonDetail))
 -&gt; PersonMatch -&gt; f PersonMatch
 </span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#personMatch_person"><span class="hs-identifier hs-var hs-var">personMatch_person</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PersonMatch -&gt; Maybe PersonDetail)
 -&gt; (PersonMatch -&gt; Maybe PersonDetail -&gt; PersonMatch)
 -&gt; Lens
      PersonMatch PersonMatch (Maybe PersonDetail) (Maybe PersonDetail)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch%27"><span class="hs-identifier hs-type">PersonMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332262"><span class="annot"><span class="annottext">Maybe PersonDetail
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch%27"><span class="hs-identifier hs-type">PersonMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332557"><span class="annot"><span class="annottext">Maybe PersonDetail
 person :: Maybe PersonDetail
 $sel:person:PersonMatch' :: PersonMatch -&gt; Maybe PersonDetail
-</span><a href="#local-6989586621679332262"><span class="hs-identifier hs-var hs-var">person</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PersonDetail
-</span><a href="#local-6989586621679332262"><span class="hs-identifier hs-var">person</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332261"><span class="annot"><span class="annottext">s :: PersonMatch
-</span><a href="#local-6989586621679332261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch%27"><span class="hs-identifier hs-type">PersonMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332260"><span class="annot"><span class="annottext">Maybe PersonDetail
-</span><a href="#local-6989586621679332260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PersonMatch
-</span><a href="#local-6989586621679332261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:person:PersonMatch' :: Maybe PersonDetail
+</span><a href="#local-6989586621679332557"><span class="hs-identifier hs-var hs-var">person</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PersonDetail
+</span><a href="#local-6989586621679332557"><span class="hs-identifier hs-var">person</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332556"><span class="annot"><span class="annottext">s :: PersonMatch
+</span><a href="#local-6989586621679332556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch%27"><span class="hs-identifier hs-type">PersonMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332555"><span class="annot"><span class="annottext">Maybe PersonDetail
+</span><a href="#local-6989586621679332555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PersonMatch
+</span><a href="#local-6989586621679332556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:person:PersonMatch' :: Maybe PersonDetail
 </span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#%24sel%3Aperson%3APersonMatch%27"><span class="hs-identifier hs-var">person</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PersonDetail
-</span><a href="#local-6989586621679332260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679332555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The time, in milliseconds from the beginning of the video, that the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- person was matched in the video.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#personMatch_timestamp"><span class="hs-identifier hs-type">personMatch_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="personMatch_timestamp"><span class="annot"><span class="annottext">personMatch_timestamp :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; PersonMatch -&gt; f PersonMatch
+</span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#personMatch_timestamp"><span class="hs-identifier hs-var hs-var">personMatch_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PersonMatch -&gt; Maybe Integer)
+-&gt; (PersonMatch -&gt; Maybe Integer -&gt; PersonMatch)
+-&gt; Lens PersonMatch PersonMatch (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch%27"><span class="hs-identifier hs-type">PersonMatch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332553"><span class="annot"><span class="annottext">Maybe Integer
+timestamp :: Maybe Integer
+$sel:timestamp:PersonMatch' :: PersonMatch -&gt; Maybe Integer
+</span><a href="#local-6989586621679332553"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679332553"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332552"><span class="annot"><span class="annottext">s :: PersonMatch
+</span><a href="#local-6989586621679332552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch%27"><span class="hs-identifier hs-type">PersonMatch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332551"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679332551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PersonMatch
+</span><a href="#local-6989586621679332552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:PersonMatch' :: Maybe Integer
+</span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#%24sel%3Atimestamp%3APersonMatch%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679332551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332257"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679332255"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PersonMatch
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332548"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679332546"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PersonMatch
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PersonMatch) -&gt; Value -&gt; Parser PersonMatch
@@ -224,18 +224,18 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PersonMatch&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679332252"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332252"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679332543"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679332543"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe [FaceMatch]
--&gt; Maybe Integer -&gt; Maybe PersonDetail -&gt; PersonMatch
+-&gt; Maybe PersonDetail -&gt; Maybe Integer -&gt; PersonMatch
 </span><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch%27"><span class="hs-identifier hs-var">PersonMatch'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [FaceMatch]
- -&gt; Maybe Integer -&gt; Maybe PersonDetail -&gt; PersonMatch)
+ -&gt; Maybe PersonDetail -&gt; Maybe Integer -&gt; PersonMatch)
 -&gt; Parser (Maybe [FaceMatch])
--&gt; Parser (Maybe Integer -&gt; Maybe PersonDetail -&gt; PersonMatch)
+-&gt; Parser (Maybe PersonDetail -&gt; Maybe Integer -&gt; PersonMatch)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332252"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [FaceMatch]))
+</span><a href="#local-6989586621679332543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [FaceMatch]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FaceMatches&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [FaceMatch]))
@@ -244,26 +244,26 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FaceMatch]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; Maybe PersonDetail -&gt; PersonMatch)
--&gt; Parser (Maybe Integer)
--&gt; Parser (Maybe PersonDetail -&gt; PersonMatch)
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe PersonDetail -&gt; Maybe Integer -&gt; PersonMatch)
+-&gt; Parser (Maybe PersonDetail)
+-&gt; Parser (Maybe Integer -&gt; PersonMatch)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332252"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe PersonDetail -&gt; PersonMatch)
--&gt; Parser (Maybe PersonDetail) -&gt; Parser PersonMatch
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679332252"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PersonDetail)
+</span><a href="#local-6989586621679332543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PersonDetail)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Person&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; PersonMatch)
+-&gt; Parser (Maybe Integer) -&gt; Parser PersonMatch
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679332543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332245"><span id="local-6989586621679332247"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332536"><span id="local-6989586621679332538"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332242"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332533"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span></span><span>
 </span><span id="line-99"></span></pre></body></html>

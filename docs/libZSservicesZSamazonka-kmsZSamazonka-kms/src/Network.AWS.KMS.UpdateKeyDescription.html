@@ -63,7 +63,7 @@
 </span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | /See:/ 'newUpdateKeyDescription' smart constructor.</span><span>
-</span><span id="line-66"></span><span id="local-6989586621679261475"><span id="local-6989586621679261476"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateKeyDescription"><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-var">UpdateKeyDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateKeyDescription%27"><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription%27"><span class="hs-identifier hs-var">UpdateKeyDescription'</span></a></span></span><span>
+</span><span id="line-66"></span><span id="local-6989586621679261710"><span id="local-6989586621679261711"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateKeyDescription"><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-var">UpdateKeyDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateKeyDescription%27"><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription%27"><span class="hs-identifier hs-var">UpdateKeyDescription'</span></a></span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Updates the description of the specified KMS key.</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Specify the key ID or key ARN of the KMS key.</span><span>
@@ -83,7 +83,7 @@
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateKeyDescription%27"><span class="annot"><span class="annottext">UpdateKeyDescription -&gt; Text
 </span><a href="Network.AWS.KMS.UpdateKeyDescription.html#%24sel%3Adescription%3AUpdateKeyDescription%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261468"><span id="local-6989586621679261470"><span class="annot"><span class="annottext">UpdateKeyDescription -&gt; UpdateKeyDescription -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261703"><span id="local-6989586621679261705"><span class="annot"><span class="annottext">UpdateKeyDescription -&gt; UpdateKeyDescription -&gt; Bool
 (UpdateKeyDescription -&gt; UpdateKeyDescription -&gt; Bool)
 -&gt; (UpdateKeyDescription -&gt; UpdateKeyDescription -&gt; Bool)
 -&gt; Eq UpdateKeyDescription
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateKeyDescription -&gt; UpdateKeyDescription -&gt; Bool
 == :: UpdateKeyDescription -&gt; UpdateKeyDescription -&gt; Bool
 $c== :: UpdateKeyDescription -&gt; UpdateKeyDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261459"><span id="local-6989586621679261461"><span id="local-6989586621679261463"><span id="local-6989586621679261465"><span class="annot"><span class="annottext">ReadPrec [UpdateKeyDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261694"><span id="local-6989586621679261696"><span id="local-6989586621679261698"><span id="local-6989586621679261700"><span class="annot"><span class="annottext">ReadPrec [UpdateKeyDescription]
 ReadPrec UpdateKeyDescription
 Int -&gt; ReadS UpdateKeyDescription
 ReadS [UpdateKeyDescription]
@@ -112,7 +112,7 @@ readList :: ReadS [UpdateKeyDescription]
 $creadList :: ReadS [UpdateKeyDescription]
 readsPrec :: Int -&gt; ReadS UpdateKeyDescription
 $creadsPrec :: Int -&gt; ReadS UpdateKeyDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261452"><span id="local-6989586621679261454"><span id="local-6989586621679261456"><span class="annot"><span class="annottext">Int -&gt; UpdateKeyDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261687"><span id="local-6989586621679261689"><span id="local-6989586621679261691"><span class="annot"><span class="annottext">Int -&gt; UpdateKeyDescription -&gt; ShowS
 [UpdateKeyDescription] -&gt; ShowS
 UpdateKeyDescription -&gt; String
 (Int -&gt; UpdateKeyDescription -&gt; ShowS)
@@ -168,17 +168,17 @@ $cfrom :: forall x. UpdateKeyDescription -&gt; Rep UpdateKeyDescription x
 </span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-type">UpdateKeyDescription</span></a></span><span>
 </span><span id="line-115"></span><span id="newUpdateKeyDescription"><span class="annot"><span class="annottext">newUpdateKeyDescription :: Text -&gt; Text -&gt; UpdateKeyDescription
-</span><a href="Network.AWS.KMS.UpdateKeyDescription.html#newUpdateKeyDescription"><span class="hs-identifier hs-var hs-var">newUpdateKeyDescription</span></a></span></span><span> </span><span id="local-6989586621679261447"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261447"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span id="local-6989586621679261446"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261446"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KMS.UpdateKeyDescription.html#newUpdateKeyDescription"><span class="hs-identifier hs-var hs-var">newUpdateKeyDescription</span></a></span></span><span> </span><span id="local-6989586621679261682"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261682"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span id="local-6989586621679261681"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261681"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">UpdateKeyDescription' :: Text -&gt; Text -&gt; UpdateKeyDescription
 </span><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription%27"><span class="hs-identifier hs-type">UpdateKeyDescription'</span></a></span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyId:UpdateKeyDescription' :: Text
 </span><a href="Network.AWS.KMS.UpdateKeyDescription.html#%24sel%3AkeyId%3AUpdateKeyDescription%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261447"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261682"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateKeyDescription' :: Text
 </span><a href="Network.AWS.KMS.UpdateKeyDescription.html#%24sel%3Adescription%3AUpdateKeyDescription%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261446"><span class="hs-identifier hs-var">pDescription_</span></a></span><span>
+</span><a href="#local-6989586621679261681"><span class="hs-identifier hs-var">pDescription_</span></a></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | Updates the description of the specified KMS key.</span><span>
@@ -200,16 +200,16 @@ $cfrom :: forall x. UpdateKeyDescription -&gt; Rep UpdateKeyDescription x
 -&gt; (UpdateKeyDescription -&gt; Text -&gt; UpdateKeyDescription)
 -&gt; Lens UpdateKeyDescription UpdateKeyDescription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription%27"><span class="hs-identifier hs-type">UpdateKeyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261443"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription%27"><span class="hs-identifier hs-type">UpdateKeyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261678"><span class="annot"><span class="annottext">Text
 keyId :: Text
 $sel:keyId:UpdateKeyDescription' :: UpdateKeyDescription -&gt; Text
-</span><a href="#local-6989586621679261443"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261443"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261442"><span class="annot"><span class="annottext">s :: UpdateKeyDescription
-</span><a href="#local-6989586621679261442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription%27"><span class="hs-identifier hs-type">UpdateKeyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261441"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateKeyDescription
-</span><a href="#local-6989586621679261442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:UpdateKeyDescription' :: Text
+</span><a href="#local-6989586621679261678"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261678"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261677"><span class="annot"><span class="annottext">s :: UpdateKeyDescription
+</span><a href="#local-6989586621679261677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription%27"><span class="hs-identifier hs-type">UpdateKeyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261676"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateKeyDescription
+</span><a href="#local-6989586621679261677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:UpdateKeyDescription' :: Text
 </span><a href="Network.AWS.KMS.UpdateKeyDescription.html#%24sel%3AkeyId%3AUpdateKeyDescription%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-type">UpdateKeyDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-type">UpdateKeyDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | New description for the KMS key.</span><span>
 </span><span id="line-138"></span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#updateKeyDescription_description"><span class="hs-identifier hs-type">updateKeyDescription_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-type">UpdateKeyDescription</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -218,27 +218,27 @@ $sel:keyId:UpdateKeyDescription' :: UpdateKeyDescription -&gt; Text
 -&gt; (UpdateKeyDescription -&gt; Text -&gt; UpdateKeyDescription)
 -&gt; Lens UpdateKeyDescription UpdateKeyDescription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription%27"><span class="hs-identifier hs-type">UpdateKeyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261440"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription%27"><span class="hs-identifier hs-type">UpdateKeyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261675"><span class="annot"><span class="annottext">Text
 description :: Text
 $sel:description:UpdateKeyDescription' :: UpdateKeyDescription -&gt; Text
-</span><a href="#local-6989586621679261440"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261440"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261439"><span class="annot"><span class="annottext">s :: UpdateKeyDescription
-</span><a href="#local-6989586621679261439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription%27"><span class="hs-identifier hs-type">UpdateKeyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261438"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateKeyDescription
-</span><a href="#local-6989586621679261439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateKeyDescription' :: Text
+</span><a href="#local-6989586621679261675"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261675"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261674"><span class="annot"><span class="annottext">s :: UpdateKeyDescription
+</span><a href="#local-6989586621679261674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription%27"><span class="hs-identifier hs-type">UpdateKeyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261673"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679261673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateKeyDescription
+</span><a href="#local-6989586621679261674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateKeyDescription' :: Text
 </span><a href="Network.AWS.KMS.UpdateKeyDescription.html#%24sel%3Adescription%3AUpdateKeyDescription%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-type">UpdateKeyDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-type">UpdateKeyDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-type">UpdateKeyDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-143"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-type">UpdateKeyDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescriptionResponse"><span class="hs-identifier hs-type">UpdateKeyDescriptionResponse</span></a></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679261434"><span class="annot"><span class="annottext">request :: UpdateKeyDescription -&gt; Request UpdateKeyDescription
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679261669"><span class="annot"><span class="annottext">request :: UpdateKeyDescription -&gt; Request UpdateKeyDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateKeyDescription -&gt; Request UpdateKeyDescription
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679261430"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679261665"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateKeyDescription
 -&gt; ClientResponse ClientBody
@@ -264,12 +264,12 @@ AWSResponse a
 UpdateKeyDescriptionResponse
 </span><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescriptionResponse%27"><span class="hs-identifier hs-var">UpdateKeyDescriptionResponse'</span></a></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261423"><span id="local-6989586621679261425"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-type">UpdateKeyDescription</span></a></span></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261658"><span id="local-6989586621679261660"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-type">UpdateKeyDescription</span></a></span></span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261420"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-type">UpdateKeyDescription</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261655"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-type">UpdateKeyDescription</span></a></span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-type">UpdateKeyDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679261416"><span class="annot"><span class="annottext">toHeaders :: UpdateKeyDescription -&gt; [Header]
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679261651"><span class="annot"><span class="annottext">toHeaders :: UpdateKeyDescription -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateKeyDescription -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -296,14 +296,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261406"><span id="local-6989586621679261408"><span id="local-6989586621679261410"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-type">UpdateKeyDescription</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679261404"><span class="annot"><span class="annottext">toJSON :: UpdateKeyDescription -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription%27"><span class="hs-identifier hs-type">UpdateKeyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261401"><span id="local-6989586621679261402"><span class="annot"><span class="annottext">Text
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261641"><span id="local-6989586621679261643"><span id="local-6989586621679261645"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-type">UpdateKeyDescription</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679261639"><span class="annot"><span class="annottext">toJSON :: UpdateKeyDescription -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription%27"><span class="hs-identifier hs-type">UpdateKeyDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261636"><span id="local-6989586621679261637"><span class="annot"><span class="annottext">Text
 description :: Text
 keyId :: Text
 $sel:description:UpdateKeyDescription' :: UpdateKeyDescription -&gt; Text
 $sel:keyId:UpdateKeyDescription' :: UpdateKeyDescription -&gt; Text
-</span><a href="#local-6989586621679261401"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679261636"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -315,26 +315,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261402"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679261637"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261401"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261636"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-type">UpdateKeyDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679261395"><span class="annot"><span class="annottext">toPath :: UpdateKeyDescription -&gt; ByteString
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679261630"><span class="annot"><span class="annottext">toPath :: UpdateKeyDescription -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateKeyDescription -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescription"><span class="hs-identifier hs-type">UpdateKeyDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679261391"><span class="annot"><span class="annottext">toQuery :: UpdateKeyDescription -&gt; QueryString
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679261626"><span class="annot"><span class="annottext">toQuery :: UpdateKeyDescription -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateKeyDescription -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -342,10 +342,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newUpdateKeyDescriptionResponse' smart constructor.</span><span>
-</span><span id="line-184"></span><span id="local-6989586621679261388"><span id="local-6989586621679261389"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateKeyDescriptionResponse"><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescriptionResponse"><span class="hs-identifier hs-var">UpdateKeyDescriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateKeyDescriptionResponse%27"><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescriptionResponse%27"><span class="hs-identifier hs-var">UpdateKeyDescriptionResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span id="local-6989586621679261623"><span id="local-6989586621679261624"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateKeyDescriptionResponse"><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescriptionResponse"><span class="hs-identifier hs-var">UpdateKeyDescriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateKeyDescriptionResponse%27"><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescriptionResponse%27"><span class="hs-identifier hs-var">UpdateKeyDescriptionResponse'</span></a></span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261384"><span id="local-6989586621679261386"><span class="annot"><span class="annottext">UpdateKeyDescriptionResponse
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261619"><span id="local-6989586621679261621"><span class="annot"><span class="annottext">UpdateKeyDescriptionResponse
 -&gt; UpdateKeyDescriptionResponse -&gt; Bool
 (UpdateKeyDescriptionResponse
  -&gt; UpdateKeyDescriptionResponse -&gt; Bool)
@@ -361,7 +361,7 @@ $c/= :: UpdateKeyDescriptionResponse
 -&gt; UpdateKeyDescriptionResponse -&gt; Bool
 $c== :: UpdateKeyDescriptionResponse
 -&gt; UpdateKeyDescriptionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261376"><span id="local-6989586621679261378"><span id="local-6989586621679261380"><span id="local-6989586621679261382"><span class="annot"><span class="annottext">ReadPrec [UpdateKeyDescriptionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261611"><span id="local-6989586621679261613"><span id="local-6989586621679261615"><span id="local-6989586621679261617"><span class="annot"><span class="annottext">ReadPrec [UpdateKeyDescriptionResponse]
 ReadPrec UpdateKeyDescriptionResponse
 Int -&gt; ReadS UpdateKeyDescriptionResponse
 ReadS [UpdateKeyDescriptionResponse]
@@ -381,7 +381,7 @@ readList :: ReadS [UpdateKeyDescriptionResponse]
 $creadList :: ReadS [UpdateKeyDescriptionResponse]
 readsPrec :: Int -&gt; ReadS UpdateKeyDescriptionResponse
 $creadsPrec :: Int -&gt; ReadS UpdateKeyDescriptionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261370"><span id="local-6989586621679261372"><span id="local-6989586621679261374"><span class="annot"><span class="annottext">Int -&gt; UpdateKeyDescriptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261605"><span id="local-6989586621679261607"><span id="local-6989586621679261609"><span class="annot"><span class="annottext">Int -&gt; UpdateKeyDescriptionResponse -&gt; ShowS
 [UpdateKeyDescriptionResponse] -&gt; ShowS
 UpdateKeyDescriptionResponse -&gt; String
 (Int -&gt; UpdateKeyDescriptionResponse -&gt; ShowS)
@@ -424,5 +424,5 @@ UpdateKeyDescriptionResponse -&gt; Rep UpdateKeyDescriptionResponse x
 </span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">UpdateKeyDescriptionResponse
 </span><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescriptionResponse%27"><span class="hs-identifier hs-var">UpdateKeyDescriptionResponse'</span></a></span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261366"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescriptionResponse"><span class="hs-identifier hs-type">UpdateKeyDescriptionResponse</span></a></span></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261601"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.UpdateKeyDescription.html#UpdateKeyDescriptionResponse"><span class="hs-identifier hs-type">UpdateKeyDescriptionResponse</span></a></span></span><span>
 </span><span id="line-199"></span></pre></body></html>

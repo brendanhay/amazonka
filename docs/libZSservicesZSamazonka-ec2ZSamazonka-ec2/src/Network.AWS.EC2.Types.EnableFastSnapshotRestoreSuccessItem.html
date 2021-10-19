@@ -28,51 +28,51 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes fast snapshot restores that were successfully enabled.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEnableFastSnapshotRestoreSuccessItem' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681072177"><span id="local-6989586621681072178"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableFastSnapshotRestoreSuccessItem"><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-var">EnableFastSnapshotRestoreSuccessItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">EnableFastSnapshotRestoreSuccessItem'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services owner alias that enabled fast snapshot restores</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- on the snapshot. This is intended for future use.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AownerAlias%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AownerAlias%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">ownerAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The reason for the state transition. The possible values are as follows:</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   @Client.UserInitiated@ - The state successfully transitioned to</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">--     @enabling@ or @disabling@.</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   @Client.UserInitiated - Lifecycle state transition@ - The state</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">--     successfully transitioned to @optimizing@, @enabled@, or @disabled@.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AstateTransitionReason%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AstateTransitionReason%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">stateTransitionReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that enabled fast snapshot</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- restores on the snapshot.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AownerId%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AownerId%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @optimizing@ state.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AoptimizingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AoptimizingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">optimizingTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The Availability Zone.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AavailabilityZone%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AavailabilityZone%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The state of fast snapshot restores.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3Astate%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
+</span><span id="line-31"></span><span id="local-6989586621681106204"><span id="local-6989586621681106205"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableFastSnapshotRestoreSuccessItem"><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-var">EnableFastSnapshotRestoreSuccessItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">EnableFastSnapshotRestoreSuccessItem'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @disabling@ state.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AdisablingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AdisablingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">disablingTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The state of fast snapshot restores.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astate%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
 -&gt; Maybe FastSnapshotRestoreStateCode
 </span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3Astate%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FastSnapshotRestoreStateCode.html#FastSnapshotRestoreStateCode"><span class="hs-identifier hs-type">FastSnapshotRestoreStateCode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @disabling@ state.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdisablingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AdisablingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">disablingTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The ID of the snapshot.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AsnapshotId%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AsnapshotId%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @enabling@ state.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3AenablingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AenablingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">enablingTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @enabled@ state.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AenabledTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services owner alias that enabled fast snapshot restores</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- on the snapshot. This is intended for future use.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AownerAlias%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AownerAlias%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">ownerAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @disabled@ state.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdisabledTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AdisabledTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">disabledTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @enabled@ state.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AenabledTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AenabledTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">enabledTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @disabled@ state.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AdisabledTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AdisabledTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">disabledTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @optimizing@ state.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AoptimizingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AoptimizingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">optimizingTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that enabled fast snapshot</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- restores on the snapshot.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AownerId%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AownerId%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The reason for the state transition. The possible values are as follows:</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   @Client.UserInitiated@ - The state successfully transitioned to</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     @enabling@ or @disabling@.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   @Client.UserInitiated - Lifecycle state transition@ - The state</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     successfully transitioned to @optimizing@, @enabled@, or @disabled@.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AstateTransitionReason%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AstateTransitionReason%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">stateTransitionReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The Availability Zone.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AavailabilityZone%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AavailabilityZone%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ID of the snapshot.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AsnapshotId%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AsnapshotId%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @enabling@ state.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AenablingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AenablingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var hs-var">enablingTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681072161"><span id="local-6989586621681072163"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681106188"><span id="local-6989586621681106190"><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
 -&gt; EnableFastSnapshotRestoreSuccessItem -&gt; Bool
 (EnableFastSnapshotRestoreSuccessItem
  -&gt; EnableFastSnapshotRestoreSuccessItem -&gt; Bool)
@@ -88,7 +88,7 @@ $c/= :: EnableFastSnapshotRestoreSuccessItem
 -&gt; EnableFastSnapshotRestoreSuccessItem -&gt; Bool
 $c== :: EnableFastSnapshotRestoreSuccessItem
 -&gt; EnableFastSnapshotRestoreSuccessItem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681072152"><span id="local-6989586621681072154"><span id="local-6989586621681072156"><span id="local-6989586621681072158"><span class="annot"><span class="annottext">ReadPrec [EnableFastSnapshotRestoreSuccessItem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681106179"><span id="local-6989586621681106181"><span id="local-6989586621681106183"><span id="local-6989586621681106185"><span class="annot"><span class="annottext">ReadPrec [EnableFastSnapshotRestoreSuccessItem]
 ReadPrec EnableFastSnapshotRestoreSuccessItem
 Int -&gt; ReadS EnableFastSnapshotRestoreSuccessItem
 ReadS [EnableFastSnapshotRestoreSuccessItem]
@@ -108,7 +108,7 @@ readList :: ReadS [EnableFastSnapshotRestoreSuccessItem]
 $creadList :: ReadS [EnableFastSnapshotRestoreSuccessItem]
 readsPrec :: Int -&gt; ReadS EnableFastSnapshotRestoreSuccessItem
 $creadsPrec :: Int -&gt; ReadS EnableFastSnapshotRestoreSuccessItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681072145"><span id="local-6989586621681072147"><span id="local-6989586621681072149"><span class="annot"><span class="annottext">Int -&gt; EnableFastSnapshotRestoreSuccessItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681106172"><span id="local-6989586621681106174"><span id="local-6989586621681106176"><span class="annot"><span class="annottext">Int -&gt; EnableFastSnapshotRestoreSuccessItem -&gt; ShowS
 [EnableFastSnapshotRestoreSuccessItem] -&gt; ShowS
 EnableFastSnapshotRestoreSuccessItem -&gt; String
 (Int -&gt; EnableFastSnapshotRestoreSuccessItem -&gt; ShowS)
@@ -154,189 +154,106 @@ EnableFastSnapshotRestoreSuccessItem
 </span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'ownerAlias', 'enableFastSnapshotRestoreSuccessItem_ownerAlias' - The Amazon Web Services owner alias that enabled fast snapshot restores</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- on the snapshot. This is intended for future use.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'stateTransitionReason', 'enableFastSnapshotRestoreSuccessItem_stateTransitionReason' - The reason for the state transition. The possible values are as follows:</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- -   @Client.UserInitiated@ - The state successfully transitioned to</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--     @enabling@ or @disabling@.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- -   @Client.UserInitiated - Lifecycle state transition@ - The state</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--     successfully transitioned to @optimizing@, @enabled@, or @disabled@.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'disablingTime', 'enableFastSnapshotRestoreSuccessItem_disablingTime' - The time at which fast snapshot restores entered the @disabling@ state.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'state', 'enableFastSnapshotRestoreSuccessItem_state' - The state of fast snapshot restores.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'ownerAlias', 'enableFastSnapshotRestoreSuccessItem_ownerAlias' - The Amazon Web Services owner alias that enabled fast snapshot restores</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- on the snapshot. This is intended for future use.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'disabledTime', 'enableFastSnapshotRestoreSuccessItem_disabledTime' - The time at which fast snapshot restores entered the @disabled@ state.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'enabledTime', 'enableFastSnapshotRestoreSuccessItem_enabledTime' - The time at which fast snapshot restores entered the @enabled@ state.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'ownerId', 'enableFastSnapshotRestoreSuccessItem_ownerId' - The ID of the Amazon Web Services account that enabled fast snapshot</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- restores on the snapshot.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'optimizingTime', 'enableFastSnapshotRestoreSuccessItem_optimizingTime' - The time at which fast snapshot restores entered the @optimizing@ state.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'optimizingTime', 'enableFastSnapshotRestoreSuccessItem_optimizingTime' - The time at which fast snapshot restores entered the @optimizing@ state.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'ownerId', 'enableFastSnapshotRestoreSuccessItem_ownerId' - The ID of the Amazon Web Services account that enabled fast snapshot</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- restores on the snapshot.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'availabilityZone', 'enableFastSnapshotRestoreSuccessItem_availabilityZone' - The Availability Zone.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'stateTransitionReason', 'enableFastSnapshotRestoreSuccessItem_stateTransitionReason' - The reason for the state transition. The possible values are as follows:</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'state', 'enableFastSnapshotRestoreSuccessItem_state' - The state of fast snapshot restores.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'disablingTime', 'enableFastSnapshotRestoreSuccessItem_disablingTime' - The time at which fast snapshot restores entered the @disabling@ state.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'snapshotId', 'enableFastSnapshotRestoreSuccessItem_snapshotId' - The ID of the snapshot.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- -   @Client.UserInitiated@ - The state successfully transitioned to</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--     @enabling@ or @disabling@.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   @Client.UserInitiated - Lifecycle state transition@ - The state</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--     successfully transitioned to @optimizing@, @enabled@, or @disabled@.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'enablingTime', 'enableFastSnapshotRestoreSuccessItem_enablingTime' - The time at which fast snapshot restores entered the @enabling@ state.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'availabilityZone', 'enableFastSnapshotRestoreSuccessItem_availabilityZone' - The Availability Zone.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'enabledTime', 'enableFastSnapshotRestoreSuccessItem_enabledTime' - The time at which fast snapshot restores entered the @enabled@ state.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'snapshotId', 'enableFastSnapshotRestoreSuccessItem_snapshotId' - The ID of the snapshot.</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'disabledTime', 'enableFastSnapshotRestoreSuccessItem_disabledTime' - The time at which fast snapshot restores entered the @disabled@ state.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'enablingTime', 'enableFastSnapshotRestoreSuccessItem_enablingTime' - The time at which fast snapshot restores entered the @enabling@ state.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#newEnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">newEnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span>
 </span><span id="line-104"></span><span id="newEnableFastSnapshotRestoreSuccessItem"><span class="annot"><span class="annottext">newEnableFastSnapshotRestoreSuccessItem :: EnableFastSnapshotRestoreSuccessItem
 </span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#newEnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-var hs-var">newEnableFastSnapshotRestoreSuccessItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe ISO8601
--&gt; Maybe Text
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
 -&gt; Maybe FastSnapshotRestoreStateCode
--&gt; Maybe ISO8601
 -&gt; Maybe Text
 -&gt; Maybe ISO8601
 -&gt; Maybe ISO8601
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe ISO8601
 -&gt; EnableFastSnapshotRestoreSuccessItem
 </span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ownerAlias:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AownerAlias%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">ownerAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:disablingTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AdisablingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">disablingTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateTransitionReason:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AstateTransitionReason%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">stateTransitionReason</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerId:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AownerId%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:optimizingTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AoptimizingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">optimizingTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZone:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AavailabilityZone%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:EnableFastSnapshotRestoreSuccessItem' :: Maybe FastSnapshotRestoreStateCode
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:EnableFastSnapshotRestoreSuccessItem' :: Maybe FastSnapshotRestoreStateCode
 </span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3Astate%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FastSnapshotRestoreStateCode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:disablingTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AdisablingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">disablingTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerAlias:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AownerAlias%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">ownerAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:snapshotId:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AsnapshotId%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:disabledTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AdisabledTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">disabledTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:enablingTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AenablingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">enablingTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabledTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabledTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AenabledTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">enabledTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:disabledTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AdisabledTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">disabledTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:optimizingTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AoptimizingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">optimizingTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerId:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AownerId%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateTransitionReason:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AstateTransitionReason%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">stateTransitionReason</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZone:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AavailabilityZone%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:snapshotId:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AsnapshotId%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:enablingTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AenablingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">enablingTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- | The Amazon Web Services owner alias that enabled fast snapshot restores</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- on the snapshot. This is intended for future use.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_ownerAlias"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_ownerAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="enableFastSnapshotRestoreSuccessItem_ownerAlias"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_ownerAlias :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-121"></span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @disabling@ state.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_disablingTime"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_disablingTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="enableFastSnapshotRestoreSuccessItem_disablingTime"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_disablingTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; EnableFastSnapshotRestoreSuccessItem
 -&gt; f EnableFastSnapshotRestoreSuccessItem
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_ownerAlias"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_ownerAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text)
--&gt; (EnableFastSnapshotRestoreSuccessItem
-    -&gt; Maybe Text -&gt; EnableFastSnapshotRestoreSuccessItem)
--&gt; Lens
-     EnableFastSnapshotRestoreSuccessItem
-     EnableFastSnapshotRestoreSuccessItem
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681072136"><span class="annot"><span class="annottext">Maybe Text
-ownerAlias :: Maybe Text
-$sel:ownerAlias:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
-</span><a href="#local-6989586621681072136"><span class="hs-identifier hs-var hs-var">ownerAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072136"><span class="hs-identifier hs-var">ownerAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681072135"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681072134"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerAlias:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AownerAlias%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">ownerAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The reason for the state transition. The possible values are as follows:</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- -   @Client.UserInitiated@ - The state successfully transitioned to</span><span>
-</span><span id="line-129"></span><span class="hs-comment">--     @enabling@ or @disabling@.</span><span>
-</span><span id="line-130"></span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- -   @Client.UserInitiated - Lifecycle state transition@ - The state</span><span>
-</span><span id="line-132"></span><span class="hs-comment">--     successfully transitioned to @optimizing@, @enabled@, or @disabled@.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_stateTransitionReason"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_stateTransitionReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="enableFastSnapshotRestoreSuccessItem_stateTransitionReason"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_stateTransitionReason :: (Maybe Text -&gt; f (Maybe Text))
--&gt; EnableFastSnapshotRestoreSuccessItem
--&gt; f EnableFastSnapshotRestoreSuccessItem
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_stateTransitionReason"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_stateTransitionReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text)
--&gt; (EnableFastSnapshotRestoreSuccessItem
-    -&gt; Maybe Text -&gt; EnableFastSnapshotRestoreSuccessItem)
--&gt; Lens
-     EnableFastSnapshotRestoreSuccessItem
-     EnableFastSnapshotRestoreSuccessItem
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681072132"><span class="annot"><span class="annottext">Maybe Text
-stateTransitionReason :: Maybe Text
-$sel:stateTransitionReason:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
-</span><a href="#local-6989586621681072132"><span class="hs-identifier hs-var hs-var">stateTransitionReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072132"><span class="hs-identifier hs-var">stateTransitionReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681072131"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681072130"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateTransitionReason:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AstateTransitionReason%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">stateTransitionReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that enabled fast snapshot</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- restores on the snapshot.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_ownerId"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="enableFastSnapshotRestoreSuccessItem_ownerId"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_ownerId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; EnableFastSnapshotRestoreSuccessItem
--&gt; f EnableFastSnapshotRestoreSuccessItem
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_ownerId"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text)
--&gt; (EnableFastSnapshotRestoreSuccessItem
-    -&gt; Maybe Text -&gt; EnableFastSnapshotRestoreSuccessItem)
--&gt; Lens
-     EnableFastSnapshotRestoreSuccessItem
-     EnableFastSnapshotRestoreSuccessItem
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681072128"><span class="annot"><span class="annottext">Maybe Text
-ownerId :: Maybe Text
-$sel:ownerId:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
-</span><a href="#local-6989586621681072128"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072128"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681072127"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681072126"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AownerId%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @optimizing@ state.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_optimizingTime"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_optimizingTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="enableFastSnapshotRestoreSuccessItem_optimizingTime"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_optimizingTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; EnableFastSnapshotRestoreSuccessItem
--&gt; f EnableFastSnapshotRestoreSuccessItem
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_optimizingTime"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_optimizingTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601)
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_disablingTime"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_disablingTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601)
 -&gt; (EnableFastSnapshotRestoreSuccessItem
     -&gt; Maybe ISO8601 -&gt; EnableFastSnapshotRestoreSuccessItem)
 -&gt; Lens
@@ -345,16 +262,16 @@ $sel:ownerId:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreS
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681072124"><span class="annot"><span class="annottext">Maybe ISO8601
-optimizingTime :: Maybe ISO8601
-$sel:optimizingTime:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681072124"><span class="hs-identifier hs-var hs-var">optimizingTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681072124"><span class="hs-identifier hs-var">optimizingTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681072123"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681072122"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681072122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optimizingTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AoptimizingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">optimizingTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681072122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106163"><span class="annot"><span class="annottext">Maybe ISO8601
+disablingTime :: Maybe ISO8601
+$sel:disablingTime:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681106163"><span class="hs-identifier hs-var hs-var">disablingTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681106163"><span class="hs-identifier hs-var">disablingTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106162"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106161"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681106161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disablingTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AdisablingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">disablingTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681106161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; EnableFastSnapshotRestoreSuccessItem
  -&gt; f EnableFastSnapshotRestoreSuccessItem)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -372,35 +289,10 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- | The Availability Zone.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_availabilityZone"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="enableFastSnapshotRestoreSuccessItem_availabilityZone"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_availabilityZone :: (Maybe Text -&gt; f (Maybe Text))
--&gt; EnableFastSnapshotRestoreSuccessItem
--&gt; f EnableFastSnapshotRestoreSuccessItem
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_availabilityZone"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text)
--&gt; (EnableFastSnapshotRestoreSuccessItem
-    -&gt; Maybe Text -&gt; EnableFastSnapshotRestoreSuccessItem)
--&gt; Lens
-     EnableFastSnapshotRestoreSuccessItem
-     EnableFastSnapshotRestoreSuccessItem
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681072117"><span class="annot"><span class="annottext">Maybe Text
-availabilityZone :: Maybe Text
-$sel:availabilityZone:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
-</span><a href="#local-6989586621681072117"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072117"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681072116"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681072115"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AavailabilityZone%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- | The state of fast snapshot restores.</span><span>
-</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_state"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FastSnapshotRestoreStateCode.html#FastSnapshotRestoreStateCode"><span class="hs-identifier hs-type">FastSnapshotRestoreStateCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span id="enableFastSnapshotRestoreSuccessItem_state"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_state :: (Maybe FastSnapshotRestoreStateCode
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The state of fast snapshot restores.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_state"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FastSnapshotRestoreStateCode.html#FastSnapshotRestoreStateCode"><span class="hs-identifier hs-type">FastSnapshotRestoreStateCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="enableFastSnapshotRestoreSuccessItem_state"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_state :: (Maybe FastSnapshotRestoreStateCode
  -&gt; f (Maybe FastSnapshotRestoreStateCode))
 -&gt; EnableFastSnapshotRestoreSuccessItem
 -&gt; f EnableFastSnapshotRestoreSuccessItem
@@ -415,66 +307,25 @@ $sel:availabilityZone:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapsho
      (Maybe FastSnapshotRestoreStateCode)
      (Maybe FastSnapshotRestoreStateCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681072113"><span class="annot"><span class="annottext">Maybe FastSnapshotRestoreStateCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106156"><span class="annot"><span class="annottext">Maybe FastSnapshotRestoreStateCode
 state :: Maybe FastSnapshotRestoreStateCode
 $sel:state:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem
 -&gt; Maybe FastSnapshotRestoreStateCode
-</span><a href="#local-6989586621681072113"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FastSnapshotRestoreStateCode
-</span><a href="#local-6989586621681072113"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681072112"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681072111"><span class="annot"><span class="annottext">Maybe FastSnapshotRestoreStateCode
-</span><a href="#local-6989586621681072111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:EnableFastSnapshotRestoreSuccessItem' :: Maybe FastSnapshotRestoreStateCode
+</span><a href="#local-6989586621681106156"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FastSnapshotRestoreStateCode
+</span><a href="#local-6989586621681106156"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106155"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106154"><span class="annot"><span class="annottext">Maybe FastSnapshotRestoreStateCode
+</span><a href="#local-6989586621681106154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:EnableFastSnapshotRestoreSuccessItem' :: Maybe FastSnapshotRestoreStateCode
 </span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3Astate%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FastSnapshotRestoreStateCode
-</span><a href="#local-6989586621681072111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @disabling@ state.</span><span>
-</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_disablingTime"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_disablingTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span id="enableFastSnapshotRestoreSuccessItem_disablingTime"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_disablingTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621681106154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The Amazon Web Services owner alias that enabled fast snapshot restores</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- on the snapshot. This is intended for future use.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_ownerAlias"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_ownerAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="enableFastSnapshotRestoreSuccessItem_ownerAlias"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_ownerAlias :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; EnableFastSnapshotRestoreSuccessItem
 -&gt; f EnableFastSnapshotRestoreSuccessItem
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_disablingTime"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_disablingTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601)
--&gt; (EnableFastSnapshotRestoreSuccessItem
-    -&gt; Maybe ISO8601 -&gt; EnableFastSnapshotRestoreSuccessItem)
--&gt; Lens
-     EnableFastSnapshotRestoreSuccessItem
-     EnableFastSnapshotRestoreSuccessItem
-     (Maybe ISO8601)
-     (Maybe ISO8601)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681072109"><span class="annot"><span class="annottext">Maybe ISO8601
-disablingTime :: Maybe ISO8601
-$sel:disablingTime:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681072109"><span class="hs-identifier hs-var hs-var">disablingTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681072109"><span class="hs-identifier hs-var">disablingTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681072108"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681072107"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681072107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disablingTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AdisablingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">disablingTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681072107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
- -&gt; EnableFastSnapshotRestoreSuccessItem
- -&gt; f EnableFastSnapshotRestoreSuccessItem)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; EnableFastSnapshotRestoreSuccessItem
--&gt; f EnableFastSnapshotRestoreSuccessItem
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
--&gt; Iso
-     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- | The ID of the snapshot.</span><span>
-</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_snapshotId"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_snapshotId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span id="enableFastSnapshotRestoreSuccessItem_snapshotId"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_snapshotId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; EnableFastSnapshotRestoreSuccessItem
--&gt; f EnableFastSnapshotRestoreSuccessItem
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_snapshotId"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_snapshotId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text)
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_ownerAlias"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_ownerAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text)
 -&gt; (EnableFastSnapshotRestoreSuccessItem
     -&gt; Maybe Text -&gt; EnableFastSnapshotRestoreSuccessItem)
 -&gt; Lens
@@ -483,104 +334,20 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681072105"><span class="annot"><span class="annottext">Maybe Text
-snapshotId :: Maybe Text
-$sel:snapshotId:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
-</span><a href="#local-6989586621681072105"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072105"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681072104"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681072103"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotId:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AsnapshotId%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681072103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @enabling@ state.</span><span>
-</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_enablingTime"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_enablingTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span id="enableFastSnapshotRestoreSuccessItem_enablingTime"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_enablingTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; EnableFastSnapshotRestoreSuccessItem
--&gt; f EnableFastSnapshotRestoreSuccessItem
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_enablingTime"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_enablingTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601)
--&gt; (EnableFastSnapshotRestoreSuccessItem
-    -&gt; Maybe ISO8601 -&gt; EnableFastSnapshotRestoreSuccessItem)
--&gt; Lens
-     EnableFastSnapshotRestoreSuccessItem
-     EnableFastSnapshotRestoreSuccessItem
-     (Maybe ISO8601)
-     (Maybe ISO8601)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681072101"><span class="annot"><span class="annottext">Maybe ISO8601
-enablingTime :: Maybe ISO8601
-$sel:enablingTime:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681072101"><span class="hs-identifier hs-var hs-var">enablingTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681072101"><span class="hs-identifier hs-var">enablingTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681072100"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681072099"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681072099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enablingTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AenablingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">enablingTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681072099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
- -&gt; EnableFastSnapshotRestoreSuccessItem
- -&gt; f EnableFastSnapshotRestoreSuccessItem)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; EnableFastSnapshotRestoreSuccessItem
--&gt; f EnableFastSnapshotRestoreSuccessItem
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
--&gt; Iso
-     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @enabled@ state.</span><span>
-</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_enabledTime"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_enabledTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span id="enableFastSnapshotRestoreSuccessItem_enabledTime"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_enabledTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; EnableFastSnapshotRestoreSuccessItem
--&gt; f EnableFastSnapshotRestoreSuccessItem
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_enabledTime"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_enabledTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601)
--&gt; (EnableFastSnapshotRestoreSuccessItem
-    -&gt; Maybe ISO8601 -&gt; EnableFastSnapshotRestoreSuccessItem)
--&gt; Lens
-     EnableFastSnapshotRestoreSuccessItem
-     EnableFastSnapshotRestoreSuccessItem
-     (Maybe ISO8601)
-     (Maybe ISO8601)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681072097"><span class="annot"><span class="annottext">Maybe ISO8601
-enabledTime :: Maybe ISO8601
-$sel:enabledTime:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681072097"><span class="hs-identifier hs-var hs-var">enabledTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681072097"><span class="hs-identifier hs-var">enabledTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681072096"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681072095"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681072095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabledTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AenabledTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">enabledTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681072095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
- -&gt; EnableFastSnapshotRestoreSuccessItem
- -&gt; f EnableFastSnapshotRestoreSuccessItem)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; EnableFastSnapshotRestoreSuccessItem
--&gt; f EnableFastSnapshotRestoreSuccessItem
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
--&gt; Iso
-     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @disabled@ state.</span><span>
-</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_disabledTime"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_disabledTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span id="enableFastSnapshotRestoreSuccessItem_disabledTime"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_disabledTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106152"><span class="annot"><span class="annottext">Maybe Text
+ownerAlias :: Maybe Text
+$sel:ownerAlias:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
+</span><a href="#local-6989586621681106152"><span class="hs-identifier hs-var hs-var">ownerAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106152"><span class="hs-identifier hs-var">ownerAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106151"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106150"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerAlias:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AownerAlias%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">ownerAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @disabled@ state.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_disabledTime"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_disabledTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="enableFastSnapshotRestoreSuccessItem_disabledTime"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_disabledTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; EnableFastSnapshotRestoreSuccessItem
 -&gt; f EnableFastSnapshotRestoreSuccessItem
 </span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_disabledTime"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_disabledTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601)
@@ -592,16 +359,249 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681072093"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106148"><span class="annot"><span class="annottext">Maybe ISO8601
 disabledTime :: Maybe ISO8601
 $sel:disabledTime:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681072093"><span class="hs-identifier hs-var hs-var">disabledTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681072093"><span class="hs-identifier hs-var">disabledTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681072092"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681072091"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681072091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
-</span><a href="#local-6989586621681072092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disabledTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
+</span><a href="#local-6989586621681106148"><span class="hs-identifier hs-var hs-var">disabledTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681106148"><span class="hs-identifier hs-var">disabledTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106147"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106146"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681106146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:disabledTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AdisabledTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">disabledTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681072091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621681106146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; EnableFastSnapshotRestoreSuccessItem
+ -&gt; f EnableFastSnapshotRestoreSuccessItem)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; EnableFastSnapshotRestoreSuccessItem
+-&gt; f EnableFastSnapshotRestoreSuccessItem
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @enabled@ state.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_enabledTime"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_enabledTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="enableFastSnapshotRestoreSuccessItem_enabledTime"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_enabledTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; EnableFastSnapshotRestoreSuccessItem
+-&gt; f EnableFastSnapshotRestoreSuccessItem
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_enabledTime"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_enabledTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601)
+-&gt; (EnableFastSnapshotRestoreSuccessItem
+    -&gt; Maybe ISO8601 -&gt; EnableFastSnapshotRestoreSuccessItem)
+-&gt; Lens
+     EnableFastSnapshotRestoreSuccessItem
+     EnableFastSnapshotRestoreSuccessItem
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106144"><span class="annot"><span class="annottext">Maybe ISO8601
+enabledTime :: Maybe ISO8601
+$sel:enabledTime:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681106144"><span class="hs-identifier hs-var hs-var">enabledTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681106144"><span class="hs-identifier hs-var">enabledTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106143"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106142"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681106142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabledTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AenabledTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">enabledTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681106142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; EnableFastSnapshotRestoreSuccessItem
+ -&gt; f EnableFastSnapshotRestoreSuccessItem)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; EnableFastSnapshotRestoreSuccessItem
+-&gt; f EnableFastSnapshotRestoreSuccessItem
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @optimizing@ state.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_optimizingTime"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_optimizingTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="enableFastSnapshotRestoreSuccessItem_optimizingTime"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_optimizingTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; EnableFastSnapshotRestoreSuccessItem
+-&gt; f EnableFastSnapshotRestoreSuccessItem
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_optimizingTime"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_optimizingTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601)
+-&gt; (EnableFastSnapshotRestoreSuccessItem
+    -&gt; Maybe ISO8601 -&gt; EnableFastSnapshotRestoreSuccessItem)
+-&gt; Lens
+     EnableFastSnapshotRestoreSuccessItem
+     EnableFastSnapshotRestoreSuccessItem
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106140"><span class="annot"><span class="annottext">Maybe ISO8601
+optimizingTime :: Maybe ISO8601
+$sel:optimizingTime:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681106140"><span class="hs-identifier hs-var hs-var">optimizingTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681106140"><span class="hs-identifier hs-var">optimizingTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106139"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106138"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681106138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optimizingTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AoptimizingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">optimizingTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681106138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; EnableFastSnapshotRestoreSuccessItem
+ -&gt; f EnableFastSnapshotRestoreSuccessItem)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; EnableFastSnapshotRestoreSuccessItem
+-&gt; f EnableFastSnapshotRestoreSuccessItem
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that enabled fast snapshot</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- restores on the snapshot.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_ownerId"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="enableFastSnapshotRestoreSuccessItem_ownerId"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_ownerId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EnableFastSnapshotRestoreSuccessItem
+-&gt; f EnableFastSnapshotRestoreSuccessItem
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_ownerId"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text)
+-&gt; (EnableFastSnapshotRestoreSuccessItem
+    -&gt; Maybe Text -&gt; EnableFastSnapshotRestoreSuccessItem)
+-&gt; Lens
+     EnableFastSnapshotRestoreSuccessItem
+     EnableFastSnapshotRestoreSuccessItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106136"><span class="annot"><span class="annottext">Maybe Text
+ownerId :: Maybe Text
+$sel:ownerId:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
+</span><a href="#local-6989586621681106136"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106136"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106135"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106134"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AownerId%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The reason for the state transition. The possible values are as follows:</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- -   @Client.UserInitiated@ - The state successfully transitioned to</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--     @enabling@ or @disabling@.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   @Client.UserInitiated - Lifecycle state transition@ - The state</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--     successfully transitioned to @optimizing@, @enabled@, or @disabled@.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_stateTransitionReason"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_stateTransitionReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="enableFastSnapshotRestoreSuccessItem_stateTransitionReason"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_stateTransitionReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EnableFastSnapshotRestoreSuccessItem
+-&gt; f EnableFastSnapshotRestoreSuccessItem
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_stateTransitionReason"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_stateTransitionReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text)
+-&gt; (EnableFastSnapshotRestoreSuccessItem
+    -&gt; Maybe Text -&gt; EnableFastSnapshotRestoreSuccessItem)
+-&gt; Lens
+     EnableFastSnapshotRestoreSuccessItem
+     EnableFastSnapshotRestoreSuccessItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106132"><span class="annot"><span class="annottext">Maybe Text
+stateTransitionReason :: Maybe Text
+$sel:stateTransitionReason:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
+</span><a href="#local-6989586621681106132"><span class="hs-identifier hs-var hs-var">stateTransitionReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106132"><span class="hs-identifier hs-var">stateTransitionReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106131"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106130"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateTransitionReason:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AstateTransitionReason%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">stateTransitionReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The Availability Zone.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_availabilityZone"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="enableFastSnapshotRestoreSuccessItem_availabilityZone"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_availabilityZone :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EnableFastSnapshotRestoreSuccessItem
+-&gt; f EnableFastSnapshotRestoreSuccessItem
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_availabilityZone"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text)
+-&gt; (EnableFastSnapshotRestoreSuccessItem
+    -&gt; Maybe Text -&gt; EnableFastSnapshotRestoreSuccessItem)
+-&gt; Lens
+     EnableFastSnapshotRestoreSuccessItem
+     EnableFastSnapshotRestoreSuccessItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106128"><span class="annot"><span class="annottext">Maybe Text
+availabilityZone :: Maybe Text
+$sel:availabilityZone:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
+</span><a href="#local-6989586621681106128"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106128"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106127"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106126"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AavailabilityZone%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The ID of the snapshot.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_snapshotId"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_snapshotId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="enableFastSnapshotRestoreSuccessItem_snapshotId"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_snapshotId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EnableFastSnapshotRestoreSuccessItem
+-&gt; f EnableFastSnapshotRestoreSuccessItem
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_snapshotId"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_snapshotId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text)
+-&gt; (EnableFastSnapshotRestoreSuccessItem
+    -&gt; Maybe Text -&gt; EnableFastSnapshotRestoreSuccessItem)
+-&gt; Lens
+     EnableFastSnapshotRestoreSuccessItem
+     EnableFastSnapshotRestoreSuccessItem
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106124"><span class="annot"><span class="annottext">Maybe Text
+snapshotId :: Maybe Text
+$sel:snapshotId:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe Text
+</span><a href="#local-6989586621681106124"><span class="hs-identifier hs-var hs-var">snapshotId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106124"><span class="hs-identifier hs-var">snapshotId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106123"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106122"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotId:EnableFastSnapshotRestoreSuccessItem' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AsnapshotId%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">snapshotId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681106122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The time at which fast snapshot restores entered the @enabling@ state.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_enablingTime"><span class="hs-identifier hs-type">enableFastSnapshotRestoreSuccessItem_enablingTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="enableFastSnapshotRestoreSuccessItem_enablingTime"><span class="annot"><span class="annottext">enableFastSnapshotRestoreSuccessItem_enablingTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; EnableFastSnapshotRestoreSuccessItem
+-&gt; f EnableFastSnapshotRestoreSuccessItem
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#enableFastSnapshotRestoreSuccessItem_enablingTime"><span class="hs-identifier hs-var hs-var">enableFastSnapshotRestoreSuccessItem_enablingTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601)
+-&gt; (EnableFastSnapshotRestoreSuccessItem
+    -&gt; Maybe ISO8601 -&gt; EnableFastSnapshotRestoreSuccessItem)
+-&gt; Lens
+     EnableFastSnapshotRestoreSuccessItem
+     EnableFastSnapshotRestoreSuccessItem
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106120"><span class="annot"><span class="annottext">Maybe ISO8601
+enablingTime :: Maybe ISO8601
+$sel:enablingTime:EnableFastSnapshotRestoreSuccessItem' :: EnableFastSnapshotRestoreSuccessItem -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681106120"><span class="hs-identifier hs-var hs-var">enablingTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681106120"><span class="hs-identifier hs-var">enablingTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106119"><span class="annot"><span class="annottext">s :: EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106118"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681106118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableFastSnapshotRestoreSuccessItem
+</span><a href="#local-6989586621681106119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enablingTime:EnableFastSnapshotRestoreSuccessItem' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#%24sel%3AenablingTime%3AEnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">enablingTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681106118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; EnableFastSnapshotRestoreSuccessItem
  -&gt; f EnableFastSnapshotRestoreSuccessItem)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -624,222 +624,97 @@ forall (a :: Format). Iso' (Time a) UTCTime
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
 </span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621681072088"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EnableFastSnapshotRestoreSuccessItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681072086"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681072086"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe ISO8601
--&gt; Maybe Text
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621681106115"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EnableFastSnapshotRestoreSuccessItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681106113"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681106113"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
 -&gt; Maybe FastSnapshotRestoreStateCode
--&gt; Maybe ISO8601
 -&gt; Maybe Text
 -&gt; Maybe ISO8601
 -&gt; Maybe ISO8601
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe ISO8601
 -&gt; EnableFastSnapshotRestoreSuccessItem
 </span><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem%27"><span class="hs-identifier hs-var">EnableFastSnapshotRestoreSuccessItem'</span></a></span><span>
-</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe ISO8601
- -&gt; Maybe Text
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601
  -&gt; Maybe FastSnapshotRestoreStateCode
- -&gt; Maybe ISO8601
  -&gt; Maybe Text
  -&gt; Maybe ISO8601
  -&gt; Maybe ISO8601
+ -&gt; Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe ISO8601
  -&gt; EnableFastSnapshotRestoreSuccessItem)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe ISO8601)
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ISO8601
-      -&gt; Maybe Text
-      -&gt; Maybe FastSnapshotRestoreStateCode
-      -&gt; Maybe ISO8601
+     (Maybe FastSnapshotRestoreStateCode
       -&gt; Maybe Text
       -&gt; Maybe ISO8601
       -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe ISO8601
       -&gt; EnableFastSnapshotRestoreSuccessItem)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681072086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681106113"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ownerAlias&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;disablingTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ISO8601
-   -&gt; Maybe Text
-   -&gt; Maybe FastSnapshotRestoreStateCode
-   -&gt; Maybe ISO8601
-   -&gt; Maybe Text
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ISO8601
-   -&gt; EnableFastSnapshotRestoreSuccessItem)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe ISO8601
-      -&gt; Maybe Text
-      -&gt; Maybe FastSnapshotRestoreStateCode
-      -&gt; Maybe ISO8601
-      -&gt; Maybe Text
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ISO8601
-      -&gt; EnableFastSnapshotRestoreSuccessItem)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681072086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;stateTransitionReason&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe ISO8601
-   -&gt; Maybe Text
-   -&gt; Maybe FastSnapshotRestoreStateCode
-   -&gt; Maybe ISO8601
-   -&gt; Maybe Text
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ISO8601
-   -&gt; EnableFastSnapshotRestoreSuccessItem)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe ISO8601
-      -&gt; Maybe Text
-      -&gt; Maybe FastSnapshotRestoreStateCode
-      -&gt; Maybe ISO8601
-      -&gt; Maybe Text
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ISO8601
-      -&gt; EnableFastSnapshotRestoreSuccessItem)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681072086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ownerId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ISO8601
-   -&gt; Maybe Text
-   -&gt; Maybe FastSnapshotRestoreStateCode
-   -&gt; Maybe ISO8601
-   -&gt; Maybe Text
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ISO8601
-   -&gt; EnableFastSnapshotRestoreSuccessItem)
--&gt; Either String (Maybe ISO8601)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe FastSnapshotRestoreStateCode
-      -&gt; Maybe ISO8601
-      -&gt; Maybe Text
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ISO8601
-      -&gt; EnableFastSnapshotRestoreSuccessItem)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681072086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;optimizingTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe FastSnapshotRestoreStateCode
-   -&gt; Maybe ISO8601
-   -&gt; Maybe Text
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ISO8601
-   -&gt; EnableFastSnapshotRestoreSuccessItem)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe FastSnapshotRestoreStateCode
-      -&gt; Maybe ISO8601
-      -&gt; Maybe Text
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ISO8601
-      -&gt; EnableFastSnapshotRestoreSuccessItem)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681072086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;availabilityZone&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
   (Maybe FastSnapshotRestoreStateCode
-   -&gt; Maybe ISO8601
    -&gt; Maybe Text
    -&gt; Maybe ISO8601
    -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe ISO8601
    -&gt; EnableFastSnapshotRestoreSuccessItem)
 -&gt; Either String (Maybe FastSnapshotRestoreStateCode)
 -&gt; Either
      String
-     (Maybe ISO8601
-      -&gt; Maybe Text
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ISO8601
-      -&gt; Maybe ISO8601
-      -&gt; EnableFastSnapshotRestoreSuccessItem)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681072086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
--&gt; Text -&gt; Either String (Maybe FastSnapshotRestoreStateCode)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ISO8601
-   -&gt; Maybe Text
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ISO8601
-   -&gt; Maybe ISO8601
-   -&gt; EnableFastSnapshotRestoreSuccessItem)
--&gt; Either String (Maybe ISO8601)
--&gt; Either
-     String
      (Maybe Text
       -&gt; Maybe ISO8601
       -&gt; Maybe ISO8601
       -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
       -&gt; EnableFastSnapshotRestoreSuccessItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681072086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621681106113"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe FastSnapshotRestoreStateCode)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;disablingTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe ISO8601
    -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe ISO8601
    -&gt; EnableFastSnapshotRestoreSuccessItem)
 -&gt; Either String (Maybe Text)
@@ -848,59 +723,184 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (Maybe ISO8601
       -&gt; Maybe ISO8601
       -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
       -&gt; EnableFastSnapshotRestoreSuccessItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681072086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681106113"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;snapshotId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;ownerAlias&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe ISO8601
    -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe ISO8601
    -&gt; EnableFastSnapshotRestoreSuccessItem)
 -&gt; Either String (Maybe ISO8601)
 -&gt; Either
      String
      (Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; EnableFastSnapshotRestoreSuccessItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681106113"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;disabledTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; EnableFastSnapshotRestoreSuccessItem)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; EnableFastSnapshotRestoreSuccessItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681106113"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;enabledTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; EnableFastSnapshotRestoreSuccessItem)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; EnableFastSnapshotRestoreSuccessItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681106113"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;optimizingTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; EnableFastSnapshotRestoreSuccessItem)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; EnableFastSnapshotRestoreSuccessItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681106113"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ownerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; EnableFastSnapshotRestoreSuccessItem)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; EnableFastSnapshotRestoreSuccessItem)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681106113"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stateTransitionReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; EnableFastSnapshotRestoreSuccessItem)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
       -&gt; Maybe ISO8601 -&gt; EnableFastSnapshotRestoreSuccessItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681072086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621681106113"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;enablingTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;availabilityZone&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe ISO8601
+  (Maybe Text
    -&gt; Maybe ISO8601 -&gt; EnableFastSnapshotRestoreSuccessItem)
--&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String (Maybe ISO8601 -&gt; EnableFastSnapshotRestoreSuccessItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681072086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621681106113"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;enabledTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;snapshotId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">Either
   String (Maybe ISO8601 -&gt; EnableFastSnapshotRestoreSuccessItem)
 -&gt; Either String (Maybe ISO8601)
 -&gt; Either String EnableFastSnapshotRestoreSuccessItem
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681072086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621681106113"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;disabledTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;enablingTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621681072080"><span id="local-6989586621681072082"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621681106107"><span id="local-6989586621681106109"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-193"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span></span></span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621681072077"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621681106104"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem.html#EnableFastSnapshotRestoreSuccessItem"><span class="hs-identifier hs-type">EnableFastSnapshotRestoreSuccessItem</span></a></span></span><span>
 </span><span id="line-198"></span></pre></body></html>

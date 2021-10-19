@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- instances.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInstanceMonitoring' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679326030"><span id="local-6989586621679326031"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceMonitoring"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring"><span class="hs-identifier hs-var">InstanceMonitoring</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceMonitoring%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring%27"><span class="hs-identifier hs-var">InstanceMonitoring'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679326682"><span id="local-6989586621679326683"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceMonitoring"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring"><span class="hs-identifier hs-var">InstanceMonitoring</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceMonitoring%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring%27"><span class="hs-identifier hs-var">InstanceMonitoring'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If @true@, detailed monitoring is enabled. Otherwise, basic monitoring</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- is enabled.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aenabled%3AInstanceMonitoring%27"><span class="annot"><span class="annottext">InstanceMonitoring -&gt; Maybe Bool
 </span><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#%24sel%3Aenabled%3AInstanceMonitoring%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326024"><span id="local-6989586621679326026"><span class="annot"><span class="annottext">InstanceMonitoring -&gt; InstanceMonitoring -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326676"><span id="local-6989586621679326678"><span class="annot"><span class="annottext">InstanceMonitoring -&gt; InstanceMonitoring -&gt; Bool
 (InstanceMonitoring -&gt; InstanceMonitoring -&gt; Bool)
 -&gt; (InstanceMonitoring -&gt; InstanceMonitoring -&gt; Bool)
 -&gt; Eq InstanceMonitoring
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceMonitoring -&gt; InstanceMonitoring -&gt; Bool
 == :: InstanceMonitoring -&gt; InstanceMonitoring -&gt; Bool
 $c== :: InstanceMonitoring -&gt; InstanceMonitoring -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326015"><span id="local-6989586621679326017"><span id="local-6989586621679326019"><span id="local-6989586621679326021"><span class="annot"><span class="annottext">ReadPrec [InstanceMonitoring]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326667"><span id="local-6989586621679326669"><span id="local-6989586621679326671"><span id="local-6989586621679326673"><span class="annot"><span class="annottext">ReadPrec [InstanceMonitoring]
 ReadPrec InstanceMonitoring
 Int -&gt; ReadS InstanceMonitoring
 ReadS [InstanceMonitoring]
@@ -62,7 +62,7 @@ readList :: ReadS [InstanceMonitoring]
 $creadList :: ReadS [InstanceMonitoring]
 readsPrec :: Int -&gt; ReadS InstanceMonitoring
 $creadsPrec :: Int -&gt; ReadS InstanceMonitoring
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326008"><span id="local-6989586621679326010"><span id="local-6989586621679326012"><span class="annot"><span class="annottext">Int -&gt; InstanceMonitoring -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326660"><span id="local-6989586621679326662"><span id="local-6989586621679326664"><span class="annot"><span class="annottext">Int -&gt; InstanceMonitoring -&gt; ShowS
 [InstanceMonitoring] -&gt; ShowS
 InstanceMonitoring -&gt; String
 (Int -&gt; InstanceMonitoring -&gt; ShowS)
@@ -118,47 +118,47 @@ forall a. Maybe a
 -&gt; Lens
      InstanceMonitoring InstanceMonitoring (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring%27"><span class="hs-identifier hs-type">InstanceMonitoring'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325999"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring%27"><span class="hs-identifier hs-type">InstanceMonitoring'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326651"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:InstanceMonitoring' :: InstanceMonitoring -&gt; Maybe Bool
-</span><a href="#local-6989586621679325999"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679325999"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325998"><span class="annot"><span class="annottext">s :: InstanceMonitoring
-</span><a href="#local-6989586621679325998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring%27"><span class="hs-identifier hs-type">InstanceMonitoring'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325997"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679325997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceMonitoring
-</span><a href="#local-6989586621679325998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:InstanceMonitoring' :: Maybe Bool
+</span><a href="#local-6989586621679326651"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679326651"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326650"><span class="annot"><span class="annottext">s :: InstanceMonitoring
+</span><a href="#local-6989586621679326650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring%27"><span class="hs-identifier hs-type">InstanceMonitoring'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326649"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679326649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceMonitoring
+</span><a href="#local-6989586621679326650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:InstanceMonitoring' :: Maybe Bool
 </span><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#%24sel%3Aenabled%3AInstanceMonitoring%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679325997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring"><span class="hs-identifier hs-type">InstanceMonitoring</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679326649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring"><span class="hs-identifier hs-type">InstanceMonitoring</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring"><span class="hs-identifier hs-type">InstanceMonitoring</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679325994"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceMonitoring
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679325992"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679325992"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679326646"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceMonitoring
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679326644"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679326644"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool -&gt; InstanceMonitoring
 </span><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring%27"><span class="hs-identifier hs-var">InstanceMonitoring'</span></a></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; InstanceMonitoring)
 -&gt; Either String (Maybe Bool) -&gt; Either String InstanceMonitoring
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679325992"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679326644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325986"><span id="local-6989586621679325988"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring"><span class="hs-identifier hs-type">InstanceMonitoring</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326638"><span id="local-6989586621679326640"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring"><span class="hs-identifier hs-type">InstanceMonitoring</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325983"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring"><span class="hs-identifier hs-type">InstanceMonitoring</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326635"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring"><span class="hs-identifier hs-type">InstanceMonitoring</span></a></span></span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring"><span class="hs-identifier hs-type">InstanceMonitoring</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679325979"><span class="annot"><span class="annottext">toQuery :: InstanceMonitoring -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring%27"><span class="hs-identifier hs-type">InstanceMonitoring'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325977"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679326631"><span class="annot"><span class="annottext">toQuery :: InstanceMonitoring -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceMonitoring.html#InstanceMonitoring%27"><span class="hs-identifier hs-type">InstanceMonitoring'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326629"><span class="annot"><span class="annottext">Maybe Bool
 enabled :: Maybe Bool
 $sel:enabled:InstanceMonitoring' :: InstanceMonitoring -&gt; Maybe Bool
-</span><a href="#local-6989586621679325977"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679326629"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679325977"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679326629"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-69"></span></pre></body></html>

@@ -31,8 +31,8 @@
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#newListTrafficPolicyVersions"><span class="hs-identifier">newListTrafficPolicyVersions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#listTrafficPolicyVersions_trafficPolicyVersionMarker"><span class="hs-identifier">listTrafficPolicyVersions_trafficPolicyVersionMarker</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#listTrafficPolicyVersions_maxItems"><span class="hs-identifier">listTrafficPolicyVersions_maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#listTrafficPolicyVersions_maxItems"><span class="hs-identifier">listTrafficPolicyVersions_maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#listTrafficPolicyVersions_trafficPolicyVersionMarker"><span class="hs-identifier">listTrafficPolicyVersions_trafficPolicyVersionMarker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#listTrafficPolicyVersions_id"><span class="hs-identifier">listTrafficPolicyVersions_id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -59,32 +59,32 @@
 </span><span id="line-59"></span><span class="hs-comment">-- your traffic policies.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newListTrafficPolicyVersions' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679300636"><span id="local-6989586621679300637"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTrafficPolicyVersions"><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-var">ListTrafficPolicyVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTrafficPolicyVersions%27"><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-var">ListTrafficPolicyVersions'</span></a></span></span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For your first request to @ListTrafficPolicyVersions@, don\'t include</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- the @TrafficPolicyVersionMarker@ parameter.</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- If you have more traffic policy versions than the value of @MaxItems@,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @ListTrafficPolicyVersions@ returns only the first group of @MaxItems@</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- versions. To get more traffic policy versions, submit another</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- @ListTrafficPolicyVersions@ request. For the value of</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @TrafficPolicyVersionMarker@, specify the value of</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @TrafficPolicyVersionMarker@ in the previous response.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3AtrafficPolicyVersionMarker%3AListTrafficPolicyVersions%27"><span class="annot"><span class="annottext">ListTrafficPolicyVersions -&gt; Maybe Text
-</span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AtrafficPolicyVersionMarker%3AListTrafficPolicyVersions%27"><span class="hs-identifier hs-var hs-var">trafficPolicyVersionMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The maximum number of traffic policy versions that you want Amazon Route</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- 53 to include in the response body for this request. If the specified</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- traffic policy has more than @MaxItems@ versions, the value of</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- @IsTruncated@ in the response is @true@, and the value of the</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- @TrafficPolicyVersionMarker@ element is the ID of the first version that</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- Route 53 will return if you submit another request.</span><span>
-</span><span id="line-79"></span><span>    </span><span id="%24sel%3AmaxItems%3AListTrafficPolicyVersions%27"><span class="annot"><span class="annottext">ListTrafficPolicyVersions -&gt; Maybe Text
+</span><span id="line-62"></span><span id="local-6989586621679300793"><span id="local-6989586621679300794"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTrafficPolicyVersions"><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-var">ListTrafficPolicyVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTrafficPolicyVersions%27"><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-var">ListTrafficPolicyVersions'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of traffic policy versions that you want Amazon Route</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- 53 to include in the response body for this request. If the specified</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- traffic policy has more than @MaxItems@ versions, the value of</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- @IsTruncated@ in the response is @true@, and the value of the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @TrafficPolicyVersionMarker@ element is the ID of the first version that</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Route 53 will return if you submit another request.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AmaxItems%3AListTrafficPolicyVersions%27"><span class="annot"><span class="annottext">ListTrafficPolicyVersions -&gt; Maybe Text
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AmaxItems%3AListTrafficPolicyVersions%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | For your first request to @ListTrafficPolicyVersions@, don\'t include</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- the @TrafficPolicyVersionMarker@ parameter.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- If you have more traffic policy versions than the value of @MaxItems@,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @ListTrafficPolicyVersions@ returns only the first group of @MaxItems@</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- versions. To get more traffic policy versions, submit another</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- @ListTrafficPolicyVersions@ request. For the value of</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- @TrafficPolicyVersionMarker@, specify the value of</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- @TrafficPolicyVersionMarker@ in the previous response.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AtrafficPolicyVersionMarker%3AListTrafficPolicyVersions%27"><span class="annot"><span class="annottext">ListTrafficPolicyVersions -&gt; Maybe Text
+</span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AtrafficPolicyVersionMarker%3AListTrafficPolicyVersions%27"><span class="hs-identifier hs-var hs-var">trafficPolicyVersionMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | Specify the value of @Id@ of the traffic policy for which you want to</span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-comment">-- list all versions.</span><span>
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3Aid%3AListTrafficPolicyVersions%27"><span class="annot"><span class="annottext">ListTrafficPolicyVersions -&gt; Text
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3Aid%3AListTrafficPolicyVersions%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300628"><span id="local-6989586621679300630"><span class="annot"><span class="annottext">ListTrafficPolicyVersions -&gt; ListTrafficPolicyVersions -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300785"><span id="local-6989586621679300787"><span class="annot"><span class="annottext">ListTrafficPolicyVersions -&gt; ListTrafficPolicyVersions -&gt; Bool
 (ListTrafficPolicyVersions -&gt; ListTrafficPolicyVersions -&gt; Bool)
 -&gt; (ListTrafficPolicyVersions -&gt; ListTrafficPolicyVersions -&gt; Bool)
 -&gt; Eq ListTrafficPolicyVersions
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListTrafficPolicyVersions -&gt; ListTrafficPolicyVersions -&gt; Bool
 == :: ListTrafficPolicyVersions -&gt; ListTrafficPolicyVersions -&gt; Bool
 $c== :: ListTrafficPolicyVersions -&gt; ListTrafficPolicyVersions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300619"><span id="local-6989586621679300621"><span id="local-6989586621679300623"><span id="local-6989586621679300625"><span class="annot"><span class="annottext">ReadPrec [ListTrafficPolicyVersions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300776"><span id="local-6989586621679300778"><span id="local-6989586621679300780"><span id="local-6989586621679300782"><span class="annot"><span class="annottext">ReadPrec [ListTrafficPolicyVersions]
 ReadPrec ListTrafficPolicyVersions
 Int -&gt; ReadS ListTrafficPolicyVersions
 ReadS [ListTrafficPolicyVersions]
@@ -113,7 +113,7 @@ readList :: ReadS [ListTrafficPolicyVersions]
 $creadList :: ReadS [ListTrafficPolicyVersions]
 readsPrec :: Int -&gt; ReadS ListTrafficPolicyVersions
 $creadsPrec :: Int -&gt; ReadS ListTrafficPolicyVersions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300612"><span id="local-6989586621679300614"><span id="local-6989586621679300616"><span class="annot"><span class="annottext">Int -&gt; ListTrafficPolicyVersions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300769"><span id="local-6989586621679300771"><span id="local-6989586621679300773"><span class="annot"><span class="annottext">Int -&gt; ListTrafficPolicyVersions -&gt; ShowS
 [ListTrafficPolicyVersions] -&gt; ShowS
 ListTrafficPolicyVersions -&gt; String
 (Int -&gt; ListTrafficPolicyVersions -&gt; ShowS)
@@ -153,22 +153,22 @@ ListTrafficPolicyVersions -&gt; Rep ListTrafficPolicyVersions x
 </span><span id="line-91"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'trafficPolicyVersionMarker', 'listTrafficPolicyVersions_trafficPolicyVersionMarker' - For your first request to @ListTrafficPolicyVersions@, don\'t include</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- the @TrafficPolicyVersionMarker@ parameter.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- If you have more traffic policy versions than the value of @MaxItems@,</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- @ListTrafficPolicyVersions@ returns only the first group of @MaxItems@</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- versions. To get more traffic policy versions, submit another</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- @ListTrafficPolicyVersions@ request. For the value of</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- @TrafficPolicyVersionMarker@, specify the value of</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- @TrafficPolicyVersionMarker@ in the previous response.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'maxItems', 'listTrafficPolicyVersions_maxItems' - The maximum number of traffic policy versions that you want Amazon Route</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 53 to include in the response body for this request. If the specified</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- traffic policy has more than @MaxItems@ versions, the value of</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- @IsTruncated@ in the response is @true@, and the value of the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- @TrafficPolicyVersionMarker@ element is the ID of the first version that</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Route 53 will return if you submit another request.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'trafficPolicyVersionMarker', 'listTrafficPolicyVersions_trafficPolicyVersionMarker' - For your first request to @ListTrafficPolicyVersions@, don\'t include</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- the @TrafficPolicyVersionMarker@ parameter.</span><span>
 </span><span id="line-103"></span><span class="hs-comment">--</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- 'maxItems', 'listTrafficPolicyVersions_maxItems' - The maximum number of traffic policy versions that you want Amazon Route</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 53 to include in the response body for this request. If the specified</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- traffic policy has more than @MaxItems@ versions, the value of</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- @IsTruncated@ in the response is @true@, and the value of the</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- @TrafficPolicyVersionMarker@ element is the ID of the first version that</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- Route 53 will return if you submit another request.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- If you have more traffic policy versions than the value of @MaxItems@,</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- @ListTrafficPolicyVersions@ returns only the first group of @MaxItems@</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- versions. To get more traffic policy versions, submit another</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- @ListTrafficPolicyVersions@ request. For the value of</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @TrafficPolicyVersionMarker@, specify the value of</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- @TrafficPolicyVersionMarker@ in the previous response.</span><span>
 </span><span id="line-110"></span><span class="hs-comment">--</span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- 'id', 'listTrafficPolicyVersions_id' - Specify the value of @Id@ of the traffic policy for which you want to</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- list all versions.</span><span>
@@ -177,64 +177,32 @@ ListTrafficPolicyVersions -&gt; Rep ListTrafficPolicyVersions x
 </span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span><span>
 </span><span id="line-117"></span><span id="newListTrafficPolicyVersions"><span class="annot"><span class="annottext">newListTrafficPolicyVersions :: Text -&gt; ListTrafficPolicyVersions
-</span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#newListTrafficPolicyVersions"><span class="hs-identifier hs-var hs-var">newListTrafficPolicyVersions</span></a></span></span><span> </span><span id="local-6989586621679300607"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300607"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#newListTrafficPolicyVersions"><span class="hs-identifier hs-var hs-var">newListTrafficPolicyVersions</span></a></span></span><span> </span><span id="local-6989586621679300764"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300764"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>  </span><span class="annot"><span class="annottext">ListTrafficPolicyVersions' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ListTrafficPolicyVersions
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersions'</span></a></span><span>
-</span><span id="line-119"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trafficPolicyVersionMarker:ListTrafficPolicyVersions' :: Maybe Text
-</span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AtrafficPolicyVersionMarker%3AListTrafficPolicyVersions%27"><span class="hs-identifier hs-var">trafficPolicyVersionMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxItems:ListTrafficPolicyVersions' :: Maybe Text
+</span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AmaxItems%3AListTrafficPolicyVersions%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxItems:ListTrafficPolicyVersions' :: Maybe Text
-</span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AmaxItems%3AListTrafficPolicyVersions%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:trafficPolicyVersionMarker:ListTrafficPolicyVersions' :: Maybe Text
+</span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AtrafficPolicyVersionMarker%3AListTrafficPolicyVersions%27"><span class="hs-identifier hs-var">trafficPolicyVersionMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:ListTrafficPolicyVersions' :: Text
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3Aid%3AListTrafficPolicyVersions%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300607"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><a href="#local-6989586621679300764"><span class="hs-identifier hs-var">pId_</span></a></span><span>
 </span><span id="line-123"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | For your first request to @ListTrafficPolicyVersions@, don\'t include</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- the @TrafficPolicyVersionMarker@ parameter.</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- If you have more traffic policy versions than the value of @MaxItems@,</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- @ListTrafficPolicyVersions@ returns only the first group of @MaxItems@</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- versions. To get more traffic policy versions, submit another</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- @ListTrafficPolicyVersions@ request. For the value of</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- @TrafficPolicyVersionMarker@, specify the value of</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- @TrafficPolicyVersionMarker@ in the previous response.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#listTrafficPolicyVersions_trafficPolicyVersionMarker"><span class="hs-identifier hs-type">listTrafficPolicyVersions_trafficPolicyVersionMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="listTrafficPolicyVersions_trafficPolicyVersionMarker"><span class="annot"><span class="annottext">listTrafficPolicyVersions_trafficPolicyVersionMarker :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListTrafficPolicyVersions -&gt; f ListTrafficPolicyVersions
-</span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#listTrafficPolicyVersions_trafficPolicyVersionMarker"><span class="hs-identifier hs-var hs-var">listTrafficPolicyVersions_trafficPolicyVersionMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrafficPolicyVersions -&gt; Maybe Text)
--&gt; (ListTrafficPolicyVersions
-    -&gt; Maybe Text -&gt; ListTrafficPolicyVersions)
--&gt; Lens
-     ListTrafficPolicyVersions
-     ListTrafficPolicyVersions
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300604"><span class="annot"><span class="annottext">Maybe Text
-trafficPolicyVersionMarker :: Maybe Text
-$sel:trafficPolicyVersionMarker:ListTrafficPolicyVersions' :: ListTrafficPolicyVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679300604"><span class="hs-identifier hs-var hs-var">trafficPolicyVersionMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300604"><span class="hs-identifier hs-var">trafficPolicyVersionMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300603"><span class="annot"><span class="annottext">s :: ListTrafficPolicyVersions
-</span><a href="#local-6989586621679300603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300602"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrafficPolicyVersions
-</span><a href="#local-6989586621679300603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficPolicyVersionMarker:ListTrafficPolicyVersions' :: Maybe Text
-</span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AtrafficPolicyVersionMarker%3AListTrafficPolicyVersions%27"><span class="hs-identifier hs-var">trafficPolicyVersionMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | The maximum number of traffic policy versions that you want Amazon Route</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- 53 to include in the response body for this request. If the specified</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- traffic policy has more than @MaxItems@ versions, the value of</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- @IsTruncated@ in the response is @true@, and the value of the</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- @TrafficPolicyVersionMarker@ element is the ID of the first version that</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- Route 53 will return if you submit another request.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#listTrafficPolicyVersions_maxItems"><span class="hs-identifier hs-type">listTrafficPolicyVersions_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="listTrafficPolicyVersions_maxItems"><span class="annot"><span class="annottext">listTrafficPolicyVersions_maxItems :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-125"></span><span class="hs-comment">-- | The maximum number of traffic policy versions that you want Amazon Route</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 53 to include in the response body for this request. If the specified</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- traffic policy has more than @MaxItems@ versions, the value of</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- @IsTruncated@ in the response is @true@, and the value of the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- @TrafficPolicyVersionMarker@ element is the ID of the first version that</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Route 53 will return if you submit another request.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#listTrafficPolicyVersions_maxItems"><span class="hs-identifier hs-type">listTrafficPolicyVersions_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="listTrafficPolicyVersions_maxItems"><span class="annot"><span class="annottext">listTrafficPolicyVersions_maxItems :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListTrafficPolicyVersions -&gt; f ListTrafficPolicyVersions
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#listTrafficPolicyVersions_maxItems"><span class="hs-identifier hs-var hs-var">listTrafficPolicyVersions_maxItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrafficPolicyVersions -&gt; Maybe Text)
 -&gt; (ListTrafficPolicyVersions
@@ -245,16 +213,48 @@ $sel:trafficPolicyVersionMarker:ListTrafficPolicyVersions' :: ListTrafficPolicyV
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300601"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300761"><span class="annot"><span class="annottext">Maybe Text
 maxItems :: Maybe Text
 $sel:maxItems:ListTrafficPolicyVersions' :: ListTrafficPolicyVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679300601"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300601"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300600"><span class="annot"><span class="annottext">s :: ListTrafficPolicyVersions
-</span><a href="#local-6989586621679300600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300599"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrafficPolicyVersions
-</span><a href="#local-6989586621679300600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListTrafficPolicyVersions' :: Maybe Text
+</span><a href="#local-6989586621679300761"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300761"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300760"><span class="annot"><span class="annottext">s :: ListTrafficPolicyVersions
+</span><a href="#local-6989586621679300760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300759"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrafficPolicyVersions
+</span><a href="#local-6989586621679300760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListTrafficPolicyVersions' :: Maybe Text
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AmaxItems%3AListTrafficPolicyVersions%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | For your first request to @ListTrafficPolicyVersions@, don\'t include</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- the @TrafficPolicyVersionMarker@ parameter.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- If you have more traffic policy versions than the value of @MaxItems@,</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- @ListTrafficPolicyVersions@ returns only the first group of @MaxItems@</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- versions. To get more traffic policy versions, submit another</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- @ListTrafficPolicyVersions@ request. For the value of</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- @TrafficPolicyVersionMarker@, specify the value of</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- @TrafficPolicyVersionMarker@ in the previous response.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#listTrafficPolicyVersions_trafficPolicyVersionMarker"><span class="hs-identifier hs-type">listTrafficPolicyVersions_trafficPolicyVersionMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="listTrafficPolicyVersions_trafficPolicyVersionMarker"><span class="annot"><span class="annottext">listTrafficPolicyVersions_trafficPolicyVersionMarker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListTrafficPolicyVersions -&gt; f ListTrafficPolicyVersions
+</span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#listTrafficPolicyVersions_trafficPolicyVersionMarker"><span class="hs-identifier hs-var hs-var">listTrafficPolicyVersions_trafficPolicyVersionMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTrafficPolicyVersions -&gt; Maybe Text)
+-&gt; (ListTrafficPolicyVersions
+    -&gt; Maybe Text -&gt; ListTrafficPolicyVersions)
+-&gt; Lens
+     ListTrafficPolicyVersions
+     ListTrafficPolicyVersions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300758"><span class="annot"><span class="annottext">Maybe Text
+trafficPolicyVersionMarker :: Maybe Text
+$sel:trafficPolicyVersionMarker:ListTrafficPolicyVersions' :: ListTrafficPolicyVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679300758"><span class="hs-identifier hs-var hs-var">trafficPolicyVersionMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300758"><span class="hs-identifier hs-var">trafficPolicyVersionMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300757"><span class="annot"><span class="annottext">s :: ListTrafficPolicyVersions
+</span><a href="#local-6989586621679300757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300756"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrafficPolicyVersions
+</span><a href="#local-6989586621679300757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficPolicyVersionMarker:ListTrafficPolicyVersions' :: Maybe Text
+</span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AtrafficPolicyVersionMarker%3AListTrafficPolicyVersions%27"><span class="hs-identifier hs-var">trafficPolicyVersionMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | Specify the value of @Id@ of the traffic policy for which you want to</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- list all versions.</span><span>
@@ -266,28 +266,28 @@ $sel:maxItems:ListTrafficPolicyVersions' :: ListTrafficPolicyVersions -&gt; Mayb
 -&gt; Lens
      ListTrafficPolicyVersions ListTrafficPolicyVersions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300598"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300755"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:ListTrafficPolicyVersions' :: ListTrafficPolicyVersions -&gt; Text
-</span><a href="#local-6989586621679300598"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300598"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300597"><span class="annot"><span class="annottext">s :: ListTrafficPolicyVersions
-</span><a href="#local-6989586621679300597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300596"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrafficPolicyVersions
-</span><a href="#local-6989586621679300597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ListTrafficPolicyVersions' :: Text
+</span><a href="#local-6989586621679300755"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300755"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300754"><span class="annot"><span class="annottext">s :: ListTrafficPolicyVersions
+</span><a href="#local-6989586621679300754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300753"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrafficPolicyVersions
+</span><a href="#local-6989586621679300754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ListTrafficPolicyVersions' :: Text
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3Aid%3AListTrafficPolicyVersions%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-153"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse</span></a></span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679300592"><span class="annot"><span class="annottext">request :: ListTrafficPolicyVersions -&gt; Request ListTrafficPolicyVersions
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679300749"><span class="annot"><span class="annottext">request :: ListTrafficPolicyVersions -&gt; Request ListTrafficPolicyVersions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListTrafficPolicyVersions -&gt; Request ListTrafficPolicyVersions
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679300588"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679300745"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListTrafficPolicyVersions
 -&gt; ClientResponse ClientBody
@@ -313,10 +313,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300585"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300585"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679300584"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679300584"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679300583"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679300583"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300742"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300742"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679300741"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679300741"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679300740"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679300740"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Int
 -&gt; [TrafficPolicy]
 -&gt; Bool
@@ -341,7 +341,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300585"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300742"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   ([TrafficPolicy]
@@ -351,7 +351,7 @@ forall a. Enum a =&gt; a -&gt; Int
      String (Bool -&gt; Text -&gt; Text -&gt; ListTrafficPolicyVersionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679300583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679300740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrafficPolicies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -375,7 +375,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
      String (Text -&gt; Text -&gt; ListTrafficPolicyVersionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679300583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+</span><a href="#local-6989586621679300740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
@@ -384,7 +384,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; ListTrafficPolicyVersionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679300583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679300740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrafficPolicyVersionMarker&quot;</span></span><span class="hs-special">)</span><span>
@@ -393,18 +393,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String ListTrafficPolicyVersionsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679300583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679300740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxItems&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300572"><span id="local-6989586621679300574"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300729"><span id="local-6989586621679300731"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span></span></span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300569"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300726"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span></span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679300565"><span class="annot"><span class="annottext">toHeaders :: ListTrafficPolicyVersions -&gt; ResponseHeaders
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679300722"><span class="annot"><span class="annottext">toHeaders :: ListTrafficPolicyVersions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTrafficPolicyVersions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -412,16 +412,16 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679300560"><span class="annot"><span class="annottext">toPath :: ListTrafficPolicyVersions -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300556"><span id="local-6989586621679300557"><span id="local-6989586621679300558"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679300717"><span class="annot"><span class="annottext">toPath :: ListTrafficPolicyVersions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300713"><span id="local-6989586621679300714"><span id="local-6989586621679300715"><span class="annot"><span class="annottext">Maybe Text
 Text
 id :: Text
-maxItems :: Maybe Text
 trafficPolicyVersionMarker :: Maybe Text
+maxItems :: Maybe Text
 $sel:id:ListTrafficPolicyVersions' :: ListTrafficPolicyVersions -&gt; Text
-$sel:maxItems:ListTrafficPolicyVersions' :: ListTrafficPolicyVersions -&gt; Maybe Text
 $sel:trafficPolicyVersionMarker:ListTrafficPolicyVersions' :: ListTrafficPolicyVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679300556"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:maxItems:ListTrafficPolicyVersions' :: ListTrafficPolicyVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679300713"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -430,42 +430,42 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300556"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300713"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/versions&quot;</span></span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions"><span class="hs-identifier hs-type">ListTrafficPolicyVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679300552"><span class="annot"><span class="annottext">toQuery :: ListTrafficPolicyVersions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300548"><span id="local-6989586621679300549"><span id="local-6989586621679300550"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679300709"><span class="annot"><span class="annottext">toQuery :: ListTrafficPolicyVersions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersions%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300705"><span id="local-6989586621679300706"><span id="local-6989586621679300707"><span class="annot"><span class="annottext">Maybe Text
 Text
 id :: Text
-maxItems :: Maybe Text
 trafficPolicyVersionMarker :: Maybe Text
+maxItems :: Maybe Text
 $sel:id:ListTrafficPolicyVersions' :: ListTrafficPolicyVersions -&gt; Text
-$sel:maxItems:ListTrafficPolicyVersions' :: ListTrafficPolicyVersions -&gt; Maybe Text
 $sel:trafficPolicyVersionMarker:ListTrafficPolicyVersions' :: ListTrafficPolicyVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679300548"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:maxItems:ListTrafficPolicyVersions' :: ListTrafficPolicyVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679300705"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;trafficpolicyversion&quot;</span></span><span>
-</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300550"><span class="hs-identifier hs-var">trafficPolicyVersionMarker</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxitems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300549"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
+</span><a href="#local-6989586621679300707"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;trafficpolicyversion&quot;</span></span><span>
+</span><span id="line-189"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300706"><span class="hs-identifier hs-var">trafficPolicyVersionMarker</span></a></span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- | A complex type that contains the response information for the request.</span><span>
 </span><span id="line-193"></span><span class="hs-comment">--</span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- /See:/ 'newListTrafficPolicyVersionsResponse' smart constructor.</span><span>
-</span><span id="line-195"></span><span id="local-6989586621679300545"><span id="local-6989586621679300546"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTrafficPolicyVersionsResponse"><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse"><span class="hs-identifier hs-var">ListTrafficPolicyVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTrafficPolicyVersionsResponse%27"><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-var">ListTrafficPolicyVersionsResponse'</span></a></span></span><span>
+</span><span id="line-195"></span><span id="local-6989586621679300702"><span id="local-6989586621679300703"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTrafficPolicyVersionsResponse"><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse"><span class="hs-identifier hs-var">ListTrafficPolicyVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTrafficPolicyVersionsResponse%27"><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-var">ListTrafficPolicyVersionsResponse'</span></a></span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-197"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTrafficPolicyVersionsResponse%27"><span class="annot"><span class="annottext">ListTrafficPolicyVersionsResponse -&gt; Int
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AhttpStatus%3AListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -494,7 +494,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-217"></span><span>    </span><span id="%24sel%3AmaxItems%3AListTrafficPolicyVersionsResponse%27"><span class="annot"><span class="annottext">ListTrafficPolicyVersionsResponse -&gt; Text
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AmaxItems%3AListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-218"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-219"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300536"><span id="local-6989586621679300538"><span class="annot"><span class="annottext">ListTrafficPolicyVersionsResponse
+</span><span id="line-219"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300693"><span id="local-6989586621679300695"><span class="annot"><span class="annottext">ListTrafficPolicyVersionsResponse
 -&gt; ListTrafficPolicyVersionsResponse -&gt; Bool
 (ListTrafficPolicyVersionsResponse
  -&gt; ListTrafficPolicyVersionsResponse -&gt; Bool)
@@ -510,7 +510,7 @@ $c/= :: ListTrafficPolicyVersionsResponse
 -&gt; ListTrafficPolicyVersionsResponse -&gt; Bool
 $c== :: ListTrafficPolicyVersionsResponse
 -&gt; ListTrafficPolicyVersionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300528"><span id="local-6989586621679300530"><span id="local-6989586621679300532"><span id="local-6989586621679300534"><span class="annot"><span class="annottext">ReadPrec [ListTrafficPolicyVersionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300685"><span id="local-6989586621679300687"><span id="local-6989586621679300689"><span id="local-6989586621679300691"><span class="annot"><span class="annottext">ReadPrec [ListTrafficPolicyVersionsResponse]
 ReadPrec ListTrafficPolicyVersionsResponse
 Int -&gt; ReadS ListTrafficPolicyVersionsResponse
 ReadS [ListTrafficPolicyVersionsResponse]
@@ -530,7 +530,7 @@ readList :: ReadS [ListTrafficPolicyVersionsResponse]
 $creadList :: ReadS [ListTrafficPolicyVersionsResponse]
 readsPrec :: Int -&gt; ReadS ListTrafficPolicyVersionsResponse
 $creadsPrec :: Int -&gt; ReadS ListTrafficPolicyVersionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300522"><span id="local-6989586621679300524"><span id="local-6989586621679300526"><span class="annot"><span class="annottext">Int -&gt; ListTrafficPolicyVersionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300679"><span id="local-6989586621679300681"><span id="local-6989586621679300683"><span class="annot"><span class="annottext">Int -&gt; ListTrafficPolicyVersionsResponse -&gt; ShowS
 [ListTrafficPolicyVersionsResponse] -&gt; ShowS
 ListTrafficPolicyVersionsResponse -&gt; String
 (Int -&gt; ListTrafficPolicyVersionsResponse -&gt; ShowS)
@@ -609,14 +609,14 @@ ListTrafficPolicyVersionsResponse
 </span><span id="line-259"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse</span></a></span><span>
 </span><span id="line-260"></span><span id="newListTrafficPolicyVersionsResponse"><span class="annot"><span class="annottext">newListTrafficPolicyVersionsResponse :: Int -&gt; Bool -&gt; Text -&gt; Text -&gt; ListTrafficPolicyVersionsResponse
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#newListTrafficPolicyVersionsResponse"><span class="hs-identifier hs-var hs-var">newListTrafficPolicyVersionsResponse</span></a></span></span><span>
-</span><span id="line-261"></span><span>  </span><span id="local-6989586621679300519"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300519"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-262"></span><span>  </span><span id="local-6989586621679300518"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679300518"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span></span><span>
-</span><span id="line-263"></span><span>  </span><span id="local-6989586621679300517"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300517"><span class="hs-identifier hs-var">pTrafficPolicyVersionMarker_</span></a></span></span><span>
-</span><span id="line-264"></span><span>  </span><span id="local-6989586621679300516"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300516"><span class="hs-identifier hs-var">pMaxItems_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679300676"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300676"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679300675"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679300675"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span></span><span>
+</span><span id="line-263"></span><span>  </span><span id="local-6989586621679300674"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300674"><span class="hs-identifier hs-var">pTrafficPolicyVersionMarker_</span></a></span></span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679300673"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300673"><span class="hs-identifier hs-var">pMaxItems_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-265"></span><span>    </span><span class="annot"><span class="annottext">ListTrafficPolicyVersionsResponse' :: Int
 -&gt; [TrafficPolicy]
 -&gt; Bool
@@ -627,21 +627,21 @@ ListTrafficPolicyVersionsResponse
 </span><span id="line-266"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTrafficPolicyVersionsResponse' :: Int
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AhttpStatus%3AListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-267"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300519"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300676"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-268"></span><span>        </span><span class="annot"><span class="annottext">$sel:trafficPolicies:ListTrafficPolicyVersionsResponse' :: [TrafficPolicy]
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AtrafficPolicies%3AListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-var">trafficPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[TrafficPolicy]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-269"></span><span>        </span><span class="annot"><span class="annottext">$sel:isTruncated:ListTrafficPolicyVersionsResponse' :: Bool
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AisTruncated%3AListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679300518"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300675"><span class="hs-identifier hs-var">pIsTruncated_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">$sel:trafficPolicyVersionMarker:ListTrafficPolicyVersionsResponse' :: Text
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AtrafficPolicyVersionMarker%3AListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-var">trafficPolicyVersionMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-271"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300517"><span class="hs-identifier hs-var">pTrafficPolicyVersionMarker_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679300674"><span class="hs-identifier hs-var">pTrafficPolicyVersionMarker_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxItems:ListTrafficPolicyVersionsResponse' :: Text
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AmaxItems%3AListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300516"><span class="hs-identifier hs-var">pMaxItems_</span></a></span><span>
+</span><a href="#local-6989586621679300673"><span class="hs-identifier hs-var">pMaxItems_</span></a></span><span>
 </span><span id="line-273"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-274"></span><span>
 </span><span id="line-275"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -658,16 +658,16 @@ forall a. Monoid a =&gt; a
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300515"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300672"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListTrafficPolicyVersionsResponse' :: ListTrafficPolicyVersionsResponse -&gt; Int
-</span><a href="#local-6989586621679300515"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300515"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300514"><span class="annot"><span class="annottext">s :: ListTrafficPolicyVersionsResponse
-</span><a href="#local-6989586621679300514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300513"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrafficPolicyVersionsResponse
-</span><a href="#local-6989586621679300514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTrafficPolicyVersionsResponse' :: Int
+</span><a href="#local-6989586621679300672"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300672"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300671"><span class="annot"><span class="annottext">s :: ListTrafficPolicyVersionsResponse
+</span><a href="#local-6989586621679300671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300670"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679300670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrafficPolicyVersionsResponse
+</span><a href="#local-6989586621679300671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTrafficPolicyVersionsResponse' :: Int
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AhttpStatus%3AListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679300513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-278"></span><span>
 </span><span id="line-279"></span><span class="hs-comment">-- | A list that contains one @TrafficPolicy@ element for each traffic policy</span><span>
 </span><span id="line-280"></span><span class="hs-comment">-- version that is associated with the specified traffic policy.</span><span>
@@ -684,16 +684,16 @@ $sel:httpStatus:ListTrafficPolicyVersionsResponse' :: ListTrafficPolicyVersionsR
      [TrafficPolicy]
      [TrafficPolicy]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300512"><span class="annot"><span class="annottext">[TrafficPolicy]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300669"><span class="annot"><span class="annottext">[TrafficPolicy]
 trafficPolicies :: [TrafficPolicy]
 $sel:trafficPolicies:ListTrafficPolicyVersionsResponse' :: ListTrafficPolicyVersionsResponse -&gt; [TrafficPolicy]
-</span><a href="#local-6989586621679300512"><span class="hs-identifier hs-var hs-var">trafficPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[TrafficPolicy]
-</span><a href="#local-6989586621679300512"><span class="hs-identifier hs-var">trafficPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300511"><span class="annot"><span class="annottext">s :: ListTrafficPolicyVersionsResponse
-</span><a href="#local-6989586621679300511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300510"><span class="annot"><span class="annottext">[TrafficPolicy]
-</span><a href="#local-6989586621679300510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrafficPolicyVersionsResponse
-</span><a href="#local-6989586621679300511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficPolicies:ListTrafficPolicyVersionsResponse' :: [TrafficPolicy]
+</span><a href="#local-6989586621679300669"><span class="hs-identifier hs-var hs-var">trafficPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[TrafficPolicy]
+</span><a href="#local-6989586621679300669"><span class="hs-identifier hs-var">trafficPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300668"><span class="annot"><span class="annottext">s :: ListTrafficPolicyVersionsResponse
+</span><a href="#local-6989586621679300668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300667"><span class="annot"><span class="annottext">[TrafficPolicy]
+</span><a href="#local-6989586621679300667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrafficPolicyVersionsResponse
+</span><a href="#local-6989586621679300668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficPolicies:ListTrafficPolicyVersionsResponse' :: [TrafficPolicy]
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AtrafficPolicies%3AListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-var">trafficPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[TrafficPolicy]
-</span><a href="#local-6989586621679300510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([TrafficPolicy] -&gt; f [TrafficPolicy])
+</span><a href="#local-6989586621679300667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([TrafficPolicy] -&gt; f [TrafficPolicy])
  -&gt; ListTrafficPolicyVersionsResponse
  -&gt; f ListTrafficPolicyVersionsResponse)
 -&gt; (([TrafficPolicy] -&gt; f [TrafficPolicy])
@@ -704,8 +704,8 @@ $sel:trafficPolicies:ListTrafficPolicyVersionsResponse' :: ListTrafficPolicyVers
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([TrafficPolicy] -&gt; f [TrafficPolicy])
 -&gt; [TrafficPolicy] -&gt; f [TrafficPolicy]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-283"></span><span>
 </span><span id="line-284"></span><span class="hs-comment">-- | A flag that indicates whether there are more traffic policies to be</span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- listed. If the response was truncated, you can get the next group of</span><span>
@@ -725,16 +725,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Bool
      Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300507"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300664"><span class="annot"><span class="annottext">Bool
 isTruncated :: Bool
 $sel:isTruncated:ListTrafficPolicyVersionsResponse' :: ListTrafficPolicyVersionsResponse -&gt; Bool
-</span><a href="#local-6989586621679300507"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679300507"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300506"><span class="annot"><span class="annottext">s :: ListTrafficPolicyVersionsResponse
-</span><a href="#local-6989586621679300506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300505"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679300505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrafficPolicyVersionsResponse
-</span><a href="#local-6989586621679300506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListTrafficPolicyVersionsResponse' :: Bool
+</span><a href="#local-6989586621679300664"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679300664"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300663"><span class="annot"><span class="annottext">s :: ListTrafficPolicyVersionsResponse
+</span><a href="#local-6989586621679300663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300662"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679300662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrafficPolicyVersionsResponse
+</span><a href="#local-6989586621679300663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListTrafficPolicyVersionsResponse' :: Bool
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AisTruncated%3AListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679300505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-291"></span><span>
 </span><span id="line-292"></span><span class="hs-comment">-- | If @IsTruncated@ is @true@, the value of @TrafficPolicyVersionMarker@</span><span>
 </span><span id="line-293"></span><span class="hs-comment">-- identifies the first traffic policy that Amazon Route 53 will return if</span><span>
@@ -756,16 +756,16 @@ $sel:isTruncated:ListTrafficPolicyVersionsResponse' :: ListTrafficPolicyVersions
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300504"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300661"><span class="annot"><span class="annottext">Text
 trafficPolicyVersionMarker :: Text
 $sel:trafficPolicyVersionMarker:ListTrafficPolicyVersionsResponse' :: ListTrafficPolicyVersionsResponse -&gt; Text
-</span><a href="#local-6989586621679300504"><span class="hs-identifier hs-var hs-var">trafficPolicyVersionMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300504"><span class="hs-identifier hs-var">trafficPolicyVersionMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300503"><span class="annot"><span class="annottext">s :: ListTrafficPolicyVersionsResponse
-</span><a href="#local-6989586621679300503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300502"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrafficPolicyVersionsResponse
-</span><a href="#local-6989586621679300503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficPolicyVersionMarker:ListTrafficPolicyVersionsResponse' :: Text
+</span><a href="#local-6989586621679300661"><span class="hs-identifier hs-var hs-var">trafficPolicyVersionMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300661"><span class="hs-identifier hs-var">trafficPolicyVersionMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300660"><span class="annot"><span class="annottext">s :: ListTrafficPolicyVersionsResponse
+</span><a href="#local-6989586621679300660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300659"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrafficPolicyVersionsResponse
+</span><a href="#local-6989586621679300660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficPolicyVersionMarker:ListTrafficPolicyVersionsResponse' :: Text
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AtrafficPolicyVersionMarker%3AListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-var">trafficPolicyVersionMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-301"></span><span>
 </span><span id="line-302"></span><span class="hs-comment">-- | The value that you specified for the @maxitems@ parameter in the</span><span>
 </span><span id="line-303"></span><span class="hs-comment">-- @ListTrafficPolicyVersions@ request that produced the current response.</span><span>
@@ -782,18 +782,18 @@ $sel:trafficPolicyVersionMarker:ListTrafficPolicyVersionsResponse' :: ListTraffi
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300501"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300658"><span class="annot"><span class="annottext">Text
 maxItems :: Text
 $sel:maxItems:ListTrafficPolicyVersionsResponse' :: ListTrafficPolicyVersionsResponse -&gt; Text
-</span><a href="#local-6989586621679300501"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300501"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300500"><span class="annot"><span class="annottext">s :: ListTrafficPolicyVersionsResponse
-</span><a href="#local-6989586621679300500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300499"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrafficPolicyVersionsResponse
-</span><a href="#local-6989586621679300500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListTrafficPolicyVersionsResponse' :: Text
+</span><a href="#local-6989586621679300658"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300658"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300657"><span class="annot"><span class="annottext">s :: ListTrafficPolicyVersionsResponse
+</span><a href="#local-6989586621679300657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300656"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679300656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTrafficPolicyVersionsResponse
+</span><a href="#local-6989586621679300657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListTrafficPolicyVersionsResponse' :: Text
 </span><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#%24sel%3AmaxItems%3AListTrafficPolicyVersionsResponse%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679300499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-306"></span><span>
 </span><span id="line-307"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-308"></span><span>  </span><span id="local-6989586621679300497"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-308"></span><span>  </span><span id="local-6989586621679300654"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-309"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ListTrafficPolicyVersions.html#ListTrafficPolicyVersionsResponse"><span class="hs-identifier hs-type">ListTrafficPolicyVersionsResponse</span></a></span></span><span>
 </span><span id="line-310"></span></pre></body></html>

@@ -25,15 +25,15 @@
 </span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-26"></span><span>
 </span><span id="line-27"></span><span class="hs-comment">-- | /See:/ 'newDomainInfo' smart constructor.</span><span>
-</span><span id="line-28"></span><span id="local-6989586621679295648"><span id="local-6989586621679295649"></span></span><span class="hs-keyword">data</span><span> </span><span id="DomainInfo"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-var">DomainInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainInfo%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo%27"><span class="hs-identifier hs-var">DomainInfo'</span></a></span></span><span>
-</span><span id="line-29"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the @EngineType@ of the domain.</span><span>
-</span><span id="line-30"></span><span>    </span><span id="%24sel%3AengineType%3ADomainInfo%27"><span class="annot"><span class="annottext">DomainInfo -&gt; Maybe EngineType
-</span><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#%24sel%3AengineType%3ADomainInfo%27"><span class="hs-identifier hs-var hs-var">engineType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EngineType.html#EngineType"><span class="hs-identifier hs-type">EngineType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- | Specifies the @DomainName@.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdomainName%3ADomainInfo%27"><span class="annot"><span class="annottext">DomainInfo -&gt; Maybe Text
-</span><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#%24sel%3AdomainName%3ADomainInfo%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-28"></span><span id="local-6989586621679295850"><span id="local-6989586621679295851"></span></span><span class="hs-keyword">data</span><span> </span><span id="DomainInfo"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-var">DomainInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainInfo%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo%27"><span class="hs-identifier hs-var">DomainInfo'</span></a></span></span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the @DomainName@.</span><span>
+</span><span id="line-30"></span><span>    </span><span id="%24sel%3AdomainName%3ADomainInfo%27"><span class="annot"><span class="annottext">DomainInfo -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#%24sel%3AdomainName%3ADomainInfo%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- | Specifies the @EngineType@ of the domain.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AengineType%3ADomainInfo%27"><span class="annot"><span class="annottext">DomainInfo -&gt; Maybe EngineType
+</span><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#%24sel%3AengineType%3ADomainInfo%27"><span class="hs-identifier hs-var hs-var">engineType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EngineType.html#EngineType"><span class="hs-identifier hs-type">EngineType</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295641"><span id="local-6989586621679295643"><span class="annot"><span class="annottext">DomainInfo -&gt; DomainInfo -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295843"><span id="local-6989586621679295845"><span class="annot"><span class="annottext">DomainInfo -&gt; DomainInfo -&gt; Bool
 (DomainInfo -&gt; DomainInfo -&gt; Bool)
 -&gt; (DomainInfo -&gt; DomainInfo -&gt; Bool) -&gt; Eq DomainInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DomainInfo -&gt; DomainInfo -&gt; Bool
 == :: DomainInfo -&gt; DomainInfo -&gt; Bool
 $c== :: DomainInfo -&gt; DomainInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295632"><span id="local-6989586621679295634"><span id="local-6989586621679295636"><span id="local-6989586621679295638"><span class="annot"><span class="annottext">ReadPrec [DomainInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295834"><span id="local-6989586621679295836"><span id="local-6989586621679295838"><span id="local-6989586621679295840"><span class="annot"><span class="annottext">ReadPrec [DomainInfo]
 ReadPrec DomainInfo
 Int -&gt; ReadS DomainInfo
 ReadS [DomainInfo]
@@ -61,7 +61,7 @@ readList :: ReadS [DomainInfo]
 $creadList :: ReadS [DomainInfo]
 readsPrec :: Int -&gt; ReadS DomainInfo
 $creadsPrec :: Int -&gt; ReadS DomainInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295625"><span id="local-6989586621679295627"><span id="local-6989586621679295629"><span class="annot"><span class="annottext">Int -&gt; DomainInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295827"><span id="local-6989586621679295829"><span id="local-6989586621679295831"><span class="annot"><span class="annottext">Int -&gt; DomainInfo -&gt; ShowS
 [DomainInfo] -&gt; ShowS
 DomainInfo -&gt; String
 (Int -&gt; DomainInfo -&gt; ShowS)
@@ -94,64 +94,64 @@ $cfrom :: forall x. DomainInfo -&gt; Rep DomainInfo x
 </span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-43"></span><span class="hs-comment">--</span><span>
-</span><span id="line-44"></span><span class="hs-comment">-- 'engineType', 'domainInfo_engineType' - Specifies the @EngineType@ of the domain.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'domainName', 'domainInfo_domainName' - Specifies the @DomainName@.</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'domainName', 'domainInfo_domainName' - Specifies the @DomainName@.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'engineType', 'domainInfo_engineType' - Specifies the @EngineType@ of the domain.</span><span>
 </span><span id="line-47"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#newDomainInfo"><span class="hs-identifier hs-type">newDomainInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-type">DomainInfo</span></a></span><span>
 </span><span id="line-49"></span><span id="newDomainInfo"><span class="annot"><span class="annottext">newDomainInfo :: DomainInfo
 </span><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#newDomainInfo"><span class="hs-identifier hs-var hs-var">newDomainInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">DomainInfo' :: Maybe EngineType -&gt; Maybe Text -&gt; DomainInfo
+</span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">DomainInfo' :: Maybe Text -&gt; Maybe EngineType -&gt; DomainInfo
 </span><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo%27"><span class="hs-identifier hs-type">DomainInfo'</span></a></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:engineType:DomainInfo' :: Maybe EngineType
-</span><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#%24sel%3AengineType%3ADomainInfo%27"><span class="hs-identifier hs-var">engineType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EngineType
+</span><span id="line-51"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainName:DomainInfo' :: Maybe Text
+</span><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#%24sel%3AdomainName%3ADomainInfo%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainName:DomainInfo' :: Maybe Text
-</span><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#%24sel%3AdomainName%3ADomainInfo%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-52"></span><span>      </span><span class="annot"><span class="annottext">$sel:engineType:DomainInfo' :: Maybe EngineType
+</span><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#%24sel%3AengineType%3ADomainInfo%27"><span class="hs-identifier hs-var">engineType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EngineType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- | Specifies the @EngineType@ of the domain.</span><span>
-</span><span id="line-56"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#domainInfo_engineType"><span class="hs-identifier hs-type">domainInfo_engineType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-type">DomainInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EngineType.html#EngineType"><span class="hs-identifier hs-type">EngineType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-57"></span><span id="domainInfo_engineType"><span class="annot"><span class="annottext">domainInfo_engineType :: (Maybe EngineType -&gt; f (Maybe EngineType))
+</span><span id="line-55"></span><span class="hs-comment">-- | Specifies the @DomainName@.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#domainInfo_domainName"><span class="hs-identifier hs-type">domainInfo_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-type">DomainInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span id="domainInfo_domainName"><span class="annot"><span class="annottext">domainInfo_domainName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DomainInfo -&gt; f DomainInfo
+</span><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#domainInfo_domainName"><span class="hs-identifier hs-var hs-var">domainInfo_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainInfo -&gt; Maybe Text)
+-&gt; (DomainInfo -&gt; Maybe Text -&gt; DomainInfo)
+-&gt; Lens DomainInfo DomainInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo%27"><span class="hs-identifier hs-type">DomainInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295818"><span class="annot"><span class="annottext">Maybe Text
+domainName :: Maybe Text
+$sel:domainName:DomainInfo' :: DomainInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679295818"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295818"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295817"><span class="annot"><span class="annottext">s :: DomainInfo
+</span><a href="#local-6989586621679295817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo%27"><span class="hs-identifier hs-type">DomainInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295816"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainInfo
+</span><a href="#local-6989586621679295817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DomainInfo' :: Maybe Text
+</span><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#%24sel%3AdomainName%3ADomainInfo%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-type">DomainInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | Specifies the @EngineType@ of the domain.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#domainInfo_engineType"><span class="hs-identifier hs-type">domainInfo_engineType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-type">DomainInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EngineType.html#EngineType"><span class="hs-identifier hs-type">EngineType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="domainInfo_engineType"><span class="annot"><span class="annottext">domainInfo_engineType :: (Maybe EngineType -&gt; f (Maybe EngineType))
 -&gt; DomainInfo -&gt; f DomainInfo
 </span><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#domainInfo_engineType"><span class="hs-identifier hs-var hs-var">domainInfo_engineType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainInfo -&gt; Maybe EngineType)
 -&gt; (DomainInfo -&gt; Maybe EngineType -&gt; DomainInfo)
 -&gt; Lens DomainInfo DomainInfo (Maybe EngineType) (Maybe EngineType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo%27"><span class="hs-identifier hs-type">DomainInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295616"><span class="annot"><span class="annottext">Maybe EngineType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo%27"><span class="hs-identifier hs-type">DomainInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295814"><span class="annot"><span class="annottext">Maybe EngineType
 engineType :: Maybe EngineType
 $sel:engineType:DomainInfo' :: DomainInfo -&gt; Maybe EngineType
-</span><a href="#local-6989586621679295616"><span class="hs-identifier hs-var hs-var">engineType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EngineType
-</span><a href="#local-6989586621679295616"><span class="hs-identifier hs-var">engineType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295615"><span class="annot"><span class="annottext">s :: DomainInfo
-</span><a href="#local-6989586621679295615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo%27"><span class="hs-identifier hs-type">DomainInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295614"><span class="annot"><span class="annottext">Maybe EngineType
-</span><a href="#local-6989586621679295614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainInfo
-</span><a href="#local-6989586621679295615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineType:DomainInfo' :: Maybe EngineType
+</span><a href="#local-6989586621679295814"><span class="hs-identifier hs-var hs-var">engineType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EngineType
+</span><a href="#local-6989586621679295814"><span class="hs-identifier hs-var">engineType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295813"><span class="annot"><span class="annottext">s :: DomainInfo
+</span><a href="#local-6989586621679295813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo%27"><span class="hs-identifier hs-type">DomainInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295812"><span class="annot"><span class="annottext">Maybe EngineType
+</span><a href="#local-6989586621679295812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainInfo
+</span><a href="#local-6989586621679295813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineType:DomainInfo' :: Maybe EngineType
 </span><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#%24sel%3AengineType%3ADomainInfo%27"><span class="hs-identifier hs-var">engineType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EngineType
-</span><a href="#local-6989586621679295614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-type">DomainInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | Specifies the @DomainName@.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#domainInfo_domainName"><span class="hs-identifier hs-type">domainInfo_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-type">DomainInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="domainInfo_domainName"><span class="annot"><span class="annottext">domainInfo_domainName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DomainInfo -&gt; f DomainInfo
-</span><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#domainInfo_domainName"><span class="hs-identifier hs-var hs-var">domainInfo_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainInfo -&gt; Maybe Text)
--&gt; (DomainInfo -&gt; Maybe Text -&gt; DomainInfo)
--&gt; Lens DomainInfo DomainInfo (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo%27"><span class="hs-identifier hs-type">DomainInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295612"><span class="annot"><span class="annottext">Maybe Text
-domainName :: Maybe Text
-$sel:domainName:DomainInfo' :: DomainInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679295612"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295612"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295611"><span class="annot"><span class="annottext">s :: DomainInfo
-</span><a href="#local-6989586621679295611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo%27"><span class="hs-identifier hs-type">DomainInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295610"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainInfo
-</span><a href="#local-6989586621679295611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DomainInfo' :: Maybe Text
-</span><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#%24sel%3AdomainName%3ADomainInfo%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679295610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-type">DomainInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679295812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-type">DomainInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295607"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-type">DomainInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679295605"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DomainInfo
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295809"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-type">DomainInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679295807"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DomainInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DomainInfo) -&gt; Value -&gt; Parser DomainInfo
@@ -159,29 +159,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DomainInfo&quot;</span></span><span>
-</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295602"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295602"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-68"></span><span>          </span><span class="annot"><span class="annottext">Maybe EngineType -&gt; Maybe Text -&gt; DomainInfo
+</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295804"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295804"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe EngineType -&gt; DomainInfo
 </span><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo%27"><span class="hs-identifier hs-var">DomainInfo'</span></a></span><span>
-</span><span id="line-69"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EngineType -&gt; Maybe Text -&gt; DomainInfo)
--&gt; Parser (Maybe EngineType) -&gt; Parser (Maybe Text -&gt; DomainInfo)
+</span><span id="line-69"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe EngineType -&gt; DomainInfo)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe EngineType -&gt; DomainInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EngineType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EngineType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DomainInfo)
--&gt; Parser (Maybe Text) -&gt; Parser DomainInfo
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679295804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EngineType -&gt; DomainInfo)
+-&gt; Parser (Maybe EngineType) -&gt; Parser DomainInfo
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EngineType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EngineType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295596"><span id="local-6989586621679295598"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-type">DomainInfo</span></a></span></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295798"><span id="local-6989586621679295800"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-type">DomainInfo</span></a></span></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295593"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-type">DomainInfo</span></a></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticSearch.Types.DomainInfo.html#DomainInfo"><span class="hs-identifier hs-type">DomainInfo</span></a></span></span><span>
 </span><span id="line-76"></span></pre></body></html>

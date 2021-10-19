@@ -26,30 +26,30 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Represents entity counters.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCounters' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679360984"><span id="local-6989586621679360985"></span></span><span class="hs-keyword">data</span><span> </span><span id="Counters"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-var">Counters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Counters%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-var">Counters'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of errored entities.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aerrored%3ACounters%27"><span class="annot"><span class="annottext">Counters -&gt; Maybe Int
-</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Aerrored%3ACounters%27"><span class="hs-identifier hs-var hs-var">errored</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The number of warned entities.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Awarned%3ACounters%27"><span class="annot"><span class="annottext">Counters -&gt; Maybe Int
-</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Awarned%3ACounters%27"><span class="hs-identifier hs-var hs-var">warned</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The number of passed entities.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Apassed%3ACounters%27"><span class="annot"><span class="annottext">Counters -&gt; Maybe Int
+</span><span id="line-29"></span><span id="local-6989586621679361217"><span id="local-6989586621679361218"></span></span><span class="hs-keyword">data</span><span> </span><span id="Counters"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-var">Counters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Counters%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-var">Counters'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of passed entities.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Apassed%3ACounters%27"><span class="annot"><span class="annottext">Counters -&gt; Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Apassed%3ACounters%27"><span class="hs-identifier hs-var hs-var">passed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The total number of entities.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Atotal%3ACounters%27"><span class="annot"><span class="annottext">Counters -&gt; Maybe Int
-</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Atotal%3ACounters%27"><span class="hs-identifier hs-var hs-var">total</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The number of stopped entities.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Astopped%3ACounters%27"><span class="annot"><span class="annottext">Counters -&gt; Maybe Int
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The number of skipped entities.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Askipped%3ACounters%27"><span class="annot"><span class="annottext">Counters -&gt; Maybe Int
+</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Askipped%3ACounters%27"><span class="hs-identifier hs-var hs-var">skipped</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The number of warned entities.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Awarned%3ACounters%27"><span class="annot"><span class="annottext">Counters -&gt; Maybe Int
+</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Awarned%3ACounters%27"><span class="hs-identifier hs-var hs-var">warned</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The number of stopped entities.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Astopped%3ACounters%27"><span class="annot"><span class="annottext">Counters -&gt; Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Astopped%3ACounters%27"><span class="hs-identifier hs-var hs-var">stopped</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The total number of entities.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Atotal%3ACounters%27"><span class="annot"><span class="annottext">Counters -&gt; Maybe Int
+</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Atotal%3ACounters%27"><span class="hs-identifier hs-var hs-var">total</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The number of failed entities.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Afailed%3ACounters%27"><span class="annot"><span class="annottext">Counters -&gt; Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Afailed%3ACounters%27"><span class="hs-identifier hs-var hs-var">failed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The number of skipped entities.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Askipped%3ACounters%27"><span class="annot"><span class="annottext">Counters -&gt; Maybe Int
-</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Askipped%3ACounters%27"><span class="hs-identifier hs-var hs-var">skipped</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The number of errored entities.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aerrored%3ACounters%27"><span class="annot"><span class="annottext">Counters -&gt; Maybe Int
+</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Aerrored%3ACounters%27"><span class="hs-identifier hs-var hs-var">errored</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360972"><span id="local-6989586621679360974"><span class="annot"><span class="annottext">Counters -&gt; Counters -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679361205"><span id="local-6989586621679361207"><span class="annot"><span class="annottext">Counters -&gt; Counters -&gt; Bool
 (Counters -&gt; Counters -&gt; Bool)
 -&gt; (Counters -&gt; Counters -&gt; Bool) -&gt; Eq Counters
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Counters -&gt; Counters -&gt; Bool
 == :: Counters -&gt; Counters -&gt; Bool
 $c== :: Counters -&gt; Counters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360963"><span id="local-6989586621679360965"><span id="local-6989586621679360967"><span id="local-6989586621679360969"><span class="annot"><span class="annottext">ReadPrec [Counters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361196"><span id="local-6989586621679361198"><span id="local-6989586621679361200"><span id="local-6989586621679361202"><span class="annot"><span class="annottext">ReadPrec [Counters]
 ReadPrec Counters
 Int -&gt; ReadS Counters
 ReadS [Counters]
@@ -77,7 +77,7 @@ readList :: ReadS [Counters]
 $creadList :: ReadS [Counters]
 readsPrec :: Int -&gt; ReadS Counters
 $creadsPrec :: Int -&gt; ReadS Counters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360956"><span id="local-6989586621679360958"><span id="local-6989586621679360960"><span class="annot"><span class="annottext">Int -&gt; Counters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679361189"><span id="local-6989586621679361191"><span id="local-6989586621679361193"><span class="annot"><span class="annottext">Int -&gt; Counters -&gt; ShowS
 [Counters] -&gt; ShowS
 Counters -&gt; String
 (Int -&gt; Counters -&gt; ShowS)
@@ -108,19 +108,19 @@ $cfrom :: forall x. Counters -&gt; Rep Counters x
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'errored', 'counters_errored' - The number of errored entities.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'passed', 'counters_passed' - The number of passed entities.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'warned', 'counters_warned' - The number of warned entities.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'skipped', 'counters_skipped' - The number of skipped entities.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'passed', 'counters_passed' - The number of passed entities.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'warned', 'counters_warned' - The number of warned entities.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'total', 'counters_total' - The total number of entities.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'stopped', 'counters_stopped' - The number of stopped entities.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'stopped', 'counters_stopped' - The number of stopped entities.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'total', 'counters_total' - The total number of entities.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- 'failed', 'counters_failed' - The number of failed entities.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'skipped', 'counters_skipped' - The number of skipped entities.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'errored', 'counters_errored' - The number of errored entities.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#newCounters"><span class="hs-identifier hs-type">newCounters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span>
 </span><span id="line-70"></span><span id="newCounters"><span class="annot"><span class="annottext">newCounters :: Counters
@@ -134,125 +134,125 @@ $cfrom :: forall x. Counters -&gt; Rep Counters x
 -&gt; Maybe Int
 -&gt; Counters
 </span><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errored:Counters' :: Maybe Int
-</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Aerrored%3ACounters%27"><span class="hs-identifier hs-var">errored</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:warned:Counters' :: Maybe Int
-</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Awarned%3ACounters%27"><span class="hs-identifier hs-var">warned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:passed:Counters' :: Maybe Int
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:passed:Counters' :: Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Apassed%3ACounters%27"><span class="hs-identifier hs-var">passed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:total:Counters' :: Maybe Int
-</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Atotal%3ACounters%27"><span class="hs-identifier hs-var">total</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:skipped:Counters' :: Maybe Int
+</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Askipped%3ACounters%27"><span class="hs-identifier hs-var">skipped</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:stopped:Counters' :: Maybe Int
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:warned:Counters' :: Maybe Int
+</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Awarned%3ACounters%27"><span class="hs-identifier hs-var">warned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:stopped:Counters' :: Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Astopped%3ACounters%27"><span class="hs-identifier hs-var">stopped</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:total:Counters' :: Maybe Int
+</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Atotal%3ACounters%27"><span class="hs-identifier hs-var">total</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:failed:Counters' :: Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Afailed%3ACounters%27"><span class="hs-identifier hs-var">failed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:skipped:Counters' :: Maybe Int
-</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Askipped%3ACounters%27"><span class="hs-identifier hs-var">skipped</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:errored:Counters' :: Maybe Int
+</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Aerrored%3ACounters%27"><span class="hs-identifier hs-var">errored</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The number of errored entities.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_errored"><span class="hs-identifier hs-type">counters_errored</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="counters_errored"><span class="annot"><span class="annottext">counters_errored :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Counters -&gt; f Counters
-</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_errored"><span class="hs-identifier hs-var hs-var">counters_errored</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Counters -&gt; Maybe Int)
--&gt; (Counters -&gt; Maybe Int -&gt; Counters)
--&gt; Lens Counters Counters (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360947"><span class="annot"><span class="annottext">Maybe Int
-errored :: Maybe Int
-$sel:errored:Counters' :: Counters -&gt; Maybe Int
-</span><a href="#local-6989586621679360947"><span class="hs-identifier hs-var hs-var">errored</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360947"><span class="hs-identifier hs-var">errored</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360946"><span class="annot"><span class="annottext">s :: Counters
-</span><a href="#local-6989586621679360946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360945"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Counters
-</span><a href="#local-6989586621679360946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errored:Counters' :: Maybe Int
-</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Aerrored%3ACounters%27"><span class="hs-identifier hs-var">errored</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The number of warned entities.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_warned"><span class="hs-identifier hs-type">counters_warned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="counters_warned"><span class="annot"><span class="annottext">counters_warned :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Counters -&gt; f Counters
-</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_warned"><span class="hs-identifier hs-var hs-var">counters_warned</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Counters -&gt; Maybe Int)
--&gt; (Counters -&gt; Maybe Int -&gt; Counters)
--&gt; Lens Counters Counters (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360943"><span class="annot"><span class="annottext">Maybe Int
-warned :: Maybe Int
-$sel:warned:Counters' :: Counters -&gt; Maybe Int
-</span><a href="#local-6989586621679360943"><span class="hs-identifier hs-var hs-var">warned</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360943"><span class="hs-identifier hs-var">warned</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360942"><span class="annot"><span class="annottext">s :: Counters
-</span><a href="#local-6989586621679360942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360941"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Counters
-</span><a href="#local-6989586621679360942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:warned:Counters' :: Maybe Int
-</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Awarned%3ACounters%27"><span class="hs-identifier hs-var">warned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | The number of passed entities.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_passed"><span class="hs-identifier hs-type">counters_passed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="counters_passed"><span class="annot"><span class="annottext">counters_passed :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Counters -&gt; f Counters
+</span><span id="line-81"></span><span class="hs-comment">-- | The number of passed entities.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_passed"><span class="hs-identifier hs-type">counters_passed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="counters_passed"><span class="annot"><span class="annottext">counters_passed :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Counters -&gt; f Counters
 </span><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_passed"><span class="hs-identifier hs-var hs-var">counters_passed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Counters -&gt; Maybe Int)
 -&gt; (Counters -&gt; Maybe Int -&gt; Counters)
 -&gt; Lens Counters Counters (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360939"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361180"><span class="annot"><span class="annottext">Maybe Int
 passed :: Maybe Int
 $sel:passed:Counters' :: Counters -&gt; Maybe Int
-</span><a href="#local-6989586621679360939"><span class="hs-identifier hs-var hs-var">passed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360939"><span class="hs-identifier hs-var">passed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360938"><span class="annot"><span class="annottext">s :: Counters
-</span><a href="#local-6989586621679360938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360937"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Counters
-</span><a href="#local-6989586621679360938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:passed:Counters' :: Maybe Int
+</span><a href="#local-6989586621679361180"><span class="hs-identifier hs-var hs-var">passed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361180"><span class="hs-identifier hs-var">passed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361179"><span class="annot"><span class="annottext">s :: Counters
+</span><a href="#local-6989586621679361179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361178"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Counters
+</span><a href="#local-6989586621679361179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:passed:Counters' :: Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Apassed%3ACounters%27"><span class="hs-identifier hs-var">passed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The total number of entities.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_total"><span class="hs-identifier hs-type">counters_total</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="counters_total"><span class="annot"><span class="annottext">counters_total :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Counters -&gt; f Counters
-</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_total"><span class="hs-identifier hs-var hs-var">counters_total</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Counters -&gt; Maybe Int)
+</span><a href="#local-6989586621679361178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The number of skipped entities.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_skipped"><span class="hs-identifier hs-type">counters_skipped</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="counters_skipped"><span class="annot"><span class="annottext">counters_skipped :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Counters -&gt; f Counters
+</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_skipped"><span class="hs-identifier hs-var hs-var">counters_skipped</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Counters -&gt; Maybe Int)
 -&gt; (Counters -&gt; Maybe Int -&gt; Counters)
 -&gt; Lens Counters Counters (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360935"><span class="annot"><span class="annottext">Maybe Int
-total :: Maybe Int
-$sel:total:Counters' :: Counters -&gt; Maybe Int
-</span><a href="#local-6989586621679360935"><span class="hs-identifier hs-var hs-var">total</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360935"><span class="hs-identifier hs-var">total</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360934"><span class="annot"><span class="annottext">s :: Counters
-</span><a href="#local-6989586621679360934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360933"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Counters
-</span><a href="#local-6989586621679360934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:total:Counters' :: Maybe Int
-</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Atotal%3ACounters%27"><span class="hs-identifier hs-var">total</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The number of stopped entities.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_stopped"><span class="hs-identifier hs-type">counters_stopped</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="counters_stopped"><span class="annot"><span class="annottext">counters_stopped :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Counters -&gt; f Counters
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361176"><span class="annot"><span class="annottext">Maybe Int
+skipped :: Maybe Int
+$sel:skipped:Counters' :: Counters -&gt; Maybe Int
+</span><a href="#local-6989586621679361176"><span class="hs-identifier hs-var hs-var">skipped</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361176"><span class="hs-identifier hs-var">skipped</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361175"><span class="annot"><span class="annottext">s :: Counters
+</span><a href="#local-6989586621679361175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361174"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Counters
+</span><a href="#local-6989586621679361175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skipped:Counters' :: Maybe Int
+</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Askipped%3ACounters%27"><span class="hs-identifier hs-var">skipped</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The number of warned entities.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_warned"><span class="hs-identifier hs-type">counters_warned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="counters_warned"><span class="annot"><span class="annottext">counters_warned :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Counters -&gt; f Counters
+</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_warned"><span class="hs-identifier hs-var hs-var">counters_warned</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Counters -&gt; Maybe Int)
+-&gt; (Counters -&gt; Maybe Int -&gt; Counters)
+-&gt; Lens Counters Counters (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361172"><span class="annot"><span class="annottext">Maybe Int
+warned :: Maybe Int
+$sel:warned:Counters' :: Counters -&gt; Maybe Int
+</span><a href="#local-6989586621679361172"><span class="hs-identifier hs-var hs-var">warned</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361172"><span class="hs-identifier hs-var">warned</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361171"><span class="annot"><span class="annottext">s :: Counters
+</span><a href="#local-6989586621679361171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361170"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Counters
+</span><a href="#local-6989586621679361171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:warned:Counters' :: Maybe Int
+</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Awarned%3ACounters%27"><span class="hs-identifier hs-var">warned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The number of stopped entities.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_stopped"><span class="hs-identifier hs-type">counters_stopped</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="counters_stopped"><span class="annot"><span class="annottext">counters_stopped :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Counters -&gt; f Counters
 </span><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_stopped"><span class="hs-identifier hs-var hs-var">counters_stopped</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Counters -&gt; Maybe Int)
 -&gt; (Counters -&gt; Maybe Int -&gt; Counters)
 -&gt; Lens Counters Counters (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360931"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361168"><span class="annot"><span class="annottext">Maybe Int
 stopped :: Maybe Int
 $sel:stopped:Counters' :: Counters -&gt; Maybe Int
-</span><a href="#local-6989586621679360931"><span class="hs-identifier hs-var hs-var">stopped</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360931"><span class="hs-identifier hs-var">stopped</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360930"><span class="annot"><span class="annottext">s :: Counters
-</span><a href="#local-6989586621679360930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360929"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Counters
-</span><a href="#local-6989586621679360930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopped:Counters' :: Maybe Int
+</span><a href="#local-6989586621679361168"><span class="hs-identifier hs-var hs-var">stopped</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361168"><span class="hs-identifier hs-var">stopped</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361167"><span class="annot"><span class="annottext">s :: Counters
+</span><a href="#local-6989586621679361167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361166"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Counters
+</span><a href="#local-6989586621679361167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopped:Counters' :: Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Astopped%3ACounters%27"><span class="hs-identifier hs-var">stopped</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679361166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The total number of entities.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_total"><span class="hs-identifier hs-type">counters_total</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="counters_total"><span class="annot"><span class="annottext">counters_total :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Counters -&gt; f Counters
+</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_total"><span class="hs-identifier hs-var hs-var">counters_total</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Counters -&gt; Maybe Int)
+-&gt; (Counters -&gt; Maybe Int -&gt; Counters)
+-&gt; Lens Counters Counters (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361164"><span class="annot"><span class="annottext">Maybe Int
+total :: Maybe Int
+$sel:total:Counters' :: Counters -&gt; Maybe Int
+</span><a href="#local-6989586621679361164"><span class="hs-identifier hs-var hs-var">total</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361164"><span class="hs-identifier hs-var">total</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361163"><span class="annot"><span class="annottext">s :: Counters
+</span><a href="#local-6989586621679361163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361162"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Counters
+</span><a href="#local-6989586621679361163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:total:Counters' :: Maybe Int
+</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Atotal%3ACounters%27"><span class="hs-identifier hs-var">total</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The number of failed entities.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_failed"><span class="hs-identifier hs-type">counters_failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
@@ -261,45 +261,45 @@ $sel:stopped:Counters' :: Counters -&gt; Maybe Int
 -&gt; (Counters -&gt; Maybe Int -&gt; Counters)
 -&gt; Lens Counters Counters (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360927"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361160"><span class="annot"><span class="annottext">Maybe Int
 failed :: Maybe Int
 $sel:failed:Counters' :: Counters -&gt; Maybe Int
-</span><a href="#local-6989586621679360927"><span class="hs-identifier hs-var hs-var">failed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360927"><span class="hs-identifier hs-var">failed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360926"><span class="annot"><span class="annottext">s :: Counters
-</span><a href="#local-6989586621679360926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360925"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Counters
-</span><a href="#local-6989586621679360926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failed:Counters' :: Maybe Int
+</span><a href="#local-6989586621679361160"><span class="hs-identifier hs-var hs-var">failed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361160"><span class="hs-identifier hs-var">failed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361159"><span class="annot"><span class="annottext">s :: Counters
+</span><a href="#local-6989586621679361159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361158"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Counters
+</span><a href="#local-6989586621679361159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failed:Counters' :: Maybe Int
 </span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Afailed%3ACounters%27"><span class="hs-identifier hs-var">failed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679361158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The number of skipped entities.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_skipped"><span class="hs-identifier hs-type">counters_skipped</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="counters_skipped"><span class="annot"><span class="annottext">counters_skipped :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Counters -&gt; f Counters
-</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_skipped"><span class="hs-identifier hs-var hs-var">counters_skipped</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Counters -&gt; Maybe Int)
+</span><span id="line-105"></span><span class="hs-comment">-- | The number of errored entities.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_errored"><span class="hs-identifier hs-type">counters_errored</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="counters_errored"><span class="annot"><span class="annottext">counters_errored :: (Maybe Int -&gt; f (Maybe Int)) -&gt; Counters -&gt; f Counters
+</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#counters_errored"><span class="hs-identifier hs-var hs-var">counters_errored</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Counters -&gt; Maybe Int)
 -&gt; (Counters -&gt; Maybe Int -&gt; Counters)
 -&gt; Lens Counters Counters (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360923"><span class="annot"><span class="annottext">Maybe Int
-skipped :: Maybe Int
-$sel:skipped:Counters' :: Counters -&gt; Maybe Int
-</span><a href="#local-6989586621679360923"><span class="hs-identifier hs-var hs-var">skipped</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360923"><span class="hs-identifier hs-var">skipped</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360922"><span class="annot"><span class="annottext">s :: Counters
-</span><a href="#local-6989586621679360922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360921"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Counters
-</span><a href="#local-6989586621679360922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skipped:Counters' :: Maybe Int
-</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Askipped%3ACounters%27"><span class="hs-identifier hs-var">skipped</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679360921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679361156"><span class="annot"><span class="annottext">Maybe Int
+errored :: Maybe Int
+$sel:errored:Counters' :: Counters -&gt; Maybe Int
+</span><a href="#local-6989586621679361156"><span class="hs-identifier hs-var hs-var">errored</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361156"><span class="hs-identifier hs-var">errored</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679361155"><span class="annot"><span class="annottext">s :: Counters
+</span><a href="#local-6989586621679361155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters%27"><span class="hs-identifier hs-type">Counters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679361154"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Counters
+</span><a href="#local-6989586621679361155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errored:Counters' :: Maybe Int
+</span><a href="Network.AWS.DeviceFarm.Types.Counters.html#%24sel%3Aerrored%3ACounters%27"><span class="hs-identifier hs-var">errored</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679361154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360918"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679360916"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Counters
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361151"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679361149"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Counters
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Counters) -&gt; Value -&gt; Parser Counters
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Counters&quot;</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679360913"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679360913"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679361146"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679361146"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe Int
 -&gt; Maybe Int
@@ -328,10 +328,10 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Counters)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679360913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679361146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;errored&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;passed&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Int
    -&gt; Maybe Int
@@ -346,10 +346,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; Counters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679360913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679361146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;warned&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;skipped&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Int
    -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; Counters)
@@ -358,34 +358,34 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; Counters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679360913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679361146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;passed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;warned&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; Counters)
 -&gt; Parser (Maybe Int)
 -&gt; Parser (Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; Counters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679360913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679361146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;total&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;stopped&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Int -&gt; Maybe Int -&gt; Counters)
 -&gt; Parser (Maybe Int)
 -&gt; Parser (Maybe Int -&gt; Maybe Int -&gt; Counters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679360913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679361146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;stopped&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;total&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Maybe Int -&gt; Counters)
 -&gt; Parser (Maybe Int) -&gt; Parser (Maybe Int -&gt; Counters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679360913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679361146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;failed&quot;</span></span><span class="hs-special">)</span><span>
@@ -393,13 +393,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser Counters
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679360913"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679361146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;skipped&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;errored&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360907"><span id="local-6989586621679360909"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361140"><span id="local-6989586621679361142"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360904"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679361137"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Counters.html#Counters"><span class="hs-identifier hs-type">Counters</span></a></span></span><span>
 </span><span id="line-127"></span></pre></body></html>

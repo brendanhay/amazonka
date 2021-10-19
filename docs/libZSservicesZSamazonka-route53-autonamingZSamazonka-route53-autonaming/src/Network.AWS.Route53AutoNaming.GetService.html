@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.html"><span class="hs-identifier">Network.AWS.Route53AutoNaming.Types</span></a></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetService' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679227896"><span id="local-6989586621679227897"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetService"><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService"><span class="hs-identifier hs-var">GetService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetService%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService%27"><span class="hs-identifier hs-var">GetService'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679228047"><span id="local-6989586621679228048"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetService"><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService"><span class="hs-identifier hs-var">GetService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetService%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService%27"><span class="hs-identifier hs-var">GetService'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the service that you want to get settings for.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Aid%3AGetService%27"><span class="annot"><span class="annottext">GetService -&gt; Text
 </span><a href="Network.AWS.Route53AutoNaming.GetService.html#%24sel%3Aid%3AGetService%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227890"><span id="local-6989586621679227892"><span class="annot"><span class="annottext">GetService -&gt; GetService -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228041"><span id="local-6989586621679228043"><span class="annot"><span class="annottext">GetService -&gt; GetService -&gt; Bool
 (GetService -&gt; GetService -&gt; Bool)
 -&gt; (GetService -&gt; GetService -&gt; Bool) -&gt; Eq GetService
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetService -&gt; GetService -&gt; Bool
 == :: GetService -&gt; GetService -&gt; Bool
 $c== :: GetService -&gt; GetService -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227881"><span id="local-6989586621679227883"><span id="local-6989586621679227885"><span id="local-6989586621679227887"><span class="annot"><span class="annottext">ReadPrec [GetService]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228032"><span id="local-6989586621679228034"><span id="local-6989586621679228036"><span id="local-6989586621679228038"><span class="annot"><span class="annottext">ReadPrec [GetService]
 ReadPrec GetService
 Int -&gt; ReadS GetService
 ReadS [GetService]
@@ -80,7 +80,7 @@ readList :: ReadS [GetService]
 $creadList :: ReadS [GetService]
 readsPrec :: Int -&gt; ReadS GetService
 $creadsPrec :: Int -&gt; ReadS GetService
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227874"><span id="local-6989586621679227876"><span id="local-6989586621679227878"><span class="annot"><span class="annottext">Int -&gt; GetService -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228025"><span id="local-6989586621679228027"><span id="local-6989586621679228029"><span class="annot"><span class="annottext">Int -&gt; GetService -&gt; ShowS
 [GetService] -&gt; ShowS
 GetService -&gt; String
 (Int -&gt; GetService -&gt; ShowS)
@@ -119,11 +119,11 @@ $cfrom :: forall x. GetService -&gt; Rep GetService x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span><span>
 </span><span id="line-69"></span><span id="newGetService"><span class="annot"><span class="annottext">newGetService :: Text -&gt; GetService
-</span><a href="Network.AWS.Route53AutoNaming.GetService.html#newGetService"><span class="hs-identifier hs-var hs-var">newGetService</span></a></span></span><span> </span><span id="local-6989586621679227869"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227869"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetService' :: Text -&gt; GetService
+</span><a href="Network.AWS.Route53AutoNaming.GetService.html#newGetService"><span class="hs-identifier hs-var hs-var">newGetService</span></a></span></span><span> </span><span id="local-6989586621679228020"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228020"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetService' :: Text -&gt; GetService
 </span><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService%27"><span class="hs-identifier hs-type">GetService'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetService' :: Text
 </span><a href="Network.AWS.Route53AutoNaming.GetService.html#%24sel%3Aid%3AGetService%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227869"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679228020"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The ID of the service that you want to get settings for.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#getService_id"><span class="hs-identifier hs-type">getService_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -132,25 +132,25 @@ $cfrom :: forall x. GetService -&gt; Rep GetService x
 -&gt; (GetService -&gt; Text -&gt; GetService)
 -&gt; Lens GetService GetService Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService%27"><span class="hs-identifier hs-type">GetService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227866"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService%27"><span class="hs-identifier hs-type">GetService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228017"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:GetService' :: GetService -&gt; Text
-</span><a href="#local-6989586621679227866"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227866"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227865"><span class="annot"><span class="annottext">s :: GetService
-</span><a href="#local-6989586621679227865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService%27"><span class="hs-identifier hs-type">GetService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227864"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetService
-</span><a href="#local-6989586621679227865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetService' :: Text
+</span><a href="#local-6989586621679228017"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228017"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228016"><span class="annot"><span class="annottext">s :: GetService
+</span><a href="#local-6989586621679228016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService%27"><span class="hs-identifier hs-type">GetService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228015"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetService
+</span><a href="#local-6989586621679228016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetService' :: Text
 </span><a href="Network.AWS.Route53AutoNaming.GetService.html#%24sel%3Aid%3AGetService%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse"><span class="hs-identifier hs-type">GetServiceResponse</span></a></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679227860"><span class="annot"><span class="annottext">request :: GetService -&gt; Request GetService
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679228011"><span class="annot"><span class="annottext">request :: GetService -&gt; Request GetService
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetService -&gt; Request GetService
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679227856"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679228007"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetService
 -&gt; ClientResponse ClientBody
@@ -174,10 +174,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679227853"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227853"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679227852"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679227852"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679227851"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679227851"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679228004"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228004"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679228003"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679228003"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679228002"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228002"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServiceInfo -&gt; Int -&gt; GetServiceResponse
 </span><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse%27"><span class="hs-identifier hs-var">GetServiceResponse'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ServiceInfo -&gt; Int -&gt; GetServiceResponse)
@@ -185,7 +185,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetServiceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679227851"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ServiceInfo)
+</span><a href="#local-6989586621679228002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ServiceInfo)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Service&quot;</span></span><span class="hs-special">)</span><span>
@@ -197,15 +197,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227853"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228004"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227843"><span id="local-6989586621679227845"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227994"><span id="local-6989586621679227996"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227840"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227991"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679227836"><span class="annot"><span class="annottext">toHeaders :: GetService -&gt; ResponseHeaders
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679227987"><span class="annot"><span class="annottext">toHeaders :: GetService -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetService -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -232,12 +232,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227826"><span id="local-6989586621679227828"><span id="local-6989586621679227830"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679227824"><span class="annot"><span class="annottext">toJSON :: GetService -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService%27"><span class="hs-identifier hs-type">GetService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227822"><span class="annot"><span class="annottext">Text
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227977"><span id="local-6989586621679227979"><span id="local-6989586621679227981"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679227975"><span class="annot"><span class="annottext">toJSON :: GetService -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService%27"><span class="hs-identifier hs-type">GetService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227973"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:GetService' :: GetService -&gt; Text
-</span><a href="#local-6989586621679227822"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679227973"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -248,17 +248,17 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679227822"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227973"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679227816"><span class="annot"><span class="annottext">toPath :: GetService -&gt; ByteString
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679227967"><span class="annot"><span class="annottext">toPath :: GetService -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetService -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetService"><span class="hs-identifier hs-type">GetService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679227812"><span class="annot"><span class="annottext">toQuery :: GetService -&gt; QueryString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679227963"><span class="annot"><span class="annottext">toQuery :: GetService -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetService -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -266,7 +266,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | /See:/ 'newGetServiceResponse' smart constructor.</span><span>
-</span><span id="line-117"></span><span id="local-6989586621679227809"><span id="local-6989586621679227810"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetServiceResponse"><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse"><span class="hs-identifier hs-var">GetServiceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetServiceResponse%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse%27"><span class="hs-identifier hs-var">GetServiceResponse'</span></a></span></span><span>
+</span><span id="line-117"></span><span id="local-6989586621679227960"><span id="local-6989586621679227961"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetServiceResponse"><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse"><span class="hs-identifier hs-var">GetServiceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetServiceResponse%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse%27"><span class="hs-identifier hs-var">GetServiceResponse'</span></a></span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A complex type that contains information about the service.</span><span>
 </span><span id="line-119"></span><span>    </span><span id="%24sel%3Aservice%3AGetServiceResponse%27"><span class="annot"><span class="annottext">GetServiceResponse -&gt; Maybe ServiceInfo
 </span><a href="Network.AWS.Route53AutoNaming.GetService.html#%24sel%3Aservice%3AGetServiceResponse%27"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.ServiceInfo.html#ServiceInfo"><span class="hs-identifier hs-type">ServiceInfo</span></a></span><span class="hs-special">,</span><span>
@@ -274,7 +274,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-121"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetServiceResponse%27"><span class="annot"><span class="annottext">GetServiceResponse -&gt; Int
 </span><a href="Network.AWS.Route53AutoNaming.GetService.html#%24sel%3AhttpStatus%3AGetServiceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227803"><span id="local-6989586621679227805"><span class="annot"><span class="annottext">GetServiceResponse -&gt; GetServiceResponse -&gt; Bool
+</span><span id="line-123"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679227954"><span id="local-6989586621679227956"><span class="annot"><span class="annottext">GetServiceResponse -&gt; GetServiceResponse -&gt; Bool
 (GetServiceResponse -&gt; GetServiceResponse -&gt; Bool)
 -&gt; (GetServiceResponse -&gt; GetServiceResponse -&gt; Bool)
 -&gt; Eq GetServiceResponse
@@ -283,7 +283,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetServiceResponse -&gt; GetServiceResponse -&gt; Bool
 == :: GetServiceResponse -&gt; GetServiceResponse -&gt; Bool
 $c== :: GetServiceResponse -&gt; GetServiceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227795"><span id="local-6989586621679227797"><span id="local-6989586621679227799"><span id="local-6989586621679227801"><span class="annot"><span class="annottext">ReadPrec [GetServiceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227946"><span id="local-6989586621679227948"><span id="local-6989586621679227950"><span id="local-6989586621679227952"><span class="annot"><span class="annottext">ReadPrec [GetServiceResponse]
 ReadPrec GetServiceResponse
 Int -&gt; ReadS GetServiceResponse
 ReadS [GetServiceResponse]
@@ -303,7 +303,7 @@ readList :: ReadS [GetServiceResponse]
 $creadList :: ReadS [GetServiceResponse]
 readsPrec :: Int -&gt; ReadS GetServiceResponse
 $creadsPrec :: Int -&gt; ReadS GetServiceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227789"><span id="local-6989586621679227791"><span id="local-6989586621679227793"><span class="annot"><span class="annottext">Int -&gt; GetServiceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679227940"><span id="local-6989586621679227942"><span id="local-6989586621679227944"><span class="annot"><span class="annottext">Int -&gt; GetServiceResponse -&gt; ShowS
 [GetServiceResponse] -&gt; ShowS
 GetServiceResponse -&gt; String
 (Int -&gt; GetServiceResponse -&gt; ShowS)
@@ -345,8 +345,8 @@ $cfrom :: forall x. GetServiceResponse -&gt; Rep GetServiceResponse x
 </span><span id="line-138"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-139"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse"><span class="hs-identifier hs-type">GetServiceResponse</span></a></span><span>
 </span><span id="line-140"></span><span id="newGetServiceResponse"><span class="annot"><span class="annottext">newGetServiceResponse :: Int -&gt; GetServiceResponse
-</span><a href="Network.AWS.Route53AutoNaming.GetService.html#newGetServiceResponse"><span class="hs-identifier hs-var hs-var">newGetServiceResponse</span></a></span></span><span> </span><span id="local-6989586621679227786"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227786"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53AutoNaming.GetService.html#newGetServiceResponse"><span class="hs-identifier hs-var hs-var">newGetServiceResponse</span></a></span></span><span> </span><span id="local-6989586621679227937"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227937"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><span class="annottext">GetServiceResponse' :: Maybe ServiceInfo -&gt; Int -&gt; GetServiceResponse
 </span><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse%27"><span class="hs-identifier hs-type">GetServiceResponse'</span></a></span><span>
 </span><span id="line-142"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:service:GetServiceResponse' :: Maybe ServiceInfo
@@ -355,7 +355,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetServiceResponse' :: Int
 </span><a href="Network.AWS.Route53AutoNaming.GetService.html#%24sel%3AhttpStatus%3AGetServiceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227786"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679227937"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | A complex type that contains information about the service.</span><span>
@@ -370,16 +370,16 @@ forall a. Maybe a
      (Maybe ServiceInfo)
      (Maybe ServiceInfo)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse%27"><span class="hs-identifier hs-type">GetServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227785"><span class="annot"><span class="annottext">Maybe ServiceInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse%27"><span class="hs-identifier hs-type">GetServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227936"><span class="annot"><span class="annottext">Maybe ServiceInfo
 service :: Maybe ServiceInfo
 $sel:service:GetServiceResponse' :: GetServiceResponse -&gt; Maybe ServiceInfo
-</span><a href="#local-6989586621679227785"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceInfo
-</span><a href="#local-6989586621679227785"><span class="hs-identifier hs-var">service</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227784"><span class="annot"><span class="annottext">s :: GetServiceResponse
-</span><a href="#local-6989586621679227784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse%27"><span class="hs-identifier hs-type">GetServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227783"><span class="annot"><span class="annottext">Maybe ServiceInfo
-</span><a href="#local-6989586621679227783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceResponse
-</span><a href="#local-6989586621679227784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:service:GetServiceResponse' :: Maybe ServiceInfo
+</span><a href="#local-6989586621679227936"><span class="hs-identifier hs-var hs-var">service</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceInfo
+</span><a href="#local-6989586621679227936"><span class="hs-identifier hs-var">service</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227935"><span class="annot"><span class="annottext">s :: GetServiceResponse
+</span><a href="#local-6989586621679227935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse%27"><span class="hs-identifier hs-type">GetServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227934"><span class="annot"><span class="annottext">Maybe ServiceInfo
+</span><a href="#local-6989586621679227934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceResponse
+</span><a href="#local-6989586621679227935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:service:GetServiceResponse' :: Maybe ServiceInfo
 </span><a href="Network.AWS.Route53AutoNaming.GetService.html#%24sel%3Aservice%3AGetServiceResponse%27"><span class="hs-identifier hs-var">service</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceInfo
-</span><a href="#local-6989586621679227783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse"><span class="hs-identifier hs-type">GetServiceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse"><span class="hs-identifier hs-type">GetServiceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-151"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#getServiceResponse_httpStatus"><span class="hs-identifier hs-type">getServiceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse"><span class="hs-identifier hs-type">GetServiceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -388,16 +388,16 @@ $sel:service:GetServiceResponse' :: GetServiceResponse -&gt; Maybe ServiceInfo
 -&gt; (GetServiceResponse -&gt; Int -&gt; GetServiceResponse)
 -&gt; Lens GetServiceResponse GetServiceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse%27"><span class="hs-identifier hs-type">GetServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227782"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse%27"><span class="hs-identifier hs-type">GetServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679227933"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetServiceResponse' :: GetServiceResponse -&gt; Int
-</span><a href="#local-6989586621679227782"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227782"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227781"><span class="annot"><span class="annottext">s :: GetServiceResponse
-</span><a href="#local-6989586621679227781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse%27"><span class="hs-identifier hs-type">GetServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227780"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceResponse
-</span><a href="#local-6989586621679227781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetServiceResponse' :: Int
+</span><a href="#local-6989586621679227933"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227933"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679227932"><span class="annot"><span class="annottext">s :: GetServiceResponse
+</span><a href="#local-6989586621679227932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse%27"><span class="hs-identifier hs-type">GetServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679227931"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679227931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetServiceResponse
+</span><a href="#local-6989586621679227932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetServiceResponse' :: Int
 </span><a href="Network.AWS.Route53AutoNaming.GetService.html#%24sel%3AhttpStatus%3AGetServiceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679227780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse"><span class="hs-identifier hs-type">GetServiceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679227931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse"><span class="hs-identifier hs-type">GetServiceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227778"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse"><span class="hs-identifier hs-type">GetServiceResponse</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679227929"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetService.html#GetServiceResponse"><span class="hs-identifier hs-type">GetServiceResponse</span></a></span></span><span>
 </span><span id="line-155"></span></pre></body></html>

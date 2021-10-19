@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A filter for viewing OpsData summaries.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOpsFilter' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679800832"><span id="local-6989586621679800833"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpsFilter"><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-var">OpsFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsFilter%27"><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter%27"><span class="hs-identifier hs-var">OpsFilter'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679802489"><span id="local-6989586621679802490"></span></span><span class="hs-keyword">data</span><span> </span><span id="OpsFilter"><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-var">OpsFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OpsFilter%27"><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter%27"><span class="hs-identifier hs-var">OpsFilter'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of filter.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Atype%27%3AOpsFilter%27"><span class="annot"><span class="annottext">OpsFilter -&gt; Maybe OpsFilterOperatorType
 </span><a href="Network.AWS.SSM.Types.OpsFilter.html#%24sel%3Atype%27%3AOpsFilter%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilterOperatorType.html#OpsFilterOperatorType"><span class="hs-identifier hs-type">OpsFilterOperatorType</span></a></span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Avalues%3AOpsFilter%27"><span class="annot"><span class="annottext">OpsFilter -&gt; NonEmpty Text
 </span><a href="Network.AWS.SSM.Types.OpsFilter.html#%24sel%3Avalues%3AOpsFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800824"><span id="local-6989586621679800826"><span class="annot"><span class="annottext">OpsFilter -&gt; OpsFilter -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679802481"><span id="local-6989586621679802483"><span class="annot"><span class="annottext">OpsFilter -&gt; OpsFilter -&gt; Bool
 (OpsFilter -&gt; OpsFilter -&gt; Bool)
 -&gt; (OpsFilter -&gt; OpsFilter -&gt; Bool) -&gt; Eq OpsFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OpsFilter -&gt; OpsFilter -&gt; Bool
 == :: OpsFilter -&gt; OpsFilter -&gt; Bool
 $c== :: OpsFilter -&gt; OpsFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800815"><span id="local-6989586621679800817"><span id="local-6989586621679800819"><span id="local-6989586621679800821"><span class="annot"><span class="annottext">ReadPrec [OpsFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679802472"><span id="local-6989586621679802474"><span id="local-6989586621679802476"><span id="local-6989586621679802478"><span class="annot"><span class="annottext">ReadPrec [OpsFilter]
 ReadPrec OpsFilter
 Int -&gt; ReadS OpsFilter
 ReadS [OpsFilter]
@@ -66,7 +66,7 @@ readList :: ReadS [OpsFilter]
 $creadList :: ReadS [OpsFilter]
 readsPrec :: Int -&gt; ReadS OpsFilter
 $creadsPrec :: Int -&gt; ReadS OpsFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800808"><span id="local-6989586621679800810"><span id="local-6989586621679800812"><span class="annot"><span class="annottext">Int -&gt; OpsFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679802465"><span id="local-6989586621679802467"><span id="local-6989586621679802469"><span class="annot"><span class="annottext">Int -&gt; OpsFilter -&gt; ShowS
 [OpsFilter] -&gt; ShowS
 OpsFilter -&gt; String
 (Int -&gt; OpsFilter -&gt; ShowS)
@@ -111,9 +111,9 @@ $cfrom :: forall x. OpsFilter -&gt; Rep OpsFilter x
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span><span>
 </span><span id="line-59"></span><span id="newOpsFilter"><span class="annot"><span class="annottext">newOpsFilter :: Text -&gt; NonEmpty Text -&gt; OpsFilter
-</span><a href="Network.AWS.SSM.Types.OpsFilter.html#newOpsFilter"><span class="hs-identifier hs-var hs-var">newOpsFilter</span></a></span></span><span> </span><span id="local-6989586621679800802"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800802"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679800801"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679800801"><span class="hs-identifier hs-var">pValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.Types.OpsFilter.html#newOpsFilter"><span class="hs-identifier hs-var hs-var">newOpsFilter</span></a></span></span><span> </span><span id="local-6989586621679802459"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679802459"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679802458"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679802458"><span class="hs-identifier hs-var">pValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">OpsFilter' :: Maybe OpsFilterOperatorType -&gt; Text -&gt; NonEmpty Text -&gt; OpsFilter
 </span><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter%27"><span class="hs-identifier hs-type">OpsFilter'</span></a></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:type':OpsFilter' :: Maybe OpsFilterOperatorType
@@ -122,17 +122,17 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:OpsFilter' :: Text
 </span><a href="Network.AWS.SSM.Types.OpsFilter.html#%24sel%3Akey%3AOpsFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800802"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679802459"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:OpsFilter' :: NonEmpty Text
 </span><a href="Network.AWS.SSM.Types.OpsFilter.html#%24sel%3Avalues%3AOpsFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679800801"><span class="hs-identifier hs-var">pValues_</span></a></span><span>
+</span><a href="#local-6989586621679802458"><span class="hs-identifier hs-var">pValues_</span></a></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The type of filter.</span><span>
@@ -147,16 +147,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe OpsFilterOperatorType)
      (Maybe OpsFilterOperatorType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter%27"><span class="hs-identifier hs-type">OpsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800795"><span class="annot"><span class="annottext">Maybe OpsFilterOperatorType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter%27"><span class="hs-identifier hs-type">OpsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679802452"><span class="annot"><span class="annottext">Maybe OpsFilterOperatorType
 type' :: Maybe OpsFilterOperatorType
 $sel:type':OpsFilter' :: OpsFilter -&gt; Maybe OpsFilterOperatorType
-</span><a href="#local-6989586621679800795"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OpsFilterOperatorType
-</span><a href="#local-6989586621679800795"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800794"><span class="annot"><span class="annottext">s :: OpsFilter
-</span><a href="#local-6989586621679800794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter%27"><span class="hs-identifier hs-type">OpsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800793"><span class="annot"><span class="annottext">Maybe OpsFilterOperatorType
-</span><a href="#local-6989586621679800793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsFilter
-</span><a href="#local-6989586621679800794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':OpsFilter' :: Maybe OpsFilterOperatorType
+</span><a href="#local-6989586621679802452"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OpsFilterOperatorType
+</span><a href="#local-6989586621679802452"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679802451"><span class="annot"><span class="annottext">s :: OpsFilter
+</span><a href="#local-6989586621679802451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter%27"><span class="hs-identifier hs-type">OpsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679802450"><span class="annot"><span class="annottext">Maybe OpsFilterOperatorType
+</span><a href="#local-6989586621679802450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsFilter
+</span><a href="#local-6989586621679802451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':OpsFilter' :: Maybe OpsFilterOperatorType
 </span><a href="Network.AWS.SSM.Types.OpsFilter.html#%24sel%3Atype%27%3AOpsFilter%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OpsFilterOperatorType
-</span><a href="#local-6989586621679800793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679802450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The name of the filter.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#opsFilter_key"><span class="hs-identifier hs-type">opsFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -165,16 +165,16 @@ $sel:type':OpsFilter' :: OpsFilter -&gt; Maybe OpsFilterOperatorType
 -&gt; (OpsFilter -&gt; Text -&gt; OpsFilter)
 -&gt; Lens OpsFilter OpsFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter%27"><span class="hs-identifier hs-type">OpsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800791"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter%27"><span class="hs-identifier hs-type">OpsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679802448"><span class="annot"><span class="annottext">Text
 key :: Text
 $sel:key:OpsFilter' :: OpsFilter -&gt; Text
-</span><a href="#local-6989586621679800791"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800791"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800790"><span class="annot"><span class="annottext">s :: OpsFilter
-</span><a href="#local-6989586621679800790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter%27"><span class="hs-identifier hs-type">OpsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800789"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsFilter
-</span><a href="#local-6989586621679800790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:OpsFilter' :: Text
+</span><a href="#local-6989586621679802448"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679802448"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679802447"><span class="annot"><span class="annottext">s :: OpsFilter
+</span><a href="#local-6989586621679802447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter%27"><span class="hs-identifier hs-type">OpsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679802446"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679802446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsFilter
+</span><a href="#local-6989586621679802447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:OpsFilter' :: Text
 </span><a href="Network.AWS.SSM.Types.OpsFilter.html#%24sel%3Akey%3AOpsFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679802446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The filter value.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#opsFilter_values"><span class="hs-identifier hs-type">opsFilter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -183,16 +183,16 @@ $sel:key:OpsFilter' :: OpsFilter -&gt; Text
 -&gt; (OpsFilter -&gt; NonEmpty Text -&gt; OpsFilter)
 -&gt; Lens OpsFilter OpsFilter (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter%27"><span class="hs-identifier hs-type">OpsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800787"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter%27"><span class="hs-identifier hs-type">OpsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679802444"><span class="annot"><span class="annottext">NonEmpty Text
 values :: NonEmpty Text
 $sel:values:OpsFilter' :: OpsFilter -&gt; NonEmpty Text
-</span><a href="#local-6989586621679800787"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679800787"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800786"><span class="annot"><span class="annottext">s :: OpsFilter
-</span><a href="#local-6989586621679800786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter%27"><span class="hs-identifier hs-type">OpsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800785"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679800785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsFilter
-</span><a href="#local-6989586621679800786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:OpsFilter' :: NonEmpty Text
+</span><a href="#local-6989586621679802444"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679802444"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679802443"><span class="annot"><span class="annottext">s :: OpsFilter
+</span><a href="#local-6989586621679802443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter%27"><span class="hs-identifier hs-type">OpsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679802442"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679802442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OpsFilter
+</span><a href="#local-6989586621679802443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:OpsFilter' :: NonEmpty Text
 </span><a href="Network.AWS.SSM.Types.OpsFilter.html#%24sel%3Avalues%3AOpsFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679800785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text)) -&gt; OpsFilter -&gt; f OpsFilter)
+</span><a href="#local-6989586621679802442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text)) -&gt; OpsFilter -&gt; f OpsFilter)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
@@ -201,16 +201,16 @@ $sel:values:OpsFilter' :: OpsFilter -&gt; NonEmpty Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800780"><span id="local-6989586621679800782"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679802437"><span id="local-6989586621679802439"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679802434"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800769"><span id="local-6989586621679800771"><span id="local-6989586621679800773"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679800767"><span class="annot"><span class="annottext">toJSON :: OpsFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter%27"><span class="hs-identifier hs-type">OpsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800763"><span id="local-6989586621679800764"><span id="local-6989586621679800765"><span class="annot"><span class="annottext">Maybe OpsFilterOperatorType
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679802426"><span id="local-6989586621679802428"><span id="local-6989586621679802430"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679802424"><span class="annot"><span class="annottext">toJSON :: OpsFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter%27"><span class="hs-identifier hs-type">OpsFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679802420"><span id="local-6989586621679802421"><span id="local-6989586621679802422"><span class="annot"><span class="annottext">Maybe OpsFilterOperatorType
 NonEmpty Text
 Text
 values :: NonEmpty Text
@@ -219,7 +219,7 @@ type' :: Maybe OpsFilterOperatorType
 $sel:values:OpsFilter' :: OpsFilter -&gt; NonEmpty Text
 $sel:key:OpsFilter' :: OpsFilter -&gt; Text
 $sel:type':OpsFilter' :: OpsFilter -&gt; Maybe OpsFilterOperatorType
-</span><a href="#local-6989586621679800763"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679802420"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -232,21 +232,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe OpsFilterOperatorType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OpsFilterOperatorType
-</span><a href="#local-6989586621679800765"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679802422"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679800764"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679802421"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679800763"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679802420"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span></pre></body></html>

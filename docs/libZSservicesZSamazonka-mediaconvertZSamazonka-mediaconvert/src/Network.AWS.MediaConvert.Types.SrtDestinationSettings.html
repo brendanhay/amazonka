@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | SRT Destination Settings</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSrtDestinationSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680000879"><span id="local-6989586621680000880"></span></span><span class="hs-keyword">data</span><span> </span><span id="SrtDestinationSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings"><span class="hs-identifier hs-var">SrtDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SrtDestinationSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings%27"><span class="hs-identifier hs-var">SrtDestinationSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680005807"><span id="local-6989586621680005808"></span></span><span class="hs-keyword">data</span><span> </span><span id="SrtDestinationSettings"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings"><span class="hs-identifier hs-var">SrtDestinationSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SrtDestinationSettings%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings%27"><span class="hs-identifier hs-var">SrtDestinationSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Choose Enabled (ENABLED) to have MediaConvert use the font style, color,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- and position information from the captions source in the input. Keep the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- default value, Disabled (DISABLED), for simplified output captions.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AstylePassthrough%3ASrtDestinationSettings%27"><span class="annot"><span class="annottext">SrtDestinationSettings -&gt; Maybe SrtStylePassthrough
 </span><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#%24sel%3AstylePassthrough%3ASrtDestinationSettings%27"><span class="hs-identifier hs-var hs-var">stylePassthrough</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtStylePassthrough.html#SrtStylePassthrough"><span class="hs-identifier hs-type">SrtStylePassthrough</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680000873"><span id="local-6989586621680000875"><span class="annot"><span class="annottext">SrtDestinationSettings -&gt; SrtDestinationSettings -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680005801"><span id="local-6989586621680005803"><span class="annot"><span class="annottext">SrtDestinationSettings -&gt; SrtDestinationSettings -&gt; Bool
 (SrtDestinationSettings -&gt; SrtDestinationSettings -&gt; Bool)
 -&gt; (SrtDestinationSettings -&gt; SrtDestinationSettings -&gt; Bool)
 -&gt; Eq SrtDestinationSettings
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SrtDestinationSettings -&gt; SrtDestinationSettings -&gt; Bool
 == :: SrtDestinationSettings -&gt; SrtDestinationSettings -&gt; Bool
 $c== :: SrtDestinationSettings -&gt; SrtDestinationSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680000864"><span id="local-6989586621680000866"><span id="local-6989586621680000868"><span id="local-6989586621680000870"><span class="annot"><span class="annottext">ReadPrec [SrtDestinationSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680005792"><span id="local-6989586621680005794"><span id="local-6989586621680005796"><span id="local-6989586621680005798"><span class="annot"><span class="annottext">ReadPrec [SrtDestinationSettings]
 ReadPrec SrtDestinationSettings
 Int -&gt; ReadS SrtDestinationSettings
 ReadS [SrtDestinationSettings]
@@ -63,7 +63,7 @@ readList :: ReadS [SrtDestinationSettings]
 $creadList :: ReadS [SrtDestinationSettings]
 readsPrec :: Int -&gt; ReadS SrtDestinationSettings
 $creadsPrec :: Int -&gt; ReadS SrtDestinationSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680000857"><span id="local-6989586621680000859"><span id="local-6989586621680000861"><span class="annot"><span class="annottext">Int -&gt; SrtDestinationSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680005785"><span id="local-6989586621680005787"><span id="local-6989586621680005789"><span class="annot"><span class="annottext">Int -&gt; SrtDestinationSettings -&gt; ShowS
 [SrtDestinationSettings] -&gt; ShowS
 SrtDestinationSettings -&gt; String
 (Int -&gt; SrtDestinationSettings -&gt; ShowS)
@@ -129,19 +129,19 @@ forall a. Maybe a
      (Maybe SrtStylePassthrough)
      (Maybe SrtStylePassthrough)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings%27"><span class="hs-identifier hs-type">SrtDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000848"><span class="annot"><span class="annottext">Maybe SrtStylePassthrough
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings%27"><span class="hs-identifier hs-type">SrtDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005776"><span class="annot"><span class="annottext">Maybe SrtStylePassthrough
 stylePassthrough :: Maybe SrtStylePassthrough
 $sel:stylePassthrough:SrtDestinationSettings' :: SrtDestinationSettings -&gt; Maybe SrtStylePassthrough
-</span><a href="#local-6989586621680000848"><span class="hs-identifier hs-var hs-var">stylePassthrough</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SrtStylePassthrough
-</span><a href="#local-6989586621680000848"><span class="hs-identifier hs-var">stylePassthrough</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680000847"><span class="annot"><span class="annottext">s :: SrtDestinationSettings
-</span><a href="#local-6989586621680000847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings%27"><span class="hs-identifier hs-type">SrtDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680000846"><span class="annot"><span class="annottext">Maybe SrtStylePassthrough
-</span><a href="#local-6989586621680000846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SrtDestinationSettings
-</span><a href="#local-6989586621680000847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stylePassthrough:SrtDestinationSettings' :: Maybe SrtStylePassthrough
+</span><a href="#local-6989586621680005776"><span class="hs-identifier hs-var hs-var">stylePassthrough</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SrtStylePassthrough
+</span><a href="#local-6989586621680005776"><span class="hs-identifier hs-var">stylePassthrough</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680005775"><span class="annot"><span class="annottext">s :: SrtDestinationSettings
+</span><a href="#local-6989586621680005775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings%27"><span class="hs-identifier hs-type">SrtDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680005774"><span class="annot"><span class="annottext">Maybe SrtStylePassthrough
+</span><a href="#local-6989586621680005774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SrtDestinationSettings
+</span><a href="#local-6989586621680005775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stylePassthrough:SrtDestinationSettings' :: Maybe SrtStylePassthrough
 </span><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#%24sel%3AstylePassthrough%3ASrtDestinationSettings%27"><span class="hs-identifier hs-var">stylePassthrough</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SrtStylePassthrough
-</span><a href="#local-6989586621680000846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings"><span class="hs-identifier hs-type">SrtDestinationSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680005774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings"><span class="hs-identifier hs-type">SrtDestinationSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000843"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings"><span class="hs-identifier hs-type">SrtDestinationSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621680000841"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SrtDestinationSettings
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680005771"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings"><span class="hs-identifier hs-type">SrtDestinationSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621680005769"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SrtDestinationSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SrtDestinationSettings)
@@ -151,8 +151,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SrtDestinationSettings&quot;</span></span><span>
-</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680000838"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680000838"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680005766"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680005766"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>          </span><span class="annot"><span class="annottext">Maybe SrtStylePassthrough -&gt; SrtDestinationSettings
 </span><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings%27"><span class="hs-identifier hs-var">SrtDestinationSettings'</span></a></span><span>
 </span><span id="line-69"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SrtStylePassthrough -&gt; SrtDestinationSettings)
@@ -160,22 +160,22 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser SrtDestinationSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680000838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SrtStylePassthrough)
+</span><a href="#local-6989586621680005766"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SrtStylePassthrough)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;stylePassthrough&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000832"><span id="local-6989586621680000834"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings"><span class="hs-identifier hs-type">SrtDestinationSettings</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680005760"><span id="local-6989586621680005762"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings"><span class="hs-identifier hs-type">SrtDestinationSettings</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000829"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings"><span class="hs-identifier hs-type">SrtDestinationSettings</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680005757"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings"><span class="hs-identifier hs-type">SrtDestinationSettings</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680000821"><span id="local-6989586621680000823"><span id="local-6989586621680000825"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings"><span class="hs-identifier hs-type">SrtDestinationSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621680000819"><span class="annot"><span class="annottext">toJSON :: SrtDestinationSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings%27"><span class="hs-identifier hs-type">SrtDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680000817"><span class="annot"><span class="annottext">Maybe SrtStylePassthrough
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680005749"><span id="local-6989586621680005751"><span id="local-6989586621680005753"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings"><span class="hs-identifier hs-type">SrtDestinationSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621680005747"><span class="annot"><span class="annottext">toJSON :: SrtDestinationSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.SrtDestinationSettings.html#SrtDestinationSettings%27"><span class="hs-identifier hs-type">SrtDestinationSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680005745"><span class="annot"><span class="annottext">Maybe SrtStylePassthrough
 stylePassthrough :: Maybe SrtStylePassthrough
 $sel:stylePassthrough:SrtDestinationSettings' :: SrtDestinationSettings -&gt; Maybe SrtStylePassthrough
-</span><a href="#local-6989586621680000817"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680005745"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -189,7 +189,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe SrtStylePassthrough -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SrtStylePassthrough
-</span><a href="#local-6989586621680000817"><span class="hs-identifier hs-var">stylePassthrough</span></a></span><span>
+</span><a href="#local-6989586621680005745"><span class="hs-identifier hs-var">stylePassthrough</span></a></span><span>
 </span><span id="line-82"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span></pre></body></html>

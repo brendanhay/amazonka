@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The Athena engine version for running queries.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newEngineVersion' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679216876"><span id="local-6989586621679216877"></span></span><span class="hs-keyword">data</span><span> </span><span id="EngineVersion"><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion"><span class="hs-identifier hs-var">EngineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EngineVersion%27"><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion%27"><span class="hs-identifier hs-var">EngineVersion'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679217035"><span id="local-6989586621679217036"></span></span><span class="hs-keyword">data</span><span> </span><span id="EngineVersion"><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion"><span class="hs-identifier hs-var">EngineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EngineVersion%27"><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion%27"><span class="hs-identifier hs-var">EngineVersion'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Read only. The engine version on which the query runs. If the user</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- requests a valid engine version other than Auto, the effective engine</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- version is the same as the engine version that the user requested. If</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AselectedEngineVersion%3AEngineVersion%27"><span class="annot"><span class="annottext">EngineVersion -&gt; Maybe Text
 </span><a href="Network.AWS.Athena.Types.EngineVersion.html#%24sel%3AselectedEngineVersion%3AEngineVersion%27"><span class="hs-identifier hs-var hs-var">selectedEngineVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679216869"><span id="local-6989586621679216871"><span class="annot"><span class="annottext">EngineVersion -&gt; EngineVersion -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217028"><span id="local-6989586621679217030"><span class="annot"><span class="annottext">EngineVersion -&gt; EngineVersion -&gt; Bool
 (EngineVersion -&gt; EngineVersion -&gt; Bool)
 -&gt; (EngineVersion -&gt; EngineVersion -&gt; Bool) -&gt; Eq EngineVersion
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EngineVersion -&gt; EngineVersion -&gt; Bool
 == :: EngineVersion -&gt; EngineVersion -&gt; Bool
 $c== :: EngineVersion -&gt; EngineVersion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216860"><span id="local-6989586621679216862"><span id="local-6989586621679216864"><span id="local-6989586621679216866"><span class="annot"><span class="annottext">ReadPrec [EngineVersion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217019"><span id="local-6989586621679217021"><span id="local-6989586621679217023"><span id="local-6989586621679217025"><span class="annot"><span class="annottext">ReadPrec [EngineVersion]
 ReadPrec EngineVersion
 Int -&gt; ReadS EngineVersion
 ReadS [EngineVersion]
@@ -70,7 +70,7 @@ readList :: ReadS [EngineVersion]
 $creadList :: ReadS [EngineVersion]
 readsPrec :: Int -&gt; ReadS EngineVersion
 $creadsPrec :: Int -&gt; ReadS EngineVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679216853"><span id="local-6989586621679216855"><span id="local-6989586621679216857"><span class="annot"><span class="annottext">Int -&gt; EngineVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217012"><span id="local-6989586621679217014"><span id="local-6989586621679217016"><span class="annot"><span class="annottext">Int -&gt; EngineVersion -&gt; ShowS
 [EngineVersion] -&gt; ShowS
 EngineVersion -&gt; String
 (Int -&gt; EngineVersion -&gt; ShowS)
@@ -145,16 +145,16 @@ forall a. Maybe a
 -&gt; (EngineVersion -&gt; Maybe Text -&gt; EngineVersion)
 -&gt; Lens EngineVersion EngineVersion (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion%27"><span class="hs-identifier hs-type">EngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216844"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion%27"><span class="hs-identifier hs-type">EngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217003"><span class="annot"><span class="annottext">Maybe Text
 effectiveEngineVersion :: Maybe Text
 $sel:effectiveEngineVersion:EngineVersion' :: EngineVersion -&gt; Maybe Text
-</span><a href="#local-6989586621679216844"><span class="hs-identifier hs-var hs-var">effectiveEngineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216844"><span class="hs-identifier hs-var">effectiveEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216843"><span class="annot"><span class="annottext">s :: EngineVersion
-</span><a href="#local-6989586621679216843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion%27"><span class="hs-identifier hs-type">EngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216842"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineVersion
-</span><a href="#local-6989586621679216843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effectiveEngineVersion:EngineVersion' :: Maybe Text
+</span><a href="#local-6989586621679217003"><span class="hs-identifier hs-var hs-var">effectiveEngineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217003"><span class="hs-identifier hs-var">effectiveEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217002"><span class="annot"><span class="annottext">s :: EngineVersion
+</span><a href="#local-6989586621679217002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion%27"><span class="hs-identifier hs-type">EngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217001"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineVersion
+</span><a href="#local-6989586621679217002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:effectiveEngineVersion:EngineVersion' :: Maybe Text
 </span><a href="Network.AWS.Athena.Types.EngineVersion.html#%24sel%3AeffectiveEngineVersion%3AEngineVersion%27"><span class="hs-identifier hs-var">effectiveEngineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion"><span class="hs-identifier hs-type">EngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion"><span class="hs-identifier hs-type">EngineVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The engine version requested by the user. Possible values are determined</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- by the output of @ListEngineVersions@, including Auto. The default is</span><span>
@@ -165,19 +165,19 @@ $sel:effectiveEngineVersion:EngineVersion' :: EngineVersion -&gt; Maybe Text
 -&gt; (EngineVersion -&gt; Maybe Text -&gt; EngineVersion)
 -&gt; Lens EngineVersion EngineVersion (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion%27"><span class="hs-identifier hs-type">EngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216840"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion%27"><span class="hs-identifier hs-type">EngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216999"><span class="annot"><span class="annottext">Maybe Text
 selectedEngineVersion :: Maybe Text
 $sel:selectedEngineVersion:EngineVersion' :: EngineVersion -&gt; Maybe Text
-</span><a href="#local-6989586621679216840"><span class="hs-identifier hs-var hs-var">selectedEngineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216840"><span class="hs-identifier hs-var">selectedEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216839"><span class="annot"><span class="annottext">s :: EngineVersion
-</span><a href="#local-6989586621679216839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion%27"><span class="hs-identifier hs-type">EngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216838"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineVersion
-</span><a href="#local-6989586621679216839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectedEngineVersion:EngineVersion' :: Maybe Text
+</span><a href="#local-6989586621679216999"><span class="hs-identifier hs-var hs-var">selectedEngineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216999"><span class="hs-identifier hs-var">selectedEngineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679216998"><span class="annot"><span class="annottext">s :: EngineVersion
+</span><a href="#local-6989586621679216998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion%27"><span class="hs-identifier hs-type">EngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679216997"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679216997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EngineVersion
+</span><a href="#local-6989586621679216998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectedEngineVersion:EngineVersion' :: Maybe Text
 </span><a href="Network.AWS.Athena.Types.EngineVersion.html#%24sel%3AselectedEngineVersion%3AEngineVersion%27"><span class="hs-identifier hs-var">selectedEngineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion"><span class="hs-identifier hs-type">EngineVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679216997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion"><span class="hs-identifier hs-type">EngineVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216835"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion"><span class="hs-identifier hs-type">EngineVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679216833"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EngineVersion
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216994"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion"><span class="hs-identifier hs-type">EngineVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679216992"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EngineVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EngineVersion)
@@ -187,15 +187,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EngineVersion&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216830"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216830"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679216989"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679216989"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; EngineVersion
 </span><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion%27"><span class="hs-identifier hs-var">EngineVersion'</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; EngineVersion)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; EngineVersion)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216830"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679216989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EffectiveEngineVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -203,24 +203,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser EngineVersion
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679216830"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679216989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SelectedEngineVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216824"><span id="local-6989586621679216826"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion"><span class="hs-identifier hs-type">EngineVersion</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216983"><span id="local-6989586621679216985"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion"><span class="hs-identifier hs-type">EngineVersion</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216821"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion"><span class="hs-identifier hs-type">EngineVersion</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216980"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion"><span class="hs-identifier hs-type">EngineVersion</span></a></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216813"><span id="local-6989586621679216815"><span id="local-6989586621679216817"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion"><span class="hs-identifier hs-type">EngineVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679216811"><span class="annot"><span class="annottext">toJSON :: EngineVersion -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion%27"><span class="hs-identifier hs-type">EngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216808"><span id="local-6989586621679216809"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679216972"><span id="local-6989586621679216974"><span id="local-6989586621679216976"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion"><span class="hs-identifier hs-type">EngineVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679216970"><span class="annot"><span class="annottext">toJSON :: EngineVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.Types.EngineVersion.html#EngineVersion%27"><span class="hs-identifier hs-type">EngineVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679216967"><span id="local-6989586621679216968"><span class="annot"><span class="annottext">Maybe Text
 selectedEngineVersion :: Maybe Text
 effectiveEngineVersion :: Maybe Text
 $sel:selectedEngineVersion:EngineVersion' :: EngineVersion -&gt; Maybe Text
 $sel:effectiveEngineVersion:EngineVersion' :: EngineVersion -&gt; Maybe Text
-</span><a href="#local-6989586621679216808"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679216967"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -233,7 +233,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216809"><span class="hs-identifier hs-var">effectiveEngineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679216968"><span class="hs-identifier hs-var">effectiveEngineVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SelectedEngineVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -241,7 +241,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679216808"><span class="hs-identifier hs-var">selectedEngineVersion</span></a></span><span>
+</span><a href="#local-6989586621679216967"><span class="hs-identifier hs-var">selectedEngineVersion</span></a></span><span>
 </span><span id="line-111"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span></pre></body></html>

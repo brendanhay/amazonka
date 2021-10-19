@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680330084"><span id="local-6989586621680330085"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProcessingS3InputMode"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingS3InputMode.html#ProcessingS3InputMode"><span class="hs-identifier hs-var">ProcessingS3InputMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessingS3InputMode%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingS3InputMode.html#ProcessingS3InputMode%27"><span class="hs-identifier hs-var">ProcessingS3InputMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680331485"><span id="local-6989586621680331486"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProcessingS3InputMode"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingS3InputMode.html#ProcessingS3InputMode"><span class="hs-identifier hs-var">ProcessingS3InputMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProcessingS3InputMode%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingS3InputMode.html#ProcessingS3InputMode%27"><span class="hs-identifier hs-var">ProcessingS3InputMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProcessingS3InputMode"><span class="annot"><span class="annottext">ProcessingS3InputMode -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ProcessingS3InputMode.html#fromProcessingS3InputMode"><span class="hs-identifier hs-var hs-var">fromProcessingS3InputMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680330076"><span id="local-6989586621680330078"><span id="local-6989586621680330080"><span class="annot"><span class="annottext">Int -&gt; ProcessingS3InputMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680331477"><span id="local-6989586621680331479"><span id="local-6989586621680331481"><span class="annot"><span class="annottext">Int -&gt; ProcessingS3InputMode -&gt; ShowS
 [ProcessingS3InputMode] -&gt; ShowS
 ProcessingS3InputMode -&gt; String
 (Int -&gt; ProcessingS3InputMode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ProcessingS3InputMode -&gt; String
 showsPrec :: Int -&gt; ProcessingS3InputMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; ProcessingS3InputMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680330067"><span id="local-6989586621680330069"><span id="local-6989586621680330071"><span id="local-6989586621680330073"><span class="annot"><span class="annottext">ReadPrec [ProcessingS3InputMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680331468"><span id="local-6989586621680331470"><span id="local-6989586621680331472"><span id="local-6989586621680331474"><span class="annot"><span class="annottext">ReadPrec [ProcessingS3InputMode]
 ReadPrec ProcessingS3InputMode
 Int -&gt; ReadS ProcessingS3InputMode
 ReadS [ProcessingS3InputMode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ProcessingS3InputMode]
 readsPrec :: Int -&gt; ReadS ProcessingS3InputMode
 $creadsPrec :: Int -&gt; ReadS ProcessingS3InputMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680330062"><span id="local-6989586621680330064"><span class="annot"><span class="annottext">ProcessingS3InputMode -&gt; ProcessingS3InputMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680331463"><span id="local-6989586621680331465"><span class="annot"><span class="annottext">ProcessingS3InputMode -&gt; ProcessingS3InputMode -&gt; Bool
 (ProcessingS3InputMode -&gt; ProcessingS3InputMode -&gt; Bool)
 -&gt; (ProcessingS3InputMode -&gt; ProcessingS3InputMode -&gt; Bool)
 -&gt; Eq ProcessingS3InputMode
@@ -82,7 +82,7 @@ $c/= :: ProcessingS3InputMode -&gt; ProcessingS3InputMode -&gt; Bool
 == :: ProcessingS3InputMode -&gt; ProcessingS3InputMode -&gt; Bool
 $c== :: ProcessingS3InputMode -&gt; ProcessingS3InputMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680330046"><span id="local-6989586621680330048"><span id="local-6989586621680330050"><span id="local-6989586621680330052"><span id="local-6989586621680330054"><span id="local-6989586621680330056"><span id="local-6989586621680330058"><span class="annot"><span class="annottext">Eq ProcessingS3InputMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680331447"><span id="local-6989586621680331449"><span id="local-6989586621680331451"><span id="local-6989586621680331453"><span id="local-6989586621680331455"><span id="local-6989586621680331457"><span id="local-6989586621680331459"><span class="annot"><span class="annottext">Eq ProcessingS3InputMode
 Eq ProcessingS3InputMode
 -&gt; (ProcessingS3InputMode -&gt; ProcessingS3InputMode -&gt; Ordering)
 -&gt; (ProcessingS3InputMode -&gt; ProcessingS3InputMode -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. ProcessingS3InputMode -&gt; Rep ProcessingS3InputMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680330038"><span id="local-6989586621680330040"><span class="annot"><span class="annottext">Int -&gt; ProcessingS3InputMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680331439"><span id="local-6989586621680331441"><span class="annot"><span class="annottext">Int -&gt; ProcessingS3InputMode -&gt; Int
 ProcessingS3InputMode -&gt; Int
 (Int -&gt; ProcessingS3InputMode -&gt; Int)
 -&gt; (ProcessingS3InputMode -&gt; Int) -&gt; Hashable ProcessingS3InputMode
@@ -150,54 +150,54 @@ $chash :: ProcessingS3InputMode -&gt; Int
 hashWithSalt :: Int -&gt; ProcessingS3InputMode -&gt; Int
 $chashWithSalt :: Int -&gt; ProcessingS3InputMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680330035"><span class="annot"><span class="annottext">ProcessingS3InputMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680331436"><span class="annot"><span class="annottext">ProcessingS3InputMode -&gt; ()
 (ProcessingS3InputMode -&gt; ()) -&gt; NFData ProcessingS3InputMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ProcessingS3InputMode -&gt; ()
 $crnf :: ProcessingS3InputMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680330032"><span class="annot"><span class="annottext">Text -&gt; Either String ProcessingS3InputMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680331433"><span class="annot"><span class="annottext">Text -&gt; Either String ProcessingS3InputMode
 (Text -&gt; Either String ProcessingS3InputMode)
 -&gt; FromText ProcessingS3InputMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ProcessingS3InputMode
 $cfromText :: Text -&gt; Either String ProcessingS3InputMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680330029"><span class="annot"><span class="annottext">ProcessingS3InputMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680331430"><span class="annot"><span class="annottext">ProcessingS3InputMode -&gt; Text
 (ProcessingS3InputMode -&gt; Text) -&gt; ToText ProcessingS3InputMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ProcessingS3InputMode -&gt; Text
 $ctoText :: ProcessingS3InputMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680330026"><span class="annot"><span class="annottext">ProcessingS3InputMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680331427"><span class="annot"><span class="annottext">ProcessingS3InputMode -&gt; ByteString
 (ProcessingS3InputMode -&gt; ByteString)
 -&gt; ToByteString ProcessingS3InputMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ProcessingS3InputMode -&gt; ByteString
 $ctoBS :: ProcessingS3InputMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680330023"><span class="annot"><span class="annottext">ProcessingS3InputMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680331424"><span class="annot"><span class="annottext">ProcessingS3InputMode -&gt; ByteStringBuilder
 (ProcessingS3InputMode -&gt; ByteStringBuilder)
 -&gt; ToLog ProcessingS3InputMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ProcessingS3InputMode -&gt; ByteStringBuilder
 $cbuild :: ProcessingS3InputMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680330020"><span class="annot"><span class="annottext">HeaderName -&gt; ProcessingS3InputMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680331421"><span class="annot"><span class="annottext">HeaderName -&gt; ProcessingS3InputMode -&gt; [Header]
 (HeaderName -&gt; ProcessingS3InputMode -&gt; [Header])
 -&gt; ToHeader ProcessingS3InputMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ProcessingS3InputMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ProcessingS3InputMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680330017"><span class="annot"><span class="annottext">ProcessingS3InputMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680331418"><span class="annot"><span class="annottext">ProcessingS3InputMode -&gt; QueryString
 (ProcessingS3InputMode -&gt; QueryString)
 -&gt; ToQuery ProcessingS3InputMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ProcessingS3InputMode -&gt; QueryString
 $ctoQuery :: ProcessingS3InputMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680330012"><span id="local-6989586621680330014"><span class="annot"><span class="annottext">Value -&gt; Parser [ProcessingS3InputMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680331413"><span id="local-6989586621680331415"><span class="annot"><span class="annottext">Value -&gt; Parser [ProcessingS3InputMode]
 Value -&gt; Parser ProcessingS3InputMode
 (Value -&gt; Parser ProcessingS3InputMode)
 -&gt; (Value -&gt; Parser [ProcessingS3InputMode])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [ProcessingS3InputMode]
 parseJSON :: Value -&gt; Parser ProcessingS3InputMode
 $cparseJSON :: Value -&gt; Parser ProcessingS3InputMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680330007"><span id="local-6989586621680330009"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProcessingS3InputMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680331408"><span id="local-6989586621680331410"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProcessingS3InputMode]
 FromJSONKeyFunction ProcessingS3InputMode
 FromJSONKeyFunction ProcessingS3InputMode
 -&gt; FromJSONKeyFunction [ProcessingS3InputMode]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ProcessingS3InputMode]
 fromJSONKey :: FromJSONKeyFunction ProcessingS3InputMode
 $cfromJSONKey :: FromJSONKeyFunction ProcessingS3InputMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680329998"><span id="local-6989586621680330000"><span id="local-6989586621680330002"><span id="local-6989586621680330004"><span class="annot"><span class="annottext">[ProcessingS3InputMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680331399"><span id="local-6989586621680331401"><span id="local-6989586621680331403"><span id="local-6989586621680331405"><span class="annot"><span class="annottext">[ProcessingS3InputMode] -&gt; Encoding
 [ProcessingS3InputMode] -&gt; Value
 ProcessingS3InputMode -&gt; Encoding
 ProcessingS3InputMode -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: ProcessingS3InputMode -&gt; Encoding
 toJSON :: ProcessingS3InputMode -&gt; Value
 $ctoJSON :: ProcessingS3InputMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680329993"><span id="local-6989586621680329995"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProcessingS3InputMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680331394"><span id="local-6989586621680331396"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProcessingS3InputMode]
 ToJSONKeyFunction ProcessingS3InputMode
 ToJSONKeyFunction ProcessingS3InputMode
 -&gt; ToJSONKeyFunction [ProcessingS3InputMode]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ProcessingS3InputMode]
 toJSONKey :: ToJSONKeyFunction ProcessingS3InputMode
 $ctoJSONKey :: ToJSONKeyFunction ProcessingS3InputMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680329990"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProcessingS3InputMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680331391"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProcessingS3InputMode
 ([Node] -&gt; Either String ProcessingS3InputMode)
 -&gt; FromXML ProcessingS3InputMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ProcessingS3InputMode
 $cparseXML :: [Node] -&gt; Either String ProcessingS3InputMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680329987"><span class="annot"><span class="annottext">ProcessingS3InputMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680331388"><span class="annot"><span class="annottext">ProcessingS3InputMode -&gt; XML
 (ProcessingS3InputMode -&gt; XML) -&gt; ToXML ProcessingS3InputMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ProcessingS3InputMode -&gt; XML

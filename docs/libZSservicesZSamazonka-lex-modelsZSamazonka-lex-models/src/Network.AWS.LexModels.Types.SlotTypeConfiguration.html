@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Provides configuration information for a slot type.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSlotTypeConfiguration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679315734"><span id="local-6989586621679315735"></span></span><span class="hs-keyword">data</span><span> </span><span id="SlotTypeConfiguration"><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration"><span class="hs-identifier hs-var">SlotTypeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SlotTypeConfiguration%27"><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration%27"><span class="hs-identifier hs-var">SlotTypeConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679316027"><span id="local-6989586621679316028"></span></span><span class="hs-keyword">data</span><span> </span><span id="SlotTypeConfiguration"><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration"><span class="hs-identifier hs-var">SlotTypeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SlotTypeConfiguration%27"><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration%27"><span class="hs-identifier hs-var">SlotTypeConfiguration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A regular expression used to validate the value of a slot.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AregexConfiguration%3ASlotTypeConfiguration%27"><span class="annot"><span class="annottext">SlotTypeConfiguration -&gt; Maybe SlotTypeRegexConfiguration
 </span><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#%24sel%3AregexConfiguration%3ASlotTypeConfiguration%27"><span class="hs-identifier hs-var hs-var">regexConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeRegexConfiguration.html#SlotTypeRegexConfiguration"><span class="hs-identifier hs-type">SlotTypeRegexConfiguration</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315728"><span id="local-6989586621679315730"><span class="annot"><span class="annottext">SlotTypeConfiguration -&gt; SlotTypeConfiguration -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316021"><span id="local-6989586621679316023"><span class="annot"><span class="annottext">SlotTypeConfiguration -&gt; SlotTypeConfiguration -&gt; Bool
 (SlotTypeConfiguration -&gt; SlotTypeConfiguration -&gt; Bool)
 -&gt; (SlotTypeConfiguration -&gt; SlotTypeConfiguration -&gt; Bool)
 -&gt; Eq SlotTypeConfiguration
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SlotTypeConfiguration -&gt; SlotTypeConfiguration -&gt; Bool
 == :: SlotTypeConfiguration -&gt; SlotTypeConfiguration -&gt; Bool
 $c== :: SlotTypeConfiguration -&gt; SlotTypeConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315719"><span id="local-6989586621679315721"><span id="local-6989586621679315723"><span id="local-6989586621679315725"><span class="annot"><span class="annottext">ReadPrec [SlotTypeConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316012"><span id="local-6989586621679316014"><span id="local-6989586621679316016"><span id="local-6989586621679316018"><span class="annot"><span class="annottext">ReadPrec [SlotTypeConfiguration]
 ReadPrec SlotTypeConfiguration
 Int -&gt; ReadS SlotTypeConfiguration
 ReadS [SlotTypeConfiguration]
@@ -61,7 +61,7 @@ readList :: ReadS [SlotTypeConfiguration]
 $creadList :: ReadS [SlotTypeConfiguration]
 readsPrec :: Int -&gt; ReadS SlotTypeConfiguration
 $creadsPrec :: Int -&gt; ReadS SlotTypeConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315712"><span id="local-6989586621679315714"><span id="local-6989586621679315716"><span class="annot"><span class="annottext">Int -&gt; SlotTypeConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316005"><span id="local-6989586621679316007"><span id="local-6989586621679316009"><span class="annot"><span class="annottext">Int -&gt; SlotTypeConfiguration -&gt; ShowS
 [SlotTypeConfiguration] -&gt; ShowS
 SlotTypeConfiguration -&gt; String
 (Int -&gt; SlotTypeConfiguration -&gt; ShowS)
@@ -123,19 +123,19 @@ forall a. Maybe a
      (Maybe SlotTypeRegexConfiguration)
      (Maybe SlotTypeRegexConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration%27"><span class="hs-identifier hs-type">SlotTypeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315703"><span class="annot"><span class="annottext">Maybe SlotTypeRegexConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration%27"><span class="hs-identifier hs-type">SlotTypeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315996"><span class="annot"><span class="annottext">Maybe SlotTypeRegexConfiguration
 regexConfiguration :: Maybe SlotTypeRegexConfiguration
 $sel:regexConfiguration:SlotTypeConfiguration' :: SlotTypeConfiguration -&gt; Maybe SlotTypeRegexConfiguration
-</span><a href="#local-6989586621679315703"><span class="hs-identifier hs-var hs-var">regexConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SlotTypeRegexConfiguration
-</span><a href="#local-6989586621679315703"><span class="hs-identifier hs-var">regexConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315702"><span class="annot"><span class="annottext">s :: SlotTypeConfiguration
-</span><a href="#local-6989586621679315702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration%27"><span class="hs-identifier hs-type">SlotTypeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315701"><span class="annot"><span class="annottext">Maybe SlotTypeRegexConfiguration
-</span><a href="#local-6989586621679315701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SlotTypeConfiguration
-</span><a href="#local-6989586621679315702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regexConfiguration:SlotTypeConfiguration' :: Maybe SlotTypeRegexConfiguration
+</span><a href="#local-6989586621679315996"><span class="hs-identifier hs-var hs-var">regexConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SlotTypeRegexConfiguration
+</span><a href="#local-6989586621679315996"><span class="hs-identifier hs-var">regexConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315995"><span class="annot"><span class="annottext">s :: SlotTypeConfiguration
+</span><a href="#local-6989586621679315995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration%27"><span class="hs-identifier hs-type">SlotTypeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315994"><span class="annot"><span class="annottext">Maybe SlotTypeRegexConfiguration
+</span><a href="#local-6989586621679315994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SlotTypeConfiguration
+</span><a href="#local-6989586621679315995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regexConfiguration:SlotTypeConfiguration' :: Maybe SlotTypeRegexConfiguration
 </span><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#%24sel%3AregexConfiguration%3ASlotTypeConfiguration%27"><span class="hs-identifier hs-var">regexConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SlotTypeRegexConfiguration
-</span><a href="#local-6989586621679315701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration"><span class="hs-identifier hs-type">SlotTypeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration"><span class="hs-identifier hs-type">SlotTypeConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315698"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration"><span class="hs-identifier hs-type">SlotTypeConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679315696"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SlotTypeConfiguration
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315991"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration"><span class="hs-identifier hs-type">SlotTypeConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679315989"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SlotTypeConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SlotTypeConfiguration)
@@ -145,8 +145,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SlotTypeConfiguration&quot;</span></span><span>
-</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315693"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315693"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315986"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679315986"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe SlotTypeRegexConfiguration -&gt; SlotTypeConfiguration
 </span><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration%27"><span class="hs-identifier hs-var">SlotTypeConfiguration'</span></a></span><span>
 </span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SlotTypeRegexConfiguration -&gt; SlotTypeConfiguration)
@@ -154,22 +154,22 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser SlotTypeConfiguration
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315693"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SlotTypeRegexConfiguration)
+</span><a href="#local-6989586621679315986"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SlotTypeRegexConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;regexConfiguration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315687"><span id="local-6989586621679315689"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration"><span class="hs-identifier hs-type">SlotTypeConfiguration</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315980"><span id="local-6989586621679315982"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration"><span class="hs-identifier hs-type">SlotTypeConfiguration</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315684"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration"><span class="hs-identifier hs-type">SlotTypeConfiguration</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315977"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration"><span class="hs-identifier hs-type">SlotTypeConfiguration</span></a></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315676"><span id="local-6989586621679315678"><span id="local-6989586621679315680"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration"><span class="hs-identifier hs-type">SlotTypeConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679315674"><span class="annot"><span class="annottext">toJSON :: SlotTypeConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration%27"><span class="hs-identifier hs-type">SlotTypeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315672"><span class="annot"><span class="annottext">Maybe SlotTypeRegexConfiguration
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315969"><span id="local-6989586621679315971"><span id="local-6989586621679315973"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration"><span class="hs-identifier hs-type">SlotTypeConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679315967"><span class="annot"><span class="annottext">toJSON :: SlotTypeConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotTypeConfiguration.html#SlotTypeConfiguration%27"><span class="hs-identifier hs-type">SlotTypeConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315965"><span class="annot"><span class="annottext">Maybe SlotTypeRegexConfiguration
 regexConfiguration :: Maybe SlotTypeRegexConfiguration
 $sel:regexConfiguration:SlotTypeConfiguration' :: SlotTypeConfiguration -&gt; Maybe SlotTypeRegexConfiguration
-</span><a href="#local-6989586621679315672"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679315965"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -183,7 +183,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe SlotTypeRegexConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SlotTypeRegexConfiguration
-</span><a href="#local-6989586621679315672"><span class="hs-identifier hs-var">regexConfiguration</span></a></span><span>
+</span><a href="#local-6989586621679315965"><span class="hs-identifier hs-var">regexConfiguration</span></a></span><span>
 </span><span id="line-76"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span></pre></body></html>

@@ -37,13 +37,13 @@
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-39"></span><span>
-</span><span id="line-40"></span><span id="local-6989586621679800278"><span id="local-6989586621679800279"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OperatingSystem"><span class="annot"><a href="Network.AWS.SSM.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-var">OperatingSystem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OperatingSystem%27"><span class="annot"><a href="Network.AWS.SSM.Types.OperatingSystem.html#OperatingSystem%27"><span class="hs-identifier hs-var">OperatingSystem'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679801933"><span id="local-6989586621679801934"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OperatingSystem"><span class="annot"><a href="Network.AWS.SSM.Types.OperatingSystem.html#OperatingSystem"><span class="hs-identifier hs-var">OperatingSystem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OperatingSystem%27"><span class="annot"><a href="Network.AWS.SSM.Types.OperatingSystem.html#OperatingSystem%27"><span class="hs-identifier hs-var">OperatingSystem'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOperatingSystem"><span class="annot"><span class="annottext">OperatingSystem -&gt; Text
 </span><a href="Network.AWS.SSM.Types.OperatingSystem.html#fromOperatingSystem"><span class="hs-identifier hs-var hs-var">fromOperatingSystem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-42"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679800270"><span id="local-6989586621679800272"><span id="local-6989586621679800274"><span class="annot"><span class="annottext">Int -&gt; OperatingSystem -&gt; ShowS
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679801925"><span id="local-6989586621679801927"><span id="local-6989586621679801929"><span class="annot"><span class="annottext">Int -&gt; OperatingSystem -&gt; ShowS
 [OperatingSystem] -&gt; ShowS
 OperatingSystem -&gt; String
 (Int -&gt; OperatingSystem -&gt; ShowS)
@@ -59,7 +59,7 @@ $cshow :: OperatingSystem -&gt; String
 showsPrec :: Int -&gt; OperatingSystem -&gt; ShowS
 $cshowsPrec :: Int -&gt; OperatingSystem -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679800261"><span id="local-6989586621679800263"><span id="local-6989586621679800265"><span id="local-6989586621679800267"><span class="annot"><span class="annottext">ReadPrec [OperatingSystem]
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679801916"><span id="local-6989586621679801918"><span id="local-6989586621679801920"><span id="local-6989586621679801922"><span class="annot"><span class="annottext">ReadPrec [OperatingSystem]
 ReadPrec OperatingSystem
 Int -&gt; ReadS OperatingSystem
 ReadS [OperatingSystem]
@@ -80,7 +80,7 @@ $creadList :: ReadS [OperatingSystem]
 readsPrec :: Int -&gt; ReadS OperatingSystem
 $creadsPrec :: Int -&gt; ReadS OperatingSystem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679800256"><span id="local-6989586621679800258"><span class="annot"><span class="annottext">OperatingSystem -&gt; OperatingSystem -&gt; Bool
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679801911"><span id="local-6989586621679801913"><span class="annot"><span class="annottext">OperatingSystem -&gt; OperatingSystem -&gt; Bool
 (OperatingSystem -&gt; OperatingSystem -&gt; Bool)
 -&gt; (OperatingSystem -&gt; OperatingSystem -&gt; Bool)
 -&gt; Eq OperatingSystem
@@ -90,7 +90,7 @@ $c/= :: OperatingSystem -&gt; OperatingSystem -&gt; Bool
 == :: OperatingSystem -&gt; OperatingSystem -&gt; Bool
 $c== :: OperatingSystem -&gt; OperatingSystem -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679800240"><span id="local-6989586621679800242"><span id="local-6989586621679800244"><span id="local-6989586621679800246"><span id="local-6989586621679800248"><span id="local-6989586621679800250"><span id="local-6989586621679800252"><span class="annot"><span class="annottext">Eq OperatingSystem
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679801895"><span id="local-6989586621679801897"><span id="local-6989586621679801899"><span id="local-6989586621679801901"><span id="local-6989586621679801903"><span id="local-6989586621679801905"><span id="local-6989586621679801907"><span class="annot"><span class="annottext">Eq OperatingSystem
 Eq OperatingSystem
 -&gt; (OperatingSystem -&gt; OperatingSystem -&gt; Ordering)
 -&gt; (OperatingSystem -&gt; OperatingSystem -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. OperatingSystem -&gt; Rep OperatingSystem x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679800232"><span id="local-6989586621679800234"><span class="annot"><span class="annottext">Int -&gt; OperatingSystem -&gt; Int
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679801887"><span id="local-6989586621679801889"><span class="annot"><span class="annottext">Int -&gt; OperatingSystem -&gt; Int
 OperatingSystem -&gt; Int
 (Int -&gt; OperatingSystem -&gt; Int)
 -&gt; (OperatingSystem -&gt; Int) -&gt; Hashable OperatingSystem
@@ -151,50 +151,50 @@ $chash :: OperatingSystem -&gt; Int
 hashWithSalt :: Int -&gt; OperatingSystem -&gt; Int
 $chashWithSalt :: Int -&gt; OperatingSystem -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679800229"><span class="annot"><span class="annottext">OperatingSystem -&gt; ()
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679801884"><span class="annot"><span class="annottext">OperatingSystem -&gt; ()
 (OperatingSystem -&gt; ()) -&gt; NFData OperatingSystem
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: OperatingSystem -&gt; ()
 $crnf :: OperatingSystem -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679800226"><span class="annot"><span class="annottext">Text -&gt; Either String OperatingSystem
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679801881"><span class="annot"><span class="annottext">Text -&gt; Either String OperatingSystem
 (Text -&gt; Either String OperatingSystem) -&gt; FromText OperatingSystem
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String OperatingSystem
 $cfromText :: Text -&gt; Either String OperatingSystem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679800223"><span class="annot"><span class="annottext">OperatingSystem -&gt; Text
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679801878"><span class="annot"><span class="annottext">OperatingSystem -&gt; Text
 (OperatingSystem -&gt; Text) -&gt; ToText OperatingSystem
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: OperatingSystem -&gt; Text
 $ctoText :: OperatingSystem -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679800220"><span class="annot"><span class="annottext">OperatingSystem -&gt; ByteString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679801875"><span class="annot"><span class="annottext">OperatingSystem -&gt; ByteString
 (OperatingSystem -&gt; ByteString) -&gt; ToByteString OperatingSystem
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: OperatingSystem -&gt; ByteString
 $ctoBS :: OperatingSystem -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679800217"><span class="annot"><span class="annottext">OperatingSystem -&gt; ByteStringBuilder
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679801872"><span class="annot"><span class="annottext">OperatingSystem -&gt; ByteStringBuilder
 (OperatingSystem -&gt; ByteStringBuilder) -&gt; ToLog OperatingSystem
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: OperatingSystem -&gt; ByteStringBuilder
 $cbuild :: OperatingSystem -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679800214"><span class="annot"><span class="annottext">HeaderName -&gt; OperatingSystem -&gt; [Header]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679801869"><span class="annot"><span class="annottext">HeaderName -&gt; OperatingSystem -&gt; [Header]
 (HeaderName -&gt; OperatingSystem -&gt; [Header])
 -&gt; ToHeader OperatingSystem
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; OperatingSystem -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; OperatingSystem -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679800211"><span class="annot"><span class="annottext">OperatingSystem -&gt; QueryString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679801866"><span class="annot"><span class="annottext">OperatingSystem -&gt; QueryString
 (OperatingSystem -&gt; QueryString) -&gt; ToQuery OperatingSystem
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: OperatingSystem -&gt; QueryString
 $ctoQuery :: OperatingSystem -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679800206"><span id="local-6989586621679800208"><span class="annot"><span class="annottext">Value -&gt; Parser [OperatingSystem]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679801861"><span id="local-6989586621679801863"><span class="annot"><span class="annottext">Value -&gt; Parser [OperatingSystem]
 Value -&gt; Parser OperatingSystem
 (Value -&gt; Parser OperatingSystem)
 -&gt; (Value -&gt; Parser [OperatingSystem]) -&gt; FromJSON OperatingSystem
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [OperatingSystem]
 parseJSON :: Value -&gt; Parser OperatingSystem
 $cparseJSON :: Value -&gt; Parser OperatingSystem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679800201"><span id="local-6989586621679800203"><span class="annot"><span class="annottext">FromJSONKeyFunction [OperatingSystem]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679801856"><span id="local-6989586621679801858"><span class="annot"><span class="annottext">FromJSONKeyFunction [OperatingSystem]
 FromJSONKeyFunction OperatingSystem
 FromJSONKeyFunction OperatingSystem
 -&gt; FromJSONKeyFunction [OperatingSystem]
@@ -217,7 +217,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [OperatingSystem]
 fromJSONKey :: FromJSONKeyFunction OperatingSystem
 $cfromJSONKey :: FromJSONKeyFunction OperatingSystem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679800192"><span id="local-6989586621679800194"><span id="local-6989586621679800196"><span id="local-6989586621679800198"><span class="annot"><span class="annottext">[OperatingSystem] -&gt; Encoding
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679801847"><span id="local-6989586621679801849"><span id="local-6989586621679801851"><span id="local-6989586621679801853"><span class="annot"><span class="annottext">[OperatingSystem] -&gt; Encoding
 [OperatingSystem] -&gt; Value
 OperatingSystem -&gt; Encoding
 OperatingSystem -&gt; Value
@@ -241,7 +241,7 @@ $ctoEncoding :: OperatingSystem -&gt; Encoding
 toJSON :: OperatingSystem -&gt; Value
 $ctoJSON :: OperatingSystem -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679800187"><span id="local-6989586621679800189"><span class="annot"><span class="annottext">ToJSONKeyFunction [OperatingSystem]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679801842"><span id="local-6989586621679801844"><span class="annot"><span class="annottext">ToJSONKeyFunction [OperatingSystem]
 ToJSONKeyFunction OperatingSystem
 ToJSONKeyFunction OperatingSystem
 -&gt; ToJSONKeyFunction [OperatingSystem] -&gt; ToJSONKey OperatingSystem
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [OperatingSystem]
 toJSONKey :: ToJSONKeyFunction OperatingSystem
 $ctoJSONKey :: ToJSONKeyFunction OperatingSystem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679800184"><span class="annot"><span class="annottext">[Node] -&gt; Either String OperatingSystem
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679801839"><span class="annot"><span class="annottext">[Node] -&gt; Either String OperatingSystem
 ([Node] -&gt; Either String OperatingSystem)
 -&gt; FromXML OperatingSystem
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String OperatingSystem
 $cparseXML :: [Node] -&gt; Either String OperatingSystem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679800181"><span class="annot"><span class="annottext">OperatingSystem -&gt; XML
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679801836"><span class="annot"><span class="annottext">OperatingSystem -&gt; XML
 (OperatingSystem -&gt; XML) -&gt; ToXML OperatingSystem
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: OperatingSystem -&gt; XML

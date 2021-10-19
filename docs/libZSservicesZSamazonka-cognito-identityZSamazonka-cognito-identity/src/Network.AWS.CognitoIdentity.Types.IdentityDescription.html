@@ -26,21 +26,21 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A description of the identity.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newIdentityDescription' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679182862"><span id="local-6989586621679182863"></span></span><span class="hs-keyword">data</span><span> </span><span id="IdentityDescription"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-var">IdentityDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IdentityDescription%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-var">IdentityDescription'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679183023"><span id="local-6989586621679183024"></span></span><span class="hs-keyword">data</span><span> </span><span id="IdentityDescription"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-var">IdentityDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IdentityDescription%27"><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-var">IdentityDescription'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Date on which the identity was last modified.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3AIdentityDescription%27"><span class="annot"><span class="annottext">IdentityDescription -&gt; Maybe POSIX
 </span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#%24sel%3AlastModifiedDate%3AIdentityDescription%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Date on which the identity was created.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AcreationDate%3AIdentityDescription%27"><span class="annot"><span class="annottext">IdentityDescription -&gt; Maybe POSIX
 </span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#%24sel%3AcreationDate%3AIdentityDescription%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AidentityId%3AIdentityDescription%27"><span class="annot"><span class="annottext">IdentityDescription -&gt; Maybe Text
-</span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#%24sel%3AidentityId%3AIdentityDescription%27"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The provider names.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Alogins%3AIdentityDescription%27"><span class="annot"><span class="annottext">IdentityDescription -&gt; Maybe [Text]
-</span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#%24sel%3Alogins%3AIdentityDescription%27"><span class="hs-identifier hs-var hs-var">logins</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The provider names.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Alogins%3AIdentityDescription%27"><span class="annot"><span class="annottext">IdentityDescription -&gt; Maybe [Text]
+</span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#%24sel%3Alogins%3AIdentityDescription%27"><span class="hs-identifier hs-var hs-var">logins</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AidentityId%3AIdentityDescription%27"><span class="annot"><span class="annottext">IdentityDescription -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#%24sel%3AidentityId%3AIdentityDescription%27"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182853"><span id="local-6989586621679182855"><span class="annot"><span class="annottext">IdentityDescription -&gt; IdentityDescription -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679183014"><span id="local-6989586621679183016"><span class="annot"><span class="annottext">IdentityDescription -&gt; IdentityDescription -&gt; Bool
 (IdentityDescription -&gt; IdentityDescription -&gt; Bool)
 -&gt; (IdentityDescription -&gt; IdentityDescription -&gt; Bool)
 -&gt; Eq IdentityDescription
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IdentityDescription -&gt; IdentityDescription -&gt; Bool
 == :: IdentityDescription -&gt; IdentityDescription -&gt; Bool
 $c== :: IdentityDescription -&gt; IdentityDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182844"><span id="local-6989586621679182846"><span id="local-6989586621679182848"><span id="local-6989586621679182850"><span class="annot"><span class="annottext">ReadPrec [IdentityDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679183005"><span id="local-6989586621679183007"><span id="local-6989586621679183009"><span id="local-6989586621679183011"><span class="annot"><span class="annottext">ReadPrec [IdentityDescription]
 ReadPrec IdentityDescription
 Int -&gt; ReadS IdentityDescription
 ReadS [IdentityDescription]
@@ -69,7 +69,7 @@ readList :: ReadS [IdentityDescription]
 $creadList :: ReadS [IdentityDescription]
 readsPrec :: Int -&gt; ReadS IdentityDescription
 $creadsPrec :: Int -&gt; ReadS IdentityDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182837"><span id="local-6989586621679182839"><span id="local-6989586621679182841"><span class="annot"><span class="annottext">Int -&gt; IdentityDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182998"><span id="local-6989586621679183000"><span id="local-6989586621679183002"><span class="annot"><span class="annottext">Int -&gt; IdentityDescription -&gt; ShowS
 [IdentityDescription] -&gt; ShowS
 IdentityDescription -&gt; String
 (Int -&gt; IdentityDescription -&gt; ShowS)
@@ -107,15 +107,15 @@ $cfrom :: forall x. IdentityDescription -&gt; Rep IdentityDescription x
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- 'creationDate', 'identityDescription_creationDate' - Date on which the identity was created.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'identityId', 'identityDescription_identityId' - A unique identifier in the format REGION:GUID.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'logins', 'identityDescription_logins' - The provider names.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'logins', 'identityDescription_logins' - The provider names.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'identityId', 'identityDescription_identityId' - A unique identifier in the format REGION:GUID.</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#newIdentityDescription"><span class="hs-identifier hs-type">newIdentityDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span><span>
 </span><span id="line-58"></span><span id="newIdentityDescription"><span class="annot"><span class="annottext">newIdentityDescription :: IdentityDescription
 </span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#newIdentityDescription"><span class="hs-identifier hs-var hs-var">newIdentityDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">IdentityDescription' :: Maybe POSIX
--&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe [Text] -&gt; IdentityDescription
+-&gt; Maybe POSIX -&gt; Maybe [Text] -&gt; Maybe Text -&gt; IdentityDescription
 </span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-type">IdentityDescription'</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:IdentityDescription' :: Maybe POSIX
 </span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#%24sel%3AlastModifiedDate%3AIdentityDescription%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
@@ -126,12 +126,12 @@ forall a. Maybe a
 </span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#%24sel%3AcreationDate%3AIdentityDescription%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityId:IdentityDescription' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#%24sel%3AidentityId%3AIdentityDescription%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:logins:IdentityDescription' :: Maybe [Text]
+</span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#%24sel%3Alogins%3AIdentityDescription%27"><span class="hs-identifier hs-var">logins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:logins:IdentityDescription' :: Maybe [Text]
-</span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#%24sel%3Alogins%3AIdentityDescription%27"><span class="hs-identifier hs-var">logins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityId:IdentityDescription' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#%24sel%3AidentityId%3AIdentityDescription%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
@@ -145,16 +145,16 @@ forall a. Maybe a
 -&gt; Lens
      IdentityDescription IdentityDescription (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-type">IdentityDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182828"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-type">IdentityDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182989"><span class="annot"><span class="annottext">Maybe POSIX
 lastModifiedDate :: Maybe POSIX
 $sel:lastModifiedDate:IdentityDescription' :: IdentityDescription -&gt; Maybe POSIX
-</span><a href="#local-6989586621679182828"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679182828"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182827"><span class="annot"><span class="annottext">s :: IdentityDescription
-</span><a href="#local-6989586621679182827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-type">IdentityDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182826"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679182826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityDescription
-</span><a href="#local-6989586621679182827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:IdentityDescription' :: Maybe POSIX
+</span><a href="#local-6989586621679182989"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679182989"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182988"><span class="annot"><span class="annottext">s :: IdentityDescription
+</span><a href="#local-6989586621679182988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-type">IdentityDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182987"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679182987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityDescription
+</span><a href="#local-6989586621679182988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:IdentityDescription' :: Maybe POSIX
 </span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#%24sel%3AlastModifiedDate%3AIdentityDescription%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679182826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679182987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; IdentityDescription -&gt; f IdentityDescription)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -180,16 +180,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      IdentityDescription IdentityDescription (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-type">IdentityDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182821"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-type">IdentityDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182982"><span class="annot"><span class="annottext">Maybe POSIX
 creationDate :: Maybe POSIX
 $sel:creationDate:IdentityDescription' :: IdentityDescription -&gt; Maybe POSIX
-</span><a href="#local-6989586621679182821"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679182821"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182820"><span class="annot"><span class="annottext">s :: IdentityDescription
-</span><a href="#local-6989586621679182820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-type">IdentityDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182819"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679182819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityDescription
-</span><a href="#local-6989586621679182820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:IdentityDescription' :: Maybe POSIX
+</span><a href="#local-6989586621679182982"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679182982"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182981"><span class="annot"><span class="annottext">s :: IdentityDescription
+</span><a href="#local-6989586621679182981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-type">IdentityDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182980"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679182980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityDescription
+</span><a href="#local-6989586621679182981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:IdentityDescription' :: Maybe POSIX
 </span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#%24sel%3AcreationDate%3AIdentityDescription%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679182819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679182980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; IdentityDescription -&gt; f IdentityDescription)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -206,29 +206,9 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#identityDescription_identityId"><span class="hs-identifier hs-type">identityDescription_identityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="identityDescription_identityId"><span class="annot"><span class="annottext">identityDescription_identityId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; IdentityDescription -&gt; f IdentityDescription
-</span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#identityDescription_identityId"><span class="hs-identifier hs-var hs-var">identityDescription_identityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IdentityDescription -&gt; Maybe Text)
--&gt; (IdentityDescription -&gt; Maybe Text -&gt; IdentityDescription)
--&gt; Lens
-     IdentityDescription IdentityDescription (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-type">IdentityDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182817"><span class="annot"><span class="annottext">Maybe Text
-identityId :: Maybe Text
-$sel:identityId:IdentityDescription' :: IdentityDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679182817"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679182817"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182816"><span class="annot"><span class="annottext">s :: IdentityDescription
-</span><a href="#local-6989586621679182816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-type">IdentityDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182815"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679182815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityDescription
-</span><a href="#local-6989586621679182816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:IdentityDescription' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#%24sel%3AidentityId%3AIdentityDescription%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679182815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | The provider names.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#identityDescription_logins"><span class="hs-identifier hs-type">identityDescription_logins</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="identityDescription_logins"><span class="annot"><span class="annottext">identityDescription_logins :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-75"></span><span class="hs-comment">-- | The provider names.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#identityDescription_logins"><span class="hs-identifier hs-type">identityDescription_logins</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="identityDescription_logins"><span class="annot"><span class="annottext">identityDescription_logins :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; IdentityDescription -&gt; f IdentityDescription
 </span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#identityDescription_logins"><span class="hs-identifier hs-var hs-var">identityDescription_logins</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IdentityDescription -&gt; Maybe [Text])
 -&gt; (IdentityDescription -&gt; Maybe [Text] -&gt; IdentityDescription)
@@ -238,16 +218,16 @@ $sel:identityId:IdentityDescription' :: IdentityDescription -&gt; Maybe Text
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-type">IdentityDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182813"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-type">IdentityDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182978"><span class="annot"><span class="annottext">Maybe [Text]
 logins :: Maybe [Text]
 $sel:logins:IdentityDescription' :: IdentityDescription -&gt; Maybe [Text]
-</span><a href="#local-6989586621679182813"><span class="hs-identifier hs-var hs-var">logins</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679182813"><span class="hs-identifier hs-var">logins</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182812"><span class="annot"><span class="annottext">s :: IdentityDescription
-</span><a href="#local-6989586621679182812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-type">IdentityDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182811"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679182811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityDescription
-</span><a href="#local-6989586621679182812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logins:IdentityDescription' :: Maybe [Text]
+</span><a href="#local-6989586621679182978"><span class="hs-identifier hs-var hs-var">logins</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679182978"><span class="hs-identifier hs-var">logins</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182977"><span class="annot"><span class="annottext">s :: IdentityDescription
+</span><a href="#local-6989586621679182977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-type">IdentityDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182976"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679182976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityDescription
+</span><a href="#local-6989586621679182977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logins:IdentityDescription' :: Maybe [Text]
 </span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#%24sel%3Alogins%3AIdentityDescription%27"><span class="hs-identifier hs-var">logins</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679182811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679182976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; IdentityDescription -&gt; f IdentityDescription)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -261,11 +241,31 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | A unique identifier in the format REGION:GUID.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#identityDescription_identityId"><span class="hs-identifier hs-type">identityDescription_identityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="identityDescription_identityId"><span class="annot"><span class="annottext">identityDescription_identityId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IdentityDescription -&gt; f IdentityDescription
+</span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#identityDescription_identityId"><span class="hs-identifier hs-var hs-var">identityDescription_identityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IdentityDescription -&gt; Maybe Text)
+-&gt; (IdentityDescription -&gt; Maybe Text -&gt; IdentityDescription)
+-&gt; Lens
+     IdentityDescription IdentityDescription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-type">IdentityDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182973"><span class="annot"><span class="annottext">Maybe Text
+identityId :: Maybe Text
+$sel:identityId:IdentityDescription' :: IdentityDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679182973"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182973"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182972"><span class="annot"><span class="annottext">s :: IdentityDescription
+</span><a href="#local-6989586621679182972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-type">IdentityDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182971"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityDescription
+</span><a href="#local-6989586621679182972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:IdentityDescription' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#%24sel%3AidentityId%3AIdentityDescription%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182807"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679182805"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IdentityDescription
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182968"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679182966"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IdentityDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser IdentityDescription)
@@ -275,49 +275,41 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;IdentityDescription&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679182802"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182802"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679182963"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182963"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe POSIX -&gt; Maybe Text -&gt; Maybe [Text] -&gt; IdentityDescription
+-&gt; Maybe POSIX -&gt; Maybe [Text] -&gt; Maybe Text -&gt; IdentityDescription
 </span><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription%27"><span class="hs-identifier hs-var">IdentityDescription'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
  -&gt; Maybe POSIX
- -&gt; Maybe Text
  -&gt; Maybe [Text]
+ -&gt; Maybe Text
  -&gt; IdentityDescription)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe POSIX -&gt; Maybe Text -&gt; Maybe [Text] -&gt; IdentityDescription)
+     (Maybe POSIX -&gt; Maybe [Text] -&gt; Maybe Text -&gt; IdentityDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679182963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX -&gt; Maybe Text -&gt; Maybe [Text] -&gt; IdentityDescription)
+  (Maybe POSIX -&gt; Maybe [Text] -&gt; Maybe Text -&gt; IdentityDescription)
 -&gt; Parser (Maybe POSIX)
--&gt; Parser (Maybe Text -&gt; Maybe [Text] -&gt; IdentityDescription)
+-&gt; Parser (Maybe [Text] -&gt; Maybe Text -&gt; IdentityDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679182963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Text] -&gt; IdentityDescription)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe [Text] -&gt; IdentityDescription)
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe Text -&gt; IdentityDescription)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe Text -&gt; IdentityDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IdentityId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; IdentityDescription)
--&gt; Parser (Maybe [Text]) -&gt; Parser IdentityDescription
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679182802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679182963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Logins&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -326,9 +318,17 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; IdentityDescription)
+-&gt; Parser (Maybe Text) -&gt; Parser IdentityDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182795"><span id="local-6989586621679182797"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182956"><span id="local-6989586621679182958"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182792"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182953"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentity.Types.IdentityDescription.html#IdentityDescription"><span class="hs-identifier hs-type">IdentityDescription</span></a></span></span><span>
 </span><span id="line-98"></span></pre></body></html>

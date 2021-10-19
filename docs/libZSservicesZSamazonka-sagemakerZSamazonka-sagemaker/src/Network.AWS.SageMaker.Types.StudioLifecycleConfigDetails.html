@@ -27,25 +27,25 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Details of the Studio Lifecycle Configuration.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStudioLifecycleConfigDetails' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680343804"><span id="local-6989586621680343805"></span></span><span class="hs-keyword">data</span><span> </span><span id="StudioLifecycleConfigDetails"><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-var">StudioLifecycleConfigDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StudioLifecycleConfigDetails%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var">StudioLifecycleConfigDetails'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680345222"><span id="local-6989586621680345223"></span></span><span class="hs-keyword">data</span><span> </span><span id="StudioLifecycleConfigDetails"><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-var">StudioLifecycleConfigDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StudioLifecycleConfigDetails%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var">StudioLifecycleConfigDetails'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The creation time of the Studio Lifecycle Configuration.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AcreationTime%3AStudioLifecycleConfigDetails%27"><span class="annot"><span class="annottext">StudioLifecycleConfigDetails -&gt; Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AcreationTime%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Lifecycle Configuration.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AstudioLifecycleConfigArn%3AStudioLifecycleConfigDetails%27"><span class="annot"><span class="annottext">StudioLifecycleConfigDetails -&gt; Maybe Text
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | This value is equivalent to CreationTime because Studio Lifecycle</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Configurations are immutable.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3AStudioLifecycleConfigDetails%27"><span class="annot"><span class="annottext">StudioLifecycleConfigDetails -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AlastModifiedTime%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Lifecycle Configuration.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AstudioLifecycleConfigArn%3AStudioLifecycleConfigDetails%27"><span class="annot"><span class="annottext">StudioLifecycleConfigDetails -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AstudioLifecycleConfigArn%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var hs-var">studioLifecycleConfigArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the Studio Lifecycle Configuration.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AstudioLifecycleConfigName%3AStudioLifecycleConfigDetails%27"><span class="annot"><span class="annottext">StudioLifecycleConfigDetails -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AstudioLifecycleConfigName%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var hs-var">studioLifecycleConfigName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The App type to which the Lifecycle Configuration is attached.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AstudioLifecycleConfigAppType%3AStudioLifecycleConfigDetails%27"><span class="annot"><span class="annottext">StudioLifecycleConfigDetails -&gt; Maybe StudioLifecycleConfigAppType
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The App type to which the Lifecycle Configuration is attached.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AstudioLifecycleConfigAppType%3AStudioLifecycleConfigDetails%27"><span class="annot"><span class="annottext">StudioLifecycleConfigDetails -&gt; Maybe StudioLifecycleConfigAppType
 </span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AstudioLifecycleConfigAppType%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var hs-var">studioLifecycleConfigAppType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigAppType.html#StudioLifecycleConfigAppType"><span class="hs-identifier hs-type">StudioLifecycleConfigAppType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | This value is equivalent to CreationTime because Studio Lifecycle</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Configurations are immutable.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3AStudioLifecycleConfigDetails%27"><span class="annot"><span class="annottext">StudioLifecycleConfigDetails -&gt; Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AlastModifiedTime%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the Studio Lifecycle Configuration.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AstudioLifecycleConfigName%3AStudioLifecycleConfigDetails%27"><span class="annot"><span class="annottext">StudioLifecycleConfigDetails -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AstudioLifecycleConfigName%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var hs-var">studioLifecycleConfigName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680343794"><span id="local-6989586621680343796"><span class="annot"><span class="annottext">StudioLifecycleConfigDetails
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680345212"><span id="local-6989586621680345214"><span class="annot"><span class="annottext">StudioLifecycleConfigDetails
 -&gt; StudioLifecycleConfigDetails -&gt; Bool
 (StudioLifecycleConfigDetails
  -&gt; StudioLifecycleConfigDetails -&gt; Bool)
@@ -61,7 +61,7 @@ $c/= :: StudioLifecycleConfigDetails
 -&gt; StudioLifecycleConfigDetails -&gt; Bool
 $c== :: StudioLifecycleConfigDetails
 -&gt; StudioLifecycleConfigDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680343785"><span id="local-6989586621680343787"><span id="local-6989586621680343789"><span id="local-6989586621680343791"><span class="annot"><span class="annottext">ReadPrec [StudioLifecycleConfigDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680345203"><span id="local-6989586621680345205"><span id="local-6989586621680345207"><span id="local-6989586621680345209"><span class="annot"><span class="annottext">ReadPrec [StudioLifecycleConfigDetails]
 ReadPrec StudioLifecycleConfigDetails
 Int -&gt; ReadS StudioLifecycleConfigDetails
 ReadS [StudioLifecycleConfigDetails]
@@ -81,7 +81,7 @@ readList :: ReadS [StudioLifecycleConfigDetails]
 $creadList :: ReadS [StudioLifecycleConfigDetails]
 readsPrec :: Int -&gt; ReadS StudioLifecycleConfigDetails
 $creadsPrec :: Int -&gt; ReadS StudioLifecycleConfigDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680343778"><span id="local-6989586621680343780"><span id="local-6989586621680343782"><span class="annot"><span class="annottext">Int -&gt; StudioLifecycleConfigDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680345196"><span id="local-6989586621680345198"><span id="local-6989586621680345200"><span class="annot"><span class="annottext">Int -&gt; StudioLifecycleConfigDetails -&gt; ShowS
 [StudioLifecycleConfigDetails] -&gt; ShowS
 StudioLifecycleConfigDetails -&gt; String
 (Int -&gt; StudioLifecycleConfigDetails -&gt; ShowS)
@@ -123,23 +123,23 @@ StudioLifecycleConfigDetails -&gt; Rep StudioLifecycleConfigDetails x
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- 'creationTime', 'studioLifecycleConfigDetails_creationTime' - The creation time of the Studio Lifecycle Configuration.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'studioLifecycleConfigArn', 'studioLifecycleConfigDetails_studioLifecycleConfigArn' - The Amazon Resource Name (ARN) of the Lifecycle Configuration.</span><span>
-</span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'studioLifecycleConfigName', 'studioLifecycleConfigDetails_studioLifecycleConfigName' - The name of the Studio Lifecycle Configuration.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'studioLifecycleConfigAppType', 'studioLifecycleConfigDetails_studioLifecycleConfigAppType' - The App type to which the Lifecycle Configuration is attached.</span><span>
-</span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'lastModifiedTime', 'studioLifecycleConfigDetails_lastModifiedTime' - This value is equivalent to CreationTime because Studio Lifecycle</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- Configurations are immutable.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'lastModifiedTime', 'studioLifecycleConfigDetails_lastModifiedTime' - This value is equivalent to CreationTime because Studio Lifecycle</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Configurations are immutable.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'studioLifecycleConfigArn', 'studioLifecycleConfigDetails_studioLifecycleConfigArn' - The Amazon Resource Name (ARN) of the Lifecycle Configuration.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'studioLifecycleConfigAppType', 'studioLifecycleConfigDetails_studioLifecycleConfigAppType' - The App type to which the Lifecycle Configuration is attached.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'studioLifecycleConfigName', 'studioLifecycleConfigDetails_studioLifecycleConfigName' - The name of the Studio Lifecycle Configuration.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#newStudioLifecycleConfigDetails"><span class="hs-identifier hs-type">newStudioLifecycleConfigDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span>
 </span><span id="line-65"></span><span id="newStudioLifecycleConfigDetails"><span class="annot"><span class="annottext">newStudioLifecycleConfigDetails :: StudioLifecycleConfigDetails
 </span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#newStudioLifecycleConfigDetails"><span class="hs-identifier hs-var hs-var">newStudioLifecycleConfigDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">StudioLifecycleConfigDetails' :: Maybe POSIX
--&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe StudioLifecycleConfigAppType
--&gt; Maybe POSIX
+-&gt; Maybe Text
 -&gt; StudioLifecycleConfigDetails
 </span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:StudioLifecycleConfigDetails' :: Maybe POSIX
@@ -147,12 +147,12 @@ StudioLifecycleConfigDetails -&gt; Rep StudioLifecycleConfigDetails x
 </span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:studioLifecycleConfigArn:StudioLifecycleConfigDetails' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AstudioLifecycleConfigArn%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var">studioLifecycleConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:StudioLifecycleConfigDetails' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AlastModifiedTime%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:studioLifecycleConfigName:StudioLifecycleConfigDetails' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AstudioLifecycleConfigName%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var">studioLifecycleConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:studioLifecycleConfigArn:StudioLifecycleConfigDetails' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AstudioLifecycleConfigArn%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var">studioLifecycleConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:studioLifecycleConfigAppType:StudioLifecycleConfigDetails' :: Maybe StudioLifecycleConfigAppType
@@ -160,8 +160,8 @@ forall a. Maybe a
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe StudioLifecycleConfigAppType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:StudioLifecycleConfigDetails' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AlastModifiedTime%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:studioLifecycleConfigName:StudioLifecycleConfigDetails' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AstudioLifecycleConfigName%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var">studioLifecycleConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
@@ -179,16 +179,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680343769"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345187"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:StudioLifecycleConfigDetails' :: StudioLifecycleConfigDetails -&gt; Maybe POSIX
-</span><a href="#local-6989586621680343769"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680343769"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680343768"><span class="annot"><span class="annottext">s :: StudioLifecycleConfigDetails
-</span><a href="#local-6989586621680343768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680343767"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680343767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StudioLifecycleConfigDetails
-</span><a href="#local-6989586621680343768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:StudioLifecycleConfigDetails' :: Maybe POSIX
+</span><a href="#local-6989586621680345187"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680345187"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345186"><span class="annot"><span class="annottext">s :: StudioLifecycleConfigDetails
+</span><a href="#local-6989586621680345186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345185"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680345185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StudioLifecycleConfigDetails
+</span><a href="#local-6989586621680345186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:StudioLifecycleConfigDetails' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AcreationTime%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680343767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680345185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; StudioLifecycleConfigDetails -&gt; f StudioLifecycleConfigDetails)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -205,85 +205,10 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Lifecycle Configuration.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#studioLifecycleConfigDetails_studioLifecycleConfigArn"><span class="hs-identifier hs-type">studioLifecycleConfigDetails_studioLifecycleConfigArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="studioLifecycleConfigDetails_studioLifecycleConfigArn"><span class="annot"><span class="annottext">studioLifecycleConfigDetails_studioLifecycleConfigArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; StudioLifecycleConfigDetails -&gt; f StudioLifecycleConfigDetails
-</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#studioLifecycleConfigDetails_studioLifecycleConfigArn"><span class="hs-identifier hs-var hs-var">studioLifecycleConfigDetails_studioLifecycleConfigArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StudioLifecycleConfigDetails -&gt; Maybe Text)
--&gt; (StudioLifecycleConfigDetails
-    -&gt; Maybe Text -&gt; StudioLifecycleConfigDetails)
--&gt; Lens
-     StudioLifecycleConfigDetails
-     StudioLifecycleConfigDetails
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680343762"><span class="annot"><span class="annottext">Maybe Text
-studioLifecycleConfigArn :: Maybe Text
-$sel:studioLifecycleConfigArn:StudioLifecycleConfigDetails' :: StudioLifecycleConfigDetails -&gt; Maybe Text
-</span><a href="#local-6989586621680343762"><span class="hs-identifier hs-var hs-var">studioLifecycleConfigArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680343762"><span class="hs-identifier hs-var">studioLifecycleConfigArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680343761"><span class="annot"><span class="annottext">s :: StudioLifecycleConfigDetails
-</span><a href="#local-6989586621680343761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680343760"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680343760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StudioLifecycleConfigDetails
-</span><a href="#local-6989586621680343761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioLifecycleConfigArn:StudioLifecycleConfigDetails' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AstudioLifecycleConfigArn%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var">studioLifecycleConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680343760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The name of the Studio Lifecycle Configuration.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#studioLifecycleConfigDetails_studioLifecycleConfigName"><span class="hs-identifier hs-type">studioLifecycleConfigDetails_studioLifecycleConfigName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="studioLifecycleConfigDetails_studioLifecycleConfigName"><span class="annot"><span class="annottext">studioLifecycleConfigDetails_studioLifecycleConfigName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; StudioLifecycleConfigDetails -&gt; f StudioLifecycleConfigDetails
-</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#studioLifecycleConfigDetails_studioLifecycleConfigName"><span class="hs-identifier hs-var hs-var">studioLifecycleConfigDetails_studioLifecycleConfigName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StudioLifecycleConfigDetails -&gt; Maybe Text)
--&gt; (StudioLifecycleConfigDetails
-    -&gt; Maybe Text -&gt; StudioLifecycleConfigDetails)
--&gt; Lens
-     StudioLifecycleConfigDetails
-     StudioLifecycleConfigDetails
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680343758"><span class="annot"><span class="annottext">Maybe Text
-studioLifecycleConfigName :: Maybe Text
-$sel:studioLifecycleConfigName:StudioLifecycleConfigDetails' :: StudioLifecycleConfigDetails -&gt; Maybe Text
-</span><a href="#local-6989586621680343758"><span class="hs-identifier hs-var hs-var">studioLifecycleConfigName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680343758"><span class="hs-identifier hs-var">studioLifecycleConfigName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680343757"><span class="annot"><span class="annottext">s :: StudioLifecycleConfigDetails
-</span><a href="#local-6989586621680343757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680343756"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680343756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StudioLifecycleConfigDetails
-</span><a href="#local-6989586621680343757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioLifecycleConfigName:StudioLifecycleConfigDetails' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AstudioLifecycleConfigName%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var">studioLifecycleConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680343756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The App type to which the Lifecycle Configuration is attached.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#studioLifecycleConfigDetails_studioLifecycleConfigAppType"><span class="hs-identifier hs-type">studioLifecycleConfigDetails_studioLifecycleConfigAppType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigAppType.html#StudioLifecycleConfigAppType"><span class="hs-identifier hs-type">StudioLifecycleConfigAppType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="studioLifecycleConfigDetails_studioLifecycleConfigAppType"><span class="annot"><span class="annottext">studioLifecycleConfigDetails_studioLifecycleConfigAppType :: (Maybe StudioLifecycleConfigAppType
- -&gt; f (Maybe StudioLifecycleConfigAppType))
--&gt; StudioLifecycleConfigDetails -&gt; f StudioLifecycleConfigDetails
-</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#studioLifecycleConfigDetails_studioLifecycleConfigAppType"><span class="hs-identifier hs-var hs-var">studioLifecycleConfigDetails_studioLifecycleConfigAppType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StudioLifecycleConfigDetails
- -&gt; Maybe StudioLifecycleConfigAppType)
--&gt; (StudioLifecycleConfigDetails
-    -&gt; Maybe StudioLifecycleConfigAppType
-    -&gt; StudioLifecycleConfigDetails)
--&gt; Lens
-     StudioLifecycleConfigDetails
-     StudioLifecycleConfigDetails
-     (Maybe StudioLifecycleConfigAppType)
-     (Maybe StudioLifecycleConfigAppType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680343754"><span class="annot"><span class="annottext">Maybe StudioLifecycleConfigAppType
-studioLifecycleConfigAppType :: Maybe StudioLifecycleConfigAppType
-$sel:studioLifecycleConfigAppType:StudioLifecycleConfigDetails' :: StudioLifecycleConfigDetails -&gt; Maybe StudioLifecycleConfigAppType
-</span><a href="#local-6989586621680343754"><span class="hs-identifier hs-var hs-var">studioLifecycleConfigAppType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StudioLifecycleConfigAppType
-</span><a href="#local-6989586621680343754"><span class="hs-identifier hs-var">studioLifecycleConfigAppType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680343753"><span class="annot"><span class="annottext">s :: StudioLifecycleConfigDetails
-</span><a href="#local-6989586621680343753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680343752"><span class="annot"><span class="annottext">Maybe StudioLifecycleConfigAppType
-</span><a href="#local-6989586621680343752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StudioLifecycleConfigDetails
-</span><a href="#local-6989586621680343753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioLifecycleConfigAppType:StudioLifecycleConfigDetails' :: Maybe StudioLifecycleConfigAppType
-</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AstudioLifecycleConfigAppType%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var">studioLifecycleConfigAppType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StudioLifecycleConfigAppType
-</span><a href="#local-6989586621680343752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | This value is equivalent to CreationTime because Studio Lifecycle</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- Configurations are immutable.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#studioLifecycleConfigDetails_lastModifiedTime"><span class="hs-identifier hs-type">studioLifecycleConfigDetails_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="studioLifecycleConfigDetails_lastModifiedTime"><span class="annot"><span class="annottext">studioLifecycleConfigDetails_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-80"></span><span class="hs-comment">-- | This value is equivalent to CreationTime because Studio Lifecycle</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Configurations are immutable.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#studioLifecycleConfigDetails_lastModifiedTime"><span class="hs-identifier hs-type">studioLifecycleConfigDetails_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="studioLifecycleConfigDetails_lastModifiedTime"><span class="annot"><span class="annottext">studioLifecycleConfigDetails_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; StudioLifecycleConfigDetails -&gt; f StudioLifecycleConfigDetails
 </span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#studioLifecycleConfigDetails_lastModifiedTime"><span class="hs-identifier hs-var hs-var">studioLifecycleConfigDetails_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StudioLifecycleConfigDetails -&gt; Maybe POSIX)
 -&gt; (StudioLifecycleConfigDetails
@@ -294,16 +219,16 @@ $sel:studioLifecycleConfigAppType:StudioLifecycleConfigDetails' :: StudioLifecyc
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680343750"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345180"><span class="annot"><span class="annottext">Maybe POSIX
 lastModifiedTime :: Maybe POSIX
 $sel:lastModifiedTime:StudioLifecycleConfigDetails' :: StudioLifecycleConfigDetails -&gt; Maybe POSIX
-</span><a href="#local-6989586621680343750"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680343750"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680343749"><span class="annot"><span class="annottext">s :: StudioLifecycleConfigDetails
-</span><a href="#local-6989586621680343749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680343748"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680343748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StudioLifecycleConfigDetails
-</span><a href="#local-6989586621680343749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:StudioLifecycleConfigDetails' :: Maybe POSIX
+</span><a href="#local-6989586621680345180"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680345180"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345179"><span class="annot"><span class="annottext">s :: StudioLifecycleConfigDetails
+</span><a href="#local-6989586621680345179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345178"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680345178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StudioLifecycleConfigDetails
+</span><a href="#local-6989586621680345179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:StudioLifecycleConfigDetails' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AlastModifiedTime%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680343748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680345178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; StudioLifecycleConfigDetails -&gt; f StudioLifecycleConfigDetails)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -319,9 +244,84 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Lifecycle Configuration.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#studioLifecycleConfigDetails_studioLifecycleConfigArn"><span class="hs-identifier hs-type">studioLifecycleConfigDetails_studioLifecycleConfigArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="studioLifecycleConfigDetails_studioLifecycleConfigArn"><span class="annot"><span class="annottext">studioLifecycleConfigDetails_studioLifecycleConfigArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StudioLifecycleConfigDetails -&gt; f StudioLifecycleConfigDetails
+</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#studioLifecycleConfigDetails_studioLifecycleConfigArn"><span class="hs-identifier hs-var hs-var">studioLifecycleConfigDetails_studioLifecycleConfigArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StudioLifecycleConfigDetails -&gt; Maybe Text)
+-&gt; (StudioLifecycleConfigDetails
+    -&gt; Maybe Text -&gt; StudioLifecycleConfigDetails)
+-&gt; Lens
+     StudioLifecycleConfigDetails
+     StudioLifecycleConfigDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345176"><span class="annot"><span class="annottext">Maybe Text
+studioLifecycleConfigArn :: Maybe Text
+$sel:studioLifecycleConfigArn:StudioLifecycleConfigDetails' :: StudioLifecycleConfigDetails -&gt; Maybe Text
+</span><a href="#local-6989586621680345176"><span class="hs-identifier hs-var hs-var">studioLifecycleConfigArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345176"><span class="hs-identifier hs-var">studioLifecycleConfigArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345175"><span class="annot"><span class="annottext">s :: StudioLifecycleConfigDetails
+</span><a href="#local-6989586621680345175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345174"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StudioLifecycleConfigDetails
+</span><a href="#local-6989586621680345175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioLifecycleConfigArn:StudioLifecycleConfigDetails' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AstudioLifecycleConfigArn%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var">studioLifecycleConfigArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The App type to which the Lifecycle Configuration is attached.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#studioLifecycleConfigDetails_studioLifecycleConfigAppType"><span class="hs-identifier hs-type">studioLifecycleConfigDetails_studioLifecycleConfigAppType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigAppType.html#StudioLifecycleConfigAppType"><span class="hs-identifier hs-type">StudioLifecycleConfigAppType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="studioLifecycleConfigDetails_studioLifecycleConfigAppType"><span class="annot"><span class="annottext">studioLifecycleConfigDetails_studioLifecycleConfigAppType :: (Maybe StudioLifecycleConfigAppType
+ -&gt; f (Maybe StudioLifecycleConfigAppType))
+-&gt; StudioLifecycleConfigDetails -&gt; f StudioLifecycleConfigDetails
+</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#studioLifecycleConfigDetails_studioLifecycleConfigAppType"><span class="hs-identifier hs-var hs-var">studioLifecycleConfigDetails_studioLifecycleConfigAppType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StudioLifecycleConfigDetails
+ -&gt; Maybe StudioLifecycleConfigAppType)
+-&gt; (StudioLifecycleConfigDetails
+    -&gt; Maybe StudioLifecycleConfigAppType
+    -&gt; StudioLifecycleConfigDetails)
+-&gt; Lens
+     StudioLifecycleConfigDetails
+     StudioLifecycleConfigDetails
+     (Maybe StudioLifecycleConfigAppType)
+     (Maybe StudioLifecycleConfigAppType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345172"><span class="annot"><span class="annottext">Maybe StudioLifecycleConfigAppType
+studioLifecycleConfigAppType :: Maybe StudioLifecycleConfigAppType
+$sel:studioLifecycleConfigAppType:StudioLifecycleConfigDetails' :: StudioLifecycleConfigDetails -&gt; Maybe StudioLifecycleConfigAppType
+</span><a href="#local-6989586621680345172"><span class="hs-identifier hs-var hs-var">studioLifecycleConfigAppType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StudioLifecycleConfigAppType
+</span><a href="#local-6989586621680345172"><span class="hs-identifier hs-var">studioLifecycleConfigAppType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345171"><span class="annot"><span class="annottext">s :: StudioLifecycleConfigDetails
+</span><a href="#local-6989586621680345171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345170"><span class="annot"><span class="annottext">Maybe StudioLifecycleConfigAppType
+</span><a href="#local-6989586621680345170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StudioLifecycleConfigDetails
+</span><a href="#local-6989586621680345171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioLifecycleConfigAppType:StudioLifecycleConfigDetails' :: Maybe StudioLifecycleConfigAppType
+</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AstudioLifecycleConfigAppType%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var">studioLifecycleConfigAppType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StudioLifecycleConfigAppType
+</span><a href="#local-6989586621680345170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The name of the Studio Lifecycle Configuration.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#studioLifecycleConfigDetails_studioLifecycleConfigName"><span class="hs-identifier hs-type">studioLifecycleConfigDetails_studioLifecycleConfigName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="studioLifecycleConfigDetails_studioLifecycleConfigName"><span class="annot"><span class="annottext">studioLifecycleConfigDetails_studioLifecycleConfigName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StudioLifecycleConfigDetails -&gt; f StudioLifecycleConfigDetails
+</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#studioLifecycleConfigDetails_studioLifecycleConfigName"><span class="hs-identifier hs-var hs-var">studioLifecycleConfigDetails_studioLifecycleConfigName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StudioLifecycleConfigDetails -&gt; Maybe Text)
+-&gt; (StudioLifecycleConfigDetails
+    -&gt; Maybe Text -&gt; StudioLifecycleConfigDetails)
+-&gt; Lens
+     StudioLifecycleConfigDetails
+     StudioLifecycleConfigDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680345168"><span class="annot"><span class="annottext">Maybe Text
+studioLifecycleConfigName :: Maybe Text
+$sel:studioLifecycleConfigName:StudioLifecycleConfigDetails' :: StudioLifecycleConfigDetails -&gt; Maybe Text
+</span><a href="#local-6989586621680345168"><span class="hs-identifier hs-var hs-var">studioLifecycleConfigName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345168"><span class="hs-identifier hs-var">studioLifecycleConfigName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680345167"><span class="annot"><span class="annottext">s :: StudioLifecycleConfigDetails
+</span><a href="#local-6989586621680345167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680345166"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StudioLifecycleConfigDetails
+</span><a href="#local-6989586621680345167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioLifecycleConfigName:StudioLifecycleConfigDetails' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#%24sel%3AstudioLifecycleConfigName%3AStudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var">studioLifecycleConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680345166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680343745"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621680343743"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StudioLifecycleConfigDetails
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680345163"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621680345161"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StudioLifecycleConfigDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StudioLifecycleConfigDetails)
@@ -331,91 +331,91 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StudioLifecycleConfigDetails&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680343740"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680343740"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680345158"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680345158"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe StudioLifecycleConfigAppType
--&gt; Maybe POSIX
+-&gt; Maybe Text
 -&gt; StudioLifecycleConfigDetails
 </span><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails%27"><span class="hs-identifier hs-var">StudioLifecycleConfigDetails'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; Maybe StudioLifecycleConfigAppType
- -&gt; Maybe POSIX
+ -&gt; Maybe Text
  -&gt; StudioLifecycleConfigDetails)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe Text
+     (Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe StudioLifecycleConfigAppType
-      -&gt; Maybe POSIX
+      -&gt; Maybe Text
       -&gt; StudioLifecycleConfigDetails)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680343740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680345158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
+  (Maybe POSIX
    -&gt; Maybe Text
    -&gt; Maybe StudioLifecycleConfigAppType
-   -&gt; Maybe POSIX
+   -&gt; Maybe Text
    -&gt; StudioLifecycleConfigDetails)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe StudioLifecycleConfigAppType
-      -&gt; Maybe POSIX
+      -&gt; Maybe Text
       -&gt; StudioLifecycleConfigDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680343740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680345158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StudioLifecycleConfigArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe StudioLifecycleConfigAppType
-   -&gt; Maybe POSIX
+   -&gt; Maybe Text
    -&gt; StudioLifecycleConfigDetails)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe StudioLifecycleConfigAppType
-      -&gt; Maybe POSIX -&gt; StudioLifecycleConfigDetails)
+      -&gt; Maybe Text -&gt; StudioLifecycleConfigDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680343740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680345158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StudioLifecycleConfigName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;StudioLifecycleConfigArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe StudioLifecycleConfigAppType
-   -&gt; Maybe POSIX -&gt; StudioLifecycleConfigDetails)
+   -&gt; Maybe Text -&gt; StudioLifecycleConfigDetails)
 -&gt; Parser (Maybe StudioLifecycleConfigAppType)
--&gt; Parser (Maybe POSIX -&gt; StudioLifecycleConfigDetails)
+-&gt; Parser (Maybe Text -&gt; StudioLifecycleConfigDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680343740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StudioLifecycleConfigAppType)
+</span><a href="#local-6989586621680345158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StudioLifecycleConfigAppType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StudioLifecycleConfigAppType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; StudioLifecycleConfigDetails)
--&gt; Parser (Maybe POSIX) -&gt; Parser StudioLifecycleConfigDetails
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; StudioLifecycleConfigDetails)
+-&gt; Parser (Maybe Text) -&gt; Parser StudioLifecycleConfigDetails
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680343740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680345158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;StudioLifecycleConfigName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621680343734"><span id="local-6989586621680343736"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621680345152"><span id="local-6989586621680345154"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680343731"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680345149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails.html#StudioLifecycleConfigDetails"><span class="hs-identifier hs-type">StudioLifecycleConfigDetails</span></a></span></span><span>
 </span><span id="line-115"></span></pre></body></html>

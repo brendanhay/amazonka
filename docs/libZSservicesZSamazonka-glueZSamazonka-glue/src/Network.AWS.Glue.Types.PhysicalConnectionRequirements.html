@@ -26,20 +26,20 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies the physical requirements for a connection.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPhysicalConnectionRequirements' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679691668"><span id="local-6989586621679691669"></span></span><span class="hs-keyword">data</span><span> </span><span id="PhysicalConnectionRequirements"><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-var">PhysicalConnectionRequirements</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PhysicalConnectionRequirements%27"><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements%27"><span class="hs-identifier hs-var">PhysicalConnectionRequirements'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679693332"><span id="local-6989586621679693333"></span></span><span class="hs-keyword">data</span><span> </span><span id="PhysicalConnectionRequirements"><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-var">PhysicalConnectionRequirements</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PhysicalConnectionRequirements%27"><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements%27"><span class="hs-identifier hs-var">PhysicalConnectionRequirements'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The security group ID list used by the connection.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AsecurityGroupIdList%3APhysicalConnectionRequirements%27"><span class="annot"><span class="annottext">PhysicalConnectionRequirements -&gt; Maybe [Text]
 </span><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#%24sel%3AsecurityGroupIdList%3APhysicalConnectionRequirements%27"><span class="hs-identifier hs-var hs-var">securityGroupIdList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The connection\'s Availability Zone. This field is redundant because the</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- specified subnet implies the Availability Zone to be used. Currently the</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- field must be populated, but it will be deprecated in the future.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AavailabilityZone%3APhysicalConnectionRequirements%27"><span class="annot"><span class="annottext">PhysicalConnectionRequirements -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#%24sel%3AavailabilityZone%3APhysicalConnectionRequirements%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The subnet ID used by the connection.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsubnetId%3APhysicalConnectionRequirements%27"><span class="annot"><span class="annottext">PhysicalConnectionRequirements -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#%24sel%3AsubnetId%3APhysicalConnectionRequirements%27"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The subnet ID used by the connection.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsubnetId%3APhysicalConnectionRequirements%27"><span class="annot"><span class="annottext">PhysicalConnectionRequirements -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#%24sel%3AsubnetId%3APhysicalConnectionRequirements%27"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The connection\'s Availability Zone. This field is redundant because the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- specified subnet implies the Availability Zone to be used. Currently the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- field must be populated, but it will be deprecated in the future.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AavailabilityZone%3APhysicalConnectionRequirements%27"><span class="annot"><span class="annottext">PhysicalConnectionRequirements -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#%24sel%3AavailabilityZone%3APhysicalConnectionRequirements%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679691660"><span id="local-6989586621679691662"><span class="annot"><span class="annottext">PhysicalConnectionRequirements
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679693324"><span id="local-6989586621679693326"><span class="annot"><span class="annottext">PhysicalConnectionRequirements
 -&gt; PhysicalConnectionRequirements -&gt; Bool
 (PhysicalConnectionRequirements
  -&gt; PhysicalConnectionRequirements -&gt; Bool)
@@ -55,7 +55,7 @@ $c/= :: PhysicalConnectionRequirements
 -&gt; PhysicalConnectionRequirements -&gt; Bool
 $c== :: PhysicalConnectionRequirements
 -&gt; PhysicalConnectionRequirements -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679691651"><span id="local-6989586621679691653"><span id="local-6989586621679691655"><span id="local-6989586621679691657"><span class="annot"><span class="annottext">ReadPrec [PhysicalConnectionRequirements]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679693315"><span id="local-6989586621679693317"><span id="local-6989586621679693319"><span id="local-6989586621679693321"><span class="annot"><span class="annottext">ReadPrec [PhysicalConnectionRequirements]
 ReadPrec PhysicalConnectionRequirements
 Int -&gt; ReadS PhysicalConnectionRequirements
 ReadS [PhysicalConnectionRequirements]
@@ -75,7 +75,7 @@ readList :: ReadS [PhysicalConnectionRequirements]
 $creadList :: ReadS [PhysicalConnectionRequirements]
 readsPrec :: Int -&gt; ReadS PhysicalConnectionRequirements
 $creadsPrec :: Int -&gt; ReadS PhysicalConnectionRequirements
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679691644"><span id="local-6989586621679691646"><span id="local-6989586621679691648"><span class="annot"><span class="annottext">Int -&gt; PhysicalConnectionRequirements -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679693308"><span id="local-6989586621679693310"><span id="local-6989586621679693312"><span class="annot"><span class="annottext">Int -&gt; PhysicalConnectionRequirements -&gt; ShowS
 [PhysicalConnectionRequirements] -&gt; ShowS
 PhysicalConnectionRequirements -&gt; String
 (Int -&gt; PhysicalConnectionRequirements -&gt; ShowS)
@@ -123,11 +123,11 @@ PhysicalConnectionRequirements
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- 'securityGroupIdList', 'physicalConnectionRequirements_securityGroupIdList' - The security group ID list used by the connection.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'availabilityZone', 'physicalConnectionRequirements_availabilityZone' - The connection\'s Availability Zone. This field is redundant because the</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- specified subnet implies the Availability Zone to be used. Currently the</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- field must be populated, but it will be deprecated in the future.</span><span>
-</span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'subnetId', 'physicalConnectionRequirements_subnetId' - The subnet ID used by the connection.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'subnetId', 'physicalConnectionRequirements_subnetId' - The subnet ID used by the connection.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'availabilityZone', 'physicalConnectionRequirements_availabilityZone' - The connection\'s Availability Zone. This field is redundant because the</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- specified subnet implies the Availability Zone to be used. Currently the</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- field must be populated, but it will be deprecated in the future.</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#newPhysicalConnectionRequirements"><span class="hs-identifier hs-type">newPhysicalConnectionRequirements</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span><span>
 </span><span id="line-58"></span><span id="newPhysicalConnectionRequirements"><span class="annot"><span class="annottext">newPhysicalConnectionRequirements :: PhysicalConnectionRequirements
@@ -140,12 +140,12 @@ PhysicalConnectionRequirements
 </span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZone:PhysicalConnectionRequirements' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#%24sel%3AavailabilityZone%3APhysicalConnectionRequirements%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetId:PhysicalConnectionRequirements' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#%24sel%3AsubnetId%3APhysicalConnectionRequirements%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetId:PhysicalConnectionRequirements' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#%24sel%3AsubnetId%3APhysicalConnectionRequirements%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZone:PhysicalConnectionRequirements' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#%24sel%3AavailabilityZone%3APhysicalConnectionRequirements%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
@@ -164,16 +164,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements%27"><span class="hs-identifier hs-type">PhysicalConnectionRequirements'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691635"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements%27"><span class="hs-identifier hs-type">PhysicalConnectionRequirements'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693299"><span class="annot"><span class="annottext">Maybe [Text]
 securityGroupIdList :: Maybe [Text]
 $sel:securityGroupIdList:PhysicalConnectionRequirements' :: PhysicalConnectionRequirements -&gt; Maybe [Text]
-</span><a href="#local-6989586621679691635"><span class="hs-identifier hs-var hs-var">securityGroupIdList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679691635"><span class="hs-identifier hs-var">securityGroupIdList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691634"><span class="annot"><span class="annottext">s :: PhysicalConnectionRequirements
-</span><a href="#local-6989586621679691634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements%27"><span class="hs-identifier hs-type">PhysicalConnectionRequirements'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691633"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679691633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhysicalConnectionRequirements
-</span><a href="#local-6989586621679691634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIdList:PhysicalConnectionRequirements' :: Maybe [Text]
+</span><a href="#local-6989586621679693299"><span class="hs-identifier hs-var hs-var">securityGroupIdList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679693299"><span class="hs-identifier hs-var">securityGroupIdList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679693298"><span class="annot"><span class="annottext">s :: PhysicalConnectionRequirements
+</span><a href="#local-6989586621679693298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements%27"><span class="hs-identifier hs-type">PhysicalConnectionRequirements'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679693297"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679693297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhysicalConnectionRequirements
+</span><a href="#local-6989586621679693298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIdList:PhysicalConnectionRequirements' :: Maybe [Text]
 </span><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#%24sel%3AsecurityGroupIdList%3APhysicalConnectionRequirements%27"><span class="hs-identifier hs-var">securityGroupIdList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679691633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679693297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; PhysicalConnectionRequirements
  -&gt; f PhysicalConnectionRequirements)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -188,39 +188,12 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | The connection\'s Availability Zone. This field is redundant because the</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- specified subnet implies the Availability Zone to be used. Currently the</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- field must be populated, but it will be deprecated in the future.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#physicalConnectionRequirements_availabilityZone"><span class="hs-identifier hs-type">physicalConnectionRequirements_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="physicalConnectionRequirements_availabilityZone"><span class="annot"><span class="annottext">physicalConnectionRequirements_availabilityZone :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PhysicalConnectionRequirements
--&gt; f PhysicalConnectionRequirements
-</span><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#physicalConnectionRequirements_availabilityZone"><span class="hs-identifier hs-var hs-var">physicalConnectionRequirements_availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PhysicalConnectionRequirements -&gt; Maybe Text)
--&gt; (PhysicalConnectionRequirements
-    -&gt; Maybe Text -&gt; PhysicalConnectionRequirements)
--&gt; Lens
-     PhysicalConnectionRequirements
-     PhysicalConnectionRequirements
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements%27"><span class="hs-identifier hs-type">PhysicalConnectionRequirements'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691628"><span class="annot"><span class="annottext">Maybe Text
-availabilityZone :: Maybe Text
-$sel:availabilityZone:PhysicalConnectionRequirements' :: PhysicalConnectionRequirements -&gt; Maybe Text
-</span><a href="#local-6989586621679691628"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691628"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691627"><span class="annot"><span class="annottext">s :: PhysicalConnectionRequirements
-</span><a href="#local-6989586621679691627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements%27"><span class="hs-identifier hs-type">PhysicalConnectionRequirements'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691626"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhysicalConnectionRequirements
-</span><a href="#local-6989586621679691627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:PhysicalConnectionRequirements' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#%24sel%3AavailabilityZone%3APhysicalConnectionRequirements%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | The subnet ID used by the connection.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#physicalConnectionRequirements_subnetId"><span class="hs-identifier hs-type">physicalConnectionRequirements_subnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="physicalConnectionRequirements_subnetId"><span class="annot"><span class="annottext">physicalConnectionRequirements_subnetId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-70"></span><span class="hs-comment">-- | The subnet ID used by the connection.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#physicalConnectionRequirements_subnetId"><span class="hs-identifier hs-type">physicalConnectionRequirements_subnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="physicalConnectionRequirements_subnetId"><span class="annot"><span class="annottext">physicalConnectionRequirements_subnetId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PhysicalConnectionRequirements
 -&gt; f PhysicalConnectionRequirements
 </span><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#physicalConnectionRequirements_subnetId"><span class="hs-identifier hs-var hs-var">physicalConnectionRequirements_subnetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PhysicalConnectionRequirements -&gt; Maybe Text)
@@ -232,19 +205,46 @@ $sel:availabilityZone:PhysicalConnectionRequirements' :: PhysicalConnectionRequi
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements%27"><span class="hs-identifier hs-type">PhysicalConnectionRequirements'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691624"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements%27"><span class="hs-identifier hs-type">PhysicalConnectionRequirements'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693292"><span class="annot"><span class="annottext">Maybe Text
 subnetId :: Maybe Text
 $sel:subnetId:PhysicalConnectionRequirements' :: PhysicalConnectionRequirements -&gt; Maybe Text
-</span><a href="#local-6989586621679691624"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691624"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679691623"><span class="annot"><span class="annottext">s :: PhysicalConnectionRequirements
-</span><a href="#local-6989586621679691623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements%27"><span class="hs-identifier hs-type">PhysicalConnectionRequirements'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679691622"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhysicalConnectionRequirements
-</span><a href="#local-6989586621679691623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:PhysicalConnectionRequirements' :: Maybe Text
+</span><a href="#local-6989586621679693292"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679693292"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679693291"><span class="annot"><span class="annottext">s :: PhysicalConnectionRequirements
+</span><a href="#local-6989586621679693291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements%27"><span class="hs-identifier hs-type">PhysicalConnectionRequirements'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679693290"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679693290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhysicalConnectionRequirements
+</span><a href="#local-6989586621679693291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:PhysicalConnectionRequirements' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#%24sel%3AsubnetId%3APhysicalConnectionRequirements%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679693290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The connection\'s Availability Zone. This field is redundant because the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- specified subnet implies the Availability Zone to be used. Currently the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- field must be populated, but it will be deprecated in the future.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#physicalConnectionRequirements_availabilityZone"><span class="hs-identifier hs-type">physicalConnectionRequirements_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="physicalConnectionRequirements_availabilityZone"><span class="annot"><span class="annottext">physicalConnectionRequirements_availabilityZone :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PhysicalConnectionRequirements
+-&gt; f PhysicalConnectionRequirements
+</span><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#physicalConnectionRequirements_availabilityZone"><span class="hs-identifier hs-var hs-var">physicalConnectionRequirements_availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PhysicalConnectionRequirements -&gt; Maybe Text)
+-&gt; (PhysicalConnectionRequirements
+    -&gt; Maybe Text -&gt; PhysicalConnectionRequirements)
+-&gt; Lens
+     PhysicalConnectionRequirements
+     PhysicalConnectionRequirements
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements%27"><span class="hs-identifier hs-type">PhysicalConnectionRequirements'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693288"><span class="annot"><span class="annottext">Maybe Text
+availabilityZone :: Maybe Text
+$sel:availabilityZone:PhysicalConnectionRequirements' :: PhysicalConnectionRequirements -&gt; Maybe Text
+</span><a href="#local-6989586621679693288"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679693288"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679693287"><span class="annot"><span class="annottext">s :: PhysicalConnectionRequirements
+</span><a href="#local-6989586621679693287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements%27"><span class="hs-identifier hs-type">PhysicalConnectionRequirements'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679693286"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679693286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhysicalConnectionRequirements
+</span><a href="#local-6989586621679693287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:PhysicalConnectionRequirements' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#%24sel%3AavailabilityZone%3APhysicalConnectionRequirements%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679693286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691619"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679691617"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PhysicalConnectionRequirements
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693283"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679693281"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PhysicalConnectionRequirements
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PhysicalConnectionRequirements)
@@ -254,8 +254,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PhysicalConnectionRequirements&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679691614"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679691614"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679693278"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679693278"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe Text -&gt; Maybe Text -&gt; PhysicalConnectionRequirements
 </span><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements%27"><span class="hs-identifier hs-var">PhysicalConnectionRequirements'</span></a></span><span>
@@ -266,7 +266,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe Text -&gt; PhysicalConnectionRequirements)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679691614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679693278"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecurityGroupIdList&quot;</span></span><span>
@@ -282,39 +282,39 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Text -&gt; PhysicalConnectionRequirements)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679691614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679693278"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SubnetId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PhysicalConnectionRequirements)
 -&gt; Parser (Maybe Text) -&gt; Parser PhysicalConnectionRequirements
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679691614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679693278"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SubnetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679691607"><span id="local-6989586621679691609"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679693271"><span id="local-6989586621679693273"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679691604"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679693268"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679691596"><span id="local-6989586621679691598"><span id="local-6989586621679691600"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679691594"><span class="annot"><span class="annottext">toJSON :: PhysicalConnectionRequirements -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements%27"><span class="hs-identifier hs-type">PhysicalConnectionRequirements'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679691590"><span id="local-6989586621679691591"><span id="local-6989586621679691592"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693260"><span id="local-6989586621679693262"><span id="local-6989586621679693264"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements"><span class="hs-identifier hs-type">PhysicalConnectionRequirements</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679693258"><span class="annot"><span class="annottext">toJSON :: PhysicalConnectionRequirements -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PhysicalConnectionRequirements.html#PhysicalConnectionRequirements%27"><span class="hs-identifier hs-type">PhysicalConnectionRequirements'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693254"><span id="local-6989586621679693255"><span id="local-6989586621679693256"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
-subnetId :: Maybe Text
 availabilityZone :: Maybe Text
+subnetId :: Maybe Text
 securityGroupIdList :: Maybe [Text]
-$sel:subnetId:PhysicalConnectionRequirements' :: PhysicalConnectionRequirements -&gt; Maybe Text
 $sel:availabilityZone:PhysicalConnectionRequirements' :: PhysicalConnectionRequirements -&gt; Maybe Text
+$sel:subnetId:PhysicalConnectionRequirements' :: PhysicalConnectionRequirements -&gt; Maybe Text
 $sel:securityGroupIdList:PhysicalConnectionRequirements' :: PhysicalConnectionRequirements -&gt; Maybe [Text]
-</span><a href="#local-6989586621679691590"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679693254"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -327,22 +327,22 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679691592"><span class="hs-identifier hs-var">securityGroupIdList</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679693256"><span class="hs-identifier hs-var">securityGroupIdList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691591"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubnetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679691590"><span class="hs-identifier hs-var">subnetId</span></a></span><span>
+</span><a href="#local-6989586621679693255"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AvailabilityZone&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679693254"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span>
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Provides summary information for an endpoint.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEndpointSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680303137"><span id="local-6989586621680303138"></span></span><span class="hs-keyword">data</span><span> </span><span id="EndpointSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-var">EndpointSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-var">EndpointSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680304512"><span id="local-6989586621680304513"></span></span><span class="hs-keyword">data</span><span> </span><span id="EndpointSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-var">EndpointSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-var">EndpointSummary'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the endpoint.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AendpointName%3AEndpointSummary%27"><span class="annot"><span class="annottext">EndpointSummary -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#%24sel%3AendpointName%3AEndpointSummary%27"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -78,7 +78,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AendpointStatus%3AEndpointSummary%27"><span class="annot"><span class="annottext">EndpointSummary -&gt; EndpointStatus
 </span><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#%24sel%3AendpointStatus%3AEndpointSummary%27"><span class="hs-identifier hs-var hs-var">endpointStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointStatus.html#EndpointStatus"><span class="hs-identifier hs-type">EndpointStatus</span></a></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680303127"><span id="local-6989586621680303129"><span class="annot"><span class="annottext">EndpointSummary -&gt; EndpointSummary -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680304502"><span id="local-6989586621680304504"><span class="annot"><span class="annottext">EndpointSummary -&gt; EndpointSummary -&gt; Bool
 (EndpointSummary -&gt; EndpointSummary -&gt; Bool)
 -&gt; (EndpointSummary -&gt; EndpointSummary -&gt; Bool)
 -&gt; Eq EndpointSummary
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EndpointSummary -&gt; EndpointSummary -&gt; Bool
 == :: EndpointSummary -&gt; EndpointSummary -&gt; Bool
 $c== :: EndpointSummary -&gt; EndpointSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680303118"><span id="local-6989586621680303120"><span id="local-6989586621680303122"><span id="local-6989586621680303124"><span class="annot"><span class="annottext">ReadPrec [EndpointSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680304493"><span id="local-6989586621680304495"><span id="local-6989586621680304497"><span id="local-6989586621680304499"><span class="annot"><span class="annottext">ReadPrec [EndpointSummary]
 ReadPrec EndpointSummary
 Int -&gt; ReadS EndpointSummary
 ReadS [EndpointSummary]
@@ -107,7 +107,7 @@ readList :: ReadS [EndpointSummary]
 $creadList :: ReadS [EndpointSummary]
 readsPrec :: Int -&gt; ReadS EndpointSummary
 $creadsPrec :: Int -&gt; ReadS EndpointSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680303111"><span id="local-6989586621680303113"><span id="local-6989586621680303115"><span class="annot"><span class="annottext">Int -&gt; EndpointSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680304486"><span id="local-6989586621680304488"><span id="local-6989586621680304490"><span class="annot"><span class="annottext">Int -&gt; EndpointSummary -&gt; ShowS
 [EndpointSummary] -&gt; ShowS
 EndpointSummary -&gt; String
 (Int -&gt; EndpointSummary -&gt; ShowS)
@@ -199,24 +199,24 @@ $cfrom :: forall x. EndpointSummary -&gt; Rep EndpointSummary x
 </span><span id="line-141"></span><span id="newEndpointSummary"><span class="annot"><span class="annottext">newEndpointSummary :: Text
 -&gt; Text -&gt; UTCTime -&gt; UTCTime -&gt; EndpointStatus -&gt; EndpointSummary
 </span><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#newEndpointSummary"><span class="hs-identifier hs-var hs-var">newEndpointSummary</span></a></span></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621680303105"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680303105"><span class="hs-identifier hs-var">pEndpointName_</span></a></span></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621680303104"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680303104"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span></span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621680303103"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680303103"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621680303102"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680303102"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621680303101"><span class="annot"><span class="annottext">EndpointStatus
-</span><a href="#local-6989586621680303101"><span class="hs-identifier hs-var">pEndpointStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621680304480"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680304480"><span class="hs-identifier hs-var">pEndpointName_</span></a></span></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621680304479"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680304479"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621680304478"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680304478"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621680304477"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680304477"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621680304476"><span class="annot"><span class="annottext">EndpointStatus
+</span><a href="#local-6989586621680304476"><span class="hs-identifier hs-var">pEndpointStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">EndpointSummary' :: Text -&gt; Text -&gt; POSIX -&gt; POSIX -&gt; EndpointStatus -&gt; EndpointSummary
 </span><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endpointName:EndpointSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#%24sel%3AendpointName%3AEndpointSummary%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680303105"><span class="hs-identifier hs-var">pEndpointName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680304480"><span class="hs-identifier hs-var">pEndpointName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:endpointArn:EndpointSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#%24sel%3AendpointArn%3AEndpointSummary%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680303104"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680304479"><span class="hs-identifier hs-var">pEndpointArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationTime:EndpointSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#%24sel%3AcreationTime%3AEndpointSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -225,7 +225,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680303103"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680304478"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:EndpointSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#%24sel%3AlastModifiedTime%3AEndpointSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
@@ -235,10 +235,10 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680303102"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680304477"><span class="hs-identifier hs-var">pLastModifiedTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">$sel:endpointStatus:EndpointSummary' :: EndpointStatus
 </span><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#%24sel%3AendpointStatus%3AEndpointSummary%27"><span class="hs-identifier hs-var">endpointStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EndpointStatus
-</span><a href="#local-6989586621680303101"><span class="hs-identifier hs-var">pEndpointStatus_</span></a></span><span>
+</span><a href="#local-6989586621680304476"><span class="hs-identifier hs-var">pEndpointStatus_</span></a></span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The name of the endpoint.</span><span>
@@ -248,16 +248,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (EndpointSummary -&gt; Text -&gt; EndpointSummary)
 -&gt; Lens EndpointSummary EndpointSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680303095"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680304470"><span class="annot"><span class="annottext">Text
 endpointName :: Text
 $sel:endpointName:EndpointSummary' :: EndpointSummary -&gt; Text
-</span><a href="#local-6989586621680303095"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680303095"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680303094"><span class="annot"><span class="annottext">s :: EndpointSummary
-</span><a href="#local-6989586621680303094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680303093"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680303093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSummary
-</span><a href="#local-6989586621680303094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointName:EndpointSummary' :: Text
+</span><a href="#local-6989586621680304470"><span class="hs-identifier hs-var hs-var">endpointName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680304470"><span class="hs-identifier hs-var">endpointName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680304469"><span class="annot"><span class="annottext">s :: EndpointSummary
+</span><a href="#local-6989586621680304469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680304468"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680304468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSummary
+</span><a href="#local-6989586621680304469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointName:EndpointSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#%24sel%3AendpointName%3AEndpointSummary%27"><span class="hs-identifier hs-var">endpointName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680303093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-type">EndpointSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680304468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-type">EndpointSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the endpoint.</span><span>
 </span><span id="line-161"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#endpointSummary_endpointArn"><span class="hs-identifier hs-type">endpointSummary_endpointArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-type">EndpointSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -266,16 +266,16 @@ $sel:endpointName:EndpointSummary' :: EndpointSummary -&gt; Text
 -&gt; (EndpointSummary -&gt; Text -&gt; EndpointSummary)
 -&gt; Lens EndpointSummary EndpointSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680303091"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680304466"><span class="annot"><span class="annottext">Text
 endpointArn :: Text
 $sel:endpointArn:EndpointSummary' :: EndpointSummary -&gt; Text
-</span><a href="#local-6989586621680303091"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680303091"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680303090"><span class="annot"><span class="annottext">s :: EndpointSummary
-</span><a href="#local-6989586621680303090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680303089"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680303089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSummary
-</span><a href="#local-6989586621680303090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:EndpointSummary' :: Text
+</span><a href="#local-6989586621680304466"><span class="hs-identifier hs-var hs-var">endpointArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680304466"><span class="hs-identifier hs-var">endpointArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680304465"><span class="annot"><span class="annottext">s :: EndpointSummary
+</span><a href="#local-6989586621680304465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680304464"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680304464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSummary
+</span><a href="#local-6989586621680304465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointArn:EndpointSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#%24sel%3AendpointArn%3AEndpointSummary%27"><span class="hs-identifier hs-var">endpointArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680303089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-type">EndpointSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680304464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-type">EndpointSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | A timestamp that shows when the endpoint was created.</span><span>
 </span><span id="line-165"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#endpointSummary_creationTime"><span class="hs-identifier hs-type">endpointSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-type">EndpointSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -284,16 +284,16 @@ $sel:endpointArn:EndpointSummary' :: EndpointSummary -&gt; Text
 -&gt; (EndpointSummary -&gt; POSIX -&gt; EndpointSummary)
 -&gt; Lens EndpointSummary EndpointSummary POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680303087"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680304462"><span class="annot"><span class="annottext">POSIX
 creationTime :: POSIX
 $sel:creationTime:EndpointSummary' :: EndpointSummary -&gt; POSIX
-</span><a href="#local-6989586621680303087"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680303087"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680303086"><span class="annot"><span class="annottext">s :: EndpointSummary
-</span><a href="#local-6989586621680303086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680303085"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680303085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSummary
-</span><a href="#local-6989586621680303086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:EndpointSummary' :: POSIX
+</span><a href="#local-6989586621680304462"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680304462"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680304461"><span class="annot"><span class="annottext">s :: EndpointSummary
+</span><a href="#local-6989586621680304461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680304460"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680304460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSummary
+</span><a href="#local-6989586621680304461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:EndpointSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#%24sel%3AcreationTime%3AEndpointSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680303085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-type">EndpointSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; EndpointSummary -&gt; f EndpointSummary)
+</span><a href="#local-6989586621680304460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-type">EndpointSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; EndpointSummary -&gt; f EndpointSummary)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; EndpointSummary
@@ -310,16 +310,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (EndpointSummary -&gt; POSIX -&gt; EndpointSummary)
 -&gt; Lens EndpointSummary EndpointSummary POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680303082"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680304457"><span class="annot"><span class="annottext">POSIX
 lastModifiedTime :: POSIX
 $sel:lastModifiedTime:EndpointSummary' :: EndpointSummary -&gt; POSIX
-</span><a href="#local-6989586621680303082"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680303082"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680303081"><span class="annot"><span class="annottext">s :: EndpointSummary
-</span><a href="#local-6989586621680303081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680303080"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680303080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSummary
-</span><a href="#local-6989586621680303081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:EndpointSummary' :: POSIX
+</span><a href="#local-6989586621680304457"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680304457"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680304456"><span class="annot"><span class="annottext">s :: EndpointSummary
+</span><a href="#local-6989586621680304456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680304455"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680304455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSummary
+</span><a href="#local-6989586621680304456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:EndpointSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#%24sel%3AlastModifiedTime%3AEndpointSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680303080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-type">EndpointSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; EndpointSummary -&gt; f EndpointSummary)
+</span><a href="#local-6989586621680304455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-type">EndpointSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; EndpointSummary -&gt; f EndpointSummary)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; EndpointSummary
@@ -372,19 +372,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      EndpointSummary EndpointSummary EndpointStatus EndpointStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680303078"><span class="annot"><span class="annottext">EndpointStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680304453"><span class="annot"><span class="annottext">EndpointStatus
 endpointStatus :: EndpointStatus
 $sel:endpointStatus:EndpointSummary' :: EndpointSummary -&gt; EndpointStatus
-</span><a href="#local-6989586621680303078"><span class="hs-identifier hs-var hs-var">endpointStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointStatus
-</span><a href="#local-6989586621680303078"><span class="hs-identifier hs-var">endpointStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680303077"><span class="annot"><span class="annottext">s :: EndpointSummary
-</span><a href="#local-6989586621680303077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680303076"><span class="annot"><span class="annottext">EndpointStatus
-</span><a href="#local-6989586621680303076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSummary
-</span><a href="#local-6989586621680303077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointStatus:EndpointSummary' :: EndpointStatus
+</span><a href="#local-6989586621680304453"><span class="hs-identifier hs-var hs-var">endpointStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointStatus
+</span><a href="#local-6989586621680304453"><span class="hs-identifier hs-var">endpointStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680304452"><span class="annot"><span class="annottext">s :: EndpointSummary
+</span><a href="#local-6989586621680304452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-type">EndpointSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680304451"><span class="annot"><span class="annottext">EndpointStatus
+</span><a href="#local-6989586621680304451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointSummary
+</span><a href="#local-6989586621680304452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointStatus:EndpointSummary' :: EndpointStatus
 </span><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#%24sel%3AendpointStatus%3AEndpointSummary%27"><span class="hs-identifier hs-var">endpointStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EndpointStatus
-</span><a href="#local-6989586621680303076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-type">EndpointSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680304451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-type">EndpointSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680303073"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-type">EndpointSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621680303071"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EndpointSummary
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680304448"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-type">EndpointSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621680304446"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EndpointSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EndpointSummary)
@@ -394,8 +394,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EndpointSummary&quot;</span></span><span>
-</span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680303068"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680303068"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680304443"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680304443"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-215"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; POSIX -&gt; POSIX -&gt; EndpointStatus -&gt; EndpointSummary
 </span><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary%27"><span class="hs-identifier hs-var">EndpointSummary'</span></a></span><span>
 </span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">(Text
@@ -405,7 +405,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Text -&gt; POSIX -&gt; POSIX -&gt; EndpointStatus -&gt; EndpointSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680303068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680304443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndpointName&quot;</span></span><span class="hs-special">)</span><span>
@@ -415,7 +415,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (POSIX -&gt; POSIX -&gt; EndpointStatus -&gt; EndpointSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680303068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680304443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndpointArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -424,7 +424,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (POSIX -&gt; EndpointStatus -&gt; EndpointSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680303068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621680304443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -432,7 +432,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser (EndpointStatus -&gt; EndpointSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680303068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621680304443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -440,13 +440,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser EndpointStatus -&gt; Parser EndpointSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680303068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EndpointStatus
+</span><a href="#local-6989586621680304443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser EndpointStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndpointStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680303062"><span id="local-6989586621680303064"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-type">EndpointSummary</span></a></span></span></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680304437"><span id="local-6989586621680304439"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-type">EndpointSummary</span></a></span></span></span><span>
 </span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680303059"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-type">EndpointSummary</span></a></span></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680304434"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.EndpointSummary.html#EndpointSummary"><span class="hs-identifier hs-type">EndpointSummary</span></a></span></span><span>
 </span><span id="line-226"></span></pre></body></html>

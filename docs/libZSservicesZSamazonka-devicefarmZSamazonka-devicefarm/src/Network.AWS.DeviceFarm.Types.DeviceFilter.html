@@ -34,7 +34,7 @@
 </span><span id="line-34"></span><span class="hs-comment">-- example of the JSON request syntax, see ListDevices.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newDeviceFilter' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679367323"><span id="local-6989586621679367324"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceFilter"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-var">DeviceFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceFilter%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-var">DeviceFilter'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679367564"><span id="local-6989586621679367565"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceFilter"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-var">DeviceFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceFilter%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-var">DeviceFilter'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The aspect of a device such as platform or model used as the selection</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- criteria in a device filter.</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -138,7 +138,7 @@
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3Avalues%3ADeviceFilter%27"><span class="annot"><span class="annottext">DeviceFilter -&gt; [Text]
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#%24sel%3Avalues%3ADeviceFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367315"><span id="local-6989586621679367317"><span class="annot"><span class="annottext">DeviceFilter -&gt; DeviceFilter -&gt; Bool
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367556"><span id="local-6989586621679367558"><span class="annot"><span class="annottext">DeviceFilter -&gt; DeviceFilter -&gt; Bool
 (DeviceFilter -&gt; DeviceFilter -&gt; Bool)
 -&gt; (DeviceFilter -&gt; DeviceFilter -&gt; Bool) -&gt; Eq DeviceFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -146,7 +146,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeviceFilter -&gt; DeviceFilter -&gt; Bool
 == :: DeviceFilter -&gt; DeviceFilter -&gt; Bool
 $c== :: DeviceFilter -&gt; DeviceFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367306"><span id="local-6989586621679367308"><span id="local-6989586621679367310"><span id="local-6989586621679367312"><span class="annot"><span class="annottext">ReadPrec [DeviceFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367547"><span id="local-6989586621679367549"><span id="local-6989586621679367551"><span id="local-6989586621679367553"><span class="annot"><span class="annottext">ReadPrec [DeviceFilter]
 ReadPrec DeviceFilter
 Int -&gt; ReadS DeviceFilter
 ReadS [DeviceFilter]
@@ -166,7 +166,7 @@ readList :: ReadS [DeviceFilter]
 $creadList :: ReadS [DeviceFilter]
 readsPrec :: Int -&gt; ReadS DeviceFilter
 $creadsPrec :: Int -&gt; ReadS DeviceFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367299"><span id="local-6989586621679367301"><span id="local-6989586621679367303"><span class="annot"><span class="annottext">Int -&gt; DeviceFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367540"><span id="local-6989586621679367542"><span id="local-6989586621679367544"><span class="annot"><span class="annottext">Int -&gt; DeviceFilter -&gt; ShowS
 [DeviceFilter] -&gt; ShowS
 DeviceFilter -&gt; String
 (Int -&gt; DeviceFilter -&gt; ShowS)
@@ -305,17 +305,17 @@ $cfrom :: forall x. DeviceFilter -&gt; Rep DeviceFilter x
 </span><span id="line-250"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.RuleOperator.html#RuleOperator"><span class="hs-identifier hs-type">RuleOperator</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-251"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span><span>
 </span><span id="line-252"></span><span id="newDeviceFilter"><span class="annot"><span class="annottext">newDeviceFilter :: DeviceFilterAttribute -&gt; RuleOperator -&gt; DeviceFilter
-</span><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#newDeviceFilter"><span class="hs-identifier hs-var hs-var">newDeviceFilter</span></a></span></span><span> </span><span id="local-6989586621679367293"><span class="annot"><span class="annottext">DeviceFilterAttribute
-</span><a href="#local-6989586621679367293"><span class="hs-identifier hs-var">pAttribute_</span></a></span></span><span> </span><span id="local-6989586621679367292"><span class="annot"><span class="annottext">RuleOperator
-</span><a href="#local-6989586621679367292"><span class="hs-identifier hs-var">pOperator_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#newDeviceFilter"><span class="hs-identifier hs-var hs-var">newDeviceFilter</span></a></span></span><span> </span><span id="local-6989586621679367534"><span class="annot"><span class="annottext">DeviceFilterAttribute
+</span><a href="#local-6989586621679367534"><span class="hs-identifier hs-var">pAttribute_</span></a></span></span><span> </span><span id="local-6989586621679367533"><span class="annot"><span class="annottext">RuleOperator
+</span><a href="#local-6989586621679367533"><span class="hs-identifier hs-var">pOperator_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-253"></span><span>  </span><span class="annot"><span class="annottext">DeviceFilter' :: DeviceFilterAttribute -&gt; RuleOperator -&gt; [Text] -&gt; DeviceFilter
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span>
 </span><span id="line-254"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attribute:DeviceFilter' :: DeviceFilterAttribute
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#%24sel%3Aattribute%3ADeviceFilter%27"><span class="hs-identifier hs-var">attribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeviceFilterAttribute
-</span><a href="#local-6989586621679367293"><span class="hs-identifier hs-var">pAttribute_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367534"><span class="hs-identifier hs-var">pAttribute_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">$sel:operator:DeviceFilter' :: RuleOperator
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#%24sel%3Aoperator%3ADeviceFilter%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RuleOperator
-</span><a href="#local-6989586621679367292"><span class="hs-identifier hs-var">pOperator_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367533"><span class="hs-identifier hs-var">pOperator_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:DeviceFilter' :: [Text]
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#%24sel%3Avalues%3ADeviceFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -408,16 +408,16 @@ forall a. Monoid a =&gt; a
      DeviceFilterAttribute
      DeviceFilterAttribute
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367288"><span class="annot"><span class="annottext">DeviceFilterAttribute
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367529"><span class="annot"><span class="annottext">DeviceFilterAttribute
 attribute :: DeviceFilterAttribute
 $sel:attribute:DeviceFilter' :: DeviceFilter -&gt; DeviceFilterAttribute
-</span><a href="#local-6989586621679367288"><span class="hs-identifier hs-var hs-var">attribute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFilterAttribute
-</span><a href="#local-6989586621679367288"><span class="hs-identifier hs-var">attribute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367287"><span class="annot"><span class="annottext">s :: DeviceFilter
-</span><a href="#local-6989586621679367287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367286"><span class="annot"><span class="annottext">DeviceFilterAttribute
-</span><a href="#local-6989586621679367286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFilter
-</span><a href="#local-6989586621679367287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attribute:DeviceFilter' :: DeviceFilterAttribute
+</span><a href="#local-6989586621679367529"><span class="hs-identifier hs-var hs-var">attribute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFilterAttribute
+</span><a href="#local-6989586621679367529"><span class="hs-identifier hs-var">attribute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367528"><span class="annot"><span class="annottext">s :: DeviceFilter
+</span><a href="#local-6989586621679367528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367527"><span class="annot"><span class="annottext">DeviceFilterAttribute
+</span><a href="#local-6989586621679367527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFilter
+</span><a href="#local-6989586621679367528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attribute:DeviceFilter' :: DeviceFilterAttribute
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#%24sel%3Aattribute%3ADeviceFilter%27"><span class="hs-identifier hs-var">attribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeviceFilterAttribute
-</span><a href="#local-6989586621679367286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-336"></span><span>
 </span><span id="line-337"></span><span class="hs-comment">-- | Specifies how Device Farm compares the filter\'s attribute to the value.</span><span>
 </span><span id="line-338"></span><span class="hs-comment">-- See the attribute descriptions.</span><span>
@@ -427,16 +427,16 @@ $sel:attribute:DeviceFilter' :: DeviceFilter -&gt; DeviceFilterAttribute
 -&gt; (DeviceFilter -&gt; RuleOperator -&gt; DeviceFilter)
 -&gt; Lens DeviceFilter DeviceFilter RuleOperator RuleOperator
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367284"><span class="annot"><span class="annottext">RuleOperator
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367525"><span class="annot"><span class="annottext">RuleOperator
 operator :: RuleOperator
 $sel:operator:DeviceFilter' :: DeviceFilter -&gt; RuleOperator
-</span><a href="#local-6989586621679367284"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleOperator
-</span><a href="#local-6989586621679367284"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367283"><span class="annot"><span class="annottext">s :: DeviceFilter
-</span><a href="#local-6989586621679367283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367282"><span class="annot"><span class="annottext">RuleOperator
-</span><a href="#local-6989586621679367282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFilter
-</span><a href="#local-6989586621679367283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operator:DeviceFilter' :: RuleOperator
+</span><a href="#local-6989586621679367525"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RuleOperator
+</span><a href="#local-6989586621679367525"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367524"><span class="annot"><span class="annottext">s :: DeviceFilter
+</span><a href="#local-6989586621679367524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367523"><span class="annot"><span class="annottext">RuleOperator
+</span><a href="#local-6989586621679367523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFilter
+</span><a href="#local-6989586621679367524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operator:DeviceFilter' :: RuleOperator
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#%24sel%3Aoperator%3ADeviceFilter%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RuleOperator
-</span><a href="#local-6989586621679367282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-341"></span><span>
 </span><span id="line-342"></span><span class="hs-comment">-- | An array of one or more filter values used in a device filter.</span><span>
 </span><span id="line-343"></span><span class="hs-comment">--</span><span>
@@ -463,27 +463,27 @@ $sel:operator:DeviceFilter' :: DeviceFilter -&gt; RuleOperator
 -&gt; (DeviceFilter -&gt; [Text] -&gt; DeviceFilter)
 -&gt; Lens DeviceFilter DeviceFilter [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367280"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367521"><span class="annot"><span class="annottext">[Text]
 values :: [Text]
 $sel:values:DeviceFilter' :: DeviceFilter -&gt; [Text]
-</span><a href="#local-6989586621679367280"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679367280"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367279"><span class="annot"><span class="annottext">s :: DeviceFilter
-</span><a href="#local-6989586621679367279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367278"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679367278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFilter
-</span><a href="#local-6989586621679367279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:DeviceFilter' :: [Text]
+</span><a href="#local-6989586621679367521"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679367521"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367520"><span class="annot"><span class="annottext">s :: DeviceFilter
+</span><a href="#local-6989586621679367520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367519"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679367519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceFilter
+</span><a href="#local-6989586621679367520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:DeviceFilter' :: [Text]
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#%24sel%3Avalues%3ADeviceFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679367278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; DeviceFilter -&gt; f DeviceFilter)
+</span><a href="#local-6989586621679367519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; DeviceFilter -&gt; f DeviceFilter)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; DeviceFilter
 -&gt; f DeviceFilter
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-363"></span><span>
-</span><span id="line-364"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367273"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-365"></span><span>  </span><span id="local-6989586621679367271"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeviceFilter
+</span><span id="line-364"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367514"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-365"></span><span>  </span><span id="local-6989586621679367512"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeviceFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-366"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DeviceFilter) -&gt; Value -&gt; Parser DeviceFilter
@@ -491,8 +491,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-367"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DeviceFilter&quot;</span></span><span>
-</span><span id="line-368"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367268"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367268"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-368"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367509"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367509"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-369"></span><span>          </span><span class="annot"><span class="annottext">DeviceFilterAttribute -&gt; RuleOperator -&gt; [Text] -&gt; DeviceFilter
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-var">DeviceFilter'</span></a></span><span>
 </span><span id="line-370"></span><span>            </span><span class="annot"><span class="annottext">(DeviceFilterAttribute -&gt; RuleOperator -&gt; [Text] -&gt; DeviceFilter)
@@ -500,7 +500,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (RuleOperator -&gt; [Text] -&gt; DeviceFilter)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DeviceFilterAttribute
+</span><a href="#local-6989586621679367509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DeviceFilterAttribute
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;attribute&quot;</span></span><span class="hs-special">)</span><span>
@@ -508,7 +508,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser RuleOperator -&gt; Parser ([Text] -&gt; DeviceFilter)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RuleOperator
+</span><a href="#local-6989586621679367509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RuleOperator
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operator&quot;</span></span><span class="hs-special">)</span><span>
@@ -516,7 +516,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser [Text] -&gt; Parser DeviceFilter
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
+</span><a href="#local-6989586621679367509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Text])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Text]) -&gt; [Text] -&gt; Parser [Text]
@@ -526,13 +526,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-373"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-374"></span><span>
-</span><span id="line-375"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367260"><span id="local-6989586621679367262"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span></span></span><span>
+</span><span id="line-375"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367501"><span id="local-6989586621679367503"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span></span></span><span>
 </span><span id="line-376"></span><span>
-</span><span id="line-377"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367257"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span></span><span>
+</span><span id="line-377"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span></span><span>
 </span><span id="line-378"></span><span>
-</span><span id="line-379"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367249"><span id="local-6989586621679367251"><span id="local-6989586621679367253"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-380"></span><span>  </span><span id="local-6989586621679367247"><span class="annot"><span class="annottext">toJSON :: DeviceFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367243"><span id="local-6989586621679367244"><span id="local-6989586621679367245"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-379"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367490"><span id="local-6989586621679367492"><span id="local-6989586621679367494"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter"><span class="hs-identifier hs-type">DeviceFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-380"></span><span>  </span><span id="local-6989586621679367488"><span class="annot"><span class="annottext">toJSON :: DeviceFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceFilter.html#DeviceFilter%27"><span class="hs-identifier hs-type">DeviceFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367484"><span id="local-6989586621679367485"><span id="local-6989586621679367486"><span class="annot"><span class="annottext">[Text]
 DeviceFilterAttribute
 RuleOperator
 values :: [Text]
@@ -541,7 +541,7 @@ attribute :: DeviceFilterAttribute
 $sel:values:DeviceFilter' :: DeviceFilter -&gt; [Text]
 $sel:operator:DeviceFilter' :: DeviceFilter -&gt; RuleOperator
 $sel:attribute:DeviceFilter' :: DeviceFilter -&gt; DeviceFilterAttribute
-</span><a href="#local-6989586621679367243"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679367484"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-381"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-382"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -553,21 +553,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;attribute&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeviceFilterAttribute -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DeviceFilterAttribute
-</span><a href="#local-6989586621679367245"><span class="hs-identifier hs-var">attribute</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367486"><span class="hs-identifier hs-var">attribute</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-384"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RuleOperator -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RuleOperator
-</span><a href="#local-6989586621679367244"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367485"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-385"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679367243"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367484"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-386"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-387"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-388"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- UserAttribute enumeration.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDelegate' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679259817"><span id="local-6989586621679259818"></span></span><span class="hs-keyword">data</span><span> </span><span id="Delegate"><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate"><span class="hs-identifier hs-var">Delegate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Delegate%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate%27"><span class="hs-identifier hs-var">Delegate'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679280398"><span id="local-6989586621679280399"></span></span><span class="hs-keyword">data</span><span> </span><span id="Delegate"><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate"><span class="hs-identifier hs-var">Delegate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Delegate%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate%27"><span class="hs-identifier hs-var">Delegate'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the user or group associated as the resource\'s</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- delegate.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aid%3ADelegate%27"><span class="annot"><span class="annottext">Delegate -&gt; Text
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Atype%27%3ADelegate%27"><span class="annot"><span class="annottext">Delegate -&gt; MemberType
 </span><a href="Network.AWS.WorkMail.Types.Delegate.html#%24sel%3Atype%27%3ADelegate%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MemberType.html#MemberType"><span class="hs-identifier hs-type">MemberType</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259810"><span id="local-6989586621679259812"><span class="annot"><span class="annottext">Delegate -&gt; Delegate -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280391"><span id="local-6989586621679280393"><span class="annot"><span class="annottext">Delegate -&gt; Delegate -&gt; Bool
 (Delegate -&gt; Delegate -&gt; Bool)
 -&gt; (Delegate -&gt; Delegate -&gt; Bool) -&gt; Eq Delegate
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Delegate -&gt; Delegate -&gt; Bool
 == :: Delegate -&gt; Delegate -&gt; Bool
 $c== :: Delegate -&gt; Delegate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259801"><span id="local-6989586621679259803"><span id="local-6989586621679259805"><span id="local-6989586621679259807"><span class="annot"><span class="annottext">ReadPrec [Delegate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280382"><span id="local-6989586621679280384"><span id="local-6989586621679280386"><span id="local-6989586621679280388"><span class="annot"><span class="annottext">ReadPrec [Delegate]
 ReadPrec Delegate
 Int -&gt; ReadS Delegate
 ReadS [Delegate]
@@ -65,7 +65,7 @@ readList :: ReadS [Delegate]
 $creadList :: ReadS [Delegate]
 readsPrec :: Int -&gt; ReadS Delegate
 $creadsPrec :: Int -&gt; ReadS Delegate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259794"><span id="local-6989586621679259796"><span id="local-6989586621679259798"><span class="annot"><span class="annottext">Int -&gt; Delegate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280375"><span id="local-6989586621679280377"><span id="local-6989586621679280379"><span class="annot"><span class="annottext">Int -&gt; Delegate -&gt; ShowS
 [Delegate] -&gt; ShowS
 Delegate -&gt; String
 (Int -&gt; Delegate -&gt; ShowS)
@@ -107,15 +107,15 @@ $cfrom :: forall x. Delegate -&gt; Rep Delegate x
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MemberType.html#MemberType"><span class="hs-identifier hs-type">MemberType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate"><span class="hs-identifier hs-type">Delegate</span></a></span><span>
 </span><span id="line-58"></span><span id="newDelegate"><span class="annot"><span class="annottext">newDelegate :: Text -&gt; MemberType -&gt; Delegate
-</span><a href="Network.AWS.WorkMail.Types.Delegate.html#newDelegate"><span class="hs-identifier hs-var hs-var">newDelegate</span></a></span></span><span> </span><span id="local-6989586621679259788"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259788"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679259787"><span class="annot"><span class="annottext">MemberType
-</span><a href="#local-6989586621679259787"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkMail.Types.Delegate.html#newDelegate"><span class="hs-identifier hs-var hs-var">newDelegate</span></a></span></span><span> </span><span id="local-6989586621679280369"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280369"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679280368"><span class="annot"><span class="annottext">MemberType
+</span><a href="#local-6989586621679280368"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">Delegate' :: Text -&gt; MemberType -&gt; Delegate
 </span><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate%27"><span class="hs-identifier hs-type">Delegate'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Delegate' :: Text
 </span><a href="Network.AWS.WorkMail.Types.Delegate.html#%24sel%3Aid%3ADelegate%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259788"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:type':Delegate' :: MemberType
+</span><a href="#local-6989586621679280369"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:type':Delegate' :: MemberType
 </span><a href="Network.AWS.WorkMail.Types.Delegate.html#%24sel%3Atype%27%3ADelegate%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MemberType
-</span><a href="#local-6989586621679259787"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679280368"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The identifier for the user or group associated as the resource\'s</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- delegate.</span><span>
@@ -125,16 +125,16 @@ $cfrom :: forall x. Delegate -&gt; Rep Delegate x
 -&gt; (Delegate -&gt; Text -&gt; Delegate)
 -&gt; Lens Delegate Delegate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate%27"><span class="hs-identifier hs-type">Delegate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259783"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate%27"><span class="hs-identifier hs-type">Delegate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280364"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:Delegate' :: Delegate -&gt; Text
-</span><a href="#local-6989586621679259783"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259783"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259782"><span class="annot"><span class="annottext">s :: Delegate
-</span><a href="#local-6989586621679259782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate%27"><span class="hs-identifier hs-type">Delegate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259781"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Delegate
-</span><a href="#local-6989586621679259782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Delegate' :: Text
+</span><a href="#local-6989586621679280364"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280364"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280363"><span class="annot"><span class="annottext">s :: Delegate
+</span><a href="#local-6989586621679280363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate%27"><span class="hs-identifier hs-type">Delegate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280362"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Delegate
+</span><a href="#local-6989586621679280363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Delegate' :: Text
 </span><a href="Network.AWS.WorkMail.Types.Delegate.html#%24sel%3Aid%3ADelegate%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate"><span class="hs-identifier hs-type">Delegate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate"><span class="hs-identifier hs-type">Delegate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The type of the delegate: user or group.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#delegate_type"><span class="hs-identifier hs-type">delegate_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate"><span class="hs-identifier hs-type">Delegate</span></a></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MemberType.html#MemberType"><span class="hs-identifier hs-type">MemberType</span></a></span><span>
@@ -143,47 +143,47 @@ $sel:id:Delegate' :: Delegate -&gt; Text
 -&gt; (Delegate -&gt; MemberType -&gt; Delegate)
 -&gt; Lens Delegate Delegate MemberType MemberType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate%27"><span class="hs-identifier hs-type">Delegate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259779"><span class="annot"><span class="annottext">MemberType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate%27"><span class="hs-identifier hs-type">Delegate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280360"><span class="annot"><span class="annottext">MemberType
 type' :: MemberType
 $sel:type':Delegate' :: Delegate -&gt; MemberType
-</span><a href="#local-6989586621679259779"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MemberType
-</span><a href="#local-6989586621679259779"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259778"><span class="annot"><span class="annottext">s :: Delegate
-</span><a href="#local-6989586621679259778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate%27"><span class="hs-identifier hs-type">Delegate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259777"><span class="annot"><span class="annottext">MemberType
-</span><a href="#local-6989586621679259777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Delegate
-</span><a href="#local-6989586621679259778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Delegate' :: MemberType
+</span><a href="#local-6989586621679280360"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MemberType
+</span><a href="#local-6989586621679280360"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280359"><span class="annot"><span class="annottext">s :: Delegate
+</span><a href="#local-6989586621679280359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate%27"><span class="hs-identifier hs-type">Delegate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280358"><span class="annot"><span class="annottext">MemberType
+</span><a href="#local-6989586621679280358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Delegate
+</span><a href="#local-6989586621679280359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Delegate' :: MemberType
 </span><a href="Network.AWS.WorkMail.Types.Delegate.html#%24sel%3Atype%27%3ADelegate%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MemberType
-</span><a href="#local-6989586621679259777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate"><span class="hs-identifier hs-type">Delegate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679280358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate"><span class="hs-identifier hs-type">Delegate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259774"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate"><span class="hs-identifier hs-type">Delegate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679259772"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Delegate
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280355"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate"><span class="hs-identifier hs-type">Delegate</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679280353"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Delegate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Delegate) -&gt; Value -&gt; Parser Delegate
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Delegate&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259769"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259769"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280350"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280350"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; MemberType -&gt; Delegate
 </span><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate%27"><span class="hs-identifier hs-var">Delegate'</span></a></span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; MemberType -&gt; Delegate)
 -&gt; Parser Text -&gt; Parser (MemberType -&gt; Delegate)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679280350"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (MemberType -&gt; Delegate)
 -&gt; Parser MemberType -&gt; Parser Delegate
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259769"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser MemberType
+</span><a href="#local-6989586621679280350"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser MemberType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259763"><span id="local-6989586621679259765"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate"><span class="hs-identifier hs-type">Delegate</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280344"><span id="local-6989586621679280346"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate"><span class="hs-identifier hs-type">Delegate</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259760"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate"><span class="hs-identifier hs-type">Delegate</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280341"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.Delegate.html#Delegate"><span class="hs-identifier hs-type">Delegate</span></a></span></span><span>
 </span><span id="line-82"></span></pre></body></html>

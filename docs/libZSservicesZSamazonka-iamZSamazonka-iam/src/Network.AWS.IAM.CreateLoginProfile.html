@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newCreateLoginProfile' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679459180"><span id="local-6989586621679459181"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLoginProfile"><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile"><span class="hs-identifier hs-var">CreateLoginProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLoginProfile%27"><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile%27"><span class="hs-identifier hs-var">CreateLoginProfile'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679459813"><span id="local-6989586621679459814"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLoginProfile"><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile"><span class="hs-identifier hs-var">CreateLoginProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLoginProfile%27"><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile%27"><span class="hs-identifier hs-var">CreateLoginProfile'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether the user is required to set a new password on next</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- sign-in.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3ApasswordResetRequired%3ACreateLoginProfile%27"><span class="annot"><span class="annottext">CreateLoginProfile -&gt; Maybe Bool
@@ -88,7 +88,7 @@
 </span><span id="line-86"></span><span>    </span><span id="%24sel%3Apassword%3ACreateLoginProfile%27"><span class="annot"><span class="annottext">CreateLoginProfile -&gt; Sensitive Text
 </span><a href="Network.AWS.IAM.CreateLoginProfile.html#%24sel%3Apassword%3ACreateLoginProfile%27"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459172"><span id="local-6989586621679459174"><span class="annot"><span class="annottext">CreateLoginProfile -&gt; CreateLoginProfile -&gt; Bool
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459805"><span id="local-6989586621679459807"><span class="annot"><span class="annottext">CreateLoginProfile -&gt; CreateLoginProfile -&gt; Bool
 (CreateLoginProfile -&gt; CreateLoginProfile -&gt; Bool)
 -&gt; (CreateLoginProfile -&gt; CreateLoginProfile -&gt; Bool)
 -&gt; Eq CreateLoginProfile
@@ -97,7 +97,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateLoginProfile -&gt; CreateLoginProfile -&gt; Bool
 == :: CreateLoginProfile -&gt; CreateLoginProfile -&gt; Bool
 $c== :: CreateLoginProfile -&gt; CreateLoginProfile -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459165"><span id="local-6989586621679459167"><span id="local-6989586621679459169"><span class="annot"><span class="annottext">Int -&gt; CreateLoginProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459798"><span id="local-6989586621679459800"><span id="local-6989586621679459802"><span class="annot"><span class="annottext">Int -&gt; CreateLoginProfile -&gt; ShowS
 [CreateLoginProfile] -&gt; ShowS
 CreateLoginProfile -&gt; String
 (Int -&gt; CreateLoginProfile -&gt; ShowS)
@@ -160,9 +160,9 @@ $cfrom :: forall x. CreateLoginProfile -&gt; Rep CreateLoginProfile x
 </span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile"><span class="hs-identifier hs-type">CreateLoginProfile</span></a></span><span>
 </span><span id="line-126"></span><span id="newCreateLoginProfile"><span class="annot"><span class="annottext">newCreateLoginProfile :: Text -&gt; Text -&gt; CreateLoginProfile
-</span><a href="Network.AWS.IAM.CreateLoginProfile.html#newCreateLoginProfile"><span class="hs-identifier hs-var hs-var">newCreateLoginProfile</span></a></span></span><span> </span><span id="local-6989586621679459160"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459160"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span id="local-6989586621679459159"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459159"><span class="hs-identifier hs-var">pPassword_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.CreateLoginProfile.html#newCreateLoginProfile"><span class="hs-identifier hs-var hs-var">newCreateLoginProfile</span></a></span></span><span> </span><span id="local-6989586621679459793"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679459793"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span> </span><span id="local-6989586621679459792"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679459792"><span class="hs-identifier hs-var">pPassword_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>  </span><span class="annot"><span class="annottext">CreateLoginProfile' :: Maybe Bool -&gt; Text -&gt; Sensitive Text -&gt; CreateLoginProfile
 </span><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile%27"><span class="hs-identifier hs-type">CreateLoginProfile'</span></a></span><span>
 </span><span id="line-128"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:passwordResetRequired:CreateLoginProfile' :: Maybe Bool
@@ -172,7 +172,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:userName:CreateLoginProfile' :: Text
 </span><a href="Network.AWS.IAM.CreateLoginProfile.html#%24sel%3AuserName%3ACreateLoginProfile%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459160"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679459793"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:password:CreateLoginProfile' :: Sensitive Text
 </span><a href="Network.AWS.IAM.CreateLoginProfile.html#%24sel%3Apassword%3ACreateLoginProfile%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -182,7 +182,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459159"><span class="hs-identifier hs-var">pPassword_</span></a></span><span>
+</span><a href="#local-6989586621679459792"><span class="hs-identifier hs-var">pPassword_</span></a></span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | Specifies whether the user is required to set a new password on next</span><span>
@@ -195,16 +195,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      CreateLoginProfile CreateLoginProfile (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile%27"><span class="hs-identifier hs-type">CreateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459154"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile%27"><span class="hs-identifier hs-type">CreateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459787"><span class="annot"><span class="annottext">Maybe Bool
 passwordResetRequired :: Maybe Bool
 $sel:passwordResetRequired:CreateLoginProfile' :: CreateLoginProfile -&gt; Maybe Bool
-</span><a href="#local-6989586621679459154"><span class="hs-identifier hs-var hs-var">passwordResetRequired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679459154"><span class="hs-identifier hs-var">passwordResetRequired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459153"><span class="annot"><span class="annottext">s :: CreateLoginProfile
-</span><a href="#local-6989586621679459153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile%27"><span class="hs-identifier hs-type">CreateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459152"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679459152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoginProfile
-</span><a href="#local-6989586621679459153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:passwordResetRequired:CreateLoginProfile' :: Maybe Bool
+</span><a href="#local-6989586621679459787"><span class="hs-identifier hs-var hs-var">passwordResetRequired</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679459787"><span class="hs-identifier hs-var">passwordResetRequired</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459786"><span class="annot"><span class="annottext">s :: CreateLoginProfile
+</span><a href="#local-6989586621679459786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile%27"><span class="hs-identifier hs-type">CreateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459785"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679459785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoginProfile
+</span><a href="#local-6989586621679459786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:passwordResetRequired:CreateLoginProfile' :: Maybe Bool
 </span><a href="Network.AWS.IAM.CreateLoginProfile.html#%24sel%3ApasswordResetRequired%3ACreateLoginProfile%27"><span class="hs-identifier hs-var">passwordResetRequired</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679459152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile"><span class="hs-identifier hs-type">CreateLoginProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679459785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile"><span class="hs-identifier hs-type">CreateLoginProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The name of the IAM user to create a password for. The user must already</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- exist.</span><span>
@@ -219,16 +219,16 @@ $sel:passwordResetRequired:CreateLoginProfile' :: CreateLoginProfile -&gt; Maybe
 -&gt; (CreateLoginProfile -&gt; Text -&gt; CreateLoginProfile)
 -&gt; Lens CreateLoginProfile CreateLoginProfile Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile%27"><span class="hs-identifier hs-type">CreateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459151"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile%27"><span class="hs-identifier hs-type">CreateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459784"><span class="annot"><span class="annottext">Text
 userName :: Text
 $sel:userName:CreateLoginProfile' :: CreateLoginProfile -&gt; Text
-</span><a href="#local-6989586621679459151"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459151"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459150"><span class="annot"><span class="annottext">s :: CreateLoginProfile
-</span><a href="#local-6989586621679459150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile%27"><span class="hs-identifier hs-type">CreateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459149"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoginProfile
-</span><a href="#local-6989586621679459150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:CreateLoginProfile' :: Text
+</span><a href="#local-6989586621679459784"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679459784"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459783"><span class="annot"><span class="annottext">s :: CreateLoginProfile
+</span><a href="#local-6989586621679459783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile%27"><span class="hs-identifier hs-type">CreateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459782"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679459782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoginProfile
+</span><a href="#local-6989586621679459783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:CreateLoginProfile' :: Text
 </span><a href="Network.AWS.IAM.CreateLoginProfile.html#%24sel%3AuserName%3ACreateLoginProfile%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile"><span class="hs-identifier hs-type">CreateLoginProfile</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679459782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile"><span class="hs-identifier hs-type">CreateLoginProfile</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The new password for the user.</span><span>
 </span><span id="line-150"></span><span class="hs-comment">--</span><span>
@@ -251,16 +251,16 @@ $sel:userName:CreateLoginProfile' :: CreateLoginProfile -&gt; Text
      (Sensitive Text)
      (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile%27"><span class="hs-identifier hs-type">CreateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459148"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile%27"><span class="hs-identifier hs-type">CreateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459781"><span class="annot"><span class="annottext">Sensitive Text
 password :: Sensitive Text
 $sel:password:CreateLoginProfile' :: CreateLoginProfile -&gt; Sensitive Text
-</span><a href="#local-6989586621679459148"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679459148"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459147"><span class="annot"><span class="annottext">s :: CreateLoginProfile
-</span><a href="#local-6989586621679459147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile%27"><span class="hs-identifier hs-type">CreateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459146"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679459146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoginProfile
-</span><a href="#local-6989586621679459147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:CreateLoginProfile' :: Sensitive Text
+</span><a href="#local-6989586621679459781"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679459781"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459780"><span class="annot"><span class="annottext">s :: CreateLoginProfile
+</span><a href="#local-6989586621679459780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile%27"><span class="hs-identifier hs-type">CreateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459779"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679459779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoginProfile
+</span><a href="#local-6989586621679459780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:CreateLoginProfile' :: Sensitive Text
 </span><a href="Network.AWS.IAM.CreateLoginProfile.html#%24sel%3Apassword%3ACreateLoginProfile%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679459146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile"><span class="hs-identifier hs-type">CreateLoginProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679459779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile"><span class="hs-identifier hs-type">CreateLoginProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; CreateLoginProfile -&gt; f CreateLoginProfile)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -275,12 +275,12 @@ forall a. Iso' (Sensitive a) a
 </span><span id="line-164"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-165"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile"><span class="hs-identifier hs-type">CreateLoginProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse"><span class="hs-identifier hs-type">CreateLoginProfileResponse</span></a></span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679459141"><span class="annot"><span class="annottext">request :: CreateLoginProfile -&gt; Request CreateLoginProfile
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679459774"><span class="annot"><span class="annottext">request :: CreateLoginProfile -&gt; Request CreateLoginProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateLoginProfile -&gt; Request CreateLoginProfile
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679459137"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679459770"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateLoginProfile
 -&gt; ClientResponse ClientBody
@@ -311,10 +311,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateLoginProfileResult&quot;</span></span><span>
-</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679459134"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459134"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679459133"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679459133"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679459132"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679459132"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679459767"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679459767"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679459766"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679459766"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679459765"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679459765"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; LoginProfile -&gt; CreateLoginProfileResponse
 </span><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse%27"><span class="hs-identifier hs-var">CreateLoginProfileResponse'</span></a></span><span>
 </span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; LoginProfile -&gt; CreateLoginProfileResponse)
@@ -326,24 +326,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459134"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679459767"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Either String (LoginProfile -&gt; CreateLoginProfileResponse)
 -&gt; Either String LoginProfile
 -&gt; Either String CreateLoginProfileResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679459132"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String LoginProfile
+</span><a href="#local-6989586621679459765"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String LoginProfile
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LoginProfile&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459124"><span id="local-6989586621679459126"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile"><span class="hs-identifier hs-type">CreateLoginProfile</span></a></span></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459757"><span id="local-6989586621679459759"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile"><span class="hs-identifier hs-type">CreateLoginProfile</span></a></span></span></span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459121"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile"><span class="hs-identifier hs-type">CreateLoginProfile</span></a></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459754"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile"><span class="hs-identifier hs-type">CreateLoginProfile</span></a></span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile"><span class="hs-identifier hs-type">CreateLoginProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679459117"><span class="annot"><span class="annottext">toHeaders :: CreateLoginProfile -&gt; ResponseHeaders
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679459750"><span class="annot"><span class="annottext">toHeaders :: CreateLoginProfile -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateLoginProfile -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -351,15 +351,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile"><span class="hs-identifier hs-type">CreateLoginProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679459112"><span class="annot"><span class="annottext">toPath :: CreateLoginProfile -&gt; ByteString
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679459745"><span class="annot"><span class="annottext">toPath :: CreateLoginProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateLoginProfile -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile"><span class="hs-identifier hs-type">CreateLoginProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679459108"><span class="annot"><span class="annottext">toQuery :: CreateLoginProfile -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile%27"><span class="hs-identifier hs-type">CreateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459104"><span id="local-6989586621679459105"><span id="local-6989586621679459106"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679459741"><span class="annot"><span class="annottext">toQuery :: CreateLoginProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfile%27"><span class="hs-identifier hs-type">CreateLoginProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459737"><span id="local-6989586621679459738"><span id="local-6989586621679459739"><span class="annot"><span class="annottext">Maybe Bool
 Text
 Sensitive Text
 password :: Sensitive Text
@@ -368,7 +368,7 @@ passwordResetRequired :: Maybe Bool
 $sel:password:CreateLoginProfile' :: CreateLoginProfile -&gt; Sensitive Text
 $sel:userName:CreateLoginProfile' :: CreateLoginProfile -&gt; Text
 $sel:passwordResetRequired:CreateLoginProfile' :: CreateLoginProfile -&gt; Maybe Bool
-</span><a href="#local-6989586621679459104"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679459737"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -389,23 +389,23 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679459106"><span class="hs-identifier hs-var">passwordResetRequired</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679459739"><span class="hs-identifier hs-var">passwordResetRequired</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459105"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679459738"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Password&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Sensitive Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679459104"><span class="hs-identifier hs-var">password</span></a></span><span>
+</span><a href="#local-6989586621679459737"><span class="hs-identifier hs-var">password</span></a></span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | Contains the response to a successful CreateLoginProfile request.</span><span>
 </span><span id="line-201"></span><span class="hs-comment">--</span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- /See:/ 'newCreateLoginProfileResponse' smart constructor.</span><span>
-</span><span id="line-203"></span><span id="local-6989586621679459101"><span id="local-6989586621679459102"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLoginProfileResponse"><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse"><span class="hs-identifier hs-var">CreateLoginProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLoginProfileResponse%27"><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse%27"><span class="hs-identifier hs-var">CreateLoginProfileResponse'</span></a></span></span><span>
+</span><span id="line-203"></span><span id="local-6989586621679459734"><span id="local-6989586621679459735"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLoginProfileResponse"><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse"><span class="hs-identifier hs-var">CreateLoginProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLoginProfileResponse%27"><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse%27"><span class="hs-identifier hs-var">CreateLoginProfileResponse'</span></a></span></span><span>
 </span><span id="line-204"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-205"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateLoginProfileResponse%27"><span class="annot"><span class="annottext">CreateLoginProfileResponse -&gt; Int
 </span><a href="Network.AWS.IAM.CreateLoginProfile.html#%24sel%3AhttpStatus%3ACreateLoginProfileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -413,7 +413,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-207"></span><span>    </span><span id="%24sel%3AloginProfile%3ACreateLoginProfileResponse%27"><span class="annot"><span class="annottext">CreateLoginProfileResponse -&gt; LoginProfile
 </span><a href="Network.AWS.IAM.CreateLoginProfile.html#%24sel%3AloginProfile%3ACreateLoginProfileResponse%27"><span class="hs-identifier hs-var hs-var">loginProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.LoginProfile.html#LoginProfile"><span class="hs-identifier hs-type">LoginProfile</span></a></span><span>
 </span><span id="line-208"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-209"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459095"><span id="local-6989586621679459097"><span class="annot"><span class="annottext">CreateLoginProfileResponse -&gt; CreateLoginProfileResponse -&gt; Bool
+</span><span id="line-209"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459728"><span id="local-6989586621679459730"><span class="annot"><span class="annottext">CreateLoginProfileResponse -&gt; CreateLoginProfileResponse -&gt; Bool
 (CreateLoginProfileResponse -&gt; CreateLoginProfileResponse -&gt; Bool)
 -&gt; (CreateLoginProfileResponse
     -&gt; CreateLoginProfileResponse -&gt; Bool)
@@ -423,7 +423,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateLoginProfileResponse -&gt; CreateLoginProfileResponse -&gt; Bool
 == :: CreateLoginProfileResponse -&gt; CreateLoginProfileResponse -&gt; Bool
 $c== :: CreateLoginProfileResponse -&gt; CreateLoginProfileResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459087"><span id="local-6989586621679459089"><span id="local-6989586621679459091"><span id="local-6989586621679459093"><span class="annot"><span class="annottext">ReadPrec [CreateLoginProfileResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459720"><span id="local-6989586621679459722"><span id="local-6989586621679459724"><span id="local-6989586621679459726"><span class="annot"><span class="annottext">ReadPrec [CreateLoginProfileResponse]
 ReadPrec CreateLoginProfileResponse
 Int -&gt; ReadS CreateLoginProfileResponse
 ReadS [CreateLoginProfileResponse]
@@ -443,7 +443,7 @@ readList :: ReadS [CreateLoginProfileResponse]
 $creadList :: ReadS [CreateLoginProfileResponse]
 readsPrec :: Int -&gt; ReadS CreateLoginProfileResponse
 $creadsPrec :: Int -&gt; ReadS CreateLoginProfileResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459080"><span id="local-6989586621679459082"><span id="local-6989586621679459084"><span class="annot"><span class="annottext">Int -&gt; CreateLoginProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459713"><span id="local-6989586621679459715"><span id="local-6989586621679459717"><span class="annot"><span class="annottext">Int -&gt; CreateLoginProfileResponse -&gt; ShowS
 [CreateLoginProfileResponse] -&gt; ShowS
 CreateLoginProfileResponse -&gt; String
 (Int -&gt; CreateLoginProfileResponse -&gt; ShowS)
@@ -494,19 +494,19 @@ CreateLoginProfileResponse -&gt; Rep CreateLoginProfileResponse x
 </span><span id="line-227"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse"><span class="hs-identifier hs-type">CreateLoginProfileResponse</span></a></span><span>
 </span><span id="line-228"></span><span id="newCreateLoginProfileResponse"><span class="annot"><span class="annottext">newCreateLoginProfileResponse :: Int -&gt; LoginProfile -&gt; CreateLoginProfileResponse
 </span><a href="Network.AWS.IAM.CreateLoginProfile.html#newCreateLoginProfileResponse"><span class="hs-identifier hs-var hs-var">newCreateLoginProfileResponse</span></a></span></span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679459077"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459077"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-230"></span><span>  </span><span id="local-6989586621679459076"><span class="annot"><span class="annottext">LoginProfile
-</span><a href="#local-6989586621679459076"><span class="hs-identifier hs-var">pLoginProfile_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679459710"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679459710"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679459709"><span class="annot"><span class="annottext">LoginProfile
+</span><a href="#local-6989586621679459709"><span class="hs-identifier hs-var">pLoginProfile_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-231"></span><span>    </span><span class="annot"><span class="annottext">CreateLoginProfileResponse' :: Int -&gt; LoginProfile -&gt; CreateLoginProfileResponse
 </span><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse%27"><span class="hs-identifier hs-type">CreateLoginProfileResponse'</span></a></span><span>
 </span><span id="line-232"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLoginProfileResponse' :: Int
 </span><a href="Network.AWS.IAM.CreateLoginProfile.html#%24sel%3AhttpStatus%3ACreateLoginProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-233"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459077"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679459710"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">$sel:loginProfile:CreateLoginProfileResponse' :: LoginProfile
 </span><a href="Network.AWS.IAM.CreateLoginProfile.html#%24sel%3AloginProfile%3ACreateLoginProfileResponse%27"><span class="hs-identifier hs-var">loginProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LoginProfile
-</span><a href="#local-6989586621679459076"><span class="hs-identifier hs-var">pLoginProfile_</span></a></span><span>
+</span><a href="#local-6989586621679459709"><span class="hs-identifier hs-var">pLoginProfile_</span></a></span><span>
 </span><span id="line-235"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -519,16 +519,16 @@ CreateLoginProfileResponse -&gt; Rep CreateLoginProfileResponse x
 -&gt; Lens
      CreateLoginProfileResponse CreateLoginProfileResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse%27"><span class="hs-identifier hs-type">CreateLoginProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459075"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse%27"><span class="hs-identifier hs-type">CreateLoginProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459708"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateLoginProfileResponse' :: CreateLoginProfileResponse -&gt; Int
-</span><a href="#local-6989586621679459075"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459075"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459074"><span class="annot"><span class="annottext">s :: CreateLoginProfileResponse
-</span><a href="#local-6989586621679459074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse%27"><span class="hs-identifier hs-type">CreateLoginProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459073"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoginProfileResponse
-</span><a href="#local-6989586621679459074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLoginProfileResponse' :: Int
+</span><a href="#local-6989586621679459708"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679459708"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459707"><span class="annot"><span class="annottext">s :: CreateLoginProfileResponse
+</span><a href="#local-6989586621679459707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse%27"><span class="hs-identifier hs-type">CreateLoginProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459706"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679459706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoginProfileResponse
+</span><a href="#local-6989586621679459707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLoginProfileResponse' :: Int
 </span><a href="Network.AWS.IAM.CreateLoginProfile.html#%24sel%3AhttpStatus%3ACreateLoginProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse"><span class="hs-identifier hs-type">CreateLoginProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679459706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse"><span class="hs-identifier hs-type">CreateLoginProfileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- | A structure containing the user name and password create date.</span><span>
 </span><span id="line-242"></span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#createLoginProfileResponse_loginProfile"><span class="hs-identifier hs-type">createLoginProfileResponse_loginProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse"><span class="hs-identifier hs-type">CreateLoginProfileResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.LoginProfile.html#LoginProfile"><span class="hs-identifier hs-type">LoginProfile</span></a></span><span>
@@ -543,16 +543,16 @@ $sel:httpStatus:CreateLoginProfileResponse' :: CreateLoginProfileResponse -&gt; 
      LoginProfile
      LoginProfile
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse%27"><span class="hs-identifier hs-type">CreateLoginProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459072"><span class="annot"><span class="annottext">LoginProfile
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse%27"><span class="hs-identifier hs-type">CreateLoginProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459705"><span class="annot"><span class="annottext">LoginProfile
 loginProfile :: LoginProfile
 $sel:loginProfile:CreateLoginProfileResponse' :: CreateLoginProfileResponse -&gt; LoginProfile
-</span><a href="#local-6989586621679459072"><span class="hs-identifier hs-var hs-var">loginProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoginProfile
-</span><a href="#local-6989586621679459072"><span class="hs-identifier hs-var">loginProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459071"><span class="annot"><span class="annottext">s :: CreateLoginProfileResponse
-</span><a href="#local-6989586621679459071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse%27"><span class="hs-identifier hs-type">CreateLoginProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459070"><span class="annot"><span class="annottext">LoginProfile
-</span><a href="#local-6989586621679459070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoginProfileResponse
-</span><a href="#local-6989586621679459071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loginProfile:CreateLoginProfileResponse' :: LoginProfile
+</span><a href="#local-6989586621679459705"><span class="hs-identifier hs-var hs-var">loginProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoginProfile
+</span><a href="#local-6989586621679459705"><span class="hs-identifier hs-var">loginProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459704"><span class="annot"><span class="annottext">s :: CreateLoginProfileResponse
+</span><a href="#local-6989586621679459704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse%27"><span class="hs-identifier hs-type">CreateLoginProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459703"><span class="annot"><span class="annottext">LoginProfile
+</span><a href="#local-6989586621679459703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLoginProfileResponse
+</span><a href="#local-6989586621679459704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loginProfile:CreateLoginProfileResponse' :: LoginProfile
 </span><a href="Network.AWS.IAM.CreateLoginProfile.html#%24sel%3AloginProfile%3ACreateLoginProfileResponse%27"><span class="hs-identifier hs-var">loginProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LoginProfile
-</span><a href="#local-6989586621679459070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse"><span class="hs-identifier hs-type">CreateLoginProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679459703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse"><span class="hs-identifier hs-type">CreateLoginProfileResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
-</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459068"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse"><span class="hs-identifier hs-type">CreateLoginProfileResponse</span></a></span></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459701"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateLoginProfile.html#CreateLoginProfileResponse"><span class="hs-identifier hs-type">CreateLoginProfileResponse</span></a></span></span><span>
 </span><span id="line-246"></span></pre></body></html>

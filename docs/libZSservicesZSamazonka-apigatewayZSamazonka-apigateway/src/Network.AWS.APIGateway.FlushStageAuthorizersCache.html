@@ -46,7 +46,7 @@
 </span><span id="line-46"></span><span class="hs-comment">-- | Request to flush authorizer cache entries on a specified stage.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- /See:/ 'newFlushStageAuthorizersCache' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679385997"><span id="local-6989586621679385998"></span></span><span class="hs-keyword">data</span><span> </span><span id="FlushStageAuthorizersCache"><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-var">FlushStageAuthorizersCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FlushStageAuthorizersCache%27"><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-var">FlushStageAuthorizersCache'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679386553"><span id="local-6989586621679386554"></span></span><span class="hs-keyword">data</span><span> </span><span id="FlushStageAuthorizersCache"><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-var">FlushStageAuthorizersCache</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FlushStageAuthorizersCache%27"><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-var">FlushStageAuthorizersCache'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The string identifier of the associated RestApi.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3ArestApiId%3AFlushStageAuthorizersCache%27"><span class="annot"><span class="annottext">FlushStageAuthorizersCache -&gt; Text
 </span><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#%24sel%3ArestApiId%3AFlushStageAuthorizersCache%27"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AstageName%3AFlushStageAuthorizersCache%27"><span class="annot"><span class="annottext">FlushStageAuthorizersCache -&gt; Text
 </span><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#%24sel%3AstageName%3AFlushStageAuthorizersCache%27"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385990"><span id="local-6989586621679385992"><span class="annot"><span class="annottext">FlushStageAuthorizersCache -&gt; FlushStageAuthorizersCache -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386546"><span id="local-6989586621679386548"><span class="annot"><span class="annottext">FlushStageAuthorizersCache -&gt; FlushStageAuthorizersCache -&gt; Bool
 (FlushStageAuthorizersCache -&gt; FlushStageAuthorizersCache -&gt; Bool)
 -&gt; (FlushStageAuthorizersCache
     -&gt; FlushStageAuthorizersCache -&gt; Bool)
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FlushStageAuthorizersCache -&gt; FlushStageAuthorizersCache -&gt; Bool
 == :: FlushStageAuthorizersCache -&gt; FlushStageAuthorizersCache -&gt; Bool
 $c== :: FlushStageAuthorizersCache -&gt; FlushStageAuthorizersCache -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385981"><span id="local-6989586621679385983"><span id="local-6989586621679385985"><span id="local-6989586621679385987"><span class="annot"><span class="annottext">ReadPrec [FlushStageAuthorizersCache]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386537"><span id="local-6989586621679386539"><span id="local-6989586621679386541"><span id="local-6989586621679386543"><span class="annot"><span class="annottext">ReadPrec [FlushStageAuthorizersCache]
 ReadPrec FlushStageAuthorizersCache
 Int -&gt; ReadS FlushStageAuthorizersCache
 ReadS [FlushStageAuthorizersCache]
@@ -84,7 +84,7 @@ readList :: ReadS [FlushStageAuthorizersCache]
 $creadList :: ReadS [FlushStageAuthorizersCache]
 readsPrec :: Int -&gt; ReadS FlushStageAuthorizersCache
 $creadsPrec :: Int -&gt; ReadS FlushStageAuthorizersCache
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385974"><span id="local-6989586621679385976"><span id="local-6989586621679385978"><span class="annot"><span class="annottext">Int -&gt; FlushStageAuthorizersCache -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386530"><span id="local-6989586621679386532"><span id="local-6989586621679386534"><span class="annot"><span class="annottext">Int -&gt; FlushStageAuthorizersCache -&gt; ShowS
 [FlushStageAuthorizersCache] -&gt; ShowS
 FlushStageAuthorizersCache -&gt; String
 (Int -&gt; FlushStageAuthorizersCache -&gt; ShowS)
@@ -134,18 +134,18 @@ FlushStageAuthorizersCache -&gt; Rep FlushStageAuthorizersCache x
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span>
 </span><span id="line-74"></span><span id="newFlushStageAuthorizersCache"><span class="annot"><span class="annottext">newFlushStageAuthorizersCache :: Text -&gt; Text -&gt; FlushStageAuthorizersCache
-</span><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#newFlushStageAuthorizersCache"><span class="hs-identifier hs-var hs-var">newFlushStageAuthorizersCache</span></a></span></span><span> </span><span id="local-6989586621679385969"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385969"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679385968"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385968"><span class="hs-identifier hs-var">pStageName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#newFlushStageAuthorizersCache"><span class="hs-identifier hs-var hs-var">newFlushStageAuthorizersCache</span></a></span></span><span> </span><span id="local-6989586621679386525"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386525"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679386524"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386524"><span class="hs-identifier hs-var">pStageName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">FlushStageAuthorizersCache' :: Text -&gt; Text -&gt; FlushStageAuthorizersCache
 </span><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-type">FlushStageAuthorizersCache'</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:restApiId:FlushStageAuthorizersCache' :: Text
 </span><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#%24sel%3ArestApiId%3AFlushStageAuthorizersCache%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385969"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386525"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:stageName:FlushStageAuthorizersCache' :: Text
 </span><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#%24sel%3AstageName%3AFlushStageAuthorizersCache%27"><span class="hs-identifier hs-var">stageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385968"><span class="hs-identifier hs-var">pStageName_</span></a></span><span>
+</span><a href="#local-6989586621679386524"><span class="hs-identifier hs-var">pStageName_</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The string identifier of the associated RestApi.</span><span>
@@ -158,16 +158,16 @@ FlushStageAuthorizersCache -&gt; Rep FlushStageAuthorizersCache x
 -&gt; Lens
      FlushStageAuthorizersCache FlushStageAuthorizersCache Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-type">FlushStageAuthorizersCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385965"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-type">FlushStageAuthorizersCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386521"><span class="annot"><span class="annottext">Text
 restApiId :: Text
 $sel:restApiId:FlushStageAuthorizersCache' :: FlushStageAuthorizersCache -&gt; Text
-</span><a href="#local-6989586621679385965"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385965"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385964"><span class="annot"><span class="annottext">s :: FlushStageAuthorizersCache
-</span><a href="#local-6989586621679385964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-type">FlushStageAuthorizersCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385963"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlushStageAuthorizersCache
-</span><a href="#local-6989586621679385964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:FlushStageAuthorizersCache' :: Text
+</span><a href="#local-6989586621679386521"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386521"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386520"><span class="annot"><span class="annottext">s :: FlushStageAuthorizersCache
+</span><a href="#local-6989586621679386520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-type">FlushStageAuthorizersCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386519"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlushStageAuthorizersCache
+</span><a href="#local-6989586621679386520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:FlushStageAuthorizersCache' :: Text
 </span><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#%24sel%3ArestApiId%3AFlushStageAuthorizersCache%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The name of the stage to flush.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#flushStageAuthorizersCache_stageName"><span class="hs-identifier hs-type">flushStageAuthorizersCache_stageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -179,28 +179,28 @@ $sel:restApiId:FlushStageAuthorizersCache' :: FlushStageAuthorizersCache -&gt; T
 -&gt; Lens
      FlushStageAuthorizersCache FlushStageAuthorizersCache Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-type">FlushStageAuthorizersCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385962"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-type">FlushStageAuthorizersCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386518"><span class="annot"><span class="annottext">Text
 stageName :: Text
 $sel:stageName:FlushStageAuthorizersCache' :: FlushStageAuthorizersCache -&gt; Text
-</span><a href="#local-6989586621679385962"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385962"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385961"><span class="annot"><span class="annottext">s :: FlushStageAuthorizersCache
-</span><a href="#local-6989586621679385961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-type">FlushStageAuthorizersCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385960"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlushStageAuthorizersCache
-</span><a href="#local-6989586621679385961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stageName:FlushStageAuthorizersCache' :: Text
+</span><a href="#local-6989586621679386518"><span class="hs-identifier hs-var hs-var">stageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386518"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386517"><span class="annot"><span class="annottext">s :: FlushStageAuthorizersCache
+</span><a href="#local-6989586621679386517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-type">FlushStageAuthorizersCache'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386516"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlushStageAuthorizersCache
+</span><a href="#local-6989586621679386517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stageName:FlushStageAuthorizersCache' :: Text
 </span><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#%24sel%3AstageName%3AFlushStageAuthorizersCache%27"><span class="hs-identifier hs-var">stageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCacheResponse"><span class="hs-identifier hs-type">FlushStageAuthorizersCacheResponse</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679385956"><span class="annot"><span class="annottext">request :: FlushStageAuthorizersCache -&gt; Request FlushStageAuthorizersCache
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679386512"><span class="annot"><span class="annottext">request :: FlushStageAuthorizersCache -&gt; Request FlushStageAuthorizersCache
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; FlushStageAuthorizersCache -&gt; Request FlushStageAuthorizersCache
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679385952"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679386508"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy FlushStageAuthorizersCache
 -&gt; ClientResponse ClientBody
@@ -227,12 +227,12 @@ AWSResponse a
 FlushStageAuthorizersCacheResponse
 </span><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCacheResponse%27"><span class="hs-identifier hs-var">FlushStageAuthorizersCacheResponse'</span></a></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385945"><span id="local-6989586621679385947"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386501"><span id="local-6989586621679386503"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385942"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679385938"><span class="annot"><span class="annottext">toHeaders :: FlushStageAuthorizersCache -&gt; [Header]
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679386494"><span class="annot"><span class="annottext">toHeaders :: FlushStageAuthorizersCache -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; FlushStageAuthorizersCache -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -250,13 +250,13 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679385932"><span class="annot"><span class="annottext">toPath :: FlushStageAuthorizersCache -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-type">FlushStageAuthorizersCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385929"><span id="local-6989586621679385930"><span class="annot"><span class="annottext">Text
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679386488"><span class="annot"><span class="annottext">toPath :: FlushStageAuthorizersCache -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache%27"><span class="hs-identifier hs-type">FlushStageAuthorizersCache'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386485"><span id="local-6989586621679386486"><span class="annot"><span class="annottext">Text
 stageName :: Text
 restApiId :: Text
 $sel:stageName:FlushStageAuthorizersCache' :: FlushStageAuthorizersCache -&gt; Text
 $sel:restApiId:FlushStageAuthorizersCache' :: FlushStageAuthorizersCache -&gt; Text
-</span><a href="#local-6989586621679385929"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679386485"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -265,19 +265,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385930"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386486"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/stages/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679385929"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679386485"><span class="hs-identifier hs-var">stageName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/cache/authorizers&quot;</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCache"><span class="hs-identifier hs-type">FlushStageAuthorizersCache</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679385925"><span class="annot"><span class="annottext">toQuery :: FlushStageAuthorizersCache -&gt; QueryString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679386481"><span class="annot"><span class="annottext">toQuery :: FlushStageAuthorizersCache -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; FlushStageAuthorizersCache -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -285,10 +285,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | /See:/ 'newFlushStageAuthorizersCacheResponse' smart constructor.</span><span>
-</span><span id="line-125"></span><span id="local-6989586621679385922"><span id="local-6989586621679385923"></span></span><span class="hs-keyword">data</span><span> </span><span id="FlushStageAuthorizersCacheResponse"><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCacheResponse"><span class="hs-identifier hs-var">FlushStageAuthorizersCacheResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FlushStageAuthorizersCacheResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCacheResponse%27"><span class="hs-identifier hs-var">FlushStageAuthorizersCacheResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span id="local-6989586621679386478"><span id="local-6989586621679386479"></span></span><span class="hs-keyword">data</span><span> </span><span id="FlushStageAuthorizersCacheResponse"><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCacheResponse"><span class="hs-identifier hs-var">FlushStageAuthorizersCacheResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FlushStageAuthorizersCacheResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCacheResponse%27"><span class="hs-identifier hs-var">FlushStageAuthorizersCacheResponse'</span></a></span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385918"><span id="local-6989586621679385920"><span class="annot"><span class="annottext">FlushStageAuthorizersCacheResponse
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386474"><span id="local-6989586621679386476"><span class="annot"><span class="annottext">FlushStageAuthorizersCacheResponse
 -&gt; FlushStageAuthorizersCacheResponse -&gt; Bool
 (FlushStageAuthorizersCacheResponse
  -&gt; FlushStageAuthorizersCacheResponse -&gt; Bool)
@@ -304,7 +304,7 @@ $c/= :: FlushStageAuthorizersCacheResponse
 -&gt; FlushStageAuthorizersCacheResponse -&gt; Bool
 $c== :: FlushStageAuthorizersCacheResponse
 -&gt; FlushStageAuthorizersCacheResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385910"><span id="local-6989586621679385912"><span id="local-6989586621679385914"><span id="local-6989586621679385916"><span class="annot"><span class="annottext">ReadPrec [FlushStageAuthorizersCacheResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386466"><span id="local-6989586621679386468"><span id="local-6989586621679386470"><span id="local-6989586621679386472"><span class="annot"><span class="annottext">ReadPrec [FlushStageAuthorizersCacheResponse]
 ReadPrec FlushStageAuthorizersCacheResponse
 Int -&gt; ReadS FlushStageAuthorizersCacheResponse
 ReadS [FlushStageAuthorizersCacheResponse]
@@ -324,7 +324,7 @@ readList :: ReadS [FlushStageAuthorizersCacheResponse]
 $creadList :: ReadS [FlushStageAuthorizersCacheResponse]
 readsPrec :: Int -&gt; ReadS FlushStageAuthorizersCacheResponse
 $creadsPrec :: Int -&gt; ReadS FlushStageAuthorizersCacheResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385904"><span id="local-6989586621679385906"><span id="local-6989586621679385908"><span class="annot"><span class="annottext">Int -&gt; FlushStageAuthorizersCacheResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386460"><span id="local-6989586621679386462"><span id="local-6989586621679386464"><span class="annot"><span class="annottext">Int -&gt; FlushStageAuthorizersCacheResponse -&gt; ShowS
 [FlushStageAuthorizersCacheResponse] -&gt; ShowS
 FlushStageAuthorizersCacheResponse -&gt; String
 (Int -&gt; FlushStageAuthorizersCacheResponse -&gt; ShowS)
@@ -374,6 +374,6 @@ FlushStageAuthorizersCacheResponse
 </span><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCacheResponse%27"><span class="hs-identifier hs-var">FlushStageAuthorizersCacheResponse'</span></a></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679385900"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679386456"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.FlushStageAuthorizersCache.html#FlushStageAuthorizersCacheResponse"><span class="hs-identifier hs-type">FlushStageAuthorizersCacheResponse</span></a></span></span><span>
 </span><span id="line-142"></span></pre></body></html>

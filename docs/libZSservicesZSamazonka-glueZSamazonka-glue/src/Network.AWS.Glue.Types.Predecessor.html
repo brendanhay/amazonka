@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- triggered this job run.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPredecessor' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679692113"><span id="local-6989586621679692114"></span></span><span class="hs-keyword">data</span><span> </span><span id="Predecessor"><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor"><span class="hs-identifier hs-var">Predecessor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Predecessor%27"><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor%27"><span class="hs-identifier hs-var">Predecessor'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The job-run ID of the predecessor job run.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3ArunId%3APredecessor%27"><span class="annot"><span class="annottext">Predecessor -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.Predecessor.html#%24sel%3ArunId%3APredecessor%27"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the job definition used by the predecessor job run.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AjobName%3APredecessor%27"><span class="annot"><span class="annottext">Predecessor -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.Predecessor.html#%24sel%3AjobName%3APredecessor%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679693781"><span id="local-6989586621679693782"></span></span><span class="hs-keyword">data</span><span> </span><span id="Predecessor"><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor"><span class="hs-identifier hs-var">Predecessor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Predecessor%27"><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor%27"><span class="hs-identifier hs-var">Predecessor'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the job definition used by the predecessor job run.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AjobName%3APredecessor%27"><span class="annot"><span class="annottext">Predecessor -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.Predecessor.html#%24sel%3AjobName%3APredecessor%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The job-run ID of the predecessor job run.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3ArunId%3APredecessor%27"><span class="annot"><span class="annottext">Predecessor -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.Predecessor.html#%24sel%3ArunId%3APredecessor%27"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679692106"><span id="local-6989586621679692108"><span class="annot"><span class="annottext">Predecessor -&gt; Predecessor -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679693774"><span id="local-6989586621679693776"><span class="annot"><span class="annottext">Predecessor -&gt; Predecessor -&gt; Bool
 (Predecessor -&gt; Predecessor -&gt; Bool)
 -&gt; (Predecessor -&gt; Predecessor -&gt; Bool) -&gt; Eq Predecessor
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Predecessor -&gt; Predecessor -&gt; Bool
 == :: Predecessor -&gt; Predecessor -&gt; Bool
 $c== :: Predecessor -&gt; Predecessor -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692097"><span id="local-6989586621679692099"><span id="local-6989586621679692101"><span id="local-6989586621679692103"><span class="annot"><span class="annottext">ReadPrec [Predecessor]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679693765"><span id="local-6989586621679693767"><span id="local-6989586621679693769"><span id="local-6989586621679693771"><span class="annot"><span class="annottext">ReadPrec [Predecessor]
 ReadPrec Predecessor
 Int -&gt; ReadS Predecessor
 ReadS [Predecessor]
@@ -63,7 +63,7 @@ readList :: ReadS [Predecessor]
 $creadList :: ReadS [Predecessor]
 readsPrec :: Int -&gt; ReadS Predecessor
 $creadsPrec :: Int -&gt; ReadS Predecessor
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692090"><span id="local-6989586621679692092"><span id="local-6989586621679692094"><span class="annot"><span class="annottext">Int -&gt; Predecessor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679693758"><span id="local-6989586621679693760"><span id="local-6989586621679693762"><span class="annot"><span class="annottext">Int -&gt; Predecessor -&gt; ShowS
 [Predecessor] -&gt; ShowS
 Predecessor -&gt; String
 (Int -&gt; Predecessor -&gt; ShowS)
@@ -97,63 +97,63 @@ $cfrom :: forall x. Predecessor -&gt; Rep Predecessor x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'runId', 'predecessor_runId' - The job-run ID of the predecessor job run.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'jobName', 'predecessor_jobName' - The name of the job definition used by the predecessor job run.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'jobName', 'predecessor_jobName' - The name of the job definition used by the predecessor job run.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'runId', 'predecessor_runId' - The job-run ID of the predecessor job run.</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#newPredecessor"><span class="hs-identifier hs-type">newPredecessor</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor"><span class="hs-identifier hs-type">Predecessor</span></a></span><span>
 </span><span id="line-51"></span><span id="newPredecessor"><span class="annot"><span class="annottext">newPredecessor :: Predecessor
 </span><a href="Network.AWS.Glue.Types.Predecessor.html#newPredecessor"><span class="hs-identifier hs-var hs-var">newPredecessor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">Predecessor' :: Maybe Text -&gt; Maybe Text -&gt; Predecessor
 </span><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor%27"><span class="hs-identifier hs-type">Predecessor'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:runId:Predecessor' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.Predecessor.html#%24sel%3ArunId%3APredecessor%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobName:Predecessor' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.Predecessor.html#%24sel%3AjobName%3APredecessor%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobName:Predecessor' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.Predecessor.html#%24sel%3AjobName%3APredecessor%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:runId:Predecessor' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.Predecessor.html#%24sel%3ArunId%3APredecessor%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- | The job-run ID of the predecessor job run.</span><span>
-</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#predecessor_runId"><span class="hs-identifier hs-type">predecessor_runId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor"><span class="hs-identifier hs-type">Predecessor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span id="predecessor_runId"><span class="annot"><span class="annottext">predecessor_runId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Predecessor -&gt; f Predecessor
-</span><a href="Network.AWS.Glue.Types.Predecessor.html#predecessor_runId"><span class="hs-identifier hs-var hs-var">predecessor_runId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Predecessor -&gt; Maybe Text)
--&gt; (Predecessor -&gt; Maybe Text -&gt; Predecessor)
--&gt; Lens Predecessor Predecessor (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor%27"><span class="hs-identifier hs-type">Predecessor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692081"><span class="annot"><span class="annottext">Maybe Text
-runId :: Maybe Text
-$sel:runId:Predecessor' :: Predecessor -&gt; Maybe Text
-</span><a href="#local-6989586621679692081"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679692081"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692080"><span class="annot"><span class="annottext">s :: Predecessor
-</span><a href="#local-6989586621679692080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor%27"><span class="hs-identifier hs-type">Predecessor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692079"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679692079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Predecessor
-</span><a href="#local-6989586621679692080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runId:Predecessor' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.Predecessor.html#%24sel%3ArunId%3APredecessor%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679692079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor"><span class="hs-identifier hs-type">Predecessor</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | The name of the job definition used by the predecessor job run.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#predecessor_jobName"><span class="hs-identifier hs-type">predecessor_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor"><span class="hs-identifier hs-type">Predecessor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="predecessor_jobName"><span class="annot"><span class="annottext">predecessor_jobName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Predecessor -&gt; f Predecessor
+</span><span id="line-57"></span><span class="hs-comment">-- | The name of the job definition used by the predecessor job run.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#predecessor_jobName"><span class="hs-identifier hs-type">predecessor_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor"><span class="hs-identifier hs-type">Predecessor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="predecessor_jobName"><span class="annot"><span class="annottext">predecessor_jobName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Predecessor -&gt; f Predecessor
 </span><a href="Network.AWS.Glue.Types.Predecessor.html#predecessor_jobName"><span class="hs-identifier hs-var hs-var">predecessor_jobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Predecessor -&gt; Maybe Text)
 -&gt; (Predecessor -&gt; Maybe Text -&gt; Predecessor)
 -&gt; Lens Predecessor Predecessor (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor%27"><span class="hs-identifier hs-type">Predecessor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692077"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor%27"><span class="hs-identifier hs-type">Predecessor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693749"><span class="annot"><span class="annottext">Maybe Text
 jobName :: Maybe Text
 $sel:jobName:Predecessor' :: Predecessor -&gt; Maybe Text
-</span><a href="#local-6989586621679692077"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679692077"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692076"><span class="annot"><span class="annottext">s :: Predecessor
-</span><a href="#local-6989586621679692076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor%27"><span class="hs-identifier hs-type">Predecessor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692075"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679692075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Predecessor
-</span><a href="#local-6989586621679692076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:Predecessor' :: Maybe Text
+</span><a href="#local-6989586621679693749"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679693749"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679693748"><span class="annot"><span class="annottext">s :: Predecessor
+</span><a href="#local-6989586621679693748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor%27"><span class="hs-identifier hs-type">Predecessor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679693747"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679693747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Predecessor
+</span><a href="#local-6989586621679693748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:Predecessor' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.Predecessor.html#%24sel%3AjobName%3APredecessor%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679692075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor"><span class="hs-identifier hs-type">Predecessor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679693747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor"><span class="hs-identifier hs-type">Predecessor</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The job-run ID of the predecessor job run.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#predecessor_runId"><span class="hs-identifier hs-type">predecessor_runId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor"><span class="hs-identifier hs-type">Predecessor</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="predecessor_runId"><span class="annot"><span class="annottext">predecessor_runId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Predecessor -&gt; f Predecessor
+</span><a href="Network.AWS.Glue.Types.Predecessor.html#predecessor_runId"><span class="hs-identifier hs-var hs-var">predecessor_runId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Predecessor -&gt; Maybe Text)
+-&gt; (Predecessor -&gt; Maybe Text -&gt; Predecessor)
+-&gt; Lens Predecessor Predecessor (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor%27"><span class="hs-identifier hs-type">Predecessor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679693745"><span class="annot"><span class="annottext">Maybe Text
+runId :: Maybe Text
+$sel:runId:Predecessor' :: Predecessor -&gt; Maybe Text
+</span><a href="#local-6989586621679693745"><span class="hs-identifier hs-var hs-var">runId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679693745"><span class="hs-identifier hs-var">runId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679693744"><span class="annot"><span class="annottext">s :: Predecessor
+</span><a href="#local-6989586621679693744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor%27"><span class="hs-identifier hs-type">Predecessor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679693743"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679693743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Predecessor
+</span><a href="#local-6989586621679693744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runId:Predecessor' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.Predecessor.html#%24sel%3ArunId%3APredecessor%27"><span class="hs-identifier hs-var">runId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679693743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor"><span class="hs-identifier hs-type">Predecessor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692072"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor"><span class="hs-identifier hs-type">Predecessor</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679692070"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Predecessor
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693740"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor"><span class="hs-identifier hs-type">Predecessor</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679693738"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Predecessor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Predecessor) -&gt; Value -&gt; Parser Predecessor
@@ -161,29 +161,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Predecessor&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679692067"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679692067"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679693735"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679693735"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Predecessor
 </span><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor%27"><span class="hs-identifier hs-var">Predecessor'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Predecessor)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Predecessor)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679692067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679693735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RunId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;JobName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Predecessor)
 -&gt; Parser (Maybe Text) -&gt; Parser Predecessor
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679692067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679693735"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;JobName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;RunId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692061"><span id="local-6989586621679692063"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor"><span class="hs-identifier hs-type">Predecessor</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693729"><span id="local-6989586621679693731"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor"><span class="hs-identifier hs-type">Predecessor</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692058"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor"><span class="hs-identifier hs-type">Predecessor</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679693726"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Predecessor.html#Predecessor"><span class="hs-identifier hs-type">Predecessor</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

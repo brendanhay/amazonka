@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- channel to recipients of a campaign.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCampaignCustomMessage' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679592538"><span id="local-6989586621679592539"></span></span><span class="hs-keyword">data</span><span> </span><span id="CampaignCustomMessage"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage"><span class="hs-identifier hs-var">CampaignCustomMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CampaignCustomMessage%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage%27"><span class="hs-identifier hs-var">CampaignCustomMessage'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679592972"><span id="local-6989586621679592973"></span></span><span class="hs-keyword">data</span><span> </span><span id="CampaignCustomMessage"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage"><span class="hs-identifier hs-var">CampaignCustomMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CampaignCustomMessage%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage%27"><span class="hs-identifier hs-var">CampaignCustomMessage'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The raw, JSON-formatted string to use as the payload for the message.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- The maximum size is 5 KB.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Adata%27%3ACampaignCustomMessage%27"><span class="annot"><span class="annottext">CampaignCustomMessage -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#%24sel%3Adata%27%3ACampaignCustomMessage%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679592532"><span id="local-6989586621679592534"><span class="annot"><span class="annottext">CampaignCustomMessage -&gt; CampaignCustomMessage -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679592966"><span id="local-6989586621679592968"><span class="annot"><span class="annottext">CampaignCustomMessage -&gt; CampaignCustomMessage -&gt; Bool
 (CampaignCustomMessage -&gt; CampaignCustomMessage -&gt; Bool)
 -&gt; (CampaignCustomMessage -&gt; CampaignCustomMessage -&gt; Bool)
 -&gt; Eq CampaignCustomMessage
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CampaignCustomMessage -&gt; CampaignCustomMessage -&gt; Bool
 == :: CampaignCustomMessage -&gt; CampaignCustomMessage -&gt; Bool
 $c== :: CampaignCustomMessage -&gt; CampaignCustomMessage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679592523"><span id="local-6989586621679592525"><span id="local-6989586621679592527"><span id="local-6989586621679592529"><span class="annot"><span class="annottext">ReadPrec [CampaignCustomMessage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679592957"><span id="local-6989586621679592959"><span id="local-6989586621679592961"><span id="local-6989586621679592963"><span class="annot"><span class="annottext">ReadPrec [CampaignCustomMessage]
 ReadPrec CampaignCustomMessage
 Int -&gt; ReadS CampaignCustomMessage
 ReadS [CampaignCustomMessage]
@@ -62,7 +62,7 @@ readList :: ReadS [CampaignCustomMessage]
 $creadList :: ReadS [CampaignCustomMessage]
 readsPrec :: Int -&gt; ReadS CampaignCustomMessage
 $creadsPrec :: Int -&gt; ReadS CampaignCustomMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679592516"><span id="local-6989586621679592518"><span id="local-6989586621679592520"><span class="annot"><span class="annottext">Int -&gt; CampaignCustomMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679592950"><span id="local-6989586621679592952"><span id="local-6989586621679592954"><span class="annot"><span class="annottext">Int -&gt; CampaignCustomMessage -&gt; ShowS
 [CampaignCustomMessage] -&gt; ShowS
 CampaignCustomMessage -&gt; String
 (Int -&gt; CampaignCustomMessage -&gt; ShowS)
@@ -121,19 +121,19 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage%27"><span class="hs-identifier hs-type">CampaignCustomMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592507"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage%27"><span class="hs-identifier hs-type">CampaignCustomMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592941"><span class="annot"><span class="annottext">Maybe Text
 data' :: Maybe Text
 $sel:data':CampaignCustomMessage' :: CampaignCustomMessage -&gt; Maybe Text
-</span><a href="#local-6989586621679592507"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679592507"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592506"><span class="annot"><span class="annottext">s :: CampaignCustomMessage
-</span><a href="#local-6989586621679592506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage%27"><span class="hs-identifier hs-type">CampaignCustomMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592505"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679592505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignCustomMessage
-</span><a href="#local-6989586621679592506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':CampaignCustomMessage' :: Maybe Text
+</span><a href="#local-6989586621679592941"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592941"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592940"><span class="annot"><span class="annottext">s :: CampaignCustomMessage
+</span><a href="#local-6989586621679592940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage%27"><span class="hs-identifier hs-type">CampaignCustomMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592939"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CampaignCustomMessage
+</span><a href="#local-6989586621679592940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':CampaignCustomMessage' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#%24sel%3Adata%27%3ACampaignCustomMessage%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679592505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage"><span class="hs-identifier hs-type">CampaignCustomMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679592939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage"><span class="hs-identifier hs-type">CampaignCustomMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592502"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage"><span class="hs-identifier hs-type">CampaignCustomMessage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679592500"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CampaignCustomMessage
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592936"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage"><span class="hs-identifier hs-type">CampaignCustomMessage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679592934"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CampaignCustomMessage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CampaignCustomMessage)
@@ -143,30 +143,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CampaignCustomMessage&quot;</span></span><span>
-</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679592497"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679592497"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679592931"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679592931"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; CampaignCustomMessage
 </span><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage%27"><span class="hs-identifier hs-var">CampaignCustomMessage'</span></a></span><span>
 </span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; CampaignCustomMessage)
 -&gt; Parser (Maybe Text) -&gt; Parser CampaignCustomMessage
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679592497"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679592931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Data&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592491"><span id="local-6989586621679592493"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage"><span class="hs-identifier hs-type">CampaignCustomMessage</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592925"><span id="local-6989586621679592927"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage"><span class="hs-identifier hs-type">CampaignCustomMessage</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592488"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage"><span class="hs-identifier hs-type">CampaignCustomMessage</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592922"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage"><span class="hs-identifier hs-type">CampaignCustomMessage</span></a></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592480"><span id="local-6989586621679592482"><span id="local-6989586621679592484"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage"><span class="hs-identifier hs-type">CampaignCustomMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679592478"><span class="annot"><span class="annottext">toJSON :: CampaignCustomMessage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage%27"><span class="hs-identifier hs-type">CampaignCustomMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592476"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592914"><span id="local-6989586621679592916"><span id="local-6989586621679592918"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage"><span class="hs-identifier hs-type">CampaignCustomMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679592912"><span class="annot"><span class="annottext">toJSON :: CampaignCustomMessage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.CampaignCustomMessage.html#CampaignCustomMessage%27"><span class="hs-identifier hs-type">CampaignCustomMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592910"><span class="annot"><span class="annottext">Maybe Text
 data' :: Maybe Text
 $sel:data':CampaignCustomMessage' :: CampaignCustomMessage -&gt; Maybe Text
-</span><a href="#local-6989586621679592476"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679592910"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -178,6 +178,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679592476"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679592910"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span></pre></body></html>

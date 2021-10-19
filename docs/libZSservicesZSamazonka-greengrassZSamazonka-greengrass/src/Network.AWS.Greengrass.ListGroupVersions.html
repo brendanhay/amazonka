@@ -38,8 +38,8 @@
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#newListGroupVersionsResponse"><span class="hs-identifier">newListGroupVersionsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#listGroupVersionsResponse_nextToken"><span class="hs-identifier">listGroupVersionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#listGroupVersionsResponse_versions"><span class="hs-identifier">listGroupVersionsResponse_versions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#listGroupVersionsResponse_versions"><span class="hs-identifier">listGroupVersionsResponse_versions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#listGroupVersionsResponse_nextToken"><span class="hs-identifier">listGroupVersionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#listGroupVersionsResponse_httpStatus"><span class="hs-identifier">listGroupVersionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span class="hs-keyword">where</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListGroupVersions' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679351869"><span id="local-6989586621679351870"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroupVersions"><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-var">ListGroupVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroupVersions%27"><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-var">ListGroupVersions'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679352140"><span id="local-6989586621679352141"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroupVersions"><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-var">ListGroupVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroupVersions%27"><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-var">ListGroupVersions'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListGroupVersions%27"><span class="annot"><span class="annottext">ListGroupVersions -&gt; Maybe Text
@@ -64,7 +64,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AgroupId%3AListGroupVersions%27"><span class="annot"><span class="annottext">ListGroupVersions -&gt; Text
 </span><a href="Network.AWS.Greengrass.ListGroupVersions.html#%24sel%3AgroupId%3AListGroupVersions%27"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679351861"><span id="local-6989586621679351863"><span class="annot"><span class="annottext">ListGroupVersions -&gt; ListGroupVersions -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679352132"><span id="local-6989586621679352134"><span class="annot"><span class="annottext">ListGroupVersions -&gt; ListGroupVersions -&gt; Bool
 (ListGroupVersions -&gt; ListGroupVersions -&gt; Bool)
 -&gt; (ListGroupVersions -&gt; ListGroupVersions -&gt; Bool)
 -&gt; Eq ListGroupVersions
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListGroupVersions -&gt; ListGroupVersions -&gt; Bool
 == :: ListGroupVersions -&gt; ListGroupVersions -&gt; Bool
 $c== :: ListGroupVersions -&gt; ListGroupVersions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351852"><span id="local-6989586621679351854"><span id="local-6989586621679351856"><span id="local-6989586621679351858"><span class="annot"><span class="annottext">ReadPrec [ListGroupVersions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352123"><span id="local-6989586621679352125"><span id="local-6989586621679352127"><span id="local-6989586621679352129"><span class="annot"><span class="annottext">ReadPrec [ListGroupVersions]
 ReadPrec ListGroupVersions
 Int -&gt; ReadS ListGroupVersions
 ReadS [ListGroupVersions]
@@ -93,7 +93,7 @@ readList :: ReadS [ListGroupVersions]
 $creadList :: ReadS [ListGroupVersions]
 readsPrec :: Int -&gt; ReadS ListGroupVersions
 $creadsPrec :: Int -&gt; ReadS ListGroupVersions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351845"><span id="local-6989586621679351847"><span id="local-6989586621679351849"><span class="annot"><span class="annottext">Int -&gt; ListGroupVersions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352116"><span id="local-6989586621679352118"><span id="local-6989586621679352120"><span class="annot"><span class="annottext">Int -&gt; ListGroupVersions -&gt; ShowS
 [ListGroupVersions] -&gt; ShowS
 ListGroupVersions -&gt; String
 (Int -&gt; ListGroupVersions -&gt; ShowS)
@@ -138,8 +138,8 @@ $cfrom :: forall x. ListGroupVersions -&gt; Rep ListGroupVersions x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-type">ListGroupVersions</span></a></span><span>
 </span><span id="line-84"></span><span id="newListGroupVersions"><span class="annot"><span class="annottext">newListGroupVersions :: Text -&gt; ListGroupVersions
-</span><a href="Network.AWS.Greengrass.ListGroupVersions.html#newListGroupVersions"><span class="hs-identifier hs-var hs-var">newListGroupVersions</span></a></span></span><span> </span><span id="local-6989586621679351840"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351840"><span class="hs-identifier hs-var">pGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Greengrass.ListGroupVersions.html#newListGroupVersions"><span class="hs-identifier hs-var hs-var">newListGroupVersions</span></a></span></span><span> </span><span id="local-6989586621679352111"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679352111"><span class="hs-identifier hs-var">pGroupId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">ListGroupVersions' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ListGroupVersions
 </span><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-type">ListGroupVersions'</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupVersions' :: Maybe Text
@@ -152,7 +152,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupId:ListGroupVersions' :: Text
 </span><a href="Network.AWS.Greengrass.ListGroupVersions.html#%24sel%3AgroupId%3AListGroupVersions%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351840"><span class="hs-identifier hs-var">pGroupId_</span></a></span><span>
+</span><a href="#local-6989586621679352111"><span class="hs-identifier hs-var">pGroupId_</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
@@ -165,16 +165,16 @@ forall a. Maybe a
 -&gt; Lens
      ListGroupVersions ListGroupVersions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-type">ListGroupVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351838"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-type">ListGroupVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352109"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListGroupVersions' :: ListGroupVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679351838"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679351838"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351837"><span class="annot"><span class="annottext">s :: ListGroupVersions
-</span><a href="#local-6989586621679351837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-type">ListGroupVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351836"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679351836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupVersions
-</span><a href="#local-6989586621679351837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupVersions' :: Maybe Text
+</span><a href="#local-6989586621679352109"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352109"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352108"><span class="annot"><span class="annottext">s :: ListGroupVersions
+</span><a href="#local-6989586621679352108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-type">ListGroupVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352107"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupVersions
+</span><a href="#local-6989586621679352108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupVersions' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.ListGroupVersions.html#%24sel%3AnextToken%3AListGroupVersions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679351836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-type">ListGroupVersions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679352107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-type">ListGroupVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The maximum number of results to be returned per request.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#listGroupVersions_maxResults"><span class="hs-identifier hs-type">listGroupVersions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-type">ListGroupVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -185,16 +185,16 @@ $sel:nextToken:ListGroupVersions' :: ListGroupVersions -&gt; Maybe Text
 -&gt; Lens
      ListGroupVersions ListGroupVersions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-type">ListGroupVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351835"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-type">ListGroupVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352106"><span class="annot"><span class="annottext">Maybe Text
 maxResults :: Maybe Text
 $sel:maxResults:ListGroupVersions' :: ListGroupVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679351835"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679351835"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351834"><span class="annot"><span class="annottext">s :: ListGroupVersions
-</span><a href="#local-6989586621679351834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-type">ListGroupVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351833"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679351833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupVersions
-</span><a href="#local-6989586621679351834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListGroupVersions' :: Maybe Text
+</span><a href="#local-6989586621679352106"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352106"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352105"><span class="annot"><span class="annottext">s :: ListGroupVersions
+</span><a href="#local-6989586621679352105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-type">ListGroupVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352104"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupVersions
+</span><a href="#local-6989586621679352105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListGroupVersions' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.ListGroupVersions.html#%24sel%3AmaxResults%3AListGroupVersions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679351833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-type">ListGroupVersions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679352104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-type">ListGroupVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The ID of the Greengrass group.</span><span>
 </span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#listGroupVersions_groupId"><span class="hs-identifier hs-type">listGroupVersions_groupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-type">ListGroupVersions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -203,29 +203,29 @@ $sel:maxResults:ListGroupVersions' :: ListGroupVersions -&gt; Maybe Text
 -&gt; (ListGroupVersions -&gt; Text -&gt; ListGroupVersions)
 -&gt; Lens ListGroupVersions ListGroupVersions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-type">ListGroupVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351832"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-type">ListGroupVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352103"><span class="annot"><span class="annottext">Text
 groupId :: Text
 $sel:groupId:ListGroupVersions' :: ListGroupVersions -&gt; Text
-</span><a href="#local-6989586621679351832"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351832"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351831"><span class="annot"><span class="annottext">s :: ListGroupVersions
-</span><a href="#local-6989586621679351831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-type">ListGroupVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351830"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupVersions
-</span><a href="#local-6989586621679351831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:ListGroupVersions' :: Text
+</span><a href="#local-6989586621679352103"><span class="hs-identifier hs-var hs-var">groupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679352103"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352102"><span class="annot"><span class="annottext">s :: ListGroupVersions
+</span><a href="#local-6989586621679352102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-type">ListGroupVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352101"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679352101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupVersions
+</span><a href="#local-6989586621679352102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupId:ListGroupVersions' :: Text
 </span><a href="Network.AWS.Greengrass.ListGroupVersions.html#%24sel%3AgroupId%3AListGroupVersions%27"><span class="hs-identifier hs-var">groupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-type">ListGroupVersions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679352101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-type">ListGroupVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-type">ListGroupVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679351826"><span class="annot"><span class="annottext">page :: ListGroupVersions
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679352097"><span class="annot"><span class="annottext">page :: ListGroupVersions
 -&gt; AWSResponse ListGroupVersions -&gt; Maybe ListGroupVersions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679351824"><span class="annot"><span class="annottext">ListGroupVersions
-</span><a href="#local-6989586621679351824"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679351823"><span class="annot"><span class="annottext">AWSResponse ListGroupVersions
-</span><a href="#local-6989586621679351823"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679352095"><span class="annot"><span class="annottext">ListGroupVersions
+</span><a href="#local-6989586621679352095"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679352094"><span class="annot"><span class="annottext">AWSResponse ListGroupVersions
+</span><a href="#local-6989586621679352094"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-107"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroupVersions
 ListGroupVersionsResponse
-</span><a href="#local-6989586621679351823"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679352094"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">ListGroupVersionsResponse
 -&gt; Getting (First Text) ListGroupVersionsResponse Text
 -&gt; Maybe Text
@@ -255,7 +255,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroupVersions
 ListGroupVersionsResponse
-</span><a href="#local-6989586621679351823"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679352094"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">ListGroupVersionsResponse
 -&gt; Getting
      (First [VersionInformation])
@@ -301,7 +301,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">ListGroupVersions
-</span><a href="#local-6989586621679351824"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679352095"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">ListGroupVersions
 -&gt; (ListGroupVersions -&gt; ListGroupVersions) -&gt; ListGroupVersions
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -315,7 +315,7 @@ Lens ListGroupVersions ListGroupVersions (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListGroupVersions
 ListGroupVersionsResponse
-</span><a href="#local-6989586621679351823"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679352094"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">ListGroupVersionsResponse
 -&gt; Getting (First Text) ListGroupVersionsResponse Text
 -&gt; Maybe Text
@@ -341,12 +341,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-type">ListGroupVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse"><span class="hs-identifier hs-type">ListGroupVersionsResponse</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679351813"><span class="annot"><span class="annottext">request :: ListGroupVersions -&gt; Request ListGroupVersions
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679352084"><span class="annot"><span class="annottext">request :: ListGroupVersions -&gt; Request ListGroupVersions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListGroupVersions -&gt; Request ListGroupVersions
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679351809"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679352080"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListGroupVersions
 -&gt; ClientResponse ClientBody
@@ -372,33 +372,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679351806"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679351806"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679351805"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679351805"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679351804"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679351804"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [VersionInformation] -&gt; Int -&gt; ListGroupVersionsResponse
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679352077"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679352077"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679352076"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679352076"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679352075"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679352075"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
+-&gt; Maybe Text -&gt; Int -&gt; ListGroupVersionsResponse
 </span><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse%27"><span class="hs-identifier hs-var">ListGroupVersionsResponse'</span></a></span><span>
-</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [VersionInformation] -&gt; Int -&gt; ListGroupVersionsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [VersionInformation] -&gt; Int -&gt; ListGroupVersionsResponse)
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [VersionInformation]
+ -&gt; Maybe Text -&gt; Int -&gt; ListGroupVersionsResponse)
+-&gt; Either String (Maybe [VersionInformation])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListGroupVersionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679351804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [VersionInformation] -&gt; Int -&gt; ListGroupVersionsResponse)
--&gt; Either String (Maybe [VersionInformation])
--&gt; Either String (Int -&gt; ListGroupVersionsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679351804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679352075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [VersionInformation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -409,6 +396,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListGroupVersionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListGroupVersionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679352075"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListGroupVersionsResponse)
 -&gt; Either String Int -&gt; Either String ListGroupVersionsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -417,15 +413,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679351806"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679352077"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679351795"><span id="local-6989586621679351797"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-type">ListGroupVersions</span></a></span></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352066"><span id="local-6989586621679352068"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-type">ListGroupVersions</span></a></span></span></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679351792"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-type">ListGroupVersions</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352063"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-type">ListGroupVersions</span></a></span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-type">ListGroupVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679351788"><span class="annot"><span class="annottext">toHeaders :: ListGroupVersions -&gt; ResponseHeaders
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679352059"><span class="annot"><span class="annottext">toHeaders :: ListGroupVersions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListGroupVersions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -445,8 +441,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-type">ListGroupVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679351782"><span class="annot"><span class="annottext">toPath :: ListGroupVersions -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-type">ListGroupVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351778"><span id="local-6989586621679351779"><span id="local-6989586621679351780"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679352053"><span class="annot"><span class="annottext">toPath :: ListGroupVersions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-type">ListGroupVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352049"><span id="local-6989586621679352050"><span id="local-6989586621679352051"><span class="annot"><span class="annottext">Maybe Text
 Text
 groupId :: Text
 maxResults :: Maybe Text
@@ -454,7 +450,7 @@ nextToken :: Maybe Text
 $sel:groupId:ListGroupVersions' :: ListGroupVersions -&gt; Text
 $sel:maxResults:ListGroupVersions' :: ListGroupVersions -&gt; Maybe Text
 $sel:nextToken:ListGroupVersions' :: ListGroupVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679351778"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679352049"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -463,14 +459,14 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679351778"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679352049"><span class="hs-identifier hs-var">groupId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/versions&quot;</span></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions"><span class="hs-identifier hs-type">ListGroupVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679351774"><span class="annot"><span class="annottext">toQuery :: ListGroupVersions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-type">ListGroupVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351770"><span id="local-6989586621679351771"><span id="local-6989586621679351772"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679352045"><span class="annot"><span class="annottext">toQuery :: ListGroupVersions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersions%27"><span class="hs-identifier hs-type">ListGroupVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352041"><span id="local-6989586621679352042"><span id="local-6989586621679352043"><span class="annot"><span class="annottext">Maybe Text
 Text
 groupId :: Text
 maxResults :: Maybe Text
@@ -478,7 +474,7 @@ nextToken :: Maybe Text
 $sel:groupId:ListGroupVersions' :: ListGroupVersions -&gt; Text
 $sel:maxResults:ListGroupVersions' :: ListGroupVersions -&gt; Maybe Text
 $sel:nextToken:ListGroupVersions' :: ListGroupVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679351770"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679352041"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -486,28 +482,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679351772"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679352043"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679351771"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679352042"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | /See:/ 'newListGroupVersionsResponse' smart constructor.</span><span>
-</span><span id="line-171"></span><span id="local-6989586621679351767"><span id="local-6989586621679351768"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroupVersionsResponse"><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse"><span class="hs-identifier hs-var">ListGroupVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroupVersionsResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse%27"><span class="hs-identifier hs-var">ListGroupVersionsResponse'</span></a></span></span><span>
-</span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
-</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
-</span><span id="line-174"></span><span>    </span><span id="%24sel%3AnextToken%3AListGroupVersionsResponse%27"><span class="annot"><span class="annottext">ListGroupVersionsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Greengrass.ListGroupVersions.html#%24sel%3AnextToken%3AListGroupVersionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | Information about a version.</span><span>
-</span><span id="line-176"></span><span>    </span><span id="%24sel%3Aversions%3AListGroupVersionsResponse%27"><span class="annot"><span class="annottext">ListGroupVersionsResponse -&gt; Maybe [VersionInformation]
+</span><span id="line-171"></span><span id="local-6989586621679352038"><span id="local-6989586621679352039"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGroupVersionsResponse"><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse"><span class="hs-identifier hs-var">ListGroupVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGroupVersionsResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse%27"><span class="hs-identifier hs-var">ListGroupVersionsResponse'</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about a version.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3Aversions%3AListGroupVersionsResponse%27"><span class="annot"><span class="annottext">ListGroupVersionsResponse -&gt; Maybe [VersionInformation]
 </span><a href="Network.AWS.Greengrass.ListGroupVersions.html#%24sel%3Aversions%3AListGroupVersionsResponse%27"><span class="hs-identifier hs-var hs-var">versions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Greengrass.Types.VersionInformation.html#VersionInformation"><span class="hs-identifier hs-type">VersionInformation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AnextToken%3AListGroupVersionsResponse%27"><span class="annot"><span class="annottext">ListGroupVersionsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.ListGroupVersions.html#%24sel%3AnextToken%3AListGroupVersionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-178"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListGroupVersionsResponse%27"><span class="annot"><span class="annottext">ListGroupVersionsResponse -&gt; Int
 </span><a href="Network.AWS.Greengrass.ListGroupVersions.html#%24sel%3AhttpStatus%3AListGroupVersionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679351760"><span id="local-6989586621679351762"><span class="annot"><span class="annottext">ListGroupVersionsResponse -&gt; ListGroupVersionsResponse -&gt; Bool
+</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679352031"><span id="local-6989586621679352033"><span class="annot"><span class="annottext">ListGroupVersionsResponse -&gt; ListGroupVersionsResponse -&gt; Bool
 (ListGroupVersionsResponse -&gt; ListGroupVersionsResponse -&gt; Bool)
 -&gt; (ListGroupVersionsResponse -&gt; ListGroupVersionsResponse -&gt; Bool)
 -&gt; Eq ListGroupVersionsResponse
@@ -516,7 +512,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListGroupVersionsResponse -&gt; ListGroupVersionsResponse -&gt; Bool
 == :: ListGroupVersionsResponse -&gt; ListGroupVersionsResponse -&gt; Bool
 $c== :: ListGroupVersionsResponse -&gt; ListGroupVersionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351752"><span id="local-6989586621679351754"><span id="local-6989586621679351756"><span id="local-6989586621679351758"><span class="annot"><span class="annottext">ReadPrec [ListGroupVersionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352023"><span id="local-6989586621679352025"><span id="local-6989586621679352027"><span id="local-6989586621679352029"><span class="annot"><span class="annottext">ReadPrec [ListGroupVersionsResponse]
 ReadPrec ListGroupVersionsResponse
 Int -&gt; ReadS ListGroupVersionsResponse
 ReadS [ListGroupVersionsResponse]
@@ -536,7 +532,7 @@ readList :: ReadS [ListGroupVersionsResponse]
 $creadList :: ReadS [ListGroupVersionsResponse]
 readsPrec :: Int -&gt; ReadS ListGroupVersionsResponse
 $creadsPrec :: Int -&gt; ReadS ListGroupVersionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351746"><span id="local-6989586621679351748"><span id="local-6989586621679351750"><span class="annot"><span class="annottext">Int -&gt; ListGroupVersionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352017"><span id="local-6989586621679352019"><span id="local-6989586621679352021"><span class="annot"><span class="annottext">Int -&gt; ListGroupVersionsResponse -&gt; ShowS
 [ListGroupVersionsResponse] -&gt; ShowS
 ListGroupVersionsResponse -&gt; String
 (Int -&gt; ListGroupVersionsResponse -&gt; ShowS)
@@ -576,10 +572,10 @@ ListGroupVersionsResponse -&gt; Rep ListGroupVersionsResponse x
 </span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-189"></span><span class="hs-comment">--</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- 'nextToken', 'listGroupVersionsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- additional results.</span><span>
-</span><span id="line-192"></span><span class="hs-comment">--</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- 'versions', 'listGroupVersionsResponse_versions' - Information about a version.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'versions', 'listGroupVersionsResponse_versions' - Information about a version.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'nextToken', 'listGroupVersionsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- additional results.</span><span>
 </span><span id="line-194"></span><span class="hs-comment">--</span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- 'httpStatus', 'listGroupVersionsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-196"></span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#newListGroupVersionsResponse"><span class="hs-identifier hs-type">newListGroupVersionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -587,65 +583,44 @@ ListGroupVersionsResponse -&gt; Rep ListGroupVersionsResponse x
 </span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-199"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse"><span class="hs-identifier hs-type">ListGroupVersionsResponse</span></a></span><span>
 </span><span id="line-200"></span><span id="newListGroupVersionsResponse"><span class="annot"><span class="annottext">newListGroupVersionsResponse :: Int -&gt; ListGroupVersionsResponse
-</span><a href="Network.AWS.Greengrass.ListGroupVersions.html#newListGroupVersionsResponse"><span class="hs-identifier hs-var hs-var">newListGroupVersionsResponse</span></a></span></span><span> </span><span id="local-6989586621679351743"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679351743"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">ListGroupVersionsResponse' :: Maybe Text
--&gt; Maybe [VersionInformation] -&gt; Int -&gt; ListGroupVersionsResponse
+</span><a href="Network.AWS.Greengrass.ListGroupVersions.html#newListGroupVersionsResponse"><span class="hs-identifier hs-var hs-var">newListGroupVersionsResponse</span></a></span></span><span> </span><span id="local-6989586621679352014"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679352014"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">ListGroupVersionsResponse' :: Maybe [VersionInformation]
+-&gt; Maybe Text -&gt; Int -&gt; ListGroupVersionsResponse
 </span><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse%27"><span class="hs-identifier hs-type">ListGroupVersionsResponse'</span></a></span><span>
-</span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupVersionsResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.ListGroupVersions.html#%24sel%3AnextToken%3AListGroupVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:versions:ListGroupVersionsResponse' :: Maybe [VersionInformation]
+</span><a href="Network.AWS.Greengrass.ListGroupVersions.html#%24sel%3Aversions%3AListGroupVersionsResponse%27"><span class="hs-identifier hs-var">versions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:versions:ListGroupVersionsResponse' :: Maybe [VersionInformation]
-</span><a href="Network.AWS.Greengrass.ListGroupVersions.html#%24sel%3Aversions%3AListGroupVersionsResponse%27"><span class="hs-identifier hs-var">versions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupVersionsResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.ListGroupVersions.html#%24sel%3AnextToken%3AListGroupVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListGroupVersionsResponse' :: Int
 </span><a href="Network.AWS.Greengrass.ListGroupVersions.html#%24sel%3AhttpStatus%3AListGroupVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679351743"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679352014"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-206"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- additional results.</span><span>
-</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#listGroupVersionsResponse_nextToken"><span class="hs-identifier hs-type">listGroupVersionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse"><span class="hs-identifier hs-type">ListGroupVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-211"></span><span id="listGroupVersionsResponse_nextToken"><span class="annot"><span class="annottext">listGroupVersionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListGroupVersionsResponse -&gt; f ListGroupVersionsResponse
-</span><a href="Network.AWS.Greengrass.ListGroupVersions.html#listGroupVersionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listGroupVersionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupVersionsResponse -&gt; Maybe Text)
--&gt; (ListGroupVersionsResponse
-    -&gt; Maybe Text -&gt; ListGroupVersionsResponse)
--&gt; Lens' ListGroupVersionsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse%27"><span class="hs-identifier hs-type">ListGroupVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351742"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListGroupVersionsResponse' :: ListGroupVersionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679351742"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679351742"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351741"><span class="annot"><span class="annottext">s :: ListGroupVersionsResponse
-</span><a href="#local-6989586621679351741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse%27"><span class="hs-identifier hs-type">ListGroupVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351740"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679351740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupVersionsResponse
-</span><a href="#local-6989586621679351741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupVersionsResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.ListGroupVersions.html#%24sel%3AnextToken%3AListGroupVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679351740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse"><span class="hs-identifier hs-type">ListGroupVersionsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- | Information about a version.</span><span>
-</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#listGroupVersionsResponse_versions"><span class="hs-identifier hs-type">listGroupVersionsResponse_versions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse"><span class="hs-identifier hs-type">ListGroupVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Greengrass.Types.VersionInformation.html#VersionInformation"><span class="hs-identifier hs-type">VersionInformation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-215"></span><span id="listGroupVersionsResponse_versions"><span class="annot"><span class="annottext">listGroupVersionsResponse_versions :: (Maybe [VersionInformation] -&gt; f (Maybe [VersionInformation]))
+</span><span id="line-208"></span><span class="hs-comment">-- | Information about a version.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#listGroupVersionsResponse_versions"><span class="hs-identifier hs-type">listGroupVersionsResponse_versions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse"><span class="hs-identifier hs-type">ListGroupVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Greengrass.Types.VersionInformation.html#VersionInformation"><span class="hs-identifier hs-type">VersionInformation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="listGroupVersionsResponse_versions"><span class="annot"><span class="annottext">listGroupVersionsResponse_versions :: (Maybe [VersionInformation] -&gt; f (Maybe [VersionInformation]))
 -&gt; ListGroupVersionsResponse -&gt; f ListGroupVersionsResponse
 </span><a href="Network.AWS.Greengrass.ListGroupVersions.html#listGroupVersionsResponse_versions"><span class="hs-identifier hs-var hs-var">listGroupVersionsResponse_versions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupVersionsResponse -&gt; Maybe [VersionInformation])
 -&gt; (ListGroupVersionsResponse
     -&gt; Maybe [VersionInformation] -&gt; ListGroupVersionsResponse)
 -&gt; Lens' ListGroupVersionsResponse (Maybe [VersionInformation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse%27"><span class="hs-identifier hs-type">ListGroupVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351739"><span class="annot"><span class="annottext">Maybe [VersionInformation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse%27"><span class="hs-identifier hs-type">ListGroupVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352013"><span class="annot"><span class="annottext">Maybe [VersionInformation]
 versions :: Maybe [VersionInformation]
 $sel:versions:ListGroupVersionsResponse' :: ListGroupVersionsResponse -&gt; Maybe [VersionInformation]
-</span><a href="#local-6989586621679351739"><span class="hs-identifier hs-var hs-var">versions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
-</span><a href="#local-6989586621679351739"><span class="hs-identifier hs-var">versions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351738"><span class="annot"><span class="annottext">s :: ListGroupVersionsResponse
-</span><a href="#local-6989586621679351738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse%27"><span class="hs-identifier hs-type">ListGroupVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351737"><span class="annot"><span class="annottext">Maybe [VersionInformation]
-</span><a href="#local-6989586621679351737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupVersionsResponse
-</span><a href="#local-6989586621679351738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versions:ListGroupVersionsResponse' :: Maybe [VersionInformation]
+</span><a href="#local-6989586621679352013"><span class="hs-identifier hs-var hs-var">versions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
+</span><a href="#local-6989586621679352013"><span class="hs-identifier hs-var">versions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352012"><span class="annot"><span class="annottext">s :: ListGroupVersionsResponse
+</span><a href="#local-6989586621679352012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse%27"><span class="hs-identifier hs-type">ListGroupVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352011"><span class="annot"><span class="annottext">Maybe [VersionInformation]
+</span><a href="#local-6989586621679352011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupVersionsResponse
+</span><a href="#local-6989586621679352012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versions:ListGroupVersionsResponse' :: Maybe [VersionInformation]
 </span><a href="Network.AWS.Greengrass.ListGroupVersions.html#%24sel%3Aversions%3AListGroupVersionsResponse%27"><span class="hs-identifier hs-var">versions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
-</span><a href="#local-6989586621679351737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse"><span class="hs-identifier hs-type">ListGroupVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VersionInformation] -&gt; f (Maybe [VersionInformation]))
+</span><a href="#local-6989586621679352011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse"><span class="hs-identifier hs-type">ListGroupVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VersionInformation] -&gt; f (Maybe [VersionInformation]))
  -&gt; ListGroupVersionsResponse -&gt; f ListGroupVersionsResponse)
 -&gt; ((Maybe [VersionInformation] -&gt; f (Maybe [VersionInformation]))
     -&gt; Maybe [VersionInformation] -&gt; f (Maybe [VersionInformation]))
@@ -671,8 +646,29 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [VersionInformation]
   [VersionInformation]
   [VersionInformation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#listGroupVersionsResponse_nextToken"><span class="hs-identifier hs-type">listGroupVersionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse"><span class="hs-identifier hs-type">ListGroupVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="listGroupVersionsResponse_nextToken"><span class="annot"><span class="annottext">listGroupVersionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListGroupVersionsResponse -&gt; f ListGroupVersionsResponse
+</span><a href="Network.AWS.Greengrass.ListGroupVersions.html#listGroupVersionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listGroupVersionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGroupVersionsResponse -&gt; Maybe Text)
+-&gt; (ListGroupVersionsResponse
+    -&gt; Maybe Text -&gt; ListGroupVersionsResponse)
+-&gt; Lens' ListGroupVersionsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse%27"><span class="hs-identifier hs-type">ListGroupVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352008"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListGroupVersionsResponse' :: ListGroupVersionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679352008"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352008"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352007"><span class="annot"><span class="annottext">s :: ListGroupVersionsResponse
+</span><a href="#local-6989586621679352007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse%27"><span class="hs-identifier hs-type">ListGroupVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352006"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupVersionsResponse
+</span><a href="#local-6989586621679352007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGroupVersionsResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.ListGroupVersions.html#%24sel%3AnextToken%3AListGroupVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse"><span class="hs-identifier hs-type">ListGroupVersionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-218"></span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#listGroupVersionsResponse_httpStatus"><span class="hs-identifier hs-type">listGroupVersionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse"><span class="hs-identifier hs-type">ListGroupVersionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -682,16 +678,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListGroupVersionsResponse -&gt; Int -&gt; ListGroupVersionsResponse)
 -&gt; Lens ListGroupVersionsResponse ListGroupVersionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse%27"><span class="hs-identifier hs-type">ListGroupVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351734"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse%27"><span class="hs-identifier hs-type">ListGroupVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352005"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListGroupVersionsResponse' :: ListGroupVersionsResponse -&gt; Int
-</span><a href="#local-6989586621679351734"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679351734"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351733"><span class="annot"><span class="annottext">s :: ListGroupVersionsResponse
-</span><a href="#local-6989586621679351733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse%27"><span class="hs-identifier hs-type">ListGroupVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351732"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679351732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupVersionsResponse
-</span><a href="#local-6989586621679351733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListGroupVersionsResponse' :: Int
+</span><a href="#local-6989586621679352005"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679352005"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352004"><span class="annot"><span class="annottext">s :: ListGroupVersionsResponse
+</span><a href="#local-6989586621679352004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse%27"><span class="hs-identifier hs-type">ListGroupVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352003"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679352003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGroupVersionsResponse
+</span><a href="#local-6989586621679352004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListGroupVersionsResponse' :: Int
 </span><a href="Network.AWS.Greengrass.ListGroupVersions.html#%24sel%3AhttpStatus%3AListGroupVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679351732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse"><span class="hs-identifier hs-type">ListGroupVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679352003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse"><span class="hs-identifier hs-type">ListGroupVersionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679351730"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse"><span class="hs-identifier hs-type">ListGroupVersionsResponse</span></a></span></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352001"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListGroupVersions.html#ListGroupVersionsResponse"><span class="hs-identifier hs-type">ListGroupVersionsResponse</span></a></span></span><span>
 </span><span id="line-222"></span></pre></body></html>

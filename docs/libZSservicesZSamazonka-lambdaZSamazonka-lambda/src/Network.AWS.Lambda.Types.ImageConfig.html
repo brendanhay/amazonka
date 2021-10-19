@@ -28,19 +28,19 @@
 </span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms Container settings&gt;.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newImageConfig' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679291108"><span id="local-6989586621679291109"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImageConfig"><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-var">ImageConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageConfig%27"><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig%27"><span class="hs-identifier hs-var">ImageConfig'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the entry point to their application, which is typically the</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- location of the runtime executable.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AentryPoint%3AImageConfig%27"><span class="annot"><span class="annottext">ImageConfig -&gt; Maybe [Text]
+</span><span id="line-31"></span><span id="local-6989586621679295950"><span id="local-6989586621679295951"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImageConfig"><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-var">ImageConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageConfig%27"><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig%27"><span class="hs-identifier hs-var">ImageConfig'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies parameters that you want to pass in with ENTRYPOINT.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Acommand%3AImageConfig%27"><span class="annot"><span class="annottext">ImageConfig -&gt; Maybe [Text]
+</span><a href="Network.AWS.Lambda.Types.ImageConfig.html#%24sel%3Acommand%3AImageConfig%27"><span class="hs-identifier hs-var hs-var">command</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Specifies the entry point to their application, which is typically the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- location of the runtime executable.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AentryPoint%3AImageConfig%27"><span class="annot"><span class="annottext">ImageConfig -&gt; Maybe [Text]
 </span><a href="Network.AWS.Lambda.Types.ImageConfig.html#%24sel%3AentryPoint%3AImageConfig%27"><span class="hs-identifier hs-var hs-var">entryPoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Specifies the working directory.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AworkingDirectory%3AImageConfig%27"><span class="annot"><span class="annottext">ImageConfig -&gt; Maybe Text
-</span><a href="Network.AWS.Lambda.Types.ImageConfig.html#%24sel%3AworkingDirectory%3AImageConfig%27"><span class="hs-identifier hs-var hs-var">workingDirectory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Specifies parameters that you want to pass in with ENTRYPOINT.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Acommand%3AImageConfig%27"><span class="annot"><span class="annottext">ImageConfig -&gt; Maybe [Text]
-</span><a href="Network.AWS.Lambda.Types.ImageConfig.html#%24sel%3Acommand%3AImageConfig%27"><span class="hs-identifier hs-var hs-var">command</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Specifies the working directory.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AworkingDirectory%3AImageConfig%27"><span class="annot"><span class="annottext">ImageConfig -&gt; Maybe Text
+</span><a href="Network.AWS.Lambda.Types.ImageConfig.html#%24sel%3AworkingDirectory%3AImageConfig%27"><span class="hs-identifier hs-var hs-var">workingDirectory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291100"><span id="local-6989586621679291102"><span class="annot"><span class="annottext">ImageConfig -&gt; ImageConfig -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295942"><span id="local-6989586621679295944"><span class="annot"><span class="annottext">ImageConfig -&gt; ImageConfig -&gt; Bool
 (ImageConfig -&gt; ImageConfig -&gt; Bool)
 -&gt; (ImageConfig -&gt; ImageConfig -&gt; Bool) -&gt; Eq ImageConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImageConfig -&gt; ImageConfig -&gt; Bool
 == :: ImageConfig -&gt; ImageConfig -&gt; Bool
 $c== :: ImageConfig -&gt; ImageConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291091"><span id="local-6989586621679291093"><span id="local-6989586621679291095"><span id="local-6989586621679291097"><span class="annot"><span class="annottext">ReadPrec [ImageConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295933"><span id="local-6989586621679295935"><span id="local-6989586621679295937"><span id="local-6989586621679295939"><span class="annot"><span class="annottext">ReadPrec [ImageConfig]
 ReadPrec ImageConfig
 Int -&gt; ReadS ImageConfig
 ReadS [ImageConfig]
@@ -68,7 +68,7 @@ readList :: ReadS [ImageConfig]
 $creadList :: ReadS [ImageConfig]
 readsPrec :: Int -&gt; ReadS ImageConfig
 $creadsPrec :: Int -&gt; ReadS ImageConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291084"><span id="local-6989586621679291086"><span id="local-6989586621679291088"><span class="annot"><span class="annottext">Int -&gt; ImageConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295926"><span id="local-6989586621679295928"><span id="local-6989586621679295930"><span class="annot"><span class="annottext">Int -&gt; ImageConfig -&gt; ShowS
 [ImageConfig] -&gt; ShowS
 ImageConfig -&gt; String
 (Int -&gt; ImageConfig -&gt; ShowS)
@@ -102,101 +102,49 @@ $cfrom :: forall x. ImageConfig -&gt; Rep ImageConfig x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'entryPoint', 'imageConfig_entryPoint' - Specifies the entry point to their application, which is typically the</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- location of the runtime executable.</span><span>
-</span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'workingDirectory', 'imageConfig_workingDirectory' - Specifies the working directory.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'command', 'imageConfig_command' - Specifies parameters that you want to pass in with ENTRYPOINT.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'entryPoint', 'imageConfig_entryPoint' - Specifies the entry point to their application, which is typically the</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- location of the runtime executable.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'command', 'imageConfig_command' - Specifies parameters that you want to pass in with ENTRYPOINT.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'workingDirectory', 'imageConfig_workingDirectory' - Specifies the working directory.</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#newImageConfig"><span class="hs-identifier hs-type">newImageConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span><span>
 </span><span id="line-58"></span><span id="newImageConfig"><span class="annot"><span class="annottext">newImageConfig :: ImageConfig
 </span><a href="Network.AWS.Lambda.Types.ImageConfig.html#newImageConfig"><span class="hs-identifier hs-var hs-var">newImageConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ImageConfig' :: Maybe [Text] -&gt; Maybe Text -&gt; Maybe [Text] -&gt; ImageConfig
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">ImageConfig' :: Maybe [Text] -&gt; Maybe [Text] -&gt; Maybe Text -&gt; ImageConfig
 </span><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig%27"><span class="hs-identifier hs-type">ImageConfig'</span></a></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:entryPoint:ImageConfig' :: Maybe [Text]
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:command:ImageConfig' :: Maybe [Text]
+</span><a href="Network.AWS.Lambda.Types.ImageConfig.html#%24sel%3Acommand%3AImageConfig%27"><span class="hs-identifier hs-var">command</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:entryPoint:ImageConfig' :: Maybe [Text]
 </span><a href="Network.AWS.Lambda.Types.ImageConfig.html#%24sel%3AentryPoint%3AImageConfig%27"><span class="hs-identifier hs-var">entryPoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:workingDirectory:ImageConfig' :: Maybe Text
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:workingDirectory:ImageConfig' :: Maybe Text
 </span><a href="Network.AWS.Lambda.Types.ImageConfig.html#%24sel%3AworkingDirectory%3AImageConfig%27"><span class="hs-identifier hs-var">workingDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:command:ImageConfig' :: Maybe [Text]
-</span><a href="Network.AWS.Lambda.Types.ImageConfig.html#%24sel%3Acommand%3AImageConfig%27"><span class="hs-identifier hs-var">command</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | Specifies the entry point to their application, which is typically the</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- location of the runtime executable.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#imageConfig_entryPoint"><span class="hs-identifier hs-type">imageConfig_entryPoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="imageConfig_entryPoint"><span class="annot"><span class="annottext">imageConfig_entryPoint :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; ImageConfig -&gt; f ImageConfig
-</span><a href="Network.AWS.Lambda.Types.ImageConfig.html#imageConfig_entryPoint"><span class="hs-identifier hs-var hs-var">imageConfig_entryPoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageConfig -&gt; Maybe [Text])
--&gt; (ImageConfig -&gt; Maybe [Text] -&gt; ImageConfig)
--&gt; Lens ImageConfig ImageConfig (Maybe [Text]) (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig%27"><span class="hs-identifier hs-type">ImageConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291075"><span class="annot"><span class="annottext">Maybe [Text]
-entryPoint :: Maybe [Text]
-$sel:entryPoint:ImageConfig' :: ImageConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679291075"><span class="hs-identifier hs-var hs-var">entryPoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679291075"><span class="hs-identifier hs-var">entryPoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291074"><span class="annot"><span class="annottext">s :: ImageConfig
-</span><a href="#local-6989586621679291074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig%27"><span class="hs-identifier hs-type">ImageConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291073"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679291073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageConfig
-</span><a href="#local-6989586621679291074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entryPoint:ImageConfig' :: Maybe [Text]
-</span><a href="Network.AWS.Lambda.Types.ImageConfig.html#%24sel%3AentryPoint%3AImageConfig%27"><span class="hs-identifier hs-var">entryPoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679291073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; ImageConfig -&gt; f ImageConfig)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; ImageConfig
--&gt; f ImageConfig
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | Specifies the working directory.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#imageConfig_workingDirectory"><span class="hs-identifier hs-type">imageConfig_workingDirectory</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="imageConfig_workingDirectory"><span class="annot"><span class="annottext">imageConfig_workingDirectory :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImageConfig -&gt; f ImageConfig
-</span><a href="Network.AWS.Lambda.Types.ImageConfig.html#imageConfig_workingDirectory"><span class="hs-identifier hs-var hs-var">imageConfig_workingDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageConfig -&gt; Maybe Text)
--&gt; (ImageConfig -&gt; Maybe Text -&gt; ImageConfig)
--&gt; Lens ImageConfig ImageConfig (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig%27"><span class="hs-identifier hs-type">ImageConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291068"><span class="annot"><span class="annottext">Maybe Text
-workingDirectory :: Maybe Text
-$sel:workingDirectory:ImageConfig' :: ImageConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679291068"><span class="hs-identifier hs-var hs-var">workingDirectory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679291068"><span class="hs-identifier hs-var">workingDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291067"><span class="annot"><span class="annottext">s :: ImageConfig
-</span><a href="#local-6989586621679291067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig%27"><span class="hs-identifier hs-type">ImageConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291066"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679291066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageConfig
-</span><a href="#local-6989586621679291067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workingDirectory:ImageConfig' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.ImageConfig.html#%24sel%3AworkingDirectory%3AImageConfig%27"><span class="hs-identifier hs-var">workingDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679291066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | Specifies parameters that you want to pass in with ENTRYPOINT.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#imageConfig_command"><span class="hs-identifier hs-type">imageConfig_command</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="imageConfig_command"><span class="annot"><span class="annottext">imageConfig_command :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; ImageConfig -&gt; f ImageConfig
+</span><span id="line-65"></span><span class="hs-comment">-- | Specifies parameters that you want to pass in with ENTRYPOINT.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#imageConfig_command"><span class="hs-identifier hs-type">imageConfig_command</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="imageConfig_command"><span class="annot"><span class="annottext">imageConfig_command :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; ImageConfig -&gt; f ImageConfig
 </span><a href="Network.AWS.Lambda.Types.ImageConfig.html#imageConfig_command"><span class="hs-identifier hs-var hs-var">imageConfig_command</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageConfig -&gt; Maybe [Text])
 -&gt; (ImageConfig -&gt; Maybe [Text] -&gt; ImageConfig)
 -&gt; Lens ImageConfig ImageConfig (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig%27"><span class="hs-identifier hs-type">ImageConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291064"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig%27"><span class="hs-identifier hs-type">ImageConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295917"><span class="annot"><span class="annottext">Maybe [Text]
 command :: Maybe [Text]
 $sel:command:ImageConfig' :: ImageConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679291064"><span class="hs-identifier hs-var hs-var">command</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679291064"><span class="hs-identifier hs-var">command</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291063"><span class="annot"><span class="annottext">s :: ImageConfig
-</span><a href="#local-6989586621679291063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig%27"><span class="hs-identifier hs-type">ImageConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291062"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679291062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageConfig
-</span><a href="#local-6989586621679291063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:command:ImageConfig' :: Maybe [Text]
+</span><a href="#local-6989586621679295917"><span class="hs-identifier hs-var hs-var">command</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679295917"><span class="hs-identifier hs-var">command</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295916"><span class="annot"><span class="annottext">s :: ImageConfig
+</span><a href="#local-6989586621679295916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig%27"><span class="hs-identifier hs-type">ImageConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295915"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679295915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageConfig
+</span><a href="#local-6989586621679295916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:command:ImageConfig' :: Maybe [Text]
 </span><a href="Network.AWS.Lambda.Types.ImageConfig.html#%24sel%3Acommand%3AImageConfig%27"><span class="hs-identifier hs-var">command</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679291062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679295915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ImageConfig -&gt; f ImageConfig)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -210,11 +158,63 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | Specifies the entry point to their application, which is typically the</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- location of the runtime executable.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#imageConfig_entryPoint"><span class="hs-identifier hs-type">imageConfig_entryPoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="imageConfig_entryPoint"><span class="annot"><span class="annottext">imageConfig_entryPoint :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; ImageConfig -&gt; f ImageConfig
+</span><a href="Network.AWS.Lambda.Types.ImageConfig.html#imageConfig_entryPoint"><span class="hs-identifier hs-var hs-var">imageConfig_entryPoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageConfig -&gt; Maybe [Text])
+-&gt; (ImageConfig -&gt; Maybe [Text] -&gt; ImageConfig)
+-&gt; Lens ImageConfig ImageConfig (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig%27"><span class="hs-identifier hs-type">ImageConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295910"><span class="annot"><span class="annottext">Maybe [Text]
+entryPoint :: Maybe [Text]
+$sel:entryPoint:ImageConfig' :: ImageConfig -&gt; Maybe [Text]
+</span><a href="#local-6989586621679295910"><span class="hs-identifier hs-var hs-var">entryPoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679295910"><span class="hs-identifier hs-var">entryPoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295909"><span class="annot"><span class="annottext">s :: ImageConfig
+</span><a href="#local-6989586621679295909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig%27"><span class="hs-identifier hs-type">ImageConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295908"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679295908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageConfig
+</span><a href="#local-6989586621679295909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entryPoint:ImageConfig' :: Maybe [Text]
+</span><a href="Network.AWS.Lambda.Types.ImageConfig.html#%24sel%3AentryPoint%3AImageConfig%27"><span class="hs-identifier hs-var">entryPoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679295908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ImageConfig -&gt; f ImageConfig)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ImageConfig
+-&gt; f ImageConfig
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | Specifies the working directory.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#imageConfig_workingDirectory"><span class="hs-identifier hs-type">imageConfig_workingDirectory</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="imageConfig_workingDirectory"><span class="annot"><span class="annottext">imageConfig_workingDirectory :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ImageConfig -&gt; f ImageConfig
+</span><a href="Network.AWS.Lambda.Types.ImageConfig.html#imageConfig_workingDirectory"><span class="hs-identifier hs-var hs-var">imageConfig_workingDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageConfig -&gt; Maybe Text)
+-&gt; (ImageConfig -&gt; Maybe Text -&gt; ImageConfig)
+-&gt; Lens ImageConfig ImageConfig (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig%27"><span class="hs-identifier hs-type">ImageConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295906"><span class="annot"><span class="annottext">Maybe Text
+workingDirectory :: Maybe Text
+$sel:workingDirectory:ImageConfig' :: ImageConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679295906"><span class="hs-identifier hs-var hs-var">workingDirectory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295906"><span class="hs-identifier hs-var">workingDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295905"><span class="annot"><span class="annottext">s :: ImageConfig
+</span><a href="#local-6989586621679295905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig%27"><span class="hs-identifier hs-type">ImageConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295904"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageConfig
+</span><a href="#local-6989586621679295905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workingDirectory:ImageConfig' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.ImageConfig.html#%24sel%3AworkingDirectory%3AImageConfig%27"><span class="hs-identifier hs-var">workingDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291059"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679291057"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImageConfig
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295901"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679295899"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImageConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ImageConfig) -&gt; Value -&gt; Parser ImageConfig
@@ -222,37 +222,16 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ImageConfig&quot;</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679291054"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679291054"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Maybe [Text] -&gt; ImageConfig
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295896"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295896"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe [Text] -&gt; Maybe Text -&gt; ImageConfig
 </span><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig%27"><span class="hs-identifier hs-var">ImageConfig'</span></a></span><span>
-</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Maybe [Text] -&gt; ImageConfig)
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe [Text] -&gt; Maybe Text -&gt; ImageConfig)
 -&gt; Parser (Maybe [Text])
--&gt; Parser (Maybe Text -&gt; Maybe [Text] -&gt; ImageConfig)
+-&gt; Parser (Maybe [Text] -&gt; Maybe Text -&gt; ImageConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679291054"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EntryPoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
--&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Text] -&gt; ImageConfig)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe [Text] -&gt; ImageConfig)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679291054"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;WorkingDirectory&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; ImageConfig)
--&gt; Parser (Maybe [Text]) -&gt; Parser ImageConfig
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679291054"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679295896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Command&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -261,50 +240,71 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe Text -&gt; ImageConfig)
+-&gt; Parser (Maybe [Text]) -&gt; Parser (Maybe Text -&gt; ImageConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EntryPoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ImageConfig)
+-&gt; Parser (Maybe Text) -&gt; Parser ImageConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679295896"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkingDirectory&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291047"><span id="local-6989586621679291049"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295889"><span id="local-6989586621679295891"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295886"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291036"><span id="local-6989586621679291038"><span id="local-6989586621679291040"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679291034"><span class="annot"><span class="annottext">toJSON :: ImageConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig%27"><span class="hs-identifier hs-type">ImageConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291030"><span id="local-6989586621679291031"><span id="local-6989586621679291032"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295878"><span id="local-6989586621679295880"><span id="local-6989586621679295882"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig"><span class="hs-identifier hs-type">ImageConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679295876"><span class="annot"><span class="annottext">toJSON :: ImageConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfig.html#ImageConfig%27"><span class="hs-identifier hs-type">ImageConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295872"><span id="local-6989586621679295873"><span id="local-6989586621679295874"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
-command :: Maybe [Text]
 workingDirectory :: Maybe Text
 entryPoint :: Maybe [Text]
-$sel:command:ImageConfig' :: ImageConfig -&gt; Maybe [Text]
+command :: Maybe [Text]
 $sel:workingDirectory:ImageConfig' :: ImageConfig -&gt; Maybe Text
 $sel:entryPoint:ImageConfig' :: ImageConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679291030"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:command:ImageConfig' :: ImageConfig -&gt; Maybe [Text]
+</span><a href="#local-6989586621679295872"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-97"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EntryPoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679291032"><span class="hs-identifier hs-var">entryPoint</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;WorkingDirectory&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679291031"><span class="hs-identifier hs-var">workingDirectory</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Command&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679291030"><span class="hs-identifier hs-var">command</span></a></span><span>
+</span><a href="#local-6989586621679295874"><span class="hs-identifier hs-var">command</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EntryPoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679295873"><span class="hs-identifier hs-var">entryPoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkingDirectory&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679295872"><span class="hs-identifier hs-var">workingDirectory</span></a></span><span>
 </span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span></pre></body></html>

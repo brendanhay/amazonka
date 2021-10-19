@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes an IPv4 range.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newIpRange' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681086542"><span id="local-6989586621681086543"></span></span><span class="hs-keyword">data</span><span> </span><span id="IpRange"><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange"><span class="hs-identifier hs-var">IpRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IpRange%27"><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange%27"><span class="hs-identifier hs-var">IpRange'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681121233"><span id="local-6989586621681121234"></span></span><span class="hs-keyword">data</span><span> </span><span id="IpRange"><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange"><span class="hs-identifier hs-var">IpRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IpRange%27"><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange%27"><span class="hs-identifier hs-var">IpRange'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description for the security group rule that references this IPv4</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- address range.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AcidrIp%3AIpRange%27"><span class="annot"><span class="annottext">IpRange -&gt; Text
 </span><a href="Network.AWS.EC2.Types.IpRange.html#%24sel%3AcidrIp%3AIpRange%27"><span class="hs-identifier hs-var hs-var">cidrIp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681086535"><span id="local-6989586621681086537"><span class="annot"><span class="annottext">IpRange -&gt; IpRange -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681121226"><span id="local-6989586621681121228"><span class="annot"><span class="annottext">IpRange -&gt; IpRange -&gt; Bool
 (IpRange -&gt; IpRange -&gt; Bool)
 -&gt; (IpRange -&gt; IpRange -&gt; Bool) -&gt; Eq IpRange
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IpRange -&gt; IpRange -&gt; Bool
 == :: IpRange -&gt; IpRange -&gt; Bool
 $c== :: IpRange -&gt; IpRange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681086526"><span id="local-6989586621681086528"><span id="local-6989586621681086530"><span id="local-6989586621681086532"><span class="annot"><span class="annottext">ReadPrec [IpRange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681121217"><span id="local-6989586621681121219"><span id="local-6989586621681121221"><span id="local-6989586621681121223"><span class="annot"><span class="annottext">ReadPrec [IpRange]
 ReadPrec IpRange
 Int -&gt; ReadS IpRange
 ReadS [IpRange]
@@ -69,7 +69,7 @@ readList :: ReadS [IpRange]
 $creadList :: ReadS [IpRange]
 readsPrec :: Int -&gt; ReadS IpRange
 $creadsPrec :: Int -&gt; ReadS IpRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681086519"><span id="local-6989586621681086521"><span id="local-6989586621681086523"><span class="annot"><span class="annottext">Int -&gt; IpRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681121210"><span id="local-6989586621681121212"><span id="local-6989586621681121214"><span class="annot"><span class="annottext">Int -&gt; IpRange -&gt; ShowS
 [IpRange] -&gt; ShowS
 IpRange -&gt; String
 (Int -&gt; IpRange -&gt; ShowS)
@@ -114,8 +114,8 @@ $cfrom :: forall x. IpRange -&gt; Rep IpRange x
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange"><span class="hs-identifier hs-type">IpRange</span></a></span><span>
 </span><span id="line-65"></span><span id="newIpRange"><span class="annot"><span class="annottext">newIpRange :: Text -&gt; IpRange
-</span><a href="Network.AWS.EC2.Types.IpRange.html#newIpRange"><span class="hs-identifier hs-var hs-var">newIpRange</span></a></span></span><span> </span><span id="local-6989586621681086513"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681086513"><span class="hs-identifier hs-var">pCidrIp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.Types.IpRange.html#newIpRange"><span class="hs-identifier hs-var hs-var">newIpRange</span></a></span></span><span> </span><span id="local-6989586621681121204"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681121204"><span class="hs-identifier hs-var">pCidrIp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">IpRange' :: Maybe Text -&gt; Text -&gt; IpRange
 </span><a href="Network.AWS.EC2.Types.IpRange.html#IpRange%27"><span class="hs-identifier hs-type">IpRange'</span></a></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:IpRange' :: Maybe Text
@@ -124,7 +124,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:cidrIp:IpRange' :: Text
 </span><a href="Network.AWS.EC2.Types.IpRange.html#%24sel%3AcidrIp%3AIpRange%27"><span class="hs-identifier hs-var">cidrIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681086513"><span class="hs-identifier hs-var">pCidrIp_</span></a></span><span>
+</span><a href="#local-6989586621681121204"><span class="hs-identifier hs-var">pCidrIp_</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | A description for the security group rule that references this IPv4</span><span>
@@ -138,16 +138,16 @@ forall a. Maybe a
 -&gt; (IpRange -&gt; Maybe Text -&gt; IpRange)
 -&gt; Lens IpRange IpRange (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange%27"><span class="hs-identifier hs-type">IpRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681086509"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange%27"><span class="hs-identifier hs-type">IpRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121200"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:IpRange' :: IpRange -&gt; Maybe Text
-</span><a href="#local-6989586621681086509"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681086509"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681086508"><span class="annot"><span class="annottext">s :: IpRange
-</span><a href="#local-6989586621681086508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange%27"><span class="hs-identifier hs-type">IpRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681086507"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681086507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpRange
-</span><a href="#local-6989586621681086508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:IpRange' :: Maybe Text
+</span><a href="#local-6989586621681121200"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681121200"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681121199"><span class="annot"><span class="annottext">s :: IpRange
+</span><a href="#local-6989586621681121199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange%27"><span class="hs-identifier hs-type">IpRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681121198"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681121198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpRange
+</span><a href="#local-6989586621681121199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:IpRange' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.IpRange.html#%24sel%3Adescription%3AIpRange%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681086507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange"><span class="hs-identifier hs-type">IpRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681121198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange"><span class="hs-identifier hs-type">IpRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The IPv4 CIDR range. You can either specify a CIDR range or a source</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- security group, not both. To specify a single IPv4 address, use the \/32</span><span>
@@ -157,28 +157,28 @@ $sel:description:IpRange' :: IpRange -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.IpRange.html#ipRange_cidrIp"><span class="hs-identifier hs-var hs-var">ipRange_cidrIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IpRange -&gt; Text)
 -&gt; (IpRange -&gt; Text -&gt; IpRange) -&gt; Lens IpRange IpRange Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange%27"><span class="hs-identifier hs-type">IpRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681086505"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange%27"><span class="hs-identifier hs-type">IpRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121196"><span class="annot"><span class="annottext">Text
 cidrIp :: Text
 $sel:cidrIp:IpRange' :: IpRange -&gt; Text
-</span><a href="#local-6989586621681086505"><span class="hs-identifier hs-var hs-var">cidrIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681086505"><span class="hs-identifier hs-var">cidrIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681086504"><span class="annot"><span class="annottext">s :: IpRange
-</span><a href="#local-6989586621681086504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange%27"><span class="hs-identifier hs-type">IpRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681086503"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681086503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpRange
-</span><a href="#local-6989586621681086504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrIp:IpRange' :: Text
+</span><a href="#local-6989586621681121196"><span class="hs-identifier hs-var hs-var">cidrIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681121196"><span class="hs-identifier hs-var">cidrIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681121195"><span class="annot"><span class="annottext">s :: IpRange
+</span><a href="#local-6989586621681121195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange%27"><span class="hs-identifier hs-type">IpRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681121194"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681121194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IpRange
+</span><a href="#local-6989586621681121195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrIp:IpRange' :: Text
 </span><a href="Network.AWS.EC2.Types.IpRange.html#%24sel%3AcidrIp%3AIpRange%27"><span class="hs-identifier hs-var">cidrIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681086503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange"><span class="hs-identifier hs-type">IpRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681121194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange"><span class="hs-identifier hs-type">IpRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange"><span class="hs-identifier hs-type">IpRange</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621681086500"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IpRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681086498"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681086498"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621681121191"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IpRange
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681121189"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681121189"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; IpRange
 </span><a href="Network.AWS.EC2.Types.IpRange.html#IpRange%27"><span class="hs-identifier hs-var">IpRange'</span></a></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; IpRange)
 -&gt; Either String (Maybe Text) -&gt; Either String (Text -&gt; IpRange)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681086498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681121189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
@@ -186,24 +186,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Text -&gt; Either String IpRange
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681086498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621681121189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cidrIp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681086491"><span id="local-6989586621681086493"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange"><span class="hs-identifier hs-type">IpRange</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681121182"><span id="local-6989586621681121184"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange"><span class="hs-identifier hs-type">IpRange</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681086488"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange"><span class="hs-identifier hs-type">IpRange</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681121179"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange"><span class="hs-identifier hs-type">IpRange</span></a></span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange"><span class="hs-identifier hs-type">IpRange</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621681086484"><span class="annot"><span class="annottext">toQuery :: IpRange -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange%27"><span class="hs-identifier hs-type">IpRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681086481"><span id="local-6989586621681086482"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621681121175"><span class="annot"><span class="annottext">toQuery :: IpRange -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.IpRange.html#IpRange%27"><span class="hs-identifier hs-type">IpRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121172"><span id="local-6989586621681121173"><span class="annot"><span class="annottext">Maybe Text
 Text
 cidrIp :: Text
 description :: Maybe Text
 $sel:cidrIp:IpRange' :: IpRange -&gt; Text
 $sel:description:IpRange' :: IpRange -&gt; Maybe Text
-</span><a href="#local-6989586621681086481"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681121172"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -211,11 +211,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681086482"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681121173"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;CidrIp&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681086481"><span class="hs-identifier hs-var">cidrIp</span></a></span><span>
+</span><a href="#local-6989586621681121172"><span class="hs-identifier hs-var">cidrIp</span></a></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span></pre></body></html>

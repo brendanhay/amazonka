@@ -29,46 +29,46 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes overrides for a launch template.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newFleetLaunchTemplateOverrides' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681100899"><span id="local-6989586621681100900"></span></span><span class="hs-keyword">data</span><span> </span><span id="FleetLaunchTemplateOverrides"><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-var">FleetLaunchTemplateOverrides</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetLaunchTemplateOverrides%27"><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">FleetLaunchTemplateOverrides'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The location where the instance launched, if applicable.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aplacement%3AFleetLaunchTemplateOverrides%27"><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides -&gt; Maybe PlacementResponse
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3Aplacement%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var hs-var">placement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse"><span class="hs-identifier hs-type">PlacementResponse</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The instance type.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AinstanceType%3AFleetLaunchTemplateOverrides%27"><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides -&gt; Maybe InstanceType
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AinstanceType%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceType.html#InstanceType"><span class="hs-identifier hs-type">InstanceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The priority for the launch template override. The highest priority is</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- launched first.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621681135600"><span id="local-6989586621681135601"></span></span><span class="hs-keyword">data</span><span> </span><span id="FleetLaunchTemplateOverrides"><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-var">FleetLaunchTemplateOverrides</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetLaunchTemplateOverrides%27"><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">FleetLaunchTemplateOverrides'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The priority for the launch template override. The highest priority is</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- launched first.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- If the On-Demand @AllocationStrategy@ is set to @prioritized@, EC2 Fleet</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- uses priority to determine which launch template override to use first</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- in fulfilling On-Demand capacity.</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- If the On-Demand @AllocationStrategy@ is set to @prioritized@, EC2 Fleet</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- uses priority to determine which launch template override to use first</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- in fulfilling On-Demand capacity.</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- If the Spot @AllocationStrategy@ is set to</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @capacity-optimized-prioritized@, EC2 Fleet uses priority on a</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- best-effort basis to determine which launch template override to use in</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- fulfilling Spot capacity, but optimizes for capacity first.</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- Valid values are whole numbers starting at @0@. The lower the number,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- the higher the priority. If no number is set, the override has the</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- lowest priority. You can set the same priority for different launch</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- template overrides.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3Apriority%3AFleetLaunchTemplateOverrides%27"><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides -&gt; Maybe Double
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- If the Spot @AllocationStrategy@ is set to</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @capacity-optimized-prioritized@, EC2 Fleet uses priority on a</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- best-effort basis to determine which launch template override to use in</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- fulfilling Spot capacity, but optimizes for capacity first.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Valid values are whole numbers starting at @0@. The lower the number,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- the higher the priority. If no number is set, the override has the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- lowest priority. You can set the same priority for different launch</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- template overrides.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Apriority%3AFleetLaunchTemplateOverrides%27"><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides -&gt; Maybe Double
 </span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3Apriority%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The Availability Zone in which to launch the instances.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AavailabilityZone%3AFleetLaunchTemplateOverrides%27"><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AavailabilityZone%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The maximum price per unit hour that you are willing to pay for a Spot</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Instance.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AmaxPrice%3AFleetLaunchTemplateOverrides%27"><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AmaxPrice%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var hs-var">maxPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The ID of the subnet in which to launch the instances.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AsubnetId%3AFleetLaunchTemplateOverrides%27"><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides -&gt; Maybe Text
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The number of units provided by the specified instance type.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AweightedCapacity%3AFleetLaunchTemplateOverrides%27"><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides -&gt; Maybe Double
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AweightedCapacity%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var hs-var">weightedCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The ID of the subnet in which to launch the instances.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AsubnetId%3AFleetLaunchTemplateOverrides%27"><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AsubnetId%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The number of units provided by the specified instance type.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AweightedCapacity%3AFleetLaunchTemplateOverrides%27"><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides -&gt; Maybe Double
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AweightedCapacity%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var hs-var">weightedCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The instance type.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AinstanceType%3AFleetLaunchTemplateOverrides%27"><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides -&gt; Maybe InstanceType
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AinstanceType%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceType.html#InstanceType"><span class="hs-identifier hs-type">InstanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The Availability Zone in which to launch the instances.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AavailabilityZone%3AFleetLaunchTemplateOverrides%27"><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AavailabilityZone%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The location where the instance launched, if applicable.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aplacement%3AFleetLaunchTemplateOverrides%27"><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides -&gt; Maybe PlacementResponse
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3Aplacement%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var hs-var">placement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse"><span class="hs-identifier hs-type">PlacementResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The maximum price per unit hour that you are willing to pay for a Spot</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Instance.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxPrice%3AFleetLaunchTemplateOverrides%27"><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AmaxPrice%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var hs-var">maxPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681100887"><span id="local-6989586621681100889"><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681135588"><span id="local-6989586621681135590"><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides
 -&gt; FleetLaunchTemplateOverrides -&gt; Bool
 (FleetLaunchTemplateOverrides
  -&gt; FleetLaunchTemplateOverrides -&gt; Bool)
@@ -84,7 +84,7 @@ $c/= :: FleetLaunchTemplateOverrides
 -&gt; FleetLaunchTemplateOverrides -&gt; Bool
 $c== :: FleetLaunchTemplateOverrides
 -&gt; FleetLaunchTemplateOverrides -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681100878"><span id="local-6989586621681100880"><span id="local-6989586621681100882"><span id="local-6989586621681100884"><span class="annot"><span class="annottext">ReadPrec [FleetLaunchTemplateOverrides]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681135579"><span id="local-6989586621681135581"><span id="local-6989586621681135583"><span id="local-6989586621681135585"><span class="annot"><span class="annottext">ReadPrec [FleetLaunchTemplateOverrides]
 ReadPrec FleetLaunchTemplateOverrides
 Int -&gt; ReadS FleetLaunchTemplateOverrides
 ReadS [FleetLaunchTemplateOverrides]
@@ -104,7 +104,7 @@ readList :: ReadS [FleetLaunchTemplateOverrides]
 $creadList :: ReadS [FleetLaunchTemplateOverrides]
 readsPrec :: Int -&gt; ReadS FleetLaunchTemplateOverrides
 $creadsPrec :: Int -&gt; ReadS FleetLaunchTemplateOverrides
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681100871"><span id="local-6989586621681100873"><span id="local-6989586621681100875"><span class="annot"><span class="annottext">Int -&gt; FleetLaunchTemplateOverrides -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681135572"><span id="local-6989586621681135574"><span id="local-6989586621681135576"><span class="annot"><span class="annottext">Int -&gt; FleetLaunchTemplateOverrides -&gt; ShowS
 [FleetLaunchTemplateOverrides] -&gt; ShowS
 FleetLaunchTemplateOverrides -&gt; String
 (Int -&gt; FleetLaunchTemplateOverrides -&gt; ShowS)
@@ -144,145 +144,97 @@ FleetLaunchTemplateOverrides -&gt; Rep FleetLaunchTemplateOverrides x
 </span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'placement', 'fleetLaunchTemplateOverrides_placement' - The location where the instance launched, if applicable.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'instanceType', 'fleetLaunchTemplateOverrides_instanceType' - The instance type.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'priority', 'fleetLaunchTemplateOverrides_priority' - The priority for the launch template override. The highest priority is</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- launched first.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'priority', 'fleetLaunchTemplateOverrides_priority' - The priority for the launch template override. The highest priority is</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- launched first.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- If the On-Demand @AllocationStrategy@ is set to @prioritized@, EC2 Fleet</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- uses priority to determine which launch template override to use first</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- in fulfilling On-Demand capacity.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- If the On-Demand @AllocationStrategy@ is set to @prioritized@, EC2 Fleet</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- uses priority to determine which launch template override to use first</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- in fulfilling On-Demand capacity.</span><span>
-</span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- If the Spot @AllocationStrategy@ is set to</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- @capacity-optimized-prioritized@, EC2 Fleet uses priority on a</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- best-effort basis to determine which launch template override to use in</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- fulfilling Spot capacity, but optimizes for capacity first.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- Valid values are whole numbers starting at @0@. The lower the number,</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- the higher the priority. If no number is set, the override has the</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- lowest priority. You can set the same priority for different launch</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- template overrides.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- If the Spot @AllocationStrategy@ is set to</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- @capacity-optimized-prioritized@, EC2 Fleet uses priority on a</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- best-effort basis to determine which launch template override to use in</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- fulfilling Spot capacity, but optimizes for capacity first.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Valid values are whole numbers starting at @0@. The lower the number,</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- the higher the priority. If no number is set, the override has the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- lowest priority. You can set the same priority for different launch</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- template overrides.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'weightedCapacity', 'fleetLaunchTemplateOverrides_weightedCapacity' - The number of units provided by the specified instance type.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'subnetId', 'fleetLaunchTemplateOverrides_subnetId' - The ID of the subnet in which to launch the instances.</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'availabilityZone', 'fleetLaunchTemplateOverrides_availabilityZone' - The Availability Zone in which to launch the instances.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'instanceType', 'fleetLaunchTemplateOverrides_instanceType' - The instance type.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'maxPrice', 'fleetLaunchTemplateOverrides_maxPrice' - The maximum price per unit hour that you are willing to pay for a Spot</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- Instance.</span><span>
-</span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- 'subnetId', 'fleetLaunchTemplateOverrides_subnetId' - The ID of the subnet in which to launch the instances.</span><span>
-</span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- 'weightedCapacity', 'fleetLaunchTemplateOverrides_weightedCapacity' - The number of units provided by the specified instance type.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'availabilityZone', 'fleetLaunchTemplateOverrides_availabilityZone' - The Availability Zone in which to launch the instances.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'placement', 'fleetLaunchTemplateOverrides_placement' - The location where the instance launched, if applicable.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'maxPrice', 'fleetLaunchTemplateOverrides_maxPrice' - The maximum price per unit hour that you are willing to pay for a Spot</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Instance.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#newFleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">newFleetLaunchTemplateOverrides</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span>
 </span><span id="line-105"></span><span id="newFleetLaunchTemplateOverrides"><span class="annot"><span class="annottext">newFleetLaunchTemplateOverrides :: FleetLaunchTemplateOverrides
 </span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#newFleetLaunchTemplateOverrides"><span class="hs-identifier hs-var hs-var">newFleetLaunchTemplateOverrides</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides' :: Maybe PlacementResponse
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides' :: Maybe Double
+-&gt; Maybe Double
+-&gt; Maybe Text
 -&gt; Maybe InstanceType
--&gt; Maybe Double
 -&gt; Maybe Text
+-&gt; Maybe PlacementResponse
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Double
 -&gt; FleetLaunchTemplateOverrides
 </span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:placement:FleetLaunchTemplateOverrides' :: Maybe PlacementResponse
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3Aplacement%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">placement</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Maybe PlacementResponse
+</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:priority:FleetLaunchTemplateOverrides' :: Maybe Double
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3Apriority%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:FleetLaunchTemplateOverrides' :: Maybe InstanceType
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AinstanceType%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:weightedCapacity:FleetLaunchTemplateOverrides' :: Maybe Double
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AweightedCapacity%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">weightedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:priority:FleetLaunchTemplateOverrides' :: Maybe Double
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3Apriority%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZone:FleetLaunchTemplateOverrides' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AavailabilityZone%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxPrice:FleetLaunchTemplateOverrides' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AmaxPrice%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">maxPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetId:FleetLaunchTemplateOverrides' :: Maybe Text
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetId:FleetLaunchTemplateOverrides' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AsubnetId%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:weightedCapacity:FleetLaunchTemplateOverrides' :: Maybe Double
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AweightedCapacity%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">weightedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:FleetLaunchTemplateOverrides' :: Maybe InstanceType
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AinstanceType%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZone:FleetLaunchTemplateOverrides' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AavailabilityZone%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:placement:FleetLaunchTemplateOverrides' :: Maybe PlacementResponse
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3Aplacement%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">placement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementResponse
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxPrice:FleetLaunchTemplateOverrides' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AmaxPrice%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">maxPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | The location where the instance launched, if applicable.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_placement"><span class="hs-identifier hs-type">fleetLaunchTemplateOverrides_placement</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse"><span class="hs-identifier hs-type">PlacementResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="fleetLaunchTemplateOverrides_placement"><span class="annot"><span class="annottext">fleetLaunchTemplateOverrides_placement :: (Maybe PlacementResponse -&gt; f (Maybe PlacementResponse))
--&gt; FleetLaunchTemplateOverrides -&gt; f FleetLaunchTemplateOverrides
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_placement"><span class="hs-identifier hs-var hs-var">fleetLaunchTemplateOverrides_placement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetLaunchTemplateOverrides -&gt; Maybe PlacementResponse)
--&gt; (FleetLaunchTemplateOverrides
-    -&gt; Maybe PlacementResponse -&gt; FleetLaunchTemplateOverrides)
--&gt; Lens
-     FleetLaunchTemplateOverrides
-     FleetLaunchTemplateOverrides
-     (Maybe PlacementResponse)
-     (Maybe PlacementResponse)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681100862"><span class="annot"><span class="annottext">Maybe PlacementResponse
-placement :: Maybe PlacementResponse
-$sel:placement:FleetLaunchTemplateOverrides' :: FleetLaunchTemplateOverrides -&gt; Maybe PlacementResponse
-</span><a href="#local-6989586621681100862"><span class="hs-identifier hs-var hs-var">placement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementResponse
-</span><a href="#local-6989586621681100862"><span class="hs-identifier hs-var">placement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681100861"><span class="annot"><span class="annottext">s :: FleetLaunchTemplateOverrides
-</span><a href="#local-6989586621681100861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681100860"><span class="annot"><span class="annottext">Maybe PlacementResponse
-</span><a href="#local-6989586621681100860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides
-</span><a href="#local-6989586621681100861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placement:FleetLaunchTemplateOverrides' :: Maybe PlacementResponse
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3Aplacement%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">placement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementResponse
-</span><a href="#local-6989586621681100860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- | The instance type.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_instanceType"><span class="hs-identifier hs-type">fleetLaunchTemplateOverrides_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceType.html#InstanceType"><span class="hs-identifier hs-type">InstanceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="fleetLaunchTemplateOverrides_instanceType"><span class="annot"><span class="annottext">fleetLaunchTemplateOverrides_instanceType :: (Maybe InstanceType -&gt; f (Maybe InstanceType))
--&gt; FleetLaunchTemplateOverrides -&gt; f FleetLaunchTemplateOverrides
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_instanceType"><span class="hs-identifier hs-var hs-var">fleetLaunchTemplateOverrides_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetLaunchTemplateOverrides -&gt; Maybe InstanceType)
--&gt; (FleetLaunchTemplateOverrides
-    -&gt; Maybe InstanceType -&gt; FleetLaunchTemplateOverrides)
--&gt; Lens
-     FleetLaunchTemplateOverrides
-     FleetLaunchTemplateOverrides
-     (Maybe InstanceType)
-     (Maybe InstanceType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681100858"><span class="annot"><span class="annottext">Maybe InstanceType
-instanceType :: Maybe InstanceType
-$sel:instanceType:FleetLaunchTemplateOverrides' :: FleetLaunchTemplateOverrides -&gt; Maybe InstanceType
-</span><a href="#local-6989586621681100858"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
-</span><a href="#local-6989586621681100858"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681100857"><span class="annot"><span class="annottext">s :: FleetLaunchTemplateOverrides
-</span><a href="#local-6989586621681100857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681100856"><span class="annot"><span class="annottext">Maybe InstanceType
-</span><a href="#local-6989586621681100856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides
-</span><a href="#local-6989586621681100857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:FleetLaunchTemplateOverrides' :: Maybe InstanceType
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AinstanceType%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
-</span><a href="#local-6989586621681100856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | The priority for the launch template override. The highest priority is</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- launched first.</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- If the On-Demand @AllocationStrategy@ is set to @prioritized@, EC2 Fleet</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- uses priority to determine which launch template override to use first</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- in fulfilling On-Demand capacity.</span><span>
-</span><span id="line-131"></span><span class="hs-comment">--</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- If the Spot @AllocationStrategy@ is set to</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- @capacity-optimized-prioritized@, EC2 Fleet uses priority on a</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- best-effort basis to determine which launch template override to use in</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- fulfilling Spot capacity, but optimizes for capacity first.</span><span>
-</span><span id="line-136"></span><span class="hs-comment">--</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- Valid values are whole numbers starting at @0@. The lower the number,</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- the higher the priority. If no number is set, the override has the</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- lowest priority. You can set the same priority for different launch</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- template overrides.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_priority"><span class="hs-identifier hs-type">fleetLaunchTemplateOverrides_priority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="fleetLaunchTemplateOverrides_priority"><span class="annot"><span class="annottext">fleetLaunchTemplateOverrides_priority :: (Maybe Double -&gt; f (Maybe Double))
+</span><span id="line-117"></span><span class="hs-comment">-- | The priority for the launch template override. The highest priority is</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- launched first.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- If the On-Demand @AllocationStrategy@ is set to @prioritized@, EC2 Fleet</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- uses priority to determine which launch template override to use first</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- in fulfilling On-Demand capacity.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- If the Spot @AllocationStrategy@ is set to</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- @capacity-optimized-prioritized@, EC2 Fleet uses priority on a</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- best-effort basis to determine which launch template override to use in</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- fulfilling Spot capacity, but optimizes for capacity first.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Valid values are whole numbers starting at @0@. The lower the number,</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- the higher the priority. If no number is set, the override has the</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- lowest priority. You can set the same priority for different launch</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- template overrides.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_priority"><span class="hs-identifier hs-type">fleetLaunchTemplateOverrides_priority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="fleetLaunchTemplateOverrides_priority"><span class="annot"><span class="annottext">fleetLaunchTemplateOverrides_priority :: (Maybe Double -&gt; f (Maybe Double))
 -&gt; FleetLaunchTemplateOverrides -&gt; f FleetLaunchTemplateOverrides
 </span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_priority"><span class="hs-identifier hs-var hs-var">fleetLaunchTemplateOverrides_priority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetLaunchTemplateOverrides -&gt; Maybe Double)
 -&gt; (FleetLaunchTemplateOverrides
@@ -293,93 +245,20 @@ $sel:instanceType:FleetLaunchTemplateOverrides' :: FleetLaunchTemplateOverrides 
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681100854"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135563"><span class="annot"><span class="annottext">Maybe Double
 priority :: Maybe Double
 $sel:priority:FleetLaunchTemplateOverrides' :: FleetLaunchTemplateOverrides -&gt; Maybe Double
-</span><a href="#local-6989586621681100854"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621681100854"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681100853"><span class="annot"><span class="annottext">s :: FleetLaunchTemplateOverrides
-</span><a href="#local-6989586621681100853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681100852"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621681100852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides
-</span><a href="#local-6989586621681100853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:FleetLaunchTemplateOverrides' :: Maybe Double
+</span><a href="#local-6989586621681135563"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621681135563"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135562"><span class="annot"><span class="annottext">s :: FleetLaunchTemplateOverrides
+</span><a href="#local-6989586621681135562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135561"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621681135561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides
+</span><a href="#local-6989586621681135562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:FleetLaunchTemplateOverrides' :: Maybe Double
 </span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3Apriority%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621681100852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | The Availability Zone in which to launch the instances.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_availabilityZone"><span class="hs-identifier hs-type">fleetLaunchTemplateOverrides_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="fleetLaunchTemplateOverrides_availabilityZone"><span class="annot"><span class="annottext">fleetLaunchTemplateOverrides_availabilityZone :: (Maybe Text -&gt; f (Maybe Text))
--&gt; FleetLaunchTemplateOverrides -&gt; f FleetLaunchTemplateOverrides
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_availabilityZone"><span class="hs-identifier hs-var hs-var">fleetLaunchTemplateOverrides_availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetLaunchTemplateOverrides -&gt; Maybe Text)
--&gt; (FleetLaunchTemplateOverrides
-    -&gt; Maybe Text -&gt; FleetLaunchTemplateOverrides)
--&gt; Lens
-     FleetLaunchTemplateOverrides
-     FleetLaunchTemplateOverrides
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681100850"><span class="annot"><span class="annottext">Maybe Text
-availabilityZone :: Maybe Text
-$sel:availabilityZone:FleetLaunchTemplateOverrides' :: FleetLaunchTemplateOverrides -&gt; Maybe Text
-</span><a href="#local-6989586621681100850"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681100850"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681100849"><span class="annot"><span class="annottext">s :: FleetLaunchTemplateOverrides
-</span><a href="#local-6989586621681100849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681100848"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681100848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides
-</span><a href="#local-6989586621681100849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:FleetLaunchTemplateOverrides' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AavailabilityZone%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681100848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- | The maximum price per unit hour that you are willing to pay for a Spot</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- Instance.</span><span>
-</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_maxPrice"><span class="hs-identifier hs-type">fleetLaunchTemplateOverrides_maxPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span id="fleetLaunchTemplateOverrides_maxPrice"><span class="annot"><span class="annottext">fleetLaunchTemplateOverrides_maxPrice :: (Maybe Text -&gt; f (Maybe Text))
--&gt; FleetLaunchTemplateOverrides -&gt; f FleetLaunchTemplateOverrides
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_maxPrice"><span class="hs-identifier hs-var hs-var">fleetLaunchTemplateOverrides_maxPrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetLaunchTemplateOverrides -&gt; Maybe Text)
--&gt; (FleetLaunchTemplateOverrides
-    -&gt; Maybe Text -&gt; FleetLaunchTemplateOverrides)
--&gt; Lens
-     FleetLaunchTemplateOverrides
-     FleetLaunchTemplateOverrides
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681100846"><span class="annot"><span class="annottext">Maybe Text
-maxPrice :: Maybe Text
-$sel:maxPrice:FleetLaunchTemplateOverrides' :: FleetLaunchTemplateOverrides -&gt; Maybe Text
-</span><a href="#local-6989586621681100846"><span class="hs-identifier hs-var hs-var">maxPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681100846"><span class="hs-identifier hs-var">maxPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681100845"><span class="annot"><span class="annottext">s :: FleetLaunchTemplateOverrides
-</span><a href="#local-6989586621681100845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681100844"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681100844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides
-</span><a href="#local-6989586621681100845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxPrice:FleetLaunchTemplateOverrides' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AmaxPrice%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">maxPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681100844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- | The ID of the subnet in which to launch the instances.</span><span>
-</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_subnetId"><span class="hs-identifier hs-type">fleetLaunchTemplateOverrides_subnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span id="fleetLaunchTemplateOverrides_subnetId"><span class="annot"><span class="annottext">fleetLaunchTemplateOverrides_subnetId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; FleetLaunchTemplateOverrides -&gt; f FleetLaunchTemplateOverrides
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_subnetId"><span class="hs-identifier hs-var hs-var">fleetLaunchTemplateOverrides_subnetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetLaunchTemplateOverrides -&gt; Maybe Text)
--&gt; (FleetLaunchTemplateOverrides
-    -&gt; Maybe Text -&gt; FleetLaunchTemplateOverrides)
--&gt; Lens
-     FleetLaunchTemplateOverrides
-     FleetLaunchTemplateOverrides
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681100842"><span class="annot"><span class="annottext">Maybe Text
-subnetId :: Maybe Text
-$sel:subnetId:FleetLaunchTemplateOverrides' :: FleetLaunchTemplateOverrides -&gt; Maybe Text
-</span><a href="#local-6989586621681100842"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681100842"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681100841"><span class="annot"><span class="annottext">s :: FleetLaunchTemplateOverrides
-</span><a href="#local-6989586621681100841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681100840"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681100840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides
-</span><a href="#local-6989586621681100841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:FleetLaunchTemplateOverrides' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AsubnetId%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681100840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- | The number of units provided by the specified instance type.</span><span>
-</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_weightedCapacity"><span class="hs-identifier hs-type">fleetLaunchTemplateOverrides_weightedCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span id="fleetLaunchTemplateOverrides_weightedCapacity"><span class="annot"><span class="annottext">fleetLaunchTemplateOverrides_weightedCapacity :: (Maybe Double -&gt; f (Maybe Double))
+</span><a href="#local-6989586621681135561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The number of units provided by the specified instance type.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_weightedCapacity"><span class="hs-identifier hs-type">fleetLaunchTemplateOverrides_weightedCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="fleetLaunchTemplateOverrides_weightedCapacity"><span class="annot"><span class="annottext">fleetLaunchTemplateOverrides_weightedCapacity :: (Maybe Double -&gt; f (Maybe Double))
 -&gt; FleetLaunchTemplateOverrides -&gt; f FleetLaunchTemplateOverrides
 </span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_weightedCapacity"><span class="hs-identifier hs-var hs-var">fleetLaunchTemplateOverrides_weightedCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetLaunchTemplateOverrides -&gt; Maybe Double)
 -&gt; (FleetLaunchTemplateOverrides
@@ -390,154 +269,283 @@ $sel:subnetId:FleetLaunchTemplateOverrides' :: FleetLaunchTemplateOverrides -&gt
      (Maybe Double)
      (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681100838"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135559"><span class="annot"><span class="annottext">Maybe Double
 weightedCapacity :: Maybe Double
 $sel:weightedCapacity:FleetLaunchTemplateOverrides' :: FleetLaunchTemplateOverrides -&gt; Maybe Double
-</span><a href="#local-6989586621681100838"><span class="hs-identifier hs-var hs-var">weightedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621681100838"><span class="hs-identifier hs-var">weightedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681100837"><span class="annot"><span class="annottext">s :: FleetLaunchTemplateOverrides
-</span><a href="#local-6989586621681100837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681100836"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621681100836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides
-</span><a href="#local-6989586621681100837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:weightedCapacity:FleetLaunchTemplateOverrides' :: Maybe Double
+</span><a href="#local-6989586621681135559"><span class="hs-identifier hs-var hs-var">weightedCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621681135559"><span class="hs-identifier hs-var">weightedCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135558"><span class="annot"><span class="annottext">s :: FleetLaunchTemplateOverrides
+</span><a href="#local-6989586621681135558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135557"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621681135557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides
+</span><a href="#local-6989586621681135558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:weightedCapacity:FleetLaunchTemplateOverrides' :: Maybe Double
 </span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AweightedCapacity%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">weightedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621681100836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681135557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The ID of the subnet in which to launch the instances.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_subnetId"><span class="hs-identifier hs-type">fleetLaunchTemplateOverrides_subnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="fleetLaunchTemplateOverrides_subnetId"><span class="annot"><span class="annottext">fleetLaunchTemplateOverrides_subnetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FleetLaunchTemplateOverrides -&gt; f FleetLaunchTemplateOverrides
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_subnetId"><span class="hs-identifier hs-var hs-var">fleetLaunchTemplateOverrides_subnetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetLaunchTemplateOverrides -&gt; Maybe Text)
+-&gt; (FleetLaunchTemplateOverrides
+    -&gt; Maybe Text -&gt; FleetLaunchTemplateOverrides)
+-&gt; Lens
+     FleetLaunchTemplateOverrides
+     FleetLaunchTemplateOverrides
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135555"><span class="annot"><span class="annottext">Maybe Text
+subnetId :: Maybe Text
+$sel:subnetId:FleetLaunchTemplateOverrides' :: FleetLaunchTemplateOverrides -&gt; Maybe Text
+</span><a href="#local-6989586621681135555"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681135555"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135554"><span class="annot"><span class="annottext">s :: FleetLaunchTemplateOverrides
+</span><a href="#local-6989586621681135554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135553"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681135553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides
+</span><a href="#local-6989586621681135554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:FleetLaunchTemplateOverrides' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AsubnetId%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681135553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The instance type.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_instanceType"><span class="hs-identifier hs-type">fleetLaunchTemplateOverrides_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceType.html#InstanceType"><span class="hs-identifier hs-type">InstanceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="fleetLaunchTemplateOverrides_instanceType"><span class="annot"><span class="annottext">fleetLaunchTemplateOverrides_instanceType :: (Maybe InstanceType -&gt; f (Maybe InstanceType))
+-&gt; FleetLaunchTemplateOverrides -&gt; f FleetLaunchTemplateOverrides
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_instanceType"><span class="hs-identifier hs-var hs-var">fleetLaunchTemplateOverrides_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetLaunchTemplateOverrides -&gt; Maybe InstanceType)
+-&gt; (FleetLaunchTemplateOverrides
+    -&gt; Maybe InstanceType -&gt; FleetLaunchTemplateOverrides)
+-&gt; Lens
+     FleetLaunchTemplateOverrides
+     FleetLaunchTemplateOverrides
+     (Maybe InstanceType)
+     (Maybe InstanceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135551"><span class="annot"><span class="annottext">Maybe InstanceType
+instanceType :: Maybe InstanceType
+$sel:instanceType:FleetLaunchTemplateOverrides' :: FleetLaunchTemplateOverrides -&gt; Maybe InstanceType
+</span><a href="#local-6989586621681135551"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
+</span><a href="#local-6989586621681135551"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135550"><span class="annot"><span class="annottext">s :: FleetLaunchTemplateOverrides
+</span><a href="#local-6989586621681135550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135549"><span class="annot"><span class="annottext">Maybe InstanceType
+</span><a href="#local-6989586621681135549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides
+</span><a href="#local-6989586621681135550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:FleetLaunchTemplateOverrides' :: Maybe InstanceType
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AinstanceType%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceType
+</span><a href="#local-6989586621681135549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The Availability Zone in which to launch the instances.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_availabilityZone"><span class="hs-identifier hs-type">fleetLaunchTemplateOverrides_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="fleetLaunchTemplateOverrides_availabilityZone"><span class="annot"><span class="annottext">fleetLaunchTemplateOverrides_availabilityZone :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FleetLaunchTemplateOverrides -&gt; f FleetLaunchTemplateOverrides
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_availabilityZone"><span class="hs-identifier hs-var hs-var">fleetLaunchTemplateOverrides_availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetLaunchTemplateOverrides -&gt; Maybe Text)
+-&gt; (FleetLaunchTemplateOverrides
+    -&gt; Maybe Text -&gt; FleetLaunchTemplateOverrides)
+-&gt; Lens
+     FleetLaunchTemplateOverrides
+     FleetLaunchTemplateOverrides
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135547"><span class="annot"><span class="annottext">Maybe Text
+availabilityZone :: Maybe Text
+$sel:availabilityZone:FleetLaunchTemplateOverrides' :: FleetLaunchTemplateOverrides -&gt; Maybe Text
+</span><a href="#local-6989586621681135547"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681135547"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135546"><span class="annot"><span class="annottext">s :: FleetLaunchTemplateOverrides
+</span><a href="#local-6989586621681135546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135545"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681135545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides
+</span><a href="#local-6989586621681135546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:FleetLaunchTemplateOverrides' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AavailabilityZone%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681135545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The location where the instance launched, if applicable.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_placement"><span class="hs-identifier hs-type">fleetLaunchTemplateOverrides_placement</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PlacementResponse.html#PlacementResponse"><span class="hs-identifier hs-type">PlacementResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="fleetLaunchTemplateOverrides_placement"><span class="annot"><span class="annottext">fleetLaunchTemplateOverrides_placement :: (Maybe PlacementResponse -&gt; f (Maybe PlacementResponse))
+-&gt; FleetLaunchTemplateOverrides -&gt; f FleetLaunchTemplateOverrides
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_placement"><span class="hs-identifier hs-var hs-var">fleetLaunchTemplateOverrides_placement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetLaunchTemplateOverrides -&gt; Maybe PlacementResponse)
+-&gt; (FleetLaunchTemplateOverrides
+    -&gt; Maybe PlacementResponse -&gt; FleetLaunchTemplateOverrides)
+-&gt; Lens
+     FleetLaunchTemplateOverrides
+     FleetLaunchTemplateOverrides
+     (Maybe PlacementResponse)
+     (Maybe PlacementResponse)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135543"><span class="annot"><span class="annottext">Maybe PlacementResponse
+placement :: Maybe PlacementResponse
+$sel:placement:FleetLaunchTemplateOverrides' :: FleetLaunchTemplateOverrides -&gt; Maybe PlacementResponse
+</span><a href="#local-6989586621681135543"><span class="hs-identifier hs-var hs-var">placement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementResponse
+</span><a href="#local-6989586621681135543"><span class="hs-identifier hs-var">placement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135542"><span class="annot"><span class="annottext">s :: FleetLaunchTemplateOverrides
+</span><a href="#local-6989586621681135542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135541"><span class="annot"><span class="annottext">Maybe PlacementResponse
+</span><a href="#local-6989586621681135541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides
+</span><a href="#local-6989586621681135542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:placement:FleetLaunchTemplateOverrides' :: Maybe PlacementResponse
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3Aplacement%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">placement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlacementResponse
+</span><a href="#local-6989586621681135541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The maximum price per unit hour that you are willing to pay for a Spot</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Instance.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_maxPrice"><span class="hs-identifier hs-type">fleetLaunchTemplateOverrides_maxPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="fleetLaunchTemplateOverrides_maxPrice"><span class="annot"><span class="annottext">fleetLaunchTemplateOverrides_maxPrice :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FleetLaunchTemplateOverrides -&gt; f FleetLaunchTemplateOverrides
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#fleetLaunchTemplateOverrides_maxPrice"><span class="hs-identifier hs-var hs-var">fleetLaunchTemplateOverrides_maxPrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetLaunchTemplateOverrides -&gt; Maybe Text)
+-&gt; (FleetLaunchTemplateOverrides
+    -&gt; Maybe Text -&gt; FleetLaunchTemplateOverrides)
+-&gt; Lens
+     FleetLaunchTemplateOverrides
+     FleetLaunchTemplateOverrides
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681135539"><span class="annot"><span class="annottext">Maybe Text
+maxPrice :: Maybe Text
+$sel:maxPrice:FleetLaunchTemplateOverrides' :: FleetLaunchTemplateOverrides -&gt; Maybe Text
+</span><a href="#local-6989586621681135539"><span class="hs-identifier hs-var hs-var">maxPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681135539"><span class="hs-identifier hs-var">maxPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681135538"><span class="annot"><span class="annottext">s :: FleetLaunchTemplateOverrides
+</span><a href="#local-6989586621681135538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681135537"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681135537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetLaunchTemplateOverrides
+</span><a href="#local-6989586621681135538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxPrice:FleetLaunchTemplateOverrides' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#%24sel%3AmaxPrice%3AFleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">maxPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681135537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621681100833"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FleetLaunchTemplateOverrides
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681100831"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681100831"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">Maybe PlacementResponse
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621681135534"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String FleetLaunchTemplateOverrides
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681135532"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681135532"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">Maybe Double
+-&gt; Maybe Double
+-&gt; Maybe Text
 -&gt; Maybe InstanceType
--&gt; Maybe Double
 -&gt; Maybe Text
+-&gt; Maybe PlacementResponse
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Double
 -&gt; FleetLaunchTemplateOverrides
 </span><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides%27"><span class="hs-identifier hs-var">FleetLaunchTemplateOverrides'</span></a></span><span>
-</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">(Maybe PlacementResponse
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Double
+ -&gt; Maybe Double
+ -&gt; Maybe Text
  -&gt; Maybe InstanceType
- -&gt; Maybe Double
  -&gt; Maybe Text
+ -&gt; Maybe PlacementResponse
  -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Double
  -&gt; FleetLaunchTemplateOverrides)
--&gt; Either String (Maybe PlacementResponse)
--&gt; Either
-     String
-     (Maybe InstanceType
-      -&gt; Maybe Double
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Double
-      -&gt; FleetLaunchTemplateOverrides)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681100831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PlacementResponse)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;placement&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe InstanceType
-   -&gt; Maybe Double
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Double
-   -&gt; FleetLaunchTemplateOverrides)
--&gt; Either String (Maybe InstanceType)
+-&gt; Either String (Maybe Double)
 -&gt; Either
      String
      (Maybe Double
       -&gt; Maybe Text
+      -&gt; Maybe InstanceType
       -&gt; Maybe Text
+      -&gt; Maybe PlacementResponse
       -&gt; Maybe Text
-      -&gt; Maybe Double
       -&gt; FleetLaunchTemplateOverrides)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681100831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InstanceType)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;instanceType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Double
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Double
-   -&gt; FleetLaunchTemplateOverrides)
--&gt; Either String (Maybe Double)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Double
-      -&gt; FleetLaunchTemplateOverrides)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681100831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681135532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;priority&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Double
+   -&gt; Maybe Text
+   -&gt; Maybe InstanceType
+   -&gt; Maybe Text
+   -&gt; Maybe PlacementResponse
+   -&gt; Maybe Text
+   -&gt; FleetLaunchTemplateOverrides)
+-&gt; Either String (Maybe Double)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe InstanceType
+      -&gt; Maybe Text
+      -&gt; Maybe PlacementResponse
+      -&gt; Maybe Text
+      -&gt; FleetLaunchTemplateOverrides)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681135532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;weightedCapacity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
+   -&gt; Maybe InstanceType
    -&gt; Maybe Text
+   -&gt; Maybe PlacementResponse
    -&gt; Maybe Text
-   -&gt; Maybe Double
    -&gt; FleetLaunchTemplateOverrides)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe Double -&gt; FleetLaunchTemplateOverrides)
+     (Maybe InstanceType
+      -&gt; Maybe Text
+      -&gt; Maybe PlacementResponse
+      -&gt; Maybe Text
+      -&gt; FleetLaunchTemplateOverrides)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681100831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;availabilityZone&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe Double -&gt; FleetLaunchTemplateOverrides)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe Text -&gt; Maybe Double -&gt; FleetLaunchTemplateOverrides)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681100831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;maxPrice&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Maybe Double -&gt; FleetLaunchTemplateOverrides)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Double -&gt; FleetLaunchTemplateOverrides)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681100831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681135532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;subnetId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Double -&gt; FleetLaunchTemplateOverrides)
--&gt; Either String (Maybe Double)
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe InstanceType
+   -&gt; Maybe Text
+   -&gt; Maybe PlacementResponse
+   -&gt; Maybe Text
+   -&gt; FleetLaunchTemplateOverrides)
+-&gt; Either String (Maybe InstanceType)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe PlacementResponse
+      -&gt; Maybe Text
+      -&gt; FleetLaunchTemplateOverrides)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681135532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InstanceType)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe PlacementResponse
+   -&gt; Maybe Text
+   -&gt; FleetLaunchTemplateOverrides)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe PlacementResponse
+      -&gt; Maybe Text -&gt; FleetLaunchTemplateOverrides)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681135532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;availabilityZone&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe PlacementResponse
+   -&gt; Maybe Text -&gt; FleetLaunchTemplateOverrides)
+-&gt; Either String (Maybe PlacementResponse)
+-&gt; Either String (Maybe Text -&gt; FleetLaunchTemplateOverrides)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681135532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PlacementResponse)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;placement&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; FleetLaunchTemplateOverrides)
+-&gt; Either String (Maybe Text)
 -&gt; Either String FleetLaunchTemplateOverrides
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681100831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Double)
+</span><a href="#local-6989586621681135532"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;weightedCapacity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;maxPrice&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621681100825"><span id="local-6989586621681100827"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621681135526"><span id="local-6989586621681135528"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span></span></span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681100822"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681135523"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetLaunchTemplateOverrides.html#FleetLaunchTemplateOverrides"><span class="hs-identifier hs-type">FleetLaunchTemplateOverrides</span></a></span></span><span>
 </span><span id="line-177"></span></pre></body></html>

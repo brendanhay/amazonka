@@ -27,64 +27,65 @@
 </span><span id="line-27"></span><span class="hs-comment">-- In the China (Ningxia) Region, you can copy images only within the same</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- Region.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
-</span><span id="line-30"></span><span class="hs-comment">-- In the AWS GovCloud (US-West) Region, to copy images to and from other</span><span>
-</span><span id="line-31"></span><span class="hs-comment">-- AWS Regions, contact AWS Support.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- In Amazon Web Services GovCloud (US), to copy images to and from other</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Regions, contact Amazon Web Services Support.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- Before copying a shared image, be sure to verify that it has been shared</span><span>
-</span><span id="line-34"></span><span class="hs-comment">-- from the correct AWS account. To determine if an image has been shared</span><span>
-</span><span id="line-35"></span><span class="hs-comment">-- and to see the AWS account ID that owns an image, use the</span><span>
-</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html DescribeWorkSpaceImages&gt;</span><span>
-</span><span id="line-37"></span><span class="hs-comment">-- and</span><span>
-</span><span id="line-38"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html DescribeWorkspaceImagePermissions&gt;</span><span>
-</span><span id="line-39"></span><span class="hs-comment">-- API operations.</span><span>
-</span><span id="line-40"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkSpaces.CopyWorkspaceImage</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier">CopyWorkspaceImage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#newCopyWorkspaceImage"><span class="hs-identifier">newCopyWorkspaceImage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_tags"><span class="hs-identifier">copyWorkspaceImage_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- from the correct Amazon Web Services account. To determine if an image</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- has been shared and to see the ID of the Amazon Web Services account</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- that owns an image, use the</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html DescribeWorkSpaceImages&gt;</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html DescribeWorkspaceImagePermissions&gt;</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- API operations.</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.WorkSpaces.CopyWorkspaceImage</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier">CopyWorkspaceImage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#newCopyWorkspaceImage"><span class="hs-identifier">newCopyWorkspaceImage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_description"><span class="hs-identifier">copyWorkspaceImage_description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_name"><span class="hs-identifier">copyWorkspaceImage_name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_sourceImageId"><span class="hs-identifier">copyWorkspaceImage_sourceImageId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_sourceRegion"><span class="hs-identifier">copyWorkspaceImage_sourceRegion</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>
-</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse"><span class="hs-identifier">CopyWorkspaceImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#newCopyWorkspaceImageResponse"><span class="hs-identifier">newCopyWorkspaceImageResponse</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImageResponse_imageId"><span class="hs-identifier">copyWorkspaceImageResponse_imageId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImageResponse_httpStatus"><span class="hs-identifier">copyWorkspaceImageResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types</span></a></span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newCopyWorkspaceImage' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679285872"><span id="local-6989586621679285873"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyWorkspaceImage"><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-var">CopyWorkspaceImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyWorkspaceImage%27"><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-var">CopyWorkspaceImage'</span></a></span></span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags for the image.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3Atags%3ACopyWorkspaceImage%27"><span class="annot"><span class="annottext">CopyWorkspaceImage -&gt; Maybe [Tag]
-</span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3Atags%3ACopyWorkspaceImage%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | A description of the image.</span><span>
-</span><span id="line-74"></span><span>    </span><span id="%24sel%3Adescription%3ACopyWorkspaceImage%27"><span class="annot"><span class="annottext">CopyWorkspaceImage -&gt; Maybe Text
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_tags"><span class="hs-identifier">copyWorkspaceImage_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_name"><span class="hs-identifier">copyWorkspaceImage_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_sourceImageId"><span class="hs-identifier">copyWorkspaceImage_sourceImageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_sourceRegion"><span class="hs-identifier">copyWorkspaceImage_sourceRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse"><span class="hs-identifier">CopyWorkspaceImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#newCopyWorkspaceImageResponse"><span class="hs-identifier">newCopyWorkspaceImageResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImageResponse_imageId"><span class="hs-identifier">copyWorkspaceImageResponse_imageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImageResponse_httpStatus"><span class="hs-identifier">copyWorkspaceImageResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types</span></a></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | /See:/ 'newCopyWorkspaceImage' smart constructor.</span><span>
+</span><span id="line-71"></span><span id="local-6989586621679289002"><span id="local-6989586621679289003"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyWorkspaceImage"><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-var">CopyWorkspaceImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyWorkspaceImage%27"><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-var">CopyWorkspaceImage'</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description of the image.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Adescription%3ACopyWorkspaceImage%27"><span class="annot"><span class="annottext">CopyWorkspaceImage -&gt; Maybe Text
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3Adescription%3ACopyWorkspaceImage%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The name of the image.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3Aname%3ACopyWorkspaceImage%27"><span class="annot"><span class="annottext">CopyWorkspaceImage -&gt; Text
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The tags for the image.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Atags%3ACopyWorkspaceImage%27"><span class="annot"><span class="annottext">CopyWorkspaceImage -&gt; Maybe [Tag]
+</span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3Atags%3ACopyWorkspaceImage%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The name of the image.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Aname%3ACopyWorkspaceImage%27"><span class="annot"><span class="annottext">CopyWorkspaceImage -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3Aname%3ACopyWorkspaceImage%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The identifier of the source image.</span><span>
-</span><span id="line-78"></span><span>    </span><span id="%24sel%3AsourceImageId%3ACopyWorkspaceImage%27"><span class="annot"><span class="annottext">CopyWorkspaceImage -&gt; Text
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The identifier of the source image.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AsourceImageId%3ACopyWorkspaceImage%27"><span class="annot"><span class="annottext">CopyWorkspaceImage -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3AsourceImageId%3ACopyWorkspaceImage%27"><span class="hs-identifier hs-var hs-var">sourceImageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The identifier of the source Region.</span><span>
-</span><span id="line-80"></span><span>    </span><span id="%24sel%3AsourceRegion%3ACopyWorkspaceImage%27"><span class="annot"><span class="annottext">CopyWorkspaceImage -&gt; Text
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The identifier of the source Region.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AsourceRegion%3ACopyWorkspaceImage%27"><span class="annot"><span class="annottext">CopyWorkspaceImage -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3AsourceRegion%3ACopyWorkspaceImage%27"><span class="hs-identifier hs-var hs-var">sourceRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679285862"><span id="local-6989586621679285864"><span class="annot"><span class="annottext">CopyWorkspaceImage -&gt; CopyWorkspaceImage -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288992"><span id="local-6989586621679288994"><span class="annot"><span class="annottext">CopyWorkspaceImage -&gt; CopyWorkspaceImage -&gt; Bool
 (CopyWorkspaceImage -&gt; CopyWorkspaceImage -&gt; Bool)
 -&gt; (CopyWorkspaceImage -&gt; CopyWorkspaceImage -&gt; Bool)
 -&gt; Eq CopyWorkspaceImage
@@ -93,7 +94,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CopyWorkspaceImage -&gt; CopyWorkspaceImage -&gt; Bool
 == :: CopyWorkspaceImage -&gt; CopyWorkspaceImage -&gt; Bool
 $c== :: CopyWorkspaceImage -&gt; CopyWorkspaceImage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285853"><span id="local-6989586621679285855"><span id="local-6989586621679285857"><span id="local-6989586621679285859"><span class="annot"><span class="annottext">ReadPrec [CopyWorkspaceImage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288983"><span id="local-6989586621679288985"><span id="local-6989586621679288987"><span id="local-6989586621679288989"><span class="annot"><span class="annottext">ReadPrec [CopyWorkspaceImage]
 ReadPrec CopyWorkspaceImage
 Int -&gt; ReadS CopyWorkspaceImage
 ReadS [CopyWorkspaceImage]
@@ -113,7 +114,7 @@ readList :: ReadS [CopyWorkspaceImage]
 $creadList :: ReadS [CopyWorkspaceImage]
 readsPrec :: Int -&gt; ReadS CopyWorkspaceImage
 $creadsPrec :: Int -&gt; ReadS CopyWorkspaceImage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285846"><span id="local-6989586621679285848"><span id="local-6989586621679285850"><span class="annot"><span class="annottext">Int -&gt; CopyWorkspaceImage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288976"><span id="local-6989586621679288978"><span id="local-6989586621679288980"><span class="annot"><span class="annottext">Int -&gt; CopyWorkspaceImage -&gt; ShowS
 [CopyWorkspaceImage] -&gt; ShowS
 CopyWorkspaceImage -&gt; String
 (Int -&gt; CopyWorkspaceImage -&gt; ShowS)
@@ -138,81 +139,101 @@ forall a.
 $cto :: forall x. Rep CopyWorkspaceImage x -&gt; CopyWorkspaceImage
 $cfrom :: forall x. CopyWorkspaceImage -&gt; Rep CopyWorkspaceImage x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'CopyWorkspaceImage' with all optional fields omitted.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'tags', 'copyWorkspaceImage_tags' - The tags for the image.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'description', 'copyWorkspaceImage_description' - A description of the image.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'name', 'copyWorkspaceImage_name' - The name of the image.</span><span>
-</span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'sourceImageId', 'copyWorkspaceImage_sourceImageId' - The identifier of the source image.</span><span>
-</span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- 'sourceRegion', 'copyWorkspaceImage_sourceRegion' - The identifier of the source Region.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#newCopyWorkspaceImage"><span class="hs-identifier hs-type">newCopyWorkspaceImage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
-</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'sourceImageId'</span><span>
-</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-106"></span><span>  </span><span class="hs-comment">-- | 'sourceRegion'</span><span>
-</span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span>
-</span><span id="line-109"></span><span id="newCopyWorkspaceImage"><span class="annot"><span class="annottext">newCopyWorkspaceImage :: Text -&gt; Text -&gt; Text -&gt; CopyWorkspaceImage
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Create a value of 'CopyWorkspaceImage' with all optional fields omitted.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'description', 'copyWorkspaceImage_description' - A description of the image.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'tags', 'copyWorkspaceImage_tags' - The tags for the image.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'name', 'copyWorkspaceImage_name' - The name of the image.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'sourceImageId', 'copyWorkspaceImage_sourceImageId' - The identifier of the source image.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'sourceRegion', 'copyWorkspaceImage_sourceRegion' - The identifier of the source Region.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#newCopyWorkspaceImage"><span class="hs-identifier hs-type">newCopyWorkspaceImage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-comment">-- | 'sourceImageId'</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'sourceRegion'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span>
+</span><span id="line-110"></span><span id="newCopyWorkspaceImage"><span class="annot"><span class="annottext">newCopyWorkspaceImage :: Text -&gt; Text -&gt; Text -&gt; CopyWorkspaceImage
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#newCopyWorkspaceImage"><span class="hs-identifier hs-var hs-var">newCopyWorkspaceImage</span></a></span></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679285841"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285841"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679285840"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285840"><span class="hs-identifier hs-var">pSourceImageId_</span></a></span></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679285839"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285839"><span class="hs-identifier hs-var">pSourceRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">CopyWorkspaceImage' :: Maybe [Tag]
--&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; CopyWorkspaceImage
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679288971"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288971"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679288970"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288970"><span class="hs-identifier hs-var">pSourceImageId_</span></a></span></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679288969"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288969"><span class="hs-identifier hs-var">pSourceRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">CopyWorkspaceImage' :: Maybe Text
+-&gt; Maybe [Tag] -&gt; Text -&gt; Text -&gt; Text -&gt; CopyWorkspaceImage
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CopyWorkspaceImage' :: Maybe [Tag]
-</span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3Atags%3ACopyWorkspaceImage%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:CopyWorkspaceImage' :: Maybe Text
+</span><span id="line-115"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:description:CopyWorkspaceImage' :: Maybe Text
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3Adescription%3ACopyWorkspaceImage%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CopyWorkspaceImage' :: Text
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CopyWorkspaceImage' :: Maybe [Tag]
+</span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3Atags%3ACopyWorkspaceImage%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CopyWorkspaceImage' :: Text
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3Aname%3ACopyWorkspaceImage%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285841"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceImageId:CopyWorkspaceImage' :: Text
+</span><a href="#local-6989586621679288971"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceImageId:CopyWorkspaceImage' :: Text
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3AsourceImageId%3ACopyWorkspaceImage%27"><span class="hs-identifier hs-var">sourceImageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285840"><span class="hs-identifier hs-var">pSourceImageId_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceRegion:CopyWorkspaceImage' :: Text
+</span><a href="#local-6989586621679288970"><span class="hs-identifier hs-var">pSourceImageId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceRegion:CopyWorkspaceImage' :: Text
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3AsourceRegion%3ACopyWorkspaceImage%27"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285839"><span class="hs-identifier hs-var">pSourceRegion_</span></a></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- | The tags for the image.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_tags"><span class="hs-identifier hs-type">copyWorkspaceImage_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="copyWorkspaceImage_tags"><span class="annot"><span class="annottext">copyWorkspaceImage_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679288969"><span class="hs-identifier hs-var">pSourceRegion_</span></a></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | A description of the image.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_description"><span class="hs-identifier hs-type">copyWorkspaceImage_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="copyWorkspaceImage_description"><span class="annot"><span class="annottext">copyWorkspaceImage_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CopyWorkspaceImage -&gt; f CopyWorkspaceImage
+</span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_description"><span class="hs-identifier hs-var hs-var">copyWorkspaceImage_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyWorkspaceImage -&gt; Maybe Text)
+-&gt; (CopyWorkspaceImage -&gt; Maybe Text -&gt; CopyWorkspaceImage)
+-&gt; Lens
+     CopyWorkspaceImage CopyWorkspaceImage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288966"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CopyWorkspaceImage' :: CopyWorkspaceImage -&gt; Maybe Text
+</span><a href="#local-6989586621679288966"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288966"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288965"><span class="annot"><span class="annottext">s :: CopyWorkspaceImage
+</span><a href="#local-6989586621679288965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288964"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyWorkspaceImage
+</span><a href="#local-6989586621679288965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CopyWorkspaceImage' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3Adescription%3ACopyWorkspaceImage%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The tags for the image.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_tags"><span class="hs-identifier hs-type">copyWorkspaceImage_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="copyWorkspaceImage_tags"><span class="annot"><span class="annottext">copyWorkspaceImage_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; CopyWorkspaceImage -&gt; f CopyWorkspaceImage
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_tags"><span class="hs-identifier hs-var hs-var">copyWorkspaceImage_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyWorkspaceImage -&gt; Maybe [Tag])
 -&gt; (CopyWorkspaceImage -&gt; Maybe [Tag] -&gt; CopyWorkspaceImage)
 -&gt; Lens
      CopyWorkspaceImage CopyWorkspaceImage (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285836"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288963"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CopyWorkspaceImage' :: CopyWorkspaceImage -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679285836"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679285836"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285835"><span class="annot"><span class="annottext">s :: CopyWorkspaceImage
-</span><a href="#local-6989586621679285835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285834"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679285834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyWorkspaceImage
-</span><a href="#local-6989586621679285835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CopyWorkspaceImage' :: Maybe [Tag]
+</span><a href="#local-6989586621679288963"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679288963"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288962"><span class="annot"><span class="annottext">s :: CopyWorkspaceImage
+</span><a href="#local-6989586621679288962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288961"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679288961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyWorkspaceImage
+</span><a href="#local-6989586621679288962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CopyWorkspaceImage' :: Maybe [Tag]
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3Atags%3ACopyWorkspaceImage%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679285834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679288961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CopyWorkspaceImage -&gt; f CopyWorkspaceImage)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -226,100 +247,80 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | A description of the image.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_description"><span class="hs-identifier hs-type">copyWorkspaceImage_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="copyWorkspaceImage_description"><span class="annot"><span class="annottext">copyWorkspaceImage_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CopyWorkspaceImage -&gt; f CopyWorkspaceImage
-</span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_description"><span class="hs-identifier hs-var hs-var">copyWorkspaceImage_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyWorkspaceImage -&gt; Maybe Text)
--&gt; (CopyWorkspaceImage -&gt; Maybe Text -&gt; CopyWorkspaceImage)
--&gt; Lens
-     CopyWorkspaceImage CopyWorkspaceImage (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285830"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:CopyWorkspaceImage' :: CopyWorkspaceImage -&gt; Maybe Text
-</span><a href="#local-6989586621679285830"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285830"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285829"><span class="annot"><span class="annottext">s :: CopyWorkspaceImage
-</span><a href="#local-6989586621679285829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285828"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyWorkspaceImage
-</span><a href="#local-6989586621679285829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CopyWorkspaceImage' :: Maybe Text
-</span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3Adescription%3ACopyWorkspaceImage%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The name of the image.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_name"><span class="hs-identifier hs-type">copyWorkspaceImage_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-131"></span><span id="copyWorkspaceImage_name"><span class="annot"><span class="annottext">copyWorkspaceImage_name :: (Text -&gt; f Text) -&gt; CopyWorkspaceImage -&gt; f CopyWorkspaceImage
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The name of the image.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_name"><span class="hs-identifier hs-type">copyWorkspaceImage_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-132"></span><span id="copyWorkspaceImage_name"><span class="annot"><span class="annottext">copyWorkspaceImage_name :: (Text -&gt; f Text) -&gt; CopyWorkspaceImage -&gt; f CopyWorkspaceImage
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_name"><span class="hs-identifier hs-var hs-var">copyWorkspaceImage_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyWorkspaceImage -&gt; Text)
 -&gt; (CopyWorkspaceImage -&gt; Text -&gt; CopyWorkspaceImage)
 -&gt; Lens CopyWorkspaceImage CopyWorkspaceImage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285827"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288957"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:CopyWorkspaceImage' :: CopyWorkspaceImage -&gt; Text
-</span><a href="#local-6989586621679285827"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285827"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285826"><span class="annot"><span class="annottext">s :: CopyWorkspaceImage
-</span><a href="#local-6989586621679285826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285825"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyWorkspaceImage
-</span><a href="#local-6989586621679285826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CopyWorkspaceImage' :: Text
+</span><a href="#local-6989586621679288957"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288957"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288956"><span class="annot"><span class="annottext">s :: CopyWorkspaceImage
+</span><a href="#local-6989586621679288956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288955"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyWorkspaceImage
+</span><a href="#local-6989586621679288956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CopyWorkspaceImage' :: Text
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3Aname%3ACopyWorkspaceImage%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | The identifier of the source image.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_sourceImageId"><span class="hs-identifier hs-type">copyWorkspaceImage_sourceImageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-135"></span><span id="copyWorkspaceImage_sourceImageId"><span class="annot"><span class="annottext">copyWorkspaceImage_sourceImageId :: (Text -&gt; f Text) -&gt; CopyWorkspaceImage -&gt; f CopyWorkspaceImage
+</span><a href="#local-6989586621679288955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The identifier of the source image.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_sourceImageId"><span class="hs-identifier hs-type">copyWorkspaceImage_sourceImageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-136"></span><span id="copyWorkspaceImage_sourceImageId"><span class="annot"><span class="annottext">copyWorkspaceImage_sourceImageId :: (Text -&gt; f Text) -&gt; CopyWorkspaceImage -&gt; f CopyWorkspaceImage
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_sourceImageId"><span class="hs-identifier hs-var hs-var">copyWorkspaceImage_sourceImageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyWorkspaceImage -&gt; Text)
 -&gt; (CopyWorkspaceImage -&gt; Text -&gt; CopyWorkspaceImage)
 -&gt; Lens CopyWorkspaceImage CopyWorkspaceImage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285824"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288954"><span class="annot"><span class="annottext">Text
 sourceImageId :: Text
 $sel:sourceImageId:CopyWorkspaceImage' :: CopyWorkspaceImage -&gt; Text
-</span><a href="#local-6989586621679285824"><span class="hs-identifier hs-var hs-var">sourceImageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285824"><span class="hs-identifier hs-var">sourceImageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285823"><span class="annot"><span class="annottext">s :: CopyWorkspaceImage
-</span><a href="#local-6989586621679285823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285822"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyWorkspaceImage
-</span><a href="#local-6989586621679285823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceImageId:CopyWorkspaceImage' :: Text
+</span><a href="#local-6989586621679288954"><span class="hs-identifier hs-var hs-var">sourceImageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288954"><span class="hs-identifier hs-var">sourceImageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288953"><span class="annot"><span class="annottext">s :: CopyWorkspaceImage
+</span><a href="#local-6989586621679288953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288952"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyWorkspaceImage
+</span><a href="#local-6989586621679288953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceImageId:CopyWorkspaceImage' :: Text
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3AsourceImageId%3ACopyWorkspaceImage%27"><span class="hs-identifier hs-var">sourceImageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | The identifier of the source Region.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_sourceRegion"><span class="hs-identifier hs-type">copyWorkspaceImage_sourceRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-139"></span><span id="copyWorkspaceImage_sourceRegion"><span class="annot"><span class="annottext">copyWorkspaceImage_sourceRegion :: (Text -&gt; f Text) -&gt; CopyWorkspaceImage -&gt; f CopyWorkspaceImage
+</span><a href="#local-6989586621679288952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The identifier of the source Region.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_sourceRegion"><span class="hs-identifier hs-type">copyWorkspaceImage_sourceRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-140"></span><span id="copyWorkspaceImage_sourceRegion"><span class="annot"><span class="annottext">copyWorkspaceImage_sourceRegion :: (Text -&gt; f Text) -&gt; CopyWorkspaceImage -&gt; f CopyWorkspaceImage
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImage_sourceRegion"><span class="hs-identifier hs-var hs-var">copyWorkspaceImage_sourceRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyWorkspaceImage -&gt; Text)
 -&gt; (CopyWorkspaceImage -&gt; Text -&gt; CopyWorkspaceImage)
 -&gt; Lens CopyWorkspaceImage CopyWorkspaceImage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285821"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288951"><span class="annot"><span class="annottext">Text
 sourceRegion :: Text
 $sel:sourceRegion:CopyWorkspaceImage' :: CopyWorkspaceImage -&gt; Text
-</span><a href="#local-6989586621679285821"><span class="hs-identifier hs-var hs-var">sourceRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285821"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285820"><span class="annot"><span class="annottext">s :: CopyWorkspaceImage
-</span><a href="#local-6989586621679285820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285819"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyWorkspaceImage
-</span><a href="#local-6989586621679285820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceRegion:CopyWorkspaceImage' :: Text
+</span><a href="#local-6989586621679288951"><span class="hs-identifier hs-var hs-var">sourceRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288951"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288950"><span class="annot"><span class="annottext">s :: CopyWorkspaceImage
+</span><a href="#local-6989586621679288950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288949"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyWorkspaceImage
+</span><a href="#local-6989586621679288950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceRegion:CopyWorkspaceImage' :: Text
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3AsourceRegion%3ACopyWorkspaceImage%27"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-143"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-144"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse</span></a></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679285815"><span class="annot"><span class="annottext">request :: CopyWorkspaceImage -&gt; Request CopyWorkspaceImage
+</span><a href="#local-6989586621679288949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-144"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse</span></a></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679288945"><span class="annot"><span class="annottext">request :: CopyWorkspaceImage -&gt; Request CopyWorkspaceImage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CopyWorkspaceImage -&gt; Request CopyWorkspaceImage
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679285811"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679288941"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CopyWorkspaceImage
 -&gt; ClientResponse ClientBody
 -&gt; m (Either
         Error (ClientResponse (AWSResponse CopyWorkspaceImage)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; Object
  -&gt; Either String (AWSResponse CopyWorkspaceImage))
@@ -338,22 +339,22 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679285808"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285808"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679285807"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679285807"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679285806"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679285806"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CopyWorkspaceImageResponse
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679288938"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288938"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679288937"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679288937"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679288936"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679288936"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CopyWorkspaceImageResponse
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse%27"><span class="hs-identifier hs-var">CopyWorkspaceImageResponse'</span></a></span><span>
-</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CopyWorkspaceImageResponse)
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CopyWorkspaceImageResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; CopyWorkspaceImageResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679285806"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679288936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImageId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CopyWorkspaceImageResponse)
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CopyWorkspaceImageResponse)
 -&gt; Either String Int -&gt; Either String CopyWorkspaceImageResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
@@ -361,125 +362,125 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285808"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285798"><span id="local-6989586621679285800"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span></span></span><span>
-</span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span></span><span>
-</span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679285791"><span class="annot"><span class="annottext">toHeaders :: CopyWorkspaceImage -&gt; ResponseHeaders
+</span><a href="#local-6989586621679288938"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288928"><span id="local-6989586621679288930"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288925"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679288921"><span class="annot"><span class="annottext">toHeaders :: CopyWorkspaceImage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CopyWorkspaceImage -&gt; ResponseHeaders
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CopyWorkspaceImage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
-</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-162"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-163"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
-</span><span id="line-163"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;WorkspacesService.CopyWorkspaceImage&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-164"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-165"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-165"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-166"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
-</span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-168"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-168"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-169"></span><span>                      </span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285781"><span id="local-6989586621679285783"><span id="local-6989586621679285785"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679285779"><span class="annot"><span class="annottext">toJSON :: CopyWorkspaceImage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285773"><span id="local-6989586621679285774"><span id="local-6989586621679285775"><span id="local-6989586621679285776"><span id="local-6989586621679285777"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-169"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-170"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288911"><span id="local-6989586621679288913"><span id="local-6989586621679288915"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679288909"><span class="annot"><span class="annottext">toJSON :: CopyWorkspaceImage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage%27"><span class="hs-identifier hs-type">CopyWorkspaceImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288903"><span id="local-6989586621679288904"><span id="local-6989586621679288905"><span id="local-6989586621679288906"><span id="local-6989586621679288907"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe Text
 Text
 sourceRegion :: Text
 sourceImageId :: Text
 name :: Text
-description :: Maybe Text
 tags :: Maybe [Tag]
+description :: Maybe Text
 $sel:sourceRegion:CopyWorkspaceImage' :: CopyWorkspaceImage -&gt; Text
 $sel:sourceImageId:CopyWorkspaceImage' :: CopyWorkspaceImage -&gt; Text
 $sel:name:CopyWorkspaceImage' :: CopyWorkspaceImage -&gt; Text
-$sel:description:CopyWorkspaceImage' :: CopyWorkspaceImage -&gt; Maybe Text
 $sel:tags:CopyWorkspaceImage' :: CopyWorkspaceImage -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679285773"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:description:CopyWorkspaceImage' :: CopyWorkspaceImage -&gt; Maybe Text
+</span><a href="#local-6989586621679288903"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-177"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679285777"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-178"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285776"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679288907"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679288906"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285775"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679288905"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceImageId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285774"><span class="hs-identifier hs-var">sourceImageId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679288904"><span class="hs-identifier hs-var">sourceImageId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679285773"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679285767"><span class="annot"><span class="annottext">toPath :: CopyWorkspaceImage -&gt; ByteString
+</span><a href="#local-6989586621679288903"><span class="hs-identifier hs-var">sourceRegion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679288897"><span class="annot"><span class="annottext">toPath :: CopyWorkspaceImage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CopyWorkspaceImage -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
-</span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679285763"><span class="annot"><span class="annottext">toQuery :: CopyWorkspaceImage -&gt; QueryString
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImage"><span class="hs-identifier hs-type">CopyWorkspaceImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679288893"><span class="annot"><span class="annottext">toQuery :: CopyWorkspaceImage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CopyWorkspaceImage -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- | /See:/ 'newCopyWorkspaceImageResponse' smart constructor.</span><span>
-</span><span id="line-192"></span><span id="local-6989586621679285760"><span id="local-6989586621679285761"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyWorkspaceImageResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse"><span class="hs-identifier hs-var">CopyWorkspaceImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyWorkspaceImageResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse%27"><span class="hs-identifier hs-var">CopyWorkspaceImageResponse'</span></a></span></span><span>
-</span><span id="line-193"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the image.</span><span>
-</span><span id="line-194"></span><span>    </span><span id="%24sel%3AimageId%3ACopyWorkspaceImageResponse%27"><span class="annot"><span class="annottext">CopyWorkspaceImageResponse -&gt; Maybe Text
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | /See:/ 'newCopyWorkspaceImageResponse' smart constructor.</span><span>
+</span><span id="line-193"></span><span id="local-6989586621679288890"><span id="local-6989586621679288891"></span></span><span class="hs-keyword">data</span><span> </span><span id="CopyWorkspaceImageResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse"><span class="hs-identifier hs-var">CopyWorkspaceImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CopyWorkspaceImageResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse%27"><span class="hs-identifier hs-var">CopyWorkspaceImageResponse'</span></a></span></span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the image.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AimageId%3ACopyWorkspaceImageResponse%27"><span class="annot"><span class="annottext">CopyWorkspaceImageResponse -&gt; Maybe Text
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3AimageId%3ACopyWorkspaceImageResponse%27"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-196"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACopyWorkspaceImageResponse%27"><span class="annot"><span class="annottext">CopyWorkspaceImageResponse -&gt; Int
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACopyWorkspaceImageResponse%27"><span class="annot"><span class="annottext">CopyWorkspaceImageResponse -&gt; Int
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3AhttpStatus%3ACopyWorkspaceImageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-197"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679285754"><span id="local-6989586621679285756"><span class="annot"><span class="annottext">CopyWorkspaceImageResponse -&gt; CopyWorkspaceImageResponse -&gt; Bool
+</span><span id="line-198"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288884"><span id="local-6989586621679288886"><span class="annot"><span class="annottext">CopyWorkspaceImageResponse -&gt; CopyWorkspaceImageResponse -&gt; Bool
 (CopyWorkspaceImageResponse -&gt; CopyWorkspaceImageResponse -&gt; Bool)
 -&gt; (CopyWorkspaceImageResponse
     -&gt; CopyWorkspaceImageResponse -&gt; Bool)
@@ -489,7 +490,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CopyWorkspaceImageResponse -&gt; CopyWorkspaceImageResponse -&gt; Bool
 == :: CopyWorkspaceImageResponse -&gt; CopyWorkspaceImageResponse -&gt; Bool
 $c== :: CopyWorkspaceImageResponse -&gt; CopyWorkspaceImageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285746"><span id="local-6989586621679285748"><span id="local-6989586621679285750"><span id="local-6989586621679285752"><span class="annot"><span class="annottext">ReadPrec [CopyWorkspaceImageResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288876"><span id="local-6989586621679288878"><span id="local-6989586621679288880"><span id="local-6989586621679288882"><span class="annot"><span class="annottext">ReadPrec [CopyWorkspaceImageResponse]
 ReadPrec CopyWorkspaceImageResponse
 Int -&gt; ReadS CopyWorkspaceImageResponse
 ReadS [CopyWorkspaceImageResponse]
@@ -509,7 +510,7 @@ readList :: ReadS [CopyWorkspaceImageResponse]
 $creadList :: ReadS [CopyWorkspaceImageResponse]
 readsPrec :: Int -&gt; ReadS CopyWorkspaceImageResponse
 $creadsPrec :: Int -&gt; ReadS CopyWorkspaceImageResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285740"><span id="local-6989586621679285742"><span id="local-6989586621679285744"><span class="annot"><span class="annottext">Int -&gt; CopyWorkspaceImageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288870"><span id="local-6989586621679288872"><span id="local-6989586621679288874"><span class="annot"><span class="annottext">Int -&gt; CopyWorkspaceImageResponse -&gt; ShowS
 [CopyWorkspaceImageResponse] -&gt; ShowS
 CopyWorkspaceImageResponse -&gt; String
 (Int -&gt; CopyWorkspaceImageResponse -&gt; ShowS)
@@ -540,40 +541,40 @@ Rep CopyWorkspaceImageResponse x -&gt; CopyWorkspaceImageResponse
 $cfrom :: forall x.
 CopyWorkspaceImageResponse -&gt; Rep CopyWorkspaceImageResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- Create a value of 'CopyWorkspaceImageResponse' with all optional fields omitted.</span><span>
-</span><span id="line-202"></span><span class="hs-comment">--</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-204"></span><span class="hs-comment">--</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-207"></span><span class="hs-comment">--</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- 'imageId', 'copyWorkspaceImageResponse_imageId' - The identifier of the image.</span><span>
-</span><span id="line-209"></span><span class="hs-comment">--</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- 'httpStatus', 'copyWorkspaceImageResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#newCopyWorkspaceImageResponse"><span class="hs-identifier hs-type">newCopyWorkspaceImageResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-212"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-213"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-214"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse</span></a></span><span>
-</span><span id="line-215"></span><span id="newCopyWorkspaceImageResponse"><span class="annot"><span class="annottext">newCopyWorkspaceImageResponse :: Int -&gt; CopyWorkspaceImageResponse
-</span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#newCopyWorkspaceImageResponse"><span class="hs-identifier hs-var hs-var">newCopyWorkspaceImageResponse</span></a></span></span><span> </span><span id="local-6989586621679285737"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285737"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-216"></span><span>  </span><span class="annot"><span class="annottext">CopyWorkspaceImageResponse' :: Maybe Text -&gt; Int -&gt; CopyWorkspaceImageResponse
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Create a value of 'CopyWorkspaceImageResponse' with all optional fields omitted.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'imageId', 'copyWorkspaceImageResponse_imageId' - The identifier of the image.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'httpStatus', 'copyWorkspaceImageResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#newCopyWorkspaceImageResponse"><span class="hs-identifier hs-type">newCopyWorkspaceImageResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse</span></a></span><span>
+</span><span id="line-216"></span><span id="newCopyWorkspaceImageResponse"><span class="annot"><span class="annottext">newCopyWorkspaceImageResponse :: Int -&gt; CopyWorkspaceImageResponse
+</span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#newCopyWorkspaceImageResponse"><span class="hs-identifier hs-var hs-var">newCopyWorkspaceImageResponse</span></a></span></span><span> </span><span id="local-6989586621679288867"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288867"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><span class="annottext">CopyWorkspaceImageResponse' :: Maybe Text -&gt; Int -&gt; CopyWorkspaceImageResponse
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse%27"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse'</span></a></span><span>
-</span><span id="line-217"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:imageId:CopyWorkspaceImageResponse' :: Maybe Text
+</span><span id="line-218"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:imageId:CopyWorkspaceImageResponse' :: Maybe Text
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3AimageId%3ACopyWorkspaceImageResponse%27"><span class="hs-identifier hs-var">imageId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CopyWorkspaceImageResponse' :: Int
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CopyWorkspaceImageResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3AhttpStatus%3ACopyWorkspaceImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285737"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- | The identifier of the image.</span><span>
-</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImageResponse_imageId"><span class="hs-identifier hs-type">copyWorkspaceImageResponse_imageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-224"></span><span id="copyWorkspaceImageResponse_imageId"><span class="annot"><span class="annottext">copyWorkspaceImageResponse_imageId :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679288867"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The identifier of the image.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImageResponse_imageId"><span class="hs-identifier hs-type">copyWorkspaceImageResponse_imageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="copyWorkspaceImageResponse_imageId"><span class="annot"><span class="annottext">copyWorkspaceImageResponse_imageId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CopyWorkspaceImageResponse -&gt; f CopyWorkspaceImageResponse
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImageResponse_imageId"><span class="hs-identifier hs-var hs-var">copyWorkspaceImageResponse_imageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyWorkspaceImageResponse -&gt; Maybe Text)
 -&gt; (CopyWorkspaceImageResponse
@@ -584,20 +585,20 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse%27"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285736"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse%27"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288866"><span class="annot"><span class="annottext">Maybe Text
 imageId :: Maybe Text
 $sel:imageId:CopyWorkspaceImageResponse' :: CopyWorkspaceImageResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679285736"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285736"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285735"><span class="annot"><span class="annottext">s :: CopyWorkspaceImageResponse
-</span><a href="#local-6989586621679285735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse%27"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285734"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyWorkspaceImageResponse
-</span><a href="#local-6989586621679285735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageId:CopyWorkspaceImageResponse' :: Maybe Text
+</span><a href="#local-6989586621679288866"><span class="hs-identifier hs-var hs-var">imageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288866"><span class="hs-identifier hs-var">imageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288865"><span class="annot"><span class="annottext">s :: CopyWorkspaceImageResponse
+</span><a href="#local-6989586621679288865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse%27"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288864"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679288864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyWorkspaceImageResponse
+</span><a href="#local-6989586621679288865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageId:CopyWorkspaceImageResponse' :: Maybe Text
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3AimageId%3ACopyWorkspaceImageResponse%27"><span class="hs-identifier hs-var">imageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679285734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-225"></span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImageResponse_httpStatus"><span class="hs-identifier hs-type">copyWorkspaceImageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-228"></span><span id="copyWorkspaceImageResponse_httpStatus"><span class="annot"><span class="annottext">copyWorkspaceImageResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621679288864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImageResponse_httpStatus"><span class="hs-identifier hs-type">copyWorkspaceImageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-229"></span><span id="copyWorkspaceImageResponse_httpStatus"><span class="annot"><span class="annottext">copyWorkspaceImageResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; CopyWorkspaceImageResponse -&gt; f CopyWorkspaceImageResponse
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#copyWorkspaceImageResponse_httpStatus"><span class="hs-identifier hs-var hs-var">copyWorkspaceImageResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CopyWorkspaceImageResponse -&gt; Int)
 -&gt; (CopyWorkspaceImageResponse
@@ -605,16 +606,16 @@ $sel:imageId:CopyWorkspaceImageResponse' :: CopyWorkspaceImageResponse -&gt; May
 -&gt; Lens
      CopyWorkspaceImageResponse CopyWorkspaceImageResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse%27"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285733"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse%27"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288863"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CopyWorkspaceImageResponse' :: CopyWorkspaceImageResponse -&gt; Int
-</span><a href="#local-6989586621679285733"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285733"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285732"><span class="annot"><span class="annottext">s :: CopyWorkspaceImageResponse
-</span><a href="#local-6989586621679285732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse%27"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285731"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyWorkspaceImageResponse
-</span><a href="#local-6989586621679285732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CopyWorkspaceImageResponse' :: Int
+</span><a href="#local-6989586621679288863"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288863"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288862"><span class="annot"><span class="annottext">s :: CopyWorkspaceImageResponse
+</span><a href="#local-6989586621679288862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse%27"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288861"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CopyWorkspaceImageResponse
+</span><a href="#local-6989586621679288862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CopyWorkspaceImageResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#%24sel%3AhttpStatus%3ACopyWorkspaceImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285729"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse</span></a></span></span><span>
-</span><span id="line-231"></span></pre></body></html>
+</span><a href="#local-6989586621679288861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.CopyWorkspaceImage.html#CopyWorkspaceImageResponse"><span class="hs-identifier hs-type">CopyWorkspaceImageResponse</span></a></span></span><span>
+</span><span id="line-232"></span></pre></body></html>

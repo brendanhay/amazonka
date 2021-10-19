@@ -35,7 +35,7 @@
 </span><span id="line-35"></span><span class="hs-comment">-- lifetime.</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newNoncurrentVersionTransition' smart constructor.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679557590"><span id="local-6989586621679557591"></span></span><span class="hs-keyword">data</span><span> </span><span id="NoncurrentVersionTransition"><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-var">NoncurrentVersionTransition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NoncurrentVersionTransition%27"><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-var">NoncurrentVersionTransition'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679558245"><span id="local-6989586621679558246"></span></span><span class="hs-keyword">data</span><span> </span><span id="NoncurrentVersionTransition"><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-var">NoncurrentVersionTransition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NoncurrentVersionTransition%27"><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-var">NoncurrentVersionTransition'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the number of days an object is noncurrent before Amazon S3</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- can perform the associated action. For information about the noncurrent</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- days calculations, see</span><span>
@@ -47,7 +47,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AstorageClass%3ANoncurrentVersionTransition%27"><span class="annot"><span class="annottext">NoncurrentVersionTransition -&gt; TransitionStorageClass
 </span><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#%24sel%3AstorageClass%3ANoncurrentVersionTransition%27"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TransitionStorageClass.html#TransitionStorageClass"><span class="hs-identifier hs-type">TransitionStorageClass</span></a></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679557583"><span id="local-6989586621679557585"><span class="annot"><span class="annottext">NoncurrentVersionTransition -&gt; NoncurrentVersionTransition -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679558238"><span id="local-6989586621679558240"><span class="annot"><span class="annottext">NoncurrentVersionTransition -&gt; NoncurrentVersionTransition -&gt; Bool
 (NoncurrentVersionTransition
  -&gt; NoncurrentVersionTransition -&gt; Bool)
 -&gt; (NoncurrentVersionTransition
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: NoncurrentVersionTransition -&gt; NoncurrentVersionTransition -&gt; Bool
 == :: NoncurrentVersionTransition -&gt; NoncurrentVersionTransition -&gt; Bool
 $c== :: NoncurrentVersionTransition -&gt; NoncurrentVersionTransition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557574"><span id="local-6989586621679557576"><span id="local-6989586621679557578"><span id="local-6989586621679557580"><span class="annot"><span class="annottext">ReadPrec [NoncurrentVersionTransition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558229"><span id="local-6989586621679558231"><span id="local-6989586621679558233"><span id="local-6989586621679558235"><span class="annot"><span class="annottext">ReadPrec [NoncurrentVersionTransition]
 ReadPrec NoncurrentVersionTransition
 Int -&gt; ReadS NoncurrentVersionTransition
 ReadS [NoncurrentVersionTransition]
@@ -78,7 +78,7 @@ readList :: ReadS [NoncurrentVersionTransition]
 $creadList :: ReadS [NoncurrentVersionTransition]
 readsPrec :: Int -&gt; ReadS NoncurrentVersionTransition
 $creadsPrec :: Int -&gt; ReadS NoncurrentVersionTransition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679557567"><span id="local-6989586621679557569"><span id="local-6989586621679557571"><span class="annot"><span class="annottext">Int -&gt; NoncurrentVersionTransition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558222"><span id="local-6989586621679558224"><span id="local-6989586621679558226"><span class="annot"><span class="annottext">Int -&gt; NoncurrentVersionTransition -&gt; ShowS
 [NoncurrentVersionTransition] -&gt; ShowS
 NoncurrentVersionTransition -&gt; String
 (Int -&gt; NoncurrentVersionTransition -&gt; ShowS)
@@ -133,19 +133,19 @@ NoncurrentVersionTransition -&gt; Rep NoncurrentVersionTransition x
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span><span>
 </span><span id="line-71"></span><span id="newNoncurrentVersionTransition"><span class="annot"><span class="annottext">newNoncurrentVersionTransition :: Int -&gt; TransitionStorageClass -&gt; NoncurrentVersionTransition
 </span><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#newNoncurrentVersionTransition"><span class="hs-identifier hs-var hs-var">newNoncurrentVersionTransition</span></a></span></span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679557561"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679557561"><span class="hs-identifier hs-var">pNoncurrentDays_</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679557560"><span class="annot"><span class="annottext">TransitionStorageClass
-</span><a href="#local-6989586621679557560"><span class="hs-identifier hs-var">pStorageClass_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679558216"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679558216"><span class="hs-identifier hs-var">pNoncurrentDays_</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679558215"><span class="annot"><span class="annottext">TransitionStorageClass
+</span><a href="#local-6989586621679558215"><span class="hs-identifier hs-var">pStorageClass_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">NoncurrentVersionTransition' :: Int -&gt; TransitionStorageClass -&gt; NoncurrentVersionTransition
 </span><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-type">NoncurrentVersionTransition'</span></a></span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:noncurrentDays:NoncurrentVersionTransition' :: Int
 </span><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#%24sel%3AnoncurrentDays%3ANoncurrentVersionTransition%27"><span class="hs-identifier hs-var">noncurrentDays</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679557561"><span class="hs-identifier hs-var">pNoncurrentDays_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679558216"><span class="hs-identifier hs-var">pNoncurrentDays_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">$sel:storageClass:NoncurrentVersionTransition' :: TransitionStorageClass
 </span><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#%24sel%3AstorageClass%3ANoncurrentVersionTransition%27"><span class="hs-identifier hs-var">storageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TransitionStorageClass
-</span><a href="#local-6989586621679557560"><span class="hs-identifier hs-var">pStorageClass_</span></a></span><span>
+</span><a href="#local-6989586621679558215"><span class="hs-identifier hs-var">pStorageClass_</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Specifies the number of days an object is noncurrent before Amazon S3</span><span>
@@ -162,16 +162,16 @@ NoncurrentVersionTransition -&gt; Rep NoncurrentVersionTransition x
 -&gt; Lens
      NoncurrentVersionTransition NoncurrentVersionTransition Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-type">NoncurrentVersionTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557556"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-type">NoncurrentVersionTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558211"><span class="annot"><span class="annottext">Int
 noncurrentDays :: Int
 $sel:noncurrentDays:NoncurrentVersionTransition' :: NoncurrentVersionTransition -&gt; Int
-</span><a href="#local-6989586621679557556"><span class="hs-identifier hs-var hs-var">noncurrentDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679557556"><span class="hs-identifier hs-var">noncurrentDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557555"><span class="annot"><span class="annottext">s :: NoncurrentVersionTransition
-</span><a href="#local-6989586621679557555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-type">NoncurrentVersionTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557554"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679557554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NoncurrentVersionTransition
-</span><a href="#local-6989586621679557555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noncurrentDays:NoncurrentVersionTransition' :: Int
+</span><a href="#local-6989586621679558211"><span class="hs-identifier hs-var hs-var">noncurrentDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679558211"><span class="hs-identifier hs-var">noncurrentDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558210"><span class="annot"><span class="annottext">s :: NoncurrentVersionTransition
+</span><a href="#local-6989586621679558210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-type">NoncurrentVersionTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558209"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679558209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NoncurrentVersionTransition
+</span><a href="#local-6989586621679558210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noncurrentDays:NoncurrentVersionTransition' :: Int
 </span><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#%24sel%3AnoncurrentDays%3ANoncurrentVersionTransition%27"><span class="hs-identifier hs-var">noncurrentDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679557554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679558209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The class of storage used to store the object.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#noncurrentVersionTransition_storageClass"><span class="hs-identifier hs-type">noncurrentVersionTransition_storageClass</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.TransitionStorageClass.html#TransitionStorageClass"><span class="hs-identifier hs-type">TransitionStorageClass</span></a></span><span>
@@ -186,21 +186,21 @@ $sel:noncurrentDays:NoncurrentVersionTransition' :: NoncurrentVersionTransition 
      TransitionStorageClass
      TransitionStorageClass
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-type">NoncurrentVersionTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557552"><span class="annot"><span class="annottext">TransitionStorageClass
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-type">NoncurrentVersionTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558207"><span class="annot"><span class="annottext">TransitionStorageClass
 storageClass :: TransitionStorageClass
 $sel:storageClass:NoncurrentVersionTransition' :: NoncurrentVersionTransition -&gt; TransitionStorageClass
-</span><a href="#local-6989586621679557552"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitionStorageClass
-</span><a href="#local-6989586621679557552"><span class="hs-identifier hs-var">storageClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679557551"><span class="annot"><span class="annottext">s :: NoncurrentVersionTransition
-</span><a href="#local-6989586621679557551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-type">NoncurrentVersionTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679557550"><span class="annot"><span class="annottext">TransitionStorageClass
-</span><a href="#local-6989586621679557550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NoncurrentVersionTransition
-</span><a href="#local-6989586621679557551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageClass:NoncurrentVersionTransition' :: TransitionStorageClass
+</span><a href="#local-6989586621679558207"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitionStorageClass
+</span><a href="#local-6989586621679558207"><span class="hs-identifier hs-var">storageClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558206"><span class="annot"><span class="annottext">s :: NoncurrentVersionTransition
+</span><a href="#local-6989586621679558206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-type">NoncurrentVersionTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558205"><span class="annot"><span class="annottext">TransitionStorageClass
+</span><a href="#local-6989586621679558205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NoncurrentVersionTransition
+</span><a href="#local-6989586621679558206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageClass:NoncurrentVersionTransition' :: TransitionStorageClass
 </span><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#%24sel%3AstorageClass%3ANoncurrentVersionTransition%27"><span class="hs-identifier hs-var">storageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TransitionStorageClass
-</span><a href="#local-6989586621679557550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679558205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679557547"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NoncurrentVersionTransition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679557545"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679557545"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679558202"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NoncurrentVersionTransition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679558200"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558200"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">Int -&gt; TransitionStorageClass -&gt; NoncurrentVersionTransition
 </span><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-var">NoncurrentVersionTransition'</span></a></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">(Int -&gt; TransitionStorageClass -&gt; NoncurrentVersionTransition)
@@ -209,7 +209,7 @@ $sel:storageClass:NoncurrentVersionTransition' :: NoncurrentVersionTransition -&
      String (TransitionStorageClass -&gt; NoncurrentVersionTransition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679557545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+</span><a href="#local-6989586621679558200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NoncurrentDays&quot;</span></span><span class="hs-special">)</span><span>
@@ -219,24 +219,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String NoncurrentVersionTransition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679557545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String TransitionStorageClass
+</span><a href="#local-6989586621679558200"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String TransitionStorageClass
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StorageClass&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557539"><span id="local-6989586621679557541"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558194"><span id="local-6989586621679558196"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679557536"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558191"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679557532"><span class="annot"><span class="annottext">toXML :: NoncurrentVersionTransition -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-type">NoncurrentVersionTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679557529"><span id="local-6989586621679557530"><span class="annot"><span class="annottext">Int
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679558187"><span class="annot"><span class="annottext">toXML :: NoncurrentVersionTransition -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-type">NoncurrentVersionTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558184"><span id="local-6989586621679558185"><span class="annot"><span class="annottext">Int
 TransitionStorageClass
 storageClass :: TransitionStorageClass
 noncurrentDays :: Int
 $sel:storageClass:NoncurrentVersionTransition' :: NoncurrentVersionTransition -&gt; TransitionStorageClass
 $sel:noncurrentDays:NoncurrentVersionTransition' :: NoncurrentVersionTransition -&gt; Int
-</span><a href="#local-6989586621679557529"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679558184"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -244,11 +244,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;NoncurrentDays&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679557530"><span class="hs-identifier hs-var">noncurrentDays</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679558185"><span class="hs-identifier hs-var">noncurrentDays</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;StorageClass&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; TransitionStorageClass -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">TransitionStorageClass
-</span><a href="#local-6989586621679557529"><span class="hs-identifier hs-var">storageClass</span></a></span><span>
+</span><a href="#local-6989586621679558184"><span class="hs-identifier hs-var">storageClass</span></a></span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span></pre></body></html>

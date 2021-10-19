@@ -26,15 +26,15 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The name and ARN of a group.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newGroupNameAndArn' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679785029"><span id="local-6989586621679785030"></span></span><span class="hs-keyword">data</span><span> </span><span id="GroupNameAndArn"><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn"><span class="hs-identifier hs-var">GroupNameAndArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GroupNameAndArn%27"><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn%27"><span class="hs-identifier hs-var">GroupNameAndArn'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The group name.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AgroupName%3AGroupNameAndArn%27"><span class="annot"><span class="annottext">GroupNameAndArn -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#%24sel%3AgroupName%3AGroupNameAndArn%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The group ARN.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AgroupArn%3AGroupNameAndArn%27"><span class="annot"><span class="annottext">GroupNameAndArn -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#%24sel%3AgroupArn%3AGroupNameAndArn%27"><span class="hs-identifier hs-var hs-var">groupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679785880"><span id="local-6989586621679785881"></span></span><span class="hs-keyword">data</span><span> </span><span id="GroupNameAndArn"><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn"><span class="hs-identifier hs-var">GroupNameAndArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GroupNameAndArn%27"><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn%27"><span class="hs-identifier hs-var">GroupNameAndArn'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The group ARN.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AgroupArn%3AGroupNameAndArn%27"><span class="annot"><span class="annottext">GroupNameAndArn -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#%24sel%3AgroupArn%3AGroupNameAndArn%27"><span class="hs-identifier hs-var hs-var">groupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The group name.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AgroupName%3AGroupNameAndArn%27"><span class="annot"><span class="annottext">GroupNameAndArn -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#%24sel%3AgroupName%3AGroupNameAndArn%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679785022"><span id="local-6989586621679785024"><span class="annot"><span class="annottext">GroupNameAndArn -&gt; GroupNameAndArn -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679785873"><span id="local-6989586621679785875"><span class="annot"><span class="annottext">GroupNameAndArn -&gt; GroupNameAndArn -&gt; Bool
 (GroupNameAndArn -&gt; GroupNameAndArn -&gt; Bool)
 -&gt; (GroupNameAndArn -&gt; GroupNameAndArn -&gt; Bool)
 -&gt; Eq GroupNameAndArn
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GroupNameAndArn -&gt; GroupNameAndArn -&gt; Bool
 == :: GroupNameAndArn -&gt; GroupNameAndArn -&gt; Bool
 $c== :: GroupNameAndArn -&gt; GroupNameAndArn -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785013"><span id="local-6989586621679785015"><span id="local-6989586621679785017"><span id="local-6989586621679785019"><span class="annot"><span class="annottext">ReadPrec [GroupNameAndArn]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785864"><span id="local-6989586621679785866"><span id="local-6989586621679785868"><span id="local-6989586621679785870"><span class="annot"><span class="annottext">ReadPrec [GroupNameAndArn]
 ReadPrec GroupNameAndArn
 Int -&gt; ReadS GroupNameAndArn
 ReadS [GroupNameAndArn]
@@ -63,7 +63,7 @@ readList :: ReadS [GroupNameAndArn]
 $creadList :: ReadS [GroupNameAndArn]
 readsPrec :: Int -&gt; ReadS GroupNameAndArn
 $creadsPrec :: Int -&gt; ReadS GroupNameAndArn
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785006"><span id="local-6989586621679785008"><span id="local-6989586621679785010"><span class="annot"><span class="annottext">Int -&gt; GroupNameAndArn -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679785857"><span id="local-6989586621679785859"><span id="local-6989586621679785861"><span class="annot"><span class="annottext">Int -&gt; GroupNameAndArn -&gt; ShowS
 [GroupNameAndArn] -&gt; ShowS
 GroupNameAndArn -&gt; String
 (Int -&gt; GroupNameAndArn -&gt; ShowS)
@@ -97,65 +97,65 @@ $cfrom :: forall x. GroupNameAndArn -&gt; Rep GroupNameAndArn x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'groupName', 'groupNameAndArn_groupName' - The group name.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'groupArn', 'groupNameAndArn_groupArn' - The group ARN.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'groupArn', 'groupNameAndArn_groupArn' - The group ARN.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'groupName', 'groupNameAndArn_groupName' - The group name.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#newGroupNameAndArn"><span class="hs-identifier hs-type">newGroupNameAndArn</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn"><span class="hs-identifier hs-type">GroupNameAndArn</span></a></span><span>
 </span><span id="line-50"></span><span id="newGroupNameAndArn"><span class="annot"><span class="annottext">newGroupNameAndArn :: GroupNameAndArn
 </span><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#newGroupNameAndArn"><span class="hs-identifier hs-var hs-var">newGroupNameAndArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">GroupNameAndArn' :: Maybe Text -&gt; Maybe Text -&gt; GroupNameAndArn
 </span><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn%27"><span class="hs-identifier hs-type">GroupNameAndArn'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupName:GroupNameAndArn' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#%24sel%3AgroupName%3AGroupNameAndArn%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groupArn:GroupNameAndArn' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#%24sel%3AgroupArn%3AGroupNameAndArn%27"><span class="hs-identifier hs-var">groupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupArn:GroupNameAndArn' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#%24sel%3AgroupArn%3AGroupNameAndArn%27"><span class="hs-identifier hs-var">groupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupName:GroupNameAndArn' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#%24sel%3AgroupName%3AGroupNameAndArn%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- | The group name.</span><span>
-</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#groupNameAndArn_groupName"><span class="hs-identifier hs-type">groupNameAndArn_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn"><span class="hs-identifier hs-type">GroupNameAndArn</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-58"></span><span id="groupNameAndArn_groupName"><span class="annot"><span class="annottext">groupNameAndArn_groupName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GroupNameAndArn -&gt; f GroupNameAndArn
-</span><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#groupNameAndArn_groupName"><span class="hs-identifier hs-var hs-var">groupNameAndArn_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupNameAndArn -&gt; Maybe Text)
--&gt; (GroupNameAndArn -&gt; Maybe Text -&gt; GroupNameAndArn)
--&gt; Lens GroupNameAndArn GroupNameAndArn (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn%27"><span class="hs-identifier hs-type">GroupNameAndArn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784997"><span class="annot"><span class="annottext">Maybe Text
-groupName :: Maybe Text
-$sel:groupName:GroupNameAndArn' :: GroupNameAndArn -&gt; Maybe Text
-</span><a href="#local-6989586621679784997"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784997"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784996"><span class="annot"><span class="annottext">s :: GroupNameAndArn
-</span><a href="#local-6989586621679784996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn%27"><span class="hs-identifier hs-type">GroupNameAndArn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784995"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupNameAndArn
-</span><a href="#local-6989586621679784996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GroupNameAndArn' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#%24sel%3AgroupName%3AGroupNameAndArn%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn"><span class="hs-identifier hs-type">GroupNameAndArn</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | The group ARN.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#groupNameAndArn_groupArn"><span class="hs-identifier hs-type">groupNameAndArn_groupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn"><span class="hs-identifier hs-type">GroupNameAndArn</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="groupNameAndArn_groupArn"><span class="annot"><span class="annottext">groupNameAndArn_groupArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-56"></span><span class="hs-comment">-- | The group ARN.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#groupNameAndArn_groupArn"><span class="hs-identifier hs-type">groupNameAndArn_groupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn"><span class="hs-identifier hs-type">GroupNameAndArn</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="groupNameAndArn_groupArn"><span class="annot"><span class="annottext">groupNameAndArn_groupArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GroupNameAndArn -&gt; f GroupNameAndArn
 </span><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#groupNameAndArn_groupArn"><span class="hs-identifier hs-var hs-var">groupNameAndArn_groupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupNameAndArn -&gt; Maybe Text)
 -&gt; (GroupNameAndArn -&gt; Maybe Text -&gt; GroupNameAndArn)
 -&gt; Lens GroupNameAndArn GroupNameAndArn (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn%27"><span class="hs-identifier hs-type">GroupNameAndArn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679784993"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn%27"><span class="hs-identifier hs-type">GroupNameAndArn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785848"><span class="annot"><span class="annottext">Maybe Text
 groupArn :: Maybe Text
 $sel:groupArn:GroupNameAndArn' :: GroupNameAndArn -&gt; Maybe Text
-</span><a href="#local-6989586621679784993"><span class="hs-identifier hs-var hs-var">groupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784993"><span class="hs-identifier hs-var">groupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679784992"><span class="annot"><span class="annottext">s :: GroupNameAndArn
-</span><a href="#local-6989586621679784992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn%27"><span class="hs-identifier hs-type">GroupNameAndArn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679784991"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupNameAndArn
-</span><a href="#local-6989586621679784992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupArn:GroupNameAndArn' :: Maybe Text
+</span><a href="#local-6989586621679785848"><span class="hs-identifier hs-var hs-var">groupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679785848"><span class="hs-identifier hs-var">groupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785847"><span class="annot"><span class="annottext">s :: GroupNameAndArn
+</span><a href="#local-6989586621679785847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn%27"><span class="hs-identifier hs-type">GroupNameAndArn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785846"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679785846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupNameAndArn
+</span><a href="#local-6989586621679785847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupArn:GroupNameAndArn' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#%24sel%3AgroupArn%3AGroupNameAndArn%27"><span class="hs-identifier hs-var">groupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679784991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn"><span class="hs-identifier hs-type">GroupNameAndArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679785846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn"><span class="hs-identifier hs-type">GroupNameAndArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The group name.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#groupNameAndArn_groupName"><span class="hs-identifier hs-type">groupNameAndArn_groupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn"><span class="hs-identifier hs-type">GroupNameAndArn</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="groupNameAndArn_groupName"><span class="annot"><span class="annottext">groupNameAndArn_groupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GroupNameAndArn -&gt; f GroupNameAndArn
+</span><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#groupNameAndArn_groupName"><span class="hs-identifier hs-var hs-var">groupNameAndArn_groupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GroupNameAndArn -&gt; Maybe Text)
+-&gt; (GroupNameAndArn -&gt; Maybe Text -&gt; GroupNameAndArn)
+-&gt; Lens GroupNameAndArn GroupNameAndArn (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn%27"><span class="hs-identifier hs-type">GroupNameAndArn'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679785844"><span class="annot"><span class="annottext">Maybe Text
+groupName :: Maybe Text
+$sel:groupName:GroupNameAndArn' :: GroupNameAndArn -&gt; Maybe Text
+</span><a href="#local-6989586621679785844"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679785844"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679785843"><span class="annot"><span class="annottext">s :: GroupNameAndArn
+</span><a href="#local-6989586621679785843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn%27"><span class="hs-identifier hs-type">GroupNameAndArn'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679785842"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679785842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GroupNameAndArn
+</span><a href="#local-6989586621679785843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:GroupNameAndArn' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#%24sel%3AgroupName%3AGroupNameAndArn%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679785842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn"><span class="hs-identifier hs-type">GroupNameAndArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784988"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn"><span class="hs-identifier hs-type">GroupNameAndArn</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679784986"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GroupNameAndArn
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785839"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn"><span class="hs-identifier hs-type">GroupNameAndArn</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679785837"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GroupNameAndArn
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser GroupNameAndArn)
@@ -165,29 +165,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;GroupNameAndArn&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679784983"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679784983"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679785834"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679785834"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; GroupNameAndArn
 </span><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn%27"><span class="hs-identifier hs-var">GroupNameAndArn'</span></a></span><span>
 </span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; GroupNameAndArn)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; GroupNameAndArn)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679784983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679785834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;groupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;groupArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; GroupNameAndArn)
 -&gt; Parser (Maybe Text) -&gt; Parser GroupNameAndArn
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679784983"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679785834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;groupArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;groupName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784977"><span id="local-6989586621679784979"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn"><span class="hs-identifier hs-type">GroupNameAndArn</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785828"><span id="local-6989586621679785830"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn"><span class="hs-identifier hs-type">GroupNameAndArn</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679784974"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn"><span class="hs-identifier hs-type">GroupNameAndArn</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679785825"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.GroupNameAndArn.html#GroupNameAndArn"><span class="hs-identifier hs-type">GroupNameAndArn</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

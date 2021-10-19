@@ -54,12 +54,12 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | The input for the DescribeConfigurationRecorders action.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newDescribeConfigurationRecorders' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679425838"><span id="local-6989586621679425839"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConfigurationRecorders"><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders"><span class="hs-identifier hs-var">DescribeConfigurationRecorders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConfigurationRecorders%27"><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders%27"><span class="hs-identifier hs-var">DescribeConfigurationRecorders'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679426501"><span id="local-6989586621679426502"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConfigurationRecorders"><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders"><span class="hs-identifier hs-var">DescribeConfigurationRecorders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConfigurationRecorders%27"><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders%27"><span class="hs-identifier hs-var">DescribeConfigurationRecorders'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of configuration recorder names.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AconfigurationRecorderNames%3ADescribeConfigurationRecorders%27"><span class="annot"><span class="annottext">DescribeConfigurationRecorders -&gt; Maybe [Text]
 </span><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#%24sel%3AconfigurationRecorderNames%3ADescribeConfigurationRecorders%27"><span class="hs-identifier hs-var hs-var">configurationRecorderNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425832"><span id="local-6989586621679425834"><span class="annot"><span class="annottext">DescribeConfigurationRecorders
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679426495"><span id="local-6989586621679426497"><span class="annot"><span class="annottext">DescribeConfigurationRecorders
 -&gt; DescribeConfigurationRecorders -&gt; Bool
 (DescribeConfigurationRecorders
  -&gt; DescribeConfigurationRecorders -&gt; Bool)
@@ -75,7 +75,7 @@ $c/= :: DescribeConfigurationRecorders
 -&gt; DescribeConfigurationRecorders -&gt; Bool
 $c== :: DescribeConfigurationRecorders
 -&gt; DescribeConfigurationRecorders -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425823"><span id="local-6989586621679425825"><span id="local-6989586621679425827"><span id="local-6989586621679425829"><span class="annot"><span class="annottext">ReadPrec [DescribeConfigurationRecorders]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426486"><span id="local-6989586621679426488"><span id="local-6989586621679426490"><span id="local-6989586621679426492"><span class="annot"><span class="annottext">ReadPrec [DescribeConfigurationRecorders]
 ReadPrec DescribeConfigurationRecorders
 Int -&gt; ReadS DescribeConfigurationRecorders
 ReadS [DescribeConfigurationRecorders]
@@ -95,7 +95,7 @@ readList :: ReadS [DescribeConfigurationRecorders]
 $creadList :: ReadS [DescribeConfigurationRecorders]
 readsPrec :: Int -&gt; ReadS DescribeConfigurationRecorders
 $creadsPrec :: Int -&gt; ReadS DescribeConfigurationRecorders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425816"><span id="local-6989586621679425818"><span id="local-6989586621679425820"><span class="annot"><span class="annottext">Int -&gt; DescribeConfigurationRecorders -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426479"><span id="local-6989586621679426481"><span id="local-6989586621679426483"><span class="annot"><span class="annottext">Int -&gt; DescribeConfigurationRecorders -&gt; ShowS
 [DescribeConfigurationRecorders] -&gt; ShowS
 DescribeConfigurationRecorders -&gt; String
 (Int -&gt; DescribeConfigurationRecorders -&gt; ShowS)
@@ -169,16 +169,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders%27"><span class="hs-identifier hs-type">DescribeConfigurationRecorders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425809"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders%27"><span class="hs-identifier hs-type">DescribeConfigurationRecorders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426472"><span class="annot"><span class="annottext">Maybe [Text]
 configurationRecorderNames :: Maybe [Text]
 $sel:configurationRecorderNames:DescribeConfigurationRecorders' :: DescribeConfigurationRecorders -&gt; Maybe [Text]
-</span><a href="#local-6989586621679425809"><span class="hs-identifier hs-var hs-var">configurationRecorderNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679425809"><span class="hs-identifier hs-var">configurationRecorderNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425808"><span class="annot"><span class="annottext">s :: DescribeConfigurationRecorders
-</span><a href="#local-6989586621679425808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders%27"><span class="hs-identifier hs-type">DescribeConfigurationRecorders'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425807"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679425807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationRecorders
-</span><a href="#local-6989586621679425808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationRecorderNames:DescribeConfigurationRecorders' :: Maybe [Text]
+</span><a href="#local-6989586621679426472"><span class="hs-identifier hs-var hs-var">configurationRecorderNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679426472"><span class="hs-identifier hs-var">configurationRecorderNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426471"><span class="annot"><span class="annottext">s :: DescribeConfigurationRecorders
+</span><a href="#local-6989586621679426471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders%27"><span class="hs-identifier hs-type">DescribeConfigurationRecorders'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426470"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679426470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationRecorders
+</span><a href="#local-6989586621679426471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationRecorderNames:DescribeConfigurationRecorders' :: Maybe [Text]
 </span><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#%24sel%3AconfigurationRecorderNames%3ADescribeConfigurationRecorders%27"><span class="hs-identifier hs-var">configurationRecorderNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679425807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders"><span class="hs-identifier hs-type">DescribeConfigurationRecorders</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679426470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders"><span class="hs-identifier hs-type">DescribeConfigurationRecorders</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeConfigurationRecorders
  -&gt; f DescribeConfigurationRecorders)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -193,8 +193,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -203,7 +203,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 </span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-89"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders"><span class="hs-identifier hs-type">DescribeConfigurationRecorders</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse"><span class="hs-identifier hs-type">DescribeConfigurationRecordersResponse</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679425800"><span class="annot"><span class="annottext">request :: DescribeConfigurationRecorders
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679426463"><span class="annot"><span class="annottext">request :: DescribeConfigurationRecorders
 -&gt; Request DescribeConfigurationRecorders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeConfigurationRecorders
@@ -211,7 +211,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679425796"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679426459"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeConfigurationRecorders
 -&gt; ClientResponse ClientBody
@@ -239,10 +239,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679425793"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425793"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679425792"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679425792"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679425791"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679425791"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679426456"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426456"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679426455"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679426455"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679426454"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679426454"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ConfigurationRecorder]
 -&gt; Int -&gt; DescribeConfigurationRecordersResponse
 </span><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse%27"><span class="hs-identifier hs-var">DescribeConfigurationRecordersResponse'</span></a></span><span>
@@ -252,7 +252,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeConfigurationRecordersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679425791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679426454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [ConfigurationRecorder]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -274,22 +274,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425793"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679426456"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679425782"><span id="local-6989586621679425784"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679426445"><span id="local-6989586621679426447"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders"><span class="hs-identifier hs-type">DescribeConfigurationRecorders</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679425779"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679426442"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders"><span class="hs-identifier hs-type">DescribeConfigurationRecorders</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders"><span class="hs-identifier hs-type">DescribeConfigurationRecorders</span></a></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679425775"><span class="annot"><span class="annottext">toHeaders :: DescribeConfigurationRecorders -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679426438"><span class="annot"><span class="annottext">toHeaders :: DescribeConfigurationRecorders -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DescribeConfigurationRecorders -&gt; ResponseHeaders
@@ -317,12 +317,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425765"><span id="local-6989586621679425767"><span id="local-6989586621679425769"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders"><span class="hs-identifier hs-type">DescribeConfigurationRecorders</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679425763"><span class="annot"><span class="annottext">toJSON :: DescribeConfigurationRecorders -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders%27"><span class="hs-identifier hs-type">DescribeConfigurationRecorders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425761"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679426428"><span id="local-6989586621679426430"><span id="local-6989586621679426432"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders"><span class="hs-identifier hs-type">DescribeConfigurationRecorders</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679426426"><span class="annot"><span class="annottext">toJSON :: DescribeConfigurationRecorders -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders%27"><span class="hs-identifier hs-type">DescribeConfigurationRecorders'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426424"><span class="annot"><span class="annottext">Maybe [Text]
 configurationRecorderNames :: Maybe [Text]
 $sel:configurationRecorderNames:DescribeConfigurationRecorders' :: DescribeConfigurationRecorders -&gt; Maybe [Text]
-</span><a href="#local-6989586621679425761"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679426424"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -335,19 +335,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679425761"><span class="hs-identifier hs-var">configurationRecorderNames</span></a></span><span>
+</span><a href="#local-6989586621679426424"><span class="hs-identifier hs-var">configurationRecorderNames</span></a></span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders"><span class="hs-identifier hs-type">DescribeConfigurationRecorders</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679425755"><span class="annot"><span class="annottext">toPath :: DescribeConfigurationRecorders -&gt; ByteString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679426418"><span class="annot"><span class="annottext">toPath :: DescribeConfigurationRecorders -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeConfigurationRecorders -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecorders"><span class="hs-identifier hs-type">DescribeConfigurationRecorders</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679425751"><span class="annot"><span class="annottext">toQuery :: DescribeConfigurationRecorders -&gt; QueryString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679426414"><span class="annot"><span class="annottext">toQuery :: DescribeConfigurationRecorders -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeConfigurationRecorders -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -357,7 +357,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-143"></span><span class="hs-comment">-- | The output for the DescribeConfigurationRecorders action.</span><span>
 </span><span id="line-144"></span><span class="hs-comment">--</span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- /See:/ 'newDescribeConfigurationRecordersResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679425748"><span id="local-6989586621679425749"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConfigurationRecordersResponse"><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse"><span class="hs-identifier hs-var">DescribeConfigurationRecordersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConfigurationRecordersResponse%27"><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse%27"><span class="hs-identifier hs-var">DescribeConfigurationRecordersResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679426411"><span id="local-6989586621679426412"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeConfigurationRecordersResponse"><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse"><span class="hs-identifier hs-var">DescribeConfigurationRecordersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeConfigurationRecordersResponse%27"><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse%27"><span class="hs-identifier hs-var">DescribeConfigurationRecordersResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list that contains the descriptions of the specified configuration</span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-comment">-- recorders.</span><span>
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AconfigurationRecorders%3ADescribeConfigurationRecordersResponse%27"><span class="annot"><span class="annottext">DescribeConfigurationRecordersResponse
@@ -367,7 +367,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeConfigurationRecordersResponse%27"><span class="annot"><span class="annottext">DescribeConfigurationRecordersResponse -&gt; Int
 </span><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#%24sel%3AhttpStatus%3ADescribeConfigurationRecordersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425742"><span id="local-6989586621679425744"><span class="annot"><span class="annottext">DescribeConfigurationRecordersResponse
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679426405"><span id="local-6989586621679426407"><span class="annot"><span class="annottext">DescribeConfigurationRecordersResponse
 -&gt; DescribeConfigurationRecordersResponse -&gt; Bool
 (DescribeConfigurationRecordersResponse
  -&gt; DescribeConfigurationRecordersResponse -&gt; Bool)
@@ -383,7 +383,7 @@ $c/= :: DescribeConfigurationRecordersResponse
 -&gt; DescribeConfigurationRecordersResponse -&gt; Bool
 $c== :: DescribeConfigurationRecordersResponse
 -&gt; DescribeConfigurationRecordersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425734"><span id="local-6989586621679425736"><span id="local-6989586621679425738"><span id="local-6989586621679425740"><span class="annot"><span class="annottext">ReadPrec [DescribeConfigurationRecordersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426397"><span id="local-6989586621679426399"><span id="local-6989586621679426401"><span id="local-6989586621679426403"><span class="annot"><span class="annottext">ReadPrec [DescribeConfigurationRecordersResponse]
 ReadPrec DescribeConfigurationRecordersResponse
 Int -&gt; ReadS DescribeConfigurationRecordersResponse
 ReadS [DescribeConfigurationRecordersResponse]
@@ -403,7 +403,7 @@ readList :: ReadS [DescribeConfigurationRecordersResponse]
 $creadList :: ReadS [DescribeConfigurationRecordersResponse]
 readsPrec :: Int -&gt; ReadS DescribeConfigurationRecordersResponse
 $creadsPrec :: Int -&gt; ReadS DescribeConfigurationRecordersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425728"><span id="local-6989586621679425730"><span id="local-6989586621679425732"><span class="annot"><span class="annottext">Int -&gt; DescribeConfigurationRecordersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679426391"><span id="local-6989586621679426393"><span id="local-6989586621679426395"><span class="annot"><span class="annottext">Int -&gt; DescribeConfigurationRecordersResponse -&gt; ShowS
 [DescribeConfigurationRecordersResponse] -&gt; ShowS
 DescribeConfigurationRecordersResponse -&gt; String
 (Int -&gt; DescribeConfigurationRecordersResponse -&gt; ShowS)
@@ -459,8 +459,8 @@ DescribeConfigurationRecordersResponse
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse"><span class="hs-identifier hs-type">DescribeConfigurationRecordersResponse</span></a></span><span>
 </span><span id="line-171"></span><span id="newDescribeConfigurationRecordersResponse"><span class="annot"><span class="annottext">newDescribeConfigurationRecordersResponse :: Int -&gt; DescribeConfigurationRecordersResponse
 </span><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#newDescribeConfigurationRecordersResponse"><span class="hs-identifier hs-var hs-var">newDescribeConfigurationRecordersResponse</span></a></span></span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679425725"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425725"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679426388"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426388"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">DescribeConfigurationRecordersResponse' :: Maybe [ConfigurationRecorder]
 -&gt; Int -&gt; DescribeConfigurationRecordersResponse
 </span><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationRecordersResponse'</span></a></span><span>
@@ -471,7 +471,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeConfigurationRecordersResponse' :: Int
 </span><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#%24sel%3AhttpStatus%3ADescribeConfigurationRecordersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425725"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679426388"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | A list that contains the descriptions of the specified configuration</span><span>
@@ -492,17 +492,17 @@ forall a. Maybe a
      (Maybe [ConfigurationRecorder])
      (Maybe [ConfigurationRecorder])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationRecordersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425724"><span class="annot"><span class="annottext">Maybe [ConfigurationRecorder]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationRecordersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426387"><span class="annot"><span class="annottext">Maybe [ConfigurationRecorder]
 configurationRecorders :: Maybe [ConfigurationRecorder]
 $sel:configurationRecorders:DescribeConfigurationRecordersResponse' :: DescribeConfigurationRecordersResponse
 -&gt; Maybe [ConfigurationRecorder]
-</span><a href="#local-6989586621679425724"><span class="hs-identifier hs-var hs-var">configurationRecorders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigurationRecorder]
-</span><a href="#local-6989586621679425724"><span class="hs-identifier hs-var">configurationRecorders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425723"><span class="annot"><span class="annottext">s :: DescribeConfigurationRecordersResponse
-</span><a href="#local-6989586621679425723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationRecordersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425722"><span class="annot"><span class="annottext">Maybe [ConfigurationRecorder]
-</span><a href="#local-6989586621679425722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationRecordersResponse
-</span><a href="#local-6989586621679425723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationRecorders:DescribeConfigurationRecordersResponse' :: Maybe [ConfigurationRecorder]
+</span><a href="#local-6989586621679426387"><span class="hs-identifier hs-var hs-var">configurationRecorders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigurationRecorder]
+</span><a href="#local-6989586621679426387"><span class="hs-identifier hs-var">configurationRecorders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426386"><span class="annot"><span class="annottext">s :: DescribeConfigurationRecordersResponse
+</span><a href="#local-6989586621679426386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationRecordersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426385"><span class="annot"><span class="annottext">Maybe [ConfigurationRecorder]
+</span><a href="#local-6989586621679426385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationRecordersResponse
+</span><a href="#local-6989586621679426386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationRecorders:DescribeConfigurationRecordersResponse' :: Maybe [ConfigurationRecorder]
 </span><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#%24sel%3AconfigurationRecorders%3ADescribeConfigurationRecordersResponse%27"><span class="hs-identifier hs-var">configurationRecorders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ConfigurationRecorder]
-</span><a href="#local-6989586621679425722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse"><span class="hs-identifier hs-type">DescribeConfigurationRecordersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConfigurationRecorder]
+</span><a href="#local-6989586621679426385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse"><span class="hs-identifier hs-type">DescribeConfigurationRecordersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ConfigurationRecorder]
   -&gt; f (Maybe [ConfigurationRecorder]))
  -&gt; DescribeConfigurationRecordersResponse
  -&gt; f DescribeConfigurationRecordersResponse)
@@ -533,8 +533,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ConfigurationRecorder]
   [ConfigurationRecorder]
   [ConfigurationRecorder]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-185"></span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#describeConfigurationRecordersResponse_httpStatus"><span class="hs-identifier hs-type">describeConfigurationRecordersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse"><span class="hs-identifier hs-type">DescribeConfigurationRecordersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -550,18 +550,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationRecordersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425721"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationRecordersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679426384"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeConfigurationRecordersResponse' :: DescribeConfigurationRecordersResponse -&gt; Int
-</span><a href="#local-6989586621679425721"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425721"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425720"><span class="annot"><span class="annottext">s :: DescribeConfigurationRecordersResponse
-</span><a href="#local-6989586621679425720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationRecordersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425719"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationRecordersResponse
-</span><a href="#local-6989586621679425720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeConfigurationRecordersResponse' :: Int
+</span><a href="#local-6989586621679426384"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426384"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679426383"><span class="annot"><span class="annottext">s :: DescribeConfigurationRecordersResponse
+</span><a href="#local-6989586621679426383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse%27"><span class="hs-identifier hs-type">DescribeConfigurationRecordersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679426382"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679426382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeConfigurationRecordersResponse
+</span><a href="#local-6989586621679426383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeConfigurationRecordersResponse' :: Int
 </span><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#%24sel%3AhttpStatus%3ADescribeConfigurationRecordersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse"><span class="hs-identifier hs-type">DescribeConfigurationRecordersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679426382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse"><span class="hs-identifier hs-type">DescribeConfigurationRecordersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679425717"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679426380"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-190"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeConfigurationRecorders.html#DescribeConfigurationRecordersResponse"><span class="hs-identifier hs-type">DescribeConfigurationRecordersResponse</span></a></span></span><span>
 </span><span id="line-191"></span></pre></body></html>

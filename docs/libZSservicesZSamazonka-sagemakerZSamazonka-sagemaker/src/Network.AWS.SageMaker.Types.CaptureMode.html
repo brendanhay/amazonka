@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680295436"><span id="local-6989586621680295437"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CaptureMode"><span class="annot"><a href="Network.AWS.SageMaker.Types.CaptureMode.html#CaptureMode"><span class="hs-identifier hs-var">CaptureMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptureMode%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CaptureMode.html#CaptureMode%27"><span class="hs-identifier hs-var">CaptureMode'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680296799"><span id="local-6989586621680296800"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CaptureMode"><span class="annot"><a href="Network.AWS.SageMaker.Types.CaptureMode.html#CaptureMode"><span class="hs-identifier hs-var">CaptureMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptureMode%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CaptureMode.html#CaptureMode%27"><span class="hs-identifier hs-var">CaptureMode'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCaptureMode"><span class="annot"><span class="annottext">CaptureMode -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.CaptureMode.html#fromCaptureMode"><span class="hs-identifier hs-var hs-var">fromCaptureMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680295428"><span id="local-6989586621680295430"><span id="local-6989586621680295432"><span class="annot"><span class="annottext">Int -&gt; CaptureMode -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680296791"><span id="local-6989586621680296793"><span id="local-6989586621680296795"><span class="annot"><span class="annottext">Int -&gt; CaptureMode -&gt; ShowS
 [CaptureMode] -&gt; ShowS
 CaptureMode -&gt; String
 (Int -&gt; CaptureMode -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: CaptureMode -&gt; String
 showsPrec :: Int -&gt; CaptureMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; CaptureMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680295419"><span id="local-6989586621680295421"><span id="local-6989586621680295423"><span id="local-6989586621680295425"><span class="annot"><span class="annottext">ReadPrec [CaptureMode]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680296782"><span id="local-6989586621680296784"><span id="local-6989586621680296786"><span id="local-6989586621680296788"><span class="annot"><span class="annottext">ReadPrec [CaptureMode]
 ReadPrec CaptureMode
 Int -&gt; ReadS CaptureMode
 ReadS [CaptureMode]
@@ -72,7 +72,7 @@ $creadList :: ReadS [CaptureMode]
 readsPrec :: Int -&gt; ReadS CaptureMode
 $creadsPrec :: Int -&gt; ReadS CaptureMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680295414"><span id="local-6989586621680295416"><span class="annot"><span class="annottext">CaptureMode -&gt; CaptureMode -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680296777"><span id="local-6989586621680296779"><span class="annot"><span class="annottext">CaptureMode -&gt; CaptureMode -&gt; Bool
 (CaptureMode -&gt; CaptureMode -&gt; Bool)
 -&gt; (CaptureMode -&gt; CaptureMode -&gt; Bool) -&gt; Eq CaptureMode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: CaptureMode -&gt; CaptureMode -&gt; Bool
 == :: CaptureMode -&gt; CaptureMode -&gt; Bool
 $c== :: CaptureMode -&gt; CaptureMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680295398"><span id="local-6989586621680295400"><span id="local-6989586621680295402"><span id="local-6989586621680295404"><span id="local-6989586621680295406"><span id="local-6989586621680295408"><span id="local-6989586621680295410"><span class="annot"><span class="annottext">Eq CaptureMode
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680296761"><span id="local-6989586621680296763"><span id="local-6989586621680296765"><span id="local-6989586621680296767"><span id="local-6989586621680296769"><span id="local-6989586621680296771"><span id="local-6989586621680296773"><span class="annot"><span class="annottext">Eq CaptureMode
 Eq CaptureMode
 -&gt; (CaptureMode -&gt; CaptureMode -&gt; Ordering)
 -&gt; (CaptureMode -&gt; CaptureMode -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. CaptureMode -&gt; Rep CaptureMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680295390"><span id="local-6989586621680295392"><span class="annot"><span class="annottext">Int -&gt; CaptureMode -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680296753"><span id="local-6989586621680296755"><span class="annot"><span class="annottext">Int -&gt; CaptureMode -&gt; Int
 CaptureMode -&gt; Int
 (Int -&gt; CaptureMode -&gt; Int)
 -&gt; (CaptureMode -&gt; Int) -&gt; Hashable CaptureMode
@@ -142,49 +142,49 @@ $chash :: CaptureMode -&gt; Int
 hashWithSalt :: Int -&gt; CaptureMode -&gt; Int
 $chashWithSalt :: Int -&gt; CaptureMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680295387"><span class="annot"><span class="annottext">CaptureMode -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680296750"><span class="annot"><span class="annottext">CaptureMode -&gt; ()
 (CaptureMode -&gt; ()) -&gt; NFData CaptureMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CaptureMode -&gt; ()
 $crnf :: CaptureMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680295384"><span class="annot"><span class="annottext">Text -&gt; Either String CaptureMode
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680296747"><span class="annot"><span class="annottext">Text -&gt; Either String CaptureMode
 (Text -&gt; Either String CaptureMode) -&gt; FromText CaptureMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CaptureMode
 $cfromText :: Text -&gt; Either String CaptureMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680295381"><span class="annot"><span class="annottext">CaptureMode -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680296744"><span class="annot"><span class="annottext">CaptureMode -&gt; Text
 (CaptureMode -&gt; Text) -&gt; ToText CaptureMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CaptureMode -&gt; Text
 $ctoText :: CaptureMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680295378"><span class="annot"><span class="annottext">CaptureMode -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680296741"><span class="annot"><span class="annottext">CaptureMode -&gt; ByteString
 (CaptureMode -&gt; ByteString) -&gt; ToByteString CaptureMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CaptureMode -&gt; ByteString
 $ctoBS :: CaptureMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680295375"><span class="annot"><span class="annottext">CaptureMode -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680296738"><span class="annot"><span class="annottext">CaptureMode -&gt; ByteStringBuilder
 (CaptureMode -&gt; ByteStringBuilder) -&gt; ToLog CaptureMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CaptureMode -&gt; ByteStringBuilder
 $cbuild :: CaptureMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680295372"><span class="annot"><span class="annottext">HeaderName -&gt; CaptureMode -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680296735"><span class="annot"><span class="annottext">HeaderName -&gt; CaptureMode -&gt; [Header]
 (HeaderName -&gt; CaptureMode -&gt; [Header]) -&gt; ToHeader CaptureMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CaptureMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CaptureMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680295369"><span class="annot"><span class="annottext">CaptureMode -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680296732"><span class="annot"><span class="annottext">CaptureMode -&gt; QueryString
 (CaptureMode -&gt; QueryString) -&gt; ToQuery CaptureMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CaptureMode -&gt; QueryString
 $ctoQuery :: CaptureMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680295364"><span id="local-6989586621680295366"><span class="annot"><span class="annottext">Value -&gt; Parser [CaptureMode]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680296727"><span id="local-6989586621680296729"><span class="annot"><span class="annottext">Value -&gt; Parser [CaptureMode]
 Value -&gt; Parser CaptureMode
 (Value -&gt; Parser CaptureMode)
 -&gt; (Value -&gt; Parser [CaptureMode]) -&gt; FromJSON CaptureMode
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [CaptureMode]
 parseJSON :: Value -&gt; Parser CaptureMode
 $cparseJSON :: Value -&gt; Parser CaptureMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680295359"><span id="local-6989586621680295361"><span class="annot"><span class="annottext">FromJSONKeyFunction [CaptureMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680296722"><span id="local-6989586621680296724"><span class="annot"><span class="annottext">FromJSONKeyFunction [CaptureMode]
 FromJSONKeyFunction CaptureMode
 FromJSONKeyFunction CaptureMode
 -&gt; FromJSONKeyFunction [CaptureMode] -&gt; FromJSONKey CaptureMode
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CaptureMode]
 fromJSONKey :: FromJSONKeyFunction CaptureMode
 $cfromJSONKey :: FromJSONKeyFunction CaptureMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680295350"><span id="local-6989586621680295352"><span id="local-6989586621680295354"><span id="local-6989586621680295356"><span class="annot"><span class="annottext">[CaptureMode] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680296713"><span id="local-6989586621680296715"><span id="local-6989586621680296717"><span id="local-6989586621680296719"><span class="annot"><span class="annottext">[CaptureMode] -&gt; Encoding
 [CaptureMode] -&gt; Value
 CaptureMode -&gt; Encoding
 CaptureMode -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: CaptureMode -&gt; Encoding
 toJSON :: CaptureMode -&gt; Value
 $ctoJSON :: CaptureMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680295345"><span id="local-6989586621680295347"><span class="annot"><span class="annottext">ToJSONKeyFunction [CaptureMode]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680296708"><span id="local-6989586621680296710"><span class="annot"><span class="annottext">ToJSONKeyFunction [CaptureMode]
 ToJSONKeyFunction CaptureMode
 ToJSONKeyFunction CaptureMode
 -&gt; ToJSONKeyFunction [CaptureMode] -&gt; ToJSONKey CaptureMode
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CaptureMode]
 toJSONKey :: ToJSONKeyFunction CaptureMode
 $ctoJSONKey :: ToJSONKeyFunction CaptureMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680295342"><span class="annot"><span class="annottext">[Node] -&gt; Either String CaptureMode
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680296705"><span class="annot"><span class="annottext">[Node] -&gt; Either String CaptureMode
 ([Node] -&gt; Either String CaptureMode) -&gt; FromXML CaptureMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CaptureMode
 $cparseXML :: [Node] -&gt; Either String CaptureMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680295339"><span class="annot"><span class="annottext">CaptureMode -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680296702"><span class="annot"><span class="annottext">CaptureMode -&gt; XML
 (CaptureMode -&gt; XML) -&gt; ToXML CaptureMode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CaptureMode -&gt; XML

@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- | The type of storage connector.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679289532"><span id="local-6989586621679289533"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StorageConnectorType"><span class="annot"><a href="Network.AWS.AppStream.Types.StorageConnectorType.html#StorageConnectorType"><span class="hs-identifier hs-var">StorageConnectorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StorageConnectorType%27"><span class="annot"><a href="Network.AWS.AppStream.Types.StorageConnectorType.html#StorageConnectorType%27"><span class="hs-identifier hs-var">StorageConnectorType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679289782"><span id="local-6989586621679289783"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StorageConnectorType"><span class="annot"><a href="Network.AWS.AppStream.Types.StorageConnectorType.html#StorageConnectorType"><span class="hs-identifier hs-var">StorageConnectorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StorageConnectorType%27"><span class="annot"><a href="Network.AWS.AppStream.Types.StorageConnectorType.html#StorageConnectorType%27"><span class="hs-identifier hs-var">StorageConnectorType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStorageConnectorType"><span class="annot"><span class="annottext">StorageConnectorType -&gt; Text
 </span><a href="Network.AWS.AppStream.Types.StorageConnectorType.html#fromStorageConnectorType"><span class="hs-identifier hs-var hs-var">fromStorageConnectorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679289524"><span id="local-6989586621679289526"><span id="local-6989586621679289528"><span class="annot"><span class="annottext">Int -&gt; StorageConnectorType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679289774"><span id="local-6989586621679289776"><span id="local-6989586621679289778"><span class="annot"><span class="annottext">Int -&gt; StorageConnectorType -&gt; ShowS
 [StorageConnectorType] -&gt; ShowS
 StorageConnectorType -&gt; String
 (Int -&gt; StorageConnectorType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: StorageConnectorType -&gt; String
 showsPrec :: Int -&gt; StorageConnectorType -&gt; ShowS
 $cshowsPrec :: Int -&gt; StorageConnectorType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679289515"><span id="local-6989586621679289517"><span id="local-6989586621679289519"><span id="local-6989586621679289521"><span class="annot"><span class="annottext">ReadPrec [StorageConnectorType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679289765"><span id="local-6989586621679289767"><span id="local-6989586621679289769"><span id="local-6989586621679289771"><span class="annot"><span class="annottext">ReadPrec [StorageConnectorType]
 ReadPrec StorageConnectorType
 Int -&gt; ReadS StorageConnectorType
 ReadS [StorageConnectorType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [StorageConnectorType]
 readsPrec :: Int -&gt; ReadS StorageConnectorType
 $creadsPrec :: Int -&gt; ReadS StorageConnectorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679289510"><span id="local-6989586621679289512"><span class="annot"><span class="annottext">StorageConnectorType -&gt; StorageConnectorType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679289760"><span id="local-6989586621679289762"><span class="annot"><span class="annottext">StorageConnectorType -&gt; StorageConnectorType -&gt; Bool
 (StorageConnectorType -&gt; StorageConnectorType -&gt; Bool)
 -&gt; (StorageConnectorType -&gt; StorageConnectorType -&gt; Bool)
 -&gt; Eq StorageConnectorType
@@ -84,7 +84,7 @@ $c/= :: StorageConnectorType -&gt; StorageConnectorType -&gt; Bool
 == :: StorageConnectorType -&gt; StorageConnectorType -&gt; Bool
 $c== :: StorageConnectorType -&gt; StorageConnectorType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679289494"><span id="local-6989586621679289496"><span id="local-6989586621679289498"><span id="local-6989586621679289500"><span id="local-6989586621679289502"><span id="local-6989586621679289504"><span id="local-6989586621679289506"><span class="annot"><span class="annottext">Eq StorageConnectorType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679289744"><span id="local-6989586621679289746"><span id="local-6989586621679289748"><span id="local-6989586621679289750"><span id="local-6989586621679289752"><span id="local-6989586621679289754"><span id="local-6989586621679289756"><span class="annot"><span class="annottext">Eq StorageConnectorType
 Eq StorageConnectorType
 -&gt; (StorageConnectorType -&gt; StorageConnectorType -&gt; Ordering)
 -&gt; (StorageConnectorType -&gt; StorageConnectorType -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. StorageConnectorType -&gt; Rep StorageConnectorType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679289486"><span id="local-6989586621679289488"><span class="annot"><span class="annottext">Int -&gt; StorageConnectorType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679289736"><span id="local-6989586621679289738"><span class="annot"><span class="annottext">Int -&gt; StorageConnectorType -&gt; Int
 StorageConnectorType -&gt; Int
 (Int -&gt; StorageConnectorType -&gt; Int)
 -&gt; (StorageConnectorType -&gt; Int) -&gt; Hashable StorageConnectorType
@@ -152,54 +152,54 @@ $chash :: StorageConnectorType -&gt; Int
 hashWithSalt :: Int -&gt; StorageConnectorType -&gt; Int
 $chashWithSalt :: Int -&gt; StorageConnectorType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679289483"><span class="annot"><span class="annottext">StorageConnectorType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679289733"><span class="annot"><span class="annottext">StorageConnectorType -&gt; ()
 (StorageConnectorType -&gt; ()) -&gt; NFData StorageConnectorType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StorageConnectorType -&gt; ()
 $crnf :: StorageConnectorType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679289480"><span class="annot"><span class="annottext">Text -&gt; Either String StorageConnectorType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679289730"><span class="annot"><span class="annottext">Text -&gt; Either String StorageConnectorType
 (Text -&gt; Either String StorageConnectorType)
 -&gt; FromText StorageConnectorType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StorageConnectorType
 $cfromText :: Text -&gt; Either String StorageConnectorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679289477"><span class="annot"><span class="annottext">StorageConnectorType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679289727"><span class="annot"><span class="annottext">StorageConnectorType -&gt; Text
 (StorageConnectorType -&gt; Text) -&gt; ToText StorageConnectorType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StorageConnectorType -&gt; Text
 $ctoText :: StorageConnectorType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679289474"><span class="annot"><span class="annottext">StorageConnectorType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679289724"><span class="annot"><span class="annottext">StorageConnectorType -&gt; ByteString
 (StorageConnectorType -&gt; ByteString)
 -&gt; ToByteString StorageConnectorType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StorageConnectorType -&gt; ByteString
 $ctoBS :: StorageConnectorType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679289471"><span class="annot"><span class="annottext">StorageConnectorType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679289721"><span class="annot"><span class="annottext">StorageConnectorType -&gt; ByteStringBuilder
 (StorageConnectorType -&gt; ByteStringBuilder)
 -&gt; ToLog StorageConnectorType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StorageConnectorType -&gt; ByteStringBuilder
 $cbuild :: StorageConnectorType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679289468"><span class="annot"><span class="annottext">HeaderName -&gt; StorageConnectorType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679289718"><span class="annot"><span class="annottext">HeaderName -&gt; StorageConnectorType -&gt; [Header]
 (HeaderName -&gt; StorageConnectorType -&gt; [Header])
 -&gt; ToHeader StorageConnectorType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StorageConnectorType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StorageConnectorType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679289465"><span class="annot"><span class="annottext">StorageConnectorType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679289715"><span class="annot"><span class="annottext">StorageConnectorType -&gt; QueryString
 (StorageConnectorType -&gt; QueryString)
 -&gt; ToQuery StorageConnectorType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StorageConnectorType -&gt; QueryString
 $ctoQuery :: StorageConnectorType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679289460"><span id="local-6989586621679289462"><span class="annot"><span class="annottext">Value -&gt; Parser [StorageConnectorType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679289710"><span id="local-6989586621679289712"><span class="annot"><span class="annottext">Value -&gt; Parser [StorageConnectorType]
 Value -&gt; Parser StorageConnectorType
 (Value -&gt; Parser StorageConnectorType)
 -&gt; (Value -&gt; Parser [StorageConnectorType])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [StorageConnectorType]
 parseJSON :: Value -&gt; Parser StorageConnectorType
 $cparseJSON :: Value -&gt; Parser StorageConnectorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679289455"><span id="local-6989586621679289457"><span class="annot"><span class="annottext">FromJSONKeyFunction [StorageConnectorType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679289705"><span id="local-6989586621679289707"><span class="annot"><span class="annottext">FromJSONKeyFunction [StorageConnectorType]
 FromJSONKeyFunction StorageConnectorType
 FromJSONKeyFunction StorageConnectorType
 -&gt; FromJSONKeyFunction [StorageConnectorType]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StorageConnectorType]
 fromJSONKey :: FromJSONKeyFunction StorageConnectorType
 $cfromJSONKey :: FromJSONKeyFunction StorageConnectorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679289446"><span id="local-6989586621679289448"><span id="local-6989586621679289450"><span id="local-6989586621679289452"><span class="annot"><span class="annottext">[StorageConnectorType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679289696"><span id="local-6989586621679289698"><span id="local-6989586621679289700"><span id="local-6989586621679289702"><span class="annot"><span class="annottext">[StorageConnectorType] -&gt; Encoding
 [StorageConnectorType] -&gt; Value
 StorageConnectorType -&gt; Encoding
 StorageConnectorType -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: StorageConnectorType -&gt; Encoding
 toJSON :: StorageConnectorType -&gt; Value
 $ctoJSON :: StorageConnectorType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679289441"><span id="local-6989586621679289443"><span class="annot"><span class="annottext">ToJSONKeyFunction [StorageConnectorType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679289691"><span id="local-6989586621679289693"><span class="annot"><span class="annottext">ToJSONKeyFunction [StorageConnectorType]
 ToJSONKeyFunction StorageConnectorType
 ToJSONKeyFunction StorageConnectorType
 -&gt; ToJSONKeyFunction [StorageConnectorType]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StorageConnectorType]
 toJSONKey :: ToJSONKeyFunction StorageConnectorType
 $ctoJSONKey :: ToJSONKeyFunction StorageConnectorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679289438"><span class="annot"><span class="annottext">[Node] -&gt; Either String StorageConnectorType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679289688"><span class="annot"><span class="annottext">[Node] -&gt; Either String StorageConnectorType
 ([Node] -&gt; Either String StorageConnectorType)
 -&gt; FromXML StorageConnectorType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StorageConnectorType
 $cparseXML :: [Node] -&gt; Either String StorageConnectorType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679289435"><span class="annot"><span class="annottext">StorageConnectorType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679289685"><span class="annot"><span class="annottext">StorageConnectorType -&gt; XML
 (StorageConnectorType -&gt; XML) -&gt; ToXML StorageConnectorType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StorageConnectorType -&gt; XML

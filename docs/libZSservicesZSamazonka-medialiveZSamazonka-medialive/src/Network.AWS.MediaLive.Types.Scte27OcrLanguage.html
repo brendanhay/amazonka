@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- | Scte27 Ocr Language</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679909748"><span id="local-6989586621679909749"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Scte27OcrLanguage"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte27OcrLanguage.html#Scte27OcrLanguage"><span class="hs-identifier hs-var">Scte27OcrLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scte27OcrLanguage%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte27OcrLanguage.html#Scte27OcrLanguage%27"><span class="hs-identifier hs-var">Scte27OcrLanguage'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679917248"><span id="local-6989586621679917249"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Scte27OcrLanguage"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte27OcrLanguage.html#Scte27OcrLanguage"><span class="hs-identifier hs-var">Scte27OcrLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scte27OcrLanguage%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Scte27OcrLanguage.html#Scte27OcrLanguage%27"><span class="hs-identifier hs-var">Scte27OcrLanguage'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromScte27OcrLanguage"><span class="annot"><span class="annottext">Scte27OcrLanguage -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.Scte27OcrLanguage.html#fromScte27OcrLanguage"><span class="hs-identifier hs-var hs-var">fromScte27OcrLanguage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679909740"><span id="local-6989586621679909742"><span id="local-6989586621679909744"><span class="annot"><span class="annottext">Int -&gt; Scte27OcrLanguage -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679917240"><span id="local-6989586621679917242"><span id="local-6989586621679917244"><span class="annot"><span class="annottext">Int -&gt; Scte27OcrLanguage -&gt; ShowS
 [Scte27OcrLanguage] -&gt; ShowS
 Scte27OcrLanguage -&gt; String
 (Int -&gt; Scte27OcrLanguage -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: Scte27OcrLanguage -&gt; String
 showsPrec :: Int -&gt; Scte27OcrLanguage -&gt; ShowS
 $cshowsPrec :: Int -&gt; Scte27OcrLanguage -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679909731"><span id="local-6989586621679909733"><span id="local-6989586621679909735"><span id="local-6989586621679909737"><span class="annot"><span class="annottext">ReadPrec [Scte27OcrLanguage]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679917231"><span id="local-6989586621679917233"><span id="local-6989586621679917235"><span id="local-6989586621679917237"><span class="annot"><span class="annottext">ReadPrec [Scte27OcrLanguage]
 ReadPrec Scte27OcrLanguage
 Int -&gt; ReadS Scte27OcrLanguage
 ReadS [Scte27OcrLanguage]
@@ -77,7 +77,7 @@ $creadList :: ReadS [Scte27OcrLanguage]
 readsPrec :: Int -&gt; ReadS Scte27OcrLanguage
 $creadsPrec :: Int -&gt; ReadS Scte27OcrLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679909726"><span id="local-6989586621679909728"><span class="annot"><span class="annottext">Scte27OcrLanguage -&gt; Scte27OcrLanguage -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679917226"><span id="local-6989586621679917228"><span class="annot"><span class="annottext">Scte27OcrLanguage -&gt; Scte27OcrLanguage -&gt; Bool
 (Scte27OcrLanguage -&gt; Scte27OcrLanguage -&gt; Bool)
 -&gt; (Scte27OcrLanguage -&gt; Scte27OcrLanguage -&gt; Bool)
 -&gt; Eq Scte27OcrLanguage
@@ -87,7 +87,7 @@ $c/= :: Scte27OcrLanguage -&gt; Scte27OcrLanguage -&gt; Bool
 == :: Scte27OcrLanguage -&gt; Scte27OcrLanguage -&gt; Bool
 $c== :: Scte27OcrLanguage -&gt; Scte27OcrLanguage -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679909710"><span id="local-6989586621679909712"><span id="local-6989586621679909714"><span id="local-6989586621679909716"><span id="local-6989586621679909718"><span id="local-6989586621679909720"><span id="local-6989586621679909722"><span class="annot"><span class="annottext">Eq Scte27OcrLanguage
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679917210"><span id="local-6989586621679917212"><span id="local-6989586621679917214"><span id="local-6989586621679917216"><span id="local-6989586621679917218"><span id="local-6989586621679917220"><span id="local-6989586621679917222"><span class="annot"><span class="annottext">Eq Scte27OcrLanguage
 Eq Scte27OcrLanguage
 -&gt; (Scte27OcrLanguage -&gt; Scte27OcrLanguage -&gt; Ordering)
 -&gt; (Scte27OcrLanguage -&gt; Scte27OcrLanguage -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. Scte27OcrLanguage -&gt; Rep Scte27OcrLanguage x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679909702"><span id="local-6989586621679909704"><span class="annot"><span class="annottext">Int -&gt; Scte27OcrLanguage -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679917202"><span id="local-6989586621679917204"><span class="annot"><span class="annottext">Int -&gt; Scte27OcrLanguage -&gt; Int
 Scte27OcrLanguage -&gt; Int
 (Int -&gt; Scte27OcrLanguage -&gt; Int)
 -&gt; (Scte27OcrLanguage -&gt; Int) -&gt; Hashable Scte27OcrLanguage
@@ -148,51 +148,51 @@ $chash :: Scte27OcrLanguage -&gt; Int
 hashWithSalt :: Int -&gt; Scte27OcrLanguage -&gt; Int
 $chashWithSalt :: Int -&gt; Scte27OcrLanguage -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679909699"><span class="annot"><span class="annottext">Scte27OcrLanguage -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679917199"><span class="annot"><span class="annottext">Scte27OcrLanguage -&gt; ()
 (Scte27OcrLanguage -&gt; ()) -&gt; NFData Scte27OcrLanguage
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Scte27OcrLanguage -&gt; ()
 $crnf :: Scte27OcrLanguage -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679909696"><span class="annot"><span class="annottext">Text -&gt; Either String Scte27OcrLanguage
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679917196"><span class="annot"><span class="annottext">Text -&gt; Either String Scte27OcrLanguage
 (Text -&gt; Either String Scte27OcrLanguage)
 -&gt; FromText Scte27OcrLanguage
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Scte27OcrLanguage
 $cfromText :: Text -&gt; Either String Scte27OcrLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679909693"><span class="annot"><span class="annottext">Scte27OcrLanguage -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679917193"><span class="annot"><span class="annottext">Scte27OcrLanguage -&gt; Text
 (Scte27OcrLanguage -&gt; Text) -&gt; ToText Scte27OcrLanguage
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Scte27OcrLanguage -&gt; Text
 $ctoText :: Scte27OcrLanguage -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679909690"><span class="annot"><span class="annottext">Scte27OcrLanguage -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679917190"><span class="annot"><span class="annottext">Scte27OcrLanguage -&gt; ByteString
 (Scte27OcrLanguage -&gt; ByteString) -&gt; ToByteString Scte27OcrLanguage
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Scte27OcrLanguage -&gt; ByteString
 $ctoBS :: Scte27OcrLanguage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679909687"><span class="annot"><span class="annottext">Scte27OcrLanguage -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679917187"><span class="annot"><span class="annottext">Scte27OcrLanguage -&gt; ByteStringBuilder
 (Scte27OcrLanguage -&gt; ByteStringBuilder) -&gt; ToLog Scte27OcrLanguage
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Scte27OcrLanguage -&gt; ByteStringBuilder
 $cbuild :: Scte27OcrLanguage -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679909684"><span class="annot"><span class="annottext">HeaderName -&gt; Scte27OcrLanguage -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679917184"><span class="annot"><span class="annottext">HeaderName -&gt; Scte27OcrLanguage -&gt; [Header]
 (HeaderName -&gt; Scte27OcrLanguage -&gt; [Header])
 -&gt; ToHeader Scte27OcrLanguage
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Scte27OcrLanguage -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Scte27OcrLanguage -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679909681"><span class="annot"><span class="annottext">Scte27OcrLanguage -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679917181"><span class="annot"><span class="annottext">Scte27OcrLanguage -&gt; QueryString
 (Scte27OcrLanguage -&gt; QueryString) -&gt; ToQuery Scte27OcrLanguage
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Scte27OcrLanguage -&gt; QueryString
 $ctoQuery :: Scte27OcrLanguage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679909676"><span id="local-6989586621679909678"><span class="annot"><span class="annottext">Value -&gt; Parser [Scte27OcrLanguage]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679917176"><span id="local-6989586621679917178"><span class="annot"><span class="annottext">Value -&gt; Parser [Scte27OcrLanguage]
 Value -&gt; Parser Scte27OcrLanguage
 (Value -&gt; Parser Scte27OcrLanguage)
 -&gt; (Value -&gt; Parser [Scte27OcrLanguage])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [Scte27OcrLanguage]
 parseJSON :: Value -&gt; Parser Scte27OcrLanguage
 $cparseJSON :: Value -&gt; Parser Scte27OcrLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679909671"><span id="local-6989586621679909673"><span class="annot"><span class="annottext">FromJSONKeyFunction [Scte27OcrLanguage]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679917171"><span id="local-6989586621679917173"><span class="annot"><span class="annottext">FromJSONKeyFunction [Scte27OcrLanguage]
 FromJSONKeyFunction Scte27OcrLanguage
 FromJSONKeyFunction Scte27OcrLanguage
 -&gt; FromJSONKeyFunction [Scte27OcrLanguage]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Scte27OcrLanguage]
 fromJSONKey :: FromJSONKeyFunction Scte27OcrLanguage
 $cfromJSONKey :: FromJSONKeyFunction Scte27OcrLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679909662"><span id="local-6989586621679909664"><span id="local-6989586621679909666"><span id="local-6989586621679909668"><span class="annot"><span class="annottext">[Scte27OcrLanguage] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679917162"><span id="local-6989586621679917164"><span id="local-6989586621679917166"><span id="local-6989586621679917168"><span class="annot"><span class="annottext">[Scte27OcrLanguage] -&gt; Encoding
 [Scte27OcrLanguage] -&gt; Value
 Scte27OcrLanguage -&gt; Encoding
 Scte27OcrLanguage -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: Scte27OcrLanguage -&gt; Encoding
 toJSON :: Scte27OcrLanguage -&gt; Value
 $ctoJSON :: Scte27OcrLanguage -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679909657"><span id="local-6989586621679909659"><span class="annot"><span class="annottext">ToJSONKeyFunction [Scte27OcrLanguage]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679917157"><span id="local-6989586621679917159"><span class="annot"><span class="annottext">ToJSONKeyFunction [Scte27OcrLanguage]
 ToJSONKeyFunction Scte27OcrLanguage
 ToJSONKeyFunction Scte27OcrLanguage
 -&gt; ToJSONKeyFunction [Scte27OcrLanguage]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Scte27OcrLanguage]
 toJSONKey :: ToJSONKeyFunction Scte27OcrLanguage
 $ctoJSONKey :: ToJSONKeyFunction Scte27OcrLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679909654"><span class="annot"><span class="annottext">[Node] -&gt; Either String Scte27OcrLanguage
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679917154"><span class="annot"><span class="annottext">[Node] -&gt; Either String Scte27OcrLanguage
 ([Node] -&gt; Either String Scte27OcrLanguage)
 -&gt; FromXML Scte27OcrLanguage
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Scte27OcrLanguage
 $cparseXML :: [Node] -&gt; Either String Scte27OcrLanguage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679909651"><span class="annot"><span class="annottext">Scte27OcrLanguage -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679917151"><span class="annot"><span class="annottext">Scte27OcrLanguage -&gt; XML
 (Scte27OcrLanguage -&gt; XML) -&gt; ToXML Scte27OcrLanguage
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Scte27OcrLanguage -&gt; XML

@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-comment">-- @BadBot@.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newRule' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679307080"><span id="local-6989586621679307081"></span></span><span class="hs-keyword">data</span><span> </span><span id="Rule"><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule"><span class="hs-identifier hs-var">Rule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Rule%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-var">Rule'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679307322"><span id="local-6989586621679307323"></span></span><span class="hs-keyword">data</span><span> </span><span id="Rule"><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule"><span class="hs-identifier hs-var">Rule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Rule%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-var">Rule'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A friendly name or description for the metrics for this @Rule@. The name</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- length 128 and minimum length one. It can\'t contain whitespace or</span><span>
@@ -77,14 +77,14 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3Apredicates%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; [Predicate]
 </span><a href="Network.AWS.WAFRegional.Types.Rule.html#%24sel%3Apredicates%3ARule%27"><span class="hs-identifier hs-var hs-var">predicates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Predicate.html#Predicate"><span class="hs-identifier hs-type">Predicate</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307071"><span id="local-6989586621679307073"><span class="annot"><span class="annottext">Rule -&gt; Rule -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307313"><span id="local-6989586621679307315"><span class="annot"><span class="annottext">Rule -&gt; Rule -&gt; Bool
 (Rule -&gt; Rule -&gt; Bool) -&gt; (Rule -&gt; Rule -&gt; Bool) -&gt; Eq Rule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Rule -&gt; Rule -&gt; Bool
 $c/= :: Rule -&gt; Rule -&gt; Bool
 == :: Rule -&gt; Rule -&gt; Bool
 $c== :: Rule -&gt; Rule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307062"><span id="local-6989586621679307064"><span id="local-6989586621679307066"><span id="local-6989586621679307068"><span class="annot"><span class="annottext">ReadPrec [Rule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307304"><span id="local-6989586621679307306"><span id="local-6989586621679307308"><span id="local-6989586621679307310"><span class="annot"><span class="annottext">ReadPrec [Rule]
 ReadPrec Rule
 Int -&gt; ReadS Rule
 ReadS [Rule]
@@ -101,7 +101,7 @@ readList :: ReadS [Rule]
 $creadList :: ReadS [Rule]
 readsPrec :: Int -&gt; ReadS Rule
 $creadsPrec :: Int -&gt; ReadS Rule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307055"><span id="local-6989586621679307057"><span id="local-6989586621679307059"><span class="annot"><span class="annottext">Int -&gt; Rule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307297"><span id="local-6989586621679307299"><span id="local-6989586621679307301"><span class="annot"><span class="annottext">Int -&gt; Rule -&gt; ShowS
 [Rule] -&gt; ShowS
 Rule -&gt; String
 (Int -&gt; Rule -&gt; ShowS)
@@ -158,8 +158,8 @@ $cfrom :: forall x. Rule -&gt; Rep Rule x
 </span><span id="line-109"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span>
 </span><span id="line-111"></span><span id="newRule"><span class="annot"><span class="annottext">newRule :: Text -&gt; Rule
-</span><a href="Network.AWS.WAFRegional.Types.Rule.html#newRule"><span class="hs-identifier hs-var hs-var">newRule</span></a></span></span><span> </span><span id="local-6989586621679307049"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307049"><span class="hs-identifier hs-var">pRuleId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAFRegional.Types.Rule.html#newRule"><span class="hs-identifier hs-var hs-var">newRule</span></a></span></span><span> </span><span id="local-6989586621679307291"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307291"><span class="hs-identifier hs-var">pRuleId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><span class="annottext">Rule' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; [Predicate] -&gt; Rule
 </span><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span>
 </span><span id="line-113"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricName:Rule' :: Maybe Text
@@ -172,7 +172,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleId:Rule' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.Rule.html#%24sel%3AruleId%3ARule%27"><span class="hs-identifier hs-var">ruleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307049"><span class="hs-identifier hs-var">pRuleId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307291"><span class="hs-identifier hs-var">pRuleId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:predicates:Rule' :: [Predicate]
 </span><a href="Network.AWS.WAFRegional.Types.Rule.html#%24sel%3Apredicates%3ARule%27"><span class="hs-identifier hs-var">predicates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Predicate]
 forall a. Monoid a =&gt; a
@@ -191,16 +191,16 @@ forall a. Monoid a =&gt; a
 -&gt; (Rule -&gt; Maybe Text -&gt; Rule)
 -&gt; Lens Rule Rule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307045"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307287"><span class="annot"><span class="annottext">Maybe Text
 metricName :: Maybe Text
 $sel:metricName:Rule' :: Rule -&gt; Maybe Text
-</span><a href="#local-6989586621679307045"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307045"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307044"><span class="annot"><span class="annottext">s :: Rule
-</span><a href="#local-6989586621679307044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307043"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
-</span><a href="#local-6989586621679307044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:Rule' :: Maybe Text
+</span><a href="#local-6989586621679307287"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307287"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307286"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679307286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307285"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679307286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:Rule' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.Types.Rule.html#%24sel%3AmetricName%3ARule%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The friendly name or description for the @Rule@. You can\'t change the</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- name of a @Rule@ after you create it.</span><span>
@@ -210,16 +210,16 @@ $sel:metricName:Rule' :: Rule -&gt; Maybe Text
 -&gt; (Rule -&gt; Maybe Text -&gt; Rule)
 -&gt; Lens Rule Rule (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307041"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307283"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Rule' :: Rule -&gt; Maybe Text
-</span><a href="#local-6989586621679307041"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307041"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307040"><span class="annot"><span class="annottext">s :: Rule
-</span><a href="#local-6989586621679307040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307039"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
-</span><a href="#local-6989586621679307040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Rule' :: Maybe Text
+</span><a href="#local-6989586621679307283"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307283"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307282"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679307282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307281"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679307281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679307282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Rule' :: Maybe Text
 </span><a href="Network.AWS.WAFRegional.Types.Rule.html#%24sel%3Aname%3ARule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | A unique identifier for a @Rule@. You use @RuleId@ to get more</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- information about a @Rule@ (see GetRule), update a @Rule@ (see</span><span>
@@ -233,16 +233,16 @@ $sel:name:Rule' :: Rule -&gt; Maybe Text
 </span><a href="Network.AWS.WAFRegional.Types.Rule.html#rule_ruleId"><span class="hs-identifier hs-var hs-var">rule_ruleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Rule -&gt; Text)
 -&gt; (Rule -&gt; Text -&gt; Rule) -&gt; Lens Rule Rule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307037"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307279"><span class="annot"><span class="annottext">Text
 ruleId :: Text
 $sel:ruleId:Rule' :: Rule -&gt; Text
-</span><a href="#local-6989586621679307037"><span class="hs-identifier hs-var hs-var">ruleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307037"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307036"><span class="annot"><span class="annottext">s :: Rule
-</span><a href="#local-6989586621679307036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307035"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
-</span><a href="#local-6989586621679307036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleId:Rule' :: Text
+</span><a href="#local-6989586621679307279"><span class="hs-identifier hs-var hs-var">ruleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307279"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307278"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679307278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307277"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679307278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleId:Rule' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.Rule.html#%24sel%3AruleId%3ARule%27"><span class="hs-identifier hs-var">ruleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The @Predicates@ object contains one @Predicate@ element for each</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- ByteMatchSet, IPSet, or SqlInjectionMatchSet object that you want to</span><span>
@@ -253,35 +253,35 @@ $sel:ruleId:Rule' :: Rule -&gt; Text
 -&gt; (Rule -&gt; [Predicate] -&gt; Rule)
 -&gt; Lens Rule Rule [Predicate] [Predicate]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307033"><span class="annot"><span class="annottext">[Predicate]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307275"><span class="annot"><span class="annottext">[Predicate]
 predicates :: [Predicate]
 $sel:predicates:Rule' :: Rule -&gt; [Predicate]
-</span><a href="#local-6989586621679307033"><span class="hs-identifier hs-var hs-var">predicates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Predicate]
-</span><a href="#local-6989586621679307033"><span class="hs-identifier hs-var">predicates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307032"><span class="annot"><span class="annottext">s :: Rule
-</span><a href="#local-6989586621679307032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307031"><span class="annot"><span class="annottext">[Predicate]
-</span><a href="#local-6989586621679307031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
-</span><a href="#local-6989586621679307032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:predicates:Rule' :: [Predicate]
+</span><a href="#local-6989586621679307275"><span class="hs-identifier hs-var hs-var">predicates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Predicate]
+</span><a href="#local-6989586621679307275"><span class="hs-identifier hs-var">predicates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307274"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679307274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307273"><span class="annot"><span class="annottext">[Predicate]
+</span><a href="#local-6989586621679307273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679307274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:predicates:Rule' :: [Predicate]
 </span><a href="Network.AWS.WAFRegional.Types.Rule.html#%24sel%3Apredicates%3ARule%27"><span class="hs-identifier hs-var">predicates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Predicate]
-</span><a href="#local-6989586621679307031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Predicate] -&gt; f [Predicate]) -&gt; Rule -&gt; f Rule)
+</span><a href="#local-6989586621679307273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Predicate] -&gt; f [Predicate]) -&gt; Rule -&gt; f Rule)
 -&gt; (([Predicate] -&gt; f [Predicate]) -&gt; [Predicate] -&gt; f [Predicate])
 -&gt; ([Predicate] -&gt; f [Predicate])
 -&gt; Rule
 -&gt; f Rule
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Predicate] -&gt; f [Predicate]) -&gt; [Predicate] -&gt; f [Predicate]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307026"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679307024"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Rule
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307268"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679307266"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Rule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Rule) -&gt; Value -&gt; Parser Rule
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Rule&quot;</span></span><span>
-</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307021"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307021"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307263"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679307263"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Text -&gt; [Predicate] -&gt; Rule
 </span><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule%27"><span class="hs-identifier hs-var">Rule'</span></a></span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Text -&gt; [Predicate] -&gt; Rule)
@@ -289,7 +289,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Text -&gt; [Predicate] -&gt; Rule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679307263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MetricName&quot;</span></span><span class="hs-special">)</span><span>
@@ -297,7 +297,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; [Predicate] -&gt; Rule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679307263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -305,14 +305,14 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser ([Predicate] -&gt; Rule)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679307263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RuleId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser ([Predicate] -&gt; Rule) -&gt; Parser [Predicate] -&gt; Parser Rule
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Predicate])
+</span><a href="#local-6989586621679307263"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Predicate])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Predicates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Predicate]) -&gt; [Predicate] -&gt; Parser [Predicate]
@@ -322,7 +322,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307013"><span id="local-6989586621679307015"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307255"><span id="local-6989586621679307257"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span></span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307010"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span><span>
 </span><span id="line-164"></span></pre></body></html>

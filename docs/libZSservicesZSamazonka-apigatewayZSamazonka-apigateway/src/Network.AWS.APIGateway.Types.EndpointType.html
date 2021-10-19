@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- setup, most suitable for mobile applications; @REGIONAL@ for regional</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- API endpoint setup, most suitable for calling from AWS Region; and</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- @PRIVATE@ for private APIs.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679366164"><span id="local-6989586621679366165"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EndpointType"><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType"><span class="hs-identifier hs-var">EndpointType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointType%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType%27"><span class="hs-identifier hs-var">EndpointType'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679366661"><span id="local-6989586621679366662"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EndpointType"><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType"><span class="hs-identifier hs-var">EndpointType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointType%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.EndpointType.html#EndpointType%27"><span class="hs-identifier hs-var">EndpointType'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEndpointType"><span class="annot"><span class="annottext">EndpointType -&gt; Text
 </span><a href="Network.AWS.APIGateway.Types.EndpointType.html#fromEndpointType"><span class="hs-identifier hs-var hs-var">fromEndpointType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366156"><span id="local-6989586621679366158"><span id="local-6989586621679366160"><span class="annot"><span class="annottext">Int -&gt; EndpointType -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366653"><span id="local-6989586621679366655"><span id="local-6989586621679366657"><span class="annot"><span class="annottext">Int -&gt; EndpointType -&gt; ShowS
 [EndpointType] -&gt; ShowS
 EndpointType -&gt; String
 (Int -&gt; EndpointType -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: EndpointType -&gt; String
 showsPrec :: Int -&gt; EndpointType -&gt; ShowS
 $cshowsPrec :: Int -&gt; EndpointType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679366147"><span id="local-6989586621679366149"><span id="local-6989586621679366151"><span id="local-6989586621679366153"><span class="annot"><span class="annottext">ReadPrec [EndpointType]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679366644"><span id="local-6989586621679366646"><span id="local-6989586621679366648"><span id="local-6989586621679366650"><span class="annot"><span class="annottext">ReadPrec [EndpointType]
 ReadPrec EndpointType
 Int -&gt; ReadS EndpointType
 ReadS [EndpointType]
@@ -77,7 +77,7 @@ $creadList :: ReadS [EndpointType]
 readsPrec :: Int -&gt; ReadS EndpointType
 $creadsPrec :: Int -&gt; ReadS EndpointType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679366142"><span id="local-6989586621679366144"><span class="annot"><span class="annottext">EndpointType -&gt; EndpointType -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679366639"><span id="local-6989586621679366641"><span class="annot"><span class="annottext">EndpointType -&gt; EndpointType -&gt; Bool
 (EndpointType -&gt; EndpointType -&gt; Bool)
 -&gt; (EndpointType -&gt; EndpointType -&gt; Bool) -&gt; Eq EndpointType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: EndpointType -&gt; EndpointType -&gt; Bool
 == :: EndpointType -&gt; EndpointType -&gt; Bool
 $c== :: EndpointType -&gt; EndpointType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679366126"><span id="local-6989586621679366128"><span id="local-6989586621679366130"><span id="local-6989586621679366132"><span id="local-6989586621679366134"><span id="local-6989586621679366136"><span id="local-6989586621679366138"><span class="annot"><span class="annottext">Eq EndpointType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679366623"><span id="local-6989586621679366625"><span id="local-6989586621679366627"><span id="local-6989586621679366629"><span id="local-6989586621679366631"><span id="local-6989586621679366633"><span id="local-6989586621679366635"><span class="annot"><span class="annottext">Eq EndpointType
 Eq EndpointType
 -&gt; (EndpointType -&gt; EndpointType -&gt; Ordering)
 -&gt; (EndpointType -&gt; EndpointType -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. EndpointType -&gt; Rep EndpointType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366118"><span id="local-6989586621679366120"><span class="annot"><span class="annottext">Int -&gt; EndpointType -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679366615"><span id="local-6989586621679366617"><span class="annot"><span class="annottext">Int -&gt; EndpointType -&gt; Int
 EndpointType -&gt; Int
 (Int -&gt; EndpointType -&gt; Int)
 -&gt; (EndpointType -&gt; Int) -&gt; Hashable EndpointType
@@ -147,49 +147,49 @@ $chash :: EndpointType -&gt; Int
 hashWithSalt :: Int -&gt; EndpointType -&gt; Int
 $chashWithSalt :: Int -&gt; EndpointType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679366115"><span class="annot"><span class="annottext">EndpointType -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679366612"><span class="annot"><span class="annottext">EndpointType -&gt; ()
 (EndpointType -&gt; ()) -&gt; NFData EndpointType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EndpointType -&gt; ()
 $crnf :: EndpointType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679366112"><span class="annot"><span class="annottext">Text -&gt; Either String EndpointType
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679366609"><span class="annot"><span class="annottext">Text -&gt; Either String EndpointType
 (Text -&gt; Either String EndpointType) -&gt; FromText EndpointType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EndpointType
 $cfromText :: Text -&gt; Either String EndpointType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679366109"><span class="annot"><span class="annottext">EndpointType -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679366606"><span class="annot"><span class="annottext">EndpointType -&gt; Text
 (EndpointType -&gt; Text) -&gt; ToText EndpointType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EndpointType -&gt; Text
 $ctoText :: EndpointType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679366106"><span class="annot"><span class="annottext">EndpointType -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679366603"><span class="annot"><span class="annottext">EndpointType -&gt; ByteString
 (EndpointType -&gt; ByteString) -&gt; ToByteString EndpointType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EndpointType -&gt; ByteString
 $ctoBS :: EndpointType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679366103"><span class="annot"><span class="annottext">EndpointType -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679366600"><span class="annot"><span class="annottext">EndpointType -&gt; ByteStringBuilder
 (EndpointType -&gt; ByteStringBuilder) -&gt; ToLog EndpointType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EndpointType -&gt; ByteStringBuilder
 $cbuild :: EndpointType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679366100"><span class="annot"><span class="annottext">HeaderName -&gt; EndpointType -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679366597"><span class="annot"><span class="annottext">HeaderName -&gt; EndpointType -&gt; [Header]
 (HeaderName -&gt; EndpointType -&gt; [Header]) -&gt; ToHeader EndpointType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EndpointType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EndpointType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679366097"><span class="annot"><span class="annottext">EndpointType -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679366594"><span class="annot"><span class="annottext">EndpointType -&gt; QueryString
 (EndpointType -&gt; QueryString) -&gt; ToQuery EndpointType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EndpointType -&gt; QueryString
 $ctoQuery :: EndpointType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679366092"><span id="local-6989586621679366094"><span class="annot"><span class="annottext">Value -&gt; Parser [EndpointType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679366589"><span id="local-6989586621679366591"><span class="annot"><span class="annottext">Value -&gt; Parser [EndpointType]
 Value -&gt; Parser EndpointType
 (Value -&gt; Parser EndpointType)
 -&gt; (Value -&gt; Parser [EndpointType]) -&gt; FromJSON EndpointType
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [EndpointType]
 parseJSON :: Value -&gt; Parser EndpointType
 $cparseJSON :: Value -&gt; Parser EndpointType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679366087"><span id="local-6989586621679366089"><span class="annot"><span class="annottext">FromJSONKeyFunction [EndpointType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679366584"><span id="local-6989586621679366586"><span class="annot"><span class="annottext">FromJSONKeyFunction [EndpointType]
 FromJSONKeyFunction EndpointType
 FromJSONKeyFunction EndpointType
 -&gt; FromJSONKeyFunction [EndpointType] -&gt; FromJSONKey EndpointType
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EndpointType]
 fromJSONKey :: FromJSONKeyFunction EndpointType
 $cfromJSONKey :: FromJSONKeyFunction EndpointType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679366078"><span id="local-6989586621679366080"><span id="local-6989586621679366082"><span id="local-6989586621679366084"><span class="annot"><span class="annottext">[EndpointType] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679366575"><span id="local-6989586621679366577"><span id="local-6989586621679366579"><span id="local-6989586621679366581"><span class="annot"><span class="annottext">[EndpointType] -&gt; Encoding
 [EndpointType] -&gt; Value
 EndpointType -&gt; Encoding
 EndpointType -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: EndpointType -&gt; Encoding
 toJSON :: EndpointType -&gt; Value
 $ctoJSON :: EndpointType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679366073"><span id="local-6989586621679366075"><span class="annot"><span class="annottext">ToJSONKeyFunction [EndpointType]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679366570"><span id="local-6989586621679366572"><span class="annot"><span class="annottext">ToJSONKeyFunction [EndpointType]
 ToJSONKeyFunction EndpointType
 ToJSONKeyFunction EndpointType
 -&gt; ToJSONKeyFunction [EndpointType] -&gt; ToJSONKey EndpointType
@@ -246,13 +246,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EndpointType]
 toJSONKey :: ToJSONKeyFunction EndpointType
 $ctoJSONKey :: ToJSONKeyFunction EndpointType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679366070"><span class="annot"><span class="annottext">[Node] -&gt; Either String EndpointType
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679366567"><span class="annot"><span class="annottext">[Node] -&gt; Either String EndpointType
 ([Node] -&gt; Either String EndpointType) -&gt; FromXML EndpointType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EndpointType
 $cparseXML :: [Node] -&gt; Either String EndpointType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679366067"><span class="annot"><span class="annottext">EndpointType -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679366564"><span class="annot"><span class="annottext">EndpointType -&gt; XML
 (EndpointType -&gt; XML) -&gt; ToXML EndpointType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EndpointType -&gt; XML

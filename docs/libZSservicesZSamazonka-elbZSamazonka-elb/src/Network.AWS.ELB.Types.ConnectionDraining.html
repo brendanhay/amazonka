@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about the @ConnectionDraining@ attribute.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newConnectionDraining' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679195478"><span id="local-6989586621679195479"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionDraining"><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining"><span class="hs-identifier hs-var">ConnectionDraining</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionDraining%27"><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining%27"><span class="hs-identifier hs-var">ConnectionDraining'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679195702"><span id="local-6989586621679195703"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionDraining"><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining"><span class="hs-identifier hs-var">ConnectionDraining</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionDraining%27"><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining%27"><span class="hs-identifier hs-var">ConnectionDraining'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum time, in seconds, to keep the existing connections open</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- before deregistering the instances.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Atimeout%3AConnectionDraining%27"><span class="annot"><span class="annottext">ConnectionDraining -&gt; Maybe Int
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aenabled%3AConnectionDraining%27"><span class="annot"><span class="annottext">ConnectionDraining -&gt; Bool
 </span><a href="Network.AWS.ELB.Types.ConnectionDraining.html#%24sel%3Aenabled%3AConnectionDraining%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195471"><span id="local-6989586621679195473"><span class="annot"><span class="annottext">ConnectionDraining -&gt; ConnectionDraining -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679195695"><span id="local-6989586621679195697"><span class="annot"><span class="annottext">ConnectionDraining -&gt; ConnectionDraining -&gt; Bool
 (ConnectionDraining -&gt; ConnectionDraining -&gt; Bool)
 -&gt; (ConnectionDraining -&gt; ConnectionDraining -&gt; Bool)
 -&gt; Eq ConnectionDraining
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConnectionDraining -&gt; ConnectionDraining -&gt; Bool
 == :: ConnectionDraining -&gt; ConnectionDraining -&gt; Bool
 $c== :: ConnectionDraining -&gt; ConnectionDraining -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195462"><span id="local-6989586621679195464"><span id="local-6989586621679195466"><span id="local-6989586621679195468"><span class="annot"><span class="annottext">ReadPrec [ConnectionDraining]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195686"><span id="local-6989586621679195688"><span id="local-6989586621679195690"><span id="local-6989586621679195692"><span class="annot"><span class="annottext">ReadPrec [ConnectionDraining]
 ReadPrec ConnectionDraining
 Int -&gt; ReadS ConnectionDraining
 ReadS [ConnectionDraining]
@@ -65,7 +65,7 @@ readList :: ReadS [ConnectionDraining]
 $creadList :: ReadS [ConnectionDraining]
 readsPrec :: Int -&gt; ReadS ConnectionDraining
 $creadsPrec :: Int -&gt; ReadS ConnectionDraining
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195455"><span id="local-6989586621679195457"><span id="local-6989586621679195459"><span class="annot"><span class="annottext">Int -&gt; ConnectionDraining -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679195679"><span id="local-6989586621679195681"><span id="local-6989586621679195683"><span class="annot"><span class="annottext">Int -&gt; ConnectionDraining -&gt; ShowS
 [ConnectionDraining] -&gt; ShowS
 ConnectionDraining -&gt; String
 (Int -&gt; ConnectionDraining -&gt; ShowS)
@@ -108,8 +108,8 @@ $cfrom :: forall x. ConnectionDraining -&gt; Rep ConnectionDraining x
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining"><span class="hs-identifier hs-type">ConnectionDraining</span></a></span><span>
 </span><span id="line-55"></span><span id="newConnectionDraining"><span class="annot"><span class="annottext">newConnectionDraining :: Bool -&gt; ConnectionDraining
-</span><a href="Network.AWS.ELB.Types.ConnectionDraining.html#newConnectionDraining"><span class="hs-identifier hs-var hs-var">newConnectionDraining</span></a></span></span><span> </span><span id="local-6989586621679195449"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679195449"><span class="hs-identifier hs-var">pEnabled_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ELB.Types.ConnectionDraining.html#newConnectionDraining"><span class="hs-identifier hs-var hs-var">newConnectionDraining</span></a></span></span><span> </span><span id="local-6989586621679195673"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679195673"><span class="hs-identifier hs-var">pEnabled_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">ConnectionDraining' :: Maybe Int -&gt; Bool -&gt; ConnectionDraining
 </span><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining%27"><span class="hs-identifier hs-type">ConnectionDraining'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:timeout:ConnectionDraining' :: Maybe Int
@@ -118,7 +118,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:ConnectionDraining' :: Bool
 </span><a href="Network.AWS.ELB.Types.ConnectionDraining.html#%24sel%3Aenabled%3AConnectionDraining%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679195449"><span class="hs-identifier hs-var">pEnabled_</span></a></span><span>
+</span><a href="#local-6989586621679195673"><span class="hs-identifier hs-var">pEnabled_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The maximum time, in seconds, to keep the existing connections open</span><span>
@@ -131,16 +131,16 @@ forall a. Maybe a
 -&gt; Lens
      ConnectionDraining ConnectionDraining (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining%27"><span class="hs-identifier hs-type">ConnectionDraining'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195445"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining%27"><span class="hs-identifier hs-type">ConnectionDraining'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195669"><span class="annot"><span class="annottext">Maybe Int
 timeout :: Maybe Int
 $sel:timeout:ConnectionDraining' :: ConnectionDraining -&gt; Maybe Int
-</span><a href="#local-6989586621679195445"><span class="hs-identifier hs-var hs-var">timeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679195445"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195444"><span class="annot"><span class="annottext">s :: ConnectionDraining
-</span><a href="#local-6989586621679195444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining%27"><span class="hs-identifier hs-type">ConnectionDraining'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195443"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679195443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionDraining
-</span><a href="#local-6989586621679195444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeout:ConnectionDraining' :: Maybe Int
+</span><a href="#local-6989586621679195669"><span class="hs-identifier hs-var hs-var">timeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679195669"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195668"><span class="annot"><span class="annottext">s :: ConnectionDraining
+</span><a href="#local-6989586621679195668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining%27"><span class="hs-identifier hs-type">ConnectionDraining'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195667"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679195667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionDraining
+</span><a href="#local-6989586621679195668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeout:ConnectionDraining' :: Maybe Int
 </span><a href="Network.AWS.ELB.Types.ConnectionDraining.html#%24sel%3Atimeout%3AConnectionDraining%27"><span class="hs-identifier hs-var">timeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679195443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining"><span class="hs-identifier hs-type">ConnectionDraining</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679195667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining"><span class="hs-identifier hs-type">ConnectionDraining</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | Specifies whether connection draining is enabled for the load balancer.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#connectionDraining_enabled"><span class="hs-identifier hs-type">connectionDraining_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining"><span class="hs-identifier hs-type">ConnectionDraining</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
@@ -149,21 +149,21 @@ $sel:timeout:ConnectionDraining' :: ConnectionDraining -&gt; Maybe Int
 -&gt; (ConnectionDraining -&gt; Bool -&gt; ConnectionDraining)
 -&gt; Lens ConnectionDraining ConnectionDraining Bool Bool
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining%27"><span class="hs-identifier hs-type">ConnectionDraining'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195441"><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining%27"><span class="hs-identifier hs-type">ConnectionDraining'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195665"><span class="annot"><span class="annottext">Bool
 enabled :: Bool
 $sel:enabled:ConnectionDraining' :: ConnectionDraining -&gt; Bool
-</span><a href="#local-6989586621679195441"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679195441"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195440"><span class="annot"><span class="annottext">s :: ConnectionDraining
-</span><a href="#local-6989586621679195440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining%27"><span class="hs-identifier hs-type">ConnectionDraining'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195439"><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679195439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionDraining
-</span><a href="#local-6989586621679195440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:ConnectionDraining' :: Bool
+</span><a href="#local-6989586621679195665"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679195665"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679195664"><span class="annot"><span class="annottext">s :: ConnectionDraining
+</span><a href="#local-6989586621679195664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining%27"><span class="hs-identifier hs-type">ConnectionDraining'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679195663"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679195663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionDraining
+</span><a href="#local-6989586621679195664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:ConnectionDraining' :: Bool
 </span><a href="Network.AWS.ELB.Types.ConnectionDraining.html#%24sel%3Aenabled%3AConnectionDraining%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679195439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining"><span class="hs-identifier hs-type">ConnectionDraining</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679195663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining"><span class="hs-identifier hs-type">ConnectionDraining</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining"><span class="hs-identifier hs-type">ConnectionDraining</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679195436"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ConnectionDraining
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679195434"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679195434"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679195660"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ConnectionDraining
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679195658"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679195658"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int -&gt; Bool -&gt; ConnectionDraining
 </span><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining%27"><span class="hs-identifier hs-var">ConnectionDraining'</span></a></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Bool -&gt; ConnectionDraining)
@@ -171,7 +171,7 @@ $sel:enabled:ConnectionDraining' :: ConnectionDraining -&gt; Bool
 -&gt; Either String (Bool -&gt; ConnectionDraining)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679195434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679195658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timeout&quot;</span></span><span class="hs-special">)</span><span>
@@ -179,24 +179,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String Bool -&gt; Either String ConnectionDraining
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679195434"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+</span><a href="#local-6989586621679195658"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195427"><span id="local-6989586621679195429"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining"><span class="hs-identifier hs-type">ConnectionDraining</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195651"><span id="local-6989586621679195653"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining"><span class="hs-identifier hs-type">ConnectionDraining</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195424"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining"><span class="hs-identifier hs-type">ConnectionDraining</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679195648"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining"><span class="hs-identifier hs-type">ConnectionDraining</span></a></span></span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining"><span class="hs-identifier hs-type">ConnectionDraining</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679195420"><span class="annot"><span class="annottext">toQuery :: ConnectionDraining -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining%27"><span class="hs-identifier hs-type">ConnectionDraining'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195417"><span id="local-6989586621679195418"><span class="annot"><span class="annottext">Bool
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679195644"><span class="annot"><span class="annottext">toQuery :: ConnectionDraining -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ELB.Types.ConnectionDraining.html#ConnectionDraining%27"><span class="hs-identifier hs-type">ConnectionDraining'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679195641"><span id="local-6989586621679195642"><span class="annot"><span class="annottext">Bool
 Maybe Int
 enabled :: Bool
 timeout :: Maybe Int
 $sel:enabled:ConnectionDraining' :: ConnectionDraining -&gt; Bool
 $sel:timeout:ConnectionDraining' :: ConnectionDraining -&gt; Maybe Int
-</span><a href="#local-6989586621679195417"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679195641"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -204,11 +204,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Timeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679195418"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679195642"><span class="hs-identifier hs-var">timeout</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Bool
-</span><a href="#local-6989586621679195417"><span class="hs-identifier hs-var">enabled</span></a></span><span>
+</span><a href="#local-6989586621679195641"><span class="hs-identifier hs-var">enabled</span></a></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-86"></span></pre></body></html>

@@ -41,7 +41,7 @@
 </span><span id="line-41"></span><span class="hs-comment">--     evaluates the scan results and returns only the desired values.</span><span>
 </span><span id="line-42"></span><span class="hs-comment">--</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- /See:/ 'newCondition' smart constructor.</span><span>
-</span><span id="line-44"></span><span id="local-6989586621679369780"><span id="local-6989586621679369781"></span></span><span class="hs-keyword">data</span><span> </span><span id="Condition"><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition"><span class="hs-identifier hs-var">Condition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Condition%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition%27"><span class="hs-identifier hs-var">Condition'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679370441"><span id="local-6989586621679370442"></span></span><span class="hs-keyword">data</span><span> </span><span id="Condition"><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition"><span class="hs-identifier hs-var">Condition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Condition%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition%27"><span class="hs-identifier hs-var">Condition'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more values to evaluate against the supplied attribute. The</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- number of values in the list depends on the @ComparisonOperator@ being</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- used.</span><span>
@@ -211,7 +211,7 @@
 </span><span id="line-210"></span><span>    </span><span id="%24sel%3AcomparisonOperator%3ACondition%27"><span class="annot"><span class="annottext">Condition -&gt; ComparisonOperator
 </span><a href="Network.AWS.DynamoDB.Types.Condition.html#%24sel%3AcomparisonOperator%3ACondition%27"><span class="hs-identifier hs-var hs-var">comparisonOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ComparisonOperator.html#ComparisonOperator"><span class="hs-identifier hs-type">ComparisonOperator</span></a></span><span>
 </span><span id="line-211"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-212"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369773"><span id="local-6989586621679369775"><span class="annot"><span class="annottext">Condition -&gt; Condition -&gt; Bool
+</span><span id="line-212"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679370434"><span id="local-6989586621679370436"><span class="annot"><span class="annottext">Condition -&gt; Condition -&gt; Bool
 (Condition -&gt; Condition -&gt; Bool)
 -&gt; (Condition -&gt; Condition -&gt; Bool) -&gt; Eq Condition
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -219,7 +219,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Condition -&gt; Condition -&gt; Bool
 == :: Condition -&gt; Condition -&gt; Bool
 $c== :: Condition -&gt; Condition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369764"><span id="local-6989586621679369766"><span id="local-6989586621679369768"><span id="local-6989586621679369770"><span class="annot"><span class="annottext">ReadPrec [Condition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370425"><span id="local-6989586621679370427"><span id="local-6989586621679370429"><span id="local-6989586621679370431"><span class="annot"><span class="annottext">ReadPrec [Condition]
 ReadPrec Condition
 Int -&gt; ReadS Condition
 ReadS [Condition]
@@ -239,7 +239,7 @@ readList :: ReadS [Condition]
 $creadList :: ReadS [Condition]
 readsPrec :: Int -&gt; ReadS Condition
 $creadsPrec :: Int -&gt; ReadS Condition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369757"><span id="local-6989586621679369759"><span id="local-6989586621679369761"><span class="annot"><span class="annottext">Int -&gt; Condition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679370418"><span id="local-6989586621679370420"><span id="local-6989586621679370422"><span class="annot"><span class="annottext">Int -&gt; Condition -&gt; ShowS
 [Condition] -&gt; ShowS
 Condition -&gt; String
 (Int -&gt; Condition -&gt; ShowS)
@@ -442,8 +442,8 @@ $cfrom :: forall x. Condition -&gt; Rep Condition x
 </span><span id="line-389"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ComparisonOperator.html#ComparisonOperator"><span class="hs-identifier hs-type">ComparisonOperator</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-390"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span>
 </span><span id="line-391"></span><span id="newCondition"><span class="annot"><span class="annottext">newCondition :: ComparisonOperator -&gt; Condition
-</span><a href="Network.AWS.DynamoDB.Types.Condition.html#newCondition"><span class="hs-identifier hs-var hs-var">newCondition</span></a></span></span><span> </span><span id="local-6989586621679369751"><span class="annot"><span class="annottext">ComparisonOperator
-</span><a href="#local-6989586621679369751"><span class="hs-identifier hs-var">pComparisonOperator_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.Types.Condition.html#newCondition"><span class="hs-identifier hs-var hs-var">newCondition</span></a></span></span><span> </span><span id="local-6989586621679370412"><span class="annot"><span class="annottext">ComparisonOperator
+</span><a href="#local-6989586621679370412"><span class="hs-identifier hs-var">pComparisonOperator_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-392"></span><span>  </span><span class="annot"><span class="annottext">Condition' :: Maybe [AttributeValue] -&gt; ComparisonOperator -&gt; Condition
 </span><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span>
 </span><span id="line-393"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributeValueList:Condition' :: Maybe [AttributeValue]
@@ -452,7 +452,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-394"></span><span>      </span><span class="annot"><span class="annottext">$sel:comparisonOperator:Condition' :: ComparisonOperator
 </span><a href="Network.AWS.DynamoDB.Types.Condition.html#%24sel%3AcomparisonOperator%3ACondition%27"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComparisonOperator
-</span><a href="#local-6989586621679369751"><span class="hs-identifier hs-var">pComparisonOperator_</span></a></span><span>
+</span><a href="#local-6989586621679370412"><span class="hs-identifier hs-var">pComparisonOperator_</span></a></span><span>
 </span><span id="line-395"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-396"></span><span>
 </span><span id="line-397"></span><span class="hs-comment">-- | One or more values to evaluate against the supplied attribute. The</span><span>
@@ -479,16 +479,16 @@ forall a. Maybe a
      (Maybe [AttributeValue])
      (Maybe [AttributeValue])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369747"><span class="annot"><span class="annottext">Maybe [AttributeValue]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370408"><span class="annot"><span class="annottext">Maybe [AttributeValue]
 attributeValueList :: Maybe [AttributeValue]
 $sel:attributeValueList:Condition' :: Condition -&gt; Maybe [AttributeValue]
-</span><a href="#local-6989586621679369747"><span class="hs-identifier hs-var hs-var">attributeValueList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
-</span><a href="#local-6989586621679369747"><span class="hs-identifier hs-var">attributeValueList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369746"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679369746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369745"><span class="annot"><span class="annottext">Maybe [AttributeValue]
-</span><a href="#local-6989586621679369745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679369746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeValueList:Condition' :: Maybe [AttributeValue]
+</span><a href="#local-6989586621679370408"><span class="hs-identifier hs-var hs-var">attributeValueList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
+</span><a href="#local-6989586621679370408"><span class="hs-identifier hs-var">attributeValueList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370407"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679370407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370406"><span class="annot"><span class="annottext">Maybe [AttributeValue]
+</span><a href="#local-6989586621679370406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679370407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeValueList:Condition' :: Maybe [AttributeValue]
 </span><a href="Network.AWS.DynamoDB.Types.Condition.html#%24sel%3AattributeValueList%3ACondition%27"><span class="hs-identifier hs-var">attributeValueList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
-</span><a href="#local-6989586621679369745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
+</span><a href="#local-6989586621679370406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
  -&gt; Condition -&gt; f Condition)
 -&gt; ((Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
     -&gt; Maybe [AttributeValue] -&gt; f (Maybe [AttributeValue]))
@@ -508,8 +508,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [AttributeValue] [AttributeValue] [AttributeValue] [AttributeValue]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-412"></span><span>
 </span><span id="line-413"></span><span class="hs-comment">-- | A comparator for evaluating attributes. For example, equals, greater</span><span>
 </span><span id="line-414"></span><span class="hs-comment">-- than, less than, etc.</span><span>
@@ -669,30 +669,30 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (Condition -&gt; ComparisonOperator -&gt; Condition)
 -&gt; Lens Condition Condition ComparisonOperator ComparisonOperator
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369740"><span class="annot"><span class="annottext">ComparisonOperator
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370401"><span class="annot"><span class="annottext">ComparisonOperator
 comparisonOperator :: ComparisonOperator
 $sel:comparisonOperator:Condition' :: Condition -&gt; ComparisonOperator
-</span><a href="#local-6989586621679369740"><span class="hs-identifier hs-var hs-var">comparisonOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComparisonOperator
-</span><a href="#local-6989586621679369740"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369739"><span class="annot"><span class="annottext">s :: Condition
-</span><a href="#local-6989586621679369739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369738"><span class="annot"><span class="annottext">ComparisonOperator
-</span><a href="#local-6989586621679369738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
-</span><a href="#local-6989586621679369739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comparisonOperator:Condition' :: ComparisonOperator
+</span><a href="#local-6989586621679370401"><span class="hs-identifier hs-var hs-var">comparisonOperator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComparisonOperator
+</span><a href="#local-6989586621679370401"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679370400"><span class="annot"><span class="annottext">s :: Condition
+</span><a href="#local-6989586621679370400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679370399"><span class="annot"><span class="annottext">ComparisonOperator
+</span><a href="#local-6989586621679370399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Condition
+</span><a href="#local-6989586621679370400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comparisonOperator:Condition' :: ComparisonOperator
 </span><a href="Network.AWS.DynamoDB.Types.Condition.html#%24sel%3AcomparisonOperator%3ACondition%27"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComparisonOperator
-</span><a href="#local-6989586621679369738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-566"></span><span>
-</span><span id="line-567"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369734"><span id="local-6989586621679369736"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span></span><span>
+</span><span id="line-567"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370395"><span id="local-6989586621679370397"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span></span><span>
 </span><span id="line-568"></span><span>
-</span><span id="line-569"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369731"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span><span>
+</span><span id="line-569"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370392"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span><span>
 </span><span id="line-570"></span><span>
-</span><span id="line-571"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369723"><span id="local-6989586621679369725"><span id="local-6989586621679369727"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-572"></span><span>  </span><span id="local-6989586621679369721"><span class="annot"><span class="annottext">toJSON :: Condition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369718"><span id="local-6989586621679369719"><span class="annot"><span class="annottext">Maybe [AttributeValue]
+</span><span id="line-571"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679370384"><span id="local-6989586621679370386"><span id="local-6989586621679370388"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition"><span class="hs-identifier hs-type">Condition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-572"></span><span>  </span><span id="local-6989586621679370382"><span class="annot"><span class="annottext">toJSON :: Condition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.Condition.html#Condition%27"><span class="hs-identifier hs-type">Condition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679370379"><span id="local-6989586621679370380"><span class="annot"><span class="annottext">Maybe [AttributeValue]
 ComparisonOperator
 comparisonOperator :: ComparisonOperator
 attributeValueList :: Maybe [AttributeValue]
 $sel:comparisonOperator:Condition' :: Condition -&gt; ComparisonOperator
 $sel:attributeValueList:Condition' :: Condition -&gt; Maybe [AttributeValue]
-</span><a href="#local-6989586621679369718"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679370379"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-573"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-574"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -705,7 +705,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-576"></span><span>              </span><span class="annot"><span class="annottext">([AttributeValue] -&gt; Pair) -&gt; Maybe [AttributeValue] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValue]
-</span><a href="#local-6989586621679369719"><span class="hs-identifier hs-var">attributeValueList</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679370380"><span class="hs-identifier hs-var">attributeValueList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-577"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -713,7 +713,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ComparisonOperator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComparisonOperator -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ComparisonOperator
-</span><a href="#local-6989586621679369718"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679370379"><span class="hs-identifier hs-var">comparisonOperator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-579"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-580"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-581"></span></pre></body></html>

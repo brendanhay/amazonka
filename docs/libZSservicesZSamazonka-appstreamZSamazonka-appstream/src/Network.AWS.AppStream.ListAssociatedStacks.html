@@ -38,8 +38,8 @@
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#newListAssociatedStacksResponse"><span class="hs-identifier">newListAssociatedStacksResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#listAssociatedStacksResponse_names"><span class="hs-identifier">listAssociatedStacksResponse_names</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#listAssociatedStacksResponse_nextToken"><span class="hs-identifier">listAssociatedStacksResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#listAssociatedStacksResponse_nextToken"><span class="hs-identifier">listAssociatedStacksResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#listAssociatedStacksResponse_names"><span class="hs-identifier">listAssociatedStacksResponse_names</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#listAssociatedStacksResponse_httpStatus"><span class="hs-identifier">listAssociatedStacksResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span class="hs-keyword">where</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListAssociatedStacks' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679294417"><span id="local-6989586621679294418"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssociatedStacks"><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-var">ListAssociatedStacks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssociatedStacks%27"><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks%27"><span class="hs-identifier hs-var">ListAssociatedStacks'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679294682"><span id="local-6989586621679294683"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssociatedStacks"><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-var">ListAssociatedStacks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssociatedStacks%27"><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks%27"><span class="hs-identifier hs-var">ListAssociatedStacks'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- this operation. If this value is null, it retrieves the first page.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListAssociatedStacks%27"><span class="annot"><span class="annottext">ListAssociatedStacks -&gt; Maybe Text
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AfleetName%3AListAssociatedStacks%27"><span class="annot"><span class="annottext">ListAssociatedStacks -&gt; Text
 </span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#%24sel%3AfleetName%3AListAssociatedStacks%27"><span class="hs-identifier hs-var hs-var">fleetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294410"><span id="local-6989586621679294412"><span class="annot"><span class="annottext">ListAssociatedStacks -&gt; ListAssociatedStacks -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294675"><span id="local-6989586621679294677"><span class="annot"><span class="annottext">ListAssociatedStacks -&gt; ListAssociatedStacks -&gt; Bool
 (ListAssociatedStacks -&gt; ListAssociatedStacks -&gt; Bool)
 -&gt; (ListAssociatedStacks -&gt; ListAssociatedStacks -&gt; Bool)
 -&gt; Eq ListAssociatedStacks
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListAssociatedStacks -&gt; ListAssociatedStacks -&gt; Bool
 == :: ListAssociatedStacks -&gt; ListAssociatedStacks -&gt; Bool
 $c== :: ListAssociatedStacks -&gt; ListAssociatedStacks -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294401"><span id="local-6989586621679294403"><span id="local-6989586621679294405"><span id="local-6989586621679294407"><span class="annot"><span class="annottext">ReadPrec [ListAssociatedStacks]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294666"><span id="local-6989586621679294668"><span id="local-6989586621679294670"><span id="local-6989586621679294672"><span class="annot"><span class="annottext">ReadPrec [ListAssociatedStacks]
 ReadPrec ListAssociatedStacks
 Int -&gt; ReadS ListAssociatedStacks
 ReadS [ListAssociatedStacks]
@@ -90,7 +90,7 @@ readList :: ReadS [ListAssociatedStacks]
 $creadList :: ReadS [ListAssociatedStacks]
 readsPrec :: Int -&gt; ReadS ListAssociatedStacks
 $creadsPrec :: Int -&gt; ReadS ListAssociatedStacks
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294394"><span id="local-6989586621679294396"><span id="local-6989586621679294398"><span class="annot"><span class="annottext">Int -&gt; ListAssociatedStacks -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294659"><span id="local-6989586621679294661"><span id="local-6989586621679294663"><span class="annot"><span class="annottext">Int -&gt; ListAssociatedStacks -&gt; ShowS
 [ListAssociatedStacks] -&gt; ShowS
 ListAssociatedStacks -&gt; String
 (Int -&gt; ListAssociatedStacks -&gt; ShowS)
@@ -133,8 +133,8 @@ $cfrom :: forall x. ListAssociatedStacks -&gt; Rep ListAssociatedStacks x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-type">ListAssociatedStacks</span></a></span><span>
 </span><span id="line-80"></span><span id="newListAssociatedStacks"><span class="annot"><span class="annottext">newListAssociatedStacks :: Text -&gt; ListAssociatedStacks
-</span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#newListAssociatedStacks"><span class="hs-identifier hs-var hs-var">newListAssociatedStacks</span></a></span></span><span> </span><span id="local-6989586621679294389"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294389"><span class="hs-identifier hs-var">pFleetName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#newListAssociatedStacks"><span class="hs-identifier hs-var hs-var">newListAssociatedStacks</span></a></span></span><span> </span><span id="local-6989586621679294654"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294654"><span class="hs-identifier hs-var">pFleetName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">ListAssociatedStacks' :: Maybe Text -&gt; Text -&gt; ListAssociatedStacks
 </span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks%27"><span class="hs-identifier hs-type">ListAssociatedStacks'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedStacks' :: Maybe Text
@@ -143,7 +143,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetName:ListAssociatedStacks' :: Text
 </span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#%24sel%3AfleetName%3AListAssociatedStacks%27"><span class="hs-identifier hs-var">fleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294389"><span class="hs-identifier hs-var">pFleetName_</span></a></span><span>
+</span><a href="#local-6989586621679294654"><span class="hs-identifier hs-var">pFleetName_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
@@ -156,16 +156,16 @@ forall a. Maybe a
 -&gt; Lens
      ListAssociatedStacks ListAssociatedStacks (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks%27"><span class="hs-identifier hs-type">ListAssociatedStacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294387"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks%27"><span class="hs-identifier hs-type">ListAssociatedStacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294652"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListAssociatedStacks' :: ListAssociatedStacks -&gt; Maybe Text
-</span><a href="#local-6989586621679294387"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294387"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294386"><span class="annot"><span class="annottext">s :: ListAssociatedStacks
-</span><a href="#local-6989586621679294386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks%27"><span class="hs-identifier hs-type">ListAssociatedStacks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294385"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedStacks
-</span><a href="#local-6989586621679294386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedStacks' :: Maybe Text
+</span><a href="#local-6989586621679294652"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294652"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294651"><span class="annot"><span class="annottext">s :: ListAssociatedStacks
+</span><a href="#local-6989586621679294651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks%27"><span class="hs-identifier hs-type">ListAssociatedStacks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294650"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedStacks
+</span><a href="#local-6989586621679294651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedStacks' :: Maybe Text
 </span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#%24sel%3AnextToken%3AListAssociatedStacks%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-type">ListAssociatedStacks</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-type">ListAssociatedStacks</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The name of the fleet.</span><span>
 </span><span id="line-92"></span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#listAssociatedStacks_fleetName"><span class="hs-identifier hs-type">listAssociatedStacks_fleetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-type">ListAssociatedStacks</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -174,29 +174,29 @@ $sel:nextToken:ListAssociatedStacks' :: ListAssociatedStacks -&gt; Maybe Text
 -&gt; (ListAssociatedStacks -&gt; Text -&gt; ListAssociatedStacks)
 -&gt; Lens ListAssociatedStacks ListAssociatedStacks Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks%27"><span class="hs-identifier hs-type">ListAssociatedStacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294384"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks%27"><span class="hs-identifier hs-type">ListAssociatedStacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294649"><span class="annot"><span class="annottext">Text
 fleetName :: Text
 $sel:fleetName:ListAssociatedStacks' :: ListAssociatedStacks -&gt; Text
-</span><a href="#local-6989586621679294384"><span class="hs-identifier hs-var hs-var">fleetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294384"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294383"><span class="annot"><span class="annottext">s :: ListAssociatedStacks
-</span><a href="#local-6989586621679294383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks%27"><span class="hs-identifier hs-type">ListAssociatedStacks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294382"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedStacks
-</span><a href="#local-6989586621679294383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetName:ListAssociatedStacks' :: Text
+</span><a href="#local-6989586621679294649"><span class="hs-identifier hs-var hs-var">fleetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294649"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294648"><span class="annot"><span class="annottext">s :: ListAssociatedStacks
+</span><a href="#local-6989586621679294648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks%27"><span class="hs-identifier hs-type">ListAssociatedStacks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294647"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedStacks
+</span><a href="#local-6989586621679294648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetName:ListAssociatedStacks' :: Text
 </span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#%24sel%3AfleetName%3AListAssociatedStacks%27"><span class="hs-identifier hs-var">fleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-type">ListAssociatedStacks</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-type">ListAssociatedStacks</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-type">ListAssociatedStacks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679294378"><span class="annot"><span class="annottext">page :: ListAssociatedStacks
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679294643"><span class="annot"><span class="annottext">page :: ListAssociatedStacks
 -&gt; AWSResponse ListAssociatedStacks -&gt; Maybe ListAssociatedStacks
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679294376"><span class="annot"><span class="annottext">ListAssociatedStacks
-</span><a href="#local-6989586621679294376"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679294375"><span class="annot"><span class="annottext">AWSResponse ListAssociatedStacks
-</span><a href="#local-6989586621679294375"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679294641"><span class="annot"><span class="annottext">ListAssociatedStacks
+</span><a href="#local-6989586621679294641"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679294640"><span class="annot"><span class="annottext">AWSResponse ListAssociatedStacks
+</span><a href="#local-6989586621679294640"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-98"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAssociatedStacks
 ListAssociatedStacksResponse
-</span><a href="#local-6989586621679294375"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679294640"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">ListAssociatedStacksResponse
 -&gt; Getting (First Text) ListAssociatedStacksResponse Text
 -&gt; Maybe Text
@@ -226,7 +226,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-104"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAssociatedStacks
 ListAssociatedStacksResponse
-</span><a href="#local-6989586621679294375"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679294640"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">ListAssociatedStacksResponse
 -&gt; Getting (First [Text]) ListAssociatedStacksResponse [Text]
 -&gt; Maybe [Text]
@@ -260,7 +260,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">ListAssociatedStacks
-</span><a href="#local-6989586621679294376"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679294641"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">ListAssociatedStacks
 -&gt; (ListAssociatedStacks -&gt; ListAssociatedStacks)
 -&gt; ListAssociatedStacks
@@ -276,7 +276,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAssociatedStacks
 ListAssociatedStacksResponse
-</span><a href="#local-6989586621679294375"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679294640"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">ListAssociatedStacksResponse
 -&gt; Getting (First Text) ListAssociatedStacksResponse Text
 -&gt; Maybe Text
@@ -302,12 +302,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-type">ListAssociatedStacks</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse"><span class="hs-identifier hs-type">ListAssociatedStacksResponse</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679294365"><span class="annot"><span class="annottext">request :: ListAssociatedStacks -&gt; Request ListAssociatedStacks
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679294630"><span class="annot"><span class="annottext">request :: ListAssociatedStacks -&gt; Request ListAssociatedStacks
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAssociatedStacks -&gt; Request ListAssociatedStacks
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679294361"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679294626"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListAssociatedStacks
 -&gt; ClientResponse ClientBody
@@ -333,19 +333,28 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294358"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294358"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679294357"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679294357"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679294356"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294356"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListAssociatedStacksResponse
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294623"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294623"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679294622"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679294622"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679294621"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294621"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListAssociatedStacksResponse
 </span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse%27"><span class="hs-identifier hs-var">ListAssociatedStacksResponse'</span></a></span><span>
-</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListAssociatedStacksResponse)
--&gt; Either String (Maybe [Text])
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListAssociatedStacksResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; ListAssociatedStacksResponse)
+     String (Maybe [Text] -&gt; Int -&gt; ListAssociatedStacksResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679294621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Text] -&gt; Int -&gt; ListAssociatedStacksResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Int -&gt; ListAssociatedStacksResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Names&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -354,15 +363,6 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListAssociatedStacksResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; ListAssociatedStacksResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679294356"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListAssociatedStacksResponse)
 -&gt; Either String Int -&gt; Either String ListAssociatedStacksResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -371,15 +371,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294358"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294623"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294347"><span id="local-6989586621679294349"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-type">ListAssociatedStacks</span></a></span></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294612"><span id="local-6989586621679294614"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-type">ListAssociatedStacks</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294344"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-type">ListAssociatedStacks</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294609"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-type">ListAssociatedStacks</span></a></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-type">ListAssociatedStacks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679294340"><span class="annot"><span class="annottext">toHeaders :: ListAssociatedStacks -&gt; ResponseHeaders
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679294605"><span class="annot"><span class="annottext">toHeaders :: ListAssociatedStacks -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAssociatedStacks -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -406,15 +406,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294330"><span id="local-6989586621679294332"><span id="local-6989586621679294334"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-type">ListAssociatedStacks</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679294328"><span class="annot"><span class="annottext">toJSON :: ListAssociatedStacks -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks%27"><span class="hs-identifier hs-type">ListAssociatedStacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294325"><span id="local-6989586621679294326"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294595"><span id="local-6989586621679294597"><span id="local-6989586621679294599"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-type">ListAssociatedStacks</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679294593"><span class="annot"><span class="annottext">toJSON :: ListAssociatedStacks -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks%27"><span class="hs-identifier hs-type">ListAssociatedStacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294590"><span id="local-6989586621679294591"><span class="annot"><span class="annottext">Maybe Text
 Text
 fleetName :: Text
 nextToken :: Maybe Text
 $sel:fleetName:ListAssociatedStacks' :: ListAssociatedStacks -&gt; Text
 $sel:nextToken:ListAssociatedStacks' :: ListAssociatedStacks -&gt; Maybe Text
-</span><a href="#local-6989586621679294325"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679294590"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -426,26 +426,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294326"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679294591"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FleetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679294325"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294590"><span class="hs-identifier hs-var">fleetName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-type">ListAssociatedStacks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679294319"><span class="annot"><span class="annottext">toPath :: ListAssociatedStacks -&gt; ByteString
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679294584"><span class="annot"><span class="annottext">toPath :: ListAssociatedStacks -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAssociatedStacks -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacks"><span class="hs-identifier hs-type">ListAssociatedStacks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679294315"><span class="annot"><span class="annottext">toQuery :: ListAssociatedStacks -&gt; QueryString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679294580"><span class="annot"><span class="annottext">toQuery :: ListAssociatedStacks -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListAssociatedStacks -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -453,19 +453,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newListAssociatedStacksResponse' smart constructor.</span><span>
-</span><span id="line-166"></span><span id="local-6989586621679294312"><span id="local-6989586621679294313"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssociatedStacksResponse"><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse"><span class="hs-identifier hs-var">ListAssociatedStacksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssociatedStacksResponse%27"><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse%27"><span class="hs-identifier hs-var">ListAssociatedStacksResponse'</span></a></span></span><span>
-</span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the stack.</span><span>
-</span><span id="line-168"></span><span>    </span><span id="%24sel%3Anames%3AListAssociatedStacksResponse%27"><span class="annot"><span class="annottext">ListAssociatedStacksResponse -&gt; Maybe [Text]
-</span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#%24sel%3Anames%3AListAssociatedStacksResponse%27"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
-</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
-</span><span id="line-171"></span><span>    </span><span id="%24sel%3AnextToken%3AListAssociatedStacksResponse%27"><span class="annot"><span class="annottext">ListAssociatedStacksResponse -&gt; Maybe Text
+</span><span id="line-166"></span><span id="local-6989586621679294577"><span id="local-6989586621679294578"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAssociatedStacksResponse"><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse"><span class="hs-identifier hs-var">ListAssociatedStacksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAssociatedStacksResponse%27"><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse%27"><span class="hs-identifier hs-var">ListAssociatedStacksResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3AnextToken%3AListAssociatedStacksResponse%27"><span class="annot"><span class="annottext">ListAssociatedStacksResponse -&gt; Maybe Text
 </span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#%24sel%3AnextToken%3AListAssociatedStacksResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | The name of the stack.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3Anames%3AListAssociatedStacksResponse%27"><span class="annot"><span class="annottext">ListAssociatedStacksResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#%24sel%3Anames%3AListAssociatedStacksResponse%27"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-173"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAssociatedStacksResponse%27"><span class="annot"><span class="annottext">ListAssociatedStacksResponse -&gt; Int
 </span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#%24sel%3AhttpStatus%3AListAssociatedStacksResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-175"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294305"><span id="local-6989586621679294307"><span class="annot"><span class="annottext">ListAssociatedStacksResponse
+</span><span id="line-175"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294570"><span id="local-6989586621679294572"><span class="annot"><span class="annottext">ListAssociatedStacksResponse
 -&gt; ListAssociatedStacksResponse -&gt; Bool
 (ListAssociatedStacksResponse
  -&gt; ListAssociatedStacksResponse -&gt; Bool)
@@ -481,7 +481,7 @@ $c/= :: ListAssociatedStacksResponse
 -&gt; ListAssociatedStacksResponse -&gt; Bool
 $c== :: ListAssociatedStacksResponse
 -&gt; ListAssociatedStacksResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294297"><span id="local-6989586621679294299"><span id="local-6989586621679294301"><span id="local-6989586621679294303"><span class="annot"><span class="annottext">ReadPrec [ListAssociatedStacksResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294562"><span id="local-6989586621679294564"><span id="local-6989586621679294566"><span id="local-6989586621679294568"><span class="annot"><span class="annottext">ReadPrec [ListAssociatedStacksResponse]
 ReadPrec ListAssociatedStacksResponse
 Int -&gt; ReadS ListAssociatedStacksResponse
 ReadS [ListAssociatedStacksResponse]
@@ -501,7 +501,7 @@ readList :: ReadS [ListAssociatedStacksResponse]
 $creadList :: ReadS [ListAssociatedStacksResponse]
 readsPrec :: Int -&gt; ReadS ListAssociatedStacksResponse
 $creadsPrec :: Int -&gt; ReadS ListAssociatedStacksResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294291"><span id="local-6989586621679294293"><span id="local-6989586621679294295"><span class="annot"><span class="annottext">Int -&gt; ListAssociatedStacksResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294556"><span id="local-6989586621679294558"><span id="local-6989586621679294560"><span class="annot"><span class="annottext">Int -&gt; ListAssociatedStacksResponse -&gt; ShowS
 [ListAssociatedStacksResponse] -&gt; ShowS
 ListAssociatedStacksResponse -&gt; String
 (Int -&gt; ListAssociatedStacksResponse -&gt; ShowS)
@@ -541,10 +541,10 @@ ListAssociatedStacksResponse -&gt; Rep ListAssociatedStacksResponse x
 </span><span id="line-182"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-184"></span><span class="hs-comment">--</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- 'names', 'listAssociatedStacksResponse_names' - The name of the stack.</span><span>
-</span><span id="line-186"></span><span class="hs-comment">--</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- 'nextToken', 'listAssociatedStacksResponse_nextToken' - The pagination token to use to retrieve the next page of results for</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'nextToken', 'listAssociatedStacksResponse_nextToken' - The pagination token to use to retrieve the next page of results for</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'names', 'listAssociatedStacksResponse_names' - The name of the stack.</span><span>
 </span><span id="line-189"></span><span class="hs-comment">--</span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- 'httpStatus', 'listAssociatedStacksResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-191"></span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#newListAssociatedStacksResponse"><span class="hs-identifier hs-type">newListAssociatedStacksResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -552,43 +552,64 @@ ListAssociatedStacksResponse -&gt; Rep ListAssociatedStacksResponse x
 </span><span id="line-193"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-194"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse"><span class="hs-identifier hs-type">ListAssociatedStacksResponse</span></a></span><span>
 </span><span id="line-195"></span><span id="newListAssociatedStacksResponse"><span class="annot"><span class="annottext">newListAssociatedStacksResponse :: Int -&gt; ListAssociatedStacksResponse
-</span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#newListAssociatedStacksResponse"><span class="hs-identifier hs-var hs-var">newListAssociatedStacksResponse</span></a></span></span><span> </span><span id="local-6989586621679294288"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294288"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">ListAssociatedStacksResponse' :: Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListAssociatedStacksResponse
+</span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#newListAssociatedStacksResponse"><span class="hs-identifier hs-var hs-var">newListAssociatedStacksResponse</span></a></span></span><span> </span><span id="local-6989586621679294553"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294553"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">ListAssociatedStacksResponse' :: Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListAssociatedStacksResponse
 </span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse%27"><span class="hs-identifier hs-type">ListAssociatedStacksResponse'</span></a></span><span>
-</span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:names:ListAssociatedStacksResponse' :: Maybe [Text]
-</span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#%24sel%3Anames%3AListAssociatedStacksResponse%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedStacksResponse' :: Maybe Text
+</span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#%24sel%3AnextToken%3AListAssociatedStacksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedStacksResponse' :: Maybe Text
-</span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#%24sel%3AnextToken%3AListAssociatedStacksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:names:ListAssociatedStacksResponse' :: Maybe [Text]
+</span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#%24sel%3Anames%3AListAssociatedStacksResponse%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssociatedStacksResponse' :: Int
 </span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#%24sel%3AhttpStatus%3AListAssociatedStacksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294288"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679294553"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-201"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- | The name of the stack.</span><span>
-</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#listAssociatedStacksResponse_names"><span class="hs-identifier hs-type">listAssociatedStacksResponse_names</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse"><span class="hs-identifier hs-type">ListAssociatedStacksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span id="listAssociatedStacksResponse_names"><span class="annot"><span class="annottext">listAssociatedStacksResponse_names :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-203"></span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#listAssociatedStacksResponse_nextToken"><span class="hs-identifier hs-type">listAssociatedStacksResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse"><span class="hs-identifier hs-type">ListAssociatedStacksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="listAssociatedStacksResponse_nextToken"><span class="annot"><span class="annottext">listAssociatedStacksResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAssociatedStacksResponse -&gt; f ListAssociatedStacksResponse
+</span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#listAssociatedStacksResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAssociatedStacksResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssociatedStacksResponse -&gt; Maybe Text)
+-&gt; (ListAssociatedStacksResponse
+    -&gt; Maybe Text -&gt; ListAssociatedStacksResponse)
+-&gt; Lens' ListAssociatedStacksResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse%27"><span class="hs-identifier hs-type">ListAssociatedStacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294552"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListAssociatedStacksResponse' :: ListAssociatedStacksResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679294552"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294552"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294551"><span class="annot"><span class="annottext">s :: ListAssociatedStacksResponse
+</span><a href="#local-6989586621679294551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse%27"><span class="hs-identifier hs-type">ListAssociatedStacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294550"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedStacksResponse
+</span><a href="#local-6989586621679294551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedStacksResponse' :: Maybe Text
+</span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#%24sel%3AnextToken%3AListAssociatedStacksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse"><span class="hs-identifier hs-type">ListAssociatedStacksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The name of the stack.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#listAssociatedStacksResponse_names"><span class="hs-identifier hs-type">listAssociatedStacksResponse_names</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse"><span class="hs-identifier hs-type">ListAssociatedStacksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="listAssociatedStacksResponse_names"><span class="annot"><span class="annottext">listAssociatedStacksResponse_names :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; ListAssociatedStacksResponse -&gt; f ListAssociatedStacksResponse
 </span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#listAssociatedStacksResponse_names"><span class="hs-identifier hs-var hs-var">listAssociatedStacksResponse_names</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssociatedStacksResponse -&gt; Maybe [Text])
 -&gt; (ListAssociatedStacksResponse
     -&gt; Maybe [Text] -&gt; ListAssociatedStacksResponse)
 -&gt; Lens' ListAssociatedStacksResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse%27"><span class="hs-identifier hs-type">ListAssociatedStacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294287"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse%27"><span class="hs-identifier hs-type">ListAssociatedStacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294549"><span class="annot"><span class="annottext">Maybe [Text]
 names :: Maybe [Text]
 $sel:names:ListAssociatedStacksResponse' :: ListAssociatedStacksResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679294287"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294287"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294286"><span class="annot"><span class="annottext">s :: ListAssociatedStacksResponse
-</span><a href="#local-6989586621679294286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse%27"><span class="hs-identifier hs-type">ListAssociatedStacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294285"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedStacksResponse
-</span><a href="#local-6989586621679294286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:ListAssociatedStacksResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679294549"><span class="hs-identifier hs-var hs-var">names</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679294549"><span class="hs-identifier hs-var">names</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294548"><span class="annot"><span class="annottext">s :: ListAssociatedStacksResponse
+</span><a href="#local-6989586621679294548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse%27"><span class="hs-identifier hs-type">ListAssociatedStacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294547"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679294547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedStacksResponse
+</span><a href="#local-6989586621679294548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:names:ListAssociatedStacksResponse' :: Maybe [Text]
 </span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#%24sel%3Anames%3AListAssociatedStacksResponse%27"><span class="hs-identifier hs-var">names</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679294285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse"><span class="hs-identifier hs-type">ListAssociatedStacksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679294547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse"><span class="hs-identifier hs-type">ListAssociatedStacksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListAssociatedStacksResponse -&gt; f ListAssociatedStacksResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -602,29 +623,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- | The pagination token to use to retrieve the next page of results for</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- this operation. If there are no more pages, this value is null.</span><span>
-</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#listAssociatedStacksResponse_nextToken"><span class="hs-identifier hs-type">listAssociatedStacksResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse"><span class="hs-identifier hs-type">ListAssociatedStacksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-210"></span><span id="listAssociatedStacksResponse_nextToken"><span class="annot"><span class="annottext">listAssociatedStacksResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListAssociatedStacksResponse -&gt; f ListAssociatedStacksResponse
-</span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#listAssociatedStacksResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAssociatedStacksResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAssociatedStacksResponse -&gt; Maybe Text)
--&gt; (ListAssociatedStacksResponse
-    -&gt; Maybe Text -&gt; ListAssociatedStacksResponse)
--&gt; Lens' ListAssociatedStacksResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse%27"><span class="hs-identifier hs-type">ListAssociatedStacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294282"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListAssociatedStacksResponse' :: ListAssociatedStacksResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679294282"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294282"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294281"><span class="annot"><span class="annottext">s :: ListAssociatedStacksResponse
-</span><a href="#local-6989586621679294281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse%27"><span class="hs-identifier hs-type">ListAssociatedStacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294280"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedStacksResponse
-</span><a href="#local-6989586621679294281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAssociatedStacksResponse' :: Maybe Text
-</span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#%24sel%3AnextToken%3AListAssociatedStacksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679294280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse"><span class="hs-identifier hs-type">ListAssociatedStacksResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-213"></span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#listAssociatedStacksResponse_httpStatus"><span class="hs-identifier hs-type">listAssociatedStacksResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse"><span class="hs-identifier hs-type">ListAssociatedStacksResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -636,16 +636,16 @@ $sel:nextToken:ListAssociatedStacksResponse' :: ListAssociatedStacksResponse -&g
 -&gt; Lens
      ListAssociatedStacksResponse ListAssociatedStacksResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse%27"><span class="hs-identifier hs-type">ListAssociatedStacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294279"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse%27"><span class="hs-identifier hs-type">ListAssociatedStacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294544"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListAssociatedStacksResponse' :: ListAssociatedStacksResponse -&gt; Int
-</span><a href="#local-6989586621679294279"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294279"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294278"><span class="annot"><span class="annottext">s :: ListAssociatedStacksResponse
-</span><a href="#local-6989586621679294278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse%27"><span class="hs-identifier hs-type">ListAssociatedStacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294277"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedStacksResponse
-</span><a href="#local-6989586621679294278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssociatedStacksResponse' :: Int
+</span><a href="#local-6989586621679294544"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294544"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294543"><span class="annot"><span class="annottext">s :: ListAssociatedStacksResponse
+</span><a href="#local-6989586621679294543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse%27"><span class="hs-identifier hs-type">ListAssociatedStacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294542"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAssociatedStacksResponse
+</span><a href="#local-6989586621679294543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAssociatedStacksResponse' :: Int
 </span><a href="Network.AWS.AppStream.ListAssociatedStacks.html#%24sel%3AhttpStatus%3AListAssociatedStacksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679294277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse"><span class="hs-identifier hs-type">ListAssociatedStacksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse"><span class="hs-identifier hs-type">ListAssociatedStacksResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294275"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse"><span class="hs-identifier hs-type">ListAssociatedStacksResponse</span></a></span></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294540"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.ListAssociatedStacks.html#ListAssociatedStacksResponse"><span class="hs-identifier hs-type">ListAssociatedStacksResponse</span></a></span></span><span>
 </span><span id="line-217"></span></pre></body></html>

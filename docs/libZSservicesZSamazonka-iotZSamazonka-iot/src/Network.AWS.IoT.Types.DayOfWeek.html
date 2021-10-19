@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679781541"><span id="local-6989586621679781542"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DayOfWeek"><span class="annot"><a href="Network.AWS.IoT.Types.DayOfWeek.html#DayOfWeek"><span class="hs-identifier hs-var">DayOfWeek</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DayOfWeek%27"><span class="annot"><a href="Network.AWS.IoT.Types.DayOfWeek.html#DayOfWeek%27"><span class="hs-identifier hs-var">DayOfWeek'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679782391"><span id="local-6989586621679782392"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DayOfWeek"><span class="annot"><a href="Network.AWS.IoT.Types.DayOfWeek.html#DayOfWeek"><span class="hs-identifier hs-var">DayOfWeek</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DayOfWeek%27"><span class="annot"><a href="Network.AWS.IoT.Types.DayOfWeek.html#DayOfWeek%27"><span class="hs-identifier hs-var">DayOfWeek'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDayOfWeek"><span class="annot"><span class="annottext">DayOfWeek -&gt; Text
 </span><a href="Network.AWS.IoT.Types.DayOfWeek.html#fromDayOfWeek"><span class="hs-identifier hs-var hs-var">fromDayOfWeek</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679781533"><span id="local-6989586621679781535"><span id="local-6989586621679781537"><span class="annot"><span class="annottext">Int -&gt; DayOfWeek -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679782383"><span id="local-6989586621679782385"><span id="local-6989586621679782387"><span class="annot"><span class="annottext">Int -&gt; DayOfWeek -&gt; ShowS
 [DayOfWeek] -&gt; ShowS
 DayOfWeek -&gt; String
 (Int -&gt; DayOfWeek -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: DayOfWeek -&gt; String
 showsPrec :: Int -&gt; DayOfWeek -&gt; ShowS
 $cshowsPrec :: Int -&gt; DayOfWeek -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679781524"><span id="local-6989586621679781526"><span id="local-6989586621679781528"><span id="local-6989586621679781530"><span class="annot"><span class="annottext">ReadPrec [DayOfWeek]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679782374"><span id="local-6989586621679782376"><span id="local-6989586621679782378"><span id="local-6989586621679782380"><span class="annot"><span class="annottext">ReadPrec [DayOfWeek]
 ReadPrec DayOfWeek
 Int -&gt; ReadS DayOfWeek
 ReadS [DayOfWeek]
@@ -77,7 +77,7 @@ $creadList :: ReadS [DayOfWeek]
 readsPrec :: Int -&gt; ReadS DayOfWeek
 $creadsPrec :: Int -&gt; ReadS DayOfWeek
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679781519"><span id="local-6989586621679781521"><span class="annot"><span class="annottext">DayOfWeek -&gt; DayOfWeek -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679782369"><span id="local-6989586621679782371"><span class="annot"><span class="annottext">DayOfWeek -&gt; DayOfWeek -&gt; Bool
 (DayOfWeek -&gt; DayOfWeek -&gt; Bool)
 -&gt; (DayOfWeek -&gt; DayOfWeek -&gt; Bool) -&gt; Eq DayOfWeek
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: DayOfWeek -&gt; DayOfWeek -&gt; Bool
 == :: DayOfWeek -&gt; DayOfWeek -&gt; Bool
 $c== :: DayOfWeek -&gt; DayOfWeek -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679781503"><span id="local-6989586621679781505"><span id="local-6989586621679781507"><span id="local-6989586621679781509"><span id="local-6989586621679781511"><span id="local-6989586621679781513"><span id="local-6989586621679781515"><span class="annot"><span class="annottext">Eq DayOfWeek
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679782353"><span id="local-6989586621679782355"><span id="local-6989586621679782357"><span id="local-6989586621679782359"><span id="local-6989586621679782361"><span id="local-6989586621679782363"><span id="local-6989586621679782365"><span class="annot"><span class="annottext">Eq DayOfWeek
 Eq DayOfWeek
 -&gt; (DayOfWeek -&gt; DayOfWeek -&gt; Ordering)
 -&gt; (DayOfWeek -&gt; DayOfWeek -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. DayOfWeek -&gt; Rep DayOfWeek x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679781495"><span id="local-6989586621679781497"><span class="annot"><span class="annottext">Int -&gt; DayOfWeek -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679782345"><span id="local-6989586621679782347"><span class="annot"><span class="annottext">Int -&gt; DayOfWeek -&gt; Int
 DayOfWeek -&gt; Int
 (Int -&gt; DayOfWeek -&gt; Int)
 -&gt; (DayOfWeek -&gt; Int) -&gt; Hashable DayOfWeek
@@ -146,49 +146,49 @@ $chash :: DayOfWeek -&gt; Int
 hashWithSalt :: Int -&gt; DayOfWeek -&gt; Int
 $chashWithSalt :: Int -&gt; DayOfWeek -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679781492"><span class="annot"><span class="annottext">DayOfWeek -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679782342"><span class="annot"><span class="annottext">DayOfWeek -&gt; ()
 (DayOfWeek -&gt; ()) -&gt; NFData DayOfWeek
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DayOfWeek -&gt; ()
 $crnf :: DayOfWeek -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679781489"><span class="annot"><span class="annottext">Text -&gt; Either String DayOfWeek
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679782339"><span class="annot"><span class="annottext">Text -&gt; Either String DayOfWeek
 (Text -&gt; Either String DayOfWeek) -&gt; FromText DayOfWeek
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DayOfWeek
 $cfromText :: Text -&gt; Either String DayOfWeek
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679781486"><span class="annot"><span class="annottext">DayOfWeek -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679782336"><span class="annot"><span class="annottext">DayOfWeek -&gt; Text
 (DayOfWeek -&gt; Text) -&gt; ToText DayOfWeek
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DayOfWeek -&gt; Text
 $ctoText :: DayOfWeek -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679781483"><span class="annot"><span class="annottext">DayOfWeek -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679782333"><span class="annot"><span class="annottext">DayOfWeek -&gt; ByteString
 (DayOfWeek -&gt; ByteString) -&gt; ToByteString DayOfWeek
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DayOfWeek -&gt; ByteString
 $ctoBS :: DayOfWeek -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679781480"><span class="annot"><span class="annottext">DayOfWeek -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679782330"><span class="annot"><span class="annottext">DayOfWeek -&gt; ByteStringBuilder
 (DayOfWeek -&gt; ByteStringBuilder) -&gt; ToLog DayOfWeek
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DayOfWeek -&gt; ByteStringBuilder
 $cbuild :: DayOfWeek -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679781477"><span class="annot"><span class="annottext">HeaderName -&gt; DayOfWeek -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679782327"><span class="annot"><span class="annottext">HeaderName -&gt; DayOfWeek -&gt; [Header]
 (HeaderName -&gt; DayOfWeek -&gt; [Header]) -&gt; ToHeader DayOfWeek
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DayOfWeek -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DayOfWeek -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679781474"><span class="annot"><span class="annottext">DayOfWeek -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679782324"><span class="annot"><span class="annottext">DayOfWeek -&gt; QueryString
 (DayOfWeek -&gt; QueryString) -&gt; ToQuery DayOfWeek
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DayOfWeek -&gt; QueryString
 $ctoQuery :: DayOfWeek -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679781469"><span id="local-6989586621679781471"><span class="annot"><span class="annottext">Value -&gt; Parser [DayOfWeek]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679782319"><span id="local-6989586621679782321"><span class="annot"><span class="annottext">Value -&gt; Parser [DayOfWeek]
 Value -&gt; Parser DayOfWeek
 (Value -&gt; Parser DayOfWeek)
 -&gt; (Value -&gt; Parser [DayOfWeek]) -&gt; FromJSON DayOfWeek
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [DayOfWeek]
 parseJSON :: Value -&gt; Parser DayOfWeek
 $cparseJSON :: Value -&gt; Parser DayOfWeek
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679781464"><span id="local-6989586621679781466"><span class="annot"><span class="annottext">FromJSONKeyFunction [DayOfWeek]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679782314"><span id="local-6989586621679782316"><span class="annot"><span class="annottext">FromJSONKeyFunction [DayOfWeek]
 FromJSONKeyFunction DayOfWeek
 FromJSONKeyFunction DayOfWeek
 -&gt; FromJSONKeyFunction [DayOfWeek] -&gt; FromJSONKey DayOfWeek
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DayOfWeek]
 fromJSONKey :: FromJSONKeyFunction DayOfWeek
 $cfromJSONKey :: FromJSONKeyFunction DayOfWeek
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679781455"><span id="local-6989586621679781457"><span id="local-6989586621679781459"><span id="local-6989586621679781461"><span class="annot"><span class="annottext">[DayOfWeek] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679782305"><span id="local-6989586621679782307"><span id="local-6989586621679782309"><span id="local-6989586621679782311"><span class="annot"><span class="annottext">[DayOfWeek] -&gt; Encoding
 [DayOfWeek] -&gt; Value
 DayOfWeek -&gt; Encoding
 DayOfWeek -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: DayOfWeek -&gt; Encoding
 toJSON :: DayOfWeek -&gt; Value
 $ctoJSON :: DayOfWeek -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679781450"><span id="local-6989586621679781452"><span class="annot"><span class="annottext">ToJSONKeyFunction [DayOfWeek]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679782300"><span id="local-6989586621679782302"><span class="annot"><span class="annottext">ToJSONKeyFunction [DayOfWeek]
 ToJSONKeyFunction DayOfWeek
 ToJSONKeyFunction DayOfWeek
 -&gt; ToJSONKeyFunction [DayOfWeek] -&gt; ToJSONKey DayOfWeek
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DayOfWeek]
 toJSONKey :: ToJSONKeyFunction DayOfWeek
 $ctoJSONKey :: ToJSONKeyFunction DayOfWeek
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679781447"><span class="annot"><span class="annottext">[Node] -&gt; Either String DayOfWeek
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679782297"><span class="annot"><span class="annottext">[Node] -&gt; Either String DayOfWeek
 ([Node] -&gt; Either String DayOfWeek) -&gt; FromXML DayOfWeek
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DayOfWeek
 $cparseXML :: [Node] -&gt; Either String DayOfWeek
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679781444"><span class="annot"><span class="annottext">DayOfWeek -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679782294"><span class="annot"><span class="annottext">DayOfWeek -&gt; XML
 (DayOfWeek -&gt; XML) -&gt; ToXML DayOfWeek
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DayOfWeek -&gt; XML

@@ -256,13 +256,13 @@
 </span><span id="line-256"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-257"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-258"></span><span>
-</span><span id="line-259"></span><span id="local-6989586621679208288"><span id="local-6989586621679208289"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CountryCode"><span class="annot"><a href="Network.AWS.Route53Domains.Types.CountryCode.html#CountryCode"><span class="hs-identifier hs-var">CountryCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CountryCode%27"><span class="annot"><a href="Network.AWS.Route53Domains.Types.CountryCode.html#CountryCode%27"><span class="hs-identifier hs-var">CountryCode'</span></a></span></span><span>
+</span><span id="line-259"></span><span id="local-6989586621679208340"><span id="local-6989586621679208341"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CountryCode"><span class="annot"><a href="Network.AWS.Route53Domains.Types.CountryCode.html#CountryCode"><span class="hs-identifier hs-var">CountryCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CountryCode%27"><span class="annot"><a href="Network.AWS.Route53Domains.Types.CountryCode.html#CountryCode%27"><span class="hs-identifier hs-var">CountryCode'</span></a></span></span><span>
 </span><span id="line-260"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCountryCode"><span class="annot"><span class="annottext">CountryCode -&gt; Text
 </span><a href="Network.AWS.Route53Domains.Types.CountryCode.html#fromCountryCode"><span class="hs-identifier hs-var hs-var">fromCountryCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-261"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-262"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-263"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-264"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679208280"><span id="local-6989586621679208282"><span id="local-6989586621679208284"><span class="annot"><span class="annottext">Int -&gt; CountryCode -&gt; ShowS
+</span><span id="line-264"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679208332"><span id="local-6989586621679208334"><span id="local-6989586621679208336"><span class="annot"><span class="annottext">Int -&gt; CountryCode -&gt; ShowS
 [CountryCode] -&gt; ShowS
 CountryCode -&gt; String
 (Int -&gt; CountryCode -&gt; ShowS)
@@ -278,7 +278,7 @@ $cshow :: CountryCode -&gt; String
 showsPrec :: Int -&gt; CountryCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; CountryCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-265"></span><span>      </span><span id="local-6989586621679208271"><span id="local-6989586621679208273"><span id="local-6989586621679208275"><span id="local-6989586621679208277"><span class="annot"><span class="annottext">ReadPrec [CountryCode]
+</span><span id="line-265"></span><span>      </span><span id="local-6989586621679208323"><span id="local-6989586621679208325"><span id="local-6989586621679208327"><span id="local-6989586621679208329"><span class="annot"><span class="annottext">ReadPrec [CountryCode]
 ReadPrec CountryCode
 Int -&gt; ReadS CountryCode
 ReadS [CountryCode]
@@ -299,7 +299,7 @@ $creadList :: ReadS [CountryCode]
 readsPrec :: Int -&gt; ReadS CountryCode
 $creadsPrec :: Int -&gt; ReadS CountryCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-266"></span><span>      </span><span id="local-6989586621679208266"><span id="local-6989586621679208268"><span class="annot"><span class="annottext">CountryCode -&gt; CountryCode -&gt; Bool
+</span><span id="line-266"></span><span>      </span><span id="local-6989586621679208318"><span id="local-6989586621679208320"><span class="annot"><span class="annottext">CountryCode -&gt; CountryCode -&gt; Bool
 (CountryCode -&gt; CountryCode -&gt; Bool)
 -&gt; (CountryCode -&gt; CountryCode -&gt; Bool) -&gt; Eq CountryCode
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -308,7 +308,7 @@ $c/= :: CountryCode -&gt; CountryCode -&gt; Bool
 == :: CountryCode -&gt; CountryCode -&gt; Bool
 $c== :: CountryCode -&gt; CountryCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-267"></span><span>      </span><span id="local-6989586621679208250"><span id="local-6989586621679208252"><span id="local-6989586621679208254"><span id="local-6989586621679208256"><span id="local-6989586621679208258"><span id="local-6989586621679208260"><span id="local-6989586621679208262"><span class="annot"><span class="annottext">Eq CountryCode
+</span><span id="line-267"></span><span>      </span><span id="local-6989586621679208302"><span id="local-6989586621679208304"><span id="local-6989586621679208306"><span id="local-6989586621679208308"><span id="local-6989586621679208310"><span id="local-6989586621679208312"><span id="local-6989586621679208314"><span class="annot"><span class="annottext">Eq CountryCode
 Eq CountryCode
 -&gt; (CountryCode -&gt; CountryCode -&gt; Ordering)
 -&gt; (CountryCode -&gt; CountryCode -&gt; Bool)
@@ -359,7 +359,7 @@ $cfrom :: forall x. CountryCode -&gt; Rep CountryCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-269"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-271"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679208242"><span id="local-6989586621679208244"><span class="annot"><span class="annottext">Int -&gt; CountryCode -&gt; Int
+</span><span id="line-271"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679208294"><span id="local-6989586621679208296"><span class="annot"><span class="annottext">Int -&gt; CountryCode -&gt; Int
 CountryCode -&gt; Int
 (Int -&gt; CountryCode -&gt; Int)
 -&gt; (CountryCode -&gt; Int) -&gt; Hashable CountryCode
@@ -369,49 +369,49 @@ $chash :: CountryCode -&gt; Int
 hashWithSalt :: Int -&gt; CountryCode -&gt; Int
 $chashWithSalt :: Int -&gt; CountryCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-272"></span><span>      </span><span id="local-6989586621679208239"><span class="annot"><span class="annottext">CountryCode -&gt; ()
+</span><span id="line-272"></span><span>      </span><span id="local-6989586621679208291"><span class="annot"><span class="annottext">CountryCode -&gt; ()
 (CountryCode -&gt; ()) -&gt; NFData CountryCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CountryCode -&gt; ()
 $crnf :: CountryCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-273"></span><span>      </span><span id="local-6989586621679208236"><span class="annot"><span class="annottext">Text -&gt; Either String CountryCode
+</span><span id="line-273"></span><span>      </span><span id="local-6989586621679208288"><span class="annot"><span class="annottext">Text -&gt; Either String CountryCode
 (Text -&gt; Either String CountryCode) -&gt; FromText CountryCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CountryCode
 $cfromText :: Text -&gt; Either String CountryCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-274"></span><span>      </span><span id="local-6989586621679208233"><span class="annot"><span class="annottext">CountryCode -&gt; Text
+</span><span id="line-274"></span><span>      </span><span id="local-6989586621679208285"><span class="annot"><span class="annottext">CountryCode -&gt; Text
 (CountryCode -&gt; Text) -&gt; ToText CountryCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CountryCode -&gt; Text
 $ctoText :: CountryCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-275"></span><span>      </span><span id="local-6989586621679208230"><span class="annot"><span class="annottext">CountryCode -&gt; ByteString
+</span><span id="line-275"></span><span>      </span><span id="local-6989586621679208282"><span class="annot"><span class="annottext">CountryCode -&gt; ByteString
 (CountryCode -&gt; ByteString) -&gt; ToByteString CountryCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CountryCode -&gt; ByteString
 $ctoBS :: CountryCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-276"></span><span>      </span><span id="local-6989586621679208227"><span class="annot"><span class="annottext">CountryCode -&gt; ByteStringBuilder
+</span><span id="line-276"></span><span>      </span><span id="local-6989586621679208279"><span class="annot"><span class="annottext">CountryCode -&gt; ByteStringBuilder
 (CountryCode -&gt; ByteStringBuilder) -&gt; ToLog CountryCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CountryCode -&gt; ByteStringBuilder
 $cbuild :: CountryCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-277"></span><span>      </span><span id="local-6989586621679208224"><span class="annot"><span class="annottext">HeaderName -&gt; CountryCode -&gt; [Header]
+</span><span id="line-277"></span><span>      </span><span id="local-6989586621679208276"><span class="annot"><span class="annottext">HeaderName -&gt; CountryCode -&gt; [Header]
 (HeaderName -&gt; CountryCode -&gt; [Header]) -&gt; ToHeader CountryCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CountryCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CountryCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-278"></span><span>      </span><span id="local-6989586621679208221"><span class="annot"><span class="annottext">CountryCode -&gt; QueryString
+</span><span id="line-278"></span><span>      </span><span id="local-6989586621679208273"><span class="annot"><span class="annottext">CountryCode -&gt; QueryString
 (CountryCode -&gt; QueryString) -&gt; ToQuery CountryCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CountryCode -&gt; QueryString
 $ctoQuery :: CountryCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-279"></span><span>      </span><span id="local-6989586621679208216"><span id="local-6989586621679208218"><span class="annot"><span class="annottext">Value -&gt; Parser [CountryCode]
+</span><span id="line-279"></span><span>      </span><span id="local-6989586621679208268"><span id="local-6989586621679208270"><span class="annot"><span class="annottext">Value -&gt; Parser [CountryCode]
 Value -&gt; Parser CountryCode
 (Value -&gt; Parser CountryCode)
 -&gt; (Value -&gt; Parser [CountryCode]) -&gt; FromJSON CountryCode
@@ -422,7 +422,7 @@ $cparseJSONList :: Value -&gt; Parser [CountryCode]
 parseJSON :: Value -&gt; Parser CountryCode
 $cparseJSON :: Value -&gt; Parser CountryCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-280"></span><span>      </span><span id="local-6989586621679208211"><span id="local-6989586621679208213"><span class="annot"><span class="annottext">FromJSONKeyFunction [CountryCode]
+</span><span id="line-280"></span><span>      </span><span id="local-6989586621679208263"><span id="local-6989586621679208265"><span class="annot"><span class="annottext">FromJSONKeyFunction [CountryCode]
 FromJSONKeyFunction CountryCode
 FromJSONKeyFunction CountryCode
 -&gt; FromJSONKeyFunction [CountryCode] -&gt; FromJSONKey CountryCode
@@ -433,7 +433,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CountryCode]
 fromJSONKey :: FromJSONKeyFunction CountryCode
 $cfromJSONKey :: FromJSONKeyFunction CountryCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-281"></span><span>      </span><span id="local-6989586621679208202"><span id="local-6989586621679208204"><span id="local-6989586621679208206"><span id="local-6989586621679208208"><span class="annot"><span class="annottext">[CountryCode] -&gt; Encoding
+</span><span id="line-281"></span><span>      </span><span id="local-6989586621679208254"><span id="local-6989586621679208256"><span id="local-6989586621679208258"><span id="local-6989586621679208260"><span class="annot"><span class="annottext">[CountryCode] -&gt; Encoding
 [CountryCode] -&gt; Value
 CountryCode -&gt; Encoding
 CountryCode -&gt; Value
@@ -457,7 +457,7 @@ $ctoEncoding :: CountryCode -&gt; Encoding
 toJSON :: CountryCode -&gt; Value
 $ctoJSON :: CountryCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-282"></span><span>      </span><span id="local-6989586621679208197"><span id="local-6989586621679208199"><span class="annot"><span class="annottext">ToJSONKeyFunction [CountryCode]
+</span><span id="line-282"></span><span>      </span><span id="local-6989586621679208249"><span id="local-6989586621679208251"><span class="annot"><span class="annottext">ToJSONKeyFunction [CountryCode]
 ToJSONKeyFunction CountryCode
 ToJSONKeyFunction CountryCode
 -&gt; ToJSONKeyFunction [CountryCode] -&gt; ToJSONKey CountryCode
@@ -468,13 +468,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CountryCode]
 toJSONKey :: ToJSONKeyFunction CountryCode
 $ctoJSONKey :: ToJSONKeyFunction CountryCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-283"></span><span>      </span><span id="local-6989586621679208194"><span class="annot"><span class="annottext">[Node] -&gt; Either String CountryCode
+</span><span id="line-283"></span><span>      </span><span id="local-6989586621679208246"><span class="annot"><span class="annottext">[Node] -&gt; Either String CountryCode
 ([Node] -&gt; Either String CountryCode) -&gt; FromXML CountryCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CountryCode
 $cparseXML :: [Node] -&gt; Either String CountryCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-284"></span><span>      </span><span id="local-6989586621679208191"><span class="annot"><span class="annottext">CountryCode -&gt; XML
+</span><span id="line-284"></span><span>      </span><span id="local-6989586621679208243"><span class="annot"><span class="annottext">CountryCode -&gt; XML
 (CountryCode -&gt; XML) -&gt; ToXML CountryCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CountryCode -&gt; XML

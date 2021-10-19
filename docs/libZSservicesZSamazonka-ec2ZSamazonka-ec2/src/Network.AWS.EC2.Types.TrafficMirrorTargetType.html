@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681133780"><span id="local-6989586621681133781"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrafficMirrorTargetType"><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorTargetType.html#TrafficMirrorTargetType"><span class="hs-identifier hs-var">TrafficMirrorTargetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrafficMirrorTargetType%27"><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorTargetType.html#TrafficMirrorTargetType%27"><span class="hs-identifier hs-var">TrafficMirrorTargetType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681168899"><span id="local-6989586621681168900"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrafficMirrorTargetType"><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorTargetType.html#TrafficMirrorTargetType"><span class="hs-identifier hs-var">TrafficMirrorTargetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrafficMirrorTargetType%27"><span class="annot"><a href="Network.AWS.EC2.Types.TrafficMirrorTargetType.html#TrafficMirrorTargetType%27"><span class="hs-identifier hs-var">TrafficMirrorTargetType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTrafficMirrorTargetType"><span class="annot"><span class="annottext">TrafficMirrorTargetType -&gt; Text
 </span><a href="Network.AWS.EC2.Types.TrafficMirrorTargetType.html#fromTrafficMirrorTargetType"><span class="hs-identifier hs-var hs-var">fromTrafficMirrorTargetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681133772"><span id="local-6989586621681133774"><span id="local-6989586621681133776"><span class="annot"><span class="annottext">Int -&gt; TrafficMirrorTargetType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681168891"><span id="local-6989586621681168893"><span id="local-6989586621681168895"><span class="annot"><span class="annottext">Int -&gt; TrafficMirrorTargetType -&gt; ShowS
 [TrafficMirrorTargetType] -&gt; ShowS
 TrafficMirrorTargetType -&gt; String
 (Int -&gt; TrafficMirrorTargetType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: TrafficMirrorTargetType -&gt; String
 showsPrec :: Int -&gt; TrafficMirrorTargetType -&gt; ShowS
 $cshowsPrec :: Int -&gt; TrafficMirrorTargetType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681133763"><span id="local-6989586621681133765"><span id="local-6989586621681133767"><span id="local-6989586621681133769"><span class="annot"><span class="annottext">ReadPrec [TrafficMirrorTargetType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681168882"><span id="local-6989586621681168884"><span id="local-6989586621681168886"><span id="local-6989586621681168888"><span class="annot"><span class="annottext">ReadPrec [TrafficMirrorTargetType]
 ReadPrec TrafficMirrorTargetType
 Int -&gt; ReadS TrafficMirrorTargetType
 ReadS [TrafficMirrorTargetType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [TrafficMirrorTargetType]
 readsPrec :: Int -&gt; ReadS TrafficMirrorTargetType
 $creadsPrec :: Int -&gt; ReadS TrafficMirrorTargetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681133758"><span id="local-6989586621681133760"><span class="annot"><span class="annottext">TrafficMirrorTargetType -&gt; TrafficMirrorTargetType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681168877"><span id="local-6989586621681168879"><span class="annot"><span class="annottext">TrafficMirrorTargetType -&gt; TrafficMirrorTargetType -&gt; Bool
 (TrafficMirrorTargetType -&gt; TrafficMirrorTargetType -&gt; Bool)
 -&gt; (TrafficMirrorTargetType -&gt; TrafficMirrorTargetType -&gt; Bool)
 -&gt; Eq TrafficMirrorTargetType
@@ -83,7 +83,7 @@ $c/= :: TrafficMirrorTargetType -&gt; TrafficMirrorTargetType -&gt; Bool
 == :: TrafficMirrorTargetType -&gt; TrafficMirrorTargetType -&gt; Bool
 $c== :: TrafficMirrorTargetType -&gt; TrafficMirrorTargetType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681133742"><span id="local-6989586621681133744"><span id="local-6989586621681133746"><span id="local-6989586621681133748"><span id="local-6989586621681133750"><span id="local-6989586621681133752"><span id="local-6989586621681133754"><span class="annot"><span class="annottext">Eq TrafficMirrorTargetType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681168861"><span id="local-6989586621681168863"><span id="local-6989586621681168865"><span id="local-6989586621681168867"><span id="local-6989586621681168869"><span id="local-6989586621681168871"><span id="local-6989586621681168873"><span class="annot"><span class="annottext">Eq TrafficMirrorTargetType
 Eq TrafficMirrorTargetType
 -&gt; (TrafficMirrorTargetType -&gt; TrafficMirrorTargetType -&gt; Ordering)
 -&gt; (TrafficMirrorTargetType -&gt; TrafficMirrorTargetType -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. TrafficMirrorTargetType -&gt; Rep TrafficMirrorTargetType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681133734"><span id="local-6989586621681133736"><span class="annot"><span class="annottext">Int -&gt; TrafficMirrorTargetType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681168853"><span id="local-6989586621681168855"><span class="annot"><span class="annottext">Int -&gt; TrafficMirrorTargetType -&gt; Int
 TrafficMirrorTargetType -&gt; Int
 (Int -&gt; TrafficMirrorTargetType -&gt; Int)
 -&gt; (TrafficMirrorTargetType -&gt; Int)
@@ -154,54 +154,54 @@ $chash :: TrafficMirrorTargetType -&gt; Int
 hashWithSalt :: Int -&gt; TrafficMirrorTargetType -&gt; Int
 $chashWithSalt :: Int -&gt; TrafficMirrorTargetType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681133731"><span class="annot"><span class="annottext">TrafficMirrorTargetType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681168850"><span class="annot"><span class="annottext">TrafficMirrorTargetType -&gt; ()
 (TrafficMirrorTargetType -&gt; ()) -&gt; NFData TrafficMirrorTargetType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TrafficMirrorTargetType -&gt; ()
 $crnf :: TrafficMirrorTargetType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681133728"><span class="annot"><span class="annottext">Text -&gt; Either String TrafficMirrorTargetType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681168847"><span class="annot"><span class="annottext">Text -&gt; Either String TrafficMirrorTargetType
 (Text -&gt; Either String TrafficMirrorTargetType)
 -&gt; FromText TrafficMirrorTargetType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TrafficMirrorTargetType
 $cfromText :: Text -&gt; Either String TrafficMirrorTargetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681133725"><span class="annot"><span class="annottext">TrafficMirrorTargetType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681168844"><span class="annot"><span class="annottext">TrafficMirrorTargetType -&gt; Text
 (TrafficMirrorTargetType -&gt; Text) -&gt; ToText TrafficMirrorTargetType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TrafficMirrorTargetType -&gt; Text
 $ctoText :: TrafficMirrorTargetType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681133722"><span class="annot"><span class="annottext">TrafficMirrorTargetType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681168841"><span class="annot"><span class="annottext">TrafficMirrorTargetType -&gt; ByteString
 (TrafficMirrorTargetType -&gt; ByteString)
 -&gt; ToByteString TrafficMirrorTargetType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TrafficMirrorTargetType -&gt; ByteString
 $ctoBS :: TrafficMirrorTargetType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681133719"><span class="annot"><span class="annottext">TrafficMirrorTargetType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681168838"><span class="annot"><span class="annottext">TrafficMirrorTargetType -&gt; ByteStringBuilder
 (TrafficMirrorTargetType -&gt; ByteStringBuilder)
 -&gt; ToLog TrafficMirrorTargetType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TrafficMirrorTargetType -&gt; ByteStringBuilder
 $cbuild :: TrafficMirrorTargetType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681133716"><span class="annot"><span class="annottext">HeaderName -&gt; TrafficMirrorTargetType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681168835"><span class="annot"><span class="annottext">HeaderName -&gt; TrafficMirrorTargetType -&gt; [Header]
 (HeaderName -&gt; TrafficMirrorTargetType -&gt; [Header])
 -&gt; ToHeader TrafficMirrorTargetType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TrafficMirrorTargetType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TrafficMirrorTargetType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681133713"><span class="annot"><span class="annottext">TrafficMirrorTargetType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681168832"><span class="annot"><span class="annottext">TrafficMirrorTargetType -&gt; QueryString
 (TrafficMirrorTargetType -&gt; QueryString)
 -&gt; ToQuery TrafficMirrorTargetType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TrafficMirrorTargetType -&gt; QueryString
 $ctoQuery :: TrafficMirrorTargetType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681133708"><span id="local-6989586621681133710"><span class="annot"><span class="annottext">Value -&gt; Parser [TrafficMirrorTargetType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681168827"><span id="local-6989586621681168829"><span class="annot"><span class="annottext">Value -&gt; Parser [TrafficMirrorTargetType]
 Value -&gt; Parser TrafficMirrorTargetType
 (Value -&gt; Parser TrafficMirrorTargetType)
 -&gt; (Value -&gt; Parser [TrafficMirrorTargetType])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [TrafficMirrorTargetType]
 parseJSON :: Value -&gt; Parser TrafficMirrorTargetType
 $cparseJSON :: Value -&gt; Parser TrafficMirrorTargetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681133703"><span id="local-6989586621681133705"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrafficMirrorTargetType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681168822"><span id="local-6989586621681168824"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrafficMirrorTargetType]
 FromJSONKeyFunction TrafficMirrorTargetType
 FromJSONKeyFunction TrafficMirrorTargetType
 -&gt; FromJSONKeyFunction [TrafficMirrorTargetType]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TrafficMirrorTargetType]
 fromJSONKey :: FromJSONKeyFunction TrafficMirrorTargetType
 $cfromJSONKey :: FromJSONKeyFunction TrafficMirrorTargetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681133694"><span id="local-6989586621681133696"><span id="local-6989586621681133698"><span id="local-6989586621681133700"><span class="annot"><span class="annottext">[TrafficMirrorTargetType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681168813"><span id="local-6989586621681168815"><span id="local-6989586621681168817"><span id="local-6989586621681168819"><span class="annot"><span class="annottext">[TrafficMirrorTargetType] -&gt; Encoding
 [TrafficMirrorTargetType] -&gt; Value
 TrafficMirrorTargetType -&gt; Encoding
 TrafficMirrorTargetType -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: TrafficMirrorTargetType -&gt; Encoding
 toJSON :: TrafficMirrorTargetType -&gt; Value
 $ctoJSON :: TrafficMirrorTargetType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681133689"><span id="local-6989586621681133691"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrafficMirrorTargetType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681168808"><span id="local-6989586621681168810"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrafficMirrorTargetType]
 ToJSONKeyFunction TrafficMirrorTargetType
 ToJSONKeyFunction TrafficMirrorTargetType
 -&gt; ToJSONKeyFunction [TrafficMirrorTargetType]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TrafficMirrorTargetType]
 toJSONKey :: ToJSONKeyFunction TrafficMirrorTargetType
 $ctoJSONKey :: ToJSONKeyFunction TrafficMirrorTargetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681133686"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrafficMirrorTargetType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681168805"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrafficMirrorTargetType
 ([Node] -&gt; Either String TrafficMirrorTargetType)
 -&gt; FromXML TrafficMirrorTargetType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TrafficMirrorTargetType
 $cparseXML :: [Node] -&gt; Either String TrafficMirrorTargetType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681133683"><span class="annot"><span class="annottext">TrafficMirrorTargetType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681168802"><span class="annot"><span class="annottext">TrafficMirrorTargetType -&gt; XML
 (TrafficMirrorTargetType -&gt; XML) -&gt; ToXML TrafficMirrorTargetType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TrafficMirrorTargetType -&gt; XML

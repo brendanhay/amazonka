@@ -27,29 +27,29 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Options for a search suggester.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDocumentSuggesterOptions' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679209916"><span id="local-6989586621679209917"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentSuggesterOptions"><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-var">DocumentSuggesterOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentSuggesterOptions%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions%27"><span class="hs-identifier hs-var">DocumentSuggesterOptions'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The level of fuzziness allowed when suggesting matches for a string:</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- @none@, @low@, or @high@. With none, the specified string is treated as</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- an exact prefix. With low, suggestions must differ from the specified</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- string by no more than one character. With high, suggestions can differ</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- by up to two characters. The default is none.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AfuzzyMatching%3ADocumentSuggesterOptions%27"><span class="annot"><span class="annottext">DocumentSuggesterOptions -&gt; Maybe SuggesterFuzzyMatching
-</span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#%24sel%3AfuzzyMatching%3ADocumentSuggesterOptions%27"><span class="hs-identifier hs-var hs-var">fuzzyMatching</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.html#SuggesterFuzzyMatching"><span class="hs-identifier hs-type">SuggesterFuzzyMatching</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | An expression that computes a score for each suggestion to control how</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- they are sorted. The scores are rounded to the nearest integer, with a</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- floor of 0 and a ceiling of 2^31-1. A document\'s relevance score is not</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- computed for suggestions, so sort expressions cannot reference the</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @_score@ value. To sort suggestions using a numeric field or existing</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- expression, simply specify the name of the field or expression. If no</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- expression is configured for the suggester, the suggestions are sorted</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- with the closest matches listed first.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AsortExpression%3ADocumentSuggesterOptions%27"><span class="annot"><span class="annottext">DocumentSuggesterOptions -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679209969"><span id="local-6989586621679209970"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentSuggesterOptions"><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-var">DocumentSuggesterOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentSuggesterOptions%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions%27"><span class="hs-identifier hs-var">DocumentSuggesterOptions'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An expression that computes a score for each suggestion to control how</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- they are sorted. The scores are rounded to the nearest integer, with a</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- floor of 0 and a ceiling of 2^31-1. A document\'s relevance score is not</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- computed for suggestions, so sort expressions cannot reference the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- @_score@ value. To sort suggestions using a numeric field or existing</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- expression, simply specify the name of the field or expression. If no</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- expression is configured for the suggester, the suggestions are sorted</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- with the closest matches listed first.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AsortExpression%3ADocumentSuggesterOptions%27"><span class="annot"><span class="annottext">DocumentSuggesterOptions -&gt; Maybe Text
 </span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#%24sel%3AsortExpression%3ADocumentSuggesterOptions%27"><span class="hs-identifier hs-var hs-var">sortExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The level of fuzziness allowed when suggesting matches for a string:</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @none@, @low@, or @high@. With none, the specified string is treated as</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- an exact prefix. With low, suggestions must differ from the specified</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- string by no more than one character. With high, suggestions can differ</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- by up to two characters. The default is none.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AfuzzyMatching%3ADocumentSuggesterOptions%27"><span class="annot"><span class="annottext">DocumentSuggesterOptions -&gt; Maybe SuggesterFuzzyMatching
+</span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#%24sel%3AfuzzyMatching%3ADocumentSuggesterOptions%27"><span class="hs-identifier hs-var hs-var">fuzzyMatching</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.html#SuggesterFuzzyMatching"><span class="hs-identifier hs-type">SuggesterFuzzyMatching</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The name of the index field you want to use for suggestions.</span><span>
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3AsourceField%3ADocumentSuggesterOptions%27"><span class="annot"><span class="annottext">DocumentSuggesterOptions -&gt; Text
 </span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#%24sel%3AsourceField%3ADocumentSuggesterOptions%27"><span class="hs-identifier hs-var hs-var">sourceField</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209908"><span id="local-6989586621679209910"><span class="annot"><span class="annottext">DocumentSuggesterOptions -&gt; DocumentSuggesterOptions -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209961"><span id="local-6989586621679209963"><span class="annot"><span class="annottext">DocumentSuggesterOptions -&gt; DocumentSuggesterOptions -&gt; Bool
 (DocumentSuggesterOptions -&gt; DocumentSuggesterOptions -&gt; Bool)
 -&gt; (DocumentSuggesterOptions -&gt; DocumentSuggesterOptions -&gt; Bool)
 -&gt; Eq DocumentSuggesterOptions
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DocumentSuggesterOptions -&gt; DocumentSuggesterOptions -&gt; Bool
 == :: DocumentSuggesterOptions -&gt; DocumentSuggesterOptions -&gt; Bool
 $c== :: DocumentSuggesterOptions -&gt; DocumentSuggesterOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209899"><span id="local-6989586621679209901"><span id="local-6989586621679209903"><span id="local-6989586621679209905"><span class="annot"><span class="annottext">ReadPrec [DocumentSuggesterOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209952"><span id="local-6989586621679209954"><span id="local-6989586621679209956"><span id="local-6989586621679209958"><span class="annot"><span class="annottext">ReadPrec [DocumentSuggesterOptions]
 ReadPrec DocumentSuggesterOptions
 Int -&gt; ReadS DocumentSuggesterOptions
 ReadS [DocumentSuggesterOptions]
@@ -78,7 +78,7 @@ readList :: ReadS [DocumentSuggesterOptions]
 $creadList :: ReadS [DocumentSuggesterOptions]
 readsPrec :: Int -&gt; ReadS DocumentSuggesterOptions
 $creadsPrec :: Int -&gt; ReadS DocumentSuggesterOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209892"><span id="local-6989586621679209894"><span id="local-6989586621679209896"><span class="annot"><span class="annottext">Int -&gt; DocumentSuggesterOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209945"><span id="local-6989586621679209947"><span id="local-6989586621679209949"><span class="annot"><span class="annottext">Int -&gt; DocumentSuggesterOptions -&gt; ShowS
 [DocumentSuggesterOptions] -&gt; ShowS
 DocumentSuggesterOptions -&gt; String
 (Int -&gt; DocumentSuggesterOptions -&gt; ShowS)
@@ -118,20 +118,20 @@ DocumentSuggesterOptions -&gt; Rep DocumentSuggesterOptions x
 </span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'fuzzyMatching', 'documentSuggesterOptions_fuzzyMatching' - The level of fuzziness allowed when suggesting matches for a string:</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- @none@, @low@, or @high@. With none, the specified string is treated as</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- an exact prefix. With low, suggestions must differ from the specified</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- string by no more than one character. With high, suggestions can differ</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- by up to two characters. The default is none.</span><span>
-</span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'sortExpression', 'documentSuggesterOptions_sortExpression' - An expression that computes a score for each suggestion to control how</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- they are sorted. The scores are rounded to the nearest integer, with a</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- floor of 0 and a ceiling of 2^31-1. A document\'s relevance score is not</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- computed for suggestions, so sort expressions cannot reference the</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- @_score@ value. To sort suggestions using a numeric field or existing</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- expression, simply specify the name of the field or expression. If no</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- expression is configured for the suggester, the suggestions are sorted</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- with the closest matches listed first.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'sortExpression', 'documentSuggesterOptions_sortExpression' - An expression that computes a score for each suggestion to control how</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- they are sorted. The scores are rounded to the nearest integer, with a</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- floor of 0 and a ceiling of 2^31-1. A document\'s relevance score is not</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- computed for suggestions, so sort expressions cannot reference the</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- @_score@ value. To sort suggestions using a numeric field or existing</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- expression, simply specify the name of the field or expression. If no</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- expression is configured for the suggester, the suggestions are sorted</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- with the closest matches listed first.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'fuzzyMatching', 'documentSuggesterOptions_fuzzyMatching' - The level of fuzziness allowed when suggesting matches for a string:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- @none@, @low@, or @high@. With none, the specified string is treated as</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- an exact prefix. With low, suggestions must differ from the specified</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- string by no more than one character. With high, suggestions can differ</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- by up to two characters. The default is none.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- 'sourceField', 'documentSuggesterOptions_sourceField' - The name of the index field you want to use for suggestions.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#newDocumentSuggesterOptions"><span class="hs-identifier hs-type">newDocumentSuggesterOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -139,63 +139,35 @@ DocumentSuggesterOptions -&gt; Rep DocumentSuggesterOptions x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-type">DocumentSuggesterOptions</span></a></span><span>
 </span><span id="line-79"></span><span id="newDocumentSuggesterOptions"><span class="annot"><span class="annottext">newDocumentSuggesterOptions :: Text -&gt; DocumentSuggesterOptions
-</span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#newDocumentSuggesterOptions"><span class="hs-identifier hs-var hs-var">newDocumentSuggesterOptions</span></a></span></span><span> </span><span id="local-6989586621679209886"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209886"><span class="hs-identifier hs-var">pSourceField_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">DocumentSuggesterOptions' :: Maybe SuggesterFuzzyMatching
--&gt; Maybe Text -&gt; Text -&gt; DocumentSuggesterOptions
+</span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#newDocumentSuggesterOptions"><span class="hs-identifier hs-var hs-var">newDocumentSuggesterOptions</span></a></span></span><span> </span><span id="local-6989586621679209939"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209939"><span class="hs-identifier hs-var">pSourceField_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">DocumentSuggesterOptions' :: Maybe Text
+-&gt; Maybe SuggesterFuzzyMatching -&gt; Text -&gt; DocumentSuggesterOptions
 </span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions%27"><span class="hs-identifier hs-type">DocumentSuggesterOptions'</span></a></span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fuzzyMatching:DocumentSuggesterOptions' :: Maybe SuggesterFuzzyMatching
-</span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#%24sel%3AfuzzyMatching%3ADocumentSuggesterOptions%27"><span class="hs-identifier hs-var">fuzzyMatching</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Maybe SuggesterFuzzyMatching
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sortExpression:DocumentSuggesterOptions' :: Maybe Text
+</span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#%24sel%3AsortExpression%3ADocumentSuggesterOptions%27"><span class="hs-identifier hs-var">sortExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortExpression:DocumentSuggesterOptions' :: Maybe Text
-</span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#%24sel%3AsortExpression%3ADocumentSuggesterOptions%27"><span class="hs-identifier hs-var">sortExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:fuzzyMatching:DocumentSuggesterOptions' :: Maybe SuggesterFuzzyMatching
+</span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#%24sel%3AfuzzyMatching%3ADocumentSuggesterOptions%27"><span class="hs-identifier hs-var">fuzzyMatching</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SuggesterFuzzyMatching
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceField:DocumentSuggesterOptions' :: Text
 </span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#%24sel%3AsourceField%3ADocumentSuggesterOptions%27"><span class="hs-identifier hs-var">sourceField</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209886"><span class="hs-identifier hs-var">pSourceField_</span></a></span><span>
+</span><a href="#local-6989586621679209939"><span class="hs-identifier hs-var">pSourceField_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The level of fuzziness allowed when suggesting matches for a string:</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- @none@, @low@, or @high@. With none, the specified string is treated as</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- an exact prefix. With low, suggestions must differ from the specified</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- string by no more than one character. With high, suggestions can differ</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- by up to two characters. The default is none.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#documentSuggesterOptions_fuzzyMatching"><span class="hs-identifier hs-type">documentSuggesterOptions_fuzzyMatching</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-type">DocumentSuggesterOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.html#SuggesterFuzzyMatching"><span class="hs-identifier hs-type">SuggesterFuzzyMatching</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="documentSuggesterOptions_fuzzyMatching"><span class="annot"><span class="annottext">documentSuggesterOptions_fuzzyMatching :: (Maybe SuggesterFuzzyMatching -&gt; f (Maybe SuggesterFuzzyMatching))
--&gt; DocumentSuggesterOptions -&gt; f DocumentSuggesterOptions
-</span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#documentSuggesterOptions_fuzzyMatching"><span class="hs-identifier hs-var hs-var">documentSuggesterOptions_fuzzyMatching</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentSuggesterOptions -&gt; Maybe SuggesterFuzzyMatching)
--&gt; (DocumentSuggesterOptions
-    -&gt; Maybe SuggesterFuzzyMatching -&gt; DocumentSuggesterOptions)
--&gt; Lens
-     DocumentSuggesterOptions
-     DocumentSuggesterOptions
-     (Maybe SuggesterFuzzyMatching)
-     (Maybe SuggesterFuzzyMatching)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions%27"><span class="hs-identifier hs-type">DocumentSuggesterOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209882"><span class="annot"><span class="annottext">Maybe SuggesterFuzzyMatching
-fuzzyMatching :: Maybe SuggesterFuzzyMatching
-$sel:fuzzyMatching:DocumentSuggesterOptions' :: DocumentSuggesterOptions -&gt; Maybe SuggesterFuzzyMatching
-</span><a href="#local-6989586621679209882"><span class="hs-identifier hs-var hs-var">fuzzyMatching</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SuggesterFuzzyMatching
-</span><a href="#local-6989586621679209882"><span class="hs-identifier hs-var">fuzzyMatching</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209881"><span class="annot"><span class="annottext">s :: DocumentSuggesterOptions
-</span><a href="#local-6989586621679209881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions%27"><span class="hs-identifier hs-type">DocumentSuggesterOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209880"><span class="annot"><span class="annottext">Maybe SuggesterFuzzyMatching
-</span><a href="#local-6989586621679209880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentSuggesterOptions
-</span><a href="#local-6989586621679209881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fuzzyMatching:DocumentSuggesterOptions' :: Maybe SuggesterFuzzyMatching
-</span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#%24sel%3AfuzzyMatching%3ADocumentSuggesterOptions%27"><span class="hs-identifier hs-var">fuzzyMatching</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SuggesterFuzzyMatching
-</span><a href="#local-6989586621679209880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-type">DocumentSuggesterOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | An expression that computes a score for each suggestion to control how</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- they are sorted. The scores are rounded to the nearest integer, with a</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- floor of 0 and a ceiling of 2^31-1. A document\'s relevance score is not</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- computed for suggestions, so sort expressions cannot reference the</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- @_score@ value. To sort suggestions using a numeric field or existing</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- expression, simply specify the name of the field or expression. If no</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- expression is configured for the suggester, the suggestions are sorted</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- with the closest matches listed first.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#documentSuggesterOptions_sortExpression"><span class="hs-identifier hs-type">documentSuggesterOptions_sortExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-type">DocumentSuggesterOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="documentSuggesterOptions_sortExpression"><span class="annot"><span class="annottext">documentSuggesterOptions_sortExpression :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-87"></span><span class="hs-comment">-- | An expression that computes a score for each suggestion to control how</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- they are sorted. The scores are rounded to the nearest integer, with a</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- floor of 0 and a ceiling of 2^31-1. A document\'s relevance score is not</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- computed for suggestions, so sort expressions cannot reference the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- @_score@ value. To sort suggestions using a numeric field or existing</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- expression, simply specify the name of the field or expression. If no</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- expression is configured for the suggester, the suggestions are sorted</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- with the closest matches listed first.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#documentSuggesterOptions_sortExpression"><span class="hs-identifier hs-type">documentSuggesterOptions_sortExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-type">DocumentSuggesterOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="documentSuggesterOptions_sortExpression"><span class="annot"><span class="annottext">documentSuggesterOptions_sortExpression :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DocumentSuggesterOptions -&gt; f DocumentSuggesterOptions
 </span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#documentSuggesterOptions_sortExpression"><span class="hs-identifier hs-var hs-var">documentSuggesterOptions_sortExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentSuggesterOptions -&gt; Maybe Text)
 -&gt; (DocumentSuggesterOptions
@@ -206,16 +178,44 @@ $sel:fuzzyMatching:DocumentSuggesterOptions' :: DocumentSuggesterOptions -&gt; M
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions%27"><span class="hs-identifier hs-type">DocumentSuggesterOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209878"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions%27"><span class="hs-identifier hs-type">DocumentSuggesterOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209935"><span class="annot"><span class="annottext">Maybe Text
 sortExpression :: Maybe Text
 $sel:sortExpression:DocumentSuggesterOptions' :: DocumentSuggesterOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679209878"><span class="hs-identifier hs-var hs-var">sortExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209878"><span class="hs-identifier hs-var">sortExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209877"><span class="annot"><span class="annottext">s :: DocumentSuggesterOptions
-</span><a href="#local-6989586621679209877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions%27"><span class="hs-identifier hs-type">DocumentSuggesterOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209876"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentSuggesterOptions
-</span><a href="#local-6989586621679209877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortExpression:DocumentSuggesterOptions' :: Maybe Text
+</span><a href="#local-6989586621679209935"><span class="hs-identifier hs-var hs-var">sortExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209935"><span class="hs-identifier hs-var">sortExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209934"><span class="annot"><span class="annottext">s :: DocumentSuggesterOptions
+</span><a href="#local-6989586621679209934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions%27"><span class="hs-identifier hs-type">DocumentSuggesterOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209933"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentSuggesterOptions
+</span><a href="#local-6989586621679209934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortExpression:DocumentSuggesterOptions' :: Maybe Text
 </span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#%24sel%3AsortExpression%3ADocumentSuggesterOptions%27"><span class="hs-identifier hs-var">sortExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-type">DocumentSuggesterOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-type">DocumentSuggesterOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The level of fuzziness allowed when suggesting matches for a string:</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- @none@, @low@, or @high@. With none, the specified string is treated as</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- an exact prefix. With low, suggestions must differ from the specified</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- string by no more than one character. With high, suggestions can differ</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- by up to two characters. The default is none.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#documentSuggesterOptions_fuzzyMatching"><span class="hs-identifier hs-type">documentSuggesterOptions_fuzzyMatching</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-type">DocumentSuggesterOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching.html#SuggesterFuzzyMatching"><span class="hs-identifier hs-type">SuggesterFuzzyMatching</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="documentSuggesterOptions_fuzzyMatching"><span class="annot"><span class="annottext">documentSuggesterOptions_fuzzyMatching :: (Maybe SuggesterFuzzyMatching -&gt; f (Maybe SuggesterFuzzyMatching))
+-&gt; DocumentSuggesterOptions -&gt; f DocumentSuggesterOptions
+</span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#documentSuggesterOptions_fuzzyMatching"><span class="hs-identifier hs-var hs-var">documentSuggesterOptions_fuzzyMatching</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentSuggesterOptions -&gt; Maybe SuggesterFuzzyMatching)
+-&gt; (DocumentSuggesterOptions
+    -&gt; Maybe SuggesterFuzzyMatching -&gt; DocumentSuggesterOptions)
+-&gt; Lens
+     DocumentSuggesterOptions
+     DocumentSuggesterOptions
+     (Maybe SuggesterFuzzyMatching)
+     (Maybe SuggesterFuzzyMatching)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions%27"><span class="hs-identifier hs-type">DocumentSuggesterOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209931"><span class="annot"><span class="annottext">Maybe SuggesterFuzzyMatching
+fuzzyMatching :: Maybe SuggesterFuzzyMatching
+$sel:fuzzyMatching:DocumentSuggesterOptions' :: DocumentSuggesterOptions -&gt; Maybe SuggesterFuzzyMatching
+</span><a href="#local-6989586621679209931"><span class="hs-identifier hs-var hs-var">fuzzyMatching</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SuggesterFuzzyMatching
+</span><a href="#local-6989586621679209931"><span class="hs-identifier hs-var">fuzzyMatching</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209930"><span class="annot"><span class="annottext">s :: DocumentSuggesterOptions
+</span><a href="#local-6989586621679209930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions%27"><span class="hs-identifier hs-type">DocumentSuggesterOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209929"><span class="annot"><span class="annottext">Maybe SuggesterFuzzyMatching
+</span><a href="#local-6989586621679209929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentSuggesterOptions
+</span><a href="#local-6989586621679209930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fuzzyMatching:DocumentSuggesterOptions' :: Maybe SuggesterFuzzyMatching
+</span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#%24sel%3AfuzzyMatching%3ADocumentSuggesterOptions%27"><span class="hs-identifier hs-var">fuzzyMatching</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SuggesterFuzzyMatching
+</span><a href="#local-6989586621679209929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-type">DocumentSuggesterOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The name of the index field you want to use for suggestions.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#documentSuggesterOptions_sourceField"><span class="hs-identifier hs-type">documentSuggesterOptions_sourceField</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-type">DocumentSuggesterOptions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -225,85 +225,91 @@ $sel:sortExpression:DocumentSuggesterOptions' :: DocumentSuggesterOptions -&gt; 
 -&gt; (DocumentSuggesterOptions -&gt; Text -&gt; DocumentSuggesterOptions)
 -&gt; Lens DocumentSuggesterOptions DocumentSuggesterOptions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions%27"><span class="hs-identifier hs-type">DocumentSuggesterOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209874"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions%27"><span class="hs-identifier hs-type">DocumentSuggesterOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209927"><span class="annot"><span class="annottext">Text
 sourceField :: Text
 $sel:sourceField:DocumentSuggesterOptions' :: DocumentSuggesterOptions -&gt; Text
-</span><a href="#local-6989586621679209874"><span class="hs-identifier hs-var hs-var">sourceField</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209874"><span class="hs-identifier hs-var">sourceField</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209873"><span class="annot"><span class="annottext">s :: DocumentSuggesterOptions
-</span><a href="#local-6989586621679209873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions%27"><span class="hs-identifier hs-type">DocumentSuggesterOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209872"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentSuggesterOptions
-</span><a href="#local-6989586621679209873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceField:DocumentSuggesterOptions' :: Text
+</span><a href="#local-6989586621679209927"><span class="hs-identifier hs-var hs-var">sourceField</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209927"><span class="hs-identifier hs-var">sourceField</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209926"><span class="annot"><span class="annottext">s :: DocumentSuggesterOptions
+</span><a href="#local-6989586621679209926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions%27"><span class="hs-identifier hs-type">DocumentSuggesterOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209925"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentSuggesterOptions
+</span><a href="#local-6989586621679209926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceField:DocumentSuggesterOptions' :: Text
 </span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#%24sel%3AsourceField%3ADocumentSuggesterOptions%27"><span class="hs-identifier hs-var">sourceField</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-type">DocumentSuggesterOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-type">DocumentSuggesterOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-type">DocumentSuggesterOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679209869"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DocumentSuggesterOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679209867"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679209867"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">Maybe SuggesterFuzzyMatching
--&gt; Maybe Text -&gt; Text -&gt; DocumentSuggesterOptions
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679209922"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DocumentSuggesterOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679209920"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679209920"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe SuggesterFuzzyMatching -&gt; Text -&gt; DocumentSuggesterOptions
 </span><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions%27"><span class="hs-identifier hs-var">DocumentSuggesterOptions'</span></a></span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">(Maybe SuggesterFuzzyMatching
- -&gt; Maybe Text -&gt; Text -&gt; DocumentSuggesterOptions)
--&gt; Either String (Maybe SuggesterFuzzyMatching)
--&gt; Either String (Maybe Text -&gt; Text -&gt; DocumentSuggesterOptions)
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe SuggesterFuzzyMatching
+ -&gt; Text
+ -&gt; DocumentSuggesterOptions)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe SuggesterFuzzyMatching -&gt; Text -&gt; DocumentSuggesterOptions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679209867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SuggesterFuzzyMatching)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FuzzyMatching&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Text -&gt; DocumentSuggesterOptions)
--&gt; Either String (Maybe Text)
--&gt; Either String (Text -&gt; DocumentSuggesterOptions)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679209867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679209920"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortExpression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe SuggesterFuzzyMatching -&gt; Text -&gt; DocumentSuggesterOptions)
+-&gt; Either String (Maybe SuggesterFuzzyMatching)
+-&gt; Either String (Text -&gt; DocumentSuggesterOptions)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679209920"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SuggesterFuzzyMatching)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FuzzyMatching&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; DocumentSuggesterOptions)
 -&gt; Either String Text -&gt; Either String DocumentSuggesterOptions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679209867"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679209920"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceField&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209860"><span id="local-6989586621679209862"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-type">DocumentSuggesterOptions</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209913"><span id="local-6989586621679209915"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-type">DocumentSuggesterOptions</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209857"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-type">DocumentSuggesterOptions</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209910"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-type">DocumentSuggesterOptions</span></a></span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions"><span class="hs-identifier hs-type">DocumentSuggesterOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679209853"><span class="annot"><span class="annottext">toQuery :: DocumentSuggesterOptions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions%27"><span class="hs-identifier hs-type">DocumentSuggesterOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209849"><span id="local-6989586621679209850"><span id="local-6989586621679209851"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679209906"><span class="annot"><span class="annottext">toQuery :: DocumentSuggesterOptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.DocumentSuggesterOptions.html#DocumentSuggesterOptions%27"><span class="hs-identifier hs-type">DocumentSuggesterOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209902"><span id="local-6989586621679209903"><span id="local-6989586621679209904"><span class="annot"><span class="annottext">Maybe Text
 Maybe SuggesterFuzzyMatching
 Text
 sourceField :: Text
-sortExpression :: Maybe Text
 fuzzyMatching :: Maybe SuggesterFuzzyMatching
+sortExpression :: Maybe Text
 $sel:sourceField:DocumentSuggesterOptions' :: DocumentSuggesterOptions -&gt; Text
-$sel:sortExpression:DocumentSuggesterOptions' :: DocumentSuggesterOptions -&gt; Maybe Text
 $sel:fuzzyMatching:DocumentSuggesterOptions' :: DocumentSuggesterOptions -&gt; Maybe SuggesterFuzzyMatching
-</span><a href="#local-6989586621679209849"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:sortExpression:DocumentSuggesterOptions' :: DocumentSuggesterOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679209902"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;FuzzyMatching&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe SuggesterFuzzyMatching -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe SuggesterFuzzyMatching
-</span><a href="#local-6989586621679209851"><span class="hs-identifier hs-var">fuzzyMatching</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SortExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209850"><span class="hs-identifier hs-var">sortExpression</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209904"><span class="hs-identifier hs-var">sortExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;FuzzyMatching&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe SuggesterFuzzyMatching -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe SuggesterFuzzyMatching
+</span><a href="#local-6989586621679209903"><span class="hs-identifier hs-var">fuzzyMatching</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SourceField&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209849"><span class="hs-identifier hs-var">sourceField</span></a></span><span>
+</span><a href="#local-6989586621679209902"><span class="hs-identifier hs-var">sourceField</span></a></span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span></pre></body></html>

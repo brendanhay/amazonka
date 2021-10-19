@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621680348279"><span id="local-6989586621680348280"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrainingJobSortByOptions"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSortByOptions.html#TrainingJobSortByOptions"><span class="hs-identifier hs-var">TrainingJobSortByOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrainingJobSortByOptions%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSortByOptions.html#TrainingJobSortByOptions%27"><span class="hs-identifier hs-var">TrainingJobSortByOptions'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680349706"><span id="local-6989586621680349707"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrainingJobSortByOptions"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSortByOptions.html#TrainingJobSortByOptions"><span class="hs-identifier hs-var">TrainingJobSortByOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrainingJobSortByOptions%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TrainingJobSortByOptions.html#TrainingJobSortByOptions%27"><span class="hs-identifier hs-var">TrainingJobSortByOptions'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTrainingJobSortByOptions"><span class="annot"><span class="annottext">TrainingJobSortByOptions -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.TrainingJobSortByOptions.html#fromTrainingJobSortByOptions"><span class="hs-identifier hs-var hs-var">fromTrainingJobSortByOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680348271"><span id="local-6989586621680348273"><span id="local-6989586621680348275"><span class="annot"><span class="annottext">Int -&gt; TrainingJobSortByOptions -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680349698"><span id="local-6989586621680349700"><span id="local-6989586621680349702"><span class="annot"><span class="annottext">Int -&gt; TrainingJobSortByOptions -&gt; ShowS
 [TrainingJobSortByOptions] -&gt; ShowS
 TrainingJobSortByOptions -&gt; String
 (Int -&gt; TrainingJobSortByOptions -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: TrainingJobSortByOptions -&gt; String
 showsPrec :: Int -&gt; TrainingJobSortByOptions -&gt; ShowS
 $cshowsPrec :: Int -&gt; TrainingJobSortByOptions -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680348262"><span id="local-6989586621680348264"><span id="local-6989586621680348266"><span id="local-6989586621680348268"><span class="annot"><span class="annottext">ReadPrec [TrainingJobSortByOptions]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680349689"><span id="local-6989586621680349691"><span id="local-6989586621680349693"><span id="local-6989586621680349695"><span class="annot"><span class="annottext">ReadPrec [TrainingJobSortByOptions]
 ReadPrec TrainingJobSortByOptions
 Int -&gt; ReadS TrainingJobSortByOptions
 ReadS [TrainingJobSortByOptions]
@@ -74,7 +74,7 @@ $creadList :: ReadS [TrainingJobSortByOptions]
 readsPrec :: Int -&gt; ReadS TrainingJobSortByOptions
 $creadsPrec :: Int -&gt; ReadS TrainingJobSortByOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680348257"><span id="local-6989586621680348259"><span class="annot"><span class="annottext">TrainingJobSortByOptions -&gt; TrainingJobSortByOptions -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680349684"><span id="local-6989586621680349686"><span class="annot"><span class="annottext">TrainingJobSortByOptions -&gt; TrainingJobSortByOptions -&gt; Bool
 (TrainingJobSortByOptions -&gt; TrainingJobSortByOptions -&gt; Bool)
 -&gt; (TrainingJobSortByOptions -&gt; TrainingJobSortByOptions -&gt; Bool)
 -&gt; Eq TrainingJobSortByOptions
@@ -84,7 +84,7 @@ $c/= :: TrainingJobSortByOptions -&gt; TrainingJobSortByOptions -&gt; Bool
 == :: TrainingJobSortByOptions -&gt; TrainingJobSortByOptions -&gt; Bool
 $c== :: TrainingJobSortByOptions -&gt; TrainingJobSortByOptions -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680348241"><span id="local-6989586621680348243"><span id="local-6989586621680348245"><span id="local-6989586621680348247"><span id="local-6989586621680348249"><span id="local-6989586621680348251"><span id="local-6989586621680348253"><span class="annot"><span class="annottext">Eq TrainingJobSortByOptions
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680349668"><span id="local-6989586621680349670"><span id="local-6989586621680349672"><span id="local-6989586621680349674"><span id="local-6989586621680349676"><span id="local-6989586621680349678"><span id="local-6989586621680349680"><span class="annot"><span class="annottext">Eq TrainingJobSortByOptions
 Eq TrainingJobSortByOptions
 -&gt; (TrainingJobSortByOptions
     -&gt; TrainingJobSortByOptions -&gt; Ordering)
@@ -149,7 +149,7 @@ TrainingJobSortByOptions -&gt; Rep TrainingJobSortByOptions x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680348233"><span id="local-6989586621680348235"><span class="annot"><span class="annottext">Int -&gt; TrainingJobSortByOptions -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680349660"><span id="local-6989586621680349662"><span class="annot"><span class="annottext">Int -&gt; TrainingJobSortByOptions -&gt; Int
 TrainingJobSortByOptions -&gt; Int
 (Int -&gt; TrainingJobSortByOptions -&gt; Int)
 -&gt; (TrainingJobSortByOptions -&gt; Int)
@@ -160,55 +160,55 @@ $chash :: TrainingJobSortByOptions -&gt; Int
 hashWithSalt :: Int -&gt; TrainingJobSortByOptions -&gt; Int
 $chashWithSalt :: Int -&gt; TrainingJobSortByOptions -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680348230"><span class="annot"><span class="annottext">TrainingJobSortByOptions -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680349657"><span class="annot"><span class="annottext">TrainingJobSortByOptions -&gt; ()
 (TrainingJobSortByOptions -&gt; ()) -&gt; NFData TrainingJobSortByOptions
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TrainingJobSortByOptions -&gt; ()
 $crnf :: TrainingJobSortByOptions -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680348227"><span class="annot"><span class="annottext">Text -&gt; Either String TrainingJobSortByOptions
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680349654"><span class="annot"><span class="annottext">Text -&gt; Either String TrainingJobSortByOptions
 (Text -&gt; Either String TrainingJobSortByOptions)
 -&gt; FromText TrainingJobSortByOptions
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TrainingJobSortByOptions
 $cfromText :: Text -&gt; Either String TrainingJobSortByOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680348224"><span class="annot"><span class="annottext">TrainingJobSortByOptions -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680349651"><span class="annot"><span class="annottext">TrainingJobSortByOptions -&gt; Text
 (TrainingJobSortByOptions -&gt; Text)
 -&gt; ToText TrainingJobSortByOptions
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TrainingJobSortByOptions -&gt; Text
 $ctoText :: TrainingJobSortByOptions -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680348221"><span class="annot"><span class="annottext">TrainingJobSortByOptions -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680349648"><span class="annot"><span class="annottext">TrainingJobSortByOptions -&gt; ByteString
 (TrainingJobSortByOptions -&gt; ByteString)
 -&gt; ToByteString TrainingJobSortByOptions
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TrainingJobSortByOptions -&gt; ByteString
 $ctoBS :: TrainingJobSortByOptions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680348218"><span class="annot"><span class="annottext">TrainingJobSortByOptions -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680349645"><span class="annot"><span class="annottext">TrainingJobSortByOptions -&gt; ByteStringBuilder
 (TrainingJobSortByOptions -&gt; ByteStringBuilder)
 -&gt; ToLog TrainingJobSortByOptions
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TrainingJobSortByOptions -&gt; ByteStringBuilder
 $cbuild :: TrainingJobSortByOptions -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680348215"><span class="annot"><span class="annottext">HeaderName -&gt; TrainingJobSortByOptions -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680349642"><span class="annot"><span class="annottext">HeaderName -&gt; TrainingJobSortByOptions -&gt; [Header]
 (HeaderName -&gt; TrainingJobSortByOptions -&gt; [Header])
 -&gt; ToHeader TrainingJobSortByOptions
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TrainingJobSortByOptions -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TrainingJobSortByOptions -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680348212"><span class="annot"><span class="annottext">TrainingJobSortByOptions -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680349639"><span class="annot"><span class="annottext">TrainingJobSortByOptions -&gt; QueryString
 (TrainingJobSortByOptions -&gt; QueryString)
 -&gt; ToQuery TrainingJobSortByOptions
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TrainingJobSortByOptions -&gt; QueryString
 $ctoQuery :: TrainingJobSortByOptions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680348207"><span id="local-6989586621680348209"><span class="annot"><span class="annottext">Value -&gt; Parser [TrainingJobSortByOptions]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680349634"><span id="local-6989586621680349636"><span class="annot"><span class="annottext">Value -&gt; Parser [TrainingJobSortByOptions]
 Value -&gt; Parser TrainingJobSortByOptions
 (Value -&gt; Parser TrainingJobSortByOptions)
 -&gt; (Value -&gt; Parser [TrainingJobSortByOptions])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [TrainingJobSortByOptions]
 parseJSON :: Value -&gt; Parser TrainingJobSortByOptions
 $cparseJSON :: Value -&gt; Parser TrainingJobSortByOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680348202"><span id="local-6989586621680348204"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrainingJobSortByOptions]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680349629"><span id="local-6989586621680349631"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrainingJobSortByOptions]
 FromJSONKeyFunction TrainingJobSortByOptions
 FromJSONKeyFunction TrainingJobSortByOptions
 -&gt; FromJSONKeyFunction [TrainingJobSortByOptions]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TrainingJobSortByOptions]
 fromJSONKey :: FromJSONKeyFunction TrainingJobSortByOptions
 $cfromJSONKey :: FromJSONKeyFunction TrainingJobSortByOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680348193"><span id="local-6989586621680348195"><span id="local-6989586621680348197"><span id="local-6989586621680348199"><span class="annot"><span class="annottext">[TrainingJobSortByOptions] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680349620"><span id="local-6989586621680349622"><span id="local-6989586621680349624"><span id="local-6989586621680349626"><span class="annot"><span class="annottext">[TrainingJobSortByOptions] -&gt; Encoding
 [TrainingJobSortByOptions] -&gt; Value
 TrainingJobSortByOptions -&gt; Encoding
 TrainingJobSortByOptions -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: TrainingJobSortByOptions -&gt; Encoding
 toJSON :: TrainingJobSortByOptions -&gt; Value
 $ctoJSON :: TrainingJobSortByOptions -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680348188"><span id="local-6989586621680348190"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrainingJobSortByOptions]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680349615"><span id="local-6989586621680349617"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrainingJobSortByOptions]
 ToJSONKeyFunction TrainingJobSortByOptions
 ToJSONKeyFunction TrainingJobSortByOptions
 -&gt; ToJSONKeyFunction [TrainingJobSortByOptions]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TrainingJobSortByOptions]
 toJSONKey :: ToJSONKeyFunction TrainingJobSortByOptions
 $ctoJSONKey :: ToJSONKeyFunction TrainingJobSortByOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680348185"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrainingJobSortByOptions
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680349612"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrainingJobSortByOptions
 ([Node] -&gt; Either String TrainingJobSortByOptions)
 -&gt; FromXML TrainingJobSortByOptions
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TrainingJobSortByOptions
 $cparseXML :: [Node] -&gt; Either String TrainingJobSortByOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680348182"><span class="annot"><span class="annottext">TrainingJobSortByOptions -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680349609"><span class="annot"><span class="annottext">TrainingJobSortByOptions -&gt; XML
 (TrainingJobSortByOptions -&gt; XML) -&gt; ToXML TrainingJobSortByOptions
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TrainingJobSortByOptions -&gt; XML

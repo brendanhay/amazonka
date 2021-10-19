@@ -33,22 +33,22 @@
 </span><span id="line-33"></span><span class="hs-comment">-- bytes).</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newMessageAttributeValue' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679175549"><span id="local-6989586621679175550"></span></span><span class="hs-keyword">data</span><span> </span><span id="MessageAttributeValue"><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-var">MessageAttributeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MessageAttributeValue%27"><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-var">MessageAttributeValue'</span></a></span></span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Not implemented. Reserved for future use.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AstringListValues%3AMessageAttributeValue%27"><span class="annot"><span class="annottext">MessageAttributeValue -&gt; Maybe [Text]
-</span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AstringListValues%3AMessageAttributeValue%27"><span class="hs-identifier hs-var hs-var">stringListValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Strings are Unicode with UTF-8 binary encoding. For a list of code</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- values, see</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- &lt;http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters&gt;.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AstringValue%3AMessageAttributeValue%27"><span class="annot"><span class="annottext">MessageAttributeValue -&gt; Maybe Text
-</span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AstringValue%3AMessageAttributeValue%27"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Not implemented. Reserved for future use.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AbinaryListValues%3AMessageAttributeValue%27"><span class="annot"><span class="annottext">MessageAttributeValue -&gt; Maybe [Base64]
-</span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AbinaryListValues%3AMessageAttributeValue%27"><span class="hs-identifier hs-var hs-var">binaryListValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Binary type attributes can store any binary data, such as compressed</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- data, encrypted data, or images.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AbinaryValue%3AMessageAttributeValue%27"><span class="annot"><span class="annottext">MessageAttributeValue -&gt; Maybe Base64
+</span><span id="line-36"></span><span id="local-6989586621679175684"><span id="local-6989586621679175685"></span></span><span class="hs-keyword">data</span><span> </span><span id="MessageAttributeValue"><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-var">MessageAttributeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MessageAttributeValue%27"><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-var">MessageAttributeValue'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Binary type attributes can store any binary data, such as compressed</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- data, encrypted data, or images.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AbinaryValue%3AMessageAttributeValue%27"><span class="annot"><span class="annottext">MessageAttributeValue -&gt; Maybe Base64
 </span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AbinaryValue%3AMessageAttributeValue%27"><span class="hs-identifier hs-var hs-var">binaryValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Not implemented. Reserved for future use.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AstringListValues%3AMessageAttributeValue%27"><span class="annot"><span class="annottext">MessageAttributeValue -&gt; Maybe [Text]
+</span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AstringListValues%3AMessageAttributeValue%27"><span class="hs-identifier hs-var hs-var">stringListValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Strings are Unicode with UTF-8 binary encoding. For a list of code</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- values, see</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- &lt;http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters&gt;.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AstringValue%3AMessageAttributeValue%27"><span class="annot"><span class="annottext">MessageAttributeValue -&gt; Maybe Text
+</span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AstringValue%3AMessageAttributeValue%27"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Not implemented. Reserved for future use.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AbinaryListValues%3AMessageAttributeValue%27"><span class="annot"><span class="annottext">MessageAttributeValue -&gt; Maybe [Base64]
+</span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AbinaryListValues%3AMessageAttributeValue%27"><span class="hs-identifier hs-var hs-var">binaryListValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Amazon SQS supports the following logical data types: @String@,</span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">-- @Number@, and @Binary@. For the @Number@ data type, you must use</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">-- @StringValue@.</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AdataType%3AMessageAttributeValue%27"><span class="annot"><span class="annottext">MessageAttributeValue -&gt; Text
 </span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AdataType%3AMessageAttributeValue%27"><span class="hs-identifier hs-var hs-var">dataType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175539"><span id="local-6989586621679175541"><span class="annot"><span class="annottext">MessageAttributeValue -&gt; MessageAttributeValue -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175674"><span id="local-6989586621679175676"><span class="annot"><span class="annottext">MessageAttributeValue -&gt; MessageAttributeValue -&gt; Bool
 (MessageAttributeValue -&gt; MessageAttributeValue -&gt; Bool)
 -&gt; (MessageAttributeValue -&gt; MessageAttributeValue -&gt; Bool)
 -&gt; Eq MessageAttributeValue
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MessageAttributeValue -&gt; MessageAttributeValue -&gt; Bool
 == :: MessageAttributeValue -&gt; MessageAttributeValue -&gt; Bool
 $c== :: MessageAttributeValue -&gt; MessageAttributeValue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175530"><span id="local-6989586621679175532"><span id="local-6989586621679175534"><span id="local-6989586621679175536"><span class="annot"><span class="annottext">ReadPrec [MessageAttributeValue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175665"><span id="local-6989586621679175667"><span id="local-6989586621679175669"><span id="local-6989586621679175671"><span class="annot"><span class="annottext">ReadPrec [MessageAttributeValue]
 ReadPrec MessageAttributeValue
 Int -&gt; ReadS MessageAttributeValue
 ReadS [MessageAttributeValue]
@@ -88,7 +88,7 @@ readList :: ReadS [MessageAttributeValue]
 $creadList :: ReadS [MessageAttributeValue]
 readsPrec :: Int -&gt; ReadS MessageAttributeValue
 $creadsPrec :: Int -&gt; ReadS MessageAttributeValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175523"><span id="local-6989586621679175525"><span id="local-6989586621679175527"><span class="annot"><span class="annottext">Int -&gt; MessageAttributeValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175658"><span id="local-6989586621679175660"><span id="local-6989586621679175662"><span class="annot"><span class="annottext">Int -&gt; MessageAttributeValue -&gt; ShowS
 [MessageAttributeValue] -&gt; ShowS
 MessageAttributeValue -&gt; String
 (Int -&gt; MessageAttributeValue -&gt; ShowS)
@@ -122,20 +122,20 @@ $cfrom :: forall x. MessageAttributeValue -&gt; Rep MessageAttributeValue x
 </span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'stringListValues', 'messageAttributeValue_stringListValues' - Not implemented. Reserved for future use.</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'stringValue', 'messageAttributeValue_stringValue' - Strings are Unicode with UTF-8 binary encoding. For a list of code</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- values, see</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- &lt;http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters&gt;.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'binaryListValues', 'messageAttributeValue_binaryListValues' - Not implemented. Reserved for future use.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'binaryValue', 'messageAttributeValue_binaryValue' - Binary type attributes can store any binary data, such as compressed</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- data, encrypted data, or images.--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'binaryValue', 'messageAttributeValue_binaryValue' - Binary type attributes can store any binary data, such as compressed</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- data, encrypted data, or images.--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'stringListValues', 'messageAttributeValue_stringListValues' - Not implemented. Reserved for future use.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'stringValue', 'messageAttributeValue_stringValue' - Strings are Unicode with UTF-8 binary encoding. For a list of code</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- values, see</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- &lt;http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters&gt;.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'binaryListValues', 'messageAttributeValue_binaryListValues' - Not implemented. Reserved for future use.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- 'dataType', 'messageAttributeValue_dataType' - Amazon SQS supports the following logical data types: @String@,</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- @Number@, and @Binary@. For the @Number@ data type, you must use</span><span>
@@ -149,40 +149,84 @@ $cfrom :: forall x. MessageAttributeValue -&gt; Rep MessageAttributeValue x
 </span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span>
 </span><span id="line-93"></span><span id="newMessageAttributeValue"><span class="annot"><span class="annottext">newMessageAttributeValue :: Text -&gt; MessageAttributeValue
-</span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#newMessageAttributeValue"><span class="hs-identifier hs-var hs-var">newMessageAttributeValue</span></a></span></span><span> </span><span id="local-6989586621679175517"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175517"><span class="hs-identifier hs-var">pDataType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">MessageAttributeValue' :: Maybe [Text]
+</span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#newMessageAttributeValue"><span class="hs-identifier hs-var hs-var">newMessageAttributeValue</span></a></span></span><span> </span><span id="local-6989586621679175652"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175652"><span class="hs-identifier hs-var">pDataType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">MessageAttributeValue' :: Maybe Base64
+-&gt; Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe [Base64]
--&gt; Maybe Base64
 -&gt; Text
 -&gt; MessageAttributeValue
 </span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stringListValues:MessageAttributeValue' :: Maybe [Text]
-</span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AstringListValues%3AMessageAttributeValue%27"><span class="hs-identifier hs-var">stringListValues</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:binaryValue:MessageAttributeValue' :: Maybe Base64
+</span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AbinaryValue%3AMessageAttributeValue%27"><span class="hs-identifier hs-var">binaryValue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Maybe Base64
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:stringValue:MessageAttributeValue' :: Maybe Text
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:stringListValues:MessageAttributeValue' :: Maybe [Text]
+</span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AstringListValues%3AMessageAttributeValue%27"><span class="hs-identifier hs-var">stringListValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:stringValue:MessageAttributeValue' :: Maybe Text
 </span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AstringValue%3AMessageAttributeValue%27"><span class="hs-identifier hs-var">stringValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:binaryListValues:MessageAttributeValue' :: Maybe [Base64]
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:binaryListValues:MessageAttributeValue' :: Maybe [Base64]
 </span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AbinaryListValues%3AMessageAttributeValue%27"><span class="hs-identifier hs-var">binaryListValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Base64]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:binaryValue:MessageAttributeValue' :: Maybe Base64
-</span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AbinaryValue%3AMessageAttributeValue%27"><span class="hs-identifier hs-var">binaryValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataType:MessageAttributeValue' :: Text
 </span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AdataType%3AMessageAttributeValue%27"><span class="hs-identifier hs-var">dataType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175517"><span class="hs-identifier hs-var">pDataType_</span></a></span><span>
+</span><a href="#local-6989586621679175652"><span class="hs-identifier hs-var">pDataType_</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | Not implemented. Reserved for future use.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#messageAttributeValue_stringListValues"><span class="hs-identifier hs-type">messageAttributeValue_stringListValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="messageAttributeValue_stringListValues"><span class="annot"><span class="annottext">messageAttributeValue_stringListValues :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-103"></span><span class="hs-comment">-- | Binary type attributes can store any binary data, such as compressed</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- data, encrypted data, or images.--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#messageAttributeValue_binaryValue"><span class="hs-identifier hs-type">messageAttributeValue_binaryValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="messageAttributeValue_binaryValue"><span class="annot"><span class="annottext">messageAttributeValue_binaryValue :: (Maybe ByteString -&gt; f (Maybe ByteString))
+-&gt; MessageAttributeValue -&gt; f MessageAttributeValue
+</span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#messageAttributeValue_binaryValue"><span class="hs-identifier hs-var hs-var">messageAttributeValue_binaryValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MessageAttributeValue -&gt; Maybe Base64)
+-&gt; (MessageAttributeValue -&gt; Maybe Base64 -&gt; MessageAttributeValue)
+-&gt; Lens
+     MessageAttributeValue
+     MessageAttributeValue
+     (Maybe Base64)
+     (Maybe Base64)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175648"><span class="annot"><span class="annottext">Maybe Base64
+binaryValue :: Maybe Base64
+$sel:binaryValue:MessageAttributeValue' :: MessageAttributeValue -&gt; Maybe Base64
+</span><a href="#local-6989586621679175648"><span class="hs-identifier hs-var hs-var">binaryValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679175648"><span class="hs-identifier hs-var">binaryValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175647"><span class="annot"><span class="annottext">s :: MessageAttributeValue
+</span><a href="#local-6989586621679175647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175646"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679175646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageAttributeValue
+</span><a href="#local-6989586621679175647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:binaryValue:MessageAttributeValue' :: Maybe Base64
+</span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AbinaryValue%3AMessageAttributeValue%27"><span class="hs-identifier hs-var">binaryValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679175646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
+ -&gt; MessageAttributeValue -&gt; f MessageAttributeValue)
+-&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
+    -&gt; Maybe Base64 -&gt; f (Maybe Base64))
+-&gt; (Maybe ByteString -&gt; f (Maybe ByteString))
+-&gt; MessageAttributeValue
+-&gt; f MessageAttributeValue
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso Base64 Base64 ByteString ByteString
+-&gt; Iso
+     (Maybe Base64) (Maybe Base64) (Maybe ByteString) (Maybe ByteString)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso Base64 Base64 ByteString ByteString
+Iso' Base64 ByteString
+</span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Not implemented. Reserved for future use.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#messageAttributeValue_stringListValues"><span class="hs-identifier hs-type">messageAttributeValue_stringListValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="messageAttributeValue_stringListValues"><span class="annot"><span class="annottext">messageAttributeValue_stringListValues :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; MessageAttributeValue -&gt; f MessageAttributeValue
 </span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#messageAttributeValue_stringListValues"><span class="hs-identifier hs-var hs-var">messageAttributeValue_stringListValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MessageAttributeValue -&gt; Maybe [Text])
 -&gt; (MessageAttributeValue -&gt; Maybe [Text] -&gt; MessageAttributeValue)
@@ -192,16 +236,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175513"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175641"><span class="annot"><span class="annottext">Maybe [Text]
 stringListValues :: Maybe [Text]
 $sel:stringListValues:MessageAttributeValue' :: MessageAttributeValue -&gt; Maybe [Text]
-</span><a href="#local-6989586621679175513"><span class="hs-identifier hs-var hs-var">stringListValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679175513"><span class="hs-identifier hs-var">stringListValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175512"><span class="annot"><span class="annottext">s :: MessageAttributeValue
-</span><a href="#local-6989586621679175512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175511"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679175511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageAttributeValue
-</span><a href="#local-6989586621679175512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stringListValues:MessageAttributeValue' :: Maybe [Text]
+</span><a href="#local-6989586621679175641"><span class="hs-identifier hs-var hs-var">stringListValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679175641"><span class="hs-identifier hs-var">stringListValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175640"><span class="annot"><span class="annottext">s :: MessageAttributeValue
+</span><a href="#local-6989586621679175640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175639"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679175639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageAttributeValue
+</span><a href="#local-6989586621679175640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stringListValues:MessageAttributeValue' :: Maybe [Text]
 </span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AstringListValues%3AMessageAttributeValue%27"><span class="hs-identifier hs-var">stringListValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679175511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679175639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; MessageAttributeValue -&gt; f MessageAttributeValue)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -215,14 +259,14 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | Strings are Unicode with UTF-8 binary encoding. For a list of code</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- values, see</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- &lt;http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters&gt;.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#messageAttributeValue_stringValue"><span class="hs-identifier hs-type">messageAttributeValue_stringValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="messageAttributeValue_stringValue"><span class="annot"><span class="annottext">messageAttributeValue_stringValue :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Strings are Unicode with UTF-8 binary encoding. For a list of code</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- values, see</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- &lt;http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters ASCII Printable Characters&gt;.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#messageAttributeValue_stringValue"><span class="hs-identifier hs-type">messageAttributeValue_stringValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="messageAttributeValue_stringValue"><span class="annot"><span class="annottext">messageAttributeValue_stringValue :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; MessageAttributeValue -&gt; f MessageAttributeValue
 </span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#messageAttributeValue_stringValue"><span class="hs-identifier hs-var hs-var">messageAttributeValue_stringValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MessageAttributeValue -&gt; Maybe Text)
 -&gt; (MessageAttributeValue -&gt; Maybe Text -&gt; MessageAttributeValue)
@@ -232,20 +276,20 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175506"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175636"><span class="annot"><span class="annottext">Maybe Text
 stringValue :: Maybe Text
 $sel:stringValue:MessageAttributeValue' :: MessageAttributeValue -&gt; Maybe Text
-</span><a href="#local-6989586621679175506"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175506"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175505"><span class="annot"><span class="annottext">s :: MessageAttributeValue
-</span><a href="#local-6989586621679175505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175504"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageAttributeValue
-</span><a href="#local-6989586621679175505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stringValue:MessageAttributeValue' :: Maybe Text
+</span><a href="#local-6989586621679175636"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175636"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175635"><span class="annot"><span class="annottext">s :: MessageAttributeValue
+</span><a href="#local-6989586621679175635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175634"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageAttributeValue
+</span><a href="#local-6989586621679175635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stringValue:MessageAttributeValue' :: Maybe Text
 </span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AstringValue%3AMessageAttributeValue%27"><span class="hs-identifier hs-var">stringValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | Not implemented. Reserved for future use.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#messageAttributeValue_binaryListValues"><span class="hs-identifier hs-type">messageAttributeValue_binaryListValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="messageAttributeValue_binaryListValues"><span class="annot"><span class="annottext">messageAttributeValue_binaryListValues :: (Maybe [ByteString] -&gt; f (Maybe [ByteString]))
+</span><a href="#local-6989586621679175634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | Not implemented. Reserved for future use.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#messageAttributeValue_binaryListValues"><span class="hs-identifier hs-type">messageAttributeValue_binaryListValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="messageAttributeValue_binaryListValues"><span class="annot"><span class="annottext">messageAttributeValue_binaryListValues :: (Maybe [ByteString] -&gt; f (Maybe [ByteString]))
 -&gt; MessageAttributeValue -&gt; f MessageAttributeValue
 </span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#messageAttributeValue_binaryListValues"><span class="hs-identifier hs-var hs-var">messageAttributeValue_binaryListValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MessageAttributeValue -&gt; Maybe [Base64])
 -&gt; (MessageAttributeValue
@@ -256,16 +300,16 @@ $sel:stringValue:MessageAttributeValue' :: MessageAttributeValue -&gt; Maybe Tex
      (Maybe [Base64])
      (Maybe [Base64])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175502"><span class="annot"><span class="annottext">Maybe [Base64]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175632"><span class="annot"><span class="annottext">Maybe [Base64]
 binaryListValues :: Maybe [Base64]
 $sel:binaryListValues:MessageAttributeValue' :: MessageAttributeValue -&gt; Maybe [Base64]
-</span><a href="#local-6989586621679175502"><span class="hs-identifier hs-var hs-var">binaryListValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Base64]
-</span><a href="#local-6989586621679175502"><span class="hs-identifier hs-var">binaryListValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175501"><span class="annot"><span class="annottext">s :: MessageAttributeValue
-</span><a href="#local-6989586621679175501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175500"><span class="annot"><span class="annottext">Maybe [Base64]
-</span><a href="#local-6989586621679175500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageAttributeValue
-</span><a href="#local-6989586621679175501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:binaryListValues:MessageAttributeValue' :: Maybe [Base64]
+</span><a href="#local-6989586621679175632"><span class="hs-identifier hs-var hs-var">binaryListValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Base64]
+</span><a href="#local-6989586621679175632"><span class="hs-identifier hs-var">binaryListValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175631"><span class="annot"><span class="annottext">s :: MessageAttributeValue
+</span><a href="#local-6989586621679175631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175630"><span class="annot"><span class="annottext">Maybe [Base64]
+</span><a href="#local-6989586621679175630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageAttributeValue
+</span><a href="#local-6989586621679175631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:binaryListValues:MessageAttributeValue' :: Maybe [Base64]
 </span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AbinaryListValues%3AMessageAttributeValue%27"><span class="hs-identifier hs-var">binaryListValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Base64]
-</span><a href="#local-6989586621679175500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Base64] -&gt; f (Maybe [Base64]))
+</span><a href="#local-6989586621679175630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Base64] -&gt; f (Maybe [Base64]))
  -&gt; MessageAttributeValue -&gt; f MessageAttributeValue)
 -&gt; ((Maybe [ByteString] -&gt; f (Maybe [ByteString]))
     -&gt; Maybe [Base64] -&gt; f (Maybe [Base64]))
@@ -283,52 +327,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Base64] [Base64] [ByteString] [ByteString]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | Binary type attributes can store any binary data, such as compressed</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- data, encrypted data, or images.--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- -- The underlying isomorphism will encode to Base64 representation during</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- -- serialisation, and decode from Base64 representation during deserialisation.</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- -- This 'Lens' accepts and returns only raw unencoded data.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#messageAttributeValue_binaryValue"><span class="hs-identifier hs-type">messageAttributeValue_binaryValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="messageAttributeValue_binaryValue"><span class="annot"><span class="annottext">messageAttributeValue_binaryValue :: (Maybe ByteString -&gt; f (Maybe ByteString))
--&gt; MessageAttributeValue -&gt; f MessageAttributeValue
-</span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#messageAttributeValue_binaryValue"><span class="hs-identifier hs-var hs-var">messageAttributeValue_binaryValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MessageAttributeValue -&gt; Maybe Base64)
--&gt; (MessageAttributeValue -&gt; Maybe Base64 -&gt; MessageAttributeValue)
--&gt; Lens
-     MessageAttributeValue
-     MessageAttributeValue
-     (Maybe Base64)
-     (Maybe Base64)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175498"><span class="annot"><span class="annottext">Maybe Base64
-binaryValue :: Maybe Base64
-$sel:binaryValue:MessageAttributeValue' :: MessageAttributeValue -&gt; Maybe Base64
-</span><a href="#local-6989586621679175498"><span class="hs-identifier hs-var hs-var">binaryValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679175498"><span class="hs-identifier hs-var">binaryValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175497"><span class="annot"><span class="annottext">s :: MessageAttributeValue
-</span><a href="#local-6989586621679175497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175496"><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679175496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageAttributeValue
-</span><a href="#local-6989586621679175497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:binaryValue:MessageAttributeValue' :: Maybe Base64
-</span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AbinaryValue%3AMessageAttributeValue%27"><span class="hs-identifier hs-var">binaryValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679175496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
- -&gt; MessageAttributeValue -&gt; f MessageAttributeValue)
--&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
-    -&gt; Maybe Base64 -&gt; f (Maybe Base64))
--&gt; (Maybe ByteString -&gt; f (Maybe ByteString))
--&gt; MessageAttributeValue
--&gt; f MessageAttributeValue
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso Base64 Base64 ByteString ByteString
--&gt; Iso
-     (Maybe Base64) (Maybe Base64) (Maybe ByteString) (Maybe ByteString)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso Base64 Base64 ByteString ByteString
-Iso' Base64 ByteString
-</span><span class="hs-identifier hs-var">Core._Base64</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | Amazon SQS supports the following logical data types: @String@,</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- @Number@, and @Binary@. For the @Number@ data type, you must use</span><span>
@@ -344,42 +344,56 @@ Iso' Base64 ByteString
 -&gt; (MessageAttributeValue -&gt; Text -&gt; MessageAttributeValue)
 -&gt; Lens MessageAttributeValue MessageAttributeValue Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175493"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175628"><span class="annot"><span class="annottext">Text
 dataType :: Text
 $sel:dataType:MessageAttributeValue' :: MessageAttributeValue -&gt; Text
-</span><a href="#local-6989586621679175493"><span class="hs-identifier hs-var hs-var">dataType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175493"><span class="hs-identifier hs-var">dataType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175492"><span class="annot"><span class="annottext">s :: MessageAttributeValue
-</span><a href="#local-6989586621679175492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175491"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageAttributeValue
-</span><a href="#local-6989586621679175492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataType:MessageAttributeValue' :: Text
+</span><a href="#local-6989586621679175628"><span class="hs-identifier hs-var hs-var">dataType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175628"><span class="hs-identifier hs-var">dataType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175627"><span class="annot"><span class="annottext">s :: MessageAttributeValue
+</span><a href="#local-6989586621679175627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175626"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MessageAttributeValue
+</span><a href="#local-6989586621679175627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataType:MessageAttributeValue' :: Text
 </span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#%24sel%3AdataType%3AMessageAttributeValue%27"><span class="hs-identifier hs-var">dataType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679175488"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MessageAttributeValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679175486"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679175486"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679175623"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MessageAttributeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679175621"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679175621"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">Maybe Base64
+-&gt; Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe [Base64]
--&gt; Maybe Base64
 -&gt; Text
 -&gt; MessageAttributeValue
 </span><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-var">MessageAttributeValue'</span></a></span><span>
-</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Text]
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Base64
+ -&gt; Maybe [Text]
  -&gt; Maybe Text
  -&gt; Maybe [Base64]
- -&gt; Maybe Base64
  -&gt; Text
  -&gt; MessageAttributeValue)
+-&gt; Either String (Maybe Base64)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe Text -&gt; Maybe [Base64] -&gt; Text -&gt; MessageAttributeValue)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679175621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Base64)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BinaryValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe Text -&gt; Maybe [Base64] -&gt; Text -&gt; MessageAttributeValue)
 -&gt; Either String (Maybe [Text])
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe [Base64] -&gt; Maybe Base64 -&gt; Text -&gt; MessageAttributeValue)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679175486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+     (Maybe Text -&gt; Maybe [Base64] -&gt; Text -&gt; MessageAttributeValue)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679175621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StringListValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -387,7 +401,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-140"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-141"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Text]))
 -&gt; Either String (Maybe [Text])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -400,29 +414,24 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StringListValue&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-142"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
-   -&gt; Maybe [Base64] -&gt; Maybe Base64 -&gt; Text -&gt; MessageAttributeValue)
+  (Maybe Text -&gt; Maybe [Base64] -&gt; Text -&gt; MessageAttributeValue)
 -&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [Base64] -&gt; Maybe Base64 -&gt; Text -&gt; MessageAttributeValue)
+-&gt; Either String (Maybe [Base64] -&gt; Text -&gt; MessageAttributeValue)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679175486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679175621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StringValue&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [Base64] -&gt; Maybe Base64 -&gt; Text -&gt; MessageAttributeValue)
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Base64] -&gt; Text -&gt; MessageAttributeValue)
 -&gt; Either String (Maybe [Base64])
--&gt; Either String (Maybe Base64 -&gt; Text -&gt; MessageAttributeValue)
+-&gt; Either String (Text -&gt; MessageAttributeValue)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679175486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679175621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BinaryListValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -430,7 +439,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-144"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-145"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Base64]))
 -&gt; Either String (Maybe [Base64])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -443,100 +452,91 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BinaryListValue&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Base64 -&gt; Text -&gt; MessageAttributeValue)
--&gt; Either String (Maybe Base64)
--&gt; Either String (Text -&gt; MessageAttributeValue)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679175486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Base64)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BinaryValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; MessageAttributeValue)
 -&gt; Either String Text -&gt; Either String MessageAttributeValue
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679175486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679175621"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175476"><span id="local-6989586621679175478"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175611"><span id="local-6989586621679175613"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span></span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175473"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175608"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue"><span class="hs-identifier hs-type">MessageAttributeValue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679175469"><span class="annot"><span class="annottext">toQuery :: MessageAttributeValue -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175463"><span id="local-6989586621679175464"><span id="local-6989586621679175465"><span id="local-6989586621679175466"><span id="local-6989586621679175467"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679175604"><span class="annot"><span class="annottext">toQuery :: MessageAttributeValue -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SQS.Types.MessageAttributeValue.html#MessageAttributeValue%27"><span class="hs-identifier hs-type">MessageAttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175598"><span id="local-6989586621679175599"><span id="local-6989586621679175600"><span id="local-6989586621679175601"><span id="local-6989586621679175602"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe [Base64]
 Maybe Text
 Maybe Base64
 Text
 dataType :: Text
-binaryValue :: Maybe Base64
 binaryListValues :: Maybe [Base64]
 stringValue :: Maybe Text
 stringListValues :: Maybe [Text]
+binaryValue :: Maybe Base64
 $sel:dataType:MessageAttributeValue' :: MessageAttributeValue -&gt; Text
-$sel:binaryValue:MessageAttributeValue' :: MessageAttributeValue -&gt; Maybe Base64
 $sel:binaryListValues:MessageAttributeValue' :: MessageAttributeValue -&gt; Maybe [Base64]
 $sel:stringValue:MessageAttributeValue' :: MessageAttributeValue -&gt; Maybe Text
 $sel:stringListValues:MessageAttributeValue' :: MessageAttributeValue -&gt; Maybe [Text]
-</span><a href="#local-6989586621679175463"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:binaryValue:MessageAttributeValue' :: MessageAttributeValue -&gt; Maybe Base64
+</span><a href="#local-6989586621679175598"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;StringListValue&quot;</span></span><span>
-</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
-forall a. ToQuery a =&gt; a -&gt; QueryString
-</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
-forall a.
-(IsList a, ToQuery (Item a)) =&gt;
-ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;StringListValue&quot;</span></span><span>
-</span><span id="line-159"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679175467"><span class="hs-identifier hs-var">stringListValues</span></a></span><span>
-</span><span id="line-160"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;StringValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679175466"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;BinaryListValue&quot;</span></span><span>
-</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
-forall a. ToQuery a =&gt; a -&gt; QueryString
-</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Base64] -&gt; QueryString
-forall a.
-(IsList a, ToQuery (Item a)) =&gt;
-ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;BinaryListValue&quot;</span></span><span>
-</span><span id="line-165"></span><span>                </span><span class="annot"><span class="annottext">([Base64] -&gt; QueryString) -&gt; Maybe [Base64] -&gt; Maybe QueryString
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Base64]
-</span><a href="#local-6989586621679175465"><span class="hs-identifier hs-var">binaryListValues</span></a></span><span>
-</span><span id="line-166"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;BinaryValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Base64 -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679175464"><span class="hs-identifier hs-var">binaryValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175602"><span class="hs-identifier hs-var">binaryValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StringListValue&quot;</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StringListValue&quot;</span></span><span>
+</span><span id="line-160"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679175601"><span class="hs-identifier hs-var">stringListValues</span></a></span><span>
+</span><span id="line-161"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StringValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679175600"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;BinaryListValue&quot;</span></span><span>
+</span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Base64] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;BinaryListValue&quot;</span></span><span>
+</span><span id="line-166"></span><span>                </span><span class="annot"><span class="annottext">([Base64] -&gt; QueryString) -&gt; Maybe [Base64] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Base64]
+</span><a href="#local-6989586621679175599"><span class="hs-identifier hs-var">binaryListValues</span></a></span><span>
+</span><span id="line-167"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DataType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175463"><span class="hs-identifier hs-var">dataType</span></a></span><span>
+</span><a href="#local-6989586621679175598"><span class="hs-identifier hs-var">dataType</span></a></span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-170"></span></pre></body></html>

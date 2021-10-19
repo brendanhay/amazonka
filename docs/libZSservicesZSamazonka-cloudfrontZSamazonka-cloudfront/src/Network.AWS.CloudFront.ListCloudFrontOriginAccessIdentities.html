@@ -29,8 +29,8 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#newListCloudFrontOriginAccessIdentities"><span class="hs-identifier">newListCloudFrontOriginAccessIdentities</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#listCloudFrontOriginAccessIdentities_maxItems"><span class="hs-identifier">listCloudFrontOriginAccessIdentities_maxItems</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#listCloudFrontOriginAccessIdentities_marker"><span class="hs-identifier">listCloudFrontOriginAccessIdentities_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#listCloudFrontOriginAccessIdentities_marker"><span class="hs-identifier">listCloudFrontOriginAccessIdentities_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#listCloudFrontOriginAccessIdentities_maxItems"><span class="hs-identifier">listCloudFrontOriginAccessIdentities_maxItems</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse"><span class="hs-identifier">ListCloudFrontOriginAccessIdentitiesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -52,20 +52,20 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | The request to list origin access identities.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newListCloudFrontOriginAccessIdentities' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679412607"><span id="local-6989586621679412608"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCloudFrontOriginAccessIdentities"><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-var">ListCloudFrontOriginAccessIdentities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCloudFrontOriginAccessIdentities%27"><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-var">ListCloudFrontOriginAccessIdentities'</span></a></span></span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of origin access identities you want in the response</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- body.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AmaxItems%3AListCloudFrontOriginAccessIdentities%27"><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentities -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#%24sel%3AmaxItems%3AListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Use this when paginating results to indicate where to begin in your list</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- of origin access identities. The results include identities in the list</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- that occur after the marker. To get the next page of results, set the</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @Marker@ to the value of the @NextMarker@ from the current page\'s</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- response (which is also the ID of the last identity on that page).</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3Amarker%3AListCloudFrontOriginAccessIdentities%27"><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentities -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#%24sel%3Amarker%3AListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679412889"><span id="local-6989586621679412890"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCloudFrontOriginAccessIdentities"><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-var">ListCloudFrontOriginAccessIdentities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCloudFrontOriginAccessIdentities%27"><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-var">ListCloudFrontOriginAccessIdentities'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use this when paginating results to indicate where to begin in your list</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- of origin access identities. The results include identities in the list</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- that occur after the marker. To get the next page of results, set the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @Marker@ to the value of the @NextMarker@ from the current page\'s</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- response (which is also the ID of the last identity on that page).</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Amarker%3AListCloudFrontOriginAccessIdentities%27"><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentities -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#%24sel%3Amarker%3AListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The maximum number of origin access identities you want in the response</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- body.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxItems%3AListCloudFrontOriginAccessIdentities%27"><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentities -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#%24sel%3AmaxItems%3AListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412600"><span id="local-6989586621679412602"><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentities
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412882"><span id="local-6989586621679412884"><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentities
 -&gt; ListCloudFrontOriginAccessIdentities -&gt; Bool
 (ListCloudFrontOriginAccessIdentities
  -&gt; ListCloudFrontOriginAccessIdentities -&gt; Bool)
@@ -81,7 +81,7 @@ $c/= :: ListCloudFrontOriginAccessIdentities
 -&gt; ListCloudFrontOriginAccessIdentities -&gt; Bool
 $c== :: ListCloudFrontOriginAccessIdentities
 -&gt; ListCloudFrontOriginAccessIdentities -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412591"><span id="local-6989586621679412593"><span id="local-6989586621679412595"><span id="local-6989586621679412597"><span class="annot"><span class="annottext">ReadPrec [ListCloudFrontOriginAccessIdentities]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412873"><span id="local-6989586621679412875"><span id="local-6989586621679412877"><span id="local-6989586621679412879"><span class="annot"><span class="annottext">ReadPrec [ListCloudFrontOriginAccessIdentities]
 ReadPrec ListCloudFrontOriginAccessIdentities
 Int -&gt; ReadS ListCloudFrontOriginAccessIdentities
 ReadS [ListCloudFrontOriginAccessIdentities]
@@ -101,7 +101,7 @@ readList :: ReadS [ListCloudFrontOriginAccessIdentities]
 $creadList :: ReadS [ListCloudFrontOriginAccessIdentities]
 readsPrec :: Int -&gt; ReadS ListCloudFrontOriginAccessIdentities
 $creadsPrec :: Int -&gt; ReadS ListCloudFrontOriginAccessIdentities
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412584"><span id="local-6989586621679412586"><span id="local-6989586621679412588"><span class="annot"><span class="annottext">Int -&gt; ListCloudFrontOriginAccessIdentities -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412866"><span id="local-6989586621679412868"><span id="local-6989586621679412870"><span class="annot"><span class="annottext">Int -&gt; ListCloudFrontOriginAccessIdentities -&gt; ShowS
 [ListCloudFrontOriginAccessIdentities] -&gt; ShowS
 ListCloudFrontOriginAccessIdentities -&gt; String
 (Int -&gt; ListCloudFrontOriginAccessIdentities -&gt; ShowS)
@@ -147,64 +147,38 @@ ListCloudFrontOriginAccessIdentities
 </span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'maxItems', 'listCloudFrontOriginAccessIdentities_maxItems' - The maximum number of origin access identities you want in the response</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- body.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'marker', 'listCloudFrontOriginAccessIdentities_marker' - Use this when paginating results to indicate where to begin in your list</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- of origin access identities. The results include identities in the list</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- that occur after the marker. To get the next page of results, set the</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- @Marker@ to the value of the @NextMarker@ from the current page\'s</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- response (which is also the ID of the last identity on that page).</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'marker', 'listCloudFrontOriginAccessIdentities_marker' - Use this when paginating results to indicate where to begin in your list</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- of origin access identities. The results include identities in the list</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- that occur after the marker. To get the next page of results, set the</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- @Marker@ to the value of the @NextMarker@ from the current page\'s</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- response (which is also the ID of the last identity on that page).</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'maxItems', 'listCloudFrontOriginAccessIdentities_maxItems' - The maximum number of origin access identities you want in the response</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- body.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#newListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-type">newListCloudFrontOriginAccessIdentities</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities</span></a></span><span>
 </span><span id="line-86"></span><span id="newListCloudFrontOriginAccessIdentities"><span class="annot"><span class="annottext">newListCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities
 </span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#newListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-var hs-var">newListCloudFrontOriginAccessIdentities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentities' :: Maybe Text -&gt; Maybe Text -&gt; ListCloudFrontOriginAccessIdentities
 </span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities'</span></a></span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxItems:ListCloudFrontOriginAccessIdentities' :: Maybe Text
-</span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#%24sel%3AmaxItems%3AListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListCloudFrontOriginAccessIdentities' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#%24sel%3Amarker%3AListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:ListCloudFrontOriginAccessIdentities' :: Maybe Text
-</span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#%24sel%3Amarker%3AListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxItems:ListCloudFrontOriginAccessIdentities' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#%24sel%3AmaxItems%3AListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The maximum number of origin access identities you want in the response</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- body.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#listCloudFrontOriginAccessIdentities_maxItems"><span class="hs-identifier hs-type">listCloudFrontOriginAccessIdentities_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="listCloudFrontOriginAccessIdentities_maxItems"><span class="annot"><span class="annottext">listCloudFrontOriginAccessIdentities_maxItems :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListCloudFrontOriginAccessIdentities
--&gt; f ListCloudFrontOriginAccessIdentities
-</span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#listCloudFrontOriginAccessIdentities_maxItems"><span class="hs-identifier hs-var hs-var">listCloudFrontOriginAccessIdentities_maxItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCloudFrontOriginAccessIdentities -&gt; Maybe Text)
--&gt; (ListCloudFrontOriginAccessIdentities
-    -&gt; Maybe Text -&gt; ListCloudFrontOriginAccessIdentities)
--&gt; Lens
-     ListCloudFrontOriginAccessIdentities
-     ListCloudFrontOriginAccessIdentities
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412578"><span class="annot"><span class="annottext">Maybe Text
-maxItems :: Maybe Text
-$sel:maxItems:ListCloudFrontOriginAccessIdentities' :: ListCloudFrontOriginAccessIdentities -&gt; Maybe Text
-</span><a href="#local-6989586621679412578"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412578"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412577"><span class="annot"><span class="annottext">s :: ListCloudFrontOriginAccessIdentities
-</span><a href="#local-6989586621679412577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412576"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentities
-</span><a href="#local-6989586621679412577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListCloudFrontOriginAccessIdentities' :: Maybe Text
-</span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#%24sel%3AmaxItems%3AListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | Use this when paginating results to indicate where to begin in your list</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- of origin access identities. The results include identities in the list</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- that occur after the marker. To get the next page of results, set the</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- @Marker@ to the value of the @NextMarker@ from the current page\'s</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- response (which is also the ID of the last identity on that page).</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#listCloudFrontOriginAccessIdentities_marker"><span class="hs-identifier hs-type">listCloudFrontOriginAccessIdentities_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="listCloudFrontOriginAccessIdentities_marker"><span class="annot"><span class="annottext">listCloudFrontOriginAccessIdentities_marker :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-93"></span><span class="hs-comment">-- | Use this when paginating results to indicate where to begin in your list</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- of origin access identities. The results include identities in the list</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- that occur after the marker. To get the next page of results, set the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- @Marker@ to the value of the @NextMarker@ from the current page\'s</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- response (which is also the ID of the last identity on that page).</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#listCloudFrontOriginAccessIdentities_marker"><span class="hs-identifier hs-type">listCloudFrontOriginAccessIdentities_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="listCloudFrontOriginAccessIdentities_marker"><span class="annot"><span class="annottext">listCloudFrontOriginAccessIdentities_marker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListCloudFrontOriginAccessIdentities
 -&gt; f ListCloudFrontOriginAccessIdentities
 </span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#listCloudFrontOriginAccessIdentities_marker"><span class="hs-identifier hs-var hs-var">listCloudFrontOriginAccessIdentities_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCloudFrontOriginAccessIdentities -&gt; Maybe Text)
@@ -216,33 +190,59 @@ $sel:maxItems:ListCloudFrontOriginAccessIdentities' :: ListCloudFrontOriginAcces
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412575"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412860"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListCloudFrontOriginAccessIdentities' :: ListCloudFrontOriginAccessIdentities -&gt; Maybe Text
-</span><a href="#local-6989586621679412575"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412575"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412574"><span class="annot"><span class="annottext">s :: ListCloudFrontOriginAccessIdentities
-</span><a href="#local-6989586621679412574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412573"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentities
-</span><a href="#local-6989586621679412574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListCloudFrontOriginAccessIdentities' :: Maybe Text
+</span><a href="#local-6989586621679412860"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412860"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412859"><span class="annot"><span class="annottext">s :: ListCloudFrontOriginAccessIdentities
+</span><a href="#local-6989586621679412859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412858"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentities
+</span><a href="#local-6989586621679412859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListCloudFrontOriginAccessIdentities' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#%24sel%3Amarker%3AListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679412858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The maximum number of origin access identities you want in the response</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- body.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#listCloudFrontOriginAccessIdentities_maxItems"><span class="hs-identifier hs-type">listCloudFrontOriginAccessIdentities_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="listCloudFrontOriginAccessIdentities_maxItems"><span class="annot"><span class="annottext">listCloudFrontOriginAccessIdentities_maxItems :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListCloudFrontOriginAccessIdentities
+-&gt; f ListCloudFrontOriginAccessIdentities
+</span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#listCloudFrontOriginAccessIdentities_maxItems"><span class="hs-identifier hs-var hs-var">listCloudFrontOriginAccessIdentities_maxItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCloudFrontOriginAccessIdentities -&gt; Maybe Text)
+-&gt; (ListCloudFrontOriginAccessIdentities
+    -&gt; Maybe Text -&gt; ListCloudFrontOriginAccessIdentities)
+-&gt; Lens
+     ListCloudFrontOriginAccessIdentities
+     ListCloudFrontOriginAccessIdentities
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412857"><span class="annot"><span class="annottext">Maybe Text
+maxItems :: Maybe Text
+$sel:maxItems:ListCloudFrontOriginAccessIdentities' :: ListCloudFrontOriginAccessIdentities -&gt; Maybe Text
+</span><a href="#local-6989586621679412857"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412857"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412856"><span class="annot"><span class="annottext">s :: ListCloudFrontOriginAccessIdentities
+</span><a href="#local-6989586621679412856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412855"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentities
+</span><a href="#local-6989586621679412856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListCloudFrontOriginAccessIdentities' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#%24sel%3AmaxItems%3AListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities</span></a></span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679412569"><span class="annot"><span class="annottext">page :: ListCloudFrontOriginAccessIdentities
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679412851"><span class="annot"><span class="annottext">page :: ListCloudFrontOriginAccessIdentities
 -&gt; AWSResponse ListCloudFrontOriginAccessIdentities
 -&gt; Maybe ListCloudFrontOriginAccessIdentities
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679412567"><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentities
-</span><a href="#local-6989586621679412567"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679412566"><span class="annot"><span class="annottext">AWSResponse ListCloudFrontOriginAccessIdentities
-</span><a href="#local-6989586621679412566"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679412849"><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentities
+</span><a href="#local-6989586621679412849"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679412848"><span class="annot"><span class="annottext">AWSResponse ListCloudFrontOriginAccessIdentities
+</span><a href="#local-6989586621679412848"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-112"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCloudFrontOriginAccessIdentities
 ListCloudFrontOriginAccessIdentitiesResponse
-</span><a href="#local-6989586621679412566"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679412848"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentitiesResponse
 -&gt; Getting Bool ListCloudFrontOriginAccessIdentitiesResponse Bool
 -&gt; Bool
@@ -278,7 +278,7 @@ forall a. Maybe a -&gt; Bool
 </span><span class="hs-identifier hs-var">Prelude.isNothing</span></span><span>
 </span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCloudFrontOriginAccessIdentities
 ListCloudFrontOriginAccessIdentitiesResponse
-</span><a href="#local-6989586621679412566"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679412848"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentitiesResponse
 -&gt; Getting
      (First Text) ListCloudFrontOriginAccessIdentitiesResponse Text
@@ -336,7 +336,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentities
-</span><a href="#local-6989586621679412567"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679412849"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentities
 -&gt; (ListCloudFrontOriginAccessIdentities
     -&gt; ListCloudFrontOriginAccessIdentities)
@@ -360,7 +360,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCloudFrontOriginAccessIdentities
 ListCloudFrontOriginAccessIdentitiesResponse
-</span><a href="#local-6989586621679412566"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679412848"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentitiesResponse
 -&gt; Getting
      (First Text) ListCloudFrontOriginAccessIdentitiesResponse Text
@@ -410,7 +410,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-137"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-138"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentitiesResponse</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679412552"><span class="annot"><span class="annottext">request :: ListCloudFrontOriginAccessIdentities
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679412834"><span class="annot"><span class="annottext">request :: ListCloudFrontOriginAccessIdentities
 -&gt; Request ListCloudFrontOriginAccessIdentities
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListCloudFrontOriginAccessIdentities
@@ -418,7 +418,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679412548"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679412830"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListCloudFrontOriginAccessIdentities
 -&gt; ClientResponse ClientBody
@@ -449,10 +449,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679412545"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679412545"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679412544"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679412544"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679412543"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679412543"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679412827"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412827"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679412826"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679412826"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679412825"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679412825"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Int
 -&gt; CloudFrontOriginAccessIdentityList
 -&gt; ListCloudFrontOriginAccessIdentitiesResponse
@@ -471,7 +471,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679412545"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679412827"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">Either
   String
   (CloudFrontOriginAccessIdentityList
@@ -482,22 +482,22 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String CloudFrontOriginAccessIdentityList
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679412543"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679412825"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679412535"><span id="local-6989586621679412537"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679412817"><span id="local-6989586621679412819"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679412532"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679412814"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities</span></a></span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities</span></a></span><span>
 </span><span id="line-160"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679412528"><span class="annot"><span class="annottext">toHeaders :: ListCloudFrontOriginAccessIdentities -&gt; ResponseHeaders
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679412810"><span class="annot"><span class="annottext">toHeaders :: ListCloudFrontOriginAccessIdentities -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; ListCloudFrontOriginAccessIdentities -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -509,7 +509,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities</span></a></span><span>
 </span><span id="line-166"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679412523"><span class="annot"><span class="annottext">toPath :: ListCloudFrontOriginAccessIdentities -&gt; ByteString
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679412805"><span class="annot"><span class="annottext">toPath :: ListCloudFrontOriginAccessIdentities -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ListCloudFrontOriginAccessIdentities -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -521,32 +521,32 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities</span></a></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679412519"><span class="annot"><span class="annottext">toQuery :: ListCloudFrontOriginAccessIdentities -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412516"><span id="local-6989586621679412517"><span class="annot"><span class="annottext">Maybe Text
-marker :: Maybe Text
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679412801"><span class="annot"><span class="annottext">toQuery :: ListCloudFrontOriginAccessIdentities -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentities%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentities'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412798"><span id="local-6989586621679412799"><span class="annot"><span class="annottext">Maybe Text
 maxItems :: Maybe Text
-$sel:marker:ListCloudFrontOriginAccessIdentities' :: ListCloudFrontOriginAccessIdentities -&gt; Maybe Text
+marker :: Maybe Text
 $sel:maxItems:ListCloudFrontOriginAccessIdentities' :: ListCloudFrontOriginAccessIdentities -&gt; Maybe Text
-</span><a href="#local-6989586621679412516"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:marker:ListCloudFrontOriginAccessIdentities' :: ListCloudFrontOriginAccessIdentities -&gt; Maybe Text
+</span><a href="#local-6989586621679412798"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412517"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412516"><span class="hs-identifier hs-var">marker</span></a></span><span>
+</span><a href="#local-6989586621679412799"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412798"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
 </span><span id="line-179"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The returned result of the corresponding request.</span><span>
 </span><span id="line-182"></span><span class="hs-comment">--</span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- /See:/ 'newListCloudFrontOriginAccessIdentitiesResponse' smart constructor.</span><span>
-</span><span id="line-184"></span><span id="local-6989586621679412513"><span id="local-6989586621679412514"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCloudFrontOriginAccessIdentitiesResponse"><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse"><span class="hs-identifier hs-var">ListCloudFrontOriginAccessIdentitiesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCloudFrontOriginAccessIdentitiesResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse%27"><span class="hs-identifier hs-var">ListCloudFrontOriginAccessIdentitiesResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span id="local-6989586621679412795"><span id="local-6989586621679412796"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCloudFrontOriginAccessIdentitiesResponse"><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse"><span class="hs-identifier hs-var">ListCloudFrontOriginAccessIdentitiesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCloudFrontOriginAccessIdentitiesResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse%27"><span class="hs-identifier hs-var">ListCloudFrontOriginAccessIdentitiesResponse'</span></a></span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListCloudFrontOriginAccessIdentitiesResponse%27"><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentitiesResponse -&gt; Int
 </span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#%24sel%3AhttpStatus%3AListCloudFrontOriginAccessIdentitiesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -555,7 +555,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 -&gt; CloudFrontOriginAccessIdentityList
 </span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#%24sel%3AcloudFrontOriginAccessIdentityList%3AListCloudFrontOriginAccessIdentitiesResponse%27"><span class="hs-identifier hs-var hs-var">cloudFrontOriginAccessIdentityList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentityList.html#CloudFrontOriginAccessIdentityList"><span class="hs-identifier hs-type">CloudFrontOriginAccessIdentityList</span></a></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412507"><span id="local-6989586621679412509"><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentitiesResponse
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412789"><span id="local-6989586621679412791"><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentitiesResponse
 -&gt; ListCloudFrontOriginAccessIdentitiesResponse -&gt; Bool
 (ListCloudFrontOriginAccessIdentitiesResponse
  -&gt; ListCloudFrontOriginAccessIdentitiesResponse -&gt; Bool)
@@ -571,7 +571,7 @@ $c/= :: ListCloudFrontOriginAccessIdentitiesResponse
 -&gt; ListCloudFrontOriginAccessIdentitiesResponse -&gt; Bool
 $c== :: ListCloudFrontOriginAccessIdentitiesResponse
 -&gt; ListCloudFrontOriginAccessIdentitiesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412499"><span id="local-6989586621679412501"><span id="local-6989586621679412503"><span id="local-6989586621679412505"><span class="annot"><span class="annottext">ReadPrec [ListCloudFrontOriginAccessIdentitiesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412781"><span id="local-6989586621679412783"><span id="local-6989586621679412785"><span id="local-6989586621679412787"><span class="annot"><span class="annottext">ReadPrec [ListCloudFrontOriginAccessIdentitiesResponse]
 ReadPrec ListCloudFrontOriginAccessIdentitiesResponse
 Int -&gt; ReadS ListCloudFrontOriginAccessIdentitiesResponse
 ReadS [ListCloudFrontOriginAccessIdentitiesResponse]
@@ -591,7 +591,7 @@ readList :: ReadS [ListCloudFrontOriginAccessIdentitiesResponse]
 $creadList :: ReadS [ListCloudFrontOriginAccessIdentitiesResponse]
 readsPrec :: Int -&gt; ReadS ListCloudFrontOriginAccessIdentitiesResponse
 $creadsPrec :: Int -&gt; ReadS ListCloudFrontOriginAccessIdentitiesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412493"><span id="local-6989586621679412495"><span id="local-6989586621679412497"><span class="annot"><span class="annottext">Int -&gt; ListCloudFrontOriginAccessIdentitiesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412775"><span id="local-6989586621679412777"><span id="local-6989586621679412779"><span class="annot"><span class="annottext">Int -&gt; ListCloudFrontOriginAccessIdentitiesResponse -&gt; ShowS
 [ListCloudFrontOriginAccessIdentitiesResponse] -&gt; ShowS
 ListCloudFrontOriginAccessIdentitiesResponse -&gt; String
 (Int -&gt; ListCloudFrontOriginAccessIdentitiesResponse -&gt; ShowS)
@@ -650,10 +650,10 @@ ListCloudFrontOriginAccessIdentitiesResponse
 -&gt; CloudFrontOriginAccessIdentityList
 -&gt; ListCloudFrontOriginAccessIdentitiesResponse
 </span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#newListCloudFrontOriginAccessIdentitiesResponse"><span class="hs-identifier hs-var hs-var">newListCloudFrontOriginAccessIdentitiesResponse</span></a></span></span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679412490"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679412490"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679412489"><span class="annot"><span class="annottext">CloudFrontOriginAccessIdentityList
-</span><a href="#local-6989586621679412489"><span class="hs-identifier hs-var">pCloudFrontOriginAccessIdentityList_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679412772"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412772"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679412771"><span class="annot"><span class="annottext">CloudFrontOriginAccessIdentityList
+</span><a href="#local-6989586621679412771"><span class="hs-identifier hs-var">pCloudFrontOriginAccessIdentityList_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentitiesResponse' :: Int
 -&gt; CloudFrontOriginAccessIdentityList
 -&gt; ListCloudFrontOriginAccessIdentitiesResponse
@@ -661,11 +661,11 @@ ListCloudFrontOriginAccessIdentitiesResponse
 </span><span id="line-213"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ListCloudFrontOriginAccessIdentitiesResponse' :: Int
 </span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#%24sel%3AhttpStatus%3AListCloudFrontOriginAccessIdentitiesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679412490"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679412772"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">$sel:cloudFrontOriginAccessIdentityList:ListCloudFrontOriginAccessIdentitiesResponse' :: CloudFrontOriginAccessIdentityList
 </span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#%24sel%3AcloudFrontOriginAccessIdentityList%3AListCloudFrontOriginAccessIdentitiesResponse%27"><span class="hs-identifier hs-var">cloudFrontOriginAccessIdentityList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">CloudFrontOriginAccessIdentityList
-</span><a href="#local-6989586621679412489"><span class="hs-identifier hs-var">pCloudFrontOriginAccessIdentityList_</span></a></span><span>
+</span><a href="#local-6989586621679412771"><span class="hs-identifier hs-var">pCloudFrontOriginAccessIdentityList_</span></a></span><span>
 </span><span id="line-217"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -682,16 +682,16 @@ ListCloudFrontOriginAccessIdentitiesResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412488"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412770"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListCloudFrontOriginAccessIdentitiesResponse' :: ListCloudFrontOriginAccessIdentitiesResponse -&gt; Int
-</span><a href="#local-6989586621679412488"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679412488"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412487"><span class="annot"><span class="annottext">s :: ListCloudFrontOriginAccessIdentitiesResponse
-</span><a href="#local-6989586621679412487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412486"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679412486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentitiesResponse
-</span><a href="#local-6989586621679412487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListCloudFrontOriginAccessIdentitiesResponse' :: Int
+</span><a href="#local-6989586621679412770"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412770"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412769"><span class="annot"><span class="annottext">s :: ListCloudFrontOriginAccessIdentitiesResponse
+</span><a href="#local-6989586621679412769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412768"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentitiesResponse
+</span><a href="#local-6989586621679412769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListCloudFrontOriginAccessIdentitiesResponse' :: Int
 </span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#%24sel%3AhttpStatus%3AListCloudFrontOriginAccessIdentitiesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679412486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentitiesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679412768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentitiesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | The @CloudFrontOriginAccessIdentityList@ type.</span><span>
 </span><span id="line-224"></span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#listCloudFrontOriginAccessIdentitiesResponse_cloudFrontOriginAccessIdentityList"><span class="hs-identifier hs-type">listCloudFrontOriginAccessIdentitiesResponse_cloudFrontOriginAccessIdentityList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentitiesResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.CloudFrontOriginAccessIdentityList.html#CloudFrontOriginAccessIdentityList"><span class="hs-identifier hs-type">CloudFrontOriginAccessIdentityList</span></a></span><span>
@@ -708,19 +708,19 @@ $sel:httpStatus:ListCloudFrontOriginAccessIdentitiesResponse' :: ListCloudFrontO
      ListCloudFrontOriginAccessIdentitiesResponse
      CloudFrontOriginAccessIdentityList
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412485"><span class="annot"><span class="annottext">CloudFrontOriginAccessIdentityList
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412767"><span class="annot"><span class="annottext">CloudFrontOriginAccessIdentityList
 cloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList
 $sel:cloudFrontOriginAccessIdentityList:ListCloudFrontOriginAccessIdentitiesResponse' :: ListCloudFrontOriginAccessIdentitiesResponse
 -&gt; CloudFrontOriginAccessIdentityList
-</span><a href="#local-6989586621679412485"><span class="hs-identifier hs-var hs-var">cloudFrontOriginAccessIdentityList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFrontOriginAccessIdentityList
-</span><a href="#local-6989586621679412485"><span class="hs-identifier hs-var">cloudFrontOriginAccessIdentityList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412484"><span class="annot"><span class="annottext">s :: ListCloudFrontOriginAccessIdentitiesResponse
-</span><a href="#local-6989586621679412484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412483"><span class="annot"><span class="annottext">CloudFrontOriginAccessIdentityList
-</span><a href="#local-6989586621679412483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentitiesResponse
-</span><a href="#local-6989586621679412484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudFrontOriginAccessIdentityList:ListCloudFrontOriginAccessIdentitiesResponse' :: CloudFrontOriginAccessIdentityList
+</span><a href="#local-6989586621679412767"><span class="hs-identifier hs-var hs-var">cloudFrontOriginAccessIdentityList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CloudFrontOriginAccessIdentityList
+</span><a href="#local-6989586621679412767"><span class="hs-identifier hs-var">cloudFrontOriginAccessIdentityList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412766"><span class="annot"><span class="annottext">s :: ListCloudFrontOriginAccessIdentitiesResponse
+</span><a href="#local-6989586621679412766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse%27"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentitiesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412765"><span class="annot"><span class="annottext">CloudFrontOriginAccessIdentityList
+</span><a href="#local-6989586621679412765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCloudFrontOriginAccessIdentitiesResponse
+</span><a href="#local-6989586621679412766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudFrontOriginAccessIdentityList:ListCloudFrontOriginAccessIdentitiesResponse' :: CloudFrontOriginAccessIdentityList
 </span><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#%24sel%3AcloudFrontOriginAccessIdentityList%3AListCloudFrontOriginAccessIdentitiesResponse%27"><span class="hs-identifier hs-var">cloudFrontOriginAccessIdentityList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CloudFrontOriginAccessIdentityList
-</span><a href="#local-6989586621679412483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentitiesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679412765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentitiesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621679412481"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679412763"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-229"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities.html#ListCloudFrontOriginAccessIdentitiesResponse"><span class="hs-identifier hs-type">ListCloudFrontOriginAccessIdentitiesResponse</span></a></span></span><span>
 </span><span id="line-230"></span></pre></body></html>

@@ -27,23 +27,23 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the VPC peering connection options.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPeeringConnectionOptions' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681097985"><span id="local-6989586621681097986"></span></span><span class="hs-keyword">data</span><span> </span><span id="PeeringConnectionOptions"><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-var">PeeringConnectionOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PeeringConnectionOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions%27"><span class="hs-identifier hs-var">PeeringConnectionOptions'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If true, the public DNS hostnames of instances in the specified VPC</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- resolve to private IP addresses when queried from instances in the peer</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- VPC.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AallowDnsResolutionFromRemoteVpc%3APeeringConnectionOptions%27"><span class="annot"><span class="annottext">PeeringConnectionOptions -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#%24sel%3AallowDnsResolutionFromRemoteVpc%3APeeringConnectionOptions%27"><span class="hs-identifier hs-var hs-var">allowDnsResolutionFromRemoteVpc</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | If true, enables outbound communication from instances in a local VPC to</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- an EC2-Classic instance that\'s linked to a peer VPC using ClassicLink.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AallowEgressFromLocalVpcToRemoteClassicLink%3APeeringConnectionOptions%27"><span class="annot"><span class="annottext">PeeringConnectionOptions -&gt; Maybe Bool
+</span><span id="line-30"></span><span id="local-6989586621681132681"><span id="local-6989586621681132682"></span></span><span class="hs-keyword">data</span><span> </span><span id="PeeringConnectionOptions"><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-var">PeeringConnectionOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PeeringConnectionOptions%27"><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions%27"><span class="hs-identifier hs-var">PeeringConnectionOptions'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If true, enables outbound communication from instances in a local VPC to</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- an EC2-Classic instance that\'s linked to a peer VPC using ClassicLink.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AallowEgressFromLocalVpcToRemoteClassicLink%3APeeringConnectionOptions%27"><span class="annot"><span class="annottext">PeeringConnectionOptions -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#%24sel%3AallowEgressFromLocalVpcToRemoteClassicLink%3APeeringConnectionOptions%27"><span class="hs-identifier hs-var hs-var">allowEgressFromLocalVpcToRemoteClassicLink</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | If true, enables outbound communication from an EC2-Classic instance</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- that\'s linked to a local VPC using ClassicLink to instances in a peer</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | If true, enables outbound communication from an EC2-Classic instance</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- that\'s linked to a local VPC using ClassicLink to instances in a peer</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- VPC.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AallowEgressFromLocalClassicLinkToRemoteVpc%3APeeringConnectionOptions%27"><span class="annot"><span class="annottext">PeeringConnectionOptions -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#%24sel%3AallowEgressFromLocalClassicLinkToRemoteVpc%3APeeringConnectionOptions%27"><span class="hs-identifier hs-var hs-var">allowEgressFromLocalClassicLinkToRemoteVpc</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | If true, the public DNS hostnames of instances in the specified VPC</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- resolve to private IP addresses when queried from instances in the peer</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- VPC.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AallowEgressFromLocalClassicLinkToRemoteVpc%3APeeringConnectionOptions%27"><span class="annot"><span class="annottext">PeeringConnectionOptions -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#%24sel%3AallowEgressFromLocalClassicLinkToRemoteVpc%3APeeringConnectionOptions%27"><span class="hs-identifier hs-var hs-var">allowEgressFromLocalClassicLinkToRemoteVpc</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AallowDnsResolutionFromRemoteVpc%3APeeringConnectionOptions%27"><span class="annot"><span class="annottext">PeeringConnectionOptions -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#%24sel%3AallowDnsResolutionFromRemoteVpc%3APeeringConnectionOptions%27"><span class="hs-identifier hs-var hs-var">allowDnsResolutionFromRemoteVpc</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681097977"><span id="local-6989586621681097979"><span class="annot"><span class="annottext">PeeringConnectionOptions -&gt; PeeringConnectionOptions -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681132673"><span id="local-6989586621681132675"><span class="annot"><span class="annottext">PeeringConnectionOptions -&gt; PeeringConnectionOptions -&gt; Bool
 (PeeringConnectionOptions -&gt; PeeringConnectionOptions -&gt; Bool)
 -&gt; (PeeringConnectionOptions -&gt; PeeringConnectionOptions -&gt; Bool)
 -&gt; Eq PeeringConnectionOptions
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PeeringConnectionOptions -&gt; PeeringConnectionOptions -&gt; Bool
 == :: PeeringConnectionOptions -&gt; PeeringConnectionOptions -&gt; Bool
 $c== :: PeeringConnectionOptions -&gt; PeeringConnectionOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681097968"><span id="local-6989586621681097970"><span id="local-6989586621681097972"><span id="local-6989586621681097974"><span class="annot"><span class="annottext">ReadPrec [PeeringConnectionOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681132664"><span id="local-6989586621681132666"><span id="local-6989586621681132668"><span id="local-6989586621681132670"><span class="annot"><span class="annottext">ReadPrec [PeeringConnectionOptions]
 ReadPrec PeeringConnectionOptions
 Int -&gt; ReadS PeeringConnectionOptions
 ReadS [PeeringConnectionOptions]
@@ -72,7 +72,7 @@ readList :: ReadS [PeeringConnectionOptions]
 $creadList :: ReadS [PeeringConnectionOptions]
 readsPrec :: Int -&gt; ReadS PeeringConnectionOptions
 $creadsPrec :: Int -&gt; ReadS PeeringConnectionOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681097961"><span id="local-6989586621681097963"><span id="local-6989586621681097965"><span class="annot"><span class="annottext">Int -&gt; PeeringConnectionOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681132657"><span id="local-6989586621681132659"><span id="local-6989586621681132661"><span class="annot"><span class="annottext">Int -&gt; PeeringConnectionOptions -&gt; ShowS
 [PeeringConnectionOptions] -&gt; ShowS
 PeeringConnectionOptions -&gt; String
 (Int -&gt; PeeringConnectionOptions -&gt; ShowS)
@@ -112,15 +112,15 @@ PeeringConnectionOptions -&gt; Rep PeeringConnectionOptions x
 </span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'allowDnsResolutionFromRemoteVpc', 'peeringConnectionOptions_allowDnsResolutionFromRemoteVpc' - If true, the public DNS hostnames of instances in the specified VPC</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- resolve to private IP addresses when queried from instances in the peer</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- VPC.</span><span>
-</span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'allowEgressFromLocalVpcToRemoteClassicLink', 'peeringConnectionOptions_allowEgressFromLocalVpcToRemoteClassicLink' - If true, enables outbound communication from instances in a local VPC to</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- an EC2-Classic instance that\'s linked to a peer VPC using ClassicLink.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'allowEgressFromLocalVpcToRemoteClassicLink', 'peeringConnectionOptions_allowEgressFromLocalVpcToRemoteClassicLink' - If true, enables outbound communication from instances in a local VPC to</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- an EC2-Classic instance that\'s linked to a peer VPC using ClassicLink.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'allowEgressFromLocalClassicLinkToRemoteVpc', 'peeringConnectionOptions_allowEgressFromLocalClassicLinkToRemoteVpc' - If true, enables outbound communication from an EC2-Classic instance</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- that\'s linked to a local VPC using ClassicLink to instances in a peer</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- VPC.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'allowEgressFromLocalClassicLinkToRemoteVpc', 'peeringConnectionOptions_allowEgressFromLocalClassicLinkToRemoteVpc' - If true, enables outbound communication from an EC2-Classic instance</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- that\'s linked to a local VPC using ClassicLink to instances in a peer</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'allowDnsResolutionFromRemoteVpc', 'peeringConnectionOptions_allowDnsResolutionFromRemoteVpc' - If true, the public DNS hostnames of instances in the specified VPC</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- resolve to private IP addresses when queried from instances in the peer</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- VPC.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#newPeeringConnectionOptions"><span class="hs-identifier hs-type">newPeeringConnectionOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span><span>
@@ -128,53 +128,26 @@ PeeringConnectionOptions -&gt; Rep PeeringConnectionOptions x
 </span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#newPeeringConnectionOptions"><span class="hs-identifier hs-var hs-var">newPeeringConnectionOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">PeeringConnectionOptions' :: Maybe Bool -&gt; Maybe Bool -&gt; Maybe Bool -&gt; PeeringConnectionOptions
 </span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions%27"><span class="hs-identifier hs-type">PeeringConnectionOptions'</span></a></span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:allowDnsResolutionFromRemoteVpc:PeeringConnectionOptions' :: Maybe Bool
-</span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#%24sel%3AallowDnsResolutionFromRemoteVpc%3APeeringConnectionOptions%27"><span class="hs-identifier hs-var">allowDnsResolutionFromRemoteVpc</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:allowEgressFromLocalVpcToRemoteClassicLink:PeeringConnectionOptions' :: Maybe Bool
+</span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#%24sel%3AallowEgressFromLocalVpcToRemoteClassicLink%3APeeringConnectionOptions%27"><span class="hs-identifier hs-var">allowEgressFromLocalVpcToRemoteClassicLink</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:allowEgressFromLocalVpcToRemoteClassicLink:PeeringConnectionOptions' :: Maybe Bool
-</span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#%24sel%3AallowEgressFromLocalVpcToRemoteClassicLink%3APeeringConnectionOptions%27"><span class="hs-identifier hs-var">allowEgressFromLocalVpcToRemoteClassicLink</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:allowEgressFromLocalClassicLinkToRemoteVpc:PeeringConnectionOptions' :: Maybe Bool
+</span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#%24sel%3AallowEgressFromLocalClassicLinkToRemoteVpc%3APeeringConnectionOptions%27"><span class="hs-identifier hs-var">allowEgressFromLocalClassicLinkToRemoteVpc</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:allowEgressFromLocalClassicLinkToRemoteVpc:PeeringConnectionOptions' :: Maybe Bool
-</span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#%24sel%3AallowEgressFromLocalClassicLinkToRemoteVpc%3APeeringConnectionOptions%27"><span class="hs-identifier hs-var">allowEgressFromLocalClassicLinkToRemoteVpc</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:allowDnsResolutionFromRemoteVpc:PeeringConnectionOptions' :: Maybe Bool
+</span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#%24sel%3AallowDnsResolutionFromRemoteVpc%3APeeringConnectionOptions%27"><span class="hs-identifier hs-var">allowDnsResolutionFromRemoteVpc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | If true, the public DNS hostnames of instances in the specified VPC</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- resolve to private IP addresses when queried from instances in the peer</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- VPC.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#peeringConnectionOptions_allowDnsResolutionFromRemoteVpc"><span class="hs-identifier hs-type">peeringConnectionOptions_allowDnsResolutionFromRemoteVpc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="peeringConnectionOptions_allowDnsResolutionFromRemoteVpc"><span class="annot"><span class="annottext">peeringConnectionOptions_allowDnsResolutionFromRemoteVpc :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; PeeringConnectionOptions -&gt; f PeeringConnectionOptions
-</span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#peeringConnectionOptions_allowDnsResolutionFromRemoteVpc"><span class="hs-identifier hs-var hs-var">peeringConnectionOptions_allowDnsResolutionFromRemoteVpc</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PeeringConnectionOptions -&gt; Maybe Bool)
--&gt; (PeeringConnectionOptions
-    -&gt; Maybe Bool -&gt; PeeringConnectionOptions)
--&gt; Lens
-     PeeringConnectionOptions
-     PeeringConnectionOptions
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions%27"><span class="hs-identifier hs-type">PeeringConnectionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681097952"><span class="annot"><span class="annottext">Maybe Bool
-allowDnsResolutionFromRemoteVpc :: Maybe Bool
-$sel:allowDnsResolutionFromRemoteVpc:PeeringConnectionOptions' :: PeeringConnectionOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621681097952"><span class="hs-identifier hs-var hs-var">allowDnsResolutionFromRemoteVpc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681097952"><span class="hs-identifier hs-var">allowDnsResolutionFromRemoteVpc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681097951"><span class="annot"><span class="annottext">s :: PeeringConnectionOptions
-</span><a href="#local-6989586621681097951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions%27"><span class="hs-identifier hs-type">PeeringConnectionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681097950"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681097950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PeeringConnectionOptions
-</span><a href="#local-6989586621681097951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowDnsResolutionFromRemoteVpc:PeeringConnectionOptions' :: Maybe Bool
-</span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#%24sel%3AallowDnsResolutionFromRemoteVpc%3APeeringConnectionOptions%27"><span class="hs-identifier hs-var">allowDnsResolutionFromRemoteVpc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681097950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | If true, enables outbound communication from instances in a local VPC to</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- an EC2-Classic instance that\'s linked to a peer VPC using ClassicLink.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#peeringConnectionOptions_allowEgressFromLocalVpcToRemoteClassicLink"><span class="hs-identifier hs-type">peeringConnectionOptions_allowEgressFromLocalVpcToRemoteClassicLink</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="peeringConnectionOptions_allowEgressFromLocalVpcToRemoteClassicLink"><span class="annot"><span class="annottext">peeringConnectionOptions_allowEgressFromLocalVpcToRemoteClassicLink :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | If true, enables outbound communication from instances in a local VPC to</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- an EC2-Classic instance that\'s linked to a peer VPC using ClassicLink.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#peeringConnectionOptions_allowEgressFromLocalVpcToRemoteClassicLink"><span class="hs-identifier hs-type">peeringConnectionOptions_allowEgressFromLocalVpcToRemoteClassicLink</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="peeringConnectionOptions_allowEgressFromLocalVpcToRemoteClassicLink"><span class="annot"><span class="annottext">peeringConnectionOptions_allowEgressFromLocalVpcToRemoteClassicLink :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; PeeringConnectionOptions -&gt; f PeeringConnectionOptions
 </span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#peeringConnectionOptions_allowEgressFromLocalVpcToRemoteClassicLink"><span class="hs-identifier hs-var hs-var">peeringConnectionOptions_allowEgressFromLocalVpcToRemoteClassicLink</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PeeringConnectionOptions -&gt; Maybe Bool)
 -&gt; (PeeringConnectionOptions
@@ -185,22 +158,22 @@ $sel:allowDnsResolutionFromRemoteVpc:PeeringConnectionOptions' :: PeeringConnect
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions%27"><span class="hs-identifier hs-type">PeeringConnectionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681097948"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions%27"><span class="hs-identifier hs-type">PeeringConnectionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681132648"><span class="annot"><span class="annottext">Maybe Bool
 allowEgressFromLocalVpcToRemoteClassicLink :: Maybe Bool
 $sel:allowEgressFromLocalVpcToRemoteClassicLink:PeeringConnectionOptions' :: PeeringConnectionOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621681097948"><span class="hs-identifier hs-var hs-var">allowEgressFromLocalVpcToRemoteClassicLink</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681097948"><span class="hs-identifier hs-var">allowEgressFromLocalVpcToRemoteClassicLink</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681097947"><span class="annot"><span class="annottext">s :: PeeringConnectionOptions
-</span><a href="#local-6989586621681097947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions%27"><span class="hs-identifier hs-type">PeeringConnectionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681097946"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681097946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PeeringConnectionOptions
-</span><a href="#local-6989586621681097947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowEgressFromLocalVpcToRemoteClassicLink:PeeringConnectionOptions' :: Maybe Bool
+</span><a href="#local-6989586621681132648"><span class="hs-identifier hs-var hs-var">allowEgressFromLocalVpcToRemoteClassicLink</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681132648"><span class="hs-identifier hs-var">allowEgressFromLocalVpcToRemoteClassicLink</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681132647"><span class="annot"><span class="annottext">s :: PeeringConnectionOptions
+</span><a href="#local-6989586621681132647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions%27"><span class="hs-identifier hs-type">PeeringConnectionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681132646"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681132646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PeeringConnectionOptions
+</span><a href="#local-6989586621681132647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowEgressFromLocalVpcToRemoteClassicLink:PeeringConnectionOptions' :: Maybe Bool
 </span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#%24sel%3AallowEgressFromLocalVpcToRemoteClassicLink%3APeeringConnectionOptions%27"><span class="hs-identifier hs-var">allowEgressFromLocalVpcToRemoteClassicLink</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681097946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | If true, enables outbound communication from an EC2-Classic instance</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- that\'s linked to a local VPC using ClassicLink to instances in a peer</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- VPC.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#peeringConnectionOptions_allowEgressFromLocalClassicLinkToRemoteVpc"><span class="hs-identifier hs-type">peeringConnectionOptions_allowEgressFromLocalClassicLinkToRemoteVpc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="peeringConnectionOptions_allowEgressFromLocalClassicLinkToRemoteVpc"><span class="annot"><span class="annottext">peeringConnectionOptions_allowEgressFromLocalClassicLinkToRemoteVpc :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><a href="#local-6989586621681132646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | If true, enables outbound communication from an EC2-Classic instance</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- that\'s linked to a local VPC using ClassicLink to instances in a peer</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- VPC.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#peeringConnectionOptions_allowEgressFromLocalClassicLinkToRemoteVpc"><span class="hs-identifier hs-type">peeringConnectionOptions_allowEgressFromLocalClassicLinkToRemoteVpc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="peeringConnectionOptions_allowEgressFromLocalClassicLinkToRemoteVpc"><span class="annot"><span class="annottext">peeringConnectionOptions_allowEgressFromLocalClassicLinkToRemoteVpc :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; PeeringConnectionOptions -&gt; f PeeringConnectionOptions
 </span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#peeringConnectionOptions_allowEgressFromLocalClassicLinkToRemoteVpc"><span class="hs-identifier hs-var hs-var">peeringConnectionOptions_allowEgressFromLocalClassicLinkToRemoteVpc</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PeeringConnectionOptions -&gt; Maybe Bool)
 -&gt; (PeeringConnectionOptions
@@ -211,59 +184,85 @@ $sel:allowEgressFromLocalVpcToRemoteClassicLink:PeeringConnectionOptions' :: Pee
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions%27"><span class="hs-identifier hs-type">PeeringConnectionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681097944"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions%27"><span class="hs-identifier hs-type">PeeringConnectionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681132644"><span class="annot"><span class="annottext">Maybe Bool
 allowEgressFromLocalClassicLinkToRemoteVpc :: Maybe Bool
 $sel:allowEgressFromLocalClassicLinkToRemoteVpc:PeeringConnectionOptions' :: PeeringConnectionOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621681097944"><span class="hs-identifier hs-var hs-var">allowEgressFromLocalClassicLinkToRemoteVpc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681097944"><span class="hs-identifier hs-var">allowEgressFromLocalClassicLinkToRemoteVpc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681097943"><span class="annot"><span class="annottext">s :: PeeringConnectionOptions
-</span><a href="#local-6989586621681097943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions%27"><span class="hs-identifier hs-type">PeeringConnectionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681097942"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681097942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PeeringConnectionOptions
-</span><a href="#local-6989586621681097943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowEgressFromLocalClassicLinkToRemoteVpc:PeeringConnectionOptions' :: Maybe Bool
+</span><a href="#local-6989586621681132644"><span class="hs-identifier hs-var hs-var">allowEgressFromLocalClassicLinkToRemoteVpc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681132644"><span class="hs-identifier hs-var">allowEgressFromLocalClassicLinkToRemoteVpc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681132643"><span class="annot"><span class="annottext">s :: PeeringConnectionOptions
+</span><a href="#local-6989586621681132643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions%27"><span class="hs-identifier hs-type">PeeringConnectionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681132642"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681132642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PeeringConnectionOptions
+</span><a href="#local-6989586621681132643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowEgressFromLocalClassicLinkToRemoteVpc:PeeringConnectionOptions' :: Maybe Bool
 </span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#%24sel%3AallowEgressFromLocalClassicLinkToRemoteVpc%3APeeringConnectionOptions%27"><span class="hs-identifier hs-var">allowEgressFromLocalClassicLinkToRemoteVpc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681097942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621681097939"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PeeringConnectionOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681097937"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681097937"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Bool -&gt; Maybe Bool -&gt; PeeringConnectionOptions
+</span><a href="#local-6989586621681132642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | If true, the public DNS hostnames of instances in the specified VPC</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- resolve to private IP addresses when queried from instances in the peer</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- VPC.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#peeringConnectionOptions_allowDnsResolutionFromRemoteVpc"><span class="hs-identifier hs-type">peeringConnectionOptions_allowDnsResolutionFromRemoteVpc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="peeringConnectionOptions_allowDnsResolutionFromRemoteVpc"><span class="annot"><span class="annottext">peeringConnectionOptions_allowDnsResolutionFromRemoteVpc :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; PeeringConnectionOptions -&gt; f PeeringConnectionOptions
+</span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#peeringConnectionOptions_allowDnsResolutionFromRemoteVpc"><span class="hs-identifier hs-var hs-var">peeringConnectionOptions_allowDnsResolutionFromRemoteVpc</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PeeringConnectionOptions -&gt; Maybe Bool)
+-&gt; (PeeringConnectionOptions
+    -&gt; Maybe Bool -&gt; PeeringConnectionOptions)
+-&gt; Lens
+     PeeringConnectionOptions
+     PeeringConnectionOptions
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions%27"><span class="hs-identifier hs-type">PeeringConnectionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681132640"><span class="annot"><span class="annottext">Maybe Bool
+allowDnsResolutionFromRemoteVpc :: Maybe Bool
+$sel:allowDnsResolutionFromRemoteVpc:PeeringConnectionOptions' :: PeeringConnectionOptions -&gt; Maybe Bool
+</span><a href="#local-6989586621681132640"><span class="hs-identifier hs-var hs-var">allowDnsResolutionFromRemoteVpc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681132640"><span class="hs-identifier hs-var">allowDnsResolutionFromRemoteVpc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681132639"><span class="annot"><span class="annottext">s :: PeeringConnectionOptions
+</span><a href="#local-6989586621681132639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions%27"><span class="hs-identifier hs-type">PeeringConnectionOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681132638"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681132638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PeeringConnectionOptions
+</span><a href="#local-6989586621681132639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowDnsResolutionFromRemoteVpc:PeeringConnectionOptions' :: Maybe Bool
+</span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#%24sel%3AallowDnsResolutionFromRemoteVpc%3APeeringConnectionOptions%27"><span class="hs-identifier hs-var">allowDnsResolutionFromRemoteVpc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681132638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621681132635"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PeeringConnectionOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681132633"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681132633"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Bool -&gt; Maybe Bool -&gt; PeeringConnectionOptions
 </span><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions%27"><span class="hs-identifier hs-var">PeeringConnectionOptions'</span></a></span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool
  -&gt; Maybe Bool -&gt; Maybe Bool -&gt; PeeringConnectionOptions)
 -&gt; Either String (Maybe Bool)
 -&gt; Either
      String (Maybe Bool -&gt; Maybe Bool -&gt; PeeringConnectionOptions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681097937"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681132633"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-95"></span><span>                      </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;allowDnsResolutionFromRemoteVpc&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;allowEgressFromLocalVpcToRemoteClassicLink&quot;</span></span><span>
+</span><span id="line-96"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">Either
   String (Maybe Bool -&gt; Maybe Bool -&gt; PeeringConnectionOptions)
 -&gt; Either String (Maybe Bool)
 -&gt; Either String (Maybe Bool -&gt; PeeringConnectionOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681097937"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-97"></span><span>                      </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;allowEgressFromLocalVpcToRemoteClassicLink&quot;</span></span><span>
-</span><span id="line-98"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; PeeringConnectionOptions)
--&gt; Either String (Maybe Bool)
--&gt; Either String PeeringConnectionOptions
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681097937"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-100"></span><span>                      </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621681132633"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-98"></span><span>                      </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;allowEgressFromLocalClassicLinkToRemoteVpc&quot;</span></span><span>
-</span><span id="line-101"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681097931"><span id="local-6989586621681097933"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span></span></span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681097928"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span></span><span>
-</span><span id="line-106"></span></pre></body></html>
+</span><span id="line-99"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; PeeringConnectionOptions)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String PeeringConnectionOptions
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681132633"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;allowDnsResolutionFromRemoteVpc&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681132627"><span id="local-6989586621681132629"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681132624"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.PeeringConnectionOptions.html#PeeringConnectionOptions"><span class="hs-identifier hs-type">PeeringConnectionOptions</span></a></span></span><span>
+</span><span id="line-105"></span></pre></body></html>

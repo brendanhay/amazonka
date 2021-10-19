@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The type of the configuration to override the risk decision.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newRiskExceptionConfigurationType' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679432920"><span id="local-6989586621679432921"></span></span><span class="hs-keyword">data</span><span> </span><span id="RiskExceptionConfigurationType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType"><span class="hs-identifier hs-var">RiskExceptionConfigurationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RiskExceptionConfigurationType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType%27"><span class="hs-identifier hs-var">RiskExceptionConfigurationType'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679433379"><span id="local-6989586621679433380"></span></span><span class="hs-keyword">data</span><span> </span><span id="RiskExceptionConfigurationType"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType"><span class="hs-identifier hs-var">RiskExceptionConfigurationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RiskExceptionConfigurationType%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType%27"><span class="hs-identifier hs-var">RiskExceptionConfigurationType'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Risk detection is not performed on the IP addresses in the range list.</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- The IP range is in CIDR notation.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AskippedIPRangeList%3ARiskExceptionConfigurationType%27"><span class="annot"><span class="annottext">RiskExceptionConfigurationType -&gt; Maybe [Text]
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AblockedIPRangeList%3ARiskExceptionConfigurationType%27"><span class="annot"><span class="annottext">RiskExceptionConfigurationType -&gt; Maybe [Text]
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#%24sel%3AblockedIPRangeList%3ARiskExceptionConfigurationType%27"><span class="hs-identifier hs-var hs-var">blockedIPRangeList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432913"><span id="local-6989586621679432915"><span class="annot"><span class="annottext">RiskExceptionConfigurationType
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433372"><span id="local-6989586621679433374"><span class="annot"><span class="annottext">RiskExceptionConfigurationType
 -&gt; RiskExceptionConfigurationType -&gt; Bool
 (RiskExceptionConfigurationType
  -&gt; RiskExceptionConfigurationType -&gt; Bool)
@@ -53,7 +53,7 @@ $c/= :: RiskExceptionConfigurationType
 -&gt; RiskExceptionConfigurationType -&gt; Bool
 $c== :: RiskExceptionConfigurationType
 -&gt; RiskExceptionConfigurationType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432904"><span id="local-6989586621679432906"><span id="local-6989586621679432908"><span id="local-6989586621679432910"><span class="annot"><span class="annottext">ReadPrec [RiskExceptionConfigurationType]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433363"><span id="local-6989586621679433365"><span id="local-6989586621679433367"><span id="local-6989586621679433369"><span class="annot"><span class="annottext">ReadPrec [RiskExceptionConfigurationType]
 ReadPrec RiskExceptionConfigurationType
 Int -&gt; ReadS RiskExceptionConfigurationType
 ReadS [RiskExceptionConfigurationType]
@@ -73,7 +73,7 @@ readList :: ReadS [RiskExceptionConfigurationType]
 $creadList :: ReadS [RiskExceptionConfigurationType]
 readsPrec :: Int -&gt; ReadS RiskExceptionConfigurationType
 $creadsPrec :: Int -&gt; ReadS RiskExceptionConfigurationType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432897"><span id="local-6989586621679432899"><span id="local-6989586621679432901"><span class="annot"><span class="annottext">Int -&gt; RiskExceptionConfigurationType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433356"><span id="local-6989586621679433358"><span id="local-6989586621679433360"><span class="annot"><span class="annottext">Int -&gt; RiskExceptionConfigurationType -&gt; ShowS
 [RiskExceptionConfigurationType] -&gt; ShowS
 RiskExceptionConfigurationType -&gt; String
 (Int -&gt; RiskExceptionConfigurationType -&gt; ShowS)
@@ -157,16 +157,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType%27"><span class="hs-identifier hs-type">RiskExceptionConfigurationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432888"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType%27"><span class="hs-identifier hs-type">RiskExceptionConfigurationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433347"><span class="annot"><span class="annottext">Maybe [Text]
 skippedIPRangeList :: Maybe [Text]
 $sel:skippedIPRangeList:RiskExceptionConfigurationType' :: RiskExceptionConfigurationType -&gt; Maybe [Text]
-</span><a href="#local-6989586621679432888"><span class="hs-identifier hs-var hs-var">skippedIPRangeList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679432888"><span class="hs-identifier hs-var">skippedIPRangeList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432887"><span class="annot"><span class="annottext">s :: RiskExceptionConfigurationType
-</span><a href="#local-6989586621679432887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType%27"><span class="hs-identifier hs-type">RiskExceptionConfigurationType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432886"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679432886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RiskExceptionConfigurationType
-</span><a href="#local-6989586621679432887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skippedIPRangeList:RiskExceptionConfigurationType' :: Maybe [Text]
+</span><a href="#local-6989586621679433347"><span class="hs-identifier hs-var hs-var">skippedIPRangeList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679433347"><span class="hs-identifier hs-var">skippedIPRangeList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433346"><span class="annot"><span class="annottext">s :: RiskExceptionConfigurationType
+</span><a href="#local-6989586621679433346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType%27"><span class="hs-identifier hs-type">RiskExceptionConfigurationType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433345"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679433345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RiskExceptionConfigurationType
+</span><a href="#local-6989586621679433346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skippedIPRangeList:RiskExceptionConfigurationType' :: Maybe [Text]
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#%24sel%3AskippedIPRangeList%3ARiskExceptionConfigurationType%27"><span class="hs-identifier hs-var">skippedIPRangeList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679432886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType"><span class="hs-identifier hs-type">RiskExceptionConfigurationType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679433345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType"><span class="hs-identifier hs-type">RiskExceptionConfigurationType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; RiskExceptionConfigurationType
  -&gt; f RiskExceptionConfigurationType)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -181,8 +181,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | Overrides the risk decision to always block the pre-authentication</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- requests. The IP range is in CIDR notation: a compact representation of</span><span>
@@ -200,16 +200,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType%27"><span class="hs-identifier hs-type">RiskExceptionConfigurationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432881"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType%27"><span class="hs-identifier hs-type">RiskExceptionConfigurationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433340"><span class="annot"><span class="annottext">Maybe [Text]
 blockedIPRangeList :: Maybe [Text]
 $sel:blockedIPRangeList:RiskExceptionConfigurationType' :: RiskExceptionConfigurationType -&gt; Maybe [Text]
-</span><a href="#local-6989586621679432881"><span class="hs-identifier hs-var hs-var">blockedIPRangeList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679432881"><span class="hs-identifier hs-var">blockedIPRangeList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432880"><span class="annot"><span class="annottext">s :: RiskExceptionConfigurationType
-</span><a href="#local-6989586621679432880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType%27"><span class="hs-identifier hs-type">RiskExceptionConfigurationType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432879"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679432879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RiskExceptionConfigurationType
-</span><a href="#local-6989586621679432880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockedIPRangeList:RiskExceptionConfigurationType' :: Maybe [Text]
+</span><a href="#local-6989586621679433340"><span class="hs-identifier hs-var hs-var">blockedIPRangeList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679433340"><span class="hs-identifier hs-var">blockedIPRangeList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433339"><span class="annot"><span class="annottext">s :: RiskExceptionConfigurationType
+</span><a href="#local-6989586621679433339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType%27"><span class="hs-identifier hs-type">RiskExceptionConfigurationType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433338"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679433338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RiskExceptionConfigurationType
+</span><a href="#local-6989586621679433339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockedIPRangeList:RiskExceptionConfigurationType' :: Maybe [Text]
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#%24sel%3AblockedIPRangeList%3ARiskExceptionConfigurationType%27"><span class="hs-identifier hs-var">blockedIPRangeList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679432879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType"><span class="hs-identifier hs-type">RiskExceptionConfigurationType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679433338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType"><span class="hs-identifier hs-type">RiskExceptionConfigurationType</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; RiskExceptionConfigurationType
  -&gt; f RiskExceptionConfigurationType)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -224,11 +224,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432876"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType"><span class="hs-identifier hs-type">RiskExceptionConfigurationType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679432874"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RiskExceptionConfigurationType
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433335"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType"><span class="hs-identifier hs-type">RiskExceptionConfigurationType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679433333"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RiskExceptionConfigurationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RiskExceptionConfigurationType)
@@ -238,8 +238,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RiskExceptionConfigurationType&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679432871"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679432871"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679433330"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679433330"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe [Text] -&gt; RiskExceptionConfigurationType
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType%27"><span class="hs-identifier hs-var">RiskExceptionConfigurationType'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe [Text] -&gt; RiskExceptionConfigurationType)
@@ -247,7 +247,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [Text] -&gt; RiskExceptionConfigurationType)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679432871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679433330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SkippedIPRangeList&quot;</span></span><span>
@@ -262,7 +262,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe [Text]) -&gt; Parser RiskExceptionConfigurationType
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679432871"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679433330"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BlockedIPRangeList&quot;</span></span><span>
@@ -276,21 +276,21 @@ forall a. Monoid a =&gt; a
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679432864"><span id="local-6989586621679432866"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679433323"><span id="local-6989586621679433325"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType"><span class="hs-identifier hs-type">RiskExceptionConfigurationType</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679432861"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679433320"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType"><span class="hs-identifier hs-type">RiskExceptionConfigurationType</span></a></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432853"><span id="local-6989586621679432855"><span id="local-6989586621679432857"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType"><span class="hs-identifier hs-type">RiskExceptionConfigurationType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679432851"><span class="annot"><span class="annottext">toJSON :: RiskExceptionConfigurationType -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType%27"><span class="hs-identifier hs-type">RiskExceptionConfigurationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432848"><span id="local-6989586621679432849"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433312"><span id="local-6989586621679433314"><span id="local-6989586621679433316"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType"><span class="hs-identifier hs-type">RiskExceptionConfigurationType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679433310"><span class="annot"><span class="annottext">toJSON :: RiskExceptionConfigurationType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType.html#RiskExceptionConfigurationType%27"><span class="hs-identifier hs-type">RiskExceptionConfigurationType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433307"><span id="local-6989586621679433308"><span class="annot"><span class="annottext">Maybe [Text]
 blockedIPRangeList :: Maybe [Text]
 skippedIPRangeList :: Maybe [Text]
 $sel:blockedIPRangeList:RiskExceptionConfigurationType' :: RiskExceptionConfigurationType -&gt; Maybe [Text]
 $sel:skippedIPRangeList:RiskExceptionConfigurationType' :: RiskExceptionConfigurationType -&gt; Maybe [Text]
-</span><a href="#local-6989586621679432848"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679433307"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -303,7 +303,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679432849"><span class="hs-identifier hs-var">skippedIPRangeList</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433308"><span class="hs-identifier hs-var">skippedIPRangeList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BlockedIPRangeList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -311,7 +311,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679432848"><span class="hs-identifier hs-var">blockedIPRangeList</span></a></span><span>
+</span><a href="#local-6989586621679433307"><span class="hs-identifier hs-var">blockedIPRangeList</span></a></span><span>
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span></pre></body></html>

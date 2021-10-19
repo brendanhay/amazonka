@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | This data type is deprecated. Instead, use ParameterStringFilter.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newParametersFilter' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679805572"><span id="local-6989586621679805573"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParametersFilter"><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter"><span class="hs-identifier hs-var">ParametersFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParametersFilter%27"><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter%27"><span class="hs-identifier hs-var">ParametersFilter'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679807247"><span id="local-6989586621679807248"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParametersFilter"><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter"><span class="hs-identifier hs-var">ParametersFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParametersFilter%27"><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter%27"><span class="hs-identifier hs-var">ParametersFilter'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the filter.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Akey%3AParametersFilter%27"><span class="annot"><span class="annottext">ParametersFilter -&gt; ParametersFilterKey
 </span><a href="Network.AWS.SSM.Types.ParametersFilter.html#%24sel%3Akey%3AParametersFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilterKey.html#ParametersFilterKey"><span class="hs-identifier hs-type">ParametersFilterKey</span></a></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalues%3AParametersFilter%27"><span class="annot"><span class="annottext">ParametersFilter -&gt; NonEmpty Text
 </span><a href="Network.AWS.SSM.Types.ParametersFilter.html#%24sel%3Avalues%3AParametersFilter%27"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679805565"><span id="local-6989586621679805567"><span class="annot"><span class="annottext">ParametersFilter -&gt; ParametersFilter -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679807240"><span id="local-6989586621679807242"><span class="annot"><span class="annottext">ParametersFilter -&gt; ParametersFilter -&gt; Bool
 (ParametersFilter -&gt; ParametersFilter -&gt; Bool)
 -&gt; (ParametersFilter -&gt; ParametersFilter -&gt; Bool)
 -&gt; Eq ParametersFilter
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ParametersFilter -&gt; ParametersFilter -&gt; Bool
 == :: ParametersFilter -&gt; ParametersFilter -&gt; Bool
 $c== :: ParametersFilter -&gt; ParametersFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805556"><span id="local-6989586621679805558"><span id="local-6989586621679805560"><span id="local-6989586621679805562"><span class="annot"><span class="annottext">ReadPrec [ParametersFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679807231"><span id="local-6989586621679807233"><span id="local-6989586621679807235"><span id="local-6989586621679807237"><span class="annot"><span class="annottext">ReadPrec [ParametersFilter]
 ReadPrec ParametersFilter
 Int -&gt; ReadS ParametersFilter
 ReadS [ParametersFilter]
@@ -64,7 +64,7 @@ readList :: ReadS [ParametersFilter]
 $creadList :: ReadS [ParametersFilter]
 readsPrec :: Int -&gt; ReadS ParametersFilter
 $creadsPrec :: Int -&gt; ReadS ParametersFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679805549"><span id="local-6989586621679805551"><span id="local-6989586621679805553"><span class="annot"><span class="annottext">Int -&gt; ParametersFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679807224"><span id="local-6989586621679807226"><span id="local-6989586621679807228"><span class="annot"><span class="annottext">Int -&gt; ParametersFilter -&gt; ShowS
 [ParametersFilter] -&gt; ShowS
 ParametersFilter -&gt; String
 (Int -&gt; ParametersFilter -&gt; ShowS)
@@ -108,24 +108,24 @@ $cfrom :: forall x. ParametersFilter -&gt; Rep ParametersFilter x
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter"><span class="hs-identifier hs-type">ParametersFilter</span></a></span><span>
 </span><span id="line-55"></span><span id="newParametersFilter"><span class="annot"><span class="annottext">newParametersFilter :: ParametersFilterKey -&gt; NonEmpty Text -&gt; ParametersFilter
-</span><a href="Network.AWS.SSM.Types.ParametersFilter.html#newParametersFilter"><span class="hs-identifier hs-var hs-var">newParametersFilter</span></a></span></span><span> </span><span id="local-6989586621679805543"><span class="annot"><span class="annottext">ParametersFilterKey
-</span><a href="#local-6989586621679805543"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679805542"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679805542"><span class="hs-identifier hs-var">pValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.Types.ParametersFilter.html#newParametersFilter"><span class="hs-identifier hs-var hs-var">newParametersFilter</span></a></span></span><span> </span><span id="local-6989586621679807218"><span class="annot"><span class="annottext">ParametersFilterKey
+</span><a href="#local-6989586621679807218"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679807217"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679807217"><span class="hs-identifier hs-var">pValues_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">ParametersFilter' :: ParametersFilterKey -&gt; NonEmpty Text -&gt; ParametersFilter
 </span><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter%27"><span class="hs-identifier hs-type">ParametersFilter'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:ParametersFilter' :: ParametersFilterKey
 </span><a href="Network.AWS.SSM.Types.ParametersFilter.html#%24sel%3Akey%3AParametersFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ParametersFilterKey
-</span><a href="#local-6989586621679805543"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679807218"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:values:ParametersFilter' :: NonEmpty Text
 </span><a href="Network.AWS.SSM.Types.ParametersFilter.html#%24sel%3Avalues%3AParametersFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679805542"><span class="hs-identifier hs-var">pValues_</span></a></span><span>
+</span><a href="#local-6989586621679807217"><span class="hs-identifier hs-var">pValues_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The name of the filter.</span><span>
@@ -140,16 +140,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      ParametersFilterKey
      ParametersFilterKey
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter%27"><span class="hs-identifier hs-type">ParametersFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805536"><span class="annot"><span class="annottext">ParametersFilterKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter%27"><span class="hs-identifier hs-type">ParametersFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807211"><span class="annot"><span class="annottext">ParametersFilterKey
 key :: ParametersFilterKey
 $sel:key:ParametersFilter' :: ParametersFilter -&gt; ParametersFilterKey
-</span><a href="#local-6989586621679805536"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParametersFilterKey
-</span><a href="#local-6989586621679805536"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805535"><span class="annot"><span class="annottext">s :: ParametersFilter
-</span><a href="#local-6989586621679805535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter%27"><span class="hs-identifier hs-type">ParametersFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805534"><span class="annot"><span class="annottext">ParametersFilterKey
-</span><a href="#local-6989586621679805534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParametersFilter
-</span><a href="#local-6989586621679805535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ParametersFilter' :: ParametersFilterKey
+</span><a href="#local-6989586621679807211"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParametersFilterKey
+</span><a href="#local-6989586621679807211"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807210"><span class="annot"><span class="annottext">s :: ParametersFilter
+</span><a href="#local-6989586621679807210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter%27"><span class="hs-identifier hs-type">ParametersFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807209"><span class="annot"><span class="annottext">ParametersFilterKey
+</span><a href="#local-6989586621679807209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParametersFilter
+</span><a href="#local-6989586621679807210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ParametersFilter' :: ParametersFilterKey
 </span><a href="Network.AWS.SSM.Types.ParametersFilter.html#%24sel%3Akey%3AParametersFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ParametersFilterKey
-</span><a href="#local-6989586621679805534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter"><span class="hs-identifier hs-type">ParametersFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter"><span class="hs-identifier hs-type">ParametersFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The filter values.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#parametersFilter_values"><span class="hs-identifier hs-type">parametersFilter_values</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter"><span class="hs-identifier hs-type">ParametersFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -160,16 +160,16 @@ $sel:key:ParametersFilter' :: ParametersFilter -&gt; ParametersFilterKey
 -&gt; Lens
      ParametersFilter ParametersFilter (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter%27"><span class="hs-identifier hs-type">ParametersFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805532"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter%27"><span class="hs-identifier hs-type">ParametersFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807207"><span class="annot"><span class="annottext">NonEmpty Text
 values :: NonEmpty Text
 $sel:values:ParametersFilter' :: ParametersFilter -&gt; NonEmpty Text
-</span><a href="#local-6989586621679805532"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679805532"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679805531"><span class="annot"><span class="annottext">s :: ParametersFilter
-</span><a href="#local-6989586621679805531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter%27"><span class="hs-identifier hs-type">ParametersFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679805530"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679805530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParametersFilter
-</span><a href="#local-6989586621679805531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:ParametersFilter' :: NonEmpty Text
+</span><a href="#local-6989586621679807207"><span class="hs-identifier hs-var hs-var">values</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679807207"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679807206"><span class="annot"><span class="annottext">s :: ParametersFilter
+</span><a href="#local-6989586621679807206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter%27"><span class="hs-identifier hs-type">ParametersFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679807205"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679807205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParametersFilter
+</span><a href="#local-6989586621679807206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:values:ParametersFilter' :: NonEmpty Text
 </span><a href="Network.AWS.SSM.Types.ParametersFilter.html#%24sel%3Avalues%3AParametersFilter%27"><span class="hs-identifier hs-var">values</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679805530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter"><span class="hs-identifier hs-type">ParametersFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679807205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter"><span class="hs-identifier hs-type">ParametersFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; ParametersFilter -&gt; f ParametersFilter)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -179,22 +179,22 @@ $sel:values:ParametersFilter' :: ParametersFilter -&gt; NonEmpty Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805525"><span id="local-6989586621679805527"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter"><span class="hs-identifier hs-type">ParametersFilter</span></a></span></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679807200"><span id="local-6989586621679807202"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter"><span class="hs-identifier hs-type">ParametersFilter</span></a></span></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805522"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter"><span class="hs-identifier hs-type">ParametersFilter</span></a></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679807197"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter"><span class="hs-identifier hs-type">ParametersFilter</span></a></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679805514"><span id="local-6989586621679805516"><span id="local-6989586621679805518"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter"><span class="hs-identifier hs-type">ParametersFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679805512"><span class="annot"><span class="annottext">toJSON :: ParametersFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter%27"><span class="hs-identifier hs-type">ParametersFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679805509"><span id="local-6989586621679805510"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679807189"><span id="local-6989586621679807191"><span id="local-6989586621679807193"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter"><span class="hs-identifier hs-type">ParametersFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679807187"><span class="annot"><span class="annottext">toJSON :: ParametersFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ParametersFilter.html#ParametersFilter%27"><span class="hs-identifier hs-type">ParametersFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679807184"><span id="local-6989586621679807185"><span class="annot"><span class="annottext">NonEmpty Text
 ParametersFilterKey
 values :: NonEmpty Text
 key :: ParametersFilterKey
 $sel:values:ParametersFilter' :: ParametersFilter -&gt; NonEmpty Text
 $sel:key:ParametersFilter' :: ParametersFilter -&gt; ParametersFilterKey
-</span><a href="#local-6989586621679805509"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679807184"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -206,14 +206,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ParametersFilterKey -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ParametersFilterKey
-</span><a href="#local-6989586621679805510"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679807185"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Values&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679805509"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679807184"><span class="hs-identifier hs-var">values</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span></pre></body></html>

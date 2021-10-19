@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621681074364"><span id="local-6989586621681074365"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FleetReplacementStrategy"><span class="annot"><a href="Network.AWS.EC2.Types.FleetReplacementStrategy.html#FleetReplacementStrategy"><span class="hs-identifier hs-var">FleetReplacementStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetReplacementStrategy%27"><span class="annot"><a href="Network.AWS.EC2.Types.FleetReplacementStrategy.html#FleetReplacementStrategy%27"><span class="hs-identifier hs-var">FleetReplacementStrategy'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681108712"><span id="local-6989586621681108713"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FleetReplacementStrategy"><span class="annot"><a href="Network.AWS.EC2.Types.FleetReplacementStrategy.html#FleetReplacementStrategy"><span class="hs-identifier hs-var">FleetReplacementStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetReplacementStrategy%27"><span class="annot"><a href="Network.AWS.EC2.Types.FleetReplacementStrategy.html#FleetReplacementStrategy%27"><span class="hs-identifier hs-var">FleetReplacementStrategy'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFleetReplacementStrategy"><span class="annot"><span class="annottext">FleetReplacementStrategy -&gt; Text
 </span><a href="Network.AWS.EC2.Types.FleetReplacementStrategy.html#fromFleetReplacementStrategy"><span class="hs-identifier hs-var hs-var">fromFleetReplacementStrategy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681074356"><span id="local-6989586621681074358"><span id="local-6989586621681074360"><span class="annot"><span class="annottext">Int -&gt; FleetReplacementStrategy -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681108704"><span id="local-6989586621681108706"><span id="local-6989586621681108708"><span class="annot"><span class="annottext">Int -&gt; FleetReplacementStrategy -&gt; ShowS
 [FleetReplacementStrategy] -&gt; ShowS
 FleetReplacementStrategy -&gt; String
 (Int -&gt; FleetReplacementStrategy -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: FleetReplacementStrategy -&gt; String
 showsPrec :: Int -&gt; FleetReplacementStrategy -&gt; ShowS
 $cshowsPrec :: Int -&gt; FleetReplacementStrategy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621681074347"><span id="local-6989586621681074349"><span id="local-6989586621681074351"><span id="local-6989586621681074353"><span class="annot"><span class="annottext">ReadPrec [FleetReplacementStrategy]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621681108695"><span id="local-6989586621681108697"><span id="local-6989586621681108699"><span id="local-6989586621681108701"><span class="annot"><span class="annottext">ReadPrec [FleetReplacementStrategy]
 ReadPrec FleetReplacementStrategy
 Int -&gt; ReadS FleetReplacementStrategy
 ReadS [FleetReplacementStrategy]
@@ -72,7 +72,7 @@ $creadList :: ReadS [FleetReplacementStrategy]
 readsPrec :: Int -&gt; ReadS FleetReplacementStrategy
 $creadsPrec :: Int -&gt; ReadS FleetReplacementStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681074342"><span id="local-6989586621681074344"><span class="annot"><span class="annottext">FleetReplacementStrategy -&gt; FleetReplacementStrategy -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681108690"><span id="local-6989586621681108692"><span class="annot"><span class="annottext">FleetReplacementStrategy -&gt; FleetReplacementStrategy -&gt; Bool
 (FleetReplacementStrategy -&gt; FleetReplacementStrategy -&gt; Bool)
 -&gt; (FleetReplacementStrategy -&gt; FleetReplacementStrategy -&gt; Bool)
 -&gt; Eq FleetReplacementStrategy
@@ -82,7 +82,7 @@ $c/= :: FleetReplacementStrategy -&gt; FleetReplacementStrategy -&gt; Bool
 == :: FleetReplacementStrategy -&gt; FleetReplacementStrategy -&gt; Bool
 $c== :: FleetReplacementStrategy -&gt; FleetReplacementStrategy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681074326"><span id="local-6989586621681074328"><span id="local-6989586621681074330"><span id="local-6989586621681074332"><span id="local-6989586621681074334"><span id="local-6989586621681074336"><span id="local-6989586621681074338"><span class="annot"><span class="annottext">Eq FleetReplacementStrategy
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681108674"><span id="local-6989586621681108676"><span id="local-6989586621681108678"><span id="local-6989586621681108680"><span id="local-6989586621681108682"><span id="local-6989586621681108684"><span id="local-6989586621681108686"><span class="annot"><span class="annottext">Eq FleetReplacementStrategy
 Eq FleetReplacementStrategy
 -&gt; (FleetReplacementStrategy
     -&gt; FleetReplacementStrategy -&gt; Ordering)
@@ -147,7 +147,7 @@ FleetReplacementStrategy -&gt; Rep FleetReplacementStrategy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681074318"><span id="local-6989586621681074320"><span class="annot"><span class="annottext">Int -&gt; FleetReplacementStrategy -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681108666"><span id="local-6989586621681108668"><span class="annot"><span class="annottext">Int -&gt; FleetReplacementStrategy -&gt; Int
 FleetReplacementStrategy -&gt; Int
 (Int -&gt; FleetReplacementStrategy -&gt; Int)
 -&gt; (FleetReplacementStrategy -&gt; Int)
@@ -158,55 +158,55 @@ $chash :: FleetReplacementStrategy -&gt; Int
 hashWithSalt :: Int -&gt; FleetReplacementStrategy -&gt; Int
 $chashWithSalt :: Int -&gt; FleetReplacementStrategy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681074315"><span class="annot"><span class="annottext">FleetReplacementStrategy -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681108663"><span class="annot"><span class="annottext">FleetReplacementStrategy -&gt; ()
 (FleetReplacementStrategy -&gt; ()) -&gt; NFData FleetReplacementStrategy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FleetReplacementStrategy -&gt; ()
 $crnf :: FleetReplacementStrategy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681074312"><span class="annot"><span class="annottext">Text -&gt; Either String FleetReplacementStrategy
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681108660"><span class="annot"><span class="annottext">Text -&gt; Either String FleetReplacementStrategy
 (Text -&gt; Either String FleetReplacementStrategy)
 -&gt; FromText FleetReplacementStrategy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FleetReplacementStrategy
 $cfromText :: Text -&gt; Either String FleetReplacementStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681074309"><span class="annot"><span class="annottext">FleetReplacementStrategy -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681108657"><span class="annot"><span class="annottext">FleetReplacementStrategy -&gt; Text
 (FleetReplacementStrategy -&gt; Text)
 -&gt; ToText FleetReplacementStrategy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FleetReplacementStrategy -&gt; Text
 $ctoText :: FleetReplacementStrategy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681074306"><span class="annot"><span class="annottext">FleetReplacementStrategy -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681108654"><span class="annot"><span class="annottext">FleetReplacementStrategy -&gt; ByteString
 (FleetReplacementStrategy -&gt; ByteString)
 -&gt; ToByteString FleetReplacementStrategy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FleetReplacementStrategy -&gt; ByteString
 $ctoBS :: FleetReplacementStrategy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681074303"><span class="annot"><span class="annottext">FleetReplacementStrategy -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681108651"><span class="annot"><span class="annottext">FleetReplacementStrategy -&gt; ByteStringBuilder
 (FleetReplacementStrategy -&gt; ByteStringBuilder)
 -&gt; ToLog FleetReplacementStrategy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FleetReplacementStrategy -&gt; ByteStringBuilder
 $cbuild :: FleetReplacementStrategy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681074300"><span class="annot"><span class="annottext">HeaderName -&gt; FleetReplacementStrategy -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681108648"><span class="annot"><span class="annottext">HeaderName -&gt; FleetReplacementStrategy -&gt; [Header]
 (HeaderName -&gt; FleetReplacementStrategy -&gt; [Header])
 -&gt; ToHeader FleetReplacementStrategy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FleetReplacementStrategy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FleetReplacementStrategy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681074297"><span class="annot"><span class="annottext">FleetReplacementStrategy -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681108645"><span class="annot"><span class="annottext">FleetReplacementStrategy -&gt; QueryString
 (FleetReplacementStrategy -&gt; QueryString)
 -&gt; ToQuery FleetReplacementStrategy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FleetReplacementStrategy -&gt; QueryString
 $ctoQuery :: FleetReplacementStrategy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681074292"><span id="local-6989586621681074294"><span class="annot"><span class="annottext">Value -&gt; Parser [FleetReplacementStrategy]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681108640"><span id="local-6989586621681108642"><span class="annot"><span class="annottext">Value -&gt; Parser [FleetReplacementStrategy]
 Value -&gt; Parser FleetReplacementStrategy
 (Value -&gt; Parser FleetReplacementStrategy)
 -&gt; (Value -&gt; Parser [FleetReplacementStrategy])
@@ -218,7 +218,7 @@ $cparseJSONList :: Value -&gt; Parser [FleetReplacementStrategy]
 parseJSON :: Value -&gt; Parser FleetReplacementStrategy
 $cparseJSON :: Value -&gt; Parser FleetReplacementStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681074287"><span id="local-6989586621681074289"><span class="annot"><span class="annottext">FromJSONKeyFunction [FleetReplacementStrategy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681108635"><span id="local-6989586621681108637"><span class="annot"><span class="annottext">FromJSONKeyFunction [FleetReplacementStrategy]
 FromJSONKeyFunction FleetReplacementStrategy
 FromJSONKeyFunction FleetReplacementStrategy
 -&gt; FromJSONKeyFunction [FleetReplacementStrategy]
@@ -230,7 +230,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FleetReplacementStrategy]
 fromJSONKey :: FromJSONKeyFunction FleetReplacementStrategy
 $cfromJSONKey :: FromJSONKeyFunction FleetReplacementStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681074278"><span id="local-6989586621681074280"><span id="local-6989586621681074282"><span id="local-6989586621681074284"><span class="annot"><span class="annottext">[FleetReplacementStrategy] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681108626"><span id="local-6989586621681108628"><span id="local-6989586621681108630"><span id="local-6989586621681108632"><span class="annot"><span class="annottext">[FleetReplacementStrategy] -&gt; Encoding
 [FleetReplacementStrategy] -&gt; Value
 FleetReplacementStrategy -&gt; Encoding
 FleetReplacementStrategy -&gt; Value
@@ -254,7 +254,7 @@ $ctoEncoding :: FleetReplacementStrategy -&gt; Encoding
 toJSON :: FleetReplacementStrategy -&gt; Value
 $ctoJSON :: FleetReplacementStrategy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681074273"><span id="local-6989586621681074275"><span class="annot"><span class="annottext">ToJSONKeyFunction [FleetReplacementStrategy]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681108621"><span id="local-6989586621681108623"><span class="annot"><span class="annottext">ToJSONKeyFunction [FleetReplacementStrategy]
 ToJSONKeyFunction FleetReplacementStrategy
 ToJSONKeyFunction FleetReplacementStrategy
 -&gt; ToJSONKeyFunction [FleetReplacementStrategy]
@@ -266,14 +266,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FleetReplacementStrategy]
 toJSONKey :: ToJSONKeyFunction FleetReplacementStrategy
 $ctoJSONKey :: ToJSONKeyFunction FleetReplacementStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681074270"><span class="annot"><span class="annottext">[Node] -&gt; Either String FleetReplacementStrategy
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681108618"><span class="annot"><span class="annottext">[Node] -&gt; Either String FleetReplacementStrategy
 ([Node] -&gt; Either String FleetReplacementStrategy)
 -&gt; FromXML FleetReplacementStrategy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FleetReplacementStrategy
 $cparseXML :: [Node] -&gt; Either String FleetReplacementStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681074267"><span class="annot"><span class="annottext">FleetReplacementStrategy -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681108615"><span class="annot"><span class="annottext">FleetReplacementStrategy -&gt; XML
 (FleetReplacementStrategy -&gt; XML) -&gt; ToXML FleetReplacementStrategy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FleetReplacementStrategy -&gt; XML

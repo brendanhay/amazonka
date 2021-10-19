@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Result message wrapping a single description of an application version.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newApplicationVersionDescriptionMessage' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679307275"><span id="local-6989586621679307276"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationVersionDescriptionMessage"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage.html#ApplicationVersionDescriptionMessage"><span class="hs-identifier hs-var">ApplicationVersionDescriptionMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationVersionDescriptionMessage%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage.html#ApplicationVersionDescriptionMessage%27"><span class="hs-identifier hs-var">ApplicationVersionDescriptionMessage'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679307568"><span id="local-6989586621679307569"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationVersionDescriptionMessage"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage.html#ApplicationVersionDescriptionMessage"><span class="hs-identifier hs-var">ApplicationVersionDescriptionMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationVersionDescriptionMessage%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage.html#ApplicationVersionDescriptionMessage%27"><span class="hs-identifier hs-var">ApplicationVersionDescriptionMessage'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ApplicationVersionDescription of the application version.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AapplicationVersion%3AApplicationVersionDescriptionMessage%27"><span class="annot"><span class="annottext">ApplicationVersionDescriptionMessage
 -&gt; Maybe ApplicationVersionDescription
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage.html#%24sel%3AapplicationVersion%3AApplicationVersionDescriptionMessage%27"><span class="hs-identifier hs-var hs-var">applicationVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescription.html#ApplicationVersionDescription"><span class="hs-identifier hs-type">ApplicationVersionDescription</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307269"><span id="local-6989586621679307271"><span class="annot"><span class="annottext">ApplicationVersionDescriptionMessage
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307562"><span id="local-6989586621679307564"><span class="annot"><span class="annottext">ApplicationVersionDescriptionMessage
 -&gt; ApplicationVersionDescriptionMessage -&gt; Bool
 (ApplicationVersionDescriptionMessage
  -&gt; ApplicationVersionDescriptionMessage -&gt; Bool)
@@ -49,7 +49,7 @@ $c/= :: ApplicationVersionDescriptionMessage
 -&gt; ApplicationVersionDescriptionMessage -&gt; Bool
 $c== :: ApplicationVersionDescriptionMessage
 -&gt; ApplicationVersionDescriptionMessage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307260"><span id="local-6989586621679307262"><span id="local-6989586621679307264"><span id="local-6989586621679307266"><span class="annot"><span class="annottext">ReadPrec [ApplicationVersionDescriptionMessage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307553"><span id="local-6989586621679307555"><span id="local-6989586621679307557"><span id="local-6989586621679307559"><span class="annot"><span class="annottext">ReadPrec [ApplicationVersionDescriptionMessage]
 ReadPrec ApplicationVersionDescriptionMessage
 Int -&gt; ReadS ApplicationVersionDescriptionMessage
 ReadS [ApplicationVersionDescriptionMessage]
@@ -69,7 +69,7 @@ readList :: ReadS [ApplicationVersionDescriptionMessage]
 $creadList :: ReadS [ApplicationVersionDescriptionMessage]
 readsPrec :: Int -&gt; ReadS ApplicationVersionDescriptionMessage
 $creadsPrec :: Int -&gt; ReadS ApplicationVersionDescriptionMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307253"><span id="local-6989586621679307255"><span id="local-6989586621679307257"><span class="annot"><span class="annottext">Int -&gt; ApplicationVersionDescriptionMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307546"><span id="local-6989586621679307548"><span id="local-6989586621679307550"><span class="annot"><span class="annottext">Int -&gt; ApplicationVersionDescriptionMessage -&gt; ShowS
 [ApplicationVersionDescriptionMessage] -&gt; ShowS
 ApplicationVersionDescriptionMessage -&gt; String
 (Int -&gt; ApplicationVersionDescriptionMessage -&gt; ShowS)
@@ -147,25 +147,25 @@ forall a. Maybe a
      (Maybe ApplicationVersionDescription)
      (Maybe ApplicationVersionDescription)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage.html#ApplicationVersionDescriptionMessage%27"><span class="hs-identifier hs-type">ApplicationVersionDescriptionMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307244"><span class="annot"><span class="annottext">Maybe ApplicationVersionDescription
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage.html#ApplicationVersionDescriptionMessage%27"><span class="hs-identifier hs-type">ApplicationVersionDescriptionMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307537"><span class="annot"><span class="annottext">Maybe ApplicationVersionDescription
 applicationVersion :: Maybe ApplicationVersionDescription
 $sel:applicationVersion:ApplicationVersionDescriptionMessage' :: ApplicationVersionDescriptionMessage
 -&gt; Maybe ApplicationVersionDescription
-</span><a href="#local-6989586621679307244"><span class="hs-identifier hs-var hs-var">applicationVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationVersionDescription
-</span><a href="#local-6989586621679307244"><span class="hs-identifier hs-var">applicationVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307243"><span class="annot"><span class="annottext">s :: ApplicationVersionDescriptionMessage
-</span><a href="#local-6989586621679307243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage.html#ApplicationVersionDescriptionMessage%27"><span class="hs-identifier hs-type">ApplicationVersionDescriptionMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307242"><span class="annot"><span class="annottext">Maybe ApplicationVersionDescription
-</span><a href="#local-6989586621679307242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationVersionDescriptionMessage
-</span><a href="#local-6989586621679307243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationVersion:ApplicationVersionDescriptionMessage' :: Maybe ApplicationVersionDescription
+</span><a href="#local-6989586621679307537"><span class="hs-identifier hs-var hs-var">applicationVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationVersionDescription
+</span><a href="#local-6989586621679307537"><span class="hs-identifier hs-var">applicationVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307536"><span class="annot"><span class="annottext">s :: ApplicationVersionDescriptionMessage
+</span><a href="#local-6989586621679307536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage.html#ApplicationVersionDescriptionMessage%27"><span class="hs-identifier hs-type">ApplicationVersionDescriptionMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307535"><span class="annot"><span class="annottext">Maybe ApplicationVersionDescription
+</span><a href="#local-6989586621679307535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationVersionDescriptionMessage
+</span><a href="#local-6989586621679307536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationVersion:ApplicationVersionDescriptionMessage' :: Maybe ApplicationVersionDescription
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage.html#%24sel%3AapplicationVersion%3AApplicationVersionDescriptionMessage%27"><span class="hs-identifier hs-var">applicationVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ApplicationVersionDescription
-</span><a href="#local-6989586621679307242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage.html#ApplicationVersionDescriptionMessage"><span class="hs-identifier hs-type">ApplicationVersionDescriptionMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage.html#ApplicationVersionDescriptionMessage"><span class="hs-identifier hs-type">ApplicationVersionDescriptionMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage.html#ApplicationVersionDescriptionMessage"><span class="hs-identifier hs-type">ApplicationVersionDescriptionMessage</span></a></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679307239"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ApplicationVersionDescriptionMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679307237"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679307237"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679307532"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ApplicationVersionDescriptionMessage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679307530"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">Maybe ApplicationVersionDescription
 -&gt; ApplicationVersionDescriptionMessage
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage.html#ApplicationVersionDescriptionMessage%27"><span class="hs-identifier hs-var">ApplicationVersionDescriptionMessage'</span></a></span><span>
@@ -175,17 +175,17 @@ $sel:applicationVersion:ApplicationVersionDescriptionMessage' :: ApplicationVers
 -&gt; Either String ApplicationVersionDescriptionMessage
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679307237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe ApplicationVersionDescription)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ApplicationVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679307231"><span id="local-6989586621679307233"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679307524"><span id="local-6989586621679307526"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage.html#ApplicationVersionDescriptionMessage"><span class="hs-identifier hs-type">ApplicationVersionDescriptionMessage</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679307228"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679307521"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage.html#ApplicationVersionDescriptionMessage"><span class="hs-identifier hs-type">ApplicationVersionDescriptionMessage</span></a></span></span><span>
 </span><span id="line-72"></span></pre></body></html>

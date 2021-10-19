@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains information about the partition dimensions in a data store.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDatastorePartitions' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679261386"><span id="local-6989586621679261387"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatastorePartitions"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions"><span class="hs-identifier hs-var">DatastorePartitions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatastorePartitions%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions%27"><span class="hs-identifier hs-var">DatastorePartitions'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679261598"><span id="local-6989586621679261599"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatastorePartitions"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions"><span class="hs-identifier hs-var">DatastorePartitions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatastorePartitions%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions%27"><span class="hs-identifier hs-var">DatastorePartitions'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of partition dimensions in a data store.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Apartitions%3ADatastorePartitions%27"><span class="annot"><span class="annottext">DatastorePartitions -&gt; Maybe [DatastorePartition]
 </span><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#%24sel%3Apartitions%3ADatastorePartitions%27"><span class="hs-identifier hs-var hs-var">partitions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartition.html#DatastorePartition"><span class="hs-identifier hs-type">DatastorePartition</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261380"><span id="local-6989586621679261382"><span class="annot"><span class="annottext">DatastorePartitions -&gt; DatastorePartitions -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261592"><span id="local-6989586621679261594"><span class="annot"><span class="annottext">DatastorePartitions -&gt; DatastorePartitions -&gt; Bool
 (DatastorePartitions -&gt; DatastorePartitions -&gt; Bool)
 -&gt; (DatastorePartitions -&gt; DatastorePartitions -&gt; Bool)
 -&gt; Eq DatastorePartitions
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DatastorePartitions -&gt; DatastorePartitions -&gt; Bool
 == :: DatastorePartitions -&gt; DatastorePartitions -&gt; Bool
 $c== :: DatastorePartitions -&gt; DatastorePartitions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261371"><span id="local-6989586621679261373"><span id="local-6989586621679261375"><span id="local-6989586621679261377"><span class="annot"><span class="annottext">ReadPrec [DatastorePartitions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261583"><span id="local-6989586621679261585"><span id="local-6989586621679261587"><span id="local-6989586621679261589"><span class="annot"><span class="annottext">ReadPrec [DatastorePartitions]
 ReadPrec DatastorePartitions
 Int -&gt; ReadS DatastorePartitions
 ReadS [DatastorePartitions]
@@ -61,7 +61,7 @@ readList :: ReadS [DatastorePartitions]
 $creadList :: ReadS [DatastorePartitions]
 readsPrec :: Int -&gt; ReadS DatastorePartitions
 $creadsPrec :: Int -&gt; ReadS DatastorePartitions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261364"><span id="local-6989586621679261366"><span id="local-6989586621679261368"><span class="annot"><span class="annottext">Int -&gt; DatastorePartitions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261576"><span id="local-6989586621679261578"><span id="local-6989586621679261580"><span class="annot"><span class="annottext">Int -&gt; DatastorePartitions -&gt; ShowS
 [DatastorePartitions] -&gt; ShowS
 DatastorePartitions -&gt; String
 (Int -&gt; DatastorePartitions -&gt; ShowS)
@@ -119,16 +119,16 @@ forall a. Maybe a
      (Maybe [DatastorePartition])
      (Maybe [DatastorePartition])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions%27"><span class="hs-identifier hs-type">DatastorePartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261355"><span class="annot"><span class="annottext">Maybe [DatastorePartition]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions%27"><span class="hs-identifier hs-type">DatastorePartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261567"><span class="annot"><span class="annottext">Maybe [DatastorePartition]
 partitions :: Maybe [DatastorePartition]
 $sel:partitions:DatastorePartitions' :: DatastorePartitions -&gt; Maybe [DatastorePartition]
-</span><a href="#local-6989586621679261355"><span class="hs-identifier hs-var hs-var">partitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DatastorePartition]
-</span><a href="#local-6989586621679261355"><span class="hs-identifier hs-var">partitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261354"><span class="annot"><span class="annottext">s :: DatastorePartitions
-</span><a href="#local-6989586621679261354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions%27"><span class="hs-identifier hs-type">DatastorePartitions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261353"><span class="annot"><span class="annottext">Maybe [DatastorePartition]
-</span><a href="#local-6989586621679261353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastorePartitions
-</span><a href="#local-6989586621679261354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitions:DatastorePartitions' :: Maybe [DatastorePartition]
+</span><a href="#local-6989586621679261567"><span class="hs-identifier hs-var hs-var">partitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DatastorePartition]
+</span><a href="#local-6989586621679261567"><span class="hs-identifier hs-var">partitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261566"><span class="annot"><span class="annottext">s :: DatastorePartitions
+</span><a href="#local-6989586621679261566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions%27"><span class="hs-identifier hs-type">DatastorePartitions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261565"><span class="annot"><span class="annottext">Maybe [DatastorePartition]
+</span><a href="#local-6989586621679261565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastorePartitions
+</span><a href="#local-6989586621679261566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitions:DatastorePartitions' :: Maybe [DatastorePartition]
 </span><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#%24sel%3Apartitions%3ADatastorePartitions%27"><span class="hs-identifier hs-var">partitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DatastorePartition]
-</span><a href="#local-6989586621679261353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions"><span class="hs-identifier hs-type">DatastorePartitions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DatastorePartition] -&gt; f (Maybe [DatastorePartition]))
+</span><a href="#local-6989586621679261565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions"><span class="hs-identifier hs-type">DatastorePartitions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DatastorePartition] -&gt; f (Maybe [DatastorePartition]))
  -&gt; DatastorePartitions -&gt; f DatastorePartitions)
 -&gt; ((Maybe [DatastorePartition] -&gt; f (Maybe [DatastorePartition]))
     -&gt; Maybe [DatastorePartition] -&gt; f (Maybe [DatastorePartition]))
@@ -154,11 +154,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [DatastorePartition]
   [DatastorePartition]
   [DatastorePartition]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261347"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions"><span class="hs-identifier hs-type">DatastorePartitions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679261345"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatastorePartitions
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261559"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions"><span class="hs-identifier hs-type">DatastorePartitions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679261557"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatastorePartitions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DatastorePartitions)
@@ -168,8 +168,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DatastorePartitions&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679261342"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261342"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679261554"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679261554"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DatastorePartition] -&gt; DatastorePartitions
 </span><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions%27"><span class="hs-identifier hs-var">DatastorePartitions'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [DatastorePartition] -&gt; DatastorePartitions)
@@ -177,7 +177,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser DatastorePartitions
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261342"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [DatastorePartition]))
+</span><a href="#local-6989586621679261554"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [DatastorePartition]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;partitions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [DatastorePartition]))
@@ -189,16 +189,16 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261335"><span id="local-6989586621679261337"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions"><span class="hs-identifier hs-type">DatastorePartitions</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261547"><span id="local-6989586621679261549"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions"><span class="hs-identifier hs-type">DatastorePartitions</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261332"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions"><span class="hs-identifier hs-type">DatastorePartitions</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261544"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions"><span class="hs-identifier hs-type">DatastorePartitions</span></a></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261324"><span id="local-6989586621679261326"><span id="local-6989586621679261328"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions"><span class="hs-identifier hs-type">DatastorePartitions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679261322"><span class="annot"><span class="annottext">toJSON :: DatastorePartitions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions%27"><span class="hs-identifier hs-type">DatastorePartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261320"><span class="annot"><span class="annottext">Maybe [DatastorePartition]
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261536"><span id="local-6989586621679261538"><span id="local-6989586621679261540"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions"><span class="hs-identifier hs-type">DatastorePartitions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679261534"><span class="annot"><span class="annottext">toJSON :: DatastorePartitions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions%27"><span class="hs-identifier hs-type">DatastorePartitions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261532"><span class="annot"><span class="annottext">Maybe [DatastorePartition]
 partitions :: Maybe [DatastorePartition]
 $sel:partitions:DatastorePartitions' :: DatastorePartitions -&gt; Maybe [DatastorePartition]
-</span><a href="#local-6989586621679261320"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679261532"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -211,6 +211,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [DatastorePartition] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [DatastorePartition]
-</span><a href="#local-6989586621679261320"><span class="hs-identifier hs-var">partitions</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679261532"><span class="hs-identifier hs-var">partitions</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span></pre></body></html>

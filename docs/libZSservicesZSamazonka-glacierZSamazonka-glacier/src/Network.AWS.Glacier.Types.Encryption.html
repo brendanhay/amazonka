@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- in Amazon S3.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEncryption' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679215713"><span id="local-6989586621679215714"></span></span><span class="hs-keyword">data</span><span> </span><span id="Encryption"><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption"><span class="hs-identifier hs-var">Encryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Encryption%27"><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-var">Encryption'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679215763"><span id="local-6989586621679215764"></span></span><span class="hs-keyword">data</span><span> </span><span id="Encryption"><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption"><span class="hs-identifier hs-var">Encryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Encryption%27"><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-var">Encryption'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The server-side encryption algorithm used when storing job results in</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Amazon S3, for example @AES256@ or @aws:kms@.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AencryptionType%3AEncryption%27"><span class="annot"><span class="annottext">Encryption -&gt; Maybe EncryptionType
@@ -43,7 +43,7 @@
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AkmsContext%3AEncryption%27"><span class="annot"><span class="annottext">Encryption -&gt; Maybe Text
 </span><a href="Network.AWS.Glacier.Types.Encryption.html#%24sel%3AkmsContext%3AEncryption%27"><span class="hs-identifier hs-var hs-var">kmsContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215705"><span id="local-6989586621679215707"><span class="annot"><span class="annottext">Encryption -&gt; Encryption -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679215755"><span id="local-6989586621679215757"><span class="annot"><span class="annottext">Encryption -&gt; Encryption -&gt; Bool
 (Encryption -&gt; Encryption -&gt; Bool)
 -&gt; (Encryption -&gt; Encryption -&gt; Bool) -&gt; Eq Encryption
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Encryption -&gt; Encryption -&gt; Bool
 == :: Encryption -&gt; Encryption -&gt; Bool
 $c== :: Encryption -&gt; Encryption -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215696"><span id="local-6989586621679215698"><span id="local-6989586621679215700"><span id="local-6989586621679215702"><span class="annot"><span class="annottext">ReadPrec [Encryption]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215746"><span id="local-6989586621679215748"><span id="local-6989586621679215750"><span id="local-6989586621679215752"><span class="annot"><span class="annottext">ReadPrec [Encryption]
 ReadPrec Encryption
 Int -&gt; ReadS Encryption
 ReadS [Encryption]
@@ -71,7 +71,7 @@ readList :: ReadS [Encryption]
 $creadList :: ReadS [Encryption]
 readsPrec :: Int -&gt; ReadS Encryption
 $creadsPrec :: Int -&gt; ReadS Encryption
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215689"><span id="local-6989586621679215691"><span id="local-6989586621679215693"><span class="annot"><span class="annottext">Int -&gt; Encryption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679215739"><span id="local-6989586621679215741"><span id="local-6989586621679215743"><span class="annot"><span class="annottext">Int -&gt; Encryption -&gt; ShowS
 [Encryption] -&gt; ShowS
 Encryption -&gt; String
 (Int -&gt; Encryption -&gt; ShowS)
@@ -143,16 +143,16 @@ forall a. Maybe a
 -&gt; Lens
      Encryption Encryption (Maybe EncryptionType) (Maybe EncryptionType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215680"><span class="annot"><span class="annottext">Maybe EncryptionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215730"><span class="annot"><span class="annottext">Maybe EncryptionType
 encryptionType :: Maybe EncryptionType
 $sel:encryptionType:Encryption' :: Encryption -&gt; Maybe EncryptionType
-</span><a href="#local-6989586621679215680"><span class="hs-identifier hs-var hs-var">encryptionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionType
-</span><a href="#local-6989586621679215680"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215679"><span class="annot"><span class="annottext">s :: Encryption
-</span><a href="#local-6989586621679215679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215678"><span class="annot"><span class="annottext">Maybe EncryptionType
-</span><a href="#local-6989586621679215678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
-</span><a href="#local-6989586621679215679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionType:Encryption' :: Maybe EncryptionType
+</span><a href="#local-6989586621679215730"><span class="hs-identifier hs-var hs-var">encryptionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionType
+</span><a href="#local-6989586621679215730"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215729"><span class="annot"><span class="annottext">s :: Encryption
+</span><a href="#local-6989586621679215729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215728"><span class="annot"><span class="annottext">Maybe EncryptionType
+</span><a href="#local-6989586621679215728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
+</span><a href="#local-6989586621679215729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionType:Encryption' :: Maybe EncryptionType
 </span><a href="Network.AWS.Glacier.Types.Encryption.html#%24sel%3AencryptionType%3AEncryption%27"><span class="hs-identifier hs-var">encryptionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionType
-</span><a href="#local-6989586621679215678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The AWS KMS key ID to use for object encryption. All GET and PUT</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- requests for an object protected by AWS KMS fail if not made by using</span><span>
@@ -163,16 +163,16 @@ $sel:encryptionType:Encryption' :: Encryption -&gt; Maybe EncryptionType
 -&gt; (Encryption -&gt; Maybe Text -&gt; Encryption)
 -&gt; Lens Encryption Encryption (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215676"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215726"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyId :: Maybe Text
 $sel:kmsKeyId:Encryption' :: Encryption -&gt; Maybe Text
-</span><a href="#local-6989586621679215676"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215676"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215675"><span class="annot"><span class="annottext">s :: Encryption
-</span><a href="#local-6989586621679215675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215674"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
-</span><a href="#local-6989586621679215675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:Encryption' :: Maybe Text
+</span><a href="#local-6989586621679215726"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215726"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215725"><span class="annot"><span class="annottext">s :: Encryption
+</span><a href="#local-6989586621679215725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215724"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
+</span><a href="#local-6989586621679215725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:Encryption' :: Maybe Text
 </span><a href="Network.AWS.Glacier.Types.Encryption.html#%24sel%3AkmsKeyId%3AEncryption%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | Optional. If the encryption type is @aws:kms@, you can use this value to</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- specify the encryption context for the job results.</span><span>
@@ -182,19 +182,19 @@ $sel:kmsKeyId:Encryption' :: Encryption -&gt; Maybe Text
 -&gt; (Encryption -&gt; Maybe Text -&gt; Encryption)
 -&gt; Lens Encryption Encryption (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215672"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215722"><span class="annot"><span class="annottext">Maybe Text
 kmsContext :: Maybe Text
 $sel:kmsContext:Encryption' :: Encryption -&gt; Maybe Text
-</span><a href="#local-6989586621679215672"><span class="hs-identifier hs-var hs-var">kmsContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215672"><span class="hs-identifier hs-var">kmsContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215671"><span class="annot"><span class="annottext">s :: Encryption
-</span><a href="#local-6989586621679215671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215670"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
-</span><a href="#local-6989586621679215671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsContext:Encryption' :: Maybe Text
+</span><a href="#local-6989586621679215722"><span class="hs-identifier hs-var hs-var">kmsContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215722"><span class="hs-identifier hs-var">kmsContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679215721"><span class="annot"><span class="annottext">s :: Encryption
+</span><a href="#local-6989586621679215721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679215720"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679215720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Encryption
+</span><a href="#local-6989586621679215721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsContext:Encryption' :: Maybe Text
 </span><a href="Network.AWS.Glacier.Types.Encryption.html#%24sel%3AkmsContext%3AEncryption%27"><span class="hs-identifier hs-var">kmsContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679215720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215667"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679215665"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Encryption
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215717"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679215715"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Encryption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Encryption) -&gt; Value -&gt; Parser Encryption
@@ -202,8 +202,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Encryption&quot;</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215662"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215662"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679215712"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679215712"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe EncryptionType -&gt; Maybe Text -&gt; Maybe Text -&gt; Encryption
 </span><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-var">Encryption'</span></a></span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EncryptionType -&gt; Maybe Text -&gt; Maybe Text -&gt; Encryption)
@@ -211,7 +211,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Encryption)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionType)
+</span><a href="#local-6989586621679215712"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EncryptionType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EncryptionType&quot;</span></span><span class="hs-special">)</span><span>
@@ -219,7 +219,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Encryption)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679215712"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KMSKeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -227,19 +227,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Encryption
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679215662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679215712"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KMSContext&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215656"><span id="local-6989586621679215658"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215706"><span id="local-6989586621679215708"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215653"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215703"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215645"><span id="local-6989586621679215647"><span id="local-6989586621679215649"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679215643"><span class="annot"><span class="annottext">toJSON :: Encryption -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215639"><span id="local-6989586621679215640"><span id="local-6989586621679215641"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679215695"><span id="local-6989586621679215697"><span id="local-6989586621679215699"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption"><span class="hs-identifier hs-type">Encryption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679215693"><span class="annot"><span class="annottext">toJSON :: Encryption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Encryption.html#Encryption%27"><span class="hs-identifier hs-type">Encryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679215689"><span id="local-6989586621679215690"><span id="local-6989586621679215691"><span class="annot"><span class="annottext">Maybe Text
 Maybe EncryptionType
 kmsContext :: Maybe Text
 kmsKeyId :: Maybe Text
@@ -247,7 +247,7 @@ encryptionType :: Maybe EncryptionType
 $sel:kmsContext:Encryption' :: Encryption -&gt; Maybe Text
 $sel:kmsKeyId:Encryption' :: Encryption -&gt; Maybe Text
 $sel:encryptionType:Encryption' :: Encryption -&gt; Maybe EncryptionType
-</span><a href="#local-6989586621679215639"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679215689"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -260,21 +260,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">(EncryptionType -&gt; Pair) -&gt; Maybe EncryptionType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionType
-</span><a href="#local-6989586621679215641"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215691"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KMSKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215640"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679215690"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KMSContext&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679215639"><span class="hs-identifier hs-var">kmsContext</span></a></span><span>
+</span><a href="#local-6989586621679215689"><span class="hs-identifier hs-var">kmsContext</span></a></span><span>
 </span><span id="line-110"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span></pre></body></html>

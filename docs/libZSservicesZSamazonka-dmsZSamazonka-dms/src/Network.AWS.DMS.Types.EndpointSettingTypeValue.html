@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679431659"><span id="local-6989586621679431660"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EndpointSettingTypeValue"><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSettingTypeValue.html#EndpointSettingTypeValue"><span class="hs-identifier hs-var">EndpointSettingTypeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointSettingTypeValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSettingTypeValue.html#EndpointSettingTypeValue%27"><span class="hs-identifier hs-var">EndpointSettingTypeValue'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679431930"><span id="local-6989586621679431931"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EndpointSettingTypeValue"><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSettingTypeValue.html#EndpointSettingTypeValue"><span class="hs-identifier hs-var">EndpointSettingTypeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointSettingTypeValue%27"><span class="annot"><a href="Network.AWS.DMS.Types.EndpointSettingTypeValue.html#EndpointSettingTypeValue%27"><span class="hs-identifier hs-var">EndpointSettingTypeValue'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEndpointSettingTypeValue"><span class="annot"><span class="annottext">EndpointSettingTypeValue -&gt; Text
 </span><a href="Network.AWS.DMS.Types.EndpointSettingTypeValue.html#fromEndpointSettingTypeValue"><span class="hs-identifier hs-var hs-var">fromEndpointSettingTypeValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431651"><span id="local-6989586621679431653"><span id="local-6989586621679431655"><span class="annot"><span class="annottext">Int -&gt; EndpointSettingTypeValue -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431922"><span id="local-6989586621679431924"><span id="local-6989586621679431926"><span class="annot"><span class="annottext">Int -&gt; EndpointSettingTypeValue -&gt; ShowS
 [EndpointSettingTypeValue] -&gt; ShowS
 EndpointSettingTypeValue -&gt; String
 (Int -&gt; EndpointSettingTypeValue -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: EndpointSettingTypeValue -&gt; String
 showsPrec :: Int -&gt; EndpointSettingTypeValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; EndpointSettingTypeValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679431642"><span id="local-6989586621679431644"><span id="local-6989586621679431646"><span id="local-6989586621679431648"><span class="annot"><span class="annottext">ReadPrec [EndpointSettingTypeValue]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679431913"><span id="local-6989586621679431915"><span id="local-6989586621679431917"><span id="local-6989586621679431919"><span class="annot"><span class="annottext">ReadPrec [EndpointSettingTypeValue]
 ReadPrec EndpointSettingTypeValue
 Int -&gt; ReadS EndpointSettingTypeValue
 ReadS [EndpointSettingTypeValue]
@@ -74,7 +74,7 @@ $creadList :: ReadS [EndpointSettingTypeValue]
 readsPrec :: Int -&gt; ReadS EndpointSettingTypeValue
 $creadsPrec :: Int -&gt; ReadS EndpointSettingTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679431637"><span id="local-6989586621679431639"><span class="annot"><span class="annottext">EndpointSettingTypeValue -&gt; EndpointSettingTypeValue -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679431908"><span id="local-6989586621679431910"><span class="annot"><span class="annottext">EndpointSettingTypeValue -&gt; EndpointSettingTypeValue -&gt; Bool
 (EndpointSettingTypeValue -&gt; EndpointSettingTypeValue -&gt; Bool)
 -&gt; (EndpointSettingTypeValue -&gt; EndpointSettingTypeValue -&gt; Bool)
 -&gt; Eq EndpointSettingTypeValue
@@ -84,7 +84,7 @@ $c/= :: EndpointSettingTypeValue -&gt; EndpointSettingTypeValue -&gt; Bool
 == :: EndpointSettingTypeValue -&gt; EndpointSettingTypeValue -&gt; Bool
 $c== :: EndpointSettingTypeValue -&gt; EndpointSettingTypeValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679431621"><span id="local-6989586621679431623"><span id="local-6989586621679431625"><span id="local-6989586621679431627"><span id="local-6989586621679431629"><span id="local-6989586621679431631"><span id="local-6989586621679431633"><span class="annot"><span class="annottext">Eq EndpointSettingTypeValue
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679431892"><span id="local-6989586621679431894"><span id="local-6989586621679431896"><span id="local-6989586621679431898"><span id="local-6989586621679431900"><span id="local-6989586621679431902"><span id="local-6989586621679431904"><span class="annot"><span class="annottext">Eq EndpointSettingTypeValue
 Eq EndpointSettingTypeValue
 -&gt; (EndpointSettingTypeValue
     -&gt; EndpointSettingTypeValue -&gt; Ordering)
@@ -149,7 +149,7 @@ EndpointSettingTypeValue -&gt; Rep EndpointSettingTypeValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431613"><span id="local-6989586621679431615"><span class="annot"><span class="annottext">Int -&gt; EndpointSettingTypeValue -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679431884"><span id="local-6989586621679431886"><span class="annot"><span class="annottext">Int -&gt; EndpointSettingTypeValue -&gt; Int
 EndpointSettingTypeValue -&gt; Int
 (Int -&gt; EndpointSettingTypeValue -&gt; Int)
 -&gt; (EndpointSettingTypeValue -&gt; Int)
@@ -160,55 +160,55 @@ $chash :: EndpointSettingTypeValue -&gt; Int
 hashWithSalt :: Int -&gt; EndpointSettingTypeValue -&gt; Int
 $chashWithSalt :: Int -&gt; EndpointSettingTypeValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679431610"><span class="annot"><span class="annottext">EndpointSettingTypeValue -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679431881"><span class="annot"><span class="annottext">EndpointSettingTypeValue -&gt; ()
 (EndpointSettingTypeValue -&gt; ()) -&gt; NFData EndpointSettingTypeValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EndpointSettingTypeValue -&gt; ()
 $crnf :: EndpointSettingTypeValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679431607"><span class="annot"><span class="annottext">Text -&gt; Either String EndpointSettingTypeValue
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679431878"><span class="annot"><span class="annottext">Text -&gt; Either String EndpointSettingTypeValue
 (Text -&gt; Either String EndpointSettingTypeValue)
 -&gt; FromText EndpointSettingTypeValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EndpointSettingTypeValue
 $cfromText :: Text -&gt; Either String EndpointSettingTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679431604"><span class="annot"><span class="annottext">EndpointSettingTypeValue -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679431875"><span class="annot"><span class="annottext">EndpointSettingTypeValue -&gt; Text
 (EndpointSettingTypeValue -&gt; Text)
 -&gt; ToText EndpointSettingTypeValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EndpointSettingTypeValue -&gt; Text
 $ctoText :: EndpointSettingTypeValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679431601"><span class="annot"><span class="annottext">EndpointSettingTypeValue -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679431872"><span class="annot"><span class="annottext">EndpointSettingTypeValue -&gt; ByteString
 (EndpointSettingTypeValue -&gt; ByteString)
 -&gt; ToByteString EndpointSettingTypeValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EndpointSettingTypeValue -&gt; ByteString
 $ctoBS :: EndpointSettingTypeValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679431598"><span class="annot"><span class="annottext">EndpointSettingTypeValue -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679431869"><span class="annot"><span class="annottext">EndpointSettingTypeValue -&gt; ByteStringBuilder
 (EndpointSettingTypeValue -&gt; ByteStringBuilder)
 -&gt; ToLog EndpointSettingTypeValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EndpointSettingTypeValue -&gt; ByteStringBuilder
 $cbuild :: EndpointSettingTypeValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679431595"><span class="annot"><span class="annottext">HeaderName -&gt; EndpointSettingTypeValue -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679431866"><span class="annot"><span class="annottext">HeaderName -&gt; EndpointSettingTypeValue -&gt; [Header]
 (HeaderName -&gt; EndpointSettingTypeValue -&gt; [Header])
 -&gt; ToHeader EndpointSettingTypeValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EndpointSettingTypeValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EndpointSettingTypeValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679431592"><span class="annot"><span class="annottext">EndpointSettingTypeValue -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679431863"><span class="annot"><span class="annottext">EndpointSettingTypeValue -&gt; QueryString
 (EndpointSettingTypeValue -&gt; QueryString)
 -&gt; ToQuery EndpointSettingTypeValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EndpointSettingTypeValue -&gt; QueryString
 $ctoQuery :: EndpointSettingTypeValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679431587"><span id="local-6989586621679431589"><span class="annot"><span class="annottext">Value -&gt; Parser [EndpointSettingTypeValue]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679431858"><span id="local-6989586621679431860"><span class="annot"><span class="annottext">Value -&gt; Parser [EndpointSettingTypeValue]
 Value -&gt; Parser EndpointSettingTypeValue
 (Value -&gt; Parser EndpointSettingTypeValue)
 -&gt; (Value -&gt; Parser [EndpointSettingTypeValue])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [EndpointSettingTypeValue]
 parseJSON :: Value -&gt; Parser EndpointSettingTypeValue
 $cparseJSON :: Value -&gt; Parser EndpointSettingTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679431582"><span id="local-6989586621679431584"><span class="annot"><span class="annottext">FromJSONKeyFunction [EndpointSettingTypeValue]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679431853"><span id="local-6989586621679431855"><span class="annot"><span class="annottext">FromJSONKeyFunction [EndpointSettingTypeValue]
 FromJSONKeyFunction EndpointSettingTypeValue
 FromJSONKeyFunction EndpointSettingTypeValue
 -&gt; FromJSONKeyFunction [EndpointSettingTypeValue]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EndpointSettingTypeValue]
 fromJSONKey :: FromJSONKeyFunction EndpointSettingTypeValue
 $cfromJSONKey :: FromJSONKeyFunction EndpointSettingTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679431573"><span id="local-6989586621679431575"><span id="local-6989586621679431577"><span id="local-6989586621679431579"><span class="annot"><span class="annottext">[EndpointSettingTypeValue] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679431844"><span id="local-6989586621679431846"><span id="local-6989586621679431848"><span id="local-6989586621679431850"><span class="annot"><span class="annottext">[EndpointSettingTypeValue] -&gt; Encoding
 [EndpointSettingTypeValue] -&gt; Value
 EndpointSettingTypeValue -&gt; Encoding
 EndpointSettingTypeValue -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: EndpointSettingTypeValue -&gt; Encoding
 toJSON :: EndpointSettingTypeValue -&gt; Value
 $ctoJSON :: EndpointSettingTypeValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679431568"><span id="local-6989586621679431570"><span class="annot"><span class="annottext">ToJSONKeyFunction [EndpointSettingTypeValue]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679431839"><span id="local-6989586621679431841"><span class="annot"><span class="annottext">ToJSONKeyFunction [EndpointSettingTypeValue]
 ToJSONKeyFunction EndpointSettingTypeValue
 ToJSONKeyFunction EndpointSettingTypeValue
 -&gt; ToJSONKeyFunction [EndpointSettingTypeValue]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EndpointSettingTypeValue]
 toJSONKey :: ToJSONKeyFunction EndpointSettingTypeValue
 $ctoJSONKey :: ToJSONKeyFunction EndpointSettingTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679431565"><span class="annot"><span class="annottext">[Node] -&gt; Either String EndpointSettingTypeValue
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679431836"><span class="annot"><span class="annottext">[Node] -&gt; Either String EndpointSettingTypeValue
 ([Node] -&gt; Either String EndpointSettingTypeValue)
 -&gt; FromXML EndpointSettingTypeValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EndpointSettingTypeValue
 $cparseXML :: [Node] -&gt; Either String EndpointSettingTypeValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679431562"><span class="annot"><span class="annottext">EndpointSettingTypeValue -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679431833"><span class="annot"><span class="annottext">EndpointSettingTypeValue -&gt; XML
 (EndpointSettingTypeValue -&gt; XML) -&gt; ToXML EndpointSettingTypeValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EndpointSettingTypeValue -&gt; XML

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679370567"><span id="local-6989586621679370568"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceRoleType"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceRoleType.html#InstanceRoleType"><span class="hs-identifier hs-var">InstanceRoleType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceRoleType%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceRoleType.html#InstanceRoleType%27"><span class="hs-identifier hs-var">InstanceRoleType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679370917"><span id="local-6989586621679370918"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceRoleType"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceRoleType.html#InstanceRoleType"><span class="hs-identifier hs-var">InstanceRoleType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceRoleType%27"><span class="annot"><a href="Network.AWS.EMR.Types.InstanceRoleType.html#InstanceRoleType%27"><span class="hs-identifier hs-var">InstanceRoleType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceRoleType"><span class="annot"><span class="annottext">InstanceRoleType -&gt; Text
 </span><a href="Network.AWS.EMR.Types.InstanceRoleType.html#fromInstanceRoleType"><span class="hs-identifier hs-var hs-var">fromInstanceRoleType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370559"><span id="local-6989586621679370561"><span id="local-6989586621679370563"><span class="annot"><span class="annottext">Int -&gt; InstanceRoleType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370909"><span id="local-6989586621679370911"><span id="local-6989586621679370913"><span class="annot"><span class="annottext">Int -&gt; InstanceRoleType -&gt; ShowS
 [InstanceRoleType] -&gt; ShowS
 InstanceRoleType -&gt; String
 (Int -&gt; InstanceRoleType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: InstanceRoleType -&gt; String
 showsPrec :: Int -&gt; InstanceRoleType -&gt; ShowS
 $cshowsPrec :: Int -&gt; InstanceRoleType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679370550"><span id="local-6989586621679370552"><span id="local-6989586621679370554"><span id="local-6989586621679370556"><span class="annot"><span class="annottext">ReadPrec [InstanceRoleType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679370900"><span id="local-6989586621679370902"><span id="local-6989586621679370904"><span id="local-6989586621679370906"><span class="annot"><span class="annottext">ReadPrec [InstanceRoleType]
 ReadPrec InstanceRoleType
 Int -&gt; ReadS InstanceRoleType
 ReadS [InstanceRoleType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [InstanceRoleType]
 readsPrec :: Int -&gt; ReadS InstanceRoleType
 $creadsPrec :: Int -&gt; ReadS InstanceRoleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679370545"><span id="local-6989586621679370547"><span class="annot"><span class="annottext">InstanceRoleType -&gt; InstanceRoleType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679370895"><span id="local-6989586621679370897"><span class="annot"><span class="annottext">InstanceRoleType -&gt; InstanceRoleType -&gt; Bool
 (InstanceRoleType -&gt; InstanceRoleType -&gt; Bool)
 -&gt; (InstanceRoleType -&gt; InstanceRoleType -&gt; Bool)
 -&gt; Eq InstanceRoleType
@@ -83,7 +83,7 @@ $c/= :: InstanceRoleType -&gt; InstanceRoleType -&gt; Bool
 == :: InstanceRoleType -&gt; InstanceRoleType -&gt; Bool
 $c== :: InstanceRoleType -&gt; InstanceRoleType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679370529"><span id="local-6989586621679370531"><span id="local-6989586621679370533"><span id="local-6989586621679370535"><span id="local-6989586621679370537"><span id="local-6989586621679370539"><span id="local-6989586621679370541"><span class="annot"><span class="annottext">Eq InstanceRoleType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679370879"><span id="local-6989586621679370881"><span id="local-6989586621679370883"><span id="local-6989586621679370885"><span id="local-6989586621679370887"><span id="local-6989586621679370889"><span id="local-6989586621679370891"><span class="annot"><span class="annottext">Eq InstanceRoleType
 Eq InstanceRoleType
 -&gt; (InstanceRoleType -&gt; InstanceRoleType -&gt; Ordering)
 -&gt; (InstanceRoleType -&gt; InstanceRoleType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. InstanceRoleType -&gt; Rep InstanceRoleType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370521"><span id="local-6989586621679370523"><span class="annot"><span class="annottext">Int -&gt; InstanceRoleType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679370871"><span id="local-6989586621679370873"><span class="annot"><span class="annottext">Int -&gt; InstanceRoleType -&gt; Int
 InstanceRoleType -&gt; Int
 (Int -&gt; InstanceRoleType -&gt; Int)
 -&gt; (InstanceRoleType -&gt; Int) -&gt; Hashable InstanceRoleType
@@ -144,51 +144,51 @@ $chash :: InstanceRoleType -&gt; Int
 hashWithSalt :: Int -&gt; InstanceRoleType -&gt; Int
 $chashWithSalt :: Int -&gt; InstanceRoleType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679370518"><span class="annot"><span class="annottext">InstanceRoleType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679370868"><span class="annot"><span class="annottext">InstanceRoleType -&gt; ()
 (InstanceRoleType -&gt; ()) -&gt; NFData InstanceRoleType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InstanceRoleType -&gt; ()
 $crnf :: InstanceRoleType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679370515"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceRoleType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679370865"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceRoleType
 (Text -&gt; Either String InstanceRoleType)
 -&gt; FromText InstanceRoleType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InstanceRoleType
 $cfromText :: Text -&gt; Either String InstanceRoleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679370512"><span class="annot"><span class="annottext">InstanceRoleType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679370862"><span class="annot"><span class="annottext">InstanceRoleType -&gt; Text
 (InstanceRoleType -&gt; Text) -&gt; ToText InstanceRoleType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InstanceRoleType -&gt; Text
 $ctoText :: InstanceRoleType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679370509"><span class="annot"><span class="annottext">InstanceRoleType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679370859"><span class="annot"><span class="annottext">InstanceRoleType -&gt; ByteString
 (InstanceRoleType -&gt; ByteString) -&gt; ToByteString InstanceRoleType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InstanceRoleType -&gt; ByteString
 $ctoBS :: InstanceRoleType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679370506"><span class="annot"><span class="annottext">InstanceRoleType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679370856"><span class="annot"><span class="annottext">InstanceRoleType -&gt; ByteStringBuilder
 (InstanceRoleType -&gt; ByteStringBuilder) -&gt; ToLog InstanceRoleType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InstanceRoleType -&gt; ByteStringBuilder
 $cbuild :: InstanceRoleType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679370503"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceRoleType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679370853"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceRoleType -&gt; [Header]
 (HeaderName -&gt; InstanceRoleType -&gt; [Header])
 -&gt; ToHeader InstanceRoleType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InstanceRoleType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InstanceRoleType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679370500"><span class="annot"><span class="annottext">InstanceRoleType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679370850"><span class="annot"><span class="annottext">InstanceRoleType -&gt; QueryString
 (InstanceRoleType -&gt; QueryString) -&gt; ToQuery InstanceRoleType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InstanceRoleType -&gt; QueryString
 $ctoQuery :: InstanceRoleType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679370495"><span id="local-6989586621679370497"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceRoleType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679370845"><span id="local-6989586621679370847"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceRoleType]
 Value -&gt; Parser InstanceRoleType
 (Value -&gt; Parser InstanceRoleType)
 -&gt; (Value -&gt; Parser [InstanceRoleType])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [InstanceRoleType]
 parseJSON :: Value -&gt; Parser InstanceRoleType
 $cparseJSON :: Value -&gt; Parser InstanceRoleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679370490"><span id="local-6989586621679370492"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceRoleType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679370840"><span id="local-6989586621679370842"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceRoleType]
 FromJSONKeyFunction InstanceRoleType
 FromJSONKeyFunction InstanceRoleType
 -&gt; FromJSONKeyFunction [InstanceRoleType]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InstanceRoleType]
 fromJSONKey :: FromJSONKeyFunction InstanceRoleType
 $cfromJSONKey :: FromJSONKeyFunction InstanceRoleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679370481"><span id="local-6989586621679370483"><span id="local-6989586621679370485"><span id="local-6989586621679370487"><span class="annot"><span class="annottext">[InstanceRoleType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679370831"><span id="local-6989586621679370833"><span id="local-6989586621679370835"><span id="local-6989586621679370837"><span class="annot"><span class="annottext">[InstanceRoleType] -&gt; Encoding
 [InstanceRoleType] -&gt; Value
 InstanceRoleType -&gt; Encoding
 InstanceRoleType -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: InstanceRoleType -&gt; Encoding
 toJSON :: InstanceRoleType -&gt; Value
 $ctoJSON :: InstanceRoleType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679370476"><span id="local-6989586621679370478"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceRoleType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679370826"><span id="local-6989586621679370828"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceRoleType]
 ToJSONKeyFunction InstanceRoleType
 ToJSONKeyFunction InstanceRoleType
 -&gt; ToJSONKeyFunction [InstanceRoleType]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InstanceRoleType]
 toJSONKey :: ToJSONKeyFunction InstanceRoleType
 $ctoJSONKey :: ToJSONKeyFunction InstanceRoleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679370473"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceRoleType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679370823"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceRoleType
 ([Node] -&gt; Either String InstanceRoleType)
 -&gt; FromXML InstanceRoleType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InstanceRoleType
 $cparseXML :: [Node] -&gt; Either String InstanceRoleType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679370470"><span class="annot"><span class="annottext">InstanceRoleType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679370820"><span class="annot"><span class="annottext">InstanceRoleType -&gt; XML
 (InstanceRoleType -&gt; XML) -&gt; ToXML InstanceRoleType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InstanceRoleType -&gt; XML

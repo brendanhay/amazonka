@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679236106"><span id="local-6989586621679236107"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CreateAccountState"><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountState.html#CreateAccountState"><span class="hs-identifier hs-var">CreateAccountState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAccountState%27"><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountState.html#CreateAccountState%27"><span class="hs-identifier hs-var">CreateAccountState'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679236225"><span id="local-6989586621679236226"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CreateAccountState"><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountState.html#CreateAccountState"><span class="hs-identifier hs-var">CreateAccountState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAccountState%27"><span class="annot"><a href="Network.AWS.Organizations.Types.CreateAccountState.html#CreateAccountState%27"><span class="hs-identifier hs-var">CreateAccountState'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCreateAccountState"><span class="annot"><span class="annottext">CreateAccountState -&gt; Text
 </span><a href="Network.AWS.Organizations.Types.CreateAccountState.html#fromCreateAccountState"><span class="hs-identifier hs-var hs-var">fromCreateAccountState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236098"><span id="local-6989586621679236100"><span id="local-6989586621679236102"><span class="annot"><span class="annottext">Int -&gt; CreateAccountState -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236217"><span id="local-6989586621679236219"><span id="local-6989586621679236221"><span class="annot"><span class="annottext">Int -&gt; CreateAccountState -&gt; ShowS
 [CreateAccountState] -&gt; ShowS
 CreateAccountState -&gt; String
 (Int -&gt; CreateAccountState -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: CreateAccountState -&gt; String
 showsPrec :: Int -&gt; CreateAccountState -&gt; ShowS
 $cshowsPrec :: Int -&gt; CreateAccountState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679236089"><span id="local-6989586621679236091"><span id="local-6989586621679236093"><span id="local-6989586621679236095"><span class="annot"><span class="annottext">ReadPrec [CreateAccountState]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679236208"><span id="local-6989586621679236210"><span id="local-6989586621679236212"><span id="local-6989586621679236214"><span class="annot"><span class="annottext">ReadPrec [CreateAccountState]
 ReadPrec CreateAccountState
 Int -&gt; ReadS CreateAccountState
 ReadS [CreateAccountState]
@@ -73,7 +73,7 @@ $creadList :: ReadS [CreateAccountState]
 readsPrec :: Int -&gt; ReadS CreateAccountState
 $creadsPrec :: Int -&gt; ReadS CreateAccountState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679236084"><span id="local-6989586621679236086"><span class="annot"><span class="annottext">CreateAccountState -&gt; CreateAccountState -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679236203"><span id="local-6989586621679236205"><span class="annot"><span class="annottext">CreateAccountState -&gt; CreateAccountState -&gt; Bool
 (CreateAccountState -&gt; CreateAccountState -&gt; Bool)
 -&gt; (CreateAccountState -&gt; CreateAccountState -&gt; Bool)
 -&gt; Eq CreateAccountState
@@ -83,7 +83,7 @@ $c/= :: CreateAccountState -&gt; CreateAccountState -&gt; Bool
 == :: CreateAccountState -&gt; CreateAccountState -&gt; Bool
 $c== :: CreateAccountState -&gt; CreateAccountState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679236068"><span id="local-6989586621679236070"><span id="local-6989586621679236072"><span id="local-6989586621679236074"><span id="local-6989586621679236076"><span id="local-6989586621679236078"><span id="local-6989586621679236080"><span class="annot"><span class="annottext">Eq CreateAccountState
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679236187"><span id="local-6989586621679236189"><span id="local-6989586621679236191"><span id="local-6989586621679236193"><span id="local-6989586621679236195"><span id="local-6989586621679236197"><span id="local-6989586621679236199"><span class="annot"><span class="annottext">Eq CreateAccountState
 Eq CreateAccountState
 -&gt; (CreateAccountState -&gt; CreateAccountState -&gt; Ordering)
 -&gt; (CreateAccountState -&gt; CreateAccountState -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. CreateAccountState -&gt; Rep CreateAccountState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236060"><span id="local-6989586621679236062"><span class="annot"><span class="annottext">Int -&gt; CreateAccountState -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236179"><span id="local-6989586621679236181"><span class="annot"><span class="annottext">Int -&gt; CreateAccountState -&gt; Int
 CreateAccountState -&gt; Int
 (Int -&gt; CreateAccountState -&gt; Int)
 -&gt; (CreateAccountState -&gt; Int) -&gt; Hashable CreateAccountState
@@ -144,53 +144,53 @@ $chash :: CreateAccountState -&gt; Int
 hashWithSalt :: Int -&gt; CreateAccountState -&gt; Int
 $chashWithSalt :: Int -&gt; CreateAccountState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679236057"><span class="annot"><span class="annottext">CreateAccountState -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679236176"><span class="annot"><span class="annottext">CreateAccountState -&gt; ()
 (CreateAccountState -&gt; ()) -&gt; NFData CreateAccountState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CreateAccountState -&gt; ()
 $crnf :: CreateAccountState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679236054"><span class="annot"><span class="annottext">Text -&gt; Either String CreateAccountState
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679236173"><span class="annot"><span class="annottext">Text -&gt; Either String CreateAccountState
 (Text -&gt; Either String CreateAccountState)
 -&gt; FromText CreateAccountState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CreateAccountState
 $cfromText :: Text -&gt; Either String CreateAccountState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679236051"><span class="annot"><span class="annottext">CreateAccountState -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679236170"><span class="annot"><span class="annottext">CreateAccountState -&gt; Text
 (CreateAccountState -&gt; Text) -&gt; ToText CreateAccountState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CreateAccountState -&gt; Text
 $ctoText :: CreateAccountState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679236048"><span class="annot"><span class="annottext">CreateAccountState -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679236167"><span class="annot"><span class="annottext">CreateAccountState -&gt; ByteString
 (CreateAccountState -&gt; ByteString)
 -&gt; ToByteString CreateAccountState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CreateAccountState -&gt; ByteString
 $ctoBS :: CreateAccountState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679236045"><span class="annot"><span class="annottext">CreateAccountState -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679236164"><span class="annot"><span class="annottext">CreateAccountState -&gt; ByteStringBuilder
 (CreateAccountState -&gt; ByteStringBuilder)
 -&gt; ToLog CreateAccountState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CreateAccountState -&gt; ByteStringBuilder
 $cbuild :: CreateAccountState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679236042"><span class="annot"><span class="annottext">HeaderName -&gt; CreateAccountState -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679236161"><span class="annot"><span class="annottext">HeaderName -&gt; CreateAccountState -&gt; [Header]
 (HeaderName -&gt; CreateAccountState -&gt; [Header])
 -&gt; ToHeader CreateAccountState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CreateAccountState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CreateAccountState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679236039"><span class="annot"><span class="annottext">CreateAccountState -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679236158"><span class="annot"><span class="annottext">CreateAccountState -&gt; QueryString
 (CreateAccountState -&gt; QueryString) -&gt; ToQuery CreateAccountState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CreateAccountState -&gt; QueryString
 $ctoQuery :: CreateAccountState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679236034"><span id="local-6989586621679236036"><span class="annot"><span class="annottext">Value -&gt; Parser [CreateAccountState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679236153"><span id="local-6989586621679236155"><span class="annot"><span class="annottext">Value -&gt; Parser [CreateAccountState]
 Value -&gt; Parser CreateAccountState
 (Value -&gt; Parser CreateAccountState)
 -&gt; (Value -&gt; Parser [CreateAccountState])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [CreateAccountState]
 parseJSON :: Value -&gt; Parser CreateAccountState
 $cparseJSON :: Value -&gt; Parser CreateAccountState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679236029"><span id="local-6989586621679236031"><span class="annot"><span class="annottext">FromJSONKeyFunction [CreateAccountState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679236148"><span id="local-6989586621679236150"><span class="annot"><span class="annottext">FromJSONKeyFunction [CreateAccountState]
 FromJSONKeyFunction CreateAccountState
 FromJSONKeyFunction CreateAccountState
 -&gt; FromJSONKeyFunction [CreateAccountState]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CreateAccountState]
 fromJSONKey :: FromJSONKeyFunction CreateAccountState
 $cfromJSONKey :: FromJSONKeyFunction CreateAccountState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679236020"><span id="local-6989586621679236022"><span id="local-6989586621679236024"><span id="local-6989586621679236026"><span class="annot"><span class="annottext">[CreateAccountState] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679236139"><span id="local-6989586621679236141"><span id="local-6989586621679236143"><span id="local-6989586621679236145"><span class="annot"><span class="annottext">[CreateAccountState] -&gt; Encoding
 [CreateAccountState] -&gt; Value
 CreateAccountState -&gt; Encoding
 CreateAccountState -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: CreateAccountState -&gt; Encoding
 toJSON :: CreateAccountState -&gt; Value
 $ctoJSON :: CreateAccountState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679236015"><span id="local-6989586621679236017"><span class="annot"><span class="annottext">ToJSONKeyFunction [CreateAccountState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679236134"><span id="local-6989586621679236136"><span class="annot"><span class="annottext">ToJSONKeyFunction [CreateAccountState]
 ToJSONKeyFunction CreateAccountState
 ToJSONKeyFunction CreateAccountState
 -&gt; ToJSONKeyFunction [CreateAccountState]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CreateAccountState]
 toJSONKey :: ToJSONKeyFunction CreateAccountState
 $ctoJSONKey :: ToJSONKeyFunction CreateAccountState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679236012"><span class="annot"><span class="annottext">[Node] -&gt; Either String CreateAccountState
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679236131"><span class="annot"><span class="annottext">[Node] -&gt; Either String CreateAccountState
 ([Node] -&gt; Either String CreateAccountState)
 -&gt; FromXML CreateAccountState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CreateAccountState
 $cparseXML :: [Node] -&gt; Either String CreateAccountState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679236009"><span class="annot"><span class="annottext">CreateAccountState -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679236128"><span class="annot"><span class="annottext">CreateAccountState -&gt; XML
 (CreateAccountState -&gt; XML) -&gt; ToXML CreateAccountState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CreateAccountState -&gt; XML

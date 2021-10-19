@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | OperationSummary includes the following elements.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newOperationSummary' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679210167"><span id="local-6989586621679210168"></span></span><span class="hs-keyword">data</span><span> </span><span id="OperationSummary"><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-var">OperationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OperationSummary%27"><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-var">OperationSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679210221"><span id="local-6989586621679210222"></span></span><span class="hs-keyword">data</span><span> </span><span id="OperationSummary"><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-var">OperationSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OperationSummary%27"><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-var">OperationSummary'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifier returned to track the requested action.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AoperationId%3AOperationSummary%27"><span class="annot"><span class="annottext">OperationSummary -&gt; Text
 </span><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#%24sel%3AoperationId%3AOperationSummary%27"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -42,7 +42,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AsubmittedDate%3AOperationSummary%27"><span class="annot"><span class="annottext">OperationSummary -&gt; POSIX
 </span><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#%24sel%3AsubmittedDate%3AOperationSummary%27"><span class="hs-identifier hs-var hs-var">submittedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210158"><span id="local-6989586621679210160"><span class="annot"><span class="annottext">OperationSummary -&gt; OperationSummary -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210212"><span id="local-6989586621679210214"><span class="annot"><span class="annottext">OperationSummary -&gt; OperationSummary -&gt; Bool
 (OperationSummary -&gt; OperationSummary -&gt; Bool)
 -&gt; (OperationSummary -&gt; OperationSummary -&gt; Bool)
 -&gt; Eq OperationSummary
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OperationSummary -&gt; OperationSummary -&gt; Bool
 == :: OperationSummary -&gt; OperationSummary -&gt; Bool
 $c== :: OperationSummary -&gt; OperationSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210149"><span id="local-6989586621679210151"><span id="local-6989586621679210153"><span id="local-6989586621679210155"><span class="annot"><span class="annottext">ReadPrec [OperationSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210203"><span id="local-6989586621679210205"><span id="local-6989586621679210207"><span id="local-6989586621679210209"><span class="annot"><span class="annottext">ReadPrec [OperationSummary]
 ReadPrec OperationSummary
 Int -&gt; ReadS OperationSummary
 ReadS [OperationSummary]
@@ -71,7 +71,7 @@ readList :: ReadS [OperationSummary]
 $creadList :: ReadS [OperationSummary]
 readsPrec :: Int -&gt; ReadS OperationSummary
 $creadsPrec :: Int -&gt; ReadS OperationSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210142"><span id="local-6989586621679210144"><span id="local-6989586621679210146"><span class="annot"><span class="annottext">Int -&gt; OperationSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210196"><span id="local-6989586621679210198"><span id="local-6989586621679210200"><span class="annot"><span class="annottext">Int -&gt; OperationSummary -&gt; ShowS
 [OperationSummary] -&gt; ShowS
 OperationSummary -&gt; String
 (Int -&gt; OperationSummary -&gt; ShowS)
@@ -125,26 +125,26 @@ $cfrom :: forall x. OperationSummary -&gt; Rep OperationSummary x
 </span><span id="line-68"></span><span id="newOperationSummary"><span class="annot"><span class="annottext">newOperationSummary :: Text
 -&gt; OperationStatus -&gt; OperationType -&gt; UTCTime -&gt; OperationSummary
 </span><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#newOperationSummary"><span class="hs-identifier hs-var hs-var">newOperationSummary</span></a></span></span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679210136"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210136"><span class="hs-identifier hs-var">pOperationId_</span></a></span></span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679210135"><span class="annot"><span class="annottext">OperationStatus
-</span><a href="#local-6989586621679210135"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679210134"><span class="annot"><span class="annottext">OperationType
-</span><a href="#local-6989586621679210134"><span class="hs-identifier hs-var">pType_</span></a></span></span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679210133"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679210133"><span class="hs-identifier hs-var">pSubmittedDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679210190"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210190"><span class="hs-identifier hs-var">pOperationId_</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679210189"><span class="annot"><span class="annottext">OperationStatus
+</span><a href="#local-6989586621679210189"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679210188"><span class="annot"><span class="annottext">OperationType
+</span><a href="#local-6989586621679210188"><span class="hs-identifier hs-var">pType_</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679210187"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679210187"><span class="hs-identifier hs-var">pSubmittedDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">OperationSummary' :: Text
 -&gt; OperationStatus -&gt; OperationType -&gt; POSIX -&gt; OperationSummary
 </span><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operationId:OperationSummary' :: Text
 </span><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#%24sel%3AoperationId%3AOperationSummary%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210136"><span class="hs-identifier hs-var">pOperationId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210190"><span class="hs-identifier hs-var">pOperationId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:OperationSummary' :: OperationStatus
 </span><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#%24sel%3Astatus%3AOperationSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OperationStatus
-</span><a href="#local-6989586621679210135"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210189"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':OperationSummary' :: OperationType
 </span><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#%24sel%3Atype%27%3AOperationSummary%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OperationType
-</span><a href="#local-6989586621679210134"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210188"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">$sel:submittedDate:OperationSummary' :: POSIX
 </span><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#%24sel%3AsubmittedDate%3AOperationSummary%27"><span class="hs-identifier hs-var">submittedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -153,7 +153,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679210133"><span class="hs-identifier hs-var">pSubmittedDate_</span></a></span><span>
+</span><a href="#local-6989586621679210187"><span class="hs-identifier hs-var">pSubmittedDate_</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Identifier returned to track the requested action.</span><span>
@@ -163,16 +163,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (OperationSummary -&gt; Text -&gt; OperationSummary)
 -&gt; Lens OperationSummary OperationSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210127"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210181"><span class="annot"><span class="annottext">Text
 operationId :: Text
 $sel:operationId:OperationSummary' :: OperationSummary -&gt; Text
-</span><a href="#local-6989586621679210127"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210127"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210126"><span class="annot"><span class="annottext">s :: OperationSummary
-</span><a href="#local-6989586621679210126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210125"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationSummary
-</span><a href="#local-6989586621679210126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:OperationSummary' :: Text
+</span><a href="#local-6989586621679210181"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210181"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210180"><span class="annot"><span class="annottext">s :: OperationSummary
+</span><a href="#local-6989586621679210180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210179"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationSummary
+</span><a href="#local-6989586621679210180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:OperationSummary' :: Text
 </span><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#%24sel%3AoperationId%3AOperationSummary%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The current status of the requested operation in the system.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#operationSummary_status"><span class="hs-identifier hs-type">operationSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationStatus.html#OperationStatus"><span class="hs-identifier hs-type">OperationStatus</span></a></span><span>
@@ -183,16 +183,16 @@ $sel:operationId:OperationSummary' :: OperationSummary -&gt; Text
 -&gt; Lens
      OperationSummary OperationSummary OperationStatus OperationStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210123"><span class="annot"><span class="annottext">OperationStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210177"><span class="annot"><span class="annottext">OperationStatus
 status :: OperationStatus
 $sel:status:OperationSummary' :: OperationSummary -&gt; OperationStatus
-</span><a href="#local-6989586621679210123"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationStatus
-</span><a href="#local-6989586621679210123"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210122"><span class="annot"><span class="annottext">s :: OperationSummary
-</span><a href="#local-6989586621679210122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210121"><span class="annot"><span class="annottext">OperationStatus
-</span><a href="#local-6989586621679210121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationSummary
-</span><a href="#local-6989586621679210122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:OperationSummary' :: OperationStatus
+</span><a href="#local-6989586621679210177"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationStatus
+</span><a href="#local-6989586621679210177"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210176"><span class="annot"><span class="annottext">s :: OperationSummary
+</span><a href="#local-6989586621679210176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210175"><span class="annot"><span class="annottext">OperationStatus
+</span><a href="#local-6989586621679210175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationSummary
+</span><a href="#local-6989586621679210176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:OperationSummary' :: OperationStatus
 </span><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#%24sel%3Astatus%3AOperationSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OperationStatus
-</span><a href="#local-6989586621679210121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | Type of the action requested.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#operationSummary_type"><span class="hs-identifier hs-type">operationSummary_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationType.html#OperationType"><span class="hs-identifier hs-type">OperationType</span></a></span><span>
@@ -203,16 +203,16 @@ $sel:status:OperationSummary' :: OperationSummary -&gt; OperationStatus
 -&gt; Lens
      OperationSummary OperationSummary OperationType OperationType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210119"><span class="annot"><span class="annottext">OperationType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210173"><span class="annot"><span class="annottext">OperationType
 type' :: OperationType
 $sel:type':OperationSummary' :: OperationSummary -&gt; OperationType
-</span><a href="#local-6989586621679210119"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationType
-</span><a href="#local-6989586621679210119"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210118"><span class="annot"><span class="annottext">s :: OperationSummary
-</span><a href="#local-6989586621679210118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210117"><span class="annot"><span class="annottext">OperationType
-</span><a href="#local-6989586621679210117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationSummary
-</span><a href="#local-6989586621679210118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':OperationSummary' :: OperationType
+</span><a href="#local-6989586621679210173"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationType
+</span><a href="#local-6989586621679210173"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210172"><span class="annot"><span class="annottext">s :: OperationSummary
+</span><a href="#local-6989586621679210172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210171"><span class="annot"><span class="annottext">OperationType
+</span><a href="#local-6989586621679210171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationSummary
+</span><a href="#local-6989586621679210172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':OperationSummary' :: OperationType
 </span><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#%24sel%3Atype%27%3AOperationSummary%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OperationType
-</span><a href="#local-6989586621679210117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The date when the request was submitted.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#operationSummary_submittedDate"><span class="hs-identifier hs-type">operationSummary_submittedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -221,16 +221,16 @@ $sel:type':OperationSummary' :: OperationSummary -&gt; OperationType
 -&gt; (OperationSummary -&gt; POSIX -&gt; OperationSummary)
 -&gt; Lens OperationSummary OperationSummary POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210115"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210169"><span class="annot"><span class="annottext">POSIX
 submittedDate :: POSIX
 $sel:submittedDate:OperationSummary' :: OperationSummary -&gt; POSIX
-</span><a href="#local-6989586621679210115"><span class="hs-identifier hs-var hs-var">submittedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679210115"><span class="hs-identifier hs-var">submittedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210114"><span class="annot"><span class="annottext">s :: OperationSummary
-</span><a href="#local-6989586621679210114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210113"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679210113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationSummary
-</span><a href="#local-6989586621679210114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:submittedDate:OperationSummary' :: POSIX
+</span><a href="#local-6989586621679210169"><span class="hs-identifier hs-var hs-var">submittedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679210169"><span class="hs-identifier hs-var">submittedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210168"><span class="annot"><span class="annottext">s :: OperationSummary
+</span><a href="#local-6989586621679210168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-type">OperationSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210167"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679210167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OperationSummary
+</span><a href="#local-6989586621679210168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:submittedDate:OperationSummary' :: POSIX
 </span><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#%24sel%3AsubmittedDate%3AOperationSummary%27"><span class="hs-identifier hs-var">submittedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679210113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; OperationSummary -&gt; f OperationSummary)
+</span><a href="#local-6989586621679210167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; OperationSummary -&gt; f OperationSummary)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; OperationSummary
@@ -240,8 +240,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210109"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679210107"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OperationSummary
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210163"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679210161"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OperationSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OperationSummary)
@@ -251,8 +251,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OperationSummary&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210104"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210104"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210158"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210158"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Text
 -&gt; OperationStatus -&gt; OperationType -&gt; POSIX -&gt; OperationSummary
 </span><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary%27"><span class="hs-identifier hs-var">OperationSummary'</span></a></span><span>
@@ -263,7 +263,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (OperationStatus -&gt; OperationType -&gt; POSIX -&gt; OperationSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679210158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OperationId&quot;</span></span><span class="hs-special">)</span><span>
@@ -273,7 +273,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (OperationType -&gt; POSIX -&gt; OperationSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OperationStatus
+</span><a href="#local-6989586621679210158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OperationStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -281,7 +281,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser OperationType -&gt; Parser (POSIX -&gt; OperationSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OperationType
+</span><a href="#local-6989586621679210158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OperationType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
@@ -289,13 +289,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser OperationSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679210158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubmittedDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210098"><span id="local-6989586621679210100"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210152"><span id="local-6989586621679210154"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.Types.OperationSummary.html#OperationSummary"><span class="hs-identifier hs-type">OperationSummary</span></a></span></span><span>
 </span><span id="line-111"></span></pre></body></html>

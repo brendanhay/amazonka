@@ -31,18 +31,18 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommands_instanceId"><span class="hs-identifier">listCommands_instanceId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommands_nextToken"><span class="hs-identifier">listCommands_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommands_maxResults"><span class="hs-identifier">listCommands_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommands_filters"><span class="hs-identifier">listCommands_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommands_nextToken"><span class="hs-identifier">listCommands_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommands_commandId"><span class="hs-identifier">listCommands_commandId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommands_filters"><span class="hs-identifier">listCommands_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommands_maxResults"><span class="hs-identifier">listCommands_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse"><span class="hs-identifier">ListCommandsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#newListCommandsResponse"><span class="hs-identifier">newListCommandsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommandsResponse_nextToken"><span class="hs-identifier">listCommandsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommandsResponse_commands"><span class="hs-identifier">listCommandsResponse_commands</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommandsResponse_commands"><span class="hs-identifier">listCommandsResponse_commands</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommandsResponse_nextToken"><span class="hs-identifier">listCommandsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommandsResponse_httpStatus"><span class="hs-identifier">listCommandsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span class="hs-keyword">where</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListCommands' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679830764"><span id="local-6989586621679830765"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCommands"><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-var">ListCommands</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCommands%27"><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-var">ListCommands'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679832533"><span id="local-6989586621679832534"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCommands"><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-var">ListCommands</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCommands%27"><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-var">ListCommands'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | (Optional) Lists commands issued against this instance ID.</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- You can\'t specify an instance ID in the same command that you specify</span><span>
@@ -63,24 +63,24 @@
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- instance yet.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AinstanceId%3AListCommands%27"><span class="annot"><span class="annottext">ListCommands -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AinstanceId%3AListCommands%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | (Optional) The token for the next set of items to return. (You received</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- this token from a previous call.)</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3AnextToken%3AListCommands%27"><span class="annot"><span class="annottext">ListCommands -&gt; Maybe Text
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | (Optional) One or more filters. Use a filter to return a more specific</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- list of results.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Afilters%3AListCommands%27"><span class="annot"><span class="annottext">ListCommands -&gt; Maybe (NonEmpty CommandFilter)
+</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3Afilters%3AListCommands%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | (Optional) The token for the next set of items to return. (You received</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- this token from a previous call.)</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AnextToken%3AListCommands%27"><span class="annot"><span class="annottext">ListCommands -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AnextToken%3AListCommands%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | (Optional) The maximum number of items to return for this call. The call</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- also returns a token that you can specify in a subsequent call to get</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- the next set of results.</span><span>
-</span><span id="line-71"></span><span>    </span><span id="%24sel%3AmaxResults%3AListCommands%27"><span class="annot"><span class="annottext">ListCommands -&gt; Maybe Natural
-</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AmaxResults%3AListCommands%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | (Optional) If provided, lists only the specified command.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AcommandId%3AListCommands%27"><span class="annot"><span class="annottext">ListCommands -&gt; Maybe Text
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | (Optional) If provided, lists only the specified command.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AcommandId%3AListCommands%27"><span class="annot"><span class="annottext">ListCommands -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AcommandId%3AListCommands%27"><span class="hs-identifier hs-var hs-var">commandId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | (Optional) One or more filters. Use a filter to return a more specific</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- list of results.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3Afilters%3AListCommands%27"><span class="annot"><span class="annottext">ListCommands -&gt; Maybe (NonEmpty CommandFilter)
-</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3Afilters%3AListCommands%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | (Optional) The maximum number of items to return for this call. The call</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- also returns a token that you can specify in a subsequent call to get</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- the next set of results.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AmaxResults%3AListCommands%27"><span class="annot"><span class="annottext">ListCommands -&gt; Maybe Natural
+</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AmaxResults%3AListCommands%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679830754"><span id="local-6989586621679830756"><span class="annot"><span class="annottext">ListCommands -&gt; ListCommands -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679832523"><span id="local-6989586621679832525"><span class="annot"><span class="annottext">ListCommands -&gt; ListCommands -&gt; Bool
 (ListCommands -&gt; ListCommands -&gt; Bool)
 -&gt; (ListCommands -&gt; ListCommands -&gt; Bool) -&gt; Eq ListCommands
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListCommands -&gt; ListCommands -&gt; Bool
 == :: ListCommands -&gt; ListCommands -&gt; Bool
 $c== :: ListCommands -&gt; ListCommands -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830745"><span id="local-6989586621679830747"><span id="local-6989586621679830749"><span id="local-6989586621679830751"><span class="annot"><span class="annottext">ReadPrec [ListCommands]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832514"><span id="local-6989586621679832516"><span id="local-6989586621679832518"><span id="local-6989586621679832520"><span class="annot"><span class="annottext">ReadPrec [ListCommands]
 ReadPrec ListCommands
 Int -&gt; ReadS ListCommands
 ReadS [ListCommands]
@@ -108,7 +108,7 @@ readList :: ReadS [ListCommands]
 $creadList :: ReadS [ListCommands]
 readsPrec :: Int -&gt; ReadS ListCommands
 $creadsPrec :: Int -&gt; ReadS ListCommands
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830738"><span id="local-6989586621679830740"><span id="local-6989586621679830742"><span class="annot"><span class="annottext">Int -&gt; ListCommands -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832507"><span id="local-6989586621679832509"><span id="local-6989586621679832511"><span class="annot"><span class="annottext">Int -&gt; ListCommands -&gt; ShowS
 [ListCommands] -&gt; ShowS
 ListCommands -&gt; String
 (Int -&gt; ListCommands -&gt; ShowS)
@@ -148,46 +148,46 @@ $cfrom :: forall x. ListCommands -&gt; Rep ListCommands x
 </span><span id="line-91"></span><span class="hs-comment">-- @Status@ = @Pending@. This is because the command hasn\'t reached the</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- instance yet.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'nextToken', 'listCommands_nextToken' - (Optional) The token for the next set of items to return. (You received</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- this token from a previous call.)</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'filters', 'listCommands_filters' - (Optional) One or more filters. Use a filter to return a more specific</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- list of results.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'maxResults', 'listCommands_maxResults' - (Optional) The maximum number of items to return for this call. The call</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- also returns a token that you can specify in a subsequent call to get</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- the next set of results.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'commandId', 'listCommands_commandId' - (Optional) If provided, lists only the specified command.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'filters', 'listCommands_filters' - (Optional) One or more filters. Use a filter to return a more specific</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- list of results.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'nextToken', 'listCommands_nextToken' - (Optional) The token for the next set of items to return. (You received</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- this token from a previous call.)</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'commandId', 'listCommands_commandId' - (Optional) If provided, lists only the specified command.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'maxResults', 'listCommands_maxResults' - (Optional) The maximum number of items to return for this call. The call</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- also returns a token that you can specify in a subsequent call to get</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- the next set of results.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#newListCommands"><span class="hs-identifier hs-type">newListCommands</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span>
 </span><span id="line-107"></span><span id="newListCommands"><span class="annot"><span class="annottext">newListCommands :: ListCommands
 </span><a href="Network.AWS.SSM.ListCommands.html#newListCommands"><span class="hs-identifier hs-var hs-var">newListCommands</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">ListCommands' :: Maybe Text
+-&gt; Maybe (NonEmpty CommandFilter)
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Natural
--&gt; Maybe Text
--&gt; Maybe (NonEmpty CommandFilter)
 -&gt; ListCommands
 </span><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceId:ListCommands' :: Maybe Text
 </span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AinstanceId%3AListCommands%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListCommands' :: Maybe Text
-</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AnextToken%3AListCommands%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:ListCommands' :: Maybe (NonEmpty CommandFilter)
+</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3Afilters%3AListCommands%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CommandFilter)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListCommands' :: Maybe Natural
-</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AmaxResults%3AListCommands%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListCommands' :: Maybe Text
+</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AnextToken%3AListCommands%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:commandId:ListCommands' :: Maybe Text
 </span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AcommandId%3AListCommands%27"><span class="hs-identifier hs-var">commandId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:ListCommands' :: Maybe (NonEmpty CommandFilter)
-</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3Afilters%3AListCommands%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CommandFilter)
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListCommands' :: Maybe Natural
+</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AmaxResults%3AListCommands%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-special">}</span><span>
@@ -203,79 +203,21 @@ forall a. Maybe a
 -&gt; (ListCommands -&gt; Maybe Text -&gt; ListCommands)
 -&gt; Lens ListCommands ListCommands (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830732"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832501"><span class="annot"><span class="annottext">Maybe Text
 instanceId :: Maybe Text
 $sel:instanceId:ListCommands' :: ListCommands -&gt; Maybe Text
-</span><a href="#local-6989586621679830732"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830732"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830731"><span class="annot"><span class="annottext">s :: ListCommands
-</span><a href="#local-6989586621679830731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830730"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCommands
-</span><a href="#local-6989586621679830731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:ListCommands' :: Maybe Text
+</span><a href="#local-6989586621679832501"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832501"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832500"><span class="annot"><span class="annottext">s :: ListCommands
+</span><a href="#local-6989586621679832500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832499"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCommands
+</span><a href="#local-6989586621679832500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:ListCommands' :: Maybe Text
 </span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AinstanceId%3AListCommands%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679832499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | (Optional) The token for the next set of items to return. (You received</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- this token from a previous call.)</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommands_nextToken"><span class="hs-identifier hs-type">listCommands_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="listCommands_nextToken"><span class="annot"><span class="annottext">listCommands_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListCommands -&gt; f ListCommands
-</span><a href="Network.AWS.SSM.ListCommands.html#listCommands_nextToken"><span class="hs-identifier hs-var hs-var">listCommands_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCommands -&gt; Maybe Text)
--&gt; (ListCommands -&gt; Maybe Text -&gt; ListCommands)
--&gt; Lens ListCommands ListCommands (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830729"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListCommands' :: ListCommands -&gt; Maybe Text
-</span><a href="#local-6989586621679830729"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830729"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830728"><span class="annot"><span class="annottext">s :: ListCommands
-</span><a href="#local-6989586621679830728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830727"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCommands
-</span><a href="#local-6989586621679830728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListCommands' :: Maybe Text
-</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AnextToken%3AListCommands%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | (Optional) The maximum number of items to return for this call. The call</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- also returns a token that you can specify in a subsequent call to get</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- the next set of results.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommands_maxResults"><span class="hs-identifier hs-type">listCommands_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="listCommands_maxResults"><span class="annot"><span class="annottext">listCommands_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ListCommands -&gt; f ListCommands
-</span><a href="Network.AWS.SSM.ListCommands.html#listCommands_maxResults"><span class="hs-identifier hs-var hs-var">listCommands_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCommands -&gt; Maybe Natural)
--&gt; (ListCommands -&gt; Maybe Natural -&gt; ListCommands)
--&gt; Lens ListCommands ListCommands (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830726"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:ListCommands' :: ListCommands -&gt; Maybe Natural
-</span><a href="#local-6989586621679830726"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679830726"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830725"><span class="annot"><span class="annottext">s :: ListCommands
-</span><a href="#local-6989586621679830725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830724"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679830724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCommands
-</span><a href="#local-6989586621679830725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListCommands' :: Maybe Natural
-</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AmaxResults%3AListCommands%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679830724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | (Optional) If provided, lists only the specified command.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommands_commandId"><span class="hs-identifier hs-type">listCommands_commandId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="listCommands_commandId"><span class="annot"><span class="annottext">listCommands_commandId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListCommands -&gt; f ListCommands
-</span><a href="Network.AWS.SSM.ListCommands.html#listCommands_commandId"><span class="hs-identifier hs-var hs-var">listCommands_commandId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCommands -&gt; Maybe Text)
--&gt; (ListCommands -&gt; Maybe Text -&gt; ListCommands)
--&gt; Lens ListCommands ListCommands (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830723"><span class="annot"><span class="annottext">Maybe Text
-commandId :: Maybe Text
-$sel:commandId:ListCommands' :: ListCommands -&gt; Maybe Text
-</span><a href="#local-6989586621679830723"><span class="hs-identifier hs-var hs-var">commandId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830723"><span class="hs-identifier hs-var">commandId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830722"><span class="annot"><span class="annottext">s :: ListCommands
-</span><a href="#local-6989586621679830722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830721"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCommands
-</span><a href="#local-6989586621679830722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commandId:ListCommands' :: Maybe Text
-</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AcommandId%3AListCommands%27"><span class="hs-identifier hs-var">commandId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | (Optional) One or more filters. Use a filter to return a more specific</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- list of results.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommands_filters"><span class="hs-identifier hs-type">listCommands_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="listCommands_filters"><span class="annot"><span class="annottext">listCommands_filters :: (Maybe (NonEmpty CommandFilter)
+</span><span id="line-124"></span><span class="hs-comment">-- | (Optional) One or more filters. Use a filter to return a more specific</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- list of results.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommands_filters"><span class="hs-identifier hs-type">listCommands_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="listCommands_filters"><span class="annot"><span class="annottext">listCommands_filters :: (Maybe (NonEmpty CommandFilter)
  -&gt; f (Maybe (NonEmpty CommandFilter)))
 -&gt; ListCommands -&gt; f ListCommands
 </span><a href="Network.AWS.SSM.ListCommands.html#listCommands_filters"><span class="hs-identifier hs-var hs-var">listCommands_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCommands -&gt; Maybe (NonEmpty CommandFilter))
@@ -286,16 +228,16 @@ $sel:commandId:ListCommands' :: ListCommands -&gt; Maybe Text
      (Maybe (NonEmpty CommandFilter))
      (Maybe (NonEmpty CommandFilter))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830720"><span class="annot"><span class="annottext">Maybe (NonEmpty CommandFilter)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832498"><span class="annot"><span class="annottext">Maybe (NonEmpty CommandFilter)
 filters :: Maybe (NonEmpty CommandFilter)
 $sel:filters:ListCommands' :: ListCommands -&gt; Maybe (NonEmpty CommandFilter)
-</span><a href="#local-6989586621679830720"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CommandFilter)
-</span><a href="#local-6989586621679830720"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830719"><span class="annot"><span class="annottext">s :: ListCommands
-</span><a href="#local-6989586621679830719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830718"><span class="annot"><span class="annottext">Maybe (NonEmpty CommandFilter)
-</span><a href="#local-6989586621679830718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCommands
-</span><a href="#local-6989586621679830719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListCommands' :: Maybe (NonEmpty CommandFilter)
+</span><a href="#local-6989586621679832498"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CommandFilter)
+</span><a href="#local-6989586621679832498"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832497"><span class="annot"><span class="annottext">s :: ListCommands
+</span><a href="#local-6989586621679832497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832496"><span class="annot"><span class="annottext">Maybe (NonEmpty CommandFilter)
+</span><a href="#local-6989586621679832496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCommands
+</span><a href="#local-6989586621679832497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListCommands' :: Maybe (NonEmpty CommandFilter)
 </span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3Afilters%3AListCommands%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CommandFilter)
-</span><a href="#local-6989586621679830718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty CommandFilter)
+</span><a href="#local-6989586621679832496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty CommandFilter)
   -&gt; f (Maybe (NonEmpty CommandFilter)))
  -&gt; ListCommands -&gt; f ListCommands)
 -&gt; ((Maybe (NonEmpty CommandFilter)
@@ -325,20 +267,78 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty CommandFilter)
   (NonEmpty CommandFilter)
   (NonEmpty CommandFilter)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | (Optional) The token for the next set of items to return. (You received</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- this token from a previous call.)</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommands_nextToken"><span class="hs-identifier hs-type">listCommands_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="listCommands_nextToken"><span class="annot"><span class="annottext">listCommands_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListCommands -&gt; f ListCommands
+</span><a href="Network.AWS.SSM.ListCommands.html#listCommands_nextToken"><span class="hs-identifier hs-var hs-var">listCommands_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCommands -&gt; Maybe Text)
+-&gt; (ListCommands -&gt; Maybe Text -&gt; ListCommands)
+-&gt; Lens ListCommands ListCommands (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832492"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListCommands' :: ListCommands -&gt; Maybe Text
+</span><a href="#local-6989586621679832492"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832492"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832491"><span class="annot"><span class="annottext">s :: ListCommands
+</span><a href="#local-6989586621679832491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832490"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCommands
+</span><a href="#local-6989586621679832491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListCommands' :: Maybe Text
+</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AnextToken%3AListCommands%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | (Optional) If provided, lists only the specified command.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommands_commandId"><span class="hs-identifier hs-type">listCommands_commandId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="listCommands_commandId"><span class="annot"><span class="annottext">listCommands_commandId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListCommands -&gt; f ListCommands
+</span><a href="Network.AWS.SSM.ListCommands.html#listCommands_commandId"><span class="hs-identifier hs-var hs-var">listCommands_commandId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCommands -&gt; Maybe Text)
+-&gt; (ListCommands -&gt; Maybe Text -&gt; ListCommands)
+-&gt; Lens ListCommands ListCommands (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832489"><span class="annot"><span class="annottext">Maybe Text
+commandId :: Maybe Text
+$sel:commandId:ListCommands' :: ListCommands -&gt; Maybe Text
+</span><a href="#local-6989586621679832489"><span class="hs-identifier hs-var hs-var">commandId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832489"><span class="hs-identifier hs-var">commandId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832488"><span class="annot"><span class="annottext">s :: ListCommands
+</span><a href="#local-6989586621679832488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832487"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCommands
+</span><a href="#local-6989586621679832488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commandId:ListCommands' :: Maybe Text
+</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AcommandId%3AListCommands%27"><span class="hs-identifier hs-var">commandId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | (Optional) The maximum number of items to return for this call. The call</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- also returns a token that you can specify in a subsequent call to get</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- the next set of results.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommands_maxResults"><span class="hs-identifier hs-type">listCommands_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="listCommands_maxResults"><span class="annot"><span class="annottext">listCommands_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListCommands -&gt; f ListCommands
+</span><a href="Network.AWS.SSM.ListCommands.html#listCommands_maxResults"><span class="hs-identifier hs-var hs-var">listCommands_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCommands -&gt; Maybe Natural)
+-&gt; (ListCommands -&gt; Maybe Natural -&gt; ListCommands)
+-&gt; Lens ListCommands ListCommands (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832486"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListCommands' :: ListCommands -&gt; Maybe Natural
+</span><a href="#local-6989586621679832486"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679832486"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832485"><span class="annot"><span class="annottext">s :: ListCommands
+</span><a href="#local-6989586621679832485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832484"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679832484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCommands
+</span><a href="#local-6989586621679832485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListCommands' :: Maybe Natural
+</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AmaxResults%3AListCommands%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679832484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679830711"><span class="annot"><span class="annottext">page :: ListCommands -&gt; AWSResponse ListCommands -&gt; Maybe ListCommands
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679830709"><span class="annot"><span class="annottext">ListCommands
-</span><a href="#local-6989586621679830709"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679830708"><span class="annot"><span class="annottext">AWSResponse ListCommands
-</span><a href="#local-6989586621679830708"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679832480"><span class="annot"><span class="annottext">page :: ListCommands -&gt; AWSResponse ListCommands -&gt; Maybe ListCommands
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679832478"><span class="annot"><span class="annottext">ListCommands
+</span><a href="#local-6989586621679832478"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679832477"><span class="annot"><span class="annottext">AWSResponse ListCommands
+</span><a href="#local-6989586621679832477"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-147"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCommands
 ListCommandsResponse
-</span><a href="#local-6989586621679830708"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679832477"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">ListCommandsResponse
 -&gt; Getting (First Text) ListCommandsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -364,7 +364,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-152"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCommands
 ListCommandsResponse
-</span><a href="#local-6989586621679830708"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679832477"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">ListCommandsResponse
 -&gt; Getting (First [Command]) ListCommandsResponse [Command]
 -&gt; Maybe [Command]
@@ -397,7 +397,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ListCommands
-</span><a href="#local-6989586621679830709"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679832478"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">ListCommands -&gt; (ListCommands -&gt; ListCommands) -&gt; ListCommands
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -410,7 +410,7 @@ Lens ListCommands ListCommands (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListCommands
 ListCommandsResponse
-</span><a href="#local-6989586621679830708"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679832477"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">ListCommandsResponse
 -&gt; Getting (First Text) ListCommandsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -430,12 +430,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse"><span class="hs-identifier hs-type">ListCommandsResponse</span></a></span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679830699"><span class="annot"><span class="annottext">request :: ListCommands -&gt; Request ListCommands
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679832468"><span class="annot"><span class="annottext">request :: ListCommands -&gt; Request ListCommands
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListCommands -&gt; Request ListCommands
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679830695"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679832464"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListCommands
 -&gt; ClientResponse ClientBody
@@ -459,27 +459,18 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679830692"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830692"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679830691"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679830691"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679830690"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679830690"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Command] -&gt; Int -&gt; ListCommandsResponse
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679832461"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679832461"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679832460"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679832460"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679832459"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679832459"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Command] -&gt; Maybe Text -&gt; Int -&gt; ListCommandsResponse
 </span><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse%27"><span class="hs-identifier hs-var">ListCommandsResponse'</span></a></span><span>
-</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Command] -&gt; Int -&gt; ListCommandsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe [Command] -&gt; Int -&gt; ListCommandsResponse)
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Command] -&gt; Maybe Text -&gt; Int -&gt; ListCommandsResponse)
+-&gt; Either String (Maybe [Command])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListCommandsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679830690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Command] -&gt; Int -&gt; ListCommandsResponse)
--&gt; Either String (Maybe [Command])
--&gt; Either String (Int -&gt; ListCommandsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679830690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Command]))
+</span><a href="#local-6989586621679832459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Command]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Commands&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Command]))
@@ -488,6 +479,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Command]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListCommandsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListCommandsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679832459"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListCommandsResponse)
 -&gt; Either String Int -&gt; Either String ListCommandsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -496,15 +496,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830692"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679832461"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830681"><span id="local-6989586621679830683"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832450"><span id="local-6989586621679832452"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span></span></span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830678"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679830674"><span class="annot"><span class="annottext">toHeaders :: ListCommands -&gt; ResponseHeaders
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679832443"><span class="annot"><span class="annottext">toHeaders :: ListCommands -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListCommands -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -529,22 +529,22 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-189"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830664"><span id="local-6989586621679830666"><span id="local-6989586621679830668"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679830662"><span class="annot"><span class="annottext">toJSON :: ListCommands -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830656"><span id="local-6989586621679830657"><span id="local-6989586621679830658"><span id="local-6989586621679830659"><span id="local-6989586621679830660"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832433"><span id="local-6989586621679832435"><span id="local-6989586621679832437"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679832431"><span class="annot"><span class="annottext">toJSON :: ListCommands -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands%27"><span class="hs-identifier hs-type">ListCommands'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832425"><span id="local-6989586621679832426"><span id="local-6989586621679832427"><span id="local-6989586621679832428"><span id="local-6989586621679832429"><span class="annot"><span class="annottext">Maybe Natural
 Maybe (NonEmpty CommandFilter)
 Maybe Text
-filters :: Maybe (NonEmpty CommandFilter)
-commandId :: Maybe Text
 maxResults :: Maybe Natural
+commandId :: Maybe Text
 nextToken :: Maybe Text
+filters :: Maybe (NonEmpty CommandFilter)
 instanceId :: Maybe Text
-$sel:filters:ListCommands' :: ListCommands -&gt; Maybe (NonEmpty CommandFilter)
-$sel:commandId:ListCommands' :: ListCommands -&gt; Maybe Text
 $sel:maxResults:ListCommands' :: ListCommands -&gt; Maybe Natural
+$sel:commandId:ListCommands' :: ListCommands -&gt; Maybe Text
 $sel:nextToken:ListCommands' :: ListCommands -&gt; Maybe Text
+$sel:filters:ListCommands' :: ListCommands -&gt; Maybe (NonEmpty CommandFilter)
 $sel:instanceId:ListCommands' :: ListCommands -&gt; Maybe Text
-</span><a href="#local-6989586621679830656"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679832425"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-195"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -556,48 +556,48 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830660"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679832429"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830659"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-198"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679830658"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CommandId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830657"><span class="hs-identifier hs-var">commandId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty CommandFilter -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty CommandFilter -&gt; Pair)
 -&gt; Maybe (NonEmpty CommandFilter) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty CommandFilter)
-</span><a href="#local-6989586621679830656"><span class="hs-identifier hs-var">filters</span></a></span><span>
+</span><a href="#local-6989586621679832428"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832427"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CommandId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832426"><span class="hs-identifier hs-var">commandId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679832425"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-201"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>
 </span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-205"></span><span>  </span><span id="local-6989586621679830650"><span class="annot"><span class="annottext">toPath :: ListCommands -&gt; ByteString
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679832419"><span class="annot"><span class="annottext">toPath :: ListCommands -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListCommands -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommands"><span class="hs-identifier hs-type">ListCommands</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679830646"><span class="annot"><span class="annottext">toQuery :: ListCommands -&gt; QueryString
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679832415"><span class="annot"><span class="annottext">toQuery :: ListCommands -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListCommands -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -605,19 +605,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-comment">-- | /See:/ 'newListCommandsResponse' smart constructor.</span><span>
-</span><span id="line-211"></span><span id="local-6989586621679830643"><span id="local-6989586621679830644"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCommandsResponse"><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse"><span class="hs-identifier hs-var">ListCommandsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCommandsResponse%27"><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse%27"><span class="hs-identifier hs-var">ListCommandsResponse'</span></a></span></span><span>
-</span><span id="line-212"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | (Optional) The token for the next set of items to return. (You received</span><span>
-</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- this token from a previous call.)</span><span>
-</span><span id="line-214"></span><span>    </span><span id="%24sel%3AnextToken%3AListCommandsResponse%27"><span class="annot"><span class="annottext">ListCommandsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AnextToken%3AListCommandsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-215"></span><span>    </span><span class="hs-comment">-- | (Optional) The list of commands requested by the user.</span><span>
-</span><span id="line-216"></span><span>    </span><span id="%24sel%3Acommands%3AListCommandsResponse%27"><span class="annot"><span class="annottext">ListCommandsResponse -&gt; Maybe [Command]
+</span><span id="line-211"></span><span id="local-6989586621679832412"><span id="local-6989586621679832413"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListCommandsResponse"><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse"><span class="hs-identifier hs-var">ListCommandsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListCommandsResponse%27"><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse%27"><span class="hs-identifier hs-var">ListCommandsResponse'</span></a></span></span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | (Optional) The list of commands requested by the user.</span><span>
+</span><span id="line-213"></span><span>    </span><span id="%24sel%3Acommands%3AListCommandsResponse%27"><span class="annot"><span class="annottext">ListCommandsResponse -&gt; Maybe [Command]
 </span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3Acommands%3AListCommandsResponse%27"><span class="hs-identifier hs-var hs-var">commands</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.Command.html#Command"><span class="hs-identifier hs-type">Command</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- | (Optional) The token for the next set of items to return. (You received</span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-comment">-- this token from a previous call.)</span><span>
+</span><span id="line-216"></span><span>    </span><span id="%24sel%3AnextToken%3AListCommandsResponse%27"><span class="annot"><span class="annottext">ListCommandsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AnextToken%3AListCommandsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-218"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListCommandsResponse%27"><span class="annot"><span class="annottext">ListCommandsResponse -&gt; Int
 </span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AhttpStatus%3AListCommandsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-219"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-220"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679830636"><span id="local-6989586621679830638"><span class="annot"><span class="annottext">ListCommandsResponse -&gt; ListCommandsResponse -&gt; Bool
+</span><span id="line-220"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679832405"><span id="local-6989586621679832407"><span class="annot"><span class="annottext">ListCommandsResponse -&gt; ListCommandsResponse -&gt; Bool
 (ListCommandsResponse -&gt; ListCommandsResponse -&gt; Bool)
 -&gt; (ListCommandsResponse -&gt; ListCommandsResponse -&gt; Bool)
 -&gt; Eq ListCommandsResponse
@@ -626,7 +626,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListCommandsResponse -&gt; ListCommandsResponse -&gt; Bool
 == :: ListCommandsResponse -&gt; ListCommandsResponse -&gt; Bool
 $c== :: ListCommandsResponse -&gt; ListCommandsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830628"><span id="local-6989586621679830630"><span id="local-6989586621679830632"><span id="local-6989586621679830634"><span class="annot"><span class="annottext">ReadPrec [ListCommandsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832397"><span id="local-6989586621679832399"><span id="local-6989586621679832401"><span id="local-6989586621679832403"><span class="annot"><span class="annottext">ReadPrec [ListCommandsResponse]
 ReadPrec ListCommandsResponse
 Int -&gt; ReadS ListCommandsResponse
 ReadS [ListCommandsResponse]
@@ -646,7 +646,7 @@ readList :: ReadS [ListCommandsResponse]
 $creadList :: ReadS [ListCommandsResponse]
 readsPrec :: Int -&gt; ReadS ListCommandsResponse
 $creadsPrec :: Int -&gt; ReadS ListCommandsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679830622"><span id="local-6989586621679830624"><span id="local-6989586621679830626"><span class="annot"><span class="annottext">Int -&gt; ListCommandsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679832391"><span id="local-6989586621679832393"><span id="local-6989586621679832395"><span class="annot"><span class="annottext">Int -&gt; ListCommandsResponse -&gt; ShowS
 [ListCommandsResponse] -&gt; ShowS
 ListCommandsResponse -&gt; String
 (Int -&gt; ListCommandsResponse -&gt; ShowS)
@@ -680,10 +680,10 @@ $cfrom :: forall x. ListCommandsResponse -&gt; Rep ListCommandsResponse x
 </span><span id="line-227"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-228"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-229"></span><span class="hs-comment">--</span><span>
-</span><span id="line-230"></span><span class="hs-comment">-- 'nextToken', 'listCommandsResponse_nextToken' - (Optional) The token for the next set of items to return. (You received</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- this token from a previous call.)</span><span>
-</span><span id="line-232"></span><span class="hs-comment">--</span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- 'commands', 'listCommandsResponse_commands' - (Optional) The list of commands requested by the user.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 'commands', 'listCommandsResponse_commands' - (Optional) The list of commands requested by the user.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'nextToken', 'listCommandsResponse_nextToken' - (Optional) The token for the next set of items to return. (You received</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- this token from a previous call.)</span><span>
 </span><span id="line-234"></span><span class="hs-comment">--</span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- 'httpStatus', 'listCommandsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-236"></span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#newListCommandsResponse"><span class="hs-identifier hs-type">newListCommandsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -691,62 +691,42 @@ $cfrom :: forall x. ListCommandsResponse -&gt; Rep ListCommandsResponse x
 </span><span id="line-238"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-239"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse"><span class="hs-identifier hs-type">ListCommandsResponse</span></a></span><span>
 </span><span id="line-240"></span><span id="newListCommandsResponse"><span class="annot"><span class="annottext">newListCommandsResponse :: Int -&gt; ListCommandsResponse
-</span><a href="Network.AWS.SSM.ListCommands.html#newListCommandsResponse"><span class="hs-identifier hs-var hs-var">newListCommandsResponse</span></a></span></span><span> </span><span id="local-6989586621679830619"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830619"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-241"></span><span>  </span><span class="annot"><span class="annottext">ListCommandsResponse' :: Maybe Text -&gt; Maybe [Command] -&gt; Int -&gt; ListCommandsResponse
+</span><a href="Network.AWS.SSM.ListCommands.html#newListCommandsResponse"><span class="hs-identifier hs-var hs-var">newListCommandsResponse</span></a></span></span><span> </span><span id="local-6989586621679832388"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679832388"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><span class="annottext">ListCommandsResponse' :: Maybe [Command] -&gt; Maybe Text -&gt; Int -&gt; ListCommandsResponse
 </span><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse%27"><span class="hs-identifier hs-type">ListCommandsResponse'</span></a></span><span>
-</span><span id="line-242"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListCommandsResponse' :: Maybe Text
-</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AnextToken%3AListCommandsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-242"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:commands:ListCommandsResponse' :: Maybe [Command]
+</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3Acommands%3AListCommandsResponse%27"><span class="hs-identifier hs-var">commands</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Command]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:commands:ListCommandsResponse' :: Maybe [Command]
-</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3Acommands%3AListCommandsResponse%27"><span class="hs-identifier hs-var">commands</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Command]
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListCommandsResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AnextToken%3AListCommandsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListCommandsResponse' :: Int
 </span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AhttpStatus%3AListCommandsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830619"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679832388"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-245"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-246"></span><span>
-</span><span id="line-247"></span><span class="hs-comment">-- | (Optional) The token for the next set of items to return. (You received</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- this token from a previous call.)</span><span>
-</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommandsResponse_nextToken"><span class="hs-identifier hs-type">listCommandsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse"><span class="hs-identifier hs-type">ListCommandsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-250"></span><span id="listCommandsResponse_nextToken"><span class="annot"><span class="annottext">listCommandsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListCommandsResponse -&gt; f ListCommandsResponse
-</span><a href="Network.AWS.SSM.ListCommands.html#listCommandsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listCommandsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCommandsResponse -&gt; Maybe Text)
--&gt; (ListCommandsResponse -&gt; Maybe Text -&gt; ListCommandsResponse)
--&gt; Lens' ListCommandsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse%27"><span class="hs-identifier hs-type">ListCommandsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830618"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListCommandsResponse' :: ListCommandsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679830618"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830618"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830617"><span class="annot"><span class="annottext">s :: ListCommandsResponse
-</span><a href="#local-6989586621679830617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse%27"><span class="hs-identifier hs-type">ListCommandsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830616"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCommandsResponse
-</span><a href="#local-6989586621679830617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListCommandsResponse' :: Maybe Text
-</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AnextToken%3AListCommandsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679830616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse"><span class="hs-identifier hs-type">ListCommandsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-251"></span><span>
-</span><span id="line-252"></span><span class="hs-comment">-- | (Optional) The list of commands requested by the user.</span><span>
-</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommandsResponse_commands"><span class="hs-identifier hs-type">listCommandsResponse_commands</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse"><span class="hs-identifier hs-type">ListCommandsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.Command.html#Command"><span class="hs-identifier hs-type">Command</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-254"></span><span id="listCommandsResponse_commands"><span class="annot"><span class="annottext">listCommandsResponse_commands :: (Maybe [Command] -&gt; f (Maybe [Command]))
+</span><span id="line-247"></span><span class="hs-comment">-- | (Optional) The list of commands requested by the user.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommandsResponse_commands"><span class="hs-identifier hs-type">listCommandsResponse_commands</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse"><span class="hs-identifier hs-type">ListCommandsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.Command.html#Command"><span class="hs-identifier hs-type">Command</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="listCommandsResponse_commands"><span class="annot"><span class="annottext">listCommandsResponse_commands :: (Maybe [Command] -&gt; f (Maybe [Command]))
 -&gt; ListCommandsResponse -&gt; f ListCommandsResponse
 </span><a href="Network.AWS.SSM.ListCommands.html#listCommandsResponse_commands"><span class="hs-identifier hs-var hs-var">listCommandsResponse_commands</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCommandsResponse -&gt; Maybe [Command])
 -&gt; (ListCommandsResponse
     -&gt; Maybe [Command] -&gt; ListCommandsResponse)
 -&gt; Lens' ListCommandsResponse (Maybe [Command])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse%27"><span class="hs-identifier hs-type">ListCommandsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830615"><span class="annot"><span class="annottext">Maybe [Command]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse%27"><span class="hs-identifier hs-type">ListCommandsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832387"><span class="annot"><span class="annottext">Maybe [Command]
 commands :: Maybe [Command]
 $sel:commands:ListCommandsResponse' :: ListCommandsResponse -&gt; Maybe [Command]
-</span><a href="#local-6989586621679830615"><span class="hs-identifier hs-var hs-var">commands</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Command]
-</span><a href="#local-6989586621679830615"><span class="hs-identifier hs-var">commands</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830614"><span class="annot"><span class="annottext">s :: ListCommandsResponse
-</span><a href="#local-6989586621679830614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse%27"><span class="hs-identifier hs-type">ListCommandsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830613"><span class="annot"><span class="annottext">Maybe [Command]
-</span><a href="#local-6989586621679830613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCommandsResponse
-</span><a href="#local-6989586621679830614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commands:ListCommandsResponse' :: Maybe [Command]
+</span><a href="#local-6989586621679832387"><span class="hs-identifier hs-var hs-var">commands</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Command]
+</span><a href="#local-6989586621679832387"><span class="hs-identifier hs-var">commands</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832386"><span class="annot"><span class="annottext">s :: ListCommandsResponse
+</span><a href="#local-6989586621679832386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse%27"><span class="hs-identifier hs-type">ListCommandsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832385"><span class="annot"><span class="annottext">Maybe [Command]
+</span><a href="#local-6989586621679832385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCommandsResponse
+</span><a href="#local-6989586621679832386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commands:ListCommandsResponse' :: Maybe [Command]
 </span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3Acommands%3AListCommandsResponse%27"><span class="hs-identifier hs-var">commands</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Command]
-</span><a href="#local-6989586621679830613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse"><span class="hs-identifier hs-type">ListCommandsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Command] -&gt; f (Maybe [Command]))
+</span><a href="#local-6989586621679832385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse"><span class="hs-identifier hs-type">ListCommandsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Command] -&gt; f (Maybe [Command]))
  -&gt; ListCommandsResponse -&gt; f ListCommandsResponse)
 -&gt; ((Maybe [Command] -&gt; f (Maybe [Command]))
     -&gt; Maybe [Command] -&gt; f (Maybe [Command]))
@@ -764,8 +744,28 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Command] [Command] [Command] [Command]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | (Optional) The token for the next set of items to return. (You received</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- this token from a previous call.)</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommandsResponse_nextToken"><span class="hs-identifier hs-type">listCommandsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse"><span class="hs-identifier hs-type">ListCommandsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="listCommandsResponse_nextToken"><span class="annot"><span class="annottext">listCommandsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListCommandsResponse -&gt; f ListCommandsResponse
+</span><a href="Network.AWS.SSM.ListCommands.html#listCommandsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listCommandsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListCommandsResponse -&gt; Maybe Text)
+-&gt; (ListCommandsResponse -&gt; Maybe Text -&gt; ListCommandsResponse)
+-&gt; Lens' ListCommandsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse%27"><span class="hs-identifier hs-type">ListCommandsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832384"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListCommandsResponse' :: ListCommandsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679832384"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832384"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832383"><span class="annot"><span class="annottext">s :: ListCommandsResponse
+</span><a href="#local-6989586621679832383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse%27"><span class="hs-identifier hs-type">ListCommandsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832382"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCommandsResponse
+</span><a href="#local-6989586621679832383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListCommandsResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AnextToken%3AListCommandsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679832382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse"><span class="hs-identifier hs-type">ListCommandsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-257"></span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#listCommandsResponse_httpStatus"><span class="hs-identifier hs-type">listCommandsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse"><span class="hs-identifier hs-type">ListCommandsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -774,16 +774,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListCommandsResponse -&gt; Int -&gt; ListCommandsResponse)
 -&gt; Lens ListCommandsResponse ListCommandsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse%27"><span class="hs-identifier hs-type">ListCommandsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679830612"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse%27"><span class="hs-identifier hs-type">ListCommandsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679832381"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListCommandsResponse' :: ListCommandsResponse -&gt; Int
-</span><a href="#local-6989586621679830612"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830612"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679830611"><span class="annot"><span class="annottext">s :: ListCommandsResponse
-</span><a href="#local-6989586621679830611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse%27"><span class="hs-identifier hs-type">ListCommandsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679830610"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCommandsResponse
-</span><a href="#local-6989586621679830611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListCommandsResponse' :: Int
+</span><a href="#local-6989586621679832381"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679832381"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679832380"><span class="annot"><span class="annottext">s :: ListCommandsResponse
+</span><a href="#local-6989586621679832380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse%27"><span class="hs-identifier hs-type">ListCommandsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679832379"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679832379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListCommandsResponse
+</span><a href="#local-6989586621679832380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListCommandsResponse' :: Int
 </span><a href="Network.AWS.SSM.ListCommands.html#%24sel%3AhttpStatus%3AListCommandsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679830610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse"><span class="hs-identifier hs-type">ListCommandsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679832379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse"><span class="hs-identifier hs-type">ListCommandsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span><span>
-</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679830608"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse"><span class="hs-identifier hs-type">ListCommandsResponse</span></a></span></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679832377"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListCommands.html#ListCommandsResponse"><span class="hs-identifier hs-type">ListCommandsResponse</span></a></span></span><span>
 </span><span id="line-261"></span></pre></body></html>

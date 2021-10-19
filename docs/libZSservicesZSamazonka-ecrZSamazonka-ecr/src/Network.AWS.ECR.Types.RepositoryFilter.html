@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- filter is specified, all images in the repository are replicated.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newRepositoryFilter' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679234786"><span id="local-6989586621679234787"></span></span><span class="hs-keyword">data</span><span> </span><span id="RepositoryFilter"><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter"><span class="hs-identifier hs-var">RepositoryFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RepositoryFilter%27"><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter%27"><span class="hs-identifier hs-var">RepositoryFilter'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679234934"><span id="local-6989586621679234935"></span></span><span class="hs-keyword">data</span><span> </span><span id="RepositoryFilter"><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter"><span class="hs-identifier hs-var">RepositoryFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RepositoryFilter%27"><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter%27"><span class="hs-identifier hs-var">RepositoryFilter'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The repository filter details. When the @PREFIX_MATCH@ filter type is</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- specified, this value is required and should be the repository name</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- prefix to configure replication for.</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AfilterType%3ARepositoryFilter%27"><span class="annot"><span class="annottext">RepositoryFilter -&gt; RepositoryFilterType
 </span><a href="Network.AWS.ECR.Types.RepositoryFilter.html#%24sel%3AfilterType%3ARepositoryFilter%27"><span class="hs-identifier hs-var hs-var">filterType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilterType.html#RepositoryFilterType"><span class="hs-identifier hs-type">RepositoryFilterType</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679234779"><span id="local-6989586621679234781"><span class="annot"><span class="annottext">RepositoryFilter -&gt; RepositoryFilter -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679234927"><span id="local-6989586621679234929"><span class="annot"><span class="annottext">RepositoryFilter -&gt; RepositoryFilter -&gt; Bool
 (RepositoryFilter -&gt; RepositoryFilter -&gt; Bool)
 -&gt; (RepositoryFilter -&gt; RepositoryFilter -&gt; Bool)
 -&gt; Eq RepositoryFilter
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RepositoryFilter -&gt; RepositoryFilter -&gt; Bool
 == :: RepositoryFilter -&gt; RepositoryFilter -&gt; Bool
 $c== :: RepositoryFilter -&gt; RepositoryFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234770"><span id="local-6989586621679234772"><span id="local-6989586621679234774"><span id="local-6989586621679234776"><span class="annot"><span class="annottext">ReadPrec [RepositoryFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234918"><span id="local-6989586621679234920"><span id="local-6989586621679234922"><span id="local-6989586621679234924"><span class="annot"><span class="annottext">ReadPrec [RepositoryFilter]
 ReadPrec RepositoryFilter
 Int -&gt; ReadS RepositoryFilter
 ReadS [RepositoryFilter]
@@ -70,7 +70,7 @@ readList :: ReadS [RepositoryFilter]
 $creadList :: ReadS [RepositoryFilter]
 readsPrec :: Int -&gt; ReadS RepositoryFilter
 $creadsPrec :: Int -&gt; ReadS RepositoryFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234763"><span id="local-6989586621679234765"><span id="local-6989586621679234767"><span class="annot"><span class="annottext">Int -&gt; RepositoryFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679234911"><span id="local-6989586621679234913"><span id="local-6989586621679234915"><span class="annot"><span class="annottext">Int -&gt; RepositoryFilter -&gt; ShowS
 [RepositoryFilter] -&gt; ShowS
 RepositoryFilter -&gt; String
 (Int -&gt; RepositoryFilter -&gt; ShowS)
@@ -117,17 +117,17 @@ $cfrom :: forall x. RepositoryFilter -&gt; Rep RepositoryFilter x
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilterType.html#RepositoryFilterType"><span class="hs-identifier hs-type">RepositoryFilterType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter"><span class="hs-identifier hs-type">RepositoryFilter</span></a></span><span>
 </span><span id="line-64"></span><span id="newRepositoryFilter"><span class="annot"><span class="annottext">newRepositoryFilter :: Text -&gt; RepositoryFilterType -&gt; RepositoryFilter
-</span><a href="Network.AWS.ECR.Types.RepositoryFilter.html#newRepositoryFilter"><span class="hs-identifier hs-var hs-var">newRepositoryFilter</span></a></span></span><span> </span><span id="local-6989586621679234757"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234757"><span class="hs-identifier hs-var">pFilter_</span></a></span></span><span> </span><span id="local-6989586621679234756"><span class="annot"><span class="annottext">RepositoryFilterType
-</span><a href="#local-6989586621679234756"><span class="hs-identifier hs-var">pFilterType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECR.Types.RepositoryFilter.html#newRepositoryFilter"><span class="hs-identifier hs-var hs-var">newRepositoryFilter</span></a></span></span><span> </span><span id="local-6989586621679234905"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234905"><span class="hs-identifier hs-var">pFilter_</span></a></span></span><span> </span><span id="local-6989586621679234904"><span class="annot"><span class="annottext">RepositoryFilterType
+</span><a href="#local-6989586621679234904"><span class="hs-identifier hs-var">pFilterType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">RepositoryFilter' :: Text -&gt; RepositoryFilterType -&gt; RepositoryFilter
 </span><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter%27"><span class="hs-identifier hs-type">RepositoryFilter'</span></a></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filter':RepositoryFilter' :: Text
 </span><a href="Network.AWS.ECR.Types.RepositoryFilter.html#%24sel%3Afilter%27%3ARepositoryFilter%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234757"><span class="hs-identifier hs-var">pFilter_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679234905"><span class="hs-identifier hs-var">pFilter_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterType:RepositoryFilter' :: RepositoryFilterType
 </span><a href="Network.AWS.ECR.Types.RepositoryFilter.html#%24sel%3AfilterType%3ARepositoryFilter%27"><span class="hs-identifier hs-var">filterType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RepositoryFilterType
-</span><a href="#local-6989586621679234756"><span class="hs-identifier hs-var">pFilterType_</span></a></span><span>
+</span><a href="#local-6989586621679234904"><span class="hs-identifier hs-var">pFilterType_</span></a></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The repository filter details. When the @PREFIX_MATCH@ filter type is</span><span>
@@ -139,16 +139,16 @@ $cfrom :: forall x. RepositoryFilter -&gt; Rep RepositoryFilter x
 -&gt; (RepositoryFilter -&gt; Text -&gt; RepositoryFilter)
 -&gt; Lens RepositoryFilter RepositoryFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter%27"><span class="hs-identifier hs-type">RepositoryFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234752"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter%27"><span class="hs-identifier hs-type">RepositoryFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234900"><span class="annot"><span class="annottext">Text
 filter' :: Text
 $sel:filter':RepositoryFilter' :: RepositoryFilter -&gt; Text
-</span><a href="#local-6989586621679234752"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234752"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234751"><span class="annot"><span class="annottext">s :: RepositoryFilter
-</span><a href="#local-6989586621679234751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter%27"><span class="hs-identifier hs-type">RepositoryFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234750"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryFilter
-</span><a href="#local-6989586621679234751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':RepositoryFilter' :: Text
+</span><a href="#local-6989586621679234900"><span class="hs-identifier hs-var hs-var">filter'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234900"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234899"><span class="annot"><span class="annottext">s :: RepositoryFilter
+</span><a href="#local-6989586621679234899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter%27"><span class="hs-identifier hs-type">RepositoryFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234898"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679234898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryFilter
+</span><a href="#local-6989586621679234899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filter':RepositoryFilter' :: Text
 </span><a href="Network.AWS.ECR.Types.RepositoryFilter.html#%24sel%3Afilter%27%3ARepositoryFilter%27"><span class="hs-identifier hs-var">filter'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter"><span class="hs-identifier hs-type">RepositoryFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679234898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter"><span class="hs-identifier hs-type">RepositoryFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The repository filter type. The only supported value is @PREFIX_MATCH@,</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- which is a repository name prefix specified with the @filter@ parameter.</span><span>
@@ -163,19 +163,19 @@ $sel:filter':RepositoryFilter' :: RepositoryFilter -&gt; Text
      RepositoryFilterType
      RepositoryFilterType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter%27"><span class="hs-identifier hs-type">RepositoryFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234748"><span class="annot"><span class="annottext">RepositoryFilterType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter%27"><span class="hs-identifier hs-type">RepositoryFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234896"><span class="annot"><span class="annottext">RepositoryFilterType
 filterType :: RepositoryFilterType
 $sel:filterType:RepositoryFilter' :: RepositoryFilter -&gt; RepositoryFilterType
-</span><a href="#local-6989586621679234748"><span class="hs-identifier hs-var hs-var">filterType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryFilterType
-</span><a href="#local-6989586621679234748"><span class="hs-identifier hs-var">filterType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234747"><span class="annot"><span class="annottext">s :: RepositoryFilter
-</span><a href="#local-6989586621679234747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter%27"><span class="hs-identifier hs-type">RepositoryFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234746"><span class="annot"><span class="annottext">RepositoryFilterType
-</span><a href="#local-6989586621679234746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryFilter
-</span><a href="#local-6989586621679234747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterType:RepositoryFilter' :: RepositoryFilterType
+</span><a href="#local-6989586621679234896"><span class="hs-identifier hs-var hs-var">filterType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryFilterType
+</span><a href="#local-6989586621679234896"><span class="hs-identifier hs-var">filterType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679234895"><span class="annot"><span class="annottext">s :: RepositoryFilter
+</span><a href="#local-6989586621679234895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter%27"><span class="hs-identifier hs-type">RepositoryFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679234894"><span class="annot"><span class="annottext">RepositoryFilterType
+</span><a href="#local-6989586621679234894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RepositoryFilter
+</span><a href="#local-6989586621679234895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterType:RepositoryFilter' :: RepositoryFilterType
 </span><a href="Network.AWS.ECR.Types.RepositoryFilter.html#%24sel%3AfilterType%3ARepositoryFilter%27"><span class="hs-identifier hs-var">filterType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RepositoryFilterType
-</span><a href="#local-6989586621679234746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter"><span class="hs-identifier hs-type">RepositoryFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679234894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter"><span class="hs-identifier hs-type">RepositoryFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234743"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter"><span class="hs-identifier hs-type">RepositoryFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679234741"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RepositoryFilter
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234891"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter"><span class="hs-identifier hs-type">RepositoryFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679234889"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RepositoryFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RepositoryFilter)
@@ -185,15 +185,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RepositoryFilter&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679234738"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679234738"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679234886"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679234886"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; RepositoryFilterType -&gt; RepositoryFilter
 </span><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter%27"><span class="hs-identifier hs-var">RepositoryFilter'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; RepositoryFilterType -&gt; RepositoryFilter)
 -&gt; Parser Text -&gt; Parser (RepositoryFilterType -&gt; RepositoryFilter)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679234738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679234886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filter&quot;</span></span><span class="hs-special">)</span><span>
@@ -201,25 +201,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser RepositoryFilterType -&gt; Parser RepositoryFilter
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679234738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RepositoryFilterType
+</span><a href="#local-6989586621679234886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser RepositoryFilterType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filterType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234732"><span id="local-6989586621679234734"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter"><span class="hs-identifier hs-type">RepositoryFilter</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234880"><span id="local-6989586621679234882"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter"><span class="hs-identifier hs-type">RepositoryFilter</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234729"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter"><span class="hs-identifier hs-type">RepositoryFilter</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234877"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter"><span class="hs-identifier hs-type">RepositoryFilter</span></a></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234721"><span id="local-6989586621679234723"><span id="local-6989586621679234725"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter"><span class="hs-identifier hs-type">RepositoryFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679234719"><span class="annot"><span class="annottext">toJSON :: RepositoryFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter%27"><span class="hs-identifier hs-type">RepositoryFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234716"><span id="local-6989586621679234717"><span class="annot"><span class="annottext">Text
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679234869"><span id="local-6989586621679234871"><span id="local-6989586621679234873"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter"><span class="hs-identifier hs-type">RepositoryFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679234867"><span class="annot"><span class="annottext">toJSON :: RepositoryFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.Types.RepositoryFilter.html#RepositoryFilter%27"><span class="hs-identifier hs-type">RepositoryFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679234864"><span id="local-6989586621679234865"><span class="annot"><span class="annottext">Text
 RepositoryFilterType
 filterType :: RepositoryFilterType
 filter' :: Text
 $sel:filterType:RepositoryFilter' :: RepositoryFilter -&gt; RepositoryFilterType
 $sel:filter':RepositoryFilter' :: RepositoryFilter -&gt; Text
-</span><a href="#local-6989586621679234716"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679234864"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -231,14 +231,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679234717"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679234865"><span class="hs-identifier hs-var">filter'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;filterType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RepositoryFilterType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RepositoryFilterType
-</span><a href="#local-6989586621679234716"><span class="hs-identifier hs-var">filterType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679234864"><span class="hs-identifier hs-var">filterType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span></pre></body></html>

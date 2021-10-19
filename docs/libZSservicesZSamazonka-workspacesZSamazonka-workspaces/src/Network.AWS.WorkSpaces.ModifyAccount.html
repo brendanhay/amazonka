@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.html"><span class="hs-identifier">Network.AWS.WorkSpaces.Types</span></a></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newModifyAccount' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679278437"><span id="local-6989586621679278438"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyAccount"><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount"><span class="hs-identifier hs-var">ModifyAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyAccount%27"><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount%27"><span class="hs-identifier hs-var">ModifyAccount'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679281293"><span id="local-6989586621679281294"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyAccount"><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount"><span class="hs-identifier hs-var">ModifyAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyAccount%27"><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount%27"><span class="hs-identifier hs-var">ModifyAccount'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of BYOL.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AdedicatedTenancySupport%3AModifyAccount%27"><span class="annot"><span class="annottext">ModifyAccount -&gt; Maybe DedicatedTenancySupportEnum
 </span><a href="Network.AWS.WorkSpaces.ModifyAccount.html#%24sel%3AdedicatedTenancySupport%3AModifyAccount%27"><span class="hs-identifier hs-var hs-var">dedicatedTenancySupport</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.DedicatedTenancySupportEnum.html#DedicatedTenancySupportEnum"><span class="hs-identifier hs-type">DedicatedTenancySupportEnum</span></a></span><span class="hs-special">,</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AdedicatedTenancyManagementCidrRange%3AModifyAccount%27"><span class="annot"><span class="annottext">ModifyAccount -&gt; Maybe Text
 </span><a href="Network.AWS.WorkSpaces.ModifyAccount.html#%24sel%3AdedicatedTenancyManagementCidrRange%3AModifyAccount%27"><span class="hs-identifier hs-var hs-var">dedicatedTenancyManagementCidrRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278430"><span id="local-6989586621679278432"><span class="annot"><span class="annottext">ModifyAccount -&gt; ModifyAccount -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281286"><span id="local-6989586621679281288"><span class="annot"><span class="annottext">ModifyAccount -&gt; ModifyAccount -&gt; Bool
 (ModifyAccount -&gt; ModifyAccount -&gt; Bool)
 -&gt; (ModifyAccount -&gt; ModifyAccount -&gt; Bool) -&gt; Eq ModifyAccount
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyAccount -&gt; ModifyAccount -&gt; Bool
 == :: ModifyAccount -&gt; ModifyAccount -&gt; Bool
 $c== :: ModifyAccount -&gt; ModifyAccount -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278421"><span id="local-6989586621679278423"><span id="local-6989586621679278425"><span id="local-6989586621679278427"><span class="annot"><span class="annottext">ReadPrec [ModifyAccount]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281277"><span id="local-6989586621679281279"><span id="local-6989586621679281281"><span id="local-6989586621679281283"><span class="annot"><span class="annottext">ReadPrec [ModifyAccount]
 ReadPrec ModifyAccount
 Int -&gt; ReadS ModifyAccount
 ReadS [ModifyAccount]
@@ -89,7 +89,7 @@ readList :: ReadS [ModifyAccount]
 $creadList :: ReadS [ModifyAccount]
 readsPrec :: Int -&gt; ReadS ModifyAccount
 $creadsPrec :: Int -&gt; ReadS ModifyAccount
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278414"><span id="local-6989586621679278416"><span id="local-6989586621679278418"><span class="annot"><span class="annottext">Int -&gt; ModifyAccount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281270"><span id="local-6989586621679281272"><span id="local-6989586621679281274"><span class="annot"><span class="annottext">Int -&gt; ModifyAccount -&gt; ShowS
 [ModifyAccount] -&gt; ShowS
 ModifyAccount -&gt; String
 (Int -&gt; ModifyAccount -&gt; ShowS)
@@ -163,16 +163,16 @@ forall a. Maybe a
      (Maybe DedicatedTenancySupportEnum)
      (Maybe DedicatedTenancySupportEnum)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount%27"><span class="hs-identifier hs-type">ModifyAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278407"><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportEnum
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount%27"><span class="hs-identifier hs-type">ModifyAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281263"><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportEnum
 dedicatedTenancySupport :: Maybe DedicatedTenancySupportEnum
 $sel:dedicatedTenancySupport:ModifyAccount' :: ModifyAccount -&gt; Maybe DedicatedTenancySupportEnum
-</span><a href="#local-6989586621679278407"><span class="hs-identifier hs-var hs-var">dedicatedTenancySupport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportEnum
-</span><a href="#local-6989586621679278407"><span class="hs-identifier hs-var">dedicatedTenancySupport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278406"><span class="annot"><span class="annottext">s :: ModifyAccount
-</span><a href="#local-6989586621679278406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount%27"><span class="hs-identifier hs-type">ModifyAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278405"><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportEnum
-</span><a href="#local-6989586621679278405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyAccount
-</span><a href="#local-6989586621679278406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dedicatedTenancySupport:ModifyAccount' :: Maybe DedicatedTenancySupportEnum
+</span><a href="#local-6989586621679281263"><span class="hs-identifier hs-var hs-var">dedicatedTenancySupport</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportEnum
+</span><a href="#local-6989586621679281263"><span class="hs-identifier hs-var">dedicatedTenancySupport</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281262"><span class="annot"><span class="annottext">s :: ModifyAccount
+</span><a href="#local-6989586621679281262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount%27"><span class="hs-identifier hs-type">ModifyAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281261"><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportEnum
+</span><a href="#local-6989586621679281261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyAccount
+</span><a href="#local-6989586621679281262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dedicatedTenancySupport:ModifyAccount' :: Maybe DedicatedTenancySupportEnum
 </span><a href="Network.AWS.WorkSpaces.ModifyAccount.html#%24sel%3AdedicatedTenancySupport%3AModifyAccount%27"><span class="hs-identifier hs-var">dedicatedTenancySupport</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportEnum
-</span><a href="#local-6989586621679278405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount"><span class="hs-identifier hs-type">ModifyAccount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount"><span class="hs-identifier hs-type">ModifyAccount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The IP address range, specified as an IPv4 CIDR block, for the</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- management network interface. Specify an IP address range that is</span><span>
@@ -186,27 +186,27 @@ $sel:dedicatedTenancySupport:ModifyAccount' :: ModifyAccount -&gt; Maybe Dedicat
 -&gt; (ModifyAccount -&gt; Maybe Text -&gt; ModifyAccount)
 -&gt; Lens ModifyAccount ModifyAccount (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount%27"><span class="hs-identifier hs-type">ModifyAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278404"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount%27"><span class="hs-identifier hs-type">ModifyAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281260"><span class="annot"><span class="annottext">Maybe Text
 dedicatedTenancyManagementCidrRange :: Maybe Text
 $sel:dedicatedTenancyManagementCidrRange:ModifyAccount' :: ModifyAccount -&gt; Maybe Text
-</span><a href="#local-6989586621679278404"><span class="hs-identifier hs-var hs-var">dedicatedTenancyManagementCidrRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278404"><span class="hs-identifier hs-var">dedicatedTenancyManagementCidrRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278403"><span class="annot"><span class="annottext">s :: ModifyAccount
-</span><a href="#local-6989586621679278403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount%27"><span class="hs-identifier hs-type">ModifyAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278402"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyAccount
-</span><a href="#local-6989586621679278403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dedicatedTenancyManagementCidrRange:ModifyAccount' :: Maybe Text
+</span><a href="#local-6989586621679281260"><span class="hs-identifier hs-var hs-var">dedicatedTenancyManagementCidrRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281260"><span class="hs-identifier hs-var">dedicatedTenancyManagementCidrRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281259"><span class="annot"><span class="annottext">s :: ModifyAccount
+</span><a href="#local-6989586621679281259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount%27"><span class="hs-identifier hs-type">ModifyAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281258"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679281258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyAccount
+</span><a href="#local-6989586621679281259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dedicatedTenancyManagementCidrRange:ModifyAccount' :: Maybe Text
 </span><a href="Network.AWS.WorkSpaces.ModifyAccount.html#%24sel%3AdedicatedTenancyManagementCidrRange%3AModifyAccount%27"><span class="hs-identifier hs-var">dedicatedTenancyManagementCidrRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount"><span class="hs-identifier hs-type">ModifyAccount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount"><span class="hs-identifier hs-type">ModifyAccount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount"><span class="hs-identifier hs-type">ModifyAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount"><span class="hs-identifier hs-type">ModifyAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccountResponse"><span class="hs-identifier hs-type">ModifyAccountResponse</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679278398"><span class="annot"><span class="annottext">request :: ModifyAccount -&gt; Request ModifyAccount
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679281254"><span class="annot"><span class="annottext">request :: ModifyAccount -&gt; Request ModifyAccount
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyAccount -&gt; Request ModifyAccount
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WorkSpaces.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679278394"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679281250"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyAccount
 -&gt; ClientResponse ClientBody
@@ -230,10 +230,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278391"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278391"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679278390"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679278390"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679278389"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679278389"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679281247"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281247"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679281246"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679281246"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679281245"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679281245"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ModifyAccountResponse
 </span><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccountResponse%27"><span class="hs-identifier hs-var">ModifyAccountResponse'</span></a></span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ModifyAccountResponse)
@@ -244,15 +244,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278391"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281247"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278382"><span id="local-6989586621679278384"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount"><span class="hs-identifier hs-type">ModifyAccount</span></a></span></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281238"><span id="local-6989586621679281240"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount"><span class="hs-identifier hs-type">ModifyAccount</span></a></span></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278379"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount"><span class="hs-identifier hs-type">ModifyAccount</span></a></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281235"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount"><span class="hs-identifier hs-type">ModifyAccount</span></a></span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount"><span class="hs-identifier hs-type">ModifyAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679278375"><span class="annot"><span class="annottext">toHeaders :: ModifyAccount -&gt; ResponseHeaders
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679281231"><span class="annot"><span class="annottext">toHeaders :: ModifyAccount -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyAccount -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -279,15 +279,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278365"><span id="local-6989586621679278367"><span id="local-6989586621679278369"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount"><span class="hs-identifier hs-type">ModifyAccount</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679278363"><span class="annot"><span class="annottext">toJSON :: ModifyAccount -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount%27"><span class="hs-identifier hs-type">ModifyAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278360"><span id="local-6989586621679278361"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281221"><span id="local-6989586621679281223"><span id="local-6989586621679281225"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount"><span class="hs-identifier hs-type">ModifyAccount</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679281219"><span class="annot"><span class="annottext">toJSON :: ModifyAccount -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount%27"><span class="hs-identifier hs-type">ModifyAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281216"><span id="local-6989586621679281217"><span class="annot"><span class="annottext">Maybe Text
 Maybe DedicatedTenancySupportEnum
 dedicatedTenancyManagementCidrRange :: Maybe Text
 dedicatedTenancySupport :: Maybe DedicatedTenancySupportEnum
 $sel:dedicatedTenancyManagementCidrRange:ModifyAccount' :: ModifyAccount -&gt; Maybe Text
 $sel:dedicatedTenancySupport:ModifyAccount' :: ModifyAccount -&gt; Maybe DedicatedTenancySupportEnum
-</span><a href="#local-6989586621679278360"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679281216"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -301,7 +301,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DedicatedTenancySupportEnum -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DedicatedTenancySupportEnum
-</span><a href="#local-6989586621679278361"><span class="hs-identifier hs-var">dedicatedTenancySupport</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679281217"><span class="hs-identifier hs-var">dedicatedTenancySupport</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DedicatedTenancyManagementCidrRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -309,19 +309,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679278360"><span class="hs-identifier hs-var">dedicatedTenancyManagementCidrRange</span></a></span><span>
+</span><a href="#local-6989586621679281216"><span class="hs-identifier hs-var">dedicatedTenancyManagementCidrRange</span></a></span><span>
 </span><span id="line-142"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount"><span class="hs-identifier hs-type">ModifyAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679278354"><span class="annot"><span class="annottext">toPath :: ModifyAccount -&gt; ByteString
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679281210"><span class="annot"><span class="annottext">toPath :: ModifyAccount -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyAccount -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccount"><span class="hs-identifier hs-type">ModifyAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679278350"><span class="annot"><span class="annottext">toQuery :: ModifyAccount -&gt; QueryString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679281206"><span class="annot"><span class="annottext">toQuery :: ModifyAccount -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ModifyAccount -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -329,12 +329,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | /See:/ 'newModifyAccountResponse' smart constructor.</span><span>
-</span><span id="line-152"></span><span id="local-6989586621679278347"><span id="local-6989586621679278348"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyAccountResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccountResponse"><span class="hs-identifier hs-var">ModifyAccountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyAccountResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccountResponse%27"><span class="hs-identifier hs-var">ModifyAccountResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span id="local-6989586621679281203"><span id="local-6989586621679281204"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyAccountResponse"><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccountResponse"><span class="hs-identifier hs-var">ModifyAccountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyAccountResponse%27"><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccountResponse%27"><span class="hs-identifier hs-var">ModifyAccountResponse'</span></a></span></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyAccountResponse%27"><span class="annot"><span class="annottext">ModifyAccountResponse -&gt; Int
 </span><a href="Network.AWS.WorkSpaces.ModifyAccount.html#%24sel%3AhttpStatus%3AModifyAccountResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278342"><span id="local-6989586621679278344"><span class="annot"><span class="annottext">ModifyAccountResponse -&gt; ModifyAccountResponse -&gt; Bool
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281198"><span id="local-6989586621679281200"><span class="annot"><span class="annottext">ModifyAccountResponse -&gt; ModifyAccountResponse -&gt; Bool
 (ModifyAccountResponse -&gt; ModifyAccountResponse -&gt; Bool)
 -&gt; (ModifyAccountResponse -&gt; ModifyAccountResponse -&gt; Bool)
 -&gt; Eq ModifyAccountResponse
@@ -343,7 +343,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyAccountResponse -&gt; ModifyAccountResponse -&gt; Bool
 == :: ModifyAccountResponse -&gt; ModifyAccountResponse -&gt; Bool
 $c== :: ModifyAccountResponse -&gt; ModifyAccountResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278334"><span id="local-6989586621679278336"><span id="local-6989586621679278338"><span id="local-6989586621679278340"><span class="annot"><span class="annottext">ReadPrec [ModifyAccountResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281190"><span id="local-6989586621679281192"><span id="local-6989586621679281194"><span id="local-6989586621679281196"><span class="annot"><span class="annottext">ReadPrec [ModifyAccountResponse]
 ReadPrec ModifyAccountResponse
 Int -&gt; ReadS ModifyAccountResponse
 ReadS [ModifyAccountResponse]
@@ -363,7 +363,7 @@ readList :: ReadS [ModifyAccountResponse]
 $creadList :: ReadS [ModifyAccountResponse]
 readsPrec :: Int -&gt; ReadS ModifyAccountResponse
 $creadsPrec :: Int -&gt; ReadS ModifyAccountResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278328"><span id="local-6989586621679278330"><span id="local-6989586621679278332"><span class="annot"><span class="annottext">Int -&gt; ModifyAccountResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281184"><span id="local-6989586621679281186"><span id="local-6989586621679281188"><span class="annot"><span class="annottext">Int -&gt; ModifyAccountResponse -&gt; ShowS
 [ModifyAccountResponse] -&gt; ShowS
 ModifyAccountResponse -&gt; String
 (Int -&gt; ModifyAccountResponse -&gt; ShowS)
@@ -403,12 +403,12 @@ $cfrom :: forall x. ModifyAccountResponse -&gt; Rep ModifyAccountResponse x
 </span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccountResponse"><span class="hs-identifier hs-type">ModifyAccountResponse</span></a></span><span>
 </span><span id="line-171"></span><span id="newModifyAccountResponse"><span class="annot"><span class="annottext">newModifyAccountResponse :: Int -&gt; ModifyAccountResponse
-</span><a href="Network.AWS.WorkSpaces.ModifyAccount.html#newModifyAccountResponse"><span class="hs-identifier hs-var hs-var">newModifyAccountResponse</span></a></span></span><span> </span><span id="local-6989586621679278325"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WorkSpaces.ModifyAccount.html#newModifyAccountResponse"><span class="hs-identifier hs-var hs-var">newModifyAccountResponse</span></a></span></span><span> </span><span id="local-6989586621679281181"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281181"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">ModifyAccountResponse' :: Int -&gt; ModifyAccountResponse
 </span><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccountResponse%27"><span class="hs-identifier hs-type">ModifyAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyAccountResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.ModifyAccount.html#%24sel%3AhttpStatus%3AModifyAccountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679281181"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-175"></span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#modifyAccountResponse_httpStatus"><span class="hs-identifier hs-type">modifyAccountResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccountResponse"><span class="hs-identifier hs-type">ModifyAccountResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -417,16 +417,16 @@ $cfrom :: forall x. ModifyAccountResponse -&gt; Rep ModifyAccountResponse x
 -&gt; (ModifyAccountResponse -&gt; Int -&gt; ModifyAccountResponse)
 -&gt; Lens ModifyAccountResponse ModifyAccountResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccountResponse%27"><span class="hs-identifier hs-type">ModifyAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278324"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccountResponse%27"><span class="hs-identifier hs-type">ModifyAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281180"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ModifyAccountResponse' :: ModifyAccountResponse -&gt; Int
-</span><a href="#local-6989586621679278324"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278324"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278323"><span class="annot"><span class="annottext">s :: ModifyAccountResponse
-</span><a href="#local-6989586621679278323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccountResponse%27"><span class="hs-identifier hs-type">ModifyAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278322"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyAccountResponse
-</span><a href="#local-6989586621679278323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyAccountResponse' :: Int
+</span><a href="#local-6989586621679281180"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281180"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281179"><span class="annot"><span class="annottext">s :: ModifyAccountResponse
+</span><a href="#local-6989586621679281179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccountResponse%27"><span class="hs-identifier hs-type">ModifyAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281178"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679281178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyAccountResponse
+</span><a href="#local-6989586621679281179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyAccountResponse' :: Int
 </span><a href="Network.AWS.WorkSpaces.ModifyAccount.html#%24sel%3AhttpStatus%3AModifyAccountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679278322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccountResponse"><span class="hs-identifier hs-type">ModifyAccountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679281178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccountResponse"><span class="hs-identifier hs-type">ModifyAccountResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278320"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccountResponse"><span class="hs-identifier hs-type">ModifyAccountResponse</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679281176"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.ModifyAccount.html#ModifyAccountResponse"><span class="hs-identifier hs-type">ModifyAccountResponse</span></a></span></span><span>
 </span><span id="line-179"></span></pre></body></html>

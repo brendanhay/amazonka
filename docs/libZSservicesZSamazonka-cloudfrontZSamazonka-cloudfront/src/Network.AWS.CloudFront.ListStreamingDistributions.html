@@ -29,8 +29,8 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#newListStreamingDistributions"><span class="hs-identifier">newListStreamingDistributions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#listStreamingDistributions_maxItems"><span class="hs-identifier">listStreamingDistributions_maxItems</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#listStreamingDistributions_marker"><span class="hs-identifier">listStreamingDistributions_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#listStreamingDistributions_marker"><span class="hs-identifier">listStreamingDistributions_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#listStreamingDistributions_maxItems"><span class="hs-identifier">listStreamingDistributions_maxItems</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse"><span class="hs-identifier">ListStreamingDistributionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -52,15 +52,15 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | The request to list your streaming distributions.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newListStreamingDistributions' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679409293"><span id="local-6989586621679409294"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStreamingDistributions"><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-var">ListStreamingDistributions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStreamingDistributions%27"><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions%27"><span class="hs-identifier hs-var">ListStreamingDistributions'</span></a></span></span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value that you provided for the @MaxItems@ request parameter.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3AmaxItems%3AListStreamingDistributions%27"><span class="annot"><span class="annottext">ListStreamingDistributions -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#%24sel%3AmaxItems%3AListStreamingDistributions%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The value that you provided for the @Marker@ request parameter.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3Amarker%3AListStreamingDistributions%27"><span class="annot"><span class="annottext">ListStreamingDistributions -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#%24sel%3Amarker%3AListStreamingDistributions%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679409575"><span id="local-6989586621679409576"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStreamingDistributions"><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-var">ListStreamingDistributions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStreamingDistributions%27"><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions%27"><span class="hs-identifier hs-var">ListStreamingDistributions'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value that you provided for the @Marker@ request parameter.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Amarker%3AListStreamingDistributions%27"><span class="annot"><span class="annottext">ListStreamingDistributions -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#%24sel%3Amarker%3AListStreamingDistributions%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The value that you provided for the @MaxItems@ request parameter.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AmaxItems%3AListStreamingDistributions%27"><span class="annot"><span class="annottext">ListStreamingDistributions -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#%24sel%3AmaxItems%3AListStreamingDistributions%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409286"><span id="local-6989586621679409288"><span class="annot"><span class="annottext">ListStreamingDistributions -&gt; ListStreamingDistributions -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409568"><span id="local-6989586621679409570"><span class="annot"><span class="annottext">ListStreamingDistributions -&gt; ListStreamingDistributions -&gt; Bool
 (ListStreamingDistributions -&gt; ListStreamingDistributions -&gt; Bool)
 -&gt; (ListStreamingDistributions
     -&gt; ListStreamingDistributions -&gt; Bool)
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListStreamingDistributions -&gt; ListStreamingDistributions -&gt; Bool
 == :: ListStreamingDistributions -&gt; ListStreamingDistributions -&gt; Bool
 $c== :: ListStreamingDistributions -&gt; ListStreamingDistributions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409277"><span id="local-6989586621679409279"><span id="local-6989586621679409281"><span id="local-6989586621679409283"><span class="annot"><span class="annottext">ReadPrec [ListStreamingDistributions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409559"><span id="local-6989586621679409561"><span id="local-6989586621679409563"><span id="local-6989586621679409565"><span class="annot"><span class="annottext">ReadPrec [ListStreamingDistributions]
 ReadPrec ListStreamingDistributions
 Int -&gt; ReadS ListStreamingDistributions
 ReadS [ListStreamingDistributions]
@@ -90,7 +90,7 @@ readList :: ReadS [ListStreamingDistributions]
 $creadList :: ReadS [ListStreamingDistributions]
 readsPrec :: Int -&gt; ReadS ListStreamingDistributions
 $creadsPrec :: Int -&gt; ReadS ListStreamingDistributions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409270"><span id="local-6989586621679409272"><span id="local-6989586621679409274"><span class="annot"><span class="annottext">Int -&gt; ListStreamingDistributions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409552"><span id="local-6989586621679409554"><span id="local-6989586621679409556"><span class="annot"><span class="annottext">Int -&gt; ListStreamingDistributions -&gt; ShowS
 [ListStreamingDistributions] -&gt; ShowS
 ListStreamingDistributions -&gt; String
 (Int -&gt; ListStreamingDistributions -&gt; ShowS)
@@ -130,53 +130,29 @@ ListStreamingDistributions -&gt; Rep ListStreamingDistributions x
 </span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'maxItems', 'listStreamingDistributions_maxItems' - The value that you provided for the @MaxItems@ request parameter.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'marker', 'listStreamingDistributions_marker' - The value that you provided for the @Marker@ request parameter.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'marker', 'listStreamingDistributions_marker' - The value that you provided for the @Marker@ request parameter.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'maxItems', 'listStreamingDistributions_maxItems' - The value that you provided for the @MaxItems@ request parameter.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#newListStreamingDistributions"><span class="hs-identifier hs-type">newListStreamingDistributions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-type">ListStreamingDistributions</span></a></span><span>
 </span><span id="line-76"></span><span id="newListStreamingDistributions"><span class="annot"><span class="annottext">newListStreamingDistributions :: ListStreamingDistributions
 </span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#newListStreamingDistributions"><span class="hs-identifier hs-var hs-var">newListStreamingDistributions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">ListStreamingDistributions' :: Maybe Text -&gt; Maybe Text -&gt; ListStreamingDistributions
 </span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions%27"><span class="hs-identifier hs-type">ListStreamingDistributions'</span></a></span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxItems:ListStreamingDistributions' :: Maybe Text
-</span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#%24sel%3AmaxItems%3AListStreamingDistributions%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListStreamingDistributions' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#%24sel%3Amarker%3AListStreamingDistributions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:ListStreamingDistributions' :: Maybe Text
-</span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#%24sel%3Amarker%3AListStreamingDistributions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxItems:ListStreamingDistributions' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#%24sel%3AmaxItems%3AListStreamingDistributions%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | The value that you provided for the @MaxItems@ request parameter.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#listStreamingDistributions_maxItems"><span class="hs-identifier hs-type">listStreamingDistributions_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-type">ListStreamingDistributions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="listStreamingDistributions_maxItems"><span class="annot"><span class="annottext">listStreamingDistributions_maxItems :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListStreamingDistributions -&gt; f ListStreamingDistributions
-</span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#listStreamingDistributions_maxItems"><span class="hs-identifier hs-var hs-var">listStreamingDistributions_maxItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStreamingDistributions -&gt; Maybe Text)
--&gt; (ListStreamingDistributions
-    -&gt; Maybe Text -&gt; ListStreamingDistributions)
--&gt; Lens
-     ListStreamingDistributions
-     ListStreamingDistributions
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions%27"><span class="hs-identifier hs-type">ListStreamingDistributions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409264"><span class="annot"><span class="annottext">Maybe Text
-maxItems :: Maybe Text
-$sel:maxItems:ListStreamingDistributions' :: ListStreamingDistributions -&gt; Maybe Text
-</span><a href="#local-6989586621679409264"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409264"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409263"><span class="annot"><span class="annottext">s :: ListStreamingDistributions
-</span><a href="#local-6989586621679409263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions%27"><span class="hs-identifier hs-type">ListStreamingDistributions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409262"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamingDistributions
-</span><a href="#local-6989586621679409263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListStreamingDistributions' :: Maybe Text
-</span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#%24sel%3AmaxItems%3AListStreamingDistributions%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-type">ListStreamingDistributions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The value that you provided for the @Marker@ request parameter.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#listStreamingDistributions_marker"><span class="hs-identifier hs-type">listStreamingDistributions_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-type">ListStreamingDistributions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="listStreamingDistributions_marker"><span class="annot"><span class="annottext">listStreamingDistributions_marker :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-83"></span><span class="hs-comment">-- | The value that you provided for the @Marker@ request parameter.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#listStreamingDistributions_marker"><span class="hs-identifier hs-type">listStreamingDistributions_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-type">ListStreamingDistributions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="listStreamingDistributions_marker"><span class="annot"><span class="annottext">listStreamingDistributions_marker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListStreamingDistributions -&gt; f ListStreamingDistributions
 </span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#listStreamingDistributions_marker"><span class="hs-identifier hs-var hs-var">listStreamingDistributions_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStreamingDistributions -&gt; Maybe Text)
 -&gt; (ListStreamingDistributions
@@ -187,30 +163,54 @@ $sel:maxItems:ListStreamingDistributions' :: ListStreamingDistributions -&gt; Ma
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions%27"><span class="hs-identifier hs-type">ListStreamingDistributions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409261"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions%27"><span class="hs-identifier hs-type">ListStreamingDistributions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409546"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:ListStreamingDistributions' :: ListStreamingDistributions -&gt; Maybe Text
-</span><a href="#local-6989586621679409261"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409261"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409260"><span class="annot"><span class="annottext">s :: ListStreamingDistributions
-</span><a href="#local-6989586621679409260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions%27"><span class="hs-identifier hs-type">ListStreamingDistributions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409259"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamingDistributions
-</span><a href="#local-6989586621679409260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListStreamingDistributions' :: Maybe Text
+</span><a href="#local-6989586621679409546"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409546"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409545"><span class="annot"><span class="annottext">s :: ListStreamingDistributions
+</span><a href="#local-6989586621679409545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions%27"><span class="hs-identifier hs-type">ListStreamingDistributions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409544"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamingDistributions
+</span><a href="#local-6989586621679409545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListStreamingDistributions' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#%24sel%3Amarker%3AListStreamingDistributions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-type">ListStreamingDistributions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679409544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-type">ListStreamingDistributions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The value that you provided for the @MaxItems@ request parameter.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#listStreamingDistributions_maxItems"><span class="hs-identifier hs-type">listStreamingDistributions_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-type">ListStreamingDistributions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="listStreamingDistributions_maxItems"><span class="annot"><span class="annottext">listStreamingDistributions_maxItems :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListStreamingDistributions -&gt; f ListStreamingDistributions
+</span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#listStreamingDistributions_maxItems"><span class="hs-identifier hs-var hs-var">listStreamingDistributions_maxItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListStreamingDistributions -&gt; Maybe Text)
+-&gt; (ListStreamingDistributions
+    -&gt; Maybe Text -&gt; ListStreamingDistributions)
+-&gt; Lens
+     ListStreamingDistributions
+     ListStreamingDistributions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions%27"><span class="hs-identifier hs-type">ListStreamingDistributions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409543"><span class="annot"><span class="annottext">Maybe Text
+maxItems :: Maybe Text
+$sel:maxItems:ListStreamingDistributions' :: ListStreamingDistributions -&gt; Maybe Text
+</span><a href="#local-6989586621679409543"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409543"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409542"><span class="annot"><span class="annottext">s :: ListStreamingDistributions
+</span><a href="#local-6989586621679409542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions%27"><span class="hs-identifier hs-type">ListStreamingDistributions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409541"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamingDistributions
+</span><a href="#local-6989586621679409542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListStreamingDistributions' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#%24sel%3AmaxItems%3AListStreamingDistributions%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-type">ListStreamingDistributions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-type">ListStreamingDistributions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679409255"><span class="annot"><span class="annottext">page :: ListStreamingDistributions
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679409537"><span class="annot"><span class="annottext">page :: ListStreamingDistributions
 -&gt; AWSResponse ListStreamingDistributions
 -&gt; Maybe ListStreamingDistributions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679409253"><span class="annot"><span class="annottext">ListStreamingDistributions
-</span><a href="#local-6989586621679409253"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679409252"><span class="annot"><span class="annottext">AWSResponse ListStreamingDistributions
-</span><a href="#local-6989586621679409252"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679409535"><span class="annot"><span class="annottext">ListStreamingDistributions
+</span><a href="#local-6989586621679409535"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679409534"><span class="annot"><span class="annottext">AWSResponse ListStreamingDistributions
+</span><a href="#local-6989586621679409534"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-94"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStreamingDistributions
 ListStreamingDistributionsResponse
-</span><a href="#local-6989586621679409252"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679409534"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">ListStreamingDistributionsResponse
 -&gt; Getting Bool ListStreamingDistributionsResponse Bool -&gt; Bool
 forall s a. s -&gt; Getting a s a -&gt; a
@@ -242,7 +242,7 @@ forall a. Maybe a -&gt; Bool
 </span><span class="hs-identifier hs-var">Prelude.isNothing</span></span><span>
 </span><span id="line-100"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStreamingDistributions
 ListStreamingDistributionsResponse
-</span><a href="#local-6989586621679409252"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679409534"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">ListStreamingDistributionsResponse
 -&gt; Getting (First Text) ListStreamingDistributionsResponse Text
 -&gt; Maybe Text
@@ -293,7 +293,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">ListStreamingDistributions
-</span><a href="#local-6989586621679409253"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679409535"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">ListStreamingDistributions
 -&gt; (ListStreamingDistributions -&gt; ListStreamingDistributions)
 -&gt; ListStreamingDistributions
@@ -316,7 +316,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListStreamingDistributions
 ListStreamingDistributionsResponse
-</span><a href="#local-6989586621679409252"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679409534"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">ListStreamingDistributionsResponse
 -&gt; Getting (First Text) ListStreamingDistributionsResponse Text
 -&gt; Maybe Text
@@ -359,13 +359,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-type">ListStreamingDistributions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse"><span class="hs-identifier hs-type">ListStreamingDistributionsResponse</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679409238"><span class="annot"><span class="annottext">request :: ListStreamingDistributions -&gt; Request ListStreamingDistributions
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679409520"><span class="annot"><span class="annottext">request :: ListStreamingDistributions -&gt; Request ListStreamingDistributions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListStreamingDistributions -&gt; Request ListStreamingDistributions
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679409234"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679409516"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListStreamingDistributions
 -&gt; ClientResponse ClientBody
@@ -391,10 +391,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679409231"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679409231"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679409230"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679409230"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679409229"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679409229"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679409513"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679409513"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679409512"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679409512"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679409511"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679409511"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Int
 -&gt; StreamingDistributionList -&gt; ListStreamingDistributionsResponse
 </span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse%27"><span class="hs-identifier hs-var">ListStreamingDistributionsResponse'</span></a></span><span>
@@ -410,7 +410,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679409231"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679409513"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (StreamingDistributionList -&gt; ListStreamingDistributionsResponse)
@@ -420,15 +420,15 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node] -&gt; Either String StreamingDistributionList
 forall a. FromXML a =&gt; [Node] -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679409229"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679409511"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409221"><span id="local-6989586621679409223"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-type">ListStreamingDistributions</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409503"><span id="local-6989586621679409505"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-type">ListStreamingDistributions</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409218"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-type">ListStreamingDistributions</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679409500"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-type">ListStreamingDistributions</span></a></span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-type">ListStreamingDistributions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679409214"><span class="annot"><span class="annottext">toHeaders :: ListStreamingDistributions -&gt; ResponseHeaders
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679409496"><span class="annot"><span class="annottext">toHeaders :: ListStreamingDistributions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListStreamingDistributions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -436,7 +436,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-type">ListStreamingDistributions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679409209"><span class="annot"><span class="annottext">toPath :: ListStreamingDistributions -&gt; ByteString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679409491"><span class="annot"><span class="annottext">toPath :: ListStreamingDistributions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ListStreamingDistributions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -444,32 +444,32 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/2020-05-31/streaming-distribution&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions"><span class="hs-identifier hs-type">ListStreamingDistributions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679409205"><span class="annot"><span class="annottext">toQuery :: ListStreamingDistributions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions%27"><span class="hs-identifier hs-type">ListStreamingDistributions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409202"><span id="local-6989586621679409203"><span class="annot"><span class="annottext">Maybe Text
-marker :: Maybe Text
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679409487"><span class="annot"><span class="annottext">toQuery :: ListStreamingDistributions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributions%27"><span class="hs-identifier hs-type">ListStreamingDistributions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409484"><span id="local-6989586621679409485"><span class="annot"><span class="annottext">Maybe Text
 maxItems :: Maybe Text
-$sel:marker:ListStreamingDistributions' :: ListStreamingDistributions -&gt; Maybe Text
+marker :: Maybe Text
 $sel:maxItems:ListStreamingDistributions' :: ListStreamingDistributions -&gt; Maybe Text
-</span><a href="#local-6989586621679409202"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:marker:ListStreamingDistributions' :: ListStreamingDistributions -&gt; Maybe Text
+</span><a href="#local-6989586621679409484"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409203"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679409202"><span class="hs-identifier hs-var">marker</span></a></span><span>
+</span><a href="#local-6989586621679409485"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679409484"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The returned result of the corresponding request.</span><span>
 </span><span id="line-147"></span><span class="hs-comment">--</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- /See:/ 'newListStreamingDistributionsResponse' smart constructor.</span><span>
-</span><span id="line-149"></span><span id="local-6989586621679409199"><span id="local-6989586621679409200"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStreamingDistributionsResponse"><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse"><span class="hs-identifier hs-var">ListStreamingDistributionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStreamingDistributionsResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse%27"><span class="hs-identifier hs-var">ListStreamingDistributionsResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span id="local-6989586621679409481"><span id="local-6989586621679409482"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListStreamingDistributionsResponse"><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse"><span class="hs-identifier hs-var">ListStreamingDistributionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListStreamingDistributionsResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse%27"><span class="hs-identifier hs-var">ListStreamingDistributionsResponse'</span></a></span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListStreamingDistributionsResponse%27"><span class="annot"><span class="annottext">ListStreamingDistributionsResponse -&gt; Int
 </span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#%24sel%3AhttpStatus%3AListStreamingDistributionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -477,7 +477,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AstreamingDistributionList%3AListStreamingDistributionsResponse%27"><span class="annot"><span class="annottext">ListStreamingDistributionsResponse -&gt; StreamingDistributionList
 </span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#%24sel%3AstreamingDistributionList%3AListStreamingDistributionsResponse%27"><span class="hs-identifier hs-var hs-var">streamingDistributionList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StreamingDistributionList.html#StreamingDistributionList"><span class="hs-identifier hs-type">StreamingDistributionList</span></a></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409193"><span id="local-6989586621679409195"><span class="annot"><span class="annottext">ListStreamingDistributionsResponse
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679409475"><span id="local-6989586621679409477"><span class="annot"><span class="annottext">ListStreamingDistributionsResponse
 -&gt; ListStreamingDistributionsResponse -&gt; Bool
 (ListStreamingDistributionsResponse
  -&gt; ListStreamingDistributionsResponse -&gt; Bool)
@@ -493,7 +493,7 @@ $c/= :: ListStreamingDistributionsResponse
 -&gt; ListStreamingDistributionsResponse -&gt; Bool
 $c== :: ListStreamingDistributionsResponse
 -&gt; ListStreamingDistributionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409185"><span id="local-6989586621679409187"><span id="local-6989586621679409189"><span id="local-6989586621679409191"><span class="annot"><span class="annottext">ReadPrec [ListStreamingDistributionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409467"><span id="local-6989586621679409469"><span id="local-6989586621679409471"><span id="local-6989586621679409473"><span class="annot"><span class="annottext">ReadPrec [ListStreamingDistributionsResponse]
 ReadPrec ListStreamingDistributionsResponse
 Int -&gt; ReadS ListStreamingDistributionsResponse
 ReadS [ListStreamingDistributionsResponse]
@@ -513,7 +513,7 @@ readList :: ReadS [ListStreamingDistributionsResponse]
 $creadList :: ReadS [ListStreamingDistributionsResponse]
 readsPrec :: Int -&gt; ReadS ListStreamingDistributionsResponse
 $creadsPrec :: Int -&gt; ReadS ListStreamingDistributionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409179"><span id="local-6989586621679409181"><span id="local-6989586621679409183"><span class="annot"><span class="annottext">Int -&gt; ListStreamingDistributionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679409461"><span id="local-6989586621679409463"><span id="local-6989586621679409465"><span class="annot"><span class="annottext">Int -&gt; ListStreamingDistributionsResponse -&gt; ShowS
 [ListStreamingDistributionsResponse] -&gt; ShowS
 ListStreamingDistributionsResponse -&gt; String
 (Int -&gt; ListStreamingDistributionsResponse -&gt; ShowS)
@@ -571,21 +571,21 @@ ListStreamingDistributionsResponse
 </span><span id="line-174"></span><span id="newListStreamingDistributionsResponse"><span class="annot"><span class="annottext">newListStreamingDistributionsResponse :: Int
 -&gt; StreamingDistributionList -&gt; ListStreamingDistributionsResponse
 </span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#newListStreamingDistributionsResponse"><span class="hs-identifier hs-var hs-var">newListStreamingDistributionsResponse</span></a></span></span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679409176"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679409176"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679409175"><span class="annot"><span class="annottext">StreamingDistributionList
-</span><a href="#local-6989586621679409175"><span class="hs-identifier hs-var">pStreamingDistributionList_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679409458"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679409458"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679409457"><span class="annot"><span class="annottext">StreamingDistributionList
+</span><a href="#local-6989586621679409457"><span class="hs-identifier hs-var">pStreamingDistributionList_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">ListStreamingDistributionsResponse' :: Int
 -&gt; StreamingDistributionList -&gt; ListStreamingDistributionsResponse
 </span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse%27"><span class="hs-identifier hs-type">ListStreamingDistributionsResponse'</span></a></span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ListStreamingDistributionsResponse' :: Int
 </span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#%24sel%3AhttpStatus%3AListStreamingDistributionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679409176"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679409458"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">$sel:streamingDistributionList:ListStreamingDistributionsResponse' :: StreamingDistributionList
 </span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#%24sel%3AstreamingDistributionList%3AListStreamingDistributionsResponse%27"><span class="hs-identifier hs-var">streamingDistributionList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">StreamingDistributionList
-</span><a href="#local-6989586621679409175"><span class="hs-identifier hs-var">pStreamingDistributionList_</span></a></span><span>
+</span><a href="#local-6989586621679409457"><span class="hs-identifier hs-var">pStreamingDistributionList_</span></a></span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -602,16 +602,16 @@ ListStreamingDistributionsResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse%27"><span class="hs-identifier hs-type">ListStreamingDistributionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409174"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse%27"><span class="hs-identifier hs-type">ListStreamingDistributionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409456"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListStreamingDistributionsResponse' :: ListStreamingDistributionsResponse -&gt; Int
-</span><a href="#local-6989586621679409174"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679409174"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409173"><span class="annot"><span class="annottext">s :: ListStreamingDistributionsResponse
-</span><a href="#local-6989586621679409173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse%27"><span class="hs-identifier hs-type">ListStreamingDistributionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409172"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679409172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamingDistributionsResponse
-</span><a href="#local-6989586621679409173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListStreamingDistributionsResponse' :: Int
+</span><a href="#local-6989586621679409456"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679409456"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409455"><span class="annot"><span class="annottext">s :: ListStreamingDistributionsResponse
+</span><a href="#local-6989586621679409455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse%27"><span class="hs-identifier hs-type">ListStreamingDistributionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409454"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679409454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamingDistributionsResponse
+</span><a href="#local-6989586621679409455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListStreamingDistributionsResponse' :: Int
 </span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#%24sel%3AhttpStatus%3AListStreamingDistributionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679409172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse"><span class="hs-identifier hs-type">ListStreamingDistributionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679409454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse"><span class="hs-identifier hs-type">ListStreamingDistributionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | The @StreamingDistributionList@ type.</span><span>
 </span><span id="line-189"></span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#listStreamingDistributionsResponse_streamingDistributionList"><span class="hs-identifier hs-type">listStreamingDistributionsResponse_streamingDistributionList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse"><span class="hs-identifier hs-type">ListStreamingDistributionsResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.StreamingDistributionList.html#StreamingDistributionList"><span class="hs-identifier hs-type">StreamingDistributionList</span></a></span><span>
@@ -624,18 +624,18 @@ $sel:httpStatus:ListStreamingDistributionsResponse' :: ListStreamingDistribution
 -&gt; Lens'
      ListStreamingDistributionsResponse StreamingDistributionList
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse%27"><span class="hs-identifier hs-type">ListStreamingDistributionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409171"><span class="annot"><span class="annottext">StreamingDistributionList
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse%27"><span class="hs-identifier hs-type">ListStreamingDistributionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679409453"><span class="annot"><span class="annottext">StreamingDistributionList
 streamingDistributionList :: StreamingDistributionList
 $sel:streamingDistributionList:ListStreamingDistributionsResponse' :: ListStreamingDistributionsResponse -&gt; StreamingDistributionList
-</span><a href="#local-6989586621679409171"><span class="hs-identifier hs-var hs-var">streamingDistributionList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamingDistributionList
-</span><a href="#local-6989586621679409171"><span class="hs-identifier hs-var">streamingDistributionList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409170"><span class="annot"><span class="annottext">s :: ListStreamingDistributionsResponse
-</span><a href="#local-6989586621679409170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse%27"><span class="hs-identifier hs-type">ListStreamingDistributionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409169"><span class="annot"><span class="annottext">StreamingDistributionList
-</span><a href="#local-6989586621679409169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamingDistributionsResponse
-</span><a href="#local-6989586621679409170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamingDistributionList:ListStreamingDistributionsResponse' :: StreamingDistributionList
+</span><a href="#local-6989586621679409453"><span class="hs-identifier hs-var hs-var">streamingDistributionList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StreamingDistributionList
+</span><a href="#local-6989586621679409453"><span class="hs-identifier hs-var">streamingDistributionList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679409452"><span class="annot"><span class="annottext">s :: ListStreamingDistributionsResponse
+</span><a href="#local-6989586621679409452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse%27"><span class="hs-identifier hs-type">ListStreamingDistributionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679409451"><span class="annot"><span class="annottext">StreamingDistributionList
+</span><a href="#local-6989586621679409451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListStreamingDistributionsResponse
+</span><a href="#local-6989586621679409452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamingDistributionList:ListStreamingDistributionsResponse' :: StreamingDistributionList
 </span><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#%24sel%3AstreamingDistributionList%3AListStreamingDistributionsResponse%27"><span class="hs-identifier hs-var">streamingDistributionList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StreamingDistributionList
-</span><a href="#local-6989586621679409169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse"><span class="hs-identifier hs-type">ListStreamingDistributionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679409451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse"><span class="hs-identifier hs-type">ListStreamingDistributionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679409167"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679409449"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-194"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.ListStreamingDistributions.html#ListStreamingDistributionsResponse"><span class="hs-identifier hs-type">ListStreamingDistributionsResponse</span></a></span></span><span>
 </span><span id="line-195"></span></pre></body></html>

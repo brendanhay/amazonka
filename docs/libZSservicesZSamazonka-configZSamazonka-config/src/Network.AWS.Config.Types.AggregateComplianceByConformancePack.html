@@ -38,22 +38,22 @@
 </span><span id="line-38"></span><span class="hs-comment">-- shows compliant.</span><span>
 </span><span id="line-39"></span><span class="hs-comment">--</span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- /See:/ 'newAggregateComplianceByConformancePack' smart constructor.</span><span>
-</span><span id="line-41"></span><span id="local-6989586621679397624"><span id="local-6989586621679397625"></span></span><span class="hs-keyword">data</span><span> </span><span id="AggregateComplianceByConformancePack"><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-var">AggregateComplianceByConformancePack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregateComplianceByConformancePack%27"><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var">AggregateComplianceByConformancePack'</span></a></span></span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The 12-digit Amazon Web Services account ID of the source account.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AaccountId%3AAggregateComplianceByConformancePack%27"><span class="annot"><span class="annottext">AggregateComplianceByConformancePack -&gt; Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3AaccountId%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span id="local-6989586621679398203"><span id="local-6989586621679398204"></span></span><span class="hs-keyword">data</span><span> </span><span id="AggregateComplianceByConformancePack"><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-var">AggregateComplianceByConformancePack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregateComplianceByConformancePack%27"><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var">AggregateComplianceByConformancePack'</span></a></span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The compliance status of the conformance pack.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Acompliance%3AAggregateComplianceByConformancePack%27"><span class="annot"><span class="annottext">AggregateComplianceByConformancePack
+-&gt; Maybe AggregateConformancePackCompliance
+</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3Acompliance%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var hs-var">compliance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateConformancePackCompliance.html#AggregateConformancePackCompliance"><span class="hs-identifier hs-type">AggregateConformancePackCompliance</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the conformance pack.</span><span>
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AconformancePackName%3AAggregateComplianceByConformancePack%27"><span class="annot"><span class="annottext">AggregateComplianceByConformancePack -&gt; Maybe Text
 </span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3AconformancePackName%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var hs-var">conformancePackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The source Amazon Web Services Region from where the data is aggregated.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AawsRegion%3AAggregateComplianceByConformancePack%27"><span class="annot"><span class="annottext">AggregateComplianceByConformancePack -&gt; Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3AawsRegion%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The compliance status of the conformance pack.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3Acompliance%3AAggregateComplianceByConformancePack%27"><span class="annot"><span class="annottext">AggregateComplianceByConformancePack
--&gt; Maybe AggregateConformancePackCompliance
-</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3Acompliance%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var hs-var">compliance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateConformancePackCompliance.html#AggregateConformancePackCompliance"><span class="hs-identifier hs-type">AggregateConformancePackCompliance</span></a></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The 12-digit Amazon Web Services account ID of the source account.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AaccountId%3AAggregateComplianceByConformancePack%27"><span class="annot"><span class="annottext">AggregateComplianceByConformancePack -&gt; Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3AaccountId%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The source Amazon Web Services Region from where the data is aggregated.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AawsRegion%3AAggregateComplianceByConformancePack%27"><span class="annot"><span class="annottext">AggregateComplianceByConformancePack -&gt; Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3AawsRegion%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397615"><span id="local-6989586621679397617"><span class="annot"><span class="annottext">AggregateComplianceByConformancePack
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679398194"><span id="local-6989586621679398196"><span class="annot"><span class="annottext">AggregateComplianceByConformancePack
 -&gt; AggregateComplianceByConformancePack -&gt; Bool
 (AggregateComplianceByConformancePack
  -&gt; AggregateComplianceByConformancePack -&gt; Bool)
@@ -69,7 +69,7 @@ $c/= :: AggregateComplianceByConformancePack
 -&gt; AggregateComplianceByConformancePack -&gt; Bool
 $c== :: AggregateComplianceByConformancePack
 -&gt; AggregateComplianceByConformancePack -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397606"><span id="local-6989586621679397608"><span id="local-6989586621679397610"><span id="local-6989586621679397612"><span class="annot"><span class="annottext">ReadPrec [AggregateComplianceByConformancePack]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398185"><span id="local-6989586621679398187"><span id="local-6989586621679398189"><span id="local-6989586621679398191"><span class="annot"><span class="annottext">ReadPrec [AggregateComplianceByConformancePack]
 ReadPrec AggregateComplianceByConformancePack
 Int -&gt; ReadS AggregateComplianceByConformancePack
 ReadS [AggregateComplianceByConformancePack]
@@ -89,7 +89,7 @@ readList :: ReadS [AggregateComplianceByConformancePack]
 $creadList :: ReadS [AggregateComplianceByConformancePack]
 readsPrec :: Int -&gt; ReadS AggregateComplianceByConformancePack
 $creadsPrec :: Int -&gt; ReadS AggregateComplianceByConformancePack
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397599"><span id="local-6989586621679397601"><span id="local-6989586621679397603"><span class="annot"><span class="annottext">Int -&gt; AggregateComplianceByConformancePack -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679398178"><span id="local-6989586621679398180"><span id="local-6989586621679398182"><span class="annot"><span class="annottext">Int -&gt; AggregateComplianceByConformancePack -&gt; ShowS
 [AggregateComplianceByConformancePack] -&gt; ShowS
 AggregateComplianceByConformancePack -&gt; String
 (Int -&gt; AggregateComplianceByConformancePack -&gt; ShowS)
@@ -135,66 +135,70 @@ AggregateComplianceByConformancePack
 </span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'accountId', 'aggregateComplianceByConformancePack_accountId' - The 12-digit Amazon Web Services account ID of the source account.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'compliance', 'aggregateComplianceByConformancePack_compliance' - The compliance status of the conformance pack.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- 'conformancePackName', 'aggregateComplianceByConformancePack_conformancePackName' - The name of the conformance pack.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'awsRegion', 'aggregateComplianceByConformancePack_awsRegion' - The source Amazon Web Services Region from where the data is aggregated.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'accountId', 'aggregateComplianceByConformancePack_accountId' - The 12-digit Amazon Web Services account ID of the source account.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'compliance', 'aggregateComplianceByConformancePack_compliance' - The compliance status of the conformance pack.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'awsRegion', 'aggregateComplianceByConformancePack_awsRegion' - The source Amazon Web Services Region from where the data is aggregated.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#newAggregateComplianceByConformancePack"><span class="hs-identifier hs-type">newAggregateComplianceByConformancePack</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span><span>
 </span><span id="line-70"></span><span id="newAggregateComplianceByConformancePack"><span class="annot"><span class="annottext">newAggregateComplianceByConformancePack :: AggregateComplianceByConformancePack
 </span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#newAggregateComplianceByConformancePack"><span class="hs-identifier hs-var hs-var">newAggregateComplianceByConformancePack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">AggregateComplianceByConformancePack' :: Maybe Text
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">AggregateComplianceByConformancePack' :: Maybe AggregateConformancePackCompliance
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe AggregateConformancePackCompliance
+-&gt; Maybe Text
 -&gt; AggregateComplianceByConformancePack
 </span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack'</span></a></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:AggregateComplianceByConformancePack' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3AaccountId%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:compliance:AggregateComplianceByConformancePack' :: Maybe AggregateConformancePackCompliance
+</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3Acompliance%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var">compliance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe AggregateConformancePackCompliance
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:conformancePackName:AggregateComplianceByConformancePack' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3AconformancePackName%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var">conformancePackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsRegion:AggregateComplianceByConformancePack' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3AawsRegion%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:AggregateComplianceByConformancePack' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3AaccountId%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:compliance:AggregateComplianceByConformancePack' :: Maybe AggregateConformancePackCompliance
-</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3Acompliance%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var">compliance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AggregateConformancePackCompliance
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsRegion:AggregateComplianceByConformancePack' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3AawsRegion%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | The 12-digit Amazon Web Services account ID of the source account.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#aggregateComplianceByConformancePack_accountId"><span class="hs-identifier hs-type">aggregateComplianceByConformancePack_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="aggregateComplianceByConformancePack_accountId"><span class="annot"><span class="annottext">aggregateComplianceByConformancePack_accountId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-79"></span><span class="hs-comment">-- | The compliance status of the conformance pack.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#aggregateComplianceByConformancePack_compliance"><span class="hs-identifier hs-type">aggregateComplianceByConformancePack_compliance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateConformancePackCompliance.html#AggregateConformancePackCompliance"><span class="hs-identifier hs-type">AggregateConformancePackCompliance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="aggregateComplianceByConformancePack_compliance"><span class="annot"><span class="annottext">aggregateComplianceByConformancePack_compliance :: (Maybe AggregateConformancePackCompliance
+ -&gt; f (Maybe AggregateConformancePackCompliance))
 -&gt; AggregateComplianceByConformancePack
 -&gt; f AggregateComplianceByConformancePack
-</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#aggregateComplianceByConformancePack_accountId"><span class="hs-identifier hs-var hs-var">aggregateComplianceByConformancePack_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregateComplianceByConformancePack -&gt; Maybe Text)
+</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#aggregateComplianceByConformancePack_compliance"><span class="hs-identifier hs-var hs-var">aggregateComplianceByConformancePack_compliance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregateComplianceByConformancePack
+ -&gt; Maybe AggregateConformancePackCompliance)
 -&gt; (AggregateComplianceByConformancePack
-    -&gt; Maybe Text -&gt; AggregateComplianceByConformancePack)
+    -&gt; Maybe AggregateConformancePackCompliance
+    -&gt; AggregateComplianceByConformancePack)
 -&gt; Lens
      AggregateComplianceByConformancePack
      AggregateComplianceByConformancePack
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe AggregateConformancePackCompliance)
+     (Maybe AggregateConformancePackCompliance)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397590"><span class="annot"><span class="annottext">Maybe Text
-accountId :: Maybe Text
-$sel:accountId:AggregateComplianceByConformancePack' :: AggregateComplianceByConformancePack -&gt; Maybe Text
-</span><a href="#local-6989586621679397590"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397590"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397589"><span class="annot"><span class="annottext">s :: AggregateComplianceByConformancePack
-</span><a href="#local-6989586621679397589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397588"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateComplianceByConformancePack
-</span><a href="#local-6989586621679397589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:AggregateComplianceByConformancePack' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3AaccountId%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398169"><span class="annot"><span class="annottext">Maybe AggregateConformancePackCompliance
+compliance :: Maybe AggregateConformancePackCompliance
+$sel:compliance:AggregateComplianceByConformancePack' :: AggregateComplianceByConformancePack
+-&gt; Maybe AggregateConformancePackCompliance
+</span><a href="#local-6989586621679398169"><span class="hs-identifier hs-var hs-var">compliance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AggregateConformancePackCompliance
+</span><a href="#local-6989586621679398169"><span class="hs-identifier hs-var">compliance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398168"><span class="annot"><span class="annottext">s :: AggregateComplianceByConformancePack
+</span><a href="#local-6989586621679398168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398167"><span class="annot"><span class="annottext">Maybe AggregateConformancePackCompliance
+</span><a href="#local-6989586621679398167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateComplianceByConformancePack
+</span><a href="#local-6989586621679398168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compliance:AggregateComplianceByConformancePack' :: Maybe AggregateConformancePackCompliance
+</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3Acompliance%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var">compliance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AggregateConformancePackCompliance
+</span><a href="#local-6989586621679398167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The name of the conformance pack.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#aggregateComplianceByConformancePack_conformancePackName"><span class="hs-identifier hs-type">aggregateComplianceByConformancePack_conformancePackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -210,20 +214,45 @@ $sel:accountId:AggregateComplianceByConformancePack' :: AggregateComplianceByCon
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397586"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398165"><span class="annot"><span class="annottext">Maybe Text
 conformancePackName :: Maybe Text
 $sel:conformancePackName:AggregateComplianceByConformancePack' :: AggregateComplianceByConformancePack -&gt; Maybe Text
-</span><a href="#local-6989586621679397586"><span class="hs-identifier hs-var hs-var">conformancePackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397586"><span class="hs-identifier hs-var">conformancePackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397585"><span class="annot"><span class="annottext">s :: AggregateComplianceByConformancePack
-</span><a href="#local-6989586621679397585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397584"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateComplianceByConformancePack
-</span><a href="#local-6989586621679397585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conformancePackName:AggregateComplianceByConformancePack' :: Maybe Text
+</span><a href="#local-6989586621679398165"><span class="hs-identifier hs-var hs-var">conformancePackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679398165"><span class="hs-identifier hs-var">conformancePackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398164"><span class="annot"><span class="annottext">s :: AggregateComplianceByConformancePack
+</span><a href="#local-6989586621679398164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398163"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679398163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateComplianceByConformancePack
+</span><a href="#local-6989586621679398164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conformancePackName:AggregateComplianceByConformancePack' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3AconformancePackName%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var">conformancePackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679398163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The source Amazon Web Services Region from where the data is aggregated.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#aggregateComplianceByConformancePack_awsRegion"><span class="hs-identifier hs-type">aggregateComplianceByConformancePack_awsRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="aggregateComplianceByConformancePack_awsRegion"><span class="annot"><span class="annottext">aggregateComplianceByConformancePack_awsRegion :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-87"></span><span class="hs-comment">-- | The 12-digit Amazon Web Services account ID of the source account.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#aggregateComplianceByConformancePack_accountId"><span class="hs-identifier hs-type">aggregateComplianceByConformancePack_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="aggregateComplianceByConformancePack_accountId"><span class="annot"><span class="annottext">aggregateComplianceByConformancePack_accountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AggregateComplianceByConformancePack
+-&gt; f AggregateComplianceByConformancePack
+</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#aggregateComplianceByConformancePack_accountId"><span class="hs-identifier hs-var hs-var">aggregateComplianceByConformancePack_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregateComplianceByConformancePack -&gt; Maybe Text)
+-&gt; (AggregateComplianceByConformancePack
+    -&gt; Maybe Text -&gt; AggregateComplianceByConformancePack)
+-&gt; Lens
+     AggregateComplianceByConformancePack
+     AggregateComplianceByConformancePack
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398161"><span class="annot"><span class="annottext">Maybe Text
+accountId :: Maybe Text
+$sel:accountId:AggregateComplianceByConformancePack' :: AggregateComplianceByConformancePack -&gt; Maybe Text
+</span><a href="#local-6989586621679398161"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679398161"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398160"><span class="annot"><span class="annottext">s :: AggregateComplianceByConformancePack
+</span><a href="#local-6989586621679398160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398159"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679398159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateComplianceByConformancePack
+</span><a href="#local-6989586621679398160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:AggregateComplianceByConformancePack' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3AaccountId%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679398159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The source Amazon Web Services Region from where the data is aggregated.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#aggregateComplianceByConformancePack_awsRegion"><span class="hs-identifier hs-type">aggregateComplianceByConformancePack_awsRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="aggregateComplianceByConformancePack_awsRegion"><span class="annot"><span class="annottext">aggregateComplianceByConformancePack_awsRegion :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AggregateComplianceByConformancePack
 -&gt; f AggregateComplianceByConformancePack
 </span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#aggregateComplianceByConformancePack_awsRegion"><span class="hs-identifier hs-var hs-var">aggregateComplianceByConformancePack_awsRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregateComplianceByConformancePack -&gt; Maybe Text)
@@ -235,51 +264,22 @@ $sel:conformancePackName:AggregateComplianceByConformancePack' :: AggregateCompl
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397582"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679398157"><span class="annot"><span class="annottext">Maybe Text
 awsRegion :: Maybe Text
 $sel:awsRegion:AggregateComplianceByConformancePack' :: AggregateComplianceByConformancePack -&gt; Maybe Text
-</span><a href="#local-6989586621679397582"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397582"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397581"><span class="annot"><span class="annottext">s :: AggregateComplianceByConformancePack
-</span><a href="#local-6989586621679397581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397580"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateComplianceByConformancePack
-</span><a href="#local-6989586621679397581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegion:AggregateComplianceByConformancePack' :: Maybe Text
+</span><a href="#local-6989586621679398157"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679398157"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679398156"><span class="annot"><span class="annottext">s :: AggregateComplianceByConformancePack
+</span><a href="#local-6989586621679398156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679398155"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679398155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateComplianceByConformancePack
+</span><a href="#local-6989586621679398156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegion:AggregateComplianceByConformancePack' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3AawsRegion%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679397580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The compliance status of the conformance pack.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#aggregateComplianceByConformancePack_compliance"><span class="hs-identifier hs-type">aggregateComplianceByConformancePack_compliance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateConformancePackCompliance.html#AggregateConformancePackCompliance"><span class="hs-identifier hs-type">AggregateConformancePackCompliance</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="aggregateComplianceByConformancePack_compliance"><span class="annot"><span class="annottext">aggregateComplianceByConformancePack_compliance :: (Maybe AggregateConformancePackCompliance
- -&gt; f (Maybe AggregateConformancePackCompliance))
--&gt; AggregateComplianceByConformancePack
--&gt; f AggregateComplianceByConformancePack
-</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#aggregateComplianceByConformancePack_compliance"><span class="hs-identifier hs-var hs-var">aggregateComplianceByConformancePack_compliance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregateComplianceByConformancePack
- -&gt; Maybe AggregateConformancePackCompliance)
--&gt; (AggregateComplianceByConformancePack
-    -&gt; Maybe AggregateConformancePackCompliance
-    -&gt; AggregateComplianceByConformancePack)
--&gt; Lens
-     AggregateComplianceByConformancePack
-     AggregateComplianceByConformancePack
-     (Maybe AggregateConformancePackCompliance)
-     (Maybe AggregateConformancePackCompliance)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397578"><span class="annot"><span class="annottext">Maybe AggregateConformancePackCompliance
-compliance :: Maybe AggregateConformancePackCompliance
-$sel:compliance:AggregateComplianceByConformancePack' :: AggregateComplianceByConformancePack
--&gt; Maybe AggregateConformancePackCompliance
-</span><a href="#local-6989586621679397578"><span class="hs-identifier hs-var hs-var">compliance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AggregateConformancePackCompliance
-</span><a href="#local-6989586621679397578"><span class="hs-identifier hs-var">compliance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397577"><span class="annot"><span class="annottext">s :: AggregateComplianceByConformancePack
-</span><a href="#local-6989586621679397577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397576"><span class="annot"><span class="annottext">Maybe AggregateConformancePackCompliance
-</span><a href="#local-6989586621679397576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateComplianceByConformancePack
-</span><a href="#local-6989586621679397577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:compliance:AggregateComplianceByConformancePack' :: Maybe AggregateConformancePackCompliance
-</span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#%24sel%3Acompliance%3AAggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var">compliance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AggregateConformancePackCompliance
-</span><a href="#local-6989586621679397576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679398155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679397573"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679398152"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span></span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679397571"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AggregateComplianceByConformancePack
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679398150"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AggregateComplianceByConformancePack
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AggregateComplianceByConformancePack)
@@ -289,79 +289,71 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AggregateComplianceByConformancePack&quot;</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679397568"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679397568"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679398147"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679398147"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Maybe AggregateConformancePackCompliance
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe AggregateConformancePackCompliance
+-&gt; Maybe Text
 -&gt; AggregateComplianceByConformancePack
 </span><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack%27"><span class="hs-identifier hs-var">AggregateComplianceByConformancePack'</span></a></span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AggregateConformancePackCompliance
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe AggregateConformancePackCompliance
+ -&gt; Maybe Text
  -&gt; AggregateComplianceByConformancePack)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe AggregateConformancePackCompliance)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe AggregateConformancePackCompliance
+      -&gt; Maybe Text
       -&gt; AggregateComplianceByConformancePack)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679397568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679398147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AggregateConformancePackCompliance)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Compliance&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe AggregateConformancePackCompliance
+   -&gt; Maybe Text
    -&gt; AggregateComplianceByConformancePack)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe AggregateConformancePackCompliance
-      -&gt; AggregateComplianceByConformancePack)
+     (Maybe Text -&gt; Maybe Text -&gt; AggregateComplianceByConformancePack)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679397568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679398147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConformancePackName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe AggregateConformancePackCompliance
-   -&gt; AggregateComplianceByConformancePack)
+  (Maybe Text -&gt; Maybe Text -&gt; AggregateComplianceByConformancePack)
 -&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe AggregateConformancePackCompliance
-      -&gt; AggregateComplianceByConformancePack)
+-&gt; Parser (Maybe Text -&gt; AggregateComplianceByConformancePack)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679397568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679398147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AwsRegion&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe AggregateConformancePackCompliance
-   -&gt; AggregateComplianceByConformancePack)
--&gt; Parser (Maybe AggregateConformancePackCompliance)
+</span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AggregateComplianceByConformancePack)
+-&gt; Parser (Maybe Text)
 -&gt; Parser AggregateComplianceByConformancePack
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679397568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AggregateConformancePackCompliance)
+</span><a href="#local-6989586621679398147"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Compliance&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;AwsRegion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679397562"><span id="local-6989586621679397564"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679398141"><span id="local-6989586621679398143"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679397559"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679398138"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateComplianceByConformancePack.html#AggregateComplianceByConformancePack"><span class="hs-identifier hs-type">AggregateComplianceByConformancePack</span></a></span></span><span>
 </span><span id="line-117"></span></pre></body></html>

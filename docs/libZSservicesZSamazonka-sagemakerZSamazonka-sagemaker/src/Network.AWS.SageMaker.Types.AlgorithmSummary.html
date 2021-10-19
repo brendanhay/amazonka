@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Provides summary information about an algorithm.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAlgorithmSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680287554"><span id="local-6989586621680287555"></span></span><span class="hs-keyword">data</span><span> </span><span id="AlgorithmSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-var">AlgorithmSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlgorithmSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-var">AlgorithmSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680288910"><span id="local-6989586621680288911"></span></span><span class="hs-keyword">data</span><span> </span><span id="AlgorithmSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-var">AlgorithmSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlgorithmSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-var">AlgorithmSummary'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A brief description of the algorithm.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AalgorithmDescription%3AAlgorithmSummary%27"><span class="annot"><span class="annottext">AlgorithmSummary -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#%24sel%3AalgorithmDescription%3AAlgorithmSummary%27"><span class="hs-identifier hs-var hs-var">algorithmDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AalgorithmStatus%3AAlgorithmSummary%27"><span class="annot"><span class="annottext">AlgorithmSummary -&gt; AlgorithmStatus
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#%24sel%3AalgorithmStatus%3AAlgorithmSummary%27"><span class="hs-identifier hs-var hs-var">algorithmStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmStatus.html#AlgorithmStatus"><span class="hs-identifier hs-type">AlgorithmStatus</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680287544"><span id="local-6989586621680287546"><span class="annot"><span class="annottext">AlgorithmSummary -&gt; AlgorithmSummary -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680288900"><span id="local-6989586621680288902"><span class="annot"><span class="annottext">AlgorithmSummary -&gt; AlgorithmSummary -&gt; Bool
 (AlgorithmSummary -&gt; AlgorithmSummary -&gt; Bool)
 -&gt; (AlgorithmSummary -&gt; AlgorithmSummary -&gt; Bool)
 -&gt; Eq AlgorithmSummary
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AlgorithmSummary -&gt; AlgorithmSummary -&gt; Bool
 == :: AlgorithmSummary -&gt; AlgorithmSummary -&gt; Bool
 $c== :: AlgorithmSummary -&gt; AlgorithmSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680287535"><span id="local-6989586621680287537"><span id="local-6989586621680287539"><span id="local-6989586621680287541"><span class="annot"><span class="annottext">ReadPrec [AlgorithmSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680288891"><span id="local-6989586621680288893"><span id="local-6989586621680288895"><span id="local-6989586621680288897"><span class="annot"><span class="annottext">ReadPrec [AlgorithmSummary]
 ReadPrec AlgorithmSummary
 Int -&gt; ReadS AlgorithmSummary
 ReadS [AlgorithmSummary]
@@ -73,7 +73,7 @@ readList :: ReadS [AlgorithmSummary]
 $creadList :: ReadS [AlgorithmSummary]
 readsPrec :: Int -&gt; ReadS AlgorithmSummary
 $creadsPrec :: Int -&gt; ReadS AlgorithmSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680287528"><span id="local-6989586621680287530"><span id="local-6989586621680287532"><span class="annot"><span class="annottext">Int -&gt; AlgorithmSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680288884"><span id="local-6989586621680288886"><span id="local-6989586621680288888"><span class="annot"><span class="annottext">Int -&gt; AlgorithmSummary -&gt; ShowS
 [AlgorithmSummary] -&gt; ShowS
 AlgorithmSummary -&gt; String
 (Int -&gt; AlgorithmSummary -&gt; ShowS)
@@ -128,14 +128,14 @@ $cfrom :: forall x. AlgorithmSummary -&gt; Rep AlgorithmSummary x
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span><span>
 </span><span id="line-71"></span><span id="newAlgorithmSummary"><span class="annot"><span class="annottext">newAlgorithmSummary :: Text -&gt; Text -&gt; UTCTime -&gt; AlgorithmStatus -&gt; AlgorithmSummary
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#newAlgorithmSummary"><span class="hs-identifier hs-var hs-var">newAlgorithmSummary</span></a></span></span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621680287522"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680287522"><span class="hs-identifier hs-var">pAlgorithmName_</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621680287521"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680287521"><span class="hs-identifier hs-var">pAlgorithmArn_</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621680287520"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680287520"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621680287519"><span class="annot"><span class="annottext">AlgorithmStatus
-</span><a href="#local-6989586621680287519"><span class="hs-identifier hs-var">pAlgorithmStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621680288878"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680288878"><span class="hs-identifier hs-var">pAlgorithmName_</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621680288877"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680288877"><span class="hs-identifier hs-var">pAlgorithmArn_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621680288876"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680288876"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621680288875"><span class="annot"><span class="annottext">AlgorithmStatus
+</span><a href="#local-6989586621680288875"><span class="hs-identifier hs-var">pAlgorithmStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">AlgorithmSummary' :: Maybe Text
 -&gt; Text -&gt; Text -&gt; POSIX -&gt; AlgorithmStatus -&gt; AlgorithmSummary
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span>
@@ -146,10 +146,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">$sel:algorithmName:AlgorithmSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#%24sel%3AalgorithmName%3AAlgorithmSummary%27"><span class="hs-identifier hs-var">algorithmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680287522"><span class="hs-identifier hs-var">pAlgorithmName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680288878"><span class="hs-identifier hs-var">pAlgorithmName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:algorithmArn:AlgorithmSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#%24sel%3AalgorithmArn%3AAlgorithmSummary%27"><span class="hs-identifier hs-var">algorithmArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680287521"><span class="hs-identifier hs-var">pAlgorithmArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680288877"><span class="hs-identifier hs-var">pAlgorithmArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationTime:AlgorithmSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#%24sel%3AcreationTime%3AAlgorithmSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -158,10 +158,10 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680287520"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680288876"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">$sel:algorithmStatus:AlgorithmSummary' :: AlgorithmStatus
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#%24sel%3AalgorithmStatus%3AAlgorithmSummary%27"><span class="hs-identifier hs-var">algorithmStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AlgorithmStatus
-</span><a href="#local-6989586621680287519"><span class="hs-identifier hs-var">pAlgorithmStatus_</span></a></span><span>
+</span><a href="#local-6989586621680288875"><span class="hs-identifier hs-var">pAlgorithmStatus_</span></a></span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | A brief description of the algorithm.</span><span>
@@ -172,16 +172,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (AlgorithmSummary -&gt; Maybe Text -&gt; AlgorithmSummary)
 -&gt; Lens AlgorithmSummary AlgorithmSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680287513"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680288869"><span class="annot"><span class="annottext">Maybe Text
 algorithmDescription :: Maybe Text
 $sel:algorithmDescription:AlgorithmSummary' :: AlgorithmSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680287513"><span class="hs-identifier hs-var hs-var">algorithmDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680287513"><span class="hs-identifier hs-var">algorithmDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680287512"><span class="annot"><span class="annottext">s :: AlgorithmSummary
-</span><a href="#local-6989586621680287512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680287511"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680287511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSummary
-</span><a href="#local-6989586621680287512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmDescription:AlgorithmSummary' :: Maybe Text
+</span><a href="#local-6989586621680288869"><span class="hs-identifier hs-var hs-var">algorithmDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680288869"><span class="hs-identifier hs-var">algorithmDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680288868"><span class="annot"><span class="annottext">s :: AlgorithmSummary
+</span><a href="#local-6989586621680288868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680288867"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680288867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSummary
+</span><a href="#local-6989586621680288868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmDescription:AlgorithmSummary' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#%24sel%3AalgorithmDescription%3AAlgorithmSummary%27"><span class="hs-identifier hs-var">algorithmDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680287511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680288867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The name of the algorithm that is described by the summary.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#algorithmSummary_algorithmName"><span class="hs-identifier hs-type">algorithmSummary_algorithmName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -190,16 +190,16 @@ $sel:algorithmDescription:AlgorithmSummary' :: AlgorithmSummary -&gt; Maybe Text
 -&gt; (AlgorithmSummary -&gt; Text -&gt; AlgorithmSummary)
 -&gt; Lens AlgorithmSummary AlgorithmSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680287509"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680288865"><span class="annot"><span class="annottext">Text
 algorithmName :: Text
 $sel:algorithmName:AlgorithmSummary' :: AlgorithmSummary -&gt; Text
-</span><a href="#local-6989586621680287509"><span class="hs-identifier hs-var hs-var">algorithmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680287509"><span class="hs-identifier hs-var">algorithmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680287508"><span class="annot"><span class="annottext">s :: AlgorithmSummary
-</span><a href="#local-6989586621680287508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680287507"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680287507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSummary
-</span><a href="#local-6989586621680287508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmName:AlgorithmSummary' :: Text
+</span><a href="#local-6989586621680288865"><span class="hs-identifier hs-var hs-var">algorithmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680288865"><span class="hs-identifier hs-var">algorithmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680288864"><span class="annot"><span class="annottext">s :: AlgorithmSummary
+</span><a href="#local-6989586621680288864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680288863"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680288863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSummary
+</span><a href="#local-6989586621680288864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmName:AlgorithmSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#%24sel%3AalgorithmName%3AAlgorithmSummary%27"><span class="hs-identifier hs-var">algorithmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680287507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680288863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the algorithm.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#algorithmSummary_algorithmArn"><span class="hs-identifier hs-type">algorithmSummary_algorithmArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -208,16 +208,16 @@ $sel:algorithmName:AlgorithmSummary' :: AlgorithmSummary -&gt; Text
 -&gt; (AlgorithmSummary -&gt; Text -&gt; AlgorithmSummary)
 -&gt; Lens AlgorithmSummary AlgorithmSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680287505"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680288861"><span class="annot"><span class="annottext">Text
 algorithmArn :: Text
 $sel:algorithmArn:AlgorithmSummary' :: AlgorithmSummary -&gt; Text
-</span><a href="#local-6989586621680287505"><span class="hs-identifier hs-var hs-var">algorithmArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680287505"><span class="hs-identifier hs-var">algorithmArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680287504"><span class="annot"><span class="annottext">s :: AlgorithmSummary
-</span><a href="#local-6989586621680287504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680287503"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680287503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSummary
-</span><a href="#local-6989586621680287504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmArn:AlgorithmSummary' :: Text
+</span><a href="#local-6989586621680288861"><span class="hs-identifier hs-var hs-var">algorithmArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680288861"><span class="hs-identifier hs-var">algorithmArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680288860"><span class="annot"><span class="annottext">s :: AlgorithmSummary
+</span><a href="#local-6989586621680288860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680288859"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680288859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSummary
+</span><a href="#local-6989586621680288860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmArn:AlgorithmSummary' :: Text
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#%24sel%3AalgorithmArn%3AAlgorithmSummary%27"><span class="hs-identifier hs-var">algorithmArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680287503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680288859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | A timestamp that shows when the algorithm was created.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#algorithmSummary_creationTime"><span class="hs-identifier hs-type">algorithmSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -226,16 +226,16 @@ $sel:algorithmArn:AlgorithmSummary' :: AlgorithmSummary -&gt; Text
 -&gt; (AlgorithmSummary -&gt; POSIX -&gt; AlgorithmSummary)
 -&gt; Lens AlgorithmSummary AlgorithmSummary POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680287501"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680288857"><span class="annot"><span class="annottext">POSIX
 creationTime :: POSIX
 $sel:creationTime:AlgorithmSummary' :: AlgorithmSummary -&gt; POSIX
-</span><a href="#local-6989586621680287501"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680287501"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680287500"><span class="annot"><span class="annottext">s :: AlgorithmSummary
-</span><a href="#local-6989586621680287500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680287499"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680287499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSummary
-</span><a href="#local-6989586621680287500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:AlgorithmSummary' :: POSIX
+</span><a href="#local-6989586621680288857"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680288857"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680288856"><span class="annot"><span class="annottext">s :: AlgorithmSummary
+</span><a href="#local-6989586621680288856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680288855"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680288855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSummary
+</span><a href="#local-6989586621680288856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:AlgorithmSummary' :: POSIX
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#%24sel%3AcreationTime%3AAlgorithmSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680287499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; AlgorithmSummary -&gt; f AlgorithmSummary)
+</span><a href="#local-6989586621680288855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; AlgorithmSummary -&gt; f AlgorithmSummary)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; AlgorithmSummary
@@ -254,19 +254,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      AlgorithmSummary AlgorithmSummary AlgorithmStatus AlgorithmStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680287496"><span class="annot"><span class="annottext">AlgorithmStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680288852"><span class="annot"><span class="annottext">AlgorithmStatus
 algorithmStatus :: AlgorithmStatus
 $sel:algorithmStatus:AlgorithmSummary' :: AlgorithmSummary -&gt; AlgorithmStatus
-</span><a href="#local-6989586621680287496"><span class="hs-identifier hs-var hs-var">algorithmStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmStatus
-</span><a href="#local-6989586621680287496"><span class="hs-identifier hs-var">algorithmStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680287495"><span class="annot"><span class="annottext">s :: AlgorithmSummary
-</span><a href="#local-6989586621680287495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680287494"><span class="annot"><span class="annottext">AlgorithmStatus
-</span><a href="#local-6989586621680287494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSummary
-</span><a href="#local-6989586621680287495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmStatus:AlgorithmSummary' :: AlgorithmStatus
+</span><a href="#local-6989586621680288852"><span class="hs-identifier hs-var hs-var">algorithmStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmStatus
+</span><a href="#local-6989586621680288852"><span class="hs-identifier hs-var">algorithmStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680288851"><span class="annot"><span class="annottext">s :: AlgorithmSummary
+</span><a href="#local-6989586621680288851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-type">AlgorithmSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680288850"><span class="annot"><span class="annottext">AlgorithmStatus
+</span><a href="#local-6989586621680288850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmSummary
+</span><a href="#local-6989586621680288851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmStatus:AlgorithmSummary' :: AlgorithmStatus
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#%24sel%3AalgorithmStatus%3AAlgorithmSummary%27"><span class="hs-identifier hs-var">algorithmStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AlgorithmStatus
-</span><a href="#local-6989586621680287494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680288850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680287491"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621680287489"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AlgorithmSummary
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680288847"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621680288845"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AlgorithmSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AlgorithmSummary)
@@ -276,8 +276,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AlgorithmSummary&quot;</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680287486"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680287486"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680288842"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680288842"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Text -&gt; Text -&gt; POSIX -&gt; AlgorithmStatus -&gt; AlgorithmSummary
 </span><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary%27"><span class="hs-identifier hs-var">AlgorithmSummary'</span></a></span><span>
@@ -288,7 +288,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Text -&gt; Text -&gt; POSIX -&gt; AlgorithmStatus -&gt; AlgorithmSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680287486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680288842"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlgorithmDescription&quot;</span></span><span class="hs-special">)</span><span>
@@ -298,7 +298,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Text -&gt; POSIX -&gt; AlgorithmStatus -&gt; AlgorithmSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680287486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680288842"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlgorithmName&quot;</span></span><span class="hs-special">)</span><span>
@@ -307,7 +307,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (POSIX -&gt; AlgorithmStatus -&gt; AlgorithmSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680287486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680288842"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlgorithmArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -315,7 +315,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser (AlgorithmStatus -&gt; AlgorithmSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680287486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621680288842"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -323,13 +323,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser AlgorithmStatus -&gt; Parser AlgorithmSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680287486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AlgorithmStatus
+</span><a href="#local-6989586621680288842"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AlgorithmStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlgorithmStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680287479"><span id="local-6989586621680287481"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680288835"><span id="local-6989586621680288837"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680287476"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680288832"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmSummary.html#AlgorithmSummary"><span class="hs-identifier hs-type">AlgorithmSummary</span></a></span></span><span>
 </span><span id="line-121"></span></pre></body></html>

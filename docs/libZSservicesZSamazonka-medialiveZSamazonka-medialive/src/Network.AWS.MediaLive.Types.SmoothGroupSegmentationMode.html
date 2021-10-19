@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Smooth Group Segmentation Mode</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679913566"><span id="local-6989586621679913567"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SmoothGroupSegmentationMode"><span class="annot"><a href="Network.AWS.MediaLive.Types.SmoothGroupSegmentationMode.html#SmoothGroupSegmentationMode"><span class="hs-identifier hs-var">SmoothGroupSegmentationMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SmoothGroupSegmentationMode%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.SmoothGroupSegmentationMode.html#SmoothGroupSegmentationMode%27"><span class="hs-identifier hs-var">SmoothGroupSegmentationMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679921068"><span id="local-6989586621679921069"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SmoothGroupSegmentationMode"><span class="annot"><a href="Network.AWS.MediaLive.Types.SmoothGroupSegmentationMode.html#SmoothGroupSegmentationMode"><span class="hs-identifier hs-var">SmoothGroupSegmentationMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SmoothGroupSegmentationMode%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.SmoothGroupSegmentationMode.html#SmoothGroupSegmentationMode%27"><span class="hs-identifier hs-var">SmoothGroupSegmentationMode'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSmoothGroupSegmentationMode"><span class="annot"><span class="annottext">SmoothGroupSegmentationMode -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.SmoothGroupSegmentationMode.html#fromSmoothGroupSegmentationMode"><span class="hs-identifier hs-var hs-var">fromSmoothGroupSegmentationMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679913558"><span id="local-6989586621679913560"><span id="local-6989586621679913562"><span class="annot"><span class="annottext">Int -&gt; SmoothGroupSegmentationMode -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679921060"><span id="local-6989586621679921062"><span id="local-6989586621679921064"><span class="annot"><span class="annottext">Int -&gt; SmoothGroupSegmentationMode -&gt; ShowS
 [SmoothGroupSegmentationMode] -&gt; ShowS
 SmoothGroupSegmentationMode -&gt; String
 (Int -&gt; SmoothGroupSegmentationMode -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: SmoothGroupSegmentationMode -&gt; String
 showsPrec :: Int -&gt; SmoothGroupSegmentationMode -&gt; ShowS
 $cshowsPrec :: Int -&gt; SmoothGroupSegmentationMode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679913549"><span id="local-6989586621679913551"><span id="local-6989586621679913553"><span id="local-6989586621679913555"><span class="annot"><span class="annottext">ReadPrec [SmoothGroupSegmentationMode]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679921051"><span id="local-6989586621679921053"><span id="local-6989586621679921055"><span id="local-6989586621679921057"><span class="annot"><span class="annottext">ReadPrec [SmoothGroupSegmentationMode]
 ReadPrec SmoothGroupSegmentationMode
 Int -&gt; ReadS SmoothGroupSegmentationMode
 ReadS [SmoothGroupSegmentationMode]
@@ -73,7 +73,7 @@ $creadList :: ReadS [SmoothGroupSegmentationMode]
 readsPrec :: Int -&gt; ReadS SmoothGroupSegmentationMode
 $creadsPrec :: Int -&gt; ReadS SmoothGroupSegmentationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679913544"><span id="local-6989586621679913546"><span class="annot"><span class="annottext">SmoothGroupSegmentationMode -&gt; SmoothGroupSegmentationMode -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679921046"><span id="local-6989586621679921048"><span class="annot"><span class="annottext">SmoothGroupSegmentationMode -&gt; SmoothGroupSegmentationMode -&gt; Bool
 (SmoothGroupSegmentationMode
  -&gt; SmoothGroupSegmentationMode -&gt; Bool)
 -&gt; (SmoothGroupSegmentationMode
@@ -85,7 +85,7 @@ $c/= :: SmoothGroupSegmentationMode -&gt; SmoothGroupSegmentationMode -&gt; Bool
 == :: SmoothGroupSegmentationMode -&gt; SmoothGroupSegmentationMode -&gt; Bool
 $c== :: SmoothGroupSegmentationMode -&gt; SmoothGroupSegmentationMode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679913528"><span id="local-6989586621679913530"><span id="local-6989586621679913532"><span id="local-6989586621679913534"><span id="local-6989586621679913536"><span id="local-6989586621679913538"><span id="local-6989586621679913540"><span class="annot"><span class="annottext">Eq SmoothGroupSegmentationMode
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679921030"><span id="local-6989586621679921032"><span id="local-6989586621679921034"><span id="local-6989586621679921036"><span id="local-6989586621679921038"><span id="local-6989586621679921040"><span id="local-6989586621679921042"><span class="annot"><span class="annottext">Eq SmoothGroupSegmentationMode
 Eq SmoothGroupSegmentationMode
 -&gt; (SmoothGroupSegmentationMode
     -&gt; SmoothGroupSegmentationMode -&gt; Ordering)
@@ -157,7 +157,7 @@ SmoothGroupSegmentationMode -&gt; Rep SmoothGroupSegmentationMode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679913520"><span id="local-6989586621679913522"><span class="annot"><span class="annottext">Int -&gt; SmoothGroupSegmentationMode -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679921022"><span id="local-6989586621679921024"><span class="annot"><span class="annottext">Int -&gt; SmoothGroupSegmentationMode -&gt; Int
 SmoothGroupSegmentationMode -&gt; Int
 (Int -&gt; SmoothGroupSegmentationMode -&gt; Int)
 -&gt; (SmoothGroupSegmentationMode -&gt; Int)
@@ -168,56 +168,56 @@ $chash :: SmoothGroupSegmentationMode -&gt; Int
 hashWithSalt :: Int -&gt; SmoothGroupSegmentationMode -&gt; Int
 $chashWithSalt :: Int -&gt; SmoothGroupSegmentationMode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679913517"><span class="annot"><span class="annottext">SmoothGroupSegmentationMode -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679921019"><span class="annot"><span class="annottext">SmoothGroupSegmentationMode -&gt; ()
 (SmoothGroupSegmentationMode -&gt; ())
 -&gt; NFData SmoothGroupSegmentationMode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SmoothGroupSegmentationMode -&gt; ()
 $crnf :: SmoothGroupSegmentationMode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679913514"><span class="annot"><span class="annottext">Text -&gt; Either String SmoothGroupSegmentationMode
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679921016"><span class="annot"><span class="annottext">Text -&gt; Either String SmoothGroupSegmentationMode
 (Text -&gt; Either String SmoothGroupSegmentationMode)
 -&gt; FromText SmoothGroupSegmentationMode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SmoothGroupSegmentationMode
 $cfromText :: Text -&gt; Either String SmoothGroupSegmentationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679913511"><span class="annot"><span class="annottext">SmoothGroupSegmentationMode -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679921013"><span class="annot"><span class="annottext">SmoothGroupSegmentationMode -&gt; Text
 (SmoothGroupSegmentationMode -&gt; Text)
 -&gt; ToText SmoothGroupSegmentationMode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SmoothGroupSegmentationMode -&gt; Text
 $ctoText :: SmoothGroupSegmentationMode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679913508"><span class="annot"><span class="annottext">SmoothGroupSegmentationMode -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679921010"><span class="annot"><span class="annottext">SmoothGroupSegmentationMode -&gt; ByteString
 (SmoothGroupSegmentationMode -&gt; ByteString)
 -&gt; ToByteString SmoothGroupSegmentationMode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SmoothGroupSegmentationMode -&gt; ByteString
 $ctoBS :: SmoothGroupSegmentationMode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679913505"><span class="annot"><span class="annottext">SmoothGroupSegmentationMode -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679921007"><span class="annot"><span class="annottext">SmoothGroupSegmentationMode -&gt; ByteStringBuilder
 (SmoothGroupSegmentationMode -&gt; ByteStringBuilder)
 -&gt; ToLog SmoothGroupSegmentationMode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SmoothGroupSegmentationMode -&gt; ByteStringBuilder
 $cbuild :: SmoothGroupSegmentationMode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679913502"><span class="annot"><span class="annottext">HeaderName -&gt; SmoothGroupSegmentationMode -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679921004"><span class="annot"><span class="annottext">HeaderName -&gt; SmoothGroupSegmentationMode -&gt; [Header]
 (HeaderName -&gt; SmoothGroupSegmentationMode -&gt; [Header])
 -&gt; ToHeader SmoothGroupSegmentationMode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SmoothGroupSegmentationMode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SmoothGroupSegmentationMode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679913499"><span class="annot"><span class="annottext">SmoothGroupSegmentationMode -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679921001"><span class="annot"><span class="annottext">SmoothGroupSegmentationMode -&gt; QueryString
 (SmoothGroupSegmentationMode -&gt; QueryString)
 -&gt; ToQuery SmoothGroupSegmentationMode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SmoothGroupSegmentationMode -&gt; QueryString
 $ctoQuery :: SmoothGroupSegmentationMode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679913494"><span id="local-6989586621679913496"><span class="annot"><span class="annottext">Value -&gt; Parser [SmoothGroupSegmentationMode]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679920996"><span id="local-6989586621679920998"><span class="annot"><span class="annottext">Value -&gt; Parser [SmoothGroupSegmentationMode]
 Value -&gt; Parser SmoothGroupSegmentationMode
 (Value -&gt; Parser SmoothGroupSegmentationMode)
 -&gt; (Value -&gt; Parser [SmoothGroupSegmentationMode])
@@ -229,7 +229,7 @@ $cparseJSONList :: Value -&gt; Parser [SmoothGroupSegmentationMode]
 parseJSON :: Value -&gt; Parser SmoothGroupSegmentationMode
 $cparseJSON :: Value -&gt; Parser SmoothGroupSegmentationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679913489"><span id="local-6989586621679913491"><span class="annot"><span class="annottext">FromJSONKeyFunction [SmoothGroupSegmentationMode]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679920991"><span id="local-6989586621679920993"><span class="annot"><span class="annottext">FromJSONKeyFunction [SmoothGroupSegmentationMode]
 FromJSONKeyFunction SmoothGroupSegmentationMode
 FromJSONKeyFunction SmoothGroupSegmentationMode
 -&gt; FromJSONKeyFunction [SmoothGroupSegmentationMode]
@@ -241,7 +241,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SmoothGroupSegmentationMode]
 fromJSONKey :: FromJSONKeyFunction SmoothGroupSegmentationMode
 $cfromJSONKey :: FromJSONKeyFunction SmoothGroupSegmentationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679913480"><span id="local-6989586621679913482"><span id="local-6989586621679913484"><span id="local-6989586621679913486"><span class="annot"><span class="annottext">[SmoothGroupSegmentationMode] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679920982"><span id="local-6989586621679920984"><span id="local-6989586621679920986"><span id="local-6989586621679920988"><span class="annot"><span class="annottext">[SmoothGroupSegmentationMode] -&gt; Encoding
 [SmoothGroupSegmentationMode] -&gt; Value
 SmoothGroupSegmentationMode -&gt; Encoding
 SmoothGroupSegmentationMode -&gt; Value
@@ -265,7 +265,7 @@ $ctoEncoding :: SmoothGroupSegmentationMode -&gt; Encoding
 toJSON :: SmoothGroupSegmentationMode -&gt; Value
 $ctoJSON :: SmoothGroupSegmentationMode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679913475"><span id="local-6989586621679913477"><span class="annot"><span class="annottext">ToJSONKeyFunction [SmoothGroupSegmentationMode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679920977"><span id="local-6989586621679920979"><span class="annot"><span class="annottext">ToJSONKeyFunction [SmoothGroupSegmentationMode]
 ToJSONKeyFunction SmoothGroupSegmentationMode
 ToJSONKeyFunction SmoothGroupSegmentationMode
 -&gt; ToJSONKeyFunction [SmoothGroupSegmentationMode]
@@ -277,14 +277,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SmoothGroupSegmentationMode]
 toJSONKey :: ToJSONKeyFunction SmoothGroupSegmentationMode
 $ctoJSONKey :: ToJSONKeyFunction SmoothGroupSegmentationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679913472"><span class="annot"><span class="annottext">[Node] -&gt; Either String SmoothGroupSegmentationMode
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679920974"><span class="annot"><span class="annottext">[Node] -&gt; Either String SmoothGroupSegmentationMode
 ([Node] -&gt; Either String SmoothGroupSegmentationMode)
 -&gt; FromXML SmoothGroupSegmentationMode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SmoothGroupSegmentationMode
 $cparseXML :: [Node] -&gt; Either String SmoothGroupSegmentationMode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679913469"><span class="annot"><span class="annottext">SmoothGroupSegmentationMode -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679920971"><span class="annot"><span class="annottext">SmoothGroupSegmentationMode -&gt; XML
 (SmoothGroupSegmentationMode -&gt; XML)
 -&gt; ToXML SmoothGroupSegmentationMode
 forall a. (a -&gt; XML) -&gt; ToXML a

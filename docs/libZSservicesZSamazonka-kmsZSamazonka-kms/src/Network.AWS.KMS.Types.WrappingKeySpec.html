@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679250445"><span id="local-6989586621679250446"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WrappingKeySpec"><span class="annot"><a href="Network.AWS.KMS.Types.WrappingKeySpec.html#WrappingKeySpec"><span class="hs-identifier hs-var">WrappingKeySpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WrappingKeySpec%27"><span class="annot"><a href="Network.AWS.KMS.Types.WrappingKeySpec.html#WrappingKeySpec%27"><span class="hs-identifier hs-var">WrappingKeySpec'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679250649"><span id="local-6989586621679250650"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WrappingKeySpec"><span class="annot"><a href="Network.AWS.KMS.Types.WrappingKeySpec.html#WrappingKeySpec"><span class="hs-identifier hs-var">WrappingKeySpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WrappingKeySpec%27"><span class="annot"><a href="Network.AWS.KMS.Types.WrappingKeySpec.html#WrappingKeySpec%27"><span class="hs-identifier hs-var">WrappingKeySpec'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWrappingKeySpec"><span class="annot"><span class="annottext">WrappingKeySpec -&gt; Text
 </span><a href="Network.AWS.KMS.Types.WrappingKeySpec.html#fromWrappingKeySpec"><span class="hs-identifier hs-var hs-var">fromWrappingKeySpec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250437"><span id="local-6989586621679250439"><span id="local-6989586621679250441"><span class="annot"><span class="annottext">Int -&gt; WrappingKeySpec -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250641"><span id="local-6989586621679250643"><span id="local-6989586621679250645"><span class="annot"><span class="annottext">Int -&gt; WrappingKeySpec -&gt; ShowS
 [WrappingKeySpec] -&gt; ShowS
 WrappingKeySpec -&gt; String
 (Int -&gt; WrappingKeySpec -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: WrappingKeySpec -&gt; String
 showsPrec :: Int -&gt; WrappingKeySpec -&gt; ShowS
 $cshowsPrec :: Int -&gt; WrappingKeySpec -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679250428"><span id="local-6989586621679250430"><span id="local-6989586621679250432"><span id="local-6989586621679250434"><span class="annot"><span class="annottext">ReadPrec [WrappingKeySpec]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679250632"><span id="local-6989586621679250634"><span id="local-6989586621679250636"><span id="local-6989586621679250638"><span class="annot"><span class="annottext">ReadPrec [WrappingKeySpec]
 ReadPrec WrappingKeySpec
 Int -&gt; ReadS WrappingKeySpec
 ReadS [WrappingKeySpec]
@@ -71,7 +71,7 @@ $creadList :: ReadS [WrappingKeySpec]
 readsPrec :: Int -&gt; ReadS WrappingKeySpec
 $creadsPrec :: Int -&gt; ReadS WrappingKeySpec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679250423"><span id="local-6989586621679250425"><span class="annot"><span class="annottext">WrappingKeySpec -&gt; WrappingKeySpec -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679250627"><span id="local-6989586621679250629"><span class="annot"><span class="annottext">WrappingKeySpec -&gt; WrappingKeySpec -&gt; Bool
 (WrappingKeySpec -&gt; WrappingKeySpec -&gt; Bool)
 -&gt; (WrappingKeySpec -&gt; WrappingKeySpec -&gt; Bool)
 -&gt; Eq WrappingKeySpec
@@ -81,7 +81,7 @@ $c/= :: WrappingKeySpec -&gt; WrappingKeySpec -&gt; Bool
 == :: WrappingKeySpec -&gt; WrappingKeySpec -&gt; Bool
 $c== :: WrappingKeySpec -&gt; WrappingKeySpec -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679250407"><span id="local-6989586621679250409"><span id="local-6989586621679250411"><span id="local-6989586621679250413"><span id="local-6989586621679250415"><span id="local-6989586621679250417"><span id="local-6989586621679250419"><span class="annot"><span class="annottext">Eq WrappingKeySpec
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679250611"><span id="local-6989586621679250613"><span id="local-6989586621679250615"><span id="local-6989586621679250617"><span id="local-6989586621679250619"><span id="local-6989586621679250621"><span id="local-6989586621679250623"><span class="annot"><span class="annottext">Eq WrappingKeySpec
 Eq WrappingKeySpec
 -&gt; (WrappingKeySpec -&gt; WrappingKeySpec -&gt; Ordering)
 -&gt; (WrappingKeySpec -&gt; WrappingKeySpec -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. WrappingKeySpec -&gt; Rep WrappingKeySpec x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250399"><span id="local-6989586621679250401"><span class="annot"><span class="annottext">Int -&gt; WrappingKeySpec -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250603"><span id="local-6989586621679250605"><span class="annot"><span class="annottext">Int -&gt; WrappingKeySpec -&gt; Int
 WrappingKeySpec -&gt; Int
 (Int -&gt; WrappingKeySpec -&gt; Int)
 -&gt; (WrappingKeySpec -&gt; Int) -&gt; Hashable WrappingKeySpec
@@ -142,50 +142,50 @@ $chash :: WrappingKeySpec -&gt; Int
 hashWithSalt :: Int -&gt; WrappingKeySpec -&gt; Int
 $chashWithSalt :: Int -&gt; WrappingKeySpec -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679250396"><span class="annot"><span class="annottext">WrappingKeySpec -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679250600"><span class="annot"><span class="annottext">WrappingKeySpec -&gt; ()
 (WrappingKeySpec -&gt; ()) -&gt; NFData WrappingKeySpec
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WrappingKeySpec -&gt; ()
 $crnf :: WrappingKeySpec -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679250393"><span class="annot"><span class="annottext">Text -&gt; Either String WrappingKeySpec
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679250597"><span class="annot"><span class="annottext">Text -&gt; Either String WrappingKeySpec
 (Text -&gt; Either String WrappingKeySpec) -&gt; FromText WrappingKeySpec
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WrappingKeySpec
 $cfromText :: Text -&gt; Either String WrappingKeySpec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679250390"><span class="annot"><span class="annottext">WrappingKeySpec -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679250594"><span class="annot"><span class="annottext">WrappingKeySpec -&gt; Text
 (WrappingKeySpec -&gt; Text) -&gt; ToText WrappingKeySpec
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WrappingKeySpec -&gt; Text
 $ctoText :: WrappingKeySpec -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679250387"><span class="annot"><span class="annottext">WrappingKeySpec -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679250591"><span class="annot"><span class="annottext">WrappingKeySpec -&gt; ByteString
 (WrappingKeySpec -&gt; ByteString) -&gt; ToByteString WrappingKeySpec
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WrappingKeySpec -&gt; ByteString
 $ctoBS :: WrappingKeySpec -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679250384"><span class="annot"><span class="annottext">WrappingKeySpec -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679250588"><span class="annot"><span class="annottext">WrappingKeySpec -&gt; ByteStringBuilder
 (WrappingKeySpec -&gt; ByteStringBuilder) -&gt; ToLog WrappingKeySpec
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WrappingKeySpec -&gt; ByteStringBuilder
 $cbuild :: WrappingKeySpec -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679250381"><span class="annot"><span class="annottext">HeaderName -&gt; WrappingKeySpec -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679250585"><span class="annot"><span class="annottext">HeaderName -&gt; WrappingKeySpec -&gt; [Header]
 (HeaderName -&gt; WrappingKeySpec -&gt; [Header])
 -&gt; ToHeader WrappingKeySpec
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WrappingKeySpec -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WrappingKeySpec -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679250378"><span class="annot"><span class="annottext">WrappingKeySpec -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679250582"><span class="annot"><span class="annottext">WrappingKeySpec -&gt; QueryString
 (WrappingKeySpec -&gt; QueryString) -&gt; ToQuery WrappingKeySpec
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WrappingKeySpec -&gt; QueryString
 $ctoQuery :: WrappingKeySpec -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679250373"><span id="local-6989586621679250375"><span class="annot"><span class="annottext">Value -&gt; Parser [WrappingKeySpec]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679250577"><span id="local-6989586621679250579"><span class="annot"><span class="annottext">Value -&gt; Parser [WrappingKeySpec]
 Value -&gt; Parser WrappingKeySpec
 (Value -&gt; Parser WrappingKeySpec)
 -&gt; (Value -&gt; Parser [WrappingKeySpec]) -&gt; FromJSON WrappingKeySpec
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [WrappingKeySpec]
 parseJSON :: Value -&gt; Parser WrappingKeySpec
 $cparseJSON :: Value -&gt; Parser WrappingKeySpec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679250368"><span id="local-6989586621679250370"><span class="annot"><span class="annottext">FromJSONKeyFunction [WrappingKeySpec]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679250572"><span id="local-6989586621679250574"><span class="annot"><span class="annottext">FromJSONKeyFunction [WrappingKeySpec]
 FromJSONKeyFunction WrappingKeySpec
 FromJSONKeyFunction WrappingKeySpec
 -&gt; FromJSONKeyFunction [WrappingKeySpec]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WrappingKeySpec]
 fromJSONKey :: FromJSONKeyFunction WrappingKeySpec
 $cfromJSONKey :: FromJSONKeyFunction WrappingKeySpec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679250359"><span id="local-6989586621679250361"><span id="local-6989586621679250363"><span id="local-6989586621679250365"><span class="annot"><span class="annottext">[WrappingKeySpec] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679250563"><span id="local-6989586621679250565"><span id="local-6989586621679250567"><span id="local-6989586621679250569"><span class="annot"><span class="annottext">[WrappingKeySpec] -&gt; Encoding
 [WrappingKeySpec] -&gt; Value
 WrappingKeySpec -&gt; Encoding
 WrappingKeySpec -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: WrappingKeySpec -&gt; Encoding
 toJSON :: WrappingKeySpec -&gt; Value
 $ctoJSON :: WrappingKeySpec -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679250354"><span id="local-6989586621679250356"><span class="annot"><span class="annottext">ToJSONKeyFunction [WrappingKeySpec]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679250558"><span id="local-6989586621679250560"><span class="annot"><span class="annottext">ToJSONKeyFunction [WrappingKeySpec]
 ToJSONKeyFunction WrappingKeySpec
 ToJSONKeyFunction WrappingKeySpec
 -&gt; ToJSONKeyFunction [WrappingKeySpec] -&gt; ToJSONKey WrappingKeySpec
@@ -243,14 +243,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WrappingKeySpec]
 toJSONKey :: ToJSONKeyFunction WrappingKeySpec
 $ctoJSONKey :: ToJSONKeyFunction WrappingKeySpec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679250351"><span class="annot"><span class="annottext">[Node] -&gt; Either String WrappingKeySpec
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679250555"><span class="annot"><span class="annottext">[Node] -&gt; Either String WrappingKeySpec
 ([Node] -&gt; Either String WrappingKeySpec)
 -&gt; FromXML WrappingKeySpec
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WrappingKeySpec
 $cparseXML :: [Node] -&gt; Either String WrappingKeySpec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679250348"><span class="annot"><span class="annottext">WrappingKeySpec -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679250552"><span class="annot"><span class="annottext">WrappingKeySpec -&gt; XML
 (WrappingKeySpec -&gt; XML) -&gt; ToXML WrappingKeySpec
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: WrappingKeySpec -&gt; XML

@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteApiDestination' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679317606"><span id="local-6989586621679317607"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteApiDestination"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination"><span class="hs-identifier hs-var">DeleteApiDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteApiDestination%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination%27"><span class="hs-identifier hs-var">DeleteApiDestination'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679317818"><span id="local-6989586621679317819"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteApiDestination"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination"><span class="hs-identifier hs-var">DeleteApiDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteApiDestination%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination%27"><span class="hs-identifier hs-var">DeleteApiDestination'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the destination to delete.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3Aname%3ADeleteApiDestination%27"><span class="annot"><span class="annottext">DeleteApiDestination -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#%24sel%3Aname%3ADeleteApiDestination%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317600"><span id="local-6989586621679317602"><span class="annot"><span class="annottext">DeleteApiDestination -&gt; DeleteApiDestination -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317812"><span id="local-6989586621679317814"><span class="annot"><span class="annottext">DeleteApiDestination -&gt; DeleteApiDestination -&gt; Bool
 (DeleteApiDestination -&gt; DeleteApiDestination -&gt; Bool)
 -&gt; (DeleteApiDestination -&gt; DeleteApiDestination -&gt; Bool)
 -&gt; Eq DeleteApiDestination
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteApiDestination -&gt; DeleteApiDestination -&gt; Bool
 == :: DeleteApiDestination -&gt; DeleteApiDestination -&gt; Bool
 $c== :: DeleteApiDestination -&gt; DeleteApiDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317591"><span id="local-6989586621679317593"><span id="local-6989586621679317595"><span id="local-6989586621679317597"><span class="annot"><span class="annottext">ReadPrec [DeleteApiDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317803"><span id="local-6989586621679317805"><span id="local-6989586621679317807"><span id="local-6989586621679317809"><span class="annot"><span class="annottext">ReadPrec [DeleteApiDestination]
 ReadPrec DeleteApiDestination
 Int -&gt; ReadS DeleteApiDestination
 ReadS [DeleteApiDestination]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteApiDestination]
 $creadList :: ReadS [DeleteApiDestination]
 readsPrec :: Int -&gt; ReadS DeleteApiDestination
 $creadsPrec :: Int -&gt; ReadS DeleteApiDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317584"><span id="local-6989586621679317586"><span id="local-6989586621679317588"><span class="annot"><span class="annottext">Int -&gt; DeleteApiDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317796"><span id="local-6989586621679317798"><span id="local-6989586621679317800"><span class="annot"><span class="annottext">Int -&gt; DeleteApiDestination -&gt; ShowS
 [DeleteApiDestination] -&gt; ShowS
 DeleteApiDestination -&gt; String
 (Int -&gt; DeleteApiDestination -&gt; ShowS)
@@ -120,12 +120,12 @@ $cfrom :: forall x. DeleteApiDestination -&gt; Rep DeleteApiDestination x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination"><span class="hs-identifier hs-type">DeleteApiDestination</span></a></span><span>
 </span><span id="line-68"></span><span id="newDeleteApiDestination"><span class="annot"><span class="annottext">newDeleteApiDestination :: Text -&gt; DeleteApiDestination
-</span><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#newDeleteApiDestination"><span class="hs-identifier hs-var hs-var">newDeleteApiDestination</span></a></span></span><span> </span><span id="local-6989586621679317579"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317579"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#newDeleteApiDestination"><span class="hs-identifier hs-var hs-var">newDeleteApiDestination</span></a></span></span><span> </span><span id="local-6989586621679317791"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317791"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteApiDestination' :: Text -&gt; DeleteApiDestination
 </span><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination%27"><span class="hs-identifier hs-type">DeleteApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteApiDestination' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#%24sel%3Aname%3ADeleteApiDestination%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317579"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679317791"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The name of the destination to delete.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#deleteApiDestination_name"><span class="hs-identifier hs-type">deleteApiDestination_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination"><span class="hs-identifier hs-type">DeleteApiDestination</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -134,27 +134,27 @@ $cfrom :: forall x. DeleteApiDestination -&gt; Rep DeleteApiDestination x
 -&gt; (DeleteApiDestination -&gt; Text -&gt; DeleteApiDestination)
 -&gt; Lens DeleteApiDestination DeleteApiDestination Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination%27"><span class="hs-identifier hs-type">DeleteApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317576"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination%27"><span class="hs-identifier hs-type">DeleteApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317788"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteApiDestination' :: DeleteApiDestination -&gt; Text
-</span><a href="#local-6989586621679317576"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317576"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317575"><span class="annot"><span class="annottext">s :: DeleteApiDestination
-</span><a href="#local-6989586621679317575"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination%27"><span class="hs-identifier hs-type">DeleteApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317574"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317574"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteApiDestination
-</span><a href="#local-6989586621679317575"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteApiDestination' :: Text
+</span><a href="#local-6989586621679317788"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317788"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317787"><span class="annot"><span class="annottext">s :: DeleteApiDestination
+</span><a href="#local-6989586621679317787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination%27"><span class="hs-identifier hs-type">DeleteApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317786"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679317786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteApiDestination
+</span><a href="#local-6989586621679317787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteApiDestination' :: Text
 </span><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#%24sel%3Aname%3ADeleteApiDestination%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317574"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination"><span class="hs-identifier hs-type">DeleteApiDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination"><span class="hs-identifier hs-type">DeleteApiDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination"><span class="hs-identifier hs-type">DeleteApiDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-77"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination"><span class="hs-identifier hs-type">DeleteApiDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestinationResponse"><span class="hs-identifier hs-type">DeleteApiDestinationResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679317570"><span class="annot"><span class="annottext">request :: DeleteApiDestination -&gt; Request DeleteApiDestination
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679317782"><span class="annot"><span class="annottext">request :: DeleteApiDestination -&gt; Request DeleteApiDestination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteApiDestination -&gt; Request DeleteApiDestination
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679317566"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679317778"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteApiDestination
 -&gt; ClientResponse ClientBody
@@ -180,10 +180,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317563"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317563"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317562"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679317562"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317561"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679317561"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317775"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317775"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679317774"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679317774"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679317773"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679317773"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteApiDestinationResponse
 </span><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestinationResponse%27"><span class="hs-identifier hs-var">DeleteApiDestinationResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteApiDestinationResponse)
@@ -194,15 +194,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317563"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317775"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317554"><span id="local-6989586621679317556"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination"><span class="hs-identifier hs-type">DeleteApiDestination</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317766"><span id="local-6989586621679317768"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination"><span class="hs-identifier hs-type">DeleteApiDestination</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317551"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination"><span class="hs-identifier hs-type">DeleteApiDestination</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317763"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination"><span class="hs-identifier hs-type">DeleteApiDestination</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination"><span class="hs-identifier hs-type">DeleteApiDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679317547"><span class="annot"><span class="annottext">toHeaders :: DeleteApiDestination -&gt; ResponseHeaders
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679317759"><span class="annot"><span class="annottext">toHeaders :: DeleteApiDestination -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteApiDestination -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -229,12 +229,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317537"><span id="local-6989586621679317539"><span id="local-6989586621679317541"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination"><span class="hs-identifier hs-type">DeleteApiDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679317535"><span class="annot"><span class="annottext">toJSON :: DeleteApiDestination -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination%27"><span class="hs-identifier hs-type">DeleteApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317533"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317749"><span id="local-6989586621679317751"><span id="local-6989586621679317753"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination"><span class="hs-identifier hs-type">DeleteApiDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679317747"><span class="annot"><span class="annottext">toJSON :: DeleteApiDestination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination%27"><span class="hs-identifier hs-type">DeleteApiDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317745"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteApiDestination' :: DeleteApiDestination -&gt; Text
-</span><a href="#local-6989586621679317533"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679317745"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -246,18 +246,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679317533"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679317745"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination"><span class="hs-identifier hs-type">DeleteApiDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679317527"><span class="annot"><span class="annottext">toPath :: DeleteApiDestination -&gt; ByteString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679317739"><span class="annot"><span class="annottext">toPath :: DeleteApiDestination -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteApiDestination -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestination"><span class="hs-identifier hs-type">DeleteApiDestination</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679317523"><span class="annot"><span class="annottext">toQuery :: DeleteApiDestination -&gt; QueryString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679317735"><span class="annot"><span class="annottext">toQuery :: DeleteApiDestination -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteApiDestination -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -265,12 +265,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newDeleteApiDestinationResponse' smart constructor.</span><span>
-</span><span id="line-120"></span><span id="local-6989586621679317520"><span id="local-6989586621679317521"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteApiDestinationResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestinationResponse"><span class="hs-identifier hs-var">DeleteApiDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteApiDestinationResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestinationResponse%27"><span class="hs-identifier hs-var">DeleteApiDestinationResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span id="local-6989586621679317732"><span id="local-6989586621679317733"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteApiDestinationResponse"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestinationResponse"><span class="hs-identifier hs-var">DeleteApiDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteApiDestinationResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestinationResponse%27"><span class="hs-identifier hs-var">DeleteApiDestinationResponse'</span></a></span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteApiDestinationResponse%27"><span class="annot"><span class="annottext">DeleteApiDestinationResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#%24sel%3AhttpStatus%3ADeleteApiDestinationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317515"><span id="local-6989586621679317517"><span class="annot"><span class="annottext">DeleteApiDestinationResponse
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317727"><span id="local-6989586621679317729"><span class="annot"><span class="annottext">DeleteApiDestinationResponse
 -&gt; DeleteApiDestinationResponse -&gt; Bool
 (DeleteApiDestinationResponse
  -&gt; DeleteApiDestinationResponse -&gt; Bool)
@@ -286,7 +286,7 @@ $c/= :: DeleteApiDestinationResponse
 -&gt; DeleteApiDestinationResponse -&gt; Bool
 $c== :: DeleteApiDestinationResponse
 -&gt; DeleteApiDestinationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317507"><span id="local-6989586621679317509"><span id="local-6989586621679317511"><span id="local-6989586621679317513"><span class="annot"><span class="annottext">ReadPrec [DeleteApiDestinationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317719"><span id="local-6989586621679317721"><span id="local-6989586621679317723"><span id="local-6989586621679317725"><span class="annot"><span class="annottext">ReadPrec [DeleteApiDestinationResponse]
 ReadPrec DeleteApiDestinationResponse
 Int -&gt; ReadS DeleteApiDestinationResponse
 ReadS [DeleteApiDestinationResponse]
@@ -306,7 +306,7 @@ readList :: ReadS [DeleteApiDestinationResponse]
 $creadList :: ReadS [DeleteApiDestinationResponse]
 readsPrec :: Int -&gt; ReadS DeleteApiDestinationResponse
 $creadsPrec :: Int -&gt; ReadS DeleteApiDestinationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317501"><span id="local-6989586621679317503"><span id="local-6989586621679317505"><span class="annot"><span class="annottext">Int -&gt; DeleteApiDestinationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317713"><span id="local-6989586621679317715"><span id="local-6989586621679317717"><span class="annot"><span class="annottext">Int -&gt; DeleteApiDestinationResponse -&gt; ShowS
 [DeleteApiDestinationResponse] -&gt; ShowS
 DeleteApiDestinationResponse -&gt; String
 (Int -&gt; DeleteApiDestinationResponse -&gt; ShowS)
@@ -352,14 +352,14 @@ DeleteApiDestinationResponse -&gt; Rep DeleteApiDestinationResponse x
 </span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestinationResponse"><span class="hs-identifier hs-type">DeleteApiDestinationResponse</span></a></span><span>
 </span><span id="line-139"></span><span id="newDeleteApiDestinationResponse"><span class="annot"><span class="annottext">newDeleteApiDestinationResponse :: Int -&gt; DeleteApiDestinationResponse
-</span><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#newDeleteApiDestinationResponse"><span class="hs-identifier hs-var hs-var">newDeleteApiDestinationResponse</span></a></span></span><span> </span><span id="local-6989586621679317498"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317498"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#newDeleteApiDestinationResponse"><span class="hs-identifier hs-var hs-var">newDeleteApiDestinationResponse</span></a></span></span><span> </span><span id="local-6989586621679317710"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317710"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">DeleteApiDestinationResponse' :: Int -&gt; DeleteApiDestinationResponse
 </span><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestinationResponse%27"><span class="hs-identifier hs-type">DeleteApiDestinationResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteApiDestinationResponse' :: Int
 </span><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#%24sel%3AhttpStatus%3ADeleteApiDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317498"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679317710"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -372,16 +372,16 @@ DeleteApiDestinationResponse -&gt; Rep DeleteApiDestinationResponse x
 -&gt; Lens
      DeleteApiDestinationResponse DeleteApiDestinationResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestinationResponse%27"><span class="hs-identifier hs-type">DeleteApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317497"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestinationResponse%27"><span class="hs-identifier hs-type">DeleteApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317709"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteApiDestinationResponse' :: DeleteApiDestinationResponse -&gt; Int
-</span><a href="#local-6989586621679317497"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317497"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317496"><span class="annot"><span class="annottext">s :: DeleteApiDestinationResponse
-</span><a href="#local-6989586621679317496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestinationResponse%27"><span class="hs-identifier hs-type">DeleteApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317495"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteApiDestinationResponse
-</span><a href="#local-6989586621679317496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteApiDestinationResponse' :: Int
+</span><a href="#local-6989586621679317709"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317709"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317708"><span class="annot"><span class="annottext">s :: DeleteApiDestinationResponse
+</span><a href="#local-6989586621679317708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestinationResponse%27"><span class="hs-identifier hs-type">DeleteApiDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317707"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679317707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteApiDestinationResponse
+</span><a href="#local-6989586621679317708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteApiDestinationResponse' :: Int
 </span><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#%24sel%3AhttpStatus%3ADeleteApiDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679317495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestinationResponse"><span class="hs-identifier hs-type">DeleteApiDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestinationResponse"><span class="hs-identifier hs-type">DeleteApiDestinationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317493"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestinationResponse"><span class="hs-identifier hs-type">DeleteApiDestinationResponse</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317705"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.DeleteApiDestination.html#DeleteApiDestinationResponse"><span class="hs-identifier hs-type">DeleteApiDestinationResponse</span></a></span></span><span>
 </span><span id="line-150"></span></pre></body></html>

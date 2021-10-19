@@ -27,16 +27,16 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains additional data that is needed to process a handshake.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newHandshakeResource' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679237622"><span id="local-6989586621679237623"></span></span><span class="hs-keyword">data</span><span> </span><span id="HandshakeResource"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-var">HandshakeResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HandshakeResource%27"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource%27"><span class="hs-identifier hs-var">HandshakeResource'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When needed, contains an additional array of @HandshakeResource@</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- objects.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aresources%3AHandshakeResource%27"><span class="annot"><span class="annottext">HandshakeResource -&gt; Maybe [HandshakeResource]
-</span><a href="Network.AWS.Organizations.Types.HandshakeResource.html#%24sel%3Aresources%3AHandshakeResource%27"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The information that is passed to the other party in the handshake. The</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- format of the value string must match the requirements of the specified</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- type.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Avalue%3AHandshakeResource%27"><span class="annot"><span class="annottext">HandshakeResource -&gt; Maybe (Sensitive Text)
+</span><span id="line-30"></span><span id="local-6989586621679237741"><span id="local-6989586621679237742"></span></span><span class="hs-keyword">data</span><span> </span><span id="HandshakeResource"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-var">HandshakeResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HandshakeResource%27"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource%27"><span class="hs-identifier hs-var">HandshakeResource'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The information that is passed to the other party in the handshake. The</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- format of the value string must match the requirements of the specified</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3AHandshakeResource%27"><span class="annot"><span class="annottext">HandshakeResource -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.Organizations.Types.HandshakeResource.html#%24sel%3Avalue%3AHandshakeResource%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | When needed, contains an additional array of @HandshakeResource@</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- objects.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aresources%3AHandshakeResource%27"><span class="annot"><span class="annottext">HandshakeResource -&gt; Maybe [HandshakeResource]
+</span><a href="Network.AWS.Organizations.Types.HandshakeResource.html#%24sel%3Aresources%3AHandshakeResource%27"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The type of information being passed, specifying how the value is to be</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- interpreted by the other party:</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3Atype%27%3AHandshakeResource%27"><span class="annot"><span class="annottext">HandshakeResource -&gt; Maybe HandshakeResourceType
 </span><a href="Network.AWS.Organizations.Types.HandshakeResource.html#%24sel%3Atype%27%3AHandshakeResource%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResourceType.html#HandshakeResourceType"><span class="hs-identifier hs-type">HandshakeResourceType</span></a></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237614"><span id="local-6989586621679237616"><span class="annot"><span class="annottext">HandshakeResource -&gt; HandshakeResource -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237733"><span id="local-6989586621679237735"><span class="annot"><span class="annottext">HandshakeResource -&gt; HandshakeResource -&gt; Bool
 (HandshakeResource -&gt; HandshakeResource -&gt; Bool)
 -&gt; (HandshakeResource -&gt; HandshakeResource -&gt; Bool)
 -&gt; Eq HandshakeResource
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HandshakeResource -&gt; HandshakeResource -&gt; Bool
 == :: HandshakeResource -&gt; HandshakeResource -&gt; Bool
 $c== :: HandshakeResource -&gt; HandshakeResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237607"><span id="local-6989586621679237609"><span id="local-6989586621679237611"><span class="annot"><span class="annottext">Int -&gt; HandshakeResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237726"><span id="local-6989586621679237728"><span id="local-6989586621679237730"><span class="annot"><span class="annottext">Int -&gt; HandshakeResource -&gt; ShowS
 [HandshakeResource] -&gt; ShowS
 HandshakeResource -&gt; String
 (Int -&gt; HandshakeResource -&gt; ShowS)
@@ -101,12 +101,12 @@ $cfrom :: forall x. HandshakeResource -&gt; Rep HandshakeResource x
 </span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'resources', 'handshakeResource_resources' - When needed, contains an additional array of @HandshakeResource@</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- objects.</span><span>
-</span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'value', 'handshakeResource_value' - The information that is passed to the other party in the handshake. The</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- format of the value string must match the requirements of the specified</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'value', 'handshakeResource_value' - The information that is passed to the other party in the handshake. The</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- format of the value string must match the requirements of the specified</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'resources', 'handshakeResource_resources' - When needed, contains an additional array of @HandshakeResource@</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- objects.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- 'type'', 'handshakeResource_type' - The type of information being passed, specifying how the value is to be</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- interpreted by the other party:</span><span>
@@ -130,17 +130,17 @@ $cfrom :: forall x. HandshakeResource -&gt; Rep HandshakeResource x
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span><span>
 </span><span id="line-95"></span><span id="newHandshakeResource"><span class="annot"><span class="annottext">newHandshakeResource :: HandshakeResource
 </span><a href="Network.AWS.Organizations.Types.HandshakeResource.html#newHandshakeResource"><span class="hs-identifier hs-var hs-var">newHandshakeResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">HandshakeResource' :: Maybe [HandshakeResource]
--&gt; Maybe (Sensitive Text)
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">HandshakeResource' :: Maybe (Sensitive Text)
+-&gt; Maybe [HandshakeResource]
 -&gt; Maybe HandshakeResourceType
 -&gt; HandshakeResource
 </span><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource%27"><span class="hs-identifier hs-type">HandshakeResource'</span></a></span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resources:HandshakeResource' :: Maybe [HandshakeResource]
-</span><a href="Network.AWS.Organizations.Types.HandshakeResource.html#%24sel%3Aresources%3AHandshakeResource%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HandshakeResource]
+</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:HandshakeResource' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Organizations.Types.HandshakeResource.html#%24sel%3Avalue%3AHandshakeResource%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:HandshakeResource' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.Organizations.Types.HandshakeResource.html#%24sel%3Avalue%3AHandshakeResource%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:resources:HandshakeResource' :: Maybe [HandshakeResource]
+</span><a href="Network.AWS.Organizations.Types.HandshakeResource.html#%24sel%3Aresources%3AHandshakeResource%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HandshakeResource]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':HandshakeResource' :: Maybe HandshakeResourceType
@@ -149,10 +149,55 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | When needed, contains an additional array of @HandshakeResource@</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- objects.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#handshakeResource_resources"><span class="hs-identifier hs-type">handshakeResource_resources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="handshakeResource_resources"><span class="annot"><span class="annottext">handshakeResource_resources :: (Maybe [HandshakeResource] -&gt; f (Maybe [HandshakeResource]))
+</span><span id="line-102"></span><span class="hs-comment">-- | The information that is passed to the other party in the handshake. The</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- format of the value string must match the requirements of the specified</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- type.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#handshakeResource_value"><span class="hs-identifier hs-type">handshakeResource_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="handshakeResource_value"><span class="annot"><span class="annottext">handshakeResource_value :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; HandshakeResource -&gt; f HandshakeResource
+</span><a href="Network.AWS.Organizations.Types.HandshakeResource.html#handshakeResource_value"><span class="hs-identifier hs-var hs-var">handshakeResource_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HandshakeResource -&gt; Maybe (Sensitive Text))
+-&gt; (HandshakeResource
+    -&gt; Maybe (Sensitive Text) -&gt; HandshakeResource)
+-&gt; Lens
+     HandshakeResource
+     HandshakeResource
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource%27"><span class="hs-identifier hs-type">HandshakeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237717"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+value :: Maybe (Sensitive Text)
+$sel:value:HandshakeResource' :: HandshakeResource -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679237717"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679237717"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237716"><span class="annot"><span class="annottext">s :: HandshakeResource
+</span><a href="#local-6989586621679237716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource%27"><span class="hs-identifier hs-type">HandshakeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237715"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679237715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HandshakeResource
+</span><a href="#local-6989586621679237716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:HandshakeResource' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Organizations.Types.HandshakeResource.html#%24sel%3Avalue%3AHandshakeResource%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679237715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; HandshakeResource -&gt; f HandshakeResource)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; HandshakeResource
+-&gt; f HandshakeResource
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | When needed, contains an additional array of @HandshakeResource@</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- objects.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#handshakeResource_resources"><span class="hs-identifier hs-type">handshakeResource_resources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="handshakeResource_resources"><span class="annot"><span class="annottext">handshakeResource_resources :: (Maybe [HandshakeResource] -&gt; f (Maybe [HandshakeResource]))
 -&gt; HandshakeResource -&gt; f HandshakeResource
 </span><a href="Network.AWS.Organizations.Types.HandshakeResource.html#handshakeResource_resources"><span class="hs-identifier hs-var hs-var">handshakeResource_resources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HandshakeResource -&gt; Maybe [HandshakeResource])
 -&gt; (HandshakeResource
@@ -163,16 +208,16 @@ forall a. Maybe a
      (Maybe [HandshakeResource])
      (Maybe [HandshakeResource])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource%27"><span class="hs-identifier hs-type">HandshakeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237598"><span class="annot"><span class="annottext">Maybe [HandshakeResource]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource%27"><span class="hs-identifier hs-type">HandshakeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237710"><span class="annot"><span class="annottext">Maybe [HandshakeResource]
 resources :: Maybe [HandshakeResource]
 $sel:resources:HandshakeResource' :: HandshakeResource -&gt; Maybe [HandshakeResource]
-</span><a href="#local-6989586621679237598"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HandshakeResource]
-</span><a href="#local-6989586621679237598"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237597"><span class="annot"><span class="annottext">s :: HandshakeResource
-</span><a href="#local-6989586621679237597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource%27"><span class="hs-identifier hs-type">HandshakeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237596"><span class="annot"><span class="annottext">Maybe [HandshakeResource]
-</span><a href="#local-6989586621679237596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HandshakeResource
-</span><a href="#local-6989586621679237597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:HandshakeResource' :: Maybe [HandshakeResource]
+</span><a href="#local-6989586621679237710"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HandshakeResource]
+</span><a href="#local-6989586621679237710"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237709"><span class="annot"><span class="annottext">s :: HandshakeResource
+</span><a href="#local-6989586621679237709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource%27"><span class="hs-identifier hs-type">HandshakeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237708"><span class="annot"><span class="annottext">Maybe [HandshakeResource]
+</span><a href="#local-6989586621679237708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HandshakeResource
+</span><a href="#local-6989586621679237709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:HandshakeResource' :: Maybe [HandshakeResource]
 </span><a href="Network.AWS.Organizations.Types.HandshakeResource.html#%24sel%3Aresources%3AHandshakeResource%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HandshakeResource]
-</span><a href="#local-6989586621679237596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HandshakeResource] -&gt; f (Maybe [HandshakeResource]))
+</span><a href="#local-6989586621679237708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HandshakeResource] -&gt; f (Maybe [HandshakeResource]))
  -&gt; HandshakeResource -&gt; f HandshakeResource)
 -&gt; ((Maybe [HandshakeResource] -&gt; f (Maybe [HandshakeResource]))
     -&gt; Maybe [HandshakeResource] -&gt; f (Maybe [HandshakeResource]))
@@ -198,53 +243,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [HandshakeResource]
   [HandshakeResource]
   [HandshakeResource]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | The information that is passed to the other party in the handshake. The</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- format of the value string must match the requirements of the specified</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- type.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#handshakeResource_value"><span class="hs-identifier hs-type">handshakeResource_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="handshakeResource_value"><span class="annot"><span class="annottext">handshakeResource_value :: (Maybe Text -&gt; f (Maybe Text))
--&gt; HandshakeResource -&gt; f HandshakeResource
-</span><a href="Network.AWS.Organizations.Types.HandshakeResource.html#handshakeResource_value"><span class="hs-identifier hs-var hs-var">handshakeResource_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HandshakeResource -&gt; Maybe (Sensitive Text))
--&gt; (HandshakeResource
-    -&gt; Maybe (Sensitive Text) -&gt; HandshakeResource)
--&gt; Lens
-     HandshakeResource
-     HandshakeResource
-     (Maybe (Sensitive Text))
-     (Maybe (Sensitive Text))
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource%27"><span class="hs-identifier hs-type">HandshakeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237591"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-value :: Maybe (Sensitive Text)
-$sel:value:HandshakeResource' :: HandshakeResource -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679237591"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679237591"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237590"><span class="annot"><span class="annottext">s :: HandshakeResource
-</span><a href="#local-6989586621679237590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource%27"><span class="hs-identifier hs-type">HandshakeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237589"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679237589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HandshakeResource
-</span><a href="#local-6989586621679237590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:HandshakeResource' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.Organizations.Types.HandshakeResource.html#%24sel%3Avalue%3AHandshakeResource%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679237589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
- -&gt; HandshakeResource -&gt; f HandshakeResource)
--&gt; ((Maybe Text -&gt; f (Maybe Text))
-    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
--&gt; (Maybe Text -&gt; f (Maybe Text))
--&gt; HandshakeResource
--&gt; f HandshakeResource
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
--&gt; Iso
-     (Maybe (Sensitive Text))
-     (Maybe (Sensitive Text))
-     (Maybe Text)
-     (Maybe Text)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
-forall a. Iso' (Sensitive a) a
-</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The type of information being passed, specifying how the value is to be</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- interpreted by the other party:</span><span>
@@ -276,19 +276,19 @@ forall a. Iso' (Sensitive a) a
      (Maybe HandshakeResourceType)
      (Maybe HandshakeResourceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource%27"><span class="hs-identifier hs-type">HandshakeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237586"><span class="annot"><span class="annottext">Maybe HandshakeResourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource%27"><span class="hs-identifier hs-type">HandshakeResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237705"><span class="annot"><span class="annottext">Maybe HandshakeResourceType
 type' :: Maybe HandshakeResourceType
 $sel:type':HandshakeResource' :: HandshakeResource -&gt; Maybe HandshakeResourceType
-</span><a href="#local-6989586621679237586"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HandshakeResourceType
-</span><a href="#local-6989586621679237586"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237585"><span class="annot"><span class="annottext">s :: HandshakeResource
-</span><a href="#local-6989586621679237585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource%27"><span class="hs-identifier hs-type">HandshakeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237584"><span class="annot"><span class="annottext">Maybe HandshakeResourceType
-</span><a href="#local-6989586621679237584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HandshakeResource
-</span><a href="#local-6989586621679237585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':HandshakeResource' :: Maybe HandshakeResourceType
+</span><a href="#local-6989586621679237705"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HandshakeResourceType
+</span><a href="#local-6989586621679237705"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237704"><span class="annot"><span class="annottext">s :: HandshakeResource
+</span><a href="#local-6989586621679237704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource%27"><span class="hs-identifier hs-type">HandshakeResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237703"><span class="annot"><span class="annottext">Maybe HandshakeResourceType
+</span><a href="#local-6989586621679237703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HandshakeResource
+</span><a href="#local-6989586621679237704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':HandshakeResource' :: Maybe HandshakeResourceType
 </span><a href="Network.AWS.Organizations.Types.HandshakeResource.html#%24sel%3Atype%27%3AHandshakeResource%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HandshakeResourceType
-</span><a href="#local-6989586621679237584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237581"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679237579"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HandshakeResource
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237700"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679237698"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HandshakeResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HandshakeResource)
@@ -298,24 +298,35 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HandshakeResource&quot;</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237576"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237576"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe [HandshakeResource]
--&gt; Maybe (Sensitive Text)
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237695"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237695"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+-&gt; Maybe [HandshakeResource]
 -&gt; Maybe HandshakeResourceType
 -&gt; HandshakeResource
 </span><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource%27"><span class="hs-identifier hs-var">HandshakeResource'</span></a></span><span>
-</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [HandshakeResource]
- -&gt; Maybe (Sensitive Text)
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (Sensitive Text)
+ -&gt; Maybe [HandshakeResource]
  -&gt; Maybe HandshakeResourceType
  -&gt; HandshakeResource)
--&gt; Parser (Maybe [HandshakeResource])
+-&gt; Parser (Maybe (Sensitive Text))
 -&gt; Parser
-     (Maybe (Sensitive Text)
+     (Maybe [HandshakeResource]
       -&gt; Maybe HandshakeResourceType -&gt; HandshakeResource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [HandshakeResource]))
+</span><a href="#local-6989586621679237695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [HandshakeResource]
+   -&gt; Maybe HandshakeResourceType -&gt; HandshakeResource)
+-&gt; Parser (Maybe [HandshakeResource])
+-&gt; Parser (Maybe HandshakeResourceType -&gt; HandshakeResource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [HandshakeResource]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Resources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [HandshakeResource]))
@@ -324,28 +335,17 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [HandshakeResource]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (Sensitive Text)
-   -&gt; Maybe HandshakeResourceType -&gt; HandshakeResource)
--&gt; Parser (Maybe (Sensitive Text))
--&gt; Parser (Maybe HandshakeResourceType -&gt; HandshakeResource)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe HandshakeResourceType -&gt; HandshakeResource)
 -&gt; Parser (Maybe HandshakeResourceType) -&gt; Parser HandshakeResource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HandshakeResourceType)
+</span><a href="#local-6989586621679237695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HandshakeResourceType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237569"><span id="local-6989586621679237571"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237688"><span id="local-6989586621679237690"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237566"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeResource.html#HandshakeResource"><span class="hs-identifier hs-type">HandshakeResource</span></a></span></span><span>
 </span><span id="line-148"></span></pre></body></html>

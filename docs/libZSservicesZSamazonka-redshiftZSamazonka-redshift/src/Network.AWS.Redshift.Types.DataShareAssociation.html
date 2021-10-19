@@ -29,22 +29,22 @@
 </span><span id="line-29"></span><span class="hs-comment">-- consumer.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDataShareAssociation' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679490805"><span id="local-6989586621679490806"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataShareAssociation"><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-var">DataShareAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataShareAssociation%27"><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-var">DataShareAssociation'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The creation date of the datashare that is associated.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcreatedDate%3ADataShareAssociation%27"><span class="annot"><span class="annottext">DataShareAssociation -&gt; Maybe ISO8601
-</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3AcreatedDate%3ADataShareAssociation%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The status of the datashare that is associated.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3ADataShareAssociation%27"><span class="annot"><span class="annottext">DataShareAssociation -&gt; Maybe DataShareStatus
+</span><span id="line-32"></span><span id="local-6989586621679491444"><span id="local-6989586621679491445"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataShareAssociation"><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-var">DataShareAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataShareAssociation%27"><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-var">DataShareAssociation'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the datashare that is associated.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3ADataShareAssociation%27"><span class="annot"><span class="annottext">DataShareAssociation -&gt; Maybe DataShareStatus
 </span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3Astatus%3ADataShareAssociation%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareStatus.html#DataShareStatus"><span class="hs-identifier hs-type">DataShareStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The status change data of the datashare that is associated.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AstatusChangeDate%3ADataShareAssociation%27"><span class="annot"><span class="annottext">DataShareAssociation -&gt; Maybe ISO8601
-</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3AstatusChangeDate%3ADataShareAssociation%27"><span class="hs-identifier hs-var hs-var">statusChangeDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the consumer accounts that have an association with a</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- producer datashare.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AconsumerIdentifier%3ADataShareAssociation%27"><span class="annot"><span class="annottext">DataShareAssociation -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3AconsumerIdentifier%3ADataShareAssociation%27"><span class="hs-identifier hs-var hs-var">consumerIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the consumer accounts that have an association with a</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- producer datashare.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AconsumerIdentifier%3ADataShareAssociation%27"><span class="annot"><span class="annottext">DataShareAssociation -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3AconsumerIdentifier%3ADataShareAssociation%27"><span class="hs-identifier hs-var hs-var">consumerIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The creation date of the datashare that is associated.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcreatedDate%3ADataShareAssociation%27"><span class="annot"><span class="annottext">DataShareAssociation -&gt; Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3AcreatedDate%3ADataShareAssociation%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The status change data of the datashare that is associated.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AstatusChangeDate%3ADataShareAssociation%27"><span class="annot"><span class="annottext">DataShareAssociation -&gt; Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3AstatusChangeDate%3ADataShareAssociation%27"><span class="hs-identifier hs-var hs-var">statusChangeDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679490796"><span id="local-6989586621679490798"><span class="annot"><span class="annottext">DataShareAssociation -&gt; DataShareAssociation -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679491435"><span id="local-6989586621679491437"><span class="annot"><span class="annottext">DataShareAssociation -&gt; DataShareAssociation -&gt; Bool
 (DataShareAssociation -&gt; DataShareAssociation -&gt; Bool)
 -&gt; (DataShareAssociation -&gt; DataShareAssociation -&gt; Bool)
 -&gt; Eq DataShareAssociation
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DataShareAssociation -&gt; DataShareAssociation -&gt; Bool
 == :: DataShareAssociation -&gt; DataShareAssociation -&gt; Bool
 $c== :: DataShareAssociation -&gt; DataShareAssociation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679490787"><span id="local-6989586621679490789"><span id="local-6989586621679490791"><span id="local-6989586621679490793"><span class="annot"><span class="annottext">ReadPrec [DataShareAssociation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679491426"><span id="local-6989586621679491428"><span id="local-6989586621679491430"><span id="local-6989586621679491432"><span class="annot"><span class="annottext">ReadPrec [DataShareAssociation]
 ReadPrec DataShareAssociation
 Int -&gt; ReadS DataShareAssociation
 ReadS [DataShareAssociation]
@@ -73,7 +73,7 @@ readList :: ReadS [DataShareAssociation]
 $creadList :: ReadS [DataShareAssociation]
 readsPrec :: Int -&gt; ReadS DataShareAssociation
 $creadsPrec :: Int -&gt; ReadS DataShareAssociation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679490780"><span id="local-6989586621679490782"><span id="local-6989586621679490784"><span class="annot"><span class="annottext">Int -&gt; DataShareAssociation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679491419"><span id="local-6989586621679491421"><span id="local-6989586621679491423"><span class="annot"><span class="annottext">Int -&gt; DataShareAssociation -&gt; ShowS
 [DataShareAssociation] -&gt; ShowS
 DataShareAssociation -&gt; String
 (Int -&gt; DataShareAssociation -&gt; ShowS)
@@ -107,85 +107,45 @@ $cfrom :: forall x. DataShareAssociation -&gt; Rep DataShareAssociation x
 </span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'createdDate', 'dataShareAssociation_createdDate' - The creation date of the datashare that is associated.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'status', 'dataShareAssociation_status' - The status of the datashare that is associated.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'status', 'dataShareAssociation_status' - The status of the datashare that is associated.</span><span>
-</span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'statusChangeDate', 'dataShareAssociation_statusChangeDate' - The status change data of the datashare that is associated.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'consumerIdentifier', 'dataShareAssociation_consumerIdentifier' - The name of the consumer accounts that have an association with a</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- producer datashare.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'consumerIdentifier', 'dataShareAssociation_consumerIdentifier' - The name of the consumer accounts that have an association with a</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- producer datashare.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'createdDate', 'dataShareAssociation_createdDate' - The creation date of the datashare that is associated.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'statusChangeDate', 'dataShareAssociation_statusChangeDate' - The status change data of the datashare that is associated.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#newDataShareAssociation"><span class="hs-identifier hs-type">newDataShareAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span>
 </span><span id="line-63"></span><span id="newDataShareAssociation"><span class="annot"><span class="annottext">newDataShareAssociation :: DataShareAssociation
 </span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#newDataShareAssociation"><span class="hs-identifier hs-var hs-var">newDataShareAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">DataShareAssociation' :: Maybe ISO8601
--&gt; Maybe DataShareStatus
--&gt; Maybe ISO8601
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">DataShareAssociation' :: Maybe DataShareStatus
 -&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe ISO8601
 -&gt; DataShareAssociation
 </span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-type">DataShareAssociation'</span></a></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createdDate:DataShareAssociation' :: Maybe ISO8601
-</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3AcreatedDate%3ADataShareAssociation%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:DataShareAssociation' :: Maybe DataShareStatus
+</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3Astatus%3ADataShareAssociation%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataShareStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DataShareAssociation' :: Maybe DataShareStatus
-</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3Astatus%3ADataShareAssociation%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataShareStatus
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:consumerIdentifier:DataShareAssociation' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3AconsumerIdentifier%3ADataShareAssociation%27"><span class="hs-identifier hs-var">consumerIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdDate:DataShareAssociation' :: Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3AcreatedDate%3ADataShareAssociation%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusChangeDate:DataShareAssociation' :: Maybe ISO8601
 </span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3AstatusChangeDate%3ADataShareAssociation%27"><span class="hs-identifier hs-var">statusChangeDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:consumerIdentifier:DataShareAssociation' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3AconsumerIdentifier%3ADataShareAssociation%27"><span class="hs-identifier hs-var">consumerIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The creation date of the datashare that is associated.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#dataShareAssociation_createdDate"><span class="hs-identifier hs-type">dataShareAssociation_createdDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="dataShareAssociation_createdDate"><span class="annot"><span class="annottext">dataShareAssociation_createdDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; DataShareAssociation -&gt; f DataShareAssociation
-</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#dataShareAssociation_createdDate"><span class="hs-identifier hs-var hs-var">dataShareAssociation_createdDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataShareAssociation -&gt; Maybe ISO8601)
--&gt; (DataShareAssociation -&gt; Maybe ISO8601 -&gt; DataShareAssociation)
--&gt; Lens
-     DataShareAssociation
-     DataShareAssociation
-     (Maybe ISO8601)
-     (Maybe ISO8601)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-type">DataShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679490771"><span class="annot"><span class="annottext">Maybe ISO8601
-createdDate :: Maybe ISO8601
-$sel:createdDate:DataShareAssociation' :: DataShareAssociation -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679490771"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679490771"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679490770"><span class="annot"><span class="annottext">s :: DataShareAssociation
-</span><a href="#local-6989586621679490770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-type">DataShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679490769"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679490769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataShareAssociation
-</span><a href="#local-6989586621679490770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:DataShareAssociation' :: Maybe ISO8601
-</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3AcreatedDate%3ADataShareAssociation%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679490769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
- -&gt; DataShareAssociation -&gt; f DataShareAssociation)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; DataShareAssociation
--&gt; f DataShareAssociation
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
--&gt; Iso
-     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | The status of the datashare that is associated.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#dataShareAssociation_status"><span class="hs-identifier hs-type">dataShareAssociation_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareStatus.html#DataShareStatus"><span class="hs-identifier hs-type">DataShareStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="dataShareAssociation_status"><span class="annot"><span class="annottext">dataShareAssociation_status :: (Maybe DataShareStatus -&gt; f (Maybe DataShareStatus))
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The status of the datashare that is associated.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#dataShareAssociation_status"><span class="hs-identifier hs-type">dataShareAssociation_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareStatus.html#DataShareStatus"><span class="hs-identifier hs-type">DataShareStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="dataShareAssociation_status"><span class="annot"><span class="annottext">dataShareAssociation_status :: (Maybe DataShareStatus -&gt; f (Maybe DataShareStatus))
 -&gt; DataShareAssociation -&gt; f DataShareAssociation
 </span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#dataShareAssociation_status"><span class="hs-identifier hs-var hs-var">dataShareAssociation_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataShareAssociation -&gt; Maybe DataShareStatus)
 -&gt; (DataShareAssociation
@@ -196,22 +156,43 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe DataShareStatus)
      (Maybe DataShareStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-type">DataShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679490764"><span class="annot"><span class="annottext">Maybe DataShareStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-type">DataShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679491410"><span class="annot"><span class="annottext">Maybe DataShareStatus
 status :: Maybe DataShareStatus
 $sel:status:DataShareAssociation' :: DataShareAssociation -&gt; Maybe DataShareStatus
-</span><a href="#local-6989586621679490764"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataShareStatus
-</span><a href="#local-6989586621679490764"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679490763"><span class="annot"><span class="annottext">s :: DataShareAssociation
-</span><a href="#local-6989586621679490763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-type">DataShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679490762"><span class="annot"><span class="annottext">Maybe DataShareStatus
-</span><a href="#local-6989586621679490762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataShareAssociation
-</span><a href="#local-6989586621679490763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DataShareAssociation' :: Maybe DataShareStatus
+</span><a href="#local-6989586621679491410"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataShareStatus
+</span><a href="#local-6989586621679491410"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679491409"><span class="annot"><span class="annottext">s :: DataShareAssociation
+</span><a href="#local-6989586621679491409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-type">DataShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679491408"><span class="annot"><span class="annottext">Maybe DataShareStatus
+</span><a href="#local-6989586621679491408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataShareAssociation
+</span><a href="#local-6989586621679491409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DataShareAssociation' :: Maybe DataShareStatus
 </span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3Astatus%3ADataShareAssociation%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataShareStatus
-</span><a href="#local-6989586621679490762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The status change data of the datashare that is associated.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#dataShareAssociation_statusChangeDate"><span class="hs-identifier hs-type">dataShareAssociation_statusChangeDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="dataShareAssociation_statusChangeDate"><span class="annot"><span class="annottext">dataShareAssociation_statusChangeDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679491408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The name of the consumer accounts that have an association with a</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- producer datashare.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#dataShareAssociation_consumerIdentifier"><span class="hs-identifier hs-type">dataShareAssociation_consumerIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="dataShareAssociation_consumerIdentifier"><span class="annot"><span class="annottext">dataShareAssociation_consumerIdentifier :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DataShareAssociation -&gt; f DataShareAssociation
-</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#dataShareAssociation_statusChangeDate"><span class="hs-identifier hs-var hs-var">dataShareAssociation_statusChangeDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataShareAssociation -&gt; Maybe ISO8601)
+</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#dataShareAssociation_consumerIdentifier"><span class="hs-identifier hs-var hs-var">dataShareAssociation_consumerIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataShareAssociation -&gt; Maybe Text)
+-&gt; (DataShareAssociation -&gt; Maybe Text -&gt; DataShareAssociation)
+-&gt; Lens
+     DataShareAssociation DataShareAssociation (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-type">DataShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679491406"><span class="annot"><span class="annottext">Maybe Text
+consumerIdentifier :: Maybe Text
+$sel:consumerIdentifier:DataShareAssociation' :: DataShareAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621679491406"><span class="hs-identifier hs-var hs-var">consumerIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679491406"><span class="hs-identifier hs-var">consumerIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679491405"><span class="annot"><span class="annottext">s :: DataShareAssociation
+</span><a href="#local-6989586621679491405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-type">DataShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679491404"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679491404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataShareAssociation
+</span><a href="#local-6989586621679491405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerIdentifier:DataShareAssociation' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3AconsumerIdentifier%3ADataShareAssociation%27"><span class="hs-identifier hs-var">consumerIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679491404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The creation date of the datashare that is associated.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#dataShareAssociation_createdDate"><span class="hs-identifier hs-type">dataShareAssociation_createdDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="dataShareAssociation_createdDate"><span class="annot"><span class="annottext">dataShareAssociation_createdDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DataShareAssociation -&gt; f DataShareAssociation
+</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#dataShareAssociation_createdDate"><span class="hs-identifier hs-var hs-var">dataShareAssociation_createdDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataShareAssociation -&gt; Maybe ISO8601)
 -&gt; (DataShareAssociation -&gt; Maybe ISO8601 -&gt; DataShareAssociation)
 -&gt; Lens
      DataShareAssociation
@@ -219,16 +200,16 @@ $sel:status:DataShareAssociation' :: DataShareAssociation -&gt; Maybe DataShareS
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-type">DataShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679490760"><span class="annot"><span class="annottext">Maybe ISO8601
-statusChangeDate :: Maybe ISO8601
-$sel:statusChangeDate:DataShareAssociation' :: DataShareAssociation -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679490760"><span class="hs-identifier hs-var hs-var">statusChangeDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679490760"><span class="hs-identifier hs-var">statusChangeDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679490759"><span class="annot"><span class="annottext">s :: DataShareAssociation
-</span><a href="#local-6989586621679490759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-type">DataShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679490758"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679490758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataShareAssociation
-</span><a href="#local-6989586621679490759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusChangeDate:DataShareAssociation' :: Maybe ISO8601
-</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3AstatusChangeDate%3ADataShareAssociation%27"><span class="hs-identifier hs-var">statusChangeDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679490758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-type">DataShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679491402"><span class="annot"><span class="annottext">Maybe ISO8601
+createdDate :: Maybe ISO8601
+$sel:createdDate:DataShareAssociation' :: DataShareAssociation -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679491402"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679491402"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679491401"><span class="annot"><span class="annottext">s :: DataShareAssociation
+</span><a href="#local-6989586621679491401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-type">DataShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679491400"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679491400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataShareAssociation
+</span><a href="#local-6989586621679491401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:DataShareAssociation' :: Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3AcreatedDate%3ADataShareAssociation%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679491400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; DataShareAssociation -&gt; f DataShareAssociation)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -246,85 +227,105 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The name of the consumer accounts that have an association with a</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- producer datashare.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#dataShareAssociation_consumerIdentifier"><span class="hs-identifier hs-type">dataShareAssociation_consumerIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="dataShareAssociation_consumerIdentifier"><span class="annot"><span class="annottext">dataShareAssociation_consumerIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-84"></span><span class="hs-comment">-- | The status change data of the datashare that is associated.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#dataShareAssociation_statusChangeDate"><span class="hs-identifier hs-type">dataShareAssociation_statusChangeDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="dataShareAssociation_statusChangeDate"><span class="annot"><span class="annottext">dataShareAssociation_statusChangeDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; DataShareAssociation -&gt; f DataShareAssociation
-</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#dataShareAssociation_consumerIdentifier"><span class="hs-identifier hs-var hs-var">dataShareAssociation_consumerIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataShareAssociation -&gt; Maybe Text)
--&gt; (DataShareAssociation -&gt; Maybe Text -&gt; DataShareAssociation)
+</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#dataShareAssociation_statusChangeDate"><span class="hs-identifier hs-var hs-var">dataShareAssociation_statusChangeDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataShareAssociation -&gt; Maybe ISO8601)
+-&gt; (DataShareAssociation -&gt; Maybe ISO8601 -&gt; DataShareAssociation)
 -&gt; Lens
-     DataShareAssociation DataShareAssociation (Maybe Text) (Maybe Text)
+     DataShareAssociation
+     DataShareAssociation
+     (Maybe ISO8601)
+     (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-type">DataShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679490756"><span class="annot"><span class="annottext">Maybe Text
-consumerIdentifier :: Maybe Text
-$sel:consumerIdentifier:DataShareAssociation' :: DataShareAssociation -&gt; Maybe Text
-</span><a href="#local-6989586621679490756"><span class="hs-identifier hs-var hs-var">consumerIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679490756"><span class="hs-identifier hs-var">consumerIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679490755"><span class="annot"><span class="annottext">s :: DataShareAssociation
-</span><a href="#local-6989586621679490755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-type">DataShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679490754"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679490754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataShareAssociation
-</span><a href="#local-6989586621679490755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerIdentifier:DataShareAssociation' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3AconsumerIdentifier%3ADataShareAssociation%27"><span class="hs-identifier hs-var">consumerIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679490754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679490751"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DataShareAssociation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679490749"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679490749"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
--&gt; Maybe DataShareStatus
--&gt; Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-type">DataShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679491395"><span class="annot"><span class="annottext">Maybe ISO8601
+statusChangeDate :: Maybe ISO8601
+$sel:statusChangeDate:DataShareAssociation' :: DataShareAssociation -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679491395"><span class="hs-identifier hs-var hs-var">statusChangeDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679491395"><span class="hs-identifier hs-var">statusChangeDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679491394"><span class="annot"><span class="annottext">s :: DataShareAssociation
+</span><a href="#local-6989586621679491394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-type">DataShareAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679491393"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679491393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataShareAssociation
+</span><a href="#local-6989586621679491394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusChangeDate:DataShareAssociation' :: Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#%24sel%3AstatusChangeDate%3ADataShareAssociation%27"><span class="hs-identifier hs-var">statusChangeDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679491393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; DataShareAssociation -&gt; f DataShareAssociation)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DataShareAssociation
+-&gt; f DataShareAssociation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679491390"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DataShareAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679491388"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679491388"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">Maybe DataShareStatus
 -&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe ISO8601
 -&gt; DataShareAssociation
 </span><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation%27"><span class="hs-identifier hs-var">DataShareAssociation'</span></a></span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601
- -&gt; Maybe DataShareStatus
- -&gt; Maybe ISO8601
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">(Maybe DataShareStatus
  -&gt; Maybe Text
+ -&gt; Maybe ISO8601
+ -&gt; Maybe ISO8601
  -&gt; DataShareAssociation)
--&gt; Either String (Maybe ISO8601)
--&gt; Either
-     String
-     (Maybe DataShareStatus
-      -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; DataShareAssociation)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679490749"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreatedDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe DataShareStatus
-   -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; DataShareAssociation)
 -&gt; Either String (Maybe DataShareStatus)
 -&gt; Either
-     String (Maybe ISO8601 -&gt; Maybe Text -&gt; DataShareAssociation)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679490749"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DataShareStatus)
+     String
+     (Maybe Text
+      -&gt; Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; DataShareAssociation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679491388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DataShareStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; Maybe Text -&gt; DataShareAssociation)
--&gt; Either String (Maybe ISO8601)
--&gt; Either String (Maybe Text -&gt; DataShareAssociation)
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; DataShareAssociation)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; DataShareAssociation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679490749"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StatusChangeDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; DataShareAssociation)
--&gt; Either String (Maybe Text) -&gt; Either String DataShareAssociation
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679490749"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679491388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConsumerIdentifier&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679490743"><span id="local-6989586621679490745"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span></span></span><span>
-</span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679490740"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span></span><span>
-</span><span id="line-100"></span></pre></body></html>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; DataShareAssociation)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe ISO8601 -&gt; DataShareAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679491388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; DataShareAssociation)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String DataShareAssociation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679491388"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatusChangeDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679491382"><span id="local-6989586621679491384"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679491379"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DataShareAssociation.html#DataShareAssociation"><span class="hs-identifier hs-type">DataShareAssociation</span></a></span></span><span>
+</span><span id="line-99"></span></pre></body></html>

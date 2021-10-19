@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.html"><span class="hs-identifier">Network.AWS.SMS.Types</span></a></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetAppReplicationConfiguration' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679256077"><span id="local-6989586621679256078"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAppReplicationConfiguration"><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration"><span class="hs-identifier hs-var">GetAppReplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAppReplicationConfiguration%27"><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration%27"><span class="hs-identifier hs-var">GetAppReplicationConfiguration'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679256225"><span id="local-6989586621679256226"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAppReplicationConfiguration"><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration"><span class="hs-identifier hs-var">GetAppReplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAppReplicationConfiguration%27"><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration%27"><span class="hs-identifier hs-var">GetAppReplicationConfiguration'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the application.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AappId%3AGetAppReplicationConfiguration%27"><span class="annot"><span class="annottext">GetAppReplicationConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#%24sel%3AappId%3AGetAppReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256071"><span id="local-6989586621679256073"><span class="annot"><span class="annottext">GetAppReplicationConfiguration
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256219"><span id="local-6989586621679256221"><span class="annot"><span class="annottext">GetAppReplicationConfiguration
 -&gt; GetAppReplicationConfiguration -&gt; Bool
 (GetAppReplicationConfiguration
  -&gt; GetAppReplicationConfiguration -&gt; Bool)
@@ -69,7 +69,7 @@ $c/= :: GetAppReplicationConfiguration
 -&gt; GetAppReplicationConfiguration -&gt; Bool
 $c== :: GetAppReplicationConfiguration
 -&gt; GetAppReplicationConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256062"><span id="local-6989586621679256064"><span id="local-6989586621679256066"><span id="local-6989586621679256068"><span class="annot"><span class="annottext">ReadPrec [GetAppReplicationConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256210"><span id="local-6989586621679256212"><span id="local-6989586621679256214"><span id="local-6989586621679256216"><span class="annot"><span class="annottext">ReadPrec [GetAppReplicationConfiguration]
 ReadPrec GetAppReplicationConfiguration
 Int -&gt; ReadS GetAppReplicationConfiguration
 ReadS [GetAppReplicationConfiguration]
@@ -89,7 +89,7 @@ readList :: ReadS [GetAppReplicationConfiguration]
 $creadList :: ReadS [GetAppReplicationConfiguration]
 readsPrec :: Int -&gt; ReadS GetAppReplicationConfiguration
 $creadsPrec :: Int -&gt; ReadS GetAppReplicationConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256055"><span id="local-6989586621679256057"><span id="local-6989586621679256059"><span class="annot"><span class="annottext">Int -&gt; GetAppReplicationConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256203"><span id="local-6989586621679256205"><span id="local-6989586621679256207"><span class="annot"><span class="annottext">Int -&gt; GetAppReplicationConfiguration -&gt; ShowS
 [GetAppReplicationConfiguration] -&gt; ShowS
 GetAppReplicationConfiguration -&gt; String
 (Int -&gt; GetAppReplicationConfiguration -&gt; ShowS)
@@ -163,16 +163,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration%27"><span class="hs-identifier hs-type">GetAppReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256048"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration%27"><span class="hs-identifier hs-type">GetAppReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256196"><span class="annot"><span class="annottext">Maybe Text
 appId :: Maybe Text
 $sel:appId:GetAppReplicationConfiguration' :: GetAppReplicationConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679256048"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679256048"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256047"><span class="annot"><span class="annottext">s :: GetAppReplicationConfiguration
-</span><a href="#local-6989586621679256047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration%27"><span class="hs-identifier hs-type">GetAppReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256046"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679256046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppReplicationConfiguration
-</span><a href="#local-6989586621679256047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:GetAppReplicationConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679256196"><span class="hs-identifier hs-var hs-var">appId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256196"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256195"><span class="annot"><span class="annottext">s :: GetAppReplicationConfiguration
+</span><a href="#local-6989586621679256195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration%27"><span class="hs-identifier hs-type">GetAppReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256194"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppReplicationConfiguration
+</span><a href="#local-6989586621679256195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appId:GetAppReplicationConfiguration' :: Maybe Text
 </span><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#%24sel%3AappId%3AGetAppReplicationConfiguration%27"><span class="hs-identifier hs-var">appId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679256046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration"><span class="hs-identifier hs-type">GetAppReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration"><span class="hs-identifier hs-type">GetAppReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -181,7 +181,7 @@ $sel:appId:GetAppReplicationConfiguration' :: GetAppReplicationConfiguration -&g
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration"><span class="hs-identifier hs-type">GetAppReplicationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse"><span class="hs-identifier hs-type">GetAppReplicationConfigurationResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679256042"><span class="annot"><span class="annottext">request :: GetAppReplicationConfiguration
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679256190"><span class="annot"><span class="annottext">request :: GetAppReplicationConfiguration
 -&gt; Request GetAppReplicationConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetAppReplicationConfiguration
@@ -189,7 +189,7 @@ $sel:appId:GetAppReplicationConfiguration' :: GetAppReplicationConfiguration -&g
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679256038"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679256186"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetAppReplicationConfiguration
 -&gt; ClientResponse ClientBody
@@ -217,10 +217,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256035"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256035"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256034"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679256034"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256033"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256033"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256183"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256183"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256182"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679256182"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256181"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256181"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ServerGroupReplicationConfiguration]
 -&gt; Int -&gt; GetAppReplicationConfigurationResponse
 </span><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-var">GetAppReplicationConfigurationResponse'</span></a></span><span>
@@ -230,7 +230,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetAppReplicationConfigurationResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either
      String (Maybe (Maybe [ServerGroupReplicationConfiguration]))
@@ -254,22 +254,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256035"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256183"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679256024"><span id="local-6989586621679256026"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679256172"><span id="local-6989586621679256174"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration"><span class="hs-identifier hs-type">GetAppReplicationConfiguration</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679256021"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679256169"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration"><span class="hs-identifier hs-type">GetAppReplicationConfiguration</span></a></span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration"><span class="hs-identifier hs-type">GetAppReplicationConfiguration</span></a></span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679256017"><span class="annot"><span class="annottext">toHeaders :: GetAppReplicationConfiguration -&gt; ResponseHeaders
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679256165"><span class="annot"><span class="annottext">toHeaders :: GetAppReplicationConfiguration -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; GetAppReplicationConfiguration -&gt; ResponseHeaders
@@ -297,12 +297,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256007"><span id="local-6989586621679256009"><span id="local-6989586621679256011"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration"><span class="hs-identifier hs-type">GetAppReplicationConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679256005"><span class="annot"><span class="annottext">toJSON :: GetAppReplicationConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration%27"><span class="hs-identifier hs-type">GetAppReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256003"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256155"><span id="local-6989586621679256157"><span id="local-6989586621679256159"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration"><span class="hs-identifier hs-type">GetAppReplicationConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679256153"><span class="annot"><span class="annottext">toJSON :: GetAppReplicationConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration%27"><span class="hs-identifier hs-type">GetAppReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256151"><span class="annot"><span class="annottext">Maybe Text
 appId :: Maybe Text
 $sel:appId:GetAppReplicationConfiguration' :: GetAppReplicationConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679256003"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679256151"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -314,18 +314,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679256003"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679256151"><span class="hs-identifier hs-var">appId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration"><span class="hs-identifier hs-type">GetAppReplicationConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679255997"><span class="annot"><span class="annottext">toPath :: GetAppReplicationConfiguration -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679256145"><span class="annot"><span class="annottext">toPath :: GetAppReplicationConfiguration -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetAppReplicationConfiguration -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfiguration"><span class="hs-identifier hs-type">GetAppReplicationConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679255993"><span class="annot"><span class="annottext">toQuery :: GetAppReplicationConfiguration -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679256141"><span class="annot"><span class="annottext">toQuery :: GetAppReplicationConfiguration -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetAppReplicationConfiguration -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -333,7 +333,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newGetAppReplicationConfigurationResponse' smart constructor.</span><span>
-</span><span id="line-136"></span><span id="local-6989586621679255990"><span id="local-6989586621679255991"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAppReplicationConfigurationResponse"><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse"><span class="hs-identifier hs-var">GetAppReplicationConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAppReplicationConfigurationResponse%27"><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-var">GetAppReplicationConfigurationResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span id="local-6989586621679256138"><span id="local-6989586621679256139"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAppReplicationConfigurationResponse"><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse"><span class="hs-identifier hs-var">GetAppReplicationConfigurationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAppReplicationConfigurationResponse%27"><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-var">GetAppReplicationConfigurationResponse'</span></a></span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The replication configurations associated with server groups in this</span><span>
 </span><span id="line-138"></span><span>    </span><span class="hs-comment">-- application.</span><span>
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3AserverGroupReplicationConfigurations%3AGetAppReplicationConfigurationResponse%27"><span class="annot"><span class="annottext">GetAppReplicationConfigurationResponse
@@ -343,7 +343,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAppReplicationConfigurationResponse%27"><span class="annot"><span class="annottext">GetAppReplicationConfigurationResponse -&gt; Int
 </span><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#%24sel%3AhttpStatus%3AGetAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255984"><span id="local-6989586621679255986"><span class="annot"><span class="annottext">GetAppReplicationConfigurationResponse
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256132"><span id="local-6989586621679256134"><span class="annot"><span class="annottext">GetAppReplicationConfigurationResponse
 -&gt; GetAppReplicationConfigurationResponse -&gt; Bool
 (GetAppReplicationConfigurationResponse
  -&gt; GetAppReplicationConfigurationResponse -&gt; Bool)
@@ -359,7 +359,7 @@ $c/= :: GetAppReplicationConfigurationResponse
 -&gt; GetAppReplicationConfigurationResponse -&gt; Bool
 $c== :: GetAppReplicationConfigurationResponse
 -&gt; GetAppReplicationConfigurationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255976"><span id="local-6989586621679255978"><span id="local-6989586621679255980"><span id="local-6989586621679255982"><span class="annot"><span class="annottext">ReadPrec [GetAppReplicationConfigurationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256124"><span id="local-6989586621679256126"><span id="local-6989586621679256128"><span id="local-6989586621679256130"><span class="annot"><span class="annottext">ReadPrec [GetAppReplicationConfigurationResponse]
 ReadPrec GetAppReplicationConfigurationResponse
 Int -&gt; ReadS GetAppReplicationConfigurationResponse
 ReadS [GetAppReplicationConfigurationResponse]
@@ -379,7 +379,7 @@ readList :: ReadS [GetAppReplicationConfigurationResponse]
 $creadList :: ReadS [GetAppReplicationConfigurationResponse]
 readsPrec :: Int -&gt; ReadS GetAppReplicationConfigurationResponse
 $creadsPrec :: Int -&gt; ReadS GetAppReplicationConfigurationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255970"><span id="local-6989586621679255972"><span id="local-6989586621679255974"><span class="annot"><span class="annottext">Int -&gt; GetAppReplicationConfigurationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256118"><span id="local-6989586621679256120"><span id="local-6989586621679256122"><span class="annot"><span class="annottext">Int -&gt; GetAppReplicationConfigurationResponse -&gt; ShowS
 [GetAppReplicationConfigurationResponse] -&gt; ShowS
 GetAppReplicationConfigurationResponse -&gt; String
 (Int -&gt; GetAppReplicationConfigurationResponse -&gt; ShowS)
@@ -435,8 +435,8 @@ GetAppReplicationConfigurationResponse
 </span><span id="line-160"></span><span>  </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse"><span class="hs-identifier hs-type">GetAppReplicationConfigurationResponse</span></a></span><span>
 </span><span id="line-161"></span><span id="newGetAppReplicationConfigurationResponse"><span class="annot"><span class="annottext">newGetAppReplicationConfigurationResponse :: Int -&gt; GetAppReplicationConfigurationResponse
 </span><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#newGetAppReplicationConfigurationResponse"><span class="hs-identifier hs-var hs-var">newGetAppReplicationConfigurationResponse</span></a></span></span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679255967"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255967"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679256115"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256115"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">GetAppReplicationConfigurationResponse' :: Maybe [ServerGroupReplicationConfiguration]
 -&gt; Int -&gt; GetAppReplicationConfigurationResponse
 </span><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">GetAppReplicationConfigurationResponse'</span></a></span><span>
@@ -447,7 +447,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAppReplicationConfigurationResponse' :: Int
 </span><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#%24sel%3AhttpStatus%3AGetAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255967"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679256115"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The replication configurations associated with server groups in this</span><span>
@@ -468,17 +468,17 @@ forall a. Maybe a
      (Maybe [ServerGroupReplicationConfiguration])
      (Maybe [ServerGroupReplicationConfiguration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">GetAppReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255966"><span class="annot"><span class="annottext">Maybe [ServerGroupReplicationConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">GetAppReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256114"><span class="annot"><span class="annottext">Maybe [ServerGroupReplicationConfiguration]
 serverGroupReplicationConfigurations :: Maybe [ServerGroupReplicationConfiguration]
 $sel:serverGroupReplicationConfigurations:GetAppReplicationConfigurationResponse' :: GetAppReplicationConfigurationResponse
 -&gt; Maybe [ServerGroupReplicationConfiguration]
-</span><a href="#local-6989586621679255966"><span class="hs-identifier hs-var hs-var">serverGroupReplicationConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerGroupReplicationConfiguration]
-</span><a href="#local-6989586621679255966"><span class="hs-identifier hs-var">serverGroupReplicationConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255965"><span class="annot"><span class="annottext">s :: GetAppReplicationConfigurationResponse
-</span><a href="#local-6989586621679255965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">GetAppReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255964"><span class="annot"><span class="annottext">Maybe [ServerGroupReplicationConfiguration]
-</span><a href="#local-6989586621679255964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppReplicationConfigurationResponse
-</span><a href="#local-6989586621679255965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverGroupReplicationConfigurations:GetAppReplicationConfigurationResponse' :: Maybe [ServerGroupReplicationConfiguration]
+</span><a href="#local-6989586621679256114"><span class="hs-identifier hs-var hs-var">serverGroupReplicationConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerGroupReplicationConfiguration]
+</span><a href="#local-6989586621679256114"><span class="hs-identifier hs-var">serverGroupReplicationConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256113"><span class="annot"><span class="annottext">s :: GetAppReplicationConfigurationResponse
+</span><a href="#local-6989586621679256113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">GetAppReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256112"><span class="annot"><span class="annottext">Maybe [ServerGroupReplicationConfiguration]
+</span><a href="#local-6989586621679256112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppReplicationConfigurationResponse
+</span><a href="#local-6989586621679256113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverGroupReplicationConfigurations:GetAppReplicationConfigurationResponse' :: Maybe [ServerGroupReplicationConfiguration]
 </span><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#%24sel%3AserverGroupReplicationConfigurations%3AGetAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-var">serverGroupReplicationConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerGroupReplicationConfiguration]
-</span><a href="#local-6989586621679255964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse"><span class="hs-identifier hs-type">GetAppReplicationConfigurationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServerGroupReplicationConfiguration]
+</span><a href="#local-6989586621679256112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse"><span class="hs-identifier hs-type">GetAppReplicationConfigurationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServerGroupReplicationConfiguration]
   -&gt; f (Maybe [ServerGroupReplicationConfiguration]))
  -&gt; GetAppReplicationConfigurationResponse
  -&gt; f GetAppReplicationConfigurationResponse)
@@ -509,8 +509,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ServerGroupReplicationConfiguration]
   [ServerGroupReplicationConfiguration]
   [ServerGroupReplicationConfiguration]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-175"></span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#getAppReplicationConfigurationResponse_httpStatus"><span class="hs-identifier hs-type">getAppReplicationConfigurationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse"><span class="hs-identifier hs-type">GetAppReplicationConfigurationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -526,18 +526,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">GetAppReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255960"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">GetAppReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256108"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetAppReplicationConfigurationResponse' :: GetAppReplicationConfigurationResponse -&gt; Int
-</span><a href="#local-6989586621679255960"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255960"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255959"><span class="annot"><span class="annottext">s :: GetAppReplicationConfigurationResponse
-</span><a href="#local-6989586621679255959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">GetAppReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255958"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppReplicationConfigurationResponse
-</span><a href="#local-6989586621679255959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAppReplicationConfigurationResponse' :: Int
+</span><a href="#local-6989586621679256108"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256108"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256107"><span class="annot"><span class="annottext">s :: GetAppReplicationConfigurationResponse
+</span><a href="#local-6989586621679256107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-type">GetAppReplicationConfigurationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256106"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppReplicationConfigurationResponse
+</span><a href="#local-6989586621679256107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAppReplicationConfigurationResponse' :: Int
 </span><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#%24sel%3AhttpStatus%3AGetAppReplicationConfigurationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679255958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse"><span class="hs-identifier hs-type">GetAppReplicationConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse"><span class="hs-identifier hs-type">GetAppReplicationConfigurationResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679255956"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679256104"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.GetAppReplicationConfiguration.html#GetAppReplicationConfigurationResponse"><span class="hs-identifier hs-type">GetAppReplicationConfigurationResponse</span></a></span></span><span>
 </span><span id="line-181"></span></pre></body></html>

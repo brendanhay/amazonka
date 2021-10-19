@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679432099"><span id="local-6989586621679432100"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameServerHealthCheck"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerHealthCheck.html#GameServerHealthCheck"><span class="hs-identifier hs-var">GameServerHealthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameServerHealthCheck%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerHealthCheck.html#GameServerHealthCheck%27"><span class="hs-identifier hs-var">GameServerHealthCheck'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679432544"><span id="local-6989586621679432545"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GameServerHealthCheck"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerHealthCheck.html#GameServerHealthCheck"><span class="hs-identifier hs-var">GameServerHealthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GameServerHealthCheck%27"><span class="annot"><a href="Network.AWS.GameLift.Types.GameServerHealthCheck.html#GameServerHealthCheck%27"><span class="hs-identifier hs-var">GameServerHealthCheck'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGameServerHealthCheck"><span class="annot"><span class="annottext">GameServerHealthCheck -&gt; Text
 </span><a href="Network.AWS.GameLift.Types.GameServerHealthCheck.html#fromGameServerHealthCheck"><span class="hs-identifier hs-var hs-var">fromGameServerHealthCheck</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432091"><span id="local-6989586621679432093"><span id="local-6989586621679432095"><span class="annot"><span class="annottext">Int -&gt; GameServerHealthCheck -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432536"><span id="local-6989586621679432538"><span id="local-6989586621679432540"><span class="annot"><span class="annottext">Int -&gt; GameServerHealthCheck -&gt; ShowS
 [GameServerHealthCheck] -&gt; ShowS
 GameServerHealthCheck -&gt; String
 (Int -&gt; GameServerHealthCheck -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: GameServerHealthCheck -&gt; String
 showsPrec :: Int -&gt; GameServerHealthCheck -&gt; ShowS
 $cshowsPrec :: Int -&gt; GameServerHealthCheck -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679432082"><span id="local-6989586621679432084"><span id="local-6989586621679432086"><span id="local-6989586621679432088"><span class="annot"><span class="annottext">ReadPrec [GameServerHealthCheck]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679432527"><span id="local-6989586621679432529"><span id="local-6989586621679432531"><span id="local-6989586621679432533"><span class="annot"><span class="annottext">ReadPrec [GameServerHealthCheck]
 ReadPrec GameServerHealthCheck
 Int -&gt; ReadS GameServerHealthCheck
 ReadS [GameServerHealthCheck]
@@ -71,7 +71,7 @@ $creadList :: ReadS [GameServerHealthCheck]
 readsPrec :: Int -&gt; ReadS GameServerHealthCheck
 $creadsPrec :: Int -&gt; ReadS GameServerHealthCheck
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679432077"><span id="local-6989586621679432079"><span class="annot"><span class="annottext">GameServerHealthCheck -&gt; GameServerHealthCheck -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679432522"><span id="local-6989586621679432524"><span class="annot"><span class="annottext">GameServerHealthCheck -&gt; GameServerHealthCheck -&gt; Bool
 (GameServerHealthCheck -&gt; GameServerHealthCheck -&gt; Bool)
 -&gt; (GameServerHealthCheck -&gt; GameServerHealthCheck -&gt; Bool)
 -&gt; Eq GameServerHealthCheck
@@ -81,7 +81,7 @@ $c/= :: GameServerHealthCheck -&gt; GameServerHealthCheck -&gt; Bool
 == :: GameServerHealthCheck -&gt; GameServerHealthCheck -&gt; Bool
 $c== :: GameServerHealthCheck -&gt; GameServerHealthCheck -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679432061"><span id="local-6989586621679432063"><span id="local-6989586621679432065"><span id="local-6989586621679432067"><span id="local-6989586621679432069"><span id="local-6989586621679432071"><span id="local-6989586621679432073"><span class="annot"><span class="annottext">Eq GameServerHealthCheck
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679432506"><span id="local-6989586621679432508"><span id="local-6989586621679432510"><span id="local-6989586621679432512"><span id="local-6989586621679432514"><span id="local-6989586621679432516"><span id="local-6989586621679432518"><span class="annot"><span class="annottext">Eq GameServerHealthCheck
 Eq GameServerHealthCheck
 -&gt; (GameServerHealthCheck -&gt; GameServerHealthCheck -&gt; Ordering)
 -&gt; (GameServerHealthCheck -&gt; GameServerHealthCheck -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. GameServerHealthCheck -&gt; Rep GameServerHealthCheck x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432053"><span id="local-6989586621679432055"><span class="annot"><span class="annottext">Int -&gt; GameServerHealthCheck -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432498"><span id="local-6989586621679432500"><span class="annot"><span class="annottext">Int -&gt; GameServerHealthCheck -&gt; Int
 GameServerHealthCheck -&gt; Int
 (Int -&gt; GameServerHealthCheck -&gt; Int)
 -&gt; (GameServerHealthCheck -&gt; Int) -&gt; Hashable GameServerHealthCheck
@@ -149,54 +149,54 @@ $chash :: GameServerHealthCheck -&gt; Int
 hashWithSalt :: Int -&gt; GameServerHealthCheck -&gt; Int
 $chashWithSalt :: Int -&gt; GameServerHealthCheck -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679432050"><span class="annot"><span class="annottext">GameServerHealthCheck -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679432495"><span class="annot"><span class="annottext">GameServerHealthCheck -&gt; ()
 (GameServerHealthCheck -&gt; ()) -&gt; NFData GameServerHealthCheck
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: GameServerHealthCheck -&gt; ()
 $crnf :: GameServerHealthCheck -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679432047"><span class="annot"><span class="annottext">Text -&gt; Either String GameServerHealthCheck
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679432492"><span class="annot"><span class="annottext">Text -&gt; Either String GameServerHealthCheck
 (Text -&gt; Either String GameServerHealthCheck)
 -&gt; FromText GameServerHealthCheck
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String GameServerHealthCheck
 $cfromText :: Text -&gt; Either String GameServerHealthCheck
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679432044"><span class="annot"><span class="annottext">GameServerHealthCheck -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679432489"><span class="annot"><span class="annottext">GameServerHealthCheck -&gt; Text
 (GameServerHealthCheck -&gt; Text) -&gt; ToText GameServerHealthCheck
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: GameServerHealthCheck -&gt; Text
 $ctoText :: GameServerHealthCheck -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679432041"><span class="annot"><span class="annottext">GameServerHealthCheck -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679432486"><span class="annot"><span class="annottext">GameServerHealthCheck -&gt; ByteString
 (GameServerHealthCheck -&gt; ByteString)
 -&gt; ToByteString GameServerHealthCheck
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: GameServerHealthCheck -&gt; ByteString
 $ctoBS :: GameServerHealthCheck -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679432038"><span class="annot"><span class="annottext">GameServerHealthCheck -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679432483"><span class="annot"><span class="annottext">GameServerHealthCheck -&gt; ByteStringBuilder
 (GameServerHealthCheck -&gt; ByteStringBuilder)
 -&gt; ToLog GameServerHealthCheck
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: GameServerHealthCheck -&gt; ByteStringBuilder
 $cbuild :: GameServerHealthCheck -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679432035"><span class="annot"><span class="annottext">HeaderName -&gt; GameServerHealthCheck -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679432480"><span class="annot"><span class="annottext">HeaderName -&gt; GameServerHealthCheck -&gt; [Header]
 (HeaderName -&gt; GameServerHealthCheck -&gt; [Header])
 -&gt; ToHeader GameServerHealthCheck
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; GameServerHealthCheck -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; GameServerHealthCheck -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679432032"><span class="annot"><span class="annottext">GameServerHealthCheck -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679432477"><span class="annot"><span class="annottext">GameServerHealthCheck -&gt; QueryString
 (GameServerHealthCheck -&gt; QueryString)
 -&gt; ToQuery GameServerHealthCheck
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: GameServerHealthCheck -&gt; QueryString
 $ctoQuery :: GameServerHealthCheck -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679432027"><span id="local-6989586621679432029"><span class="annot"><span class="annottext">Value -&gt; Parser [GameServerHealthCheck]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679432472"><span id="local-6989586621679432474"><span class="annot"><span class="annottext">Value -&gt; Parser [GameServerHealthCheck]
 Value -&gt; Parser GameServerHealthCheck
 (Value -&gt; Parser GameServerHealthCheck)
 -&gt; (Value -&gt; Parser [GameServerHealthCheck])
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [GameServerHealthCheck]
 parseJSON :: Value -&gt; Parser GameServerHealthCheck
 $cparseJSON :: Value -&gt; Parser GameServerHealthCheck
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679432022"><span id="local-6989586621679432024"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameServerHealthCheck]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679432467"><span id="local-6989586621679432469"><span class="annot"><span class="annottext">FromJSONKeyFunction [GameServerHealthCheck]
 FromJSONKeyFunction GameServerHealthCheck
 FromJSONKeyFunction GameServerHealthCheck
 -&gt; FromJSONKeyFunction [GameServerHealthCheck]
@@ -220,7 +220,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [GameServerHealthCheck]
 fromJSONKey :: FromJSONKeyFunction GameServerHealthCheck
 $cfromJSONKey :: FromJSONKeyFunction GameServerHealthCheck
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679432013"><span id="local-6989586621679432015"><span id="local-6989586621679432017"><span id="local-6989586621679432019"><span class="annot"><span class="annottext">[GameServerHealthCheck] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679432458"><span id="local-6989586621679432460"><span id="local-6989586621679432462"><span id="local-6989586621679432464"><span class="annot"><span class="annottext">[GameServerHealthCheck] -&gt; Encoding
 [GameServerHealthCheck] -&gt; Value
 GameServerHealthCheck -&gt; Encoding
 GameServerHealthCheck -&gt; Value
@@ -244,7 +244,7 @@ $ctoEncoding :: GameServerHealthCheck -&gt; Encoding
 toJSON :: GameServerHealthCheck -&gt; Value
 $ctoJSON :: GameServerHealthCheck -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679432008"><span id="local-6989586621679432010"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameServerHealthCheck]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679432453"><span id="local-6989586621679432455"><span class="annot"><span class="annottext">ToJSONKeyFunction [GameServerHealthCheck]
 ToJSONKeyFunction GameServerHealthCheck
 ToJSONKeyFunction GameServerHealthCheck
 -&gt; ToJSONKeyFunction [GameServerHealthCheck]
@@ -256,14 +256,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [GameServerHealthCheck]
 toJSONKey :: ToJSONKeyFunction GameServerHealthCheck
 $ctoJSONKey :: ToJSONKeyFunction GameServerHealthCheck
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679432005"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameServerHealthCheck
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679432450"><span class="annot"><span class="annottext">[Node] -&gt; Either String GameServerHealthCheck
 ([Node] -&gt; Either String GameServerHealthCheck)
 -&gt; FromXML GameServerHealthCheck
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String GameServerHealthCheck
 $cparseXML :: [Node] -&gt; Either String GameServerHealthCheck
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679432002"><span class="annot"><span class="annottext">GameServerHealthCheck -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679432447"><span class="annot"><span class="annottext">GameServerHealthCheck -&gt; XML
 (GameServerHealthCheck -&gt; XML) -&gt; ToXML GameServerHealthCheck
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: GameServerHealthCheck -&gt; XML

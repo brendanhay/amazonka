@@ -28,8 +28,8 @@
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#updateQueue_status"><span class="hs-identifier">updateQueue_status</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#updateQueue_reservationPlanSettings"><span class="hs-identifier">updateQueue_reservationPlanSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#updateQueue_description"><span class="hs-identifier">updateQueue_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#updateQueue_description"><span class="hs-identifier">updateQueue_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#updateQueue_reservationPlanSettings"><span class="hs-identifier">updateQueue_reservationPlanSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#updateQueue_name"><span class="hs-identifier">updateQueue_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -50,29 +50,29 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newUpdateQueue' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621680029591"><span id="local-6989586621680029592"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateQueue"><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-var">UpdateQueue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateQueue%27"><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-var">UpdateQueue'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621680035112"><span id="local-6989586621680035113"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateQueue"><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-var">UpdateQueue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateQueue%27"><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-var">UpdateQueue'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Pause or activate a queue by changing its status between ACTIVE and</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- PAUSED. If you pause a queue, jobs in that queue won\'t begin. Jobs that</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- are running when you pause the queue continue to run until they finish</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- or result in an error.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Astatus%3AUpdateQueue%27"><span class="annot"><span class="annottext">UpdateQueue -&gt; Maybe QueueStatus
 </span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3Astatus%3AUpdateQueue%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.QueueStatus.html#QueueStatus"><span class="hs-identifier hs-type">QueueStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The new details of your pricing plan for your reserved queue. When you</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- set up a new pricing plan to replace an expired one, you enter into</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- another 12-month commitment. When you add capacity to your queue by</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- increasing the number of RTS, you extend the term of your commitment to</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- 12 months from when you add capacity. After you make these commitments,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- you can\'t cancel them.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AreservationPlanSettings%3AUpdateQueue%27"><span class="annot"><span class="annottext">UpdateQueue -&gt; Maybe ReservationPlanSettings
-</span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3AreservationPlanSettings%3AUpdateQueue%27"><span class="hs-identifier hs-var hs-var">reservationPlanSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ReservationPlanSettings.html#ReservationPlanSettings"><span class="hs-identifier hs-type">ReservationPlanSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The new description for the queue, if you are changing it.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateQueue%27"><span class="annot"><span class="annottext">UpdateQueue -&gt; Maybe Text
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The new description for the queue, if you are changing it.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateQueue%27"><span class="annot"><span class="annottext">UpdateQueue -&gt; Maybe Text
 </span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3Adescription%3AUpdateQueue%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The new details of your pricing plan for your reserved queue. When you</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- set up a new pricing plan to replace an expired one, you enter into</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- another 12-month commitment. When you add capacity to your queue by</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- increasing the number of RTS, you extend the term of your commitment to</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- 12 months from when you add capacity. After you make these commitments,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- you can\'t cancel them.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AreservationPlanSettings%3AUpdateQueue%27"><span class="annot"><span class="annottext">UpdateQueue -&gt; Maybe ReservationPlanSettings
+</span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3AreservationPlanSettings%3AUpdateQueue%27"><span class="hs-identifier hs-var hs-var">reservationPlanSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ReservationPlanSettings.html#ReservationPlanSettings"><span class="hs-identifier hs-type">ReservationPlanSettings</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The name of the queue that you are modifying.</span><span>
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3Aname%3AUpdateQueue%27"><span class="annot"><span class="annottext">UpdateQueue -&gt; Text
 </span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3Aname%3AUpdateQueue%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680029582"><span id="local-6989586621680029584"><span class="annot"><span class="annottext">UpdateQueue -&gt; UpdateQueue -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680035103"><span id="local-6989586621680035105"><span class="annot"><span class="annottext">UpdateQueue -&gt; UpdateQueue -&gt; Bool
 (UpdateQueue -&gt; UpdateQueue -&gt; Bool)
 -&gt; (UpdateQueue -&gt; UpdateQueue -&gt; Bool) -&gt; Eq UpdateQueue
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateQueue -&gt; UpdateQueue -&gt; Bool
 == :: UpdateQueue -&gt; UpdateQueue -&gt; Bool
 $c== :: UpdateQueue -&gt; UpdateQueue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680029573"><span id="local-6989586621680029575"><span id="local-6989586621680029577"><span id="local-6989586621680029579"><span class="annot"><span class="annottext">ReadPrec [UpdateQueue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680035094"><span id="local-6989586621680035096"><span id="local-6989586621680035098"><span id="local-6989586621680035100"><span class="annot"><span class="annottext">ReadPrec [UpdateQueue]
 ReadPrec UpdateQueue
 Int -&gt; ReadS UpdateQueue
 ReadS [UpdateQueue]
@@ -100,7 +100,7 @@ readList :: ReadS [UpdateQueue]
 $creadList :: ReadS [UpdateQueue]
 readsPrec :: Int -&gt; ReadS UpdateQueue
 $creadsPrec :: Int -&gt; ReadS UpdateQueue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680029566"><span id="local-6989586621680029568"><span id="local-6989586621680029570"><span class="annot"><span class="annottext">Int -&gt; UpdateQueue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680035087"><span id="local-6989586621680035089"><span id="local-6989586621680035091"><span class="annot"><span class="annottext">Int -&gt; UpdateQueue -&gt; ShowS
 [UpdateQueue] -&gt; ShowS
 UpdateQueue -&gt; String
 (Int -&gt; UpdateQueue -&gt; ShowS)
@@ -139,14 +139,14 @@ $cfrom :: forall x. UpdateQueue -&gt; Rep UpdateQueue x
 </span><span id="line-83"></span><span class="hs-comment">-- are running when you pause the queue continue to run until they finish</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- or result in an error.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'reservationPlanSettings', 'updateQueue_reservationPlanSettings' - The new details of your pricing plan for your reserved queue. When you</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- set up a new pricing plan to replace an expired one, you enter into</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- another 12-month commitment. When you add capacity to your queue by</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- increasing the number of RTS, you extend the term of your commitment to</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 12 months from when you add capacity. After you make these commitments,</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- you can\'t cancel them.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'description', 'updateQueue_description' - The new description for the queue, if you are changing it.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'description', 'updateQueue_description' - The new description for the queue, if you are changing it.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'reservationPlanSettings', 'updateQueue_reservationPlanSettings' - The new details of your pricing plan for your reserved queue. When you</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- set up a new pricing plan to replace an expired one, you enter into</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- another 12-month commitment. When you add capacity to your queue by</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- increasing the number of RTS, you extend the term of your commitment to</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 12 months from when you add capacity. After you make these commitments,</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- you can\'t cancel them.</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- 'name', 'updateQueue_name' - The name of the queue that you are modifying.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#newUpdateQueue"><span class="hs-identifier hs-type">newUpdateQueue</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -154,11 +154,11 @@ $cfrom :: forall x. UpdateQueue -&gt; Rep UpdateQueue x
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span>
 </span><span id="line-100"></span><span id="newUpdateQueue"><span class="annot"><span class="annottext">newUpdateQueue :: Text -&gt; UpdateQueue
-</span><a href="Network.AWS.MediaConvert.UpdateQueue.html#newUpdateQueue"><span class="hs-identifier hs-var hs-var">newUpdateQueue</span></a></span></span><span> </span><span id="local-6989586621680029561"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680029561"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaConvert.UpdateQueue.html#newUpdateQueue"><span class="hs-identifier hs-var hs-var">newUpdateQueue</span></a></span></span><span> </span><span id="local-6989586621680035082"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680035082"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">UpdateQueue' :: Maybe QueueStatus
--&gt; Maybe ReservationPlanSettings
 -&gt; Maybe Text
+-&gt; Maybe ReservationPlanSettings
 -&gt; Text
 -&gt; UpdateQueue
 </span><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span>
@@ -166,17 +166,17 @@ $cfrom :: forall x. UpdateQueue -&gt; Rep UpdateQueue x
 </span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3Astatus%3AUpdateQueue%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueueStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:reservationPlanSettings:UpdateQueue' :: Maybe ReservationPlanSettings
-</span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3AreservationPlanSettings%3AUpdateQueue%27"><span class="hs-identifier hs-var">reservationPlanSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationPlanSettings
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateQueue' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3Adescription%3AUpdateQueue%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateQueue' :: Maybe Text
-</span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3Adescription%3AUpdateQueue%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:reservationPlanSettings:UpdateQueue' :: Maybe ReservationPlanSettings
+</span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3AreservationPlanSettings%3AUpdateQueue%27"><span class="hs-identifier hs-var">reservationPlanSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationPlanSettings
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateQueue' :: Text
 </span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3Aname%3AUpdateQueue%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680029561"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621680035082"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | Pause or activate a queue by changing its status between ACTIVE and</span><span>
@@ -191,25 +191,43 @@ forall a. Maybe a
 -&gt; Lens
      UpdateQueue UpdateQueue (Maybe QueueStatus) (Maybe QueueStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680029558"><span class="annot"><span class="annottext">Maybe QueueStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680035079"><span class="annot"><span class="annottext">Maybe QueueStatus
 status :: Maybe QueueStatus
 $sel:status:UpdateQueue' :: UpdateQueue -&gt; Maybe QueueStatus
-</span><a href="#local-6989586621680029558"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueueStatus
-</span><a href="#local-6989586621680029558"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680029557"><span class="annot"><span class="annottext">s :: UpdateQueue
-</span><a href="#local-6989586621680029557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680029556"><span class="annot"><span class="annottext">Maybe QueueStatus
-</span><a href="#local-6989586621680029556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateQueue
-</span><a href="#local-6989586621680029557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UpdateQueue' :: Maybe QueueStatus
+</span><a href="#local-6989586621680035079"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe QueueStatus
+</span><a href="#local-6989586621680035079"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680035078"><span class="annot"><span class="annottext">s :: UpdateQueue
+</span><a href="#local-6989586621680035078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680035077"><span class="annot"><span class="annottext">Maybe QueueStatus
+</span><a href="#local-6989586621680035077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateQueue
+</span><a href="#local-6989586621680035078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UpdateQueue' :: Maybe QueueStatus
 </span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3Astatus%3AUpdateQueue%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe QueueStatus
-</span><a href="#local-6989586621680029556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680035077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The new details of your pricing plan for your reserved queue. When you</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- set up a new pricing plan to replace an expired one, you enter into</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- another 12-month commitment. When you add capacity to your queue by</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- increasing the number of RTS, you extend the term of your commitment to</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- 12 months from when you add capacity. After you make these commitments,</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- you can\'t cancel them.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#updateQueue_reservationPlanSettings"><span class="hs-identifier hs-type">updateQueue_reservationPlanSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ReservationPlanSettings.html#ReservationPlanSettings"><span class="hs-identifier hs-type">ReservationPlanSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="updateQueue_reservationPlanSettings"><span class="annot"><span class="annottext">updateQueue_reservationPlanSettings :: (Maybe ReservationPlanSettings
+</span><span id="line-115"></span><span class="hs-comment">-- | The new description for the queue, if you are changing it.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#updateQueue_description"><span class="hs-identifier hs-type">updateQueue_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="updateQueue_description"><span class="annot"><span class="annottext">updateQueue_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateQueue -&gt; f UpdateQueue
+</span><a href="Network.AWS.MediaConvert.UpdateQueue.html#updateQueue_description"><span class="hs-identifier hs-var hs-var">updateQueue_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateQueue -&gt; Maybe Text)
+-&gt; (UpdateQueue -&gt; Maybe Text -&gt; UpdateQueue)
+-&gt; Lens UpdateQueue UpdateQueue (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680035076"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateQueue' :: UpdateQueue -&gt; Maybe Text
+</span><a href="#local-6989586621680035076"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680035076"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680035075"><span class="annot"><span class="annottext">s :: UpdateQueue
+</span><a href="#local-6989586621680035075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680035074"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680035074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateQueue
+</span><a href="#local-6989586621680035075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateQueue' :: Maybe Text
+</span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3Adescription%3AUpdateQueue%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680035074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The new details of your pricing plan for your reserved queue. When you</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- set up a new pricing plan to replace an expired one, you enter into</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- another 12-month commitment. When you add capacity to your queue by</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- increasing the number of RTS, you extend the term of your commitment to</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 12 months from when you add capacity. After you make these commitments,</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- you can\'t cancel them.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#updateQueue_reservationPlanSettings"><span class="hs-identifier hs-type">updateQueue_reservationPlanSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ReservationPlanSettings.html#ReservationPlanSettings"><span class="hs-identifier hs-type">ReservationPlanSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="updateQueue_reservationPlanSettings"><span class="annot"><span class="annottext">updateQueue_reservationPlanSettings :: (Maybe ReservationPlanSettings
  -&gt; f (Maybe ReservationPlanSettings))
 -&gt; UpdateQueue -&gt; f UpdateQueue
 </span><a href="Network.AWS.MediaConvert.UpdateQueue.html#updateQueue_reservationPlanSettings"><span class="hs-identifier hs-var hs-var">updateQueue_reservationPlanSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateQueue -&gt; Maybe ReservationPlanSettings)
@@ -220,34 +238,16 @@ $sel:status:UpdateQueue' :: UpdateQueue -&gt; Maybe QueueStatus
      (Maybe ReservationPlanSettings)
      (Maybe ReservationPlanSettings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680029555"><span class="annot"><span class="annottext">Maybe ReservationPlanSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680035073"><span class="annot"><span class="annottext">Maybe ReservationPlanSettings
 reservationPlanSettings :: Maybe ReservationPlanSettings
 $sel:reservationPlanSettings:UpdateQueue' :: UpdateQueue -&gt; Maybe ReservationPlanSettings
-</span><a href="#local-6989586621680029555"><span class="hs-identifier hs-var hs-var">reservationPlanSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationPlanSettings
-</span><a href="#local-6989586621680029555"><span class="hs-identifier hs-var">reservationPlanSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680029554"><span class="annot"><span class="annottext">s :: UpdateQueue
-</span><a href="#local-6989586621680029554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680029553"><span class="annot"><span class="annottext">Maybe ReservationPlanSettings
-</span><a href="#local-6989586621680029553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateQueue
-</span><a href="#local-6989586621680029554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservationPlanSettings:UpdateQueue' :: Maybe ReservationPlanSettings
+</span><a href="#local-6989586621680035073"><span class="hs-identifier hs-var hs-var">reservationPlanSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationPlanSettings
+</span><a href="#local-6989586621680035073"><span class="hs-identifier hs-var">reservationPlanSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680035072"><span class="annot"><span class="annottext">s :: UpdateQueue
+</span><a href="#local-6989586621680035072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680035071"><span class="annot"><span class="annottext">Maybe ReservationPlanSettings
+</span><a href="#local-6989586621680035071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateQueue
+</span><a href="#local-6989586621680035072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservationPlanSettings:UpdateQueue' :: Maybe ReservationPlanSettings
 </span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3AreservationPlanSettings%3AUpdateQueue%27"><span class="hs-identifier hs-var">reservationPlanSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservationPlanSettings
-</span><a href="#local-6989586621680029553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | The new description for the queue, if you are changing it.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#updateQueue_description"><span class="hs-identifier hs-type">updateQueue_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="updateQueue_description"><span class="annot"><span class="annottext">updateQueue_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateQueue -&gt; f UpdateQueue
-</span><a href="Network.AWS.MediaConvert.UpdateQueue.html#updateQueue_description"><span class="hs-identifier hs-var hs-var">updateQueue_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateQueue -&gt; Maybe Text)
--&gt; (UpdateQueue -&gt; Maybe Text -&gt; UpdateQueue)
--&gt; Lens UpdateQueue UpdateQueue (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680029552"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:UpdateQueue' :: UpdateQueue -&gt; Maybe Text
-</span><a href="#local-6989586621680029552"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680029552"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680029551"><span class="annot"><span class="annottext">s :: UpdateQueue
-</span><a href="#local-6989586621680029551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680029550"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680029550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateQueue
-</span><a href="#local-6989586621680029551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateQueue' :: Maybe Text
-</span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3Adescription%3AUpdateQueue%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680029550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680035071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The name of the queue that you are modifying.</span><span>
 </span><span id="line-129"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#updateQueue_name"><span class="hs-identifier hs-type">updateQueue_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -256,25 +256,25 @@ $sel:description:UpdateQueue' :: UpdateQueue -&gt; Maybe Text
 -&gt; (UpdateQueue -&gt; Text -&gt; UpdateQueue)
 -&gt; Lens UpdateQueue UpdateQueue Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680029549"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680035070"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:UpdateQueue' :: UpdateQueue -&gt; Text
-</span><a href="#local-6989586621680029549"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680029549"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680029548"><span class="annot"><span class="annottext">s :: UpdateQueue
-</span><a href="#local-6989586621680029548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680029547"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680029547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateQueue
-</span><a href="#local-6989586621680029548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateQueue' :: Text
+</span><a href="#local-6989586621680035070"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680035070"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680035069"><span class="annot"><span class="annottext">s :: UpdateQueue
+</span><a href="#local-6989586621680035069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680035068"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680035068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateQueue
+</span><a href="#local-6989586621680035069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateQueue' :: Text
 </span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3Aname%3AUpdateQueue%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680029547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680035068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse"><span class="hs-identifier hs-type">UpdateQueueResponse</span></a></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621680029543"><span class="annot"><span class="annottext">request :: UpdateQueue -&gt; Request UpdateQueue
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621680035064"><span class="annot"><span class="annottext">request :: UpdateQueue -&gt; Request UpdateQueue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateQueue -&gt; Request UpdateQueue
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaConvert.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621680029539"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621680035060"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateQueue
 -&gt; ClientResponse ClientBody
@@ -298,10 +298,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680029536"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680029536"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680029535"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680029535"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680029534"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680029534"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680035057"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680035057"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680035056"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680035056"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680035055"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680035055"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe Queue -&gt; Int -&gt; UpdateQueueResponse
 </span><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse%27"><span class="hs-identifier hs-var">UpdateQueueResponse'</span></a></span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Queue -&gt; Int -&gt; UpdateQueueResponse)
@@ -309,7 +309,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateQueueResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680029534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Queue)
+</span><a href="#local-6989586621680035055"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Queue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;queue&quot;</span></span><span class="hs-special">)</span><span>
@@ -321,15 +321,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680029536"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680035057"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680029526"><span id="local-6989586621680029528"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680035047"><span id="local-6989586621680035049"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span></span></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680029523"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680035044"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621680029519"><span class="annot"><span class="annottext">toHeaders :: UpdateQueue -&gt; ResponseHeaders
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621680035040"><span class="annot"><span class="annottext">toHeaders :: UpdateQueue -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateQueue -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -348,21 +348,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680029509"><span id="local-6989586621680029511"><span id="local-6989586621680029513"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621680029507"><span class="annot"><span class="annottext">toJSON :: UpdateQueue -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680029502"><span id="local-6989586621680029503"><span id="local-6989586621680029504"><span id="local-6989586621680029505"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680035030"><span id="local-6989586621680035032"><span id="local-6989586621680035034"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621680035028"><span class="annot"><span class="annottext">toJSON :: UpdateQueue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680035023"><span id="local-6989586621680035024"><span id="local-6989586621680035025"><span id="local-6989586621680035026"><span class="annot"><span class="annottext">Maybe Text
 Maybe QueueStatus
 Maybe ReservationPlanSettings
 Text
 name :: Text
-description :: Maybe Text
 reservationPlanSettings :: Maybe ReservationPlanSettings
+description :: Maybe Text
 status :: Maybe QueueStatus
 $sel:name:UpdateQueue' :: UpdateQueue -&gt; Text
-$sel:description:UpdateQueue' :: UpdateQueue -&gt; Maybe Text
 $sel:reservationPlanSettings:UpdateQueue' :: UpdateQueue -&gt; Maybe ReservationPlanSettings
+$sel:description:UpdateQueue' :: UpdateQueue -&gt; Maybe Text
 $sel:status:UpdateQueue' :: UpdateQueue -&gt; Maybe QueueStatus
-</span><a href="#local-6989586621680029502"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680035023"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -374,41 +374,41 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(QueueStatus -&gt; Pair) -&gt; Maybe QueueStatus -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueueStatus
-</span><a href="#local-6989586621680029505"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680035026"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;reservationPlanSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReservationPlanSettings -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">(ReservationPlanSettings -&gt; Pair)
--&gt; Maybe ReservationPlanSettings -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReservationPlanSettings
-</span><a href="#local-6989586621680029504"><span class="hs-identifier hs-var">reservationPlanSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680029503"><span class="hs-identifier hs-var">description</span></a></span><span>
+</span><a href="#local-6989586621680035025"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reservationPlanSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReservationPlanSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">(ReservationPlanSettings -&gt; Pair)
+-&gt; Maybe ReservationPlanSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReservationPlanSettings
+</span><a href="#local-6989586621680035024"><span class="hs-identifier hs-var">reservationPlanSettings</span></a></span><span>
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621680029496"><span class="annot"><span class="annottext">toPath :: UpdateQueue -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680029491"><span id="local-6989586621680029492"><span id="local-6989586621680029493"><span id="local-6989586621680029494"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621680035017"><span class="annot"><span class="annottext">toPath :: UpdateQueue -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue%27"><span class="hs-identifier hs-type">UpdateQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680035012"><span id="local-6989586621680035013"><span id="local-6989586621680035014"><span id="local-6989586621680035015"><span class="annot"><span class="annottext">Maybe Text
 Maybe QueueStatus
 Maybe ReservationPlanSettings
 Text
 name :: Text
-description :: Maybe Text
 reservationPlanSettings :: Maybe ReservationPlanSettings
+description :: Maybe Text
 status :: Maybe QueueStatus
 $sel:name:UpdateQueue' :: UpdateQueue -&gt; Text
-$sel:description:UpdateQueue' :: UpdateQueue -&gt; Maybe Text
 $sel:reservationPlanSettings:UpdateQueue' :: UpdateQueue -&gt; Maybe ReservationPlanSettings
+$sel:description:UpdateQueue' :: UpdateQueue -&gt; Maybe Text
 $sel:status:UpdateQueue' :: UpdateQueue -&gt; Maybe QueueStatus
-</span><a href="#local-6989586621680029491"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680035012"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -416,10 +416,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/2017-08-29/queues/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680029491"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680035012"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueue"><span class="hs-identifier hs-type">UpdateQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621680029487"><span class="annot"><span class="annottext">toQuery :: UpdateQueue -&gt; QueryString
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621680035008"><span class="annot"><span class="annottext">toQuery :: UpdateQueue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateQueue -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -427,7 +427,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | /See:/ 'newUpdateQueueResponse' smart constructor.</span><span>
-</span><span id="line-178"></span><span id="local-6989586621680029484"><span id="local-6989586621680029485"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateQueueResponse"><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse"><span class="hs-identifier hs-var">UpdateQueueResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateQueueResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse%27"><span class="hs-identifier hs-var">UpdateQueueResponse'</span></a></span></span><span>
+</span><span id="line-178"></span><span id="local-6989586621680035005"><span id="local-6989586621680035006"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateQueueResponse"><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse"><span class="hs-identifier hs-var">UpdateQueueResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateQueueResponse%27"><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse%27"><span class="hs-identifier hs-var">UpdateQueueResponse'</span></a></span></span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | You can use queues to manage the resources that are available to your</span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-comment">-- AWS account for running multiple transcoding jobs at the same time. If</span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-comment">-- you don\'t specify a queue, the service sends all jobs through the</span><span>
@@ -439,7 +439,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-186"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateQueueResponse%27"><span class="annot"><span class="annottext">UpdateQueueResponse -&gt; Int
 </span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3AhttpStatus%3AUpdateQueueResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680029478"><span id="local-6989586621680029480"><span class="annot"><span class="annottext">UpdateQueueResponse -&gt; UpdateQueueResponse -&gt; Bool
+</span><span id="line-188"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680034999"><span id="local-6989586621680035001"><span class="annot"><span class="annottext">UpdateQueueResponse -&gt; UpdateQueueResponse -&gt; Bool
 (UpdateQueueResponse -&gt; UpdateQueueResponse -&gt; Bool)
 -&gt; (UpdateQueueResponse -&gt; UpdateQueueResponse -&gt; Bool)
 -&gt; Eq UpdateQueueResponse
@@ -448,7 +448,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateQueueResponse -&gt; UpdateQueueResponse -&gt; Bool
 == :: UpdateQueueResponse -&gt; UpdateQueueResponse -&gt; Bool
 $c== :: UpdateQueueResponse -&gt; UpdateQueueResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680029470"><span id="local-6989586621680029472"><span id="local-6989586621680029474"><span id="local-6989586621680029476"><span class="annot"><span class="annottext">ReadPrec [UpdateQueueResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680034991"><span id="local-6989586621680034993"><span id="local-6989586621680034995"><span id="local-6989586621680034997"><span class="annot"><span class="annottext">ReadPrec [UpdateQueueResponse]
 ReadPrec UpdateQueueResponse
 Int -&gt; ReadS UpdateQueueResponse
 ReadS [UpdateQueueResponse]
@@ -468,7 +468,7 @@ readList :: ReadS [UpdateQueueResponse]
 $creadList :: ReadS [UpdateQueueResponse]
 readsPrec :: Int -&gt; ReadS UpdateQueueResponse
 $creadsPrec :: Int -&gt; ReadS UpdateQueueResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680029464"><span id="local-6989586621680029466"><span id="local-6989586621680029468"><span class="annot"><span class="annottext">Int -&gt; UpdateQueueResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680034985"><span id="local-6989586621680034987"><span id="local-6989586621680034989"><span class="annot"><span class="annottext">Int -&gt; UpdateQueueResponse -&gt; ShowS
 [UpdateQueueResponse] -&gt; ShowS
 UpdateQueueResponse -&gt; String
 (Int -&gt; UpdateQueueResponse -&gt; ShowS)
@@ -514,8 +514,8 @@ $cfrom :: forall x. UpdateQueueResponse -&gt; Rep UpdateQueueResponse x
 </span><span id="line-207"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-208"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse"><span class="hs-identifier hs-type">UpdateQueueResponse</span></a></span><span>
 </span><span id="line-209"></span><span id="newUpdateQueueResponse"><span class="annot"><span class="annottext">newUpdateQueueResponse :: Int -&gt; UpdateQueueResponse
-</span><a href="Network.AWS.MediaConvert.UpdateQueue.html#newUpdateQueueResponse"><span class="hs-identifier hs-var hs-var">newUpdateQueueResponse</span></a></span></span><span> </span><span id="local-6989586621680029461"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680029461"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaConvert.UpdateQueue.html#newUpdateQueueResponse"><span class="hs-identifier hs-var hs-var">newUpdateQueueResponse</span></a></span></span><span> </span><span id="local-6989586621680034982"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680034982"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="annottext">UpdateQueueResponse' :: Maybe Queue -&gt; Int -&gt; UpdateQueueResponse
 </span><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse%27"><span class="hs-identifier hs-type">UpdateQueueResponse'</span></a></span><span>
 </span><span id="line-211"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queue:UpdateQueueResponse' :: Maybe Queue
@@ -524,7 +524,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateQueueResponse' :: Int
 </span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3AhttpStatus%3AUpdateQueueResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680029461"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621680034982"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-213"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | You can use queues to manage the resources that are available to your</span><span>
@@ -540,16 +540,16 @@ forall a. Maybe a
 -&gt; Lens
      UpdateQueueResponse UpdateQueueResponse (Maybe Queue) (Maybe Queue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse%27"><span class="hs-identifier hs-type">UpdateQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680029460"><span class="annot"><span class="annottext">Maybe Queue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse%27"><span class="hs-identifier hs-type">UpdateQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680034981"><span class="annot"><span class="annottext">Maybe Queue
 queue :: Maybe Queue
 $sel:queue:UpdateQueueResponse' :: UpdateQueueResponse -&gt; Maybe Queue
-</span><a href="#local-6989586621680029460"><span class="hs-identifier hs-var hs-var">queue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Queue
-</span><a href="#local-6989586621680029460"><span class="hs-identifier hs-var">queue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680029459"><span class="annot"><span class="annottext">s :: UpdateQueueResponse
-</span><a href="#local-6989586621680029459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse%27"><span class="hs-identifier hs-type">UpdateQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680029458"><span class="annot"><span class="annottext">Maybe Queue
-</span><a href="#local-6989586621680029458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateQueueResponse
-</span><a href="#local-6989586621680029459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queue:UpdateQueueResponse' :: Maybe Queue
+</span><a href="#local-6989586621680034981"><span class="hs-identifier hs-var hs-var">queue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Queue
+</span><a href="#local-6989586621680034981"><span class="hs-identifier hs-var">queue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680034980"><span class="annot"><span class="annottext">s :: UpdateQueueResponse
+</span><a href="#local-6989586621680034980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse%27"><span class="hs-identifier hs-type">UpdateQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680034979"><span class="annot"><span class="annottext">Maybe Queue
+</span><a href="#local-6989586621680034979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateQueueResponse
+</span><a href="#local-6989586621680034980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queue:UpdateQueueResponse' :: Maybe Queue
 </span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3Aqueue%3AUpdateQueueResponse%27"><span class="hs-identifier hs-var">queue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Queue
-</span><a href="#local-6989586621680029458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse"><span class="hs-identifier hs-type">UpdateQueueResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680034979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse"><span class="hs-identifier hs-type">UpdateQueueResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-224"></span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#updateQueueResponse_httpStatus"><span class="hs-identifier hs-type">updateQueueResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse"><span class="hs-identifier hs-type">UpdateQueueResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -558,16 +558,16 @@ $sel:queue:UpdateQueueResponse' :: UpdateQueueResponse -&gt; Maybe Queue
 -&gt; (UpdateQueueResponse -&gt; Int -&gt; UpdateQueueResponse)
 -&gt; Lens UpdateQueueResponse UpdateQueueResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse%27"><span class="hs-identifier hs-type">UpdateQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680029457"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse%27"><span class="hs-identifier hs-type">UpdateQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680034978"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateQueueResponse' :: UpdateQueueResponse -&gt; Int
-</span><a href="#local-6989586621680029457"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680029457"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680029456"><span class="annot"><span class="annottext">s :: UpdateQueueResponse
-</span><a href="#local-6989586621680029456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse%27"><span class="hs-identifier hs-type">UpdateQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680029455"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680029455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateQueueResponse
-</span><a href="#local-6989586621680029456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateQueueResponse' :: Int
+</span><a href="#local-6989586621680034978"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680034978"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680034977"><span class="annot"><span class="annottext">s :: UpdateQueueResponse
+</span><a href="#local-6989586621680034977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse%27"><span class="hs-identifier hs-type">UpdateQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680034976"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680034976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateQueueResponse
+</span><a href="#local-6989586621680034977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateQueueResponse' :: Int
 </span><a href="Network.AWS.MediaConvert.UpdateQueue.html#%24sel%3AhttpStatus%3AUpdateQueueResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680029455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse"><span class="hs-identifier hs-type">UpdateQueueResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680034976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse"><span class="hs-identifier hs-type">UpdateQueueResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680029453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse"><span class="hs-identifier hs-type">UpdateQueueResponse</span></a></span></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680034974"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.UpdateQueue.html#UpdateQueueResponse"><span class="hs-identifier hs-type">UpdateQueueResponse</span></a></span></span><span>
 </span><span id="line-228"></span></pre></body></html>

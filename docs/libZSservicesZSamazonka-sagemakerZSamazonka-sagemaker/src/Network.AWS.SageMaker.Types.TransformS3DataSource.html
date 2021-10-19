@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the S3 data source.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTransformS3DataSource' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680350643"><span id="local-6989586621680350644"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransformS3DataSource"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource"><span class="hs-identifier hs-var">TransformS3DataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformS3DataSource%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource%27"><span class="hs-identifier hs-var">TransformS3DataSource'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680352074"><span id="local-6989586621680352075"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransformS3DataSource"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource"><span class="hs-identifier hs-var">TransformS3DataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformS3DataSource%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource%27"><span class="hs-identifier hs-var">TransformS3DataSource'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix. Amazon</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- SageMaker uses all objects with the specified key name prefix for batch</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- transform.</span><span>
@@ -82,7 +82,7 @@
 </span><span id="line-81"></span><span>    </span><span id="%24sel%3As3Uri%3ATransformS3DataSource%27"><span class="annot"><span class="annottext">TransformS3DataSource -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#%24sel%3As3Uri%3ATransformS3DataSource%27"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680350636"><span id="local-6989586621680350638"><span class="annot"><span class="annottext">TransformS3DataSource -&gt; TransformS3DataSource -&gt; Bool
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680352067"><span id="local-6989586621680352069"><span class="annot"><span class="annottext">TransformS3DataSource -&gt; TransformS3DataSource -&gt; Bool
 (TransformS3DataSource -&gt; TransformS3DataSource -&gt; Bool)
 -&gt; (TransformS3DataSource -&gt; TransformS3DataSource -&gt; Bool)
 -&gt; Eq TransformS3DataSource
@@ -91,7 +91,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TransformS3DataSource -&gt; TransformS3DataSource -&gt; Bool
 == :: TransformS3DataSource -&gt; TransformS3DataSource -&gt; Bool
 $c== :: TransformS3DataSource -&gt; TransformS3DataSource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680350627"><span id="local-6989586621680350629"><span id="local-6989586621680350631"><span id="local-6989586621680350633"><span class="annot"><span class="annottext">ReadPrec [TransformS3DataSource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680352058"><span id="local-6989586621680352060"><span id="local-6989586621680352062"><span id="local-6989586621680352064"><span class="annot"><span class="annottext">ReadPrec [TransformS3DataSource]
 ReadPrec TransformS3DataSource
 Int -&gt; ReadS TransformS3DataSource
 ReadS [TransformS3DataSource]
@@ -111,7 +111,7 @@ readList :: ReadS [TransformS3DataSource]
 $creadList :: ReadS [TransformS3DataSource]
 readsPrec :: Int -&gt; ReadS TransformS3DataSource
 $creadsPrec :: Int -&gt; ReadS TransformS3DataSource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680350620"><span id="local-6989586621680350622"><span id="local-6989586621680350624"><span class="annot"><span class="annottext">Int -&gt; TransformS3DataSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680352051"><span id="local-6989586621680352053"><span id="local-6989586621680352055"><span class="annot"><span class="annottext">Int -&gt; TransformS3DataSource -&gt; ShowS
 [TransformS3DataSource] -&gt; ShowS
 TransformS3DataSource -&gt; String
 (Int -&gt; TransformS3DataSource -&gt; ShowS)
@@ -202,17 +202,17 @@ $cfrom :: forall x. TransformS3DataSource -&gt; Rep TransformS3DataSource x
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource"><span class="hs-identifier hs-type">TransformS3DataSource</span></a></span><span>
 </span><span id="line-149"></span><span id="newTransformS3DataSource"><span class="annot"><span class="annottext">newTransformS3DataSource :: S3DataType -&gt; Text -&gt; TransformS3DataSource
-</span><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#newTransformS3DataSource"><span class="hs-identifier hs-var hs-var">newTransformS3DataSource</span></a></span></span><span> </span><span id="local-6989586621680350614"><span class="annot"><span class="annottext">S3DataType
-</span><a href="#local-6989586621680350614"><span class="hs-identifier hs-var">pS3DataType_</span></a></span></span><span> </span><span id="local-6989586621680350613"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680350613"><span class="hs-identifier hs-var">pS3Uri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#newTransformS3DataSource"><span class="hs-identifier hs-var hs-var">newTransformS3DataSource</span></a></span></span><span> </span><span id="local-6989586621680352045"><span class="annot"><span class="annottext">S3DataType
+</span><a href="#local-6989586621680352045"><span class="hs-identifier hs-var">pS3DataType_</span></a></span></span><span> </span><span id="local-6989586621680352044"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680352044"><span class="hs-identifier hs-var">pS3Uri_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">TransformS3DataSource' :: S3DataType -&gt; Text -&gt; TransformS3DataSource
 </span><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource%27"><span class="hs-identifier hs-type">TransformS3DataSource'</span></a></span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3DataType:TransformS3DataSource' :: S3DataType
 </span><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#%24sel%3As3DataType%3ATransformS3DataSource%27"><span class="hs-identifier hs-var">s3DataType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3DataType
-</span><a href="#local-6989586621680350614"><span class="hs-identifier hs-var">pS3DataType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680352045"><span class="hs-identifier hs-var">pS3DataType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Uri:TransformS3DataSource' :: Text
 </span><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#%24sel%3As3Uri%3ATransformS3DataSource%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680350613"><span class="hs-identifier hs-var">pS3Uri_</span></a></span><span>
+</span><a href="#local-6989586621680352044"><span class="hs-identifier hs-var">pS3Uri_</span></a></span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | If you choose @S3Prefix@, @S3Uri@ identifies a key name prefix. Amazon</span><span>
@@ -234,16 +234,16 @@ $cfrom :: forall x. TransformS3DataSource -&gt; Rep TransformS3DataSource x
 -&gt; Lens
      TransformS3DataSource TransformS3DataSource S3DataType S3DataType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource%27"><span class="hs-identifier hs-type">TransformS3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680350609"><span class="annot"><span class="annottext">S3DataType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource%27"><span class="hs-identifier hs-type">TransformS3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680352040"><span class="annot"><span class="annottext">S3DataType
 s3DataType :: S3DataType
 $sel:s3DataType:TransformS3DataSource' :: TransformS3DataSource -&gt; S3DataType
-</span><a href="#local-6989586621680350609"><span class="hs-identifier hs-var hs-var">s3DataType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataType
-</span><a href="#local-6989586621680350609"><span class="hs-identifier hs-var">s3DataType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680350608"><span class="annot"><span class="annottext">s :: TransformS3DataSource
-</span><a href="#local-6989586621680350608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource%27"><span class="hs-identifier hs-type">TransformS3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680350607"><span class="annot"><span class="annottext">S3DataType
-</span><a href="#local-6989586621680350607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformS3DataSource
-</span><a href="#local-6989586621680350608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3DataType:TransformS3DataSource' :: S3DataType
+</span><a href="#local-6989586621680352040"><span class="hs-identifier hs-var hs-var">s3DataType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3DataType
+</span><a href="#local-6989586621680352040"><span class="hs-identifier hs-var">s3DataType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680352039"><span class="annot"><span class="annottext">s :: TransformS3DataSource
+</span><a href="#local-6989586621680352039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource%27"><span class="hs-identifier hs-type">TransformS3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680352038"><span class="annot"><span class="annottext">S3DataType
+</span><a href="#local-6989586621680352038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformS3DataSource
+</span><a href="#local-6989586621680352039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3DataType:TransformS3DataSource' :: S3DataType
 </span><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#%24sel%3As3DataType%3ATransformS3DataSource%27"><span class="hs-identifier hs-var">s3DataType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3DataType
-</span><a href="#local-6989586621680350607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource"><span class="hs-identifier hs-type">TransformS3DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680352038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource"><span class="hs-identifier hs-type">TransformS3DataSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | Depending on the value specified for the @S3DataType@, identifies either</span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- a key name prefix or a manifest. For example:</span><span>
@@ -290,19 +290,19 @@ $sel:s3DataType:TransformS3DataSource' :: TransformS3DataSource -&gt; S3DataType
 -&gt; (TransformS3DataSource -&gt; Text -&gt; TransformS3DataSource)
 -&gt; Lens TransformS3DataSource TransformS3DataSource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource%27"><span class="hs-identifier hs-type">TransformS3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680350605"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource%27"><span class="hs-identifier hs-type">TransformS3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680352036"><span class="annot"><span class="annottext">Text
 s3Uri :: Text
 $sel:s3Uri:TransformS3DataSource' :: TransformS3DataSource -&gt; Text
-</span><a href="#local-6989586621680350605"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680350605"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680350604"><span class="annot"><span class="annottext">s :: TransformS3DataSource
-</span><a href="#local-6989586621680350604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource%27"><span class="hs-identifier hs-type">TransformS3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680350603"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680350603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformS3DataSource
-</span><a href="#local-6989586621680350604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:TransformS3DataSource' :: Text
+</span><a href="#local-6989586621680352036"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680352036"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680352035"><span class="annot"><span class="annottext">s :: TransformS3DataSource
+</span><a href="#local-6989586621680352035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource%27"><span class="hs-identifier hs-type">TransformS3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680352034"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680352034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformS3DataSource
+</span><a href="#local-6989586621680352035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:TransformS3DataSource' :: Text
 </span><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#%24sel%3As3Uri%3ATransformS3DataSource%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680350603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource"><span class="hs-identifier hs-type">TransformS3DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680352034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource"><span class="hs-identifier hs-type">TransformS3DataSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680350600"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource"><span class="hs-identifier hs-type">TransformS3DataSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621680350598"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TransformS3DataSource
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680352031"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource"><span class="hs-identifier hs-type">TransformS3DataSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621680352029"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TransformS3DataSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TransformS3DataSource)
@@ -312,15 +312,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TransformS3DataSource&quot;</span></span><span>
-</span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680350595"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680350595"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680352026"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680352026"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-215"></span><span>          </span><span class="annot"><span class="annottext">S3DataType -&gt; Text -&gt; TransformS3DataSource
 </span><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource%27"><span class="hs-identifier hs-var">TransformS3DataSource'</span></a></span><span>
 </span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">(S3DataType -&gt; Text -&gt; TransformS3DataSource)
 -&gt; Parser S3DataType -&gt; Parser (Text -&gt; TransformS3DataSource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680350595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser S3DataType
+</span><a href="#local-6989586621680352026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser S3DataType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3DataType&quot;</span></span><span class="hs-special">)</span><span>
@@ -328,25 +328,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser TransformS3DataSource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680350595"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680352026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680350589"><span id="local-6989586621680350591"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource"><span class="hs-identifier hs-type">TransformS3DataSource</span></a></span></span></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680352020"><span id="local-6989586621680352022"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource"><span class="hs-identifier hs-type">TransformS3DataSource</span></a></span></span></span><span>
 </span><span id="line-221"></span><span>
-</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680350586"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource"><span class="hs-identifier hs-type">TransformS3DataSource</span></a></span></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680352017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource"><span class="hs-identifier hs-type">TransformS3DataSource</span></a></span></span><span>
 </span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680350578"><span id="local-6989586621680350580"><span id="local-6989586621680350582"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource"><span class="hs-identifier hs-type">TransformS3DataSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-225"></span><span>  </span><span id="local-6989586621680350576"><span class="annot"><span class="annottext">toJSON :: TransformS3DataSource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource%27"><span class="hs-identifier hs-type">TransformS3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680350573"><span id="local-6989586621680350574"><span class="annot"><span class="annottext">Text
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680352009"><span id="local-6989586621680352011"><span id="local-6989586621680352013"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource"><span class="hs-identifier hs-type">TransformS3DataSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621680352007"><span class="annot"><span class="annottext">toJSON :: TransformS3DataSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformS3DataSource.html#TransformS3DataSource%27"><span class="hs-identifier hs-type">TransformS3DataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680352004"><span id="local-6989586621680352005"><span class="annot"><span class="annottext">Text
 S3DataType
 s3Uri :: Text
 s3DataType :: S3DataType
 $sel:s3Uri:TransformS3DataSource' :: TransformS3DataSource -&gt; Text
 $sel:s3DataType:TransformS3DataSource' :: TransformS3DataSource -&gt; S3DataType
-</span><a href="#local-6989586621680350573"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680352004"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-226"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-227"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -358,14 +358,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;S3DataType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3DataType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">S3DataType
-</span><a href="#local-6989586621680350574"><span class="hs-identifier hs-var">s3DataType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680352005"><span class="hs-identifier hs-var">s3DataType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680350573"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680352004"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-231"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span></pre></body></html>

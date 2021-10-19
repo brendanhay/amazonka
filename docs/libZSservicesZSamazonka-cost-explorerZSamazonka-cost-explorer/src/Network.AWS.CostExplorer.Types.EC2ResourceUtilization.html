@@ -29,31 +29,31 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Utilization metrics of the instance.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newEC2ResourceUtilization' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679331927"><span id="local-6989586621679331928"></span></span><span class="hs-keyword">data</span><span> </span><span id="EC2ResourceUtilization"><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-var">EC2ResourceUtilization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EC2ResourceUtilization%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-var">EC2ResourceUtilization'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum observed or expected storage utilization of the instance.</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- This doesn\'t include EBS storage.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AmaxStorageUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="annot"><span class="annottext">EC2ResourceUtilization -&gt; Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AmaxStorageUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var hs-var">maxStorageUtilizationPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The maximum observed or expected memory utilization of the instance.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AmaxMemoryUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="annot"><span class="annottext">EC2ResourceUtilization -&gt; Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AmaxMemoryUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var hs-var">maxMemoryUtilizationPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679332260"><span id="local-6989586621679332261"></span></span><span class="hs-keyword">data</span><span> </span><span id="EC2ResourceUtilization"><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-var">EC2ResourceUtilization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EC2ResourceUtilization%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-var">EC2ResourceUtilization'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum observed or expected CPU utilization of the instance.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AmaxCpuUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="annot"><span class="annottext">EC2ResourceUtilization -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AmaxCpuUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var hs-var">maxCpuUtilizationPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The network field that contains a list of network metrics that are</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- associated with the current instance.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AnetworkResourceUtilization%3AEC2ResourceUtilization%27"><span class="annot"><span class="annottext">EC2ResourceUtilization -&gt; Maybe NetworkResourceUtilization
+</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AnetworkResourceUtilization%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var hs-var">networkResourceUtilization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NetworkResourceUtilization.html#NetworkResourceUtilization"><span class="hs-identifier hs-type">NetworkResourceUtilization</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The EBS field that contains a list of EBS metrics that are associated</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- with the current instance.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AeBSResourceUtilization%3AEC2ResourceUtilization%27"><span class="annot"><span class="annottext">EC2ResourceUtilization -&gt; Maybe EBSResourceUtilization
 </span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AeBSResourceUtilization%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var hs-var">eBSResourceUtilization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EBSResourceUtilization.html#EBSResourceUtilization"><span class="hs-identifier hs-type">EBSResourceUtilization</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The network field that contains a list of network metrics that are</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- associated with the current instance.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AnetworkResourceUtilization%3AEC2ResourceUtilization%27"><span class="annot"><span class="annottext">EC2ResourceUtilization -&gt; Maybe NetworkResourceUtilization
-</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AnetworkResourceUtilization%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var hs-var">networkResourceUtilization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NetworkResourceUtilization.html#NetworkResourceUtilization"><span class="hs-identifier hs-type">NetworkResourceUtilization</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The maximum observed or expected CPU utilization of the instance.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AmaxCpuUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="annot"><span class="annottext">EC2ResourceUtilization -&gt; Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AmaxCpuUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var hs-var">maxCpuUtilizationPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The maximum observed or expected storage utilization of the instance.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- This doesn\'t include EBS storage.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AmaxStorageUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="annot"><span class="annottext">EC2ResourceUtilization -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AmaxStorageUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var hs-var">maxStorageUtilizationPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The maximum observed or expected memory utilization of the instance.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AmaxMemoryUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="annot"><span class="annottext">EC2ResourceUtilization -&gt; Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AmaxMemoryUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var hs-var">maxMemoryUtilizationPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The field that contains a list of disk (local storage) metrics that are</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">-- associated with the current instance.</span><span>
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AdiskResourceUtilization%3AEC2ResourceUtilization%27"><span class="annot"><span class="annottext">EC2ResourceUtilization -&gt; Maybe DiskResourceUtilization
 </span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AdiskResourceUtilization%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var hs-var">diskResourceUtilization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.DiskResourceUtilization.html#DiskResourceUtilization"><span class="hs-identifier hs-type">DiskResourceUtilization</span></a></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331916"><span id="local-6989586621679331918"><span class="annot"><span class="annottext">EC2ResourceUtilization -&gt; EC2ResourceUtilization -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332249"><span id="local-6989586621679332251"><span class="annot"><span class="annottext">EC2ResourceUtilization -&gt; EC2ResourceUtilization -&gt; Bool
 (EC2ResourceUtilization -&gt; EC2ResourceUtilization -&gt; Bool)
 -&gt; (EC2ResourceUtilization -&gt; EC2ResourceUtilization -&gt; Bool)
 -&gt; Eq EC2ResourceUtilization
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EC2ResourceUtilization -&gt; EC2ResourceUtilization -&gt; Bool
 == :: EC2ResourceUtilization -&gt; EC2ResourceUtilization -&gt; Bool
 $c== :: EC2ResourceUtilization -&gt; EC2ResourceUtilization -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331907"><span id="local-6989586621679331909"><span id="local-6989586621679331911"><span id="local-6989586621679331913"><span class="annot"><span class="annottext">ReadPrec [EC2ResourceUtilization]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332240"><span id="local-6989586621679332242"><span id="local-6989586621679332244"><span id="local-6989586621679332246"><span class="annot"><span class="annottext">ReadPrec [EC2ResourceUtilization]
 ReadPrec EC2ResourceUtilization
 Int -&gt; ReadS EC2ResourceUtilization
 ReadS [EC2ResourceUtilization]
@@ -82,7 +82,7 @@ readList :: ReadS [EC2ResourceUtilization]
 $creadList :: ReadS [EC2ResourceUtilization]
 readsPrec :: Int -&gt; ReadS EC2ResourceUtilization
 $creadsPrec :: Int -&gt; ReadS EC2ResourceUtilization
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331900"><span id="local-6989586621679331902"><span id="local-6989586621679331904"><span class="annot"><span class="annottext">Int -&gt; EC2ResourceUtilization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332233"><span id="local-6989586621679332235"><span id="local-6989586621679332237"><span class="annot"><span class="annottext">Int -&gt; EC2ResourceUtilization -&gt; ShowS
 [EC2ResourceUtilization] -&gt; ShowS
 EC2ResourceUtilization -&gt; String
 (Int -&gt; EC2ResourceUtilization -&gt; ShowS)
@@ -117,18 +117,18 @@ $cfrom :: forall x. EC2ResourceUtilization -&gt; Rep EC2ResourceUtilization x
 </span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'maxStorageUtilizationPercentage', 'eC2ResourceUtilization_maxStorageUtilizationPercentage' - The maximum observed or expected storage utilization of the instance.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- This doesn\'t include EBS storage.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'maxMemoryUtilizationPercentage', 'eC2ResourceUtilization_maxMemoryUtilizationPercentage' - The maximum observed or expected memory utilization of the instance.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'maxCpuUtilizationPercentage', 'eC2ResourceUtilization_maxCpuUtilizationPercentage' - The maximum observed or expected CPU utilization of the instance.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'networkResourceUtilization', 'eC2ResourceUtilization_networkResourceUtilization' - The network field that contains a list of network metrics that are</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- associated with the current instance.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- 'eBSResourceUtilization', 'eC2ResourceUtilization_eBSResourceUtilization' - The EBS field that contains a list of EBS metrics that are associated</span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- with the current instance.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'networkResourceUtilization', 'eC2ResourceUtilization_networkResourceUtilization' - The network field that contains a list of network metrics that are</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- associated with the current instance.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'maxStorageUtilizationPercentage', 'eC2ResourceUtilization_maxStorageUtilizationPercentage' - The maximum observed or expected storage utilization of the instance.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- This doesn\'t include EBS storage.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'maxCpuUtilizationPercentage', 'eC2ResourceUtilization_maxCpuUtilizationPercentage' - The maximum observed or expected CPU utilization of the instance.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'maxMemoryUtilizationPercentage', 'eC2ResourceUtilization_maxMemoryUtilizationPercentage' - The maximum observed or expected memory utilization of the instance.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- 'diskResourceUtilization', 'eC2ResourceUtilization_diskResourceUtilization' - The field that contains a list of disk (local storage) metrics that are</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- associated with the current instance.</span><span>
@@ -137,32 +137,32 @@ $cfrom :: forall x. EC2ResourceUtilization -&gt; Rep EC2ResourceUtilization x
 </span><span id="line-77"></span><span id="newEC2ResourceUtilization"><span class="annot"><span class="annottext">newEC2ResourceUtilization :: EC2ResourceUtilization
 </span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#newEC2ResourceUtilization"><span class="hs-identifier hs-var hs-var">newEC2ResourceUtilization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">EC2ResourceUtilization' :: Maybe Text
--&gt; Maybe Text
--&gt; Maybe EBSResourceUtilization
 -&gt; Maybe NetworkResourceUtilization
+-&gt; Maybe EBSResourceUtilization
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe DiskResourceUtilization
 -&gt; EC2ResourceUtilization
 </span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxStorageUtilizationPercentage:EC2ResourceUtilization' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AmaxStorageUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">maxStorageUtilizationPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxCpuUtilizationPercentage:EC2ResourceUtilization' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AmaxCpuUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">maxCpuUtilizationPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxMemoryUtilizationPercentage:EC2ResourceUtilization' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AmaxMemoryUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">maxMemoryUtilizationPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkResourceUtilization:EC2ResourceUtilization' :: Maybe NetworkResourceUtilization
+</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AnetworkResourceUtilization%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">networkResourceUtilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkResourceUtilization
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:eBSResourceUtilization:EC2ResourceUtilization' :: Maybe EBSResourceUtilization
 </span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AeBSResourceUtilization%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">eBSResourceUtilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EBSResourceUtilization
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkResourceUtilization:EC2ResourceUtilization' :: Maybe NetworkResourceUtilization
-</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AnetworkResourceUtilization%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">networkResourceUtilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkResourceUtilization
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxStorageUtilizationPercentage:EC2ResourceUtilization' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AmaxStorageUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">maxStorageUtilizationPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxCpuUtilizationPercentage:EC2ResourceUtilization' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AmaxCpuUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">maxCpuUtilizationPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxMemoryUtilizationPercentage:EC2ResourceUtilization' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AmaxMemoryUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">maxMemoryUtilizationPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:diskResourceUtilization:EC2ResourceUtilization' :: Maybe DiskResourceUtilization
@@ -171,12 +171,11 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | The maximum observed or expected storage utilization of the instance.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- This doesn\'t include EBS storage.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#eC2ResourceUtilization_maxStorageUtilizationPercentage"><span class="hs-identifier hs-type">eC2ResourceUtilization_maxStorageUtilizationPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="eC2ResourceUtilization_maxStorageUtilizationPercentage"><span class="annot"><span class="annottext">eC2ResourceUtilization_maxStorageUtilizationPercentage :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-88"></span><span class="hs-comment">-- | The maximum observed or expected CPU utilization of the instance.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#eC2ResourceUtilization_maxCpuUtilizationPercentage"><span class="hs-identifier hs-type">eC2ResourceUtilization_maxCpuUtilizationPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="eC2ResourceUtilization_maxCpuUtilizationPercentage"><span class="annot"><span class="annottext">eC2ResourceUtilization_maxCpuUtilizationPercentage :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; EC2ResourceUtilization -&gt; f EC2ResourceUtilization
-</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#eC2ResourceUtilization_maxStorageUtilizationPercentage"><span class="hs-identifier hs-var hs-var">eC2ResourceUtilization_maxStorageUtilizationPercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EC2ResourceUtilization -&gt; Maybe Text)
+</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#eC2ResourceUtilization_maxCpuUtilizationPercentage"><span class="hs-identifier hs-var hs-var">eC2ResourceUtilization_maxCpuUtilizationPercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EC2ResourceUtilization -&gt; Maybe Text)
 -&gt; (EC2ResourceUtilization -&gt; Maybe Text -&gt; EC2ResourceUtilization)
 -&gt; Lens
      EC2ResourceUtilization
@@ -184,39 +183,42 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331891"><span class="annot"><span class="annottext">Maybe Text
-maxStorageUtilizationPercentage :: Maybe Text
-$sel:maxStorageUtilizationPercentage:EC2ResourceUtilization' :: EC2ResourceUtilization -&gt; Maybe Text
-</span><a href="#local-6989586621679331891"><span class="hs-identifier hs-var hs-var">maxStorageUtilizationPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331891"><span class="hs-identifier hs-var">maxStorageUtilizationPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331890"><span class="annot"><span class="annottext">s :: EC2ResourceUtilization
-</span><a href="#local-6989586621679331890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331889"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2ResourceUtilization
-</span><a href="#local-6989586621679331890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxStorageUtilizationPercentage:EC2ResourceUtilization' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AmaxStorageUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">maxStorageUtilizationPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The maximum observed or expected memory utilization of the instance.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#eC2ResourceUtilization_maxMemoryUtilizationPercentage"><span class="hs-identifier hs-type">eC2ResourceUtilization_maxMemoryUtilizationPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="eC2ResourceUtilization_maxMemoryUtilizationPercentage"><span class="annot"><span class="annottext">eC2ResourceUtilization_maxMemoryUtilizationPercentage :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332224"><span class="annot"><span class="annottext">Maybe Text
+maxCpuUtilizationPercentage :: Maybe Text
+$sel:maxCpuUtilizationPercentage:EC2ResourceUtilization' :: EC2ResourceUtilization -&gt; Maybe Text
+</span><a href="#local-6989586621679332224"><span class="hs-identifier hs-var hs-var">maxCpuUtilizationPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332224"><span class="hs-identifier hs-var">maxCpuUtilizationPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332223"><span class="annot"><span class="annottext">s :: EC2ResourceUtilization
+</span><a href="#local-6989586621679332223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332222"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2ResourceUtilization
+</span><a href="#local-6989586621679332223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxCpuUtilizationPercentage:EC2ResourceUtilization' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AmaxCpuUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">maxCpuUtilizationPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The network field that contains a list of network metrics that are</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- associated with the current instance.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#eC2ResourceUtilization_networkResourceUtilization"><span class="hs-identifier hs-type">eC2ResourceUtilization_networkResourceUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NetworkResourceUtilization.html#NetworkResourceUtilization"><span class="hs-identifier hs-type">NetworkResourceUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="eC2ResourceUtilization_networkResourceUtilization"><span class="annot"><span class="annottext">eC2ResourceUtilization_networkResourceUtilization :: (Maybe NetworkResourceUtilization
+ -&gt; f (Maybe NetworkResourceUtilization))
 -&gt; EC2ResourceUtilization -&gt; f EC2ResourceUtilization
-</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#eC2ResourceUtilization_maxMemoryUtilizationPercentage"><span class="hs-identifier hs-var hs-var">eC2ResourceUtilization_maxMemoryUtilizationPercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EC2ResourceUtilization -&gt; Maybe Text)
--&gt; (EC2ResourceUtilization -&gt; Maybe Text -&gt; EC2ResourceUtilization)
+</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#eC2ResourceUtilization_networkResourceUtilization"><span class="hs-identifier hs-var hs-var">eC2ResourceUtilization_networkResourceUtilization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EC2ResourceUtilization -&gt; Maybe NetworkResourceUtilization)
+-&gt; (EC2ResourceUtilization
+    -&gt; Maybe NetworkResourceUtilization -&gt; EC2ResourceUtilization)
 -&gt; Lens
      EC2ResourceUtilization
      EC2ResourceUtilization
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe NetworkResourceUtilization)
+     (Maybe NetworkResourceUtilization)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331887"><span class="annot"><span class="annottext">Maybe Text
-maxMemoryUtilizationPercentage :: Maybe Text
-$sel:maxMemoryUtilizationPercentage:EC2ResourceUtilization' :: EC2ResourceUtilization -&gt; Maybe Text
-</span><a href="#local-6989586621679331887"><span class="hs-identifier hs-var hs-var">maxMemoryUtilizationPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331887"><span class="hs-identifier hs-var">maxMemoryUtilizationPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331886"><span class="annot"><span class="annottext">s :: EC2ResourceUtilization
-</span><a href="#local-6989586621679331886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331885"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2ResourceUtilization
-</span><a href="#local-6989586621679331886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxMemoryUtilizationPercentage:EC2ResourceUtilization' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AmaxMemoryUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">maxMemoryUtilizationPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332220"><span class="annot"><span class="annottext">Maybe NetworkResourceUtilization
+networkResourceUtilization :: Maybe NetworkResourceUtilization
+$sel:networkResourceUtilization:EC2ResourceUtilization' :: EC2ResourceUtilization -&gt; Maybe NetworkResourceUtilization
+</span><a href="#local-6989586621679332220"><span class="hs-identifier hs-var hs-var">networkResourceUtilization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkResourceUtilization
+</span><a href="#local-6989586621679332220"><span class="hs-identifier hs-var">networkResourceUtilization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332219"><span class="annot"><span class="annottext">s :: EC2ResourceUtilization
+</span><a href="#local-6989586621679332219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332218"><span class="annot"><span class="annottext">Maybe NetworkResourceUtilization
+</span><a href="#local-6989586621679332218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2ResourceUtilization
+</span><a href="#local-6989586621679332219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkResourceUtilization:EC2ResourceUtilization' :: Maybe NetworkResourceUtilization
+</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AnetworkResourceUtilization%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">networkResourceUtilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkResourceUtilization
+</span><a href="#local-6989586621679332218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The EBS field that contains a list of EBS metrics that are associated</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- with the current instance.</span><span>
@@ -232,48 +234,23 @@ $sel:maxMemoryUtilizationPercentage:EC2ResourceUtilization' :: EC2ResourceUtiliz
      (Maybe EBSResourceUtilization)
      (Maybe EBSResourceUtilization)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331883"><span class="annot"><span class="annottext">Maybe EBSResourceUtilization
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332216"><span class="annot"><span class="annottext">Maybe EBSResourceUtilization
 eBSResourceUtilization :: Maybe EBSResourceUtilization
 $sel:eBSResourceUtilization:EC2ResourceUtilization' :: EC2ResourceUtilization -&gt; Maybe EBSResourceUtilization
-</span><a href="#local-6989586621679331883"><span class="hs-identifier hs-var hs-var">eBSResourceUtilization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EBSResourceUtilization
-</span><a href="#local-6989586621679331883"><span class="hs-identifier hs-var">eBSResourceUtilization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331882"><span class="annot"><span class="annottext">s :: EC2ResourceUtilization
-</span><a href="#local-6989586621679331882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331881"><span class="annot"><span class="annottext">Maybe EBSResourceUtilization
-</span><a href="#local-6989586621679331881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2ResourceUtilization
-</span><a href="#local-6989586621679331882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eBSResourceUtilization:EC2ResourceUtilization' :: Maybe EBSResourceUtilization
+</span><a href="#local-6989586621679332216"><span class="hs-identifier hs-var hs-var">eBSResourceUtilization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EBSResourceUtilization
+</span><a href="#local-6989586621679332216"><span class="hs-identifier hs-var">eBSResourceUtilization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332215"><span class="annot"><span class="annottext">s :: EC2ResourceUtilization
+</span><a href="#local-6989586621679332215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332214"><span class="annot"><span class="annottext">Maybe EBSResourceUtilization
+</span><a href="#local-6989586621679332214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2ResourceUtilization
+</span><a href="#local-6989586621679332215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eBSResourceUtilization:EC2ResourceUtilization' :: Maybe EBSResourceUtilization
 </span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AeBSResourceUtilization%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">eBSResourceUtilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EBSResourceUtilization
-</span><a href="#local-6989586621679331881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679332214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | The network field that contains a list of network metrics that are</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- associated with the current instance.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#eC2ResourceUtilization_networkResourceUtilization"><span class="hs-identifier hs-type">eC2ResourceUtilization_networkResourceUtilization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.NetworkResourceUtilization.html#NetworkResourceUtilization"><span class="hs-identifier hs-type">NetworkResourceUtilization</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="eC2ResourceUtilization_networkResourceUtilization"><span class="annot"><span class="annottext">eC2ResourceUtilization_networkResourceUtilization :: (Maybe NetworkResourceUtilization
- -&gt; f (Maybe NetworkResourceUtilization))
+</span><span id="line-102"></span><span class="hs-comment">-- | The maximum observed or expected storage utilization of the instance.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- This doesn\'t include EBS storage.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#eC2ResourceUtilization_maxStorageUtilizationPercentage"><span class="hs-identifier hs-type">eC2ResourceUtilization_maxStorageUtilizationPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="eC2ResourceUtilization_maxStorageUtilizationPercentage"><span class="annot"><span class="annottext">eC2ResourceUtilization_maxStorageUtilizationPercentage :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; EC2ResourceUtilization -&gt; f EC2ResourceUtilization
-</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#eC2ResourceUtilization_networkResourceUtilization"><span class="hs-identifier hs-var hs-var">eC2ResourceUtilization_networkResourceUtilization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EC2ResourceUtilization -&gt; Maybe NetworkResourceUtilization)
--&gt; (EC2ResourceUtilization
-    -&gt; Maybe NetworkResourceUtilization -&gt; EC2ResourceUtilization)
--&gt; Lens
-     EC2ResourceUtilization
-     EC2ResourceUtilization
-     (Maybe NetworkResourceUtilization)
-     (Maybe NetworkResourceUtilization)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331879"><span class="annot"><span class="annottext">Maybe NetworkResourceUtilization
-networkResourceUtilization :: Maybe NetworkResourceUtilization
-$sel:networkResourceUtilization:EC2ResourceUtilization' :: EC2ResourceUtilization -&gt; Maybe NetworkResourceUtilization
-</span><a href="#local-6989586621679331879"><span class="hs-identifier hs-var hs-var">networkResourceUtilization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkResourceUtilization
-</span><a href="#local-6989586621679331879"><span class="hs-identifier hs-var">networkResourceUtilization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331878"><span class="annot"><span class="annottext">s :: EC2ResourceUtilization
-</span><a href="#local-6989586621679331878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331877"><span class="annot"><span class="annottext">Maybe NetworkResourceUtilization
-</span><a href="#local-6989586621679331877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2ResourceUtilization
-</span><a href="#local-6989586621679331878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkResourceUtilization:EC2ResourceUtilization' :: Maybe NetworkResourceUtilization
-</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AnetworkResourceUtilization%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">networkResourceUtilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkResourceUtilization
-</span><a href="#local-6989586621679331877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | The maximum observed or expected CPU utilization of the instance.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#eC2ResourceUtilization_maxCpuUtilizationPercentage"><span class="hs-identifier hs-type">eC2ResourceUtilization_maxCpuUtilizationPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="eC2ResourceUtilization_maxCpuUtilizationPercentage"><span class="annot"><span class="annottext">eC2ResourceUtilization_maxCpuUtilizationPercentage :: (Maybe Text -&gt; f (Maybe Text))
--&gt; EC2ResourceUtilization -&gt; f EC2ResourceUtilization
-</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#eC2ResourceUtilization_maxCpuUtilizationPercentage"><span class="hs-identifier hs-var hs-var">eC2ResourceUtilization_maxCpuUtilizationPercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EC2ResourceUtilization -&gt; Maybe Text)
+</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#eC2ResourceUtilization_maxStorageUtilizationPercentage"><span class="hs-identifier hs-var hs-var">eC2ResourceUtilization_maxStorageUtilizationPercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EC2ResourceUtilization -&gt; Maybe Text)
 -&gt; (EC2ResourceUtilization -&gt; Maybe Text -&gt; EC2ResourceUtilization)
 -&gt; Lens
      EC2ResourceUtilization
@@ -281,16 +258,39 @@ $sel:networkResourceUtilization:EC2ResourceUtilization' :: EC2ResourceUtilizatio
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331875"><span class="annot"><span class="annottext">Maybe Text
-maxCpuUtilizationPercentage :: Maybe Text
-$sel:maxCpuUtilizationPercentage:EC2ResourceUtilization' :: EC2ResourceUtilization -&gt; Maybe Text
-</span><a href="#local-6989586621679331875"><span class="hs-identifier hs-var hs-var">maxCpuUtilizationPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331875"><span class="hs-identifier hs-var">maxCpuUtilizationPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331874"><span class="annot"><span class="annottext">s :: EC2ResourceUtilization
-</span><a href="#local-6989586621679331874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331873"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2ResourceUtilization
-</span><a href="#local-6989586621679331874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxCpuUtilizationPercentage:EC2ResourceUtilization' :: Maybe Text
-</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AmaxCpuUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">maxCpuUtilizationPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679331873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332212"><span class="annot"><span class="annottext">Maybe Text
+maxStorageUtilizationPercentage :: Maybe Text
+$sel:maxStorageUtilizationPercentage:EC2ResourceUtilization' :: EC2ResourceUtilization -&gt; Maybe Text
+</span><a href="#local-6989586621679332212"><span class="hs-identifier hs-var hs-var">maxStorageUtilizationPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332212"><span class="hs-identifier hs-var">maxStorageUtilizationPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332211"><span class="annot"><span class="annottext">s :: EC2ResourceUtilization
+</span><a href="#local-6989586621679332211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332210"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2ResourceUtilization
+</span><a href="#local-6989586621679332211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxStorageUtilizationPercentage:EC2ResourceUtilization' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AmaxStorageUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">maxStorageUtilizationPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The maximum observed or expected memory utilization of the instance.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#eC2ResourceUtilization_maxMemoryUtilizationPercentage"><span class="hs-identifier hs-type">eC2ResourceUtilization_maxMemoryUtilizationPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="eC2ResourceUtilization_maxMemoryUtilizationPercentage"><span class="annot"><span class="annottext">eC2ResourceUtilization_maxMemoryUtilizationPercentage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EC2ResourceUtilization -&gt; f EC2ResourceUtilization
+</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#eC2ResourceUtilization_maxMemoryUtilizationPercentage"><span class="hs-identifier hs-var hs-var">eC2ResourceUtilization_maxMemoryUtilizationPercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EC2ResourceUtilization -&gt; Maybe Text)
+-&gt; (EC2ResourceUtilization -&gt; Maybe Text -&gt; EC2ResourceUtilization)
+-&gt; Lens
+     EC2ResourceUtilization
+     EC2ResourceUtilization
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332208"><span class="annot"><span class="annottext">Maybe Text
+maxMemoryUtilizationPercentage :: Maybe Text
+$sel:maxMemoryUtilizationPercentage:EC2ResourceUtilization' :: EC2ResourceUtilization -&gt; Maybe Text
+</span><a href="#local-6989586621679332208"><span class="hs-identifier hs-var hs-var">maxMemoryUtilizationPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332208"><span class="hs-identifier hs-var">maxMemoryUtilizationPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332207"><span class="annot"><span class="annottext">s :: EC2ResourceUtilization
+</span><a href="#local-6989586621679332207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332206"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2ResourceUtilization
+</span><a href="#local-6989586621679332207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxMemoryUtilizationPercentage:EC2ResourceUtilization' :: Maybe Text
+</span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AmaxMemoryUtilizationPercentage%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">maxMemoryUtilizationPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679332206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The field that contains a list of disk (local storage) metrics that are</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- associated with the current instance.</span><span>
@@ -307,19 +307,19 @@ $sel:maxCpuUtilizationPercentage:EC2ResourceUtilization' :: EC2ResourceUtilizati
      (Maybe DiskResourceUtilization)
      (Maybe DiskResourceUtilization)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331871"><span class="annot"><span class="annottext">Maybe DiskResourceUtilization
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332204"><span class="annot"><span class="annottext">Maybe DiskResourceUtilization
 diskResourceUtilization :: Maybe DiskResourceUtilization
 $sel:diskResourceUtilization:EC2ResourceUtilization' :: EC2ResourceUtilization -&gt; Maybe DiskResourceUtilization
-</span><a href="#local-6989586621679331871"><span class="hs-identifier hs-var hs-var">diskResourceUtilization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DiskResourceUtilization
-</span><a href="#local-6989586621679331871"><span class="hs-identifier hs-var">diskResourceUtilization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331870"><span class="annot"><span class="annottext">s :: EC2ResourceUtilization
-</span><a href="#local-6989586621679331870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331869"><span class="annot"><span class="annottext">Maybe DiskResourceUtilization
-</span><a href="#local-6989586621679331869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2ResourceUtilization
-</span><a href="#local-6989586621679331870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskResourceUtilization:EC2ResourceUtilization' :: Maybe DiskResourceUtilization
+</span><a href="#local-6989586621679332204"><span class="hs-identifier hs-var hs-var">diskResourceUtilization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DiskResourceUtilization
+</span><a href="#local-6989586621679332204"><span class="hs-identifier hs-var">diskResourceUtilization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332203"><span class="annot"><span class="annottext">s :: EC2ResourceUtilization
+</span><a href="#local-6989586621679332203"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-type">EC2ResourceUtilization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332202"><span class="annot"><span class="annottext">Maybe DiskResourceUtilization
+</span><a href="#local-6989586621679332202"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EC2ResourceUtilization
+</span><a href="#local-6989586621679332203"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskResourceUtilization:EC2ResourceUtilization' :: Maybe DiskResourceUtilization
 </span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#%24sel%3AdiskResourceUtilization%3AEC2ResourceUtilization%27"><span class="hs-identifier hs-var">diskResourceUtilization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DiskResourceUtilization
-</span><a href="#local-6989586621679331869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679332202"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331866"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679331864"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EC2ResourceUtilization
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332199"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679332197"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EC2ResourceUtilization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EC2ResourceUtilization)
@@ -329,90 +329,90 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EC2ResourceUtilization&quot;</span></span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679331861"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331861"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679332194"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679332194"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
--&gt; Maybe EBSResourceUtilization
 -&gt; Maybe NetworkResourceUtilization
+-&gt; Maybe EBSResourceUtilization
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe DiskResourceUtilization
 -&gt; EC2ResourceUtilization
 </span><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization%27"><span class="hs-identifier hs-var">EC2ResourceUtilization'</span></a></span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe EBSResourceUtilization
  -&gt; Maybe NetworkResourceUtilization
+ -&gt; Maybe EBSResourceUtilization
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe DiskResourceUtilization
  -&gt; EC2ResourceUtilization)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
+     (Maybe NetworkResourceUtilization
       -&gt; Maybe EBSResourceUtilization
-      -&gt; Maybe NetworkResourceUtilization
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe DiskResourceUtilization
       -&gt; EC2ResourceUtilization)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679332194"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxStorageUtilizationPercentage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;MaxCpuUtilizationPercentage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe EBSResourceUtilization
-   -&gt; Maybe NetworkResourceUtilization
-   -&gt; Maybe Text
-   -&gt; Maybe DiskResourceUtilization
-   -&gt; EC2ResourceUtilization)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe EBSResourceUtilization
-      -&gt; Maybe NetworkResourceUtilization
-      -&gt; Maybe Text
-      -&gt; Maybe DiskResourceUtilization
-      -&gt; EC2ResourceUtilization)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxMemoryUtilizationPercentage&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe EBSResourceUtilization
-   -&gt; Maybe NetworkResourceUtilization
-   -&gt; Maybe Text
-   -&gt; Maybe DiskResourceUtilization
-   -&gt; EC2ResourceUtilization)
--&gt; Parser (Maybe EBSResourceUtilization)
--&gt; Parser
-     (Maybe NetworkResourceUtilization
-      -&gt; Maybe Text
-      -&gt; Maybe DiskResourceUtilization
-      -&gt; EC2ResourceUtilization)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EBSResourceUtilization)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EBSResourceUtilization&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe NetworkResourceUtilization
+   -&gt; Maybe EBSResourceUtilization
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe DiskResourceUtilization
    -&gt; EC2ResourceUtilization)
 -&gt; Parser (Maybe NetworkResourceUtilization)
 -&gt; Parser
+     (Maybe EBSResourceUtilization
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DiskResourceUtilization
+      -&gt; EC2ResourceUtilization)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679332194"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NetworkResourceUtilization)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NetworkResourceUtilization&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EBSResourceUtilization
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DiskResourceUtilization
+   -&gt; EC2ResourceUtilization)
+-&gt; Parser (Maybe EBSResourceUtilization)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe DiskResourceUtilization
+      -&gt; EC2ResourceUtilization)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679332194"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EBSResourceUtilization)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EBSResourceUtilization&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe DiskResourceUtilization
+   -&gt; EC2ResourceUtilization)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
      (Maybe Text
       -&gt; Maybe DiskResourceUtilization -&gt; EC2ResourceUtilization)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NetworkResourceUtilization)
+</span><a href="#local-6989586621679332194"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NetworkResourceUtilization&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;MaxStorageUtilizationPercentage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe DiskResourceUtilization -&gt; EC2ResourceUtilization)
@@ -420,22 +420,22 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe DiskResourceUtilization -&gt; EC2ResourceUtilization)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679332194"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxCpuUtilizationPercentage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;MaxMemoryUtilizationPercentage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe DiskResourceUtilization -&gt; EC2ResourceUtilization)
 -&gt; Parser (Maybe DiskResourceUtilization)
 -&gt; Parser EC2ResourceUtilization
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679331861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DiskResourceUtilization)
+</span><a href="#local-6989586621679332194"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DiskResourceUtilization)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DiskResourceUtilization&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331855"><span id="local-6989586621679331857"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332188"><span id="local-6989586621679332190"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679331852"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332185"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.EC2ResourceUtilization.html#EC2ResourceUtilization"><span class="hs-identifier hs-type">EC2ResourceUtilization</span></a></span></span><span>
 </span><span id="line-133"></span></pre></body></html>

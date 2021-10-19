@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-comment">-- | The input for the ListChangeSets action.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newListChangeSets' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679434941"><span id="local-6989586621679434942"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListChangeSets"><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets"><span class="hs-identifier hs-var">ListChangeSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListChangeSets%27"><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets%27"><span class="hs-identifier hs-var">ListChangeSets'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679435367"><span id="local-6989586621679435368"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListChangeSets"><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets"><span class="hs-identifier hs-var">ListChangeSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListChangeSets%27"><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets%27"><span class="hs-identifier hs-var">ListChangeSets'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string (provided by the ListChangeSets response output) that</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- identifies the next page of change sets that you want to retrieve.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListChangeSets%27"><span class="annot"><span class="annottext">ListChangeSets -&gt; Maybe Text
@@ -65,7 +65,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AstackName%3AListChangeSets%27"><span class="annot"><span class="annottext">ListChangeSets -&gt; Text
 </span><a href="Network.AWS.CloudFormation.ListChangeSets.html#%24sel%3AstackName%3AListChangeSets%27"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434934"><span id="local-6989586621679434936"><span class="annot"><span class="annottext">ListChangeSets -&gt; ListChangeSets -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435360"><span id="local-6989586621679435362"><span class="annot"><span class="annottext">ListChangeSets -&gt; ListChangeSets -&gt; Bool
 (ListChangeSets -&gt; ListChangeSets -&gt; Bool)
 -&gt; (ListChangeSets -&gt; ListChangeSets -&gt; Bool) -&gt; Eq ListChangeSets
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListChangeSets -&gt; ListChangeSets -&gt; Bool
 == :: ListChangeSets -&gt; ListChangeSets -&gt; Bool
 $c== :: ListChangeSets -&gt; ListChangeSets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434925"><span id="local-6989586621679434927"><span id="local-6989586621679434929"><span id="local-6989586621679434931"><span class="annot"><span class="annottext">ReadPrec [ListChangeSets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435351"><span id="local-6989586621679435353"><span id="local-6989586621679435355"><span id="local-6989586621679435357"><span class="annot"><span class="annottext">ReadPrec [ListChangeSets]
 ReadPrec ListChangeSets
 Int -&gt; ReadS ListChangeSets
 ReadS [ListChangeSets]
@@ -93,7 +93,7 @@ readList :: ReadS [ListChangeSets]
 $creadList :: ReadS [ListChangeSets]
 readsPrec :: Int -&gt; ReadS ListChangeSets
 $creadsPrec :: Int -&gt; ReadS ListChangeSets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434918"><span id="local-6989586621679434920"><span id="local-6989586621679434922"><span class="annot"><span class="annottext">Int -&gt; ListChangeSets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435344"><span id="local-6989586621679435346"><span id="local-6989586621679435348"><span class="annot"><span class="annottext">Int -&gt; ListChangeSets -&gt; ShowS
 [ListChangeSets] -&gt; ShowS
 ListChangeSets -&gt; String
 (Int -&gt; ListChangeSets -&gt; ShowS)
@@ -137,8 +137,8 @@ $cfrom :: forall x. ListChangeSets -&gt; Rep ListChangeSets x
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets"><span class="hs-identifier hs-type">ListChangeSets</span></a></span><span>
 </span><span id="line-85"></span><span id="newListChangeSets"><span class="annot"><span class="annottext">newListChangeSets :: Text -&gt; ListChangeSets
-</span><a href="Network.AWS.CloudFormation.ListChangeSets.html#newListChangeSets"><span class="hs-identifier hs-var hs-var">newListChangeSets</span></a></span></span><span> </span><span id="local-6989586621679434913"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434913"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFormation.ListChangeSets.html#newListChangeSets"><span class="hs-identifier hs-var hs-var">newListChangeSets</span></a></span></span><span> </span><span id="local-6989586621679435339"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435339"><span class="hs-identifier hs-var">pStackName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">ListChangeSets' :: Maybe Text -&gt; Text -&gt; ListChangeSets
 </span><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets%27"><span class="hs-identifier hs-type">ListChangeSets'</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListChangeSets' :: Maybe Text
@@ -147,7 +147,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackName:ListChangeSets' :: Text
 </span><a href="Network.AWS.CloudFormation.ListChangeSets.html#%24sel%3AstackName%3AListChangeSets%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434913"><span class="hs-identifier hs-var">pStackName_</span></a></span><span>
+</span><a href="#local-6989586621679435339"><span class="hs-identifier hs-var">pStackName_</span></a></span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | A string (provided by the ListChangeSets response output) that</span><span>
@@ -159,16 +159,16 @@ forall a. Maybe a
 -&gt; (ListChangeSets -&gt; Maybe Text -&gt; ListChangeSets)
 -&gt; Lens ListChangeSets ListChangeSets (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets%27"><span class="hs-identifier hs-type">ListChangeSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434911"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets%27"><span class="hs-identifier hs-type">ListChangeSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435337"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListChangeSets' :: ListChangeSets -&gt; Maybe Text
-</span><a href="#local-6989586621679434911"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434911"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434910"><span class="annot"><span class="annottext">s :: ListChangeSets
-</span><a href="#local-6989586621679434910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets%27"><span class="hs-identifier hs-type">ListChangeSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434909"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChangeSets
-</span><a href="#local-6989586621679434910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListChangeSets' :: Maybe Text
+</span><a href="#local-6989586621679435337"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679435337"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435336"><span class="annot"><span class="annottext">s :: ListChangeSets
+</span><a href="#local-6989586621679435336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets%27"><span class="hs-identifier hs-type">ListChangeSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435335"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679435335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChangeSets
+</span><a href="#local-6989586621679435336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListChangeSets' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.ListChangeSets.html#%24sel%3AnextToken%3AListChangeSets%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets"><span class="hs-identifier hs-type">ListChangeSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679435335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets"><span class="hs-identifier hs-type">ListChangeSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The name or the Amazon Resource Name (ARN) of the stack for which you</span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- want to list change sets.</span><span>
@@ -178,29 +178,29 @@ $sel:nextToken:ListChangeSets' :: ListChangeSets -&gt; Maybe Text
 -&gt; (ListChangeSets -&gt; Text -&gt; ListChangeSets)
 -&gt; Lens ListChangeSets ListChangeSets Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets%27"><span class="hs-identifier hs-type">ListChangeSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434908"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets%27"><span class="hs-identifier hs-type">ListChangeSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435334"><span class="annot"><span class="annottext">Text
 stackName :: Text
 $sel:stackName:ListChangeSets' :: ListChangeSets -&gt; Text
-</span><a href="#local-6989586621679434908"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434908"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434907"><span class="annot"><span class="annottext">s :: ListChangeSets
-</span><a href="#local-6989586621679434907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets%27"><span class="hs-identifier hs-type">ListChangeSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434906"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChangeSets
-</span><a href="#local-6989586621679434907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:ListChangeSets' :: Text
+</span><a href="#local-6989586621679435334"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435334"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435333"><span class="annot"><span class="annottext">s :: ListChangeSets
+</span><a href="#local-6989586621679435333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets%27"><span class="hs-identifier hs-type">ListChangeSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435332"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChangeSets
+</span><a href="#local-6989586621679435333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:ListChangeSets' :: Text
 </span><a href="Network.AWS.CloudFormation.ListChangeSets.html#%24sel%3AstackName%3AListChangeSets%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets"><span class="hs-identifier hs-type">ListChangeSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679435332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets"><span class="hs-identifier hs-type">ListChangeSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets"><span class="hs-identifier hs-type">ListChangeSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679434902"><span class="annot"><span class="annottext">page :: ListChangeSets
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679435328"><span class="annot"><span class="annottext">page :: ListChangeSets
 -&gt; AWSResponse ListChangeSets -&gt; Maybe ListChangeSets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679434900"><span class="annot"><span class="annottext">ListChangeSets
-</span><a href="#local-6989586621679434900"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679434899"><span class="annot"><span class="annottext">AWSResponse ListChangeSets
-</span><a href="#local-6989586621679434899"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679435326"><span class="annot"><span class="annottext">ListChangeSets
+</span><a href="#local-6989586621679435326"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679435325"><span class="annot"><span class="annottext">AWSResponse ListChangeSets
+</span><a href="#local-6989586621679435325"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-104"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListChangeSets
 ListChangeSetsResponse
-</span><a href="#local-6989586621679434899"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679435325"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">ListChangeSetsResponse
 -&gt; Getting (First Text) ListChangeSetsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -229,7 +229,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-110"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListChangeSets
 ListChangeSetsResponse
-</span><a href="#local-6989586621679434899"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679435325"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">ListChangeSetsResponse
 -&gt; Getting
      (First [ChangeSetSummary])
@@ -275,7 +275,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">ListChangeSets
-</span><a href="#local-6989586621679434900"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679435326"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">ListChangeSets
 -&gt; (ListChangeSets -&gt; ListChangeSets) -&gt; ListChangeSets
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -289,7 +289,7 @@ Lens ListChangeSets ListChangeSets (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListChangeSets
 ListChangeSetsResponse
-</span><a href="#local-6989586621679434899"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679435325"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">ListChangeSetsResponse
 -&gt; Getting (First Text) ListChangeSetsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -313,12 +313,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets"><span class="hs-identifier hs-type">ListChangeSets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse"><span class="hs-identifier hs-type">ListChangeSetsResponse</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679434889"><span class="annot"><span class="annottext">request :: ListChangeSets -&gt; Request ListChangeSets
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679435315"><span class="annot"><span class="annottext">request :: ListChangeSets -&gt; Request ListChangeSets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListChangeSets -&gt; Request ListChangeSets
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFormation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679434885"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679435311"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListChangeSets
 -&gt; ClientResponse ClientBody
@@ -347,10 +347,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ListChangeSetsResult&quot;</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679434882"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679434882"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679434881"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679434881"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679434880"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679434880"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679435308"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679435308"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679435307"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679435307"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679435306"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679435306"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [ChangeSetSummary] -&gt; Int -&gt; ListChangeSetsResponse
 </span><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse%27"><span class="hs-identifier hs-var">ListChangeSetsResponse'</span></a></span><span>
@@ -361,7 +361,7 @@ Text
      String (Maybe [ChangeSetSummary] -&gt; Int -&gt; ListChangeSetsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679434880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679435306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -371,7 +371,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListChangeSetsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679434880"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679435306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Summaries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -401,15 +401,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679434882"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679435308"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434869"><span id="local-6989586621679434871"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets"><span class="hs-identifier hs-type">ListChangeSets</span></a></span></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435295"><span id="local-6989586621679435297"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets"><span class="hs-identifier hs-type">ListChangeSets</span></a></span></span></span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets"><span class="hs-identifier hs-type">ListChangeSets</span></a></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435292"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets"><span class="hs-identifier hs-type">ListChangeSets</span></a></span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets"><span class="hs-identifier hs-type">ListChangeSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679434862"><span class="annot"><span class="annottext">toHeaders :: ListChangeSets -&gt; ResponseHeaders
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679435288"><span class="annot"><span class="annottext">toHeaders :: ListChangeSets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListChangeSets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -417,21 +417,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets"><span class="hs-identifier hs-type">ListChangeSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679434857"><span class="annot"><span class="annottext">toPath :: ListChangeSets -&gt; ByteString
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679435283"><span class="annot"><span class="annottext">toPath :: ListChangeSets -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListChangeSets -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets"><span class="hs-identifier hs-type">ListChangeSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679434853"><span class="annot"><span class="annottext">toQuery :: ListChangeSets -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets%27"><span class="hs-identifier hs-type">ListChangeSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434850"><span id="local-6989586621679434851"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679435279"><span class="annot"><span class="annottext">toQuery :: ListChangeSets -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSets%27"><span class="hs-identifier hs-type">ListChangeSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435276"><span id="local-6989586621679435277"><span class="annot"><span class="annottext">Maybe Text
 Text
 stackName :: Text
 nextToken :: Maybe Text
 $sel:stackName:ListChangeSets' :: ListChangeSets -&gt; Text
 $sel:nextToken:ListChangeSets' :: ListChangeSets -&gt; Maybe Text
-</span><a href="#local-6989586621679434850"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679435276"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -451,18 +451,18 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434851"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679435277"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;StackName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679434850"><span class="hs-identifier hs-var">stackName</span></a></span><span>
+</span><a href="#local-6989586621679435276"><span class="hs-identifier hs-var">stackName</span></a></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The output for the ListChangeSets action.</span><span>
 </span><span id="line-161"></span><span class="hs-comment">--</span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- /See:/ 'newListChangeSetsResponse' smart constructor.</span><span>
-</span><span id="line-163"></span><span id="local-6989586621679434847"><span id="local-6989586621679434848"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListChangeSetsResponse"><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse"><span class="hs-identifier hs-var">ListChangeSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListChangeSetsResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse%27"><span class="hs-identifier hs-var">ListChangeSetsResponse'</span></a></span></span><span>
+</span><span id="line-163"></span><span id="local-6989586621679435273"><span id="local-6989586621679435274"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListChangeSetsResponse"><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse"><span class="hs-identifier hs-var">ListChangeSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListChangeSetsResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse%27"><span class="hs-identifier hs-var">ListChangeSetsResponse'</span></a></span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the output exceeds 1 MB, a string that identifies the next page of</span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-comment">-- change sets. If there is no additional page, this value is null.</span><span>
 </span><span id="line-166"></span><span>    </span><span id="%24sel%3AnextToken%3AListChangeSetsResponse%27"><span class="annot"><span class="annottext">ListChangeSetsResponse -&gt; Maybe Text
@@ -475,7 +475,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListChangeSetsResponse%27"><span class="annot"><span class="annottext">ListChangeSetsResponse -&gt; Int
 </span><a href="Network.AWS.CloudFormation.ListChangeSets.html#%24sel%3AhttpStatus%3AListChangeSetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434840"><span id="local-6989586621679434842"><span class="annot"><span class="annottext">ListChangeSetsResponse -&gt; ListChangeSetsResponse -&gt; Bool
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435266"><span id="local-6989586621679435268"><span class="annot"><span class="annottext">ListChangeSetsResponse -&gt; ListChangeSetsResponse -&gt; Bool
 (ListChangeSetsResponse -&gt; ListChangeSetsResponse -&gt; Bool)
 -&gt; (ListChangeSetsResponse -&gt; ListChangeSetsResponse -&gt; Bool)
 -&gt; Eq ListChangeSetsResponse
@@ -484,7 +484,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListChangeSetsResponse -&gt; ListChangeSetsResponse -&gt; Bool
 == :: ListChangeSetsResponse -&gt; ListChangeSetsResponse -&gt; Bool
 $c== :: ListChangeSetsResponse -&gt; ListChangeSetsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434832"><span id="local-6989586621679434834"><span id="local-6989586621679434836"><span id="local-6989586621679434838"><span class="annot"><span class="annottext">ReadPrec [ListChangeSetsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435258"><span id="local-6989586621679435260"><span id="local-6989586621679435262"><span id="local-6989586621679435264"><span class="annot"><span class="annottext">ReadPrec [ListChangeSetsResponse]
 ReadPrec ListChangeSetsResponse
 Int -&gt; ReadS ListChangeSetsResponse
 ReadS [ListChangeSetsResponse]
@@ -504,7 +504,7 @@ readList :: ReadS [ListChangeSetsResponse]
 $creadList :: ReadS [ListChangeSetsResponse]
 readsPrec :: Int -&gt; ReadS ListChangeSetsResponse
 $creadsPrec :: Int -&gt; ReadS ListChangeSetsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434826"><span id="local-6989586621679434828"><span id="local-6989586621679434830"><span class="annot"><span class="annottext">Int -&gt; ListChangeSetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435252"><span id="local-6989586621679435254"><span id="local-6989586621679435256"><span class="annot"><span class="annottext">Int -&gt; ListChangeSetsResponse -&gt; ShowS
 [ListChangeSetsResponse] -&gt; ShowS
 ListChangeSetsResponse -&gt; String
 (Int -&gt; ListChangeSetsResponse -&gt; ShowS)
@@ -551,8 +551,8 @@ $cfrom :: forall x. ListChangeSetsResponse -&gt; Rep ListChangeSetsResponse x
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-193"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse"><span class="hs-identifier hs-type">ListChangeSetsResponse</span></a></span><span>
 </span><span id="line-194"></span><span id="newListChangeSetsResponse"><span class="annot"><span class="annottext">newListChangeSetsResponse :: Int -&gt; ListChangeSetsResponse
-</span><a href="Network.AWS.CloudFormation.ListChangeSets.html#newListChangeSetsResponse"><span class="hs-identifier hs-var hs-var">newListChangeSetsResponse</span></a></span></span><span> </span><span id="local-6989586621679434823"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679434823"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFormation.ListChangeSets.html#newListChangeSetsResponse"><span class="hs-identifier hs-var hs-var">newListChangeSetsResponse</span></a></span></span><span> </span><span id="local-6989586621679435249"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679435249"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>  </span><span class="annot"><span class="annottext">ListChangeSetsResponse' :: Maybe Text
 -&gt; Maybe [ChangeSetSummary] -&gt; Int -&gt; ListChangeSetsResponse
 </span><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse%27"><span class="hs-identifier hs-type">ListChangeSetsResponse'</span></a></span><span>
@@ -567,7 +567,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListChangeSetsResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.ListChangeSets.html#%24sel%3AhttpStatus%3AListChangeSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679434823"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679435249"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-200"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | If the output exceeds 1 MB, a string that identifies the next page of</span><span>
@@ -579,16 +579,16 @@ forall a. Maybe a
 -&gt; (ListChangeSetsResponse -&gt; Maybe Text -&gt; ListChangeSetsResponse)
 -&gt; Lens' ListChangeSetsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse%27"><span class="hs-identifier hs-type">ListChangeSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434822"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse%27"><span class="hs-identifier hs-type">ListChangeSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435248"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListChangeSetsResponse' :: ListChangeSetsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679434822"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434822"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434821"><span class="annot"><span class="annottext">s :: ListChangeSetsResponse
-</span><a href="#local-6989586621679434821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse%27"><span class="hs-identifier hs-type">ListChangeSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434820"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChangeSetsResponse
-</span><a href="#local-6989586621679434821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListChangeSetsResponse' :: Maybe Text
+</span><a href="#local-6989586621679435248"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679435248"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435247"><span class="annot"><span class="annottext">s :: ListChangeSetsResponse
+</span><a href="#local-6989586621679435247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse%27"><span class="hs-identifier hs-type">ListChangeSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435246"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679435246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChangeSetsResponse
+</span><a href="#local-6989586621679435247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListChangeSetsResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.ListChangeSets.html#%24sel%3AnextToken%3AListChangeSetsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679434820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse"><span class="hs-identifier hs-type">ListChangeSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679435246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse"><span class="hs-identifier hs-type">ListChangeSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | A list of @ChangeSetSummary@ structures that provides the ID and status</span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- of each change set for the specified stack.</span><span>
@@ -600,16 +600,16 @@ $sel:nextToken:ListChangeSetsResponse' :: ListChangeSetsResponse -&gt; Maybe Tex
     -&gt; Maybe [ChangeSetSummary] -&gt; ListChangeSetsResponse)
 -&gt; Lens' ListChangeSetsResponse (Maybe [ChangeSetSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse%27"><span class="hs-identifier hs-type">ListChangeSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434819"><span class="annot"><span class="annottext">Maybe [ChangeSetSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse%27"><span class="hs-identifier hs-type">ListChangeSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435245"><span class="annot"><span class="annottext">Maybe [ChangeSetSummary]
 summaries :: Maybe [ChangeSetSummary]
 $sel:summaries:ListChangeSetsResponse' :: ListChangeSetsResponse -&gt; Maybe [ChangeSetSummary]
-</span><a href="#local-6989586621679434819"><span class="hs-identifier hs-var hs-var">summaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ChangeSetSummary]
-</span><a href="#local-6989586621679434819"><span class="hs-identifier hs-var">summaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434818"><span class="annot"><span class="annottext">s :: ListChangeSetsResponse
-</span><a href="#local-6989586621679434818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse%27"><span class="hs-identifier hs-type">ListChangeSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434817"><span class="annot"><span class="annottext">Maybe [ChangeSetSummary]
-</span><a href="#local-6989586621679434817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChangeSetsResponse
-</span><a href="#local-6989586621679434818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summaries:ListChangeSetsResponse' :: Maybe [ChangeSetSummary]
+</span><a href="#local-6989586621679435245"><span class="hs-identifier hs-var hs-var">summaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ChangeSetSummary]
+</span><a href="#local-6989586621679435245"><span class="hs-identifier hs-var">summaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435244"><span class="annot"><span class="annottext">s :: ListChangeSetsResponse
+</span><a href="#local-6989586621679435244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse%27"><span class="hs-identifier hs-type">ListChangeSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435243"><span class="annot"><span class="annottext">Maybe [ChangeSetSummary]
+</span><a href="#local-6989586621679435243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChangeSetsResponse
+</span><a href="#local-6989586621679435244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:summaries:ListChangeSetsResponse' :: Maybe [ChangeSetSummary]
 </span><a href="Network.AWS.CloudFormation.ListChangeSets.html#%24sel%3Asummaries%3AListChangeSetsResponse%27"><span class="hs-identifier hs-var">summaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ChangeSetSummary]
-</span><a href="#local-6989586621679434817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse"><span class="hs-identifier hs-type">ListChangeSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ChangeSetSummary] -&gt; f (Maybe [ChangeSetSummary]))
+</span><a href="#local-6989586621679435243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse"><span class="hs-identifier hs-type">ListChangeSetsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ChangeSetSummary] -&gt; f (Maybe [ChangeSetSummary]))
  -&gt; ListChangeSetsResponse -&gt; f ListChangeSetsResponse)
 -&gt; ((Maybe [ChangeSetSummary] -&gt; f (Maybe [ChangeSetSummary]))
     -&gt; Maybe [ChangeSetSummary] -&gt; f (Maybe [ChangeSetSummary]))
@@ -635,8 +635,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ChangeSetSummary]
   [ChangeSetSummary]
   [ChangeSetSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-213"></span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#listChangeSetsResponse_httpStatus"><span class="hs-identifier hs-type">listChangeSetsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse"><span class="hs-identifier hs-type">ListChangeSetsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -646,16 +646,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListChangeSetsResponse -&gt; Int -&gt; ListChangeSetsResponse)
 -&gt; Lens ListChangeSetsResponse ListChangeSetsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse%27"><span class="hs-identifier hs-type">ListChangeSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434814"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse%27"><span class="hs-identifier hs-type">ListChangeSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435240"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListChangeSetsResponse' :: ListChangeSetsResponse -&gt; Int
-</span><a href="#local-6989586621679434814"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679434814"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434813"><span class="annot"><span class="annottext">s :: ListChangeSetsResponse
-</span><a href="#local-6989586621679434813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse%27"><span class="hs-identifier hs-type">ListChangeSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434812"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679434812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChangeSetsResponse
-</span><a href="#local-6989586621679434813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListChangeSetsResponse' :: Int
+</span><a href="#local-6989586621679435240"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679435240"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435239"><span class="annot"><span class="annottext">s :: ListChangeSetsResponse
+</span><a href="#local-6989586621679435239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse%27"><span class="hs-identifier hs-type">ListChangeSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435238"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679435238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListChangeSetsResponse
+</span><a href="#local-6989586621679435239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListChangeSetsResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.ListChangeSets.html#%24sel%3AhttpStatus%3AListChangeSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679434812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse"><span class="hs-identifier hs-type">ListChangeSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679435238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse"><span class="hs-identifier hs-type">ListChangeSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434810"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse"><span class="hs-identifier hs-type">ListChangeSetsResponse</span></a></span></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435236"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.ListChangeSets.html#ListChangeSetsResponse"><span class="hs-identifier hs-type">ListChangeSetsResponse</span></a></span></span><span>
 </span><span id="line-217"></span></pre></body></html>

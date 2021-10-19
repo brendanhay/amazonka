@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- response for each AWS service.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCategory' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679170585"><span id="local-6989586621679170586"></span></span><span class="hs-keyword">data</span><span> </span><span id="Category"><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category"><span class="hs-identifier hs-var">Category</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Category%27"><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category%27"><span class="hs-identifier hs-var">Category'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The category code for the support case.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Acode%3ACategory%27"><span class="annot"><span class="annottext">Category -&gt; Maybe Text
-</span><a href="Network.AWS.Support.Types.Category.html#%24sel%3Acode%3ACategory%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The category name for the support case.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aname%3ACategory%27"><span class="annot"><span class="annottext">Category -&gt; Maybe Text
-</span><a href="Network.AWS.Support.Types.Category.html#%24sel%3Aname%3ACategory%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679170671"><span id="local-6989586621679170672"></span></span><span class="hs-keyword">data</span><span> </span><span id="Category"><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category"><span class="hs-identifier hs-var">Category</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Category%27"><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category%27"><span class="hs-identifier hs-var">Category'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The category name for the support case.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3ACategory%27"><span class="annot"><span class="annottext">Category -&gt; Maybe Text
+</span><a href="Network.AWS.Support.Types.Category.html#%24sel%3Aname%3ACategory%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The category code for the support case.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Acode%3ACategory%27"><span class="annot"><span class="annottext">Category -&gt; Maybe Text
+</span><a href="Network.AWS.Support.Types.Category.html#%24sel%3Acode%3ACategory%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679170578"><span id="local-6989586621679170580"><span class="annot"><span class="annottext">Category -&gt; Category -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679170664"><span id="local-6989586621679170666"><span class="annot"><span class="annottext">Category -&gt; Category -&gt; Bool
 (Category -&gt; Category -&gt; Bool)
 -&gt; (Category -&gt; Category -&gt; Bool) -&gt; Eq Category
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Category -&gt; Category -&gt; Bool
 == :: Category -&gt; Category -&gt; Bool
 $c== :: Category -&gt; Category -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170569"><span id="local-6989586621679170571"><span id="local-6989586621679170573"><span id="local-6989586621679170575"><span class="annot"><span class="annottext">ReadPrec [Category]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170655"><span id="local-6989586621679170657"><span id="local-6989586621679170659"><span id="local-6989586621679170661"><span class="annot"><span class="annottext">ReadPrec [Category]
 ReadPrec Category
 Int -&gt; ReadS Category
 ReadS [Category]
@@ -64,7 +64,7 @@ readList :: ReadS [Category]
 $creadList :: ReadS [Category]
 readsPrec :: Int -&gt; ReadS Category
 $creadsPrec :: Int -&gt; ReadS Category
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170562"><span id="local-6989586621679170564"><span id="local-6989586621679170566"><span class="annot"><span class="annottext">Int -&gt; Category -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170648"><span id="local-6989586621679170650"><span id="local-6989586621679170652"><span class="annot"><span class="annottext">Int -&gt; Category -&gt; ShowS
 [Category] -&gt; ShowS
 Category -&gt; String
 (Int -&gt; Category -&gt; ShowS)
@@ -95,91 +95,91 @@ $cfrom :: forall x. Category -&gt; Rep Category x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'code', 'category_code' - The category code for the support case.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'name', 'category_name' - The category name for the support case.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'name', 'category_name' - The category name for the support case.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'code', 'category_code' - The category code for the support case.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#newCategory"><span class="hs-identifier hs-type">newCategory</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category"><span class="hs-identifier hs-type">Category</span></a></span><span>
 </span><span id="line-52"></span><span id="newCategory"><span class="annot"><span class="annottext">newCategory :: Category
 </span><a href="Network.AWS.Support.Types.Category.html#newCategory"><span class="hs-identifier hs-var hs-var">newCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">Category' :: Maybe Text -&gt; Maybe Text -&gt; Category
 </span><a href="Network.AWS.Support.Types.Category.html#Category%27"><span class="hs-identifier hs-type">Category'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:code:Category' :: Maybe Text
-</span><a href="Network.AWS.Support.Types.Category.html#%24sel%3Acode%3ACategory%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:Category' :: Maybe Text
+</span><a href="Network.AWS.Support.Types.Category.html#%24sel%3Aname%3ACategory%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Category' :: Maybe Text
-</span><a href="Network.AWS.Support.Types.Category.html#%24sel%3Aname%3ACategory%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:Category' :: Maybe Text
+</span><a href="Network.AWS.Support.Types.Category.html#%24sel%3Acode%3ACategory%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | The category code for the support case.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#category_code"><span class="hs-identifier hs-type">category_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category"><span class="hs-identifier hs-type">Category</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="category_code"><span class="annot"><span class="annottext">category_code :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Category -&gt; f Category
-</span><a href="Network.AWS.Support.Types.Category.html#category_code"><span class="hs-identifier hs-var hs-var">category_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Category -&gt; Maybe Text)
--&gt; (Category -&gt; Maybe Text -&gt; Category)
--&gt; Lens Category Category (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category%27"><span class="hs-identifier hs-type">Category'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170553"><span class="annot"><span class="annottext">Maybe Text
-code :: Maybe Text
-$sel:code:Category' :: Category -&gt; Maybe Text
-</span><a href="#local-6989586621679170553"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170553"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170552"><span class="annot"><span class="annottext">s :: Category
-</span><a href="#local-6989586621679170552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category%27"><span class="hs-identifier hs-type">Category'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170551"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Category
-</span><a href="#local-6989586621679170552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:Category' :: Maybe Text
-</span><a href="Network.AWS.Support.Types.Category.html#%24sel%3Acode%3ACategory%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category"><span class="hs-identifier hs-type">Category</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The category name for the support case.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#category_name"><span class="hs-identifier hs-type">category_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category"><span class="hs-identifier hs-type">Category</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="category_name"><span class="annot"><span class="annottext">category_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Category -&gt; f Category
+</span><span id="line-58"></span><span class="hs-comment">-- | The category name for the support case.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#category_name"><span class="hs-identifier hs-type">category_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category"><span class="hs-identifier hs-type">Category</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="category_name"><span class="annot"><span class="annottext">category_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Category -&gt; f Category
 </span><a href="Network.AWS.Support.Types.Category.html#category_name"><span class="hs-identifier hs-var hs-var">category_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Category -&gt; Maybe Text)
 -&gt; (Category -&gt; Maybe Text -&gt; Category)
 -&gt; Lens Category Category (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category%27"><span class="hs-identifier hs-type">Category'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170549"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category%27"><span class="hs-identifier hs-type">Category'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170639"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Category' :: Category -&gt; Maybe Text
-</span><a href="#local-6989586621679170549"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170549"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170548"><span class="annot"><span class="annottext">s :: Category
-</span><a href="#local-6989586621679170548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category%27"><span class="hs-identifier hs-type">Category'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170547"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Category
-</span><a href="#local-6989586621679170548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Category' :: Maybe Text
+</span><a href="#local-6989586621679170639"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170639"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170638"><span class="annot"><span class="annottext">s :: Category
+</span><a href="#local-6989586621679170638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category%27"><span class="hs-identifier hs-type">Category'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170637"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Category
+</span><a href="#local-6989586621679170638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Category' :: Maybe Text
 </span><a href="Network.AWS.Support.Types.Category.html#%24sel%3Aname%3ACategory%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category"><span class="hs-identifier hs-type">Category</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679170637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category"><span class="hs-identifier hs-type">Category</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The category code for the support case.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#category_code"><span class="hs-identifier hs-type">category_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category"><span class="hs-identifier hs-type">Category</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="category_code"><span class="annot"><span class="annottext">category_code :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Category -&gt; f Category
+</span><a href="Network.AWS.Support.Types.Category.html#category_code"><span class="hs-identifier hs-var hs-var">category_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Category -&gt; Maybe Text)
+-&gt; (Category -&gt; Maybe Text -&gt; Category)
+-&gt; Lens Category Category (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category%27"><span class="hs-identifier hs-type">Category'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170635"><span class="annot"><span class="annottext">Maybe Text
+code :: Maybe Text
+$sel:code:Category' :: Category -&gt; Maybe Text
+</span><a href="#local-6989586621679170635"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170635"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170634"><span class="annot"><span class="annottext">s :: Category
+</span><a href="#local-6989586621679170634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category%27"><span class="hs-identifier hs-type">Category'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170633"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Category
+</span><a href="#local-6989586621679170634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:Category' :: Maybe Text
+</span><a href="Network.AWS.Support.Types.Category.html#%24sel%3Acode%3ACategory%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category"><span class="hs-identifier hs-type">Category</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170544"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category"><span class="hs-identifier hs-type">Category</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679170542"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Category
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170630"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category"><span class="hs-identifier hs-type">Category</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679170628"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Category
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Category) -&gt; Value -&gt; Parser Category
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Category&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679170539"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170539"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679170625"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679170625"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Category
 </span><a href="Network.AWS.Support.Types.Category.html#Category%27"><span class="hs-identifier hs-var">Category'</span></a></span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Category)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Category)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679170625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Category)
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Category)
 -&gt; Parser (Maybe Text) -&gt; Parser Category
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170539"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679170625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170533"><span id="local-6989586621679170535"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category"><span class="hs-identifier hs-type">Category</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170619"><span id="local-6989586621679170621"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category"><span class="hs-identifier hs-type">Category</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170530"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category"><span class="hs-identifier hs-type">Category</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.Category.html#Category"><span class="hs-identifier hs-type">Category</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

@@ -31,11 +31,11 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_snapshotIdentifier"><span class="hs-identifier">describeNodeConfigurationOptions_snapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_clusterIdentifier"><span class="hs-identifier">describeNodeConfigurationOptions_clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_filters"><span class="hs-identifier">describeNodeConfigurationOptions_filters</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_ownerAccount"><span class="hs-identifier">describeNodeConfigurationOptions_ownerAccount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_filters"><span class="hs-identifier">describeNodeConfigurationOptions_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_clusterIdentifier"><span class="hs-identifier">describeNodeConfigurationOptions_clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_marker"><span class="hs-identifier">describeNodeConfigurationOptions_marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_maxRecords"><span class="hs-identifier">describeNodeConfigurationOptions_maxRecords</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_marker"><span class="hs-identifier">describeNodeConfigurationOptions_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_ownerAccount"><span class="hs-identifier">describeNodeConfigurationOptions_ownerAccount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_actionType"><span class="hs-identifier">describeNodeConfigurationOptions_actionType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -57,44 +57,44 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newDescribeNodeConfigurationOptions' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679515100"><span id="local-6989586621679515101"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNodeConfigurationOptions"><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-var">DescribeNodeConfigurationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNodeConfigurationOptions%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">DescribeNodeConfigurationOptions'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679515809"><span id="local-6989586621679515810"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNodeConfigurationOptions"><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-var">DescribeNodeConfigurationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNodeConfigurationOptions%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">DescribeNodeConfigurationOptions'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the snapshot to evaluate for possible node</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- configurations.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AsnapshotIdentifier%3ADescribeNodeConfigurationOptions%27"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AsnapshotIdentifier%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var hs-var">snapshotIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The identifier of the cluster to evaluate for possible node</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- configurations.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3ADescribeNodeConfigurationOptions%27"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AclusterIdentifier%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | A set of name, operator, and value items to filter the results.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeNodeConfigurationOptions%27"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A set of name, operator, and value items to filter the results.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeNodeConfigurationOptions%27"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
 -&gt; Maybe [NodeConfigurationOptionsFilter]
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3Afilters%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account used to create or copy the snapshot.</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Required if you are restoring a snapshot you do not own, optional if you</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- own the snapshot.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3AownerAccount%3ADescribeNodeConfigurationOptions%27"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AownerAccount%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var hs-var">ownerAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- returned marker value.</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- Default: @500@</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- Constraints: minimum 100, maximum 500.</span><span>
-</span><span id="line-82"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeNodeConfigurationOptions%27"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions -&gt; Maybe Int
-</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AmaxRecords%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- of response records. When the results of a</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- DescribeNodeConfigurationOptions request exceed the value specified in</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- @MaxRecords@, Amazon Web Services returns a value in the @Marker@ field</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- of the response. You can retrieve the next set of response records by</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- providing the returned marker value in the @Marker@ parameter and</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- retrying the request.</span><span>
-</span><span id="line-90"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeNodeConfigurationOptions%27"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions -&gt; Maybe Text
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The identifier of the cluster to evaluate for possible node</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- configurations.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3ADescribeNodeConfigurationOptions%27"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AclusterIdentifier%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- of response records. When the results of a</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- DescribeNodeConfigurationOptions request exceed the value specified in</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- @MaxRecords@, Amazon Web Services returns a value in the @Marker@ field</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- of the response. You can retrieve the next set of response records by</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- providing the returned marker value in the @Marker@ parameter and</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- retrying the request.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeNodeConfigurationOptions%27"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3Amarker%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- returned marker value.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- Default: @500@</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- Constraints: minimum 100, maximum 500.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeNodeConfigurationOptions%27"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions -&gt; Maybe Int
+</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AmaxRecords%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account used to create or copy the snapshot.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- Required if you are restoring a snapshot you do not own, optional if you</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- own the snapshot.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AownerAccount%3ADescribeNodeConfigurationOptions%27"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AownerAccount%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var hs-var">ownerAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The action type to evaluate for possible node configurations. Specify</span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-comment">-- \&quot;restore-cluster\&quot; to get configuration combinations based on an</span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-comment">-- existing snapshot. Specify \&quot;recommend-node-config\&quot; to get</span><span>
@@ -104,7 +104,7 @@
 </span><span id="line-97"></span><span>    </span><span id="%24sel%3AactionType%3ADescribeNodeConfigurationOptions%27"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions -&gt; ActionType
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AactionType%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679515088"><span id="local-6989586621679515090"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679515797"><span id="local-6989586621679515799"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
 -&gt; DescribeNodeConfigurationOptions -&gt; Bool
 (DescribeNodeConfigurationOptions
  -&gt; DescribeNodeConfigurationOptions -&gt; Bool)
@@ -120,7 +120,7 @@ $c/= :: DescribeNodeConfigurationOptions
 -&gt; DescribeNodeConfigurationOptions -&gt; Bool
 $c== :: DescribeNodeConfigurationOptions
 -&gt; DescribeNodeConfigurationOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679515079"><span id="local-6989586621679515081"><span id="local-6989586621679515083"><span id="local-6989586621679515085"><span class="annot"><span class="annottext">ReadPrec [DescribeNodeConfigurationOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679515788"><span id="local-6989586621679515790"><span id="local-6989586621679515792"><span id="local-6989586621679515794"><span class="annot"><span class="annottext">ReadPrec [DescribeNodeConfigurationOptions]
 ReadPrec DescribeNodeConfigurationOptions
 Int -&gt; ReadS DescribeNodeConfigurationOptions
 ReadS [DescribeNodeConfigurationOptions]
@@ -140,7 +140,7 @@ readList :: ReadS [DescribeNodeConfigurationOptions]
 $creadList :: ReadS [DescribeNodeConfigurationOptions]
 readsPrec :: Int -&gt; ReadS DescribeNodeConfigurationOptions
 $creadsPrec :: Int -&gt; ReadS DescribeNodeConfigurationOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679515072"><span id="local-6989586621679515074"><span id="local-6989586621679515076"><span class="annot"><span class="annottext">Int -&gt; DescribeNodeConfigurationOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679515781"><span id="local-6989586621679515783"><span id="local-6989586621679515785"><span class="annot"><span class="annottext">Int -&gt; DescribeNodeConfigurationOptions -&gt; ShowS
 [DescribeNodeConfigurationOptions] -&gt; ShowS
 DescribeNodeConfigurationOptions -&gt; String
 (Int -&gt; DescribeNodeConfigurationOptions -&gt; ShowS)
@@ -189,32 +189,32 @@ DescribeNodeConfigurationOptions
 </span><span id="line-109"></span><span class="hs-comment">-- 'snapshotIdentifier', 'describeNodeConfigurationOptions_snapshotIdentifier' - The identifier of the snapshot to evaluate for possible node</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- configurations.</span><span>
 </span><span id="line-111"></span><span class="hs-comment">--</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- 'clusterIdentifier', 'describeNodeConfigurationOptions_clusterIdentifier' - The identifier of the cluster to evaluate for possible node</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- configurations.</span><span>
-</span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- 'filters', 'describeNodeConfigurationOptions_filters' - A set of name, operator, and value items to filter the results.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'filters', 'describeNodeConfigurationOptions_filters' - A set of name, operator, and value items to filter the results.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'clusterIdentifier', 'describeNodeConfigurationOptions_clusterIdentifier' - The identifier of the cluster to evaluate for possible node</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- configurations.</span><span>
 </span><span id="line-116"></span><span class="hs-comment">--</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- 'ownerAccount', 'describeNodeConfigurationOptions_ownerAccount' - The Amazon Web Services account used to create or copy the snapshot.</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- Required if you are restoring a snapshot you do not own, optional if you</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- own the snapshot.</span><span>
-</span><span id="line-120"></span><span class="hs-comment">--</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- 'maxRecords', 'describeNodeConfigurationOptions_maxRecords' - The maximum number of response records to return in each call. If the</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- returned marker value.</span><span>
-</span><span id="line-126"></span><span class="hs-comment">--</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- Default: @500@</span><span>
-</span><span id="line-128"></span><span class="hs-comment">--</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- Constraints: minimum 100, maximum 500.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'marker', 'describeNodeConfigurationOptions_marker' - An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- of response records. When the results of a</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- DescribeNodeConfigurationOptions request exceed the value specified in</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- @MaxRecords@, Amazon Web Services returns a value in the @Marker@ field</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- of the response. You can retrieve the next set of response records by</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- providing the returned marker value in the @Marker@ parameter and</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- retrying the request.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'maxRecords', 'describeNodeConfigurationOptions_maxRecords' - The maximum number of response records to return in each call. If the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- returned marker value.</span><span>
 </span><span id="line-130"></span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- 'marker', 'describeNodeConfigurationOptions_marker' - An optional parameter that specifies the starting point to return a set</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- of response records. When the results of a</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- DescribeNodeConfigurationOptions request exceed the value specified in</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- @MaxRecords@, Amazon Web Services returns a value in the @Marker@ field</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- of the response. You can retrieve the next set of response records by</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- providing the returned marker value in the @Marker@ parameter and</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- retrying the request.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Default: @500@</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Constraints: minimum 100, maximum 500.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'ownerAccount', 'describeNodeConfigurationOptions_ownerAccount' - The Amazon Web Services account used to create or copy the snapshot.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Required if you are restoring a snapshot you do not own, optional if you</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- own the snapshot.</span><span>
 </span><span id="line-138"></span><span class="hs-comment">--</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- 'actionType', 'describeNodeConfigurationOptions_actionType' - The action type to evaluate for possible node configurations. Specify</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- \&quot;restore-cluster\&quot; to get configuration combinations based on an</span><span>
@@ -227,11 +227,11 @@ DescribeNodeConfigurationOptions
 </span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.ActionType.html#ActionType"><span class="hs-identifier hs-type">ActionType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span>
 </span><span id="line-149"></span><span id="newDescribeNodeConfigurationOptions"><span class="annot"><span class="annottext">newDescribeNodeConfigurationOptions :: ActionType -&gt; DescribeNodeConfigurationOptions
-</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#newDescribeNodeConfigurationOptions"><span class="hs-identifier hs-var hs-var">newDescribeNodeConfigurationOptions</span></a></span></span><span> </span><span id="local-6989586621679515067"><span class="annot"><span class="annottext">ActionType
-</span><a href="#local-6989586621679515067"><span class="hs-identifier hs-var">pActionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#newDescribeNodeConfigurationOptions"><span class="hs-identifier hs-var hs-var">newDescribeNodeConfigurationOptions</span></a></span></span><span> </span><span id="local-6989586621679515776"><span class="annot"><span class="annottext">ActionType
+</span><a href="#local-6989586621679515776"><span class="hs-identifier hs-var">pActionType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions' :: Maybe Text
--&gt; Maybe Text
 -&gt; Maybe [NodeConfigurationOptionsFilter]
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Int
 -&gt; Maybe Text
@@ -243,29 +243,29 @@ DescribeNodeConfigurationOptions
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:DescribeNodeConfigurationOptions' :: Maybe Text
-</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AclusterIdentifier%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeNodeConfigurationOptions' :: Maybe [NodeConfigurationOptionsFilter]
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeNodeConfigurationOptions' :: Maybe [NodeConfigurationOptionsFilter]
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3Afilters%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NodeConfigurationOptionsFilter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerAccount:DescribeNodeConfigurationOptions' :: Maybe Text
-</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AownerAccount%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:DescribeNodeConfigurationOptions' :: Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AclusterIdentifier%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeNodeConfigurationOptions' :: Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3Amarker%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeNodeConfigurationOptions' :: Maybe Int
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AmaxRecords%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeNodeConfigurationOptions' :: Maybe Text
-</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3Amarker%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerAccount:DescribeNodeConfigurationOptions' :: Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AownerAccount%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionType:DescribeNodeConfigurationOptions' :: ActionType
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AactionType%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionType
-</span><a href="#local-6989586621679515067"><span class="hs-identifier hs-var">pActionType_</span></a></span><span>
+</span><a href="#local-6989586621679515776"><span class="hs-identifier hs-var">pActionType_</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The identifier of the snapshot to evaluate for possible node</span><span>
@@ -283,46 +283,20 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515065"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515774"><span class="annot"><span class="annottext">Maybe Text
 snapshotIdentifier :: Maybe Text
 $sel:snapshotIdentifier:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679515065"><span class="hs-identifier hs-var hs-var">snapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515065"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515064"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptions
-</span><a href="#local-6989586621679515064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515063"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
-</span><a href="#local-6989586621679515064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotIdentifier:DescribeNodeConfigurationOptions' :: Maybe Text
+</span><a href="#local-6989586621679515774"><span class="hs-identifier hs-var hs-var">snapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515774"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515773"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptions
+</span><a href="#local-6989586621679515773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515772"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
+</span><a href="#local-6989586621679515773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotIdentifier:DescribeNodeConfigurationOptions' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AsnapshotIdentifier%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679515772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- | The identifier of the cluster to evaluate for possible node</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- configurations.</span><span>
-</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_clusterIdentifier"><span class="hs-identifier hs-type">describeNodeConfigurationOptions_clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span id="describeNodeConfigurationOptions_clusterIdentifier"><span class="annot"><span class="annottext">describeNodeConfigurationOptions_clusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeNodeConfigurationOptions
--&gt; f DescribeNodeConfigurationOptions
-</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_clusterIdentifier"><span class="hs-identifier hs-var hs-var">describeNodeConfigurationOptions_clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeNodeConfigurationOptions -&gt; Maybe Text)
--&gt; (DescribeNodeConfigurationOptions
-    -&gt; Maybe Text -&gt; DescribeNodeConfigurationOptions)
--&gt; Lens
-     DescribeNodeConfigurationOptions
-     DescribeNodeConfigurationOptions
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515062"><span class="annot"><span class="annottext">Maybe Text
-clusterIdentifier :: Maybe Text
-$sel:clusterIdentifier:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679515062"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515062"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515061"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptions
-</span><a href="#local-6989586621679515061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515060"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
-</span><a href="#local-6989586621679515061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:DescribeNodeConfigurationOptions' :: Maybe Text
-</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AclusterIdentifier%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- | A set of name, operator, and value items to filter the results.</span><span>
-</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_filters"><span class="hs-identifier hs-type">describeNodeConfigurationOptions_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span id="describeNodeConfigurationOptions_filters"><span class="annot"><span class="annottext">describeNodeConfigurationOptions_filters :: (Maybe [NodeConfigurationOptionsFilter]
+</span><span id="line-166"></span><span class="hs-comment">-- | A set of name, operator, and value items to filter the results.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_filters"><span class="hs-identifier hs-type">describeNodeConfigurationOptions_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.NodeConfigurationOptionsFilter.html#NodeConfigurationOptionsFilter"><span class="hs-identifier hs-type">NodeConfigurationOptionsFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="describeNodeConfigurationOptions_filters"><span class="annot"><span class="annottext">describeNodeConfigurationOptions_filters :: (Maybe [NodeConfigurationOptionsFilter]
  -&gt; f (Maybe [NodeConfigurationOptionsFilter]))
 -&gt; DescribeNodeConfigurationOptions
 -&gt; f DescribeNodeConfigurationOptions
@@ -337,17 +311,17 @@ $sel:clusterIdentifier:DescribeNodeConfigurationOptions' :: DescribeNodeConfigur
      (Maybe [NodeConfigurationOptionsFilter])
      (Maybe [NodeConfigurationOptionsFilter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515059"><span class="annot"><span class="annottext">Maybe [NodeConfigurationOptionsFilter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515771"><span class="annot"><span class="annottext">Maybe [NodeConfigurationOptionsFilter]
 filters :: Maybe [NodeConfigurationOptionsFilter]
 $sel:filters:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions
 -&gt; Maybe [NodeConfigurationOptionsFilter]
-</span><a href="#local-6989586621679515059"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NodeConfigurationOptionsFilter]
-</span><a href="#local-6989586621679515059"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515058"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptions
-</span><a href="#local-6989586621679515058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515057"><span class="annot"><span class="annottext">Maybe [NodeConfigurationOptionsFilter]
-</span><a href="#local-6989586621679515057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
-</span><a href="#local-6989586621679515058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeNodeConfigurationOptions' :: Maybe [NodeConfigurationOptionsFilter]
+</span><a href="#local-6989586621679515771"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NodeConfigurationOptionsFilter]
+</span><a href="#local-6989586621679515771"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515770"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptions
+</span><a href="#local-6989586621679515770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515769"><span class="annot"><span class="annottext">Maybe [NodeConfigurationOptionsFilter]
+</span><a href="#local-6989586621679515769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
+</span><a href="#local-6989586621679515770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeNodeConfigurationOptions' :: Maybe [NodeConfigurationOptionsFilter]
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3Afilters%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NodeConfigurationOptionsFilter]
-</span><a href="#local-6989586621679515057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NodeConfigurationOptionsFilter]
+</span><a href="#local-6989586621679515769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NodeConfigurationOptionsFilter]
   -&gt; f (Maybe [NodeConfigurationOptionsFilter]))
  -&gt; DescribeNodeConfigurationOptions
  -&gt; f DescribeNodeConfigurationOptions)
@@ -378,17 +352,16 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [NodeConfigurationOptionsFilter]
   [NodeConfigurationOptionsFilter]
   [NodeConfigurationOptionsFilter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- | The Amazon Web Services account used to create or copy the snapshot.</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- Required if you are restoring a snapshot you do not own, optional if you</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- own the snapshot.</span><span>
-</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_ownerAccount"><span class="hs-identifier hs-type">describeNodeConfigurationOptions_ownerAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-179"></span><span id="describeNodeConfigurationOptions_ownerAccount"><span class="annot"><span class="annottext">describeNodeConfigurationOptions_ownerAccount :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The identifier of the cluster to evaluate for possible node</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- configurations.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_clusterIdentifier"><span class="hs-identifier hs-type">describeNodeConfigurationOptions_clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="describeNodeConfigurationOptions_clusterIdentifier"><span class="annot"><span class="annottext">describeNodeConfigurationOptions_clusterIdentifier :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeNodeConfigurationOptions
 -&gt; f DescribeNodeConfigurationOptions
-</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_ownerAccount"><span class="hs-identifier hs-var hs-var">describeNodeConfigurationOptions_ownerAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeNodeConfigurationOptions -&gt; Maybe Text)
+</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_clusterIdentifier"><span class="hs-identifier hs-var hs-var">describeNodeConfigurationOptions_clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeNodeConfigurationOptions -&gt; Maybe Text)
 -&gt; (DescribeNodeConfigurationOptions
     -&gt; Maybe Text -&gt; DescribeNodeConfigurationOptions)
 -&gt; Lens
@@ -397,59 +370,26 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515053"><span class="annot"><span class="annottext">Maybe Text
-ownerAccount :: Maybe Text
-$sel:ownerAccount:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679515053"><span class="hs-identifier hs-var hs-var">ownerAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515053"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515052"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptions
-</span><a href="#local-6989586621679515052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515051"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
-</span><a href="#local-6989586621679515052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerAccount:DescribeNodeConfigurationOptions' :: Maybe Text
-</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AownerAccount%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- returned marker value.</span><span>
-</span><span id="line-186"></span><span class="hs-comment">--</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- Default: @500@</span><span>
-</span><span id="line-188"></span><span class="hs-comment">--</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- Constraints: minimum 100, maximum 500.</span><span>
-</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_maxRecords"><span class="hs-identifier hs-type">describeNodeConfigurationOptions_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span id="describeNodeConfigurationOptions_maxRecords"><span class="annot"><span class="annottext">describeNodeConfigurationOptions_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
--&gt; DescribeNodeConfigurationOptions
--&gt; f DescribeNodeConfigurationOptions
-</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_maxRecords"><span class="hs-identifier hs-var hs-var">describeNodeConfigurationOptions_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeNodeConfigurationOptions -&gt; Maybe Int)
--&gt; (DescribeNodeConfigurationOptions
-    -&gt; Maybe Int -&gt; DescribeNodeConfigurationOptions)
--&gt; Lens
-     DescribeNodeConfigurationOptions
-     DescribeNodeConfigurationOptions
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515050"><span class="annot"><span class="annottext">Maybe Int
-maxRecords :: Maybe Int
-$sel:maxRecords:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions -&gt; Maybe Int
-</span><a href="#local-6989586621679515050"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679515050"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515049"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptions
-</span><a href="#local-6989586621679515049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515048"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679515048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
-</span><a href="#local-6989586621679515049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeNodeConfigurationOptions' :: Maybe Int
-</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AmaxRecords%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679515048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- of response records. When the results of a</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- DescribeNodeConfigurationOptions request exceed the value specified in</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- @MaxRecords@, Amazon Web Services returns a value in the @Marker@ field</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- of the response. You can retrieve the next set of response records by</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- providing the returned marker value in the @Marker@ parameter and</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- retrying the request.</span><span>
-</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_marker"><span class="hs-identifier hs-type">describeNodeConfigurationOptions_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-201"></span><span id="describeNodeConfigurationOptions_marker"><span class="annot"><span class="annottext">describeNodeConfigurationOptions_marker :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515765"><span class="annot"><span class="annottext">Maybe Text
+clusterIdentifier :: Maybe Text
+$sel:clusterIdentifier:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679515765"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515765"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515764"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptions
+</span><a href="#local-6989586621679515764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515763"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
+</span><a href="#local-6989586621679515764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:DescribeNodeConfigurationOptions' :: Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AclusterIdentifier%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- of response records. When the results of a</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- DescribeNodeConfigurationOptions request exceed the value specified in</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- @MaxRecords@, Amazon Web Services returns a value in the @Marker@ field</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- of the response. You can retrieve the next set of response records by</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- providing the returned marker value in the @Marker@ parameter and</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- retrying the request.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_marker"><span class="hs-identifier hs-type">describeNodeConfigurationOptions_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="describeNodeConfigurationOptions_marker"><span class="annot"><span class="annottext">describeNodeConfigurationOptions_marker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeNodeConfigurationOptions
 -&gt; f DescribeNodeConfigurationOptions
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_marker"><span class="hs-identifier hs-var hs-var">describeNodeConfigurationOptions_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeNodeConfigurationOptions -&gt; Maybe Text)
@@ -461,16 +401,76 @@ $sel:maxRecords:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOp
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515047"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515762"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679515047"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515047"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515046"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptions
-</span><a href="#local-6989586621679515046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515045"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
-</span><a href="#local-6989586621679515046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeNodeConfigurationOptions' :: Maybe Text
+</span><a href="#local-6989586621679515762"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515762"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515761"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptions
+</span><a href="#local-6989586621679515761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515760"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
+</span><a href="#local-6989586621679515761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeNodeConfigurationOptions' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3Amarker%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679515045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679515760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- returned marker value.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Default: @500@</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- Constraints: minimum 100, maximum 500.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_maxRecords"><span class="hs-identifier hs-type">describeNodeConfigurationOptions_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="describeNodeConfigurationOptions_maxRecords"><span class="annot"><span class="annottext">describeNodeConfigurationOptions_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeNodeConfigurationOptions
+-&gt; f DescribeNodeConfigurationOptions
+</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_maxRecords"><span class="hs-identifier hs-var hs-var">describeNodeConfigurationOptions_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeNodeConfigurationOptions -&gt; Maybe Int)
+-&gt; (DescribeNodeConfigurationOptions
+    -&gt; Maybe Int -&gt; DescribeNodeConfigurationOptions)
+-&gt; Lens
+     DescribeNodeConfigurationOptions
+     DescribeNodeConfigurationOptions
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515759"><span class="annot"><span class="annottext">Maybe Int
+maxRecords :: Maybe Int
+$sel:maxRecords:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions -&gt; Maybe Int
+</span><a href="#local-6989586621679515759"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679515759"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515758"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptions
+</span><a href="#local-6989586621679515758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515757"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679515757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
+</span><a href="#local-6989586621679515758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeNodeConfigurationOptions' :: Maybe Int
+</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AmaxRecords%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679515757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The Amazon Web Services account used to create or copy the snapshot.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Required if you are restoring a snapshot you do not own, optional if you</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- own the snapshot.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_ownerAccount"><span class="hs-identifier hs-type">describeNodeConfigurationOptions_ownerAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="describeNodeConfigurationOptions_ownerAccount"><span class="annot"><span class="annottext">describeNodeConfigurationOptions_ownerAccount :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeNodeConfigurationOptions
+-&gt; f DescribeNodeConfigurationOptions
+</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptions_ownerAccount"><span class="hs-identifier hs-var hs-var">describeNodeConfigurationOptions_ownerAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeNodeConfigurationOptions -&gt; Maybe Text)
+-&gt; (DescribeNodeConfigurationOptions
+    -&gt; Maybe Text -&gt; DescribeNodeConfigurationOptions)
+-&gt; Lens
+     DescribeNodeConfigurationOptions
+     DescribeNodeConfigurationOptions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515756"><span class="annot"><span class="annottext">Maybe Text
+ownerAccount :: Maybe Text
+$sel:ownerAccount:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions -&gt; Maybe Text
+</span><a href="#local-6989586621679515756"><span class="hs-identifier hs-var hs-var">ownerAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515756"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515755"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptions
+</span><a href="#local-6989586621679515755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515754"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
+</span><a href="#local-6989586621679515755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerAccount:DescribeNodeConfigurationOptions' :: Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AownerAccount%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | The action type to evaluate for possible node configurations. Specify</span><span>
 </span><span id="line-204"></span><span class="hs-comment">-- \&quot;restore-cluster\&quot; to get configuration combinations based on an</span><span>
@@ -491,33 +491,33 @@ $sel:marker:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOption
      ActionType
      ActionType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515044"><span class="annot"><span class="annottext">ActionType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515753"><span class="annot"><span class="annottext">ActionType
 actionType :: ActionType
 $sel:actionType:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions -&gt; ActionType
-</span><a href="#local-6989586621679515044"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionType
-</span><a href="#local-6989586621679515044"><span class="hs-identifier hs-var">actionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515043"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptions
-</span><a href="#local-6989586621679515043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515042"><span class="annot"><span class="annottext">ActionType
-</span><a href="#local-6989586621679515042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
-</span><a href="#local-6989586621679515043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionType:DescribeNodeConfigurationOptions' :: ActionType
+</span><a href="#local-6989586621679515753"><span class="hs-identifier hs-var hs-var">actionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActionType
+</span><a href="#local-6989586621679515753"><span class="hs-identifier hs-var">actionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515752"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptions
+</span><a href="#local-6989586621679515752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515751"><span class="annot"><span class="annottext">ActionType
+</span><a href="#local-6989586621679515751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
+</span><a href="#local-6989586621679515752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionType:DescribeNodeConfigurationOptions' :: ActionType
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AactionType%3ADescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-var">actionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ActionType
-</span><a href="#local-6989586621679515042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679515751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
 </span><span id="line-214"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span>
 </span><span id="line-215"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679515038"><span class="annot"><span class="annottext">page :: DescribeNodeConfigurationOptions
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679515747"><span class="annot"><span class="annottext">page :: DescribeNodeConfigurationOptions
 -&gt; AWSResponse DescribeNodeConfigurationOptions
 -&gt; Maybe DescribeNodeConfigurationOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679515036"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
-</span><a href="#local-6989586621679515036"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679515035"><span class="annot"><span class="annottext">AWSResponse DescribeNodeConfigurationOptions
-</span><a href="#local-6989586621679515035"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679515745"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
+</span><a href="#local-6989586621679515745"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679515744"><span class="annot"><span class="annottext">AWSResponse DescribeNodeConfigurationOptions
+</span><a href="#local-6989586621679515744"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-217"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-218"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeNodeConfigurationOptions
 DescribeNodeConfigurationOptionsResponse
-</span><a href="#local-6989586621679515035"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679515744"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptionsResponse
 -&gt; Getting
      (First Text) DescribeNodeConfigurationOptionsResponse Text
@@ -549,7 +549,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-224"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeNodeConfigurationOptions
 DescribeNodeConfigurationOptionsResponse
-</span><a href="#local-6989586621679515035"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679515744"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptionsResponse
 -&gt; Getting
      (First [NodeConfigurationOption])
@@ -613,7 +613,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
-</span><a href="#local-6989586621679515036"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679515745"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-232"></span><span>          </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptions
 -&gt; (DescribeNodeConfigurationOptions
     -&gt; DescribeNodeConfigurationOptions)
@@ -637,7 +637,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeNodeConfigurationOptions
 DescribeNodeConfigurationOptionsResponse
-</span><a href="#local-6989586621679515035"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679515744"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-234"></span><span>          </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptionsResponse
 -&gt; Getting
      (First Text) DescribeNodeConfigurationOptionsResponse Text
@@ -668,7 +668,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-241"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-242"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-243"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse</span></a></span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621679515026"><span class="annot"><span class="annottext">request :: DescribeNodeConfigurationOptions
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679515735"><span class="annot"><span class="annottext">request :: DescribeNodeConfigurationOptions
 -&gt; Request DescribeNodeConfigurationOptions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeNodeConfigurationOptions
@@ -676,7 +676,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-245"></span><span>  </span><span id="local-6989586621679515022"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679515731"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeNodeConfigurationOptions
 -&gt; ClientResponse ClientBody
@@ -709,10 +709,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeNodeConfigurationOptionsResult&quot;</span></span><span>
-</span><span id="line-248"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679515019"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679515019"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679515018"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679515018"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679515017"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679515017"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-248"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679515728"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679515728"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679515727"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679515727"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679515726"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679515726"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-249"></span><span>          </span><span class="annot"><span class="annottext">Maybe [NodeConfigurationOption]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeNodeConfigurationOptionsResponse
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-var">DescribeNodeConfigurationOptionsResponse'</span></a></span><span>
@@ -724,7 +724,7 @@ Text
      (Maybe Text -&gt; Int -&gt; DescribeNodeConfigurationOptionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679515017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679515726"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NodeConfigurationOptionList&quot;</span></span><span>
@@ -755,7 +755,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; DescribeNodeConfigurationOptionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679515017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679515726"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -768,22 +768,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679515019"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679515728"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>
 </span><span id="line-259"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-260"></span><span>  </span><span id="local-6989586621679515006"><span id="local-6989586621679515008"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679515715"><span id="local-6989586621679515717"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-261"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span></span></span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-264"></span><span>  </span><span id="local-6989586621679515003"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679515712"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-265"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span></span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-268"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-269"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span>
 </span><span id="line-270"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-271"></span><span>  </span><span id="local-6989586621679514999"><span class="annot"><span class="annottext">toHeaders :: DescribeNodeConfigurationOptions -&gt; ResponseHeaders
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679515708"><span class="annot"><span class="annottext">toHeaders :: DescribeNodeConfigurationOptions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DescribeNodeConfigurationOptions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -792,7 +792,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-272"></span><span>
 </span><span id="line-273"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-274"></span><span>  </span><span id="local-6989586621679514994"><span class="annot"><span class="annottext">toPath :: DescribeNodeConfigurationOptions -&gt; ByteString
+</span><span id="line-274"></span><span>  </span><span id="local-6989586621679515703"><span class="annot"><span class="annottext">toPath :: DescribeNodeConfigurationOptions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeNodeConfigurationOptions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -802,27 +802,27 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-277"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-278"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions</span></a></span><span>
 </span><span id="line-279"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-280"></span><span>  </span><span id="local-6989586621679514990"><span class="annot"><span class="annottext">toQuery :: DescribeNodeConfigurationOptions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514982"><span id="local-6989586621679514983"><span id="local-6989586621679514984"><span id="local-6989586621679514985"><span id="local-6989586621679514986"><span id="local-6989586621679514987"><span id="local-6989586621679514988"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-280"></span><span>  </span><span id="local-6989586621679515699"><span class="annot"><span class="annottext">toQuery :: DescribeNodeConfigurationOptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptions%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515691"><span id="local-6989586621679515692"><span id="local-6989586621679515693"><span id="local-6989586621679515694"><span id="local-6989586621679515695"><span id="local-6989586621679515696"><span id="local-6989586621679515697"><span class="annot"><span class="annottext">Maybe Int
 Maybe [NodeConfigurationOptionsFilter]
 Maybe Text
 ActionType
 actionType :: ActionType
-marker :: Maybe Text
-maxRecords :: Maybe Int
 ownerAccount :: Maybe Text
-filters :: Maybe [NodeConfigurationOptionsFilter]
+maxRecords :: Maybe Int
+marker :: Maybe Text
 clusterIdentifier :: Maybe Text
+filters :: Maybe [NodeConfigurationOptionsFilter]
 snapshotIdentifier :: Maybe Text
 $sel:actionType:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions -&gt; ActionType
-$sel:marker:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions -&gt; Maybe Text
-$sel:maxRecords:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions -&gt; Maybe Int
 $sel:ownerAccount:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions -&gt; Maybe Text
+$sel:maxRecords:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions -&gt; Maybe Int
+$sel:marker:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions -&gt; Maybe Text
+$sel:clusterIdentifier:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions -&gt; Maybe Text
 $sel:filters:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions
 -&gt; Maybe [NodeConfigurationOptionsFilter]
-$sel:clusterIdentifier:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions -&gt; Maybe Text
 $sel:snapshotIdentifier:DescribeNodeConfigurationOptions' :: DescribeNodeConfigurationOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679514982"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679515691"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-281"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -844,55 +844,55 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;SnapshotIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679514988"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679515697"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-289"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679514987"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-290"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span>
-</span><span id="line-291"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+</span><span id="line-290"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-292"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [NodeConfigurationOptionsFilter] -&gt; QueryString
+</span><span id="line-291"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [NodeConfigurationOptionsFilter] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NodeConfigurationOptionsFilter&quot;</span></span><span>
-</span><span id="line-293"></span><span>                </span><span class="annot"><span class="annottext">([NodeConfigurationOptionsFilter] -&gt; QueryString)
+</span><span id="line-292"></span><span>                </span><span class="annot"><span class="annottext">([NodeConfigurationOptionsFilter] -&gt; QueryString)
 -&gt; Maybe [NodeConfigurationOptionsFilter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [NodeConfigurationOptionsFilter]
-</span><a href="#local-6989586621679514986"><span class="hs-identifier hs-var">filters</span></a></span><span>
-</span><span id="line-294"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-295"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;OwnerAccount&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+</span><a href="#local-6989586621679515696"><span class="hs-identifier hs-var">filters</span></a></span><span>
+</span><span id="line-293"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679514985"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679515695"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515694"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-296"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679514984"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679515693"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-297"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+</span><span class="hs-string">&quot;OwnerAccount&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679514983"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679515692"><span class="hs-identifier hs-var">ownerAccount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-298"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ActionType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ActionType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ActionType
-</span><a href="#local-6989586621679514982"><span class="hs-identifier hs-var">actionType</span></a></span><span>
+</span><a href="#local-6989586621679515691"><span class="hs-identifier hs-var">actionType</span></a></span><span>
 </span><span id="line-299"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-300"></span><span>
 </span><span id="line-301"></span><span class="hs-comment">-- | /See:/ 'newDescribeNodeConfigurationOptionsResponse' smart constructor.</span><span>
-</span><span id="line-302"></span><span id="local-6989586621679514978"><span id="local-6989586621679514979"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNodeConfigurationOptionsResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse"><span class="hs-identifier hs-var">DescribeNodeConfigurationOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNodeConfigurationOptionsResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-var">DescribeNodeConfigurationOptionsResponse'</span></a></span></span><span>
+</span><span id="line-302"></span><span id="local-6989586621679515687"><span id="local-6989586621679515688"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeNodeConfigurationOptionsResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse"><span class="hs-identifier hs-var">DescribeNodeConfigurationOptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeNodeConfigurationOptionsResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-var">DescribeNodeConfigurationOptionsResponse'</span></a></span></span><span>
 </span><span id="line-303"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of valid node configurations.</span><span>
 </span><span id="line-304"></span><span>    </span><span id="%24sel%3AnodeConfigurationOptionList%3ADescribeNodeConfigurationOptionsResponse%27"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptionsResponse
 -&gt; Maybe [NodeConfigurationOption]
@@ -909,7 +909,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-313"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeNodeConfigurationOptionsResponse%27"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptionsResponse -&gt; Int
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AhttpStatus%3ADescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-314"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-315"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679514971"><span id="local-6989586621679514973"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptionsResponse
+</span><span id="line-315"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679515680"><span id="local-6989586621679515682"><span class="annot"><span class="annottext">DescribeNodeConfigurationOptionsResponse
 -&gt; DescribeNodeConfigurationOptionsResponse -&gt; Bool
 (DescribeNodeConfigurationOptionsResponse
  -&gt; DescribeNodeConfigurationOptionsResponse -&gt; Bool)
@@ -925,7 +925,7 @@ $c/= :: DescribeNodeConfigurationOptionsResponse
 -&gt; DescribeNodeConfigurationOptionsResponse -&gt; Bool
 $c== :: DescribeNodeConfigurationOptionsResponse
 -&gt; DescribeNodeConfigurationOptionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679514963"><span id="local-6989586621679514965"><span id="local-6989586621679514967"><span id="local-6989586621679514969"><span class="annot"><span class="annottext">ReadPrec [DescribeNodeConfigurationOptionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679515672"><span id="local-6989586621679515674"><span id="local-6989586621679515676"><span id="local-6989586621679515678"><span class="annot"><span class="annottext">ReadPrec [DescribeNodeConfigurationOptionsResponse]
 ReadPrec DescribeNodeConfigurationOptionsResponse
 Int -&gt; ReadS DescribeNodeConfigurationOptionsResponse
 ReadS [DescribeNodeConfigurationOptionsResponse]
@@ -945,7 +945,7 @@ readList :: ReadS [DescribeNodeConfigurationOptionsResponse]
 $creadList :: ReadS [DescribeNodeConfigurationOptionsResponse]
 readsPrec :: Int -&gt; ReadS DescribeNodeConfigurationOptionsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeNodeConfigurationOptionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679514957"><span id="local-6989586621679514959"><span id="local-6989586621679514961"><span class="annot"><span class="annottext">Int -&gt; DescribeNodeConfigurationOptionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679515666"><span id="local-6989586621679515668"><span id="local-6989586621679515670"><span class="annot"><span class="annottext">Int -&gt; DescribeNodeConfigurationOptionsResponse -&gt; ShowS
 [DescribeNodeConfigurationOptionsResponse] -&gt; ShowS
 DescribeNodeConfigurationOptionsResponse -&gt; String
 (Int -&gt; DescribeNodeConfigurationOptionsResponse -&gt; ShowS)
@@ -1007,8 +1007,8 @@ DescribeNodeConfigurationOptionsResponse
 </span><span id="line-338"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse</span></a></span><span>
 </span><span id="line-339"></span><span id="newDescribeNodeConfigurationOptionsResponse"><span class="annot"><span class="annottext">newDescribeNodeConfigurationOptionsResponse :: Int -&gt; DescribeNodeConfigurationOptionsResponse
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#newDescribeNodeConfigurationOptionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeNodeConfigurationOptionsResponse</span></a></span></span><span>
-</span><span id="line-340"></span><span>  </span><span id="local-6989586621679514954"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679514954"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-340"></span><span>  </span><span id="local-6989586621679515663"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679515663"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-341"></span><span>    </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptionsResponse' :: Maybe [NodeConfigurationOption]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeNodeConfigurationOptionsResponse
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse'</span></a></span><span>
@@ -1023,7 +1023,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-345"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeNodeConfigurationOptionsResponse' :: Int
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AhttpStatus%3ADescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679514954"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679515663"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-346"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-347"></span><span>
 </span><span id="line-348"></span><span class="hs-comment">-- | A list of valid node configurations.</span><span>
@@ -1041,17 +1041,17 @@ forall a. Maybe a
      DescribeNodeConfigurationOptionsResponse
      (Maybe [NodeConfigurationOption])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514953"><span class="annot"><span class="annottext">Maybe [NodeConfigurationOption]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515662"><span class="annot"><span class="annottext">Maybe [NodeConfigurationOption]
 nodeConfigurationOptionList :: Maybe [NodeConfigurationOption]
 $sel:nodeConfigurationOptionList:DescribeNodeConfigurationOptionsResponse' :: DescribeNodeConfigurationOptionsResponse
 -&gt; Maybe [NodeConfigurationOption]
-</span><a href="#local-6989586621679514953"><span class="hs-identifier hs-var hs-var">nodeConfigurationOptionList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NodeConfigurationOption]
-</span><a href="#local-6989586621679514953"><span class="hs-identifier hs-var">nodeConfigurationOptionList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679514952"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptionsResponse
-</span><a href="#local-6989586621679514952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679514951"><span class="annot"><span class="annottext">Maybe [NodeConfigurationOption]
-</span><a href="#local-6989586621679514951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptionsResponse
-</span><a href="#local-6989586621679514952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeConfigurationOptionList:DescribeNodeConfigurationOptionsResponse' :: Maybe [NodeConfigurationOption]
+</span><a href="#local-6989586621679515662"><span class="hs-identifier hs-var hs-var">nodeConfigurationOptionList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NodeConfigurationOption]
+</span><a href="#local-6989586621679515662"><span class="hs-identifier hs-var">nodeConfigurationOptionList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515661"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptionsResponse
+</span><a href="#local-6989586621679515661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515660"><span class="annot"><span class="annottext">Maybe [NodeConfigurationOption]
+</span><a href="#local-6989586621679515660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptionsResponse
+</span><a href="#local-6989586621679515661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodeConfigurationOptionList:DescribeNodeConfigurationOptionsResponse' :: Maybe [NodeConfigurationOption]
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AnodeConfigurationOptionList%3ADescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-var">nodeConfigurationOptionList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NodeConfigurationOption]
-</span><a href="#local-6989586621679514951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NodeConfigurationOption]
+</span><a href="#local-6989586621679515660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NodeConfigurationOption]
   -&gt; f (Maybe [NodeConfigurationOption]))
  -&gt; DescribeNodeConfigurationOptionsResponse
  -&gt; f DescribeNodeConfigurationOptionsResponse)
@@ -1082,8 +1082,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [NodeConfigurationOption]
   [NodeConfigurationOption]
   [NodeConfigurationOption]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-351"></span><span>
 </span><span id="line-352"></span><span class="hs-comment">-- | A value that indicates the starting point for the next set of response</span><span>
 </span><span id="line-353"></span><span class="hs-comment">-- records in a subsequent request. If a value is returned in a response,</span><span>
@@ -1100,16 +1100,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
     -&gt; Maybe Text -&gt; DescribeNodeConfigurationOptionsResponse)
 -&gt; Lens' DescribeNodeConfigurationOptionsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514950"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515659"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeNodeConfigurationOptionsResponse' :: DescribeNodeConfigurationOptionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679514950"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679514950"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679514949"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptionsResponse
-</span><a href="#local-6989586621679514949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679514948"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679514948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptionsResponse
-</span><a href="#local-6989586621679514949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeNodeConfigurationOptionsResponse' :: Maybe Text
+</span><a href="#local-6989586621679515659"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515659"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515658"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptionsResponse
+</span><a href="#local-6989586621679515658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515657"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679515657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptionsResponse
+</span><a href="#local-6989586621679515658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeNodeConfigurationOptionsResponse' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3Amarker%3ADescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679514948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679515657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-360"></span><span>
 </span><span id="line-361"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-362"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#describeNodeConfigurationOptionsResponse_httpStatus"><span class="hs-identifier hs-type">describeNodeConfigurationOptionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1125,18 +1125,18 @@ $sel:marker:DescribeNodeConfigurationOptionsResponse' :: DescribeNodeConfigurati
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679514947"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679515656"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeNodeConfigurationOptionsResponse' :: DescribeNodeConfigurationOptionsResponse -&gt; Int
-</span><a href="#local-6989586621679514947"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679514947"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679514946"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptionsResponse
-</span><a href="#local-6989586621679514946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679514945"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679514945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptionsResponse
-</span><a href="#local-6989586621679514946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeNodeConfigurationOptionsResponse' :: Int
+</span><a href="#local-6989586621679515656"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679515656"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679515655"><span class="annot"><span class="annottext">s :: DescribeNodeConfigurationOptionsResponse
+</span><a href="#local-6989586621679515655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679515654"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679515654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeNodeConfigurationOptionsResponse
+</span><a href="#local-6989586621679515655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeNodeConfigurationOptionsResponse' :: Int
 </span><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#%24sel%3AhttpStatus%3ADescribeNodeConfigurationOptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679514945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679515654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-364"></span><span>
 </span><span id="line-365"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-366"></span><span>  </span><span id="local-6989586621679514943"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-366"></span><span>  </span><span id="local-6989586621679515652"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-367"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeNodeConfigurationOptions.html#DescribeNodeConfigurationOptionsResponse"><span class="hs-identifier hs-type">DescribeNodeConfigurationOptionsResponse</span></a></span></span><span>
 </span><span id="line-368"></span></pre></body></html>

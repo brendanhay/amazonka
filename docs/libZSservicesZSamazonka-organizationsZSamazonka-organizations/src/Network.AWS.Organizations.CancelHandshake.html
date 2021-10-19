@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newCancelHandshake' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679250902"><span id="local-6989586621679250903"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelHandshake"><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake"><span class="hs-identifier hs-var">CancelHandshake</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelHandshake%27"><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake%27"><span class="hs-identifier hs-var">CancelHandshake'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679251054"><span id="local-6989586621679251055"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelHandshake"><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake"><span class="hs-identifier hs-var">CancelHandshake</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelHandshake%27"><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake%27"><span class="hs-identifier hs-var">CancelHandshake'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier (ID) of the handshake that you want to cancel. You</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- can get the ID from the ListHandshakesForOrganization operation.</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AhandshakeId%3ACancelHandshake%27"><span class="annot"><span class="annottext">CancelHandshake -&gt; Text
 </span><a href="Network.AWS.Organizations.CancelHandshake.html#%24sel%3AhandshakeId%3ACancelHandshake%27"><span class="hs-identifier hs-var hs-var">handshakeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250896"><span id="local-6989586621679250898"><span class="annot"><span class="annottext">CancelHandshake -&gt; CancelHandshake -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251048"><span id="local-6989586621679251050"><span class="annot"><span class="annottext">CancelHandshake -&gt; CancelHandshake -&gt; Bool
 (CancelHandshake -&gt; CancelHandshake -&gt; Bool)
 -&gt; (CancelHandshake -&gt; CancelHandshake -&gt; Bool)
 -&gt; Eq CancelHandshake
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CancelHandshake -&gt; CancelHandshake -&gt; Bool
 == :: CancelHandshake -&gt; CancelHandshake -&gt; Bool
 $c== :: CancelHandshake -&gt; CancelHandshake -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250887"><span id="local-6989586621679250889"><span id="local-6989586621679250891"><span id="local-6989586621679250893"><span class="annot"><span class="annottext">ReadPrec [CancelHandshake]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251039"><span id="local-6989586621679251041"><span id="local-6989586621679251043"><span id="local-6989586621679251045"><span class="annot"><span class="annottext">ReadPrec [CancelHandshake]
 ReadPrec CancelHandshake
 Int -&gt; ReadS CancelHandshake
 ReadS [CancelHandshake]
@@ -95,7 +95,7 @@ readList :: ReadS [CancelHandshake]
 $creadList :: ReadS [CancelHandshake]
 readsPrec :: Int -&gt; ReadS CancelHandshake
 $creadsPrec :: Int -&gt; ReadS CancelHandshake
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250880"><span id="local-6989586621679250882"><span id="local-6989586621679250884"><span class="annot"><span class="annottext">Int -&gt; CancelHandshake -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251032"><span id="local-6989586621679251034"><span id="local-6989586621679251036"><span class="annot"><span class="annottext">Int -&gt; CancelHandshake -&gt; ShowS
 [CancelHandshake] -&gt; ShowS
 CancelHandshake -&gt; String
 (Int -&gt; CancelHandshake -&gt; ShowS)
@@ -140,12 +140,12 @@ $cfrom :: forall x. CancelHandshake -&gt; Rep CancelHandshake x
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake"><span class="hs-identifier hs-type">CancelHandshake</span></a></span><span>
 </span><span id="line-88"></span><span id="newCancelHandshake"><span class="annot"><span class="annottext">newCancelHandshake :: Text -&gt; CancelHandshake
-</span><a href="Network.AWS.Organizations.CancelHandshake.html#newCancelHandshake"><span class="hs-identifier hs-var hs-var">newCancelHandshake</span></a></span></span><span> </span><span id="local-6989586621679250875"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250875"><span class="hs-identifier hs-var">pHandshakeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Organizations.CancelHandshake.html#newCancelHandshake"><span class="hs-identifier hs-var hs-var">newCancelHandshake</span></a></span></span><span> </span><span id="local-6989586621679251027"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251027"><span class="hs-identifier hs-var">pHandshakeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">CancelHandshake' :: Text -&gt; CancelHandshake
 </span><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake%27"><span class="hs-identifier hs-type">CancelHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:handshakeId:CancelHandshake' :: Text
 </span><a href="Network.AWS.Organizations.CancelHandshake.html#%24sel%3AhandshakeId%3ACancelHandshake%27"><span class="hs-identifier hs-var">handshakeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250875"><span class="hs-identifier hs-var">pHandshakeId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679251027"><span class="hs-identifier hs-var">pHandshakeId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The unique identifier (ID) of the handshake that you want to cancel. You</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- can get the ID from the ListHandshakesForOrganization operation.</span><span>
@@ -159,27 +159,27 @@ $cfrom :: forall x. CancelHandshake -&gt; Rep CancelHandshake x
 -&gt; (CancelHandshake -&gt; Text -&gt; CancelHandshake)
 -&gt; Lens CancelHandshake CancelHandshake Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake%27"><span class="hs-identifier hs-type">CancelHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250872"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake%27"><span class="hs-identifier hs-type">CancelHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251024"><span class="annot"><span class="annottext">Text
 handshakeId :: Text
 $sel:handshakeId:CancelHandshake' :: CancelHandshake -&gt; Text
-</span><a href="#local-6989586621679250872"><span class="hs-identifier hs-var hs-var">handshakeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250872"><span class="hs-identifier hs-var">handshakeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250871"><span class="annot"><span class="annottext">s :: CancelHandshake
-</span><a href="#local-6989586621679250871"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake%27"><span class="hs-identifier hs-type">CancelHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250870"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250870"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelHandshake
-</span><a href="#local-6989586621679250871"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:handshakeId:CancelHandshake' :: Text
+</span><a href="#local-6989586621679251024"><span class="hs-identifier hs-var hs-var">handshakeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251024"><span class="hs-identifier hs-var">handshakeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251023"><span class="annot"><span class="annottext">s :: CancelHandshake
+</span><a href="#local-6989586621679251023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake%27"><span class="hs-identifier hs-type">CancelHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251022"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelHandshake
+</span><a href="#local-6989586621679251023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:handshakeId:CancelHandshake' :: Text
 </span><a href="Network.AWS.Organizations.CancelHandshake.html#%24sel%3AhandshakeId%3ACancelHandshake%27"><span class="hs-identifier hs-var">handshakeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250870"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake"><span class="hs-identifier hs-type">CancelHandshake</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake"><span class="hs-identifier hs-type">CancelHandshake</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake"><span class="hs-identifier hs-type">CancelHandshake</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake"><span class="hs-identifier hs-type">CancelHandshake</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse"><span class="hs-identifier hs-type">CancelHandshakeResponse</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679250866"><span class="annot"><span class="annottext">request :: CancelHandshake -&gt; Request CancelHandshake
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679251018"><span class="annot"><span class="annottext">request :: CancelHandshake -&gt; Request CancelHandshake
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CancelHandshake -&gt; Request CancelHandshake
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Organizations.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679250862"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679251014"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CancelHandshake
 -&gt; ClientResponse ClientBody
@@ -203,10 +203,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250859"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250859"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679250858"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679250858"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679250857"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250857"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251011"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679251011"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679251010"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679251010"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679251009"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251009"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Handshake -&gt; Int -&gt; CancelHandshakeResponse
 </span><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse%27"><span class="hs-identifier hs-var">CancelHandshakeResponse'</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Handshake -&gt; Int -&gt; CancelHandshakeResponse)
@@ -214,7 +214,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CancelHandshakeResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250857"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Handshake)
+</span><a href="#local-6989586621679251009"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Handshake)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Handshake&quot;</span></span><span class="hs-special">)</span><span>
@@ -226,15 +226,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250859"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251011"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250849"><span id="local-6989586621679250851"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake"><span class="hs-identifier hs-type">CancelHandshake</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251001"><span id="local-6989586621679251003"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake"><span class="hs-identifier hs-type">CancelHandshake</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250846"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake"><span class="hs-identifier hs-type">CancelHandshake</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250998"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake"><span class="hs-identifier hs-type">CancelHandshake</span></a></span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake"><span class="hs-identifier hs-type">CancelHandshake</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679250842"><span class="annot"><span class="annottext">toHeaders :: CancelHandshake -&gt; ResponseHeaders
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679250994"><span class="annot"><span class="annottext">toHeaders :: CancelHandshake -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CancelHandshake -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -261,12 +261,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250832"><span id="local-6989586621679250834"><span id="local-6989586621679250836"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake"><span class="hs-identifier hs-type">CancelHandshake</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679250830"><span class="annot"><span class="annottext">toJSON :: CancelHandshake -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake%27"><span class="hs-identifier hs-type">CancelHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250828"><span class="annot"><span class="annottext">Text
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250984"><span id="local-6989586621679250986"><span id="local-6989586621679250988"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake"><span class="hs-identifier hs-type">CancelHandshake</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679250982"><span class="annot"><span class="annottext">toJSON :: CancelHandshake -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake%27"><span class="hs-identifier hs-type">CancelHandshake'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250980"><span class="annot"><span class="annottext">Text
 handshakeId :: Text
 $sel:handshakeId:CancelHandshake' :: CancelHandshake -&gt; Text
-</span><a href="#local-6989586621679250828"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679250980"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -278,18 +278,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;HandshakeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679250828"><span class="hs-identifier hs-var">handshakeId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679250980"><span class="hs-identifier hs-var">handshakeId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake"><span class="hs-identifier hs-type">CancelHandshake</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679250822"><span class="annot"><span class="annottext">toPath :: CancelHandshake -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679250974"><span class="annot"><span class="annottext">toPath :: CancelHandshake -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CancelHandshake -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshake"><span class="hs-identifier hs-type">CancelHandshake</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679250818"><span class="annot"><span class="annottext">toQuery :: CancelHandshake -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679250970"><span class="annot"><span class="annottext">toQuery :: CancelHandshake -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CancelHandshake -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -297,7 +297,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newCancelHandshakeResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679250815"><span id="local-6989586621679250816"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelHandshakeResponse"><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse"><span class="hs-identifier hs-var">CancelHandshakeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelHandshakeResponse%27"><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse%27"><span class="hs-identifier hs-var">CancelHandshakeResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679250967"><span id="local-6989586621679250968"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelHandshakeResponse"><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse"><span class="hs-identifier hs-var">CancelHandshakeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelHandshakeResponse%27"><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse%27"><span class="hs-identifier hs-var">CancelHandshakeResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A structure that contains details about the handshake that you canceled.</span><span>
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3Ahandshake%3ACancelHandshakeResponse%27"><span class="annot"><span class="annottext">CancelHandshakeResponse -&gt; Maybe Handshake
 </span><a href="Network.AWS.Organizations.CancelHandshake.html#%24sel%3Ahandshake%3ACancelHandshakeResponse%27"><span class="hs-identifier hs-var hs-var">handshake</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.Handshake.html#Handshake"><span class="hs-identifier hs-type">Handshake</span></a></span><span class="hs-special">,</span><span>
@@ -305,7 +305,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACancelHandshakeResponse%27"><span class="annot"><span class="annottext">CancelHandshakeResponse -&gt; Int
 </span><a href="Network.AWS.Organizations.CancelHandshake.html#%24sel%3AhttpStatus%3ACancelHandshakeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250809"><span id="local-6989586621679250811"><span class="annot"><span class="annottext">CancelHandshakeResponse -&gt; CancelHandshakeResponse -&gt; Bool
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250961"><span id="local-6989586621679250963"><span class="annot"><span class="annottext">CancelHandshakeResponse -&gt; CancelHandshakeResponse -&gt; Bool
 (CancelHandshakeResponse -&gt; CancelHandshakeResponse -&gt; Bool)
 -&gt; (CancelHandshakeResponse -&gt; CancelHandshakeResponse -&gt; Bool)
 -&gt; Eq CancelHandshakeResponse
@@ -314,7 +314,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CancelHandshakeResponse -&gt; CancelHandshakeResponse -&gt; Bool
 == :: CancelHandshakeResponse -&gt; CancelHandshakeResponse -&gt; Bool
 $c== :: CancelHandshakeResponse -&gt; CancelHandshakeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250803"><span id="local-6989586621679250805"><span id="local-6989586621679250807"><span class="annot"><span class="annottext">Int -&gt; CancelHandshakeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250955"><span id="local-6989586621679250957"><span id="local-6989586621679250959"><span class="annot"><span class="annottext">Int -&gt; CancelHandshakeResponse -&gt; ShowS
 [CancelHandshakeResponse] -&gt; ShowS
 CancelHandshakeResponse -&gt; String
 (Int -&gt; CancelHandshakeResponse -&gt; ShowS)
@@ -358,8 +358,8 @@ $cfrom :: forall x. CancelHandshakeResponse -&gt; Rep CancelHandshakeResponse x
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse"><span class="hs-identifier hs-type">CancelHandshakeResponse</span></a></span><span>
 </span><span id="line-169"></span><span id="newCancelHandshakeResponse"><span class="annot"><span class="annottext">newCancelHandshakeResponse :: Int -&gt; CancelHandshakeResponse
-</span><a href="Network.AWS.Organizations.CancelHandshake.html#newCancelHandshakeResponse"><span class="hs-identifier hs-var hs-var">newCancelHandshakeResponse</span></a></span></span><span> </span><span id="local-6989586621679250800"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250800"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Organizations.CancelHandshake.html#newCancelHandshakeResponse"><span class="hs-identifier hs-var hs-var">newCancelHandshakeResponse</span></a></span></span><span> </span><span id="local-6989586621679250952"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679250952"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">CancelHandshakeResponse' :: Maybe Handshake -&gt; Int -&gt; CancelHandshakeResponse
 </span><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse%27"><span class="hs-identifier hs-type">CancelHandshakeResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:handshake:CancelHandshakeResponse' :: Maybe Handshake
@@ -369,7 +369,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CancelHandshakeResponse' :: Int
 </span><a href="Network.AWS.Organizations.CancelHandshake.html#%24sel%3AhttpStatus%3ACancelHandshakeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250800"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679250952"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | A structure that contains details about the handshake that you canceled.</span><span>
@@ -385,16 +385,16 @@ forall a. Maybe a
      (Maybe Handshake)
      (Maybe Handshake)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse%27"><span class="hs-identifier hs-type">CancelHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250799"><span class="annot"><span class="annottext">Maybe Handshake
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse%27"><span class="hs-identifier hs-type">CancelHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250951"><span class="annot"><span class="annottext">Maybe Handshake
 handshake :: Maybe Handshake
 $sel:handshake:CancelHandshakeResponse' :: CancelHandshakeResponse -&gt; Maybe Handshake
-</span><a href="#local-6989586621679250799"><span class="hs-identifier hs-var hs-var">handshake</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Handshake
-</span><a href="#local-6989586621679250799"><span class="hs-identifier hs-var">handshake</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250798"><span class="annot"><span class="annottext">s :: CancelHandshakeResponse
-</span><a href="#local-6989586621679250798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse%27"><span class="hs-identifier hs-type">CancelHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250797"><span class="annot"><span class="annottext">Maybe Handshake
-</span><a href="#local-6989586621679250797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelHandshakeResponse
-</span><a href="#local-6989586621679250798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:handshake:CancelHandshakeResponse' :: Maybe Handshake
+</span><a href="#local-6989586621679250951"><span class="hs-identifier hs-var hs-var">handshake</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Handshake
+</span><a href="#local-6989586621679250951"><span class="hs-identifier hs-var">handshake</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250950"><span class="annot"><span class="annottext">s :: CancelHandshakeResponse
+</span><a href="#local-6989586621679250950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse%27"><span class="hs-identifier hs-type">CancelHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250949"><span class="annot"><span class="annottext">Maybe Handshake
+</span><a href="#local-6989586621679250949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelHandshakeResponse
+</span><a href="#local-6989586621679250950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:handshake:CancelHandshakeResponse' :: Maybe Handshake
 </span><a href="Network.AWS.Organizations.CancelHandshake.html#%24sel%3Ahandshake%3ACancelHandshakeResponse%27"><span class="hs-identifier hs-var">handshake</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Handshake
-</span><a href="#local-6989586621679250797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse"><span class="hs-identifier hs-type">CancelHandshakeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse"><span class="hs-identifier hs-type">CancelHandshakeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-181"></span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#cancelHandshakeResponse_httpStatus"><span class="hs-identifier hs-type">cancelHandshakeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse"><span class="hs-identifier hs-type">CancelHandshakeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -404,16 +404,16 @@ $sel:handshake:CancelHandshakeResponse' :: CancelHandshakeResponse -&gt; Maybe H
 -&gt; (CancelHandshakeResponse -&gt; Int -&gt; CancelHandshakeResponse)
 -&gt; Lens CancelHandshakeResponse CancelHandshakeResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse%27"><span class="hs-identifier hs-type">CancelHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250796"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse%27"><span class="hs-identifier hs-type">CancelHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250948"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CancelHandshakeResponse' :: CancelHandshakeResponse -&gt; Int
-</span><a href="#local-6989586621679250796"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250796"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250795"><span class="annot"><span class="annottext">s :: CancelHandshakeResponse
-</span><a href="#local-6989586621679250795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse%27"><span class="hs-identifier hs-type">CancelHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250794"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelHandshakeResponse
-</span><a href="#local-6989586621679250795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelHandshakeResponse' :: Int
+</span><a href="#local-6989586621679250948"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679250948"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250947"><span class="annot"><span class="annottext">s :: CancelHandshakeResponse
+</span><a href="#local-6989586621679250947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse%27"><span class="hs-identifier hs-type">CancelHandshakeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250946"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679250946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelHandshakeResponse
+</span><a href="#local-6989586621679250947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelHandshakeResponse' :: Int
 </span><a href="Network.AWS.Organizations.CancelHandshake.html#%24sel%3AhttpStatus%3ACancelHandshakeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679250794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse"><span class="hs-identifier hs-type">CancelHandshakeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse"><span class="hs-identifier hs-type">CancelHandshakeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250792"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse"><span class="hs-identifier hs-type">CancelHandshakeResponse</span></a></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250944"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.CancelHandshake.html#CancelHandshakeResponse"><span class="hs-identifier hs-type">CancelHandshakeResponse</span></a></span></span><span>
 </span><span id="line-185"></span></pre></body></html>

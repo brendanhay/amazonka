@@ -27,18 +27,18 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the details of a LoadBalancer.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLoadBalancerDescription' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679303028"><span id="local-6989586621679303029"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoadBalancerDescription"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-var">LoadBalancerDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoadBalancerDescription%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription%27"><span class="hs-identifier hs-var">LoadBalancerDescription'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The domain name of the LoadBalancer.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Adomain%3ALoadBalancerDescription%27"><span class="annot"><span class="annottext">LoadBalancerDescription -&gt; Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#%24sel%3Adomain%3ALoadBalancerDescription%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the LoadBalancer.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AloadBalancerName%3ALoadBalancerDescription%27"><span class="annot"><span class="annottext">LoadBalancerDescription -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679303307"><span id="local-6989586621679303308"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoadBalancerDescription"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-var">LoadBalancerDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoadBalancerDescription%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription%27"><span class="hs-identifier hs-var">LoadBalancerDescription'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the LoadBalancer.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AloadBalancerName%3ALoadBalancerDescription%27"><span class="annot"><span class="annottext">LoadBalancerDescription -&gt; Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#%24sel%3AloadBalancerName%3ALoadBalancerDescription%27"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The domain name of the LoadBalancer.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Adomain%3ALoadBalancerDescription%27"><span class="annot"><span class="annottext">LoadBalancerDescription -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#%24sel%3Adomain%3ALoadBalancerDescription%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A list of Listeners used by the LoadBalancer.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Alisteners%3ALoadBalancerDescription%27"><span class="annot"><span class="annottext">LoadBalancerDescription -&gt; Maybe [Listener]
 </span><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#%24sel%3Alisteners%3ALoadBalancerDescription%27"><span class="hs-identifier hs-var hs-var">listeners</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303020"><span id="local-6989586621679303022"><span class="annot"><span class="annottext">LoadBalancerDescription -&gt; LoadBalancerDescription -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303299"><span id="local-6989586621679303301"><span class="annot"><span class="annottext">LoadBalancerDescription -&gt; LoadBalancerDescription -&gt; Bool
 (LoadBalancerDescription -&gt; LoadBalancerDescription -&gt; Bool)
 -&gt; (LoadBalancerDescription -&gt; LoadBalancerDescription -&gt; Bool)
 -&gt; Eq LoadBalancerDescription
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LoadBalancerDescription -&gt; LoadBalancerDescription -&gt; Bool
 == :: LoadBalancerDescription -&gt; LoadBalancerDescription -&gt; Bool
 $c== :: LoadBalancerDescription -&gt; LoadBalancerDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303011"><span id="local-6989586621679303013"><span id="local-6989586621679303015"><span id="local-6989586621679303017"><span class="annot"><span class="annottext">ReadPrec [LoadBalancerDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303290"><span id="local-6989586621679303292"><span id="local-6989586621679303294"><span id="local-6989586621679303296"><span class="annot"><span class="annottext">ReadPrec [LoadBalancerDescription]
 ReadPrec LoadBalancerDescription
 Int -&gt; ReadS LoadBalancerDescription
 ReadS [LoadBalancerDescription]
@@ -67,7 +67,7 @@ readList :: ReadS [LoadBalancerDescription]
 $creadList :: ReadS [LoadBalancerDescription]
 readsPrec :: Int -&gt; ReadS LoadBalancerDescription
 $creadsPrec :: Int -&gt; ReadS LoadBalancerDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303004"><span id="local-6989586621679303006"><span id="local-6989586621679303008"><span class="annot"><span class="annottext">Int -&gt; LoadBalancerDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303283"><span id="local-6989586621679303285"><span id="local-6989586621679303287"><span class="annot"><span class="annottext">Int -&gt; LoadBalancerDescription -&gt; ShowS
 [LoadBalancerDescription] -&gt; ShowS
 LoadBalancerDescription -&gt; String
 (Int -&gt; LoadBalancerDescription -&gt; ShowS)
@@ -103,9 +103,9 @@ $cfrom :: forall x. LoadBalancerDescription -&gt; Rep LoadBalancerDescription x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'domain', 'loadBalancerDescription_domain' - The domain name of the LoadBalancer.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'loadBalancerName', 'loadBalancerDescription_loadBalancerName' - The name of the LoadBalancer.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'loadBalancerName', 'loadBalancerDescription_loadBalancerName' - The name of the LoadBalancer.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'domain', 'loadBalancerDescription_domain' - The domain name of the LoadBalancer.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- 'listeners', 'loadBalancerDescription_listeners' - A list of Listeners used by the LoadBalancer.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#newLoadBalancerDescription"><span class="hs-identifier hs-type">newLoadBalancerDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -115,47 +115,24 @@ $cfrom :: forall x. LoadBalancerDescription -&gt; Rep LoadBalancerDescription x
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">LoadBalancerDescription' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe [Listener] -&gt; LoadBalancerDescription
 </span><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription%27"><span class="hs-identifier hs-type">LoadBalancerDescription'</span></a></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domain:LoadBalancerDescription' :: Maybe Text
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loadBalancerName:LoadBalancerDescription' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#%24sel%3AloadBalancerName%3ALoadBalancerDescription%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:domain:LoadBalancerDescription' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#%24sel%3Adomain%3ALoadBalancerDescription%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:loadBalancerName:LoadBalancerDescription' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#%24sel%3AloadBalancerName%3ALoadBalancerDescription%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:listeners:LoadBalancerDescription' :: Maybe [Listener]
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:listeners:LoadBalancerDescription' :: Maybe [Listener]
 </span><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#%24sel%3Alisteners%3ALoadBalancerDescription%27"><span class="hs-identifier hs-var">listeners</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Listener]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The domain name of the LoadBalancer.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#loadBalancerDescription_domain"><span class="hs-identifier hs-type">loadBalancerDescription_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-type">LoadBalancerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="loadBalancerDescription_domain"><span class="annot"><span class="annottext">loadBalancerDescription_domain :: (Maybe Text -&gt; f (Maybe Text))
--&gt; LoadBalancerDescription -&gt; f LoadBalancerDescription
-</span><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#loadBalancerDescription_domain"><span class="hs-identifier hs-var hs-var">loadBalancerDescription_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoadBalancerDescription -&gt; Maybe Text)
--&gt; (LoadBalancerDescription
-    -&gt; Maybe Text -&gt; LoadBalancerDescription)
--&gt; Lens
-     LoadBalancerDescription
-     LoadBalancerDescription
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription%27"><span class="hs-identifier hs-type">LoadBalancerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302995"><span class="annot"><span class="annottext">Maybe Text
-domain :: Maybe Text
-$sel:domain:LoadBalancerDescription' :: LoadBalancerDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679302995"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302995"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302994"><span class="annot"><span class="annottext">s :: LoadBalancerDescription
-</span><a href="#local-6989586621679302994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription%27"><span class="hs-identifier hs-type">LoadBalancerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302993"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadBalancerDescription
-</span><a href="#local-6989586621679302994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:LoadBalancerDescription' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#%24sel%3Adomain%3ALoadBalancerDescription%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-type">LoadBalancerDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | The name of the LoadBalancer.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#loadBalancerDescription_loadBalancerName"><span class="hs-identifier hs-type">loadBalancerDescription_loadBalancerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-type">LoadBalancerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="loadBalancerDescription_loadBalancerName"><span class="annot"><span class="annottext">loadBalancerDescription_loadBalancerName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The name of the LoadBalancer.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#loadBalancerDescription_loadBalancerName"><span class="hs-identifier hs-type">loadBalancerDescription_loadBalancerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-type">LoadBalancerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="loadBalancerDescription_loadBalancerName"><span class="annot"><span class="annottext">loadBalancerDescription_loadBalancerName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; LoadBalancerDescription -&gt; f LoadBalancerDescription
 </span><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#loadBalancerDescription_loadBalancerName"><span class="hs-identifier hs-var hs-var">loadBalancerDescription_loadBalancerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoadBalancerDescription -&gt; Maybe Text)
 -&gt; (LoadBalancerDescription
@@ -166,20 +143,44 @@ $sel:domain:LoadBalancerDescription' :: LoadBalancerDescription -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription%27"><span class="hs-identifier hs-type">LoadBalancerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302991"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription%27"><span class="hs-identifier hs-type">LoadBalancerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303274"><span class="annot"><span class="annottext">Maybe Text
 loadBalancerName :: Maybe Text
 $sel:loadBalancerName:LoadBalancerDescription' :: LoadBalancerDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679302991"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302991"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302990"><span class="annot"><span class="annottext">s :: LoadBalancerDescription
-</span><a href="#local-6989586621679302990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription%27"><span class="hs-identifier hs-type">LoadBalancerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302989"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadBalancerDescription
-</span><a href="#local-6989586621679302990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerName:LoadBalancerDescription' :: Maybe Text
+</span><a href="#local-6989586621679303274"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303274"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303273"><span class="annot"><span class="annottext">s :: LoadBalancerDescription
+</span><a href="#local-6989586621679303273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription%27"><span class="hs-identifier hs-type">LoadBalancerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303272"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadBalancerDescription
+</span><a href="#local-6989586621679303273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerName:LoadBalancerDescription' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#%24sel%3AloadBalancerName%3ALoadBalancerDescription%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679302989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-type">LoadBalancerDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | A list of Listeners used by the LoadBalancer.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#loadBalancerDescription_listeners"><span class="hs-identifier hs-type">loadBalancerDescription_listeners</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-type">LoadBalancerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="loadBalancerDescription_listeners"><span class="annot"><span class="annottext">loadBalancerDescription_listeners :: (Maybe [Listener] -&gt; f (Maybe [Listener]))
+</span><a href="#local-6989586621679303272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-type">LoadBalancerDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The domain name of the LoadBalancer.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#loadBalancerDescription_domain"><span class="hs-identifier hs-type">loadBalancerDescription_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-type">LoadBalancerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="loadBalancerDescription_domain"><span class="annot"><span class="annottext">loadBalancerDescription_domain :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LoadBalancerDescription -&gt; f LoadBalancerDescription
+</span><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#loadBalancerDescription_domain"><span class="hs-identifier hs-var hs-var">loadBalancerDescription_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoadBalancerDescription -&gt; Maybe Text)
+-&gt; (LoadBalancerDescription
+    -&gt; Maybe Text -&gt; LoadBalancerDescription)
+-&gt; Lens
+     LoadBalancerDescription
+     LoadBalancerDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription%27"><span class="hs-identifier hs-type">LoadBalancerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303270"><span class="annot"><span class="annottext">Maybe Text
+domain :: Maybe Text
+$sel:domain:LoadBalancerDescription' :: LoadBalancerDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679303270"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303270"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303269"><span class="annot"><span class="annottext">s :: LoadBalancerDescription
+</span><a href="#local-6989586621679303269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription%27"><span class="hs-identifier hs-type">LoadBalancerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303268"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadBalancerDescription
+</span><a href="#local-6989586621679303269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:LoadBalancerDescription' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#%24sel%3Adomain%3ALoadBalancerDescription%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679303268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-type">LoadBalancerDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | A list of Listeners used by the LoadBalancer.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#loadBalancerDescription_listeners"><span class="hs-identifier hs-type">loadBalancerDescription_listeners</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-type">LoadBalancerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Listener.html#Listener"><span class="hs-identifier hs-type">Listener</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="loadBalancerDescription_listeners"><span class="annot"><span class="annottext">loadBalancerDescription_listeners :: (Maybe [Listener] -&gt; f (Maybe [Listener]))
 -&gt; LoadBalancerDescription -&gt; f LoadBalancerDescription
 </span><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#loadBalancerDescription_listeners"><span class="hs-identifier hs-var hs-var">loadBalancerDescription_listeners</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LoadBalancerDescription -&gt; Maybe [Listener])
 -&gt; (LoadBalancerDescription
@@ -190,16 +191,16 @@ $sel:loadBalancerName:LoadBalancerDescription' :: LoadBalancerDescription -&gt; 
      (Maybe [Listener])
      (Maybe [Listener])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription%27"><span class="hs-identifier hs-type">LoadBalancerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679302987"><span class="annot"><span class="annottext">Maybe [Listener]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription%27"><span class="hs-identifier hs-type">LoadBalancerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303266"><span class="annot"><span class="annottext">Maybe [Listener]
 listeners :: Maybe [Listener]
 $sel:listeners:LoadBalancerDescription' :: LoadBalancerDescription -&gt; Maybe [Listener]
-</span><a href="#local-6989586621679302987"><span class="hs-identifier hs-var hs-var">listeners</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Listener]
-</span><a href="#local-6989586621679302987"><span class="hs-identifier hs-var">listeners</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679302986"><span class="annot"><span class="annottext">s :: LoadBalancerDescription
-</span><a href="#local-6989586621679302986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription%27"><span class="hs-identifier hs-type">LoadBalancerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679302985"><span class="annot"><span class="annottext">Maybe [Listener]
-</span><a href="#local-6989586621679302985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadBalancerDescription
-</span><a href="#local-6989586621679302986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listeners:LoadBalancerDescription' :: Maybe [Listener]
+</span><a href="#local-6989586621679303266"><span class="hs-identifier hs-var hs-var">listeners</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Listener]
+</span><a href="#local-6989586621679303266"><span class="hs-identifier hs-var">listeners</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303265"><span class="annot"><span class="annottext">s :: LoadBalancerDescription
+</span><a href="#local-6989586621679303265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription%27"><span class="hs-identifier hs-type">LoadBalancerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303264"><span class="annot"><span class="annottext">Maybe [Listener]
+</span><a href="#local-6989586621679303264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoadBalancerDescription
+</span><a href="#local-6989586621679303265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listeners:LoadBalancerDescription' :: Maybe [Listener]
 </span><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#%24sel%3Alisteners%3ALoadBalancerDescription%27"><span class="hs-identifier hs-var">listeners</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Listener]
-</span><a href="#local-6989586621679302985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-type">LoadBalancerDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Listener] -&gt; f (Maybe [Listener]))
+</span><a href="#local-6989586621679303264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-type">LoadBalancerDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Listener] -&gt; f (Maybe [Listener]))
  -&gt; LoadBalancerDescription -&gt; f LoadBalancerDescription)
 -&gt; ((Maybe [Listener] -&gt; f (Maybe [Listener]))
     -&gt; Maybe [Listener] -&gt; f (Maybe [Listener]))
@@ -217,43 +218,43 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Listener] [Listener] [Listener] [Listener]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-type">LoadBalancerDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679302979"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LoadBalancerDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679302977"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302977"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-type">LoadBalancerDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679303258"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LoadBalancerDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679303256"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679303256"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe [Listener] -&gt; LoadBalancerDescription
 </span><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription%27"><span class="hs-identifier hs-var">LoadBalancerDescription'</span></a></span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text -&gt; Maybe [Listener] -&gt; LoadBalancerDescription)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String (Maybe Text -&gt; Maybe [Listener] -&gt; LoadBalancerDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679303256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Domain&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;LoadBalancerName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">Either
   String (Maybe Text -&gt; Maybe [Listener] -&gt; LoadBalancerDescription)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe [Listener] -&gt; LoadBalancerDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679303256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LoadBalancerName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Listener] -&gt; LoadBalancerDescription)
+</span><span class="hs-string">&quot;Domain&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Listener] -&gt; LoadBalancerDescription)
 -&gt; Either String (Maybe [Listener])
 -&gt; Either String LoadBalancerDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679302977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679303256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Listeners&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -261,7 +262,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-80"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-81"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Listener]))
 -&gt; Either String (Maybe [Listener])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -274,9 +275,9 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302968"><span id="local-6989586621679302970"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-type">LoadBalancerDescription</span></a></span></span></span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679302965"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-type">LoadBalancerDescription</span></a></span></span><span>
-</span><span id="line-86"></span></pre></body></html>
+</span><span id="line-82"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303247"><span id="local-6989586621679303249"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-type">LoadBalancerDescription</span></a></span></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303244"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription.html#LoadBalancerDescription"><span class="hs-identifier hs-type">LoadBalancerDescription</span></a></span></span><span>
+</span><span id="line-87"></span></pre></body></html>

@@ -26,17 +26,17 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | An object representing an Fargate profile selector.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newFargateProfileSelector' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679265398"><span id="local-6989586621679265399"></span></span><span class="hs-keyword">data</span><span> </span><span id="FargateProfileSelector"><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-var">FargateProfileSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FargateProfileSelector%27"><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector%27"><span class="hs-identifier hs-var">FargateProfileSelector'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Kubernetes labels that the selector should match. A pod must contain</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- all of the labels that are specified in the selector for it to be</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- considered a match.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Alabels%3AFargateProfileSelector%27"><span class="annot"><span class="annottext">FargateProfileSelector -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#%24sel%3Alabels%3AFargateProfileSelector%27"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The Kubernetes namespace that the selector should match.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Anamespace%3AFargateProfileSelector%27"><span class="annot"><span class="annottext">FargateProfileSelector -&gt; Maybe Text
-</span><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#%24sel%3Anamespace%3AFargateProfileSelector%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679265651"><span id="local-6989586621679265652"></span></span><span class="hs-keyword">data</span><span> </span><span id="FargateProfileSelector"><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-var">FargateProfileSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FargateProfileSelector%27"><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector%27"><span class="hs-identifier hs-var">FargateProfileSelector'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Kubernetes namespace that the selector should match.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Anamespace%3AFargateProfileSelector%27"><span class="annot"><span class="annottext">FargateProfileSelector -&gt; Maybe Text
+</span><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#%24sel%3Anamespace%3AFargateProfileSelector%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The Kubernetes labels that the selector should match. A pod must contain</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- all of the labels that are specified in the selector for it to be</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- considered a match.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Alabels%3AFargateProfileSelector%27"><span class="annot"><span class="annottext">FargateProfileSelector -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#%24sel%3Alabels%3AFargateProfileSelector%27"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265391"><span id="local-6989586621679265393"><span class="annot"><span class="annottext">FargateProfileSelector -&gt; FargateProfileSelector -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265644"><span id="local-6989586621679265646"><span class="annot"><span class="annottext">FargateProfileSelector -&gt; FargateProfileSelector -&gt; Bool
 (FargateProfileSelector -&gt; FargateProfileSelector -&gt; Bool)
 -&gt; (FargateProfileSelector -&gt; FargateProfileSelector -&gt; Bool)
 -&gt; Eq FargateProfileSelector
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FargateProfileSelector -&gt; FargateProfileSelector -&gt; Bool
 == :: FargateProfileSelector -&gt; FargateProfileSelector -&gt; Bool
 $c== :: FargateProfileSelector -&gt; FargateProfileSelector -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265382"><span id="local-6989586621679265384"><span id="local-6989586621679265386"><span id="local-6989586621679265388"><span class="annot"><span class="annottext">ReadPrec [FargateProfileSelector]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265635"><span id="local-6989586621679265637"><span id="local-6989586621679265639"><span id="local-6989586621679265641"><span class="annot"><span class="annottext">ReadPrec [FargateProfileSelector]
 ReadPrec FargateProfileSelector
 Int -&gt; ReadS FargateProfileSelector
 ReadS [FargateProfileSelector]
@@ -65,7 +65,7 @@ readList :: ReadS [FargateProfileSelector]
 $creadList :: ReadS [FargateProfileSelector]
 readsPrec :: Int -&gt; ReadS FargateProfileSelector
 $creadsPrec :: Int -&gt; ReadS FargateProfileSelector
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265375"><span id="local-6989586621679265377"><span id="local-6989586621679265379"><span class="annot"><span class="annottext">Int -&gt; FargateProfileSelector -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265628"><span id="local-6989586621679265630"><span id="local-6989586621679265632"><span class="annot"><span class="annottext">Int -&gt; FargateProfileSelector -&gt; ShowS
 [FargateProfileSelector] -&gt; ShowS
 FargateProfileSelector -&gt; String
 (Int -&gt; FargateProfileSelector -&gt; ShowS)
@@ -100,32 +100,56 @@ $cfrom :: forall x. FargateProfileSelector -&gt; Rep FargateProfileSelector x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'labels', 'fargateProfileSelector_labels' - The Kubernetes labels that the selector should match. A pod must contain</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- all of the labels that are specified in the selector for it to be</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- considered a match.</span><span>
-</span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'namespace', 'fargateProfileSelector_namespace' - The Kubernetes namespace that the selector should match.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'namespace', 'fargateProfileSelector_namespace' - The Kubernetes namespace that the selector should match.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'labels', 'fargateProfileSelector_labels' - The Kubernetes labels that the selector should match. A pod must contain</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- all of the labels that are specified in the selector for it to be</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- considered a match.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#newFargateProfileSelector"><span class="hs-identifier hs-type">newFargateProfileSelector</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span><span>
 </span><span id="line-54"></span><span id="newFargateProfileSelector"><span class="annot"><span class="annottext">newFargateProfileSelector :: FargateProfileSelector
 </span><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#newFargateProfileSelector"><span class="hs-identifier hs-var hs-var">newFargateProfileSelector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">FargateProfileSelector' :: Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; FargateProfileSelector
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">FargateProfileSelector' :: Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; FargateProfileSelector
 </span><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector%27"><span class="hs-identifier hs-type">FargateProfileSelector'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:labels:FargateProfileSelector' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#%24sel%3Alabels%3AFargateProfileSelector%27"><span class="hs-identifier hs-var">labels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:namespace:FargateProfileSelector' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#%24sel%3Anamespace%3AFargateProfileSelector%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:namespace:FargateProfileSelector' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#%24sel%3Anamespace%3AFargateProfileSelector%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:labels:FargateProfileSelector' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#%24sel%3Alabels%3AFargateProfileSelector%27"><span class="hs-identifier hs-var">labels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | The Kubernetes labels that the selector should match. A pod must contain</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- all of the labels that are specified in the selector for it to be</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- considered a match.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#fargateProfileSelector_labels"><span class="hs-identifier hs-type">fargateProfileSelector_labels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="fargateProfileSelector_labels"><span class="annot"><span class="annottext">fargateProfileSelector_labels :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The Kubernetes namespace that the selector should match.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#fargateProfileSelector_namespace"><span class="hs-identifier hs-type">fargateProfileSelector_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="fargateProfileSelector_namespace"><span class="annot"><span class="annottext">fargateProfileSelector_namespace :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FargateProfileSelector -&gt; f FargateProfileSelector
+</span><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#fargateProfileSelector_namespace"><span class="hs-identifier hs-var hs-var">fargateProfileSelector_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FargateProfileSelector -&gt; Maybe Text)
+-&gt; (FargateProfileSelector -&gt; Maybe Text -&gt; FargateProfileSelector)
+-&gt; Lens
+     FargateProfileSelector
+     FargateProfileSelector
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector%27"><span class="hs-identifier hs-type">FargateProfileSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265619"><span class="annot"><span class="annottext">Maybe Text
+namespace :: Maybe Text
+$sel:namespace:FargateProfileSelector' :: FargateProfileSelector -&gt; Maybe Text
+</span><a href="#local-6989586621679265619"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265619"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265618"><span class="annot"><span class="annottext">s :: FargateProfileSelector
+</span><a href="#local-6989586621679265618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector%27"><span class="hs-identifier hs-type">FargateProfileSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265617"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfileSelector
+</span><a href="#local-6989586621679265618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:FargateProfileSelector' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#%24sel%3Anamespace%3AFargateProfileSelector%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The Kubernetes labels that the selector should match. A pod must contain</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- all of the labels that are specified in the selector for it to be</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- considered a match.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#fargateProfileSelector_labels"><span class="hs-identifier hs-type">fargateProfileSelector_labels</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="fargateProfileSelector_labels"><span class="annot"><span class="annottext">fargateProfileSelector_labels :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; FargateProfileSelector -&gt; f FargateProfileSelector
 </span><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#fargateProfileSelector_labels"><span class="hs-identifier hs-var hs-var">fargateProfileSelector_labels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FargateProfileSelector -&gt; Maybe (HashMap Text Text))
 -&gt; (FargateProfileSelector
@@ -136,16 +160,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector%27"><span class="hs-identifier hs-type">FargateProfileSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265366"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector%27"><span class="hs-identifier hs-type">FargateProfileSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265615"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 labels :: Maybe (HashMap Text Text)
 $sel:labels:FargateProfileSelector' :: FargateProfileSelector -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679265366"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679265366"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265365"><span class="annot"><span class="annottext">s :: FargateProfileSelector
-</span><a href="#local-6989586621679265365"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector%27"><span class="hs-identifier hs-type">FargateProfileSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265364"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679265364"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfileSelector
-</span><a href="#local-6989586621679265365"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labels:FargateProfileSelector' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679265615"><span class="hs-identifier hs-var hs-var">labels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679265615"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265614"><span class="annot"><span class="annottext">s :: FargateProfileSelector
+</span><a href="#local-6989586621679265614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector%27"><span class="hs-identifier hs-type">FargateProfileSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265613"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679265613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfileSelector
+</span><a href="#local-6989586621679265614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labels:FargateProfileSelector' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#%24sel%3Alabels%3AFargateProfileSelector%27"><span class="hs-identifier hs-var">labels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679265364"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679265613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; FargateProfileSelector -&gt; f FargateProfileSelector)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -171,53 +195,39 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | The Kubernetes namespace that the selector should match.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#fargateProfileSelector_namespace"><span class="hs-identifier hs-type">fargateProfileSelector_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="fargateProfileSelector_namespace"><span class="annot"><span class="annottext">fargateProfileSelector_namespace :: (Maybe Text -&gt; f (Maybe Text))
--&gt; FargateProfileSelector -&gt; f FargateProfileSelector
-</span><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#fargateProfileSelector_namespace"><span class="hs-identifier hs-var hs-var">fargateProfileSelector_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FargateProfileSelector -&gt; Maybe Text)
--&gt; (FargateProfileSelector -&gt; Maybe Text -&gt; FargateProfileSelector)
--&gt; Lens
-     FargateProfileSelector
-     FargateProfileSelector
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector%27"><span class="hs-identifier hs-type">FargateProfileSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265359"><span class="annot"><span class="annottext">Maybe Text
-namespace :: Maybe Text
-$sel:namespace:FargateProfileSelector' :: FargateProfileSelector -&gt; Maybe Text
-</span><a href="#local-6989586621679265359"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265359"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265358"><span class="annot"><span class="annottext">s :: FargateProfileSelector
-</span><a href="#local-6989586621679265358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector%27"><span class="hs-identifier hs-type">FargateProfileSelector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265357"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FargateProfileSelector
-</span><a href="#local-6989586621679265358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:FargateProfileSelector' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#%24sel%3Anamespace%3AFargateProfileSelector%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265354"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679265352"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FargateProfileSelector
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265607"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679265605"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FargateProfileSelector
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FargateProfileSelector)
 -&gt; Value
 -&gt; Parser FargateProfileSelector
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FargateProfileSelector&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265349"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265349"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; FargateProfileSelector
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265602"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265602"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; FargateProfileSelector
 </span><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector%27"><span class="hs-identifier hs-var">FargateProfileSelector'</span></a></span><span>
-</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; FargateProfileSelector)
--&gt; Parser (Maybe (HashMap Text Text))
--&gt; Parser (Maybe Text -&gt; FargateProfileSelector)
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; FargateProfileSelector)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe (HashMap Text Text) -&gt; FargateProfileSelector)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265349"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679265602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;namespace&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text) -&gt; FargateProfileSelector)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser FargateProfileSelector
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;labels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -226,49 +236,41 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; FargateProfileSelector)
--&gt; Parser (Maybe Text) -&gt; Parser FargateProfileSelector
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265349"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;namespace&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265342"><span id="local-6989586621679265344"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span></span></span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265339"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span></span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265331"><span id="local-6989586621679265333"><span id="local-6989586621679265335"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679265329"><span class="annot"><span class="annottext">toJSON :: FargateProfileSelector -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector%27"><span class="hs-identifier hs-type">FargateProfileSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265326"><span id="local-6989586621679265327"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265595"><span id="local-6989586621679265597"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265592"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265584"><span id="local-6989586621679265586"><span id="local-6989586621679265588"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector"><span class="hs-identifier hs-type">FargateProfileSelector</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679265582"><span class="annot"><span class="annottext">toJSON :: FargateProfileSelector -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.FargateProfileSelector.html#FargateProfileSelector%27"><span class="hs-identifier hs-type">FargateProfileSelector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265579"><span id="local-6989586621679265580"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text Text)
-namespace :: Maybe Text
 labels :: Maybe (HashMap Text Text)
-$sel:namespace:FargateProfileSelector' :: FargateProfileSelector -&gt; Maybe Text
+namespace :: Maybe Text
 $sel:labels:FargateProfileSelector' :: FargateProfileSelector -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679265326"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:namespace:FargateProfileSelector' :: FargateProfileSelector -&gt; Maybe Text
+</span><a href="#local-6989586621679265579"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-88"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-89"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265580"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;labels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679265327"><span class="hs-identifier hs-var">labels</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265326"><span class="hs-identifier hs-var">namespace</span></a></span><span>
-</span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span></pre></body></html>
+</span><a href="#local-6989586621679265579"><span class="hs-identifier hs-var">labels</span></a></span><span>
+</span><span id="line-91"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span></pre></body></html>

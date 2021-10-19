@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html"><span class="hs-identifier">Network.AWS.Route53.Internal</span></a></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span id="local-6989586621679294453"><span id="local-6989586621679294454"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HealthCheckType"><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType"><span class="hs-identifier hs-var">HealthCheckType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthCheckType%27"><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType%27"><span class="hs-identifier hs-var">HealthCheckType'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679294600"><span id="local-6989586621679294601"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HealthCheckType"><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType"><span class="hs-identifier hs-var">HealthCheckType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthCheckType%27"><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckType.html#HealthCheckType%27"><span class="hs-identifier hs-var">HealthCheckType'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHealthCheckType"><span class="annot"><span class="annottext">HealthCheckType -&gt; Text
 </span><a href="Network.AWS.Route53.Types.HealthCheckType.html#fromHealthCheckType"><span class="hs-identifier hs-var hs-var">fromHealthCheckType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294445"><span id="local-6989586621679294447"><span id="local-6989586621679294449"><span class="annot"><span class="annottext">Int -&gt; HealthCheckType -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294592"><span id="local-6989586621679294594"><span id="local-6989586621679294596"><span class="annot"><span class="annottext">Int -&gt; HealthCheckType -&gt; ShowS
 [HealthCheckType] -&gt; ShowS
 HealthCheckType -&gt; String
 (Int -&gt; HealthCheckType -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: HealthCheckType -&gt; String
 showsPrec :: Int -&gt; HealthCheckType -&gt; ShowS
 $cshowsPrec :: Int -&gt; HealthCheckType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679294436"><span id="local-6989586621679294438"><span id="local-6989586621679294440"><span id="local-6989586621679294442"><span class="annot"><span class="annottext">ReadPrec [HealthCheckType]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679294583"><span id="local-6989586621679294585"><span id="local-6989586621679294587"><span id="local-6989586621679294589"><span class="annot"><span class="annottext">ReadPrec [HealthCheckType]
 ReadPrec HealthCheckType
 Int -&gt; ReadS HealthCheckType
 ReadS [HealthCheckType]
@@ -79,7 +79,7 @@ $creadList :: ReadS [HealthCheckType]
 readsPrec :: Int -&gt; ReadS HealthCheckType
 $creadsPrec :: Int -&gt; ReadS HealthCheckType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679294431"><span id="local-6989586621679294433"><span class="annot"><span class="annottext">HealthCheckType -&gt; HealthCheckType -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679294578"><span id="local-6989586621679294580"><span class="annot"><span class="annottext">HealthCheckType -&gt; HealthCheckType -&gt; Bool
 (HealthCheckType -&gt; HealthCheckType -&gt; Bool)
 -&gt; (HealthCheckType -&gt; HealthCheckType -&gt; Bool)
 -&gt; Eq HealthCheckType
@@ -89,7 +89,7 @@ $c/= :: HealthCheckType -&gt; HealthCheckType -&gt; Bool
 == :: HealthCheckType -&gt; HealthCheckType -&gt; Bool
 $c== :: HealthCheckType -&gt; HealthCheckType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679294415"><span id="local-6989586621679294417"><span id="local-6989586621679294419"><span id="local-6989586621679294421"><span id="local-6989586621679294423"><span id="local-6989586621679294425"><span id="local-6989586621679294427"><span class="annot"><span class="annottext">Eq HealthCheckType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679294562"><span id="local-6989586621679294564"><span id="local-6989586621679294566"><span id="local-6989586621679294568"><span id="local-6989586621679294570"><span id="local-6989586621679294572"><span id="local-6989586621679294574"><span class="annot"><span class="annottext">Eq HealthCheckType
 Eq HealthCheckType
 -&gt; (HealthCheckType -&gt; HealthCheckType -&gt; Ordering)
 -&gt; (HealthCheckType -&gt; HealthCheckType -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. HealthCheckType -&gt; Rep HealthCheckType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294407"><span id="local-6989586621679294409"><span class="annot"><span class="annottext">Int -&gt; HealthCheckType -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679294554"><span id="local-6989586621679294556"><span class="annot"><span class="annottext">Int -&gt; HealthCheckType -&gt; Int
 HealthCheckType -&gt; Int
 (Int -&gt; HealthCheckType -&gt; Int)
 -&gt; (HealthCheckType -&gt; Int) -&gt; Hashable HealthCheckType
@@ -150,50 +150,50 @@ $chash :: HealthCheckType -&gt; Int
 hashWithSalt :: Int -&gt; HealthCheckType -&gt; Int
 $chashWithSalt :: Int -&gt; HealthCheckType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679294404"><span class="annot"><span class="annottext">HealthCheckType -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679294551"><span class="annot"><span class="annottext">HealthCheckType -&gt; ()
 (HealthCheckType -&gt; ()) -&gt; NFData HealthCheckType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HealthCheckType -&gt; ()
 $crnf :: HealthCheckType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679294401"><span class="annot"><span class="annottext">Text -&gt; Either String HealthCheckType
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679294548"><span class="annot"><span class="annottext">Text -&gt; Either String HealthCheckType
 (Text -&gt; Either String HealthCheckType) -&gt; FromText HealthCheckType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HealthCheckType
 $cfromText :: Text -&gt; Either String HealthCheckType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679294398"><span class="annot"><span class="annottext">HealthCheckType -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679294545"><span class="annot"><span class="annottext">HealthCheckType -&gt; Text
 (HealthCheckType -&gt; Text) -&gt; ToText HealthCheckType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HealthCheckType -&gt; Text
 $ctoText :: HealthCheckType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679294395"><span class="annot"><span class="annottext">HealthCheckType -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679294542"><span class="annot"><span class="annottext">HealthCheckType -&gt; ByteString
 (HealthCheckType -&gt; ByteString) -&gt; ToByteString HealthCheckType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HealthCheckType -&gt; ByteString
 $ctoBS :: HealthCheckType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679294392"><span class="annot"><span class="annottext">HealthCheckType -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679294539"><span class="annot"><span class="annottext">HealthCheckType -&gt; ByteStringBuilder
 (HealthCheckType -&gt; ByteStringBuilder) -&gt; ToLog HealthCheckType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HealthCheckType -&gt; ByteStringBuilder
 $cbuild :: HealthCheckType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679294389"><span class="annot"><span class="annottext">HeaderName -&gt; HealthCheckType -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679294536"><span class="annot"><span class="annottext">HeaderName -&gt; HealthCheckType -&gt; [Header]
 (HeaderName -&gt; HealthCheckType -&gt; [Header])
 -&gt; ToHeader HealthCheckType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HealthCheckType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HealthCheckType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679294386"><span class="annot"><span class="annottext">HealthCheckType -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679294533"><span class="annot"><span class="annottext">HealthCheckType -&gt; QueryString
 (HealthCheckType -&gt; QueryString) -&gt; ToQuery HealthCheckType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HealthCheckType -&gt; QueryString
 $ctoQuery :: HealthCheckType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679294381"><span id="local-6989586621679294383"><span class="annot"><span class="annottext">Value -&gt; Parser [HealthCheckType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679294528"><span id="local-6989586621679294530"><span class="annot"><span class="annottext">Value -&gt; Parser [HealthCheckType]
 Value -&gt; Parser HealthCheckType
 (Value -&gt; Parser HealthCheckType)
 -&gt; (Value -&gt; Parser [HealthCheckType]) -&gt; FromJSON HealthCheckType
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [HealthCheckType]
 parseJSON :: Value -&gt; Parser HealthCheckType
 $cparseJSON :: Value -&gt; Parser HealthCheckType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679294376"><span id="local-6989586621679294378"><span class="annot"><span class="annottext">FromJSONKeyFunction [HealthCheckType]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679294523"><span id="local-6989586621679294525"><span class="annot"><span class="annottext">FromJSONKeyFunction [HealthCheckType]
 FromJSONKeyFunction HealthCheckType
 FromJSONKeyFunction HealthCheckType
 -&gt; FromJSONKeyFunction [HealthCheckType]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HealthCheckType]
 fromJSONKey :: FromJSONKeyFunction HealthCheckType
 $cfromJSONKey :: FromJSONKeyFunction HealthCheckType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679294367"><span id="local-6989586621679294369"><span id="local-6989586621679294371"><span id="local-6989586621679294373"><span class="annot"><span class="annottext">[HealthCheckType] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679294514"><span id="local-6989586621679294516"><span id="local-6989586621679294518"><span id="local-6989586621679294520"><span class="annot"><span class="annottext">[HealthCheckType] -&gt; Encoding
 [HealthCheckType] -&gt; Value
 HealthCheckType -&gt; Encoding
 HealthCheckType -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: HealthCheckType -&gt; Encoding
 toJSON :: HealthCheckType -&gt; Value
 $ctoJSON :: HealthCheckType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679294362"><span id="local-6989586621679294364"><span class="annot"><span class="annottext">ToJSONKeyFunction [HealthCheckType]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679294509"><span id="local-6989586621679294511"><span class="annot"><span class="annottext">ToJSONKeyFunction [HealthCheckType]
 ToJSONKeyFunction HealthCheckType
 ToJSONKeyFunction HealthCheckType
 -&gt; ToJSONKeyFunction [HealthCheckType] -&gt; ToJSONKey HealthCheckType
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HealthCheckType]
 toJSONKey :: ToJSONKeyFunction HealthCheckType
 $ctoJSONKey :: ToJSONKeyFunction HealthCheckType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679294359"><span class="annot"><span class="annottext">[Node] -&gt; Either String HealthCheckType
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679294506"><span class="annot"><span class="annottext">[Node] -&gt; Either String HealthCheckType
 ([Node] -&gt; Either String HealthCheckType)
 -&gt; FromXML HealthCheckType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HealthCheckType
 $cparseXML :: [Node] -&gt; Either String HealthCheckType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679294356"><span class="annot"><span class="annottext">HealthCheckType -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679294503"><span class="annot"><span class="annottext">HealthCheckType -&gt; XML
 (HealthCheckType -&gt; XML) -&gt; ToXML HealthCheckType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HealthCheckType -&gt; XML

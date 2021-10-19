@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-cloud9ZSamazonka-cloud9
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.Cloud9.Types.ConnectionType
@@ -84,13 +84,13 @@ EnvironmentLifecycle' :: Maybe EnvironmentLifecycleStatus -> Maybe Text -> Maybe
 --   </ul>
 [$sel:status:EnvironmentLifecycle'] :: EnvironmentLifecycle -> Maybe EnvironmentLifecycleStatus
 
--- | Any informational message about the lifecycle state of the
---   environment.
-[$sel:reason:EnvironmentLifecycle'] :: EnvironmentLifecycle -> Maybe Text
-
 -- | If the environment failed to delete, the Amazon Resource Name (ARN) of
 --   the related Amazon Web Services resource.
 [$sel:failureResource:EnvironmentLifecycle'] :: EnvironmentLifecycle -> Maybe Text
+
+-- | Any informational message about the lifecycle state of the
+--   environment.
+[$sel:reason:EnvironmentLifecycle'] :: EnvironmentLifecycle -> Maybe Text
 
 -- | Create a value of <a>EnvironmentLifecycle</a> with all optional fields
 --   omitted.
@@ -115,14 +115,14 @@ EnvironmentLifecycle' :: Maybe EnvironmentLifecycleStatus -> Maybe Text -> Maybe
 --   <li><tt>DELETE_FAILED</tt>: The environment failed to delete.</li>
 --   </ul>
 --   
---   <a>$sel:reason:EnvironmentLifecycle'</a>,
---   <a>environmentLifecycle_reason</a> - Any informational message about
---   the lifecycle state of the environment.
---   
 --   <a>$sel:failureResource:EnvironmentLifecycle'</a>,
 --   <a>environmentLifecycle_failureResource</a> - If the environment
 --   failed to delete, the Amazon Resource Name (ARN) of the related Amazon
 --   Web Services resource.
+--   
+--   <a>$sel:reason:EnvironmentLifecycle'</a>,
+--   <a>environmentLifecycle_reason</a> - Any informational message about
+--   the lifecycle state of the environment.
 newEnvironmentLifecycle :: EnvironmentLifecycle
 
 -- | The current creation or deletion lifecycle state of the environment.
@@ -138,13 +138,13 @@ newEnvironmentLifecycle :: EnvironmentLifecycle
 --   </ul>
 environmentLifecycle_status :: Lens' EnvironmentLifecycle (Maybe EnvironmentLifecycleStatus)
 
--- | Any informational message about the lifecycle state of the
---   environment.
-environmentLifecycle_reason :: Lens' EnvironmentLifecycle (Maybe Text)
-
 -- | If the environment failed to delete, the Amazon Resource Name (ARN) of
 --   the related Amazon Web Services resource.
 environmentLifecycle_failureResource :: Lens' EnvironmentLifecycle (Maybe Text)
+
+-- | Any informational message about the lifecycle state of the
+--   environment.
+environmentLifecycle_reason :: Lens' EnvironmentLifecycle (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.Cloud9.Types.EnvironmentLifecycle.EnvironmentLifecycle
 instance GHC.Show.Show Network.AWS.Cloud9.Types.EnvironmentLifecycle.EnvironmentLifecycle
 instance GHC.Read.Read Network.AWS.Cloud9.Types.EnvironmentLifecycle.EnvironmentLifecycle
@@ -282,20 +282,23 @@ module Network.AWS.Cloud9.Types.Environment
 --   
 --   <i>See:</i> <a>newEnvironment</a> smart constructor.
 data Environment
-Environment' :: Maybe EnvironmentLifecycle -> Maybe ConnectionType -> Maybe Text -> Maybe Text -> Maybe ManagedCredentialsStatus -> Maybe (Sensitive Text) -> EnvironmentType -> Text -> Text -> Environment
+Environment' :: Maybe EnvironmentLifecycle -> Maybe Text -> Maybe Text -> Maybe ConnectionType -> Maybe (Sensitive Text) -> Maybe ManagedCredentialsStatus -> EnvironmentType -> Text -> Text -> Environment
 
 -- | The state of the environment in its creation or deletion lifecycle.
 [$sel:lifecycle:Environment'] :: Environment -> Maybe EnvironmentLifecycle
+
+-- | The name of the environment.
+[$sel:name:Environment'] :: Environment -> Maybe Text
+
+-- | The ID of the environment.
+[$sel:id:Environment'] :: Environment -> Maybe Text
 
 -- | The connection type used for connecting to an Amazon EC2 environment.
 --   <tt>CONNECT_SSH</tt> is selected by default.
 [$sel:connectionType:Environment'] :: Environment -> Maybe ConnectionType
 
--- | The ID of the environment.
-[$sel:id:Environment'] :: Environment -> Maybe Text
-
--- | The name of the environment.
-[$sel:name:Environment'] :: Environment -> Maybe Text
+-- | The description for the environment.
+[$sel:description:Environment'] :: Environment -> Maybe (Sensitive Text)
 
 -- | Describes the status of Amazon Web Services managed temporary
 --   credentials for the Cloud9 environment. Available values are:
@@ -313,9 +316,6 @@ Environment' :: Maybe EnvironmentLifecycle -> Maybe ConnectionType -> Maybe Text
 --   <li><pre>DISABLED_BY_DEFAULT</pre></li>
 --   </ul>
 [$sel:managedCredentialsStatus:Environment'] :: Environment -> Maybe ManagedCredentialsStatus
-
--- | The description for the environment.
-[$sel:description:Environment'] :: Environment -> Maybe (Sensitive Text)
 
 -- | The type of environment. Valid values include the following:
 --   
@@ -343,16 +343,19 @@ Environment' :: Maybe EnvironmentLifecycle -> Maybe ConnectionType -> Maybe Text
 --   <a>$sel:lifecycle:Environment'</a>, <a>environment_lifecycle</a> - The
 --   state of the environment in its creation or deletion lifecycle.
 --   
+--   <a>$sel:name:Environment'</a>, <a>environment_name</a> - The name of
+--   the environment.
+--   
+--   <a>$sel:id:Environment'</a>, <a>environment_id</a> - The ID of the
+--   environment.
+--   
 --   <a>$sel:connectionType:Environment'</a>,
 --   <a>environment_connectionType</a> - The connection type used for
 --   connecting to an Amazon EC2 environment. <tt>CONNECT_SSH</tt> is
 --   selected by default.
 --   
---   <a>$sel:id:Environment'</a>, <a>environment_id</a> - The ID of the
---   environment.
---   
---   <a>$sel:name:Environment'</a>, <a>environment_name</a> - The name of
---   the environment.
+--   <a>$sel:description:Environment'</a>, <a>environment_description</a> -
+--   The description for the environment.
 --   
 --   <a>$sel:managedCredentialsStatus:Environment'</a>,
 --   <a>environment_managedCredentialsStatus</a> - Describes the status of
@@ -371,9 +374,6 @@ Environment' :: Maybe EnvironmentLifecycle -> Maybe ConnectionType -> Maybe Text
 --   <li><pre>ENABLED_BY_OWNER</pre></li>
 --   <li><pre>DISABLED_BY_DEFAULT</pre></li>
 --   </ul>
---   
---   <a>$sel:description:Environment'</a>, <a>environment_description</a> -
---   The description for the environment.
 --   
 --   <a>$sel:type':Environment'</a>, <a>environment_type</a> - The type of
 --   environment. Valid values include the following:
@@ -394,15 +394,18 @@ newEnvironment :: EnvironmentType -> Text -> Text -> Environment
 -- | The state of the environment in its creation or deletion lifecycle.
 environment_lifecycle :: Lens' Environment (Maybe EnvironmentLifecycle)
 
--- | The connection type used for connecting to an Amazon EC2 environment.
---   <tt>CONNECT_SSH</tt> is selected by default.
-environment_connectionType :: Lens' Environment (Maybe ConnectionType)
+-- | The name of the environment.
+environment_name :: Lens' Environment (Maybe Text)
 
 -- | The ID of the environment.
 environment_id :: Lens' Environment (Maybe Text)
 
--- | The name of the environment.
-environment_name :: Lens' Environment (Maybe Text)
+-- | The connection type used for connecting to an Amazon EC2 environment.
+--   <tt>CONNECT_SSH</tt> is selected by default.
+environment_connectionType :: Lens' Environment (Maybe ConnectionType)
+
+-- | The description for the environment.
+environment_description :: Lens' Environment (Maybe Text)
 
 -- | Describes the status of Amazon Web Services managed temporary
 --   credentials for the Cloud9 environment. Available values are:
@@ -420,9 +423,6 @@ environment_name :: Lens' Environment (Maybe Text)
 --   <li><pre>DISABLED_BY_DEFAULT</pre></li>
 --   </ul>
 environment_managedCredentialsStatus :: Lens' Environment (Maybe ManagedCredentialsStatus)
-
--- | The description for the environment.
-environment_description :: Lens' Environment (Maybe Text)
 
 -- | The type of environment. Valid values include the following:
 --   
@@ -660,29 +660,29 @@ module Network.AWS.Cloud9.Types
 --   configuration.
 defaultService :: Service
 
--- | The target resource cannot be found.
-_NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The target request is invalid.
-_BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | A concurrent access issue occurred.
-_ConcurrentAccessException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | An internal server error occurred.
-_InternalServerErrorException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | A conflict occurred.
+_ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | An access permissions issue occurred.
 _ForbiddenException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | A conflict occurred.
-_ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | A service limit was exceeded.
-_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The target resource cannot be found.
+_NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Too many service requests were made over the given time period.
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | An internal server error occurred.
+_InternalServerErrorException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | A concurrent access issue occurred.
+_ConcurrentAccessException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The target request is invalid.
+_BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | A service limit was exceeded.
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 newtype ConnectionType
 ConnectionType' :: Text -> ConnectionType
 [fromConnectionType] :: ConnectionType -> Text
@@ -746,20 +746,23 @@ pattern Permissions_Read_write :: Permissions
 --   
 --   <i>See:</i> <a>newEnvironment</a> smart constructor.
 data Environment
-Environment' :: Maybe EnvironmentLifecycle -> Maybe ConnectionType -> Maybe Text -> Maybe Text -> Maybe ManagedCredentialsStatus -> Maybe (Sensitive Text) -> EnvironmentType -> Text -> Text -> Environment
+Environment' :: Maybe EnvironmentLifecycle -> Maybe Text -> Maybe Text -> Maybe ConnectionType -> Maybe (Sensitive Text) -> Maybe ManagedCredentialsStatus -> EnvironmentType -> Text -> Text -> Environment
 
 -- | The state of the environment in its creation or deletion lifecycle.
 [$sel:lifecycle:Environment'] :: Environment -> Maybe EnvironmentLifecycle
+
+-- | The name of the environment.
+[$sel:name:Environment'] :: Environment -> Maybe Text
+
+-- | The ID of the environment.
+[$sel:id:Environment'] :: Environment -> Maybe Text
 
 -- | The connection type used for connecting to an Amazon EC2 environment.
 --   <tt>CONNECT_SSH</tt> is selected by default.
 [$sel:connectionType:Environment'] :: Environment -> Maybe ConnectionType
 
--- | The ID of the environment.
-[$sel:id:Environment'] :: Environment -> Maybe Text
-
--- | The name of the environment.
-[$sel:name:Environment'] :: Environment -> Maybe Text
+-- | The description for the environment.
+[$sel:description:Environment'] :: Environment -> Maybe (Sensitive Text)
 
 -- | Describes the status of Amazon Web Services managed temporary
 --   credentials for the Cloud9 environment. Available values are:
@@ -777,9 +780,6 @@ Environment' :: Maybe EnvironmentLifecycle -> Maybe ConnectionType -> Maybe Text
 --   <li><pre>DISABLED_BY_DEFAULT</pre></li>
 --   </ul>
 [$sel:managedCredentialsStatus:Environment'] :: Environment -> Maybe ManagedCredentialsStatus
-
--- | The description for the environment.
-[$sel:description:Environment'] :: Environment -> Maybe (Sensitive Text)
 
 -- | The type of environment. Valid values include the following:
 --   
@@ -807,16 +807,19 @@ Environment' :: Maybe EnvironmentLifecycle -> Maybe ConnectionType -> Maybe Text
 --   <a>$sel:lifecycle:Environment'</a>, <a>environment_lifecycle</a> - The
 --   state of the environment in its creation or deletion lifecycle.
 --   
+--   <a>$sel:name:Environment'</a>, <a>environment_name</a> - The name of
+--   the environment.
+--   
+--   <a>$sel:id:Environment'</a>, <a>environment_id</a> - The ID of the
+--   environment.
+--   
 --   <a>$sel:connectionType:Environment'</a>,
 --   <a>environment_connectionType</a> - The connection type used for
 --   connecting to an Amazon EC2 environment. <tt>CONNECT_SSH</tt> is
 --   selected by default.
 --   
---   <a>$sel:id:Environment'</a>, <a>environment_id</a> - The ID of the
---   environment.
---   
---   <a>$sel:name:Environment'</a>, <a>environment_name</a> - The name of
---   the environment.
+--   <a>$sel:description:Environment'</a>, <a>environment_description</a> -
+--   The description for the environment.
 --   
 --   <a>$sel:managedCredentialsStatus:Environment'</a>,
 --   <a>environment_managedCredentialsStatus</a> - Describes the status of
@@ -835,9 +838,6 @@ Environment' :: Maybe EnvironmentLifecycle -> Maybe ConnectionType -> Maybe Text
 --   <li><pre>ENABLED_BY_OWNER</pre></li>
 --   <li><pre>DISABLED_BY_DEFAULT</pre></li>
 --   </ul>
---   
---   <a>$sel:description:Environment'</a>, <a>environment_description</a> -
---   The description for the environment.
 --   
 --   <a>$sel:type':Environment'</a>, <a>environment_type</a> - The type of
 --   environment. Valid values include the following:
@@ -858,15 +858,18 @@ newEnvironment :: EnvironmentType -> Text -> Text -> Environment
 -- | The state of the environment in its creation or deletion lifecycle.
 environment_lifecycle :: Lens' Environment (Maybe EnvironmentLifecycle)
 
--- | The connection type used for connecting to an Amazon EC2 environment.
---   <tt>CONNECT_SSH</tt> is selected by default.
-environment_connectionType :: Lens' Environment (Maybe ConnectionType)
+-- | The name of the environment.
+environment_name :: Lens' Environment (Maybe Text)
 
 -- | The ID of the environment.
 environment_id :: Lens' Environment (Maybe Text)
 
--- | The name of the environment.
-environment_name :: Lens' Environment (Maybe Text)
+-- | The connection type used for connecting to an Amazon EC2 environment.
+--   <tt>CONNECT_SSH</tt> is selected by default.
+environment_connectionType :: Lens' Environment (Maybe ConnectionType)
+
+-- | The description for the environment.
+environment_description :: Lens' Environment (Maybe Text)
 
 -- | Describes the status of Amazon Web Services managed temporary
 --   credentials for the Cloud9 environment. Available values are:
@@ -884,9 +887,6 @@ environment_name :: Lens' Environment (Maybe Text)
 --   <li><pre>DISABLED_BY_DEFAULT</pre></li>
 --   </ul>
 environment_managedCredentialsStatus :: Lens' Environment (Maybe ManagedCredentialsStatus)
-
--- | The description for the environment.
-environment_description :: Lens' Environment (Maybe Text)
 
 -- | The type of environment. Valid values include the following:
 --   
@@ -923,13 +923,13 @@ EnvironmentLifecycle' :: Maybe EnvironmentLifecycleStatus -> Maybe Text -> Maybe
 --   </ul>
 [$sel:status:EnvironmentLifecycle'] :: EnvironmentLifecycle -> Maybe EnvironmentLifecycleStatus
 
--- | Any informational message about the lifecycle state of the
---   environment.
-[$sel:reason:EnvironmentLifecycle'] :: EnvironmentLifecycle -> Maybe Text
-
 -- | If the environment failed to delete, the Amazon Resource Name (ARN) of
 --   the related Amazon Web Services resource.
 [$sel:failureResource:EnvironmentLifecycle'] :: EnvironmentLifecycle -> Maybe Text
+
+-- | Any informational message about the lifecycle state of the
+--   environment.
+[$sel:reason:EnvironmentLifecycle'] :: EnvironmentLifecycle -> Maybe Text
 
 -- | Create a value of <a>EnvironmentLifecycle</a> with all optional fields
 --   omitted.
@@ -954,14 +954,14 @@ EnvironmentLifecycle' :: Maybe EnvironmentLifecycleStatus -> Maybe Text -> Maybe
 --   <li><tt>DELETE_FAILED</tt>: The environment failed to delete.</li>
 --   </ul>
 --   
---   <a>$sel:reason:EnvironmentLifecycle'</a>,
---   <a>environmentLifecycle_reason</a> - Any informational message about
---   the lifecycle state of the environment.
---   
 --   <a>$sel:failureResource:EnvironmentLifecycle'</a>,
 --   <a>environmentLifecycle_failureResource</a> - If the environment
 --   failed to delete, the Amazon Resource Name (ARN) of the related Amazon
 --   Web Services resource.
+--   
+--   <a>$sel:reason:EnvironmentLifecycle'</a>,
+--   <a>environmentLifecycle_reason</a> - Any informational message about
+--   the lifecycle state of the environment.
 newEnvironmentLifecycle :: EnvironmentLifecycle
 
 -- | The current creation or deletion lifecycle state of the environment.
@@ -977,13 +977,13 @@ newEnvironmentLifecycle :: EnvironmentLifecycle
 --   </ul>
 environmentLifecycle_status :: Lens' EnvironmentLifecycle (Maybe EnvironmentLifecycleStatus)
 
--- | Any informational message about the lifecycle state of the
---   environment.
-environmentLifecycle_reason :: Lens' EnvironmentLifecycle (Maybe Text)
-
 -- | If the environment failed to delete, the Amazon Resource Name (ARN) of
 --   the related Amazon Web Services resource.
 environmentLifecycle_failureResource :: Lens' EnvironmentLifecycle (Maybe Text)
+
+-- | Any informational message about the lifecycle state of the
+--   environment.
+environmentLifecycle_reason :: Lens' EnvironmentLifecycle (Maybe Text)
 
 -- | Information about an environment member for an Cloud9 development
 --   environment.
@@ -1337,16 +1337,16 @@ listEnvironments_maxResults :: Lens' ListEnvironments (Maybe Natural)
 
 -- | <i>See:</i> <a>newListEnvironmentsResponse</a> smart constructor.
 data ListEnvironmentsResponse
-ListEnvironmentsResponse' :: Maybe Text -> Maybe [Text] -> Int -> ListEnvironmentsResponse
+ListEnvironmentsResponse' :: Maybe [Text] -> Maybe Text -> Int -> ListEnvironmentsResponse
+
+-- | The list of environment identifiers.
+[$sel:environmentIds:ListEnvironmentsResponse'] :: ListEnvironmentsResponse -> Maybe [Text]
 
 -- | If there are more than 25 items in the list, only the first 25 items
 --   are returned, along with a unique string called a <i>next token</i>.
 --   To get the next batch of items in the list, call this operation again,
 --   adding the next token to the call.
 [$sel:nextToken:ListEnvironmentsResponse'] :: ListEnvironmentsResponse -> Maybe Text
-
--- | The list of environment identifiers.
-[$sel:environmentIds:ListEnvironmentsResponse'] :: ListEnvironmentsResponse -> Maybe [Text]
 
 -- | The response's http status code.
 [$sel:httpStatus:ListEnvironmentsResponse'] :: ListEnvironmentsResponse -> Int
@@ -1360,6 +1360,10 @@ ListEnvironmentsResponse' :: Maybe Text -> Maybe [Text] -> Int -> ListEnvironmen
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:environmentIds:ListEnvironmentsResponse'</a>,
+--   <a>listEnvironmentsResponse_environmentIds</a> - The list of
+--   environment identifiers.
+--   
 --   <a>$sel:nextToken:ListEnvironments'</a>,
 --   <a>listEnvironmentsResponse_nextToken</a> - If there are more than 25
 --   items in the list, only the first 25 items are returned, along with a
@@ -1367,23 +1371,19 @@ ListEnvironmentsResponse' :: Maybe Text -> Maybe [Text] -> Int -> ListEnvironmen
 --   items in the list, call this operation again, adding the next token to
 --   the call.
 --   
---   <a>$sel:environmentIds:ListEnvironmentsResponse'</a>,
---   <a>listEnvironmentsResponse_environmentIds</a> - The list of
---   environment identifiers.
---   
 --   <a>$sel:httpStatus:ListEnvironmentsResponse'</a>,
 --   <a>listEnvironmentsResponse_httpStatus</a> - The response's http
 --   status code.
 newListEnvironmentsResponse :: Int -> ListEnvironmentsResponse
+
+-- | The list of environment identifiers.
+listEnvironmentsResponse_environmentIds :: Lens' ListEnvironmentsResponse (Maybe [Text])
 
 -- | If there are more than 25 items in the list, only the first 25 items
 --   are returned, along with a unique string called a <i>next token</i>.
 --   To get the next batch of items in the list, call this operation again,
 --   adding the next token to the call.
 listEnvironmentsResponse_nextToken :: Lens' ListEnvironmentsResponse (Maybe Text)
-
--- | The list of environment identifiers.
-listEnvironmentsResponse_environmentIds :: Lens' ListEnvironmentsResponse (Maybe [Text])
 
 -- | The response's http status code.
 listEnvironmentsResponse_httpStatus :: Lens' ListEnvironmentsResponse Int
@@ -1611,7 +1611,7 @@ module Network.AWS.Cloud9.DescribeEnvironmentMemberships
 -- | <i>See:</i> <a>newDescribeEnvironmentMemberships</a> smart
 --   constructor.
 data DescribeEnvironmentMemberships
-DescribeEnvironmentMemberships' :: Maybe Text -> Maybe Text -> Maybe Natural -> Maybe Text -> Maybe [Permissions] -> DescribeEnvironmentMemberships
+DescribeEnvironmentMemberships' :: Maybe Text -> Maybe Text -> Maybe [Permissions] -> Maybe Text -> Maybe Natural -> DescribeEnvironmentMemberships
 
 -- | The Amazon Resource Name (ARN) of an individual environment member to
 --   get information about. If no value is specified, information about all
@@ -1627,12 +1627,6 @@ DescribeEnvironmentMemberships' :: Maybe Text -> Maybe Text -> Maybe Natural -> 
 --   are returned.
 [$sel:nextToken:DescribeEnvironmentMemberships'] :: DescribeEnvironmentMemberships -> Maybe Text
 
--- | The maximum number of environment members to get information about.
-[$sel:maxResults:DescribeEnvironmentMemberships'] :: DescribeEnvironmentMemberships -> Maybe Natural
-
--- | The ID of the environment to get environment member information about.
-[$sel:environmentId:DescribeEnvironmentMemberships'] :: DescribeEnvironmentMemberships -> Maybe Text
-
 -- | The type of environment member permissions to get information about.
 --   Available values include:
 --   
@@ -1646,6 +1640,12 @@ DescribeEnvironmentMemberships' :: Maybe Text -> Maybe Text -> Maybe Natural -> 
 --   If no value is specified, information about all environment members
 --   are returned.
 [$sel:permissions:DescribeEnvironmentMemberships'] :: DescribeEnvironmentMemberships -> Maybe [Permissions]
+
+-- | The ID of the environment to get environment member information about.
+[$sel:environmentId:DescribeEnvironmentMemberships'] :: DescribeEnvironmentMemberships -> Maybe Text
+
+-- | The maximum number of environment members to get information about.
+[$sel:maxResults:DescribeEnvironmentMemberships'] :: DescribeEnvironmentMemberships -> Maybe Natural
 
 -- | Create a value of <a>DescribeEnvironmentMemberships</a> with all
 --   optional fields omitted.
@@ -1671,14 +1671,6 @@ DescribeEnvironmentMemberships' :: Maybe Text -> Maybe Text -> Maybe Natural -> 
 --   items in the list, keep calling this operation with each subsequent
 --   next token that is returned, until no more next tokens are returned.
 --   
---   <a>$sel:maxResults:DescribeEnvironmentMemberships'</a>,
---   <a>describeEnvironmentMemberships_maxResults</a> - The maximum number
---   of environment members to get information about.
---   
---   <a>$sel:environmentId:DescribeEnvironmentMemberships'</a>,
---   <a>describeEnvironmentMemberships_environmentId</a> - The ID of the
---   environment to get environment member information about.
---   
 --   <a>$sel:permissions:DescribeEnvironmentMemberships'</a>,
 --   <a>describeEnvironmentMemberships_permissions</a> - The type of
 --   environment member permissions to get information about. Available
@@ -1693,6 +1685,14 @@ DescribeEnvironmentMemberships' :: Maybe Text -> Maybe Text -> Maybe Natural -> 
 --   
 --   If no value is specified, information about all environment members
 --   are returned.
+--   
+--   <a>$sel:environmentId:DescribeEnvironmentMemberships'</a>,
+--   <a>describeEnvironmentMemberships_environmentId</a> - The ID of the
+--   environment to get environment member information about.
+--   
+--   <a>$sel:maxResults:DescribeEnvironmentMemberships'</a>,
+--   <a>describeEnvironmentMemberships_maxResults</a> - The maximum number
+--   of environment members to get information about.
 newDescribeEnvironmentMemberships :: DescribeEnvironmentMemberships
 
 -- | The Amazon Resource Name (ARN) of an individual environment member to
@@ -1709,12 +1709,6 @@ describeEnvironmentMemberships_userArn :: Lens' DescribeEnvironmentMemberships (
 --   are returned.
 describeEnvironmentMemberships_nextToken :: Lens' DescribeEnvironmentMemberships (Maybe Text)
 
--- | The maximum number of environment members to get information about.
-describeEnvironmentMemberships_maxResults :: Lens' DescribeEnvironmentMemberships (Maybe Natural)
-
--- | The ID of the environment to get environment member information about.
-describeEnvironmentMemberships_environmentId :: Lens' DescribeEnvironmentMemberships (Maybe Text)
-
 -- | The type of environment member permissions to get information about.
 --   Available values include:
 --   
@@ -1728,6 +1722,12 @@ describeEnvironmentMemberships_environmentId :: Lens' DescribeEnvironmentMembers
 --   If no value is specified, information about all environment members
 --   are returned.
 describeEnvironmentMemberships_permissions :: Lens' DescribeEnvironmentMemberships (Maybe [Permissions])
+
+-- | The ID of the environment to get environment member information about.
+describeEnvironmentMemberships_environmentId :: Lens' DescribeEnvironmentMemberships (Maybe Text)
+
+-- | The maximum number of environment members to get information about.
+describeEnvironmentMemberships_maxResults :: Lens' DescribeEnvironmentMemberships (Maybe Natural)
 
 -- | <i>See:</i> <a>newDescribeEnvironmentMembershipsResponse</a> smart
 --   constructor.
@@ -2082,22 +2082,20 @@ module Network.AWS.Cloud9.CreateEnvironmentEC
 
 -- | <i>See:</i> <a>newCreateEnvironmentEC</a> smart constructor.
 data CreateEnvironmentEC
-CreateEnvironmentEC' :: Maybe Bool -> Maybe ConnectionType -> Maybe Text -> Maybe Text -> Maybe (Sensitive [Sensitive Tag]) -> Maybe Text -> Maybe (Sensitive Text) -> Maybe Text -> Maybe Int -> Text -> Text -> CreateEnvironmentEC
+CreateEnvironmentEC' :: Maybe Int -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe ConnectionType -> Maybe (Sensitive Text) -> Maybe Bool -> Maybe (Sensitive [Sensitive Tag]) -> Text -> Text -> CreateEnvironmentEC
 
--- | Checks whether you have the required permissions for the action,
---   without actually making the request, and provides an error response.
---   If you have the required permissions, the error response is
---   <tt>DryRunOperation</tt>. Otherwise, it is
---   <tt>UnauthorizedOperation</tt>.
-[$sel:dryRun:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe Bool
+-- | The number of minutes until the running instance is shut down after
+--   the environment has last been used.
+[$sel:automaticStopTimeMinutes:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe Int
 
--- | The connection type used for connecting to an Amazon EC2 environment.
---   Valid values are <tt>CONNECT_SSH</tt> (default) and
---   <tt>CONNECT_SSM</tt> (connected through Amazon EC2 Systems Manager).
---   
---   For more information, see <a>Accessing no-ingress EC2 instances with
---   Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.
-[$sel:connectionType:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe ConnectionType
+-- | The ID of the subnet in Amazon VPC that Cloud9 will use to communicate
+--   with the Amazon EC2 instance.
+[$sel:subnetId:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe Text
+
+-- | The Amazon Resource Name (ARN) of the environment owner. This ARN can
+--   be the ARN of any IAM principal. If this value is not specified, the
+--   ARN defaults to this environment's creator.
+[$sel:ownerArn:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe Text
 
 -- | The identifier for the Amazon Machine Image (AMI) that's used to
 --   create the EC2 instance. To choose an AMI for the instance, you must
@@ -2129,22 +2127,6 @@ CreateEnvironmentEC' :: Maybe Bool -> Maybe ConnectionType -> Maybe Text -> Mayb
 --   </ul>
 [$sel:imageId:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe Text
 
--- | The Amazon Resource Name (ARN) of the environment owner. This ARN can
---   be the ARN of any IAM principal. If this value is not specified, the
---   ARN defaults to this environment's creator.
-[$sel:ownerArn:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe Text
-
--- | An array of key-value pairs that will be associated with the new
---   Cloud9 development environment.
-[$sel:tags:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe (Sensitive [Sensitive Tag])
-
--- | The ID of the subnet in Amazon VPC that Cloud9 will use to communicate
---   with the Amazon EC2 instance.
-[$sel:subnetId:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe Text
-
--- | The description of the environment to create.
-[$sel:description:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe (Sensitive Text)
-
 -- | A unique, case-sensitive string that helps Cloud9 to ensure this
 --   operation completes no more than one time.
 --   
@@ -2152,9 +2134,27 @@ CreateEnvironmentEC' :: Maybe Bool -> Maybe ConnectionType -> Maybe Text -> Mayb
 --   API Reference</i>.
 [$sel:clientRequestToken:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe Text
 
--- | The number of minutes until the running instance is shut down after
---   the environment has last been used.
-[$sel:automaticStopTimeMinutes:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe Int
+-- | The connection type used for connecting to an Amazon EC2 environment.
+--   Valid values are <tt>CONNECT_SSH</tt> (default) and
+--   <tt>CONNECT_SSM</tt> (connected through Amazon EC2 Systems Manager).
+--   
+--   For more information, see <a>Accessing no-ingress EC2 instances with
+--   Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.
+[$sel:connectionType:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe ConnectionType
+
+-- | The description of the environment to create.
+[$sel:description:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe (Sensitive Text)
+
+-- | Checks whether you have the required permissions for the action,
+--   without actually making the request, and provides an error response.
+--   If you have the required permissions, the error response is
+--   <tt>DryRunOperation</tt>. Otherwise, it is
+--   <tt>UnauthorizedOperation</tt>.
+[$sel:dryRun:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe Bool
+
+-- | An array of key-value pairs that will be associated with the new
+--   Cloud9 development environment.
+[$sel:tags:CreateEnvironmentEC'] :: CreateEnvironmentEC -> Maybe (Sensitive [Sensitive Tag])
 
 -- | The name of the environment to create.
 --   
@@ -2175,21 +2175,20 @@ CreateEnvironmentEC' :: Maybe Bool -> Maybe ConnectionType -> Maybe Text -> Mayb
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:dryRun:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_dryRun</a> - Checks whether you have the
---   required permissions for the action, without actually making the
---   request, and provides an error response. If you have the required
---   permissions, the error response is <tt>DryRunOperation</tt>.
---   Otherwise, it is <tt>UnauthorizedOperation</tt>.
+--   <a>$sel:automaticStopTimeMinutes:CreateEnvironmentEC'</a>,
+--   <a>createEnvironmentEC_automaticStopTimeMinutes</a> - The number of
+--   minutes until the running instance is shut down after the environment
+--   has last been used.
 --   
---   <a>$sel:connectionType:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_connectionType</a> - The connection type used
---   for connecting to an Amazon EC2 environment. Valid values are
---   <tt>CONNECT_SSH</tt> (default) and <tt>CONNECT_SSM</tt> (connected
---   through Amazon EC2 Systems Manager).
+--   <a>$sel:subnetId:CreateEnvironmentEC'</a>,
+--   <a>createEnvironmentEC_subnetId</a> - The ID of the subnet in Amazon
+--   VPC that Cloud9 will use to communicate with the Amazon EC2 instance.
 --   
---   For more information, see <a>Accessing no-ingress EC2 instances with
---   Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.
+--   <a>$sel:ownerArn:CreateEnvironmentEC'</a>,
+--   <a>createEnvironmentEC_ownerArn</a> - The Amazon Resource Name (ARN)
+--   of the environment owner. This ARN can be the ARN of any IAM
+--   principal. If this value is not specified, the ARN defaults to this
+--   environment's creator.
 --   
 --   <a>$sel:imageId:CreateEnvironmentEC'</a>,
 --   <a>createEnvironmentEC_imageId</a> - The identifier for the Amazon
@@ -2221,24 +2220,6 @@ CreateEnvironmentEC' :: Maybe Bool -> Maybe ConnectionType -> Maybe Text -> Mayb
 --   <tt>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</tt></li>
 --   </ul>
 --   
---   <a>$sel:ownerArn:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_ownerArn</a> - The Amazon Resource Name (ARN)
---   of the environment owner. This ARN can be the ARN of any IAM
---   principal. If this value is not specified, the ARN defaults to this
---   environment's creator.
---   
---   <a>$sel:tags:CreateEnvironmentEC'</a>, <a>createEnvironmentEC_tags</a>
---   - An array of key-value pairs that will be associated with the new
---   Cloud9 development environment.
---   
---   <a>$sel:subnetId:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_subnetId</a> - The ID of the subnet in Amazon
---   VPC that Cloud9 will use to communicate with the Amazon EC2 instance.
---   
---   <a>$sel:description:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_description</a> - The description of the
---   environment to create.
---   
 --   <a>$sel:clientRequestToken:CreateEnvironmentEC'</a>,
 --   <a>createEnvironmentEC_clientRequestToken</a> - A unique,
 --   case-sensitive string that helps Cloud9 to ensure this operation
@@ -2247,10 +2228,29 @@ CreateEnvironmentEC' :: Maybe Bool -> Maybe ConnectionType -> Maybe Text -> Mayb
 --   For more information, see <a>Client Tokens</a> in the <i>Amazon EC2
 --   API Reference</i>.
 --   
---   <a>$sel:automaticStopTimeMinutes:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_automaticStopTimeMinutes</a> - The number of
---   minutes until the running instance is shut down after the environment
---   has last been used.
+--   <a>$sel:connectionType:CreateEnvironmentEC'</a>,
+--   <a>createEnvironmentEC_connectionType</a> - The connection type used
+--   for connecting to an Amazon EC2 environment. Valid values are
+--   <tt>CONNECT_SSH</tt> (default) and <tt>CONNECT_SSM</tt> (connected
+--   through Amazon EC2 Systems Manager).
+--   
+--   For more information, see <a>Accessing no-ingress EC2 instances with
+--   Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.
+--   
+--   <a>$sel:description:CreateEnvironmentEC'</a>,
+--   <a>createEnvironmentEC_description</a> - The description of the
+--   environment to create.
+--   
+--   <a>$sel:dryRun:CreateEnvironmentEC'</a>,
+--   <a>createEnvironmentEC_dryRun</a> - Checks whether you have the
+--   required permissions for the action, without actually making the
+--   request, and provides an error response. If you have the required
+--   permissions, the error response is <tt>DryRunOperation</tt>.
+--   Otherwise, it is <tt>UnauthorizedOperation</tt>.
+--   
+--   <a>$sel:tags:CreateEnvironmentEC'</a>, <a>createEnvironmentEC_tags</a>
+--   - An array of key-value pairs that will be associated with the new
+--   Cloud9 development environment.
 --   
 --   <a>$sel:name:CreateEnvironmentEC'</a>, <a>createEnvironmentEC_name</a>
 --   - The name of the environment to create.
@@ -2263,20 +2263,18 @@ CreateEnvironmentEC' :: Maybe Bool -> Maybe ConnectionType -> Maybe Text -> Mayb
 --   connect to the environment (for example, <tt>t2.micro</tt>).
 newCreateEnvironmentEC :: Text -> Text -> CreateEnvironmentEC
 
--- | Checks whether you have the required permissions for the action,
---   without actually making the request, and provides an error response.
---   If you have the required permissions, the error response is
---   <tt>DryRunOperation</tt>. Otherwise, it is
---   <tt>UnauthorizedOperation</tt>.
-createEnvironmentEC_dryRun :: Lens' CreateEnvironmentEC (Maybe Bool)
+-- | The number of minutes until the running instance is shut down after
+--   the environment has last been used.
+createEnvironmentEC_automaticStopTimeMinutes :: Lens' CreateEnvironmentEC (Maybe Int)
 
--- | The connection type used for connecting to an Amazon EC2 environment.
---   Valid values are <tt>CONNECT_SSH</tt> (default) and
---   <tt>CONNECT_SSM</tt> (connected through Amazon EC2 Systems Manager).
---   
---   For more information, see <a>Accessing no-ingress EC2 instances with
---   Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.
-createEnvironmentEC_connectionType :: Lens' CreateEnvironmentEC (Maybe ConnectionType)
+-- | The ID of the subnet in Amazon VPC that Cloud9 will use to communicate
+--   with the Amazon EC2 instance.
+createEnvironmentEC_subnetId :: Lens' CreateEnvironmentEC (Maybe Text)
+
+-- | The Amazon Resource Name (ARN) of the environment owner. This ARN can
+--   be the ARN of any IAM principal. If this value is not specified, the
+--   ARN defaults to this environment's creator.
+createEnvironmentEC_ownerArn :: Lens' CreateEnvironmentEC (Maybe Text)
 
 -- | The identifier for the Amazon Machine Image (AMI) that's used to
 --   create the EC2 instance. To choose an AMI for the instance, you must
@@ -2308,22 +2306,6 @@ createEnvironmentEC_connectionType :: Lens' CreateEnvironmentEC (Maybe Connectio
 --   </ul>
 createEnvironmentEC_imageId :: Lens' CreateEnvironmentEC (Maybe Text)
 
--- | The Amazon Resource Name (ARN) of the environment owner. This ARN can
---   be the ARN of any IAM principal. If this value is not specified, the
---   ARN defaults to this environment's creator.
-createEnvironmentEC_ownerArn :: Lens' CreateEnvironmentEC (Maybe Text)
-
--- | An array of key-value pairs that will be associated with the new
---   Cloud9 development environment.
-createEnvironmentEC_tags :: Lens' CreateEnvironmentEC (Maybe [Tag])
-
--- | The ID of the subnet in Amazon VPC that Cloud9 will use to communicate
---   with the Amazon EC2 instance.
-createEnvironmentEC_subnetId :: Lens' CreateEnvironmentEC (Maybe Text)
-
--- | The description of the environment to create.
-createEnvironmentEC_description :: Lens' CreateEnvironmentEC (Maybe Text)
-
 -- | A unique, case-sensitive string that helps Cloud9 to ensure this
 --   operation completes no more than one time.
 --   
@@ -2331,9 +2313,27 @@ createEnvironmentEC_description :: Lens' CreateEnvironmentEC (Maybe Text)
 --   API Reference</i>.
 createEnvironmentEC_clientRequestToken :: Lens' CreateEnvironmentEC (Maybe Text)
 
--- | The number of minutes until the running instance is shut down after
---   the environment has last been used.
-createEnvironmentEC_automaticStopTimeMinutes :: Lens' CreateEnvironmentEC (Maybe Int)
+-- | The connection type used for connecting to an Amazon EC2 environment.
+--   Valid values are <tt>CONNECT_SSH</tt> (default) and
+--   <tt>CONNECT_SSM</tt> (connected through Amazon EC2 Systems Manager).
+--   
+--   For more information, see <a>Accessing no-ingress EC2 instances with
+--   Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.
+createEnvironmentEC_connectionType :: Lens' CreateEnvironmentEC (Maybe ConnectionType)
+
+-- | The description of the environment to create.
+createEnvironmentEC_description :: Lens' CreateEnvironmentEC (Maybe Text)
+
+-- | Checks whether you have the required permissions for the action,
+--   without actually making the request, and provides an error response.
+--   If you have the required permissions, the error response is
+--   <tt>DryRunOperation</tt>. Otherwise, it is
+--   <tt>UnauthorizedOperation</tt>.
+createEnvironmentEC_dryRun :: Lens' CreateEnvironmentEC (Maybe Bool)
+
+-- | An array of key-value pairs that will be associated with the new
+--   Cloud9 development environment.
+createEnvironmentEC_tags :: Lens' CreateEnvironmentEC (Maybe [Tag])
 
 -- | The name of the environment to create.
 --   
@@ -2748,62 +2748,44 @@ listEnvironments_nextToken :: Lens' ListEnvironments (Maybe Text)
 -- | The maximum number of environments to get identifiers for.
 listEnvironments_maxResults :: Lens' ListEnvironments (Maybe Natural)
 
+-- | The list of environment identifiers.
+listEnvironmentsResponse_environmentIds :: Lens' ListEnvironmentsResponse (Maybe [Text])
+
 -- | If there are more than 25 items in the list, only the first 25 items
 --   are returned, along with a unique string called a <i>next token</i>.
 --   To get the next batch of items in the list, call this operation again,
 --   adding the next token to the call.
 listEnvironmentsResponse_nextToken :: Lens' ListEnvironmentsResponse (Maybe Text)
 
--- | The list of environment identifiers.
-listEnvironmentsResponse_environmentIds :: Lens' ListEnvironmentsResponse (Maybe [Text])
-
 -- | The response's http status code.
 listEnvironmentsResponse_httpStatus :: Lens' ListEnvironmentsResponse Int
 
--- | The ID of the environment that contains the environment member you
---   want to add.
-createEnvironmentMembership_environmentId :: Lens' CreateEnvironmentMembership Text
-
--- | The Amazon Resource Name (ARN) of the environment member you want to
---   add.
-createEnvironmentMembership_userArn :: Lens' CreateEnvironmentMembership Text
-
--- | The type of environment member permissions you want to associate with
---   this environment member. Available values include:
+-- | Allows the environment owner to turn on or turn off the Amazon Web
+--   Services managed temporary credentials for an Cloud9 environment by
+--   using one of the following values:
 --   
 --   <ul>
---   <li><tt>read-only</tt>: Has read-only access to the environment.</li>
---   <li><tt>read-write</tt>: Has read-write access to the
---   environment.</li>
+--   <li><pre>ENABLE</pre></li>
+--   <li><pre>DISABLE</pre></li>
 --   </ul>
-createEnvironmentMembership_permissions :: Lens' CreateEnvironmentMembership MemberPermissions
+--   
+--   Only the environment owner can change the status of managed temporary
+--   credentials. An <tt>AccessDeniedException</tt> is thrown if an attempt
+--   to turn on or turn off managed temporary credentials is made by an
+--   account that's not the environment owner.
+updateEnvironment_managedCredentialsAction :: Lens' UpdateEnvironment (Maybe ManagedCredentialsAction)
+
+-- | A replacement name for the environment.
+updateEnvironment_name :: Lens' UpdateEnvironment (Maybe Text)
+
+-- | Any new or replacement description for the environment.
+updateEnvironment_description :: Lens' UpdateEnvironment (Maybe Text)
+
+-- | The ID of the environment to change settings.
+updateEnvironment_environmentId :: Lens' UpdateEnvironment Text
 
 -- | The response's http status code.
-createEnvironmentMembershipResponse_httpStatus :: Lens' CreateEnvironmentMembershipResponse Int
-
--- | Information about the environment member that was added.
-createEnvironmentMembershipResponse_membership :: Lens' CreateEnvironmentMembershipResponse EnvironmentMember
-
--- | The Amazon Resource Name (ARN) of the Cloud9 development environment
---   to remove tags from.
-untagResource_resourceARN :: Lens' UntagResource Text
-
--- | The tag names of the tags to remove from the given Cloud9 development
---   environment.
-untagResource_tagKeys :: Lens' UntagResource [Text]
-
--- | The response's http status code.
-untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-
--- | The Amazon Resource Name (ARN) of the Cloud9 development environment
---   to add tags to.
-tagResource_resourceARN :: Lens' TagResource Text
-
--- | The list of tags to add to the given Cloud9 development environment.
-tagResource_tags :: Lens' TagResource [Tag]
-
--- | The response's http status code.
-tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
+updateEnvironmentResponse_httpStatus :: Lens' UpdateEnvironmentResponse Int
 
 -- | The ID of the environment to delete.
 deleteEnvironment_environmentId :: Lens' DeleteEnvironment Text
@@ -2833,78 +2815,157 @@ describeEnvironmentStatusResponse_status :: Lens' DescribeEnvironmentStatusRespo
 -- | Any informational message about the status of the environment.
 describeEnvironmentStatusResponse_message :: Lens' DescribeEnvironmentStatusResponse Text
 
--- | Allows the environment owner to turn on or turn off the Amazon Web
---   Services managed temporary credentials for an Cloud9 environment by
---   using one of the following values:
---   
---   <ul>
---   <li><pre>ENABLE</pre></li>
---   <li><pre>DISABLE</pre></li>
---   </ul>
---   
---   Only the environment owner can change the status of managed temporary
---   credentials. An <tt>AccessDeniedException</tt> is thrown if an attempt
---   to turn on or turn off managed temporary credentials is made by an
---   account that's not the environment owner.
-updateEnvironment_managedCredentialsAction :: Lens' UpdateEnvironment (Maybe ManagedCredentialsAction)
+-- | The Amazon Resource Name (ARN) of the Cloud9 development environment
+--   to get the tags for.
+listTagsForResource_resourceARN :: Lens' ListTagsForResource Text
 
--- | A replacement name for the environment.
-updateEnvironment_name :: Lens' UpdateEnvironment (Maybe Text)
-
--- | Any new or replacement description for the environment.
-updateEnvironment_description :: Lens' UpdateEnvironment (Maybe Text)
-
--- | The ID of the environment to change settings.
-updateEnvironment_environmentId :: Lens' UpdateEnvironment Text
+-- | The list of tags associated with the Cloud9 development environment.
+listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe [Tag])
 
 -- | The response's http status code.
-updateEnvironmentResponse_httpStatus :: Lens' UpdateEnvironmentResponse Int
+listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
 
--- | The Amazon Resource Name (ARN) of an individual environment member to
---   get information about. If no value is specified, information about all
---   environment members are returned.
-describeEnvironmentMemberships_userArn :: Lens' DescribeEnvironmentMemberships (Maybe Text)
+-- | The number of minutes until the running instance is shut down after
+--   the environment has last been used.
+createEnvironmentEC_automaticStopTimeMinutes :: Lens' CreateEnvironmentEC (Maybe Int)
 
--- | During a previous call, if there are more than 25 items in the list,
---   only the first 25 items are returned, along with a unique string
---   called a <i>next token</i>. To get the next batch of items in the
---   list, call this operation again, adding the next token to the call. To
---   get all of the items in the list, keep calling this operation with
---   each subsequent next token that is returned, until no more next tokens
---   are returned.
-describeEnvironmentMemberships_nextToken :: Lens' DescribeEnvironmentMemberships (Maybe Text)
+-- | The ID of the subnet in Amazon VPC that Cloud9 will use to communicate
+--   with the Amazon EC2 instance.
+createEnvironmentEC_subnetId :: Lens' CreateEnvironmentEC (Maybe Text)
 
--- | The maximum number of environment members to get information about.
-describeEnvironmentMemberships_maxResults :: Lens' DescribeEnvironmentMemberships (Maybe Natural)
+-- | The Amazon Resource Name (ARN) of the environment owner. This ARN can
+--   be the ARN of any IAM principal. If this value is not specified, the
+--   ARN defaults to this environment's creator.
+createEnvironmentEC_ownerArn :: Lens' CreateEnvironmentEC (Maybe Text)
 
--- | The ID of the environment to get environment member information about.
-describeEnvironmentMemberships_environmentId :: Lens' DescribeEnvironmentMemberships (Maybe Text)
-
--- | The type of environment member permissions to get information about.
---   Available values include:
+-- | The identifier for the Amazon Machine Image (AMI) that's used to
+--   create the EC2 instance. To choose an AMI for the instance, you must
+--   specify a valid AMI alias or a valid Amazon EC2 Systems Manager (SSM)
+--   path.
+--   
+--   The default AMI is used if the parameter isn't explicitly assigned a
+--   value in the request. Because Amazon Linux AMI has ended standard
+--   support as of December 31, 2020, we recommend you choose Amazon Linux
+--   2, which includes long term support through 2023.
+--   
+--   <b>AMI aliases</b>
 --   
 --   <ul>
---   <li><tt>owner</tt>: Owns the environment.</li>
+--   <li><b>Amazon Linux (default): <tt>amazonlinux-1-x86_64</tt></b></li>
+--   <li>Amazon Linux 2: <tt>amazonlinux-2-x86_64</tt></li>
+--   <li>Ubuntu 18.04: <tt>ubuntu-18.04-x86_64</tt></li>
+--   </ul>
+--   
+--   <b>SSM paths</b>
+--   
+--   <ul>
+--   <li>__Amazon Linux (default):
+--   <tt>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</tt>__</li>
+--   <li>Amazon Linux 2:
+--   <tt>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</tt></li>
+--   <li>Ubuntu 18.04:
+--   <tt>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</tt></li>
+--   </ul>
+createEnvironmentEC_imageId :: Lens' CreateEnvironmentEC (Maybe Text)
+
+-- | A unique, case-sensitive string that helps Cloud9 to ensure this
+--   operation completes no more than one time.
+--   
+--   For more information, see <a>Client Tokens</a> in the <i>Amazon EC2
+--   API Reference</i>.
+createEnvironmentEC_clientRequestToken :: Lens' CreateEnvironmentEC (Maybe Text)
+
+-- | The connection type used for connecting to an Amazon EC2 environment.
+--   Valid values are <tt>CONNECT_SSH</tt> (default) and
+--   <tt>CONNECT_SSM</tt> (connected through Amazon EC2 Systems Manager).
+--   
+--   For more information, see <a>Accessing no-ingress EC2 instances with
+--   Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.
+createEnvironmentEC_connectionType :: Lens' CreateEnvironmentEC (Maybe ConnectionType)
+
+-- | The description of the environment to create.
+createEnvironmentEC_description :: Lens' CreateEnvironmentEC (Maybe Text)
+
+-- | Checks whether you have the required permissions for the action,
+--   without actually making the request, and provides an error response.
+--   If you have the required permissions, the error response is
+--   <tt>DryRunOperation</tt>. Otherwise, it is
+--   <tt>UnauthorizedOperation</tt>.
+createEnvironmentEC_dryRun :: Lens' CreateEnvironmentEC (Maybe Bool)
+
+-- | An array of key-value pairs that will be associated with the new
+--   Cloud9 development environment.
+createEnvironmentEC_tags :: Lens' CreateEnvironmentEC (Maybe [Tag])
+
+-- | The name of the environment to create.
+--   
+--   This name is visible to other IAM users in the same Amazon Web
+--   Services account.
+createEnvironmentEC_name :: Lens' CreateEnvironmentEC Text
+
+-- | The type of instance to connect to the environment (for example,
+--   <tt>t2.micro</tt>).
+createEnvironmentEC_instanceType :: Lens' CreateEnvironmentEC Text
+
+-- | The ID of the environment that was created.
+createEnvironmentECResponse_environmentId :: Lens' CreateEnvironmentECResponse (Maybe Text)
+
+-- | The response's http status code.
+createEnvironmentECResponse_httpStatus :: Lens' CreateEnvironmentECResponse Int
+
+-- | The Amazon Resource Name (ARN) of the Cloud9 development environment
+--   to add tags to.
+tagResource_resourceARN :: Lens' TagResource Text
+
+-- | The list of tags to add to the given Cloud9 development environment.
+tagResource_tags :: Lens' TagResource [Tag]
+
+-- | The response's http status code.
+tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
+
+-- | The ID of the environment that contains the environment member you
+--   want to add.
+createEnvironmentMembership_environmentId :: Lens' CreateEnvironmentMembership Text
+
+-- | The Amazon Resource Name (ARN) of the environment member you want to
+--   add.
+createEnvironmentMembership_userArn :: Lens' CreateEnvironmentMembership Text
+
+-- | The type of environment member permissions you want to associate with
+--   this environment member. Available values include:
+--   
+--   <ul>
 --   <li><tt>read-only</tt>: Has read-only access to the environment.</li>
 --   <li><tt>read-write</tt>: Has read-write access to the
 --   environment.</li>
 --   </ul>
---   
---   If no value is specified, information about all environment members
---   are returned.
-describeEnvironmentMemberships_permissions :: Lens' DescribeEnvironmentMemberships (Maybe [Permissions])
-
--- | If there are more than 25 items in the list, only the first 25 items
---   are returned, along with a unique string called a <i>next token</i>.
---   To get the next batch of items in the list, call this operation again,
---   adding the next token to the call.
-describeEnvironmentMembershipsResponse_nextToken :: Lens' DescribeEnvironmentMembershipsResponse (Maybe Text)
-
--- | Information about the environment members for the environment.
-describeEnvironmentMembershipsResponse_memberships :: Lens' DescribeEnvironmentMembershipsResponse (Maybe [EnvironmentMember])
+createEnvironmentMembership_permissions :: Lens' CreateEnvironmentMembership MemberPermissions
 
 -- | The response's http status code.
-describeEnvironmentMembershipsResponse_httpStatus :: Lens' DescribeEnvironmentMembershipsResponse Int
+createEnvironmentMembershipResponse_httpStatus :: Lens' CreateEnvironmentMembershipResponse Int
+
+-- | Information about the environment member that was added.
+createEnvironmentMembershipResponse_membership :: Lens' CreateEnvironmentMembershipResponse EnvironmentMember
+
+-- | The IDs of individual environments to get information about.
+describeEnvironments_environmentIds :: Lens' DescribeEnvironments (NonEmpty Text)
+
+-- | Information about the environments that are returned.
+describeEnvironmentsResponse_environments :: Lens' DescribeEnvironmentsResponse (Maybe [Environment])
+
+-- | The response's http status code.
+describeEnvironmentsResponse_httpStatus :: Lens' DescribeEnvironmentsResponse Int
+
+-- | The Amazon Resource Name (ARN) of the Cloud9 development environment
+--   to remove tags from.
+untagResource_resourceARN :: Lens' UntagResource Text
+
+-- | The tag names of the tags to remove from the given Cloud9 development
+--   environment.
+untagResource_tagKeys :: Lens' UntagResource [Text]
+
+-- | The response's http status code.
+untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
 
 -- | The ID of the environment to delete the environment member from.
 deleteEnvironmentMembership_environmentId :: Lens' DeleteEnvironmentMembership Text
@@ -2940,125 +3001,67 @@ updateEnvironmentMembershipResponse_membership :: Lens' UpdateEnvironmentMembers
 -- | The response's http status code.
 updateEnvironmentMembershipResponse_httpStatus :: Lens' UpdateEnvironmentMembershipResponse Int
 
--- | The IDs of individual environments to get information about.
-describeEnvironments_environmentIds :: Lens' DescribeEnvironments (NonEmpty Text)
+-- | The Amazon Resource Name (ARN) of an individual environment member to
+--   get information about. If no value is specified, information about all
+--   environment members are returned.
+describeEnvironmentMemberships_userArn :: Lens' DescribeEnvironmentMemberships (Maybe Text)
 
--- | Information about the environments that are returned.
-describeEnvironmentsResponse_environments :: Lens' DescribeEnvironmentsResponse (Maybe [Environment])
+-- | During a previous call, if there are more than 25 items in the list,
+--   only the first 25 items are returned, along with a unique string
+--   called a <i>next token</i>. To get the next batch of items in the
+--   list, call this operation again, adding the next token to the call. To
+--   get all of the items in the list, keep calling this operation with
+--   each subsequent next token that is returned, until no more next tokens
+--   are returned.
+describeEnvironmentMemberships_nextToken :: Lens' DescribeEnvironmentMemberships (Maybe Text)
 
--- | The response's http status code.
-describeEnvironmentsResponse_httpStatus :: Lens' DescribeEnvironmentsResponse Int
-
--- | Checks whether you have the required permissions for the action,
---   without actually making the request, and provides an error response.
---   If you have the required permissions, the error response is
---   <tt>DryRunOperation</tt>. Otherwise, it is
---   <tt>UnauthorizedOperation</tt>.
-createEnvironmentEC_dryRun :: Lens' CreateEnvironmentEC (Maybe Bool)
-
--- | The connection type used for connecting to an Amazon EC2 environment.
---   Valid values are <tt>CONNECT_SSH</tt> (default) and
---   <tt>CONNECT_SSM</tt> (connected through Amazon EC2 Systems Manager).
---   
---   For more information, see <a>Accessing no-ingress EC2 instances with
---   Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.
-createEnvironmentEC_connectionType :: Lens' CreateEnvironmentEC (Maybe ConnectionType)
-
--- | The identifier for the Amazon Machine Image (AMI) that's used to
---   create the EC2 instance. To choose an AMI for the instance, you must
---   specify a valid AMI alias or a valid Amazon EC2 Systems Manager (SSM)
---   path.
---   
---   The default AMI is used if the parameter isn't explicitly assigned a
---   value in the request. Because Amazon Linux AMI has ended standard
---   support as of December 31, 2020, we recommend you choose Amazon Linux
---   2, which includes long term support through 2023.
---   
---   <b>AMI aliases</b>
+-- | The type of environment member permissions to get information about.
+--   Available values include:
 --   
 --   <ul>
---   <li><b>Amazon Linux (default): <tt>amazonlinux-1-x86_64</tt></b></li>
---   <li>Amazon Linux 2: <tt>amazonlinux-2-x86_64</tt></li>
---   <li>Ubuntu 18.04: <tt>ubuntu-18.04-x86_64</tt></li>
+--   <li><tt>owner</tt>: Owns the environment.</li>
+--   <li><tt>read-only</tt>: Has read-only access to the environment.</li>
+--   <li><tt>read-write</tt>: Has read-write access to the
+--   environment.</li>
 --   </ul>
 --   
---   <b>SSM paths</b>
---   
---   <ul>
---   <li>__Amazon Linux (default):
---   <tt>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</tt>__</li>
---   <li>Amazon Linux 2:
---   <tt>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</tt></li>
---   <li>Ubuntu 18.04:
---   <tt>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</tt></li>
---   </ul>
-createEnvironmentEC_imageId :: Lens' CreateEnvironmentEC (Maybe Text)
+--   If no value is specified, information about all environment members
+--   are returned.
+describeEnvironmentMemberships_permissions :: Lens' DescribeEnvironmentMemberships (Maybe [Permissions])
 
--- | The Amazon Resource Name (ARN) of the environment owner. This ARN can
---   be the ARN of any IAM principal. If this value is not specified, the
---   ARN defaults to this environment's creator.
-createEnvironmentEC_ownerArn :: Lens' CreateEnvironmentEC (Maybe Text)
+-- | The ID of the environment to get environment member information about.
+describeEnvironmentMemberships_environmentId :: Lens' DescribeEnvironmentMemberships (Maybe Text)
 
--- | An array of key-value pairs that will be associated with the new
---   Cloud9 development environment.
-createEnvironmentEC_tags :: Lens' CreateEnvironmentEC (Maybe [Tag])
+-- | The maximum number of environment members to get information about.
+describeEnvironmentMemberships_maxResults :: Lens' DescribeEnvironmentMemberships (Maybe Natural)
 
--- | The ID of the subnet in Amazon VPC that Cloud9 will use to communicate
---   with the Amazon EC2 instance.
-createEnvironmentEC_subnetId :: Lens' CreateEnvironmentEC (Maybe Text)
+-- | If there are more than 25 items in the list, only the first 25 items
+--   are returned, along with a unique string called a <i>next token</i>.
+--   To get the next batch of items in the list, call this operation again,
+--   adding the next token to the call.
+describeEnvironmentMembershipsResponse_nextToken :: Lens' DescribeEnvironmentMembershipsResponse (Maybe Text)
 
--- | The description of the environment to create.
-createEnvironmentEC_description :: Lens' CreateEnvironmentEC (Maybe Text)
-
--- | A unique, case-sensitive string that helps Cloud9 to ensure this
---   operation completes no more than one time.
---   
---   For more information, see <a>Client Tokens</a> in the <i>Amazon EC2
---   API Reference</i>.
-createEnvironmentEC_clientRequestToken :: Lens' CreateEnvironmentEC (Maybe Text)
-
--- | The number of minutes until the running instance is shut down after
---   the environment has last been used.
-createEnvironmentEC_automaticStopTimeMinutes :: Lens' CreateEnvironmentEC (Maybe Int)
-
--- | The name of the environment to create.
---   
---   This name is visible to other IAM users in the same Amazon Web
---   Services account.
-createEnvironmentEC_name :: Lens' CreateEnvironmentEC Text
-
--- | The type of instance to connect to the environment (for example,
---   <tt>t2.micro</tt>).
-createEnvironmentEC_instanceType :: Lens' CreateEnvironmentEC Text
-
--- | The ID of the environment that was created.
-createEnvironmentECResponse_environmentId :: Lens' CreateEnvironmentECResponse (Maybe Text)
+-- | Information about the environment members for the environment.
+describeEnvironmentMembershipsResponse_memberships :: Lens' DescribeEnvironmentMembershipsResponse (Maybe [EnvironmentMember])
 
 -- | The response's http status code.
-createEnvironmentECResponse_httpStatus :: Lens' CreateEnvironmentECResponse Int
-
--- | The Amazon Resource Name (ARN) of the Cloud9 development environment
---   to get the tags for.
-listTagsForResource_resourceARN :: Lens' ListTagsForResource Text
-
--- | The list of tags associated with the Cloud9 development environment.
-listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe [Tag])
-
--- | The response's http status code.
-listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
+describeEnvironmentMembershipsResponse_httpStatus :: Lens' DescribeEnvironmentMembershipsResponse Int
 
 -- | The state of the environment in its creation or deletion lifecycle.
 environment_lifecycle :: Lens' Environment (Maybe EnvironmentLifecycle)
+
+-- | The name of the environment.
+environment_name :: Lens' Environment (Maybe Text)
+
+-- | The ID of the environment.
+environment_id :: Lens' Environment (Maybe Text)
 
 -- | The connection type used for connecting to an Amazon EC2 environment.
 --   <tt>CONNECT_SSH</tt> is selected by default.
 environment_connectionType :: Lens' Environment (Maybe ConnectionType)
 
--- | The ID of the environment.
-environment_id :: Lens' Environment (Maybe Text)
-
--- | The name of the environment.
-environment_name :: Lens' Environment (Maybe Text)
+-- | The description for the environment.
+environment_description :: Lens' Environment (Maybe Text)
 
 -- | Describes the status of Amazon Web Services managed temporary
 --   credentials for the Cloud9 environment. Available values are:
@@ -3076,9 +3079,6 @@ environment_name :: Lens' Environment (Maybe Text)
 --   <li><pre>DISABLED_BY_DEFAULT</pre></li>
 --   </ul>
 environment_managedCredentialsStatus :: Lens' Environment (Maybe ManagedCredentialsStatus)
-
--- | The description for the environment.
-environment_description :: Lens' Environment (Maybe Text)
 
 -- | The type of environment. Valid values include the following:
 --   
@@ -3108,13 +3108,13 @@ environment_ownerArn :: Lens' Environment Text
 --   </ul>
 environmentLifecycle_status :: Lens' EnvironmentLifecycle (Maybe EnvironmentLifecycleStatus)
 
--- | Any informational message about the lifecycle state of the
---   environment.
-environmentLifecycle_reason :: Lens' EnvironmentLifecycle (Maybe Text)
-
 -- | If the environment failed to delete, the Amazon Resource Name (ARN) of
 --   the related Amazon Web Services resource.
 environmentLifecycle_failureResource :: Lens' EnvironmentLifecycle (Maybe Text)
+
+-- | Any informational message about the lifecycle state of the
+--   environment.
+environmentLifecycle_reason :: Lens' EnvironmentLifecycle (Maybe Text)
 
 -- | The time, expressed in epoch time format, when the environment member
 --   last opened the environment.
@@ -3197,29 +3197,29 @@ module Network.AWS.Cloud9
 --   configuration.
 defaultService :: Service
 
--- | The target resource cannot be found.
-_NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The target request is invalid.
-_BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | A concurrent access issue occurred.
-_ConcurrentAccessException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | An internal server error occurred.
-_InternalServerErrorException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | A conflict occurred.
+_ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | An access permissions issue occurred.
 _ForbiddenException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | A conflict occurred.
-_ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | A service limit was exceeded.
-_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The target resource cannot be found.
+_NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Too many service requests were made over the given time period.
 _TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | An internal server error occurred.
+_InternalServerErrorException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | A concurrent access issue occurred.
+_ConcurrentAccessException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The target request is invalid.
+_BadRequestException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | A service limit was exceeded.
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | <i>See:</i> <a>newListEnvironments</a> smart constructor.
 data ListEnvironments
@@ -3250,7 +3250,7 @@ newListEnvironments :: ListEnvironments
 
 -- | <i>See:</i> <a>newListEnvironmentsResponse</a> smart constructor.
 data ListEnvironmentsResponse
-ListEnvironmentsResponse' :: Maybe Text -> Maybe [Text] -> Int -> ListEnvironmentsResponse
+ListEnvironmentsResponse' :: Maybe [Text] -> Maybe Text -> Int -> ListEnvironmentsResponse
 
 -- | Create a value of <a>ListEnvironmentsResponse</a> with all optional
 --   fields omitted.
@@ -3261,6 +3261,10 @@ ListEnvironmentsResponse' :: Maybe Text -> Maybe [Text] -> Int -> ListEnvironmen
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:environmentIds:ListEnvironmentsResponse'</a>,
+--   <a>listEnvironmentsResponse_environmentIds</a> - The list of
+--   environment identifiers.
+--   
 --   <a>$sel:nextToken:ListEnvironments'</a>,
 --   <a>listEnvironmentsResponse_nextToken</a> - If there are more than 25
 --   items in the list, only the first 25 items are returned, along with a
@@ -3268,21 +3272,17 @@ ListEnvironmentsResponse' :: Maybe Text -> Maybe [Text] -> Int -> ListEnvironmen
 --   items in the list, call this operation again, adding the next token to
 --   the call.
 --   
---   <a>$sel:environmentIds:ListEnvironmentsResponse'</a>,
---   <a>listEnvironmentsResponse_environmentIds</a> - The list of
---   environment identifiers.
---   
 --   <a>$sel:httpStatus:ListEnvironmentsResponse'</a>,
 --   <a>listEnvironmentsResponse_httpStatus</a> - The response's http
 --   status code.
 newListEnvironmentsResponse :: Int -> ListEnvironmentsResponse
 
--- | <i>See:</i> <a>newCreateEnvironmentMembership</a> smart constructor.
-data CreateEnvironmentMembership
-CreateEnvironmentMembership' :: Text -> Text -> MemberPermissions -> CreateEnvironmentMembership
+-- | <i>See:</i> <a>newUpdateEnvironment</a> smart constructor.
+data UpdateEnvironment
+UpdateEnvironment' :: Maybe ManagedCredentialsAction -> Maybe Text -> Maybe (Sensitive Text) -> Text -> UpdateEnvironment
 
--- | Create a value of <a>CreateEnvironmentMembership</a> with all optional
---   fields omitted.
+-- | Create a value of <a>UpdateEnvironment</a> with all optional fields
+--   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -3290,76 +3290,39 @@ CreateEnvironmentMembership' :: Text -> Text -> MemberPermissions -> CreateEnvir
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:environmentId:CreateEnvironmentMembership'</a>,
---   <a>createEnvironmentMembership_environmentId</a> - The ID of the
---   environment that contains the environment member you want to add.
---   
---   <a>$sel:userArn:CreateEnvironmentMembership'</a>,
---   <a>createEnvironmentMembership_userArn</a> - The Amazon Resource Name
---   (ARN) of the environment member you want to add.
---   
---   <a>$sel:permissions:CreateEnvironmentMembership'</a>,
---   <a>createEnvironmentMembership_permissions</a> - The type of
---   environment member permissions you want to associate with this
---   environment member. Available values include:
+--   <a>$sel:managedCredentialsAction:UpdateEnvironment'</a>,
+--   <a>updateEnvironment_managedCredentialsAction</a> - Allows the
+--   environment owner to turn on or turn off the Amazon Web Services
+--   managed temporary credentials for an Cloud9 environment by using one
+--   of the following values:
 --   
 --   <ul>
---   <li><tt>read-only</tt>: Has read-only access to the environment.</li>
---   <li><tt>read-write</tt>: Has read-write access to the
---   environment.</li>
+--   <li><pre>ENABLE</pre></li>
+--   <li><pre>DISABLE</pre></li>
 --   </ul>
-newCreateEnvironmentMembership :: Text -> Text -> MemberPermissions -> CreateEnvironmentMembership
+--   
+--   Only the environment owner can change the status of managed temporary
+--   credentials. An <tt>AccessDeniedException</tt> is thrown if an attempt
+--   to turn on or turn off managed temporary credentials is made by an
+--   account that's not the environment owner.
+--   
+--   <a>$sel:name:UpdateEnvironment'</a>, <a>updateEnvironment_name</a> - A
+--   replacement name for the environment.
+--   
+--   <a>$sel:description:UpdateEnvironment'</a>,
+--   <a>updateEnvironment_description</a> - Any new or replacement
+--   description for the environment.
+--   
+--   <a>$sel:environmentId:UpdateEnvironment'</a>,
+--   <a>updateEnvironment_environmentId</a> - The ID of the environment to
+--   change settings.
+newUpdateEnvironment :: Text -> UpdateEnvironment
 
--- | <i>See:</i> <a>newCreateEnvironmentMembershipResponse</a> smart
---   constructor.
-data CreateEnvironmentMembershipResponse
-CreateEnvironmentMembershipResponse' :: Int -> EnvironmentMember -> CreateEnvironmentMembershipResponse
+-- | <i>See:</i> <a>newUpdateEnvironmentResponse</a> smart constructor.
+data UpdateEnvironmentResponse
+UpdateEnvironmentResponse' :: Int -> UpdateEnvironmentResponse
 
--- | Create a value of <a>CreateEnvironmentMembershipResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:CreateEnvironmentMembershipResponse'</a>,
---   <a>createEnvironmentMembershipResponse_httpStatus</a> - The response's
---   http status code.
---   
---   <a>$sel:membership:CreateEnvironmentMembershipResponse'</a>,
---   <a>createEnvironmentMembershipResponse_membership</a> - Information
---   about the environment member that was added.
-newCreateEnvironmentMembershipResponse :: Int -> EnvironmentMember -> CreateEnvironmentMembershipResponse
-
--- | <i>See:</i> <a>newUntagResource</a> smart constructor.
-data UntagResource
-UntagResource' :: Text -> Sensitive [Sensitive Text] -> UntagResource
-
--- | Create a value of <a>UntagResource</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:resourceARN:UntagResource'</a>,
---   <a>untagResource_resourceARN</a> - The Amazon Resource Name (ARN) of
---   the Cloud9 development environment to remove tags from.
---   
---   <a>$sel:tagKeys:UntagResource'</a>, <a>untagResource_tagKeys</a> - The
---   tag names of the tags to remove from the given Cloud9 development
---   environment.
-newUntagResource :: Text -> UntagResource
-
--- | <i>See:</i> <a>newUntagResourceResponse</a> smart constructor.
-data UntagResourceResponse
-UntagResourceResponse' :: Int -> UntagResourceResponse
-
--- | Create a value of <a>UntagResourceResponse</a> with all optional
+-- | Create a value of <a>UpdateEnvironmentResponse</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3368,48 +3331,10 @@ UntagResourceResponse' :: Int -> UntagResourceResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:UntagResourceResponse'</a>,
---   <a>untagResourceResponse_httpStatus</a> - The response's http status
---   code.
-newUntagResourceResponse :: Int -> UntagResourceResponse
-
--- | <i>See:</i> <a>newTagResource</a> smart constructor.
-data TagResource
-TagResource' :: Text -> Sensitive [Sensitive Tag] -> TagResource
-
--- | Create a value of <a>TagResource</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:resourceARN:TagResource'</a>, <a>tagResource_resourceARN</a> -
---   The Amazon Resource Name (ARN) of the Cloud9 development environment
---   to add tags to.
---   
---   <a>$sel:tags:TagResource'</a>, <a>tagResource_tags</a> - The list of
---   tags to add to the given Cloud9 development environment.
-newTagResource :: Text -> TagResource
-
--- | <i>See:</i> <a>newTagResourceResponse</a> smart constructor.
-data TagResourceResponse
-TagResourceResponse' :: Int -> TagResourceResponse
-
--- | Create a value of <a>TagResourceResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:TagResourceResponse'</a>,
---   <a>tagResourceResponse_httpStatus</a> - The response's http status
---   code.
-newTagResourceResponse :: Int -> TagResourceResponse
+--   <a>$sel:httpStatus:UpdateEnvironmentResponse'</a>,
+--   <a>updateEnvironmentResponse_httpStatus</a> - The response's http
+--   status code.
+newUpdateEnvironmentResponse :: Int -> UpdateEnvironmentResponse
 
 -- | <i>See:</i> <a>newDeleteEnvironment</a> smart constructor.
 data DeleteEnvironment
@@ -3502,11 +3427,11 @@ DescribeEnvironmentStatusResponse' :: Int -> EnvironmentStatus -> Text -> Descri
 --   message about the status of the environment.
 newDescribeEnvironmentStatusResponse :: Int -> EnvironmentStatus -> Text -> DescribeEnvironmentStatusResponse
 
--- | <i>See:</i> <a>newUpdateEnvironment</a> smart constructor.
-data UpdateEnvironment
-UpdateEnvironment' :: Maybe ManagedCredentialsAction -> Maybe Text -> Maybe (Sensitive Text) -> Text -> UpdateEnvironment
+-- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
+data ListTagsForResource
+ListTagsForResource' :: Text -> ListTagsForResource
 
--- | Create a value of <a>UpdateEnvironment</a> with all optional fields
+-- | Create a value of <a>ListTagsForResource</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3515,39 +3440,16 @@ UpdateEnvironment' :: Maybe ManagedCredentialsAction -> Maybe Text -> Maybe (Sen
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:managedCredentialsAction:UpdateEnvironment'</a>,
---   <a>updateEnvironment_managedCredentialsAction</a> - Allows the
---   environment owner to turn on or turn off the Amazon Web Services
---   managed temporary credentials for an Cloud9 environment by using one
---   of the following values:
---   
---   <ul>
---   <li><pre>ENABLE</pre></li>
---   <li><pre>DISABLE</pre></li>
---   </ul>
---   
---   Only the environment owner can change the status of managed temporary
---   credentials. An <tt>AccessDeniedException</tt> is thrown if an attempt
---   to turn on or turn off managed temporary credentials is made by an
---   account that's not the environment owner.
---   
---   <a>$sel:name:UpdateEnvironment'</a>, <a>updateEnvironment_name</a> - A
---   replacement name for the environment.
---   
---   <a>$sel:description:UpdateEnvironment'</a>,
---   <a>updateEnvironment_description</a> - Any new or replacement
---   description for the environment.
---   
---   <a>$sel:environmentId:UpdateEnvironment'</a>,
---   <a>updateEnvironment_environmentId</a> - The ID of the environment to
---   change settings.
-newUpdateEnvironment :: Text -> UpdateEnvironment
+--   <a>$sel:resourceARN:ListTagsForResource'</a>,
+--   <a>listTagsForResource_resourceARN</a> - The Amazon Resource Name
+--   (ARN) of the Cloud9 development environment to get the tags for.
+newListTagsForResource :: Text -> ListTagsForResource
 
--- | <i>See:</i> <a>newUpdateEnvironmentResponse</a> smart constructor.
-data UpdateEnvironmentResponse
-UpdateEnvironmentResponse' :: Int -> UpdateEnvironmentResponse
+-- | <i>See:</i> <a>newListTagsForResourceResponse</a> smart constructor.
+data ListTagsForResourceResponse
+ListTagsForResourceResponse' :: Maybe (Sensitive [Sensitive Tag]) -> Int -> ListTagsForResourceResponse
 
--- | Create a value of <a>UpdateEnvironmentResponse</a> with all optional
+-- | Create a value of <a>ListTagsForResourceResponse</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3556,17 +3458,215 @@ UpdateEnvironmentResponse' :: Int -> UpdateEnvironmentResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:UpdateEnvironmentResponse'</a>,
---   <a>updateEnvironmentResponse_httpStatus</a> - The response's http
+--   <a>$sel:tags:ListTagsForResourceResponse'</a>,
+--   <a>listTagsForResourceResponse_tags</a> - The list of tags associated
+--   with the Cloud9 development environment.
+--   
+--   <a>$sel:httpStatus:ListTagsForResourceResponse'</a>,
+--   <a>listTagsForResourceResponse_httpStatus</a> - The response's http
 --   status code.
-newUpdateEnvironmentResponse :: Int -> UpdateEnvironmentResponse
+newListTagsForResourceResponse :: Int -> ListTagsForResourceResponse
 
--- | <i>See:</i> <a>newDescribeEnvironmentMemberships</a> smart
+-- | <i>See:</i> <a>newCreateEnvironmentEC</a> smart constructor.
+data CreateEnvironmentEC
+CreateEnvironmentEC' :: Maybe Int -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe ConnectionType -> Maybe (Sensitive Text) -> Maybe Bool -> Maybe (Sensitive [Sensitive Tag]) -> Text -> Text -> CreateEnvironmentEC
+
+-- | Create a value of <a>CreateEnvironmentEC</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:automaticStopTimeMinutes:CreateEnvironmentEC'</a>,
+--   <a>createEnvironmentEC_automaticStopTimeMinutes</a> - The number of
+--   minutes until the running instance is shut down after the environment
+--   has last been used.
+--   
+--   <a>$sel:subnetId:CreateEnvironmentEC'</a>,
+--   <a>createEnvironmentEC_subnetId</a> - The ID of the subnet in Amazon
+--   VPC that Cloud9 will use to communicate with the Amazon EC2 instance.
+--   
+--   <a>$sel:ownerArn:CreateEnvironmentEC'</a>,
+--   <a>createEnvironmentEC_ownerArn</a> - The Amazon Resource Name (ARN)
+--   of the environment owner. This ARN can be the ARN of any IAM
+--   principal. If this value is not specified, the ARN defaults to this
+--   environment's creator.
+--   
+--   <a>$sel:imageId:CreateEnvironmentEC'</a>,
+--   <a>createEnvironmentEC_imageId</a> - The identifier for the Amazon
+--   Machine Image (AMI) that's used to create the EC2 instance. To choose
+--   an AMI for the instance, you must specify a valid AMI alias or a valid
+--   Amazon EC2 Systems Manager (SSM) path.
+--   
+--   The default AMI is used if the parameter isn't explicitly assigned a
+--   value in the request. Because Amazon Linux AMI has ended standard
+--   support as of December 31, 2020, we recommend you choose Amazon Linux
+--   2, which includes long term support through 2023.
+--   
+--   <b>AMI aliases</b>
+--   
+--   <ul>
+--   <li><b>Amazon Linux (default): <tt>amazonlinux-1-x86_64</tt></b></li>
+--   <li>Amazon Linux 2: <tt>amazonlinux-2-x86_64</tt></li>
+--   <li>Ubuntu 18.04: <tt>ubuntu-18.04-x86_64</tt></li>
+--   </ul>
+--   
+--   <b>SSM paths</b>
+--   
+--   <ul>
+--   <li>__Amazon Linux (default):
+--   <tt>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</tt>__</li>
+--   <li>Amazon Linux 2:
+--   <tt>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</tt></li>
+--   <li>Ubuntu 18.04:
+--   <tt>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</tt></li>
+--   </ul>
+--   
+--   <a>$sel:clientRequestToken:CreateEnvironmentEC'</a>,
+--   <a>createEnvironmentEC_clientRequestToken</a> - A unique,
+--   case-sensitive string that helps Cloud9 to ensure this operation
+--   completes no more than one time.
+--   
+--   For more information, see <a>Client Tokens</a> in the <i>Amazon EC2
+--   API Reference</i>.
+--   
+--   <a>$sel:connectionType:CreateEnvironmentEC'</a>,
+--   <a>createEnvironmentEC_connectionType</a> - The connection type used
+--   for connecting to an Amazon EC2 environment. Valid values are
+--   <tt>CONNECT_SSH</tt> (default) and <tt>CONNECT_SSM</tt> (connected
+--   through Amazon EC2 Systems Manager).
+--   
+--   For more information, see <a>Accessing no-ingress EC2 instances with
+--   Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.
+--   
+--   <a>$sel:description:CreateEnvironmentEC'</a>,
+--   <a>createEnvironmentEC_description</a> - The description of the
+--   environment to create.
+--   
+--   <a>$sel:dryRun:CreateEnvironmentEC'</a>,
+--   <a>createEnvironmentEC_dryRun</a> - Checks whether you have the
+--   required permissions for the action, without actually making the
+--   request, and provides an error response. If you have the required
+--   permissions, the error response is <tt>DryRunOperation</tt>.
+--   Otherwise, it is <tt>UnauthorizedOperation</tt>.
+--   
+--   <a>$sel:tags:CreateEnvironmentEC'</a>, <a>createEnvironmentEC_tags</a>
+--   - An array of key-value pairs that will be associated with the new
+--   Cloud9 development environment.
+--   
+--   <a>$sel:name:CreateEnvironmentEC'</a>, <a>createEnvironmentEC_name</a>
+--   - The name of the environment to create.
+--   
+--   This name is visible to other IAM users in the same Amazon Web
+--   Services account.
+--   
+--   <a>$sel:instanceType:CreateEnvironmentEC'</a>,
+--   <a>createEnvironmentEC_instanceType</a> - The type of instance to
+--   connect to the environment (for example, <tt>t2.micro</tt>).
+newCreateEnvironmentEC :: Text -> Text -> CreateEnvironmentEC
+
+-- | <i>See:</i> <a>newCreateEnvironmentECResponse</a> smart constructor.
+data CreateEnvironmentECResponse
+CreateEnvironmentECResponse' :: Maybe Text -> Int -> CreateEnvironmentECResponse
+
+-- | Create a value of <a>CreateEnvironmentECResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:environmentId:CreateEnvironmentECResponse'</a>,
+--   <a>createEnvironmentECResponse_environmentId</a> - The ID of the
+--   environment that was created.
+--   
+--   <a>$sel:httpStatus:CreateEnvironmentECResponse'</a>,
+--   <a>createEnvironmentECResponse_httpStatus</a> - The response's http
+--   status code.
+newCreateEnvironmentECResponse :: Int -> CreateEnvironmentECResponse
+
+-- | <i>See:</i> <a>newTagResource</a> smart constructor.
+data TagResource
+TagResource' :: Text -> Sensitive [Sensitive Tag] -> TagResource
+
+-- | Create a value of <a>TagResource</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:resourceARN:TagResource'</a>, <a>tagResource_resourceARN</a> -
+--   The Amazon Resource Name (ARN) of the Cloud9 development environment
+--   to add tags to.
+--   
+--   <a>$sel:tags:TagResource'</a>, <a>tagResource_tags</a> - The list of
+--   tags to add to the given Cloud9 development environment.
+newTagResource :: Text -> TagResource
+
+-- | <i>See:</i> <a>newTagResourceResponse</a> smart constructor.
+data TagResourceResponse
+TagResourceResponse' :: Int -> TagResourceResponse
+
+-- | Create a value of <a>TagResourceResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:TagResourceResponse'</a>,
+--   <a>tagResourceResponse_httpStatus</a> - The response's http status
+--   code.
+newTagResourceResponse :: Int -> TagResourceResponse
+
+-- | <i>See:</i> <a>newCreateEnvironmentMembership</a> smart constructor.
+data CreateEnvironmentMembership
+CreateEnvironmentMembership' :: Text -> Text -> MemberPermissions -> CreateEnvironmentMembership
+
+-- | Create a value of <a>CreateEnvironmentMembership</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:environmentId:CreateEnvironmentMembership'</a>,
+--   <a>createEnvironmentMembership_environmentId</a> - The ID of the
+--   environment that contains the environment member you want to add.
+--   
+--   <a>$sel:userArn:CreateEnvironmentMembership'</a>,
+--   <a>createEnvironmentMembership_userArn</a> - The Amazon Resource Name
+--   (ARN) of the environment member you want to add.
+--   
+--   <a>$sel:permissions:CreateEnvironmentMembership'</a>,
+--   <a>createEnvironmentMembership_permissions</a> - The type of
+--   environment member permissions you want to associate with this
+--   environment member. Available values include:
+--   
+--   <ul>
+--   <li><tt>read-only</tt>: Has read-only access to the environment.</li>
+--   <li><tt>read-write</tt>: Has read-write access to the
+--   environment.</li>
+--   </ul>
+newCreateEnvironmentMembership :: Text -> Text -> MemberPermissions -> CreateEnvironmentMembership
+
+-- | <i>See:</i> <a>newCreateEnvironmentMembershipResponse</a> smart
 --   constructor.
-data DescribeEnvironmentMemberships
-DescribeEnvironmentMemberships' :: Maybe Text -> Maybe Text -> Maybe Natural -> Maybe Text -> Maybe [Permissions] -> DescribeEnvironmentMemberships
+data CreateEnvironmentMembershipResponse
+CreateEnvironmentMembershipResponse' :: Int -> EnvironmentMember -> CreateEnvironmentMembershipResponse
 
--- | Create a value of <a>DescribeEnvironmentMemberships</a> with all
+-- | Create a value of <a>CreateEnvironmentMembershipResponse</a> with all
 --   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3575,52 +3675,21 @@ DescribeEnvironmentMemberships' :: Maybe Text -> Maybe Text -> Maybe Natural -> 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:userArn:DescribeEnvironmentMemberships'</a>,
---   <a>describeEnvironmentMemberships_userArn</a> - The Amazon Resource
---   Name (ARN) of an individual environment member to get information
---   about. If no value is specified, information about all environment
---   members are returned.
+--   <a>$sel:httpStatus:CreateEnvironmentMembershipResponse'</a>,
+--   <a>createEnvironmentMembershipResponse_httpStatus</a> - The response's
+--   http status code.
 --   
---   <a>$sel:nextToken:DescribeEnvironmentMemberships'</a>,
---   <a>describeEnvironmentMemberships_nextToken</a> - During a previous
---   call, if there are more than 25 items in the list, only the first 25
---   items are returned, along with a unique string called a <i>next
---   token</i>. To get the next batch of items in the list, call this
---   operation again, adding the next token to the call. To get all of the
---   items in the list, keep calling this operation with each subsequent
---   next token that is returned, until no more next tokens are returned.
---   
---   <a>$sel:maxResults:DescribeEnvironmentMemberships'</a>,
---   <a>describeEnvironmentMemberships_maxResults</a> - The maximum number
---   of environment members to get information about.
---   
---   <a>$sel:environmentId:DescribeEnvironmentMemberships'</a>,
---   <a>describeEnvironmentMemberships_environmentId</a> - The ID of the
---   environment to get environment member information about.
---   
---   <a>$sel:permissions:DescribeEnvironmentMemberships'</a>,
---   <a>describeEnvironmentMemberships_permissions</a> - The type of
---   environment member permissions to get information about. Available
---   values include:
---   
---   <ul>
---   <li><tt>owner</tt>: Owns the environment.</li>
---   <li><tt>read-only</tt>: Has read-only access to the environment.</li>
---   <li><tt>read-write</tt>: Has read-write access to the
---   environment.</li>
---   </ul>
---   
---   If no value is specified, information about all environment members
---   are returned.
-newDescribeEnvironmentMemberships :: DescribeEnvironmentMemberships
+--   <a>$sel:membership:CreateEnvironmentMembershipResponse'</a>,
+--   <a>createEnvironmentMembershipResponse_membership</a> - Information
+--   about the environment member that was added.
+newCreateEnvironmentMembershipResponse :: Int -> EnvironmentMember -> CreateEnvironmentMembershipResponse
 
--- | <i>See:</i> <a>newDescribeEnvironmentMembershipsResponse</a> smart
---   constructor.
-data DescribeEnvironmentMembershipsResponse
-DescribeEnvironmentMembershipsResponse' :: Maybe Text -> Maybe [EnvironmentMember] -> Int -> DescribeEnvironmentMembershipsResponse
+-- | <i>See:</i> <a>newDescribeEnvironments</a> smart constructor.
+data DescribeEnvironments
+DescribeEnvironments' :: NonEmpty Text -> DescribeEnvironments
 
--- | Create a value of <a>DescribeEnvironmentMembershipsResponse</a> with
---   all optional fields omitted.
+-- | Create a value of <a>DescribeEnvironments</a> with all optional fields
+--   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -3628,21 +3697,72 @@ DescribeEnvironmentMembershipsResponse' :: Maybe Text -> Maybe [EnvironmentMembe
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:DescribeEnvironmentMemberships'</a>,
---   <a>describeEnvironmentMembershipsResponse_nextToken</a> - If there are
---   more than 25 items in the list, only the first 25 items are returned,
---   along with a unique string called a <i>next token</i>. To get the next
---   batch of items in the list, call this operation again, adding the next
---   token to the call.
+--   <a>$sel:environmentIds:DescribeEnvironments'</a>,
+--   <a>describeEnvironments_environmentIds</a> - The IDs of individual
+--   environments to get information about.
+newDescribeEnvironments :: NonEmpty Text -> DescribeEnvironments
+
+-- | <i>See:</i> <a>newDescribeEnvironmentsResponse</a> smart constructor.
+data DescribeEnvironmentsResponse
+DescribeEnvironmentsResponse' :: Maybe [Environment] -> Int -> DescribeEnvironmentsResponse
+
+-- | Create a value of <a>DescribeEnvironmentsResponse</a> with all
+--   optional fields omitted.
 --   
---   <a>$sel:memberships:DescribeEnvironmentMembershipsResponse'</a>,
---   <a>describeEnvironmentMembershipsResponse_memberships</a> -
---   Information about the environment members for the environment.
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
 --   
---   <a>$sel:httpStatus:DescribeEnvironmentMembershipsResponse'</a>,
---   <a>describeEnvironmentMembershipsResponse_httpStatus</a> - The
---   response's http status code.
-newDescribeEnvironmentMembershipsResponse :: Int -> DescribeEnvironmentMembershipsResponse
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:environments:DescribeEnvironmentsResponse'</a>,
+--   <a>describeEnvironmentsResponse_environments</a> - Information about
+--   the environments that are returned.
+--   
+--   <a>$sel:httpStatus:DescribeEnvironmentsResponse'</a>,
+--   <a>describeEnvironmentsResponse_httpStatus</a> - The response's http
+--   status code.
+newDescribeEnvironmentsResponse :: Int -> DescribeEnvironmentsResponse
+
+-- | <i>See:</i> <a>newUntagResource</a> smart constructor.
+data UntagResource
+UntagResource' :: Text -> Sensitive [Sensitive Text] -> UntagResource
+
+-- | Create a value of <a>UntagResource</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:resourceARN:UntagResource'</a>,
+--   <a>untagResource_resourceARN</a> - The Amazon Resource Name (ARN) of
+--   the Cloud9 development environment to remove tags from.
+--   
+--   <a>$sel:tagKeys:UntagResource'</a>, <a>untagResource_tagKeys</a> - The
+--   tag names of the tags to remove from the given Cloud9 development
+--   environment.
+newUntagResource :: Text -> UntagResource
+
+-- | <i>See:</i> <a>newUntagResourceResponse</a> smart constructor.
+data UntagResourceResponse
+UntagResourceResponse' :: Int -> UntagResourceResponse
+
+-- | Create a value of <a>UntagResourceResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:UntagResourceResponse'</a>,
+--   <a>untagResourceResponse_httpStatus</a> - The response's http status
+--   code.
+newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | <i>See:</i> <a>newDeleteEnvironmentMembership</a> smart constructor.
 data DeleteEnvironmentMembership
@@ -3742,29 +3862,12 @@ UpdateEnvironmentMembershipResponse' :: Maybe EnvironmentMember -> Int -> Update
 --   http status code.
 newUpdateEnvironmentMembershipResponse :: Int -> UpdateEnvironmentMembershipResponse
 
--- | <i>See:</i> <a>newDescribeEnvironments</a> smart constructor.
-data DescribeEnvironments
-DescribeEnvironments' :: NonEmpty Text -> DescribeEnvironments
+-- | <i>See:</i> <a>newDescribeEnvironmentMemberships</a> smart
+--   constructor.
+data DescribeEnvironmentMemberships
+DescribeEnvironmentMemberships' :: Maybe Text -> Maybe Text -> Maybe [Permissions] -> Maybe Text -> Maybe Natural -> DescribeEnvironmentMemberships
 
--- | Create a value of <a>DescribeEnvironments</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:environmentIds:DescribeEnvironments'</a>,
---   <a>describeEnvironments_environmentIds</a> - The IDs of individual
---   environments to get information about.
-newDescribeEnvironments :: NonEmpty Text -> DescribeEnvironments
-
--- | <i>See:</i> <a>newDescribeEnvironmentsResponse</a> smart constructor.
-data DescribeEnvironmentsResponse
-DescribeEnvironmentsResponse' :: Maybe [Environment] -> Int -> DescribeEnvironmentsResponse
-
--- | Create a value of <a>DescribeEnvironmentsResponse</a> with all
+-- | Create a value of <a>DescribeEnvironmentMemberships</a> with all
 --   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -3773,122 +3876,52 @@ DescribeEnvironmentsResponse' :: Maybe [Environment] -> Int -> DescribeEnvironme
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:environments:DescribeEnvironmentsResponse'</a>,
---   <a>describeEnvironmentsResponse_environments</a> - Information about
---   the environments that are returned.
+--   <a>$sel:userArn:DescribeEnvironmentMemberships'</a>,
+--   <a>describeEnvironmentMemberships_userArn</a> - The Amazon Resource
+--   Name (ARN) of an individual environment member to get information
+--   about. If no value is specified, information about all environment
+--   members are returned.
 --   
---   <a>$sel:httpStatus:DescribeEnvironmentsResponse'</a>,
---   <a>describeEnvironmentsResponse_httpStatus</a> - The response's http
---   status code.
-newDescribeEnvironmentsResponse :: Int -> DescribeEnvironmentsResponse
-
--- | <i>See:</i> <a>newCreateEnvironmentEC</a> smart constructor.
-data CreateEnvironmentEC
-CreateEnvironmentEC' :: Maybe Bool -> Maybe ConnectionType -> Maybe Text -> Maybe Text -> Maybe (Sensitive [Sensitive Tag]) -> Maybe Text -> Maybe (Sensitive Text) -> Maybe Text -> Maybe Int -> Text -> Text -> CreateEnvironmentEC
-
--- | Create a value of <a>CreateEnvironmentEC</a> with all optional fields
---   omitted.
+--   <a>$sel:nextToken:DescribeEnvironmentMemberships'</a>,
+--   <a>describeEnvironmentMemberships_nextToken</a> - During a previous
+--   call, if there are more than 25 items in the list, only the first 25
+--   items are returned, along with a unique string called a <i>next
+--   token</i>. To get the next batch of items in the list, call this
+--   operation again, adding the next token to the call. To get all of the
+--   items in the list, keep calling this operation with each subsequent
+--   next token that is returned, until no more next tokens are returned.
 --   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:dryRun:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_dryRun</a> - Checks whether you have the
---   required permissions for the action, without actually making the
---   request, and provides an error response. If you have the required
---   permissions, the error response is <tt>DryRunOperation</tt>.
---   Otherwise, it is <tt>UnauthorizedOperation</tt>.
---   
---   <a>$sel:connectionType:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_connectionType</a> - The connection type used
---   for connecting to an Amazon EC2 environment. Valid values are
---   <tt>CONNECT_SSH</tt> (default) and <tt>CONNECT_SSM</tt> (connected
---   through Amazon EC2 Systems Manager).
---   
---   For more information, see <a>Accessing no-ingress EC2 instances with
---   Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.
---   
---   <a>$sel:imageId:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_imageId</a> - The identifier for the Amazon
---   Machine Image (AMI) that's used to create the EC2 instance. To choose
---   an AMI for the instance, you must specify a valid AMI alias or a valid
---   Amazon EC2 Systems Manager (SSM) path.
---   
---   The default AMI is used if the parameter isn't explicitly assigned a
---   value in the request. Because Amazon Linux AMI has ended standard
---   support as of December 31, 2020, we recommend you choose Amazon Linux
---   2, which includes long term support through 2023.
---   
---   <b>AMI aliases</b>
+--   <a>$sel:permissions:DescribeEnvironmentMemberships'</a>,
+--   <a>describeEnvironmentMemberships_permissions</a> - The type of
+--   environment member permissions to get information about. Available
+--   values include:
 --   
 --   <ul>
---   <li><b>Amazon Linux (default): <tt>amazonlinux-1-x86_64</tt></b></li>
---   <li>Amazon Linux 2: <tt>amazonlinux-2-x86_64</tt></li>
---   <li>Ubuntu 18.04: <tt>ubuntu-18.04-x86_64</tt></li>
+--   <li><tt>owner</tt>: Owns the environment.</li>
+--   <li><tt>read-only</tt>: Has read-only access to the environment.</li>
+--   <li><tt>read-write</tt>: Has read-write access to the
+--   environment.</li>
 --   </ul>
 --   
---   <b>SSM paths</b>
+--   If no value is specified, information about all environment members
+--   are returned.
 --   
---   <ul>
---   <li>__Amazon Linux (default):
---   <tt>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</tt>__</li>
---   <li>Amazon Linux 2:
---   <tt>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</tt></li>
---   <li>Ubuntu 18.04:
---   <tt>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</tt></li>
---   </ul>
+--   <a>$sel:environmentId:DescribeEnvironmentMemberships'</a>,
+--   <a>describeEnvironmentMemberships_environmentId</a> - The ID of the
+--   environment to get environment member information about.
 --   
---   <a>$sel:ownerArn:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_ownerArn</a> - The Amazon Resource Name (ARN)
---   of the environment owner. This ARN can be the ARN of any IAM
---   principal. If this value is not specified, the ARN defaults to this
---   environment's creator.
---   
---   <a>$sel:tags:CreateEnvironmentEC'</a>, <a>createEnvironmentEC_tags</a>
---   - An array of key-value pairs that will be associated with the new
---   Cloud9 development environment.
---   
---   <a>$sel:subnetId:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_subnetId</a> - The ID of the subnet in Amazon
---   VPC that Cloud9 will use to communicate with the Amazon EC2 instance.
---   
---   <a>$sel:description:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_description</a> - The description of the
---   environment to create.
---   
---   <a>$sel:clientRequestToken:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_clientRequestToken</a> - A unique,
---   case-sensitive string that helps Cloud9 to ensure this operation
---   completes no more than one time.
---   
---   For more information, see <a>Client Tokens</a> in the <i>Amazon EC2
---   API Reference</i>.
---   
---   <a>$sel:automaticStopTimeMinutes:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_automaticStopTimeMinutes</a> - The number of
---   minutes until the running instance is shut down after the environment
---   has last been used.
---   
---   <a>$sel:name:CreateEnvironmentEC'</a>, <a>createEnvironmentEC_name</a>
---   - The name of the environment to create.
---   
---   This name is visible to other IAM users in the same Amazon Web
---   Services account.
---   
---   <a>$sel:instanceType:CreateEnvironmentEC'</a>,
---   <a>createEnvironmentEC_instanceType</a> - The type of instance to
---   connect to the environment (for example, <tt>t2.micro</tt>).
-newCreateEnvironmentEC :: Text -> Text -> CreateEnvironmentEC
+--   <a>$sel:maxResults:DescribeEnvironmentMemberships'</a>,
+--   <a>describeEnvironmentMemberships_maxResults</a> - The maximum number
+--   of environment members to get information about.
+newDescribeEnvironmentMemberships :: DescribeEnvironmentMemberships
 
--- | <i>See:</i> <a>newCreateEnvironmentECResponse</a> smart constructor.
-data CreateEnvironmentECResponse
-CreateEnvironmentECResponse' :: Maybe Text -> Int -> CreateEnvironmentECResponse
+-- | <i>See:</i> <a>newDescribeEnvironmentMembershipsResponse</a> smart
+--   constructor.
+data DescribeEnvironmentMembershipsResponse
+DescribeEnvironmentMembershipsResponse' :: Maybe Text -> Maybe [EnvironmentMember] -> Int -> DescribeEnvironmentMembershipsResponse
 
--- | Create a value of <a>CreateEnvironmentECResponse</a> with all optional
---   fields omitted.
+-- | Create a value of <a>DescribeEnvironmentMembershipsResponse</a> with
+--   all optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -3896,54 +3929,21 @@ CreateEnvironmentECResponse' :: Maybe Text -> Int -> CreateEnvironmentECResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:environmentId:CreateEnvironmentECResponse'</a>,
---   <a>createEnvironmentECResponse_environmentId</a> - The ID of the
---   environment that was created.
+--   <a>$sel:nextToken:DescribeEnvironmentMemberships'</a>,
+--   <a>describeEnvironmentMembershipsResponse_nextToken</a> - If there are
+--   more than 25 items in the list, only the first 25 items are returned,
+--   along with a unique string called a <i>next token</i>. To get the next
+--   batch of items in the list, call this operation again, adding the next
+--   token to the call.
 --   
---   <a>$sel:httpStatus:CreateEnvironmentECResponse'</a>,
---   <a>createEnvironmentECResponse_httpStatus</a> - The response's http
---   status code.
-newCreateEnvironmentECResponse :: Int -> CreateEnvironmentECResponse
-
--- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
-data ListTagsForResource
-ListTagsForResource' :: Text -> ListTagsForResource
-
--- | Create a value of <a>ListTagsForResource</a> with all optional fields
---   omitted.
+--   <a>$sel:memberships:DescribeEnvironmentMembershipsResponse'</a>,
+--   <a>describeEnvironmentMembershipsResponse_memberships</a> -
+--   Information about the environment members for the environment.
 --   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:resourceARN:ListTagsForResource'</a>,
---   <a>listTagsForResource_resourceARN</a> - The Amazon Resource Name
---   (ARN) of the Cloud9 development environment to get the tags for.
-newListTagsForResource :: Text -> ListTagsForResource
-
--- | <i>See:</i> <a>newListTagsForResourceResponse</a> smart constructor.
-data ListTagsForResourceResponse
-ListTagsForResourceResponse' :: Maybe (Sensitive [Sensitive Tag]) -> Int -> ListTagsForResourceResponse
-
--- | Create a value of <a>ListTagsForResourceResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:tags:ListTagsForResourceResponse'</a>,
---   <a>listTagsForResourceResponse_tags</a> - The list of tags associated
---   with the Cloud9 development environment.
---   
---   <a>$sel:httpStatus:ListTagsForResourceResponse'</a>,
---   <a>listTagsForResourceResponse_httpStatus</a> - The response's http
---   status code.
-newListTagsForResourceResponse :: Int -> ListTagsForResourceResponse
+--   <a>$sel:httpStatus:DescribeEnvironmentMembershipsResponse'</a>,
+--   <a>describeEnvironmentMembershipsResponse_httpStatus</a> - The
+--   response's http status code.
+newDescribeEnvironmentMembershipsResponse :: Int -> DescribeEnvironmentMembershipsResponse
 newtype ConnectionType
 ConnectionType' :: Text -> ConnectionType
 [fromConnectionType] :: ConnectionType -> Text
@@ -4007,7 +4007,7 @@ pattern Permissions_Read_write :: Permissions
 --   
 --   <i>See:</i> <a>newEnvironment</a> smart constructor.
 data Environment
-Environment' :: Maybe EnvironmentLifecycle -> Maybe ConnectionType -> Maybe Text -> Maybe Text -> Maybe ManagedCredentialsStatus -> Maybe (Sensitive Text) -> EnvironmentType -> Text -> Text -> Environment
+Environment' :: Maybe EnvironmentLifecycle -> Maybe Text -> Maybe Text -> Maybe ConnectionType -> Maybe (Sensitive Text) -> Maybe ManagedCredentialsStatus -> EnvironmentType -> Text -> Text -> Environment
 
 -- | Create a value of <a>Environment</a> with all optional fields omitted.
 --   
@@ -4020,16 +4020,19 @@ Environment' :: Maybe EnvironmentLifecycle -> Maybe ConnectionType -> Maybe Text
 --   <a>$sel:lifecycle:Environment'</a>, <a>environment_lifecycle</a> - The
 --   state of the environment in its creation or deletion lifecycle.
 --   
+--   <a>$sel:name:Environment'</a>, <a>environment_name</a> - The name of
+--   the environment.
+--   
+--   <a>$sel:id:Environment'</a>, <a>environment_id</a> - The ID of the
+--   environment.
+--   
 --   <a>$sel:connectionType:Environment'</a>,
 --   <a>environment_connectionType</a> - The connection type used for
 --   connecting to an Amazon EC2 environment. <tt>CONNECT_SSH</tt> is
 --   selected by default.
 --   
---   <a>$sel:id:Environment'</a>, <a>environment_id</a> - The ID of the
---   environment.
---   
---   <a>$sel:name:Environment'</a>, <a>environment_name</a> - The name of
---   the environment.
+--   <a>$sel:description:Environment'</a>, <a>environment_description</a> -
+--   The description for the environment.
 --   
 --   <a>$sel:managedCredentialsStatus:Environment'</a>,
 --   <a>environment_managedCredentialsStatus</a> - Describes the status of
@@ -4048,9 +4051,6 @@ Environment' :: Maybe EnvironmentLifecycle -> Maybe ConnectionType -> Maybe Text
 --   <li><pre>ENABLED_BY_OWNER</pre></li>
 --   <li><pre>DISABLED_BY_DEFAULT</pre></li>
 --   </ul>
---   
---   <a>$sel:description:Environment'</a>, <a>environment_description</a> -
---   The description for the environment.
 --   
 --   <a>$sel:type':Environment'</a>, <a>environment_type</a> - The type of
 --   environment. Valid values include the following:
@@ -4098,14 +4098,14 @@ EnvironmentLifecycle' :: Maybe EnvironmentLifecycleStatus -> Maybe Text -> Maybe
 --   <li><tt>DELETE_FAILED</tt>: The environment failed to delete.</li>
 --   </ul>
 --   
---   <a>$sel:reason:EnvironmentLifecycle'</a>,
---   <a>environmentLifecycle_reason</a> - Any informational message about
---   the lifecycle state of the environment.
---   
 --   <a>$sel:failureResource:EnvironmentLifecycle'</a>,
 --   <a>environmentLifecycle_failureResource</a> - If the environment
 --   failed to delete, the Amazon Resource Name (ARN) of the related Amazon
 --   Web Services resource.
+--   
+--   <a>$sel:reason:EnvironmentLifecycle'</a>,
+--   <a>environmentLifecycle_reason</a> - Any informational message about
+--   the lifecycle state of the environment.
 newEnvironmentLifecycle :: EnvironmentLifecycle
 
 -- | Information about an environment member for an Cloud9 development

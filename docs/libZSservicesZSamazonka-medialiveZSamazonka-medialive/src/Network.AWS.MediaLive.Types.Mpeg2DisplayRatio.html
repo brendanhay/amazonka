@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Mpeg2 Display Ratio</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679898653"><span id="local-6989586621679898654"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2DisplayRatio"><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2DisplayRatio.html#Mpeg2DisplayRatio"><span class="hs-identifier hs-var">Mpeg2DisplayRatio</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2DisplayRatio%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2DisplayRatio.html#Mpeg2DisplayRatio%27"><span class="hs-identifier hs-var">Mpeg2DisplayRatio'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679905323"><span id="local-6989586621679905324"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Mpeg2DisplayRatio"><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2DisplayRatio.html#Mpeg2DisplayRatio"><span class="hs-identifier hs-var">Mpeg2DisplayRatio</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mpeg2DisplayRatio%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Mpeg2DisplayRatio.html#Mpeg2DisplayRatio%27"><span class="hs-identifier hs-var">Mpeg2DisplayRatio'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMpeg2DisplayRatio"><span class="annot"><span class="annottext">Mpeg2DisplayRatio -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.Mpeg2DisplayRatio.html#fromMpeg2DisplayRatio"><span class="hs-identifier hs-var hs-var">fromMpeg2DisplayRatio</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679898645"><span id="local-6989586621679898647"><span id="local-6989586621679898649"><span class="annot"><span class="annottext">Int -&gt; Mpeg2DisplayRatio -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679905315"><span id="local-6989586621679905317"><span id="local-6989586621679905319"><span class="annot"><span class="annottext">Int -&gt; Mpeg2DisplayRatio -&gt; ShowS
 [Mpeg2DisplayRatio] -&gt; ShowS
 Mpeg2DisplayRatio -&gt; String
 (Int -&gt; Mpeg2DisplayRatio -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: Mpeg2DisplayRatio -&gt; String
 showsPrec :: Int -&gt; Mpeg2DisplayRatio -&gt; ShowS
 $cshowsPrec :: Int -&gt; Mpeg2DisplayRatio -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679898636"><span id="local-6989586621679898638"><span id="local-6989586621679898640"><span id="local-6989586621679898642"><span class="annot"><span class="annottext">ReadPrec [Mpeg2DisplayRatio]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679905306"><span id="local-6989586621679905308"><span id="local-6989586621679905310"><span id="local-6989586621679905312"><span class="annot"><span class="annottext">ReadPrec [Mpeg2DisplayRatio]
 ReadPrec Mpeg2DisplayRatio
 Int -&gt; ReadS Mpeg2DisplayRatio
 ReadS [Mpeg2DisplayRatio]
@@ -73,7 +73,7 @@ $creadList :: ReadS [Mpeg2DisplayRatio]
 readsPrec :: Int -&gt; ReadS Mpeg2DisplayRatio
 $creadsPrec :: Int -&gt; ReadS Mpeg2DisplayRatio
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679898631"><span id="local-6989586621679898633"><span class="annot"><span class="annottext">Mpeg2DisplayRatio -&gt; Mpeg2DisplayRatio -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679905301"><span id="local-6989586621679905303"><span class="annot"><span class="annottext">Mpeg2DisplayRatio -&gt; Mpeg2DisplayRatio -&gt; Bool
 (Mpeg2DisplayRatio -&gt; Mpeg2DisplayRatio -&gt; Bool)
 -&gt; (Mpeg2DisplayRatio -&gt; Mpeg2DisplayRatio -&gt; Bool)
 -&gt; Eq Mpeg2DisplayRatio
@@ -83,7 +83,7 @@ $c/= :: Mpeg2DisplayRatio -&gt; Mpeg2DisplayRatio -&gt; Bool
 == :: Mpeg2DisplayRatio -&gt; Mpeg2DisplayRatio -&gt; Bool
 $c== :: Mpeg2DisplayRatio -&gt; Mpeg2DisplayRatio -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679898615"><span id="local-6989586621679898617"><span id="local-6989586621679898619"><span id="local-6989586621679898621"><span id="local-6989586621679898623"><span id="local-6989586621679898625"><span id="local-6989586621679898627"><span class="annot"><span class="annottext">Eq Mpeg2DisplayRatio
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679905285"><span id="local-6989586621679905287"><span id="local-6989586621679905289"><span id="local-6989586621679905291"><span id="local-6989586621679905293"><span id="local-6989586621679905295"><span id="local-6989586621679905297"><span class="annot"><span class="annottext">Eq Mpeg2DisplayRatio
 Eq Mpeg2DisplayRatio
 -&gt; (Mpeg2DisplayRatio -&gt; Mpeg2DisplayRatio -&gt; Ordering)
 -&gt; (Mpeg2DisplayRatio -&gt; Mpeg2DisplayRatio -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. Mpeg2DisplayRatio -&gt; Rep Mpeg2DisplayRatio x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679898607"><span id="local-6989586621679898609"><span class="annot"><span class="annottext">Int -&gt; Mpeg2DisplayRatio -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679905277"><span id="local-6989586621679905279"><span class="annot"><span class="annottext">Int -&gt; Mpeg2DisplayRatio -&gt; Int
 Mpeg2DisplayRatio -&gt; Int
 (Int -&gt; Mpeg2DisplayRatio -&gt; Int)
 -&gt; (Mpeg2DisplayRatio -&gt; Int) -&gt; Hashable Mpeg2DisplayRatio
@@ -144,51 +144,51 @@ $chash :: Mpeg2DisplayRatio -&gt; Int
 hashWithSalt :: Int -&gt; Mpeg2DisplayRatio -&gt; Int
 $chashWithSalt :: Int -&gt; Mpeg2DisplayRatio -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679898604"><span class="annot"><span class="annottext">Mpeg2DisplayRatio -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679905274"><span class="annot"><span class="annottext">Mpeg2DisplayRatio -&gt; ()
 (Mpeg2DisplayRatio -&gt; ()) -&gt; NFData Mpeg2DisplayRatio
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Mpeg2DisplayRatio -&gt; ()
 $crnf :: Mpeg2DisplayRatio -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679898601"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2DisplayRatio
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679905271"><span class="annot"><span class="annottext">Text -&gt; Either String Mpeg2DisplayRatio
 (Text -&gt; Either String Mpeg2DisplayRatio)
 -&gt; FromText Mpeg2DisplayRatio
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Mpeg2DisplayRatio
 $cfromText :: Text -&gt; Either String Mpeg2DisplayRatio
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679898598"><span class="annot"><span class="annottext">Mpeg2DisplayRatio -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679905268"><span class="annot"><span class="annottext">Mpeg2DisplayRatio -&gt; Text
 (Mpeg2DisplayRatio -&gt; Text) -&gt; ToText Mpeg2DisplayRatio
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Mpeg2DisplayRatio -&gt; Text
 $ctoText :: Mpeg2DisplayRatio -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679898595"><span class="annot"><span class="annottext">Mpeg2DisplayRatio -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679905265"><span class="annot"><span class="annottext">Mpeg2DisplayRatio -&gt; ByteString
 (Mpeg2DisplayRatio -&gt; ByteString) -&gt; ToByteString Mpeg2DisplayRatio
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Mpeg2DisplayRatio -&gt; ByteString
 $ctoBS :: Mpeg2DisplayRatio -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679898592"><span class="annot"><span class="annottext">Mpeg2DisplayRatio -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679905262"><span class="annot"><span class="annottext">Mpeg2DisplayRatio -&gt; ByteStringBuilder
 (Mpeg2DisplayRatio -&gt; ByteStringBuilder) -&gt; ToLog Mpeg2DisplayRatio
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Mpeg2DisplayRatio -&gt; ByteStringBuilder
 $cbuild :: Mpeg2DisplayRatio -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679898589"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2DisplayRatio -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679905259"><span class="annot"><span class="annottext">HeaderName -&gt; Mpeg2DisplayRatio -&gt; [Header]
 (HeaderName -&gt; Mpeg2DisplayRatio -&gt; [Header])
 -&gt; ToHeader Mpeg2DisplayRatio
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Mpeg2DisplayRatio -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Mpeg2DisplayRatio -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679898586"><span class="annot"><span class="annottext">Mpeg2DisplayRatio -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679905256"><span class="annot"><span class="annottext">Mpeg2DisplayRatio -&gt; QueryString
 (Mpeg2DisplayRatio -&gt; QueryString) -&gt; ToQuery Mpeg2DisplayRatio
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Mpeg2DisplayRatio -&gt; QueryString
 $ctoQuery :: Mpeg2DisplayRatio -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679898581"><span id="local-6989586621679898583"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2DisplayRatio]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679905251"><span id="local-6989586621679905253"><span class="annot"><span class="annottext">Value -&gt; Parser [Mpeg2DisplayRatio]
 Value -&gt; Parser Mpeg2DisplayRatio
 (Value -&gt; Parser Mpeg2DisplayRatio)
 -&gt; (Value -&gt; Parser [Mpeg2DisplayRatio])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [Mpeg2DisplayRatio]
 parseJSON :: Value -&gt; Parser Mpeg2DisplayRatio
 $cparseJSON :: Value -&gt; Parser Mpeg2DisplayRatio
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679898576"><span id="local-6989586621679898578"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2DisplayRatio]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679905246"><span id="local-6989586621679905248"><span class="annot"><span class="annottext">FromJSONKeyFunction [Mpeg2DisplayRatio]
 FromJSONKeyFunction Mpeg2DisplayRatio
 FromJSONKeyFunction Mpeg2DisplayRatio
 -&gt; FromJSONKeyFunction [Mpeg2DisplayRatio]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Mpeg2DisplayRatio]
 fromJSONKey :: FromJSONKeyFunction Mpeg2DisplayRatio
 $cfromJSONKey :: FromJSONKeyFunction Mpeg2DisplayRatio
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679898567"><span id="local-6989586621679898569"><span id="local-6989586621679898571"><span id="local-6989586621679898573"><span class="annot"><span class="annottext">[Mpeg2DisplayRatio] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679905237"><span id="local-6989586621679905239"><span id="local-6989586621679905241"><span id="local-6989586621679905243"><span class="annot"><span class="annottext">[Mpeg2DisplayRatio] -&gt; Encoding
 [Mpeg2DisplayRatio] -&gt; Value
 Mpeg2DisplayRatio -&gt; Encoding
 Mpeg2DisplayRatio -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: Mpeg2DisplayRatio -&gt; Encoding
 toJSON :: Mpeg2DisplayRatio -&gt; Value
 $ctoJSON :: Mpeg2DisplayRatio -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679898562"><span id="local-6989586621679898564"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2DisplayRatio]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679905232"><span id="local-6989586621679905234"><span class="annot"><span class="annottext">ToJSONKeyFunction [Mpeg2DisplayRatio]
 ToJSONKeyFunction Mpeg2DisplayRatio
 ToJSONKeyFunction Mpeg2DisplayRatio
 -&gt; ToJSONKeyFunction [Mpeg2DisplayRatio]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Mpeg2DisplayRatio]
 toJSONKey :: ToJSONKeyFunction Mpeg2DisplayRatio
 $ctoJSONKey :: ToJSONKeyFunction Mpeg2DisplayRatio
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679898559"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2DisplayRatio
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679905229"><span class="annot"><span class="annottext">[Node] -&gt; Either String Mpeg2DisplayRatio
 ([Node] -&gt; Either String Mpeg2DisplayRatio)
 -&gt; FromXML Mpeg2DisplayRatio
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Mpeg2DisplayRatio
 $cparseXML :: [Node] -&gt; Either String Mpeg2DisplayRatio
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679898556"><span class="annot"><span class="annottext">Mpeg2DisplayRatio -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679905226"><span class="annot"><span class="annottext">Mpeg2DisplayRatio -&gt; XML
 (Mpeg2DisplayRatio -&gt; XML) -&gt; ToXML Mpeg2DisplayRatio
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Mpeg2DisplayRatio -&gt; XML

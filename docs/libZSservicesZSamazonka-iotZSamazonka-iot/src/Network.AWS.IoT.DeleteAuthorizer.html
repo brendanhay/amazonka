@@ -50,12 +50,12 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteAuthorizer' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679845608"><span id="local-6989586621679845609"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAuthorizer"><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer"><span class="hs-identifier hs-var">DeleteAuthorizer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAuthorizer%27"><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer%27"><span class="hs-identifier hs-var">DeleteAuthorizer'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679846596"><span id="local-6989586621679846597"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAuthorizer"><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer"><span class="hs-identifier hs-var">DeleteAuthorizer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAuthorizer%27"><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer%27"><span class="hs-identifier hs-var">DeleteAuthorizer'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the authorizer to delete.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AauthorizerName%3ADeleteAuthorizer%27"><span class="annot"><span class="annottext">DeleteAuthorizer -&gt; Text
 </span><a href="Network.AWS.IoT.DeleteAuthorizer.html#%24sel%3AauthorizerName%3ADeleteAuthorizer%27"><span class="hs-identifier hs-var hs-var">authorizerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679845602"><span id="local-6989586621679845604"><span class="annot"><span class="annottext">DeleteAuthorizer -&gt; DeleteAuthorizer -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679846590"><span id="local-6989586621679846592"><span class="annot"><span class="annottext">DeleteAuthorizer -&gt; DeleteAuthorizer -&gt; Bool
 (DeleteAuthorizer -&gt; DeleteAuthorizer -&gt; Bool)
 -&gt; (DeleteAuthorizer -&gt; DeleteAuthorizer -&gt; Bool)
 -&gt; Eq DeleteAuthorizer
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteAuthorizer -&gt; DeleteAuthorizer -&gt; Bool
 == :: DeleteAuthorizer -&gt; DeleteAuthorizer -&gt; Bool
 $c== :: DeleteAuthorizer -&gt; DeleteAuthorizer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845593"><span id="local-6989586621679845595"><span id="local-6989586621679845597"><span id="local-6989586621679845599"><span class="annot"><span class="annottext">ReadPrec [DeleteAuthorizer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846581"><span id="local-6989586621679846583"><span id="local-6989586621679846585"><span id="local-6989586621679846587"><span class="annot"><span class="annottext">ReadPrec [DeleteAuthorizer]
 ReadPrec DeleteAuthorizer
 Int -&gt; ReadS DeleteAuthorizer
 ReadS [DeleteAuthorizer]
@@ -84,7 +84,7 @@ readList :: ReadS [DeleteAuthorizer]
 $creadList :: ReadS [DeleteAuthorizer]
 readsPrec :: Int -&gt; ReadS DeleteAuthorizer
 $creadsPrec :: Int -&gt; ReadS DeleteAuthorizer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845586"><span id="local-6989586621679845588"><span id="local-6989586621679845590"><span class="annot"><span class="annottext">Int -&gt; DeleteAuthorizer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846574"><span id="local-6989586621679846576"><span id="local-6989586621679846578"><span class="annot"><span class="annottext">Int -&gt; DeleteAuthorizer -&gt; ShowS
 [DeleteAuthorizer] -&gt; ShowS
 DeleteAuthorizer -&gt; String
 (Int -&gt; DeleteAuthorizer -&gt; ShowS)
@@ -124,14 +124,14 @@ $cfrom :: forall x. DeleteAuthorizer -&gt; Rep DeleteAuthorizer x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer"><span class="hs-identifier hs-type">DeleteAuthorizer</span></a></span><span>
 </span><span id="line-72"></span><span id="newDeleteAuthorizer"><span class="annot"><span class="annottext">newDeleteAuthorizer :: Text -&gt; DeleteAuthorizer
-</span><a href="Network.AWS.IoT.DeleteAuthorizer.html#newDeleteAuthorizer"><span class="hs-identifier hs-var hs-var">newDeleteAuthorizer</span></a></span></span><span> </span><span id="local-6989586621679845581"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679845581"><span class="hs-identifier hs-var">pAuthorizerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DeleteAuthorizer.html#newDeleteAuthorizer"><span class="hs-identifier hs-var hs-var">newDeleteAuthorizer</span></a></span></span><span> </span><span id="local-6989586621679846569"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679846569"><span class="hs-identifier hs-var">pAuthorizerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeleteAuthorizer' :: Text -&gt; DeleteAuthorizer
 </span><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer%27"><span class="hs-identifier hs-type">DeleteAuthorizer'</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authorizerName:DeleteAuthorizer' :: Text
 </span><a href="Network.AWS.IoT.DeleteAuthorizer.html#%24sel%3AauthorizerName%3ADeleteAuthorizer%27"><span class="hs-identifier hs-var">authorizerName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679845581"><span class="hs-identifier hs-var">pAuthorizerName_</span></a></span><span>
+</span><a href="#local-6989586621679846569"><span class="hs-identifier hs-var">pAuthorizerName_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The name of the authorizer to delete.</span><span>
@@ -141,27 +141,27 @@ $cfrom :: forall x. DeleteAuthorizer -&gt; Rep DeleteAuthorizer x
 -&gt; (DeleteAuthorizer -&gt; Text -&gt; DeleteAuthorizer)
 -&gt; Lens DeleteAuthorizer DeleteAuthorizer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer%27"><span class="hs-identifier hs-type">DeleteAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845578"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer%27"><span class="hs-identifier hs-type">DeleteAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846566"><span class="annot"><span class="annottext">Text
 authorizerName :: Text
 $sel:authorizerName:DeleteAuthorizer' :: DeleteAuthorizer -&gt; Text
-</span><a href="#local-6989586621679845578"><span class="hs-identifier hs-var hs-var">authorizerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679845578"><span class="hs-identifier hs-var">authorizerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845577"><span class="annot"><span class="annottext">s :: DeleteAuthorizer
-</span><a href="#local-6989586621679845577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer%27"><span class="hs-identifier hs-type">DeleteAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845576"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679845576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAuthorizer
-</span><a href="#local-6989586621679845577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerName:DeleteAuthorizer' :: Text
+</span><a href="#local-6989586621679846566"><span class="hs-identifier hs-var hs-var">authorizerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679846566"><span class="hs-identifier hs-var">authorizerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846565"><span class="annot"><span class="annottext">s :: DeleteAuthorizer
+</span><a href="#local-6989586621679846565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer%27"><span class="hs-identifier hs-type">DeleteAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846564"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679846564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAuthorizer
+</span><a href="#local-6989586621679846565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerName:DeleteAuthorizer' :: Text
 </span><a href="Network.AWS.IoT.DeleteAuthorizer.html#%24sel%3AauthorizerName%3ADeleteAuthorizer%27"><span class="hs-identifier hs-var">authorizerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679845576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer"><span class="hs-identifier hs-type">DeleteAuthorizer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679846564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer"><span class="hs-identifier hs-type">DeleteAuthorizer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer"><span class="hs-identifier hs-type">DeleteAuthorizer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-84"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer"><span class="hs-identifier hs-type">DeleteAuthorizer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizerResponse"><span class="hs-identifier hs-type">DeleteAuthorizerResponse</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679845572"><span class="annot"><span class="annottext">request :: DeleteAuthorizer -&gt; Request DeleteAuthorizer
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679846560"><span class="annot"><span class="annottext">request :: DeleteAuthorizer -&gt; Request DeleteAuthorizer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAuthorizer -&gt; Request DeleteAuthorizer
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679845568"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679846556"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteAuthorizer
 -&gt; ClientResponse ClientBody
@@ -185,10 +185,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679845565"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845565"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679845564"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679845564"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679845563"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679845563"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679846553"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679846553"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679846552"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679846552"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679846551"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679846551"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteAuthorizerResponse
 </span><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizerResponse%27"><span class="hs-identifier hs-var">DeleteAuthorizerResponse'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteAuthorizerResponse)
@@ -199,15 +199,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845565"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679846553"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679845556"><span id="local-6989586621679845558"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer"><span class="hs-identifier hs-type">DeleteAuthorizer</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679846544"><span id="local-6989586621679846546"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer"><span class="hs-identifier hs-type">DeleteAuthorizer</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679845553"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer"><span class="hs-identifier hs-type">DeleteAuthorizer</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679846541"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer"><span class="hs-identifier hs-type">DeleteAuthorizer</span></a></span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer"><span class="hs-identifier hs-type">DeleteAuthorizer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679845549"><span class="annot"><span class="annottext">toHeaders :: DeleteAuthorizer -&gt; ResponseHeaders
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679846537"><span class="annot"><span class="annottext">toHeaders :: DeleteAuthorizer -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteAuthorizer -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -215,11 +215,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer"><span class="hs-identifier hs-type">DeleteAuthorizer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679845544"><span class="annot"><span class="annottext">toPath :: DeleteAuthorizer -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer%27"><span class="hs-identifier hs-type">DeleteAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845542"><span class="annot"><span class="annottext">Text
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679846532"><span class="annot"><span class="annottext">toPath :: DeleteAuthorizer -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer%27"><span class="hs-identifier hs-type">DeleteAuthorizer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846530"><span class="annot"><span class="annottext">Text
 authorizerName :: Text
 $sel:authorizerName:DeleteAuthorizer' :: DeleteAuthorizer -&gt; Text
-</span><a href="#local-6989586621679845542"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679846530"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -227,10 +227,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/authorizer/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679845542"><span class="hs-identifier hs-var">authorizerName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679846530"><span class="hs-identifier hs-var">authorizerName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizer"><span class="hs-identifier hs-type">DeleteAuthorizer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679845538"><span class="annot"><span class="annottext">toQuery :: DeleteAuthorizer -&gt; QueryString
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679846526"><span class="annot"><span class="annottext">toQuery :: DeleteAuthorizer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteAuthorizer -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -238,12 +238,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | /See:/ 'newDeleteAuthorizerResponse' smart constructor.</span><span>
-</span><span id="line-110"></span><span id="local-6989586621679845535"><span id="local-6989586621679845536"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAuthorizerResponse"><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizerResponse"><span class="hs-identifier hs-var">DeleteAuthorizerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAuthorizerResponse%27"><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizerResponse%27"><span class="hs-identifier hs-var">DeleteAuthorizerResponse'</span></a></span></span><span>
+</span><span id="line-110"></span><span id="local-6989586621679846523"><span id="local-6989586621679846524"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAuthorizerResponse"><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizerResponse"><span class="hs-identifier hs-var">DeleteAuthorizerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAuthorizerResponse%27"><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizerResponse%27"><span class="hs-identifier hs-var">DeleteAuthorizerResponse'</span></a></span></span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-112"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteAuthorizerResponse%27"><span class="annot"><span class="annottext">DeleteAuthorizerResponse -&gt; Int
 </span><a href="Network.AWS.IoT.DeleteAuthorizer.html#%24sel%3AhttpStatus%3ADeleteAuthorizerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679845530"><span id="local-6989586621679845532"><span class="annot"><span class="annottext">DeleteAuthorizerResponse -&gt; DeleteAuthorizerResponse -&gt; Bool
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679846518"><span id="local-6989586621679846520"><span class="annot"><span class="annottext">DeleteAuthorizerResponse -&gt; DeleteAuthorizerResponse -&gt; Bool
 (DeleteAuthorizerResponse -&gt; DeleteAuthorizerResponse -&gt; Bool)
 -&gt; (DeleteAuthorizerResponse -&gt; DeleteAuthorizerResponse -&gt; Bool)
 -&gt; Eq DeleteAuthorizerResponse
@@ -252,7 +252,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteAuthorizerResponse -&gt; DeleteAuthorizerResponse -&gt; Bool
 == :: DeleteAuthorizerResponse -&gt; DeleteAuthorizerResponse -&gt; Bool
 $c== :: DeleteAuthorizerResponse -&gt; DeleteAuthorizerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845522"><span id="local-6989586621679845524"><span id="local-6989586621679845526"><span id="local-6989586621679845528"><span class="annot"><span class="annottext">ReadPrec [DeleteAuthorizerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846510"><span id="local-6989586621679846512"><span id="local-6989586621679846514"><span id="local-6989586621679846516"><span class="annot"><span class="annottext">ReadPrec [DeleteAuthorizerResponse]
 ReadPrec DeleteAuthorizerResponse
 Int -&gt; ReadS DeleteAuthorizerResponse
 ReadS [DeleteAuthorizerResponse]
@@ -272,7 +272,7 @@ readList :: ReadS [DeleteAuthorizerResponse]
 $creadList :: ReadS [DeleteAuthorizerResponse]
 readsPrec :: Int -&gt; ReadS DeleteAuthorizerResponse
 $creadsPrec :: Int -&gt; ReadS DeleteAuthorizerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679845516"><span id="local-6989586621679845518"><span id="local-6989586621679845520"><span class="annot"><span class="annottext">Int -&gt; DeleteAuthorizerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679846504"><span id="local-6989586621679846506"><span id="local-6989586621679846508"><span class="annot"><span class="annottext">Int -&gt; DeleteAuthorizerResponse -&gt; ShowS
 [DeleteAuthorizerResponse] -&gt; ShowS
 DeleteAuthorizerResponse -&gt; String
 (Int -&gt; DeleteAuthorizerResponse -&gt; ShowS)
@@ -318,14 +318,14 @@ DeleteAuthorizerResponse -&gt; Rep DeleteAuthorizerResponse x
 </span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizerResponse"><span class="hs-identifier hs-type">DeleteAuthorizerResponse</span></a></span><span>
 </span><span id="line-129"></span><span id="newDeleteAuthorizerResponse"><span class="annot"><span class="annottext">newDeleteAuthorizerResponse :: Int -&gt; DeleteAuthorizerResponse
-</span><a href="Network.AWS.IoT.DeleteAuthorizer.html#newDeleteAuthorizerResponse"><span class="hs-identifier hs-var hs-var">newDeleteAuthorizerResponse</span></a></span></span><span> </span><span id="local-6989586621679845513"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845513"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.DeleteAuthorizer.html#newDeleteAuthorizerResponse"><span class="hs-identifier hs-var hs-var">newDeleteAuthorizerResponse</span></a></span></span><span> </span><span id="local-6989586621679846501"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679846501"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="annottext">DeleteAuthorizerResponse' :: Int -&gt; DeleteAuthorizerResponse
 </span><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizerResponse%27"><span class="hs-identifier hs-type">DeleteAuthorizerResponse'</span></a></span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAuthorizerResponse' :: Int
 </span><a href="Network.AWS.IoT.DeleteAuthorizer.html#%24sel%3AhttpStatus%3ADeleteAuthorizerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845513"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679846501"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -336,16 +336,16 @@ DeleteAuthorizerResponse -&gt; Rep DeleteAuthorizerResponse x
 -&gt; (DeleteAuthorizerResponse -&gt; Int -&gt; DeleteAuthorizerResponse)
 -&gt; Lens DeleteAuthorizerResponse DeleteAuthorizerResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizerResponse%27"><span class="hs-identifier hs-type">DeleteAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679845512"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizerResponse%27"><span class="hs-identifier hs-type">DeleteAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679846500"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteAuthorizerResponse' :: DeleteAuthorizerResponse -&gt; Int
-</span><a href="#local-6989586621679845512"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845512"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679845511"><span class="annot"><span class="annottext">s :: DeleteAuthorizerResponse
-</span><a href="#local-6989586621679845511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizerResponse%27"><span class="hs-identifier hs-type">DeleteAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679845510"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAuthorizerResponse
-</span><a href="#local-6989586621679845511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAuthorizerResponse' :: Int
+</span><a href="#local-6989586621679846500"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679846500"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679846499"><span class="annot"><span class="annottext">s :: DeleteAuthorizerResponse
+</span><a href="#local-6989586621679846499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizerResponse%27"><span class="hs-identifier hs-type">DeleteAuthorizerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679846498"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679846498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAuthorizerResponse
+</span><a href="#local-6989586621679846499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAuthorizerResponse' :: Int
 </span><a href="Network.AWS.IoT.DeleteAuthorizer.html#%24sel%3AhttpStatus%3ADeleteAuthorizerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679845510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizerResponse"><span class="hs-identifier hs-type">DeleteAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679846498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizerResponse"><span class="hs-identifier hs-type">DeleteAuthorizerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679845508"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizerResponse"><span class="hs-identifier hs-type">DeleteAuthorizerResponse</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679846496"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.DeleteAuthorizer.html#DeleteAuthorizerResponse"><span class="hs-identifier hs-type">DeleteAuthorizerResponse</span></a></span></span><span>
 </span><span id="line-140"></span></pre></body></html>

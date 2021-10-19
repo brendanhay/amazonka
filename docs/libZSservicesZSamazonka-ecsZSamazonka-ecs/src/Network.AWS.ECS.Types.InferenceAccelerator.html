@@ -24,11 +24,11 @@
 </span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-25"></span><span>
 </span><span id="line-26"></span><span class="hs-comment">-- | Details on a Elastic Inference accelerator. For more information, see</span><span>
-</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-eia.html Working with Amazon Elastic Inference on Amazon ECS&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html Working with Amazon Elastic Inference on Amazon ECS&gt;</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- in the /Amazon Elastic Container Service Developer Guide/.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInferenceAccelerator' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679453577"><span id="local-6989586621679453578"></span></span><span class="hs-keyword">data</span><span> </span><span id="InferenceAccelerator"><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator"><span class="hs-identifier hs-var">InferenceAccelerator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InferenceAccelerator%27"><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator%27"><span class="hs-identifier hs-var">InferenceAccelerator'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679454292"><span id="local-6989586621679454293"></span></span><span class="hs-keyword">data</span><span> </span><span id="InferenceAccelerator"><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator"><span class="hs-identifier hs-var">InferenceAccelerator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InferenceAccelerator%27"><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator%27"><span class="hs-identifier hs-var">InferenceAccelerator'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Elastic Inference accelerator device name. The @deviceName@ must</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- also be referenced in a container definition as a ResourceRequirement.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AdeviceName%3AInferenceAccelerator%27"><span class="annot"><span class="annottext">InferenceAccelerator -&gt; Text
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AdeviceType%3AInferenceAccelerator%27"><span class="annot"><span class="annottext">InferenceAccelerator -&gt; Text
 </span><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#%24sel%3AdeviceType%3AInferenceAccelerator%27"><span class="hs-identifier hs-var hs-var">deviceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453570"><span id="local-6989586621679453572"><span class="annot"><span class="annottext">InferenceAccelerator -&gt; InferenceAccelerator -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454285"><span id="local-6989586621679454287"><span class="annot"><span class="annottext">InferenceAccelerator -&gt; InferenceAccelerator -&gt; Bool
 (InferenceAccelerator -&gt; InferenceAccelerator -&gt; Bool)
 -&gt; (InferenceAccelerator -&gt; InferenceAccelerator -&gt; Bool)
 -&gt; Eq InferenceAccelerator
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InferenceAccelerator -&gt; InferenceAccelerator -&gt; Bool
 == :: InferenceAccelerator -&gt; InferenceAccelerator -&gt; Bool
 $c== :: InferenceAccelerator -&gt; InferenceAccelerator -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453561"><span id="local-6989586621679453563"><span id="local-6989586621679453565"><span id="local-6989586621679453567"><span class="annot"><span class="annottext">ReadPrec [InferenceAccelerator]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454276"><span id="local-6989586621679454278"><span id="local-6989586621679454280"><span id="local-6989586621679454282"><span class="annot"><span class="annottext">ReadPrec [InferenceAccelerator]
 ReadPrec InferenceAccelerator
 Int -&gt; ReadS InferenceAccelerator
 ReadS [InferenceAccelerator]
@@ -66,7 +66,7 @@ readList :: ReadS [InferenceAccelerator]
 $creadList :: ReadS [InferenceAccelerator]
 readsPrec :: Int -&gt; ReadS InferenceAccelerator
 $creadsPrec :: Int -&gt; ReadS InferenceAccelerator
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453554"><span id="local-6989586621679453556"><span id="local-6989586621679453558"><span class="annot"><span class="annottext">Int -&gt; InferenceAccelerator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454269"><span id="local-6989586621679454271"><span id="local-6989586621679454273"><span class="annot"><span class="annottext">Int -&gt; InferenceAccelerator -&gt; ShowS
 [InferenceAccelerator] -&gt; ShowS
 InferenceAccelerator -&gt; String
 (Int -&gt; InferenceAccelerator -&gt; ShowS)
@@ -111,17 +111,17 @@ $cfrom :: forall x. InferenceAccelerator -&gt; Rep InferenceAccelerator x
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator"><span class="hs-identifier hs-type">InferenceAccelerator</span></a></span><span>
 </span><span id="line-58"></span><span id="newInferenceAccelerator"><span class="annot"><span class="annottext">newInferenceAccelerator :: Text -&gt; Text -&gt; InferenceAccelerator
-</span><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#newInferenceAccelerator"><span class="hs-identifier hs-var hs-var">newInferenceAccelerator</span></a></span></span><span> </span><span id="local-6989586621679453548"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453548"><span class="hs-identifier hs-var">pDeviceName_</span></a></span></span><span> </span><span id="local-6989586621679453547"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453547"><span class="hs-identifier hs-var">pDeviceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#newInferenceAccelerator"><span class="hs-identifier hs-var hs-var">newInferenceAccelerator</span></a></span></span><span> </span><span id="local-6989586621679454263"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454263"><span class="hs-identifier hs-var">pDeviceName_</span></a></span></span><span> </span><span id="local-6989586621679454262"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454262"><span class="hs-identifier hs-var">pDeviceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">InferenceAccelerator' :: Text -&gt; Text -&gt; InferenceAccelerator
 </span><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator%27"><span class="hs-identifier hs-type">InferenceAccelerator'</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deviceName:InferenceAccelerator' :: Text
 </span><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#%24sel%3AdeviceName%3AInferenceAccelerator%27"><span class="hs-identifier hs-var">deviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453548"><span class="hs-identifier hs-var">pDeviceName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679454263"><span class="hs-identifier hs-var">pDeviceName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceType:InferenceAccelerator' :: Text
 </span><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#%24sel%3AdeviceType%3AInferenceAccelerator%27"><span class="hs-identifier hs-var">deviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453547"><span class="hs-identifier hs-var">pDeviceType_</span></a></span><span>
+</span><a href="#local-6989586621679454262"><span class="hs-identifier hs-var">pDeviceType_</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The Elastic Inference accelerator device name. The @deviceName@ must</span><span>
@@ -132,16 +132,16 @@ $cfrom :: forall x. InferenceAccelerator -&gt; Rep InferenceAccelerator x
 -&gt; (InferenceAccelerator -&gt; Text -&gt; InferenceAccelerator)
 -&gt; Lens InferenceAccelerator InferenceAccelerator Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator%27"><span class="hs-identifier hs-type">InferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453543"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator%27"><span class="hs-identifier hs-type">InferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454258"><span class="annot"><span class="annottext">Text
 deviceName :: Text
 $sel:deviceName:InferenceAccelerator' :: InferenceAccelerator -&gt; Text
-</span><a href="#local-6989586621679453543"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453543"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453542"><span class="annot"><span class="annottext">s :: InferenceAccelerator
-</span><a href="#local-6989586621679453542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator%27"><span class="hs-identifier hs-type">InferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453541"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceAccelerator
-</span><a href="#local-6989586621679453542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceName:InferenceAccelerator' :: Text
+</span><a href="#local-6989586621679454258"><span class="hs-identifier hs-var hs-var">deviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454258"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454257"><span class="annot"><span class="annottext">s :: InferenceAccelerator
+</span><a href="#local-6989586621679454257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator%27"><span class="hs-identifier hs-type">InferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454256"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceAccelerator
+</span><a href="#local-6989586621679454257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceName:InferenceAccelerator' :: Text
 </span><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#%24sel%3AdeviceName%3AInferenceAccelerator%27"><span class="hs-identifier hs-var">deviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator"><span class="hs-identifier hs-type">InferenceAccelerator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator"><span class="hs-identifier hs-type">InferenceAccelerator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The Elastic Inference accelerator type to use.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#inferenceAccelerator_deviceType"><span class="hs-identifier hs-type">inferenceAccelerator_deviceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator"><span class="hs-identifier hs-type">InferenceAccelerator</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -150,19 +150,19 @@ $sel:deviceName:InferenceAccelerator' :: InferenceAccelerator -&gt; Text
 -&gt; (InferenceAccelerator -&gt; Text -&gt; InferenceAccelerator)
 -&gt; Lens InferenceAccelerator InferenceAccelerator Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator%27"><span class="hs-identifier hs-type">InferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453539"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator%27"><span class="hs-identifier hs-type">InferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454254"><span class="annot"><span class="annottext">Text
 deviceType :: Text
 $sel:deviceType:InferenceAccelerator' :: InferenceAccelerator -&gt; Text
-</span><a href="#local-6989586621679453539"><span class="hs-identifier hs-var hs-var">deviceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453539"><span class="hs-identifier hs-var">deviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453538"><span class="annot"><span class="annottext">s :: InferenceAccelerator
-</span><a href="#local-6989586621679453538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator%27"><span class="hs-identifier hs-type">InferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453537"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceAccelerator
-</span><a href="#local-6989586621679453538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceType:InferenceAccelerator' :: Text
+</span><a href="#local-6989586621679454254"><span class="hs-identifier hs-var hs-var">deviceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454254"><span class="hs-identifier hs-var">deviceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454253"><span class="annot"><span class="annottext">s :: InferenceAccelerator
+</span><a href="#local-6989586621679454253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator%27"><span class="hs-identifier hs-type">InferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454252"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InferenceAccelerator
+</span><a href="#local-6989586621679454253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceType:InferenceAccelerator' :: Text
 </span><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#%24sel%3AdeviceType%3AInferenceAccelerator%27"><span class="hs-identifier hs-var">deviceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator"><span class="hs-identifier hs-type">InferenceAccelerator</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator"><span class="hs-identifier hs-type">InferenceAccelerator</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453534"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator"><span class="hs-identifier hs-type">InferenceAccelerator</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679453532"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InferenceAccelerator
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454249"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator"><span class="hs-identifier hs-type">InferenceAccelerator</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679454247"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InferenceAccelerator
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InferenceAccelerator)
@@ -172,15 +172,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InferenceAccelerator&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679453529"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679453529"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679454244"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679454244"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; InferenceAccelerator
 </span><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator%27"><span class="hs-identifier hs-var">InferenceAccelerator'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; InferenceAccelerator)
 -&gt; Parser Text -&gt; Parser (Text -&gt; InferenceAccelerator)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679453529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679454244"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deviceName&quot;</span></span><span class="hs-special">)</span><span>
@@ -188,24 +188,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser InferenceAccelerator
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679453529"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679454244"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deviceType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453523"><span id="local-6989586621679453525"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator"><span class="hs-identifier hs-type">InferenceAccelerator</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454238"><span id="local-6989586621679454240"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator"><span class="hs-identifier hs-type">InferenceAccelerator</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453520"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator"><span class="hs-identifier hs-type">InferenceAccelerator</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454235"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator"><span class="hs-identifier hs-type">InferenceAccelerator</span></a></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453512"><span id="local-6989586621679453514"><span id="local-6989586621679453516"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator"><span class="hs-identifier hs-type">InferenceAccelerator</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679453510"><span class="annot"><span class="annottext">toJSON :: InferenceAccelerator -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator%27"><span class="hs-identifier hs-type">InferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453507"><span id="local-6989586621679453508"><span class="annot"><span class="annottext">Text
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454227"><span id="local-6989586621679454229"><span id="local-6989586621679454231"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator"><span class="hs-identifier hs-type">InferenceAccelerator</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679454225"><span class="annot"><span class="annottext">toJSON :: InferenceAccelerator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.InferenceAccelerator.html#InferenceAccelerator%27"><span class="hs-identifier hs-type">InferenceAccelerator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454222"><span id="local-6989586621679454223"><span class="annot"><span class="annottext">Text
 deviceType :: Text
 deviceName :: Text
 $sel:deviceType:InferenceAccelerator' :: InferenceAccelerator -&gt; Text
 $sel:deviceName:InferenceAccelerator' :: InferenceAccelerator -&gt; Text
-</span><a href="#local-6989586621679453507"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679454222"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -217,14 +217,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;deviceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453508"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679454223"><span class="hs-identifier hs-var">deviceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deviceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453507"><span class="hs-identifier hs-var">deviceType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454222"><span class="hs-identifier hs-var">deviceType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span></pre></body></html>

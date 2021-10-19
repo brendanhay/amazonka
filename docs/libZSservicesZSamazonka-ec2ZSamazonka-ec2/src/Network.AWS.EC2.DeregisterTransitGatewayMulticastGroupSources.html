@@ -28,10 +28,10 @@
 </span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#newDeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier">newDeregisterTransitGatewayMulticastGroupSources</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-29"></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId"><span class="hs-identifier">deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_dryRun"><span class="hs-identifier">deregisterTransitGatewayMulticastGroupSources_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds"><span class="hs-identifier">deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_groupIpAddress"><span class="hs-identifier">deregisterTransitGatewayMulticastGroupSources_groupIpAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds"><span class="hs-identifier">deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId"><span class="hs-identifier">deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_groupIpAddress"><span class="hs-identifier">deregisterTransitGatewayMulticastGroupSources_groupIpAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_dryRun"><span class="hs-identifier">deregisterTransitGatewayMulticastGroupSources_dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse"><span class="hs-identifier">DeregisterTransitGatewayMulticastGroupSourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -51,24 +51,24 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDeregisterTransitGatewayMulticastGroupSources' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621681237156"><span id="local-6989586621681237157"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterTransitGatewayMulticastGroupSources"><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-var">DeregisterTransitGatewayMulticastGroupSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterTransitGatewayMulticastGroupSources%27"><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var">DeregisterTransitGatewayMulticastGroupSources'</span></a></span></span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the transit gateway multicast domain.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AtransitGatewayMulticastDomainId%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AtransitGatewayMulticastDomainId%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AdryRun%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AdryRun%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The IDs of the group sources\' network interfaces.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnetworkInterfaceIds%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe [Text]
+</span><span id="line-54"></span><span id="local-6989586621681273227"><span id="local-6989586621681273228"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterTransitGatewayMulticastGroupSources"><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-var">DeregisterTransitGatewayMulticastGroupSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterTransitGatewayMulticastGroupSources%27"><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var">DeregisterTransitGatewayMulticastGroupSources'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IDs of the group sources\' network interfaces.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AnetworkInterfaceIds%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe [Text]
 </span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AnetworkInterfaceIds%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var hs-var">networkInterfaceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The IP address assigned to the transit gateway multicast group.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AgroupIpAddress%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AgroupIpAddress%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var hs-var">groupIpAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The ID of the transit gateway multicast domain.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AtransitGatewayMulticastDomainId%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AtransitGatewayMulticastDomainId%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The IP address assigned to the transit gateway multicast group.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AgroupIpAddress%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AgroupIpAddress%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var hs-var">groupIpAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AdryRun%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AdryRun%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681237147"><span id="local-6989586621681237149"><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681273218"><span id="local-6989586621681273220"><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources
 -&gt; DeregisterTransitGatewayMulticastGroupSources -&gt; Bool
 (DeregisterTransitGatewayMulticastGroupSources
  -&gt; DeregisterTransitGatewayMulticastGroupSources -&gt; Bool)
@@ -84,7 +84,7 @@ $c/= :: DeregisterTransitGatewayMulticastGroupSources
 -&gt; DeregisterTransitGatewayMulticastGroupSources -&gt; Bool
 $c== :: DeregisterTransitGatewayMulticastGroupSources
 -&gt; DeregisterTransitGatewayMulticastGroupSources -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681237138"><span id="local-6989586621681237140"><span id="local-6989586621681237142"><span id="local-6989586621681237144"><span class="annot"><span class="annottext">ReadPrec [DeregisterTransitGatewayMulticastGroupSources]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681273209"><span id="local-6989586621681273211"><span id="local-6989586621681273213"><span id="local-6989586621681273215"><span class="annot"><span class="annottext">ReadPrec [DeregisterTransitGatewayMulticastGroupSources]
 ReadPrec DeregisterTransitGatewayMulticastGroupSources
 Int -&gt; ReadS DeregisterTransitGatewayMulticastGroupSources
 ReadS [DeregisterTransitGatewayMulticastGroupSources]
@@ -104,7 +104,7 @@ readList :: ReadS [DeregisterTransitGatewayMulticastGroupSources]
 $creadList :: ReadS [DeregisterTransitGatewayMulticastGroupSources]
 readsPrec :: Int -&gt; ReadS DeregisterTransitGatewayMulticastGroupSources
 $creadsPrec :: Int -&gt; ReadS DeregisterTransitGatewayMulticastGroupSources
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681237131"><span id="local-6989586621681237133"><span id="local-6989586621681237135"><span class="annot"><span class="annottext">Int -&gt; DeregisterTransitGatewayMulticastGroupSources -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681273202"><span id="local-6989586621681273204"><span id="local-6989586621681273206"><span class="annot"><span class="annottext">Int -&gt; DeregisterTransitGatewayMulticastGroupSources -&gt; ShowS
 [DeregisterTransitGatewayMulticastGroupSources] -&gt; ShowS
 DeregisterTransitGatewayMulticastGroupSources -&gt; String
 (Int -&gt; DeregisterTransitGatewayMulticastGroupSources -&gt; ShowS)
@@ -150,103 +150,50 @@ DeregisterTransitGatewayMulticastGroupSources
 </span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'transitGatewayMulticastDomainId', 'deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'networkInterfaceIds', 'deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds' - The IDs of the group sources\' network interfaces.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'dryRun', 'deregisterTransitGatewayMulticastGroupSources_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'networkInterfaceIds', 'deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds' - The IDs of the group sources\' network interfaces.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'groupIpAddress', 'deregisterTransitGatewayMulticastGroupSources_groupIpAddress' - The IP address assigned to the transit gateway multicast group.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'transitGatewayMulticastDomainId', 'deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'groupIpAddress', 'deregisterTransitGatewayMulticastGroupSources_groupIpAddress' - The IP address assigned to the transit gateway multicast group.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'dryRun', 'deregisterTransitGatewayMulticastGroupSources_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#newDeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">newDeregisterTransitGatewayMulticastGroupSources</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-88"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span>
 </span><span id="line-89"></span><span id="newDeregisterTransitGatewayMulticastGroupSources"><span class="annot"><span class="annottext">newDeregisterTransitGatewayMulticastGroupSources :: DeregisterTransitGatewayMulticastGroupSources
 </span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#newDeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-var hs-var">newDeregisterTransitGatewayMulticastGroupSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources' :: Maybe Text
--&gt; Maybe Bool
--&gt; Maybe [Text]
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources' :: Maybe [Text]
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; DeregisterTransitGatewayMulticastGroupSources
 </span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transitGatewayMulticastDomainId:DeregisterTransitGatewayMulticastGroupSources' :: Maybe Text
-</span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AtransitGatewayMulticastDomainId%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DeregisterTransitGatewayMulticastGroupSources' :: Maybe Bool
-</span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AdryRun%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkInterfaceIds:DeregisterTransitGatewayMulticastGroupSources' :: Maybe [Text]
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:networkInterfaceIds:DeregisterTransitGatewayMulticastGroupSources' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AnetworkInterfaceIds%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var">networkInterfaceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupIpAddress:DeregisterTransitGatewayMulticastGroupSources' :: Maybe Text
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayMulticastDomainId:DeregisterTransitGatewayMulticastGroupSources' :: Maybe Text
+</span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AtransitGatewayMulticastDomainId%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:groupIpAddress:DeregisterTransitGatewayMulticastGroupSources' :: Maybe Text
 </span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AgroupIpAddress%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var">groupIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DeregisterTransitGatewayMulticastGroupSources' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AdryRun%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The ID of the transit gateway multicast domain.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId"><span class="hs-identifier hs-type">deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId"><span class="annot"><span class="annottext">deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DeregisterTransitGatewayMulticastGroupSources
--&gt; f DeregisterTransitGatewayMulticastGroupSources
-</span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId"><span class="hs-identifier hs-var hs-var">deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Text)
--&gt; (DeregisterTransitGatewayMulticastGroupSources
-    -&gt; Maybe Text -&gt; DeregisterTransitGatewayMulticastGroupSources)
--&gt; Lens
-     DeregisterTransitGatewayMulticastGroupSources
-     DeregisterTransitGatewayMulticastGroupSources
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681237124"><span class="annot"><span class="annottext">Maybe Text
-transitGatewayMulticastDomainId :: Maybe Text
-$sel:transitGatewayMulticastDomainId:DeregisterTransitGatewayMulticastGroupSources' :: DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Text
-</span><a href="#local-6989586621681237124"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681237124"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681237123"><span class="annot"><span class="annottext">s :: DeregisterTransitGatewayMulticastGroupSources
-</span><a href="#local-6989586621681237123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681237122"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681237122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources
-</span><a href="#local-6989586621681237123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayMulticastDomainId:DeregisterTransitGatewayMulticastGroupSources' :: Maybe Text
-</span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AtransitGatewayMulticastDomainId%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681237122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_dryRun"><span class="hs-identifier hs-type">deregisterTransitGatewayMulticastGroupSources_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="deregisterTransitGatewayMulticastGroupSources_dryRun"><span class="annot"><span class="annottext">deregisterTransitGatewayMulticastGroupSources_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; DeregisterTransitGatewayMulticastGroupSources
--&gt; f DeregisterTransitGatewayMulticastGroupSources
-</span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_dryRun"><span class="hs-identifier hs-var hs-var">deregisterTransitGatewayMulticastGroupSources_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Bool)
--&gt; (DeregisterTransitGatewayMulticastGroupSources
-    -&gt; Maybe Bool -&gt; DeregisterTransitGatewayMulticastGroupSources)
--&gt; Lens
-     DeregisterTransitGatewayMulticastGroupSources
-     DeregisterTransitGatewayMulticastGroupSources
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681237121"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:DeregisterTransitGatewayMulticastGroupSources' :: DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Bool
-</span><a href="#local-6989586621681237121"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681237121"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681237120"><span class="annot"><span class="annottext">s :: DeregisterTransitGatewayMulticastGroupSources
-</span><a href="#local-6989586621681237120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681237119"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681237119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources
-</span><a href="#local-6989586621681237120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DeregisterTransitGatewayMulticastGroupSources' :: Maybe Bool
-</span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AdryRun%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681237119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The IDs of the group sources\' network interfaces.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds"><span class="hs-identifier hs-type">deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds"><span class="annot"><span class="annottext">deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-100"></span><span class="hs-comment">-- | The IDs of the group sources\' network interfaces.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds"><span class="hs-identifier hs-type">deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds"><span class="annot"><span class="annottext">deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; DeregisterTransitGatewayMulticastGroupSources
 -&gt; f DeregisterTransitGatewayMulticastGroupSources
 </span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds"><span class="hs-identifier hs-var hs-var">deregisterTransitGatewayMulticastGroupSources_networkInterfaceIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe [Text])
@@ -258,16 +205,16 @@ $sel:dryRun:DeregisterTransitGatewayMulticastGroupSources' :: DeregisterTransitG
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681237118"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681273195"><span class="annot"><span class="annottext">Maybe [Text]
 networkInterfaceIds :: Maybe [Text]
 $sel:networkInterfaceIds:DeregisterTransitGatewayMulticastGroupSources' :: DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe [Text]
-</span><a href="#local-6989586621681237118"><span class="hs-identifier hs-var hs-var">networkInterfaceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681237118"><span class="hs-identifier hs-var">networkInterfaceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681237117"><span class="annot"><span class="annottext">s :: DeregisterTransitGatewayMulticastGroupSources
-</span><a href="#local-6989586621681237117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681237116"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681237116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources
-</span><a href="#local-6989586621681237117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaceIds:DeregisterTransitGatewayMulticastGroupSources' :: Maybe [Text]
+</span><a href="#local-6989586621681273195"><span class="hs-identifier hs-var hs-var">networkInterfaceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681273195"><span class="hs-identifier hs-var">networkInterfaceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681273194"><span class="annot"><span class="annottext">s :: DeregisterTransitGatewayMulticastGroupSources
+</span><a href="#local-6989586621681273194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681273193"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681273193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources
+</span><a href="#local-6989586621681273194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaceIds:DeregisterTransitGatewayMulticastGroupSources' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AnetworkInterfaceIds%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var">networkInterfaceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681237116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681273193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DeregisterTransitGatewayMulticastGroupSources
  -&gt; f DeregisterTransitGatewayMulticastGroupSources)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -282,12 +229,37 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The IP address assigned to the transit gateway multicast group.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_groupIpAddress"><span class="hs-identifier hs-type">deregisterTransitGatewayMulticastGroupSources_groupIpAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="deregisterTransitGatewayMulticastGroupSources_groupIpAddress"><span class="annot"><span class="annottext">deregisterTransitGatewayMulticastGroupSources_groupIpAddress :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The ID of the transit gateway multicast domain.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId"><span class="hs-identifier hs-type">deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId"><span class="annot"><span class="annottext">deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeregisterTransitGatewayMulticastGroupSources
+-&gt; f DeregisterTransitGatewayMulticastGroupSources
+</span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId"><span class="hs-identifier hs-var hs-var">deregisterTransitGatewayMulticastGroupSources_transitGatewayMulticastDomainId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Text)
+-&gt; (DeregisterTransitGatewayMulticastGroupSources
+    -&gt; Maybe Text -&gt; DeregisterTransitGatewayMulticastGroupSources)
+-&gt; Lens
+     DeregisterTransitGatewayMulticastGroupSources
+     DeregisterTransitGatewayMulticastGroupSources
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681273189"><span class="annot"><span class="annottext">Maybe Text
+transitGatewayMulticastDomainId :: Maybe Text
+$sel:transitGatewayMulticastDomainId:DeregisterTransitGatewayMulticastGroupSources' :: DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Text
+</span><a href="#local-6989586621681273189"><span class="hs-identifier hs-var hs-var">transitGatewayMulticastDomainId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681273189"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681273188"><span class="annot"><span class="annottext">s :: DeregisterTransitGatewayMulticastGroupSources
+</span><a href="#local-6989586621681273188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681273187"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681273187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources
+</span><a href="#local-6989586621681273188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayMulticastDomainId:DeregisterTransitGatewayMulticastGroupSources' :: Maybe Text
+</span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AtransitGatewayMulticastDomainId%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681273187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The IP address assigned to the transit gateway multicast group.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_groupIpAddress"><span class="hs-identifier hs-type">deregisterTransitGatewayMulticastGroupSources_groupIpAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="deregisterTransitGatewayMulticastGroupSources_groupIpAddress"><span class="annot"><span class="annottext">deregisterTransitGatewayMulticastGroupSources_groupIpAddress :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DeregisterTransitGatewayMulticastGroupSources
 -&gt; f DeregisterTransitGatewayMulticastGroupSources
 </span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_groupIpAddress"><span class="hs-identifier hs-var hs-var">deregisterTransitGatewayMulticastGroupSources_groupIpAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Text)
@@ -299,16 +271,44 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681237112"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681273186"><span class="annot"><span class="annottext">Maybe Text
 groupIpAddress :: Maybe Text
 $sel:groupIpAddress:DeregisterTransitGatewayMulticastGroupSources' :: DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Text
-</span><a href="#local-6989586621681237112"><span class="hs-identifier hs-var hs-var">groupIpAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681237112"><span class="hs-identifier hs-var">groupIpAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681237111"><span class="annot"><span class="annottext">s :: DeregisterTransitGatewayMulticastGroupSources
-</span><a href="#local-6989586621681237111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681237110"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681237110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources
-</span><a href="#local-6989586621681237111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupIpAddress:DeregisterTransitGatewayMulticastGroupSources' :: Maybe Text
+</span><a href="#local-6989586621681273186"><span class="hs-identifier hs-var hs-var">groupIpAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681273186"><span class="hs-identifier hs-var">groupIpAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681273185"><span class="annot"><span class="annottext">s :: DeregisterTransitGatewayMulticastGroupSources
+</span><a href="#local-6989586621681273185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681273184"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681273184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources
+</span><a href="#local-6989586621681273185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupIpAddress:DeregisterTransitGatewayMulticastGroupSources' :: Maybe Text
 </span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AgroupIpAddress%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var">groupIpAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681237110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681273184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_dryRun"><span class="hs-identifier hs-type">deregisterTransitGatewayMulticastGroupSources_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="deregisterTransitGatewayMulticastGroupSources_dryRun"><span class="annot"><span class="annottext">deregisterTransitGatewayMulticastGroupSources_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DeregisterTransitGatewayMulticastGroupSources
+-&gt; f DeregisterTransitGatewayMulticastGroupSources
+</span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSources_dryRun"><span class="hs-identifier hs-var hs-var">deregisterTransitGatewayMulticastGroupSources_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Bool)
+-&gt; (DeregisterTransitGatewayMulticastGroupSources
+    -&gt; Maybe Bool -&gt; DeregisterTransitGatewayMulticastGroupSources)
+-&gt; Lens
+     DeregisterTransitGatewayMulticastGroupSources
+     DeregisterTransitGatewayMulticastGroupSources
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681273183"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DeregisterTransitGatewayMulticastGroupSources' :: DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Bool
+</span><a href="#local-6989586621681273183"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681273183"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681273182"><span class="annot"><span class="annottext">s :: DeregisterTransitGatewayMulticastGroupSources
+</span><a href="#local-6989586621681273182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681273181"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681273181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSources
+</span><a href="#local-6989586621681273182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DeregisterTransitGatewayMulticastGroupSources' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AdryRun%3ADeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681273181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-120"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -318,7 +318,7 @@ $sel:groupIpAddress:DeregisterTransitGatewayMulticastGroupSources' :: Deregister
 </span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSourcesResponse</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621681237106"><span class="annot"><span class="annottext">request :: DeregisterTransitGatewayMulticastGroupSources
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621681273177"><span class="annot"><span class="annottext">request :: DeregisterTransitGatewayMulticastGroupSources
 -&gt; Request DeregisterTransitGatewayMulticastGroupSources
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeregisterTransitGatewayMulticastGroupSources
@@ -326,7 +326,7 @@ $sel:groupIpAddress:DeregisterTransitGatewayMulticastGroupSources' :: Deregister
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621681237102"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621681273173"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeregisterTransitGatewayMulticastGroupSources
 -&gt; ClientResponse ClientBody
@@ -357,10 +357,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681237099"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681237099"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681237098"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681237098"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681237097"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681237097"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681273170"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681273170"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681273169"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681273169"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681273168"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681273168"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDeregisteredGroupSources
 -&gt; Int -&gt; DeregisterTransitGatewayMulticastGroupSourcesResponse
 </span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="hs-identifier hs-var">DeregisterTransitGatewayMulticastGroupSourcesResponse'</span></a></span><span>
@@ -373,7 +373,7 @@ MonadResource m =&gt;
      (Int -&gt; DeregisterTransitGatewayMulticastGroupSourcesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681237097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681273168"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text
 -&gt; Either
      String (Maybe TransitGatewayMulticastDeregisteredGroupSources)
@@ -392,22 +392,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681237099"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681273170"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621681237089"><span id="local-6989586621681237091"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621681273160"><span id="local-6989586621681273162"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621681237086"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621681273157"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621681237082"><span class="annot"><span class="annottext">toHeaders :: DeregisterTransitGatewayMulticastGroupSources -&gt; ResponseHeaders
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621681273153"><span class="annot"><span class="annottext">toHeaders :: DeregisterTransitGatewayMulticastGroupSources -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DeregisterTransitGatewayMulticastGroupSources -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -419,7 +419,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621681237077"><span class="annot"><span class="annottext">toPath :: DeregisterTransitGatewayMulticastGroupSources -&gt; ByteString
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621681273148"><span class="annot"><span class="annottext">toPath :: DeregisterTransitGatewayMulticastGroupSources -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
 -&gt; DeregisterTransitGatewayMulticastGroupSources -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -430,20 +430,20 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources</span></a></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621681237073"><span class="annot"><span class="annottext">toQuery :: DeregisterTransitGatewayMulticastGroupSources -&gt; QueryString
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621681273144"><span class="annot"><span class="annottext">toQuery :: DeregisterTransitGatewayMulticastGroupSources -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span>
-</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681237068"><span id="local-6989586621681237069"><span id="local-6989586621681237070"><span id="local-6989586621681237071"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSources%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681273139"><span id="local-6989586621681273140"><span id="local-6989586621681273141"><span id="local-6989586621681273142"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe Text
-groupIpAddress :: Maybe Text
-networkInterfaceIds :: Maybe [Text]
 dryRun :: Maybe Bool
+groupIpAddress :: Maybe Text
 transitGatewayMulticastDomainId :: Maybe Text
-$sel:groupIpAddress:DeregisterTransitGatewayMulticastGroupSources' :: DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Text
-$sel:networkInterfaceIds:DeregisterTransitGatewayMulticastGroupSources' :: DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe [Text]
+networkInterfaceIds :: Maybe [Text]
 $sel:dryRun:DeregisterTransitGatewayMulticastGroupSources' :: DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Bool
+$sel:groupIpAddress:DeregisterTransitGatewayMulticastGroupSources' :: DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Text
 $sel:transitGatewayMulticastDomainId:DeregisterTransitGatewayMulticastGroupSources' :: DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe Text
-</span><a href="#local-6989586621681237068"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:networkInterfaceIds:DeregisterTransitGatewayMulticastGroupSources' :: DeregisterTransitGatewayMulticastGroupSources -&gt; Maybe [Text]
+</span><a href="#local-6989586621681273139"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -461,40 +461,40 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;TransitGatewayMulticastDomainId&quot;</span></span><span>
-</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681237071"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681237070"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+</span><span id="line-170"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NetworkInterfaceIds&quot;</span></span><span>
-</span><span id="line-174"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+</span><span id="line-171"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681237069"><span class="hs-identifier hs-var">networkInterfaceIds</span></a></span><span>
-</span><span id="line-175"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621681273142"><span class="hs-identifier hs-var">networkInterfaceIds</span></a></span><span>
+</span><span id="line-172"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TransitGatewayMulticastDomainId&quot;</span></span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681273141"><span class="hs-identifier hs-var">transitGatewayMulticastDomainId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;GroupIpAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681237068"><span class="hs-identifier hs-var">groupIpAddress</span></a></span><span>
+</span><a href="#local-6989586621681273140"><span class="hs-identifier hs-var">groupIpAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681273139"><span class="hs-identifier hs-var">dryRun</span></a></span><span>
 </span><span id="line-177"></span><span>        </span><span class="hs-special">]</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | /See:/ 'newDeregisterTransitGatewayMulticastGroupSourcesResponse' smart constructor.</span><span>
-</span><span id="line-180"></span><span id="local-6989586621681237064"><span id="local-6989586621681237065"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterTransitGatewayMulticastGroupSourcesResponse"><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse"><span class="hs-identifier hs-var">DeregisterTransitGatewayMulticastGroupSourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="hs-identifier hs-var">DeregisterTransitGatewayMulticastGroupSourcesResponse'</span></a></span></span><span>
+</span><span id="line-180"></span><span id="local-6989586621681273135"><span id="local-6989586621681273136"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterTransitGatewayMulticastGroupSourcesResponse"><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse"><span class="hs-identifier hs-var">DeregisterTransitGatewayMulticastGroupSourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="hs-identifier hs-var">DeregisterTransitGatewayMulticastGroupSourcesResponse'</span></a></span></span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the deregistered group sources.</span><span>
 </span><span id="line-182"></span><span>    </span><span id="%24sel%3AderegisteredMulticastGroupSources%3ADeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSourcesResponse
 -&gt; Maybe TransitGatewayMulticastDeregisteredGroupSources
@@ -503,7 +503,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-184"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSourcesResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AhttpStatus%3ADeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-185"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681237058"><span id="local-6989586621681237060"><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSourcesResponse
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681273129"><span id="local-6989586621681273131"><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSourcesResponse
 -&gt; DeregisterTransitGatewayMulticastGroupSourcesResponse -&gt; Bool
 (DeregisterTransitGatewayMulticastGroupSourcesResponse
  -&gt; DeregisterTransitGatewayMulticastGroupSourcesResponse -&gt; Bool)
@@ -519,7 +519,7 @@ $c/= :: DeregisterTransitGatewayMulticastGroupSourcesResponse
 -&gt; DeregisterTransitGatewayMulticastGroupSourcesResponse -&gt; Bool
 $c== :: DeregisterTransitGatewayMulticastGroupSourcesResponse
 -&gt; DeregisterTransitGatewayMulticastGroupSourcesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681237050"><span id="local-6989586621681237052"><span id="local-6989586621681237054"><span id="local-6989586621681237056"><span class="annot"><span class="annottext">ReadPrec [DeregisterTransitGatewayMulticastGroupSourcesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681273121"><span id="local-6989586621681273123"><span id="local-6989586621681273125"><span id="local-6989586621681273127"><span class="annot"><span class="annottext">ReadPrec [DeregisterTransitGatewayMulticastGroupSourcesResponse]
 ReadPrec DeregisterTransitGatewayMulticastGroupSourcesResponse
 Int -&gt; ReadS DeregisterTransitGatewayMulticastGroupSourcesResponse
 ReadS [DeregisterTransitGatewayMulticastGroupSourcesResponse]
@@ -540,7 +540,7 @@ readList :: ReadS [DeregisterTransitGatewayMulticastGroupSourcesResponse]
 $creadList :: ReadS [DeregisterTransitGatewayMulticastGroupSourcesResponse]
 readsPrec :: Int -&gt; ReadS DeregisterTransitGatewayMulticastGroupSourcesResponse
 $creadsPrec :: Int -&gt; ReadS DeregisterTransitGatewayMulticastGroupSourcesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681237044"><span id="local-6989586621681237046"><span id="local-6989586621681237048"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681273115"><span id="local-6989586621681273117"><span id="local-6989586621681273119"><span class="annot"><span class="annottext">Int
 -&gt; DeregisterTransitGatewayMulticastGroupSourcesResponse -&gt; ShowS
 [DeregisterTransitGatewayMulticastGroupSourcesResponse] -&gt; ShowS
 DeregisterTransitGatewayMulticastGroupSourcesResponse -&gt; String
@@ -601,8 +601,8 @@ DeregisterTransitGatewayMulticastGroupSourcesResponse
 </span><span id="line-202"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSourcesResponse</span></a></span><span>
 </span><span id="line-203"></span><span id="newDeregisterTransitGatewayMulticastGroupSourcesResponse"><span class="annot"><span class="annottext">newDeregisterTransitGatewayMulticastGroupSourcesResponse :: Int -&gt; DeregisterTransitGatewayMulticastGroupSourcesResponse
 </span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#newDeregisterTransitGatewayMulticastGroupSourcesResponse"><span class="hs-identifier hs-var hs-var">newDeregisterTransitGatewayMulticastGroupSourcesResponse</span></a></span></span><span>
-</span><span id="line-204"></span><span>  </span><span id="local-6989586621681237041"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681237041"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621681273112"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681273112"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-205"></span><span>    </span><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSourcesResponse' :: Maybe TransitGatewayMulticastDeregisteredGroupSources
 -&gt; Int -&gt; DeregisterTransitGatewayMulticastGroupSourcesResponse
 </span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSourcesResponse'</span></a></span><span>
@@ -614,7 +614,7 @@ forall a. Maybe a
 </span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterTransitGatewayMulticastGroupSourcesResponse' :: Int
 </span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AhttpStatus%3ADeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-209"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681237041"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681273112"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-210"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | Information about the deregistered group sources.</span><span>
@@ -634,17 +634,17 @@ forall a. Maybe a
      (Maybe TransitGatewayMulticastDeregisteredGroupSources)
      (Maybe TransitGatewayMulticastDeregisteredGroupSources)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681237040"><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDeregisteredGroupSources
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681273111"><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDeregisteredGroupSources
 deregisteredMulticastGroupSources :: Maybe TransitGatewayMulticastDeregisteredGroupSources
 $sel:deregisteredMulticastGroupSources:DeregisterTransitGatewayMulticastGroupSourcesResponse' :: DeregisterTransitGatewayMulticastGroupSourcesResponse
 -&gt; Maybe TransitGatewayMulticastDeregisteredGroupSources
-</span><a href="#local-6989586621681237040"><span class="hs-identifier hs-var hs-var">deregisteredMulticastGroupSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDeregisteredGroupSources
-</span><a href="#local-6989586621681237040"><span class="hs-identifier hs-var">deregisteredMulticastGroupSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681237039"><span class="annot"><span class="annottext">s :: DeregisterTransitGatewayMulticastGroupSourcesResponse
-</span><a href="#local-6989586621681237039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681237038"><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDeregisteredGroupSources
-</span><a href="#local-6989586621681237038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSourcesResponse
-</span><a href="#local-6989586621681237039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deregisteredMulticastGroupSources:DeregisterTransitGatewayMulticastGroupSourcesResponse' :: Maybe TransitGatewayMulticastDeregisteredGroupSources
+</span><a href="#local-6989586621681273111"><span class="hs-identifier hs-var hs-var">deregisteredMulticastGroupSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDeregisteredGroupSources
+</span><a href="#local-6989586621681273111"><span class="hs-identifier hs-var">deregisteredMulticastGroupSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681273110"><span class="annot"><span class="annottext">s :: DeregisterTransitGatewayMulticastGroupSourcesResponse
+</span><a href="#local-6989586621681273110"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681273109"><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDeregisteredGroupSources
+</span><a href="#local-6989586621681273109"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSourcesResponse
+</span><a href="#local-6989586621681273110"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deregisteredMulticastGroupSources:DeregisterTransitGatewayMulticastGroupSourcesResponse' :: Maybe TransitGatewayMulticastDeregisteredGroupSources
 </span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AderegisteredMulticastGroupSources%3ADeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="hs-identifier hs-var">deregisteredMulticastGroupSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayMulticastDeregisteredGroupSources
-</span><a href="#local-6989586621681237038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681273109"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSourcesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-217"></span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#deregisterTransitGatewayMulticastGroupSourcesResponse_httpStatus"><span class="hs-identifier hs-type">deregisterTransitGatewayMulticastGroupSourcesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSourcesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -660,18 +660,18 @@ $sel:deregisteredMulticastGroupSources:DeregisterTransitGatewayMulticastGroupSou
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681237037"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681273108"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeregisterTransitGatewayMulticastGroupSourcesResponse' :: DeregisterTransitGatewayMulticastGroupSourcesResponse -&gt; Int
-</span><a href="#local-6989586621681237037"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681237037"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681237036"><span class="annot"><span class="annottext">s :: DeregisterTransitGatewayMulticastGroupSourcesResponse
-</span><a href="#local-6989586621681237036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681237035"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681237035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSourcesResponse
-</span><a href="#local-6989586621681237036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterTransitGatewayMulticastGroupSourcesResponse' :: Int
+</span><a href="#local-6989586621681273108"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681273108"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681273107"><span class="annot"><span class="annottext">s :: DeregisterTransitGatewayMulticastGroupSourcesResponse
+</span><a href="#local-6989586621681273107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681273106"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681273106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterTransitGatewayMulticastGroupSourcesResponse
+</span><a href="#local-6989586621681273107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterTransitGatewayMulticastGroupSourcesResponse' :: Int
 </span><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#%24sel%3AhttpStatus%3ADeregisterTransitGatewayMulticastGroupSourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681237035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681273106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSourcesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-221"></span><span>  </span><span id="local-6989586621681237033"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621681273104"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-222"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources.html#DeregisterTransitGatewayMulticastGroupSourcesResponse"><span class="hs-identifier hs-type">DeregisterTransitGatewayMulticastGroupSourcesResponse</span></a></span></span><span>
 </span><span id="line-223"></span></pre></body></html>

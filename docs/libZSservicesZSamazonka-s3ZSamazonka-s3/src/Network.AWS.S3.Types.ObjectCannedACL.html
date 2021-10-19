@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679544277"><span id="local-6989586621679544278"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectCannedACL"><span class="annot"><a href="Network.AWS.S3.Types.ObjectCannedACL.html#ObjectCannedACL"><span class="hs-identifier hs-var">ObjectCannedACL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectCannedACL%27"><span class="annot"><a href="Network.AWS.S3.Types.ObjectCannedACL.html#ObjectCannedACL%27"><span class="hs-identifier hs-var">ObjectCannedACL'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679544906"><span id="local-6989586621679544907"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ObjectCannedACL"><span class="annot"><a href="Network.AWS.S3.Types.ObjectCannedACL.html#ObjectCannedACL"><span class="hs-identifier hs-var">ObjectCannedACL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectCannedACL%27"><span class="annot"><a href="Network.AWS.S3.Types.ObjectCannedACL.html#ObjectCannedACL%27"><span class="hs-identifier hs-var">ObjectCannedACL'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromObjectCannedACL"><span class="annot"><span class="annottext">ObjectCannedACL -&gt; Text
 </span><a href="Network.AWS.S3.Types.ObjectCannedACL.html#fromObjectCannedACL"><span class="hs-identifier hs-var hs-var">fromObjectCannedACL</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679544269"><span id="local-6989586621679544271"><span id="local-6989586621679544273"><span class="annot"><span class="annottext">Int -&gt; ObjectCannedACL -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679544898"><span id="local-6989586621679544900"><span id="local-6989586621679544902"><span class="annot"><span class="annottext">Int -&gt; ObjectCannedACL -&gt; ShowS
 [ObjectCannedACL] -&gt; ShowS
 ObjectCannedACL -&gt; String
 (Int -&gt; ObjectCannedACL -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: ObjectCannedACL -&gt; String
 showsPrec :: Int -&gt; ObjectCannedACL -&gt; ShowS
 $cshowsPrec :: Int -&gt; ObjectCannedACL -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679544260"><span id="local-6989586621679544262"><span id="local-6989586621679544264"><span id="local-6989586621679544266"><span class="annot"><span class="annottext">ReadPrec [ObjectCannedACL]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679544889"><span id="local-6989586621679544891"><span id="local-6989586621679544893"><span id="local-6989586621679544895"><span class="annot"><span class="annottext">ReadPrec [ObjectCannedACL]
 ReadPrec ObjectCannedACL
 Int -&gt; ReadS ObjectCannedACL
 ReadS [ObjectCannedACL]
@@ -78,7 +78,7 @@ $creadList :: ReadS [ObjectCannedACL]
 readsPrec :: Int -&gt; ReadS ObjectCannedACL
 $creadsPrec :: Int -&gt; ReadS ObjectCannedACL
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679544255"><span id="local-6989586621679544257"><span class="annot"><span class="annottext">ObjectCannedACL -&gt; ObjectCannedACL -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679544884"><span id="local-6989586621679544886"><span class="annot"><span class="annottext">ObjectCannedACL -&gt; ObjectCannedACL -&gt; Bool
 (ObjectCannedACL -&gt; ObjectCannedACL -&gt; Bool)
 -&gt; (ObjectCannedACL -&gt; ObjectCannedACL -&gt; Bool)
 -&gt; Eq ObjectCannedACL
@@ -88,7 +88,7 @@ $c/= :: ObjectCannedACL -&gt; ObjectCannedACL -&gt; Bool
 == :: ObjectCannedACL -&gt; ObjectCannedACL -&gt; Bool
 $c== :: ObjectCannedACL -&gt; ObjectCannedACL -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679544239"><span id="local-6989586621679544241"><span id="local-6989586621679544243"><span id="local-6989586621679544245"><span id="local-6989586621679544247"><span id="local-6989586621679544249"><span id="local-6989586621679544251"><span class="annot"><span class="annottext">Eq ObjectCannedACL
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679544868"><span id="local-6989586621679544870"><span id="local-6989586621679544872"><span id="local-6989586621679544874"><span id="local-6989586621679544876"><span id="local-6989586621679544878"><span id="local-6989586621679544880"><span class="annot"><span class="annottext">Eq ObjectCannedACL
 Eq ObjectCannedACL
 -&gt; (ObjectCannedACL -&gt; ObjectCannedACL -&gt; Ordering)
 -&gt; (ObjectCannedACL -&gt; ObjectCannedACL -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. ObjectCannedACL -&gt; Rep ObjectCannedACL x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679544231"><span id="local-6989586621679544233"><span class="annot"><span class="annottext">Int -&gt; ObjectCannedACL -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679544860"><span id="local-6989586621679544862"><span class="annot"><span class="annottext">Int -&gt; ObjectCannedACL -&gt; Int
 ObjectCannedACL -&gt; Int
 (Int -&gt; ObjectCannedACL -&gt; Int)
 -&gt; (ObjectCannedACL -&gt; Int) -&gt; Hashable ObjectCannedACL
@@ -149,50 +149,50 @@ $chash :: ObjectCannedACL -&gt; Int
 hashWithSalt :: Int -&gt; ObjectCannedACL -&gt; Int
 $chashWithSalt :: Int -&gt; ObjectCannedACL -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679544228"><span class="annot"><span class="annottext">ObjectCannedACL -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679544857"><span class="annot"><span class="annottext">ObjectCannedACL -&gt; ()
 (ObjectCannedACL -&gt; ()) -&gt; NFData ObjectCannedACL
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ObjectCannedACL -&gt; ()
 $crnf :: ObjectCannedACL -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679544225"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectCannedACL
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679544854"><span class="annot"><span class="annottext">Text -&gt; Either String ObjectCannedACL
 (Text -&gt; Either String ObjectCannedACL) -&gt; FromText ObjectCannedACL
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ObjectCannedACL
 $cfromText :: Text -&gt; Either String ObjectCannedACL
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679544222"><span class="annot"><span class="annottext">ObjectCannedACL -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679544851"><span class="annot"><span class="annottext">ObjectCannedACL -&gt; Text
 (ObjectCannedACL -&gt; Text) -&gt; ToText ObjectCannedACL
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ObjectCannedACL -&gt; Text
 $ctoText :: ObjectCannedACL -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679544219"><span class="annot"><span class="annottext">ObjectCannedACL -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679544848"><span class="annot"><span class="annottext">ObjectCannedACL -&gt; ByteString
 (ObjectCannedACL -&gt; ByteString) -&gt; ToByteString ObjectCannedACL
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ObjectCannedACL -&gt; ByteString
 $ctoBS :: ObjectCannedACL -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679544216"><span class="annot"><span class="annottext">ObjectCannedACL -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679544845"><span class="annot"><span class="annottext">ObjectCannedACL -&gt; ByteStringBuilder
 (ObjectCannedACL -&gt; ByteStringBuilder) -&gt; ToLog ObjectCannedACL
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ObjectCannedACL -&gt; ByteStringBuilder
 $cbuild :: ObjectCannedACL -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679544213"><span class="annot"><span class="annottext">HeaderName -&gt; ObjectCannedACL -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679544842"><span class="annot"><span class="annottext">HeaderName -&gt; ObjectCannedACL -&gt; [Header]
 (HeaderName -&gt; ObjectCannedACL -&gt; [Header])
 -&gt; ToHeader ObjectCannedACL
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ObjectCannedACL -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ObjectCannedACL -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679544210"><span class="annot"><span class="annottext">ObjectCannedACL -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679544839"><span class="annot"><span class="annottext">ObjectCannedACL -&gt; QueryString
 (ObjectCannedACL -&gt; QueryString) -&gt; ToQuery ObjectCannedACL
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ObjectCannedACL -&gt; QueryString
 $ctoQuery :: ObjectCannedACL -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679544205"><span id="local-6989586621679544207"><span class="annot"><span class="annottext">Value -&gt; Parser [ObjectCannedACL]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679544834"><span id="local-6989586621679544836"><span class="annot"><span class="annottext">Value -&gt; Parser [ObjectCannedACL]
 Value -&gt; Parser ObjectCannedACL
 (Value -&gt; Parser ObjectCannedACL)
 -&gt; (Value -&gt; Parser [ObjectCannedACL]) -&gt; FromJSON ObjectCannedACL
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [ObjectCannedACL]
 parseJSON :: Value -&gt; Parser ObjectCannedACL
 $cparseJSON :: Value -&gt; Parser ObjectCannedACL
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679544200"><span id="local-6989586621679544202"><span class="annot"><span class="annottext">FromJSONKeyFunction [ObjectCannedACL]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679544829"><span id="local-6989586621679544831"><span class="annot"><span class="annottext">FromJSONKeyFunction [ObjectCannedACL]
 FromJSONKeyFunction ObjectCannedACL
 FromJSONKeyFunction ObjectCannedACL
 -&gt; FromJSONKeyFunction [ObjectCannedACL]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ObjectCannedACL]
 fromJSONKey :: FromJSONKeyFunction ObjectCannedACL
 $cfromJSONKey :: FromJSONKeyFunction ObjectCannedACL
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679544191"><span id="local-6989586621679544193"><span id="local-6989586621679544195"><span id="local-6989586621679544197"><span class="annot"><span class="annottext">[ObjectCannedACL] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679544820"><span id="local-6989586621679544822"><span id="local-6989586621679544824"><span id="local-6989586621679544826"><span class="annot"><span class="annottext">[ObjectCannedACL] -&gt; Encoding
 [ObjectCannedACL] -&gt; Value
 ObjectCannedACL -&gt; Encoding
 ObjectCannedACL -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: ObjectCannedACL -&gt; Encoding
 toJSON :: ObjectCannedACL -&gt; Value
 $ctoJSON :: ObjectCannedACL -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679544186"><span id="local-6989586621679544188"><span class="annot"><span class="annottext">ToJSONKeyFunction [ObjectCannedACL]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679544815"><span id="local-6989586621679544817"><span class="annot"><span class="annottext">ToJSONKeyFunction [ObjectCannedACL]
 ToJSONKeyFunction ObjectCannedACL
 ToJSONKeyFunction ObjectCannedACL
 -&gt; ToJSONKeyFunction [ObjectCannedACL] -&gt; ToJSONKey ObjectCannedACL
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ObjectCannedACL]
 toJSONKey :: ToJSONKeyFunction ObjectCannedACL
 $ctoJSONKey :: ToJSONKeyFunction ObjectCannedACL
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679544183"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectCannedACL
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679544812"><span class="annot"><span class="annottext">[Node] -&gt; Either String ObjectCannedACL
 ([Node] -&gt; Either String ObjectCannedACL)
 -&gt; FromXML ObjectCannedACL
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ObjectCannedACL
 $cparseXML :: [Node] -&gt; Either String ObjectCannedACL
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679544180"><span class="annot"><span class="annottext">ObjectCannedACL -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679544809"><span class="annot"><span class="annottext">ObjectCannedACL -&gt; XML
 (ObjectCannedACL -&gt; XML) -&gt; ToXML ObjectCannedACL
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ObjectCannedACL -&gt; XML

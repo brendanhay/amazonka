@@ -56,13 +56,13 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.WAF.Types.html"><span class="hs-identifier">Network.AWS.WAF.Types</span></a></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newGetWebACL' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679314436"><span id="local-6989586621679314437"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetWebACL"><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL"><span class="hs-identifier hs-var">GetWebACL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetWebACL%27"><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL%27"><span class="hs-identifier hs-var">GetWebACL'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679314706"><span id="local-6989586621679314707"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetWebACL"><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL"><span class="hs-identifier hs-var">GetWebACL</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetWebACL%27"><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL%27"><span class="hs-identifier hs-var">GetWebACL'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @WebACLId@ of the WebACL that you want to get. @WebACLId@ is</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- returned by CreateWebACL and by ListWebACLs.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AwebACLId%3AGetWebACL%27"><span class="annot"><span class="annottext">GetWebACL -&gt; Text
 </span><a href="Network.AWS.WAF.GetWebACL.html#%24sel%3AwebACLId%3AGetWebACL%27"><span class="hs-identifier hs-var hs-var">webACLId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314430"><span id="local-6989586621679314432"><span class="annot"><span class="annottext">GetWebACL -&gt; GetWebACL -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314700"><span id="local-6989586621679314702"><span class="annot"><span class="annottext">GetWebACL -&gt; GetWebACL -&gt; Bool
 (GetWebACL -&gt; GetWebACL -&gt; Bool)
 -&gt; (GetWebACL -&gt; GetWebACL -&gt; Bool) -&gt; Eq GetWebACL
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetWebACL -&gt; GetWebACL -&gt; Bool
 == :: GetWebACL -&gt; GetWebACL -&gt; Bool
 $c== :: GetWebACL -&gt; GetWebACL -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314421"><span id="local-6989586621679314423"><span id="local-6989586621679314425"><span id="local-6989586621679314427"><span class="annot"><span class="annottext">ReadPrec [GetWebACL]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314691"><span id="local-6989586621679314693"><span id="local-6989586621679314695"><span id="local-6989586621679314697"><span class="annot"><span class="annottext">ReadPrec [GetWebACL]
 ReadPrec GetWebACL
 Int -&gt; ReadS GetWebACL
 ReadS [GetWebACL]
@@ -90,7 +90,7 @@ readList :: ReadS [GetWebACL]
 $creadList :: ReadS [GetWebACL]
 readsPrec :: Int -&gt; ReadS GetWebACL
 $creadsPrec :: Int -&gt; ReadS GetWebACL
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314414"><span id="local-6989586621679314416"><span id="local-6989586621679314418"><span class="annot"><span class="annottext">Int -&gt; GetWebACL -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314684"><span id="local-6989586621679314686"><span id="local-6989586621679314688"><span class="annot"><span class="annottext">Int -&gt; GetWebACL -&gt; ShowS
 [GetWebACL] -&gt; ShowS
 GetWebACL -&gt; String
 (Int -&gt; GetWebACL -&gt; ShowS)
@@ -130,12 +130,12 @@ $cfrom :: forall x. GetWebACL -&gt; Rep GetWebACL x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL"><span class="hs-identifier hs-type">GetWebACL</span></a></span><span>
 </span><span id="line-80"></span><span id="newGetWebACL"><span class="annot"><span class="annottext">newGetWebACL :: Text -&gt; GetWebACL
-</span><a href="Network.AWS.WAF.GetWebACL.html#newGetWebACL"><span class="hs-identifier hs-var hs-var">newGetWebACL</span></a></span></span><span> </span><span id="local-6989586621679314409"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314409"><span class="hs-identifier hs-var">pWebACLId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAF.GetWebACL.html#newGetWebACL"><span class="hs-identifier hs-var hs-var">newGetWebACL</span></a></span></span><span> </span><span id="local-6989586621679314679"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314679"><span class="hs-identifier hs-var">pWebACLId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">GetWebACL' :: Text -&gt; GetWebACL
 </span><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL%27"><span class="hs-identifier hs-type">GetWebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webACLId:GetWebACL' :: Text
 </span><a href="Network.AWS.WAF.GetWebACL.html#%24sel%3AwebACLId%3AGetWebACL%27"><span class="hs-identifier hs-var">webACLId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314409"><span class="hs-identifier hs-var">pWebACLId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679314679"><span class="hs-identifier hs-var">pWebACLId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The @WebACLId@ of the WebACL that you want to get. @WebACLId@ is</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- returned by CreateWebACL and by ListWebACLs.</span><span>
@@ -145,25 +145,25 @@ $cfrom :: forall x. GetWebACL -&gt; Rep GetWebACL x
 -&gt; (GetWebACL -&gt; Text -&gt; GetWebACL)
 -&gt; Lens GetWebACL GetWebACL Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL%27"><span class="hs-identifier hs-type">GetWebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314406"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL%27"><span class="hs-identifier hs-type">GetWebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314676"><span class="annot"><span class="annottext">Text
 webACLId :: Text
 $sel:webACLId:GetWebACL' :: GetWebACL -&gt; Text
-</span><a href="#local-6989586621679314406"><span class="hs-identifier hs-var hs-var">webACLId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314406"><span class="hs-identifier hs-var">webACLId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314405"><span class="annot"><span class="annottext">s :: GetWebACL
-</span><a href="#local-6989586621679314405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL%27"><span class="hs-identifier hs-type">GetWebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314404"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetWebACL
-</span><a href="#local-6989586621679314405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webACLId:GetWebACL' :: Text
+</span><a href="#local-6989586621679314676"><span class="hs-identifier hs-var hs-var">webACLId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314676"><span class="hs-identifier hs-var">webACLId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314675"><span class="annot"><span class="annottext">s :: GetWebACL
+</span><a href="#local-6989586621679314675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL%27"><span class="hs-identifier hs-type">GetWebACL'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314674"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679314674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetWebACL
+</span><a href="#local-6989586621679314675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webACLId:GetWebACL' :: Text
 </span><a href="Network.AWS.WAF.GetWebACL.html#%24sel%3AwebACLId%3AGetWebACL%27"><span class="hs-identifier hs-var">webACLId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL"><span class="hs-identifier hs-type">GetWebACL</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL"><span class="hs-identifier hs-type">GetWebACL</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL"><span class="hs-identifier hs-type">GetWebACL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL"><span class="hs-identifier hs-type">GetWebACL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse"><span class="hs-identifier hs-type">GetWebACLResponse</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679314400"><span class="annot"><span class="annottext">request :: GetWebACL -&gt; Request GetWebACL
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679314670"><span class="annot"><span class="annottext">request :: GetWebACL -&gt; Request GetWebACL
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetWebACL -&gt; Request GetWebACL
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.WAF.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679314396"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679314666"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetWebACL
 -&gt; ClientResponse ClientBody
@@ -187,10 +187,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679314393"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314393"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679314392"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679314392"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679314391"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679314391"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679314663"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314663"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679314662"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679314662"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679314661"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314661"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe WebACL -&gt; Int -&gt; GetWebACLResponse
 </span><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse%27"><span class="hs-identifier hs-var">GetWebACLResponse'</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe WebACL -&gt; Int -&gt; GetWebACLResponse)
@@ -198,7 +198,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetWebACLResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679314391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe WebACL)
+</span><a href="#local-6989586621679314661"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe WebACL)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WebACL&quot;</span></span><span class="hs-special">)</span><span>
@@ -210,15 +210,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314393"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314663"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314383"><span id="local-6989586621679314385"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL"><span class="hs-identifier hs-type">GetWebACL</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314653"><span id="local-6989586621679314655"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL"><span class="hs-identifier hs-type">GetWebACL</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314380"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL"><span class="hs-identifier hs-type">GetWebACL</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314650"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL"><span class="hs-identifier hs-type">GetWebACL</span></a></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL"><span class="hs-identifier hs-type">GetWebACL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679314376"><span class="annot"><span class="annottext">toHeaders :: GetWebACL -&gt; ResponseHeaders
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679314646"><span class="annot"><span class="annottext">toHeaders :: GetWebACL -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetWebACL -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -243,12 +243,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314366"><span id="local-6989586621679314368"><span id="local-6989586621679314370"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL"><span class="hs-identifier hs-type">GetWebACL</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679314364"><span class="annot"><span class="annottext">toJSON :: GetWebACL -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL%27"><span class="hs-identifier hs-type">GetWebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314362"><span class="annot"><span class="annottext">Text
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314636"><span id="local-6989586621679314638"><span id="local-6989586621679314640"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL"><span class="hs-identifier hs-type">GetWebACL</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679314634"><span class="annot"><span class="annottext">toJSON :: GetWebACL -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL%27"><span class="hs-identifier hs-type">GetWebACL'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314632"><span class="annot"><span class="annottext">Text
 webACLId :: Text
 $sel:webACLId:GetWebACL' :: GetWebACL -&gt; Text
-</span><a href="#local-6989586621679314362"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679314632"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -260,18 +260,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;WebACLId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679314362"><span class="hs-identifier hs-var">webACLId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679314632"><span class="hs-identifier hs-var">webACLId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL"><span class="hs-identifier hs-type">GetWebACL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679314356"><span class="annot"><span class="annottext">toPath :: GetWebACL -&gt; ByteString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679314626"><span class="annot"><span class="annottext">toPath :: GetWebACL -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetWebACL -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACL"><span class="hs-identifier hs-type">GetWebACL</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679314352"><span class="annot"><span class="annottext">toQuery :: GetWebACL -&gt; QueryString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679314622"><span class="annot"><span class="annottext">toQuery :: GetWebACL -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetWebACL -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -279,7 +279,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newGetWebACLResponse' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679314349"><span id="local-6989586621679314350"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetWebACLResponse"><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse"><span class="hs-identifier hs-var">GetWebACLResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetWebACLResponse%27"><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse%27"><span class="hs-identifier hs-var">GetWebACLResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span id="local-6989586621679314619"><span id="local-6989586621679314620"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetWebACLResponse"><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse"><span class="hs-identifier hs-var">GetWebACLResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetWebACLResponse%27"><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse%27"><span class="hs-identifier hs-var">GetWebACLResponse'</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the WebACL that you specified in the @GetWebACL@</span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-comment">-- request. For more information, see the following topics:</span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -298,7 +298,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetWebACLResponse%27"><span class="annot"><span class="annottext">GetWebACLResponse -&gt; Int
 </span><a href="Network.AWS.WAF.GetWebACL.html#%24sel%3AhttpStatus%3AGetWebACLResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314343"><span id="local-6989586621679314345"><span class="annot"><span class="annottext">GetWebACLResponse -&gt; GetWebACLResponse -&gt; Bool
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314613"><span id="local-6989586621679314615"><span class="annot"><span class="annottext">GetWebACLResponse -&gt; GetWebACLResponse -&gt; Bool
 (GetWebACLResponse -&gt; GetWebACLResponse -&gt; Bool)
 -&gt; (GetWebACLResponse -&gt; GetWebACLResponse -&gt; Bool)
 -&gt; Eq GetWebACLResponse
@@ -307,7 +307,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetWebACLResponse -&gt; GetWebACLResponse -&gt; Bool
 == :: GetWebACLResponse -&gt; GetWebACLResponse -&gt; Bool
 $c== :: GetWebACLResponse -&gt; GetWebACLResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314335"><span id="local-6989586621679314337"><span id="local-6989586621679314339"><span id="local-6989586621679314341"><span class="annot"><span class="annottext">ReadPrec [GetWebACLResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314605"><span id="local-6989586621679314607"><span id="local-6989586621679314609"><span id="local-6989586621679314611"><span class="annot"><span class="annottext">ReadPrec [GetWebACLResponse]
 ReadPrec GetWebACLResponse
 Int -&gt; ReadS GetWebACLResponse
 ReadS [GetWebACLResponse]
@@ -327,7 +327,7 @@ readList :: ReadS [GetWebACLResponse]
 $creadList :: ReadS [GetWebACLResponse]
 readsPrec :: Int -&gt; ReadS GetWebACLResponse
 $creadsPrec :: Int -&gt; ReadS GetWebACLResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314329"><span id="local-6989586621679314331"><span id="local-6989586621679314333"><span class="annot"><span class="annottext">Int -&gt; GetWebACLResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314599"><span id="local-6989586621679314601"><span id="local-6989586621679314603"><span class="annot"><span class="annottext">Int -&gt; GetWebACLResponse -&gt; ShowS
 [GetWebACLResponse] -&gt; ShowS
 GetWebACLResponse -&gt; String
 (Int -&gt; GetWebACLResponse -&gt; ShowS)
@@ -380,8 +380,8 @@ $cfrom :: forall x. GetWebACLResponse -&gt; Rep GetWebACLResponse x
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse"><span class="hs-identifier hs-type">GetWebACLResponse</span></a></span><span>
 </span><span id="line-175"></span><span id="newGetWebACLResponse"><span class="annot"><span class="annottext">newGetWebACLResponse :: Int -&gt; GetWebACLResponse
-</span><a href="Network.AWS.WAF.GetWebACL.html#newGetWebACLResponse"><span class="hs-identifier hs-var hs-var">newGetWebACLResponse</span></a></span></span><span> </span><span id="local-6989586621679314326"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314326"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAF.GetWebACL.html#newGetWebACLResponse"><span class="hs-identifier hs-var hs-var">newGetWebACLResponse</span></a></span></span><span> </span><span id="local-6989586621679314596"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314596"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">GetWebACLResponse' :: Maybe WebACL -&gt; Int -&gt; GetWebACLResponse
 </span><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse%27"><span class="hs-identifier hs-type">GetWebACLResponse'</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:webACL:GetWebACLResponse' :: Maybe WebACL
@@ -390,7 +390,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetWebACLResponse' :: Int
 </span><a href="Network.AWS.WAF.GetWebACL.html#%24sel%3AhttpStatus%3AGetWebACLResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314326"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679314596"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | Information about the WebACL that you specified in the @GetWebACL@</span><span>
@@ -413,16 +413,16 @@ forall a. Maybe a
 -&gt; Lens
      GetWebACLResponse GetWebACLResponse (Maybe WebACL) (Maybe WebACL)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse%27"><span class="hs-identifier hs-type">GetWebACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314325"><span class="annot"><span class="annottext">Maybe WebACL
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse%27"><span class="hs-identifier hs-type">GetWebACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314595"><span class="annot"><span class="annottext">Maybe WebACL
 webACL :: Maybe WebACL
 $sel:webACL:GetWebACLResponse' :: GetWebACLResponse -&gt; Maybe WebACL
-</span><a href="#local-6989586621679314325"><span class="hs-identifier hs-var hs-var">webACL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WebACL
-</span><a href="#local-6989586621679314325"><span class="hs-identifier hs-var">webACL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314324"><span class="annot"><span class="annottext">s :: GetWebACLResponse
-</span><a href="#local-6989586621679314324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse%27"><span class="hs-identifier hs-type">GetWebACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314323"><span class="annot"><span class="annottext">Maybe WebACL
-</span><a href="#local-6989586621679314323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetWebACLResponse
-</span><a href="#local-6989586621679314324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webACL:GetWebACLResponse' :: Maybe WebACL
+</span><a href="#local-6989586621679314595"><span class="hs-identifier hs-var hs-var">webACL</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WebACL
+</span><a href="#local-6989586621679314595"><span class="hs-identifier hs-var">webACL</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314594"><span class="annot"><span class="annottext">s :: GetWebACLResponse
+</span><a href="#local-6989586621679314594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse%27"><span class="hs-identifier hs-type">GetWebACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314593"><span class="annot"><span class="annottext">Maybe WebACL
+</span><a href="#local-6989586621679314593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetWebACLResponse
+</span><a href="#local-6989586621679314594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:webACL:GetWebACLResponse' :: Maybe WebACL
 </span><a href="Network.AWS.WAF.GetWebACL.html#%24sel%3AwebACL%3AGetWebACLResponse%27"><span class="hs-identifier hs-var">webACL</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WebACL
-</span><a href="#local-6989586621679314323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse"><span class="hs-identifier hs-type">GetWebACLResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse"><span class="hs-identifier hs-type">GetWebACLResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-197"></span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#getWebACLResponse_httpStatus"><span class="hs-identifier hs-type">getWebACLResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse"><span class="hs-identifier hs-type">GetWebACLResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -431,16 +431,16 @@ $sel:webACL:GetWebACLResponse' :: GetWebACLResponse -&gt; Maybe WebACL
 -&gt; (GetWebACLResponse -&gt; Int -&gt; GetWebACLResponse)
 -&gt; Lens GetWebACLResponse GetWebACLResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse%27"><span class="hs-identifier hs-type">GetWebACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314322"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse%27"><span class="hs-identifier hs-type">GetWebACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314592"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetWebACLResponse' :: GetWebACLResponse -&gt; Int
-</span><a href="#local-6989586621679314322"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314322"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314321"><span class="annot"><span class="annottext">s :: GetWebACLResponse
-</span><a href="#local-6989586621679314321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse%27"><span class="hs-identifier hs-type">GetWebACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314320"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetWebACLResponse
-</span><a href="#local-6989586621679314321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetWebACLResponse' :: Int
+</span><a href="#local-6989586621679314592"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314592"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314591"><span class="annot"><span class="annottext">s :: GetWebACLResponse
+</span><a href="#local-6989586621679314591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse%27"><span class="hs-identifier hs-type">GetWebACLResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314590"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetWebACLResponse
+</span><a href="#local-6989586621679314591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetWebACLResponse' :: Int
 </span><a href="Network.AWS.WAF.GetWebACL.html#%24sel%3AhttpStatus%3AGetWebACLResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679314320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse"><span class="hs-identifier hs-type">GetWebACLResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679314590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse"><span class="hs-identifier hs-type">GetWebACLResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314318"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse"><span class="hs-identifier hs-type">GetWebACLResponse</span></a></span></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314588"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAF.GetWebACL.html#GetWebACLResponse"><span class="hs-identifier hs-type">GetWebACLResponse</span></a></span></span><span>
 </span><span id="line-201"></span></pre></body></html>

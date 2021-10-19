@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Controls the amount of phase-shift applied to the surround channels.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- Only used for 3\/2 coding mode.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679957361"><span id="local-6989586621679957362"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3PhaseControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3PhaseControl.html#Eac3PhaseControl"><span class="hs-identifier hs-var">Eac3PhaseControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3PhaseControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3PhaseControl.html#Eac3PhaseControl%27"><span class="hs-identifier hs-var">Eac3PhaseControl'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679961985"><span id="local-6989586621679961986"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3PhaseControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3PhaseControl.html#Eac3PhaseControl"><span class="hs-identifier hs-var">Eac3PhaseControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3PhaseControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.Eac3PhaseControl.html#Eac3PhaseControl%27"><span class="hs-identifier hs-var">Eac3PhaseControl'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEac3PhaseControl"><span class="annot"><span class="annottext">Eac3PhaseControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.Eac3PhaseControl.html#fromEac3PhaseControl"><span class="hs-identifier hs-var hs-var">fromEac3PhaseControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679957353"><span id="local-6989586621679957355"><span id="local-6989586621679957357"><span class="annot"><span class="annottext">Int -&gt; Eac3PhaseControl -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679961977"><span id="local-6989586621679961979"><span id="local-6989586621679961981"><span class="annot"><span class="annottext">Int -&gt; Eac3PhaseControl -&gt; ShowS
 [Eac3PhaseControl] -&gt; ShowS
 Eac3PhaseControl -&gt; String
 (Int -&gt; Eac3PhaseControl -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: Eac3PhaseControl -&gt; String
 showsPrec :: Int -&gt; Eac3PhaseControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; Eac3PhaseControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679957344"><span id="local-6989586621679957346"><span id="local-6989586621679957348"><span id="local-6989586621679957350"><span class="annot"><span class="annottext">ReadPrec [Eac3PhaseControl]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679961968"><span id="local-6989586621679961970"><span id="local-6989586621679961972"><span id="local-6989586621679961974"><span class="annot"><span class="annottext">ReadPrec [Eac3PhaseControl]
 ReadPrec Eac3PhaseControl
 Int -&gt; ReadS Eac3PhaseControl
 ReadS [Eac3PhaseControl]
@@ -74,7 +74,7 @@ $creadList :: ReadS [Eac3PhaseControl]
 readsPrec :: Int -&gt; ReadS Eac3PhaseControl
 $creadsPrec :: Int -&gt; ReadS Eac3PhaseControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679957339"><span id="local-6989586621679957341"><span class="annot"><span class="annottext">Eac3PhaseControl -&gt; Eac3PhaseControl -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679961963"><span id="local-6989586621679961965"><span class="annot"><span class="annottext">Eac3PhaseControl -&gt; Eac3PhaseControl -&gt; Bool
 (Eac3PhaseControl -&gt; Eac3PhaseControl -&gt; Bool)
 -&gt; (Eac3PhaseControl -&gt; Eac3PhaseControl -&gt; Bool)
 -&gt; Eq Eac3PhaseControl
@@ -84,7 +84,7 @@ $c/= :: Eac3PhaseControl -&gt; Eac3PhaseControl -&gt; Bool
 == :: Eac3PhaseControl -&gt; Eac3PhaseControl -&gt; Bool
 $c== :: Eac3PhaseControl -&gt; Eac3PhaseControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679957323"><span id="local-6989586621679957325"><span id="local-6989586621679957327"><span id="local-6989586621679957329"><span id="local-6989586621679957331"><span id="local-6989586621679957333"><span id="local-6989586621679957335"><span class="annot"><span class="annottext">Eq Eac3PhaseControl
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679961947"><span id="local-6989586621679961949"><span id="local-6989586621679961951"><span id="local-6989586621679961953"><span id="local-6989586621679961955"><span id="local-6989586621679961957"><span id="local-6989586621679961959"><span class="annot"><span class="annottext">Eq Eac3PhaseControl
 Eq Eac3PhaseControl
 -&gt; (Eac3PhaseControl -&gt; Eac3PhaseControl -&gt; Ordering)
 -&gt; (Eac3PhaseControl -&gt; Eac3PhaseControl -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. Eac3PhaseControl -&gt; Rep Eac3PhaseControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679957315"><span id="local-6989586621679957317"><span class="annot"><span class="annottext">Int -&gt; Eac3PhaseControl -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679961939"><span id="local-6989586621679961941"><span class="annot"><span class="annottext">Int -&gt; Eac3PhaseControl -&gt; Int
 Eac3PhaseControl -&gt; Int
 (Int -&gt; Eac3PhaseControl -&gt; Int)
 -&gt; (Eac3PhaseControl -&gt; Int) -&gt; Hashable Eac3PhaseControl
@@ -145,51 +145,51 @@ $chash :: Eac3PhaseControl -&gt; Int
 hashWithSalt :: Int -&gt; Eac3PhaseControl -&gt; Int
 $chashWithSalt :: Int -&gt; Eac3PhaseControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679957312"><span class="annot"><span class="annottext">Eac3PhaseControl -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679961936"><span class="annot"><span class="annottext">Eac3PhaseControl -&gt; ()
 (Eac3PhaseControl -&gt; ()) -&gt; NFData Eac3PhaseControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Eac3PhaseControl -&gt; ()
 $crnf :: Eac3PhaseControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679957309"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3PhaseControl
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679961933"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3PhaseControl
 (Text -&gt; Either String Eac3PhaseControl)
 -&gt; FromText Eac3PhaseControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Eac3PhaseControl
 $cfromText :: Text -&gt; Either String Eac3PhaseControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679957306"><span class="annot"><span class="annottext">Eac3PhaseControl -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679961930"><span class="annot"><span class="annottext">Eac3PhaseControl -&gt; Text
 (Eac3PhaseControl -&gt; Text) -&gt; ToText Eac3PhaseControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Eac3PhaseControl -&gt; Text
 $ctoText :: Eac3PhaseControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679957303"><span class="annot"><span class="annottext">Eac3PhaseControl -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679961927"><span class="annot"><span class="annottext">Eac3PhaseControl -&gt; ByteString
 (Eac3PhaseControl -&gt; ByteString) -&gt; ToByteString Eac3PhaseControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Eac3PhaseControl -&gt; ByteString
 $ctoBS :: Eac3PhaseControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679957300"><span class="annot"><span class="annottext">Eac3PhaseControl -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679961924"><span class="annot"><span class="annottext">Eac3PhaseControl -&gt; ByteStringBuilder
 (Eac3PhaseControl -&gt; ByteStringBuilder) -&gt; ToLog Eac3PhaseControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Eac3PhaseControl -&gt; ByteStringBuilder
 $cbuild :: Eac3PhaseControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679957297"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3PhaseControl -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679961921"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3PhaseControl -&gt; [Header]
 (HeaderName -&gt; Eac3PhaseControl -&gt; [Header])
 -&gt; ToHeader Eac3PhaseControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Eac3PhaseControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Eac3PhaseControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679957294"><span class="annot"><span class="annottext">Eac3PhaseControl -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679961918"><span class="annot"><span class="annottext">Eac3PhaseControl -&gt; QueryString
 (Eac3PhaseControl -&gt; QueryString) -&gt; ToQuery Eac3PhaseControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Eac3PhaseControl -&gt; QueryString
 $ctoQuery :: Eac3PhaseControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679957289"><span id="local-6989586621679957291"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3PhaseControl]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679961913"><span id="local-6989586621679961915"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3PhaseControl]
 Value -&gt; Parser Eac3PhaseControl
 (Value -&gt; Parser Eac3PhaseControl)
 -&gt; (Value -&gt; Parser [Eac3PhaseControl])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [Eac3PhaseControl]
 parseJSON :: Value -&gt; Parser Eac3PhaseControl
 $cparseJSON :: Value -&gt; Parser Eac3PhaseControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679957284"><span id="local-6989586621679957286"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3PhaseControl]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679961908"><span id="local-6989586621679961910"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3PhaseControl]
 FromJSONKeyFunction Eac3PhaseControl
 FromJSONKeyFunction Eac3PhaseControl
 -&gt; FromJSONKeyFunction [Eac3PhaseControl]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Eac3PhaseControl]
 fromJSONKey :: FromJSONKeyFunction Eac3PhaseControl
 $cfromJSONKey :: FromJSONKeyFunction Eac3PhaseControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679957275"><span id="local-6989586621679957277"><span id="local-6989586621679957279"><span id="local-6989586621679957281"><span class="annot"><span class="annottext">[Eac3PhaseControl] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679961899"><span id="local-6989586621679961901"><span id="local-6989586621679961903"><span id="local-6989586621679961905"><span class="annot"><span class="annottext">[Eac3PhaseControl] -&gt; Encoding
 [Eac3PhaseControl] -&gt; Value
 Eac3PhaseControl -&gt; Encoding
 Eac3PhaseControl -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: Eac3PhaseControl -&gt; Encoding
 toJSON :: Eac3PhaseControl -&gt; Value
 $ctoJSON :: Eac3PhaseControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679957270"><span id="local-6989586621679957272"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3PhaseControl]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679961894"><span id="local-6989586621679961896"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3PhaseControl]
 ToJSONKeyFunction Eac3PhaseControl
 ToJSONKeyFunction Eac3PhaseControl
 -&gt; ToJSONKeyFunction [Eac3PhaseControl]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Eac3PhaseControl]
 toJSONKey :: ToJSONKeyFunction Eac3PhaseControl
 $ctoJSONKey :: ToJSONKeyFunction Eac3PhaseControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679957267"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3PhaseControl
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679961891"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3PhaseControl
 ([Node] -&gt; Either String Eac3PhaseControl)
 -&gt; FromXML Eac3PhaseControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Eac3PhaseControl
 $cparseXML :: [Node] -&gt; Either String Eac3PhaseControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679957264"><span class="annot"><span class="annottext">Eac3PhaseControl -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679961888"><span class="annot"><span class="annottext">Eac3PhaseControl -&gt; XML
 (Eac3PhaseControl -&gt; XML) -&gt; ToXML Eac3PhaseControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Eac3PhaseControl -&gt; XML

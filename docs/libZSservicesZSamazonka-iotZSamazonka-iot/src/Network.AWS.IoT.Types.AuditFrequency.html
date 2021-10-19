@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679774414"><span id="local-6989586621679774415"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuditFrequency"><span class="annot"><a href="Network.AWS.IoT.Types.AuditFrequency.html#AuditFrequency"><span class="hs-identifier hs-var">AuditFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuditFrequency%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuditFrequency.html#AuditFrequency%27"><span class="hs-identifier hs-var">AuditFrequency'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679775257"><span id="local-6989586621679775258"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuditFrequency"><span class="annot"><a href="Network.AWS.IoT.Types.AuditFrequency.html#AuditFrequency"><span class="hs-identifier hs-var">AuditFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuditFrequency%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuditFrequency.html#AuditFrequency%27"><span class="hs-identifier hs-var">AuditFrequency'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuditFrequency"><span class="annot"><span class="annottext">AuditFrequency -&gt; Text
 </span><a href="Network.AWS.IoT.Types.AuditFrequency.html#fromAuditFrequency"><span class="hs-identifier hs-var hs-var">fromAuditFrequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679774406"><span id="local-6989586621679774408"><span id="local-6989586621679774410"><span class="annot"><span class="annottext">Int -&gt; AuditFrequency -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679775249"><span id="local-6989586621679775251"><span id="local-6989586621679775253"><span class="annot"><span class="annottext">Int -&gt; AuditFrequency -&gt; ShowS
 [AuditFrequency] -&gt; ShowS
 AuditFrequency -&gt; String
 (Int -&gt; AuditFrequency -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: AuditFrequency -&gt; String
 showsPrec :: Int -&gt; AuditFrequency -&gt; ShowS
 $cshowsPrec :: Int -&gt; AuditFrequency -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679774397"><span id="local-6989586621679774399"><span id="local-6989586621679774401"><span id="local-6989586621679774403"><span class="annot"><span class="annottext">ReadPrec [AuditFrequency]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679775240"><span id="local-6989586621679775242"><span id="local-6989586621679775244"><span id="local-6989586621679775246"><span class="annot"><span class="annottext">ReadPrec [AuditFrequency]
 ReadPrec AuditFrequency
 Int -&gt; ReadS AuditFrequency
 ReadS [AuditFrequency]
@@ -74,7 +74,7 @@ $creadList :: ReadS [AuditFrequency]
 readsPrec :: Int -&gt; ReadS AuditFrequency
 $creadsPrec :: Int -&gt; ReadS AuditFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679774392"><span id="local-6989586621679774394"><span class="annot"><span class="annottext">AuditFrequency -&gt; AuditFrequency -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679775235"><span id="local-6989586621679775237"><span class="annot"><span class="annottext">AuditFrequency -&gt; AuditFrequency -&gt; Bool
 (AuditFrequency -&gt; AuditFrequency -&gt; Bool)
 -&gt; (AuditFrequency -&gt; AuditFrequency -&gt; Bool) -&gt; Eq AuditFrequency
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: AuditFrequency -&gt; AuditFrequency -&gt; Bool
 == :: AuditFrequency -&gt; AuditFrequency -&gt; Bool
 $c== :: AuditFrequency -&gt; AuditFrequency -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679774376"><span id="local-6989586621679774378"><span id="local-6989586621679774380"><span id="local-6989586621679774382"><span id="local-6989586621679774384"><span id="local-6989586621679774386"><span id="local-6989586621679774388"><span class="annot"><span class="annottext">Eq AuditFrequency
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679775219"><span id="local-6989586621679775221"><span id="local-6989586621679775223"><span id="local-6989586621679775225"><span id="local-6989586621679775227"><span id="local-6989586621679775229"><span id="local-6989586621679775231"><span class="annot"><span class="annottext">Eq AuditFrequency
 Eq AuditFrequency
 -&gt; (AuditFrequency -&gt; AuditFrequency -&gt; Ordering)
 -&gt; (AuditFrequency -&gt; AuditFrequency -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. AuditFrequency -&gt; Rep AuditFrequency x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679774368"><span id="local-6989586621679774370"><span class="annot"><span class="annottext">Int -&gt; AuditFrequency -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679775211"><span id="local-6989586621679775213"><span class="annot"><span class="annottext">Int -&gt; AuditFrequency -&gt; Int
 AuditFrequency -&gt; Int
 (Int -&gt; AuditFrequency -&gt; Int)
 -&gt; (AuditFrequency -&gt; Int) -&gt; Hashable AuditFrequency
@@ -144,50 +144,50 @@ $chash :: AuditFrequency -&gt; Int
 hashWithSalt :: Int -&gt; AuditFrequency -&gt; Int
 $chashWithSalt :: Int -&gt; AuditFrequency -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679774365"><span class="annot"><span class="annottext">AuditFrequency -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679775208"><span class="annot"><span class="annottext">AuditFrequency -&gt; ()
 (AuditFrequency -&gt; ()) -&gt; NFData AuditFrequency
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AuditFrequency -&gt; ()
 $crnf :: AuditFrequency -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679774362"><span class="annot"><span class="annottext">Text -&gt; Either String AuditFrequency
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679775205"><span class="annot"><span class="annottext">Text -&gt; Either String AuditFrequency
 (Text -&gt; Either String AuditFrequency) -&gt; FromText AuditFrequency
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AuditFrequency
 $cfromText :: Text -&gt; Either String AuditFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679774359"><span class="annot"><span class="annottext">AuditFrequency -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679775202"><span class="annot"><span class="annottext">AuditFrequency -&gt; Text
 (AuditFrequency -&gt; Text) -&gt; ToText AuditFrequency
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AuditFrequency -&gt; Text
 $ctoText :: AuditFrequency -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679774356"><span class="annot"><span class="annottext">AuditFrequency -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679775199"><span class="annot"><span class="annottext">AuditFrequency -&gt; ByteString
 (AuditFrequency -&gt; ByteString) -&gt; ToByteString AuditFrequency
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AuditFrequency -&gt; ByteString
 $ctoBS :: AuditFrequency -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679774353"><span class="annot"><span class="annottext">AuditFrequency -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679775196"><span class="annot"><span class="annottext">AuditFrequency -&gt; ByteStringBuilder
 (AuditFrequency -&gt; ByteStringBuilder) -&gt; ToLog AuditFrequency
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AuditFrequency -&gt; ByteStringBuilder
 $cbuild :: AuditFrequency -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679774350"><span class="annot"><span class="annottext">HeaderName -&gt; AuditFrequency -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679775193"><span class="annot"><span class="annottext">HeaderName -&gt; AuditFrequency -&gt; [Header]
 (HeaderName -&gt; AuditFrequency -&gt; [Header])
 -&gt; ToHeader AuditFrequency
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AuditFrequency -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AuditFrequency -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679774347"><span class="annot"><span class="annottext">AuditFrequency -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679775190"><span class="annot"><span class="annottext">AuditFrequency -&gt; QueryString
 (AuditFrequency -&gt; QueryString) -&gt; ToQuery AuditFrequency
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AuditFrequency -&gt; QueryString
 $ctoQuery :: AuditFrequency -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679774342"><span id="local-6989586621679774344"><span class="annot"><span class="annottext">Value -&gt; Parser [AuditFrequency]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679775185"><span id="local-6989586621679775187"><span class="annot"><span class="annottext">Value -&gt; Parser [AuditFrequency]
 Value -&gt; Parser AuditFrequency
 (Value -&gt; Parser AuditFrequency)
 -&gt; (Value -&gt; Parser [AuditFrequency]) -&gt; FromJSON AuditFrequency
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [AuditFrequency]
 parseJSON :: Value -&gt; Parser AuditFrequency
 $cparseJSON :: Value -&gt; Parser AuditFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679774337"><span id="local-6989586621679774339"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuditFrequency]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679775180"><span id="local-6989586621679775182"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuditFrequency]
 FromJSONKeyFunction AuditFrequency
 FromJSONKeyFunction AuditFrequency
 -&gt; FromJSONKeyFunction [AuditFrequency]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AuditFrequency]
 fromJSONKey :: FromJSONKeyFunction AuditFrequency
 $cfromJSONKey :: FromJSONKeyFunction AuditFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679774328"><span id="local-6989586621679774330"><span id="local-6989586621679774332"><span id="local-6989586621679774334"><span class="annot"><span class="annottext">[AuditFrequency] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679775171"><span id="local-6989586621679775173"><span id="local-6989586621679775175"><span id="local-6989586621679775177"><span class="annot"><span class="annottext">[AuditFrequency] -&gt; Encoding
 [AuditFrequency] -&gt; Value
 AuditFrequency -&gt; Encoding
 AuditFrequency -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: AuditFrequency -&gt; Encoding
 toJSON :: AuditFrequency -&gt; Value
 $ctoJSON :: AuditFrequency -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679774323"><span id="local-6989586621679774325"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuditFrequency]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679775166"><span id="local-6989586621679775168"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuditFrequency]
 ToJSONKeyFunction AuditFrequency
 ToJSONKeyFunction AuditFrequency
 -&gt; ToJSONKeyFunction [AuditFrequency] -&gt; ToJSONKey AuditFrequency
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AuditFrequency]
 toJSONKey :: ToJSONKeyFunction AuditFrequency
 $ctoJSONKey :: ToJSONKeyFunction AuditFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679774320"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuditFrequency
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679775163"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuditFrequency
 ([Node] -&gt; Either String AuditFrequency) -&gt; FromXML AuditFrequency
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AuditFrequency
 $cparseXML :: [Node] -&gt; Either String AuditFrequency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679774317"><span class="annot"><span class="annottext">AuditFrequency -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679775160"><span class="annot"><span class="annottext">AuditFrequency -&gt; XML
 (AuditFrequency -&gt; XML) -&gt; ToXML AuditFrequency
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AuditFrequency -&gt; XML

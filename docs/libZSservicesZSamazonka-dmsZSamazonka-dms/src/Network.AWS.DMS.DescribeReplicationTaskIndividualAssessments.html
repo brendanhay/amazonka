@@ -32,8 +32,8 @@
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#describeReplicationTaskIndividualAssessments_filters"><span class="hs-identifier">describeReplicationTaskIndividualAssessments_filters</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#describeReplicationTaskIndividualAssessments_maxRecords"><span class="hs-identifier">describeReplicationTaskIndividualAssessments_maxRecords</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#describeReplicationTaskIndividualAssessments_marker"><span class="hs-identifier">describeReplicationTaskIndividualAssessments_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#describeReplicationTaskIndividualAssessments_marker"><span class="hs-identifier">describeReplicationTaskIndividualAssessments_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#describeReplicationTaskIndividualAssessments_maxRecords"><span class="hs-identifier">describeReplicationTaskIndividualAssessments_maxRecords</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse"><span class="hs-identifier">DescribeReplicationTaskIndividualAssessmentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newDescribeReplicationTaskIndividualAssessments' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679448057"><span id="local-6989586621679448058"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeReplicationTaskIndividualAssessments"><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-var">DescribeReplicationTaskIndividualAssessments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeReplicationTaskIndividualAssessments%27"><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-var">DescribeReplicationTaskIndividualAssessments'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679448357"><span id="local-6989586621679448358"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeReplicationTaskIndividualAssessments"><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-var">DescribeReplicationTaskIndividualAssessments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeReplicationTaskIndividualAssessments%27"><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-var">DescribeReplicationTaskIndividualAssessments'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Filters applied to the individual assessments described in the form of</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- key-value pairs.</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -64,19 +64,19 @@
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @replication-task-arn@, @status@</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeReplicationTaskIndividualAssessments%27"><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessments -&gt; Maybe [Filter]
 </span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#%24sel%3Afilters%3ADescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- results can be retrieved.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeReplicationTaskIndividualAssessments%27"><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessments -&gt; Maybe Int
-</span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#%24sel%3AmaxRecords%3ADescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
-</span><span id="line-74"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeReplicationTaskIndividualAssessments%27"><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessments -&gt; Maybe Text
-</span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#%24sel%3Amarker%3ADescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeReplicationTaskIndividualAssessments%27"><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessments -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#%24sel%3Amarker%3ADescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- results can be retrieved.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeReplicationTaskIndividualAssessments%27"><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessments -&gt; Maybe Int
+</span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#%24sel%3AmaxRecords%3ADescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679448049"><span id="local-6989586621679448051"><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessments
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679448349"><span id="local-6989586621679448351"><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessments
 -&gt; DescribeReplicationTaskIndividualAssessments -&gt; Bool
 (DescribeReplicationTaskIndividualAssessments
  -&gt; DescribeReplicationTaskIndividualAssessments -&gt; Bool)
@@ -92,7 +92,7 @@ $c/= :: DescribeReplicationTaskIndividualAssessments
 -&gt; DescribeReplicationTaskIndividualAssessments -&gt; Bool
 $c== :: DescribeReplicationTaskIndividualAssessments
 -&gt; DescribeReplicationTaskIndividualAssessments -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448040"><span id="local-6989586621679448042"><span id="local-6989586621679448044"><span id="local-6989586621679448046"><span class="annot"><span class="annottext">ReadPrec [DescribeReplicationTaskIndividualAssessments]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448340"><span id="local-6989586621679448342"><span id="local-6989586621679448344"><span id="local-6989586621679448346"><span class="annot"><span class="annottext">ReadPrec [DescribeReplicationTaskIndividualAssessments]
 ReadPrec DescribeReplicationTaskIndividualAssessments
 Int -&gt; ReadS DescribeReplicationTaskIndividualAssessments
 ReadS [DescribeReplicationTaskIndividualAssessments]
@@ -112,7 +112,7 @@ readList :: ReadS [DescribeReplicationTaskIndividualAssessments]
 $creadList :: ReadS [DescribeReplicationTaskIndividualAssessments]
 readsPrec :: Int -&gt; ReadS DescribeReplicationTaskIndividualAssessments
 $creadsPrec :: Int -&gt; ReadS DescribeReplicationTaskIndividualAssessments
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448033"><span id="local-6989586621679448035"><span id="local-6989586621679448037"><span class="annot"><span class="annottext">Int -&gt; DescribeReplicationTaskIndividualAssessments -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448333"><span id="local-6989586621679448335"><span id="local-6989586621679448337"><span class="annot"><span class="annottext">Int -&gt; DescribeReplicationTaskIndividualAssessments -&gt; ShowS
 [DescribeReplicationTaskIndividualAssessments] -&gt; ShowS
 DescribeReplicationTaskIndividualAssessments -&gt; String
 (Int -&gt; DescribeReplicationTaskIndividualAssessments -&gt; ShowS)
@@ -164,21 +164,21 @@ DescribeReplicationTaskIndividualAssessments
 </span><span id="line-89"></span><span class="hs-comment">-- Valid filter names: @replication-task-assessment-run-arn@,</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- @replication-task-arn@, @status@</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'maxRecords', 'describeReplicationTaskIndividualAssessments_maxRecords' - The maximum number of records to include in the response. If more</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- results can be retrieved.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'marker', 'describeReplicationTaskIndividualAssessments_marker' - An optional pagination token provided by a previous request. If this</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'marker', 'describeReplicationTaskIndividualAssessments_marker' - An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'maxRecords', 'describeReplicationTaskIndividualAssessments_maxRecords' - The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- results can be retrieved.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#newDescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">newDescribeReplicationTaskIndividualAssessments</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments</span></a></span><span>
 </span><span id="line-102"></span><span id="newDescribeReplicationTaskIndividualAssessments"><span class="annot"><span class="annottext">newDescribeReplicationTaskIndividualAssessments :: DescribeReplicationTaskIndividualAssessments
 </span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#newDescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-var hs-var">newDescribeReplicationTaskIndividualAssessments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessments' :: Maybe [Filter]
--&gt; Maybe Int
 -&gt; Maybe Text
+-&gt; Maybe Int
 -&gt; DescribeReplicationTaskIndividualAssessments
 </span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments'</span></a></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:DescribeReplicationTaskIndividualAssessments' :: Maybe [Filter]
@@ -186,12 +186,12 @@ DescribeReplicationTaskIndividualAssessments
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Filter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeReplicationTaskIndividualAssessments' :: Maybe Int
-</span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#%24sel%3AmaxRecords%3ADescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeReplicationTaskIndividualAssessments' :: Maybe Text
+</span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#%24sel%3Amarker%3ADescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeReplicationTaskIndividualAssessments' :: Maybe Text
-</span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#%24sel%3Amarker%3ADescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeReplicationTaskIndividualAssessments' :: Maybe Int
+</span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#%24sel%3AmaxRecords%3ADescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
@@ -214,16 +214,16 @@ forall a. Maybe a
      (Maybe [Filter])
      (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448026"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448326"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeReplicationTaskIndividualAssessments' :: DescribeReplicationTaskIndividualAssessments -&gt; Maybe [Filter]
-</span><a href="#local-6989586621679448026"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679448026"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448025"><span class="annot"><span class="annottext">s :: DescribeReplicationTaskIndividualAssessments
-</span><a href="#local-6989586621679448025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448024"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679448024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessments
-</span><a href="#local-6989586621679448025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeReplicationTaskIndividualAssessments' :: Maybe [Filter]
+</span><a href="#local-6989586621679448326"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679448326"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448325"><span class="annot"><span class="annottext">s :: DescribeReplicationTaskIndividualAssessments
+</span><a href="#local-6989586621679448325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448324"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679448324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessments
+</span><a href="#local-6989586621679448325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeReplicationTaskIndividualAssessments' :: Maybe [Filter]
 </span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#%24sel%3Afilters%3ADescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679448024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621679448324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeReplicationTaskIndividualAssessments
  -&gt; f DescribeReplicationTaskIndividualAssessments)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -239,42 +239,14 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- results can be retrieved.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#describeReplicationTaskIndividualAssessments_maxRecords"><span class="hs-identifier hs-type">describeReplicationTaskIndividualAssessments_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="describeReplicationTaskIndividualAssessments_maxRecords"><span class="annot"><span class="annottext">describeReplicationTaskIndividualAssessments_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
--&gt; DescribeReplicationTaskIndividualAssessments
--&gt; f DescribeReplicationTaskIndividualAssessments
-</span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#describeReplicationTaskIndividualAssessments_maxRecords"><span class="hs-identifier hs-var hs-var">describeReplicationTaskIndividualAssessments_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeReplicationTaskIndividualAssessments -&gt; Maybe Int)
--&gt; (DescribeReplicationTaskIndividualAssessments
-    -&gt; Maybe Int -&gt; DescribeReplicationTaskIndividualAssessments)
--&gt; Lens
-     DescribeReplicationTaskIndividualAssessments
-     DescribeReplicationTaskIndividualAssessments
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448020"><span class="annot"><span class="annottext">Maybe Int
-maxRecords :: Maybe Int
-$sel:maxRecords:DescribeReplicationTaskIndividualAssessments' :: DescribeReplicationTaskIndividualAssessments -&gt; Maybe Int
-</span><a href="#local-6989586621679448020"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679448020"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448019"><span class="annot"><span class="annottext">s :: DescribeReplicationTaskIndividualAssessments
-</span><a href="#local-6989586621679448019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448018"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679448018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessments
-</span><a href="#local-6989586621679448019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeReplicationTaskIndividualAssessments' :: Maybe Int
-</span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#%24sel%3AmaxRecords%3ADescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679448018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#describeReplicationTaskIndividualAssessments_marker"><span class="hs-identifier hs-type">describeReplicationTaskIndividualAssessments_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span id="describeReplicationTaskIndividualAssessments_marker"><span class="annot"><span class="annottext">describeReplicationTaskIndividualAssessments_marker :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-118"></span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#describeReplicationTaskIndividualAssessments_marker"><span class="hs-identifier hs-type">describeReplicationTaskIndividualAssessments_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="describeReplicationTaskIndividualAssessments_marker"><span class="annot"><span class="annottext">describeReplicationTaskIndividualAssessments_marker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeReplicationTaskIndividualAssessments
 -&gt; f DescribeReplicationTaskIndividualAssessments
 </span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#describeReplicationTaskIndividualAssessments_marker"><span class="hs-identifier hs-var hs-var">describeReplicationTaskIndividualAssessments_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeReplicationTaskIndividualAssessments -&gt; Maybe Text)
@@ -286,16 +258,44 @@ $sel:maxRecords:DescribeReplicationTaskIndividualAssessments' :: DescribeReplica
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448017"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448320"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeReplicationTaskIndividualAssessments' :: DescribeReplicationTaskIndividualAssessments -&gt; Maybe Text
-</span><a href="#local-6989586621679448017"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679448017"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448016"><span class="annot"><span class="annottext">s :: DescribeReplicationTaskIndividualAssessments
-</span><a href="#local-6989586621679448016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448015"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679448015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessments
-</span><a href="#local-6989586621679448016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeReplicationTaskIndividualAssessments' :: Maybe Text
+</span><a href="#local-6989586621679448320"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679448320"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448319"><span class="annot"><span class="annottext">s :: DescribeReplicationTaskIndividualAssessments
+</span><a href="#local-6989586621679448319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448318"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679448318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessments
+</span><a href="#local-6989586621679448319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeReplicationTaskIndividualAssessments' :: Maybe Text
 </span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#%24sel%3Amarker%3ADescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679448015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679448318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- results can be retrieved.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#describeReplicationTaskIndividualAssessments_maxRecords"><span class="hs-identifier hs-type">describeReplicationTaskIndividualAssessments_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="describeReplicationTaskIndividualAssessments_maxRecords"><span class="annot"><span class="annottext">describeReplicationTaskIndividualAssessments_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeReplicationTaskIndividualAssessments
+-&gt; f DescribeReplicationTaskIndividualAssessments
+</span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#describeReplicationTaskIndividualAssessments_maxRecords"><span class="hs-identifier hs-var hs-var">describeReplicationTaskIndividualAssessments_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeReplicationTaskIndividualAssessments -&gt; Maybe Int)
+-&gt; (DescribeReplicationTaskIndividualAssessments
+    -&gt; Maybe Int -&gt; DescribeReplicationTaskIndividualAssessments)
+-&gt; Lens
+     DescribeReplicationTaskIndividualAssessments
+     DescribeReplicationTaskIndividualAssessments
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448317"><span class="annot"><span class="annottext">Maybe Int
+maxRecords :: Maybe Int
+$sel:maxRecords:DescribeReplicationTaskIndividualAssessments' :: DescribeReplicationTaskIndividualAssessments -&gt; Maybe Int
+</span><a href="#local-6989586621679448317"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679448317"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448316"><span class="annot"><span class="annottext">s :: DescribeReplicationTaskIndividualAssessments
+</span><a href="#local-6989586621679448316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448315"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679448315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessments
+</span><a href="#local-6989586621679448316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeReplicationTaskIndividualAssessments' :: Maybe Int
+</span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#%24sel%3AmaxRecords%3ADescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679448315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -305,7 +305,7 @@ $sel:marker:DescribeReplicationTaskIndividualAssessments' :: DescribeReplication
 </span><span id="line-136"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>      </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679448011"><span class="annot"><span class="annottext">request :: DescribeReplicationTaskIndividualAssessments
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679448311"><span class="annot"><span class="annottext">request :: DescribeReplicationTaskIndividualAssessments
 -&gt; Request DescribeReplicationTaskIndividualAssessments
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeReplicationTaskIndividualAssessments
@@ -313,7 +313,7 @@ $sel:marker:DescribeReplicationTaskIndividualAssessments' :: DescribeReplication
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679448007"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679448307"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeReplicationTaskIndividualAssessments
 -&gt; ClientResponse ClientBody
@@ -344,10 +344,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679448004"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679448004"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679448003"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679448003"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679448002"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679448002"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679448304"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679448304"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679448303"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679448303"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679448302"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679448302"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ReplicationTaskIndividualAssessment]
 -&gt; Maybe Text
 -&gt; Int
@@ -364,7 +364,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; DescribeReplicationTaskIndividualAssessmentsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679448002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679448302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either
      String (Maybe (Maybe [ReplicationTaskIndividualAssessment]))
@@ -389,7 +389,7 @@ forall a. Monoid a =&gt; a
      (Int -&gt; DescribeReplicationTaskIndividualAssessmentsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679448002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679448302"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -405,22 +405,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679448004"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679448304"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679447993"><span id="local-6989586621679447995"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679448293"><span id="local-6989586621679448295"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679447990"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679448290"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments</span></a></span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments</span></a></span><span>
 </span><span id="line-162"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679447986"><span class="annot"><span class="annottext">toHeaders :: DescribeReplicationTaskIndividualAssessments -&gt; ResponseHeaders
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679448286"><span class="annot"><span class="annottext">toHeaders :: DescribeReplicationTaskIndividualAssessments -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DescribeReplicationTaskIndividualAssessments -&gt; ResponseHeaders
@@ -449,21 +449,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679447976"><span id="local-6989586621679447978"><span id="local-6989586621679447980"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679448276"><span id="local-6989586621679448278"><span id="local-6989586621679448280"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments</span></a></span></span></span></span><span>
 </span><span id="line-180"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679447974"><span class="annot"><span class="annottext">toJSON :: DescribeReplicationTaskIndividualAssessments -&gt; Value
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679448274"><span class="annot"><span class="annottext">toJSON :: DescribeReplicationTaskIndividualAssessments -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span>
-</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447970"><span id="local-6989586621679447971"><span id="local-6989586621679447972"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448270"><span id="local-6989586621679448271"><span id="local-6989586621679448272"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Filter]
 Maybe Text
-marker :: Maybe Text
 maxRecords :: Maybe Int
+marker :: Maybe Text
 filters :: Maybe [Filter]
-$sel:marker:DescribeReplicationTaskIndividualAssessments' :: DescribeReplicationTaskIndividualAssessments -&gt; Maybe Text
 $sel:maxRecords:DescribeReplicationTaskIndividualAssessments' :: DescribeReplicationTaskIndividualAssessments -&gt; Maybe Int
+$sel:marker:DescribeReplicationTaskIndividualAssessments' :: DescribeReplicationTaskIndividualAssessments -&gt; Maybe Text
 $sel:filters:DescribeReplicationTaskIndividualAssessments' :: DescribeReplicationTaskIndividualAssessments -&gt; Maybe [Filter]
-</span><a href="#local-6989586621679447970"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679448270"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-184"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -475,21 +475,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; Pair) -&gt; Maybe [Filter] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679447972"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679448272"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679447971"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679447970"><span class="hs-identifier hs-var">marker</span></a></span><span>
+</span><a href="#local-6989586621679448271"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679448270"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
 </span><span id="line-188"></span><span>            </span><span class="hs-special">]</span><span>
 </span><span id="line-189"></span><span>        </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
@@ -497,7 +497,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-193"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments</span></a></span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679447964"><span class="annot"><span class="annottext">toPath :: DescribeReplicationTaskIndividualAssessments -&gt; ByteString
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679448264"><span class="annot"><span class="annottext">toPath :: DescribeReplicationTaskIndividualAssessments -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
 -&gt; DescribeReplicationTaskIndividualAssessments -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -508,7 +508,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessments"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessments</span></a></span><span>
 </span><span id="line-200"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621679447960"><span class="annot"><span class="annottext">toQuery :: DescribeReplicationTaskIndividualAssessments -&gt; QueryString
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679448260"><span class="annot"><span class="annottext">toQuery :: DescribeReplicationTaskIndividualAssessments -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString
 -&gt; DescribeReplicationTaskIndividualAssessments -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
@@ -519,7 +519,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-203"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-204"></span><span class="hs-comment">--</span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- /See:/ 'newDescribeReplicationTaskIndividualAssessmentsResponse' smart constructor.</span><span>
-</span><span id="line-206"></span><span id="local-6989586621679447957"><span id="local-6989586621679447958"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeReplicationTaskIndividualAssessmentsResponse"><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse"><span class="hs-identifier hs-var">DescribeReplicationTaskIndividualAssessmentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-var">DescribeReplicationTaskIndividualAssessmentsResponse'</span></a></span></span><span>
+</span><span id="line-206"></span><span id="local-6989586621679448257"><span id="local-6989586621679448258"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeReplicationTaskIndividualAssessmentsResponse"><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse"><span class="hs-identifier hs-var">DescribeReplicationTaskIndividualAssessmentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-var">DescribeReplicationTaskIndividualAssessmentsResponse'</span></a></span></span><span>
 </span><span id="line-207"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more individual assessments as specified by @Filters@.</span><span>
 </span><span id="line-208"></span><span>    </span><span id="%24sel%3AreplicationTaskIndividualAssessments%3ADescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessmentsResponse
 -&gt; Maybe [ReplicationTaskIndividualAssessment]
@@ -534,7 +534,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-215"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessmentsResponse -&gt; Int
 </span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#%24sel%3AhttpStatus%3ADescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-216"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-217"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447950"><span id="local-6989586621679447952"><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessmentsResponse
+</span><span id="line-217"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679448250"><span id="local-6989586621679448252"><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessmentsResponse
 -&gt; DescribeReplicationTaskIndividualAssessmentsResponse -&gt; Bool
 (DescribeReplicationTaskIndividualAssessmentsResponse
  -&gt; DescribeReplicationTaskIndividualAssessmentsResponse -&gt; Bool)
@@ -550,7 +550,7 @@ $c/= :: DescribeReplicationTaskIndividualAssessmentsResponse
 -&gt; DescribeReplicationTaskIndividualAssessmentsResponse -&gt; Bool
 $c== :: DescribeReplicationTaskIndividualAssessmentsResponse
 -&gt; DescribeReplicationTaskIndividualAssessmentsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447942"><span id="local-6989586621679447944"><span id="local-6989586621679447946"><span id="local-6989586621679447948"><span class="annot"><span class="annottext">ReadPrec [DescribeReplicationTaskIndividualAssessmentsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448242"><span id="local-6989586621679448244"><span id="local-6989586621679448246"><span id="local-6989586621679448248"><span class="annot"><span class="annottext">ReadPrec [DescribeReplicationTaskIndividualAssessmentsResponse]
 ReadPrec DescribeReplicationTaskIndividualAssessmentsResponse
 Int -&gt; ReadS DescribeReplicationTaskIndividualAssessmentsResponse
 ReadS [DescribeReplicationTaskIndividualAssessmentsResponse]
@@ -570,7 +570,7 @@ readList :: ReadS [DescribeReplicationTaskIndividualAssessmentsResponse]
 $creadList :: ReadS [DescribeReplicationTaskIndividualAssessmentsResponse]
 readsPrec :: Int -&gt; ReadS DescribeReplicationTaskIndividualAssessmentsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeReplicationTaskIndividualAssessmentsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447936"><span id="local-6989586621679447938"><span id="local-6989586621679447940"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448236"><span id="local-6989586621679448238"><span id="local-6989586621679448240"><span class="annot"><span class="annottext">Int
 -&gt; DescribeReplicationTaskIndividualAssessmentsResponse -&gt; ShowS
 [DescribeReplicationTaskIndividualAssessmentsResponse] -&gt; ShowS
 DescribeReplicationTaskIndividualAssessmentsResponse -&gt; String
@@ -635,8 +635,8 @@ DescribeReplicationTaskIndividualAssessmentsResponse
 </span><span id="line-238"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse</span></a></span><span>
 </span><span id="line-239"></span><span id="newDescribeReplicationTaskIndividualAssessmentsResponse"><span class="annot"><span class="annottext">newDescribeReplicationTaskIndividualAssessmentsResponse :: Int -&gt; DescribeReplicationTaskIndividualAssessmentsResponse
 </span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#newDescribeReplicationTaskIndividualAssessmentsResponse"><span class="hs-identifier hs-var hs-var">newDescribeReplicationTaskIndividualAssessmentsResponse</span></a></span></span><span>
-</span><span id="line-240"></span><span>  </span><span id="local-6989586621679447933"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447933"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679448233"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679448233"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-241"></span><span>    </span><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessmentsResponse' :: Maybe [ReplicationTaskIndividualAssessment]
 -&gt; Maybe Text
 -&gt; Int
@@ -655,7 +655,7 @@ forall a. Maybe a
 </span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeReplicationTaskIndividualAssessmentsResponse' :: Int
 </span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#%24sel%3AhttpStatus%3ADescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-247"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447933"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679448233"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-248"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- | One or more individual assessments as specified by @Filters@.</span><span>
@@ -675,17 +675,17 @@ forall a. Maybe a
      (Maybe [ReplicationTaskIndividualAssessment])
      (Maybe [ReplicationTaskIndividualAssessment])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447932"><span class="annot"><span class="annottext">Maybe [ReplicationTaskIndividualAssessment]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448232"><span class="annot"><span class="annottext">Maybe [ReplicationTaskIndividualAssessment]
 replicationTaskIndividualAssessments :: Maybe [ReplicationTaskIndividualAssessment]
 $sel:replicationTaskIndividualAssessments:DescribeReplicationTaskIndividualAssessmentsResponse' :: DescribeReplicationTaskIndividualAssessmentsResponse
 -&gt; Maybe [ReplicationTaskIndividualAssessment]
-</span><a href="#local-6989586621679447932"><span class="hs-identifier hs-var hs-var">replicationTaskIndividualAssessments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicationTaskIndividualAssessment]
-</span><a href="#local-6989586621679447932"><span class="hs-identifier hs-var">replicationTaskIndividualAssessments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447931"><span class="annot"><span class="annottext">s :: DescribeReplicationTaskIndividualAssessmentsResponse
-</span><a href="#local-6989586621679447931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447930"><span class="annot"><span class="annottext">Maybe [ReplicationTaskIndividualAssessment]
-</span><a href="#local-6989586621679447930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessmentsResponse
-</span><a href="#local-6989586621679447931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTaskIndividualAssessments:DescribeReplicationTaskIndividualAssessmentsResponse' :: Maybe [ReplicationTaskIndividualAssessment]
+</span><a href="#local-6989586621679448232"><span class="hs-identifier hs-var hs-var">replicationTaskIndividualAssessments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicationTaskIndividualAssessment]
+</span><a href="#local-6989586621679448232"><span class="hs-identifier hs-var">replicationTaskIndividualAssessments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448231"><span class="annot"><span class="annottext">s :: DescribeReplicationTaskIndividualAssessmentsResponse
+</span><a href="#local-6989586621679448231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448230"><span class="annot"><span class="annottext">Maybe [ReplicationTaskIndividualAssessment]
+</span><a href="#local-6989586621679448230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessmentsResponse
+</span><a href="#local-6989586621679448231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTaskIndividualAssessments:DescribeReplicationTaskIndividualAssessmentsResponse' :: Maybe [ReplicationTaskIndividualAssessment]
 </span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#%24sel%3AreplicationTaskIndividualAssessments%3ADescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-var">replicationTaskIndividualAssessments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicationTaskIndividualAssessment]
-</span><a href="#local-6989586621679447930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReplicationTaskIndividualAssessment]
+</span><a href="#local-6989586621679448230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReplicationTaskIndividualAssessment]
   -&gt; f (Maybe [ReplicationTaskIndividualAssessment]))
  -&gt; DescribeReplicationTaskIndividualAssessmentsResponse
  -&gt; f DescribeReplicationTaskIndividualAssessmentsResponse)
@@ -716,8 +716,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ReplicationTaskIndividualAssessment]
   [ReplicationTaskIndividualAssessment]
   [ReplicationTaskIndividualAssessment]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-253"></span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- | A pagination token returned for you to pass to a subsequent request. If</span><span>
 </span><span id="line-255"></span><span class="hs-comment">-- you pass this token as the @Marker@ value in a subsequent request, the</span><span>
@@ -738,16 +738,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447929"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448229"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeReplicationTaskIndividualAssessmentsResponse' :: DescribeReplicationTaskIndividualAssessmentsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679447929"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679447929"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447928"><span class="annot"><span class="annottext">s :: DescribeReplicationTaskIndividualAssessmentsResponse
-</span><a href="#local-6989586621679447928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447927"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679447927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessmentsResponse
-</span><a href="#local-6989586621679447928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeReplicationTaskIndividualAssessmentsResponse' :: Maybe Text
+</span><a href="#local-6989586621679448229"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679448229"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448228"><span class="annot"><span class="annottext">s :: DescribeReplicationTaskIndividualAssessmentsResponse
+</span><a href="#local-6989586621679448228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448227"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679448227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessmentsResponse
+</span><a href="#local-6989586621679448228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeReplicationTaskIndividualAssessmentsResponse' :: Maybe Text
 </span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#%24sel%3Amarker%3ADescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679447927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679448227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-262"></span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#describeReplicationTaskIndividualAssessmentsResponse_httpStatus"><span class="hs-identifier hs-type">describeReplicationTaskIndividualAssessmentsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -763,18 +763,18 @@ $sel:marker:DescribeReplicationTaskIndividualAssessmentsResponse' :: DescribeRep
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447926"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448226"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeReplicationTaskIndividualAssessmentsResponse' :: DescribeReplicationTaskIndividualAssessmentsResponse -&gt; Int
-</span><a href="#local-6989586621679447926"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447926"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447925"><span class="annot"><span class="annottext">s :: DescribeReplicationTaskIndividualAssessmentsResponse
-</span><a href="#local-6989586621679447925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447924"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessmentsResponse
-</span><a href="#local-6989586621679447925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeReplicationTaskIndividualAssessmentsResponse' :: Int
+</span><a href="#local-6989586621679448226"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679448226"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448225"><span class="annot"><span class="annottext">s :: DescribeReplicationTaskIndividualAssessmentsResponse
+</span><a href="#local-6989586621679448225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448224"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679448224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTaskIndividualAssessmentsResponse
+</span><a href="#local-6989586621679448225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeReplicationTaskIndividualAssessmentsResponse' :: Int
 </span><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#%24sel%3AhttpStatus%3ADescribeReplicationTaskIndividualAssessmentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679448224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-264"></span><span>
 </span><span id="line-265"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-266"></span><span>  </span><span id="local-6989586621679447922"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679448222"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-267"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments.html#DescribeReplicationTaskIndividualAssessmentsResponse"><span class="hs-identifier hs-type">DescribeReplicationTaskIndividualAssessmentsResponse</span></a></span></span><span>
 </span><span id="line-268"></span></pre></body></html>

@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newSetInstanceHealth' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679335610"><span id="local-6989586621679335611"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetInstanceHealth"><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-var">SetInstanceHealth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetInstanceHealth%27"><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth%27"><span class="hs-identifier hs-var">SetInstanceHealth'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679336279"><span id="local-6989586621679336280"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetInstanceHealth"><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-var">SetInstanceHealth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetInstanceHealth%27"><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth%27"><span class="hs-identifier hs-var">SetInstanceHealth'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the Auto Scaling group of the specified instance has a</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- @HealthCheckGracePeriod@ specified for the group, by default, this call</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- respects the grace period. Set this to @False@, to have the call not</span><span>
@@ -70,7 +70,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AhealthStatus%3ASetInstanceHealth%27"><span class="annot"><span class="annottext">SetInstanceHealth -&gt; Text
 </span><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#%24sel%3AhealthStatus%3ASetInstanceHealth%27"><span class="hs-identifier hs-var hs-var">healthStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679335602"><span id="local-6989586621679335604"><span class="annot"><span class="annottext">SetInstanceHealth -&gt; SetInstanceHealth -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336271"><span id="local-6989586621679336273"><span class="annot"><span class="annottext">SetInstanceHealth -&gt; SetInstanceHealth -&gt; Bool
 (SetInstanceHealth -&gt; SetInstanceHealth -&gt; Bool)
 -&gt; (SetInstanceHealth -&gt; SetInstanceHealth -&gt; Bool)
 -&gt; Eq SetInstanceHealth
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetInstanceHealth -&gt; SetInstanceHealth -&gt; Bool
 == :: SetInstanceHealth -&gt; SetInstanceHealth -&gt; Bool
 $c== :: SetInstanceHealth -&gt; SetInstanceHealth -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335593"><span id="local-6989586621679335595"><span id="local-6989586621679335597"><span id="local-6989586621679335599"><span class="annot"><span class="annottext">ReadPrec [SetInstanceHealth]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336262"><span id="local-6989586621679336264"><span id="local-6989586621679336266"><span id="local-6989586621679336268"><span class="annot"><span class="annottext">ReadPrec [SetInstanceHealth]
 ReadPrec SetInstanceHealth
 Int -&gt; ReadS SetInstanceHealth
 ReadS [SetInstanceHealth]
@@ -99,7 +99,7 @@ readList :: ReadS [SetInstanceHealth]
 $creadList :: ReadS [SetInstanceHealth]
 readsPrec :: Int -&gt; ReadS SetInstanceHealth
 $creadsPrec :: Int -&gt; ReadS SetInstanceHealth
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335586"><span id="local-6989586621679335588"><span id="local-6989586621679335590"><span class="annot"><span class="annottext">Int -&gt; SetInstanceHealth -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336255"><span id="local-6989586621679336257"><span id="local-6989586621679336259"><span class="annot"><span class="annottext">Int -&gt; SetInstanceHealth -&gt; ShowS
 [SetInstanceHealth] -&gt; ShowS
 SetInstanceHealth -&gt; String
 (Int -&gt; SetInstanceHealth -&gt; ShowS)
@@ -155,9 +155,9 @@ $cfrom :: forall x. SetInstanceHealth -&gt; Rep SetInstanceHealth x
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-type">SetInstanceHealth</span></a></span><span>
 </span><span id="line-101"></span><span id="newSetInstanceHealth"><span class="annot"><span class="annottext">newSetInstanceHealth :: Text -&gt; Text -&gt; SetInstanceHealth
-</span><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#newSetInstanceHealth"><span class="hs-identifier hs-var hs-var">newSetInstanceHealth</span></a></span></span><span> </span><span id="local-6989586621679335581"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335581"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span id="local-6989586621679335580"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335580"><span class="hs-identifier hs-var">pHealthStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#newSetInstanceHealth"><span class="hs-identifier hs-var hs-var">newSetInstanceHealth</span></a></span></span><span> </span><span id="local-6989586621679336250"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336250"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span id="local-6989586621679336249"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336249"><span class="hs-identifier hs-var">pHealthStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">SetInstanceHealth' :: Maybe Bool -&gt; Text -&gt; Text -&gt; SetInstanceHealth
 </span><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth%27"><span class="hs-identifier hs-type">SetInstanceHealth'</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:shouldRespectGracePeriod:SetInstanceHealth' :: Maybe Bool
@@ -167,10 +167,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:SetInstanceHealth' :: Text
 </span><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#%24sel%3AinstanceId%3ASetInstanceHealth%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335581"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679336250"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:healthStatus:SetInstanceHealth' :: Text
 </span><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#%24sel%3AhealthStatus%3ASetInstanceHealth%27"><span class="hs-identifier hs-var">healthStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335580"><span class="hs-identifier hs-var">pHealthStatus_</span></a></span><span>
+</span><a href="#local-6989586621679336249"><span class="hs-identifier hs-var">pHealthStatus_</span></a></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | If the Auto Scaling group of the specified instance has a</span><span>
@@ -189,16 +189,16 @@ forall a. Maybe a
 -&gt; Lens
      SetInstanceHealth SetInstanceHealth (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth%27"><span class="hs-identifier hs-type">SetInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335577"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth%27"><span class="hs-identifier hs-type">SetInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336246"><span class="annot"><span class="annottext">Maybe Bool
 shouldRespectGracePeriod :: Maybe Bool
 $sel:shouldRespectGracePeriod:SetInstanceHealth' :: SetInstanceHealth -&gt; Maybe Bool
-</span><a href="#local-6989586621679335577"><span class="hs-identifier hs-var hs-var">shouldRespectGracePeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679335577"><span class="hs-identifier hs-var">shouldRespectGracePeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335576"><span class="annot"><span class="annottext">s :: SetInstanceHealth
-</span><a href="#local-6989586621679335576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth%27"><span class="hs-identifier hs-type">SetInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335575"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679335575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetInstanceHealth
-</span><a href="#local-6989586621679335576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shouldRespectGracePeriod:SetInstanceHealth' :: Maybe Bool
+</span><a href="#local-6989586621679336246"><span class="hs-identifier hs-var hs-var">shouldRespectGracePeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679336246"><span class="hs-identifier hs-var">shouldRespectGracePeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336245"><span class="annot"><span class="annottext">s :: SetInstanceHealth
+</span><a href="#local-6989586621679336245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth%27"><span class="hs-identifier hs-type">SetInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336244"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679336244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetInstanceHealth
+</span><a href="#local-6989586621679336245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shouldRespectGracePeriod:SetInstanceHealth' :: Maybe Bool
 </span><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#%24sel%3AshouldRespectGracePeriod%3ASetInstanceHealth%27"><span class="hs-identifier hs-var">shouldRespectGracePeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679335575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-type">SetInstanceHealth</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-type">SetInstanceHealth</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The ID of the instance.</span><span>
 </span><span id="line-121"></span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#setInstanceHealth_instanceId"><span class="hs-identifier hs-type">setInstanceHealth_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-type">SetInstanceHealth</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -207,16 +207,16 @@ $sel:shouldRespectGracePeriod:SetInstanceHealth' :: SetInstanceHealth -&gt; Mayb
 -&gt; (SetInstanceHealth -&gt; Text -&gt; SetInstanceHealth)
 -&gt; Lens SetInstanceHealth SetInstanceHealth Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth%27"><span class="hs-identifier hs-type">SetInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335574"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth%27"><span class="hs-identifier hs-type">SetInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336243"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:SetInstanceHealth' :: SetInstanceHealth -&gt; Text
-</span><a href="#local-6989586621679335574"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335574"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335573"><span class="annot"><span class="annottext">s :: SetInstanceHealth
-</span><a href="#local-6989586621679335573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth%27"><span class="hs-identifier hs-type">SetInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335572"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetInstanceHealth
-</span><a href="#local-6989586621679335573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:SetInstanceHealth' :: Text
+</span><a href="#local-6989586621679336243"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336243"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336242"><span class="annot"><span class="annottext">s :: SetInstanceHealth
+</span><a href="#local-6989586621679336242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth%27"><span class="hs-identifier hs-type">SetInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336241"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetInstanceHealth
+</span><a href="#local-6989586621679336242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:SetInstanceHealth' :: Text
 </span><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#%24sel%3AinstanceId%3ASetInstanceHealth%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-type">SetInstanceHealth</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-type">SetInstanceHealth</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | The health status of the instance. Set to @Healthy@ to have the instance</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- remain in service. Set to @Unhealthy@ to have the instance be out of</span><span>
@@ -228,27 +228,27 @@ $sel:instanceId:SetInstanceHealth' :: SetInstanceHealth -&gt; Text
 -&gt; (SetInstanceHealth -&gt; Text -&gt; SetInstanceHealth)
 -&gt; Lens SetInstanceHealth SetInstanceHealth Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth%27"><span class="hs-identifier hs-type">SetInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335571"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth%27"><span class="hs-identifier hs-type">SetInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336240"><span class="annot"><span class="annottext">Text
 healthStatus :: Text
 $sel:healthStatus:SetInstanceHealth' :: SetInstanceHealth -&gt; Text
-</span><a href="#local-6989586621679335571"><span class="hs-identifier hs-var hs-var">healthStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335571"><span class="hs-identifier hs-var">healthStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335570"><span class="annot"><span class="annottext">s :: SetInstanceHealth
-</span><a href="#local-6989586621679335570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth%27"><span class="hs-identifier hs-type">SetInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335569"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetInstanceHealth
-</span><a href="#local-6989586621679335570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthStatus:SetInstanceHealth' :: Text
+</span><a href="#local-6989586621679336240"><span class="hs-identifier hs-var hs-var">healthStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336240"><span class="hs-identifier hs-var">healthStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336239"><span class="annot"><span class="annottext">s :: SetInstanceHealth
+</span><a href="#local-6989586621679336239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth%27"><span class="hs-identifier hs-type">SetInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336238"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetInstanceHealth
+</span><a href="#local-6989586621679336239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthStatus:SetInstanceHealth' :: Text
 </span><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#%24sel%3AhealthStatus%3ASetInstanceHealth%27"><span class="hs-identifier hs-var">healthStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-type">SetInstanceHealth</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-type">SetInstanceHealth</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-type">SetInstanceHealth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-133"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-type">SetInstanceHealth</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealthResponse"><span class="hs-identifier hs-type">SetInstanceHealthResponse</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679335565"><span class="annot"><span class="annottext">request :: SetInstanceHealth -&gt; Request SetInstanceHealth
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679336234"><span class="annot"><span class="annottext">request :: SetInstanceHealth -&gt; Request SetInstanceHealth
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetInstanceHealth -&gt; Request SetInstanceHealth
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679335561"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679336230"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetInstanceHealth
 -&gt; ClientResponse ClientBody
@@ -274,12 +274,12 @@ AWSResponse a
 SetInstanceHealthResponse
 </span><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealthResponse%27"><span class="hs-identifier hs-var">SetInstanceHealthResponse'</span></a></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335554"><span id="local-6989586621679335556"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-type">SetInstanceHealth</span></a></span></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336223"><span id="local-6989586621679336225"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-type">SetInstanceHealth</span></a></span></span></span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335551"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-type">SetInstanceHealth</span></a></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336220"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-type">SetInstanceHealth</span></a></span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-type">SetInstanceHealth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679335547"><span class="annot"><span class="annottext">toHeaders :: SetInstanceHealth -&gt; [Header]
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679336216"><span class="annot"><span class="annottext">toHeaders :: SetInstanceHealth -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; SetInstanceHealth -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -287,15 +287,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-type">SetInstanceHealth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679335542"><span class="annot"><span class="annottext">toPath :: SetInstanceHealth -&gt; ByteString
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679336211"><span class="annot"><span class="annottext">toPath :: SetInstanceHealth -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetInstanceHealth -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth"><span class="hs-identifier hs-type">SetInstanceHealth</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679335538"><span class="annot"><span class="annottext">toQuery :: SetInstanceHealth -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth%27"><span class="hs-identifier hs-type">SetInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335534"><span id="local-6989586621679335535"><span id="local-6989586621679335536"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679336207"><span class="annot"><span class="annottext">toQuery :: SetInstanceHealth -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealth%27"><span class="hs-identifier hs-type">SetInstanceHealth'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336203"><span id="local-6989586621679336204"><span id="local-6989586621679336205"><span class="annot"><span class="annottext">Maybe Bool
 Text
 healthStatus :: Text
 instanceId :: Text
@@ -303,7 +303,7 @@ shouldRespectGracePeriod :: Maybe Bool
 $sel:healthStatus:SetInstanceHealth' :: SetInstanceHealth -&gt; Text
 $sel:instanceId:SetInstanceHealth' :: SetInstanceHealth -&gt; Text
 $sel:shouldRespectGracePeriod:SetInstanceHealth' :: SetInstanceHealth -&gt; Maybe Bool
-</span><a href="#local-6989586621679335534"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679336203"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -324,24 +324,24 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679335536"><span class="hs-identifier hs-var">shouldRespectGracePeriod</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679336205"><span class="hs-identifier hs-var">shouldRespectGracePeriod</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335535"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679336204"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;HealthStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335534"><span class="hs-identifier hs-var">healthStatus</span></a></span><span>
+</span><a href="#local-6989586621679336203"><span class="hs-identifier hs-var">healthStatus</span></a></span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | /See:/ 'newSetInstanceHealthResponse' smart constructor.</span><span>
-</span><span id="line-163"></span><span id="local-6989586621679335531"><span id="local-6989586621679335532"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetInstanceHealthResponse"><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealthResponse"><span class="hs-identifier hs-var">SetInstanceHealthResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetInstanceHealthResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealthResponse%27"><span class="hs-identifier hs-var">SetInstanceHealthResponse'</span></a></span></span><span>
+</span><span id="line-163"></span><span id="local-6989586621679336200"><span id="local-6989586621679336201"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetInstanceHealthResponse"><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealthResponse"><span class="hs-identifier hs-var">SetInstanceHealthResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetInstanceHealthResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealthResponse%27"><span class="hs-identifier hs-var">SetInstanceHealthResponse'</span></a></span></span><span>
 </span><span id="line-164"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679335527"><span id="local-6989586621679335529"><span class="annot"><span class="annottext">SetInstanceHealthResponse -&gt; SetInstanceHealthResponse -&gt; Bool
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336196"><span id="local-6989586621679336198"><span class="annot"><span class="annottext">SetInstanceHealthResponse -&gt; SetInstanceHealthResponse -&gt; Bool
 (SetInstanceHealthResponse -&gt; SetInstanceHealthResponse -&gt; Bool)
 -&gt; (SetInstanceHealthResponse -&gt; SetInstanceHealthResponse -&gt; Bool)
 -&gt; Eq SetInstanceHealthResponse
@@ -350,7 +350,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetInstanceHealthResponse -&gt; SetInstanceHealthResponse -&gt; Bool
 == :: SetInstanceHealthResponse -&gt; SetInstanceHealthResponse -&gt; Bool
 $c== :: SetInstanceHealthResponse -&gt; SetInstanceHealthResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335519"><span id="local-6989586621679335521"><span id="local-6989586621679335523"><span id="local-6989586621679335525"><span class="annot"><span class="annottext">ReadPrec [SetInstanceHealthResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336188"><span id="local-6989586621679336190"><span id="local-6989586621679336192"><span id="local-6989586621679336194"><span class="annot"><span class="annottext">ReadPrec [SetInstanceHealthResponse]
 ReadPrec SetInstanceHealthResponse
 Int -&gt; ReadS SetInstanceHealthResponse
 ReadS [SetInstanceHealthResponse]
@@ -370,7 +370,7 @@ readList :: ReadS [SetInstanceHealthResponse]
 $creadList :: ReadS [SetInstanceHealthResponse]
 readsPrec :: Int -&gt; ReadS SetInstanceHealthResponse
 $creadsPrec :: Int -&gt; ReadS SetInstanceHealthResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335513"><span id="local-6989586621679335515"><span id="local-6989586621679335517"><span class="annot"><span class="annottext">Int -&gt; SetInstanceHealthResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336182"><span id="local-6989586621679336184"><span id="local-6989586621679336186"><span class="annot"><span class="annottext">Int -&gt; SetInstanceHealthResponse -&gt; ShowS
 [SetInstanceHealthResponse] -&gt; ShowS
 SetInstanceHealthResponse -&gt; String
 (Int -&gt; SetInstanceHealthResponse -&gt; ShowS)
@@ -413,5 +413,5 @@ SetInstanceHealthResponse -&gt; Rep SetInstanceHealthResponse x
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">SetInstanceHealthResponse
 </span><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealthResponse%27"><span class="hs-identifier hs-var">SetInstanceHealthResponse'</span></a></span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealthResponse"><span class="hs-identifier hs-type">SetInstanceHealthResponse</span></a></span></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336178"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.SetInstanceHealth.html#SetInstanceHealthResponse"><span class="hs-identifier hs-type">SetInstanceHealthResponse</span></a></span></span><span>
 </span><span id="line-178"></span></pre></body></html>

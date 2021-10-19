@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681093504"><span id="local-6989586621681093505"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MulticastSupportValue"><span class="annot"><a href="Network.AWS.EC2.Types.MulticastSupportValue.html#MulticastSupportValue"><span class="hs-identifier hs-var">MulticastSupportValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MulticastSupportValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.MulticastSupportValue.html#MulticastSupportValue%27"><span class="hs-identifier hs-var">MulticastSupportValue'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681128196"><span id="local-6989586621681128197"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MulticastSupportValue"><span class="annot"><a href="Network.AWS.EC2.Types.MulticastSupportValue.html#MulticastSupportValue"><span class="hs-identifier hs-var">MulticastSupportValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MulticastSupportValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.MulticastSupportValue.html#MulticastSupportValue%27"><span class="hs-identifier hs-var">MulticastSupportValue'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMulticastSupportValue"><span class="annot"><span class="annottext">MulticastSupportValue -&gt; Text
 </span><a href="Network.AWS.EC2.Types.MulticastSupportValue.html#fromMulticastSupportValue"><span class="hs-identifier hs-var hs-var">fromMulticastSupportValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681093496"><span id="local-6989586621681093498"><span id="local-6989586621681093500"><span class="annot"><span class="annottext">Int -&gt; MulticastSupportValue -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681128188"><span id="local-6989586621681128190"><span id="local-6989586621681128192"><span class="annot"><span class="annottext">Int -&gt; MulticastSupportValue -&gt; ShowS
 [MulticastSupportValue] -&gt; ShowS
 MulticastSupportValue -&gt; String
 (Int -&gt; MulticastSupportValue -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: MulticastSupportValue -&gt; String
 showsPrec :: Int -&gt; MulticastSupportValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; MulticastSupportValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681093487"><span id="local-6989586621681093489"><span id="local-6989586621681093491"><span id="local-6989586621681093493"><span class="annot"><span class="annottext">ReadPrec [MulticastSupportValue]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681128179"><span id="local-6989586621681128181"><span id="local-6989586621681128183"><span id="local-6989586621681128185"><span class="annot"><span class="annottext">ReadPrec [MulticastSupportValue]
 ReadPrec MulticastSupportValue
 Int -&gt; ReadS MulticastSupportValue
 ReadS [MulticastSupportValue]
@@ -73,7 +73,7 @@ $creadList :: ReadS [MulticastSupportValue]
 readsPrec :: Int -&gt; ReadS MulticastSupportValue
 $creadsPrec :: Int -&gt; ReadS MulticastSupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681093482"><span id="local-6989586621681093484"><span class="annot"><span class="annottext">MulticastSupportValue -&gt; MulticastSupportValue -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681128174"><span id="local-6989586621681128176"><span class="annot"><span class="annottext">MulticastSupportValue -&gt; MulticastSupportValue -&gt; Bool
 (MulticastSupportValue -&gt; MulticastSupportValue -&gt; Bool)
 -&gt; (MulticastSupportValue -&gt; MulticastSupportValue -&gt; Bool)
 -&gt; Eq MulticastSupportValue
@@ -83,7 +83,7 @@ $c/= :: MulticastSupportValue -&gt; MulticastSupportValue -&gt; Bool
 == :: MulticastSupportValue -&gt; MulticastSupportValue -&gt; Bool
 $c== :: MulticastSupportValue -&gt; MulticastSupportValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681093466"><span id="local-6989586621681093468"><span id="local-6989586621681093470"><span id="local-6989586621681093472"><span id="local-6989586621681093474"><span id="local-6989586621681093476"><span id="local-6989586621681093478"><span class="annot"><span class="annottext">Eq MulticastSupportValue
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681128158"><span id="local-6989586621681128160"><span id="local-6989586621681128162"><span id="local-6989586621681128164"><span id="local-6989586621681128166"><span id="local-6989586621681128168"><span id="local-6989586621681128170"><span class="annot"><span class="annottext">Eq MulticastSupportValue
 Eq MulticastSupportValue
 -&gt; (MulticastSupportValue -&gt; MulticastSupportValue -&gt; Ordering)
 -&gt; (MulticastSupportValue -&gt; MulticastSupportValue -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. MulticastSupportValue -&gt; Rep MulticastSupportValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681093458"><span id="local-6989586621681093460"><span class="annot"><span class="annottext">Int -&gt; MulticastSupportValue -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681128150"><span id="local-6989586621681128152"><span class="annot"><span class="annottext">Int -&gt; MulticastSupportValue -&gt; Int
 MulticastSupportValue -&gt; Int
 (Int -&gt; MulticastSupportValue -&gt; Int)
 -&gt; (MulticastSupportValue -&gt; Int) -&gt; Hashable MulticastSupportValue
@@ -151,54 +151,54 @@ $chash :: MulticastSupportValue -&gt; Int
 hashWithSalt :: Int -&gt; MulticastSupportValue -&gt; Int
 $chashWithSalt :: Int -&gt; MulticastSupportValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681093455"><span class="annot"><span class="annottext">MulticastSupportValue -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681128147"><span class="annot"><span class="annottext">MulticastSupportValue -&gt; ()
 (MulticastSupportValue -&gt; ()) -&gt; NFData MulticastSupportValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MulticastSupportValue -&gt; ()
 $crnf :: MulticastSupportValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681093452"><span class="annot"><span class="annottext">Text -&gt; Either String MulticastSupportValue
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681128144"><span class="annot"><span class="annottext">Text -&gt; Either String MulticastSupportValue
 (Text -&gt; Either String MulticastSupportValue)
 -&gt; FromText MulticastSupportValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MulticastSupportValue
 $cfromText :: Text -&gt; Either String MulticastSupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681093449"><span class="annot"><span class="annottext">MulticastSupportValue -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681128141"><span class="annot"><span class="annottext">MulticastSupportValue -&gt; Text
 (MulticastSupportValue -&gt; Text) -&gt; ToText MulticastSupportValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MulticastSupportValue -&gt; Text
 $ctoText :: MulticastSupportValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681093446"><span class="annot"><span class="annottext">MulticastSupportValue -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681128138"><span class="annot"><span class="annottext">MulticastSupportValue -&gt; ByteString
 (MulticastSupportValue -&gt; ByteString)
 -&gt; ToByteString MulticastSupportValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MulticastSupportValue -&gt; ByteString
 $ctoBS :: MulticastSupportValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681093443"><span class="annot"><span class="annottext">MulticastSupportValue -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681128135"><span class="annot"><span class="annottext">MulticastSupportValue -&gt; ByteStringBuilder
 (MulticastSupportValue -&gt; ByteStringBuilder)
 -&gt; ToLog MulticastSupportValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MulticastSupportValue -&gt; ByteStringBuilder
 $cbuild :: MulticastSupportValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681093440"><span class="annot"><span class="annottext">HeaderName -&gt; MulticastSupportValue -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681128132"><span class="annot"><span class="annottext">HeaderName -&gt; MulticastSupportValue -&gt; [Header]
 (HeaderName -&gt; MulticastSupportValue -&gt; [Header])
 -&gt; ToHeader MulticastSupportValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MulticastSupportValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MulticastSupportValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681093437"><span class="annot"><span class="annottext">MulticastSupportValue -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681128129"><span class="annot"><span class="annottext">MulticastSupportValue -&gt; QueryString
 (MulticastSupportValue -&gt; QueryString)
 -&gt; ToQuery MulticastSupportValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MulticastSupportValue -&gt; QueryString
 $ctoQuery :: MulticastSupportValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681093432"><span id="local-6989586621681093434"><span class="annot"><span class="annottext">Value -&gt; Parser [MulticastSupportValue]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681128124"><span id="local-6989586621681128126"><span class="annot"><span class="annottext">Value -&gt; Parser [MulticastSupportValue]
 Value -&gt; Parser MulticastSupportValue
 (Value -&gt; Parser MulticastSupportValue)
 -&gt; (Value -&gt; Parser [MulticastSupportValue])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [MulticastSupportValue]
 parseJSON :: Value -&gt; Parser MulticastSupportValue
 $cparseJSON :: Value -&gt; Parser MulticastSupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681093427"><span id="local-6989586621681093429"><span class="annot"><span class="annottext">FromJSONKeyFunction [MulticastSupportValue]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681128119"><span id="local-6989586621681128121"><span class="annot"><span class="annottext">FromJSONKeyFunction [MulticastSupportValue]
 FromJSONKeyFunction MulticastSupportValue
 FromJSONKeyFunction MulticastSupportValue
 -&gt; FromJSONKeyFunction [MulticastSupportValue]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MulticastSupportValue]
 fromJSONKey :: FromJSONKeyFunction MulticastSupportValue
 $cfromJSONKey :: FromJSONKeyFunction MulticastSupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681093418"><span id="local-6989586621681093420"><span id="local-6989586621681093422"><span id="local-6989586621681093424"><span class="annot"><span class="annottext">[MulticastSupportValue] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681128110"><span id="local-6989586621681128112"><span id="local-6989586621681128114"><span id="local-6989586621681128116"><span class="annot"><span class="annottext">[MulticastSupportValue] -&gt; Encoding
 [MulticastSupportValue] -&gt; Value
 MulticastSupportValue -&gt; Encoding
 MulticastSupportValue -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: MulticastSupportValue -&gt; Encoding
 toJSON :: MulticastSupportValue -&gt; Value
 $ctoJSON :: MulticastSupportValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681093413"><span id="local-6989586621681093415"><span class="annot"><span class="annottext">ToJSONKeyFunction [MulticastSupportValue]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681128105"><span id="local-6989586621681128107"><span class="annot"><span class="annottext">ToJSONKeyFunction [MulticastSupportValue]
 ToJSONKeyFunction MulticastSupportValue
 ToJSONKeyFunction MulticastSupportValue
 -&gt; ToJSONKeyFunction [MulticastSupportValue]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MulticastSupportValue]
 toJSONKey :: ToJSONKeyFunction MulticastSupportValue
 $ctoJSONKey :: ToJSONKeyFunction MulticastSupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681093410"><span class="annot"><span class="annottext">[Node] -&gt; Either String MulticastSupportValue
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681128102"><span class="annot"><span class="annottext">[Node] -&gt; Either String MulticastSupportValue
 ([Node] -&gt; Either String MulticastSupportValue)
 -&gt; FromXML MulticastSupportValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MulticastSupportValue
 $cparseXML :: [Node] -&gt; Either String MulticastSupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681093407"><span class="annot"><span class="annottext">MulticastSupportValue -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681128099"><span class="annot"><span class="annottext">MulticastSupportValue -&gt; XML
 (MulticastSupportValue -&gt; XML) -&gt; ToXML MulticastSupportValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MulticastSupportValue -&gt; XML

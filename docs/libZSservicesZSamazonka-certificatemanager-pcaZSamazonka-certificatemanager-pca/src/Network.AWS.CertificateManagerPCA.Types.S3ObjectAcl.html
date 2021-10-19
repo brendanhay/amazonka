@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679211886"><span id="local-6989586621679211887"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="S3ObjectAcl"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.S3ObjectAcl.html#S3ObjectAcl"><span class="hs-identifier hs-var">S3ObjectAcl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3ObjectAcl%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.S3ObjectAcl.html#S3ObjectAcl%27"><span class="hs-identifier hs-var">S3ObjectAcl'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679211950"><span id="local-6989586621679211951"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="S3ObjectAcl"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.S3ObjectAcl.html#S3ObjectAcl"><span class="hs-identifier hs-var">S3ObjectAcl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3ObjectAcl%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.S3ObjectAcl.html#S3ObjectAcl%27"><span class="hs-identifier hs-var">S3ObjectAcl'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromS3ObjectAcl"><span class="annot"><span class="annottext">S3ObjectAcl -&gt; Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.S3ObjectAcl.html#fromS3ObjectAcl"><span class="hs-identifier hs-var hs-var">fromS3ObjectAcl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679211878"><span id="local-6989586621679211880"><span id="local-6989586621679211882"><span class="annot"><span class="annottext">Int -&gt; S3ObjectAcl -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679211942"><span id="local-6989586621679211944"><span id="local-6989586621679211946"><span class="annot"><span class="annottext">Int -&gt; S3ObjectAcl -&gt; ShowS
 [S3ObjectAcl] -&gt; ShowS
 S3ObjectAcl -&gt; String
 (Int -&gt; S3ObjectAcl -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: S3ObjectAcl -&gt; String
 showsPrec :: Int -&gt; S3ObjectAcl -&gt; ShowS
 $cshowsPrec :: Int -&gt; S3ObjectAcl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679211869"><span id="local-6989586621679211871"><span id="local-6989586621679211873"><span id="local-6989586621679211875"><span class="annot"><span class="annottext">ReadPrec [S3ObjectAcl]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679211933"><span id="local-6989586621679211935"><span id="local-6989586621679211937"><span id="local-6989586621679211939"><span class="annot"><span class="annottext">ReadPrec [S3ObjectAcl]
 ReadPrec S3ObjectAcl
 Int -&gt; ReadS S3ObjectAcl
 ReadS [S3ObjectAcl]
@@ -72,7 +72,7 @@ $creadList :: ReadS [S3ObjectAcl]
 readsPrec :: Int -&gt; ReadS S3ObjectAcl
 $creadsPrec :: Int -&gt; ReadS S3ObjectAcl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679211864"><span id="local-6989586621679211866"><span class="annot"><span class="annottext">S3ObjectAcl -&gt; S3ObjectAcl -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679211928"><span id="local-6989586621679211930"><span class="annot"><span class="annottext">S3ObjectAcl -&gt; S3ObjectAcl -&gt; Bool
 (S3ObjectAcl -&gt; S3ObjectAcl -&gt; Bool)
 -&gt; (S3ObjectAcl -&gt; S3ObjectAcl -&gt; Bool) -&gt; Eq S3ObjectAcl
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: S3ObjectAcl -&gt; S3ObjectAcl -&gt; Bool
 == :: S3ObjectAcl -&gt; S3ObjectAcl -&gt; Bool
 $c== :: S3ObjectAcl -&gt; S3ObjectAcl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679211848"><span id="local-6989586621679211850"><span id="local-6989586621679211852"><span id="local-6989586621679211854"><span id="local-6989586621679211856"><span id="local-6989586621679211858"><span id="local-6989586621679211860"><span class="annot"><span class="annottext">Eq S3ObjectAcl
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679211912"><span id="local-6989586621679211914"><span id="local-6989586621679211916"><span id="local-6989586621679211918"><span id="local-6989586621679211920"><span id="local-6989586621679211922"><span id="local-6989586621679211924"><span class="annot"><span class="annottext">Eq S3ObjectAcl
 Eq S3ObjectAcl
 -&gt; (S3ObjectAcl -&gt; S3ObjectAcl -&gt; Ordering)
 -&gt; (S3ObjectAcl -&gt; S3ObjectAcl -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. S3ObjectAcl -&gt; Rep S3ObjectAcl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679211840"><span id="local-6989586621679211842"><span class="annot"><span class="annottext">Int -&gt; S3ObjectAcl -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679211904"><span id="local-6989586621679211906"><span class="annot"><span class="annottext">Int -&gt; S3ObjectAcl -&gt; Int
 S3ObjectAcl -&gt; Int
 (Int -&gt; S3ObjectAcl -&gt; Int)
 -&gt; (S3ObjectAcl -&gt; Int) -&gt; Hashable S3ObjectAcl
@@ -142,49 +142,49 @@ $chash :: S3ObjectAcl -&gt; Int
 hashWithSalt :: Int -&gt; S3ObjectAcl -&gt; Int
 $chashWithSalt :: Int -&gt; S3ObjectAcl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679211837"><span class="annot"><span class="annottext">S3ObjectAcl -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679211901"><span class="annot"><span class="annottext">S3ObjectAcl -&gt; ()
 (S3ObjectAcl -&gt; ()) -&gt; NFData S3ObjectAcl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: S3ObjectAcl -&gt; ()
 $crnf :: S3ObjectAcl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679211834"><span class="annot"><span class="annottext">Text -&gt; Either String S3ObjectAcl
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679211898"><span class="annot"><span class="annottext">Text -&gt; Either String S3ObjectAcl
 (Text -&gt; Either String S3ObjectAcl) -&gt; FromText S3ObjectAcl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String S3ObjectAcl
 $cfromText :: Text -&gt; Either String S3ObjectAcl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679211831"><span class="annot"><span class="annottext">S3ObjectAcl -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679211895"><span class="annot"><span class="annottext">S3ObjectAcl -&gt; Text
 (S3ObjectAcl -&gt; Text) -&gt; ToText S3ObjectAcl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: S3ObjectAcl -&gt; Text
 $ctoText :: S3ObjectAcl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679211828"><span class="annot"><span class="annottext">S3ObjectAcl -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679211892"><span class="annot"><span class="annottext">S3ObjectAcl -&gt; ByteString
 (S3ObjectAcl -&gt; ByteString) -&gt; ToByteString S3ObjectAcl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: S3ObjectAcl -&gt; ByteString
 $ctoBS :: S3ObjectAcl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679211825"><span class="annot"><span class="annottext">S3ObjectAcl -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679211889"><span class="annot"><span class="annottext">S3ObjectAcl -&gt; ByteStringBuilder
 (S3ObjectAcl -&gt; ByteStringBuilder) -&gt; ToLog S3ObjectAcl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: S3ObjectAcl -&gt; ByteStringBuilder
 $cbuild :: S3ObjectAcl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679211822"><span class="annot"><span class="annottext">HeaderName -&gt; S3ObjectAcl -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679211886"><span class="annot"><span class="annottext">HeaderName -&gt; S3ObjectAcl -&gt; [Header]
 (HeaderName -&gt; S3ObjectAcl -&gt; [Header]) -&gt; ToHeader S3ObjectAcl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; S3ObjectAcl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; S3ObjectAcl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679211819"><span class="annot"><span class="annottext">S3ObjectAcl -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679211883"><span class="annot"><span class="annottext">S3ObjectAcl -&gt; QueryString
 (S3ObjectAcl -&gt; QueryString) -&gt; ToQuery S3ObjectAcl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: S3ObjectAcl -&gt; QueryString
 $ctoQuery :: S3ObjectAcl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679211814"><span id="local-6989586621679211816"><span class="annot"><span class="annottext">Value -&gt; Parser [S3ObjectAcl]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679211878"><span id="local-6989586621679211880"><span class="annot"><span class="annottext">Value -&gt; Parser [S3ObjectAcl]
 Value -&gt; Parser S3ObjectAcl
 (Value -&gt; Parser S3ObjectAcl)
 -&gt; (Value -&gt; Parser [S3ObjectAcl]) -&gt; FromJSON S3ObjectAcl
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [S3ObjectAcl]
 parseJSON :: Value -&gt; Parser S3ObjectAcl
 $cparseJSON :: Value -&gt; Parser S3ObjectAcl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679211809"><span id="local-6989586621679211811"><span class="annot"><span class="annottext">FromJSONKeyFunction [S3ObjectAcl]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679211873"><span id="local-6989586621679211875"><span class="annot"><span class="annottext">FromJSONKeyFunction [S3ObjectAcl]
 FromJSONKeyFunction S3ObjectAcl
 FromJSONKeyFunction S3ObjectAcl
 -&gt; FromJSONKeyFunction [S3ObjectAcl] -&gt; FromJSONKey S3ObjectAcl
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [S3ObjectAcl]
 fromJSONKey :: FromJSONKeyFunction S3ObjectAcl
 $cfromJSONKey :: FromJSONKeyFunction S3ObjectAcl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679211800"><span id="local-6989586621679211802"><span id="local-6989586621679211804"><span id="local-6989586621679211806"><span class="annot"><span class="annottext">[S3ObjectAcl] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679211864"><span id="local-6989586621679211866"><span id="local-6989586621679211868"><span id="local-6989586621679211870"><span class="annot"><span class="annottext">[S3ObjectAcl] -&gt; Encoding
 [S3ObjectAcl] -&gt; Value
 S3ObjectAcl -&gt; Encoding
 S3ObjectAcl -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: S3ObjectAcl -&gt; Encoding
 toJSON :: S3ObjectAcl -&gt; Value
 $ctoJSON :: S3ObjectAcl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679211795"><span id="local-6989586621679211797"><span class="annot"><span class="annottext">ToJSONKeyFunction [S3ObjectAcl]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679211859"><span id="local-6989586621679211861"><span class="annot"><span class="annottext">ToJSONKeyFunction [S3ObjectAcl]
 ToJSONKeyFunction S3ObjectAcl
 ToJSONKeyFunction S3ObjectAcl
 -&gt; ToJSONKeyFunction [S3ObjectAcl] -&gt; ToJSONKey S3ObjectAcl
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [S3ObjectAcl]
 toJSONKey :: ToJSONKeyFunction S3ObjectAcl
 $ctoJSONKey :: ToJSONKeyFunction S3ObjectAcl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679211792"><span class="annot"><span class="annottext">[Node] -&gt; Either String S3ObjectAcl
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679211856"><span class="annot"><span class="annottext">[Node] -&gt; Either String S3ObjectAcl
 ([Node] -&gt; Either String S3ObjectAcl) -&gt; FromXML S3ObjectAcl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String S3ObjectAcl
 $cparseXML :: [Node] -&gt; Either String S3ObjectAcl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679211789"><span class="annot"><span class="annottext">S3ObjectAcl -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679211853"><span class="annot"><span class="annottext">S3ObjectAcl -&gt; XML
 (S3ObjectAcl -&gt; XML) -&gt; ToXML S3ObjectAcl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: S3ObjectAcl -&gt; XML

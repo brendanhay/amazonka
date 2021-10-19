@@ -33,18 +33,18 @@
 </span><span id="line-33"></span><span class="hs-comment">-- in the /Amazon EC2 Auto Scaling User Guide/.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newMixedInstancesPolicy' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679329049"><span id="local-6989586621679329050"></span></span><span class="hs-keyword">data</span><span> </span><span id="MixedInstancesPolicy"><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-var">MixedInstancesPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MixedInstancesPolicy%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy%27"><span class="hs-identifier hs-var">MixedInstancesPolicy'</span></a></span></span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the instances distribution. If not provided, the value for</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- each property in @InstancesDistribution@ uses a default value.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AinstancesDistribution%3AMixedInstancesPolicy%27"><span class="annot"><span class="annottext">MixedInstancesPolicy -&gt; Maybe InstancesDistribution
-</span><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#%24sel%3AinstancesDistribution%3AMixedInstancesPolicy%27"><span class="hs-identifier hs-var hs-var">instancesDistribution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Specifies the launch template to use and the instance types (overrides)</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- that are used to provision EC2 instances to fulfill On-Demand and Spot</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- capacities. Required when creating a mixed instances policy.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlaunchTemplate%3AMixedInstancesPolicy%27"><span class="annot"><span class="annottext">MixedInstancesPolicy -&gt; Maybe LaunchTemplate
-</span><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#%24sel%3AlaunchTemplate%3AMixedInstancesPolicy%27"><span class="hs-identifier hs-var hs-var">launchTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679329705"><span id="local-6989586621679329706"></span></span><span class="hs-keyword">data</span><span> </span><span id="MixedInstancesPolicy"><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-var">MixedInstancesPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MixedInstancesPolicy%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy%27"><span class="hs-identifier hs-var">MixedInstancesPolicy'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the launch template to use and the instance types (overrides)</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- that are used to provision EC2 instances to fulfill On-Demand and Spot</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- capacities. Required when creating a mixed instances policy.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlaunchTemplate%3AMixedInstancesPolicy%27"><span class="annot"><span class="annottext">MixedInstancesPolicy -&gt; Maybe LaunchTemplate
+</span><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#%24sel%3AlaunchTemplate%3AMixedInstancesPolicy%27"><span class="hs-identifier hs-var hs-var">launchTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Specifies the instances distribution. If not provided, the value for</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- each property in @InstancesDistribution@ uses a default value.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AinstancesDistribution%3AMixedInstancesPolicy%27"><span class="annot"><span class="annottext">MixedInstancesPolicy -&gt; Maybe InstancesDistribution
+</span><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#%24sel%3AinstancesDistribution%3AMixedInstancesPolicy%27"><span class="hs-identifier hs-var hs-var">instancesDistribution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329042"><span id="local-6989586621679329044"><span class="annot"><span class="annottext">MixedInstancesPolicy -&gt; MixedInstancesPolicy -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329698"><span id="local-6989586621679329700"><span class="annot"><span class="annottext">MixedInstancesPolicy -&gt; MixedInstancesPolicy -&gt; Bool
 (MixedInstancesPolicy -&gt; MixedInstancesPolicy -&gt; Bool)
 -&gt; (MixedInstancesPolicy -&gt; MixedInstancesPolicy -&gt; Bool)
 -&gt; Eq MixedInstancesPolicy
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MixedInstancesPolicy -&gt; MixedInstancesPolicy -&gt; Bool
 == :: MixedInstancesPolicy -&gt; MixedInstancesPolicy -&gt; Bool
 $c== :: MixedInstancesPolicy -&gt; MixedInstancesPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329033"><span id="local-6989586621679329035"><span id="local-6989586621679329037"><span id="local-6989586621679329039"><span class="annot"><span class="annottext">ReadPrec [MixedInstancesPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329689"><span id="local-6989586621679329691"><span id="local-6989586621679329693"><span id="local-6989586621679329695"><span class="annot"><span class="annottext">ReadPrec [MixedInstancesPolicy]
 ReadPrec MixedInstancesPolicy
 Int -&gt; ReadS MixedInstancesPolicy
 ReadS [MixedInstancesPolicy]
@@ -73,7 +73,7 @@ readList :: ReadS [MixedInstancesPolicy]
 $creadList :: ReadS [MixedInstancesPolicy]
 readsPrec :: Int -&gt; ReadS MixedInstancesPolicy
 $creadsPrec :: Int -&gt; ReadS MixedInstancesPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329026"><span id="local-6989586621679329028"><span id="local-6989586621679329030"><span class="annot"><span class="annottext">Int -&gt; MixedInstancesPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329682"><span id="local-6989586621679329684"><span id="local-6989586621679329686"><span class="annot"><span class="annottext">Int -&gt; MixedInstancesPolicy -&gt; ShowS
 [MixedInstancesPolicy] -&gt; ShowS
 MixedInstancesPolicy -&gt; String
 (Int -&gt; MixedInstancesPolicy -&gt; ShowS)
@@ -107,60 +107,35 @@ $cfrom :: forall x. MixedInstancesPolicy -&gt; Rep MixedInstancesPolicy x
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'instancesDistribution', 'mixedInstancesPolicy_instancesDistribution' - Specifies the instances distribution. If not provided, the value for</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- each property in @InstancesDistribution@ uses a default value.</span><span>
-</span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'launchTemplate', 'mixedInstancesPolicy_launchTemplate' - Specifies the launch template to use and the instance types (overrides)</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- that are used to provision EC2 instances to fulfill On-Demand and Spot</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- capacities. Required when creating a mixed instances policy.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'launchTemplate', 'mixedInstancesPolicy_launchTemplate' - Specifies the launch template to use and the instance types (overrides)</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- that are used to provision EC2 instances to fulfill On-Demand and Spot</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- capacities. Required when creating a mixed instances policy.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'instancesDistribution', 'mixedInstancesPolicy_instancesDistribution' - Specifies the instances distribution. If not provided, the value for</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- each property in @InstancesDistribution@ uses a default value.</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#newMixedInstancesPolicy"><span class="hs-identifier hs-type">newMixedInstancesPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span><span>
 </span><span id="line-63"></span><span id="newMixedInstancesPolicy"><span class="annot"><span class="annottext">newMixedInstancesPolicy :: MixedInstancesPolicy
 </span><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#newMixedInstancesPolicy"><span class="hs-identifier hs-var hs-var">newMixedInstancesPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">MixedInstancesPolicy' :: Maybe InstancesDistribution
--&gt; Maybe LaunchTemplate -&gt; MixedInstancesPolicy
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">MixedInstancesPolicy' :: Maybe LaunchTemplate
+-&gt; Maybe InstancesDistribution -&gt; MixedInstancesPolicy
 </span><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy%27"><span class="hs-identifier hs-type">MixedInstancesPolicy'</span></a></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instancesDistribution:MixedInstancesPolicy' :: Maybe InstancesDistribution
-</span><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#%24sel%3AinstancesDistribution%3AMixedInstancesPolicy%27"><span class="hs-identifier hs-var">instancesDistribution</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe InstancesDistribution
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:launchTemplate:MixedInstancesPolicy' :: Maybe LaunchTemplate
+</span><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#%24sel%3AlaunchTemplate%3AMixedInstancesPolicy%27"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe LaunchTemplate
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchTemplate:MixedInstancesPolicy' :: Maybe LaunchTemplate
-</span><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#%24sel%3AlaunchTemplate%3AMixedInstancesPolicy%27"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplate
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:instancesDistribution:MixedInstancesPolicy' :: Maybe InstancesDistribution
+</span><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#%24sel%3AinstancesDistribution%3AMixedInstancesPolicy%27"><span class="hs-identifier hs-var">instancesDistribution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstancesDistribution
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | Specifies the instances distribution. If not provided, the value for</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- each property in @InstancesDistribution@ uses a default value.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#mixedInstancesPolicy_instancesDistribution"><span class="hs-identifier hs-type">mixedInstancesPolicy_instancesDistribution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="mixedInstancesPolicy_instancesDistribution"><span class="annot"><span class="annottext">mixedInstancesPolicy_instancesDistribution :: (Maybe InstancesDistribution -&gt; f (Maybe InstancesDistribution))
--&gt; MixedInstancesPolicy -&gt; f MixedInstancesPolicy
-</span><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#mixedInstancesPolicy_instancesDistribution"><span class="hs-identifier hs-var hs-var">mixedInstancesPolicy_instancesDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MixedInstancesPolicy -&gt; Maybe InstancesDistribution)
--&gt; (MixedInstancesPolicy
-    -&gt; Maybe InstancesDistribution -&gt; MixedInstancesPolicy)
--&gt; Lens
-     MixedInstancesPolicy
-     MixedInstancesPolicy
-     (Maybe InstancesDistribution)
-     (Maybe InstancesDistribution)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy%27"><span class="hs-identifier hs-type">MixedInstancesPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329017"><span class="annot"><span class="annottext">Maybe InstancesDistribution
-instancesDistribution :: Maybe InstancesDistribution
-$sel:instancesDistribution:MixedInstancesPolicy' :: MixedInstancesPolicy -&gt; Maybe InstancesDistribution
-</span><a href="#local-6989586621679329017"><span class="hs-identifier hs-var hs-var">instancesDistribution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstancesDistribution
-</span><a href="#local-6989586621679329017"><span class="hs-identifier hs-var">instancesDistribution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329016"><span class="annot"><span class="annottext">s :: MixedInstancesPolicy
-</span><a href="#local-6989586621679329016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy%27"><span class="hs-identifier hs-type">MixedInstancesPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329015"><span class="annot"><span class="annottext">Maybe InstancesDistribution
-</span><a href="#local-6989586621679329015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MixedInstancesPolicy
-</span><a href="#local-6989586621679329016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instancesDistribution:MixedInstancesPolicy' :: Maybe InstancesDistribution
-</span><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#%24sel%3AinstancesDistribution%3AMixedInstancesPolicy%27"><span class="hs-identifier hs-var">instancesDistribution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstancesDistribution
-</span><a href="#local-6989586621679329015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | Specifies the launch template to use and the instance types (overrides)</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- that are used to provision EC2 instances to fulfill On-Demand and Spot</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- capacities. Required when creating a mixed instances policy.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#mixedInstancesPolicy_launchTemplate"><span class="hs-identifier hs-type">mixedInstancesPolicy_launchTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="mixedInstancesPolicy_launchTemplate"><span class="annot"><span class="annottext">mixedInstancesPolicy_launchTemplate :: (Maybe LaunchTemplate -&gt; f (Maybe LaunchTemplate))
+</span><span id="line-70"></span><span class="hs-comment">-- | Specifies the launch template to use and the instance types (overrides)</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- that are used to provision EC2 instances to fulfill On-Demand and Spot</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- capacities. Required when creating a mixed instances policy.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#mixedInstancesPolicy_launchTemplate"><span class="hs-identifier hs-type">mixedInstancesPolicy_launchTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="mixedInstancesPolicy_launchTemplate"><span class="annot"><span class="annottext">mixedInstancesPolicy_launchTemplate :: (Maybe LaunchTemplate -&gt; f (Maybe LaunchTemplate))
 -&gt; MixedInstancesPolicy -&gt; f MixedInstancesPolicy
 </span><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#mixedInstancesPolicy_launchTemplate"><span class="hs-identifier hs-var hs-var">mixedInstancesPolicy_launchTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MixedInstancesPolicy -&gt; Maybe LaunchTemplate)
 -&gt; (MixedInstancesPolicy
@@ -171,70 +146,96 @@ $sel:instancesDistribution:MixedInstancesPolicy' :: MixedInstancesPolicy -&gt; M
      (Maybe LaunchTemplate)
      (Maybe LaunchTemplate)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy%27"><span class="hs-identifier hs-type">MixedInstancesPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329013"><span class="annot"><span class="annottext">Maybe LaunchTemplate
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy%27"><span class="hs-identifier hs-type">MixedInstancesPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329673"><span class="annot"><span class="annottext">Maybe LaunchTemplate
 launchTemplate :: Maybe LaunchTemplate
 $sel:launchTemplate:MixedInstancesPolicy' :: MixedInstancesPolicy -&gt; Maybe LaunchTemplate
-</span><a href="#local-6989586621679329013"><span class="hs-identifier hs-var hs-var">launchTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplate
-</span><a href="#local-6989586621679329013"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329012"><span class="annot"><span class="annottext">s :: MixedInstancesPolicy
-</span><a href="#local-6989586621679329012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy%27"><span class="hs-identifier hs-type">MixedInstancesPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329011"><span class="annot"><span class="annottext">Maybe LaunchTemplate
-</span><a href="#local-6989586621679329011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MixedInstancesPolicy
-</span><a href="#local-6989586621679329012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplate:MixedInstancesPolicy' :: Maybe LaunchTemplate
+</span><a href="#local-6989586621679329673"><span class="hs-identifier hs-var hs-var">launchTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplate
+</span><a href="#local-6989586621679329673"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329672"><span class="annot"><span class="annottext">s :: MixedInstancesPolicy
+</span><a href="#local-6989586621679329672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy%27"><span class="hs-identifier hs-type">MixedInstancesPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329671"><span class="annot"><span class="annottext">Maybe LaunchTemplate
+</span><a href="#local-6989586621679329671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MixedInstancesPolicy
+</span><a href="#local-6989586621679329672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplate:MixedInstancesPolicy' :: Maybe LaunchTemplate
 </span><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#%24sel%3AlaunchTemplate%3AMixedInstancesPolicy%27"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplate
-</span><a href="#local-6989586621679329011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679329671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | Specifies the instances distribution. If not provided, the value for</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- each property in @InstancesDistribution@ uses a default value.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#mixedInstancesPolicy_instancesDistribution"><span class="hs-identifier hs-type">mixedInstancesPolicy_instancesDistribution</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstancesDistribution.html#InstancesDistribution"><span class="hs-identifier hs-type">InstancesDistribution</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="mixedInstancesPolicy_instancesDistribution"><span class="annot"><span class="annottext">mixedInstancesPolicy_instancesDistribution :: (Maybe InstancesDistribution -&gt; f (Maybe InstancesDistribution))
+-&gt; MixedInstancesPolicy -&gt; f MixedInstancesPolicy
+</span><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#mixedInstancesPolicy_instancesDistribution"><span class="hs-identifier hs-var hs-var">mixedInstancesPolicy_instancesDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MixedInstancesPolicy -&gt; Maybe InstancesDistribution)
+-&gt; (MixedInstancesPolicy
+    -&gt; Maybe InstancesDistribution -&gt; MixedInstancesPolicy)
+-&gt; Lens
+     MixedInstancesPolicy
+     MixedInstancesPolicy
+     (Maybe InstancesDistribution)
+     (Maybe InstancesDistribution)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy%27"><span class="hs-identifier hs-type">MixedInstancesPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329669"><span class="annot"><span class="annottext">Maybe InstancesDistribution
+instancesDistribution :: Maybe InstancesDistribution
+$sel:instancesDistribution:MixedInstancesPolicy' :: MixedInstancesPolicy -&gt; Maybe InstancesDistribution
+</span><a href="#local-6989586621679329669"><span class="hs-identifier hs-var hs-var">instancesDistribution</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstancesDistribution
+</span><a href="#local-6989586621679329669"><span class="hs-identifier hs-var">instancesDistribution</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329668"><span class="annot"><span class="annottext">s :: MixedInstancesPolicy
+</span><a href="#local-6989586621679329668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy%27"><span class="hs-identifier hs-type">MixedInstancesPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329667"><span class="annot"><span class="annottext">Maybe InstancesDistribution
+</span><a href="#local-6989586621679329667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MixedInstancesPolicy
+</span><a href="#local-6989586621679329668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instancesDistribution:MixedInstancesPolicy' :: Maybe InstancesDistribution
+</span><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#%24sel%3AinstancesDistribution%3AMixedInstancesPolicy%27"><span class="hs-identifier hs-var">instancesDistribution</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstancesDistribution
+</span><a href="#local-6989586621679329667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679329008"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MixedInstancesPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679329006"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679329006"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">Maybe InstancesDistribution
--&gt; Maybe LaunchTemplate -&gt; MixedInstancesPolicy
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679329664"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MixedInstancesPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679329662"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679329662"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">Maybe LaunchTemplate
+-&gt; Maybe InstancesDistribution -&gt; MixedInstancesPolicy
 </span><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy%27"><span class="hs-identifier hs-var">MixedInstancesPolicy'</span></a></span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">(Maybe InstancesDistribution
- -&gt; Maybe LaunchTemplate -&gt; MixedInstancesPolicy)
--&gt; Either String (Maybe InstancesDistribution)
--&gt; Either String (Maybe LaunchTemplate -&gt; MixedInstancesPolicy)
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">(Maybe LaunchTemplate
+ -&gt; Maybe InstancesDistribution -&gt; MixedInstancesPolicy)
+-&gt; Either String (Maybe LaunchTemplate)
+-&gt; Either
+     String (Maybe InstancesDistribution -&gt; MixedInstancesPolicy)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679329006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InstancesDistribution)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InstancesDistribution&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe LaunchTemplate -&gt; MixedInstancesPolicy)
--&gt; Either String (Maybe LaunchTemplate)
--&gt; Either String MixedInstancesPolicy
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679329006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LaunchTemplate)
+</span><a href="#local-6989586621679329662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LaunchTemplate)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LaunchTemplate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe InstancesDistribution -&gt; MixedInstancesPolicy)
+-&gt; Either String (Maybe InstancesDistribution)
+-&gt; Either String MixedInstancesPolicy
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679329662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe InstancesDistribution)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstancesDistribution&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329000"><span id="local-6989586621679329002"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329656"><span id="local-6989586621679329658"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328997"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329653"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span></span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy"><span class="hs-identifier hs-type">MixedInstancesPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679328993"><span class="annot"><span class="annottext">toQuery :: MixedInstancesPolicy -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy%27"><span class="hs-identifier hs-type">MixedInstancesPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328990"><span id="local-6989586621679328991"><span class="annot"><span class="annottext">Maybe InstancesDistribution
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679329649"><span class="annot"><span class="annottext">toQuery :: MixedInstancesPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MixedInstancesPolicy.html#MixedInstancesPolicy%27"><span class="hs-identifier hs-type">MixedInstancesPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329646"><span id="local-6989586621679329647"><span class="annot"><span class="annottext">Maybe InstancesDistribution
 Maybe LaunchTemplate
-launchTemplate :: Maybe LaunchTemplate
 instancesDistribution :: Maybe InstancesDistribution
-$sel:launchTemplate:MixedInstancesPolicy' :: MixedInstancesPolicy -&gt; Maybe LaunchTemplate
+launchTemplate :: Maybe LaunchTemplate
 $sel:instancesDistribution:MixedInstancesPolicy' :: MixedInstancesPolicy -&gt; Maybe InstancesDistribution
-</span><a href="#local-6989586621679328990"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:launchTemplate:MixedInstancesPolicy' :: MixedInstancesPolicy -&gt; Maybe LaunchTemplate
+</span><a href="#local-6989586621679329646"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;InstancesDistribution&quot;</span></span><span>
-</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe InstancesDistribution -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe InstancesDistribution
-</span><a href="#local-6989586621679328991"><span class="hs-identifier hs-var">instancesDistribution</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;LaunchTemplate&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe LaunchTemplate -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe LaunchTemplate
-</span><a href="#local-6989586621679328990"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span>
+</span><a href="#local-6989586621679329647"><span class="hs-identifier hs-var">launchTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;InstancesDistribution&quot;</span></span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe InstancesDistribution -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe InstancesDistribution
+</span><a href="#local-6989586621679329646"><span class="hs-identifier hs-var">instancesDistribution</span></a></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-98"></span></pre></body></html>

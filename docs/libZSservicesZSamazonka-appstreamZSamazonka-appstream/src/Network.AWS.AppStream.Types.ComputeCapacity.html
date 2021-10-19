@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes the capacity for a fleet.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newComputeCapacity' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679285282"><span id="local-6989586621679285283"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComputeCapacity"><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity"><span class="hs-identifier hs-var">ComputeCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComputeCapacity%27"><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity%27"><span class="hs-identifier hs-var">ComputeCapacity'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679285530"><span id="local-6989586621679285531"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComputeCapacity"><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity"><span class="hs-identifier hs-var">ComputeCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComputeCapacity%27"><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity%27"><span class="hs-identifier hs-var">ComputeCapacity'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The desired number of streaming instances.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AdesiredInstances%3AComputeCapacity%27"><span class="annot"><span class="annottext">ComputeCapacity -&gt; Int
 </span><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#%24sel%3AdesiredInstances%3AComputeCapacity%27"><span class="hs-identifier hs-var hs-var">desiredInstances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679285276"><span id="local-6989586621679285278"><span class="annot"><span class="annottext">ComputeCapacity -&gt; ComputeCapacity -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679285524"><span id="local-6989586621679285526"><span class="annot"><span class="annottext">ComputeCapacity -&gt; ComputeCapacity -&gt; Bool
 (ComputeCapacity -&gt; ComputeCapacity -&gt; Bool)
 -&gt; (ComputeCapacity -&gt; ComputeCapacity -&gt; Bool)
 -&gt; Eq ComputeCapacity
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ComputeCapacity -&gt; ComputeCapacity -&gt; Bool
 == :: ComputeCapacity -&gt; ComputeCapacity -&gt; Bool
 $c== :: ComputeCapacity -&gt; ComputeCapacity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285267"><span id="local-6989586621679285269"><span id="local-6989586621679285271"><span id="local-6989586621679285273"><span class="annot"><span class="annottext">ReadPrec [ComputeCapacity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285515"><span id="local-6989586621679285517"><span id="local-6989586621679285519"><span id="local-6989586621679285521"><span class="annot"><span class="annottext">ReadPrec [ComputeCapacity]
 ReadPrec ComputeCapacity
 Int -&gt; ReadS ComputeCapacity
 ReadS [ComputeCapacity]
@@ -60,7 +60,7 @@ readList :: ReadS [ComputeCapacity]
 $creadList :: ReadS [ComputeCapacity]
 readsPrec :: Int -&gt; ReadS ComputeCapacity
 $creadsPrec :: Int -&gt; ReadS ComputeCapacity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285260"><span id="local-6989586621679285262"><span id="local-6989586621679285264"><span class="annot"><span class="annottext">Int -&gt; ComputeCapacity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679285508"><span id="local-6989586621679285510"><span id="local-6989586621679285512"><span class="annot"><span class="annottext">Int -&gt; ComputeCapacity -&gt; ShowS
 [ComputeCapacity] -&gt; ShowS
 ComputeCapacity -&gt; String
 (Int -&gt; ComputeCapacity -&gt; ShowS)
@@ -100,14 +100,14 @@ $cfrom :: forall x. ComputeCapacity -&gt; Rep ComputeCapacity x
 </span><span id="line-46"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity"><span class="hs-identifier hs-type">ComputeCapacity</span></a></span><span>
 </span><span id="line-48"></span><span id="newComputeCapacity"><span class="annot"><span class="annottext">newComputeCapacity :: Int -&gt; ComputeCapacity
-</span><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#newComputeCapacity"><span class="hs-identifier hs-var hs-var">newComputeCapacity</span></a></span></span><span> </span><span id="local-6989586621679285254"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285254"><span class="hs-identifier hs-var">pDesiredInstances_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#newComputeCapacity"><span class="hs-identifier hs-var hs-var">newComputeCapacity</span></a></span></span><span> </span><span id="local-6989586621679285502"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285502"><span class="hs-identifier hs-var">pDesiredInstances_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><span class="annottext">ComputeCapacity' :: Int -&gt; ComputeCapacity
 </span><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity%27"><span class="hs-identifier hs-type">ComputeCapacity'</span></a></span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:desiredInstances:ComputeCapacity' :: Int
 </span><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#%24sel%3AdesiredInstances%3AComputeCapacity%27"><span class="hs-identifier hs-var">desiredInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285254"><span class="hs-identifier hs-var">pDesiredInstances_</span></a></span><span>
+</span><a href="#local-6989586621679285502"><span class="hs-identifier hs-var">pDesiredInstances_</span></a></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | The desired number of streaming instances.</span><span>
@@ -117,27 +117,27 @@ $cfrom :: forall x. ComputeCapacity -&gt; Rep ComputeCapacity x
 -&gt; (ComputeCapacity -&gt; Int -&gt; ComputeCapacity)
 -&gt; Lens ComputeCapacity ComputeCapacity Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity%27"><span class="hs-identifier hs-type">ComputeCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285250"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity%27"><span class="hs-identifier hs-type">ComputeCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285498"><span class="annot"><span class="annottext">Int
 desiredInstances :: Int
 $sel:desiredInstances:ComputeCapacity' :: ComputeCapacity -&gt; Int
-</span><a href="#local-6989586621679285250"><span class="hs-identifier hs-var hs-var">desiredInstances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285250"><span class="hs-identifier hs-var">desiredInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285249"><span class="annot"><span class="annottext">s :: ComputeCapacity
-</span><a href="#local-6989586621679285249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity%27"><span class="hs-identifier hs-type">ComputeCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285248"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeCapacity
-</span><a href="#local-6989586621679285249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredInstances:ComputeCapacity' :: Int
+</span><a href="#local-6989586621679285498"><span class="hs-identifier hs-var hs-var">desiredInstances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285498"><span class="hs-identifier hs-var">desiredInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679285497"><span class="annot"><span class="annottext">s :: ComputeCapacity
+</span><a href="#local-6989586621679285497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity%27"><span class="hs-identifier hs-type">ComputeCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679285496"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679285496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeCapacity
+</span><a href="#local-6989586621679285497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredInstances:ComputeCapacity' :: Int
 </span><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#%24sel%3AdesiredInstances%3AComputeCapacity%27"><span class="hs-identifier hs-var">desiredInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity"><span class="hs-identifier hs-type">ComputeCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679285496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity"><span class="hs-identifier hs-type">ComputeCapacity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285244"><span id="local-6989586621679285246"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity"><span class="hs-identifier hs-type">ComputeCapacity</span></a></span></span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285492"><span id="local-6989586621679285494"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity"><span class="hs-identifier hs-type">ComputeCapacity</span></a></span></span></span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285241"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity"><span class="hs-identifier hs-type">ComputeCapacity</span></a></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285489"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity"><span class="hs-identifier hs-type">ComputeCapacity</span></a></span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285233"><span id="local-6989586621679285235"><span id="local-6989586621679285237"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity"><span class="hs-identifier hs-type">ComputeCapacity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679285231"><span class="annot"><span class="annottext">toJSON :: ComputeCapacity -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity%27"><span class="hs-identifier hs-type">ComputeCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285229"><span class="annot"><span class="annottext">Int
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679285481"><span id="local-6989586621679285483"><span id="local-6989586621679285485"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity"><span class="hs-identifier hs-type">ComputeCapacity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679285479"><span class="annot"><span class="annottext">toJSON :: ComputeCapacity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ComputeCapacity.html#ComputeCapacity%27"><span class="hs-identifier hs-type">ComputeCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679285477"><span class="annot"><span class="annottext">Int
 desiredInstances :: Int
 $sel:desiredInstances:ComputeCapacity' :: ComputeCapacity -&gt; Int
-</span><a href="#local-6989586621679285229"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679285477"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -150,7 +150,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DesiredInstances&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679285229"><span class="hs-identifier hs-var">desiredInstances</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679285477"><span class="hs-identifier hs-var">desiredInstances</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span></pre></body></html>

@@ -27,24 +27,24 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains information about the grantee.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newGrantee' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679218095"><span id="local-6989586621679218096"></span></span><span class="hs-keyword">data</span><span> </span><span id="Grantee"><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-var">Grantee</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Grantee%27"><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-var">Grantee'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679218145"><span id="local-6989586621679218146"></span></span><span class="hs-keyword">data</span><span> </span><span id="Grantee"><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-var">Grantee</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Grantee%27"><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-var">Grantee'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | URI of the grantee group.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Auri%3AGrantee%27"><span class="annot"><span class="annottext">Grantee -&gt; Maybe Text
 </span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3Auri%3AGrantee%27"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The canonical user ID of the grantee.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aid%3AGrantee%27"><span class="annot"><span class="annottext">Grantee -&gt; Maybe Text
-</span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3Aid%3AGrantee%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Email address of the grantee.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AemailAddress%3AGrantee%27"><span class="annot"><span class="annottext">Grantee -&gt; Maybe Text
+</span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3AemailAddress%3AGrantee%27"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Screen name of the grantee.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AdisplayName%3AGrantee%27"><span class="annot"><span class="annottext">Grantee -&gt; Maybe Text
 </span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3AdisplayName%3AGrantee%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Email address of the grantee.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AemailAddress%3AGrantee%27"><span class="annot"><span class="annottext">Grantee -&gt; Maybe Text
-</span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3AemailAddress%3AGrantee%27"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The canonical user ID of the grantee.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aid%3AGrantee%27"><span class="annot"><span class="annottext">Grantee -&gt; Maybe Text
+</span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3Aid%3AGrantee%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Type of grantee</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Atype%27%3AGrantee%27"><span class="annot"><span class="annottext">Grantee -&gt; Type
 </span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3Atype%27%3AGrantee%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218085"><span id="local-6989586621679218087"><span class="annot"><span class="annottext">Grantee -&gt; Grantee -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218135"><span id="local-6989586621679218137"><span class="annot"><span class="annottext">Grantee -&gt; Grantee -&gt; Bool
 (Grantee -&gt; Grantee -&gt; Bool)
 -&gt; (Grantee -&gt; Grantee -&gt; Bool) -&gt; Eq Grantee
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Grantee -&gt; Grantee -&gt; Bool
 == :: Grantee -&gt; Grantee -&gt; Bool
 $c== :: Grantee -&gt; Grantee -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218076"><span id="local-6989586621679218078"><span id="local-6989586621679218080"><span id="local-6989586621679218082"><span class="annot"><span class="annottext">ReadPrec [Grantee]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218126"><span id="local-6989586621679218128"><span id="local-6989586621679218130"><span id="local-6989586621679218132"><span class="annot"><span class="annottext">ReadPrec [Grantee]
 ReadPrec Grantee
 Int -&gt; ReadS Grantee
 ReadS [Grantee]
@@ -72,7 +72,7 @@ readList :: ReadS [Grantee]
 $creadList :: ReadS [Grantee]
 readsPrec :: Int -&gt; ReadS Grantee
 $creadsPrec :: Int -&gt; ReadS Grantee
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218069"><span id="local-6989586621679218071"><span id="local-6989586621679218073"><span class="annot"><span class="annottext">Int -&gt; Grantee -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218119"><span id="local-6989586621679218121"><span id="local-6989586621679218123"><span class="annot"><span class="annottext">Int -&gt; Grantee -&gt; ShowS
 [Grantee] -&gt; ShowS
 Grantee -&gt; String
 (Int -&gt; Grantee -&gt; ShowS)
@@ -105,11 +105,11 @@ $cfrom :: forall x. Grantee -&gt; Rep Grantee x
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- 'uri', 'grantee_uri' - URI of the grantee group.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'id', 'grantee_id' - The canonical user ID of the grantee.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'emailAddress', 'grantee_emailAddress' - Email address of the grantee.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- 'displayName', 'grantee_displayName' - Screen name of the grantee.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'emailAddress', 'grantee_emailAddress' - Email address of the grantee.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'id', 'grantee_id' - The canonical user ID of the grantee.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- 'type'', 'grantee_type' - Type of grantee</span><span>
 </span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#newGrantee"><span class="hs-identifier hs-type">newGrantee</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -117,8 +117,8 @@ $cfrom :: forall x. Grantee -&gt; Rep Grantee x
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span>
 </span><span id="line-65"></span><span id="newGrantee"><span class="annot"><span class="annottext">newGrantee :: Type -&gt; Grantee
-</span><a href="Network.AWS.Glacier.Types.Grantee.html#newGrantee"><span class="hs-identifier hs-var hs-var">newGrantee</span></a></span></span><span> </span><span id="local-6989586621679218063"><span class="annot"><span class="annottext">Type
-</span><a href="#local-6989586621679218063"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.Types.Grantee.html#newGrantee"><span class="hs-identifier hs-var hs-var">newGrantee</span></a></span></span><span> </span><span id="local-6989586621679218113"><span class="annot"><span class="annottext">Type
+</span><a href="#local-6989586621679218113"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">Grantee' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Type -&gt; Grantee
 </span><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span>
@@ -126,21 +126,21 @@ $cfrom :: forall x. Grantee -&gt; Rep Grantee x
 </span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3Auri%3AGrantee%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Grantee' :: Maybe Text
-</span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3Aid%3AGrantee%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:emailAddress:Grantee' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3AemailAddress%3AGrantee%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:Grantee' :: Maybe Text
 </span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3AdisplayName%3AGrantee%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:emailAddress:Grantee' :: Maybe Text
-</span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3AemailAddress%3AGrantee%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Grantee' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3Aid%3AGrantee%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Grantee' :: Type
 </span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3Atype%27%3AGrantee%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Type
-</span><a href="#local-6989586621679218063"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679218113"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | URI of the grantee group.</span><span>
@@ -150,34 +150,34 @@ forall a. Maybe a
 -&gt; (Grantee -&gt; Maybe Text -&gt; Grantee)
 -&gt; Lens Grantee Grantee (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218059"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218109"><span class="annot"><span class="annottext">Maybe Text
 uri :: Maybe Text
 $sel:uri:Grantee' :: Grantee -&gt; Maybe Text
-</span><a href="#local-6989586621679218059"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218059"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218058"><span class="annot"><span class="annottext">s :: Grantee
-</span><a href="#local-6989586621679218058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218057"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
-</span><a href="#local-6989586621679218058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uri:Grantee' :: Maybe Text
+</span><a href="#local-6989586621679218109"><span class="hs-identifier hs-var hs-var">uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218109"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218108"><span class="annot"><span class="annottext">s :: Grantee
+</span><a href="#local-6989586621679218108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218107"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
+</span><a href="#local-6989586621679218108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uri:Grantee' :: Maybe Text
 </span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3Auri%3AGrantee%27"><span class="hs-identifier hs-var">uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679218107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The canonical user ID of the grantee.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#grantee_id"><span class="hs-identifier hs-type">grantee_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="grantee_id"><span class="annot"><span class="annottext">grantee_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Grantee -&gt; f Grantee
-</span><a href="Network.AWS.Glacier.Types.Grantee.html#grantee_id"><span class="hs-identifier hs-var hs-var">grantee_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Grantee -&gt; Maybe Text)
+</span><span id="line-78"></span><span class="hs-comment">-- | Email address of the grantee.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#grantee_emailAddress"><span class="hs-identifier hs-type">grantee_emailAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="grantee_emailAddress"><span class="annot"><span class="annottext">grantee_emailAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Grantee -&gt; f Grantee
+</span><a href="Network.AWS.Glacier.Types.Grantee.html#grantee_emailAddress"><span class="hs-identifier hs-var hs-var">grantee_emailAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Grantee -&gt; Maybe Text)
 -&gt; (Grantee -&gt; Maybe Text -&gt; Grantee)
 -&gt; Lens Grantee Grantee (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218055"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:Grantee' :: Grantee -&gt; Maybe Text
-</span><a href="#local-6989586621679218055"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218055"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218054"><span class="annot"><span class="annottext">s :: Grantee
-</span><a href="#local-6989586621679218054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218053"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
-</span><a href="#local-6989586621679218054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Grantee' :: Maybe Text
-</span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3Aid%3AGrantee%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218105"><span class="annot"><span class="annottext">Maybe Text
+emailAddress :: Maybe Text
+$sel:emailAddress:Grantee' :: Grantee -&gt; Maybe Text
+</span><a href="#local-6989586621679218105"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218105"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218104"><span class="annot"><span class="annottext">s :: Grantee
+</span><a href="#local-6989586621679218104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218103"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
+</span><a href="#local-6989586621679218104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailAddress:Grantee' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3AemailAddress%3AGrantee%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | Screen name of the grantee.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#grantee_displayName"><span class="hs-identifier hs-type">grantee_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -186,34 +186,34 @@ $sel:id:Grantee' :: Grantee -&gt; Maybe Text
 -&gt; (Grantee -&gt; Maybe Text -&gt; Grantee)
 -&gt; Lens Grantee Grantee (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218051"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218101"><span class="annot"><span class="annottext">Maybe Text
 displayName :: Maybe Text
 $sel:displayName:Grantee' :: Grantee -&gt; Maybe Text
-</span><a href="#local-6989586621679218051"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218051"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218050"><span class="annot"><span class="annottext">s :: Grantee
-</span><a href="#local-6989586621679218050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218049"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
-</span><a href="#local-6989586621679218050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:Grantee' :: Maybe Text
+</span><a href="#local-6989586621679218101"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218101"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218100"><span class="annot"><span class="annottext">s :: Grantee
+</span><a href="#local-6989586621679218100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218099"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
+</span><a href="#local-6989586621679218100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:Grantee' :: Maybe Text
 </span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3AdisplayName%3AGrantee%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679218099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | Email address of the grantee.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#grantee_emailAddress"><span class="hs-identifier hs-type">grantee_emailAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="grantee_emailAddress"><span class="annot"><span class="annottext">grantee_emailAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Grantee -&gt; f Grantee
-</span><a href="Network.AWS.Glacier.Types.Grantee.html#grantee_emailAddress"><span class="hs-identifier hs-var hs-var">grantee_emailAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Grantee -&gt; Maybe Text)
+</span><span id="line-86"></span><span class="hs-comment">-- | The canonical user ID of the grantee.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#grantee_id"><span class="hs-identifier hs-type">grantee_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="grantee_id"><span class="annot"><span class="annottext">grantee_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Grantee -&gt; f Grantee
+</span><a href="Network.AWS.Glacier.Types.Grantee.html#grantee_id"><span class="hs-identifier hs-var hs-var">grantee_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Grantee -&gt; Maybe Text)
 -&gt; (Grantee -&gt; Maybe Text -&gt; Grantee)
 -&gt; Lens Grantee Grantee (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218047"><span class="annot"><span class="annottext">Maybe Text
-emailAddress :: Maybe Text
-$sel:emailAddress:Grantee' :: Grantee -&gt; Maybe Text
-</span><a href="#local-6989586621679218047"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218047"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218046"><span class="annot"><span class="annottext">s :: Grantee
-</span><a href="#local-6989586621679218046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218045"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
-</span><a href="#local-6989586621679218046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailAddress:Grantee' :: Maybe Text
-</span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3AemailAddress%3AGrantee%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218097"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:Grantee' :: Grantee -&gt; Maybe Text
+</span><a href="#local-6989586621679218097"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218097"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218096"><span class="annot"><span class="annottext">s :: Grantee
+</span><a href="#local-6989586621679218096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218095"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
+</span><a href="#local-6989586621679218096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Grantee' :: Maybe Text
+</span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3Aid%3AGrantee%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679218095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | Type of grantee</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#grantee_type"><span class="hs-identifier hs-type">grantee_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Type.html#Type"><span class="hs-identifier hs-type">Type</span></a></span><span>
@@ -221,27 +221,27 @@ $sel:emailAddress:Grantee' :: Grantee -&gt; Maybe Text
 </span><a href="Network.AWS.Glacier.Types.Grantee.html#grantee_type"><span class="hs-identifier hs-var hs-var">grantee_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Grantee -&gt; Type)
 -&gt; (Grantee -&gt; Type -&gt; Grantee) -&gt; Lens Grantee Grantee Type Type
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218043"><span class="annot"><span class="annottext">Type
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218093"><span class="annot"><span class="annottext">Type
 type' :: Type
 $sel:type':Grantee' :: Grantee -&gt; Type
-</span><a href="#local-6989586621679218043"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Type
-</span><a href="#local-6989586621679218043"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218042"><span class="annot"><span class="annottext">s :: Grantee
-</span><a href="#local-6989586621679218042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218041"><span class="annot"><span class="annottext">Type
-</span><a href="#local-6989586621679218041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
-</span><a href="#local-6989586621679218042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Grantee' :: Type
+</span><a href="#local-6989586621679218093"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Type
+</span><a href="#local-6989586621679218093"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218092"><span class="annot"><span class="annottext">s :: Grantee
+</span><a href="#local-6989586621679218092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218091"><span class="annot"><span class="annottext">Type
+</span><a href="#local-6989586621679218091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Grantee
+</span><a href="#local-6989586621679218092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Grantee' :: Type
 </span><a href="Network.AWS.Glacier.Types.Grantee.html#%24sel%3Atype%27%3AGrantee%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Type
-</span><a href="#local-6989586621679218041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679218091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218038"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679218036"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Grantee
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218088"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679218086"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Grantee
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Grantee) -&gt; Value -&gt; Parser Grantee
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Grantee&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679218033"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218033"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679218083"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218083"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Type -&gt; Grantee
 </span><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-var">Grantee'</span></a></span><span>
@@ -252,7 +252,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Type -&gt; Grantee)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679218083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;URI&quot;</span></span><span class="hs-special">)</span><span>
@@ -261,15 +261,15 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Type -&gt; Grantee)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679218083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ID&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;EmailAddress&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Type -&gt; Grantee)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Type -&gt; Grantee)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679218083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DisplayName&quot;</span></span><span class="hs-special">)</span><span>
@@ -277,38 +277,38 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser (Type -&gt; Grantee)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679218083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EmailAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ID&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Type -&gt; Grantee) -&gt; Parser Type -&gt; Parser Grantee
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679218033"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Type
+</span><a href="#local-6989586621679218083"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Type
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218026"><span id="local-6989586621679218028"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218076"><span id="local-6989586621679218078"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218023"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218073"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218015"><span id="local-6989586621679218017"><span id="local-6989586621679218019"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679218013"><span class="annot"><span class="annottext">toJSON :: Grantee -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218007"><span id="local-6989586621679218008"><span id="local-6989586621679218009"><span id="local-6989586621679218010"><span id="local-6989586621679218011"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218065"><span id="local-6989586621679218067"><span id="local-6989586621679218069"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee"><span class="hs-identifier hs-type">Grantee</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679218063"><span class="annot"><span class="annottext">toJSON :: Grantee -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.Types.Grantee.html#Grantee%27"><span class="hs-identifier hs-type">Grantee'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218057"><span id="local-6989586621679218058"><span id="local-6989586621679218059"><span id="local-6989586621679218060"><span id="local-6989586621679218061"><span class="annot"><span class="annottext">Maybe Text
 Type
 type' :: Type
-emailAddress :: Maybe Text
-displayName :: Maybe Text
 id :: Maybe Text
+displayName :: Maybe Text
+emailAddress :: Maybe Text
 uri :: Maybe Text
 $sel:type':Grantee' :: Grantee -&gt; Type
-$sel:emailAddress:Grantee' :: Grantee -&gt; Maybe Text
-$sel:displayName:Grantee' :: Grantee -&gt; Maybe Text
 $sel:id:Grantee' :: Grantee -&gt; Maybe Text
+$sel:displayName:Grantee' :: Grantee -&gt; Maybe Text
+$sel:emailAddress:Grantee' :: Grantee -&gt; Maybe Text
 $sel:uri:Grantee' :: Grantee -&gt; Maybe Text
-</span><a href="#local-6989586621679218007"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679218057"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -320,35 +320,35 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218011"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679218061"><span class="hs-identifier hs-var">uri</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ID&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;EmailAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218010"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679218060"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DisplayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218009"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679218059"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EmailAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;ID&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679218008"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679218058"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Type -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Type
-</span><a href="#local-6989586621679218007"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679218057"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span></pre></body></html>

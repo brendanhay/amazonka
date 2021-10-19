@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679327543"><span id="local-6989586621679327544"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MailType"><span class="annot"><a href="Network.AWS.SESv2.Types.MailType.html#MailType"><span class="hs-identifier hs-var">MailType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MailType%27"><span class="annot"><a href="Network.AWS.SESv2.Types.MailType.html#MailType%27"><span class="hs-identifier hs-var">MailType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679330051"><span id="local-6989586621679330052"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MailType"><span class="annot"><a href="Network.AWS.SESv2.Types.MailType.html#MailType"><span class="hs-identifier hs-var">MailType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MailType%27"><span class="annot"><a href="Network.AWS.SESv2.Types.MailType.html#MailType%27"><span class="hs-identifier hs-var">MailType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMailType"><span class="annot"><span class="annottext">MailType -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.MailType.html#fromMailType"><span class="hs-identifier hs-var hs-var">fromMailType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327535"><span id="local-6989586621679327537"><span id="local-6989586621679327539"><span class="annot"><span class="annottext">Int -&gt; MailType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330043"><span id="local-6989586621679330045"><span id="local-6989586621679330047"><span class="annot"><span class="annottext">Int -&gt; MailType -&gt; ShowS
 [MailType] -&gt; ShowS
 MailType -&gt; String
 (Int -&gt; MailType -&gt; ShowS)
@@ -49,7 +49,7 @@ $cshow :: MailType -&gt; String
 showsPrec :: Int -&gt; MailType -&gt; ShowS
 $cshowsPrec :: Int -&gt; MailType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679327526"><span id="local-6989586621679327528"><span id="local-6989586621679327530"><span id="local-6989586621679327532"><span class="annot"><span class="annottext">ReadPrec [MailType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679330034"><span id="local-6989586621679330036"><span id="local-6989586621679330038"><span id="local-6989586621679330040"><span class="annot"><span class="annottext">ReadPrec [MailType]
 ReadPrec MailType
 Int -&gt; ReadS MailType
 ReadS [MailType]
@@ -70,7 +70,7 @@ $creadList :: ReadS [MailType]
 readsPrec :: Int -&gt; ReadS MailType
 $creadsPrec :: Int -&gt; ReadS MailType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679327521"><span id="local-6989586621679327523"><span class="annot"><span class="annottext">MailType -&gt; MailType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679330029"><span id="local-6989586621679330031"><span class="annot"><span class="annottext">MailType -&gt; MailType -&gt; Bool
 (MailType -&gt; MailType -&gt; Bool)
 -&gt; (MailType -&gt; MailType -&gt; Bool) -&gt; Eq MailType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -79,7 +79,7 @@ $c/= :: MailType -&gt; MailType -&gt; Bool
 == :: MailType -&gt; MailType -&gt; Bool
 $c== :: MailType -&gt; MailType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679327505"><span id="local-6989586621679327507"><span id="local-6989586621679327509"><span id="local-6989586621679327511"><span id="local-6989586621679327513"><span id="local-6989586621679327515"><span id="local-6989586621679327517"><span class="annot"><span class="annottext">Eq MailType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679330013"><span id="local-6989586621679330015"><span id="local-6989586621679330017"><span id="local-6989586621679330019"><span id="local-6989586621679330021"><span id="local-6989586621679330023"><span id="local-6989586621679330025"><span class="annot"><span class="annottext">Eq MailType
 Eq MailType
 -&gt; (MailType -&gt; MailType -&gt; Ordering)
 -&gt; (MailType -&gt; MailType -&gt; Bool)
@@ -129,7 +129,7 @@ $cfrom :: forall x. MailType -&gt; Rep MailType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327497"><span id="local-6989586621679327499"><span class="annot"><span class="annottext">Int -&gt; MailType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679330005"><span id="local-6989586621679330007"><span class="annot"><span class="annottext">Int -&gt; MailType -&gt; Int
 MailType -&gt; Int
 (Int -&gt; MailType -&gt; Int) -&gt; (MailType -&gt; Int) -&gt; Hashable MailType
 forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
@@ -138,49 +138,49 @@ $chash :: MailType -&gt; Int
 hashWithSalt :: Int -&gt; MailType -&gt; Int
 $chashWithSalt :: Int -&gt; MailType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679327494"><span class="annot"><span class="annottext">MailType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679330002"><span class="annot"><span class="annottext">MailType -&gt; ()
 (MailType -&gt; ()) -&gt; NFData MailType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MailType -&gt; ()
 $crnf :: MailType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679327491"><span class="annot"><span class="annottext">Text -&gt; Either String MailType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679329999"><span class="annot"><span class="annottext">Text -&gt; Either String MailType
 (Text -&gt; Either String MailType) -&gt; FromText MailType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MailType
 $cfromText :: Text -&gt; Either String MailType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679327488"><span class="annot"><span class="annottext">MailType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679329996"><span class="annot"><span class="annottext">MailType -&gt; Text
 (MailType -&gt; Text) -&gt; ToText MailType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MailType -&gt; Text
 $ctoText :: MailType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679327485"><span class="annot"><span class="annottext">MailType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679329993"><span class="annot"><span class="annottext">MailType -&gt; ByteString
 (MailType -&gt; ByteString) -&gt; ToByteString MailType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MailType -&gt; ByteString
 $ctoBS :: MailType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679327482"><span class="annot"><span class="annottext">MailType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679329990"><span class="annot"><span class="annottext">MailType -&gt; ByteStringBuilder
 (MailType -&gt; ByteStringBuilder) -&gt; ToLog MailType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MailType -&gt; ByteStringBuilder
 $cbuild :: MailType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679327479"><span class="annot"><span class="annottext">HeaderName -&gt; MailType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679329987"><span class="annot"><span class="annottext">HeaderName -&gt; MailType -&gt; [Header]
 (HeaderName -&gt; MailType -&gt; [Header]) -&gt; ToHeader MailType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MailType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MailType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679327476"><span class="annot"><span class="annottext">MailType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679329984"><span class="annot"><span class="annottext">MailType -&gt; QueryString
 (MailType -&gt; QueryString) -&gt; ToQuery MailType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MailType -&gt; QueryString
 $ctoQuery :: MailType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679327471"><span id="local-6989586621679327473"><span class="annot"><span class="annottext">Value -&gt; Parser [MailType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679329979"><span id="local-6989586621679329981"><span class="annot"><span class="annottext">Value -&gt; Parser [MailType]
 Value -&gt; Parser MailType
 (Value -&gt; Parser MailType)
 -&gt; (Value -&gt; Parser [MailType]) -&gt; FromJSON MailType
@@ -191,7 +191,7 @@ $cparseJSONList :: Value -&gt; Parser [MailType]
 parseJSON :: Value -&gt; Parser MailType
 $cparseJSON :: Value -&gt; Parser MailType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679327466"><span id="local-6989586621679327468"><span class="annot"><span class="annottext">FromJSONKeyFunction [MailType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679329974"><span id="local-6989586621679329976"><span class="annot"><span class="annottext">FromJSONKeyFunction [MailType]
 FromJSONKeyFunction MailType
 FromJSONKeyFunction MailType
 -&gt; FromJSONKeyFunction [MailType] -&gt; FromJSONKey MailType
@@ -202,7 +202,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MailType]
 fromJSONKey :: FromJSONKeyFunction MailType
 $cfromJSONKey :: FromJSONKeyFunction MailType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679327457"><span id="local-6989586621679327459"><span id="local-6989586621679327461"><span id="local-6989586621679327463"><span class="annot"><span class="annottext">[MailType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679329965"><span id="local-6989586621679329967"><span id="local-6989586621679329969"><span id="local-6989586621679329971"><span class="annot"><span class="annottext">[MailType] -&gt; Encoding
 [MailType] -&gt; Value
 MailType -&gt; Encoding
 MailType -&gt; Value
@@ -226,7 +226,7 @@ $ctoEncoding :: MailType -&gt; Encoding
 toJSON :: MailType -&gt; Value
 $ctoJSON :: MailType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679327452"><span id="local-6989586621679327454"><span class="annot"><span class="annottext">ToJSONKeyFunction [MailType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679329960"><span id="local-6989586621679329962"><span class="annot"><span class="annottext">ToJSONKeyFunction [MailType]
 ToJSONKeyFunction MailType
 ToJSONKeyFunction MailType
 -&gt; ToJSONKeyFunction [MailType] -&gt; ToJSONKey MailType
@@ -237,13 +237,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MailType]
 toJSONKey :: ToJSONKeyFunction MailType
 $ctoJSONKey :: ToJSONKeyFunction MailType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679327449"><span class="annot"><span class="annottext">[Node] -&gt; Either String MailType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679329957"><span class="annot"><span class="annottext">[Node] -&gt; Either String MailType
 ([Node] -&gt; Either String MailType) -&gt; FromXML MailType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MailType
 $cparseXML :: [Node] -&gt; Either String MailType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679327446"><span class="annot"><span class="annottext">MailType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679329954"><span class="annot"><span class="annottext">MailType -&gt; XML
 (MailType -&gt; XML) -&gt; ToXML MailType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MailType -&gt; XML

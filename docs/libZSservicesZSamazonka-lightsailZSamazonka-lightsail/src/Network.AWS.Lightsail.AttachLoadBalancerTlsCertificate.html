@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newAttachLoadBalancerTlsCertificate' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679662019"><span id="local-6989586621679662020"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachLoadBalancerTlsCertificate"><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate"><span class="hs-identifier hs-var">AttachLoadBalancerTlsCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachLoadBalancerTlsCertificate%27"><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate%27"><span class="hs-identifier hs-var">AttachLoadBalancerTlsCertificate'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679663078"><span id="local-6989586621679663079"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachLoadBalancerTlsCertificate"><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate"><span class="hs-identifier hs-var">AttachLoadBalancerTlsCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachLoadBalancerTlsCertificate%27"><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate%27"><span class="hs-identifier hs-var">AttachLoadBalancerTlsCertificate'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the load balancer to which you want to associate the</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- SSL\/TLS certificate.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3AloadBalancerName%3AAttachLoadBalancerTlsCertificate%27"><span class="annot"><span class="annottext">AttachLoadBalancerTlsCertificate -&gt; Text
@@ -70,7 +70,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AcertificateName%3AAttachLoadBalancerTlsCertificate%27"><span class="annot"><span class="annottext">AttachLoadBalancerTlsCertificate -&gt; Text
 </span><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#%24sel%3AcertificateName%3AAttachLoadBalancerTlsCertificate%27"><span class="hs-identifier hs-var hs-var">certificateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679662012"><span id="local-6989586621679662014"><span class="annot"><span class="annottext">AttachLoadBalancerTlsCertificate
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679663071"><span id="local-6989586621679663073"><span class="annot"><span class="annottext">AttachLoadBalancerTlsCertificate
 -&gt; AttachLoadBalancerTlsCertificate -&gt; Bool
 (AttachLoadBalancerTlsCertificate
  -&gt; AttachLoadBalancerTlsCertificate -&gt; Bool)
@@ -86,7 +86,7 @@ $c/= :: AttachLoadBalancerTlsCertificate
 -&gt; AttachLoadBalancerTlsCertificate -&gt; Bool
 $c== :: AttachLoadBalancerTlsCertificate
 -&gt; AttachLoadBalancerTlsCertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662003"><span id="local-6989586621679662005"><span id="local-6989586621679662007"><span id="local-6989586621679662009"><span class="annot"><span class="annottext">ReadPrec [AttachLoadBalancerTlsCertificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679663062"><span id="local-6989586621679663064"><span id="local-6989586621679663066"><span id="local-6989586621679663068"><span class="annot"><span class="annottext">ReadPrec [AttachLoadBalancerTlsCertificate]
 ReadPrec AttachLoadBalancerTlsCertificate
 Int -&gt; ReadS AttachLoadBalancerTlsCertificate
 ReadS [AttachLoadBalancerTlsCertificate]
@@ -106,7 +106,7 @@ readList :: ReadS [AttachLoadBalancerTlsCertificate]
 $creadList :: ReadS [AttachLoadBalancerTlsCertificate]
 readsPrec :: Int -&gt; ReadS AttachLoadBalancerTlsCertificate
 $creadsPrec :: Int -&gt; ReadS AttachLoadBalancerTlsCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679661996"><span id="local-6989586621679661998"><span id="local-6989586621679662000"><span class="annot"><span class="annottext">Int -&gt; AttachLoadBalancerTlsCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679663055"><span id="local-6989586621679663057"><span id="local-6989586621679663059"><span class="annot"><span class="annottext">Int -&gt; AttachLoadBalancerTlsCertificate -&gt; ShowS
 [AttachLoadBalancerTlsCertificate] -&gt; ShowS
 AttachLoadBalancerTlsCertificate -&gt; String
 (Int -&gt; AttachLoadBalancerTlsCertificate -&gt; ShowS)
@@ -164,19 +164,19 @@ AttachLoadBalancerTlsCertificate
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate</span></a></span><span>
 </span><span id="line-91"></span><span id="newAttachLoadBalancerTlsCertificate"><span class="annot"><span class="annottext">newAttachLoadBalancerTlsCertificate :: Text -&gt; Text -&gt; AttachLoadBalancerTlsCertificate
 </span><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#newAttachLoadBalancerTlsCertificate"><span class="hs-identifier hs-var hs-var">newAttachLoadBalancerTlsCertificate</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679661991"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661991"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679661990"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661990"><span class="hs-identifier hs-var">pCertificateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679663050"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679663050"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679663049"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679663049"><span class="hs-identifier hs-var">pCertificateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">AttachLoadBalancerTlsCertificate' :: Text -&gt; Text -&gt; AttachLoadBalancerTlsCertificate
 </span><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate'</span></a></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loadBalancerName:AttachLoadBalancerTlsCertificate' :: Text
 </span><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#%24sel%3AloadBalancerName%3AAttachLoadBalancerTlsCertificate%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661991"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679663050"><span class="hs-identifier hs-var">pLoadBalancerName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:certificateName:AttachLoadBalancerTlsCertificate' :: Text
 </span><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#%24sel%3AcertificateName%3AAttachLoadBalancerTlsCertificate%27"><span class="hs-identifier hs-var">certificateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661990"><span class="hs-identifier hs-var">pCertificateName_</span></a></span><span>
+</span><a href="#local-6989586621679663049"><span class="hs-identifier hs-var">pCertificateName_</span></a></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The name of the load balancer to which you want to associate the</span><span>
@@ -194,16 +194,16 @@ AttachLoadBalancerTlsCertificate
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679661987"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679663046"><span class="annot"><span class="annottext">Text
 loadBalancerName :: Text
 $sel:loadBalancerName:AttachLoadBalancerTlsCertificate' :: AttachLoadBalancerTlsCertificate -&gt; Text
-</span><a href="#local-6989586621679661987"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661987"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679661986"><span class="annot"><span class="annottext">s :: AttachLoadBalancerTlsCertificate
-</span><a href="#local-6989586621679661986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679661985"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachLoadBalancerTlsCertificate
-</span><a href="#local-6989586621679661986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerName:AttachLoadBalancerTlsCertificate' :: Text
+</span><a href="#local-6989586621679663046"><span class="hs-identifier hs-var hs-var">loadBalancerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679663046"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679663045"><span class="annot"><span class="annottext">s :: AttachLoadBalancerTlsCertificate
+</span><a href="#local-6989586621679663045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679663044"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679663044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachLoadBalancerTlsCertificate
+</span><a href="#local-6989586621679663045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancerName:AttachLoadBalancerTlsCertificate' :: Text
 </span><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#%24sel%3AloadBalancerName%3AAttachLoadBalancerTlsCertificate%27"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679663044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The name of your SSL\/TLS certificate.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#attachLoadBalancerTlsCertificate_certificateName"><span class="hs-identifier hs-type">attachLoadBalancerTlsCertificate_certificateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -219,16 +219,16 @@ $sel:loadBalancerName:AttachLoadBalancerTlsCertificate' :: AttachLoadBalancerTls
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679661984"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679663043"><span class="annot"><span class="annottext">Text
 certificateName :: Text
 $sel:certificateName:AttachLoadBalancerTlsCertificate' :: AttachLoadBalancerTlsCertificate -&gt; Text
-</span><a href="#local-6989586621679661984"><span class="hs-identifier hs-var hs-var">certificateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661984"><span class="hs-identifier hs-var">certificateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679661983"><span class="annot"><span class="annottext">s :: AttachLoadBalancerTlsCertificate
-</span><a href="#local-6989586621679661983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679661982"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachLoadBalancerTlsCertificate
-</span><a href="#local-6989586621679661983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateName:AttachLoadBalancerTlsCertificate' :: Text
+</span><a href="#local-6989586621679663043"><span class="hs-identifier hs-var hs-var">certificateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679663043"><span class="hs-identifier hs-var">certificateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679663042"><span class="annot"><span class="annottext">s :: AttachLoadBalancerTlsCertificate
+</span><a href="#local-6989586621679663042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679663041"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679663041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachLoadBalancerTlsCertificate
+</span><a href="#local-6989586621679663042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateName:AttachLoadBalancerTlsCertificate' :: Text
 </span><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#%24sel%3AcertificateName%3AAttachLoadBalancerTlsCertificate%27"><span class="hs-identifier hs-var">certificateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679663041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -237,7 +237,7 @@ $sel:certificateName:AttachLoadBalancerTlsCertificate' :: AttachLoadBalancerTlsC
 </span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-114"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificateResponse</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679661978"><span class="annot"><span class="annottext">request :: AttachLoadBalancerTlsCertificate
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679663037"><span class="annot"><span class="annottext">request :: AttachLoadBalancerTlsCertificate
 -&gt; Request AttachLoadBalancerTlsCertificate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; AttachLoadBalancerTlsCertificate
@@ -245,7 +245,7 @@ $sel:certificateName:AttachLoadBalancerTlsCertificate' :: AttachLoadBalancerTlsC
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679661974"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679663033"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AttachLoadBalancerTlsCertificate
 -&gt; ClientResponse ClientBody
@@ -273,10 +273,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679661971"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679661971"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679661970"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679661970"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679661969"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679661969"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679663030"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679663030"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679663029"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679663029"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679663028"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679663028"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation]
 -&gt; Int -&gt; AttachLoadBalancerTlsCertificateResponse
 </span><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse%27"><span class="hs-identifier hs-var">AttachLoadBalancerTlsCertificateResponse'</span></a></span><span>
@@ -286,7 +286,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; AttachLoadBalancerTlsCertificateResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679661969"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679663028"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -304,22 +304,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679661971"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679663030"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679661960"><span id="local-6989586621679661962"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679663019"><span id="local-6989586621679663021"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679661957"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679663016"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate</span></a></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679661953"><span class="annot"><span class="annottext">toHeaders :: AttachLoadBalancerTlsCertificate -&gt; ResponseHeaders
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679663012"><span class="annot"><span class="annottext">toHeaders :: AttachLoadBalancerTlsCertificate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; AttachLoadBalancerTlsCertificate -&gt; ResponseHeaders
@@ -347,14 +347,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679661943"><span id="local-6989586621679661945"><span id="local-6989586621679661947"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679661941"><span class="annot"><span class="annottext">toJSON :: AttachLoadBalancerTlsCertificate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679661938"><span id="local-6989586621679661939"><span class="annot"><span class="annottext">Text
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679663002"><span id="local-6989586621679663004"><span id="local-6989586621679663006"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679663000"><span class="annot"><span class="annottext">toJSON :: AttachLoadBalancerTlsCertificate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662997"><span id="local-6989586621679662998"><span class="annot"><span class="annottext">Text
 certificateName :: Text
 loadBalancerName :: Text
 $sel:certificateName:AttachLoadBalancerTlsCertificate' :: AttachLoadBalancerTlsCertificate -&gt; Text
 $sel:loadBalancerName:AttachLoadBalancerTlsCertificate' :: AttachLoadBalancerTlsCertificate -&gt; Text
-</span><a href="#local-6989586621679661938"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679662997"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -367,7 +367,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;loadBalancerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661939"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679662998"><span class="hs-identifier hs-var">loadBalancerName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -375,12 +375,12 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;certificateName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661938"><span class="hs-identifier hs-var">certificateName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679662997"><span class="hs-identifier hs-var">certificateName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679661932"><span class="annot"><span class="annottext">toPath :: AttachLoadBalancerTlsCertificate -&gt; ByteString
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679662991"><span class="annot"><span class="annottext">toPath :: AttachLoadBalancerTlsCertificate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AttachLoadBalancerTlsCertificate -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -390,7 +390,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificate"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificate</span></a></span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679661928"><span class="annot"><span class="annottext">toQuery :: AttachLoadBalancerTlsCertificate -&gt; QueryString
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679662987"><span class="annot"><span class="annottext">toQuery :: AttachLoadBalancerTlsCertificate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AttachLoadBalancerTlsCertificate -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -398,7 +398,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | /See:/ 'newAttachLoadBalancerTlsCertificateResponse' smart constructor.</span><span>
-</span><span id="line-172"></span><span id="local-6989586621679661925"><span id="local-6989586621679661926"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachLoadBalancerTlsCertificateResponse"><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse"><span class="hs-identifier hs-var">AttachLoadBalancerTlsCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachLoadBalancerTlsCertificateResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse%27"><span class="hs-identifier hs-var">AttachLoadBalancerTlsCertificateResponse'</span></a></span></span><span>
+</span><span id="line-172"></span><span id="local-6989586621679662984"><span id="local-6989586621679662985"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachLoadBalancerTlsCertificateResponse"><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse"><span class="hs-identifier hs-var">AttachLoadBalancerTlsCertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachLoadBalancerTlsCertificateResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse%27"><span class="hs-identifier hs-var">AttachLoadBalancerTlsCertificateResponse'</span></a></span></span><span>
 </span><span id="line-173"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -411,7 +411,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAttachLoadBalancerTlsCertificateResponse%27"><span class="annot"><span class="annottext">AttachLoadBalancerTlsCertificateResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#%24sel%3AhttpStatus%3AAttachLoadBalancerTlsCertificateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679661919"><span id="local-6989586621679661921"><span class="annot"><span class="annottext">AttachLoadBalancerTlsCertificateResponse
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679662978"><span id="local-6989586621679662980"><span class="annot"><span class="annottext">AttachLoadBalancerTlsCertificateResponse
 -&gt; AttachLoadBalancerTlsCertificateResponse -&gt; Bool
 (AttachLoadBalancerTlsCertificateResponse
  -&gt; AttachLoadBalancerTlsCertificateResponse -&gt; Bool)
@@ -427,7 +427,7 @@ $c/= :: AttachLoadBalancerTlsCertificateResponse
 -&gt; AttachLoadBalancerTlsCertificateResponse -&gt; Bool
 $c== :: AttachLoadBalancerTlsCertificateResponse
 -&gt; AttachLoadBalancerTlsCertificateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679661911"><span id="local-6989586621679661913"><span id="local-6989586621679661915"><span id="local-6989586621679661917"><span class="annot"><span class="annottext">ReadPrec [AttachLoadBalancerTlsCertificateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662970"><span id="local-6989586621679662972"><span id="local-6989586621679662974"><span id="local-6989586621679662976"><span class="annot"><span class="annottext">ReadPrec [AttachLoadBalancerTlsCertificateResponse]
 ReadPrec AttachLoadBalancerTlsCertificateResponse
 Int -&gt; ReadS AttachLoadBalancerTlsCertificateResponse
 ReadS [AttachLoadBalancerTlsCertificateResponse]
@@ -447,7 +447,7 @@ readList :: ReadS [AttachLoadBalancerTlsCertificateResponse]
 $creadList :: ReadS [AttachLoadBalancerTlsCertificateResponse]
 readsPrec :: Int -&gt; ReadS AttachLoadBalancerTlsCertificateResponse
 $creadsPrec :: Int -&gt; ReadS AttachLoadBalancerTlsCertificateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679661905"><span id="local-6989586621679661907"><span id="local-6989586621679661909"><span class="annot"><span class="annottext">Int -&gt; AttachLoadBalancerTlsCertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662964"><span id="local-6989586621679662966"><span id="local-6989586621679662968"><span class="annot"><span class="annottext">Int -&gt; AttachLoadBalancerTlsCertificateResponse -&gt; ShowS
 [AttachLoadBalancerTlsCertificateResponse] -&gt; ShowS
 AttachLoadBalancerTlsCertificateResponse -&gt; String
 (Int -&gt; AttachLoadBalancerTlsCertificateResponse -&gt; ShowS)
@@ -507,8 +507,8 @@ AttachLoadBalancerTlsCertificateResponse
 </span><span id="line-204"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificateResponse</span></a></span><span>
 </span><span id="line-205"></span><span id="newAttachLoadBalancerTlsCertificateResponse"><span class="annot"><span class="annottext">newAttachLoadBalancerTlsCertificateResponse :: Int -&gt; AttachLoadBalancerTlsCertificateResponse
 </span><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#newAttachLoadBalancerTlsCertificateResponse"><span class="hs-identifier hs-var hs-var">newAttachLoadBalancerTlsCertificateResponse</span></a></span></span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621679661902"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679661902"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679662961"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679662961"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-207"></span><span>    </span><span class="annot"><span class="annottext">AttachLoadBalancerTlsCertificateResponse' :: Maybe [Operation]
 -&gt; Int -&gt; AttachLoadBalancerTlsCertificateResponse
 </span><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificateResponse'</span></a></span><span>
@@ -519,7 +519,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:AttachLoadBalancerTlsCertificateResponse' :: Int
 </span><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#%24sel%3AhttpStatus%3AAttachLoadBalancerTlsCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679661902"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679662961"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-211"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -541,16 +541,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679661901"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662960"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:AttachLoadBalancerTlsCertificateResponse' :: AttachLoadBalancerTlsCertificateResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679661901"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679661901"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679661900"><span class="annot"><span class="annottext">s :: AttachLoadBalancerTlsCertificateResponse
-</span><a href="#local-6989586621679661900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679661899"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679661899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachLoadBalancerTlsCertificateResponse
-</span><a href="#local-6989586621679661900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:AttachLoadBalancerTlsCertificateResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679662960"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679662960"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662959"><span class="annot"><span class="annottext">s :: AttachLoadBalancerTlsCertificateResponse
+</span><a href="#local-6989586621679662959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662958"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679662958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachLoadBalancerTlsCertificateResponse
+</span><a href="#local-6989586621679662959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:AttachLoadBalancerTlsCertificateResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#%24sel%3Aoperations%3AAttachLoadBalancerTlsCertificateResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679661899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificateResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679662958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificateResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; AttachLoadBalancerTlsCertificateResponse
  -&gt; f AttachLoadBalancerTlsCertificateResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -569,8 +569,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Operation] [Operation] [Operation] [Operation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-223"></span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#attachLoadBalancerTlsCertificateResponse_httpStatus"><span class="hs-identifier hs-type">attachLoadBalancerTlsCertificateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -586,18 +586,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679661895"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662954"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AttachLoadBalancerTlsCertificateResponse' :: AttachLoadBalancerTlsCertificateResponse -&gt; Int
-</span><a href="#local-6989586621679661895"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679661895"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679661894"><span class="annot"><span class="annottext">s :: AttachLoadBalancerTlsCertificateResponse
-</span><a href="#local-6989586621679661894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679661893"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679661893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachLoadBalancerTlsCertificateResponse
-</span><a href="#local-6989586621679661894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AttachLoadBalancerTlsCertificateResponse' :: Int
+</span><a href="#local-6989586621679662954"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679662954"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662953"><span class="annot"><span class="annottext">s :: AttachLoadBalancerTlsCertificateResponse
+</span><a href="#local-6989586621679662953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse%27"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662952"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679662952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachLoadBalancerTlsCertificateResponse
+</span><a href="#local-6989586621679662953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AttachLoadBalancerTlsCertificateResponse' :: Int
 </span><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#%24sel%3AhttpStatus%3AAttachLoadBalancerTlsCertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679661893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679662952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621679661891"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679662950"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-228"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate.html#AttachLoadBalancerTlsCertificateResponse"><span class="hs-identifier hs-type">AttachLoadBalancerTlsCertificateResponse</span></a></span></span><span>
 </span><span id="line-229"></span></pre></body></html>

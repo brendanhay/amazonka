@@ -37,17 +37,17 @@
 </span><span id="line-37"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html Limits&gt;.</span><span>
 </span><span id="line-38"></span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span class="hs-comment">-- /See:/ 'newOutput' smart constructor.</span><span>
-</span><span id="line-40"></span><span id="local-6989586621679209254"><span id="local-6989586621679209255"></span></span><span class="hs-keyword">data</span><span> </span><span id="Output"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-var">Output</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Output%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-var">Output'</span></a></span></span><span>
+</span><span id="line-40"></span><span id="local-6989586621679209354"><span id="local-6989586621679209355"></span></span><span class="hs-keyword">data</span><span> </span><span id="Output"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-var">Output</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Output%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-var">Output'</span></a></span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies an AWS Lambda function as the destination.</span><span>
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AlambdaOutput%3AOutput%27"><span class="annot"><span class="annottext">Output -&gt; Maybe LambdaOutput
 </span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3AlambdaOutput%3AOutput%27"><span class="hs-identifier hs-var hs-var">lambdaOutput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.LambdaOutput.html#LambdaOutput"><span class="hs-identifier hs-type">LambdaOutput</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Identifies an Amazon Kinesis Firehose delivery stream as the</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- destination.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AkinesisFirehoseOutput%3AOutput%27"><span class="annot"><span class="annottext">Output -&gt; Maybe KinesisFirehoseOutput
-</span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3AkinesisFirehoseOutput%3AOutput%27"><span class="hs-identifier hs-var hs-var">kinesisFirehoseOutput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.KinesisFirehoseOutput.html#KinesisFirehoseOutput"><span class="hs-identifier hs-type">KinesisFirehoseOutput</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Identifies an Amazon Kinesis stream as the destination.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AkinesisStreamsOutput%3AOutput%27"><span class="annot"><span class="annottext">Output -&gt; Maybe KinesisStreamsOutput
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Identifies an Amazon Kinesis stream as the destination.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AkinesisStreamsOutput%3AOutput%27"><span class="annot"><span class="annottext">Output -&gt; Maybe KinesisStreamsOutput
 </span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3AkinesisStreamsOutput%3AOutput%27"><span class="hs-identifier hs-var hs-var">kinesisStreamsOutput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.KinesisStreamsOutput.html#KinesisStreamsOutput"><span class="hs-identifier hs-type">KinesisStreamsOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Identifies an Amazon Kinesis Firehose delivery stream as the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- destination.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AkinesisFirehoseOutput%3AOutput%27"><span class="annot"><span class="annottext">Output -&gt; Maybe KinesisFirehoseOutput
+</span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3AkinesisFirehoseOutput%3AOutput%27"><span class="hs-identifier hs-var hs-var">kinesisFirehoseOutput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.KinesisFirehoseOutput.html#KinesisFirehoseOutput"><span class="hs-identifier hs-type">KinesisFirehoseOutput</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Name of the in-application stream.</span><span>
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3Aname%3AOutput%27"><span class="annot"><span class="annottext">Output -&gt; Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3Aname%3AOutput%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AdestinationSchema%3AOutput%27"><span class="annot"><span class="annottext">Output -&gt; DestinationSchema
 </span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3AdestinationSchema%3AOutput%27"><span class="hs-identifier hs-var hs-var">destinationSchema</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema"><span class="hs-identifier hs-type">DestinationSchema</span></a></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209244"><span id="local-6989586621679209246"><span class="annot"><span class="annottext">Output -&gt; Output -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209344"><span id="local-6989586621679209346"><span class="annot"><span class="annottext">Output -&gt; Output -&gt; Bool
 (Output -&gt; Output -&gt; Bool)
 -&gt; (Output -&gt; Output -&gt; Bool) -&gt; Eq Output
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Output -&gt; Output -&gt; Bool
 == :: Output -&gt; Output -&gt; Bool
 $c== :: Output -&gt; Output -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209235"><span id="local-6989586621679209237"><span id="local-6989586621679209239"><span id="local-6989586621679209241"><span class="annot"><span class="annottext">ReadPrec [Output]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209335"><span id="local-6989586621679209337"><span id="local-6989586621679209339"><span id="local-6989586621679209341"><span class="annot"><span class="annottext">ReadPrec [Output]
 ReadPrec Output
 Int -&gt; ReadS Output
 ReadS [Output]
@@ -85,7 +85,7 @@ readList :: ReadS [Output]
 $creadList :: ReadS [Output]
 readsPrec :: Int -&gt; ReadS Output
 $creadsPrec :: Int -&gt; ReadS Output
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209228"><span id="local-6989586621679209230"><span id="local-6989586621679209232"><span class="annot"><span class="annottext">Int -&gt; Output -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209328"><span id="local-6989586621679209330"><span id="local-6989586621679209332"><span class="annot"><span class="annottext">Int -&gt; Output -&gt; ShowS
 [Output] -&gt; ShowS
 Output -&gt; String
 (Int -&gt; Output -&gt; ShowS)
@@ -118,10 +118,10 @@ $cfrom :: forall x. Output -&gt; Rep Output x
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- 'lambdaOutput', 'output_lambdaOutput' - Identifies an AWS Lambda function as the destination.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'kinesisFirehoseOutput', 'output_kinesisFirehoseOutput' - Identifies an Amazon Kinesis Firehose delivery stream as the</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- destination.</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'kinesisStreamsOutput', 'output_kinesisStreamsOutput' - Identifies an Amazon Kinesis stream as the destination.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'kinesisStreamsOutput', 'output_kinesisStreamsOutput' - Identifies an Amazon Kinesis stream as the destination.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'kinesisFirehoseOutput', 'output_kinesisFirehoseOutput' - Identifies an Amazon Kinesis Firehose delivery stream as the</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- destination.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- 'name', 'output_name' - Name of the in-application stream.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
@@ -135,12 +135,12 @@ $cfrom :: forall x. Output -&gt; Rep Output x
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.DestinationSchema.html#DestinationSchema"><span class="hs-identifier hs-type">DestinationSchema</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span>
 </span><span id="line-83"></span><span id="newOutput"><span class="annot"><span class="annottext">newOutput :: Text -&gt; DestinationSchema -&gt; Output
-</span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#newOutput"><span class="hs-identifier hs-var hs-var">newOutput</span></a></span></span><span> </span><span id="local-6989586621679209222"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209222"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679209221"><span class="annot"><span class="annottext">DestinationSchema
-</span><a href="#local-6989586621679209221"><span class="hs-identifier hs-var">pDestinationSchema_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#newOutput"><span class="hs-identifier hs-var hs-var">newOutput</span></a></span></span><span> </span><span id="local-6989586621679209322"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209322"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679209321"><span class="annot"><span class="annottext">DestinationSchema
+</span><a href="#local-6989586621679209321"><span class="hs-identifier hs-var">pDestinationSchema_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">Output' :: Maybe LambdaOutput
--&gt; Maybe KinesisFirehoseOutput
 -&gt; Maybe KinesisStreamsOutput
+-&gt; Maybe KinesisFirehoseOutput
 -&gt; Text
 -&gt; DestinationSchema
 -&gt; Output
@@ -149,20 +149,20 @@ $cfrom :: forall x. Output -&gt; Rep Output x
 </span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3AlambdaOutput%3AOutput%27"><span class="hs-identifier hs-var">lambdaOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaOutput
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:kinesisFirehoseOutput:Output' :: Maybe KinesisFirehoseOutput
-</span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3AkinesisFirehoseOutput%3AOutput%27"><span class="hs-identifier hs-var">kinesisFirehoseOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseOutput
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:kinesisStreamsOutput:Output' :: Maybe KinesisStreamsOutput
+</span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3AkinesisStreamsOutput%3AOutput%27"><span class="hs-identifier hs-var">kinesisStreamsOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamsOutput
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:kinesisStreamsOutput:Output' :: Maybe KinesisStreamsOutput
-</span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3AkinesisStreamsOutput%3AOutput%27"><span class="hs-identifier hs-var">kinesisStreamsOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamsOutput
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:kinesisFirehoseOutput:Output' :: Maybe KinesisFirehoseOutput
+</span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3AkinesisFirehoseOutput%3AOutput%27"><span class="hs-identifier hs-var">kinesisFirehoseOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseOutput
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Output' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3Aname%3AOutput%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209222"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209322"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationSchema:Output' :: DestinationSchema
 </span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3AdestinationSchema%3AOutput%27"><span class="hs-identifier hs-var">destinationSchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DestinationSchema
-</span><a href="#local-6989586621679209221"><span class="hs-identifier hs-var">pDestinationSchema_</span></a></span><span>
+</span><a href="#local-6989586621679209321"><span class="hs-identifier hs-var">pDestinationSchema_</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | Identifies an AWS Lambda function as the destination.</span><span>
@@ -173,44 +173,20 @@ forall a. Maybe a
 -&gt; (Output -&gt; Maybe LambdaOutput -&gt; Output)
 -&gt; Lens Output Output (Maybe LambdaOutput) (Maybe LambdaOutput)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209217"><span class="annot"><span class="annottext">Maybe LambdaOutput
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209317"><span class="annot"><span class="annottext">Maybe LambdaOutput
 lambdaOutput :: Maybe LambdaOutput
 $sel:lambdaOutput:Output' :: Output -&gt; Maybe LambdaOutput
-</span><a href="#local-6989586621679209217"><span class="hs-identifier hs-var hs-var">lambdaOutput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaOutput
-</span><a href="#local-6989586621679209217"><span class="hs-identifier hs-var">lambdaOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209216"><span class="annot"><span class="annottext">s :: Output
-</span><a href="#local-6989586621679209216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209215"><span class="annot"><span class="annottext">Maybe LambdaOutput
-</span><a href="#local-6989586621679209215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Output
-</span><a href="#local-6989586621679209216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaOutput:Output' :: Maybe LambdaOutput
+</span><a href="#local-6989586621679209317"><span class="hs-identifier hs-var hs-var">lambdaOutput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaOutput
+</span><a href="#local-6989586621679209317"><span class="hs-identifier hs-var">lambdaOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209316"><span class="annot"><span class="annottext">s :: Output
+</span><a href="#local-6989586621679209316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209315"><span class="annot"><span class="annottext">Maybe LambdaOutput
+</span><a href="#local-6989586621679209315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Output
+</span><a href="#local-6989586621679209316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaOutput:Output' :: Maybe LambdaOutput
 </span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3AlambdaOutput%3AOutput%27"><span class="hs-identifier hs-var">lambdaOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaOutput
-</span><a href="#local-6989586621679209215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | Identifies an Amazon Kinesis Firehose delivery stream as the</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- destination.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#output_kinesisFirehoseOutput"><span class="hs-identifier hs-type">output_kinesisFirehoseOutput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.KinesisFirehoseOutput.html#KinesisFirehoseOutput"><span class="hs-identifier hs-type">KinesisFirehoseOutput</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="output_kinesisFirehoseOutput"><span class="annot"><span class="annottext">output_kinesisFirehoseOutput :: (Maybe KinesisFirehoseOutput -&gt; f (Maybe KinesisFirehoseOutput))
--&gt; Output -&gt; f Output
-</span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#output_kinesisFirehoseOutput"><span class="hs-identifier hs-var hs-var">output_kinesisFirehoseOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Output -&gt; Maybe KinesisFirehoseOutput)
--&gt; (Output -&gt; Maybe KinesisFirehoseOutput -&gt; Output)
--&gt; Lens
-     Output
-     Output
-     (Maybe KinesisFirehoseOutput)
-     (Maybe KinesisFirehoseOutput)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209213"><span class="annot"><span class="annottext">Maybe KinesisFirehoseOutput
-kinesisFirehoseOutput :: Maybe KinesisFirehoseOutput
-$sel:kinesisFirehoseOutput:Output' :: Output -&gt; Maybe KinesisFirehoseOutput
-</span><a href="#local-6989586621679209213"><span class="hs-identifier hs-var hs-var">kinesisFirehoseOutput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseOutput
-</span><a href="#local-6989586621679209213"><span class="hs-identifier hs-var">kinesisFirehoseOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209212"><span class="annot"><span class="annottext">s :: Output
-</span><a href="#local-6989586621679209212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209211"><span class="annot"><span class="annottext">Maybe KinesisFirehoseOutput
-</span><a href="#local-6989586621679209211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Output
-</span><a href="#local-6989586621679209212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisFirehoseOutput:Output' :: Maybe KinesisFirehoseOutput
-</span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3AkinesisFirehoseOutput%3AOutput%27"><span class="hs-identifier hs-var">kinesisFirehoseOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseOutput
-</span><a href="#local-6989586621679209211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | Identifies an Amazon Kinesis stream as the destination.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#output_kinesisStreamsOutput"><span class="hs-identifier hs-type">output_kinesisStreamsOutput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.KinesisStreamsOutput.html#KinesisStreamsOutput"><span class="hs-identifier hs-type">KinesisStreamsOutput</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="output_kinesisStreamsOutput"><span class="annot"><span class="annottext">output_kinesisStreamsOutput :: (Maybe KinesisStreamsOutput -&gt; f (Maybe KinesisStreamsOutput))
+</span><span id="line-96"></span><span class="hs-comment">-- | Identifies an Amazon Kinesis stream as the destination.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#output_kinesisStreamsOutput"><span class="hs-identifier hs-type">output_kinesisStreamsOutput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.KinesisStreamsOutput.html#KinesisStreamsOutput"><span class="hs-identifier hs-type">KinesisStreamsOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="output_kinesisStreamsOutput"><span class="annot"><span class="annottext">output_kinesisStreamsOutput :: (Maybe KinesisStreamsOutput -&gt; f (Maybe KinesisStreamsOutput))
 -&gt; Output -&gt; f Output
 </span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#output_kinesisStreamsOutput"><span class="hs-identifier hs-var hs-var">output_kinesisStreamsOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Output -&gt; Maybe KinesisStreamsOutput)
 -&gt; (Output -&gt; Maybe KinesisStreamsOutput -&gt; Output)
@@ -220,16 +196,40 @@ $sel:kinesisFirehoseOutput:Output' :: Output -&gt; Maybe KinesisFirehoseOutput
      (Maybe KinesisStreamsOutput)
      (Maybe KinesisStreamsOutput)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209209"><span class="annot"><span class="annottext">Maybe KinesisStreamsOutput
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209313"><span class="annot"><span class="annottext">Maybe KinesisStreamsOutput
 kinesisStreamsOutput :: Maybe KinesisStreamsOutput
 $sel:kinesisStreamsOutput:Output' :: Output -&gt; Maybe KinesisStreamsOutput
-</span><a href="#local-6989586621679209209"><span class="hs-identifier hs-var hs-var">kinesisStreamsOutput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamsOutput
-</span><a href="#local-6989586621679209209"><span class="hs-identifier hs-var">kinesisStreamsOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209208"><span class="annot"><span class="annottext">s :: Output
-</span><a href="#local-6989586621679209208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209207"><span class="annot"><span class="annottext">Maybe KinesisStreamsOutput
-</span><a href="#local-6989586621679209207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Output
-</span><a href="#local-6989586621679209208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisStreamsOutput:Output' :: Maybe KinesisStreamsOutput
+</span><a href="#local-6989586621679209313"><span class="hs-identifier hs-var hs-var">kinesisStreamsOutput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamsOutput
+</span><a href="#local-6989586621679209313"><span class="hs-identifier hs-var">kinesisStreamsOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209312"><span class="annot"><span class="annottext">s :: Output
+</span><a href="#local-6989586621679209312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209311"><span class="annot"><span class="annottext">Maybe KinesisStreamsOutput
+</span><a href="#local-6989586621679209311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Output
+</span><a href="#local-6989586621679209312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisStreamsOutput:Output' :: Maybe KinesisStreamsOutput
 </span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3AkinesisStreamsOutput%3AOutput%27"><span class="hs-identifier hs-var">kinesisStreamsOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamsOutput
-</span><a href="#local-6989586621679209207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Identifies an Amazon Kinesis Firehose delivery stream as the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- destination.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#output_kinesisFirehoseOutput"><span class="hs-identifier hs-type">output_kinesisFirehoseOutput</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.KinesisFirehoseOutput.html#KinesisFirehoseOutput"><span class="hs-identifier hs-type">KinesisFirehoseOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="output_kinesisFirehoseOutput"><span class="annot"><span class="annottext">output_kinesisFirehoseOutput :: (Maybe KinesisFirehoseOutput -&gt; f (Maybe KinesisFirehoseOutput))
+-&gt; Output -&gt; f Output
+</span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#output_kinesisFirehoseOutput"><span class="hs-identifier hs-var hs-var">output_kinesisFirehoseOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Output -&gt; Maybe KinesisFirehoseOutput)
+-&gt; (Output -&gt; Maybe KinesisFirehoseOutput -&gt; Output)
+-&gt; Lens
+     Output
+     Output
+     (Maybe KinesisFirehoseOutput)
+     (Maybe KinesisFirehoseOutput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209309"><span class="annot"><span class="annottext">Maybe KinesisFirehoseOutput
+kinesisFirehoseOutput :: Maybe KinesisFirehoseOutput
+$sel:kinesisFirehoseOutput:Output' :: Output -&gt; Maybe KinesisFirehoseOutput
+</span><a href="#local-6989586621679209309"><span class="hs-identifier hs-var hs-var">kinesisFirehoseOutput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseOutput
+</span><a href="#local-6989586621679209309"><span class="hs-identifier hs-var">kinesisFirehoseOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209308"><span class="annot"><span class="annottext">s :: Output
+</span><a href="#local-6989586621679209308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209307"><span class="annot"><span class="annottext">Maybe KinesisFirehoseOutput
+</span><a href="#local-6989586621679209307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Output
+</span><a href="#local-6989586621679209308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisFirehoseOutput:Output' :: Maybe KinesisFirehoseOutput
+</span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3AkinesisFirehoseOutput%3AOutput%27"><span class="hs-identifier hs-var">kinesisFirehoseOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseOutput
+</span><a href="#local-6989586621679209307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | Name of the in-application stream.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#output_name"><span class="hs-identifier hs-type">output_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -237,16 +237,16 @@ $sel:kinesisStreamsOutput:Output' :: Output -&gt; Maybe KinesisStreamsOutput
 </span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#output_name"><span class="hs-identifier hs-var hs-var">output_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Output -&gt; Text)
 -&gt; (Output -&gt; Text -&gt; Output) -&gt; Lens Output Output Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209205"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209305"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:Output' :: Output -&gt; Text
-</span><a href="#local-6989586621679209205"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209205"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209204"><span class="annot"><span class="annottext">s :: Output
-</span><a href="#local-6989586621679209204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209203"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Output
-</span><a href="#local-6989586621679209204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Output' :: Text
+</span><a href="#local-6989586621679209305"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209305"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209304"><span class="annot"><span class="annottext">s :: Output
+</span><a href="#local-6989586621679209304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209303"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Output
+</span><a href="#local-6989586621679209304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Output' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3Aname%3AOutput%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- | Describes the data format when records are written to the destination.</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- For more information, see</span><span>
@@ -257,39 +257,39 @@ $sel:name:Output' :: Output -&gt; Text
 -&gt; (Output -&gt; DestinationSchema -&gt; Output)
 -&gt; Lens Output Output DestinationSchema DestinationSchema
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209201"><span class="annot"><span class="annottext">DestinationSchema
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209301"><span class="annot"><span class="annottext">DestinationSchema
 destinationSchema :: DestinationSchema
 $sel:destinationSchema:Output' :: Output -&gt; DestinationSchema
-</span><a href="#local-6989586621679209201"><span class="hs-identifier hs-var hs-var">destinationSchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DestinationSchema
-</span><a href="#local-6989586621679209201"><span class="hs-identifier hs-var">destinationSchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209200"><span class="annot"><span class="annottext">s :: Output
-</span><a href="#local-6989586621679209200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209199"><span class="annot"><span class="annottext">DestinationSchema
-</span><a href="#local-6989586621679209199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Output
-</span><a href="#local-6989586621679209200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationSchema:Output' :: DestinationSchema
+</span><a href="#local-6989586621679209301"><span class="hs-identifier hs-var hs-var">destinationSchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DestinationSchema
+</span><a href="#local-6989586621679209301"><span class="hs-identifier hs-var">destinationSchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209300"><span class="annot"><span class="annottext">s :: Output
+</span><a href="#local-6989586621679209300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209299"><span class="annot"><span class="annottext">DestinationSchema
+</span><a href="#local-6989586621679209299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Output
+</span><a href="#local-6989586621679209300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationSchema:Output' :: DestinationSchema
 </span><a href="Network.AWS.KinesisAnalytics.Types.Output.html#%24sel%3AdestinationSchema%3AOutput%27"><span class="hs-identifier hs-var">destinationSchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DestinationSchema
-</span><a href="#local-6989586621679209199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209195"><span id="local-6989586621679209197"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209295"><span id="local-6989586621679209297"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span></span></span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209192"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209292"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209184"><span id="local-6989586621679209186"><span id="local-6989586621679209188"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679209182"><span class="annot"><span class="annottext">toJSON :: Output -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209176"><span id="local-6989586621679209177"><span id="local-6989586621679209178"><span id="local-6989586621679209179"><span id="local-6989586621679209180"><span class="annot"><span class="annottext">Maybe KinesisFirehoseOutput
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209284"><span id="local-6989586621679209286"><span id="local-6989586621679209288"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679209282"><span class="annot"><span class="annottext">toJSON :: Output -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.Output.html#Output%27"><span class="hs-identifier hs-type">Output'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209276"><span id="local-6989586621679209277"><span id="local-6989586621679209278"><span id="local-6989586621679209279"><span id="local-6989586621679209280"><span class="annot"><span class="annottext">Maybe KinesisFirehoseOutput
 Maybe KinesisStreamsOutput
 Maybe LambdaOutput
 Text
 DestinationSchema
 destinationSchema :: DestinationSchema
 name :: Text
-kinesisStreamsOutput :: Maybe KinesisStreamsOutput
 kinesisFirehoseOutput :: Maybe KinesisFirehoseOutput
+kinesisStreamsOutput :: Maybe KinesisStreamsOutput
 lambdaOutput :: Maybe LambdaOutput
 $sel:destinationSchema:Output' :: Output -&gt; DestinationSchema
 $sel:name:Output' :: Output -&gt; Text
-$sel:kinesisStreamsOutput:Output' :: Output -&gt; Maybe KinesisStreamsOutput
 $sel:kinesisFirehoseOutput:Output' :: Output -&gt; Maybe KinesisFirehoseOutput
+$sel:kinesisStreamsOutput:Output' :: Output -&gt; Maybe KinesisStreamsOutput
 $sel:lambdaOutput:Output' :: Output -&gt; Maybe LambdaOutput
-</span><a href="#local-6989586621679209176"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679209276"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -301,32 +301,32 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LambdaOutput -&gt; Pair) -&gt; Maybe LambdaOutput -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LambdaOutput
-</span><a href="#local-6989586621679209180"><span class="hs-identifier hs-var">lambdaOutput</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209280"><span class="hs-identifier hs-var">lambdaOutput</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;KinesisFirehoseOutput&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KinesisFirehoseOutput -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">(KinesisFirehoseOutput -&gt; Pair)
--&gt; Maybe KinesisFirehoseOutput -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseOutput
-</span><a href="#local-6989586621679209179"><span class="hs-identifier hs-var">kinesisFirehoseOutput</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KinesisStreamsOutput&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KinesisStreamsOutput -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">(KinesisStreamsOutput -&gt; Pair)
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">(KinesisStreamsOutput -&gt; Pair)
 -&gt; Maybe KinesisStreamsOutput -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamsOutput
-</span><a href="#local-6989586621679209178"><span class="hs-identifier hs-var">kinesisStreamsOutput</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209279"><span class="hs-identifier hs-var">kinesisStreamsOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KinesisFirehoseOutput&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KinesisFirehoseOutput -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">(KinesisFirehoseOutput -&gt; Pair)
+-&gt; Maybe KinesisFirehoseOutput -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseOutput
+</span><a href="#local-6989586621679209278"><span class="hs-identifier hs-var">kinesisFirehoseOutput</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679209177"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209277"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -334,7 +334,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DestinationSchema&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DestinationSchema -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">DestinationSchema
-</span><a href="#local-6989586621679209176"><span class="hs-identifier hs-var">destinationSchema</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209276"><span class="hs-identifier hs-var">destinationSchema</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span></pre></body></html>

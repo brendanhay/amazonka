@@ -31,8 +31,8 @@
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#newBatchGetImage"><span class="hs-identifier">newBatchGetImage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_acceptedMediaTypes"><span class="hs-identifier">batchGetImage_acceptedMediaTypes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_registryId"><span class="hs-identifier">batchGetImage_registryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_registryId"><span class="hs-identifier">batchGetImage_registryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_acceptedMediaTypes"><span class="hs-identifier">batchGetImage_acceptedMediaTypes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_repositoryName"><span class="hs-identifier">batchGetImage_repositoryName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_imageIds"><span class="hs-identifier">batchGetImage_imageIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
@@ -55,19 +55,19 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newBatchGetImage' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679244023"><span id="local-6989586621679244024"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetImage"><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-var">BatchGetImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetImage%27"><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-var">BatchGetImage'</span></a></span></span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The accepted media types for the request.</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Valid values: @application\/vnd.docker.distribution.manifest.v1+json@ |</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @application\/vnd.docker.distribution.manifest.v2+json@ |</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- @application\/vnd.oci.image.manifest.v1+json@</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AacceptedMediaTypes%3ABatchGetImage%27"><span class="annot"><span class="annottext">BatchGetImage -&gt; Maybe (NonEmpty Text)
-</span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3AacceptedMediaTypes%3ABatchGetImage%27"><span class="hs-identifier hs-var hs-var">acceptedMediaTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- contains the images to describe. If you do not specify a registry, the</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- default registry is assumed.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AregistryId%3ABatchGetImage%27"><span class="annot"><span class="annottext">BatchGetImage -&gt; Maybe Text
+</span><span id="line-58"></span><span id="local-6989586621679244188"><span id="local-6989586621679244189"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetImage"><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-var">BatchGetImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetImage%27"><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-var">BatchGetImage'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- contains the images to describe. If you do not specify a registry, the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- default registry is assumed.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AregistryId%3ABatchGetImage%27"><span class="annot"><span class="annottext">BatchGetImage -&gt; Maybe Text
 </span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3AregistryId%3ABatchGetImage%27"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The accepted media types for the request.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- Valid values: @application\/vnd.docker.distribution.manifest.v1+json@ |</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- @application\/vnd.docker.distribution.manifest.v2+json@ |</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @application\/vnd.oci.image.manifest.v1+json@</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AacceptedMediaTypes%3ABatchGetImage%27"><span class="annot"><span class="annottext">BatchGetImage -&gt; Maybe (NonEmpty Text)
+</span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3AacceptedMediaTypes%3ABatchGetImage%27"><span class="hs-identifier hs-var hs-var">acceptedMediaTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The repository that contains the images to describe.</span><span>
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3ArepositoryName%3ABatchGetImage%27"><span class="annot"><span class="annottext">BatchGetImage -&gt; Text
 </span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3ArepositoryName%3ABatchGetImage%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -77,7 +77,7 @@
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AimageIds%3ABatchGetImage%27"><span class="annot"><span class="annottext">BatchGetImage -&gt; [ImageIdentifier]
 </span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3AimageIds%3ABatchGetImage%27"><span class="hs-identifier hs-var hs-var">imageIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244014"><span id="local-6989586621679244016"><span class="annot"><span class="annottext">BatchGetImage -&gt; BatchGetImage -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244179"><span id="local-6989586621679244181"><span class="annot"><span class="annottext">BatchGetImage -&gt; BatchGetImage -&gt; Bool
 (BatchGetImage -&gt; BatchGetImage -&gt; Bool)
 -&gt; (BatchGetImage -&gt; BatchGetImage -&gt; Bool) -&gt; Eq BatchGetImage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchGetImage -&gt; BatchGetImage -&gt; Bool
 == :: BatchGetImage -&gt; BatchGetImage -&gt; Bool
 $c== :: BatchGetImage -&gt; BatchGetImage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244005"><span id="local-6989586621679244007"><span id="local-6989586621679244009"><span id="local-6989586621679244011"><span class="annot"><span class="annottext">ReadPrec [BatchGetImage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244170"><span id="local-6989586621679244172"><span id="local-6989586621679244174"><span id="local-6989586621679244176"><span class="annot"><span class="annottext">ReadPrec [BatchGetImage]
 ReadPrec BatchGetImage
 Int -&gt; ReadS BatchGetImage
 ReadS [BatchGetImage]
@@ -105,7 +105,7 @@ readList :: ReadS [BatchGetImage]
 $creadList :: ReadS [BatchGetImage]
 readsPrec :: Int -&gt; ReadS BatchGetImage
 $creadsPrec :: Int -&gt; ReadS BatchGetImage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243998"><span id="local-6989586621679244000"><span id="local-6989586621679244002"><span class="annot"><span class="annottext">Int -&gt; BatchGetImage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244163"><span id="local-6989586621679244165"><span id="local-6989586621679244167"><span class="annot"><span class="annottext">Int -&gt; BatchGetImage -&gt; ShowS
 [BatchGetImage] -&gt; ShowS
 BatchGetImage -&gt; String
 (Int -&gt; BatchGetImage -&gt; ShowS)
@@ -139,15 +139,15 @@ $cfrom :: forall x. BatchGetImage -&gt; Rep BatchGetImage x
 </span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'acceptedMediaTypes', 'batchGetImage_acceptedMediaTypes' - The accepted media types for the request.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- Valid values: @application\/vnd.docker.distribution.manifest.v1+json@ |</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- @application\/vnd.docker.distribution.manifest.v2+json@ |</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- @application\/vnd.oci.image.manifest.v1+json@</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'registryId', 'batchGetImage_registryId' - The Amazon Web Services account ID associated with the registry that</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- contains the images to describe. If you do not specify a registry, the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- default registry is assumed.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'acceptedMediaTypes', 'batchGetImage_acceptedMediaTypes' - The accepted media types for the request.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'registryId', 'batchGetImage_registryId' - The Amazon Web Services account ID associated with the registry that</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- contains the images to describe. If you do not specify a registry, the</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- default registry is assumed.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Valid values: @application\/vnd.docker.distribution.manifest.v1+json@ |</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- @application\/vnd.docker.distribution.manifest.v2+json@ |</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- @application\/vnd.oci.image.manifest.v1+json@</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- 'repositoryName', 'batchGetImage_repositoryName' - The repository that contains the images to describe.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
@@ -159,36 +159,58 @@ $cfrom :: forall x. BatchGetImage -&gt; Rep BatchGetImage x
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span>
 </span><span id="line-105"></span><span id="newBatchGetImage"><span class="annot"><span class="annottext">newBatchGetImage :: Text -&gt; BatchGetImage
-</span><a href="Network.AWS.ECR.BatchGetImage.html#newBatchGetImage"><span class="hs-identifier hs-var hs-var">newBatchGetImage</span></a></span></span><span> </span><span id="local-6989586621679243993"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243993"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">BatchGetImage' :: Maybe (NonEmpty Text)
--&gt; Maybe Text -&gt; Text -&gt; [ImageIdentifier] -&gt; BatchGetImage
+</span><a href="Network.AWS.ECR.BatchGetImage.html#newBatchGetImage"><span class="hs-identifier hs-var hs-var">newBatchGetImage</span></a></span></span><span> </span><span id="local-6989586621679244158"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244158"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">BatchGetImage' :: Maybe Text
+-&gt; Maybe (NonEmpty Text)
+-&gt; Text
+-&gt; [ImageIdentifier]
+-&gt; BatchGetImage
 </span><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:acceptedMediaTypes:BatchGetImage' :: Maybe (NonEmpty Text)
-</span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3AacceptedMediaTypes%3ABatchGetImage%27"><span class="hs-identifier hs-var">acceptedMediaTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:registryId:BatchGetImage' :: Maybe Text
+</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:registryId:BatchGetImage' :: Maybe Text
 </span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3AregistryId%3ABatchGetImage%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:BatchGetImage' :: Text
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:acceptedMediaTypes:BatchGetImage' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3AacceptedMediaTypes%3ABatchGetImage%27"><span class="hs-identifier hs-var">acceptedMediaTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:BatchGetImage' :: Text
 </span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3ArepositoryName%3ABatchGetImage%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243993"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageIds:BatchGetImage' :: [ImageIdentifier]
+</span><a href="#local-6989586621679244158"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageIds:BatchGetImage' :: [ImageIdentifier]
 </span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3AimageIds%3ABatchGetImage%27"><span class="hs-identifier hs-var">imageIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ImageIdentifier]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The accepted media types for the request.</span><span>
-</span><span id="line-115"></span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- Valid values: @application\/vnd.docker.distribution.manifest.v1+json@ |</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- @application\/vnd.docker.distribution.manifest.v2+json@ |</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- @application\/vnd.oci.image.manifest.v1+json@</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_acceptedMediaTypes"><span class="hs-identifier hs-type">batchGetImage_acceptedMediaTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="batchGetImage_acceptedMediaTypes"><span class="annot"><span class="annottext">batchGetImage_acceptedMediaTypes :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- contains the images to describe. If you do not specify a registry, the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- default registry is assumed.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_registryId"><span class="hs-identifier hs-type">batchGetImage_registryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="batchGetImage_registryId"><span class="annot"><span class="annottext">batchGetImage_registryId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BatchGetImage -&gt; f BatchGetImage
+</span><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_registryId"><span class="hs-identifier hs-var hs-var">batchGetImage_registryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetImage -&gt; Maybe Text)
+-&gt; (BatchGetImage -&gt; Maybe Text -&gt; BatchGetImage)
+-&gt; Lens BatchGetImage BatchGetImage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244155"><span class="annot"><span class="annottext">Maybe Text
+registryId :: Maybe Text
+$sel:registryId:BatchGetImage' :: BatchGetImage -&gt; Maybe Text
+</span><a href="#local-6989586621679244155"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244155"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244154"><span class="annot"><span class="annottext">s :: BatchGetImage
+</span><a href="#local-6989586621679244154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244153"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetImage
+</span><a href="#local-6989586621679244154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:BatchGetImage' :: Maybe Text
+</span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3AregistryId%3ABatchGetImage%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The accepted media types for the request.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Valid values: @application\/vnd.docker.distribution.manifest.v1+json@ |</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- @application\/vnd.docker.distribution.manifest.v2+json@ |</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- @application\/vnd.oci.image.manifest.v1+json@</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_acceptedMediaTypes"><span class="hs-identifier hs-type">batchGetImage_acceptedMediaTypes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="batchGetImage_acceptedMediaTypes"><span class="annot"><span class="annottext">batchGetImage_acceptedMediaTypes :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
 -&gt; BatchGetImage -&gt; f BatchGetImage
 </span><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_acceptedMediaTypes"><span class="hs-identifier hs-var hs-var">batchGetImage_acceptedMediaTypes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetImage -&gt; Maybe (NonEmpty Text))
 -&gt; (BatchGetImage -&gt; Maybe (NonEmpty Text) -&gt; BatchGetImage)
@@ -198,16 +220,16 @@ forall a. Monoid a =&gt; a
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243990"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244152"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 acceptedMediaTypes :: Maybe (NonEmpty Text)
 $sel:acceptedMediaTypes:BatchGetImage' :: BatchGetImage -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679243990"><span class="hs-identifier hs-var hs-var">acceptedMediaTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679243990"><span class="hs-identifier hs-var">acceptedMediaTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243989"><span class="annot"><span class="annottext">s :: BatchGetImage
-</span><a href="#local-6989586621679243989"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243988"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679243988"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetImage
-</span><a href="#local-6989586621679243989"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptedMediaTypes:BatchGetImage' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679244152"><span class="hs-identifier hs-var hs-var">acceptedMediaTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679244152"><span class="hs-identifier hs-var">acceptedMediaTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244151"><span class="annot"><span class="annottext">s :: BatchGetImage
+</span><a href="#local-6989586621679244151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244150"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679244150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetImage
+</span><a href="#local-6989586621679244151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptedMediaTypes:BatchGetImage' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3AacceptedMediaTypes%3ABatchGetImage%27"><span class="hs-identifier hs-var">acceptedMediaTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679243988"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679244150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; BatchGetImage -&gt; f BatchGetImage)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -227,68 +249,48 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | The Amazon Web Services account ID associated with the registry that</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- contains the images to describe. If you do not specify a registry, the</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- default registry is assumed.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_registryId"><span class="hs-identifier hs-type">batchGetImage_registryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="batchGetImage_registryId"><span class="annot"><span class="annottext">batchGetImage_registryId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BatchGetImage -&gt; f BatchGetImage
-</span><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_registryId"><span class="hs-identifier hs-var hs-var">batchGetImage_registryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetImage -&gt; Maybe Text)
--&gt; (BatchGetImage -&gt; Maybe Text -&gt; BatchGetImage)
--&gt; Lens BatchGetImage BatchGetImage (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243984"><span class="annot"><span class="annottext">Maybe Text
-registryId :: Maybe Text
-$sel:registryId:BatchGetImage' :: BatchGetImage -&gt; Maybe Text
-</span><a href="#local-6989586621679243984"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679243984"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243983"><span class="annot"><span class="annottext">s :: BatchGetImage
-</span><a href="#local-6989586621679243983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243982"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679243982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetImage
-</span><a href="#local-6989586621679243983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:BatchGetImage' :: Maybe Text
-</span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3AregistryId%3ABatchGetImage%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679243982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | The repository that contains the images to describe.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_repositoryName"><span class="hs-identifier hs-type">batchGetImage_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-130"></span><span id="batchGetImage_repositoryName"><span class="annot"><span class="annottext">batchGetImage_repositoryName :: (Text -&gt; f Text) -&gt; BatchGetImage -&gt; f BatchGetImage
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The repository that contains the images to describe.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_repositoryName"><span class="hs-identifier hs-type">batchGetImage_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-129"></span><span id="batchGetImage_repositoryName"><span class="annot"><span class="annottext">batchGetImage_repositoryName :: (Text -&gt; f Text) -&gt; BatchGetImage -&gt; f BatchGetImage
 </span><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_repositoryName"><span class="hs-identifier hs-var hs-var">batchGetImage_repositoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetImage -&gt; Text)
 -&gt; (BatchGetImage -&gt; Text -&gt; BatchGetImage)
 -&gt; Lens BatchGetImage BatchGetImage Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243981"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244146"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:BatchGetImage' :: BatchGetImage -&gt; Text
-</span><a href="#local-6989586621679243981"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243981"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243980"><span class="annot"><span class="annottext">s :: BatchGetImage
-</span><a href="#local-6989586621679243980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243979"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetImage
-</span><a href="#local-6989586621679243980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:BatchGetImage' :: Text
+</span><a href="#local-6989586621679244146"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244146"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244145"><span class="annot"><span class="annottext">s :: BatchGetImage
+</span><a href="#local-6989586621679244145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244144"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679244144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetImage
+</span><a href="#local-6989586621679244145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:BatchGetImage' :: Text
 </span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3ArepositoryName%3ABatchGetImage%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | A list of image ID references that correspond to images to describe. The</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- format of the @imageIds@ reference is @imageTag=tag@ or</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- @imageDigest=digest@.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_imageIds"><span class="hs-identifier hs-type">batchGetImage_imageIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span class="hs-special">]</span><span>
-</span><span id="line-136"></span><span id="batchGetImage_imageIds"><span class="annot"><span class="annottext">batchGetImage_imageIds :: ([ImageIdentifier] -&gt; f [ImageIdentifier])
+</span><a href="#local-6989586621679244144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | A list of image ID references that correspond to images to describe. The</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- format of the @imageIds@ reference is @imageTag=tag@ or</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- @imageDigest=digest@.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_imageIds"><span class="hs-identifier hs-type">batchGetImage_imageIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageIdentifier.html#ImageIdentifier"><span class="hs-identifier hs-type">ImageIdentifier</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-135"></span><span id="batchGetImage_imageIds"><span class="annot"><span class="annottext">batchGetImage_imageIds :: ([ImageIdentifier] -&gt; f [ImageIdentifier])
 -&gt; BatchGetImage -&gt; f BatchGetImage
 </span><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImage_imageIds"><span class="hs-identifier hs-var hs-var">batchGetImage_imageIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetImage -&gt; [ImageIdentifier])
 -&gt; (BatchGetImage -&gt; [ImageIdentifier] -&gt; BatchGetImage)
 -&gt; Lens
      BatchGetImage BatchGetImage [ImageIdentifier] [ImageIdentifier]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243978"><span class="annot"><span class="annottext">[ImageIdentifier]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244143"><span class="annot"><span class="annottext">[ImageIdentifier]
 imageIds :: [ImageIdentifier]
 $sel:imageIds:BatchGetImage' :: BatchGetImage -&gt; [ImageIdentifier]
-</span><a href="#local-6989586621679243978"><span class="hs-identifier hs-var hs-var">imageIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ImageIdentifier]
-</span><a href="#local-6989586621679243978"><span class="hs-identifier hs-var">imageIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243977"><span class="annot"><span class="annottext">s :: BatchGetImage
-</span><a href="#local-6989586621679243977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243976"><span class="annot"><span class="annottext">[ImageIdentifier]
-</span><a href="#local-6989586621679243976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetImage
-</span><a href="#local-6989586621679243977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageIds:BatchGetImage' :: [ImageIdentifier]
+</span><a href="#local-6989586621679244143"><span class="hs-identifier hs-var hs-var">imageIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ImageIdentifier]
+</span><a href="#local-6989586621679244143"><span class="hs-identifier hs-var">imageIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244142"><span class="annot"><span class="annottext">s :: BatchGetImage
+</span><a href="#local-6989586621679244142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244141"><span class="annot"><span class="annottext">[ImageIdentifier]
+</span><a href="#local-6989586621679244141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetImage
+</span><a href="#local-6989586621679244142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageIds:BatchGetImage' :: [ImageIdentifier]
 </span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3AimageIds%3ABatchGetImage%27"><span class="hs-identifier hs-var">imageIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ImageIdentifier]
-</span><a href="#local-6989586621679243976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ImageIdentifier] -&gt; f [ImageIdentifier])
+</span><a href="#local-6989586621679244141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ImageIdentifier] -&gt; f [ImageIdentifier])
  -&gt; BatchGetImage -&gt; f BatchGetImage)
 -&gt; (([ImageIdentifier] -&gt; f [ImageIdentifier])
     -&gt; [ImageIdentifier] -&gt; f [ImageIdentifier])
@@ -298,25 +300,25 @@ $sel:imageIds:BatchGetImage' :: BatchGetImage -&gt; [ImageIdentifier]
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ImageIdentifier] -&gt; f [ImageIdentifier])
 -&gt; [ImageIdentifier] -&gt; f [ImageIdentifier]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-140"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-141"></span><span>      </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-type">BatchGetImageResponse</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679243972"><span class="annot"><span class="annottext">request :: BatchGetImage -&gt; Request BatchGetImage
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-139"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-type">BatchGetImageResponse</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679244137"><span class="annot"><span class="annottext">request :: BatchGetImage -&gt; Request BatchGetImage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchGetImage -&gt; Request BatchGetImage
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECR.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679243968"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679244133"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchGetImage
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse BatchGetImage)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; Object
  -&gt; Either String (AWSResponse BatchGetImage))
@@ -334,21 +336,21 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679243965"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679243965"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679243964"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679243964"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679243963"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679243963"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Image]
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244130"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244130"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679244129"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679244129"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679244128"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679244128"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Image]
 -&gt; Maybe [ImageFailure] -&gt; Int -&gt; BatchGetImageResponse
 </span><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse%27"><span class="hs-identifier hs-var">BatchGetImageResponse'</span></a></span><span>
-</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Image]
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Image]
  -&gt; Maybe [ImageFailure] -&gt; Int -&gt; BatchGetImageResponse)
 -&gt; Either String (Maybe [Image])
 -&gt; Either
      String (Maybe [ImageFailure] -&gt; Int -&gt; BatchGetImageResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679243963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Image]))
+</span><a href="#local-6989586621679244128"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Image]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;images&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Image]))
@@ -357,13 +359,13 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Image]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (Maybe [ImageFailure] -&gt; Int -&gt; BatchGetImageResponse)
 -&gt; Either String (Maybe [ImageFailure])
 -&gt; Either String (Int -&gt; BatchGetImageResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679243963"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ImageFailure]))
+</span><a href="#local-6989586621679244128"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ImageFailure]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;failures&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ImageFailure]))
@@ -372,7 +374,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ImageFailure]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchGetImageResponse)
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchGetImageResponse)
 -&gt; Either String Int -&gt; Either String BatchGetImageResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
@@ -380,123 +382,123 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679243965"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243954"><span id="local-6989586621679243956"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span></span></span><span>
-</span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243951"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span></span><span>
-</span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679243947"><span class="annot"><span class="annottext">toHeaders :: BatchGetImage -&gt; ResponseHeaders
+</span><a href="#local-6989586621679244130"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244119"><span id="local-6989586621679244121"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244116"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679244112"><span class="annot"><span class="annottext">toHeaders :: BatchGetImage -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchGetImage -&gt; ResponseHeaders
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchGetImage -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
-</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-160"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-159"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
-</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AmazonEC2ContainerRegistry_V20150921.BatchGetImage&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-162"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-163"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-161"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-162"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
-</span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-166"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-167"></span><span>                      </span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243937"><span id="local-6989586621679243939"><span id="local-6989586621679243941"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679243935"><span class="annot"><span class="annottext">toJSON :: BatchGetImage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243930"><span id="local-6989586621679243931"><span id="local-6989586621679243932"><span id="local-6989586621679243933"><span class="annot"><span class="annottext">[ImageIdentifier]
+</span><span id="line-165"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-166"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244102"><span id="local-6989586621679244104"><span id="local-6989586621679244106"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679244100"><span class="annot"><span class="annottext">toJSON :: BatchGetImage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage%27"><span class="hs-identifier hs-type">BatchGetImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244095"><span id="local-6989586621679244096"><span id="local-6989586621679244097"><span id="local-6989586621679244098"><span class="annot"><span class="annottext">[ImageIdentifier]
 Maybe (NonEmpty Text)
 Maybe Text
 Text
 imageIds :: [ImageIdentifier]
 repositoryName :: Text
-registryId :: Maybe Text
 acceptedMediaTypes :: Maybe (NonEmpty Text)
+registryId :: Maybe Text
 $sel:imageIds:BatchGetImage' :: BatchGetImage -&gt; [ImageIdentifier]
 $sel:repositoryName:BatchGetImage' :: BatchGetImage -&gt; Text
-$sel:registryId:BatchGetImage' :: BatchGetImage -&gt; Maybe Text
 $sel:acceptedMediaTypes:BatchGetImage' :: BatchGetImage -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679243930"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:registryId:BatchGetImage' :: BatchGetImage -&gt; Maybe Text
+</span><a href="#local-6989586621679244095"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-175"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-174"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;registryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679244098"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;acceptedMediaTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679243933"><span class="hs-identifier hs-var">acceptedMediaTypes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;registryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679243932"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679244097"><span class="hs-identifier hs-var">acceptedMediaTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
-</span><span id="line-179"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-178"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679243931"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679244096"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imageIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ImageIdentifier] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[ImageIdentifier]
-</span><a href="#local-6989586621679243930"><span class="hs-identifier hs-var">imageIds</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679243924"><span class="annot"><span class="annottext">toPath :: BatchGetImage -&gt; ByteString
+</span><a href="#local-6989586621679244095"><span class="hs-identifier hs-var">imageIds</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679244089"><span class="annot"><span class="annottext">toPath :: BatchGetImage -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchGetImage -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
-</span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679243920"><span class="annot"><span class="annottext">toQuery :: BatchGetImage -&gt; QueryString
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImage"><span class="hs-identifier hs-type">BatchGetImage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679244085"><span class="annot"><span class="annottext">toQuery :: BatchGetImage -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchGetImage -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- | /See:/ 'newBatchGetImageResponse' smart constructor.</span><span>
-</span><span id="line-191"></span><span id="local-6989586621679243917"><span id="local-6989586621679243918"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetImageResponse"><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-var">BatchGetImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetImageResponse%27"><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse%27"><span class="hs-identifier hs-var">BatchGetImageResponse'</span></a></span></span><span>
-</span><span id="line-192"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of image objects corresponding to the image references in the</span><span>
-</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-194"></span><span>    </span><span id="%24sel%3Aimages%3ABatchGetImageResponse%27"><span class="annot"><span class="annottext">BatchGetImageResponse -&gt; Maybe [Image]
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | /See:/ 'newBatchGetImageResponse' smart constructor.</span><span>
+</span><span id="line-190"></span><span id="local-6989586621679244082"><span id="local-6989586621679244083"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetImageResponse"><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-var">BatchGetImageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetImageResponse%27"><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse%27"><span class="hs-identifier hs-var">BatchGetImageResponse'</span></a></span></span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of image objects corresponding to the image references in the</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3Aimages%3ABatchGetImageResponse%27"><span class="annot"><span class="annottext">BatchGetImageResponse -&gt; Maybe [Image]
 </span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3Aimages%3ABatchGetImageResponse%27"><span class="hs-identifier hs-var hs-var">images</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- | Any failures associated with the call.</span><span>
-</span><span id="line-196"></span><span>    </span><span id="%24sel%3Afailures%3ABatchGetImageResponse%27"><span class="annot"><span class="annottext">BatchGetImageResponse -&gt; Maybe [ImageFailure]
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | Any failures associated with the call.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3Afailures%3ABatchGetImageResponse%27"><span class="annot"><span class="annottext">BatchGetImageResponse -&gt; Maybe [ImageFailure]
 </span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3Afailures%3ABatchGetImageResponse%27"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-198"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchGetImageResponse%27"><span class="annot"><span class="annottext">BatchGetImageResponse -&gt; Int
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchGetImageResponse%27"><span class="annot"><span class="annottext">BatchGetImageResponse -&gt; Int
 </span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3AhttpStatus%3ABatchGetImageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679243910"><span id="local-6989586621679243912"><span class="annot"><span class="annottext">BatchGetImageResponse -&gt; BatchGetImageResponse -&gt; Bool
+</span><span id="line-198"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244075"><span id="local-6989586621679244077"><span class="annot"><span class="annottext">BatchGetImageResponse -&gt; BatchGetImageResponse -&gt; Bool
 (BatchGetImageResponse -&gt; BatchGetImageResponse -&gt; Bool)
 -&gt; (BatchGetImageResponse -&gt; BatchGetImageResponse -&gt; Bool)
 -&gt; Eq BatchGetImageResponse
@@ -505,7 +507,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchGetImageResponse -&gt; BatchGetImageResponse -&gt; Bool
 == :: BatchGetImageResponse -&gt; BatchGetImageResponse -&gt; Bool
 $c== :: BatchGetImageResponse -&gt; BatchGetImageResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243902"><span id="local-6989586621679243904"><span id="local-6989586621679243906"><span id="local-6989586621679243908"><span class="annot"><span class="annottext">ReadPrec [BatchGetImageResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244067"><span id="local-6989586621679244069"><span id="local-6989586621679244071"><span id="local-6989586621679244073"><span class="annot"><span class="annottext">ReadPrec [BatchGetImageResponse]
 ReadPrec BatchGetImageResponse
 Int -&gt; ReadS BatchGetImageResponse
 ReadS [BatchGetImageResponse]
@@ -525,7 +527,7 @@ readList :: ReadS [BatchGetImageResponse]
 $creadList :: ReadS [BatchGetImageResponse]
 readsPrec :: Int -&gt; ReadS BatchGetImageResponse
 $creadsPrec :: Int -&gt; ReadS BatchGetImageResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679243896"><span id="local-6989586621679243898"><span id="local-6989586621679243900"><span class="annot"><span class="annottext">Int -&gt; BatchGetImageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244061"><span id="local-6989586621679244063"><span id="local-6989586621679244065"><span class="annot"><span class="annottext">Int -&gt; BatchGetImageResponse -&gt; ShowS
 [BatchGetImageResponse] -&gt; ShowS
 BatchGetImageResponse -&gt; String
 (Int -&gt; BatchGetImageResponse -&gt; ShowS)
@@ -550,48 +552,48 @@ forall a.
 $cto :: forall x. Rep BatchGetImageResponse x -&gt; BatchGetImageResponse
 $cfrom :: forall x. BatchGetImageResponse -&gt; Rep BatchGetImageResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- Create a value of 'BatchGetImageResponse' with all optional fields omitted.</span><span>
-</span><span id="line-204"></span><span class="hs-comment">--</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-206"></span><span class="hs-comment">--</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-209"></span><span class="hs-comment">--</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- 'images', 'batchGetImageResponse_images' - A list of image objects corresponding to the image references in the</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-212"></span><span class="hs-comment">--</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- 'failures', 'batchGetImageResponse_failures' - Any failures associated with the call.</span><span>
-</span><span id="line-214"></span><span class="hs-comment">--</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- 'httpStatus', 'batchGetImageResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#newBatchGetImageResponse"><span class="hs-identifier hs-type">newBatchGetImageResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-217"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-218"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-219"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-type">BatchGetImageResponse</span></a></span><span>
-</span><span id="line-220"></span><span id="newBatchGetImageResponse"><span class="annot"><span class="annottext">newBatchGetImageResponse :: Int -&gt; BatchGetImageResponse
-</span><a href="Network.AWS.ECR.BatchGetImage.html#newBatchGetImageResponse"><span class="hs-identifier hs-var hs-var">newBatchGetImageResponse</span></a></span></span><span> </span><span id="local-6989586621679243893"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679243893"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-221"></span><span>  </span><span class="annot"><span class="annottext">BatchGetImageResponse' :: Maybe [Image]
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Create a value of 'BatchGetImageResponse' with all optional fields omitted.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'images', 'batchGetImageResponse_images' - A list of image objects corresponding to the image references in the</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'failures', 'batchGetImageResponse_failures' - Any failures associated with the call.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- 'httpStatus', 'batchGetImageResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#newBatchGetImageResponse"><span class="hs-identifier hs-type">newBatchGetImageResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-type">BatchGetImageResponse</span></a></span><span>
+</span><span id="line-219"></span><span id="newBatchGetImageResponse"><span class="annot"><span class="annottext">newBatchGetImageResponse :: Int -&gt; BatchGetImageResponse
+</span><a href="Network.AWS.ECR.BatchGetImage.html#newBatchGetImageResponse"><span class="hs-identifier hs-var hs-var">newBatchGetImageResponse</span></a></span></span><span> </span><span id="local-6989586621679244058"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244058"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>  </span><span class="annot"><span class="annottext">BatchGetImageResponse' :: Maybe [Image]
 -&gt; Maybe [ImageFailure] -&gt; Int -&gt; BatchGetImageResponse
 </span><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse%27"><span class="hs-identifier hs-type">BatchGetImageResponse'</span></a></span><span>
-</span><span id="line-222"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:images:BatchGetImageResponse' :: Maybe [Image]
+</span><span id="line-221"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:images:BatchGetImageResponse' :: Maybe [Image]
 </span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3Aimages%3ABatchGetImageResponse%27"><span class="hs-identifier hs-var">images</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Image]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:failures:BatchGetImageResponse' :: Maybe [ImageFailure]
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:failures:BatchGetImageResponse' :: Maybe [ImageFailure]
 </span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3Afailures%3ABatchGetImageResponse%27"><span class="hs-identifier hs-var">failures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageFailure]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetImageResponse' :: Int
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetImageResponse' :: Int
 </span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3AhttpStatus%3ABatchGetImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679243893"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-225"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- | A list of image objects corresponding to the image references in the</span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImageResponse_images"><span class="hs-identifier hs-type">batchGetImageResponse_images</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-type">BatchGetImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-230"></span><span id="batchGetImageResponse_images"><span class="annot"><span class="annottext">batchGetImageResponse_images :: (Maybe [Image] -&gt; f (Maybe [Image]))
+</span><a href="#local-6989586621679244058"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | A list of image objects corresponding to the image references in the</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImageResponse_images"><span class="hs-identifier hs-type">batchGetImageResponse_images</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-type">BatchGetImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECR.Types.Image.html#Image"><span class="hs-identifier hs-type">Image</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="batchGetImageResponse_images"><span class="annot"><span class="annottext">batchGetImageResponse_images :: (Maybe [Image] -&gt; f (Maybe [Image]))
 -&gt; BatchGetImageResponse -&gt; f BatchGetImageResponse
 </span><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImageResponse_images"><span class="hs-identifier hs-var hs-var">batchGetImageResponse_images</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetImageResponse -&gt; Maybe [Image])
 -&gt; (BatchGetImageResponse
@@ -602,16 +604,16 @@ forall a. Maybe a
      (Maybe [Image])
      (Maybe [Image])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse%27"><span class="hs-identifier hs-type">BatchGetImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243892"><span class="annot"><span class="annottext">Maybe [Image]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse%27"><span class="hs-identifier hs-type">BatchGetImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244057"><span class="annot"><span class="annottext">Maybe [Image]
 images :: Maybe [Image]
 $sel:images:BatchGetImageResponse' :: BatchGetImageResponse -&gt; Maybe [Image]
-</span><a href="#local-6989586621679243892"><span class="hs-identifier hs-var hs-var">images</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Image]
-</span><a href="#local-6989586621679243892"><span class="hs-identifier hs-var">images</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243891"><span class="annot"><span class="annottext">s :: BatchGetImageResponse
-</span><a href="#local-6989586621679243891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse%27"><span class="hs-identifier hs-type">BatchGetImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243890"><span class="annot"><span class="annottext">Maybe [Image]
-</span><a href="#local-6989586621679243890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetImageResponse
-</span><a href="#local-6989586621679243891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:images:BatchGetImageResponse' :: Maybe [Image]
+</span><a href="#local-6989586621679244057"><span class="hs-identifier hs-var hs-var">images</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Image]
+</span><a href="#local-6989586621679244057"><span class="hs-identifier hs-var">images</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244056"><span class="annot"><span class="annottext">s :: BatchGetImageResponse
+</span><a href="#local-6989586621679244056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse%27"><span class="hs-identifier hs-type">BatchGetImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244055"><span class="annot"><span class="annottext">Maybe [Image]
+</span><a href="#local-6989586621679244055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetImageResponse
+</span><a href="#local-6989586621679244056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:images:BatchGetImageResponse' :: Maybe [Image]
 </span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3Aimages%3ABatchGetImageResponse%27"><span class="hs-identifier hs-var">images</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Image]
-</span><a href="#local-6989586621679243890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-type">BatchGetImageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Image] -&gt; f (Maybe [Image]))
+</span><a href="#local-6989586621679244055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-type">BatchGetImageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Image] -&gt; f (Maybe [Image]))
  -&gt; BatchGetImageResponse -&gt; f BatchGetImageResponse)
 -&gt; ((Maybe [Image] -&gt; f (Maybe [Image]))
     -&gt; Maybe [Image] -&gt; f (Maybe [Image]))
@@ -626,12 +628,12 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Image] [Image] [Image] [Image]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-231"></span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- | Any failures associated with the call.</span><span>
-</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImageResponse_failures"><span class="hs-identifier hs-type">batchGetImageResponse_failures</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-type">BatchGetImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-234"></span><span id="batchGetImageResponse_failures"><span class="annot"><span class="annottext">batchGetImageResponse_failures :: (Maybe [ImageFailure] -&gt; f (Maybe [ImageFailure]))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | Any failures associated with the call.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImageResponse_failures"><span class="hs-identifier hs-type">batchGetImageResponse_failures</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-type">BatchGetImageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECR.Types.ImageFailure.html#ImageFailure"><span class="hs-identifier hs-type">ImageFailure</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="batchGetImageResponse_failures"><span class="annot"><span class="annottext">batchGetImageResponse_failures :: (Maybe [ImageFailure] -&gt; f (Maybe [ImageFailure]))
 -&gt; BatchGetImageResponse -&gt; f BatchGetImageResponse
 </span><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImageResponse_failures"><span class="hs-identifier hs-var hs-var">batchGetImageResponse_failures</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetImageResponse -&gt; Maybe [ImageFailure])
 -&gt; (BatchGetImageResponse
@@ -642,16 +644,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [ImageFailure])
      (Maybe [ImageFailure])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse%27"><span class="hs-identifier hs-type">BatchGetImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243889"><span class="annot"><span class="annottext">Maybe [ImageFailure]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse%27"><span class="hs-identifier hs-type">BatchGetImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244054"><span class="annot"><span class="annottext">Maybe [ImageFailure]
 failures :: Maybe [ImageFailure]
 $sel:failures:BatchGetImageResponse' :: BatchGetImageResponse -&gt; Maybe [ImageFailure]
-</span><a href="#local-6989586621679243889"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageFailure]
-</span><a href="#local-6989586621679243889"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243888"><span class="annot"><span class="annottext">s :: BatchGetImageResponse
-</span><a href="#local-6989586621679243888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse%27"><span class="hs-identifier hs-type">BatchGetImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243887"><span class="annot"><span class="annottext">Maybe [ImageFailure]
-</span><a href="#local-6989586621679243887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetImageResponse
-</span><a href="#local-6989586621679243888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:BatchGetImageResponse' :: Maybe [ImageFailure]
+</span><a href="#local-6989586621679244054"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageFailure]
+</span><a href="#local-6989586621679244054"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244053"><span class="annot"><span class="annottext">s :: BatchGetImageResponse
+</span><a href="#local-6989586621679244053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse%27"><span class="hs-identifier hs-type">BatchGetImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244052"><span class="annot"><span class="annottext">Maybe [ImageFailure]
+</span><a href="#local-6989586621679244052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetImageResponse
+</span><a href="#local-6989586621679244053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:BatchGetImageResponse' :: Maybe [ImageFailure]
 </span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3Afailures%3ABatchGetImageResponse%27"><span class="hs-identifier hs-var">failures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ImageFailure]
-</span><a href="#local-6989586621679243887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-type">BatchGetImageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ImageFailure] -&gt; f (Maybe [ImageFailure]))
+</span><a href="#local-6989586621679244052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-type">BatchGetImageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ImageFailure] -&gt; f (Maybe [ImageFailure]))
  -&gt; BatchGetImageResponse -&gt; f BatchGetImageResponse)
 -&gt; ((Maybe [ImageFailure] -&gt; f (Maybe [ImageFailure]))
     -&gt; Maybe [ImageFailure] -&gt; f (Maybe [ImageFailure]))
@@ -669,26 +671,26 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ImageFailure] [ImageFailure] [ImageFailure] [ImageFailure]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImageResponse_httpStatus"><span class="hs-identifier hs-type">batchGetImageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-type">BatchGetImageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-238"></span><span id="batchGetImageResponse_httpStatus"><span class="annot"><span class="annottext">batchGetImageResponse_httpStatus :: (Int -&gt; f Int) -&gt; BatchGetImageResponse -&gt; f BatchGetImageResponse
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImageResponse_httpStatus"><span class="hs-identifier hs-type">batchGetImageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-type">BatchGetImageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-237"></span><span id="batchGetImageResponse_httpStatus"><span class="annot"><span class="annottext">batchGetImageResponse_httpStatus :: (Int -&gt; f Int) -&gt; BatchGetImageResponse -&gt; f BatchGetImageResponse
 </span><a href="Network.AWS.ECR.BatchGetImage.html#batchGetImageResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchGetImageResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetImageResponse -&gt; Int)
 -&gt; (BatchGetImageResponse -&gt; Int -&gt; BatchGetImageResponse)
 -&gt; Lens BatchGetImageResponse BatchGetImageResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse%27"><span class="hs-identifier hs-type">BatchGetImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679243886"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse%27"><span class="hs-identifier hs-type">BatchGetImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244051"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchGetImageResponse' :: BatchGetImageResponse -&gt; Int
-</span><a href="#local-6989586621679243886"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679243886"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679243885"><span class="annot"><span class="annottext">s :: BatchGetImageResponse
-</span><a href="#local-6989586621679243885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse%27"><span class="hs-identifier hs-type">BatchGetImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679243884"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679243884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetImageResponse
-</span><a href="#local-6989586621679243885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetImageResponse' :: Int
+</span><a href="#local-6989586621679244051"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244051"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244050"><span class="annot"><span class="annottext">s :: BatchGetImageResponse
+</span><a href="#local-6989586621679244050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse%27"><span class="hs-identifier hs-type">BatchGetImageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244049"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679244049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetImageResponse
+</span><a href="#local-6989586621679244050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetImageResponse' :: Int
 </span><a href="Network.AWS.ECR.BatchGetImage.html#%24sel%3AhttpStatus%3ABatchGetImageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679243884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-type">BatchGetImageResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679243882"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-type">BatchGetImageResponse</span></a></span></span><span>
-</span><span id="line-241"></span></pre></body></html>
+</span><a href="#local-6989586621679244049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-type">BatchGetImageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244047"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECR.BatchGetImage.html#BatchGetImageResponse"><span class="hs-identifier hs-type">BatchGetImageResponse</span></a></span></span><span>
+</span><span id="line-240"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679301026"><span id="local-6989586621679301027"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EnvironmentInfoType"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoType.html#EnvironmentInfoType"><span class="hs-identifier hs-var">EnvironmentInfoType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnvironmentInfoType%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoType.html#EnvironmentInfoType%27"><span class="hs-identifier hs-var">EnvironmentInfoType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679301305"><span id="local-6989586621679301306"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EnvironmentInfoType"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoType.html#EnvironmentInfoType"><span class="hs-identifier hs-var">EnvironmentInfoType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnvironmentInfoType%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoType.html#EnvironmentInfoType%27"><span class="hs-identifier hs-var">EnvironmentInfoType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEnvironmentInfoType"><span class="annot"><span class="annottext">EnvironmentInfoType -&gt; Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoType.html#fromEnvironmentInfoType"><span class="hs-identifier hs-var hs-var">fromEnvironmentInfoType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301018"><span id="local-6989586621679301020"><span id="local-6989586621679301022"><span class="annot"><span class="annottext">Int -&gt; EnvironmentInfoType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301297"><span id="local-6989586621679301299"><span id="local-6989586621679301301"><span class="annot"><span class="annottext">Int -&gt; EnvironmentInfoType -&gt; ShowS
 [EnvironmentInfoType] -&gt; ShowS
 EnvironmentInfoType -&gt; String
 (Int -&gt; EnvironmentInfoType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: EnvironmentInfoType -&gt; String
 showsPrec :: Int -&gt; EnvironmentInfoType -&gt; ShowS
 $cshowsPrec :: Int -&gt; EnvironmentInfoType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679301009"><span id="local-6989586621679301011"><span id="local-6989586621679301013"><span id="local-6989586621679301015"><span class="annot"><span class="annottext">ReadPrec [EnvironmentInfoType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679301288"><span id="local-6989586621679301290"><span id="local-6989586621679301292"><span id="local-6989586621679301294"><span class="annot"><span class="annottext">ReadPrec [EnvironmentInfoType]
 ReadPrec EnvironmentInfoType
 Int -&gt; ReadS EnvironmentInfoType
 ReadS [EnvironmentInfoType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [EnvironmentInfoType]
 readsPrec :: Int -&gt; ReadS EnvironmentInfoType
 $creadsPrec :: Int -&gt; ReadS EnvironmentInfoType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679301004"><span id="local-6989586621679301006"><span class="annot"><span class="annottext">EnvironmentInfoType -&gt; EnvironmentInfoType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679301283"><span id="local-6989586621679301285"><span class="annot"><span class="annottext">EnvironmentInfoType -&gt; EnvironmentInfoType -&gt; Bool
 (EnvironmentInfoType -&gt; EnvironmentInfoType -&gt; Bool)
 -&gt; (EnvironmentInfoType -&gt; EnvironmentInfoType -&gt; Bool)
 -&gt; Eq EnvironmentInfoType
@@ -82,7 +82,7 @@ $c/= :: EnvironmentInfoType -&gt; EnvironmentInfoType -&gt; Bool
 == :: EnvironmentInfoType -&gt; EnvironmentInfoType -&gt; Bool
 $c== :: EnvironmentInfoType -&gt; EnvironmentInfoType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679300988"><span id="local-6989586621679300990"><span id="local-6989586621679300992"><span id="local-6989586621679300994"><span id="local-6989586621679300996"><span id="local-6989586621679300998"><span id="local-6989586621679301000"><span class="annot"><span class="annottext">Eq EnvironmentInfoType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679301267"><span id="local-6989586621679301269"><span id="local-6989586621679301271"><span id="local-6989586621679301273"><span id="local-6989586621679301275"><span id="local-6989586621679301277"><span id="local-6989586621679301279"><span class="annot"><span class="annottext">Eq EnvironmentInfoType
 Eq EnvironmentInfoType
 -&gt; (EnvironmentInfoType -&gt; EnvironmentInfoType -&gt; Ordering)
 -&gt; (EnvironmentInfoType -&gt; EnvironmentInfoType -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. EnvironmentInfoType -&gt; Rep EnvironmentInfoType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679300980"><span id="local-6989586621679300982"><span class="annot"><span class="annottext">Int -&gt; EnvironmentInfoType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679301259"><span id="local-6989586621679301261"><span class="annot"><span class="annottext">Int -&gt; EnvironmentInfoType -&gt; Int
 EnvironmentInfoType -&gt; Int
 (Int -&gt; EnvironmentInfoType -&gt; Int)
 -&gt; (EnvironmentInfoType -&gt; Int) -&gt; Hashable EnvironmentInfoType
@@ -145,53 +145,53 @@ $chash :: EnvironmentInfoType -&gt; Int
 hashWithSalt :: Int -&gt; EnvironmentInfoType -&gt; Int
 $chashWithSalt :: Int -&gt; EnvironmentInfoType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679300977"><span class="annot"><span class="annottext">EnvironmentInfoType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679301256"><span class="annot"><span class="annottext">EnvironmentInfoType -&gt; ()
 (EnvironmentInfoType -&gt; ()) -&gt; NFData EnvironmentInfoType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EnvironmentInfoType -&gt; ()
 $crnf :: EnvironmentInfoType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679300974"><span class="annot"><span class="annottext">Text -&gt; Either String EnvironmentInfoType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679301253"><span class="annot"><span class="annottext">Text -&gt; Either String EnvironmentInfoType
 (Text -&gt; Either String EnvironmentInfoType)
 -&gt; FromText EnvironmentInfoType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EnvironmentInfoType
 $cfromText :: Text -&gt; Either String EnvironmentInfoType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679300971"><span class="annot"><span class="annottext">EnvironmentInfoType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679301250"><span class="annot"><span class="annottext">EnvironmentInfoType -&gt; Text
 (EnvironmentInfoType -&gt; Text) -&gt; ToText EnvironmentInfoType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EnvironmentInfoType -&gt; Text
 $ctoText :: EnvironmentInfoType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679300968"><span class="annot"><span class="annottext">EnvironmentInfoType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679301247"><span class="annot"><span class="annottext">EnvironmentInfoType -&gt; ByteString
 (EnvironmentInfoType -&gt; ByteString)
 -&gt; ToByteString EnvironmentInfoType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EnvironmentInfoType -&gt; ByteString
 $ctoBS :: EnvironmentInfoType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679300965"><span class="annot"><span class="annottext">EnvironmentInfoType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679301244"><span class="annot"><span class="annottext">EnvironmentInfoType -&gt; ByteStringBuilder
 (EnvironmentInfoType -&gt; ByteStringBuilder)
 -&gt; ToLog EnvironmentInfoType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EnvironmentInfoType -&gt; ByteStringBuilder
 $cbuild :: EnvironmentInfoType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679300962"><span class="annot"><span class="annottext">HeaderName -&gt; EnvironmentInfoType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679301241"><span class="annot"><span class="annottext">HeaderName -&gt; EnvironmentInfoType -&gt; [Header]
 (HeaderName -&gt; EnvironmentInfoType -&gt; [Header])
 -&gt; ToHeader EnvironmentInfoType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EnvironmentInfoType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EnvironmentInfoType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679300959"><span class="annot"><span class="annottext">EnvironmentInfoType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679301238"><span class="annot"><span class="annottext">EnvironmentInfoType -&gt; QueryString
 (EnvironmentInfoType -&gt; QueryString) -&gt; ToQuery EnvironmentInfoType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EnvironmentInfoType -&gt; QueryString
 $ctoQuery :: EnvironmentInfoType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679300954"><span id="local-6989586621679300956"><span class="annot"><span class="annottext">Value -&gt; Parser [EnvironmentInfoType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679301233"><span id="local-6989586621679301235"><span class="annot"><span class="annottext">Value -&gt; Parser [EnvironmentInfoType]
 Value -&gt; Parser EnvironmentInfoType
 (Value -&gt; Parser EnvironmentInfoType)
 -&gt; (Value -&gt; Parser [EnvironmentInfoType])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [EnvironmentInfoType]
 parseJSON :: Value -&gt; Parser EnvironmentInfoType
 $cparseJSON :: Value -&gt; Parser EnvironmentInfoType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679300949"><span id="local-6989586621679300951"><span class="annot"><span class="annottext">FromJSONKeyFunction [EnvironmentInfoType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679301228"><span id="local-6989586621679301230"><span class="annot"><span class="annottext">FromJSONKeyFunction [EnvironmentInfoType]
 FromJSONKeyFunction EnvironmentInfoType
 FromJSONKeyFunction EnvironmentInfoType
 -&gt; FromJSONKeyFunction [EnvironmentInfoType]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EnvironmentInfoType]
 fromJSONKey :: FromJSONKeyFunction EnvironmentInfoType
 $cfromJSONKey :: FromJSONKeyFunction EnvironmentInfoType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679300940"><span id="local-6989586621679300942"><span id="local-6989586621679300944"><span id="local-6989586621679300946"><span class="annot"><span class="annottext">[EnvironmentInfoType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679301219"><span id="local-6989586621679301221"><span id="local-6989586621679301223"><span id="local-6989586621679301225"><span class="annot"><span class="annottext">[EnvironmentInfoType] -&gt; Encoding
 [EnvironmentInfoType] -&gt; Value
 EnvironmentInfoType -&gt; Encoding
 EnvironmentInfoType -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: EnvironmentInfoType -&gt; Encoding
 toJSON :: EnvironmentInfoType -&gt; Value
 $ctoJSON :: EnvironmentInfoType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679300935"><span id="local-6989586621679300937"><span class="annot"><span class="annottext">ToJSONKeyFunction [EnvironmentInfoType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679301214"><span id="local-6989586621679301216"><span class="annot"><span class="annottext">ToJSONKeyFunction [EnvironmentInfoType]
 ToJSONKeyFunction EnvironmentInfoType
 ToJSONKeyFunction EnvironmentInfoType
 -&gt; ToJSONKeyFunction [EnvironmentInfoType]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EnvironmentInfoType]
 toJSONKey :: ToJSONKeyFunction EnvironmentInfoType
 $ctoJSONKey :: ToJSONKeyFunction EnvironmentInfoType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679300932"><span class="annot"><span class="annottext">[Node] -&gt; Either String EnvironmentInfoType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679301211"><span class="annot"><span class="annottext">[Node] -&gt; Either String EnvironmentInfoType
 ([Node] -&gt; Either String EnvironmentInfoType)
 -&gt; FromXML EnvironmentInfoType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EnvironmentInfoType
 $cparseXML :: [Node] -&gt; Either String EnvironmentInfoType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679300929"><span class="annot"><span class="annottext">EnvironmentInfoType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679301208"><span class="annot"><span class="annottext">EnvironmentInfoType -&gt; XML
 (EnvironmentInfoType -&gt; XML) -&gt; ToXML EnvironmentInfoType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EnvironmentInfoType -&gt; XML

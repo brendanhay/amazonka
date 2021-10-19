@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679175854"><span id="local-6989586621679175855"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GroupFilterName"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilterName.html#GroupFilterName"><span class="hs-identifier hs-var">GroupFilterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GroupFilterName%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilterName.html#GroupFilterName%27"><span class="hs-identifier hs-var">GroupFilterName'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679175983"><span id="local-6989586621679175984"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GroupFilterName"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilterName.html#GroupFilterName"><span class="hs-identifier hs-var">GroupFilterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GroupFilterName%27"><span class="annot"><a href="Network.AWS.ResourceGroups.Types.GroupFilterName.html#GroupFilterName%27"><span class="hs-identifier hs-var">GroupFilterName'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGroupFilterName"><span class="annot"><span class="annottext">GroupFilterName -&gt; Text
 </span><a href="Network.AWS.ResourceGroups.Types.GroupFilterName.html#fromGroupFilterName"><span class="hs-identifier hs-var hs-var">fromGroupFilterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679175846"><span id="local-6989586621679175848"><span id="local-6989586621679175850"><span class="annot"><span class="annottext">Int -&gt; GroupFilterName -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679175975"><span id="local-6989586621679175977"><span id="local-6989586621679175979"><span class="annot"><span class="annottext">Int -&gt; GroupFilterName -&gt; ShowS
 [GroupFilterName] -&gt; ShowS
 GroupFilterName -&gt; String
 (Int -&gt; GroupFilterName -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: GroupFilterName -&gt; String
 showsPrec :: Int -&gt; GroupFilterName -&gt; ShowS
 $cshowsPrec :: Int -&gt; GroupFilterName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679175837"><span id="local-6989586621679175839"><span id="local-6989586621679175841"><span id="local-6989586621679175843"><span class="annot"><span class="annottext">ReadPrec [GroupFilterName]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679175966"><span id="local-6989586621679175968"><span id="local-6989586621679175970"><span id="local-6989586621679175972"><span class="annot"><span class="annottext">ReadPrec [GroupFilterName]
 ReadPrec GroupFilterName
 Int -&gt; ReadS GroupFilterName
 ReadS [GroupFilterName]
@@ -72,7 +72,7 @@ $creadList :: ReadS [GroupFilterName]
 readsPrec :: Int -&gt; ReadS GroupFilterName
 $creadsPrec :: Int -&gt; ReadS GroupFilterName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679175832"><span id="local-6989586621679175834"><span class="annot"><span class="annottext">GroupFilterName -&gt; GroupFilterName -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679175961"><span id="local-6989586621679175963"><span class="annot"><span class="annottext">GroupFilterName -&gt; GroupFilterName -&gt; Bool
 (GroupFilterName -&gt; GroupFilterName -&gt; Bool)
 -&gt; (GroupFilterName -&gt; GroupFilterName -&gt; Bool)
 -&gt; Eq GroupFilterName
@@ -82,7 +82,7 @@ $c/= :: GroupFilterName -&gt; GroupFilterName -&gt; Bool
 == :: GroupFilterName -&gt; GroupFilterName -&gt; Bool
 $c== :: GroupFilterName -&gt; GroupFilterName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679175816"><span id="local-6989586621679175818"><span id="local-6989586621679175820"><span id="local-6989586621679175822"><span id="local-6989586621679175824"><span id="local-6989586621679175826"><span id="local-6989586621679175828"><span class="annot"><span class="annottext">Eq GroupFilterName
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679175945"><span id="local-6989586621679175947"><span id="local-6989586621679175949"><span id="local-6989586621679175951"><span id="local-6989586621679175953"><span id="local-6989586621679175955"><span id="local-6989586621679175957"><span class="annot"><span class="annottext">Eq GroupFilterName
 Eq GroupFilterName
 -&gt; (GroupFilterName -&gt; GroupFilterName -&gt; Ordering)
 -&gt; (GroupFilterName -&gt; GroupFilterName -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. GroupFilterName -&gt; Rep GroupFilterName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679175808"><span id="local-6989586621679175810"><span class="annot"><span class="annottext">Int -&gt; GroupFilterName -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679175937"><span id="local-6989586621679175939"><span class="annot"><span class="annottext">Int -&gt; GroupFilterName -&gt; Int
 GroupFilterName -&gt; Int
 (Int -&gt; GroupFilterName -&gt; Int)
 -&gt; (GroupFilterName -&gt; Int) -&gt; Hashable GroupFilterName
@@ -143,50 +143,50 @@ $chash :: GroupFilterName -&gt; Int
 hashWithSalt :: Int -&gt; GroupFilterName -&gt; Int
 $chashWithSalt :: Int -&gt; GroupFilterName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679175805"><span class="annot"><span class="annottext">GroupFilterName -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679175934"><span class="annot"><span class="annottext">GroupFilterName -&gt; ()
 (GroupFilterName -&gt; ()) -&gt; NFData GroupFilterName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: GroupFilterName -&gt; ()
 $crnf :: GroupFilterName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679175802"><span class="annot"><span class="annottext">Text -&gt; Either String GroupFilterName
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679175931"><span class="annot"><span class="annottext">Text -&gt; Either String GroupFilterName
 (Text -&gt; Either String GroupFilterName) -&gt; FromText GroupFilterName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String GroupFilterName
 $cfromText :: Text -&gt; Either String GroupFilterName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679175799"><span class="annot"><span class="annottext">GroupFilterName -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679175928"><span class="annot"><span class="annottext">GroupFilterName -&gt; Text
 (GroupFilterName -&gt; Text) -&gt; ToText GroupFilterName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: GroupFilterName -&gt; Text
 $ctoText :: GroupFilterName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679175796"><span class="annot"><span class="annottext">GroupFilterName -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679175925"><span class="annot"><span class="annottext">GroupFilterName -&gt; ByteString
 (GroupFilterName -&gt; ByteString) -&gt; ToByteString GroupFilterName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: GroupFilterName -&gt; ByteString
 $ctoBS :: GroupFilterName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679175793"><span class="annot"><span class="annottext">GroupFilterName -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679175922"><span class="annot"><span class="annottext">GroupFilterName -&gt; ByteStringBuilder
 (GroupFilterName -&gt; ByteStringBuilder) -&gt; ToLog GroupFilterName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: GroupFilterName -&gt; ByteStringBuilder
 $cbuild :: GroupFilterName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679175790"><span class="annot"><span class="annottext">HeaderName -&gt; GroupFilterName -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679175919"><span class="annot"><span class="annottext">HeaderName -&gt; GroupFilterName -&gt; [Header]
 (HeaderName -&gt; GroupFilterName -&gt; [Header])
 -&gt; ToHeader GroupFilterName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; GroupFilterName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; GroupFilterName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679175787"><span class="annot"><span class="annottext">GroupFilterName -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679175916"><span class="annot"><span class="annottext">GroupFilterName -&gt; QueryString
 (GroupFilterName -&gt; QueryString) -&gt; ToQuery GroupFilterName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: GroupFilterName -&gt; QueryString
 $ctoQuery :: GroupFilterName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679175782"><span id="local-6989586621679175784"><span class="annot"><span class="annottext">Value -&gt; Parser [GroupFilterName]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679175911"><span id="local-6989586621679175913"><span class="annot"><span class="annottext">Value -&gt; Parser [GroupFilterName]
 Value -&gt; Parser GroupFilterName
 (Value -&gt; Parser GroupFilterName)
 -&gt; (Value -&gt; Parser [GroupFilterName]) -&gt; FromJSON GroupFilterName
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [GroupFilterName]
 parseJSON :: Value -&gt; Parser GroupFilterName
 $cparseJSON :: Value -&gt; Parser GroupFilterName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679175777"><span id="local-6989586621679175779"><span class="annot"><span class="annottext">FromJSONKeyFunction [GroupFilterName]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679175906"><span id="local-6989586621679175908"><span class="annot"><span class="annottext">FromJSONKeyFunction [GroupFilterName]
 FromJSONKeyFunction GroupFilterName
 FromJSONKeyFunction GroupFilterName
 -&gt; FromJSONKeyFunction [GroupFilterName]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [GroupFilterName]
 fromJSONKey :: FromJSONKeyFunction GroupFilterName
 $cfromJSONKey :: FromJSONKeyFunction GroupFilterName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679175768"><span id="local-6989586621679175770"><span id="local-6989586621679175772"><span id="local-6989586621679175774"><span class="annot"><span class="annottext">[GroupFilterName] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679175897"><span id="local-6989586621679175899"><span id="local-6989586621679175901"><span id="local-6989586621679175903"><span class="annot"><span class="annottext">[GroupFilterName] -&gt; Encoding
 [GroupFilterName] -&gt; Value
 GroupFilterName -&gt; Encoding
 GroupFilterName -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: GroupFilterName -&gt; Encoding
 toJSON :: GroupFilterName -&gt; Value
 $ctoJSON :: GroupFilterName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679175763"><span id="local-6989586621679175765"><span class="annot"><span class="annottext">ToJSONKeyFunction [GroupFilterName]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679175892"><span id="local-6989586621679175894"><span class="annot"><span class="annottext">ToJSONKeyFunction [GroupFilterName]
 ToJSONKeyFunction GroupFilterName
 ToJSONKeyFunction GroupFilterName
 -&gt; ToJSONKeyFunction [GroupFilterName] -&gt; ToJSONKey GroupFilterName
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [GroupFilterName]
 toJSONKey :: ToJSONKeyFunction GroupFilterName
 $ctoJSONKey :: ToJSONKeyFunction GroupFilterName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679175760"><span class="annot"><span class="annottext">[Node] -&gt; Either String GroupFilterName
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679175889"><span class="annot"><span class="annottext">[Node] -&gt; Either String GroupFilterName
 ([Node] -&gt; Either String GroupFilterName)
 -&gt; FromXML GroupFilterName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String GroupFilterName
 $cparseXML :: [Node] -&gt; Either String GroupFilterName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679175757"><span class="annot"><span class="annottext">GroupFilterName -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679175886"><span class="annot"><span class="annottext">GroupFilterName -&gt; XML
 (GroupFilterName -&gt; XML) -&gt; ToXML GroupFilterName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: GroupFilterName -&gt; XML

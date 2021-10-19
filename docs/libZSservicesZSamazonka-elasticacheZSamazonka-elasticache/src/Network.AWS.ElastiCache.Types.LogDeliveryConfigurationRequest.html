@@ -30,26 +30,26 @@
 </span><span id="line-30"></span><span class="hs-comment">-- | Specifies the destination, format and type of the logs.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newLogDeliveryConfigurationRequest' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679400762"><span id="local-6989586621679400763"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogDeliveryConfigurationRequest"><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-var">LogDeliveryConfigurationRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogDeliveryConfigurationRequest%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">LogDeliveryConfigurationRequest'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify either @cloudwatch-logs@ or @kinesis-firehose@ as the</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- destination type.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AdestinationType%3ALogDeliveryConfigurationRequest%27"><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest -&gt; Maybe DestinationType
-</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AdestinationType%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var hs-var">destinationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.DestinationType.html#DestinationType"><span class="hs-identifier hs-type">DestinationType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Refers to &lt;https://redis.io/commands/slowlog slow-log&gt;.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlogType%3ALogDeliveryConfigurationRequest%27"><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest -&gt; Maybe LogType
-</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AlogType%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var hs-var">logType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogType.html#LogType"><span class="hs-identifier hs-type">LogType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Specify if log delivery is enabled. Default @true@.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aenabled%3ALogDeliveryConfigurationRequest%27"><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest -&gt; Maybe Bool
-</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3Aenabled%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Specifies either JSON or TEXT</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AlogFormat%3ALogDeliveryConfigurationRequest%27"><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest -&gt; Maybe LogFormat
+</span><span id="line-33"></span><span id="local-6989586621679401284"><span id="local-6989586621679401285"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogDeliveryConfigurationRequest"><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-var">LogDeliveryConfigurationRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogDeliveryConfigurationRequest%27"><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">LogDeliveryConfigurationRequest'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies either JSON or TEXT</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlogFormat%3ALogDeliveryConfigurationRequest%27"><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest -&gt; Maybe LogFormat
 </span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AlogFormat%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var hs-var">logFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogFormat.html#LogFormat"><span class="hs-identifier hs-type">LogFormat</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Configuration details of either a CloudWatch Logs destination or Kinesis</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- Data Firehose destination.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AdestinationDetails%3ALogDeliveryConfigurationRequest%27"><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest -&gt; Maybe DestinationDetails
-</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AdestinationDetails%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var hs-var">destinationDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.DestinationDetails.html#DestinationDetails"><span class="hs-identifier hs-type">DestinationDetails</span></a></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Specify if log delivery is enabled. Default @true@.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aenabled%3ALogDeliveryConfigurationRequest%27"><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest -&gt; Maybe Bool
+</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3Aenabled%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Configuration details of either a CloudWatch Logs destination or Kinesis</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Data Firehose destination.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AdestinationDetails%3ALogDeliveryConfigurationRequest%27"><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest -&gt; Maybe DestinationDetails
+</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AdestinationDetails%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var hs-var">destinationDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.DestinationDetails.html#DestinationDetails"><span class="hs-identifier hs-type">DestinationDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Refers to &lt;https://redis.io/commands/slowlog slow-log&gt;.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AlogType%3ALogDeliveryConfigurationRequest%27"><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest -&gt; Maybe LogType
+</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AlogType%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var hs-var">logType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogType.html#LogType"><span class="hs-identifier hs-type">LogType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Specify either @cloudwatch-logs@ or @kinesis-firehose@ as the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- destination type.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AdestinationType%3ALogDeliveryConfigurationRequest%27"><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest -&gt; Maybe DestinationType
+</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AdestinationType%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var hs-var">destinationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.DestinationType.html#DestinationType"><span class="hs-identifier hs-type">DestinationType</span></a></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679400752"><span id="local-6989586621679400754"><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401274"><span id="local-6989586621679401276"><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest
 -&gt; LogDeliveryConfigurationRequest -&gt; Bool
 (LogDeliveryConfigurationRequest
  -&gt; LogDeliveryConfigurationRequest -&gt; Bool)
@@ -65,7 +65,7 @@ $c/= :: LogDeliveryConfigurationRequest
 -&gt; LogDeliveryConfigurationRequest -&gt; Bool
 $c== :: LogDeliveryConfigurationRequest
 -&gt; LogDeliveryConfigurationRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400743"><span id="local-6989586621679400745"><span id="local-6989586621679400747"><span id="local-6989586621679400749"><span class="annot"><span class="annottext">ReadPrec [LogDeliveryConfigurationRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401265"><span id="local-6989586621679401267"><span id="local-6989586621679401269"><span id="local-6989586621679401271"><span class="annot"><span class="annottext">ReadPrec [LogDeliveryConfigurationRequest]
 ReadPrec LogDeliveryConfigurationRequest
 Int -&gt; ReadS LogDeliveryConfigurationRequest
 ReadS [LogDeliveryConfigurationRequest]
@@ -85,7 +85,7 @@ readList :: ReadS [LogDeliveryConfigurationRequest]
 $creadList :: ReadS [LogDeliveryConfigurationRequest]
 readsPrec :: Int -&gt; ReadS LogDeliveryConfigurationRequest
 $creadsPrec :: Int -&gt; ReadS LogDeliveryConfigurationRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400736"><span id="local-6989586621679400738"><span id="local-6989586621679400740"><span class="annot"><span class="annottext">Int -&gt; LogDeliveryConfigurationRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401258"><span id="local-6989586621679401260"><span id="local-6989586621679401262"><span class="annot"><span class="annottext">Int -&gt; LogDeliveryConfigurationRequest -&gt; ShowS
 [LogDeliveryConfigurationRequest] -&gt; ShowS
 LogDeliveryConfigurationRequest -&gt; String
 (Int -&gt; LogDeliveryConfigurationRequest -&gt; ShowS)
@@ -131,130 +131,54 @@ LogDeliveryConfigurationRequest
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'destinationType', 'logDeliveryConfigurationRequest_destinationType' - Specify either @cloudwatch-logs@ or @kinesis-firehose@ as the</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- destination type.</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'logType', 'logDeliveryConfigurationRequest_logType' - Refers to &lt;https://redis.io/commands/slowlog slow-log&gt;.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'enabled', 'logDeliveryConfigurationRequest_enabled' - Specify if log delivery is enabled. Default @true@.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'logFormat', 'logDeliveryConfigurationRequest_logFormat' - Specifies either JSON or TEXT</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'enabled', 'logDeliveryConfigurationRequest_enabled' - Specify if log delivery is enabled. Default @true@.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'destinationDetails', 'logDeliveryConfigurationRequest_destinationDetails' - Configuration details of either a CloudWatch Logs destination or Kinesis</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Data Firehose destination.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'logFormat', 'logDeliveryConfigurationRequest_logFormat' - Specifies either JSON or TEXT</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'logType', 'logDeliveryConfigurationRequest_logType' - Refers to &lt;https://redis.io/commands/slowlog slow-log&gt;.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'destinationDetails', 'logDeliveryConfigurationRequest_destinationDetails' - Configuration details of either a CloudWatch Logs destination or Kinesis</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- Data Firehose destination.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'destinationType', 'logDeliveryConfigurationRequest_destinationType' - Specify either @cloudwatch-logs@ or @kinesis-firehose@ as the</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- destination type.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#newLogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">newLogDeliveryConfigurationRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span>
 </span><span id="line-70"></span><span id="newLogDeliveryConfigurationRequest"><span class="annot"><span class="annottext">newLogDeliveryConfigurationRequest :: LogDeliveryConfigurationRequest
 </span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#newLogDeliveryConfigurationRequest"><span class="hs-identifier hs-var hs-var">newLogDeliveryConfigurationRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest' :: Maybe DestinationType
--&gt; Maybe LogType
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest' :: Maybe LogFormat
 -&gt; Maybe Bool
--&gt; Maybe LogFormat
 -&gt; Maybe DestinationDetails
+-&gt; Maybe LogType
+-&gt; Maybe DestinationType
 -&gt; LogDeliveryConfigurationRequest
 </span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destinationType:LogDeliveryConfigurationRequest' :: Maybe DestinationType
-</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AdestinationType%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">destinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe DestinationType
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logFormat:LogDeliveryConfigurationRequest' :: Maybe LogFormat
+</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AlogFormat%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">logFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe LogFormat
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:logType:LogDeliveryConfigurationRequest' :: Maybe LogType
-</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AlogType%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">logType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogType
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:LogDeliveryConfigurationRequest' :: Maybe Bool
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:LogDeliveryConfigurationRequest' :: Maybe Bool
 </span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3Aenabled%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:logFormat:LogDeliveryConfigurationRequest' :: Maybe LogFormat
-</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AlogFormat%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">logFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogFormat
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationDetails:LogDeliveryConfigurationRequest' :: Maybe DestinationDetails
+</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AdestinationDetails%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">destinationDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationDetails
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationDetails:LogDeliveryConfigurationRequest' :: Maybe DestinationDetails
-</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AdestinationDetails%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">destinationDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationDetails
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:logType:LogDeliveryConfigurationRequest' :: Maybe LogType
+</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AlogType%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">logType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationType:LogDeliveryConfigurationRequest' :: Maybe DestinationType
+</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AdestinationType%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">destinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | Specify either @cloudwatch-logs@ or @kinesis-firehose@ as the</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- destination type.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#logDeliveryConfigurationRequest_destinationType"><span class="hs-identifier hs-type">logDeliveryConfigurationRequest_destinationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.DestinationType.html#DestinationType"><span class="hs-identifier hs-type">DestinationType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="logDeliveryConfigurationRequest_destinationType"><span class="annot"><span class="annottext">logDeliveryConfigurationRequest_destinationType :: (Maybe DestinationType -&gt; f (Maybe DestinationType))
--&gt; LogDeliveryConfigurationRequest
--&gt; f LogDeliveryConfigurationRequest
-</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#logDeliveryConfigurationRequest_destinationType"><span class="hs-identifier hs-var hs-var">logDeliveryConfigurationRequest_destinationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogDeliveryConfigurationRequest -&gt; Maybe DestinationType)
--&gt; (LogDeliveryConfigurationRequest
-    -&gt; Maybe DestinationType -&gt; LogDeliveryConfigurationRequest)
--&gt; Lens
-     LogDeliveryConfigurationRequest
-     LogDeliveryConfigurationRequest
-     (Maybe DestinationType)
-     (Maybe DestinationType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400727"><span class="annot"><span class="annottext">Maybe DestinationType
-destinationType :: Maybe DestinationType
-$sel:destinationType:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationRequest -&gt; Maybe DestinationType
-</span><a href="#local-6989586621679400727"><span class="hs-identifier hs-var hs-var">destinationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationType
-</span><a href="#local-6989586621679400727"><span class="hs-identifier hs-var">destinationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400726"><span class="annot"><span class="annottext">s :: LogDeliveryConfigurationRequest
-</span><a href="#local-6989586621679400726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400725"><span class="annot"><span class="annottext">Maybe DestinationType
-</span><a href="#local-6989586621679400725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest
-</span><a href="#local-6989586621679400726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationType:LogDeliveryConfigurationRequest' :: Maybe DestinationType
-</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AdestinationType%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">destinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationType
-</span><a href="#local-6989586621679400725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | Refers to &lt;https://redis.io/commands/slowlog slow-log&gt;.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#logDeliveryConfigurationRequest_logType"><span class="hs-identifier hs-type">logDeliveryConfigurationRequest_logType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogType.html#LogType"><span class="hs-identifier hs-type">LogType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="logDeliveryConfigurationRequest_logType"><span class="annot"><span class="annottext">logDeliveryConfigurationRequest_logType :: (Maybe LogType -&gt; f (Maybe LogType))
--&gt; LogDeliveryConfigurationRequest
--&gt; f LogDeliveryConfigurationRequest
-</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#logDeliveryConfigurationRequest_logType"><span class="hs-identifier hs-var hs-var">logDeliveryConfigurationRequest_logType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogDeliveryConfigurationRequest -&gt; Maybe LogType)
--&gt; (LogDeliveryConfigurationRequest
-    -&gt; Maybe LogType -&gt; LogDeliveryConfigurationRequest)
--&gt; Lens
-     LogDeliveryConfigurationRequest
-     LogDeliveryConfigurationRequest
-     (Maybe LogType)
-     (Maybe LogType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400723"><span class="annot"><span class="annottext">Maybe LogType
-logType :: Maybe LogType
-$sel:logType:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationRequest -&gt; Maybe LogType
-</span><a href="#local-6989586621679400723"><span class="hs-identifier hs-var hs-var">logType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogType
-</span><a href="#local-6989586621679400723"><span class="hs-identifier hs-var">logType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400722"><span class="annot"><span class="annottext">s :: LogDeliveryConfigurationRequest
-</span><a href="#local-6989586621679400722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400721"><span class="annot"><span class="annottext">Maybe LogType
-</span><a href="#local-6989586621679400721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest
-</span><a href="#local-6989586621679400722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logType:LogDeliveryConfigurationRequest' :: Maybe LogType
-</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AlogType%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">logType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogType
-</span><a href="#local-6989586621679400721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | Specify if log delivery is enabled. Default @true@.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#logDeliveryConfigurationRequest_enabled"><span class="hs-identifier hs-type">logDeliveryConfigurationRequest_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="logDeliveryConfigurationRequest_enabled"><span class="annot"><span class="annottext">logDeliveryConfigurationRequest_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; LogDeliveryConfigurationRequest
--&gt; f LogDeliveryConfigurationRequest
-</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#logDeliveryConfigurationRequest_enabled"><span class="hs-identifier hs-var hs-var">logDeliveryConfigurationRequest_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogDeliveryConfigurationRequest -&gt; Maybe Bool)
--&gt; (LogDeliveryConfigurationRequest
-    -&gt; Maybe Bool -&gt; LogDeliveryConfigurationRequest)
--&gt; Lens
-     LogDeliveryConfigurationRequest
-     LogDeliveryConfigurationRequest
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400719"><span class="annot"><span class="annottext">Maybe Bool
-enabled :: Maybe Bool
-$sel:enabled:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationRequest -&gt; Maybe Bool
-</span><a href="#local-6989586621679400719"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679400719"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400718"><span class="annot"><span class="annottext">s :: LogDeliveryConfigurationRequest
-</span><a href="#local-6989586621679400718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400717"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679400717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest
-</span><a href="#local-6989586621679400718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:LogDeliveryConfigurationRequest' :: Maybe Bool
-</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3Aenabled%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679400717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | Specifies either JSON or TEXT</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#logDeliveryConfigurationRequest_logFormat"><span class="hs-identifier hs-type">logDeliveryConfigurationRequest_logFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogFormat.html#LogFormat"><span class="hs-identifier hs-type">LogFormat</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="logDeliveryConfigurationRequest_logFormat"><span class="annot"><span class="annottext">logDeliveryConfigurationRequest_logFormat :: (Maybe LogFormat -&gt; f (Maybe LogFormat))
+</span><span id="line-80"></span><span class="hs-comment">-- | Specifies either JSON or TEXT</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#logDeliveryConfigurationRequest_logFormat"><span class="hs-identifier hs-type">logDeliveryConfigurationRequest_logFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogFormat.html#LogFormat"><span class="hs-identifier hs-type">LogFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="logDeliveryConfigurationRequest_logFormat"><span class="annot"><span class="annottext">logDeliveryConfigurationRequest_logFormat :: (Maybe LogFormat -&gt; f (Maybe LogFormat))
 -&gt; LogDeliveryConfigurationRequest
 -&gt; f LogDeliveryConfigurationRequest
 </span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#logDeliveryConfigurationRequest_logFormat"><span class="hs-identifier hs-var hs-var">logDeliveryConfigurationRequest_logFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogDeliveryConfigurationRequest -&gt; Maybe LogFormat)
@@ -266,21 +190,46 @@ $sel:enabled:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationRequest
      (Maybe LogFormat)
      (Maybe LogFormat)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400715"><span class="annot"><span class="annottext">Maybe LogFormat
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401249"><span class="annot"><span class="annottext">Maybe LogFormat
 logFormat :: Maybe LogFormat
 $sel:logFormat:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationRequest -&gt; Maybe LogFormat
-</span><a href="#local-6989586621679400715"><span class="hs-identifier hs-var hs-var">logFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogFormat
-</span><a href="#local-6989586621679400715"><span class="hs-identifier hs-var">logFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400714"><span class="annot"><span class="annottext">s :: LogDeliveryConfigurationRequest
-</span><a href="#local-6989586621679400714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400713"><span class="annot"><span class="annottext">Maybe LogFormat
-</span><a href="#local-6989586621679400713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest
-</span><a href="#local-6989586621679400714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logFormat:LogDeliveryConfigurationRequest' :: Maybe LogFormat
+</span><a href="#local-6989586621679401249"><span class="hs-identifier hs-var hs-var">logFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogFormat
+</span><a href="#local-6989586621679401249"><span class="hs-identifier hs-var">logFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401248"><span class="annot"><span class="annottext">s :: LogDeliveryConfigurationRequest
+</span><a href="#local-6989586621679401248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401247"><span class="annot"><span class="annottext">Maybe LogFormat
+</span><a href="#local-6989586621679401247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest
+</span><a href="#local-6989586621679401248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logFormat:LogDeliveryConfigurationRequest' :: Maybe LogFormat
 </span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AlogFormat%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">logFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogFormat
-</span><a href="#local-6989586621679400713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | Configuration details of either a CloudWatch Logs destination or Kinesis</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- Data Firehose destination.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#logDeliveryConfigurationRequest_destinationDetails"><span class="hs-identifier hs-type">logDeliveryConfigurationRequest_destinationDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.DestinationDetails.html#DestinationDetails"><span class="hs-identifier hs-type">DestinationDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="logDeliveryConfigurationRequest_destinationDetails"><span class="annot"><span class="annottext">logDeliveryConfigurationRequest_destinationDetails :: (Maybe DestinationDetails -&gt; f (Maybe DestinationDetails))
+</span><a href="#local-6989586621679401247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | Specify if log delivery is enabled. Default @true@.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#logDeliveryConfigurationRequest_enabled"><span class="hs-identifier hs-type">logDeliveryConfigurationRequest_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="logDeliveryConfigurationRequest_enabled"><span class="annot"><span class="annottext">logDeliveryConfigurationRequest_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LogDeliveryConfigurationRequest
+-&gt; f LogDeliveryConfigurationRequest
+</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#logDeliveryConfigurationRequest_enabled"><span class="hs-identifier hs-var hs-var">logDeliveryConfigurationRequest_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogDeliveryConfigurationRequest -&gt; Maybe Bool)
+-&gt; (LogDeliveryConfigurationRequest
+    -&gt; Maybe Bool -&gt; LogDeliveryConfigurationRequest)
+-&gt; Lens
+     LogDeliveryConfigurationRequest
+     LogDeliveryConfigurationRequest
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401245"><span class="annot"><span class="annottext">Maybe Bool
+enabled :: Maybe Bool
+$sel:enabled:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationRequest -&gt; Maybe Bool
+</span><a href="#local-6989586621679401245"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679401245"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401244"><span class="annot"><span class="annottext">s :: LogDeliveryConfigurationRequest
+</span><a href="#local-6989586621679401244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401243"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679401243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest
+</span><a href="#local-6989586621679401244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:LogDeliveryConfigurationRequest' :: Maybe Bool
+</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3Aenabled%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679401243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | Configuration details of either a CloudWatch Logs destination or Kinesis</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Data Firehose destination.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#logDeliveryConfigurationRequest_destinationDetails"><span class="hs-identifier hs-type">logDeliveryConfigurationRequest_destinationDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.DestinationDetails.html#DestinationDetails"><span class="hs-identifier hs-type">DestinationDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="logDeliveryConfigurationRequest_destinationDetails"><span class="annot"><span class="annottext">logDeliveryConfigurationRequest_destinationDetails :: (Maybe DestinationDetails -&gt; f (Maybe DestinationDetails))
 -&gt; LogDeliveryConfigurationRequest
 -&gt; f LogDeliveryConfigurationRequest
 </span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#logDeliveryConfigurationRequest_destinationDetails"><span class="hs-identifier hs-var hs-var">logDeliveryConfigurationRequest_destinationDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogDeliveryConfigurationRequest -&gt; Maybe DestinationDetails)
@@ -292,70 +241,121 @@ $sel:logFormat:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationReque
      (Maybe DestinationDetails)
      (Maybe DestinationDetails)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400711"><span class="annot"><span class="annottext">Maybe DestinationDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401241"><span class="annot"><span class="annottext">Maybe DestinationDetails
 destinationDetails :: Maybe DestinationDetails
 $sel:destinationDetails:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationRequest -&gt; Maybe DestinationDetails
-</span><a href="#local-6989586621679400711"><span class="hs-identifier hs-var hs-var">destinationDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationDetails
-</span><a href="#local-6989586621679400711"><span class="hs-identifier hs-var">destinationDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400710"><span class="annot"><span class="annottext">s :: LogDeliveryConfigurationRequest
-</span><a href="#local-6989586621679400710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400709"><span class="annot"><span class="annottext">Maybe DestinationDetails
-</span><a href="#local-6989586621679400709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest
-</span><a href="#local-6989586621679400710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationDetails:LogDeliveryConfigurationRequest' :: Maybe DestinationDetails
+</span><a href="#local-6989586621679401241"><span class="hs-identifier hs-var hs-var">destinationDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationDetails
+</span><a href="#local-6989586621679401241"><span class="hs-identifier hs-var">destinationDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401240"><span class="annot"><span class="annottext">s :: LogDeliveryConfigurationRequest
+</span><a href="#local-6989586621679401240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401239"><span class="annot"><span class="annottext">Maybe DestinationDetails
+</span><a href="#local-6989586621679401239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest
+</span><a href="#local-6989586621679401240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationDetails:LogDeliveryConfigurationRequest' :: Maybe DestinationDetails
 </span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AdestinationDetails%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">destinationDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationDetails
-</span><a href="#local-6989586621679400709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Refers to &lt;https://redis.io/commands/slowlog slow-log&gt;.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#logDeliveryConfigurationRequest_logType"><span class="hs-identifier hs-type">logDeliveryConfigurationRequest_logType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogType.html#LogType"><span class="hs-identifier hs-type">LogType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="logDeliveryConfigurationRequest_logType"><span class="annot"><span class="annottext">logDeliveryConfigurationRequest_logType :: (Maybe LogType -&gt; f (Maybe LogType))
+-&gt; LogDeliveryConfigurationRequest
+-&gt; f LogDeliveryConfigurationRequest
+</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#logDeliveryConfigurationRequest_logType"><span class="hs-identifier hs-var hs-var">logDeliveryConfigurationRequest_logType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogDeliveryConfigurationRequest -&gt; Maybe LogType)
+-&gt; (LogDeliveryConfigurationRequest
+    -&gt; Maybe LogType -&gt; LogDeliveryConfigurationRequest)
+-&gt; Lens
+     LogDeliveryConfigurationRequest
+     LogDeliveryConfigurationRequest
+     (Maybe LogType)
+     (Maybe LogType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401237"><span class="annot"><span class="annottext">Maybe LogType
+logType :: Maybe LogType
+$sel:logType:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationRequest -&gt; Maybe LogType
+</span><a href="#local-6989586621679401237"><span class="hs-identifier hs-var hs-var">logType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogType
+</span><a href="#local-6989586621679401237"><span class="hs-identifier hs-var">logType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401236"><span class="annot"><span class="annottext">s :: LogDeliveryConfigurationRequest
+</span><a href="#local-6989586621679401236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401235"><span class="annot"><span class="annottext">Maybe LogType
+</span><a href="#local-6989586621679401235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest
+</span><a href="#local-6989586621679401236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logType:LogDeliveryConfigurationRequest' :: Maybe LogType
+</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AlogType%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">logType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogType
+</span><a href="#local-6989586621679401235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | Specify either @cloudwatch-logs@ or @kinesis-firehose@ as the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- destination type.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#logDeliveryConfigurationRequest_destinationType"><span class="hs-identifier hs-type">logDeliveryConfigurationRequest_destinationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.DestinationType.html#DestinationType"><span class="hs-identifier hs-type">DestinationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="logDeliveryConfigurationRequest_destinationType"><span class="annot"><span class="annottext">logDeliveryConfigurationRequest_destinationType :: (Maybe DestinationType -&gt; f (Maybe DestinationType))
+-&gt; LogDeliveryConfigurationRequest
+-&gt; f LogDeliveryConfigurationRequest
+</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#logDeliveryConfigurationRequest_destinationType"><span class="hs-identifier hs-var hs-var">logDeliveryConfigurationRequest_destinationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LogDeliveryConfigurationRequest -&gt; Maybe DestinationType)
+-&gt; (LogDeliveryConfigurationRequest
+    -&gt; Maybe DestinationType -&gt; LogDeliveryConfigurationRequest)
+-&gt; Lens
+     LogDeliveryConfigurationRequest
+     LogDeliveryConfigurationRequest
+     (Maybe DestinationType)
+     (Maybe DestinationType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401233"><span class="annot"><span class="annottext">Maybe DestinationType
+destinationType :: Maybe DestinationType
+$sel:destinationType:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationRequest -&gt; Maybe DestinationType
+</span><a href="#local-6989586621679401233"><span class="hs-identifier hs-var hs-var">destinationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationType
+</span><a href="#local-6989586621679401233"><span class="hs-identifier hs-var">destinationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401232"><span class="annot"><span class="annottext">s :: LogDeliveryConfigurationRequest
+</span><a href="#local-6989586621679401232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401231"><span class="annot"><span class="annottext">Maybe DestinationType
+</span><a href="#local-6989586621679401231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogDeliveryConfigurationRequest
+</span><a href="#local-6989586621679401232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationType:LogDeliveryConfigurationRequest' :: Maybe DestinationType
+</span><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#%24sel%3AdestinationType%3ALogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-var">destinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DestinationType
+</span><a href="#local-6989586621679401231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679400705"><span id="local-6989586621679400707"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679401227"><span id="local-6989586621679401229"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679400702"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679401224"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679400698"><span class="annot"><span class="annottext">toQuery :: LogDeliveryConfigurationRequest -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400692"><span id="local-6989586621679400693"><span id="local-6989586621679400694"><span id="local-6989586621679400695"><span id="local-6989586621679400696"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679401220"><span class="annot"><span class="annottext">toQuery :: LogDeliveryConfigurationRequest -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest.html#LogDeliveryConfigurationRequest%27"><span class="hs-identifier hs-type">LogDeliveryConfigurationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401214"><span id="local-6989586621679401215"><span id="local-6989586621679401216"><span id="local-6989586621679401217"><span id="local-6989586621679401218"><span class="annot"><span class="annottext">Maybe Bool
 Maybe DestinationType
 Maybe DestinationDetails
 Maybe LogFormat
 Maybe LogType
-destinationDetails :: Maybe DestinationDetails
-logFormat :: Maybe LogFormat
-enabled :: Maybe Bool
-logType :: Maybe LogType
 destinationType :: Maybe DestinationType
-$sel:destinationDetails:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationRequest -&gt; Maybe DestinationDetails
-$sel:logFormat:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationRequest -&gt; Maybe LogFormat
-$sel:enabled:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationRequest -&gt; Maybe Bool
-$sel:logType:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationRequest -&gt; Maybe LogType
+logType :: Maybe LogType
+destinationDetails :: Maybe DestinationDetails
+enabled :: Maybe Bool
+logFormat :: Maybe LogFormat
 $sel:destinationType:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationRequest -&gt; Maybe DestinationType
-</span><a href="#local-6989586621679400692"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:logType:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationRequest -&gt; Maybe LogType
+$sel:destinationDetails:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationRequest -&gt; Maybe DestinationDetails
+$sel:enabled:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationRequest -&gt; Maybe Bool
+$sel:logFormat:LogDeliveryConfigurationRequest' :: LogDeliveryConfigurationRequest -&gt; Maybe LogFormat
+</span><a href="#local-6989586621679401214"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DestinationType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe DestinationType -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe DestinationType
-</span><a href="#local-6989586621679400696"><span class="hs-identifier hs-var">destinationType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;LogType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe LogType -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe LogType
-</span><a href="#local-6989586621679400695"><span class="hs-identifier hs-var">logType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679400694"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;LogFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe LogFormat -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe LogFormat
-</span><a href="#local-6989586621679400693"><span class="hs-identifier hs-var">logFormat</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679401218"><span class="hs-identifier hs-var">logFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Enabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679401217"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DestinationDetails&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe DestinationDetails -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe DestinationDetails
-</span><a href="#local-6989586621679400692"><span class="hs-identifier hs-var">destinationDetails</span></a></span><span>
+</span><a href="#local-6989586621679401216"><span class="hs-identifier hs-var">destinationDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;LogType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe LogType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe LogType
+</span><a href="#local-6989586621679401215"><span class="hs-identifier hs-var">logType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DestinationType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe DestinationType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe DestinationType
+</span><a href="#local-6989586621679401214"><span class="hs-identifier hs-var">destinationType</span></a></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span></pre></body></html>

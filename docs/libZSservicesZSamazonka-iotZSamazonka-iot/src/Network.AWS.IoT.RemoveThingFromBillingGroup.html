@@ -32,8 +32,8 @@
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_thingArn"><span class="hs-identifier">removeThingFromBillingGroup_thingArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_thingName"><span class="hs-identifier">removeThingFromBillingGroup_thingName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_billingGroupArn"><span class="hs-identifier">removeThingFromBillingGroup_billingGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_billingGroupArn"><span class="hs-identifier">removeThingFromBillingGroup_billingGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_thingName"><span class="hs-identifier">removeThingFromBillingGroup_thingName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_billingGroupName"><span class="hs-identifier">removeThingFromBillingGroup_billingGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -53,21 +53,21 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newRemoveThingFromBillingGroup' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679813700"><span id="local-6989586621679813701"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveThingFromBillingGroup"><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-var">RemoveThingFromBillingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveThingFromBillingGroup%27"><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">RemoveThingFromBillingGroup'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679814609"><span id="local-6989586621679814610"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveThingFromBillingGroup"><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-var">RemoveThingFromBillingGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveThingFromBillingGroup%27"><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">RemoveThingFromBillingGroup'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the thing to be removed from the billing group.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AthingArn%3ARemoveThingFromBillingGroup%27"><span class="annot"><span class="annottext">RemoveThingFromBillingGroup -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#%24sel%3AthingArn%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var hs-var">thingArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name of the thing to be removed from the billing group.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AthingName%3ARemoveThingFromBillingGroup%27"><span class="annot"><span class="annottext">RemoveThingFromBillingGroup -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#%24sel%3AthingName%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The ARN of the billing group.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AbillingGroupArn%3ARemoveThingFromBillingGroup%27"><span class="annot"><span class="annottext">RemoveThingFromBillingGroup -&gt; Maybe Text
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The ARN of the billing group.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AbillingGroupArn%3ARemoveThingFromBillingGroup%27"><span class="annot"><span class="annottext">RemoveThingFromBillingGroup -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#%24sel%3AbillingGroupArn%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var hs-var">billingGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The name of the thing to be removed from the billing group.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AthingName%3ARemoveThingFromBillingGroup%27"><span class="annot"><span class="annottext">RemoveThingFromBillingGroup -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#%24sel%3AthingName%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The name of the billing group.</span><span>
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AbillingGroupName%3ARemoveThingFromBillingGroup%27"><span class="annot"><span class="annottext">RemoveThingFromBillingGroup -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#%24sel%3AbillingGroupName%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var hs-var">billingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679813691"><span id="local-6989586621679813693"><span class="annot"><span class="annottext">RemoveThingFromBillingGroup -&gt; RemoveThingFromBillingGroup -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814600"><span id="local-6989586621679814602"><span class="annot"><span class="annottext">RemoveThingFromBillingGroup -&gt; RemoveThingFromBillingGroup -&gt; Bool
 (RemoveThingFromBillingGroup
  -&gt; RemoveThingFromBillingGroup -&gt; Bool)
 -&gt; (RemoveThingFromBillingGroup
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemoveThingFromBillingGroup -&gt; RemoveThingFromBillingGroup -&gt; Bool
 == :: RemoveThingFromBillingGroup -&gt; RemoveThingFromBillingGroup -&gt; Bool
 $c== :: RemoveThingFromBillingGroup -&gt; RemoveThingFromBillingGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813682"><span id="local-6989586621679813684"><span id="local-6989586621679813686"><span id="local-6989586621679813688"><span class="annot"><span class="annottext">ReadPrec [RemoveThingFromBillingGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814591"><span id="local-6989586621679814593"><span id="local-6989586621679814595"><span id="local-6989586621679814597"><span class="annot"><span class="annottext">ReadPrec [RemoveThingFromBillingGroup]
 ReadPrec RemoveThingFromBillingGroup
 Int -&gt; ReadS RemoveThingFromBillingGroup
 ReadS [RemoveThingFromBillingGroup]
@@ -98,7 +98,7 @@ readList :: ReadS [RemoveThingFromBillingGroup]
 $creadList :: ReadS [RemoveThingFromBillingGroup]
 readsPrec :: Int -&gt; ReadS RemoveThingFromBillingGroup
 $creadsPrec :: Int -&gt; ReadS RemoveThingFromBillingGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813675"><span id="local-6989586621679813677"><span id="local-6989586621679813679"><span class="annot"><span class="annottext">Int -&gt; RemoveThingFromBillingGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814584"><span id="local-6989586621679814586"><span id="local-6989586621679814588"><span class="annot"><span class="annottext">Int -&gt; RemoveThingFromBillingGroup -&gt; ShowS
 [RemoveThingFromBillingGroup] -&gt; ShowS
 RemoveThingFromBillingGroup -&gt; String
 (Int -&gt; RemoveThingFromBillingGroup -&gt; ShowS)
@@ -140,9 +140,9 @@ RemoveThingFromBillingGroup -&gt; Rep RemoveThingFromBillingGroup x
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- 'thingArn', 'removeThingFromBillingGroup_thingArn' - The ARN of the thing to be removed from the billing group.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'thingName', 'removeThingFromBillingGroup_thingName' - The name of the thing to be removed from the billing group.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'billingGroupArn', 'removeThingFromBillingGroup_billingGroupArn' - The ARN of the billing group.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'billingGroupArn', 'removeThingFromBillingGroup_billingGroupArn' - The ARN of the billing group.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'thingName', 'removeThingFromBillingGroup_thingName' - The name of the thing to be removed from the billing group.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- 'billingGroupName', 'removeThingFromBillingGroup_billingGroupName' - The name of the billing group.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#newRemoveThingFromBillingGroup"><span class="hs-identifier hs-type">newRemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -160,12 +160,12 @@ RemoveThingFromBillingGroup -&gt; Rep RemoveThingFromBillingGroup x
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingName:RemoveThingFromBillingGroup' :: Maybe Text
-</span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#%24sel%3AthingName%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:billingGroupArn:RemoveThingFromBillingGroup' :: Maybe Text
+</span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#%24sel%3AbillingGroupArn%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">billingGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:billingGroupArn:RemoveThingFromBillingGroup' :: Maybe Text
-</span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#%24sel%3AbillingGroupArn%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">billingGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingName:RemoveThingFromBillingGroup' :: Maybe Text
+</span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#%24sel%3AthingName%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:billingGroupName:RemoveThingFromBillingGroup' :: Maybe Text
@@ -187,44 +187,20 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813668"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814577"><span class="annot"><span class="annottext">Maybe Text
 thingArn :: Maybe Text
 $sel:thingArn:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679813668"><span class="hs-identifier hs-var hs-var">thingArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813668"><span class="hs-identifier hs-var">thingArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813667"><span class="annot"><span class="annottext">s :: RemoveThingFromBillingGroup
-</span><a href="#local-6989586621679813667"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813666"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813666"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveThingFromBillingGroup
-</span><a href="#local-6989586621679813667"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingArn:RemoveThingFromBillingGroup' :: Maybe Text
+</span><a href="#local-6989586621679814577"><span class="hs-identifier hs-var hs-var">thingArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814577"><span class="hs-identifier hs-var">thingArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814576"><span class="annot"><span class="annottext">s :: RemoveThingFromBillingGroup
+</span><a href="#local-6989586621679814576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814575"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveThingFromBillingGroup
+</span><a href="#local-6989586621679814576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingArn:RemoveThingFromBillingGroup' :: Maybe Text
 </span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#%24sel%3AthingArn%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">thingArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813666"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679814575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | The name of the thing to be removed from the billing group.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_thingName"><span class="hs-identifier hs-type">removeThingFromBillingGroup_thingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="removeThingFromBillingGroup_thingName"><span class="annot"><span class="annottext">removeThingFromBillingGroup_thingName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RemoveThingFromBillingGroup -&gt; f RemoveThingFromBillingGroup
-</span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_thingName"><span class="hs-identifier hs-var hs-var">removeThingFromBillingGroup_thingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveThingFromBillingGroup -&gt; Maybe Text)
--&gt; (RemoveThingFromBillingGroup
-    -&gt; Maybe Text -&gt; RemoveThingFromBillingGroup)
--&gt; Lens
-     RemoveThingFromBillingGroup
-     RemoveThingFromBillingGroup
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813665"><span class="annot"><span class="annottext">Maybe Text
-thingName :: Maybe Text
-$sel:thingName:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679813665"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813665"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813664"><span class="annot"><span class="annottext">s :: RemoveThingFromBillingGroup
-</span><a href="#local-6989586621679813664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813663"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveThingFromBillingGroup
-</span><a href="#local-6989586621679813664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:RemoveThingFromBillingGroup' :: Maybe Text
-</span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#%24sel%3AthingName%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | The ARN of the billing group.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_billingGroupArn"><span class="hs-identifier hs-type">removeThingFromBillingGroup_billingGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="removeThingFromBillingGroup_billingGroupArn"><span class="annot"><span class="annottext">removeThingFromBillingGroup_billingGroupArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-98"></span><span class="hs-comment">-- | The ARN of the billing group.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_billingGroupArn"><span class="hs-identifier hs-type">removeThingFromBillingGroup_billingGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="removeThingFromBillingGroup_billingGroupArn"><span class="annot"><span class="annottext">removeThingFromBillingGroup_billingGroupArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; RemoveThingFromBillingGroup -&gt; f RemoveThingFromBillingGroup
 </span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_billingGroupArn"><span class="hs-identifier hs-var hs-var">removeThingFromBillingGroup_billingGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveThingFromBillingGroup -&gt; Maybe Text)
 -&gt; (RemoveThingFromBillingGroup
@@ -235,16 +211,40 @@ $sel:thingName:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt;
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813662"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814574"><span class="annot"><span class="annottext">Maybe Text
 billingGroupArn :: Maybe Text
 $sel:billingGroupArn:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679813662"><span class="hs-identifier hs-var hs-var">billingGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813662"><span class="hs-identifier hs-var">billingGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813661"><span class="annot"><span class="annottext">s :: RemoveThingFromBillingGroup
-</span><a href="#local-6989586621679813661"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813660"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813660"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveThingFromBillingGroup
-</span><a href="#local-6989586621679813661"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingGroupArn:RemoveThingFromBillingGroup' :: Maybe Text
+</span><a href="#local-6989586621679814574"><span class="hs-identifier hs-var hs-var">billingGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814574"><span class="hs-identifier hs-var">billingGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814573"><span class="annot"><span class="annottext">s :: RemoveThingFromBillingGroup
+</span><a href="#local-6989586621679814573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814572"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveThingFromBillingGroup
+</span><a href="#local-6989586621679814573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingGroupArn:RemoveThingFromBillingGroup' :: Maybe Text
 </span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#%24sel%3AbillingGroupArn%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">billingGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813660"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679814572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The name of the thing to be removed from the billing group.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_thingName"><span class="hs-identifier hs-type">removeThingFromBillingGroup_thingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="removeThingFromBillingGroup_thingName"><span class="annot"><span class="annottext">removeThingFromBillingGroup_thingName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RemoveThingFromBillingGroup -&gt; f RemoveThingFromBillingGroup
+</span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_thingName"><span class="hs-identifier hs-var hs-var">removeThingFromBillingGroup_thingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RemoveThingFromBillingGroup -&gt; Maybe Text)
+-&gt; (RemoveThingFromBillingGroup
+    -&gt; Maybe Text -&gt; RemoveThingFromBillingGroup)
+-&gt; Lens
+     RemoveThingFromBillingGroup
+     RemoveThingFromBillingGroup
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814571"><span class="annot"><span class="annottext">Maybe Text
+thingName :: Maybe Text
+$sel:thingName:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679814571"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814571"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814570"><span class="annot"><span class="annottext">s :: RemoveThingFromBillingGroup
+</span><a href="#local-6989586621679814570"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814569"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814569"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveThingFromBillingGroup
+</span><a href="#local-6989586621679814570"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:RemoveThingFromBillingGroup' :: Maybe Text
+</span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#%24sel%3AthingName%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814569"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The name of the billing group.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#removeThingFromBillingGroup_billingGroupName"><span class="hs-identifier hs-type">removeThingFromBillingGroup_billingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -259,29 +259,29 @@ $sel:billingGroupArn:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813659"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814568"><span class="annot"><span class="annottext">Maybe Text
 billingGroupName :: Maybe Text
 $sel:billingGroupName:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679813659"><span class="hs-identifier hs-var hs-var">billingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813659"><span class="hs-identifier hs-var">billingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813658"><span class="annot"><span class="annottext">s :: RemoveThingFromBillingGroup
-</span><a href="#local-6989586621679813658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813657"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveThingFromBillingGroup
-</span><a href="#local-6989586621679813658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingGroupName:RemoveThingFromBillingGroup' :: Maybe Text
+</span><a href="#local-6989586621679814568"><span class="hs-identifier hs-var hs-var">billingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814568"><span class="hs-identifier hs-var">billingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814567"><span class="annot"><span class="annottext">s :: RemoveThingFromBillingGroup
+</span><a href="#local-6989586621679814567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814566"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveThingFromBillingGroup
+</span><a href="#local-6989586621679814567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:billingGroupName:RemoveThingFromBillingGroup' :: Maybe Text
 </span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#%24sel%3AbillingGroupName%3ARemoveThingFromBillingGroup%27"><span class="hs-identifier hs-var">billingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679814566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse"><span class="hs-identifier hs-type">RemoveThingFromBillingGroupResponse</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679813653"><span class="annot"><span class="annottext">request :: RemoveThingFromBillingGroup -&gt; Request RemoveThingFromBillingGroup
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679814562"><span class="annot"><span class="annottext">request :: RemoveThingFromBillingGroup -&gt; Request RemoveThingFromBillingGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; RemoveThingFromBillingGroup
 -&gt; Request RemoveThingFromBillingGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679813649"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679814558"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RemoveThingFromBillingGroup
 -&gt; ClientResponse ClientBody
@@ -307,10 +307,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679813646"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679813646"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679813645"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679813645"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679813644"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679813644"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679814555"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679814555"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679814554"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679814554"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679814553"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679814553"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; RemoveThingFromBillingGroupResponse
 </span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-var">RemoveThingFromBillingGroupResponse'</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; RemoveThingFromBillingGroupResponse)
@@ -322,33 +322,33 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679813646"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679814555"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813637"><span id="local-6989586621679813639"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814546"><span id="local-6989586621679814548"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813634"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814543"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679813630"><span class="annot"><span class="annottext">toHeaders :: RemoveThingFromBillingGroup -&gt; ResponseHeaders
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679814539"><span class="annot"><span class="annottext">toHeaders :: RemoveThingFromBillingGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RemoveThingFromBillingGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813621"><span id="local-6989586621679813623"><span id="local-6989586621679813625"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679813619"><span class="annot"><span class="annottext">toJSON :: RemoveThingFromBillingGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813614"><span id="local-6989586621679813615"><span id="local-6989586621679813616"><span id="local-6989586621679813617"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814530"><span id="local-6989586621679814532"><span id="local-6989586621679814534"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679814528"><span class="annot"><span class="annottext">toJSON :: RemoveThingFromBillingGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814523"><span id="local-6989586621679814524"><span id="local-6989586621679814525"><span id="local-6989586621679814526"><span class="annot"><span class="annottext">Maybe Text
 billingGroupName :: Maybe Text
-billingGroupArn :: Maybe Text
 thingName :: Maybe Text
+billingGroupArn :: Maybe Text
 thingArn :: Maybe Text
 $sel:billingGroupName:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt; Maybe Text
-$sel:billingGroupArn:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt; Maybe Text
 $sel:thingName:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt; Maybe Text
+$sel:billingGroupArn:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt; Maybe Text
 $sel:thingArn:RemoveThingFromBillingGroup' :: RemoveThingFromBillingGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679813614"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679814523"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -360,22 +360,22 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813617"><span class="hs-identifier hs-var">thingArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679814526"><span class="hs-identifier hs-var">thingArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;billingGroupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814525"><span class="hs-identifier hs-var">billingGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;thingName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813616"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;billingGroupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813615"><span class="hs-identifier hs-var">billingGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679814524"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;billingGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -383,12 +383,12 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813614"><span class="hs-identifier hs-var">billingGroupName</span></a></span><span>
+</span><a href="#local-6989586621679814523"><span class="hs-identifier hs-var">billingGroupName</span></a></span><span>
 </span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679813608"><span class="annot"><span class="annottext">toPath :: RemoveThingFromBillingGroup -&gt; ByteString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679814517"><span class="annot"><span class="annottext">toPath :: RemoveThingFromBillingGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; RemoveThingFromBillingGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -397,7 +397,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/billing-groups/removeThingFromBillingGroup&quot;</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroup"><span class="hs-identifier hs-type">RemoveThingFromBillingGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679813604"><span class="annot"><span class="annottext">toQuery :: RemoveThingFromBillingGroup -&gt; QueryString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679814513"><span class="annot"><span class="annottext">toQuery :: RemoveThingFromBillingGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RemoveThingFromBillingGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -405,12 +405,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newRemoveThingFromBillingGroupResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679813601"><span id="local-6989586621679813602"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveThingFromBillingGroupResponse"><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse"><span class="hs-identifier hs-var">RemoveThingFromBillingGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveThingFromBillingGroupResponse%27"><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-var">RemoveThingFromBillingGroupResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679814510"><span id="local-6989586621679814511"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveThingFromBillingGroupResponse"><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse"><span class="hs-identifier hs-var">RemoveThingFromBillingGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveThingFromBillingGroupResponse%27"><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-var">RemoveThingFromBillingGroupResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARemoveThingFromBillingGroupResponse%27"><span class="annot"><span class="annottext">RemoveThingFromBillingGroupResponse -&gt; Int
 </span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#%24sel%3AhttpStatus%3ARemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679813596"><span id="local-6989586621679813598"><span class="annot"><span class="annottext">RemoveThingFromBillingGroupResponse
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814505"><span id="local-6989586621679814507"><span class="annot"><span class="annottext">RemoveThingFromBillingGroupResponse
 -&gt; RemoveThingFromBillingGroupResponse -&gt; Bool
 (RemoveThingFromBillingGroupResponse
  -&gt; RemoveThingFromBillingGroupResponse -&gt; Bool)
@@ -426,7 +426,7 @@ $c/= :: RemoveThingFromBillingGroupResponse
 -&gt; RemoveThingFromBillingGroupResponse -&gt; Bool
 $c== :: RemoveThingFromBillingGroupResponse
 -&gt; RemoveThingFromBillingGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813588"><span id="local-6989586621679813590"><span id="local-6989586621679813592"><span id="local-6989586621679813594"><span class="annot"><span class="annottext">ReadPrec [RemoveThingFromBillingGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814497"><span id="local-6989586621679814499"><span id="local-6989586621679814501"><span id="local-6989586621679814503"><span class="annot"><span class="annottext">ReadPrec [RemoveThingFromBillingGroupResponse]
 ReadPrec RemoveThingFromBillingGroupResponse
 Int -&gt; ReadS RemoveThingFromBillingGroupResponse
 ReadS [RemoveThingFromBillingGroupResponse]
@@ -446,7 +446,7 @@ readList :: ReadS [RemoveThingFromBillingGroupResponse]
 $creadList :: ReadS [RemoveThingFromBillingGroupResponse]
 readsPrec :: Int -&gt; ReadS RemoveThingFromBillingGroupResponse
 $creadsPrec :: Int -&gt; ReadS RemoveThingFromBillingGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813582"><span id="local-6989586621679813584"><span id="local-6989586621679813586"><span class="annot"><span class="annottext">Int -&gt; RemoveThingFromBillingGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814491"><span id="local-6989586621679814493"><span id="local-6989586621679814495"><span class="annot"><span class="annottext">Int -&gt; RemoveThingFromBillingGroupResponse -&gt; ShowS
 [RemoveThingFromBillingGroupResponse] -&gt; ShowS
 RemoveThingFromBillingGroupResponse -&gt; String
 (Int -&gt; RemoveThingFromBillingGroupResponse -&gt; ShowS)
@@ -498,14 +498,14 @@ RemoveThingFromBillingGroupResponse
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse"><span class="hs-identifier hs-type">RemoveThingFromBillingGroupResponse</span></a></span><span>
 </span><span id="line-170"></span><span id="newRemoveThingFromBillingGroupResponse"><span class="annot"><span class="annottext">newRemoveThingFromBillingGroupResponse :: Int -&gt; RemoveThingFromBillingGroupResponse
-</span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#newRemoveThingFromBillingGroupResponse"><span class="hs-identifier hs-var hs-var">newRemoveThingFromBillingGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679813579"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679813579"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#newRemoveThingFromBillingGroupResponse"><span class="hs-identifier hs-var hs-var">newRemoveThingFromBillingGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679814488"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679814488"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">RemoveThingFromBillingGroupResponse' :: Int -&gt; RemoveThingFromBillingGroupResponse
 </span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroupResponse'</span></a></span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveThingFromBillingGroupResponse' :: Int
 </span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#%24sel%3AhttpStatus%3ARemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679813579"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679814488"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -522,18 +522,18 @@ RemoveThingFromBillingGroupResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813578"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814487"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RemoveThingFromBillingGroupResponse' :: RemoveThingFromBillingGroupResponse -&gt; Int
-</span><a href="#local-6989586621679813578"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679813578"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813577"><span class="annot"><span class="annottext">s :: RemoveThingFromBillingGroupResponse
-</span><a href="#local-6989586621679813577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813576"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679813576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveThingFromBillingGroupResponse
-</span><a href="#local-6989586621679813577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveThingFromBillingGroupResponse' :: Int
+</span><a href="#local-6989586621679814487"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679814487"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814486"><span class="annot"><span class="annottext">s :: RemoveThingFromBillingGroupResponse
+</span><a href="#local-6989586621679814486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-type">RemoveThingFromBillingGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814485"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679814485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveThingFromBillingGroupResponse
+</span><a href="#local-6989586621679814486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveThingFromBillingGroupResponse' :: Int
 </span><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#%24sel%3AhttpStatus%3ARemoveThingFromBillingGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679813576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse"><span class="hs-identifier hs-type">RemoveThingFromBillingGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679814485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse"><span class="hs-identifier hs-type">RemoveThingFromBillingGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679813574"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679814483"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RemoveThingFromBillingGroup.html#RemoveThingFromBillingGroupResponse"><span class="hs-identifier hs-type">RemoveThingFromBillingGroupResponse</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

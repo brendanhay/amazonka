@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Blackout Slate State</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679861449"><span id="local-6989586621679861450"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BlackoutSlateState"><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlateState.html#BlackoutSlateState"><span class="hs-identifier hs-var">BlackoutSlateState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlackoutSlateState%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlateState.html#BlackoutSlateState%27"><span class="hs-identifier hs-var">BlackoutSlateState'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679868110"><span id="local-6989586621679868111"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BlackoutSlateState"><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlateState.html#BlackoutSlateState"><span class="hs-identifier hs-var">BlackoutSlateState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlackoutSlateState%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.BlackoutSlateState.html#BlackoutSlateState%27"><span class="hs-identifier hs-var">BlackoutSlateState'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBlackoutSlateState"><span class="annot"><span class="annottext">BlackoutSlateState -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.BlackoutSlateState.html#fromBlackoutSlateState"><span class="hs-identifier hs-var hs-var">fromBlackoutSlateState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679861441"><span id="local-6989586621679861443"><span id="local-6989586621679861445"><span class="annot"><span class="annottext">Int -&gt; BlackoutSlateState -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679868102"><span id="local-6989586621679868104"><span id="local-6989586621679868106"><span class="annot"><span class="annottext">Int -&gt; BlackoutSlateState -&gt; ShowS
 [BlackoutSlateState] -&gt; ShowS
 BlackoutSlateState -&gt; String
 (Int -&gt; BlackoutSlateState -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: BlackoutSlateState -&gt; String
 showsPrec :: Int -&gt; BlackoutSlateState -&gt; ShowS
 $cshowsPrec :: Int -&gt; BlackoutSlateState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679861432"><span id="local-6989586621679861434"><span id="local-6989586621679861436"><span id="local-6989586621679861438"><span class="annot"><span class="annottext">ReadPrec [BlackoutSlateState]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679868093"><span id="local-6989586621679868095"><span id="local-6989586621679868097"><span id="local-6989586621679868099"><span class="annot"><span class="annottext">ReadPrec [BlackoutSlateState]
 ReadPrec BlackoutSlateState
 Int -&gt; ReadS BlackoutSlateState
 ReadS [BlackoutSlateState]
@@ -73,7 +73,7 @@ $creadList :: ReadS [BlackoutSlateState]
 readsPrec :: Int -&gt; ReadS BlackoutSlateState
 $creadsPrec :: Int -&gt; ReadS BlackoutSlateState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679861427"><span id="local-6989586621679861429"><span class="annot"><span class="annottext">BlackoutSlateState -&gt; BlackoutSlateState -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679868088"><span id="local-6989586621679868090"><span class="annot"><span class="annottext">BlackoutSlateState -&gt; BlackoutSlateState -&gt; Bool
 (BlackoutSlateState -&gt; BlackoutSlateState -&gt; Bool)
 -&gt; (BlackoutSlateState -&gt; BlackoutSlateState -&gt; Bool)
 -&gt; Eq BlackoutSlateState
@@ -83,7 +83,7 @@ $c/= :: BlackoutSlateState -&gt; BlackoutSlateState -&gt; Bool
 == :: BlackoutSlateState -&gt; BlackoutSlateState -&gt; Bool
 $c== :: BlackoutSlateState -&gt; BlackoutSlateState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679861411"><span id="local-6989586621679861413"><span id="local-6989586621679861415"><span id="local-6989586621679861417"><span id="local-6989586621679861419"><span id="local-6989586621679861421"><span id="local-6989586621679861423"><span class="annot"><span class="annottext">Eq BlackoutSlateState
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679868072"><span id="local-6989586621679868074"><span id="local-6989586621679868076"><span id="local-6989586621679868078"><span id="local-6989586621679868080"><span id="local-6989586621679868082"><span id="local-6989586621679868084"><span class="annot"><span class="annottext">Eq BlackoutSlateState
 Eq BlackoutSlateState
 -&gt; (BlackoutSlateState -&gt; BlackoutSlateState -&gt; Ordering)
 -&gt; (BlackoutSlateState -&gt; BlackoutSlateState -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. BlackoutSlateState -&gt; Rep BlackoutSlateState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679861403"><span id="local-6989586621679861405"><span class="annot"><span class="annottext">Int -&gt; BlackoutSlateState -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679868064"><span id="local-6989586621679868066"><span class="annot"><span class="annottext">Int -&gt; BlackoutSlateState -&gt; Int
 BlackoutSlateState -&gt; Int
 (Int -&gt; BlackoutSlateState -&gt; Int)
 -&gt; (BlackoutSlateState -&gt; Int) -&gt; Hashable BlackoutSlateState
@@ -144,53 +144,53 @@ $chash :: BlackoutSlateState -&gt; Int
 hashWithSalt :: Int -&gt; BlackoutSlateState -&gt; Int
 $chashWithSalt :: Int -&gt; BlackoutSlateState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679861400"><span class="annot"><span class="annottext">BlackoutSlateState -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679868061"><span class="annot"><span class="annottext">BlackoutSlateState -&gt; ()
 (BlackoutSlateState -&gt; ()) -&gt; NFData BlackoutSlateState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BlackoutSlateState -&gt; ()
 $crnf :: BlackoutSlateState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679861397"><span class="annot"><span class="annottext">Text -&gt; Either String BlackoutSlateState
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679868058"><span class="annot"><span class="annottext">Text -&gt; Either String BlackoutSlateState
 (Text -&gt; Either String BlackoutSlateState)
 -&gt; FromText BlackoutSlateState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BlackoutSlateState
 $cfromText :: Text -&gt; Either String BlackoutSlateState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679861394"><span class="annot"><span class="annottext">BlackoutSlateState -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679868055"><span class="annot"><span class="annottext">BlackoutSlateState -&gt; Text
 (BlackoutSlateState -&gt; Text) -&gt; ToText BlackoutSlateState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BlackoutSlateState -&gt; Text
 $ctoText :: BlackoutSlateState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679861391"><span class="annot"><span class="annottext">BlackoutSlateState -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679868052"><span class="annot"><span class="annottext">BlackoutSlateState -&gt; ByteString
 (BlackoutSlateState -&gt; ByteString)
 -&gt; ToByteString BlackoutSlateState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BlackoutSlateState -&gt; ByteString
 $ctoBS :: BlackoutSlateState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679861388"><span class="annot"><span class="annottext">BlackoutSlateState -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679868049"><span class="annot"><span class="annottext">BlackoutSlateState -&gt; ByteStringBuilder
 (BlackoutSlateState -&gt; ByteStringBuilder)
 -&gt; ToLog BlackoutSlateState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BlackoutSlateState -&gt; ByteStringBuilder
 $cbuild :: BlackoutSlateState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679861385"><span class="annot"><span class="annottext">HeaderName -&gt; BlackoutSlateState -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679868046"><span class="annot"><span class="annottext">HeaderName -&gt; BlackoutSlateState -&gt; [Header]
 (HeaderName -&gt; BlackoutSlateState -&gt; [Header])
 -&gt; ToHeader BlackoutSlateState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BlackoutSlateState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BlackoutSlateState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679861382"><span class="annot"><span class="annottext">BlackoutSlateState -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679868043"><span class="annot"><span class="annottext">BlackoutSlateState -&gt; QueryString
 (BlackoutSlateState -&gt; QueryString) -&gt; ToQuery BlackoutSlateState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BlackoutSlateState -&gt; QueryString
 $ctoQuery :: BlackoutSlateState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679861377"><span id="local-6989586621679861379"><span class="annot"><span class="annottext">Value -&gt; Parser [BlackoutSlateState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679868038"><span id="local-6989586621679868040"><span class="annot"><span class="annottext">Value -&gt; Parser [BlackoutSlateState]
 Value -&gt; Parser BlackoutSlateState
 (Value -&gt; Parser BlackoutSlateState)
 -&gt; (Value -&gt; Parser [BlackoutSlateState])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [BlackoutSlateState]
 parseJSON :: Value -&gt; Parser BlackoutSlateState
 $cparseJSON :: Value -&gt; Parser BlackoutSlateState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679861372"><span id="local-6989586621679861374"><span class="annot"><span class="annottext">FromJSONKeyFunction [BlackoutSlateState]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679868033"><span id="local-6989586621679868035"><span class="annot"><span class="annottext">FromJSONKeyFunction [BlackoutSlateState]
 FromJSONKeyFunction BlackoutSlateState
 FromJSONKeyFunction BlackoutSlateState
 -&gt; FromJSONKeyFunction [BlackoutSlateState]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BlackoutSlateState]
 fromJSONKey :: FromJSONKeyFunction BlackoutSlateState
 $cfromJSONKey :: FromJSONKeyFunction BlackoutSlateState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679861363"><span id="local-6989586621679861365"><span id="local-6989586621679861367"><span id="local-6989586621679861369"><span class="annot"><span class="annottext">[BlackoutSlateState] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679868024"><span id="local-6989586621679868026"><span id="local-6989586621679868028"><span id="local-6989586621679868030"><span class="annot"><span class="annottext">[BlackoutSlateState] -&gt; Encoding
 [BlackoutSlateState] -&gt; Value
 BlackoutSlateState -&gt; Encoding
 BlackoutSlateState -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: BlackoutSlateState -&gt; Encoding
 toJSON :: BlackoutSlateState -&gt; Value
 $ctoJSON :: BlackoutSlateState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679861358"><span id="local-6989586621679861360"><span class="annot"><span class="annottext">ToJSONKeyFunction [BlackoutSlateState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679868019"><span id="local-6989586621679868021"><span class="annot"><span class="annottext">ToJSONKeyFunction [BlackoutSlateState]
 ToJSONKeyFunction BlackoutSlateState
 ToJSONKeyFunction BlackoutSlateState
 -&gt; ToJSONKeyFunction [BlackoutSlateState]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BlackoutSlateState]
 toJSONKey :: ToJSONKeyFunction BlackoutSlateState
 $ctoJSONKey :: ToJSONKeyFunction BlackoutSlateState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679861355"><span class="annot"><span class="annottext">[Node] -&gt; Either String BlackoutSlateState
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679868016"><span class="annot"><span class="annottext">[Node] -&gt; Either String BlackoutSlateState
 ([Node] -&gt; Either String BlackoutSlateState)
 -&gt; FromXML BlackoutSlateState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BlackoutSlateState
 $cparseXML :: [Node] -&gt; Either String BlackoutSlateState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679861352"><span class="annot"><span class="annottext">BlackoutSlateState -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679868013"><span class="annot"><span class="annottext">BlackoutSlateState -&gt; XML
 (BlackoutSlateState -&gt; XML) -&gt; ToXML BlackoutSlateState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BlackoutSlateState -&gt; XML

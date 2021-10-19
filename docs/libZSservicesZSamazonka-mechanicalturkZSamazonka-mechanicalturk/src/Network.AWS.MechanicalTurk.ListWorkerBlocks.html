@@ -38,8 +38,8 @@
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#newListWorkerBlocksResponse"><span class="hs-identifier">newListWorkerBlocksResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#listWorkerBlocksResponse_nextToken"><span class="hs-identifier">listWorkerBlocksResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#listWorkerBlocksResponse_workerBlocks"><span class="hs-identifier">listWorkerBlocksResponse_workerBlocks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#listWorkerBlocksResponse_workerBlocks"><span class="hs-identifier">listWorkerBlocksResponse_workerBlocks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#listWorkerBlocksResponse_nextToken"><span class="hs-identifier">listWorkerBlocksResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#listWorkerBlocksResponse_numResults"><span class="hs-identifier">listWorkerBlocksResponse_numResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#listWorkerBlocksResponse_httpStatus"><span class="hs-identifier">listWorkerBlocksResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
@@ -53,14 +53,14 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListWorkerBlocks' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679248547"><span id="local-6989586621679248548"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListWorkerBlocks"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks"><span class="hs-identifier hs-var">ListWorkerBlocks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListWorkerBlocks%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks%27"><span class="hs-identifier hs-var">ListWorkerBlocks'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679248671"><span id="local-6989586621679248672"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListWorkerBlocks"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks"><span class="hs-identifier hs-var">ListWorkerBlocks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListWorkerBlocks%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks%27"><span class="hs-identifier hs-var">ListWorkerBlocks'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Pagination token</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListWorkerBlocks%27"><span class="annot"><span class="annottext">ListWorkerBlocks -&gt; Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#%24sel%3AnextToken%3AListWorkerBlocks%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AmaxResults%3AListWorkerBlocks%27"><span class="annot"><span class="annottext">ListWorkerBlocks -&gt; Maybe Natural
 </span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#%24sel%3AmaxResults%3AListWorkerBlocks%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248540"><span id="local-6989586621679248542"><span class="annot"><span class="annottext">ListWorkerBlocks -&gt; ListWorkerBlocks -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248664"><span id="local-6989586621679248666"><span class="annot"><span class="annottext">ListWorkerBlocks -&gt; ListWorkerBlocks -&gt; Bool
 (ListWorkerBlocks -&gt; ListWorkerBlocks -&gt; Bool)
 -&gt; (ListWorkerBlocks -&gt; ListWorkerBlocks -&gt; Bool)
 -&gt; Eq ListWorkerBlocks
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListWorkerBlocks -&gt; ListWorkerBlocks -&gt; Bool
 == :: ListWorkerBlocks -&gt; ListWorkerBlocks -&gt; Bool
 $c== :: ListWorkerBlocks -&gt; ListWorkerBlocks -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248531"><span id="local-6989586621679248533"><span id="local-6989586621679248535"><span id="local-6989586621679248537"><span class="annot"><span class="annottext">ReadPrec [ListWorkerBlocks]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248655"><span id="local-6989586621679248657"><span id="local-6989586621679248659"><span id="local-6989586621679248661"><span class="annot"><span class="annottext">ReadPrec [ListWorkerBlocks]
 ReadPrec ListWorkerBlocks
 Int -&gt; ReadS ListWorkerBlocks
 ReadS [ListWorkerBlocks]
@@ -89,7 +89,7 @@ readList :: ReadS [ListWorkerBlocks]
 $creadList :: ReadS [ListWorkerBlocks]
 readsPrec :: Int -&gt; ReadS ListWorkerBlocks
 $creadsPrec :: Int -&gt; ReadS ListWorkerBlocks
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248524"><span id="local-6989586621679248526"><span id="local-6989586621679248528"><span class="annot"><span class="annottext">Int -&gt; ListWorkerBlocks -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248648"><span id="local-6989586621679248650"><span id="local-6989586621679248652"><span class="annot"><span class="annottext">Int -&gt; ListWorkerBlocks -&gt; ShowS
 [ListWorkerBlocks] -&gt; ShowS
 ListWorkerBlocks -&gt; String
 (Int -&gt; ListWorkerBlocks -&gt; ShowS)
@@ -150,16 +150,16 @@ forall a. Maybe a
 -&gt; (ListWorkerBlocks -&gt; Maybe Text -&gt; ListWorkerBlocks)
 -&gt; Lens ListWorkerBlocks ListWorkerBlocks (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks%27"><span class="hs-identifier hs-type">ListWorkerBlocks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248518"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks%27"><span class="hs-identifier hs-type">ListWorkerBlocks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248642"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListWorkerBlocks' :: ListWorkerBlocks -&gt; Maybe Text
-</span><a href="#local-6989586621679248518"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248518"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248517"><span class="annot"><span class="annottext">s :: ListWorkerBlocks
-</span><a href="#local-6989586621679248517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks%27"><span class="hs-identifier hs-type">ListWorkerBlocks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248516"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkerBlocks
-</span><a href="#local-6989586621679248517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListWorkerBlocks' :: Maybe Text
+</span><a href="#local-6989586621679248642"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248642"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248641"><span class="annot"><span class="annottext">s :: ListWorkerBlocks
+</span><a href="#local-6989586621679248641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks%27"><span class="hs-identifier hs-type">ListWorkerBlocks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248640"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkerBlocks
+</span><a href="#local-6989586621679248641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListWorkerBlocks' :: Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#%24sel%3AnextToken%3AListWorkerBlocks%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks"><span class="hs-identifier hs-type">ListWorkerBlocks</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks"><span class="hs-identifier hs-type">ListWorkerBlocks</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#listWorkerBlocks_maxResults"><span class="hs-identifier hs-type">listWorkerBlocks_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks"><span class="hs-identifier hs-type">ListWorkerBlocks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -170,29 +170,29 @@ $sel:nextToken:ListWorkerBlocks' :: ListWorkerBlocks -&gt; Maybe Text
 -&gt; Lens
      ListWorkerBlocks ListWorkerBlocks (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks%27"><span class="hs-identifier hs-type">ListWorkerBlocks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248515"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks%27"><span class="hs-identifier hs-type">ListWorkerBlocks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248639"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListWorkerBlocks' :: ListWorkerBlocks -&gt; Maybe Natural
-</span><a href="#local-6989586621679248515"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679248515"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248514"><span class="annot"><span class="annottext">s :: ListWorkerBlocks
-</span><a href="#local-6989586621679248514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks%27"><span class="hs-identifier hs-type">ListWorkerBlocks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248513"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679248513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkerBlocks
-</span><a href="#local-6989586621679248514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListWorkerBlocks' :: Maybe Natural
+</span><a href="#local-6989586621679248639"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679248639"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248638"><span class="annot"><span class="annottext">s :: ListWorkerBlocks
+</span><a href="#local-6989586621679248638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks%27"><span class="hs-identifier hs-type">ListWorkerBlocks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248637"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679248637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkerBlocks
+</span><a href="#local-6989586621679248638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListWorkerBlocks' :: Maybe Natural
 </span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#%24sel%3AmaxResults%3AListWorkerBlocks%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679248513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks"><span class="hs-identifier hs-type">ListWorkerBlocks</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks"><span class="hs-identifier hs-type">ListWorkerBlocks</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks"><span class="hs-identifier hs-type">ListWorkerBlocks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679248509"><span class="annot"><span class="annottext">page :: ListWorkerBlocks
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679248633"><span class="annot"><span class="annottext">page :: ListWorkerBlocks
 -&gt; AWSResponse ListWorkerBlocks -&gt; Maybe ListWorkerBlocks
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679248507"><span class="annot"><span class="annottext">ListWorkerBlocks
-</span><a href="#local-6989586621679248507"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679248506"><span class="annot"><span class="annottext">AWSResponse ListWorkerBlocks
-</span><a href="#local-6989586621679248506"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679248631"><span class="annot"><span class="annottext">ListWorkerBlocks
+</span><a href="#local-6989586621679248631"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679248630"><span class="annot"><span class="annottext">AWSResponse ListWorkerBlocks
+</span><a href="#local-6989586621679248630"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-93"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListWorkerBlocks
 ListWorkerBlocksResponse
-</span><a href="#local-6989586621679248506"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679248630"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">ListWorkerBlocksResponse
 -&gt; Getting (First Text) ListWorkerBlocksResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -221,7 +221,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-99"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListWorkerBlocks
 ListWorkerBlocksResponse
-</span><a href="#local-6989586621679248506"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679248630"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">ListWorkerBlocksResponse
 -&gt; Getting
      (First [WorkerBlock]) ListWorkerBlocksResponse [WorkerBlock]
@@ -261,7 +261,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">ListWorkerBlocks
-</span><a href="#local-6989586621679248507"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679248631"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">ListWorkerBlocks
 -&gt; (ListWorkerBlocks -&gt; ListWorkerBlocks) -&gt; ListWorkerBlocks
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -275,7 +275,7 @@ Lens ListWorkerBlocks ListWorkerBlocks (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListWorkerBlocks
 ListWorkerBlocksResponse
-</span><a href="#local-6989586621679248506"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679248630"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">ListWorkerBlocksResponse
 -&gt; Getting (First Text) ListWorkerBlocksResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -300,12 +300,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-114"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks"><span class="hs-identifier hs-type">ListWorkerBlocks</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-type">ListWorkerBlocksResponse</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679248496"><span class="annot"><span class="annottext">request :: ListWorkerBlocks -&gt; Request ListWorkerBlocks
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679248620"><span class="annot"><span class="annottext">request :: ListWorkerBlocks -&gt; Request ListWorkerBlocks
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListWorkerBlocks -&gt; Request ListWorkerBlocks
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MechanicalTurk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679248492"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679248616"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListWorkerBlocks
 -&gt; ClientResponse ClientBody
@@ -329,41 +329,21 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248489"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248489"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679248488"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679248488"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679248487"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248487"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [WorkerBlock]
--&gt; Maybe Int
--&gt; Int
--&gt; ListWorkerBlocksResponse
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679248613"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248613"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679248612"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679248612"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679248611"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248611"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe [WorkerBlock]
+-&gt; Maybe Text -&gt; Maybe Int -&gt; Int -&gt; ListWorkerBlocksResponse
 </span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-var">ListWorkerBlocksResponse'</span></a></span><span>
-</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [WorkerBlock]
- -&gt; Maybe Int
- -&gt; Int
- -&gt; ListWorkerBlocksResponse)
--&gt; Either String (Maybe Text)
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [WorkerBlock]
+ -&gt; Maybe Text -&gt; Maybe Int -&gt; Int -&gt; ListWorkerBlocksResponse)
+-&gt; Either String (Maybe [WorkerBlock])
 -&gt; Either
-     String
-     (Maybe [WorkerBlock]
-      -&gt; Maybe Int -&gt; Int -&gt; ListWorkerBlocksResponse)
+     String (Maybe Text -&gt; Maybe Int -&gt; Int -&gt; ListWorkerBlocksResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [WorkerBlock]
-   -&gt; Maybe Int -&gt; Int -&gt; ListWorkerBlocksResponse)
--&gt; Either String (Maybe [WorkerBlock])
--&gt; Either String (Maybe Int -&gt; Int -&gt; ListWorkerBlocksResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [WorkerBlock]))
+</span><a href="#local-6989586621679248611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [WorkerBlock]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WorkerBlocks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [WorkerBlock]))
@@ -372,12 +352,22 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [WorkerBlock]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Int -&gt; Int -&gt; ListWorkerBlocksResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Int -&gt; Int -&gt; ListWorkerBlocksResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679248611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; Int -&gt; ListWorkerBlocksResponse)
 -&gt; Either String (Maybe Int)
 -&gt; Either String (Int -&gt; ListWorkerBlocksResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679248487"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679248611"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumResults&quot;</span></span><span class="hs-special">)</span><span>
@@ -389,15 +379,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248489"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248613"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248478"><span id="local-6989586621679248480"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks"><span class="hs-identifier hs-type">ListWorkerBlocks</span></a></span></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248602"><span id="local-6989586621679248604"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks"><span class="hs-identifier hs-type">ListWorkerBlocks</span></a></span></span></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248475"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks"><span class="hs-identifier hs-type">ListWorkerBlocks</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks"><span class="hs-identifier hs-type">ListWorkerBlocks</span></a></span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks"><span class="hs-identifier hs-type">ListWorkerBlocks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679248471"><span class="annot"><span class="annottext">toHeaders :: ListWorkerBlocks -&gt; ResponseHeaders
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679248595"><span class="annot"><span class="annottext">toHeaders :: ListWorkerBlocks -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListWorkerBlocks -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -424,15 +414,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-143"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248461"><span id="local-6989586621679248463"><span id="local-6989586621679248465"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks"><span class="hs-identifier hs-type">ListWorkerBlocks</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679248459"><span class="annot"><span class="annottext">toJSON :: ListWorkerBlocks -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks%27"><span class="hs-identifier hs-type">ListWorkerBlocks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248456"><span id="local-6989586621679248457"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248585"><span id="local-6989586621679248587"><span id="local-6989586621679248589"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks"><span class="hs-identifier hs-type">ListWorkerBlocks</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679248583"><span class="annot"><span class="annottext">toJSON :: ListWorkerBlocks -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks%27"><span class="hs-identifier hs-type">ListWorkerBlocks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248580"><span id="local-6989586621679248581"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListWorkerBlocks' :: ListWorkerBlocks -&gt; Maybe Natural
 $sel:nextToken:ListWorkerBlocks' :: ListWorkerBlocks -&gt; Maybe Text
-</span><a href="#local-6989586621679248456"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679248580"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -444,26 +434,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248457"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679248581"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-151"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679248456"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679248580"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks"><span class="hs-identifier hs-type">ListWorkerBlocks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679248450"><span class="annot"><span class="annottext">toPath :: ListWorkerBlocks -&gt; ByteString
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679248574"><span class="annot"><span class="annottext">toPath :: ListWorkerBlocks -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListWorkerBlocks -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocks"><span class="hs-identifier hs-type">ListWorkerBlocks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679248446"><span class="annot"><span class="annottext">toQuery :: ListWorkerBlocks -&gt; QueryString
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679248570"><span class="annot"><span class="annottext">toQuery :: ListWorkerBlocks -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListWorkerBlocks -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -471,13 +461,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | /See:/ 'newListWorkerBlocksResponse' smart constructor.</span><span>
-</span><span id="line-162"></span><span id="local-6989586621679248443"><span id="local-6989586621679248444"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListWorkerBlocksResponse"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-var">ListWorkerBlocksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListWorkerBlocksResponse%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-var">ListWorkerBlocksResponse'</span></a></span></span><span>
-</span><span id="line-163"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AnextToken%3AListWorkerBlocksResponse%27"><span class="annot"><span class="annottext">ListWorkerBlocksResponse -&gt; Maybe Text
-</span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#%24sel%3AnextToken%3AListWorkerBlocksResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The list of WorkerBlocks, containing the collection of Worker IDs and</span><span>
-</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- reasons for blocking.</span><span>
-</span><span id="line-166"></span><span>    </span><span id="%24sel%3AworkerBlocks%3AListWorkerBlocksResponse%27"><span class="annot"><span class="annottext">ListWorkerBlocksResponse -&gt; Maybe [WorkerBlock]
+</span><span id="line-162"></span><span id="local-6989586621679248567"><span id="local-6989586621679248568"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListWorkerBlocksResponse"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-var">ListWorkerBlocksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListWorkerBlocksResponse%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-var">ListWorkerBlocksResponse'</span></a></span></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of WorkerBlocks, containing the collection of Worker IDs and</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- reasons for blocking.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AworkerBlocks%3AListWorkerBlocksResponse%27"><span class="annot"><span class="annottext">ListWorkerBlocksResponse -&gt; Maybe [WorkerBlock]
 </span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#%24sel%3AworkerBlocks%3AListWorkerBlocksResponse%27"><span class="hs-identifier hs-var hs-var">workerBlocks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.WorkerBlock.html#WorkerBlock"><span class="hs-identifier hs-type">WorkerBlock</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AnextToken%3AListWorkerBlocksResponse%27"><span class="annot"><span class="annottext">ListWorkerBlocksResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#%24sel%3AnextToken%3AListWorkerBlocksResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | The number of assignments on the page in the filtered results list,</span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-comment">-- equivalent to the number of assignments returned by this call.</span><span>
 </span><span id="line-169"></span><span>    </span><span id="%24sel%3AnumResults%3AListWorkerBlocksResponse%27"><span class="annot"><span class="annottext">ListWorkerBlocksResponse -&gt; Maybe Int
@@ -486,7 +476,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListWorkerBlocksResponse%27"><span class="annot"><span class="annottext">ListWorkerBlocksResponse -&gt; Int
 </span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#%24sel%3AhttpStatus%3AListWorkerBlocksResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248435"><span id="local-6989586621679248437"><span class="annot"><span class="annottext">ListWorkerBlocksResponse -&gt; ListWorkerBlocksResponse -&gt; Bool
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248559"><span id="local-6989586621679248561"><span class="annot"><span class="annottext">ListWorkerBlocksResponse -&gt; ListWorkerBlocksResponse -&gt; Bool
 (ListWorkerBlocksResponse -&gt; ListWorkerBlocksResponse -&gt; Bool)
 -&gt; (ListWorkerBlocksResponse -&gt; ListWorkerBlocksResponse -&gt; Bool)
 -&gt; Eq ListWorkerBlocksResponse
@@ -495,7 +485,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListWorkerBlocksResponse -&gt; ListWorkerBlocksResponse -&gt; Bool
 == :: ListWorkerBlocksResponse -&gt; ListWorkerBlocksResponse -&gt; Bool
 $c== :: ListWorkerBlocksResponse -&gt; ListWorkerBlocksResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248427"><span id="local-6989586621679248429"><span id="local-6989586621679248431"><span id="local-6989586621679248433"><span class="annot"><span class="annottext">ReadPrec [ListWorkerBlocksResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248551"><span id="local-6989586621679248553"><span id="local-6989586621679248555"><span id="local-6989586621679248557"><span class="annot"><span class="annottext">ReadPrec [ListWorkerBlocksResponse]
 ReadPrec ListWorkerBlocksResponse
 Int -&gt; ReadS ListWorkerBlocksResponse
 ReadS [ListWorkerBlocksResponse]
@@ -515,7 +505,7 @@ readList :: ReadS [ListWorkerBlocksResponse]
 $creadList :: ReadS [ListWorkerBlocksResponse]
 readsPrec :: Int -&gt; ReadS ListWorkerBlocksResponse
 $creadsPrec :: Int -&gt; ReadS ListWorkerBlocksResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248421"><span id="local-6989586621679248423"><span id="local-6989586621679248425"><span class="annot"><span class="annottext">Int -&gt; ListWorkerBlocksResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679248545"><span id="local-6989586621679248547"><span id="local-6989586621679248549"><span class="annot"><span class="annottext">Int -&gt; ListWorkerBlocksResponse -&gt; ShowS
 [ListWorkerBlocksResponse] -&gt; ShowS
 ListWorkerBlocksResponse -&gt; String
 (Int -&gt; ListWorkerBlocksResponse -&gt; ShowS)
@@ -555,10 +545,10 @@ ListWorkerBlocksResponse -&gt; Rep ListWorkerBlocksResponse x
 </span><span id="line-180"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-182"></span><span class="hs-comment">--</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- 'nextToken', 'listWorkerBlocksResponse_nextToken' - Undocumented member.</span><span>
-</span><span id="line-184"></span><span class="hs-comment">--</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- 'workerBlocks', 'listWorkerBlocksResponse_workerBlocks' - The list of WorkerBlocks, containing the collection of Worker IDs and</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- reasons for blocking.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'workerBlocks', 'listWorkerBlocksResponse_workerBlocks' - The list of WorkerBlocks, containing the collection of Worker IDs and</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- reasons for blocking.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'nextToken', 'listWorkerBlocksResponse_nextToken' - Undocumented member.</span><span>
 </span><span id="line-187"></span><span class="hs-comment">--</span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- 'numResults', 'listWorkerBlocksResponse_numResults' - The number of assignments on the page in the filtered results list,</span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- equivalent to the number of assignments returned by this call.</span><span>
@@ -569,21 +559,18 @@ ListWorkerBlocksResponse -&gt; Rep ListWorkerBlocksResponse x
 </span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-195"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-type">ListWorkerBlocksResponse</span></a></span><span>
 </span><span id="line-196"></span><span id="newListWorkerBlocksResponse"><span class="annot"><span class="annottext">newListWorkerBlocksResponse :: Int -&gt; ListWorkerBlocksResponse
-</span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#newListWorkerBlocksResponse"><span class="hs-identifier hs-var hs-var">newListWorkerBlocksResponse</span></a></span></span><span> </span><span id="local-6989586621679248418"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248418"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-197"></span><span>  </span><span class="annot"><span class="annottext">ListWorkerBlocksResponse' :: Maybe Text
--&gt; Maybe [WorkerBlock]
--&gt; Maybe Int
--&gt; Int
--&gt; ListWorkerBlocksResponse
+</span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#newListWorkerBlocksResponse"><span class="hs-identifier hs-var hs-var">newListWorkerBlocksResponse</span></a></span></span><span> </span><span id="local-6989586621679248542"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248542"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><span class="annottext">ListWorkerBlocksResponse' :: Maybe [WorkerBlock]
+-&gt; Maybe Text -&gt; Maybe Int -&gt; Int -&gt; ListWorkerBlocksResponse
 </span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-type">ListWorkerBlocksResponse'</span></a></span><span>
-</span><span id="line-198"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListWorkerBlocksResponse' :: Maybe Text
-</span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#%24sel%3AnextToken%3AListWorkerBlocksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-198"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:workerBlocks:ListWorkerBlocksResponse' :: Maybe [WorkerBlock]
+</span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#%24sel%3AworkerBlocks%3AListWorkerBlocksResponse%27"><span class="hs-identifier hs-var">workerBlocks</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">Maybe [WorkerBlock]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:workerBlocks:ListWorkerBlocksResponse' :: Maybe [WorkerBlock]
-</span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#%24sel%3AworkerBlocks%3AListWorkerBlocksResponse%27"><span class="hs-identifier hs-var">workerBlocks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [WorkerBlock]
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListWorkerBlocksResponse' :: Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#%24sel%3AnextToken%3AListWorkerBlocksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:numResults:ListWorkerBlocksResponse' :: Maybe Int
@@ -592,49 +579,29 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListWorkerBlocksResponse' :: Int
 </span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#%24sel%3AhttpStatus%3AListWorkerBlocksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248418"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679248542"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-203"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#listWorkerBlocksResponse_nextToken"><span class="hs-identifier hs-type">listWorkerBlocksResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-type">ListWorkerBlocksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-207"></span><span id="listWorkerBlocksResponse_nextToken"><span class="annot"><span class="annottext">listWorkerBlocksResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListWorkerBlocksResponse -&gt; f ListWorkerBlocksResponse
-</span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#listWorkerBlocksResponse_nextToken"><span class="hs-identifier hs-var hs-var">listWorkerBlocksResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListWorkerBlocksResponse -&gt; Maybe Text)
--&gt; (ListWorkerBlocksResponse
-    -&gt; Maybe Text -&gt; ListWorkerBlocksResponse)
--&gt; Lens' ListWorkerBlocksResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-type">ListWorkerBlocksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248417"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListWorkerBlocksResponse' :: ListWorkerBlocksResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679248417"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248417"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248416"><span class="annot"><span class="annottext">s :: ListWorkerBlocksResponse
-</span><a href="#local-6989586621679248416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-type">ListWorkerBlocksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248415"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkerBlocksResponse
-</span><a href="#local-6989586621679248416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListWorkerBlocksResponse' :: Maybe Text
-</span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#%24sel%3AnextToken%3AListWorkerBlocksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679248415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-type">ListWorkerBlocksResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-208"></span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- | The list of WorkerBlocks, containing the collection of Worker IDs and</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- reasons for blocking.</span><span>
-</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#listWorkerBlocksResponse_workerBlocks"><span class="hs-identifier hs-type">listWorkerBlocksResponse_workerBlocks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-type">ListWorkerBlocksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.WorkerBlock.html#WorkerBlock"><span class="hs-identifier hs-type">WorkerBlock</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-212"></span><span id="listWorkerBlocksResponse_workerBlocks"><span class="annot"><span class="annottext">listWorkerBlocksResponse_workerBlocks :: (Maybe [WorkerBlock] -&gt; f (Maybe [WorkerBlock]))
+</span><span id="line-205"></span><span class="hs-comment">-- | The list of WorkerBlocks, containing the collection of Worker IDs and</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- reasons for blocking.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#listWorkerBlocksResponse_workerBlocks"><span class="hs-identifier hs-type">listWorkerBlocksResponse_workerBlocks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-type">ListWorkerBlocksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.WorkerBlock.html#WorkerBlock"><span class="hs-identifier hs-type">WorkerBlock</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="listWorkerBlocksResponse_workerBlocks"><span class="annot"><span class="annottext">listWorkerBlocksResponse_workerBlocks :: (Maybe [WorkerBlock] -&gt; f (Maybe [WorkerBlock]))
 -&gt; ListWorkerBlocksResponse -&gt; f ListWorkerBlocksResponse
 </span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#listWorkerBlocksResponse_workerBlocks"><span class="hs-identifier hs-var hs-var">listWorkerBlocksResponse_workerBlocks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListWorkerBlocksResponse -&gt; Maybe [WorkerBlock])
 -&gt; (ListWorkerBlocksResponse
     -&gt; Maybe [WorkerBlock] -&gt; ListWorkerBlocksResponse)
 -&gt; Lens' ListWorkerBlocksResponse (Maybe [WorkerBlock])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-type">ListWorkerBlocksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248414"><span class="annot"><span class="annottext">Maybe [WorkerBlock]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-type">ListWorkerBlocksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248541"><span class="annot"><span class="annottext">Maybe [WorkerBlock]
 workerBlocks :: Maybe [WorkerBlock]
 $sel:workerBlocks:ListWorkerBlocksResponse' :: ListWorkerBlocksResponse -&gt; Maybe [WorkerBlock]
-</span><a href="#local-6989586621679248414"><span class="hs-identifier hs-var hs-var">workerBlocks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [WorkerBlock]
-</span><a href="#local-6989586621679248414"><span class="hs-identifier hs-var">workerBlocks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248413"><span class="annot"><span class="annottext">s :: ListWorkerBlocksResponse
-</span><a href="#local-6989586621679248413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-type">ListWorkerBlocksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248412"><span class="annot"><span class="annottext">Maybe [WorkerBlock]
-</span><a href="#local-6989586621679248412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkerBlocksResponse
-</span><a href="#local-6989586621679248413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workerBlocks:ListWorkerBlocksResponse' :: Maybe [WorkerBlock]
+</span><a href="#local-6989586621679248541"><span class="hs-identifier hs-var hs-var">workerBlocks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [WorkerBlock]
+</span><a href="#local-6989586621679248541"><span class="hs-identifier hs-var">workerBlocks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248540"><span class="annot"><span class="annottext">s :: ListWorkerBlocksResponse
+</span><a href="#local-6989586621679248540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-type">ListWorkerBlocksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248539"><span class="annot"><span class="annottext">Maybe [WorkerBlock]
+</span><a href="#local-6989586621679248539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkerBlocksResponse
+</span><a href="#local-6989586621679248540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workerBlocks:ListWorkerBlocksResponse' :: Maybe [WorkerBlock]
 </span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#%24sel%3AworkerBlocks%3AListWorkerBlocksResponse%27"><span class="hs-identifier hs-var">workerBlocks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [WorkerBlock]
-</span><a href="#local-6989586621679248412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-type">ListWorkerBlocksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [WorkerBlock] -&gt; f (Maybe [WorkerBlock]))
+</span><a href="#local-6989586621679248539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-type">ListWorkerBlocksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [WorkerBlock] -&gt; f (Maybe [WorkerBlock]))
  -&gt; ListWorkerBlocksResponse -&gt; f ListWorkerBlocksResponse)
 -&gt; ((Maybe [WorkerBlock] -&gt; f (Maybe [WorkerBlock]))
     -&gt; Maybe [WorkerBlock] -&gt; f (Maybe [WorkerBlock]))
@@ -652,8 +619,28 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [WorkerBlock] [WorkerBlock] [WorkerBlock] [WorkerBlock]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#listWorkerBlocksResponse_nextToken"><span class="hs-identifier hs-type">listWorkerBlocksResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-type">ListWorkerBlocksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="listWorkerBlocksResponse_nextToken"><span class="annot"><span class="annottext">listWorkerBlocksResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListWorkerBlocksResponse -&gt; f ListWorkerBlocksResponse
+</span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#listWorkerBlocksResponse_nextToken"><span class="hs-identifier hs-var hs-var">listWorkerBlocksResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListWorkerBlocksResponse -&gt; Maybe Text)
+-&gt; (ListWorkerBlocksResponse
+    -&gt; Maybe Text -&gt; ListWorkerBlocksResponse)
+-&gt; Lens' ListWorkerBlocksResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-type">ListWorkerBlocksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248536"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListWorkerBlocksResponse' :: ListWorkerBlocksResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679248536"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248536"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248535"><span class="annot"><span class="annottext">s :: ListWorkerBlocksResponse
+</span><a href="#local-6989586621679248535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-type">ListWorkerBlocksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248534"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkerBlocksResponse
+</span><a href="#local-6989586621679248535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListWorkerBlocksResponse' :: Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#%24sel%3AnextToken%3AListWorkerBlocksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679248534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-type">ListWorkerBlocksResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | The number of assignments on the page in the filtered results list,</span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- equivalent to the number of assignments returned by this call.</span><span>
@@ -669,16 +656,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-type">ListWorkerBlocksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248409"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-type">ListWorkerBlocksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248533"><span class="annot"><span class="annottext">Maybe Int
 numResults :: Maybe Int
 $sel:numResults:ListWorkerBlocksResponse' :: ListWorkerBlocksResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679248409"><span class="hs-identifier hs-var hs-var">numResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679248409"><span class="hs-identifier hs-var">numResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248408"><span class="annot"><span class="annottext">s :: ListWorkerBlocksResponse
-</span><a href="#local-6989586621679248408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-type">ListWorkerBlocksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248407"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679248407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkerBlocksResponse
-</span><a href="#local-6989586621679248408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numResults:ListWorkerBlocksResponse' :: Maybe Int
+</span><a href="#local-6989586621679248533"><span class="hs-identifier hs-var hs-var">numResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679248533"><span class="hs-identifier hs-var">numResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248532"><span class="annot"><span class="annottext">s :: ListWorkerBlocksResponse
+</span><a href="#local-6989586621679248532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-type">ListWorkerBlocksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248531"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679248531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkerBlocksResponse
+</span><a href="#local-6989586621679248532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numResults:ListWorkerBlocksResponse' :: Maybe Int
 </span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#%24sel%3AnumResults%3AListWorkerBlocksResponse%27"><span class="hs-identifier hs-var">numResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679248407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-type">ListWorkerBlocksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-type">ListWorkerBlocksResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#listWorkerBlocksResponse_httpStatus"><span class="hs-identifier hs-type">listWorkerBlocksResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-type">ListWorkerBlocksResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -688,16 +675,16 @@ $sel:numResults:ListWorkerBlocksResponse' :: ListWorkerBlocksResponse -&gt; Mayb
 -&gt; (ListWorkerBlocksResponse -&gt; Int -&gt; ListWorkerBlocksResponse)
 -&gt; Lens ListWorkerBlocksResponse ListWorkerBlocksResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-type">ListWorkerBlocksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248406"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-type">ListWorkerBlocksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679248530"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListWorkerBlocksResponse' :: ListWorkerBlocksResponse -&gt; Int
-</span><a href="#local-6989586621679248406"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248406"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248405"><span class="annot"><span class="annottext">s :: ListWorkerBlocksResponse
-</span><a href="#local-6989586621679248405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-type">ListWorkerBlocksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248404"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkerBlocksResponse
-</span><a href="#local-6989586621679248405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListWorkerBlocksResponse' :: Int
+</span><a href="#local-6989586621679248530"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248530"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679248529"><span class="annot"><span class="annottext">s :: ListWorkerBlocksResponse
+</span><a href="#local-6989586621679248529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse%27"><span class="hs-identifier hs-type">ListWorkerBlocksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679248528"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679248528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkerBlocksResponse
+</span><a href="#local-6989586621679248529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListWorkerBlocksResponse' :: Int
 </span><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#%24sel%3AhttpStatus%3AListWorkerBlocksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679248404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-type">ListWorkerBlocksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679248528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-type">ListWorkerBlocksResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248402"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-type">ListWorkerBlocksResponse</span></a></span></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679248526"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListWorkerBlocks.html#ListWorkerBlocksResponse"><span class="hs-identifier hs-type">ListWorkerBlocksResponse</span></a></span></span><span>
 </span><span id="line-224"></span></pre></body></html>

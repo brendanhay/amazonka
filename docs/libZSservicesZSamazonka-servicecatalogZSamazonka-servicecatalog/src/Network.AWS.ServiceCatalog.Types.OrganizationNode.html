@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Information about the organization node.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOrganizationNode' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679399342"><span id="local-6989586621679399343"></span></span><span class="hs-keyword">data</span><span> </span><span id="OrganizationNode"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode"><span class="hs-identifier hs-var">OrganizationNode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationNode%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode%27"><span class="hs-identifier hs-var">OrganizationNode'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679399787"><span id="local-6989586621679399788"></span></span><span class="hs-keyword">data</span><span> </span><span id="OrganizationNode"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode"><span class="hs-identifier hs-var">OrganizationNode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OrganizationNode%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode%27"><span class="hs-identifier hs-var">OrganizationNode'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the organization node.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalue%3AOrganizationNode%27"><span class="annot"><span class="annottext">OrganizationNode -&gt; Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#%24sel%3Avalue%3AOrganizationNode%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Atype%27%3AOrganizationNode%27"><span class="annot"><span class="annottext">OrganizationNode -&gt; Maybe OrganizationNodeType
 </span><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#%24sel%3Atype%27%3AOrganizationNode%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNodeType.html#OrganizationNodeType"><span class="hs-identifier hs-type">OrganizationNodeType</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399335"><span id="local-6989586621679399337"><span class="annot"><span class="annottext">OrganizationNode -&gt; OrganizationNode -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399780"><span id="local-6989586621679399782"><span class="annot"><span class="annottext">OrganizationNode -&gt; OrganizationNode -&gt; Bool
 (OrganizationNode -&gt; OrganizationNode -&gt; Bool)
 -&gt; (OrganizationNode -&gt; OrganizationNode -&gt; Bool)
 -&gt; Eq OrganizationNode
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OrganizationNode -&gt; OrganizationNode -&gt; Bool
 == :: OrganizationNode -&gt; OrganizationNode -&gt; Bool
 $c== :: OrganizationNode -&gt; OrganizationNode -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399326"><span id="local-6989586621679399328"><span id="local-6989586621679399330"><span id="local-6989586621679399332"><span class="annot"><span class="annottext">ReadPrec [OrganizationNode]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399771"><span id="local-6989586621679399773"><span id="local-6989586621679399775"><span id="local-6989586621679399777"><span class="annot"><span class="annottext">ReadPrec [OrganizationNode]
 ReadPrec OrganizationNode
 Int -&gt; ReadS OrganizationNode
 ReadS [OrganizationNode]
@@ -64,7 +64,7 @@ readList :: ReadS [OrganizationNode]
 $creadList :: ReadS [OrganizationNode]
 readsPrec :: Int -&gt; ReadS OrganizationNode
 $creadsPrec :: Int -&gt; ReadS OrganizationNode
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399319"><span id="local-6989586621679399321"><span id="local-6989586621679399323"><span class="annot"><span class="annottext">Int -&gt; OrganizationNode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399764"><span id="local-6989586621679399766"><span id="local-6989586621679399768"><span class="annot"><span class="annottext">Int -&gt; OrganizationNode -&gt; ShowS
 [OrganizationNode] -&gt; ShowS
 OrganizationNode -&gt; String
 (Int -&gt; OrganizationNode -&gt; ShowS)
@@ -125,16 +125,16 @@ forall a. Maybe a
 -&gt; (OrganizationNode -&gt; Maybe Text -&gt; OrganizationNode)
 -&gt; Lens OrganizationNode OrganizationNode (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode%27"><span class="hs-identifier hs-type">OrganizationNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399310"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode%27"><span class="hs-identifier hs-type">OrganizationNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399755"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:OrganizationNode' :: OrganizationNode -&gt; Maybe Text
-</span><a href="#local-6989586621679399310"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399310"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399309"><span class="annot"><span class="annottext">s :: OrganizationNode
-</span><a href="#local-6989586621679399309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode%27"><span class="hs-identifier hs-type">OrganizationNode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399308"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationNode
-</span><a href="#local-6989586621679399309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:OrganizationNode' :: Maybe Text
+</span><a href="#local-6989586621679399755"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399755"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399754"><span class="annot"><span class="annottext">s :: OrganizationNode
+</span><a href="#local-6989586621679399754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode%27"><span class="hs-identifier hs-type">OrganizationNode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399753"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679399753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationNode
+</span><a href="#local-6989586621679399754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:OrganizationNode' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#%24sel%3Avalue%3AOrganizationNode%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode"><span class="hs-identifier hs-type">OrganizationNode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode"><span class="hs-identifier hs-type">OrganizationNode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The organization node type.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#organizationNode_type"><span class="hs-identifier hs-type">organizationNode_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode"><span class="hs-identifier hs-type">OrganizationNode</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNodeType.html#OrganizationNodeType"><span class="hs-identifier hs-type">OrganizationNodeType</span></a></span><span class="hs-special">)</span><span>
@@ -149,19 +149,19 @@ $sel:value:OrganizationNode' :: OrganizationNode -&gt; Maybe Text
      (Maybe OrganizationNodeType)
      (Maybe OrganizationNodeType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode%27"><span class="hs-identifier hs-type">OrganizationNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399306"><span class="annot"><span class="annottext">Maybe OrganizationNodeType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode%27"><span class="hs-identifier hs-type">OrganizationNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399751"><span class="annot"><span class="annottext">Maybe OrganizationNodeType
 type' :: Maybe OrganizationNodeType
 $sel:type':OrganizationNode' :: OrganizationNode -&gt; Maybe OrganizationNodeType
-</span><a href="#local-6989586621679399306"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationNodeType
-</span><a href="#local-6989586621679399306"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399305"><span class="annot"><span class="annottext">s :: OrganizationNode
-</span><a href="#local-6989586621679399305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode%27"><span class="hs-identifier hs-type">OrganizationNode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399304"><span class="annot"><span class="annottext">Maybe OrganizationNodeType
-</span><a href="#local-6989586621679399304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationNode
-</span><a href="#local-6989586621679399305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':OrganizationNode' :: Maybe OrganizationNodeType
+</span><a href="#local-6989586621679399751"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationNodeType
+</span><a href="#local-6989586621679399751"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399750"><span class="annot"><span class="annottext">s :: OrganizationNode
+</span><a href="#local-6989586621679399750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode%27"><span class="hs-identifier hs-type">OrganizationNode'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399749"><span class="annot"><span class="annottext">Maybe OrganizationNodeType
+</span><a href="#local-6989586621679399749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OrganizationNode
+</span><a href="#local-6989586621679399750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':OrganizationNode' :: Maybe OrganizationNodeType
 </span><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#%24sel%3Atype%27%3AOrganizationNode%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationNodeType
-</span><a href="#local-6989586621679399304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode"><span class="hs-identifier hs-type">OrganizationNode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode"><span class="hs-identifier hs-type">OrganizationNode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399301"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode"><span class="hs-identifier hs-type">OrganizationNode</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679399299"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OrganizationNode
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399746"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode"><span class="hs-identifier hs-type">OrganizationNode</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679399744"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OrganizationNode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OrganizationNode)
@@ -171,8 +171,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OrganizationNode&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399296"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399296"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399741"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399741"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe OrganizationNodeType -&gt; OrganizationNode
 </span><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode%27"><span class="hs-identifier hs-var">OrganizationNode'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe OrganizationNodeType -&gt; OrganizationNode)
@@ -180,32 +180,32 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe OrganizationNodeType -&gt; OrganizationNode)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399296"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679399741"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe OrganizationNodeType -&gt; OrganizationNode)
 -&gt; Parser (Maybe OrganizationNodeType) -&gt; Parser OrganizationNode
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399296"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OrganizationNodeType)
+</span><a href="#local-6989586621679399741"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OrganizationNodeType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399290"><span id="local-6989586621679399292"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode"><span class="hs-identifier hs-type">OrganizationNode</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399735"><span id="local-6989586621679399737"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode"><span class="hs-identifier hs-type">OrganizationNode</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399287"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode"><span class="hs-identifier hs-type">OrganizationNode</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399732"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode"><span class="hs-identifier hs-type">OrganizationNode</span></a></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399279"><span id="local-6989586621679399281"><span id="local-6989586621679399283"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode"><span class="hs-identifier hs-type">OrganizationNode</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679399277"><span class="annot"><span class="annottext">toJSON :: OrganizationNode -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode%27"><span class="hs-identifier hs-type">OrganizationNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399274"><span id="local-6989586621679399275"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399724"><span id="local-6989586621679399726"><span id="local-6989586621679399728"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode"><span class="hs-identifier hs-type">OrganizationNode</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679399722"><span class="annot"><span class="annottext">toJSON :: OrganizationNode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.OrganizationNode.html#OrganizationNode%27"><span class="hs-identifier hs-type">OrganizationNode'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399719"><span id="local-6989586621679399720"><span class="annot"><span class="annottext">Maybe Text
 Maybe OrganizationNodeType
 type' :: Maybe OrganizationNodeType
 value :: Maybe Text
 $sel:type':OrganizationNode' :: OrganizationNode -&gt; Maybe OrganizationNodeType
 $sel:value:OrganizationNode' :: OrganizationNode -&gt; Maybe Text
-</span><a href="#local-6989586621679399274"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679399719"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -217,7 +217,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399275"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679399720"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OrganizationNodeType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -225,7 +225,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe OrganizationNodeType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OrganizationNodeType
-</span><a href="#local-6989586621679399274"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><a href="#local-6989586621679399719"><span class="hs-identifier hs-var">type'</span></a></span><span>
 </span><span id="line-84"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span></pre></body></html>

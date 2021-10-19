@@ -41,13 +41,13 @@
 </span><span id="line-41"></span><span class="hs-comment">-- Roku trick mode. The thumbnails and full-frame images that MediaConvert</span><span>
 </span><span id="line-42"></span><span class="hs-comment">-- creates with this feature are compatible with this Roku specification:</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- https:\/\/developer.roku.com\/docs\/developer-program\/media-playback\/trick-mode\/hls-and-dash.md</span><span>
-</span><span id="line-44"></span><span id="local-6989586621679972266"><span id="local-6989586621679972267"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsImageBasedTrickPlay"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsImageBasedTrickPlay.html#HlsImageBasedTrickPlay"><span class="hs-identifier hs-var">HlsImageBasedTrickPlay</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsImageBasedTrickPlay%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsImageBasedTrickPlay.html#HlsImageBasedTrickPlay%27"><span class="hs-identifier hs-var">HlsImageBasedTrickPlay'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679976891"><span id="local-6989586621679976892"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsImageBasedTrickPlay"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsImageBasedTrickPlay.html#HlsImageBasedTrickPlay"><span class="hs-identifier hs-var">HlsImageBasedTrickPlay</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsImageBasedTrickPlay%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsImageBasedTrickPlay.html#HlsImageBasedTrickPlay%27"><span class="hs-identifier hs-var">HlsImageBasedTrickPlay'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsImageBasedTrickPlay"><span class="annot"><span class="annottext">HlsImageBasedTrickPlay -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.HlsImageBasedTrickPlay.html#fromHlsImageBasedTrickPlay"><span class="hs-identifier hs-var hs-var">fromHlsImageBasedTrickPlay</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679972258"><span id="local-6989586621679972260"><span id="local-6989586621679972262"><span class="annot"><span class="annottext">Int -&gt; HlsImageBasedTrickPlay -&gt; ShowS
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679976883"><span id="local-6989586621679976885"><span id="local-6989586621679976887"><span class="annot"><span class="annottext">Int -&gt; HlsImageBasedTrickPlay -&gt; ShowS
 [HlsImageBasedTrickPlay] -&gt; ShowS
 HlsImageBasedTrickPlay -&gt; String
 (Int -&gt; HlsImageBasedTrickPlay -&gt; ShowS)
@@ -63,7 +63,7 @@ $cshow :: HlsImageBasedTrickPlay -&gt; String
 showsPrec :: Int -&gt; HlsImageBasedTrickPlay -&gt; ShowS
 $cshowsPrec :: Int -&gt; HlsImageBasedTrickPlay -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679972249"><span id="local-6989586621679972251"><span id="local-6989586621679972253"><span id="local-6989586621679972255"><span class="annot"><span class="annottext">ReadPrec [HlsImageBasedTrickPlay]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679976874"><span id="local-6989586621679976876"><span id="local-6989586621679976878"><span id="local-6989586621679976880"><span class="annot"><span class="annottext">ReadPrec [HlsImageBasedTrickPlay]
 ReadPrec HlsImageBasedTrickPlay
 Int -&gt; ReadS HlsImageBasedTrickPlay
 ReadS [HlsImageBasedTrickPlay]
@@ -84,7 +84,7 @@ $creadList :: ReadS [HlsImageBasedTrickPlay]
 readsPrec :: Int -&gt; ReadS HlsImageBasedTrickPlay
 $creadsPrec :: Int -&gt; ReadS HlsImageBasedTrickPlay
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679972244"><span id="local-6989586621679972246"><span class="annot"><span class="annottext">HlsImageBasedTrickPlay -&gt; HlsImageBasedTrickPlay -&gt; Bool
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679976869"><span id="local-6989586621679976871"><span class="annot"><span class="annottext">HlsImageBasedTrickPlay -&gt; HlsImageBasedTrickPlay -&gt; Bool
 (HlsImageBasedTrickPlay -&gt; HlsImageBasedTrickPlay -&gt; Bool)
 -&gt; (HlsImageBasedTrickPlay -&gt; HlsImageBasedTrickPlay -&gt; Bool)
 -&gt; Eq HlsImageBasedTrickPlay
@@ -94,7 +94,7 @@ $c/= :: HlsImageBasedTrickPlay -&gt; HlsImageBasedTrickPlay -&gt; Bool
 == :: HlsImageBasedTrickPlay -&gt; HlsImageBasedTrickPlay -&gt; Bool
 $c== :: HlsImageBasedTrickPlay -&gt; HlsImageBasedTrickPlay -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679972228"><span id="local-6989586621679972230"><span id="local-6989586621679972232"><span id="local-6989586621679972234"><span id="local-6989586621679972236"><span id="local-6989586621679972238"><span id="local-6989586621679972240"><span class="annot"><span class="annottext">Eq HlsImageBasedTrickPlay
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679976853"><span id="local-6989586621679976855"><span id="local-6989586621679976857"><span id="local-6989586621679976859"><span id="local-6989586621679976861"><span id="local-6989586621679976863"><span id="local-6989586621679976865"><span class="annot"><span class="annottext">Eq HlsImageBasedTrickPlay
 Eq HlsImageBasedTrickPlay
 -&gt; (HlsImageBasedTrickPlay -&gt; HlsImageBasedTrickPlay -&gt; Ordering)
 -&gt; (HlsImageBasedTrickPlay -&gt; HlsImageBasedTrickPlay -&gt; Bool)
@@ -153,7 +153,7 @@ $cfrom :: forall x. HlsImageBasedTrickPlay -&gt; Rep HlsImageBasedTrickPlay x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679972220"><span id="local-6989586621679972222"><span class="annot"><span class="annottext">Int -&gt; HlsImageBasedTrickPlay -&gt; Int
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679976845"><span id="local-6989586621679976847"><span class="annot"><span class="annottext">Int -&gt; HlsImageBasedTrickPlay -&gt; Int
 HlsImageBasedTrickPlay -&gt; Int
 (Int -&gt; HlsImageBasedTrickPlay -&gt; Int)
 -&gt; (HlsImageBasedTrickPlay -&gt; Int)
@@ -164,54 +164,54 @@ $chash :: HlsImageBasedTrickPlay -&gt; Int
 hashWithSalt :: Int -&gt; HlsImageBasedTrickPlay -&gt; Int
 $chashWithSalt :: Int -&gt; HlsImageBasedTrickPlay -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679972217"><span class="annot"><span class="annottext">HlsImageBasedTrickPlay -&gt; ()
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679976842"><span class="annot"><span class="annottext">HlsImageBasedTrickPlay -&gt; ()
 (HlsImageBasedTrickPlay -&gt; ()) -&gt; NFData HlsImageBasedTrickPlay
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HlsImageBasedTrickPlay -&gt; ()
 $crnf :: HlsImageBasedTrickPlay -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679972214"><span class="annot"><span class="annottext">Text -&gt; Either String HlsImageBasedTrickPlay
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679976839"><span class="annot"><span class="annottext">Text -&gt; Either String HlsImageBasedTrickPlay
 (Text -&gt; Either String HlsImageBasedTrickPlay)
 -&gt; FromText HlsImageBasedTrickPlay
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HlsImageBasedTrickPlay
 $cfromText :: Text -&gt; Either String HlsImageBasedTrickPlay
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679972211"><span class="annot"><span class="annottext">HlsImageBasedTrickPlay -&gt; Text
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679976836"><span class="annot"><span class="annottext">HlsImageBasedTrickPlay -&gt; Text
 (HlsImageBasedTrickPlay -&gt; Text) -&gt; ToText HlsImageBasedTrickPlay
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HlsImageBasedTrickPlay -&gt; Text
 $ctoText :: HlsImageBasedTrickPlay -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679972208"><span class="annot"><span class="annottext">HlsImageBasedTrickPlay -&gt; ByteString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679976833"><span class="annot"><span class="annottext">HlsImageBasedTrickPlay -&gt; ByteString
 (HlsImageBasedTrickPlay -&gt; ByteString)
 -&gt; ToByteString HlsImageBasedTrickPlay
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HlsImageBasedTrickPlay -&gt; ByteString
 $ctoBS :: HlsImageBasedTrickPlay -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679972205"><span class="annot"><span class="annottext">HlsImageBasedTrickPlay -&gt; ByteStringBuilder
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679976830"><span class="annot"><span class="annottext">HlsImageBasedTrickPlay -&gt; ByteStringBuilder
 (HlsImageBasedTrickPlay -&gt; ByteStringBuilder)
 -&gt; ToLog HlsImageBasedTrickPlay
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HlsImageBasedTrickPlay -&gt; ByteStringBuilder
 $cbuild :: HlsImageBasedTrickPlay -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679972202"><span class="annot"><span class="annottext">HeaderName -&gt; HlsImageBasedTrickPlay -&gt; [Header]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679976827"><span class="annot"><span class="annottext">HeaderName -&gt; HlsImageBasedTrickPlay -&gt; [Header]
 (HeaderName -&gt; HlsImageBasedTrickPlay -&gt; [Header])
 -&gt; ToHeader HlsImageBasedTrickPlay
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HlsImageBasedTrickPlay -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HlsImageBasedTrickPlay -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679972199"><span class="annot"><span class="annottext">HlsImageBasedTrickPlay -&gt; QueryString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679976824"><span class="annot"><span class="annottext">HlsImageBasedTrickPlay -&gt; QueryString
 (HlsImageBasedTrickPlay -&gt; QueryString)
 -&gt; ToQuery HlsImageBasedTrickPlay
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HlsImageBasedTrickPlay -&gt; QueryString
 $ctoQuery :: HlsImageBasedTrickPlay -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679972194"><span id="local-6989586621679972196"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsImageBasedTrickPlay]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679976819"><span id="local-6989586621679976821"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsImageBasedTrickPlay]
 Value -&gt; Parser HlsImageBasedTrickPlay
 (Value -&gt; Parser HlsImageBasedTrickPlay)
 -&gt; (Value -&gt; Parser [HlsImageBasedTrickPlay])
@@ -223,7 +223,7 @@ $cparseJSONList :: Value -&gt; Parser [HlsImageBasedTrickPlay]
 parseJSON :: Value -&gt; Parser HlsImageBasedTrickPlay
 $cparseJSON :: Value -&gt; Parser HlsImageBasedTrickPlay
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679972189"><span id="local-6989586621679972191"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsImageBasedTrickPlay]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679976814"><span id="local-6989586621679976816"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsImageBasedTrickPlay]
 FromJSONKeyFunction HlsImageBasedTrickPlay
 FromJSONKeyFunction HlsImageBasedTrickPlay
 -&gt; FromJSONKeyFunction [HlsImageBasedTrickPlay]
@@ -235,7 +235,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HlsImageBasedTrickPlay]
 fromJSONKey :: FromJSONKeyFunction HlsImageBasedTrickPlay
 $cfromJSONKey :: FromJSONKeyFunction HlsImageBasedTrickPlay
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679972180"><span id="local-6989586621679972182"><span id="local-6989586621679972184"><span id="local-6989586621679972186"><span class="annot"><span class="annottext">[HlsImageBasedTrickPlay] -&gt; Encoding
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679976805"><span id="local-6989586621679976807"><span id="local-6989586621679976809"><span id="local-6989586621679976811"><span class="annot"><span class="annottext">[HlsImageBasedTrickPlay] -&gt; Encoding
 [HlsImageBasedTrickPlay] -&gt; Value
 HlsImageBasedTrickPlay -&gt; Encoding
 HlsImageBasedTrickPlay -&gt; Value
@@ -259,7 +259,7 @@ $ctoEncoding :: HlsImageBasedTrickPlay -&gt; Encoding
 toJSON :: HlsImageBasedTrickPlay -&gt; Value
 $ctoJSON :: HlsImageBasedTrickPlay -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679972175"><span id="local-6989586621679972177"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsImageBasedTrickPlay]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679976800"><span id="local-6989586621679976802"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsImageBasedTrickPlay]
 ToJSONKeyFunction HlsImageBasedTrickPlay
 ToJSONKeyFunction HlsImageBasedTrickPlay
 -&gt; ToJSONKeyFunction [HlsImageBasedTrickPlay]
@@ -271,14 +271,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HlsImageBasedTrickPlay]
 toJSONKey :: ToJSONKeyFunction HlsImageBasedTrickPlay
 $ctoJSONKey :: ToJSONKeyFunction HlsImageBasedTrickPlay
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679972172"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsImageBasedTrickPlay
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679976797"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsImageBasedTrickPlay
 ([Node] -&gt; Either String HlsImageBasedTrickPlay)
 -&gt; FromXML HlsImageBasedTrickPlay
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HlsImageBasedTrickPlay
 $cparseXML :: [Node] -&gt; Either String HlsImageBasedTrickPlay
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679972169"><span class="annot"><span class="annottext">HlsImageBasedTrickPlay -&gt; XML
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679976794"><span class="annot"><span class="annottext">HlsImageBasedTrickPlay -&gt; XML
 (HlsImageBasedTrickPlay -&gt; XML) -&gt; ToXML HlsImageBasedTrickPlay
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HlsImageBasedTrickPlay -&gt; XML

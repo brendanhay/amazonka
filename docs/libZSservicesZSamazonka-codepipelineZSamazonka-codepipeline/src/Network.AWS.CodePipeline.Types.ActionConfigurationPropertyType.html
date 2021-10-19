@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679273382"><span id="local-6989586621679273383"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActionConfigurationPropertyType"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionConfigurationPropertyType.html#ActionConfigurationPropertyType"><span class="hs-identifier hs-var">ActionConfigurationPropertyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionConfigurationPropertyType%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionConfigurationPropertyType.html#ActionConfigurationPropertyType%27"><span class="hs-identifier hs-var">ActionConfigurationPropertyType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679273579"><span id="local-6989586621679273580"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActionConfigurationPropertyType"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionConfigurationPropertyType.html#ActionConfigurationPropertyType"><span class="hs-identifier hs-var">ActionConfigurationPropertyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionConfigurationPropertyType%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionConfigurationPropertyType.html#ActionConfigurationPropertyType%27"><span class="hs-identifier hs-var">ActionConfigurationPropertyType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromActionConfigurationPropertyType"><span class="annot"><span class="annottext">ActionConfigurationPropertyType -&gt; Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionConfigurationPropertyType.html#fromActionConfigurationPropertyType"><span class="hs-identifier hs-var hs-var">fromActionConfigurationPropertyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273374"><span id="local-6989586621679273376"><span id="local-6989586621679273378"><span class="annot"><span class="annottext">Int -&gt; ActionConfigurationPropertyType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273571"><span id="local-6989586621679273573"><span id="local-6989586621679273575"><span class="annot"><span class="annottext">Int -&gt; ActionConfigurationPropertyType -&gt; ShowS
 [ActionConfigurationPropertyType] -&gt; ShowS
 ActionConfigurationPropertyType -&gt; String
 (Int -&gt; ActionConfigurationPropertyType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ActionConfigurationPropertyType -&gt; String
 showsPrec :: Int -&gt; ActionConfigurationPropertyType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ActionConfigurationPropertyType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679273365"><span id="local-6989586621679273367"><span id="local-6989586621679273369"><span id="local-6989586621679273371"><span class="annot"><span class="annottext">ReadPrec [ActionConfigurationPropertyType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679273562"><span id="local-6989586621679273564"><span id="local-6989586621679273566"><span id="local-6989586621679273568"><span class="annot"><span class="annottext">ReadPrec [ActionConfigurationPropertyType]
 ReadPrec ActionConfigurationPropertyType
 Int -&gt; ReadS ActionConfigurationPropertyType
 ReadS [ActionConfigurationPropertyType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ActionConfigurationPropertyType]
 readsPrec :: Int -&gt; ReadS ActionConfigurationPropertyType
 $creadsPrec :: Int -&gt; ReadS ActionConfigurationPropertyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679273360"><span id="local-6989586621679273362"><span class="annot"><span class="annottext">ActionConfigurationPropertyType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679273557"><span id="local-6989586621679273559"><span class="annot"><span class="annottext">ActionConfigurationPropertyType
 -&gt; ActionConfigurationPropertyType -&gt; Bool
 (ActionConfigurationPropertyType
  -&gt; ActionConfigurationPropertyType -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: ActionConfigurationPropertyType
 $c== :: ActionConfigurationPropertyType
 -&gt; ActionConfigurationPropertyType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679273344"><span id="local-6989586621679273346"><span id="local-6989586621679273348"><span id="local-6989586621679273350"><span id="local-6989586621679273352"><span id="local-6989586621679273354"><span id="local-6989586621679273356"><span class="annot"><span class="annottext">Eq ActionConfigurationPropertyType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679273541"><span id="local-6989586621679273543"><span id="local-6989586621679273545"><span id="local-6989586621679273547"><span id="local-6989586621679273549"><span id="local-6989586621679273551"><span id="local-6989586621679273553"><span class="annot"><span class="annottext">Eq ActionConfigurationPropertyType
 Eq ActionConfigurationPropertyType
 -&gt; (ActionConfigurationPropertyType
     -&gt; ActionConfigurationPropertyType -&gt; Ordering)
@@ -184,7 +184,7 @@ ActionConfigurationPropertyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273336"><span id="local-6989586621679273338"><span class="annot"><span class="annottext">Int -&gt; ActionConfigurationPropertyType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273533"><span id="local-6989586621679273535"><span class="annot"><span class="annottext">Int -&gt; ActionConfigurationPropertyType -&gt; Int
 ActionConfigurationPropertyType -&gt; Int
 (Int -&gt; ActionConfigurationPropertyType -&gt; Int)
 -&gt; (ActionConfigurationPropertyType -&gt; Int)
@@ -195,56 +195,56 @@ $chash :: ActionConfigurationPropertyType -&gt; Int
 hashWithSalt :: Int -&gt; ActionConfigurationPropertyType -&gt; Int
 $chashWithSalt :: Int -&gt; ActionConfigurationPropertyType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679273333"><span class="annot"><span class="annottext">ActionConfigurationPropertyType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679273530"><span class="annot"><span class="annottext">ActionConfigurationPropertyType -&gt; ()
 (ActionConfigurationPropertyType -&gt; ())
 -&gt; NFData ActionConfigurationPropertyType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ActionConfigurationPropertyType -&gt; ()
 $crnf :: ActionConfigurationPropertyType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679273330"><span class="annot"><span class="annottext">Text -&gt; Either String ActionConfigurationPropertyType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679273527"><span class="annot"><span class="annottext">Text -&gt; Either String ActionConfigurationPropertyType
 (Text -&gt; Either String ActionConfigurationPropertyType)
 -&gt; FromText ActionConfigurationPropertyType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ActionConfigurationPropertyType
 $cfromText :: Text -&gt; Either String ActionConfigurationPropertyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679273327"><span class="annot"><span class="annottext">ActionConfigurationPropertyType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679273524"><span class="annot"><span class="annottext">ActionConfigurationPropertyType -&gt; Text
 (ActionConfigurationPropertyType -&gt; Text)
 -&gt; ToText ActionConfigurationPropertyType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ActionConfigurationPropertyType -&gt; Text
 $ctoText :: ActionConfigurationPropertyType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679273324"><span class="annot"><span class="annottext">ActionConfigurationPropertyType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679273521"><span class="annot"><span class="annottext">ActionConfigurationPropertyType -&gt; ByteString
 (ActionConfigurationPropertyType -&gt; ByteString)
 -&gt; ToByteString ActionConfigurationPropertyType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ActionConfigurationPropertyType -&gt; ByteString
 $ctoBS :: ActionConfigurationPropertyType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679273321"><span class="annot"><span class="annottext">ActionConfigurationPropertyType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679273518"><span class="annot"><span class="annottext">ActionConfigurationPropertyType -&gt; ByteStringBuilder
 (ActionConfigurationPropertyType -&gt; ByteStringBuilder)
 -&gt; ToLog ActionConfigurationPropertyType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ActionConfigurationPropertyType -&gt; ByteStringBuilder
 $cbuild :: ActionConfigurationPropertyType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679273318"><span class="annot"><span class="annottext">HeaderName -&gt; ActionConfigurationPropertyType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679273515"><span class="annot"><span class="annottext">HeaderName -&gt; ActionConfigurationPropertyType -&gt; [Header]
 (HeaderName -&gt; ActionConfigurationPropertyType -&gt; [Header])
 -&gt; ToHeader ActionConfigurationPropertyType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ActionConfigurationPropertyType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ActionConfigurationPropertyType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679273315"><span class="annot"><span class="annottext">ActionConfigurationPropertyType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679273512"><span class="annot"><span class="annottext">ActionConfigurationPropertyType -&gt; QueryString
 (ActionConfigurationPropertyType -&gt; QueryString)
 -&gt; ToQuery ActionConfigurationPropertyType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ActionConfigurationPropertyType -&gt; QueryString
 $ctoQuery :: ActionConfigurationPropertyType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679273310"><span id="local-6989586621679273312"><span class="annot"><span class="annottext">Value -&gt; Parser [ActionConfigurationPropertyType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679273507"><span id="local-6989586621679273509"><span class="annot"><span class="annottext">Value -&gt; Parser [ActionConfigurationPropertyType]
 Value -&gt; Parser ActionConfigurationPropertyType
 (Value -&gt; Parser ActionConfigurationPropertyType)
 -&gt; (Value -&gt; Parser [ActionConfigurationPropertyType])
@@ -256,7 +256,7 @@ $cparseJSONList :: Value -&gt; Parser [ActionConfigurationPropertyType]
 parseJSON :: Value -&gt; Parser ActionConfigurationPropertyType
 $cparseJSON :: Value -&gt; Parser ActionConfigurationPropertyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679273305"><span id="local-6989586621679273307"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActionConfigurationPropertyType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679273502"><span id="local-6989586621679273504"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActionConfigurationPropertyType]
 FromJSONKeyFunction ActionConfigurationPropertyType
 FromJSONKeyFunction ActionConfigurationPropertyType
 -&gt; FromJSONKeyFunction [ActionConfigurationPropertyType]
@@ -268,7 +268,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ActionConfigurationPropertyType]
 fromJSONKey :: FromJSONKeyFunction ActionConfigurationPropertyType
 $cfromJSONKey :: FromJSONKeyFunction ActionConfigurationPropertyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679273296"><span id="local-6989586621679273298"><span id="local-6989586621679273300"><span id="local-6989586621679273302"><span class="annot"><span class="annottext">[ActionConfigurationPropertyType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679273493"><span id="local-6989586621679273495"><span id="local-6989586621679273497"><span id="local-6989586621679273499"><span class="annot"><span class="annottext">[ActionConfigurationPropertyType] -&gt; Encoding
 [ActionConfigurationPropertyType] -&gt; Value
 ActionConfigurationPropertyType -&gt; Encoding
 ActionConfigurationPropertyType -&gt; Value
@@ -292,7 +292,7 @@ $ctoEncoding :: ActionConfigurationPropertyType -&gt; Encoding
 toJSON :: ActionConfigurationPropertyType -&gt; Value
 $ctoJSON :: ActionConfigurationPropertyType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679273291"><span id="local-6989586621679273293"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActionConfigurationPropertyType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679273488"><span id="local-6989586621679273490"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActionConfigurationPropertyType]
 ToJSONKeyFunction ActionConfigurationPropertyType
 ToJSONKeyFunction ActionConfigurationPropertyType
 -&gt; ToJSONKeyFunction [ActionConfigurationPropertyType]
@@ -304,14 +304,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ActionConfigurationPropertyType]
 toJSONKey :: ToJSONKeyFunction ActionConfigurationPropertyType
 $ctoJSONKey :: ToJSONKeyFunction ActionConfigurationPropertyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679273288"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActionConfigurationPropertyType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679273485"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActionConfigurationPropertyType
 ([Node] -&gt; Either String ActionConfigurationPropertyType)
 -&gt; FromXML ActionConfigurationPropertyType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ActionConfigurationPropertyType
 $cparseXML :: [Node] -&gt; Either String ActionConfigurationPropertyType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679273285"><span class="annot"><span class="annottext">ActionConfigurationPropertyType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679273482"><span class="annot"><span class="annottext">ActionConfigurationPropertyType -&gt; XML
 (ActionConfigurationPropertyType -&gt; XML)
 -&gt; ToXML ActionConfigurationPropertyType
 forall a. (a -&gt; XML) -&gt; ToXML a

@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- in the /Client VPN Administrator Guide/.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newClientVpnAuthentication' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621681072728"><span id="local-6989586621681072729"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClientVpnAuthentication"><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-var">ClientVpnAuthentication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientVpnAuthentication%27"><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-var">ClientVpnAuthentication'</span></a></span></span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the IAM SAML identity provider, if applicable.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AfederatedAuthentication%3AClientVpnAuthentication%27"><span class="annot"><span class="annottext">ClientVpnAuthentication -&gt; Maybe FederatedAuthentication
-</span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#%24sel%3AfederatedAuthentication%3AClientVpnAuthentication%27"><span class="hs-identifier hs-var hs-var">federatedAuthentication</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthentication.html#FederatedAuthentication"><span class="hs-identifier hs-type">FederatedAuthentication</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Information about the Active Directory, if applicable.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AactiveDirectory%3AClientVpnAuthentication%27"><span class="annot"><span class="annottext">ClientVpnAuthentication -&gt; Maybe DirectoryServiceAuthentication
+</span><span id="line-37"></span><span id="local-6989586621681106755"><span id="local-6989586621681106756"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClientVpnAuthentication"><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-var">ClientVpnAuthentication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientVpnAuthentication%27"><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-var">ClientVpnAuthentication'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the Active Directory, if applicable.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AactiveDirectory%3AClientVpnAuthentication%27"><span class="annot"><span class="annottext">ClientVpnAuthentication -&gt; Maybe DirectoryServiceAuthentication
 </span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#%24sel%3AactiveDirectory%3AClientVpnAuthentication%27"><span class="hs-identifier hs-var hs-var">activeDirectory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#DirectoryServiceAuthentication"><span class="hs-identifier hs-type">DirectoryServiceAuthentication</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Information about the IAM SAML identity provider, if applicable.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AfederatedAuthentication%3AClientVpnAuthentication%27"><span class="annot"><span class="annottext">ClientVpnAuthentication -&gt; Maybe FederatedAuthentication
+</span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#%24sel%3AfederatedAuthentication%3AClientVpnAuthentication%27"><span class="hs-identifier hs-var hs-var">federatedAuthentication</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthentication.html#FederatedAuthentication"><span class="hs-identifier hs-type">FederatedAuthentication</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Information about the authentication certificates, if applicable.</span><span>
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AmutualAuthentication%3AClientVpnAuthentication%27"><span class="annot"><span class="annottext">ClientVpnAuthentication -&gt; Maybe CertificateAuthentication
 </span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#%24sel%3AmutualAuthentication%3AClientVpnAuthentication%27"><span class="hs-identifier hs-var hs-var">mutualAuthentication</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CertificateAuthentication.html#CertificateAuthentication"><span class="hs-identifier hs-type">CertificateAuthentication</span></a></span><span class="hs-special">,</span><span>
@@ -48,7 +48,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3Atype%27%3AClientVpnAuthentication%27"><span class="annot"><span class="annottext">ClientVpnAuthentication -&gt; Maybe ClientVpnAuthenticationType
 </span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#%24sel%3Atype%27%3AClientVpnAuthentication%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthenticationType.html#ClientVpnAuthenticationType"><span class="hs-identifier hs-type">ClientVpnAuthenticationType</span></a></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681072719"><span id="local-6989586621681072721"><span class="annot"><span class="annottext">ClientVpnAuthentication -&gt; ClientVpnAuthentication -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681106746"><span id="local-6989586621681106748"><span class="annot"><span class="annottext">ClientVpnAuthentication -&gt; ClientVpnAuthentication -&gt; Bool
 (ClientVpnAuthentication -&gt; ClientVpnAuthentication -&gt; Bool)
 -&gt; (ClientVpnAuthentication -&gt; ClientVpnAuthentication -&gt; Bool)
 -&gt; Eq ClientVpnAuthentication
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ClientVpnAuthentication -&gt; ClientVpnAuthentication -&gt; Bool
 == :: ClientVpnAuthentication -&gt; ClientVpnAuthentication -&gt; Bool
 $c== :: ClientVpnAuthentication -&gt; ClientVpnAuthentication -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681072710"><span id="local-6989586621681072712"><span id="local-6989586621681072714"><span id="local-6989586621681072716"><span class="annot"><span class="annottext">ReadPrec [ClientVpnAuthentication]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681106737"><span id="local-6989586621681106739"><span id="local-6989586621681106741"><span id="local-6989586621681106743"><span class="annot"><span class="annottext">ReadPrec [ClientVpnAuthentication]
 ReadPrec ClientVpnAuthentication
 Int -&gt; ReadS ClientVpnAuthentication
 ReadS [ClientVpnAuthentication]
@@ -77,7 +77,7 @@ readList :: ReadS [ClientVpnAuthentication]
 $creadList :: ReadS [ClientVpnAuthentication]
 readsPrec :: Int -&gt; ReadS ClientVpnAuthentication
 $creadsPrec :: Int -&gt; ReadS ClientVpnAuthentication
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681072703"><span id="local-6989586621681072705"><span id="local-6989586621681072707"><span class="annot"><span class="annottext">Int -&gt; ClientVpnAuthentication -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681106730"><span id="local-6989586621681106732"><span id="local-6989586621681106734"><span class="annot"><span class="annottext">Int -&gt; ClientVpnAuthentication -&gt; ShowS
 [ClientVpnAuthentication] -&gt; ShowS
 ClientVpnAuthentication -&gt; String
 (Int -&gt; ClientVpnAuthentication -&gt; ShowS)
@@ -113,9 +113,9 @@ $cfrom :: forall x. ClientVpnAuthentication -&gt; Rep ClientVpnAuthentication x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'federatedAuthentication', 'clientVpnAuthentication_federatedAuthentication' - Information about the IAM SAML identity provider, if applicable.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'activeDirectory', 'clientVpnAuthentication_activeDirectory' - Information about the Active Directory, if applicable.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'activeDirectory', 'clientVpnAuthentication_activeDirectory' - Information about the Active Directory, if applicable.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'federatedAuthentication', 'clientVpnAuthentication_federatedAuthentication' - Information about the IAM SAML identity provider, if applicable.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- 'mutualAuthentication', 'clientVpnAuthentication_mutualAuthentication' - Information about the authentication certificates, if applicable.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
@@ -124,19 +124,19 @@ $cfrom :: forall x. ClientVpnAuthentication -&gt; Rep ClientVpnAuthentication x
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span><span>
 </span><span id="line-66"></span><span id="newClientVpnAuthentication"><span class="annot"><span class="annottext">newClientVpnAuthentication :: ClientVpnAuthentication
 </span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#newClientVpnAuthentication"><span class="hs-identifier hs-var hs-var">newClientVpnAuthentication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">ClientVpnAuthentication' :: Maybe FederatedAuthentication
--&gt; Maybe DirectoryServiceAuthentication
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">ClientVpnAuthentication' :: Maybe DirectoryServiceAuthentication
+-&gt; Maybe FederatedAuthentication
 -&gt; Maybe CertificateAuthentication
 -&gt; Maybe ClientVpnAuthenticationType
 -&gt; ClientVpnAuthentication
 </span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-type">ClientVpnAuthentication'</span></a></span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:federatedAuthentication:ClientVpnAuthentication' :: Maybe FederatedAuthentication
-</span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#%24sel%3AfederatedAuthentication%3AClientVpnAuthentication%27"><span class="hs-identifier hs-var">federatedAuthentication</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe FederatedAuthentication
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:activeDirectory:ClientVpnAuthentication' :: Maybe DirectoryServiceAuthentication
+</span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#%24sel%3AactiveDirectory%3AClientVpnAuthentication%27"><span class="hs-identifier hs-var">activeDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe DirectoryServiceAuthentication
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:activeDirectory:ClientVpnAuthentication' :: Maybe DirectoryServiceAuthentication
-</span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#%24sel%3AactiveDirectory%3AClientVpnAuthentication%27"><span class="hs-identifier hs-var">activeDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DirectoryServiceAuthentication
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:federatedAuthentication:ClientVpnAuthentication' :: Maybe FederatedAuthentication
+</span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#%24sel%3AfederatedAuthentication%3AClientVpnAuthentication%27"><span class="hs-identifier hs-var">federatedAuthentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FederatedAuthentication
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:mutualAuthentication:ClientVpnAuthentication' :: Maybe CertificateAuthentication
@@ -149,34 +149,9 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | Information about the IAM SAML identity provider, if applicable.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#clientVpnAuthentication_federatedAuthentication"><span class="hs-identifier hs-type">clientVpnAuthentication_federatedAuthentication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthentication.html#FederatedAuthentication"><span class="hs-identifier hs-type">FederatedAuthentication</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="clientVpnAuthentication_federatedAuthentication"><span class="annot"><span class="annottext">clientVpnAuthentication_federatedAuthentication :: (Maybe FederatedAuthentication
- -&gt; f (Maybe FederatedAuthentication))
--&gt; ClientVpnAuthentication -&gt; f ClientVpnAuthentication
-</span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#clientVpnAuthentication_federatedAuthentication"><span class="hs-identifier hs-var hs-var">clientVpnAuthentication_federatedAuthentication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientVpnAuthentication -&gt; Maybe FederatedAuthentication)
--&gt; (ClientVpnAuthentication
-    -&gt; Maybe FederatedAuthentication -&gt; ClientVpnAuthentication)
--&gt; Lens
-     ClientVpnAuthentication
-     ClientVpnAuthentication
-     (Maybe FederatedAuthentication)
-     (Maybe FederatedAuthentication)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-type">ClientVpnAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681072694"><span class="annot"><span class="annottext">Maybe FederatedAuthentication
-federatedAuthentication :: Maybe FederatedAuthentication
-$sel:federatedAuthentication:ClientVpnAuthentication' :: ClientVpnAuthentication -&gt; Maybe FederatedAuthentication
-</span><a href="#local-6989586621681072694"><span class="hs-identifier hs-var hs-var">federatedAuthentication</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FederatedAuthentication
-</span><a href="#local-6989586621681072694"><span class="hs-identifier hs-var">federatedAuthentication</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681072693"><span class="annot"><span class="annottext">s :: ClientVpnAuthentication
-</span><a href="#local-6989586621681072693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-type">ClientVpnAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681072692"><span class="annot"><span class="annottext">Maybe FederatedAuthentication
-</span><a href="#local-6989586621681072692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientVpnAuthentication
-</span><a href="#local-6989586621681072693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:federatedAuthentication:ClientVpnAuthentication' :: Maybe FederatedAuthentication
-</span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#%24sel%3AfederatedAuthentication%3AClientVpnAuthentication%27"><span class="hs-identifier hs-var">federatedAuthentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FederatedAuthentication
-</span><a href="#local-6989586621681072692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | Information about the Active Directory, if applicable.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#clientVpnAuthentication_activeDirectory"><span class="hs-identifier hs-type">clientVpnAuthentication_activeDirectory</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#DirectoryServiceAuthentication"><span class="hs-identifier hs-type">DirectoryServiceAuthentication</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="clientVpnAuthentication_activeDirectory"><span class="annot"><span class="annottext">clientVpnAuthentication_activeDirectory :: (Maybe DirectoryServiceAuthentication
+</span><span id="line-75"></span><span class="hs-comment">-- | Information about the Active Directory, if applicable.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#clientVpnAuthentication_activeDirectory"><span class="hs-identifier hs-type">clientVpnAuthentication_activeDirectory</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DirectoryServiceAuthentication.html#DirectoryServiceAuthentication"><span class="hs-identifier hs-type">DirectoryServiceAuthentication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="clientVpnAuthentication_activeDirectory"><span class="annot"><span class="annottext">clientVpnAuthentication_activeDirectory :: (Maybe DirectoryServiceAuthentication
  -&gt; f (Maybe DirectoryServiceAuthentication))
 -&gt; ClientVpnAuthentication -&gt; f ClientVpnAuthentication
 </span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#clientVpnAuthentication_activeDirectory"><span class="hs-identifier hs-var hs-var">clientVpnAuthentication_activeDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientVpnAuthentication -&gt; Maybe DirectoryServiceAuthentication)
@@ -188,16 +163,41 @@ $sel:federatedAuthentication:ClientVpnAuthentication' :: ClientVpnAuthentication
      (Maybe DirectoryServiceAuthentication)
      (Maybe DirectoryServiceAuthentication)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-type">ClientVpnAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681072690"><span class="annot"><span class="annottext">Maybe DirectoryServiceAuthentication
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-type">ClientVpnAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106721"><span class="annot"><span class="annottext">Maybe DirectoryServiceAuthentication
 activeDirectory :: Maybe DirectoryServiceAuthentication
 $sel:activeDirectory:ClientVpnAuthentication' :: ClientVpnAuthentication -&gt; Maybe DirectoryServiceAuthentication
-</span><a href="#local-6989586621681072690"><span class="hs-identifier hs-var hs-var">activeDirectory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DirectoryServiceAuthentication
-</span><a href="#local-6989586621681072690"><span class="hs-identifier hs-var">activeDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681072689"><span class="annot"><span class="annottext">s :: ClientVpnAuthentication
-</span><a href="#local-6989586621681072689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-type">ClientVpnAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681072688"><span class="annot"><span class="annottext">Maybe DirectoryServiceAuthentication
-</span><a href="#local-6989586621681072688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientVpnAuthentication
-</span><a href="#local-6989586621681072689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activeDirectory:ClientVpnAuthentication' :: Maybe DirectoryServiceAuthentication
+</span><a href="#local-6989586621681106721"><span class="hs-identifier hs-var hs-var">activeDirectory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DirectoryServiceAuthentication
+</span><a href="#local-6989586621681106721"><span class="hs-identifier hs-var">activeDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106720"><span class="annot"><span class="annottext">s :: ClientVpnAuthentication
+</span><a href="#local-6989586621681106720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-type">ClientVpnAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106719"><span class="annot"><span class="annottext">Maybe DirectoryServiceAuthentication
+</span><a href="#local-6989586621681106719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientVpnAuthentication
+</span><a href="#local-6989586621681106720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activeDirectory:ClientVpnAuthentication' :: Maybe DirectoryServiceAuthentication
 </span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#%24sel%3AactiveDirectory%3AClientVpnAuthentication%27"><span class="hs-identifier hs-var">activeDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DirectoryServiceAuthentication
-</span><a href="#local-6989586621681072688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681106719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | Information about the IAM SAML identity provider, if applicable.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#clientVpnAuthentication_federatedAuthentication"><span class="hs-identifier hs-type">clientVpnAuthentication_federatedAuthentication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FederatedAuthentication.html#FederatedAuthentication"><span class="hs-identifier hs-type">FederatedAuthentication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="clientVpnAuthentication_federatedAuthentication"><span class="annot"><span class="annottext">clientVpnAuthentication_federatedAuthentication :: (Maybe FederatedAuthentication
+ -&gt; f (Maybe FederatedAuthentication))
+-&gt; ClientVpnAuthentication -&gt; f ClientVpnAuthentication
+</span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#clientVpnAuthentication_federatedAuthentication"><span class="hs-identifier hs-var hs-var">clientVpnAuthentication_federatedAuthentication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientVpnAuthentication -&gt; Maybe FederatedAuthentication)
+-&gt; (ClientVpnAuthentication
+    -&gt; Maybe FederatedAuthentication -&gt; ClientVpnAuthentication)
+-&gt; Lens
+     ClientVpnAuthentication
+     ClientVpnAuthentication
+     (Maybe FederatedAuthentication)
+     (Maybe FederatedAuthentication)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-type">ClientVpnAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106717"><span class="annot"><span class="annottext">Maybe FederatedAuthentication
+federatedAuthentication :: Maybe FederatedAuthentication
+$sel:federatedAuthentication:ClientVpnAuthentication' :: ClientVpnAuthentication -&gt; Maybe FederatedAuthentication
+</span><a href="#local-6989586621681106717"><span class="hs-identifier hs-var hs-var">federatedAuthentication</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FederatedAuthentication
+</span><a href="#local-6989586621681106717"><span class="hs-identifier hs-var">federatedAuthentication</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106716"><span class="annot"><span class="annottext">s :: ClientVpnAuthentication
+</span><a href="#local-6989586621681106716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-type">ClientVpnAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106715"><span class="annot"><span class="annottext">Maybe FederatedAuthentication
+</span><a href="#local-6989586621681106715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientVpnAuthentication
+</span><a href="#local-6989586621681106716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:federatedAuthentication:ClientVpnAuthentication' :: Maybe FederatedAuthentication
+</span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#%24sel%3AfederatedAuthentication%3AClientVpnAuthentication%27"><span class="hs-identifier hs-var">federatedAuthentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FederatedAuthentication
+</span><a href="#local-6989586621681106715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | Information about the authentication certificates, if applicable.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#clientVpnAuthentication_mutualAuthentication"><span class="hs-identifier hs-type">clientVpnAuthentication_mutualAuthentication</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.CertificateAuthentication.html#CertificateAuthentication"><span class="hs-identifier hs-type">CertificateAuthentication</span></a></span><span class="hs-special">)</span><span>
@@ -213,16 +213,16 @@ $sel:activeDirectory:ClientVpnAuthentication' :: ClientVpnAuthentication -&gt; M
      (Maybe CertificateAuthentication)
      (Maybe CertificateAuthentication)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-type">ClientVpnAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681072686"><span class="annot"><span class="annottext">Maybe CertificateAuthentication
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-type">ClientVpnAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106713"><span class="annot"><span class="annottext">Maybe CertificateAuthentication
 mutualAuthentication :: Maybe CertificateAuthentication
 $sel:mutualAuthentication:ClientVpnAuthentication' :: ClientVpnAuthentication -&gt; Maybe CertificateAuthentication
-</span><a href="#local-6989586621681072686"><span class="hs-identifier hs-var hs-var">mutualAuthentication</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateAuthentication
-</span><a href="#local-6989586621681072686"><span class="hs-identifier hs-var">mutualAuthentication</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681072685"><span class="annot"><span class="annottext">s :: ClientVpnAuthentication
-</span><a href="#local-6989586621681072685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-type">ClientVpnAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681072684"><span class="annot"><span class="annottext">Maybe CertificateAuthentication
-</span><a href="#local-6989586621681072684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientVpnAuthentication
-</span><a href="#local-6989586621681072685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mutualAuthentication:ClientVpnAuthentication' :: Maybe CertificateAuthentication
+</span><a href="#local-6989586621681106713"><span class="hs-identifier hs-var hs-var">mutualAuthentication</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateAuthentication
+</span><a href="#local-6989586621681106713"><span class="hs-identifier hs-var">mutualAuthentication</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106712"><span class="annot"><span class="annottext">s :: ClientVpnAuthentication
+</span><a href="#local-6989586621681106712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-type">ClientVpnAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106711"><span class="annot"><span class="annottext">Maybe CertificateAuthentication
+</span><a href="#local-6989586621681106711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientVpnAuthentication
+</span><a href="#local-6989586621681106712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mutualAuthentication:ClientVpnAuthentication' :: Maybe CertificateAuthentication
 </span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#%24sel%3AmutualAuthentication%3AClientVpnAuthentication%27"><span class="hs-identifier hs-var">mutualAuthentication</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CertificateAuthentication
-</span><a href="#local-6989586621681072684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681106711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The authentication type used.</span><span>
 </span><span id="line-88"></span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#clientVpnAuthentication_type"><span class="hs-identifier hs-type">clientVpnAuthentication_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthenticationType.html#ClientVpnAuthenticationType"><span class="hs-identifier hs-type">ClientVpnAuthenticationType</span></a></span><span class="hs-special">)</span><span>
@@ -238,63 +238,63 @@ $sel:mutualAuthentication:ClientVpnAuthentication' :: ClientVpnAuthentication -&
      (Maybe ClientVpnAuthenticationType)
      (Maybe ClientVpnAuthenticationType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-type">ClientVpnAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681072682"><span class="annot"><span class="annottext">Maybe ClientVpnAuthenticationType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-type">ClientVpnAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681106709"><span class="annot"><span class="annottext">Maybe ClientVpnAuthenticationType
 type' :: Maybe ClientVpnAuthenticationType
 $sel:type':ClientVpnAuthentication' :: ClientVpnAuthentication -&gt; Maybe ClientVpnAuthenticationType
-</span><a href="#local-6989586621681072682"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClientVpnAuthenticationType
-</span><a href="#local-6989586621681072682"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681072681"><span class="annot"><span class="annottext">s :: ClientVpnAuthentication
-</span><a href="#local-6989586621681072681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-type">ClientVpnAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681072680"><span class="annot"><span class="annottext">Maybe ClientVpnAuthenticationType
-</span><a href="#local-6989586621681072680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientVpnAuthentication
-</span><a href="#local-6989586621681072681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ClientVpnAuthentication' :: Maybe ClientVpnAuthenticationType
+</span><a href="#local-6989586621681106709"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClientVpnAuthenticationType
+</span><a href="#local-6989586621681106709"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681106708"><span class="annot"><span class="annottext">s :: ClientVpnAuthentication
+</span><a href="#local-6989586621681106708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-type">ClientVpnAuthentication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681106707"><span class="annot"><span class="annottext">Maybe ClientVpnAuthenticationType
+</span><a href="#local-6989586621681106707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientVpnAuthentication
+</span><a href="#local-6989586621681106708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ClientVpnAuthentication' :: Maybe ClientVpnAuthenticationType
 </span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#%24sel%3Atype%27%3AClientVpnAuthentication%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClientVpnAuthenticationType
-</span><a href="#local-6989586621681072680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681106707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621681072677"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ClientVpnAuthentication
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681072675"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681072675"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">Maybe FederatedAuthentication
--&gt; Maybe DirectoryServiceAuthentication
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621681106704"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ClientVpnAuthentication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681106702"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681106702"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">Maybe DirectoryServiceAuthentication
+-&gt; Maybe FederatedAuthentication
 -&gt; Maybe CertificateAuthentication
 -&gt; Maybe ClientVpnAuthenticationType
 -&gt; ClientVpnAuthentication
 </span><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication%27"><span class="hs-identifier hs-var">ClientVpnAuthentication'</span></a></span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">(Maybe FederatedAuthentication
- -&gt; Maybe DirectoryServiceAuthentication
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">(Maybe DirectoryServiceAuthentication
+ -&gt; Maybe FederatedAuthentication
  -&gt; Maybe CertificateAuthentication
  -&gt; Maybe ClientVpnAuthenticationType
  -&gt; ClientVpnAuthentication)
--&gt; Either String (Maybe FederatedAuthentication)
+-&gt; Either String (Maybe DirectoryServiceAuthentication)
 -&gt; Either
      String
-     (Maybe DirectoryServiceAuthentication
+     (Maybe FederatedAuthentication
       -&gt; Maybe CertificateAuthentication
       -&gt; Maybe ClientVpnAuthenticationType
       -&gt; ClientVpnAuthentication)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681072675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe FederatedAuthentication)
+</span><a href="#local-6989586621681106702"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe DirectoryServiceAuthentication)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;federatedAuthentication&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;activeDirectory&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe DirectoryServiceAuthentication
+  (Maybe FederatedAuthentication
    -&gt; Maybe CertificateAuthentication
    -&gt; Maybe ClientVpnAuthenticationType
    -&gt; ClientVpnAuthentication)
--&gt; Either String (Maybe DirectoryServiceAuthentication)
+-&gt; Either String (Maybe FederatedAuthentication)
 -&gt; Either
      String
      (Maybe CertificateAuthentication
       -&gt; Maybe ClientVpnAuthenticationType -&gt; ClientVpnAuthentication)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681072675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
--&gt; Text -&gt; Either String (Maybe DirectoryServiceAuthentication)
+</span><a href="#local-6989586621681106702"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe FederatedAuthentication)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;activeDirectory&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;federatedAuthentication&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe CertificateAuthentication
@@ -305,7 +305,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (Maybe ClientVpnAuthenticationType -&gt; ClientVpnAuthentication)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681072675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CertificateAuthentication)
+</span><a href="#local-6989586621681106702"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CertificateAuthentication)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;mutualAuthentication&quot;</span></span><span class="hs-special">)</span><span>
@@ -316,12 +316,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String ClientVpnAuthentication
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681072675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ClientVpnAuthenticationType)
+</span><a href="#local-6989586621681106702"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ClientVpnAuthenticationType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681072669"><span id="local-6989586621681072671"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681106696"><span id="local-6989586621681106698"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681072666"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681106693"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClientVpnAuthentication.html#ClientVpnAuthentication"><span class="hs-identifier hs-type">ClientVpnAuthentication</span></a></span></span><span>
 </span><span id="line-102"></span></pre></body></html>

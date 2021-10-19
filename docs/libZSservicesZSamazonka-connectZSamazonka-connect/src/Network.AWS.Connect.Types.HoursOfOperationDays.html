@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679397280"><span id="local-6989586621679397281"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HoursOfOperationDays"><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationDays.html#HoursOfOperationDays"><span class="hs-identifier hs-var">HoursOfOperationDays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HoursOfOperationDays%27"><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationDays.html#HoursOfOperationDays%27"><span class="hs-identifier hs-var">HoursOfOperationDays'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679397561"><span id="local-6989586621679397562"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HoursOfOperationDays"><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationDays.html#HoursOfOperationDays"><span class="hs-identifier hs-var">HoursOfOperationDays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HoursOfOperationDays%27"><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationDays.html#HoursOfOperationDays%27"><span class="hs-identifier hs-var">HoursOfOperationDays'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHoursOfOperationDays"><span class="annot"><span class="annottext">HoursOfOperationDays -&gt; Text
 </span><a href="Network.AWS.Connect.Types.HoursOfOperationDays.html#fromHoursOfOperationDays"><span class="hs-identifier hs-var hs-var">fromHoursOfOperationDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397272"><span id="local-6989586621679397274"><span id="local-6989586621679397276"><span class="annot"><span class="annottext">Int -&gt; HoursOfOperationDays -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397553"><span id="local-6989586621679397555"><span id="local-6989586621679397557"><span class="annot"><span class="annottext">Int -&gt; HoursOfOperationDays -&gt; ShowS
 [HoursOfOperationDays] -&gt; ShowS
 HoursOfOperationDays -&gt; String
 (Int -&gt; HoursOfOperationDays -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: HoursOfOperationDays -&gt; String
 showsPrec :: Int -&gt; HoursOfOperationDays -&gt; ShowS
 $cshowsPrec :: Int -&gt; HoursOfOperationDays -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679397263"><span id="local-6989586621679397265"><span id="local-6989586621679397267"><span id="local-6989586621679397269"><span class="annot"><span class="annottext">ReadPrec [HoursOfOperationDays]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679397544"><span id="local-6989586621679397546"><span id="local-6989586621679397548"><span id="local-6989586621679397550"><span class="annot"><span class="annottext">ReadPrec [HoursOfOperationDays]
 ReadPrec HoursOfOperationDays
 Int -&gt; ReadS HoursOfOperationDays
 ReadS [HoursOfOperationDays]
@@ -77,7 +77,7 @@ $creadList :: ReadS [HoursOfOperationDays]
 readsPrec :: Int -&gt; ReadS HoursOfOperationDays
 $creadsPrec :: Int -&gt; ReadS HoursOfOperationDays
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679397258"><span id="local-6989586621679397260"><span class="annot"><span class="annottext">HoursOfOperationDays -&gt; HoursOfOperationDays -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679397539"><span id="local-6989586621679397541"><span class="annot"><span class="annottext">HoursOfOperationDays -&gt; HoursOfOperationDays -&gt; Bool
 (HoursOfOperationDays -&gt; HoursOfOperationDays -&gt; Bool)
 -&gt; (HoursOfOperationDays -&gt; HoursOfOperationDays -&gt; Bool)
 -&gt; Eq HoursOfOperationDays
@@ -87,7 +87,7 @@ $c/= :: HoursOfOperationDays -&gt; HoursOfOperationDays -&gt; Bool
 == :: HoursOfOperationDays -&gt; HoursOfOperationDays -&gt; Bool
 $c== :: HoursOfOperationDays -&gt; HoursOfOperationDays -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679397242"><span id="local-6989586621679397244"><span id="local-6989586621679397246"><span id="local-6989586621679397248"><span id="local-6989586621679397250"><span id="local-6989586621679397252"><span id="local-6989586621679397254"><span class="annot"><span class="annottext">Eq HoursOfOperationDays
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679397523"><span id="local-6989586621679397525"><span id="local-6989586621679397527"><span id="local-6989586621679397529"><span id="local-6989586621679397531"><span id="local-6989586621679397533"><span id="local-6989586621679397535"><span class="annot"><span class="annottext">Eq HoursOfOperationDays
 Eq HoursOfOperationDays
 -&gt; (HoursOfOperationDays -&gt; HoursOfOperationDays -&gt; Ordering)
 -&gt; (HoursOfOperationDays -&gt; HoursOfOperationDays -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. HoursOfOperationDays -&gt; Rep HoursOfOperationDays x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397234"><span id="local-6989586621679397236"><span class="annot"><span class="annottext">Int -&gt; HoursOfOperationDays -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397515"><span id="local-6989586621679397517"><span class="annot"><span class="annottext">Int -&gt; HoursOfOperationDays -&gt; Int
 HoursOfOperationDays -&gt; Int
 (Int -&gt; HoursOfOperationDays -&gt; Int)
 -&gt; (HoursOfOperationDays -&gt; Int) -&gt; Hashable HoursOfOperationDays
@@ -155,54 +155,54 @@ $chash :: HoursOfOperationDays -&gt; Int
 hashWithSalt :: Int -&gt; HoursOfOperationDays -&gt; Int
 $chashWithSalt :: Int -&gt; HoursOfOperationDays -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679397231"><span class="annot"><span class="annottext">HoursOfOperationDays -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679397512"><span class="annot"><span class="annottext">HoursOfOperationDays -&gt; ()
 (HoursOfOperationDays -&gt; ()) -&gt; NFData HoursOfOperationDays
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HoursOfOperationDays -&gt; ()
 $crnf :: HoursOfOperationDays -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679397228"><span class="annot"><span class="annottext">Text -&gt; Either String HoursOfOperationDays
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679397509"><span class="annot"><span class="annottext">Text -&gt; Either String HoursOfOperationDays
 (Text -&gt; Either String HoursOfOperationDays)
 -&gt; FromText HoursOfOperationDays
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HoursOfOperationDays
 $cfromText :: Text -&gt; Either String HoursOfOperationDays
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679397225"><span class="annot"><span class="annottext">HoursOfOperationDays -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679397506"><span class="annot"><span class="annottext">HoursOfOperationDays -&gt; Text
 (HoursOfOperationDays -&gt; Text) -&gt; ToText HoursOfOperationDays
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HoursOfOperationDays -&gt; Text
 $ctoText :: HoursOfOperationDays -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679397222"><span class="annot"><span class="annottext">HoursOfOperationDays -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679397503"><span class="annot"><span class="annottext">HoursOfOperationDays -&gt; ByteString
 (HoursOfOperationDays -&gt; ByteString)
 -&gt; ToByteString HoursOfOperationDays
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HoursOfOperationDays -&gt; ByteString
 $ctoBS :: HoursOfOperationDays -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679397219"><span class="annot"><span class="annottext">HoursOfOperationDays -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679397500"><span class="annot"><span class="annottext">HoursOfOperationDays -&gt; ByteStringBuilder
 (HoursOfOperationDays -&gt; ByteStringBuilder)
 -&gt; ToLog HoursOfOperationDays
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HoursOfOperationDays -&gt; ByteStringBuilder
 $cbuild :: HoursOfOperationDays -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679397216"><span class="annot"><span class="annottext">HeaderName -&gt; HoursOfOperationDays -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679397497"><span class="annot"><span class="annottext">HeaderName -&gt; HoursOfOperationDays -&gt; [Header]
 (HeaderName -&gt; HoursOfOperationDays -&gt; [Header])
 -&gt; ToHeader HoursOfOperationDays
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HoursOfOperationDays -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HoursOfOperationDays -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679397213"><span class="annot"><span class="annottext">HoursOfOperationDays -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679397494"><span class="annot"><span class="annottext">HoursOfOperationDays -&gt; QueryString
 (HoursOfOperationDays -&gt; QueryString)
 -&gt; ToQuery HoursOfOperationDays
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HoursOfOperationDays -&gt; QueryString
 $ctoQuery :: HoursOfOperationDays -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679397208"><span id="local-6989586621679397210"><span class="annot"><span class="annottext">Value -&gt; Parser [HoursOfOperationDays]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679397489"><span id="local-6989586621679397491"><span class="annot"><span class="annottext">Value -&gt; Parser [HoursOfOperationDays]
 Value -&gt; Parser HoursOfOperationDays
 (Value -&gt; Parser HoursOfOperationDays)
 -&gt; (Value -&gt; Parser [HoursOfOperationDays])
@@ -214,7 +214,7 @@ $cparseJSONList :: Value -&gt; Parser [HoursOfOperationDays]
 parseJSON :: Value -&gt; Parser HoursOfOperationDays
 $cparseJSON :: Value -&gt; Parser HoursOfOperationDays
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679397203"><span id="local-6989586621679397205"><span class="annot"><span class="annottext">FromJSONKeyFunction [HoursOfOperationDays]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679397484"><span id="local-6989586621679397486"><span class="annot"><span class="annottext">FromJSONKeyFunction [HoursOfOperationDays]
 FromJSONKeyFunction HoursOfOperationDays
 FromJSONKeyFunction HoursOfOperationDays
 -&gt; FromJSONKeyFunction [HoursOfOperationDays]
@@ -226,7 +226,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HoursOfOperationDays]
 fromJSONKey :: FromJSONKeyFunction HoursOfOperationDays
 $cfromJSONKey :: FromJSONKeyFunction HoursOfOperationDays
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679397194"><span id="local-6989586621679397196"><span id="local-6989586621679397198"><span id="local-6989586621679397200"><span class="annot"><span class="annottext">[HoursOfOperationDays] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679397475"><span id="local-6989586621679397477"><span id="local-6989586621679397479"><span id="local-6989586621679397481"><span class="annot"><span class="annottext">[HoursOfOperationDays] -&gt; Encoding
 [HoursOfOperationDays] -&gt; Value
 HoursOfOperationDays -&gt; Encoding
 HoursOfOperationDays -&gt; Value
@@ -250,7 +250,7 @@ $ctoEncoding :: HoursOfOperationDays -&gt; Encoding
 toJSON :: HoursOfOperationDays -&gt; Value
 $ctoJSON :: HoursOfOperationDays -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679397189"><span id="local-6989586621679397191"><span class="annot"><span class="annottext">ToJSONKeyFunction [HoursOfOperationDays]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679397470"><span id="local-6989586621679397472"><span class="annot"><span class="annottext">ToJSONKeyFunction [HoursOfOperationDays]
 ToJSONKeyFunction HoursOfOperationDays
 ToJSONKeyFunction HoursOfOperationDays
 -&gt; ToJSONKeyFunction [HoursOfOperationDays]
@@ -262,14 +262,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HoursOfOperationDays]
 toJSONKey :: ToJSONKeyFunction HoursOfOperationDays
 $ctoJSONKey :: ToJSONKeyFunction HoursOfOperationDays
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679397186"><span class="annot"><span class="annottext">[Node] -&gt; Either String HoursOfOperationDays
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679397467"><span class="annot"><span class="annottext">[Node] -&gt; Either String HoursOfOperationDays
 ([Node] -&gt; Either String HoursOfOperationDays)
 -&gt; FromXML HoursOfOperationDays
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HoursOfOperationDays
 $cparseXML :: [Node] -&gt; Either String HoursOfOperationDays
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679397183"><span class="annot"><span class="annottext">HoursOfOperationDays -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679397464"><span class="annot"><span class="annottext">HoursOfOperationDays -&gt; XML
 (HoursOfOperationDays -&gt; XML) -&gt; ToXML HoursOfOperationDays
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HoursOfOperationDays -&gt; XML

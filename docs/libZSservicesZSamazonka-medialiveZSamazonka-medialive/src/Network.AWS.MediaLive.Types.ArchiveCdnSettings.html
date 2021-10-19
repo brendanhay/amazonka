@@ -27,11 +27,11 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Archive Cdn Settings</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newArchiveCdnSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679908872"><span id="local-6989586621679908873"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArchiveCdnSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings"><span class="hs-identifier hs-var">ArchiveCdnSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArchiveCdnSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings%27"><span class="hs-identifier hs-var">ArchiveCdnSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679916372"><span id="local-6989586621679916373"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArchiveCdnSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings"><span class="hs-identifier hs-var">ArchiveCdnSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArchiveCdnSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings%27"><span class="hs-identifier hs-var">ArchiveCdnSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AarchiveS3Settings%3AArchiveCdnSettings%27"><span class="annot"><span class="annottext">ArchiveCdnSettings -&gt; Maybe ArchiveS3Settings
 </span><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#%24sel%3AarchiveS3Settings%3AArchiveCdnSettings%27"><span class="hs-identifier hs-var hs-var">archiveS3Settings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveS3Settings.html#ArchiveS3Settings"><span class="hs-identifier hs-type">ArchiveS3Settings</span></a></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679908866"><span id="local-6989586621679908868"><span class="annot"><span class="annottext">ArchiveCdnSettings -&gt; ArchiveCdnSettings -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679916366"><span id="local-6989586621679916368"><span class="annot"><span class="annottext">ArchiveCdnSettings -&gt; ArchiveCdnSettings -&gt; Bool
 (ArchiveCdnSettings -&gt; ArchiveCdnSettings -&gt; Bool)
 -&gt; (ArchiveCdnSettings -&gt; ArchiveCdnSettings -&gt; Bool)
 -&gt; Eq ArchiveCdnSettings
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ArchiveCdnSettings -&gt; ArchiveCdnSettings -&gt; Bool
 == :: ArchiveCdnSettings -&gt; ArchiveCdnSettings -&gt; Bool
 $c== :: ArchiveCdnSettings -&gt; ArchiveCdnSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679908857"><span id="local-6989586621679908859"><span id="local-6989586621679908861"><span id="local-6989586621679908863"><span class="annot"><span class="annottext">ReadPrec [ArchiveCdnSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679916357"><span id="local-6989586621679916359"><span id="local-6989586621679916361"><span id="local-6989586621679916363"><span class="annot"><span class="annottext">ReadPrec [ArchiveCdnSettings]
 ReadPrec ArchiveCdnSettings
 Int -&gt; ReadS ArchiveCdnSettings
 ReadS [ArchiveCdnSettings]
@@ -60,7 +60,7 @@ readList :: ReadS [ArchiveCdnSettings]
 $creadList :: ReadS [ArchiveCdnSettings]
 readsPrec :: Int -&gt; ReadS ArchiveCdnSettings
 $creadsPrec :: Int -&gt; ReadS ArchiveCdnSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679908850"><span id="local-6989586621679908852"><span id="local-6989586621679908854"><span class="annot"><span class="annottext">Int -&gt; ArchiveCdnSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679916350"><span id="local-6989586621679916352"><span id="local-6989586621679916354"><span class="annot"><span class="annottext">Int -&gt; ArchiveCdnSettings -&gt; ShowS
 [ArchiveCdnSettings] -&gt; ShowS
 ArchiveCdnSettings -&gt; String
 (Int -&gt; ArchiveCdnSettings -&gt; ShowS)
@@ -121,19 +121,19 @@ forall a. Maybe a
      (Maybe ArchiveS3Settings)
      (Maybe ArchiveS3Settings)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings%27"><span class="hs-identifier hs-type">ArchiveCdnSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679908841"><span class="annot"><span class="annottext">Maybe ArchiveS3Settings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings%27"><span class="hs-identifier hs-type">ArchiveCdnSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916341"><span class="annot"><span class="annottext">Maybe ArchiveS3Settings
 archiveS3Settings :: Maybe ArchiveS3Settings
 $sel:archiveS3Settings:ArchiveCdnSettings' :: ArchiveCdnSettings -&gt; Maybe ArchiveS3Settings
-</span><a href="#local-6989586621679908841"><span class="hs-identifier hs-var hs-var">archiveS3Settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveS3Settings
-</span><a href="#local-6989586621679908841"><span class="hs-identifier hs-var">archiveS3Settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679908840"><span class="annot"><span class="annottext">s :: ArchiveCdnSettings
-</span><a href="#local-6989586621679908840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings%27"><span class="hs-identifier hs-type">ArchiveCdnSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679908839"><span class="annot"><span class="annottext">Maybe ArchiveS3Settings
-</span><a href="#local-6989586621679908839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveCdnSettings
-</span><a href="#local-6989586621679908840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveS3Settings:ArchiveCdnSettings' :: Maybe ArchiveS3Settings
+</span><a href="#local-6989586621679916341"><span class="hs-identifier hs-var hs-var">archiveS3Settings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveS3Settings
+</span><a href="#local-6989586621679916341"><span class="hs-identifier hs-var">archiveS3Settings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916340"><span class="annot"><span class="annottext">s :: ArchiveCdnSettings
+</span><a href="#local-6989586621679916340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings%27"><span class="hs-identifier hs-type">ArchiveCdnSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916339"><span class="annot"><span class="annottext">Maybe ArchiveS3Settings
+</span><a href="#local-6989586621679916339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveCdnSettings
+</span><a href="#local-6989586621679916340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveS3Settings:ArchiveCdnSettings' :: Maybe ArchiveS3Settings
 </span><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#%24sel%3AarchiveS3Settings%3AArchiveCdnSettings%27"><span class="hs-identifier hs-var">archiveS3Settings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveS3Settings
-</span><a href="#local-6989586621679908839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings"><span class="hs-identifier hs-type">ArchiveCdnSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679916339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings"><span class="hs-identifier hs-type">ArchiveCdnSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908836"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings"><span class="hs-identifier hs-type">ArchiveCdnSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679908834"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArchiveCdnSettings
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916336"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings"><span class="hs-identifier hs-type">ArchiveCdnSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679916334"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArchiveCdnSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ArchiveCdnSettings)
@@ -143,30 +143,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ArchiveCdnSettings&quot;</span></span><span>
-</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679908831"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679908831"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679916331"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916331"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">Maybe ArchiveS3Settings -&gt; ArchiveCdnSettings
 </span><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings%27"><span class="hs-identifier hs-var">ArchiveCdnSettings'</span></a></span><span>
 </span><span id="line-62"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ArchiveS3Settings -&gt; ArchiveCdnSettings)
 -&gt; Parser (Maybe ArchiveS3Settings) -&gt; Parser ArchiveCdnSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679908831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArchiveS3Settings)
+</span><a href="#local-6989586621679916331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArchiveS3Settings)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;archiveS3Settings&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908825"><span id="local-6989586621679908827"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings"><span class="hs-identifier hs-type">ArchiveCdnSettings</span></a></span></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916325"><span id="local-6989586621679916327"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings"><span class="hs-identifier hs-type">ArchiveCdnSettings</span></a></span></span></span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908822"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings"><span class="hs-identifier hs-type">ArchiveCdnSettings</span></a></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916322"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings"><span class="hs-identifier hs-type">ArchiveCdnSettings</span></a></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679908814"><span id="local-6989586621679908816"><span id="local-6989586621679908818"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings"><span class="hs-identifier hs-type">ArchiveCdnSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679908812"><span class="annot"><span class="annottext">toJSON :: ArchiveCdnSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings%27"><span class="hs-identifier hs-type">ArchiveCdnSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679908810"><span class="annot"><span class="annottext">Maybe ArchiveS3Settings
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916314"><span id="local-6989586621679916316"><span id="local-6989586621679916318"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings"><span class="hs-identifier hs-type">ArchiveCdnSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679916312"><span class="annot"><span class="annottext">toJSON :: ArchiveCdnSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings%27"><span class="hs-identifier hs-type">ArchiveCdnSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916310"><span class="annot"><span class="annottext">Maybe ArchiveS3Settings
 archiveS3Settings :: Maybe ArchiveS3Settings
 $sel:archiveS3Settings:ArchiveCdnSettings' :: ArchiveCdnSettings -&gt; Maybe ArchiveS3Settings
-</span><a href="#local-6989586621679908810"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679916310"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -180,7 +180,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ArchiveS3Settings -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveS3Settings
-</span><a href="#local-6989586621679908810"><span class="hs-identifier hs-var">archiveS3Settings</span></a></span><span>
+</span><a href="#local-6989586621679916310"><span class="hs-identifier hs-var">archiveS3Settings</span></a></span><span>
 </span><span id="line-75"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span></pre></body></html>

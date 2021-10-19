@@ -26,33 +26,33 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A summary of a pipeline.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPipelineSummary' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680327752"><span id="local-6989586621680327753"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-var">PipelineSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-var">PipelineSummary'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pipeline.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3ApipelineArn%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineArn%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">pipelineArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The creation time of the pipeline.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcreationTime%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe POSIX
+</span><span id="line-29"></span><span id="local-6989586621680329152"><span id="local-6989586621680329153"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineSummary"><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-var">PipelineSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineSummary%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-var">PipelineSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The creation time of the pipeline.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AcreationTime%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3AcreationTime%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The description of the pipeline.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3ApipelineDescription%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineDescription%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">pipelineDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that the pipeline used to execute.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AroleArn%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3AroleArn%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The last time that a pipeline execution began.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlastExecutionTime%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3AlastExecutionTime%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">lastExecutionTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The display name of the pipeline.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3ApipelineDisplayName%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe Text
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The display name of the pipeline.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3ApipelineDisplayName%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineDisplayName%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">pipelineDisplayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The time that the pipeline was last modified.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe POSIX
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The last time that a pipeline execution began.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlastExecutionTime%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3AlastExecutionTime%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">lastExecutionTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the pipeline.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3ApipelineName%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineName%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The time that the pipeline was last modified.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3AlastModifiedTime%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the pipeline.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3ApipelineName%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineName%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The description of the pipeline.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3ApipelineDescription%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineDescription%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">pipelineDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pipeline.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3ApipelineArn%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineArn%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">pipelineArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that the pipeline used to execute.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AroleArn%3APipelineSummary%27"><span class="annot"><span class="annottext">PipelineSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3AroleArn%3APipelineSummary%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680327739"><span id="local-6989586621680327741"><span class="annot"><span class="annottext">PipelineSummary -&gt; PipelineSummary -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680329139"><span id="local-6989586621680329141"><span class="annot"><span class="annottext">PipelineSummary -&gt; PipelineSummary -&gt; Bool
 (PipelineSummary -&gt; PipelineSummary -&gt; Bool)
 -&gt; (PipelineSummary -&gt; PipelineSummary -&gt; Bool)
 -&gt; Eq PipelineSummary
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PipelineSummary -&gt; PipelineSummary -&gt; Bool
 == :: PipelineSummary -&gt; PipelineSummary -&gt; Bool
 $c== :: PipelineSummary -&gt; PipelineSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680327730"><span id="local-6989586621680327732"><span id="local-6989586621680327734"><span id="local-6989586621680327736"><span class="annot"><span class="annottext">ReadPrec [PipelineSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680329130"><span id="local-6989586621680329132"><span id="local-6989586621680329134"><span id="local-6989586621680329136"><span class="annot"><span class="annottext">ReadPrec [PipelineSummary]
 ReadPrec PipelineSummary
 Int -&gt; ReadS PipelineSummary
 ReadS [PipelineSummary]
@@ -81,7 +81,7 @@ readList :: ReadS [PipelineSummary]
 $creadList :: ReadS [PipelineSummary]
 readsPrec :: Int -&gt; ReadS PipelineSummary
 $creadsPrec :: Int -&gt; ReadS PipelineSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680327723"><span id="local-6989586621680327725"><span id="local-6989586621680327727"><span class="annot"><span class="annottext">Int -&gt; PipelineSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680329123"><span id="local-6989586621680329125"><span id="local-6989586621680329127"><span class="annot"><span class="annottext">Int -&gt; PipelineSummary -&gt; ShowS
 [PipelineSummary] -&gt; ShowS
 PipelineSummary -&gt; String
 (Int -&gt; PipelineSummary -&gt; ShowS)
@@ -115,106 +115,87 @@ $cfrom :: forall x. PipelineSummary -&gt; Rep PipelineSummary x
 </span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'pipelineArn', 'pipelineSummary_pipelineArn' - The Amazon Resource Name (ARN) of the pipeline.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'creationTime', 'pipelineSummary_creationTime' - The creation time of the pipeline.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'creationTime', 'pipelineSummary_creationTime' - The creation time of the pipeline.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'pipelineDisplayName', 'pipelineSummary_pipelineDisplayName' - The display name of the pipeline.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'pipelineDescription', 'pipelineSummary_pipelineDescription' - The description of the pipeline.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'lastExecutionTime', 'pipelineSummary_lastExecutionTime' - The last time that a pipeline execution began.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'roleArn', 'pipelineSummary_roleArn' - The Amazon Resource Name (ARN) that the pipeline used to execute.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'pipelineName', 'pipelineSummary_pipelineName' - The name of the pipeline.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'lastExecutionTime', 'pipelineSummary_lastExecutionTime' - The last time that a pipeline execution began.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'lastModifiedTime', 'pipelineSummary_lastModifiedTime' - The time that the pipeline was last modified.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'pipelineDisplayName', 'pipelineSummary_pipelineDisplayName' - The display name of the pipeline.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'pipelineDescription', 'pipelineSummary_pipelineDescription' - The description of the pipeline.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'lastModifiedTime', 'pipelineSummary_lastModifiedTime' - The time that the pipeline was last modified.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'pipelineArn', 'pipelineSummary_pipelineArn' - The Amazon Resource Name (ARN) of the pipeline.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'pipelineName', 'pipelineSummary_pipelineName' - The name of the pipeline.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'roleArn', 'pipelineSummary_roleArn' - The Amazon Resource Name (ARN) that the pipeline used to execute.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#newPipelineSummary"><span class="hs-identifier hs-type">newPipelineSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span>
 </span><span id="line-74"></span><span id="newPipelineSummary"><span class="annot"><span class="annottext">newPipelineSummary :: PipelineSummary
 </span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#newPipelineSummary"><span class="hs-identifier hs-var hs-var">newPipelineSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">PipelineSummary' :: Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe Text
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">PipelineSummary' :: Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; PipelineSummary
 </span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pipelineArn:PipelineSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineArn%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTime:PipelineSummary' :: Maybe POSIX
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:PipelineSummary' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3AcreationTime%3APipelineSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineDescription:PipelineSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineDescription%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:PipelineSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3AroleArn%3APipelineSummary%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastExecutionTime:PipelineSummary' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3AlastExecutionTime%3APipelineSummary%27"><span class="hs-identifier hs-var">lastExecutionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineDisplayName:PipelineSummary' :: Maybe Text
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineDisplayName:PipelineSummary' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineDisplayName%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineDisplayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:PipelineSummary' :: Maybe POSIX
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastExecutionTime:PipelineSummary' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3AlastExecutionTime%3APipelineSummary%27"><span class="hs-identifier hs-var">lastExecutionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineName:PipelineSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineName%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:PipelineSummary' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3AlastModifiedTime%3APipelineSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineName:PipelineSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineName%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineDescription:PipelineSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineDescription%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineArn:PipelineSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineArn%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:PipelineSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3AroleArn%3APipelineSummary%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pipeline.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_pipelineArn"><span class="hs-identifier hs-type">pipelineSummary_pipelineArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="pipelineSummary_pipelineArn"><span class="annot"><span class="annottext">pipelineSummary_pipelineArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PipelineSummary -&gt; f PipelineSummary
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_pipelineArn"><span class="hs-identifier hs-var hs-var">pipelineSummary_pipelineArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineSummary -&gt; Maybe Text)
--&gt; (PipelineSummary -&gt; Maybe Text -&gt; PipelineSummary)
--&gt; Lens PipelineSummary PipelineSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680327714"><span class="annot"><span class="annottext">Maybe Text
-pipelineArn :: Maybe Text
-$sel:pipelineArn:PipelineSummary' :: PipelineSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680327714"><span class="hs-identifier hs-var hs-var">pipelineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680327714"><span class="hs-identifier hs-var">pipelineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680327713"><span class="annot"><span class="annottext">s :: PipelineSummary
-</span><a href="#local-6989586621680327713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680327712"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680327712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
-</span><a href="#local-6989586621680327713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineArn:PipelineSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineArn%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680327712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The creation time of the pipeline.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_creationTime"><span class="hs-identifier hs-type">pipelineSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="pipelineSummary_creationTime"><span class="annot"><span class="annottext">pipelineSummary_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-86"></span><span class="hs-comment">-- | The creation time of the pipeline.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_creationTime"><span class="hs-identifier hs-type">pipelineSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="pipelineSummary_creationTime"><span class="annot"><span class="annottext">pipelineSummary_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; PipelineSummary -&gt; f PipelineSummary
 </span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_creationTime"><span class="hs-identifier hs-var hs-var">pipelineSummary_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineSummary -&gt; Maybe POSIX)
 -&gt; (PipelineSummary -&gt; Maybe POSIX -&gt; PipelineSummary)
 -&gt; Lens PipelineSummary PipelineSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680327710"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680329114"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:PipelineSummary' :: PipelineSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621680327710"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680327710"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680327709"><span class="annot"><span class="annottext">s :: PipelineSummary
-</span><a href="#local-6989586621680327709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680327708"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680327708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
-</span><a href="#local-6989586621680327709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:PipelineSummary' :: Maybe POSIX
+</span><a href="#local-6989586621680329114"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680329114"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680329113"><span class="annot"><span class="annottext">s :: PipelineSummary
+</span><a href="#local-6989586621680329113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680329112"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680329112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
+</span><a href="#local-6989586621680329113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:PipelineSummary' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3AcreationTime%3APipelineSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680327708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680329112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; PipelineSummary -&gt; f PipelineSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -230,63 +211,97 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The display name of the pipeline.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_pipelineDisplayName"><span class="hs-identifier hs-type">pipelineSummary_pipelineDisplayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="pipelineSummary_pipelineDisplayName"><span class="annot"><span class="annottext">pipelineSummary_pipelineDisplayName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PipelineSummary -&gt; f PipelineSummary
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_pipelineDisplayName"><span class="hs-identifier hs-var hs-var">pipelineSummary_pipelineDisplayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineSummary -&gt; Maybe Text)
+-&gt; (PipelineSummary -&gt; Maybe Text -&gt; PipelineSummary)
+-&gt; Lens PipelineSummary PipelineSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680329107"><span class="annot"><span class="annottext">Maybe Text
+pipelineDisplayName :: Maybe Text
+$sel:pipelineDisplayName:PipelineSummary' :: PipelineSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680329107"><span class="hs-identifier hs-var hs-var">pipelineDisplayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680329107"><span class="hs-identifier hs-var">pipelineDisplayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680329106"><span class="annot"><span class="annottext">s :: PipelineSummary
+</span><a href="#local-6989586621680329106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680329105"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680329105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
+</span><a href="#local-6989586621680329106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineDisplayName:PipelineSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineDisplayName%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineDisplayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680329105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The description of the pipeline.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_pipelineDescription"><span class="hs-identifier hs-type">pipelineSummary_pipelineDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="pipelineSummary_pipelineDescription"><span class="annot"><span class="annottext">pipelineSummary_pipelineDescription :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PipelineSummary -&gt; f PipelineSummary
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_pipelineDescription"><span class="hs-identifier hs-var hs-var">pipelineSummary_pipelineDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineSummary -&gt; Maybe Text)
--&gt; (PipelineSummary -&gt; Maybe Text -&gt; PipelineSummary)
--&gt; Lens PipelineSummary PipelineSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680327703"><span class="annot"><span class="annottext">Maybe Text
-pipelineDescription :: Maybe Text
-$sel:pipelineDescription:PipelineSummary' :: PipelineSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680327703"><span class="hs-identifier hs-var hs-var">pipelineDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680327703"><span class="hs-identifier hs-var">pipelineDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680327702"><span class="annot"><span class="annottext">s :: PipelineSummary
-</span><a href="#local-6989586621680327702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680327701"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680327701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
-</span><a href="#local-6989586621680327702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineDescription:PipelineSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineDescription%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680327701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that the pipeline used to execute.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_roleArn"><span class="hs-identifier hs-type">pipelineSummary_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="pipelineSummary_roleArn"><span class="annot"><span class="annottext">pipelineSummary_roleArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PipelineSummary -&gt; f PipelineSummary
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_roleArn"><span class="hs-identifier hs-var hs-var">pipelineSummary_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineSummary -&gt; Maybe Text)
--&gt; (PipelineSummary -&gt; Maybe Text -&gt; PipelineSummary)
--&gt; Lens PipelineSummary PipelineSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680327699"><span class="annot"><span class="annottext">Maybe Text
-roleArn :: Maybe Text
-$sel:roleArn:PipelineSummary' :: PipelineSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680327699"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680327699"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680327698"><span class="annot"><span class="annottext">s :: PipelineSummary
-</span><a href="#local-6989586621680327698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680327697"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680327697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
-</span><a href="#local-6989586621680327698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:PipelineSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3AroleArn%3APipelineSummary%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680327697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | The last time that a pipeline execution began.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_lastExecutionTime"><span class="hs-identifier hs-type">pipelineSummary_lastExecutionTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="pipelineSummary_lastExecutionTime"><span class="annot"><span class="annottext">pipelineSummary_lastExecutionTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-94"></span><span class="hs-comment">-- | The last time that a pipeline execution began.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_lastExecutionTime"><span class="hs-identifier hs-type">pipelineSummary_lastExecutionTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="pipelineSummary_lastExecutionTime"><span class="annot"><span class="annottext">pipelineSummary_lastExecutionTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; PipelineSummary -&gt; f PipelineSummary
 </span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_lastExecutionTime"><span class="hs-identifier hs-var hs-var">pipelineSummary_lastExecutionTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineSummary -&gt; Maybe POSIX)
 -&gt; (PipelineSummary -&gt; Maybe POSIX -&gt; PipelineSummary)
 -&gt; Lens PipelineSummary PipelineSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680327695"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680329103"><span class="annot"><span class="annottext">Maybe POSIX
 lastExecutionTime :: Maybe POSIX
 $sel:lastExecutionTime:PipelineSummary' :: PipelineSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621680327695"><span class="hs-identifier hs-var hs-var">lastExecutionTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680327695"><span class="hs-identifier hs-var">lastExecutionTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680327694"><span class="annot"><span class="annottext">s :: PipelineSummary
-</span><a href="#local-6989586621680327694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680327693"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680327693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
-</span><a href="#local-6989586621680327694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastExecutionTime:PipelineSummary' :: Maybe POSIX
+</span><a href="#local-6989586621680329103"><span class="hs-identifier hs-var hs-var">lastExecutionTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680329103"><span class="hs-identifier hs-var">lastExecutionTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680329102"><span class="annot"><span class="annottext">s :: PipelineSummary
+</span><a href="#local-6989586621680329102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680329101"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680329101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
+</span><a href="#local-6989586621680329102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastExecutionTime:PipelineSummary' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3AlastExecutionTime%3APipelineSummary%27"><span class="hs-identifier hs-var">lastExecutionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680327693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680329101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; PipelineSummary -&gt; f PipelineSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PipelineSummary
+-&gt; f PipelineSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The name of the pipeline.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_pipelineName"><span class="hs-identifier hs-type">pipelineSummary_pipelineName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="pipelineSummary_pipelineName"><span class="annot"><span class="annottext">pipelineSummary_pipelineName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PipelineSummary -&gt; f PipelineSummary
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_pipelineName"><span class="hs-identifier hs-var hs-var">pipelineSummary_pipelineName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineSummary -&gt; Maybe Text)
+-&gt; (PipelineSummary -&gt; Maybe Text -&gt; PipelineSummary)
+-&gt; Lens PipelineSummary PipelineSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680329099"><span class="annot"><span class="annottext">Maybe Text
+pipelineName :: Maybe Text
+$sel:pipelineName:PipelineSummary' :: PipelineSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680329099"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680329099"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680329098"><span class="annot"><span class="annottext">s :: PipelineSummary
+</span><a href="#local-6989586621680329098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680329097"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680329097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
+</span><a href="#local-6989586621680329098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineName:PipelineSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineName%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680329097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The time that the pipeline was last modified.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_lastModifiedTime"><span class="hs-identifier hs-type">pipelineSummary_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="pipelineSummary_lastModifiedTime"><span class="annot"><span class="annottext">pipelineSummary_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PipelineSummary -&gt; f PipelineSummary
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_lastModifiedTime"><span class="hs-identifier hs-var hs-var">pipelineSummary_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineSummary -&gt; Maybe POSIX)
+-&gt; (PipelineSummary -&gt; Maybe POSIX -&gt; PipelineSummary)
+-&gt; Lens PipelineSummary PipelineSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680329095"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedTime :: Maybe POSIX
+$sel:lastModifiedTime:PipelineSummary' :: PipelineSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621680329095"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680329095"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680329094"><span class="annot"><span class="annottext">s :: PipelineSummary
+</span><a href="#local-6989586621680329094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680329093"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680329093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
+</span><a href="#local-6989586621680329094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:PipelineSummary' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3AlastModifiedTime%3APipelineSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680329093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; PipelineSummary -&gt; f PipelineSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -303,80 +318,65 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | The display name of the pipeline.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_pipelineDisplayName"><span class="hs-identifier hs-type">pipelineSummary_pipelineDisplayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="pipelineSummary_pipelineDisplayName"><span class="annot"><span class="annottext">pipelineSummary_pipelineDisplayName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-106"></span><span class="hs-comment">-- | The description of the pipeline.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_pipelineDescription"><span class="hs-identifier hs-type">pipelineSummary_pipelineDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="pipelineSummary_pipelineDescription"><span class="annot"><span class="annottext">pipelineSummary_pipelineDescription :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PipelineSummary -&gt; f PipelineSummary
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_pipelineDisplayName"><span class="hs-identifier hs-var hs-var">pipelineSummary_pipelineDisplayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineSummary -&gt; Maybe Text)
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_pipelineDescription"><span class="hs-identifier hs-var hs-var">pipelineSummary_pipelineDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineSummary -&gt; Maybe Text)
 -&gt; (PipelineSummary -&gt; Maybe Text -&gt; PipelineSummary)
 -&gt; Lens PipelineSummary PipelineSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680327691"><span class="annot"><span class="annottext">Maybe Text
-pipelineDisplayName :: Maybe Text
-$sel:pipelineDisplayName:PipelineSummary' :: PipelineSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680327691"><span class="hs-identifier hs-var hs-var">pipelineDisplayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680327691"><span class="hs-identifier hs-var">pipelineDisplayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680327690"><span class="annot"><span class="annottext">s :: PipelineSummary
-</span><a href="#local-6989586621680327690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680327689"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680327689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
-</span><a href="#local-6989586621680327690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineDisplayName:PipelineSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineDisplayName%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineDisplayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680327689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680329091"><span class="annot"><span class="annottext">Maybe Text
+pipelineDescription :: Maybe Text
+$sel:pipelineDescription:PipelineSummary' :: PipelineSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680329091"><span class="hs-identifier hs-var hs-var">pipelineDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680329091"><span class="hs-identifier hs-var">pipelineDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680329090"><span class="annot"><span class="annottext">s :: PipelineSummary
+</span><a href="#local-6989586621680329090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680329089"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680329089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
+</span><a href="#local-6989586621680329090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineDescription:PipelineSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineDescription%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680329089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The time that the pipeline was last modified.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_lastModifiedTime"><span class="hs-identifier hs-type">pipelineSummary_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="pipelineSummary_lastModifiedTime"><span class="annot"><span class="annottext">pipelineSummary_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-110"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the pipeline.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_pipelineArn"><span class="hs-identifier hs-type">pipelineSummary_pipelineArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="pipelineSummary_pipelineArn"><span class="annot"><span class="annottext">pipelineSummary_pipelineArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PipelineSummary -&gt; f PipelineSummary
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_lastModifiedTime"><span class="hs-identifier hs-var hs-var">pipelineSummary_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineSummary -&gt; Maybe POSIX)
--&gt; (PipelineSummary -&gt; Maybe POSIX -&gt; PipelineSummary)
--&gt; Lens PipelineSummary PipelineSummary (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680327687"><span class="annot"><span class="annottext">Maybe POSIX
-lastModifiedTime :: Maybe POSIX
-$sel:lastModifiedTime:PipelineSummary' :: PipelineSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621680327687"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680327687"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680327686"><span class="annot"><span class="annottext">s :: PipelineSummary
-</span><a href="#local-6989586621680327686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680327685"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680327685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
-</span><a href="#local-6989586621680327686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:PipelineSummary' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3AlastModifiedTime%3APipelineSummary%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680327685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; PipelineSummary -&gt; f PipelineSummary)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; PipelineSummary
--&gt; f PipelineSummary
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The name of the pipeline.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_pipelineName"><span class="hs-identifier hs-type">pipelineSummary_pipelineName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="pipelineSummary_pipelineName"><span class="annot"><span class="annottext">pipelineSummary_pipelineName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PipelineSummary -&gt; f PipelineSummary
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_pipelineName"><span class="hs-identifier hs-var hs-var">pipelineSummary_pipelineName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineSummary -&gt; Maybe Text)
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_pipelineArn"><span class="hs-identifier hs-var hs-var">pipelineSummary_pipelineArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineSummary -&gt; Maybe Text)
 -&gt; (PipelineSummary -&gt; Maybe Text -&gt; PipelineSummary)
 -&gt; Lens PipelineSummary PipelineSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680327683"><span class="annot"><span class="annottext">Maybe Text
-pipelineName :: Maybe Text
-$sel:pipelineName:PipelineSummary' :: PipelineSummary -&gt; Maybe Text
-</span><a href="#local-6989586621680327683"><span class="hs-identifier hs-var hs-var">pipelineName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680327683"><span class="hs-identifier hs-var">pipelineName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680327682"><span class="annot"><span class="annottext">s :: PipelineSummary
-</span><a href="#local-6989586621680327682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680327681"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680327681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
-</span><a href="#local-6989586621680327682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineName:PipelineSummary' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineName%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680327681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680329087"><span class="annot"><span class="annottext">Maybe Text
+pipelineArn :: Maybe Text
+$sel:pipelineArn:PipelineSummary' :: PipelineSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680329087"><span class="hs-identifier hs-var hs-var">pipelineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680329087"><span class="hs-identifier hs-var">pipelineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680329086"><span class="annot"><span class="annottext">s :: PipelineSummary
+</span><a href="#local-6989586621680329086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680329085"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680329085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
+</span><a href="#local-6989586621680329086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineArn:PipelineSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3ApipelineArn%3APipelineSummary%27"><span class="hs-identifier hs-var">pipelineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680329085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that the pipeline used to execute.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_roleArn"><span class="hs-identifier hs-type">pipelineSummary_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="pipelineSummary_roleArn"><span class="annot"><span class="annottext">pipelineSummary_roleArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PipelineSummary -&gt; f PipelineSummary
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#pipelineSummary_roleArn"><span class="hs-identifier hs-var hs-var">pipelineSummary_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PipelineSummary -&gt; Maybe Text)
+-&gt; (PipelineSummary -&gt; Maybe Text -&gt; PipelineSummary)
+-&gt; Lens PipelineSummary PipelineSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680329083"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:PipelineSummary' :: PipelineSummary -&gt; Maybe Text
+</span><a href="#local-6989586621680329083"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680329083"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680329082"><span class="annot"><span class="annottext">s :: PipelineSummary
+</span><a href="#local-6989586621680329082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-type">PipelineSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680329081"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680329081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineSummary
+</span><a href="#local-6989586621680329082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:PipelineSummary' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#%24sel%3AroleArn%3APipelineSummary%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680329081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680327678"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621680327676"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineSummary
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680329078"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621680329076"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PipelineSummary)
@@ -386,146 +386,146 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PipelineSummary&quot;</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680327673"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680327673"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe Text
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680329073"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680329073"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; PipelineSummary
 </span><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary%27"><span class="hs-identifier hs-var">PipelineSummary'</span></a></span><span>
-</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe POSIX
- -&gt; Maybe Text
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
  -&gt; Maybe Text
  -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; PipelineSummary)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Text
+     (Maybe Text
       -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; PipelineSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680327673"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PipelineArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; PipelineSummary)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; PipelineSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680327673"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680329073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; PipelineSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; PipelineSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680327673"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PipelineDescription&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; PipelineSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe POSIX
-      -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; PipelineSummary)
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; PipelineSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680327673"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; PipelineSummary)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; PipelineSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680327673"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastExecutionTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; PipelineSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; PipelineSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680327673"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680329073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PipelineDisplayName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; PipelineSummary)
--&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Text -&gt; PipelineSummary)
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; PipelineSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; PipelineSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680327673"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680329073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastExecutionTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; PipelineSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PipelineSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680329073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PipelineName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PipelineSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PipelineSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680329073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; PipelineSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; PipelineSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680329073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PipelineDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; PipelineSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; PipelineSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680329073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PipelineArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; PipelineSummary)
 -&gt; Parser (Maybe Text) -&gt; Parser PipelineSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680327673"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680329073"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PipelineName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680327667"><span id="local-6989586621680327669"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680329067"><span id="local-6989586621680329069"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span></span></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680327664"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680329064"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier hs-type">PipelineSummary</span></a></span></span><span>
 </span><span id="line-137"></span></pre></body></html>

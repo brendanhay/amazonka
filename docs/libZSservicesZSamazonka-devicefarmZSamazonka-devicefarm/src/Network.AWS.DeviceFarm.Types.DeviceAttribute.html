@@ -40,13 +40,13 @@
 </span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-42"></span><span>
-</span><span id="line-43"></span><span id="local-6989586621679361581"><span id="local-6989586621679361582"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeviceAttribute"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceAttribute.html#DeviceAttribute"><span class="hs-identifier hs-var">DeviceAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceAttribute%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceAttribute.html#DeviceAttribute%27"><span class="hs-identifier hs-var">DeviceAttribute'</span></a></span></span><span>
+</span><span id="line-43"></span><span id="local-6989586621679361816"><span id="local-6989586621679361817"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeviceAttribute"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceAttribute.html#DeviceAttribute"><span class="hs-identifier hs-var">DeviceAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceAttribute%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceAttribute.html#DeviceAttribute%27"><span class="hs-identifier hs-var">DeviceAttribute'</span></a></span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeviceAttribute"><span class="annot"><span class="annottext">DeviceAttribute -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceAttribute.html#fromDeviceAttribute"><span class="hs-identifier hs-var hs-var">fromDeviceAttribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-45"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679361573"><span id="local-6989586621679361575"><span id="local-6989586621679361577"><span class="annot"><span class="annottext">Int -&gt; DeviceAttribute -&gt; ShowS
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679361808"><span id="local-6989586621679361810"><span id="local-6989586621679361812"><span class="annot"><span class="annottext">Int -&gt; DeviceAttribute -&gt; ShowS
 [DeviceAttribute] -&gt; ShowS
 DeviceAttribute -&gt; String
 (Int -&gt; DeviceAttribute -&gt; ShowS)
@@ -62,7 +62,7 @@ $cshow :: DeviceAttribute -&gt; String
 showsPrec :: Int -&gt; DeviceAttribute -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeviceAttribute -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679361564"><span id="local-6989586621679361566"><span id="local-6989586621679361568"><span id="local-6989586621679361570"><span class="annot"><span class="annottext">ReadPrec [DeviceAttribute]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679361799"><span id="local-6989586621679361801"><span id="local-6989586621679361803"><span id="local-6989586621679361805"><span class="annot"><span class="annottext">ReadPrec [DeviceAttribute]
 ReadPrec DeviceAttribute
 Int -&gt; ReadS DeviceAttribute
 ReadS [DeviceAttribute]
@@ -83,7 +83,7 @@ $creadList :: ReadS [DeviceAttribute]
 readsPrec :: Int -&gt; ReadS DeviceAttribute
 $creadsPrec :: Int -&gt; ReadS DeviceAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679361559"><span id="local-6989586621679361561"><span class="annot"><span class="annottext">DeviceAttribute -&gt; DeviceAttribute -&gt; Bool
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679361794"><span id="local-6989586621679361796"><span class="annot"><span class="annottext">DeviceAttribute -&gt; DeviceAttribute -&gt; Bool
 (DeviceAttribute -&gt; DeviceAttribute -&gt; Bool)
 -&gt; (DeviceAttribute -&gt; DeviceAttribute -&gt; Bool)
 -&gt; Eq DeviceAttribute
@@ -93,7 +93,7 @@ $c/= :: DeviceAttribute -&gt; DeviceAttribute -&gt; Bool
 == :: DeviceAttribute -&gt; DeviceAttribute -&gt; Bool
 $c== :: DeviceAttribute -&gt; DeviceAttribute -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679361543"><span id="local-6989586621679361545"><span id="local-6989586621679361547"><span id="local-6989586621679361549"><span id="local-6989586621679361551"><span id="local-6989586621679361553"><span id="local-6989586621679361555"><span class="annot"><span class="annottext">Eq DeviceAttribute
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679361778"><span id="local-6989586621679361780"><span id="local-6989586621679361782"><span id="local-6989586621679361784"><span id="local-6989586621679361786"><span id="local-6989586621679361788"><span id="local-6989586621679361790"><span class="annot"><span class="annottext">Eq DeviceAttribute
 Eq DeviceAttribute
 -&gt; (DeviceAttribute -&gt; DeviceAttribute -&gt; Ordering)
 -&gt; (DeviceAttribute -&gt; DeviceAttribute -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. DeviceAttribute -&gt; Rep DeviceAttribute x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679361535"><span id="local-6989586621679361537"><span class="annot"><span class="annottext">Int -&gt; DeviceAttribute -&gt; Int
+</span><span id="line-55"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679361770"><span id="local-6989586621679361772"><span class="annot"><span class="annottext">Int -&gt; DeviceAttribute -&gt; Int
 DeviceAttribute -&gt; Int
 (Int -&gt; DeviceAttribute -&gt; Int)
 -&gt; (DeviceAttribute -&gt; Int) -&gt; Hashable DeviceAttribute
@@ -154,50 +154,50 @@ $chash :: DeviceAttribute -&gt; Int
 hashWithSalt :: Int -&gt; DeviceAttribute -&gt; Int
 $chashWithSalt :: Int -&gt; DeviceAttribute -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679361532"><span class="annot"><span class="annottext">DeviceAttribute -&gt; ()
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679361767"><span class="annot"><span class="annottext">DeviceAttribute -&gt; ()
 (DeviceAttribute -&gt; ()) -&gt; NFData DeviceAttribute
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeviceAttribute -&gt; ()
 $crnf :: DeviceAttribute -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679361529"><span class="annot"><span class="annottext">Text -&gt; Either String DeviceAttribute
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679361764"><span class="annot"><span class="annottext">Text -&gt; Either String DeviceAttribute
 (Text -&gt; Either String DeviceAttribute) -&gt; FromText DeviceAttribute
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeviceAttribute
 $cfromText :: Text -&gt; Either String DeviceAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679361526"><span class="annot"><span class="annottext">DeviceAttribute -&gt; Text
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679361761"><span class="annot"><span class="annottext">DeviceAttribute -&gt; Text
 (DeviceAttribute -&gt; Text) -&gt; ToText DeviceAttribute
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeviceAttribute -&gt; Text
 $ctoText :: DeviceAttribute -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679361523"><span class="annot"><span class="annottext">DeviceAttribute -&gt; ByteString
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679361758"><span class="annot"><span class="annottext">DeviceAttribute -&gt; ByteString
 (DeviceAttribute -&gt; ByteString) -&gt; ToByteString DeviceAttribute
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeviceAttribute -&gt; ByteString
 $ctoBS :: DeviceAttribute -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679361520"><span class="annot"><span class="annottext">DeviceAttribute -&gt; ByteStringBuilder
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679361755"><span class="annot"><span class="annottext">DeviceAttribute -&gt; ByteStringBuilder
 (DeviceAttribute -&gt; ByteStringBuilder) -&gt; ToLog DeviceAttribute
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeviceAttribute -&gt; ByteStringBuilder
 $cbuild :: DeviceAttribute -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679361517"><span class="annot"><span class="annottext">HeaderName -&gt; DeviceAttribute -&gt; [Header]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679361752"><span class="annot"><span class="annottext">HeaderName -&gt; DeviceAttribute -&gt; [Header]
 (HeaderName -&gt; DeviceAttribute -&gt; [Header])
 -&gt; ToHeader DeviceAttribute
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeviceAttribute -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeviceAttribute -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679361514"><span class="annot"><span class="annottext">DeviceAttribute -&gt; QueryString
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679361749"><span class="annot"><span class="annottext">DeviceAttribute -&gt; QueryString
 (DeviceAttribute -&gt; QueryString) -&gt; ToQuery DeviceAttribute
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeviceAttribute -&gt; QueryString
 $ctoQuery :: DeviceAttribute -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679361509"><span id="local-6989586621679361511"><span class="annot"><span class="annottext">Value -&gt; Parser [DeviceAttribute]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679361744"><span id="local-6989586621679361746"><span class="annot"><span class="annottext">Value -&gt; Parser [DeviceAttribute]
 Value -&gt; Parser DeviceAttribute
 (Value -&gt; Parser DeviceAttribute)
 -&gt; (Value -&gt; Parser [DeviceAttribute]) -&gt; FromJSON DeviceAttribute
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [DeviceAttribute]
 parseJSON :: Value -&gt; Parser DeviceAttribute
 $cparseJSON :: Value -&gt; Parser DeviceAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679361504"><span id="local-6989586621679361506"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeviceAttribute]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679361739"><span id="local-6989586621679361741"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeviceAttribute]
 FromJSONKeyFunction DeviceAttribute
 FromJSONKeyFunction DeviceAttribute
 -&gt; FromJSONKeyFunction [DeviceAttribute]
@@ -220,7 +220,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeviceAttribute]
 fromJSONKey :: FromJSONKeyFunction DeviceAttribute
 $cfromJSONKey :: FromJSONKeyFunction DeviceAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679361495"><span id="local-6989586621679361497"><span id="local-6989586621679361499"><span id="local-6989586621679361501"><span class="annot"><span class="annottext">[DeviceAttribute] -&gt; Encoding
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679361730"><span id="local-6989586621679361732"><span id="local-6989586621679361734"><span id="local-6989586621679361736"><span class="annot"><span class="annottext">[DeviceAttribute] -&gt; Encoding
 [DeviceAttribute] -&gt; Value
 DeviceAttribute -&gt; Encoding
 DeviceAttribute -&gt; Value
@@ -244,7 +244,7 @@ $ctoEncoding :: DeviceAttribute -&gt; Encoding
 toJSON :: DeviceAttribute -&gt; Value
 $ctoJSON :: DeviceAttribute -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679361490"><span id="local-6989586621679361492"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeviceAttribute]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679361725"><span id="local-6989586621679361727"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeviceAttribute]
 ToJSONKeyFunction DeviceAttribute
 ToJSONKeyFunction DeviceAttribute
 -&gt; ToJSONKeyFunction [DeviceAttribute] -&gt; ToJSONKey DeviceAttribute
@@ -255,14 +255,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeviceAttribute]
 toJSONKey :: ToJSONKeyFunction DeviceAttribute
 $ctoJSONKey :: ToJSONKeyFunction DeviceAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679361487"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeviceAttribute
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679361722"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeviceAttribute
 ([Node] -&gt; Either String DeviceAttribute)
 -&gt; FromXML DeviceAttribute
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeviceAttribute
 $cparseXML :: [Node] -&gt; Either String DeviceAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679361484"><span class="annot"><span class="annottext">DeviceAttribute -&gt; XML
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679361719"><span class="annot"><span class="annottext">DeviceAttribute -&gt; XML
 (DeviceAttribute -&gt; XML) -&gt; ToXML DeviceAttribute
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeviceAttribute -&gt; XML

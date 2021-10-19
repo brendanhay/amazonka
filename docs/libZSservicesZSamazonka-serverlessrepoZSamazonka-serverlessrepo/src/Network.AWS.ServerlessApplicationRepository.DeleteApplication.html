@@ -43,12 +43,12 @@
 </span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.Types.html"><span class="hs-identifier">Network.AWS.ServerlessApplicationRepository.Types</span></a></span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- | /See:/ 'newDeleteApplication' smart constructor.</span><span>
-</span><span id="line-46"></span><span id="local-6989586621679192195"><span id="local-6989586621679192196"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteApplication"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-var">DeleteApplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteApplication%27"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication%27"><span class="hs-identifier hs-var">DeleteApplication'</span></a></span></span><span>
+</span><span id="line-46"></span><span id="local-6989586621679192311"><span id="local-6989586621679192312"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteApplication"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-var">DeleteApplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteApplication%27"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication%27"><span class="hs-identifier hs-var">DeleteApplication'</span></a></span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the application.</span><span>
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AapplicationId%3ADeleteApplication%27"><span class="annot"><span class="annottext">DeleteApplication -&gt; Text
 </span><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#%24sel%3AapplicationId%3ADeleteApplication%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679192189"><span id="local-6989586621679192191"><span class="annot"><span class="annottext">DeleteApplication -&gt; DeleteApplication -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679192305"><span id="local-6989586621679192307"><span class="annot"><span class="annottext">DeleteApplication -&gt; DeleteApplication -&gt; Bool
 (DeleteApplication -&gt; DeleteApplication -&gt; Bool)
 -&gt; (DeleteApplication -&gt; DeleteApplication -&gt; Bool)
 -&gt; Eq DeleteApplication
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteApplication -&gt; DeleteApplication -&gt; Bool
 == :: DeleteApplication -&gt; DeleteApplication -&gt; Bool
 $c== :: DeleteApplication -&gt; DeleteApplication -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192180"><span id="local-6989586621679192182"><span id="local-6989586621679192184"><span id="local-6989586621679192186"><span class="annot"><span class="annottext">ReadPrec [DeleteApplication]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192296"><span id="local-6989586621679192298"><span id="local-6989586621679192300"><span id="local-6989586621679192302"><span class="annot"><span class="annottext">ReadPrec [DeleteApplication]
 ReadPrec DeleteApplication
 Int -&gt; ReadS DeleteApplication
 ReadS [DeleteApplication]
@@ -77,7 +77,7 @@ readList :: ReadS [DeleteApplication]
 $creadList :: ReadS [DeleteApplication]
 readsPrec :: Int -&gt; ReadS DeleteApplication
 $creadsPrec :: Int -&gt; ReadS DeleteApplication
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192173"><span id="local-6989586621679192175"><span id="local-6989586621679192177"><span class="annot"><span class="annottext">Int -&gt; DeleteApplication -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192289"><span id="local-6989586621679192291"><span id="local-6989586621679192293"><span class="annot"><span class="annottext">Int -&gt; DeleteApplication -&gt; ShowS
 [DeleteApplication] -&gt; ShowS
 DeleteApplication -&gt; String
 (Int -&gt; DeleteApplication -&gt; ShowS)
@@ -117,12 +117,12 @@ $cfrom :: forall x. DeleteApplication -&gt; Rep DeleteApplication x
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span>
 </span><span id="line-65"></span><span id="newDeleteApplication"><span class="annot"><span class="annottext">newDeleteApplication :: Text -&gt; DeleteApplication
-</span><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#newDeleteApplication"><span class="hs-identifier hs-var hs-var">newDeleteApplication</span></a></span></span><span> </span><span id="local-6989586621679192168"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679192168"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#newDeleteApplication"><span class="hs-identifier hs-var hs-var">newDeleteApplication</span></a></span></span><span> </span><span id="local-6989586621679192284"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192284"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">DeleteApplication' :: Text -&gt; DeleteApplication
 </span><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication%27"><span class="hs-identifier hs-type">DeleteApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:DeleteApplication' :: Text
 </span><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#%24sel%3AapplicationId%3ADeleteApplication%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679192168"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679192284"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the application.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#deleteApplication_applicationId"><span class="hs-identifier hs-type">deleteApplication_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -131,27 +131,27 @@ $cfrom :: forall x. DeleteApplication -&gt; Rep DeleteApplication x
 -&gt; (DeleteApplication -&gt; Text -&gt; DeleteApplication)
 -&gt; Lens DeleteApplication DeleteApplication Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication%27"><span class="hs-identifier hs-type">DeleteApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192165"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication%27"><span class="hs-identifier hs-type">DeleteApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192281"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 $sel:applicationId:DeleteApplication' :: DeleteApplication -&gt; Text
-</span><a href="#local-6989586621679192165"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679192165"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192164"><span class="annot"><span class="annottext">s :: DeleteApplication
-</span><a href="#local-6989586621679192164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication%27"><span class="hs-identifier hs-type">DeleteApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192163"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679192163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteApplication
-</span><a href="#local-6989586621679192164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:DeleteApplication' :: Text
+</span><a href="#local-6989586621679192281"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192281"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679192280"><span class="annot"><span class="annottext">s :: DeleteApplication
+</span><a href="#local-6989586621679192280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication%27"><span class="hs-identifier hs-type">DeleteApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679192279"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679192279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteApplication
+</span><a href="#local-6989586621679192280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:DeleteApplication' :: Text
 </span><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#%24sel%3AapplicationId%3ADeleteApplication%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679192163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679192279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-74"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplicationResponse"><span class="hs-identifier hs-type">DeleteApplicationResponse</span></a></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679192159"><span class="annot"><span class="annottext">request :: DeleteApplication -&gt; Request DeleteApplication
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679192275"><span class="annot"><span class="annottext">request :: DeleteApplication -&gt; Request DeleteApplication
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteApplication -&gt; Request DeleteApplication
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ServerlessApplicationRepository.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679192155"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679192271"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteApplication
 -&gt; ClientResponse ClientBody
@@ -177,12 +177,12 @@ AWSResponse a
 DeleteApplicationResponse
 </span><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplicationResponse%27"><span class="hs-identifier hs-var">DeleteApplicationResponse'</span></a></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192148"><span id="local-6989586621679192150"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192264"><span id="local-6989586621679192266"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192145"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679192141"><span class="annot"><span class="annottext">toHeaders :: DeleteApplication -&gt; [Header]
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679192257"><span class="annot"><span class="annottext">toHeaders :: DeleteApplication -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteApplication -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -202,11 +202,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679192135"><span class="annot"><span class="annottext">toPath :: DeleteApplication -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication%27"><span class="hs-identifier hs-type">DeleteApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192133"><span class="annot"><span class="annottext">Text
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679192251"><span class="annot"><span class="annottext">toPath :: DeleteApplication -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication%27"><span class="hs-identifier hs-type">DeleteApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679192249"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 $sel:applicationId:DeleteApplication' :: DeleteApplication -&gt; Text
-</span><a href="#local-6989586621679192133"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679192249"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -214,10 +214,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/applications/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679192133"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679192249"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplication"><span class="hs-identifier hs-type">DeleteApplication</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679192129"><span class="annot"><span class="annottext">toQuery :: DeleteApplication -&gt; QueryString
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679192245"><span class="annot"><span class="annottext">toQuery :: DeleteApplication -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteApplication -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -225,10 +225,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | /See:/ 'newDeleteApplicationResponse' smart constructor.</span><span>
-</span><span id="line-104"></span><span id="local-6989586621679192126"><span id="local-6989586621679192127"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteApplicationResponse"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplicationResponse"><span class="hs-identifier hs-var">DeleteApplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteApplicationResponse%27"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplicationResponse%27"><span class="hs-identifier hs-var">DeleteApplicationResponse'</span></a></span></span><span>
+</span><span id="line-104"></span><span id="local-6989586621679192242"><span id="local-6989586621679192243"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteApplicationResponse"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplicationResponse"><span class="hs-identifier hs-var">DeleteApplicationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteApplicationResponse%27"><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplicationResponse%27"><span class="hs-identifier hs-var">DeleteApplicationResponse'</span></a></span></span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-106"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-107"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679192122"><span id="local-6989586621679192124"><span class="annot"><span class="annottext">DeleteApplicationResponse -&gt; DeleteApplicationResponse -&gt; Bool
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679192238"><span id="local-6989586621679192240"><span class="annot"><span class="annottext">DeleteApplicationResponse -&gt; DeleteApplicationResponse -&gt; Bool
 (DeleteApplicationResponse -&gt; DeleteApplicationResponse -&gt; Bool)
 -&gt; (DeleteApplicationResponse -&gt; DeleteApplicationResponse -&gt; Bool)
 -&gt; Eq DeleteApplicationResponse
@@ -237,7 +237,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteApplicationResponse -&gt; DeleteApplicationResponse -&gt; Bool
 == :: DeleteApplicationResponse -&gt; DeleteApplicationResponse -&gt; Bool
 $c== :: DeleteApplicationResponse -&gt; DeleteApplicationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192114"><span id="local-6989586621679192116"><span id="local-6989586621679192118"><span id="local-6989586621679192120"><span class="annot"><span class="annottext">ReadPrec [DeleteApplicationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192230"><span id="local-6989586621679192232"><span id="local-6989586621679192234"><span id="local-6989586621679192236"><span class="annot"><span class="annottext">ReadPrec [DeleteApplicationResponse]
 ReadPrec DeleteApplicationResponse
 Int -&gt; ReadS DeleteApplicationResponse
 ReadS [DeleteApplicationResponse]
@@ -257,7 +257,7 @@ readList :: ReadS [DeleteApplicationResponse]
 $creadList :: ReadS [DeleteApplicationResponse]
 readsPrec :: Int -&gt; ReadS DeleteApplicationResponse
 $creadsPrec :: Int -&gt; ReadS DeleteApplicationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192108"><span id="local-6989586621679192110"><span id="local-6989586621679192112"><span class="annot"><span class="annottext">Int -&gt; DeleteApplicationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679192224"><span id="local-6989586621679192226"><span id="local-6989586621679192228"><span class="annot"><span class="annottext">Int -&gt; DeleteApplicationResponse -&gt; ShowS
 [DeleteApplicationResponse] -&gt; ShowS
 DeleteApplicationResponse -&gt; String
 (Int -&gt; DeleteApplicationResponse -&gt; ShowS)
@@ -300,5 +300,5 @@ DeleteApplicationResponse -&gt; Rep DeleteApplicationResponse x
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">DeleteApplicationResponse
 </span><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplicationResponse%27"><span class="hs-identifier hs-var">DeleteApplicationResponse'</span></a></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192104"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplicationResponse"><span class="hs-identifier hs-type">DeleteApplicationResponse</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679192220"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServerlessApplicationRepository.DeleteApplication.html#DeleteApplicationResponse"><span class="hs-identifier hs-type">DeleteApplicationResponse</span></a></span></span><span>
 </span><span id="line-119"></span></pre></body></html>

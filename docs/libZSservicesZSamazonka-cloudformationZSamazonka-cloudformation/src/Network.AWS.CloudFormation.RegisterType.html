@@ -58,10 +58,10 @@
 </span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#newRegisterType"><span class="hs-identifier">newRegisterType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_loggingConfig"><span class="hs-identifier">registerType_loggingConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_executionRoleArn"><span class="hs-identifier">registerType_executionRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_executionRoleArn"><span class="hs-identifier">registerType_executionRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_type"><span class="hs-identifier">registerType_type</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_clientRequestToken"><span class="hs-identifier">registerType_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_type"><span class="hs-identifier">registerType_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_loggingConfig"><span class="hs-identifier">registerType_loggingConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_typeName"><span class="hs-identifier">registerType_typeName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_schemaHandlerPackage"><span class="hs-identifier">registerType_schemaHandlerPackage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>
@@ -83,31 +83,31 @@
 </span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | /See:/ 'newRegisterType' smart constructor.</span><span>
-</span><span id="line-86"></span><span id="local-6989586621679431119"><span id="local-6989586621679431120"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterType"><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-var">RegisterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterType%27"><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-var">RegisterType'</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies logging configuration information for an extension.</span><span>
-</span><span id="line-88"></span><span>    </span><span id="%24sel%3AloggingConfig%3ARegisterType%27"><span class="annot"><span class="annottext">RegisterType -&gt; Maybe LoggingConfig
-</span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AloggingConfig%3ARegisterType%27"><span class="hs-identifier hs-var hs-var">loggingConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role for CloudFormation to</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- assume when invoking the extension.</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- For CloudFormation to assume the specified execution role, the role must</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- contain a trust relationship with the CloudFormation service principle</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- (@resources.cloudformation.amazonaws.com@). For more information on</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- adding trust relationships, see</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- &lt;IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy Modifying a role trust policy&gt;</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- in the /Identity and Access Management User Guide/.</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- If your extension calls Amazon Web Services APIs in any of its handlers,</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- you must create an</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- /&lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html IAM execution role&gt;/</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- that includes the necessary permissions to call those Amazon Web</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- Services APIs, and provision that execution role in your account. When</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- CloudFormation needs to invoke the resource type handler, CloudFormation</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- assumes this execution role to create a temporary session token, which</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- it then passes to the resource type handler, thereby supplying your</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- resource type with the appropriate credentials.</span><span>
-</span><span id="line-108"></span><span>    </span><span id="%24sel%3AexecutionRoleArn%3ARegisterType%27"><span class="annot"><span class="annottext">RegisterType -&gt; Maybe Text
+</span><span id="line-86"></span><span id="local-6989586621679431534"><span id="local-6989586621679431535"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterType"><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-var">RegisterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterType%27"><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-var">RegisterType'</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role for CloudFormation to</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- assume when invoking the extension.</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- For CloudFormation to assume the specified execution role, the role must</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- contain a trust relationship with the CloudFormation service principle</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- (@resources.cloudformation.amazonaws.com@). For more information on</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- adding trust relationships, see</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- &lt;IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy Modifying a role trust policy&gt;</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- in the /Identity and Access Management User Guide/.</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- If your extension calls Amazon Web Services APIs in any of its handlers,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- you must create an</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- /&lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html IAM execution role&gt;/</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- that includes the necessary permissions to call those Amazon Web</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- Services APIs, and provision that execution role in your account. When</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- CloudFormation needs to invoke the resource type handler, CloudFormation</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- assumes this execution role to create a temporary session token, which</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- it then passes to the resource type handler, thereby supplying your</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- resource type with the appropriate credentials.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AexecutionRoleArn%3ARegisterType%27"><span class="annot"><span class="annottext">RegisterType -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AexecutionRoleArn%3ARegisterType%27"><span class="hs-identifier hs-var hs-var">executionRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | The kind of extension.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3Atype%27%3ARegisterType%27"><span class="annot"><span class="annottext">RegisterType -&gt; Maybe RegistryType
+</span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3Atype%27%3ARegisterType%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RegistryType.html#RegistryType"><span class="hs-identifier hs-type">RegistryType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | A unique identifier that acts as an idempotency key for this</span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-comment">-- registration request. Specifying a client request token prevents</span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-comment">-- CloudFormation from generating more than one version of an extension</span><span>
@@ -115,9 +115,9 @@
 </span><span id="line-113"></span><span>    </span><span class="hs-comment">-- multiple times.</span><span>
 </span><span id="line-114"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ARegisterType%27"><span class="annot"><span class="annottext">RegisterType -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AclientRequestToken%3ARegisterType%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | The kind of extension.</span><span>
-</span><span id="line-116"></span><span>    </span><span id="%24sel%3Atype%27%3ARegisterType%27"><span class="annot"><span class="annottext">RegisterType -&gt; Maybe RegistryType
-</span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3Atype%27%3ARegisterType%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RegistryType.html#RegistryType"><span class="hs-identifier hs-type">RegistryType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | Specifies logging configuration information for an extension.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3AloggingConfig%3ARegisterType%27"><span class="annot"><span class="annottext">RegisterType -&gt; Maybe LoggingConfig
+</span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AloggingConfig%3ARegisterType%27"><span class="hs-identifier hs-var hs-var">loggingConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The name of the extension being registered.</span><span>
 </span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-comment">-- We recommend that extension names adhere to the following patterns:</span><span>
@@ -159,7 +159,7 @@
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AschemaHandlerPackage%3ARegisterType%27"><span class="annot"><span class="annottext">RegisterType -&gt; Text
 </span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AschemaHandlerPackage%3ARegisterType%27"><span class="hs-identifier hs-var hs-var">schemaHandlerPackage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431108"><span id="local-6989586621679431110"><span class="annot"><span class="annottext">RegisterType -&gt; RegisterType -&gt; Bool
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431523"><span id="local-6989586621679431525"><span class="annot"><span class="annottext">RegisterType -&gt; RegisterType -&gt; Bool
 (RegisterType -&gt; RegisterType -&gt; Bool)
 -&gt; (RegisterType -&gt; RegisterType -&gt; Bool) -&gt; Eq RegisterType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -167,7 +167,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegisterType -&gt; RegisterType -&gt; Bool
 == :: RegisterType -&gt; RegisterType -&gt; Bool
 $c== :: RegisterType -&gt; RegisterType -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431099"><span id="local-6989586621679431101"><span id="local-6989586621679431103"><span id="local-6989586621679431105"><span class="annot"><span class="annottext">ReadPrec [RegisterType]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431514"><span id="local-6989586621679431516"><span id="local-6989586621679431518"><span id="local-6989586621679431520"><span class="annot"><span class="annottext">ReadPrec [RegisterType]
 ReadPrec RegisterType
 Int -&gt; ReadS RegisterType
 ReadS [RegisterType]
@@ -187,7 +187,7 @@ readList :: ReadS [RegisterType]
 $creadList :: ReadS [RegisterType]
 readsPrec :: Int -&gt; ReadS RegisterType
 $creadsPrec :: Int -&gt; ReadS RegisterType
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431092"><span id="local-6989586621679431094"><span id="local-6989586621679431096"><span class="annot"><span class="annottext">Int -&gt; RegisterType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431507"><span id="local-6989586621679431509"><span id="local-6989586621679431511"><span class="annot"><span class="annottext">Int -&gt; RegisterType -&gt; ShowS
 [RegisterType] -&gt; ShowS
 RegisterType -&gt; String
 (Int -&gt; RegisterType -&gt; ShowS)
@@ -221,27 +221,27 @@ $cfrom :: forall x. RegisterType -&gt; Rep RegisterType x
 </span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- 'loggingConfig', 'registerType_loggingConfig' - Specifies logging configuration information for an extension.</span><span>
-</span><span id="line-167"></span><span class="hs-comment">--</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- 'executionRoleArn', 'registerType_executionRoleArn' - The Amazon Resource Name (ARN) of the IAM role for CloudFormation to</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- assume when invoking the extension.</span><span>
-</span><span id="line-170"></span><span class="hs-comment">--</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- For CloudFormation to assume the specified execution role, the role must</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- contain a trust relationship with the CloudFormation service principle</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- (@resources.cloudformation.amazonaws.com@). For more information on</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- adding trust relationships, see</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- &lt;IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy Modifying a role trust policy&gt;</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- in the /Identity and Access Management User Guide/.</span><span>
-</span><span id="line-177"></span><span class="hs-comment">--</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- If your extension calls Amazon Web Services APIs in any of its handlers,</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- you must create an</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- /&lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html IAM execution role&gt;/</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- that includes the necessary permissions to call those Amazon Web</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- Services APIs, and provision that execution role in your account. When</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- CloudFormation needs to invoke the resource type handler, CloudFormation</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- assumes this execution role to create a temporary session token, which</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- it then passes to the resource type handler, thereby supplying your</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- resource type with the appropriate credentials.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'executionRoleArn', 'registerType_executionRoleArn' - The Amazon Resource Name (ARN) of the IAM role for CloudFormation to</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- assume when invoking the extension.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- For CloudFormation to assume the specified execution role, the role must</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- contain a trust relationship with the CloudFormation service principle</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- (@resources.cloudformation.amazonaws.com@). For more information on</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- adding trust relationships, see</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- &lt;IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy Modifying a role trust policy&gt;</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- in the /Identity and Access Management User Guide/.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- If your extension calls Amazon Web Services APIs in any of its handlers,</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- you must create an</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- /&lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html IAM execution role&gt;/</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- that includes the necessary permissions to call those Amazon Web</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Services APIs, and provision that execution role in your account. When</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- CloudFormation needs to invoke the resource type handler, CloudFormation</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- assumes this execution role to create a temporary session token, which</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- it then passes to the resource type handler, thereby supplying your</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- resource type with the appropriate credentials.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'type'', 'registerType_type' - The kind of extension.</span><span>
 </span><span id="line-187"></span><span class="hs-comment">--</span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- 'clientRequestToken', 'registerType_clientRequestToken' - A unique identifier that acts as an idempotency key for this</span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- registration request. Specifying a client request token prevents</span><span>
@@ -249,7 +249,7 @@ $cfrom :: forall x. RegisterType -&gt; Rep RegisterType x
 </span><span id="line-191"></span><span class="hs-comment">-- from the same registeration request, even if the request is submitted</span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- multiple times.</span><span>
 </span><span id="line-193"></span><span class="hs-comment">--</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- 'type'', 'registerType_type' - The kind of extension.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'loggingConfig', 'registerType_loggingConfig' - Specifies logging configuration information for an extension.</span><span>
 </span><span id="line-195"></span><span class="hs-comment">--</span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- 'typeName', 'registerType_typeName' - The name of the extension being registered.</span><span>
 </span><span id="line-197"></span><span class="hs-comment">--</span><span>
@@ -295,99 +295,96 @@ $cfrom :: forall x. RegisterType -&gt; Rep RegisterType x
 </span><span id="line-237"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-238"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span>
 </span><span id="line-239"></span><span id="newRegisterType"><span class="annot"><span class="annottext">newRegisterType :: Text -&gt; Text -&gt; RegisterType
-</span><a href="Network.AWS.CloudFormation.RegisterType.html#newRegisterType"><span class="hs-identifier hs-var hs-var">newRegisterType</span></a></span></span><span> </span><span id="local-6989586621679431087"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431087"><span class="hs-identifier hs-var">pTypeName_</span></a></span></span><span> </span><span id="local-6989586621679431086"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431086"><span class="hs-identifier hs-var">pSchemaHandlerPackage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-240"></span><span>  </span><span class="annot"><span class="annottext">RegisterType' :: Maybe LoggingConfig
--&gt; Maybe Text
--&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.RegisterType.html#newRegisterType"><span class="hs-identifier hs-var hs-var">newRegisterType</span></a></span></span><span> </span><span id="local-6989586621679431502"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431502"><span class="hs-identifier hs-var">pTypeName_</span></a></span></span><span> </span><span id="local-6989586621679431501"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431501"><span class="hs-identifier hs-var">pSchemaHandlerPackage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><span class="annottext">RegisterType' :: Maybe Text
 -&gt; Maybe RegistryType
+-&gt; Maybe Text
+-&gt; Maybe LoggingConfig
 -&gt; Text
 -&gt; Text
 -&gt; RegisterType
 </span><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span>
-</span><span id="line-241"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loggingConfig:RegisterType' :: Maybe LoggingConfig
-</span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AloggingConfig%3ARegisterType%27"><span class="hs-identifier hs-var">loggingConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfig
+</span><span id="line-241"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:executionRoleArn:RegisterType' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AexecutionRoleArn%3ARegisterType%27"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">$sel:executionRoleArn:RegisterType' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AexecutionRoleArn%3ARegisterType%27"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':RegisterType' :: Maybe RegistryType
+</span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3Atype%27%3ARegisterType%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegistryType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientRequestToken:RegisterType' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AclientRequestToken%3ARegisterType%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':RegisterType' :: Maybe RegistryType
-</span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3Atype%27%3ARegisterType%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegistryType
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:loggingConfig:RegisterType' :: Maybe LoggingConfig
+</span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AloggingConfig%3ARegisterType%27"><span class="hs-identifier hs-var">loggingConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:typeName:RegisterType' :: Text
 </span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AtypeName%3ARegisterType%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431087"><span class="hs-identifier hs-var">pTypeName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679431502"><span class="hs-identifier hs-var">pTypeName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaHandlerPackage:RegisterType' :: Text
 </span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AschemaHandlerPackage%3ARegisterType%27"><span class="hs-identifier hs-var">schemaHandlerPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431086"><span class="hs-identifier hs-var">pSchemaHandlerPackage_</span></a></span><span>
+</span><a href="#local-6989586621679431501"><span class="hs-identifier hs-var">pSchemaHandlerPackage_</span></a></span><span>
 </span><span id="line-247"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- | Specifies logging configuration information for an extension.</span><span>
-</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_loggingConfig"><span class="hs-identifier hs-type">registerType_loggingConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-251"></span><span id="registerType_loggingConfig"><span class="annot"><span class="annottext">registerType_loggingConfig :: (Maybe LoggingConfig -&gt; f (Maybe LoggingConfig))
--&gt; RegisterType -&gt; f RegisterType
-</span><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_loggingConfig"><span class="hs-identifier hs-var hs-var">registerType_loggingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterType -&gt; Maybe LoggingConfig)
--&gt; (RegisterType -&gt; Maybe LoggingConfig -&gt; RegisterType)
--&gt; Lens
-     RegisterType
-     RegisterType
-     (Maybe LoggingConfig)
-     (Maybe LoggingConfig)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431083"><span class="annot"><span class="annottext">Maybe LoggingConfig
-loggingConfig :: Maybe LoggingConfig
-$sel:loggingConfig:RegisterType' :: RegisterType -&gt; Maybe LoggingConfig
-</span><a href="#local-6989586621679431083"><span class="hs-identifier hs-var hs-var">loggingConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfig
-</span><a href="#local-6989586621679431083"><span class="hs-identifier hs-var">loggingConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431082"><span class="annot"><span class="annottext">s :: RegisterType
-</span><a href="#local-6989586621679431082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431081"><span class="annot"><span class="annottext">Maybe LoggingConfig
-</span><a href="#local-6989586621679431081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterType
-</span><a href="#local-6989586621679431082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingConfig:RegisterType' :: Maybe LoggingConfig
-</span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AloggingConfig%3ARegisterType%27"><span class="hs-identifier hs-var">loggingConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfig
-</span><a href="#local-6989586621679431081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role for CloudFormation to</span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- assume when invoking the extension.</span><span>
-</span><span id="line-255"></span><span class="hs-comment">--</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- For CloudFormation to assume the specified execution role, the role must</span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- contain a trust relationship with the CloudFormation service principle</span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- (@resources.cloudformation.amazonaws.com@). For more information on</span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- adding trust relationships, see</span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- &lt;IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy Modifying a role trust policy&gt;</span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- in the /Identity and Access Management User Guide/.</span><span>
-</span><span id="line-262"></span><span class="hs-comment">--</span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- If your extension calls Amazon Web Services APIs in any of its handlers,</span><span>
-</span><span id="line-264"></span><span class="hs-comment">-- you must create an</span><span>
-</span><span id="line-265"></span><span class="hs-comment">-- /&lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html IAM execution role&gt;/</span><span>
-</span><span id="line-266"></span><span class="hs-comment">-- that includes the necessary permissions to call those Amazon Web</span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- Services APIs, and provision that execution role in your account. When</span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- CloudFormation needs to invoke the resource type handler, CloudFormation</span><span>
-</span><span id="line-269"></span><span class="hs-comment">-- assumes this execution role to create a temporary session token, which</span><span>
-</span><span id="line-270"></span><span class="hs-comment">-- it then passes to the resource type handler, thereby supplying your</span><span>
-</span><span id="line-271"></span><span class="hs-comment">-- resource type with the appropriate credentials.</span><span>
-</span><span id="line-272"></span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_executionRoleArn"><span class="hs-identifier hs-type">registerType_executionRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-273"></span><span id="registerType_executionRoleArn"><span class="annot"><span class="annottext">registerType_executionRoleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RegisterType -&gt; f RegisterType
+</span><span id="line-249"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the IAM role for CloudFormation to</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- assume when invoking the extension.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- For CloudFormation to assume the specified execution role, the role must</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- contain a trust relationship with the CloudFormation service principle</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- (@resources.cloudformation.amazonaws.com@). For more information on</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- adding trust relationships, see</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- &lt;IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy Modifying a role trust policy&gt;</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- in the /Identity and Access Management User Guide/.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- If your extension calls Amazon Web Services APIs in any of its handlers,</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- you must create an</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- /&lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html IAM execution role&gt;/</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- that includes the necessary permissions to call those Amazon Web</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- Services APIs, and provision that execution role in your account. When</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- CloudFormation needs to invoke the resource type handler, CloudFormation</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- assumes this execution role to create a temporary session token, which</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- it then passes to the resource type handler, thereby supplying your</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- resource type with the appropriate credentials.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_executionRoleArn"><span class="hs-identifier hs-type">registerType_executionRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span id="registerType_executionRoleArn"><span class="annot"><span class="annottext">registerType_executionRoleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; RegisterType -&gt; f RegisterType
 </span><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_executionRoleArn"><span class="hs-identifier hs-var hs-var">registerType_executionRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterType -&gt; Maybe Text)
 -&gt; (RegisterType -&gt; Maybe Text -&gt; RegisterType)
 -&gt; Lens RegisterType RegisterType (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431080"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431498"><span class="annot"><span class="annottext">Maybe Text
 executionRoleArn :: Maybe Text
 $sel:executionRoleArn:RegisterType' :: RegisterType -&gt; Maybe Text
-</span><a href="#local-6989586621679431080"><span class="hs-identifier hs-var hs-var">executionRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679431080"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431079"><span class="annot"><span class="annottext">s :: RegisterType
-</span><a href="#local-6989586621679431079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431078"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679431078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterType
-</span><a href="#local-6989586621679431079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionRoleArn:RegisterType' :: Maybe Text
+</span><a href="#local-6989586621679431498"><span class="hs-identifier hs-var hs-var">executionRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431498"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431497"><span class="annot"><span class="annottext">s :: RegisterType
+</span><a href="#local-6989586621679431497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431496"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterType
+</span><a href="#local-6989586621679431497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionRoleArn:RegisterType' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AexecutionRoleArn%3ARegisterType%27"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679431078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679431496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- | The kind of extension.</span><span>
+</span><span id="line-272"></span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_type"><span class="hs-identifier hs-type">registerType_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RegistryType.html#RegistryType"><span class="hs-identifier hs-type">RegistryType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span id="registerType_type"><span class="annot"><span class="annottext">registerType_type :: (Maybe RegistryType -&gt; f (Maybe RegistryType))
+-&gt; RegisterType -&gt; f RegisterType
+</span><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_type"><span class="hs-identifier hs-var hs-var">registerType_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterType -&gt; Maybe RegistryType)
+-&gt; (RegisterType -&gt; Maybe RegistryType -&gt; RegisterType)
+-&gt; Lens
+     RegisterType RegisterType (Maybe RegistryType) (Maybe RegistryType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431495"><span class="annot"><span class="annottext">Maybe RegistryType
+type' :: Maybe RegistryType
+$sel:type':RegisterType' :: RegisterType -&gt; Maybe RegistryType
+</span><a href="#local-6989586621679431495"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RegistryType
+</span><a href="#local-6989586621679431495"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431494"><span class="annot"><span class="annottext">s :: RegisterType
+</span><a href="#local-6989586621679431494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431493"><span class="annot"><span class="annottext">Maybe RegistryType
+</span><a href="#local-6989586621679431493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterType
+</span><a href="#local-6989586621679431494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':RegisterType' :: Maybe RegistryType
+</span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3Atype%27%3ARegisterType%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegistryType
+</span><a href="#local-6989586621679431493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-274"></span><span>
 </span><span id="line-275"></span><span class="hs-comment">-- | A unique identifier that acts as an idempotency key for this</span><span>
 </span><span id="line-276"></span><span class="hs-comment">-- registration request. Specifying a client request token prevents</span><span>
@@ -400,36 +397,39 @@ $sel:executionRoleArn:RegisterType' :: RegisterType -&gt; Maybe Text
 -&gt; (RegisterType -&gt; Maybe Text -&gt; RegisterType)
 -&gt; Lens RegisterType RegisterType (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431077"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431492"><span class="annot"><span class="annottext">Maybe Text
 clientRequestToken :: Maybe Text
 $sel:clientRequestToken:RegisterType' :: RegisterType -&gt; Maybe Text
-</span><a href="#local-6989586621679431077"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679431077"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431076"><span class="annot"><span class="annottext">s :: RegisterType
-</span><a href="#local-6989586621679431076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431075"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679431075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterType
-</span><a href="#local-6989586621679431076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:RegisterType' :: Maybe Text
+</span><a href="#local-6989586621679431492"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431492"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431491"><span class="annot"><span class="annottext">s :: RegisterType
+</span><a href="#local-6989586621679431491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431490"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterType
+</span><a href="#local-6989586621679431491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:RegisterType' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AclientRequestToken%3ARegisterType%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679431075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679431490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-282"></span><span>
-</span><span id="line-283"></span><span class="hs-comment">-- | The kind of extension.</span><span>
-</span><span id="line-284"></span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_type"><span class="hs-identifier hs-type">registerType_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.RegistryType.html#RegistryType"><span class="hs-identifier hs-type">RegistryType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-285"></span><span id="registerType_type"><span class="annot"><span class="annottext">registerType_type :: (Maybe RegistryType -&gt; f (Maybe RegistryType))
+</span><span id="line-283"></span><span class="hs-comment">-- | Specifies logging configuration information for an extension.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_loggingConfig"><span class="hs-identifier hs-type">registerType_loggingConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.LoggingConfig.html#LoggingConfig"><span class="hs-identifier hs-type">LoggingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span id="registerType_loggingConfig"><span class="annot"><span class="annottext">registerType_loggingConfig :: (Maybe LoggingConfig -&gt; f (Maybe LoggingConfig))
 -&gt; RegisterType -&gt; f RegisterType
-</span><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_type"><span class="hs-identifier hs-var hs-var">registerType_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterType -&gt; Maybe RegistryType)
--&gt; (RegisterType -&gt; Maybe RegistryType -&gt; RegisterType)
+</span><a href="Network.AWS.CloudFormation.RegisterType.html#registerType_loggingConfig"><span class="hs-identifier hs-var hs-var">registerType_loggingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterType -&gt; Maybe LoggingConfig)
+-&gt; (RegisterType -&gt; Maybe LoggingConfig -&gt; RegisterType)
 -&gt; Lens
-     RegisterType RegisterType (Maybe RegistryType) (Maybe RegistryType)
+     RegisterType
+     RegisterType
+     (Maybe LoggingConfig)
+     (Maybe LoggingConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431074"><span class="annot"><span class="annottext">Maybe RegistryType
-type' :: Maybe RegistryType
-$sel:type':RegisterType' :: RegisterType -&gt; Maybe RegistryType
-</span><a href="#local-6989586621679431074"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RegistryType
-</span><a href="#local-6989586621679431074"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431073"><span class="annot"><span class="annottext">s :: RegisterType
-</span><a href="#local-6989586621679431073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431072"><span class="annot"><span class="annottext">Maybe RegistryType
-</span><a href="#local-6989586621679431072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterType
-</span><a href="#local-6989586621679431073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':RegisterType' :: Maybe RegistryType
-</span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3Atype%27%3ARegisterType%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegistryType
-</span><a href="#local-6989586621679431072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431489"><span class="annot"><span class="annottext">Maybe LoggingConfig
+loggingConfig :: Maybe LoggingConfig
+$sel:loggingConfig:RegisterType' :: RegisterType -&gt; Maybe LoggingConfig
+</span><a href="#local-6989586621679431489"><span class="hs-identifier hs-var hs-var">loggingConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfig
+</span><a href="#local-6989586621679431489"><span class="hs-identifier hs-var">loggingConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431488"><span class="annot"><span class="annottext">s :: RegisterType
+</span><a href="#local-6989586621679431488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431487"><span class="annot"><span class="annottext">Maybe LoggingConfig
+</span><a href="#local-6989586621679431487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterType
+</span><a href="#local-6989586621679431488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingConfig:RegisterType' :: Maybe LoggingConfig
+</span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AloggingConfig%3ARegisterType%27"><span class="hs-identifier hs-var">loggingConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfig
+</span><a href="#local-6989586621679431487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-286"></span><span>
 </span><span id="line-287"></span><span class="hs-comment">-- | The name of the extension being registered.</span><span>
 </span><span id="line-288"></span><span class="hs-comment">--</span><span>
@@ -459,16 +459,16 @@ $sel:type':RegisterType' :: RegisterType -&gt; Maybe RegistryType
 -&gt; (RegisterType -&gt; Text -&gt; RegisterType)
 -&gt; Lens RegisterType RegisterType Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431071"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431486"><span class="annot"><span class="annottext">Text
 typeName :: Text
 $sel:typeName:RegisterType' :: RegisterType -&gt; Text
-</span><a href="#local-6989586621679431071"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431071"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431070"><span class="annot"><span class="annottext">s :: RegisterType
-</span><a href="#local-6989586621679431070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431069"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterType
-</span><a href="#local-6989586621679431070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:RegisterType' :: Text
+</span><a href="#local-6989586621679431486"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431486"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431485"><span class="annot"><span class="annottext">s :: RegisterType
+</span><a href="#local-6989586621679431485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431484"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterType
+</span><a href="#local-6989586621679431485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:RegisterType' :: Text
 </span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AtypeName%3ARegisterType%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679431484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-311"></span><span>
 </span><span id="line-312"></span><span class="hs-comment">-- | A url to the S3 bucket containing the extension project package that</span><span>
 </span><span id="line-313"></span><span class="hs-comment">-- contains the neccessary files for the extension you want to register.</span><span>
@@ -490,25 +490,25 @@ $sel:typeName:RegisterType' :: RegisterType -&gt; Text
 -&gt; (RegisterType -&gt; Text -&gt; RegisterType)
 -&gt; Lens RegisterType RegisterType Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431068"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431483"><span class="annot"><span class="annottext">Text
 schemaHandlerPackage :: Text
 $sel:schemaHandlerPackage:RegisterType' :: RegisterType -&gt; Text
-</span><a href="#local-6989586621679431068"><span class="hs-identifier hs-var hs-var">schemaHandlerPackage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431068"><span class="hs-identifier hs-var">schemaHandlerPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431067"><span class="annot"><span class="annottext">s :: RegisterType
-</span><a href="#local-6989586621679431067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431066"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterType
-</span><a href="#local-6989586621679431067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaHandlerPackage:RegisterType' :: Text
+</span><a href="#local-6989586621679431483"><span class="hs-identifier hs-var hs-var">schemaHandlerPackage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431483"><span class="hs-identifier hs-var">schemaHandlerPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431482"><span class="annot"><span class="annottext">s :: RegisterType
+</span><a href="#local-6989586621679431482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431481"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterType
+</span><a href="#local-6989586621679431482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaHandlerPackage:RegisterType' :: Text
 </span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AschemaHandlerPackage%3ARegisterType%27"><span class="hs-identifier hs-var">schemaHandlerPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679431481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-328"></span><span>
 </span><span id="line-329"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-330"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse"><span class="hs-identifier hs-type">RegisterTypeResponse</span></a></span><span>
-</span><span id="line-331"></span><span>  </span><span id="local-6989586621679431062"><span class="annot"><span class="annottext">request :: RegisterType -&gt; Request RegisterType
+</span><span id="line-331"></span><span>  </span><span id="local-6989586621679431477"><span class="annot"><span class="annottext">request :: RegisterType -&gt; Request RegisterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RegisterType -&gt; Request RegisterType
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFormation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-332"></span><span>  </span><span id="local-6989586621679431058"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-332"></span><span>  </span><span id="local-6989586621679431473"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RegisterType
 -&gt; ClientResponse ClientBody
@@ -537,10 +537,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-334"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegisterTypeResult&quot;</span></span><span>
-</span><span id="line-335"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679431055"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679431055"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679431054"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679431054"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679431053"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679431053"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-335"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679431470"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679431470"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679431469"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679431469"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679431468"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679431468"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-336"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; RegisterTypeResponse
 </span><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse%27"><span class="hs-identifier hs-var">RegisterTypeResponse'</span></a></span><span>
 </span><span id="line-337"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; RegisterTypeResponse)
@@ -548,7 +548,7 @@ Text
 -&gt; Either String (Int -&gt; RegisterTypeResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679431053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679431468"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegistrationToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -560,15 +560,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679431055"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679431470"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-339"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-340"></span><span>
-</span><span id="line-341"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431045"><span id="local-6989586621679431047"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span></span></span><span>
+</span><span id="line-341"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431460"><span id="local-6989586621679431462"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span></span></span><span>
 </span><span id="line-342"></span><span>
-</span><span id="line-343"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431042"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span></span><span>
+</span><span id="line-343"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431457"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span></span><span>
 </span><span id="line-344"></span><span>
 </span><span id="line-345"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-346"></span><span>  </span><span id="local-6989586621679431038"><span class="annot"><span class="annottext">toHeaders :: RegisterType -&gt; ResponseHeaders
+</span><span id="line-346"></span><span>  </span><span id="local-6989586621679431453"><span class="annot"><span class="annottext">toHeaders :: RegisterType -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RegisterType -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -576,31 +576,31 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-347"></span><span>
 </span><span id="line-348"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-349"></span><span>  </span><span id="local-6989586621679431033"><span class="annot"><span class="annottext">toPath :: RegisterType -&gt; ByteString
+</span><span id="line-349"></span><span>  </span><span id="local-6989586621679431448"><span class="annot"><span class="annottext">toPath :: RegisterType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RegisterType -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-350"></span><span>
 </span><span id="line-351"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType"><span class="hs-identifier hs-type">RegisterType</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-352"></span><span>  </span><span id="local-6989586621679431029"><span class="annot"><span class="annottext">toQuery :: RegisterType -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431022"><span id="local-6989586621679431023"><span id="local-6989586621679431024"><span id="local-6989586621679431025"><span id="local-6989586621679431026"><span id="local-6989586621679431027"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-352"></span><span>  </span><span id="local-6989586621679431444"><span class="annot"><span class="annottext">toQuery :: RegisterType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterType%27"><span class="hs-identifier hs-type">RegisterType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431437"><span id="local-6989586621679431438"><span id="local-6989586621679431439"><span id="local-6989586621679431440"><span id="local-6989586621679431441"><span id="local-6989586621679431442"><span class="annot"><span class="annottext">Maybe Text
 Maybe LoggingConfig
 Maybe RegistryType
 Text
 schemaHandlerPackage :: Text
 typeName :: Text
-type' :: Maybe RegistryType
-clientRequestToken :: Maybe Text
-executionRoleArn :: Maybe Text
 loggingConfig :: Maybe LoggingConfig
+clientRequestToken :: Maybe Text
+type' :: Maybe RegistryType
+executionRoleArn :: Maybe Text
 $sel:schemaHandlerPackage:RegisterType' :: RegisterType -&gt; Text
 $sel:typeName:RegisterType' :: RegisterType -&gt; Text
-$sel:type':RegisterType' :: RegisterType -&gt; Maybe RegistryType
-$sel:clientRequestToken:RegisterType' :: RegisterType -&gt; Maybe Text
-$sel:executionRoleArn:RegisterType' :: RegisterType -&gt; Maybe Text
 $sel:loggingConfig:RegisterType' :: RegisterType -&gt; Maybe LoggingConfig
-</span><a href="#local-6989586621679431022"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:clientRequestToken:RegisterType' :: RegisterType -&gt; Maybe Text
+$sel:type':RegisterType' :: RegisterType -&gt; Maybe RegistryType
+$sel:executionRoleArn:RegisterType' :: RegisterType -&gt; Maybe Text
+</span><a href="#local-6989586621679431437"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-353"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -617,39 +617,39 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2010-05-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-358"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;LoggingConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe LoggingConfig -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfig
-</span><a href="#local-6989586621679431027"><span class="hs-identifier hs-var">loggingConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-359"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ExecutionRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679431026"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679431442"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-359"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe RegistryType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe RegistryType
+</span><a href="#local-6989586621679431441"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-360"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679431025"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679431440"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-361"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe RegistryType -&gt; QueryString
+</span><span class="hs-string">&quot;LoggingConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe LoggingConfig -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe RegistryType
-</span><a href="#local-6989586621679431024"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe LoggingConfig
+</span><a href="#local-6989586621679431439"><span class="hs-identifier hs-var">loggingConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-362"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431023"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679431438"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-363"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SchemaHandlerPackage&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431022"><span class="hs-identifier hs-var">schemaHandlerPackage</span></a></span><span>
+</span><a href="#local-6989586621679431437"><span class="hs-identifier hs-var">schemaHandlerPackage</span></a></span><span>
 </span><span id="line-364"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-365"></span><span>
 </span><span id="line-366"></span><span class="hs-comment">-- | /See:/ 'newRegisterTypeResponse' smart constructor.</span><span>
-</span><span id="line-367"></span><span id="local-6989586621679431019"><span id="local-6989586621679431020"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterTypeResponse"><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse"><span class="hs-identifier hs-var">RegisterTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterTypeResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse%27"><span class="hs-identifier hs-var">RegisterTypeResponse'</span></a></span></span><span>
+</span><span id="line-367"></span><span id="local-6989586621679431434"><span id="local-6989586621679431435"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterTypeResponse"><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse"><span class="hs-identifier hs-var">RegisterTypeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterTypeResponse%27"><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse%27"><span class="hs-identifier hs-var">RegisterTypeResponse'</span></a></span></span><span>
 </span><span id="line-368"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for this registration request.</span><span>
 </span><span id="line-369"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-370"></span><span>    </span><span class="hs-comment">-- Use this registration token when calling @ DescribeTypeRegistration @,</span><span>
@@ -661,7 +661,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-375"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARegisterTypeResponse%27"><span class="annot"><span class="annottext">RegisterTypeResponse -&gt; Int
 </span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AhttpStatus%3ARegisterTypeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-376"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-377"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431013"><span id="local-6989586621679431015"><span class="annot"><span class="annottext">RegisterTypeResponse -&gt; RegisterTypeResponse -&gt; Bool
+</span><span id="line-377"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431428"><span id="local-6989586621679431430"><span class="annot"><span class="annottext">RegisterTypeResponse -&gt; RegisterTypeResponse -&gt; Bool
 (RegisterTypeResponse -&gt; RegisterTypeResponse -&gt; Bool)
 -&gt; (RegisterTypeResponse -&gt; RegisterTypeResponse -&gt; Bool)
 -&gt; Eq RegisterTypeResponse
@@ -670,7 +670,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegisterTypeResponse -&gt; RegisterTypeResponse -&gt; Bool
 == :: RegisterTypeResponse -&gt; RegisterTypeResponse -&gt; Bool
 $c== :: RegisterTypeResponse -&gt; RegisterTypeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431005"><span id="local-6989586621679431007"><span id="local-6989586621679431009"><span id="local-6989586621679431011"><span class="annot"><span class="annottext">ReadPrec [RegisterTypeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431420"><span id="local-6989586621679431422"><span id="local-6989586621679431424"><span id="local-6989586621679431426"><span class="annot"><span class="annottext">ReadPrec [RegisterTypeResponse]
 ReadPrec RegisterTypeResponse
 Int -&gt; ReadS RegisterTypeResponse
 ReadS [RegisterTypeResponse]
@@ -690,7 +690,7 @@ readList :: ReadS [RegisterTypeResponse]
 $creadList :: ReadS [RegisterTypeResponse]
 readsPrec :: Int -&gt; ReadS RegisterTypeResponse
 $creadsPrec :: Int -&gt; ReadS RegisterTypeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430999"><span id="local-6989586621679431001"><span id="local-6989586621679431003"><span class="annot"><span class="annottext">Int -&gt; RegisterTypeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431414"><span id="local-6989586621679431416"><span id="local-6989586621679431418"><span class="annot"><span class="annottext">Int -&gt; RegisterTypeResponse -&gt; ShowS
 [RegisterTypeResponse] -&gt; ShowS
 RegisterTypeResponse -&gt; String
 (Int -&gt; RegisterTypeResponse -&gt; ShowS)
@@ -736,8 +736,8 @@ $cfrom :: forall x. RegisterTypeResponse -&gt; Rep RegisterTypeResponse x
 </span><span id="line-396"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-397"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse"><span class="hs-identifier hs-type">RegisterTypeResponse</span></a></span><span>
 </span><span id="line-398"></span><span id="newRegisterTypeResponse"><span class="annot"><span class="annottext">newRegisterTypeResponse :: Int -&gt; RegisterTypeResponse
-</span><a href="Network.AWS.CloudFormation.RegisterType.html#newRegisterTypeResponse"><span class="hs-identifier hs-var hs-var">newRegisterTypeResponse</span></a></span></span><span> </span><span id="local-6989586621679430996"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679430996"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFormation.RegisterType.html#newRegisterTypeResponse"><span class="hs-identifier hs-var hs-var">newRegisterTypeResponse</span></a></span></span><span> </span><span id="local-6989586621679431411"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679431411"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-399"></span><span>  </span><span class="annot"><span class="annottext">RegisterTypeResponse' :: Maybe Text -&gt; Int -&gt; RegisterTypeResponse
 </span><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse%27"><span class="hs-identifier hs-type">RegisterTypeResponse'</span></a></span><span>
 </span><span id="line-400"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:registrationToken:RegisterTypeResponse' :: Maybe Text
@@ -747,7 +747,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-402"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterTypeResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AhttpStatus%3ARegisterTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679430996"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679431411"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-403"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-404"></span><span>
 </span><span id="line-405"></span><span class="hs-comment">-- | The identifier for this registration request.</span><span>
@@ -763,16 +763,16 @@ forall a. Maybe a
 -&gt; Lens
      RegisterTypeResponse RegisterTypeResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse%27"><span class="hs-identifier hs-type">RegisterTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430995"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse%27"><span class="hs-identifier hs-type">RegisterTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431410"><span class="annot"><span class="annottext">Maybe Text
 registrationToken :: Maybe Text
 $sel:registrationToken:RegisterTypeResponse' :: RegisterTypeResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679430995"><span class="hs-identifier hs-var hs-var">registrationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430995"><span class="hs-identifier hs-var">registrationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430994"><span class="annot"><span class="annottext">s :: RegisterTypeResponse
-</span><a href="#local-6989586621679430994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse%27"><span class="hs-identifier hs-type">RegisterTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430993"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTypeResponse
-</span><a href="#local-6989586621679430994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registrationToken:RegisterTypeResponse' :: Maybe Text
+</span><a href="#local-6989586621679431410"><span class="hs-identifier hs-var hs-var">registrationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431410"><span class="hs-identifier hs-var">registrationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431409"><span class="annot"><span class="annottext">s :: RegisterTypeResponse
+</span><a href="#local-6989586621679431409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse%27"><span class="hs-identifier hs-type">RegisterTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431408"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679431408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTypeResponse
+</span><a href="#local-6989586621679431409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registrationToken:RegisterTypeResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AregistrationToken%3ARegisterTypeResponse%27"><span class="hs-identifier hs-var">registrationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679430993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse"><span class="hs-identifier hs-type">RegisterTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679431408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse"><span class="hs-identifier hs-type">RegisterTypeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-412"></span><span>
 </span><span id="line-413"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-414"></span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#registerTypeResponse_httpStatus"><span class="hs-identifier hs-type">registerTypeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse"><span class="hs-identifier hs-type">RegisterTypeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -781,16 +781,16 @@ $sel:registrationToken:RegisterTypeResponse' :: RegisterTypeResponse -&gt; Maybe
 -&gt; (RegisterTypeResponse -&gt; Int -&gt; RegisterTypeResponse)
 -&gt; Lens RegisterTypeResponse RegisterTypeResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse%27"><span class="hs-identifier hs-type">RegisterTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430992"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse%27"><span class="hs-identifier hs-type">RegisterTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431407"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RegisterTypeResponse' :: RegisterTypeResponse -&gt; Int
-</span><a href="#local-6989586621679430992"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679430992"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430991"><span class="annot"><span class="annottext">s :: RegisterTypeResponse
-</span><a href="#local-6989586621679430991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse%27"><span class="hs-identifier hs-type">RegisterTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430990"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679430990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTypeResponse
-</span><a href="#local-6989586621679430991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterTypeResponse' :: Int
+</span><a href="#local-6989586621679431407"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679431407"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431406"><span class="annot"><span class="annottext">s :: RegisterTypeResponse
+</span><a href="#local-6989586621679431406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse%27"><span class="hs-identifier hs-type">RegisterTypeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431405"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679431405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterTypeResponse
+</span><a href="#local-6989586621679431406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterTypeResponse' :: Int
 </span><a href="Network.AWS.CloudFormation.RegisterType.html#%24sel%3AhttpStatus%3ARegisterTypeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679430990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse"><span class="hs-identifier hs-type">RegisterTypeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679431405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse"><span class="hs-identifier hs-type">RegisterTypeResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-416"></span><span>
-</span><span id="line-417"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430988"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse"><span class="hs-identifier hs-type">RegisterTypeResponse</span></a></span></span><span>
+</span><span id="line-417"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431403"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.RegisterType.html#RegisterTypeResponse"><span class="hs-identifier hs-type">RegisterTypeResponse</span></a></span></span><span>
 </span><span id="line-418"></span></pre></body></html>

@@ -34,20 +34,20 @@
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#newGetOpsSummary"><span class="hs-identifier">newGetOpsSummary</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_nextToken"><span class="hs-identifier">getOpsSummary_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_maxResults"><span class="hs-identifier">getOpsSummary_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_syncName"><span class="hs-identifier">getOpsSummary_syncName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_aggregators"><span class="hs-identifier">getOpsSummary_aggregators</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_syncName"><span class="hs-identifier">getOpsSummary_syncName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_filters"><span class="hs-identifier">getOpsSummary_filters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_resultAttributes"><span class="hs-identifier">getOpsSummary_resultAttributes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_filters"><span class="hs-identifier">getOpsSummary_filters</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_aggregators"><span class="hs-identifier">getOpsSummary_aggregators</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_nextToken"><span class="hs-identifier">getOpsSummary_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_maxResults"><span class="hs-identifier">getOpsSummary_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse"><span class="hs-identifier">GetOpsSummaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#newGetOpsSummaryResponse"><span class="hs-identifier">newGetOpsSummaryResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummaryResponse_nextToken"><span class="hs-identifier">getOpsSummaryResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummaryResponse_entities"><span class="hs-identifier">getOpsSummaryResponse_entities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummaryResponse_entities"><span class="hs-identifier">getOpsSummaryResponse_entities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummaryResponse_nextToken"><span class="hs-identifier">getOpsSummaryResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummaryResponse_httpStatus"><span class="hs-identifier">getOpsSummaryResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span class="hs-keyword">where</span><span>
@@ -60,31 +60,31 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newGetOpsSummary' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679833975"><span id="local-6989586621679833976"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOpsSummary"><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-var">GetOpsSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOpsSummary%27"><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-var">GetOpsSummary'</span></a></span></span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AnextToken%3AGetOpsSummary%27"><span class="annot"><span class="annottext">GetOpsSummary -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AnextToken%3AGetOpsSummary%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetOpsSummary%27"><span class="annot"><span class="annottext">GetOpsSummary -&gt; Maybe Natural
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AmaxResults%3AGetOpsSummary%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | Specify the name of a resource data sync to get.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3AsyncName%3AGetOpsSummary%27"><span class="annot"><span class="annottext">GetOpsSummary -&gt; Maybe Text
+</span><span id="line-63"></span><span id="local-6989586621679835754"><span id="local-6989586621679835755"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOpsSummary"><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-var">GetOpsSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOpsSummary%27"><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-var">GetOpsSummary'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional aggregators that return counts of OpsData based on one or more</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- expressions.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Aaggregators%3AGetOpsSummary%27"><span class="annot"><span class="annottext">GetOpsSummary -&gt; Maybe (NonEmpty OpsAggregator)
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3Aaggregators%3AGetOpsSummary%27"><span class="hs-identifier hs-var hs-var">aggregators</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Specify the name of a resource data sync to get.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AsyncName%3AGetOpsSummary%27"><span class="annot"><span class="annottext">GetOpsSummary -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AsyncName%3AGetOpsSummary%27"><span class="hs-identifier hs-var hs-var">syncName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The OpsData data type to return.</span><span>
-</span><span id="line-74"></span><span>    </span><span id="%24sel%3AresultAttributes%3AGetOpsSummary%27"><span class="annot"><span class="annottext">GetOpsSummary -&gt; Maybe (NonEmpty OpsResultAttribute)
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AresultAttributes%3AGetOpsSummary%27"><span class="hs-identifier hs-var hs-var">resultAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute"><span class="hs-identifier hs-type">OpsResultAttribute</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Optional filters used to scope down the returned OpsData.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3Afilters%3AGetOpsSummary%27"><span class="annot"><span class="annottext">GetOpsSummary -&gt; Maybe (NonEmpty OpsFilter)
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Optional filters used to scope down the returned OpsData.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Afilters%3AGetOpsSummary%27"><span class="annot"><span class="annottext">GetOpsSummary -&gt; Maybe (NonEmpty OpsFilter)
 </span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3Afilters%3AGetOpsSummary%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Optional aggregators that return counts of OpsData based on one or more</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- expressions.</span><span>
-</span><span id="line-79"></span><span>    </span><span id="%24sel%3Aaggregators%3AGetOpsSummary%27"><span class="annot"><span class="annottext">GetOpsSummary -&gt; Maybe (NonEmpty OpsAggregator)
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3Aaggregators%3AGetOpsSummary%27"><span class="hs-identifier hs-var hs-var">aggregators</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The OpsData data type to return.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AresultAttributes%3AGetOpsSummary%27"><span class="annot"><span class="annottext">GetOpsSummary -&gt; Maybe (NonEmpty OpsResultAttribute)
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AresultAttributes%3AGetOpsSummary%27"><span class="hs-identifier hs-var hs-var">resultAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute"><span class="hs-identifier hs-type">OpsResultAttribute</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AnextToken%3AGetOpsSummary%27"><span class="annot"><span class="annottext">GetOpsSummary -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AnextToken%3AGetOpsSummary%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetOpsSummary%27"><span class="annot"><span class="annottext">GetOpsSummary -&gt; Maybe Natural
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AmaxResults%3AGetOpsSummary%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679833964"><span id="local-6989586621679833966"><span class="annot"><span class="annottext">GetOpsSummary -&gt; GetOpsSummary -&gt; Bool
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679835743"><span id="local-6989586621679835745"><span class="annot"><span class="annottext">GetOpsSummary -&gt; GetOpsSummary -&gt; Bool
 (GetOpsSummary -&gt; GetOpsSummary -&gt; Bool)
 -&gt; (GetOpsSummary -&gt; GetOpsSummary -&gt; Bool) -&gt; Eq GetOpsSummary
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetOpsSummary -&gt; GetOpsSummary -&gt; Bool
 == :: GetOpsSummary -&gt; GetOpsSummary -&gt; Bool
 $c== :: GetOpsSummary -&gt; GetOpsSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833955"><span id="local-6989586621679833957"><span id="local-6989586621679833959"><span id="local-6989586621679833961"><span class="annot"><span class="annottext">ReadPrec [GetOpsSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679835734"><span id="local-6989586621679835736"><span id="local-6989586621679835738"><span id="local-6989586621679835740"><span class="annot"><span class="annottext">ReadPrec [GetOpsSummary]
 ReadPrec GetOpsSummary
 Int -&gt; ReadS GetOpsSummary
 ReadS [GetOpsSummary]
@@ -112,7 +112,7 @@ readList :: ReadS [GetOpsSummary]
 $creadList :: ReadS [GetOpsSummary]
 readsPrec :: Int -&gt; ReadS GetOpsSummary
 $creadsPrec :: Int -&gt; ReadS GetOpsSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833948"><span id="local-6989586621679833950"><span id="local-6989586621679833952"><span class="annot"><span class="annottext">Int -&gt; GetOpsSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679835727"><span id="local-6989586621679835729"><span id="local-6989586621679835731"><span class="annot"><span class="annottext">Int -&gt; GetOpsSummary -&gt; ShowS
 [GetOpsSummary] -&gt; ShowS
 GetOpsSummary -&gt; String
 (Int -&gt; GetOpsSummary -&gt; ShowS)
@@ -146,227 +146,63 @@ $cfrom :: forall x. GetOpsSummary -&gt; Rep GetOpsSummary x
 </span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'nextToken', 'getOpsSummary_nextToken' - A token to start the list. Use this token to get the next set of</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'aggregators', 'getOpsSummary_aggregators' - Optional aggregators that return counts of OpsData based on one or more</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- expressions.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'maxResults', 'getOpsSummary_maxResults' - The maximum number of items to return for this call. The call also</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'syncName', 'getOpsSummary_syncName' - Specify the name of a resource data sync to get.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'filters', 'getOpsSummary_filters' - Optional filters used to scope down the returned OpsData.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'syncName', 'getOpsSummary_syncName' - Specify the name of a resource data sync to get.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'resultAttributes', 'getOpsSummary_resultAttributes' - The OpsData data type to return.</span><span>
 </span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- 'resultAttributes', 'getOpsSummary_resultAttributes' - The OpsData data type to return.</span><span>
-</span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- 'filters', 'getOpsSummary_filters' - Optional filters used to scope down the returned OpsData.</span><span>
-</span><span id="line-103"></span><span class="hs-comment">--</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- 'aggregators', 'getOpsSummary_aggregators' - Optional aggregators that return counts of OpsData based on one or more</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- expressions.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'nextToken', 'getOpsSummary_nextToken' - A token to start the list. Use this token to get the next set of</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'maxResults', 'getOpsSummary_maxResults' - The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- next set of results.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#newGetOpsSummary"><span class="hs-identifier hs-type">newGetOpsSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span>
 </span><span id="line-108"></span><span id="newGetOpsSummary"><span class="annot"><span class="annottext">newGetOpsSummary :: GetOpsSummary
 </span><a href="Network.AWS.SSM.GetOpsSummary.html#newGetOpsSummary"><span class="hs-identifier hs-var hs-var">newGetOpsSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">GetOpsSummary' :: Maybe Text
--&gt; Maybe Natural
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">GetOpsSummary' :: Maybe (NonEmpty OpsAggregator)
 -&gt; Maybe Text
--&gt; Maybe (NonEmpty OpsResultAttribute)
 -&gt; Maybe (NonEmpty OpsFilter)
--&gt; Maybe (NonEmpty OpsAggregator)
+-&gt; Maybe (NonEmpty OpsResultAttribute)
+-&gt; Maybe Text
+-&gt; Maybe Natural
 -&gt; GetOpsSummary
 </span><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetOpsSummary' :: Maybe Text
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AnextToken%3AGetOpsSummary%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:aggregators:GetOpsSummary' :: Maybe (NonEmpty OpsAggregator)
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3Aaggregators%3AGetOpsSummary%27"><span class="hs-identifier hs-var">aggregators</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsAggregator)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetOpsSummary' :: Maybe Natural
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AmaxResults%3AGetOpsSummary%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:syncName:GetOpsSummary' :: Maybe Text
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:syncName:GetOpsSummary' :: Maybe Text
 </span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AsyncName%3AGetOpsSummary%27"><span class="hs-identifier hs-var">syncName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:GetOpsSummary' :: Maybe (NonEmpty OpsFilter)
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3Afilters%3AGetOpsSummary%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:resultAttributes:GetOpsSummary' :: Maybe (NonEmpty OpsResultAttribute)
 </span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AresultAttributes%3AGetOpsSummary%27"><span class="hs-identifier hs-var">resultAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsResultAttribute)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:GetOpsSummary' :: Maybe (NonEmpty OpsFilter)
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3Afilters%3AGetOpsSummary%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetOpsSummary' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AnextToken%3AGetOpsSummary%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:aggregators:GetOpsSummary' :: Maybe (NonEmpty OpsAggregator)
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3Aaggregators%3AGetOpsSummary%27"><span class="hs-identifier hs-var">aggregators</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsAggregator)
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetOpsSummary' :: Maybe Natural
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AmaxResults%3AGetOpsSummary%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_nextToken"><span class="hs-identifier hs-type">getOpsSummary_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="getOpsSummary_nextToken"><span class="annot"><span class="annottext">getOpsSummary_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetOpsSummary -&gt; f GetOpsSummary
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_nextToken"><span class="hs-identifier hs-var hs-var">getOpsSummary_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsSummary -&gt; Maybe Text)
--&gt; (GetOpsSummary -&gt; Maybe Text -&gt; GetOpsSummary)
--&gt; Lens GetOpsSummary GetOpsSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833942"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:GetOpsSummary' :: GetOpsSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679833942"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679833942"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833941"><span class="annot"><span class="annottext">s :: GetOpsSummary
-</span><a href="#local-6989586621679833941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833940"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679833940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsSummary
-</span><a href="#local-6989586621679833941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetOpsSummary' :: Maybe Text
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AnextToken%3AGetOpsSummary%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679833940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_maxResults"><span class="hs-identifier hs-type">getOpsSummary_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="getOpsSummary_maxResults"><span class="annot"><span class="annottext">getOpsSummary_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; GetOpsSummary -&gt; f GetOpsSummary
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_maxResults"><span class="hs-identifier hs-var hs-var">getOpsSummary_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsSummary -&gt; Maybe Natural)
--&gt; (GetOpsSummary -&gt; Maybe Natural -&gt; GetOpsSummary)
--&gt; Lens GetOpsSummary GetOpsSummary (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833939"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:GetOpsSummary' :: GetOpsSummary -&gt; Maybe Natural
-</span><a href="#local-6989586621679833939"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679833939"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833938"><span class="annot"><span class="annottext">s :: GetOpsSummary
-</span><a href="#local-6989586621679833938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833937"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679833937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsSummary
-</span><a href="#local-6989586621679833938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetOpsSummary' :: Maybe Natural
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AmaxResults%3AGetOpsSummary%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679833937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | Specify the name of a resource data sync to get.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_syncName"><span class="hs-identifier hs-type">getOpsSummary_syncName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="getOpsSummary_syncName"><span class="annot"><span class="annottext">getOpsSummary_syncName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetOpsSummary -&gt; f GetOpsSummary
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_syncName"><span class="hs-identifier hs-var hs-var">getOpsSummary_syncName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsSummary -&gt; Maybe Text)
--&gt; (GetOpsSummary -&gt; Maybe Text -&gt; GetOpsSummary)
--&gt; Lens GetOpsSummary GetOpsSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833936"><span class="annot"><span class="annottext">Maybe Text
-syncName :: Maybe Text
-$sel:syncName:GetOpsSummary' :: GetOpsSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679833936"><span class="hs-identifier hs-var hs-var">syncName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679833936"><span class="hs-identifier hs-var">syncName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833935"><span class="annot"><span class="annottext">s :: GetOpsSummary
-</span><a href="#local-6989586621679833935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833934"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679833934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsSummary
-</span><a href="#local-6989586621679833935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:syncName:GetOpsSummary' :: Maybe Text
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AsyncName%3AGetOpsSummary%27"><span class="hs-identifier hs-var">syncName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679833934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | The OpsData data type to return.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_resultAttributes"><span class="hs-identifier hs-type">getOpsSummary_resultAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute"><span class="hs-identifier hs-type">OpsResultAttribute</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="getOpsSummary_resultAttributes"><span class="annot"><span class="annottext">getOpsSummary_resultAttributes :: (Maybe (NonEmpty OpsResultAttribute)
- -&gt; f (Maybe (NonEmpty OpsResultAttribute)))
--&gt; GetOpsSummary -&gt; f GetOpsSummary
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_resultAttributes"><span class="hs-identifier hs-var hs-var">getOpsSummary_resultAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsSummary -&gt; Maybe (NonEmpty OpsResultAttribute))
--&gt; (GetOpsSummary
-    -&gt; Maybe (NonEmpty OpsResultAttribute) -&gt; GetOpsSummary)
--&gt; Lens
-     GetOpsSummary
-     GetOpsSummary
-     (Maybe (NonEmpty OpsResultAttribute))
-     (Maybe (NonEmpty OpsResultAttribute))
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833933"><span class="annot"><span class="annottext">Maybe (NonEmpty OpsResultAttribute)
-resultAttributes :: Maybe (NonEmpty OpsResultAttribute)
-$sel:resultAttributes:GetOpsSummary' :: GetOpsSummary -&gt; Maybe (NonEmpty OpsResultAttribute)
-</span><a href="#local-6989586621679833933"><span class="hs-identifier hs-var hs-var">resultAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsResultAttribute)
-</span><a href="#local-6989586621679833933"><span class="hs-identifier hs-var">resultAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833932"><span class="annot"><span class="annottext">s :: GetOpsSummary
-</span><a href="#local-6989586621679833932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833931"><span class="annot"><span class="annottext">Maybe (NonEmpty OpsResultAttribute)
-</span><a href="#local-6989586621679833931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsSummary
-</span><a href="#local-6989586621679833932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultAttributes:GetOpsSummary' :: Maybe (NonEmpty OpsResultAttribute)
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AresultAttributes%3AGetOpsSummary%27"><span class="hs-identifier hs-var">resultAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsResultAttribute)
-</span><a href="#local-6989586621679833931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty OpsResultAttribute)
-  -&gt; f (Maybe (NonEmpty OpsResultAttribute)))
- -&gt; GetOpsSummary -&gt; f GetOpsSummary)
--&gt; ((Maybe (NonEmpty OpsResultAttribute)
-     -&gt; f (Maybe (NonEmpty OpsResultAttribute)))
-    -&gt; Maybe (NonEmpty OpsResultAttribute)
-    -&gt; f (Maybe (NonEmpty OpsResultAttribute)))
--&gt; (Maybe (NonEmpty OpsResultAttribute)
-    -&gt; f (Maybe (NonEmpty OpsResultAttribute)))
--&gt; GetOpsSummary
--&gt; f GetOpsSummary
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (NonEmpty OpsResultAttribute)
-  (NonEmpty OpsResultAttribute)
-  (NonEmpty OpsResultAttribute)
-  (NonEmpty OpsResultAttribute)
--&gt; Iso
-     (Maybe (NonEmpty OpsResultAttribute))
-     (Maybe (NonEmpty OpsResultAttribute))
-     (Maybe (NonEmpty OpsResultAttribute))
-     (Maybe (NonEmpty OpsResultAttribute))
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (NonEmpty OpsResultAttribute)
-  (NonEmpty OpsResultAttribute)
-  (NonEmpty OpsResultAttribute)
-  (NonEmpty OpsResultAttribute)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | Optional filters used to scope down the returned OpsData.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_filters"><span class="hs-identifier hs-type">getOpsSummary_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="getOpsSummary_filters"><span class="annot"><span class="annottext">getOpsSummary_filters :: (Maybe (NonEmpty OpsFilter) -&gt; f (Maybe (NonEmpty OpsFilter)))
--&gt; GetOpsSummary -&gt; f GetOpsSummary
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_filters"><span class="hs-identifier hs-var hs-var">getOpsSummary_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsSummary -&gt; Maybe (NonEmpty OpsFilter))
--&gt; (GetOpsSummary -&gt; Maybe (NonEmpty OpsFilter) -&gt; GetOpsSummary)
--&gt; Lens
-     GetOpsSummary
-     GetOpsSummary
-     (Maybe (NonEmpty OpsFilter))
-     (Maybe (NonEmpty OpsFilter))
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833927"><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
-filters :: Maybe (NonEmpty OpsFilter)
-$sel:filters:GetOpsSummary' :: GetOpsSummary -&gt; Maybe (NonEmpty OpsFilter)
-</span><a href="#local-6989586621679833927"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
-</span><a href="#local-6989586621679833927"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833926"><span class="annot"><span class="annottext">s :: GetOpsSummary
-</span><a href="#local-6989586621679833926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833925"><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
-</span><a href="#local-6989586621679833925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsSummary
-</span><a href="#local-6989586621679833926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:GetOpsSummary' :: Maybe (NonEmpty OpsFilter)
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3Afilters%3AGetOpsSummary%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
-</span><a href="#local-6989586621679833925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty OpsFilter) -&gt; f (Maybe (NonEmpty OpsFilter)))
- -&gt; GetOpsSummary -&gt; f GetOpsSummary)
--&gt; ((Maybe (NonEmpty OpsFilter) -&gt; f (Maybe (NonEmpty OpsFilter)))
-    -&gt; Maybe (NonEmpty OpsFilter) -&gt; f (Maybe (NonEmpty OpsFilter)))
--&gt; (Maybe (NonEmpty OpsFilter) -&gt; f (Maybe (NonEmpty OpsFilter)))
--&gt; GetOpsSummary
--&gt; f GetOpsSummary
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (NonEmpty OpsFilter)
-  (NonEmpty OpsFilter)
-  (NonEmpty OpsFilter)
-  (NonEmpty OpsFilter)
--&gt; Iso
-     (Maybe (NonEmpty OpsFilter))
-     (Maybe (NonEmpty OpsFilter))
-     (Maybe (NonEmpty OpsFilter))
-     (Maybe (NonEmpty OpsFilter))
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (NonEmpty OpsFilter)
-  (NonEmpty OpsFilter)
-  (NonEmpty OpsFilter)
-  (NonEmpty OpsFilter)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | Optional aggregators that return counts of OpsData based on one or more</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- expressions.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_aggregators"><span class="hs-identifier hs-type">getOpsSummary_aggregators</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="getOpsSummary_aggregators"><span class="annot"><span class="annottext">getOpsSummary_aggregators :: (Maybe (NonEmpty OpsAggregator)
+</span><span id="line-118"></span><span class="hs-comment">-- | Optional aggregators that return counts of OpsData based on one or more</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- expressions.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_aggregators"><span class="hs-identifier hs-type">getOpsSummary_aggregators</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsAggregator.html#OpsAggregator"><span class="hs-identifier hs-type">OpsAggregator</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="getOpsSummary_aggregators"><span class="annot"><span class="annottext">getOpsSummary_aggregators :: (Maybe (NonEmpty OpsAggregator)
  -&gt; f (Maybe (NonEmpty OpsAggregator)))
 -&gt; GetOpsSummary -&gt; f GetOpsSummary
 </span><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_aggregators"><span class="hs-identifier hs-var hs-var">getOpsSummary_aggregators</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsSummary -&gt; Maybe (NonEmpty OpsAggregator))
@@ -378,16 +214,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe (NonEmpty OpsAggregator))
      (Maybe (NonEmpty OpsAggregator))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833924"><span class="annot"><span class="annottext">Maybe (NonEmpty OpsAggregator)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835721"><span class="annot"><span class="annottext">Maybe (NonEmpty OpsAggregator)
 aggregators :: Maybe (NonEmpty OpsAggregator)
 $sel:aggregators:GetOpsSummary' :: GetOpsSummary -&gt; Maybe (NonEmpty OpsAggregator)
-</span><a href="#local-6989586621679833924"><span class="hs-identifier hs-var hs-var">aggregators</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsAggregator)
-</span><a href="#local-6989586621679833924"><span class="hs-identifier hs-var">aggregators</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833923"><span class="annot"><span class="annottext">s :: GetOpsSummary
-</span><a href="#local-6989586621679833923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833922"><span class="annot"><span class="annottext">Maybe (NonEmpty OpsAggregator)
-</span><a href="#local-6989586621679833922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsSummary
-</span><a href="#local-6989586621679833923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregators:GetOpsSummary' :: Maybe (NonEmpty OpsAggregator)
+</span><a href="#local-6989586621679835721"><span class="hs-identifier hs-var hs-var">aggregators</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsAggregator)
+</span><a href="#local-6989586621679835721"><span class="hs-identifier hs-var">aggregators</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835720"><span class="annot"><span class="annottext">s :: GetOpsSummary
+</span><a href="#local-6989586621679835720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835719"><span class="annot"><span class="annottext">Maybe (NonEmpty OpsAggregator)
+</span><a href="#local-6989586621679835719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsSummary
+</span><a href="#local-6989586621679835720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregators:GetOpsSummary' :: Maybe (NonEmpty OpsAggregator)
 </span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3Aaggregators%3AGetOpsSummary%27"><span class="hs-identifier hs-var">aggregators</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsAggregator)
-</span><a href="#local-6989586621679833922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty OpsAggregator)
+</span><a href="#local-6989586621679835719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty OpsAggregator)
   -&gt; f (Maybe (NonEmpty OpsAggregator)))
  -&gt; GetOpsSummary -&gt; f GetOpsSummary)
 -&gt; ((Maybe (NonEmpty OpsAggregator)
@@ -417,20 +253,184 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty OpsAggregator)
   (NonEmpty OpsAggregator)
   (NonEmpty OpsAggregator)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Specify the name of a resource data sync to get.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_syncName"><span class="hs-identifier hs-type">getOpsSummary_syncName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="getOpsSummary_syncName"><span class="annot"><span class="annottext">getOpsSummary_syncName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetOpsSummary -&gt; f GetOpsSummary
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_syncName"><span class="hs-identifier hs-var hs-var">getOpsSummary_syncName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsSummary -&gt; Maybe Text)
+-&gt; (GetOpsSummary -&gt; Maybe Text -&gt; GetOpsSummary)
+-&gt; Lens GetOpsSummary GetOpsSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835715"><span class="annot"><span class="annottext">Maybe Text
+syncName :: Maybe Text
+$sel:syncName:GetOpsSummary' :: GetOpsSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679835715"><span class="hs-identifier hs-var hs-var">syncName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679835715"><span class="hs-identifier hs-var">syncName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835714"><span class="annot"><span class="annottext">s :: GetOpsSummary
+</span><a href="#local-6989586621679835714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835713"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679835713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsSummary
+</span><a href="#local-6989586621679835714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:syncName:GetOpsSummary' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AsyncName%3AGetOpsSummary%27"><span class="hs-identifier hs-var">syncName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679835713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | Optional filters used to scope down the returned OpsData.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_filters"><span class="hs-identifier hs-type">getOpsSummary_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsFilter.html#OpsFilter"><span class="hs-identifier hs-type">OpsFilter</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="getOpsSummary_filters"><span class="annot"><span class="annottext">getOpsSummary_filters :: (Maybe (NonEmpty OpsFilter) -&gt; f (Maybe (NonEmpty OpsFilter)))
+-&gt; GetOpsSummary -&gt; f GetOpsSummary
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_filters"><span class="hs-identifier hs-var hs-var">getOpsSummary_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsSummary -&gt; Maybe (NonEmpty OpsFilter))
+-&gt; (GetOpsSummary -&gt; Maybe (NonEmpty OpsFilter) -&gt; GetOpsSummary)
+-&gt; Lens
+     GetOpsSummary
+     GetOpsSummary
+     (Maybe (NonEmpty OpsFilter))
+     (Maybe (NonEmpty OpsFilter))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835712"><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
+filters :: Maybe (NonEmpty OpsFilter)
+$sel:filters:GetOpsSummary' :: GetOpsSummary -&gt; Maybe (NonEmpty OpsFilter)
+</span><a href="#local-6989586621679835712"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
+</span><a href="#local-6989586621679835712"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835711"><span class="annot"><span class="annottext">s :: GetOpsSummary
+</span><a href="#local-6989586621679835711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835710"><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
+</span><a href="#local-6989586621679835710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsSummary
+</span><a href="#local-6989586621679835711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:GetOpsSummary' :: Maybe (NonEmpty OpsFilter)
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3Afilters%3AGetOpsSummary%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
+</span><a href="#local-6989586621679835710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty OpsFilter) -&gt; f (Maybe (NonEmpty OpsFilter)))
+ -&gt; GetOpsSummary -&gt; f GetOpsSummary)
+-&gt; ((Maybe (NonEmpty OpsFilter) -&gt; f (Maybe (NonEmpty OpsFilter)))
+    -&gt; Maybe (NonEmpty OpsFilter) -&gt; f (Maybe (NonEmpty OpsFilter)))
+-&gt; (Maybe (NonEmpty OpsFilter) -&gt; f (Maybe (NonEmpty OpsFilter)))
+-&gt; GetOpsSummary
+-&gt; f GetOpsSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty OpsFilter)
+  (NonEmpty OpsFilter)
+  (NonEmpty OpsFilter)
+  (NonEmpty OpsFilter)
+-&gt; Iso
+     (Maybe (NonEmpty OpsFilter))
+     (Maybe (NonEmpty OpsFilter))
+     (Maybe (NonEmpty OpsFilter))
+     (Maybe (NonEmpty OpsFilter))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty OpsFilter)
+  (NonEmpty OpsFilter)
+  (NonEmpty OpsFilter)
+  (NonEmpty OpsFilter)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | The OpsData data type to return.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_resultAttributes"><span class="hs-identifier hs-type">getOpsSummary_resultAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.OpsResultAttribute.html#OpsResultAttribute"><span class="hs-identifier hs-type">OpsResultAttribute</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="getOpsSummary_resultAttributes"><span class="annot"><span class="annottext">getOpsSummary_resultAttributes :: (Maybe (NonEmpty OpsResultAttribute)
+ -&gt; f (Maybe (NonEmpty OpsResultAttribute)))
+-&gt; GetOpsSummary -&gt; f GetOpsSummary
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_resultAttributes"><span class="hs-identifier hs-var hs-var">getOpsSummary_resultAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsSummary -&gt; Maybe (NonEmpty OpsResultAttribute))
+-&gt; (GetOpsSummary
+    -&gt; Maybe (NonEmpty OpsResultAttribute) -&gt; GetOpsSummary)
+-&gt; Lens
+     GetOpsSummary
+     GetOpsSummary
+     (Maybe (NonEmpty OpsResultAttribute))
+     (Maybe (NonEmpty OpsResultAttribute))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835709"><span class="annot"><span class="annottext">Maybe (NonEmpty OpsResultAttribute)
+resultAttributes :: Maybe (NonEmpty OpsResultAttribute)
+$sel:resultAttributes:GetOpsSummary' :: GetOpsSummary -&gt; Maybe (NonEmpty OpsResultAttribute)
+</span><a href="#local-6989586621679835709"><span class="hs-identifier hs-var hs-var">resultAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsResultAttribute)
+</span><a href="#local-6989586621679835709"><span class="hs-identifier hs-var">resultAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835708"><span class="annot"><span class="annottext">s :: GetOpsSummary
+</span><a href="#local-6989586621679835708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835707"><span class="annot"><span class="annottext">Maybe (NonEmpty OpsResultAttribute)
+</span><a href="#local-6989586621679835707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsSummary
+</span><a href="#local-6989586621679835708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultAttributes:GetOpsSummary' :: Maybe (NonEmpty OpsResultAttribute)
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AresultAttributes%3AGetOpsSummary%27"><span class="hs-identifier hs-var">resultAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsResultAttribute)
+</span><a href="#local-6989586621679835707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty OpsResultAttribute)
+  -&gt; f (Maybe (NonEmpty OpsResultAttribute)))
+ -&gt; GetOpsSummary -&gt; f GetOpsSummary)
+-&gt; ((Maybe (NonEmpty OpsResultAttribute)
+     -&gt; f (Maybe (NonEmpty OpsResultAttribute)))
+    -&gt; Maybe (NonEmpty OpsResultAttribute)
+    -&gt; f (Maybe (NonEmpty OpsResultAttribute)))
+-&gt; (Maybe (NonEmpty OpsResultAttribute)
+    -&gt; f (Maybe (NonEmpty OpsResultAttribute)))
+-&gt; GetOpsSummary
+-&gt; f GetOpsSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty OpsResultAttribute)
+  (NonEmpty OpsResultAttribute)
+  (NonEmpty OpsResultAttribute)
+  (NonEmpty OpsResultAttribute)
+-&gt; Iso
+     (Maybe (NonEmpty OpsResultAttribute))
+     (Maybe (NonEmpty OpsResultAttribute))
+     (Maybe (NonEmpty OpsResultAttribute))
+     (Maybe (NonEmpty OpsResultAttribute))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty OpsResultAttribute)
+  (NonEmpty OpsResultAttribute)
+  (NonEmpty OpsResultAttribute)
+  (NonEmpty OpsResultAttribute)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_nextToken"><span class="hs-identifier hs-type">getOpsSummary_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="getOpsSummary_nextToken"><span class="annot"><span class="annottext">getOpsSummary_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetOpsSummary -&gt; f GetOpsSummary
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_nextToken"><span class="hs-identifier hs-var hs-var">getOpsSummary_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsSummary -&gt; Maybe Text)
+-&gt; (GetOpsSummary -&gt; Maybe Text -&gt; GetOpsSummary)
+-&gt; Lens GetOpsSummary GetOpsSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835706"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetOpsSummary' :: GetOpsSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679835706"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679835706"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835705"><span class="annot"><span class="annottext">s :: GetOpsSummary
+</span><a href="#local-6989586621679835705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835704"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679835704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsSummary
+</span><a href="#local-6989586621679835705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetOpsSummary' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AnextToken%3AGetOpsSummary%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679835704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_maxResults"><span class="hs-identifier hs-type">getOpsSummary_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="getOpsSummary_maxResults"><span class="annot"><span class="annottext">getOpsSummary_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetOpsSummary -&gt; f GetOpsSummary
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummary_maxResults"><span class="hs-identifier hs-var hs-var">getOpsSummary_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsSummary -&gt; Maybe Natural)
+-&gt; (GetOpsSummary -&gt; Maybe Natural -&gt; GetOpsSummary)
+-&gt; Lens GetOpsSummary GetOpsSummary (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835703"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetOpsSummary' :: GetOpsSummary -&gt; Maybe Natural
+</span><a href="#local-6989586621679835703"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679835703"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835702"><span class="annot"><span class="annottext">s :: GetOpsSummary
+</span><a href="#local-6989586621679835702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835701"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679835701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsSummary
+</span><a href="#local-6989586621679835702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetOpsSummary' :: Maybe Natural
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AmaxResults%3AGetOpsSummary%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679835701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679833918"><span class="annot"><span class="annottext">page :: GetOpsSummary -&gt; AWSResponse GetOpsSummary -&gt; Maybe GetOpsSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679833916"><span class="annot"><span class="annottext">GetOpsSummary
-</span><a href="#local-6989586621679833916"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679833915"><span class="annot"><span class="annottext">AWSResponse GetOpsSummary
-</span><a href="#local-6989586621679833915"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679835697"><span class="annot"><span class="annottext">page :: GetOpsSummary -&gt; AWSResponse GetOpsSummary -&gt; Maybe GetOpsSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679835695"><span class="annot"><span class="annottext">GetOpsSummary
+</span><a href="#local-6989586621679835695"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679835694"><span class="annot"><span class="annottext">AWSResponse GetOpsSummary
+</span><a href="#local-6989586621679835694"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-149"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetOpsSummary
 GetOpsSummaryResponse
-</span><a href="#local-6989586621679833915"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679835694"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">GetOpsSummaryResponse
 -&gt; Getting (First Text) GetOpsSummaryResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -458,7 +458,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-154"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetOpsSummary
 GetOpsSummaryResponse
-</span><a href="#local-6989586621679833915"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679835694"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">GetOpsSummaryResponse
 -&gt; Getting (First [OpsEntity]) GetOpsSummaryResponse [OpsEntity]
 -&gt; Maybe [OpsEntity]
@@ -495,7 +495,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">GetOpsSummary
-</span><a href="#local-6989586621679833916"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679835695"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">GetOpsSummary -&gt; (GetOpsSummary -&gt; GetOpsSummary) -&gt; GetOpsSummary
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -508,7 +508,7 @@ Lens GetOpsSummary GetOpsSummary (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetOpsSummary
 GetOpsSummaryResponse
-</span><a href="#local-6989586621679833915"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679835694"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">GetOpsSummaryResponse
 -&gt; Getting (First Text) GetOpsSummaryResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -532,12 +532,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-166"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-167"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse"><span class="hs-identifier hs-type">GetOpsSummaryResponse</span></a></span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679833906"><span class="annot"><span class="annottext">request :: GetOpsSummary -&gt; Request GetOpsSummary
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679835685"><span class="annot"><span class="annottext">request :: GetOpsSummary -&gt; Request GetOpsSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetOpsSummary -&gt; Request GetOpsSummary
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679833902"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679835681"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetOpsSummary
 -&gt; ClientResponse ClientBody
@@ -561,28 +561,18 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679833899"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833899"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679833898"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679833898"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679833897"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679833897"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [OpsEntity] -&gt; Int -&gt; GetOpsSummaryResponse
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679835678"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835678"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679835677"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679835677"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679835676"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679835676"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Maybe [OpsEntity] -&gt; Maybe Text -&gt; Int -&gt; GetOpsSummaryResponse
 </span><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse%27"><span class="hs-identifier hs-var">GetOpsSummaryResponse'</span></a></span><span>
-</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [OpsEntity] -&gt; Int -&gt; GetOpsSummaryResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe [OpsEntity] -&gt; Int -&gt; GetOpsSummaryResponse)
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [OpsEntity] -&gt; Maybe Text -&gt; Int -&gt; GetOpsSummaryResponse)
+-&gt; Either String (Maybe [OpsEntity])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetOpsSummaryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679833897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [OpsEntity] -&gt; Int -&gt; GetOpsSummaryResponse)
--&gt; Either String (Maybe [OpsEntity])
--&gt; Either String (Int -&gt; GetOpsSummaryResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679833897"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [OpsEntity]))
+</span><a href="#local-6989586621679835676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [OpsEntity]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Entities&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [OpsEntity]))
@@ -591,6 +581,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [OpsEntity]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetOpsSummaryResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetOpsSummaryResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679835676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetOpsSummaryResponse)
 -&gt; Either String Int -&gt; Either String GetOpsSummaryResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -599,15 +598,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833899"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679835678"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833888"><span id="local-6989586621679833890"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span></span></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679835667"><span id="local-6989586621679835669"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span></span></span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833885"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679835664"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679833881"><span class="annot"><span class="annottext">toHeaders :: GetOpsSummary -&gt; ResponseHeaders
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679835660"><span class="annot"><span class="annottext">toHeaders :: GetOpsSummary -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetOpsSummary -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -632,52 +631,54 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-193"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-194"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833871"><span id="local-6989586621679833873"><span id="local-6989586621679833875"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-197"></span><span>  </span><span id="local-6989586621679833869"><span class="annot"><span class="annottext">toJSON :: GetOpsSummary -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833862"><span id="local-6989586621679833863"><span id="local-6989586621679833864"><span id="local-6989586621679833865"><span id="local-6989586621679833866"><span id="local-6989586621679833867"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679835650"><span id="local-6989586621679835652"><span id="local-6989586621679835654"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679835648"><span class="annot"><span class="annottext">toJSON :: GetOpsSummary -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary%27"><span class="hs-identifier hs-type">GetOpsSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835641"><span id="local-6989586621679835642"><span id="local-6989586621679835643"><span id="local-6989586621679835644"><span id="local-6989586621679835645"><span id="local-6989586621679835646"><span class="annot"><span class="annottext">Maybe Natural
 Maybe (NonEmpty OpsFilter)
 Maybe (NonEmpty OpsAggregator)
 Maybe (NonEmpty OpsResultAttribute)
 Maybe Text
-aggregators :: Maybe (NonEmpty OpsAggregator)
-filters :: Maybe (NonEmpty OpsFilter)
-resultAttributes :: Maybe (NonEmpty OpsResultAttribute)
-syncName :: Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
-$sel:aggregators:GetOpsSummary' :: GetOpsSummary -&gt; Maybe (NonEmpty OpsAggregator)
-$sel:filters:GetOpsSummary' :: GetOpsSummary -&gt; Maybe (NonEmpty OpsFilter)
-$sel:resultAttributes:GetOpsSummary' :: GetOpsSummary -&gt; Maybe (NonEmpty OpsResultAttribute)
-$sel:syncName:GetOpsSummary' :: GetOpsSummary -&gt; Maybe Text
+resultAttributes :: Maybe (NonEmpty OpsResultAttribute)
+filters :: Maybe (NonEmpty OpsFilter)
+syncName :: Maybe Text
+aggregators :: Maybe (NonEmpty OpsAggregator)
 $sel:maxResults:GetOpsSummary' :: GetOpsSummary -&gt; Maybe Natural
 $sel:nextToken:GetOpsSummary' :: GetOpsSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679833862"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:resultAttributes:GetOpsSummary' :: GetOpsSummary -&gt; Maybe (NonEmpty OpsResultAttribute)
+$sel:filters:GetOpsSummary' :: GetOpsSummary -&gt; Maybe (NonEmpty OpsFilter)
+$sel:syncName:GetOpsSummary' :: GetOpsSummary -&gt; Maybe Text
+$sel:aggregators:GetOpsSummary' :: GetOpsSummary -&gt; Maybe (NonEmpty OpsAggregator)
+</span><a href="#local-6989586621679835641"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-199"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-200"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;Aggregators&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty OpsAggregator -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty OpsAggregator -&gt; Pair)
+-&gt; Maybe (NonEmpty OpsAggregator) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679833867"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsAggregator)
+</span><a href="#local-6989586621679835646"><span class="hs-identifier hs-var">aggregators</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679833866"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SyncName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679833865"><span class="hs-identifier hs-var">syncName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679835645"><span class="hs-identifier hs-var">syncName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty OpsFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty OpsFilter -&gt; Pair)
+-&gt; Maybe (NonEmpty OpsFilter) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
+</span><a href="#local-6989586621679835644"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResultAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty OpsResultAttribute -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -686,35 +687,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (NonEmpty OpsResultAttribute) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsResultAttribute)
-</span><a href="#local-6989586621679833864"><span class="hs-identifier hs-var">resultAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679835643"><span class="hs-identifier hs-var">resultAttributes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty OpsFilter -&gt; Pair
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty OpsFilter -&gt; Pair)
--&gt; Maybe (NonEmpty OpsFilter) -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsFilter)
-</span><a href="#local-6989586621679833863"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679835642"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Aggregators&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty OpsAggregator -&gt; Pair
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty OpsAggregator -&gt; Pair)
--&gt; Maybe (NonEmpty OpsAggregator) -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty OpsAggregator)
-</span><a href="#local-6989586621679833862"><span class="hs-identifier hs-var">aggregators</span></a></span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679835641"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-207"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-208"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679833856"><span class="annot"><span class="annottext">toPath :: GetOpsSummary -&gt; ByteString
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679835635"><span class="annot"><span class="annottext">toPath :: GetOpsSummary -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetOpsSummary -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummary"><span class="hs-identifier hs-type">GetOpsSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679833852"><span class="annot"><span class="annottext">toQuery :: GetOpsSummary -&gt; QueryString
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679835631"><span class="annot"><span class="annottext">toQuery :: GetOpsSummary -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetOpsSummary -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -722,19 +721,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-215"></span><span>
 </span><span id="line-216"></span><span class="hs-comment">-- | /See:/ 'newGetOpsSummaryResponse' smart constructor.</span><span>
-</span><span id="line-217"></span><span id="local-6989586621679833849"><span id="local-6989586621679833850"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOpsSummaryResponse"><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse"><span class="hs-identifier hs-var">GetOpsSummaryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOpsSummaryResponse%27"><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse%27"><span class="hs-identifier hs-var">GetOpsSummaryResponse'</span></a></span></span><span>
-</span><span id="line-218"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
-</span><span id="line-219"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-220"></span><span>    </span><span id="%24sel%3AnextToken%3AGetOpsSummaryResponse%27"><span class="annot"><span class="annottext">GetOpsSummaryResponse -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AnextToken%3AGetOpsSummaryResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-221"></span><span>    </span><span class="hs-comment">-- | The list of aggregated details and filtered OpsData.</span><span>
-</span><span id="line-222"></span><span>    </span><span id="%24sel%3Aentities%3AGetOpsSummaryResponse%27"><span class="annot"><span class="annottext">GetOpsSummaryResponse -&gt; Maybe [OpsEntity]
+</span><span id="line-217"></span><span id="local-6989586621679835628"><span id="local-6989586621679835629"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetOpsSummaryResponse"><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse"><span class="hs-identifier hs-var">GetOpsSummaryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetOpsSummaryResponse%27"><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse%27"><span class="hs-identifier hs-var">GetOpsSummaryResponse'</span></a></span></span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of aggregated details and filtered OpsData.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3Aentities%3AGetOpsSummaryResponse%27"><span class="annot"><span class="annottext">GetOpsSummaryResponse -&gt; Maybe [OpsEntity]
 </span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3Aentities%3AGetOpsSummaryResponse%27"><span class="hs-identifier hs-var hs-var">entities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity"><span class="hs-identifier hs-type">OpsEntity</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-222"></span><span>    </span><span id="%24sel%3AnextToken%3AGetOpsSummaryResponse%27"><span class="annot"><span class="annottext">GetOpsSummaryResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AnextToken%3AGetOpsSummaryResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-224"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetOpsSummaryResponse%27"><span class="annot"><span class="annottext">GetOpsSummaryResponse -&gt; Int
 </span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AhttpStatus%3AGetOpsSummaryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-225"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-226"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679833842"><span id="local-6989586621679833844"><span class="annot"><span class="annottext">GetOpsSummaryResponse -&gt; GetOpsSummaryResponse -&gt; Bool
+</span><span id="line-226"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679835621"><span id="local-6989586621679835623"><span class="annot"><span class="annottext">GetOpsSummaryResponse -&gt; GetOpsSummaryResponse -&gt; Bool
 (GetOpsSummaryResponse -&gt; GetOpsSummaryResponse -&gt; Bool)
 -&gt; (GetOpsSummaryResponse -&gt; GetOpsSummaryResponse -&gt; Bool)
 -&gt; Eq GetOpsSummaryResponse
@@ -743,7 +742,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetOpsSummaryResponse -&gt; GetOpsSummaryResponse -&gt; Bool
 == :: GetOpsSummaryResponse -&gt; GetOpsSummaryResponse -&gt; Bool
 $c== :: GetOpsSummaryResponse -&gt; GetOpsSummaryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833834"><span id="local-6989586621679833836"><span id="local-6989586621679833838"><span id="local-6989586621679833840"><span class="annot"><span class="annottext">ReadPrec [GetOpsSummaryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679835613"><span id="local-6989586621679835615"><span id="local-6989586621679835617"><span id="local-6989586621679835619"><span class="annot"><span class="annottext">ReadPrec [GetOpsSummaryResponse]
 ReadPrec GetOpsSummaryResponse
 Int -&gt; ReadS GetOpsSummaryResponse
 ReadS [GetOpsSummaryResponse]
@@ -763,7 +762,7 @@ readList :: ReadS [GetOpsSummaryResponse]
 $creadList :: ReadS [GetOpsSummaryResponse]
 readsPrec :: Int -&gt; ReadS GetOpsSummaryResponse
 $creadsPrec :: Int -&gt; ReadS GetOpsSummaryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679833828"><span id="local-6989586621679833830"><span id="local-6989586621679833832"><span class="annot"><span class="annottext">Int -&gt; GetOpsSummaryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679835607"><span id="local-6989586621679835609"><span id="local-6989586621679835611"><span class="annot"><span class="annottext">Int -&gt; GetOpsSummaryResponse -&gt; ShowS
 [GetOpsSummaryResponse] -&gt; ShowS
 GetOpsSummaryResponse -&gt; String
 (Int -&gt; GetOpsSummaryResponse -&gt; ShowS)
@@ -797,10 +796,10 @@ $cfrom :: forall x. GetOpsSummaryResponse -&gt; Rep GetOpsSummaryResponse x
 </span><span id="line-233"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-235"></span><span class="hs-comment">--</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- 'nextToken', 'getOpsSummaryResponse_nextToken' - The token for the next set of items to return. Use this token to get the</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-238"></span><span class="hs-comment">--</span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- 'entities', 'getOpsSummaryResponse_entities' - The list of aggregated details and filtered OpsData.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- 'entities', 'getOpsSummaryResponse_entities' - The list of aggregated details and filtered OpsData.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 'nextToken', 'getOpsSummaryResponse_nextToken' - The token for the next set of items to return. Use this token to get the</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- next set of results.</span><span>
 </span><span id="line-240"></span><span class="hs-comment">--</span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- 'httpStatus', 'getOpsSummaryResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-242"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#newGetOpsSummaryResponse"><span class="hs-identifier hs-type">newGetOpsSummaryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -808,62 +807,42 @@ $cfrom :: forall x. GetOpsSummaryResponse -&gt; Rep GetOpsSummaryResponse x
 </span><span id="line-244"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-245"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse"><span class="hs-identifier hs-type">GetOpsSummaryResponse</span></a></span><span>
 </span><span id="line-246"></span><span id="newGetOpsSummaryResponse"><span class="annot"><span class="annottext">newGetOpsSummaryResponse :: Int -&gt; GetOpsSummaryResponse
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#newGetOpsSummaryResponse"><span class="hs-identifier hs-var hs-var">newGetOpsSummaryResponse</span></a></span></span><span> </span><span id="local-6989586621679833825"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833825"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-247"></span><span>  </span><span class="annot"><span class="annottext">GetOpsSummaryResponse' :: Maybe Text -&gt; Maybe [OpsEntity] -&gt; Int -&gt; GetOpsSummaryResponse
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#newGetOpsSummaryResponse"><span class="hs-identifier hs-var hs-var">newGetOpsSummaryResponse</span></a></span></span><span> </span><span id="local-6989586621679835604"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835604"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="annottext">GetOpsSummaryResponse' :: Maybe [OpsEntity] -&gt; Maybe Text -&gt; Int -&gt; GetOpsSummaryResponse
 </span><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse%27"><span class="hs-identifier hs-type">GetOpsSummaryResponse'</span></a></span><span>
-</span><span id="line-248"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetOpsSummaryResponse' :: Maybe Text
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AnextToken%3AGetOpsSummaryResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-248"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:entities:GetOpsSummaryResponse' :: Maybe [OpsEntity]
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3Aentities%3AGetOpsSummaryResponse%27"><span class="hs-identifier hs-var">entities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OpsEntity]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:entities:GetOpsSummaryResponse' :: Maybe [OpsEntity]
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3Aentities%3AGetOpsSummaryResponse%27"><span class="hs-identifier hs-var">entities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OpsEntity]
+</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetOpsSummaryResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AnextToken%3AGetOpsSummaryResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetOpsSummaryResponse' :: Int
 </span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AhttpStatus%3AGetOpsSummaryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833825"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679835604"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-251"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummaryResponse_nextToken"><span class="hs-identifier hs-type">getOpsSummaryResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse"><span class="hs-identifier hs-type">GetOpsSummaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-256"></span><span id="getOpsSummaryResponse_nextToken"><span class="annot"><span class="annottext">getOpsSummaryResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetOpsSummaryResponse -&gt; f GetOpsSummaryResponse
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummaryResponse_nextToken"><span class="hs-identifier hs-var hs-var">getOpsSummaryResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsSummaryResponse -&gt; Maybe Text)
--&gt; (GetOpsSummaryResponse -&gt; Maybe Text -&gt; GetOpsSummaryResponse)
--&gt; Lens' GetOpsSummaryResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse%27"><span class="hs-identifier hs-type">GetOpsSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833824"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:GetOpsSummaryResponse' :: GetOpsSummaryResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679833824"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679833824"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833823"><span class="annot"><span class="annottext">s :: GetOpsSummaryResponse
-</span><a href="#local-6989586621679833823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse%27"><span class="hs-identifier hs-type">GetOpsSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833822"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679833822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsSummaryResponse
-</span><a href="#local-6989586621679833823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetOpsSummaryResponse' :: Maybe Text
-</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AnextToken%3AGetOpsSummaryResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679833822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse"><span class="hs-identifier hs-type">GetOpsSummaryResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-257"></span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- | The list of aggregated details and filtered OpsData.</span><span>
-</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummaryResponse_entities"><span class="hs-identifier hs-type">getOpsSummaryResponse_entities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse"><span class="hs-identifier hs-type">GetOpsSummaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity"><span class="hs-identifier hs-type">OpsEntity</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-260"></span><span id="getOpsSummaryResponse_entities"><span class="annot"><span class="annottext">getOpsSummaryResponse_entities :: (Maybe [OpsEntity] -&gt; f (Maybe [OpsEntity]))
+</span><span id="line-253"></span><span class="hs-comment">-- | The list of aggregated details and filtered OpsData.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummaryResponse_entities"><span class="hs-identifier hs-type">getOpsSummaryResponse_entities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse"><span class="hs-identifier hs-type">GetOpsSummaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.OpsEntity.html#OpsEntity"><span class="hs-identifier hs-type">OpsEntity</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="getOpsSummaryResponse_entities"><span class="annot"><span class="annottext">getOpsSummaryResponse_entities :: (Maybe [OpsEntity] -&gt; f (Maybe [OpsEntity]))
 -&gt; GetOpsSummaryResponse -&gt; f GetOpsSummaryResponse
 </span><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummaryResponse_entities"><span class="hs-identifier hs-var hs-var">getOpsSummaryResponse_entities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsSummaryResponse -&gt; Maybe [OpsEntity])
 -&gt; (GetOpsSummaryResponse
     -&gt; Maybe [OpsEntity] -&gt; GetOpsSummaryResponse)
 -&gt; Lens' GetOpsSummaryResponse (Maybe [OpsEntity])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse%27"><span class="hs-identifier hs-type">GetOpsSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833821"><span class="annot"><span class="annottext">Maybe [OpsEntity]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse%27"><span class="hs-identifier hs-type">GetOpsSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835603"><span class="annot"><span class="annottext">Maybe [OpsEntity]
 entities :: Maybe [OpsEntity]
 $sel:entities:GetOpsSummaryResponse' :: GetOpsSummaryResponse -&gt; Maybe [OpsEntity]
-</span><a href="#local-6989586621679833821"><span class="hs-identifier hs-var hs-var">entities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OpsEntity]
-</span><a href="#local-6989586621679833821"><span class="hs-identifier hs-var">entities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833820"><span class="annot"><span class="annottext">s :: GetOpsSummaryResponse
-</span><a href="#local-6989586621679833820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse%27"><span class="hs-identifier hs-type">GetOpsSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833819"><span class="annot"><span class="annottext">Maybe [OpsEntity]
-</span><a href="#local-6989586621679833819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsSummaryResponse
-</span><a href="#local-6989586621679833820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entities:GetOpsSummaryResponse' :: Maybe [OpsEntity]
+</span><a href="#local-6989586621679835603"><span class="hs-identifier hs-var hs-var">entities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OpsEntity]
+</span><a href="#local-6989586621679835603"><span class="hs-identifier hs-var">entities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835602"><span class="annot"><span class="annottext">s :: GetOpsSummaryResponse
+</span><a href="#local-6989586621679835602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse%27"><span class="hs-identifier hs-type">GetOpsSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835601"><span class="annot"><span class="annottext">Maybe [OpsEntity]
+</span><a href="#local-6989586621679835601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsSummaryResponse
+</span><a href="#local-6989586621679835602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entities:GetOpsSummaryResponse' :: Maybe [OpsEntity]
 </span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3Aentities%3AGetOpsSummaryResponse%27"><span class="hs-identifier hs-var">entities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OpsEntity]
-</span><a href="#local-6989586621679833819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse"><span class="hs-identifier hs-type">GetOpsSummaryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OpsEntity] -&gt; f (Maybe [OpsEntity]))
+</span><a href="#local-6989586621679835601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse"><span class="hs-identifier hs-type">GetOpsSummaryResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OpsEntity] -&gt; f (Maybe [OpsEntity]))
  -&gt; GetOpsSummaryResponse -&gt; f GetOpsSummaryResponse)
 -&gt; ((Maybe [OpsEntity] -&gt; f (Maybe [OpsEntity]))
     -&gt; Maybe [OpsEntity] -&gt; f (Maybe [OpsEntity]))
@@ -881,8 +860,28 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [OpsEntity] [OpsEntity] [OpsEntity] [OpsEntity]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummaryResponse_nextToken"><span class="hs-identifier hs-type">getOpsSummaryResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse"><span class="hs-identifier hs-type">GetOpsSummaryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="getOpsSummaryResponse_nextToken"><span class="annot"><span class="annottext">getOpsSummaryResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetOpsSummaryResponse -&gt; f GetOpsSummaryResponse
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummaryResponse_nextToken"><span class="hs-identifier hs-var hs-var">getOpsSummaryResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetOpsSummaryResponse -&gt; Maybe Text)
+-&gt; (GetOpsSummaryResponse -&gt; Maybe Text -&gt; GetOpsSummaryResponse)
+-&gt; Lens' GetOpsSummaryResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse%27"><span class="hs-identifier hs-type">GetOpsSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835600"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetOpsSummaryResponse' :: GetOpsSummaryResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679835600"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679835600"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835599"><span class="annot"><span class="annottext">s :: GetOpsSummaryResponse
+</span><a href="#local-6989586621679835599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse%27"><span class="hs-identifier hs-type">GetOpsSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835598"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679835598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsSummaryResponse
+</span><a href="#local-6989586621679835599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetOpsSummaryResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AnextToken%3AGetOpsSummaryResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679835598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse"><span class="hs-identifier hs-type">GetOpsSummaryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-263"></span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#getOpsSummaryResponse_httpStatus"><span class="hs-identifier hs-type">getOpsSummaryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse"><span class="hs-identifier hs-type">GetOpsSummaryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -891,16 +890,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetOpsSummaryResponse -&gt; Int -&gt; GetOpsSummaryResponse)
 -&gt; Lens GetOpsSummaryResponse GetOpsSummaryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse%27"><span class="hs-identifier hs-type">GetOpsSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679833818"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse%27"><span class="hs-identifier hs-type">GetOpsSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679835597"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetOpsSummaryResponse' :: GetOpsSummaryResponse -&gt; Int
-</span><a href="#local-6989586621679833818"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833818"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679833817"><span class="annot"><span class="annottext">s :: GetOpsSummaryResponse
-</span><a href="#local-6989586621679833817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse%27"><span class="hs-identifier hs-type">GetOpsSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679833816"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsSummaryResponse
-</span><a href="#local-6989586621679833817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetOpsSummaryResponse' :: Int
+</span><a href="#local-6989586621679835597"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835597"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679835596"><span class="annot"><span class="annottext">s :: GetOpsSummaryResponse
+</span><a href="#local-6989586621679835596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse%27"><span class="hs-identifier hs-type">GetOpsSummaryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679835595"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679835595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetOpsSummaryResponse
+</span><a href="#local-6989586621679835596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetOpsSummaryResponse' :: Int
 </span><a href="Network.AWS.SSM.GetOpsSummary.html#%24sel%3AhttpStatus%3AGetOpsSummaryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679833816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse"><span class="hs-identifier hs-type">GetOpsSummaryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679835595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse"><span class="hs-identifier hs-type">GetOpsSummaryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-265"></span><span>
-</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679833814"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse"><span class="hs-identifier hs-type">GetOpsSummaryResponse</span></a></span></span><span>
+</span><span id="line-266"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679835593"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.GetOpsSummary.html#GetOpsSummaryResponse"><span class="hs-identifier hs-type">GetOpsSummaryResponse</span></a></span></span><span>
 </span><span id="line-267"></span></pre></body></html>

@@ -28,8 +28,8 @@
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#createFlowDefinition_humanLoopRequestSource"><span class="hs-identifier">createFlowDefinition_humanLoopRequestSource</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#createFlowDefinition_tags"><span class="hs-identifier">createFlowDefinition_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#createFlowDefinition_humanLoopActivationConfig"><span class="hs-identifier">createFlowDefinition_humanLoopActivationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#createFlowDefinition_humanLoopActivationConfig"><span class="hs-identifier">createFlowDefinition_humanLoopActivationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#createFlowDefinition_tags"><span class="hs-identifier">createFlowDefinition_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#createFlowDefinition_flowDefinitionName"><span class="hs-identifier">createFlowDefinition_flowDefinitionName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#createFlowDefinition_humanLoopConfig"><span class="hs-identifier">createFlowDefinition_humanLoopConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#createFlowDefinition_outputConfig"><span class="hs-identifier">createFlowDefinition_outputConfig</span></a></span><span class="hs-special">,</span><span>
@@ -53,21 +53,21 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newCreateFlowDefinition' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621680417943"><span id="local-6989586621680417944"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateFlowDefinition"><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-var">CreateFlowDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateFlowDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-var">CreateFlowDefinition'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621680419593"><span id="local-6989586621680419594"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateFlowDefinition"><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-var">CreateFlowDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateFlowDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-var">CreateFlowDefinition'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Container for configuring the source of human task requests. Use to</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- specify if Amazon Rekognition or Amazon Textract is used as an</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- integration source.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AhumanLoopRequestSource%3ACreateFlowDefinition%27"><span class="annot"><span class="annottext">CreateFlowDefinition -&gt; Maybe HumanLoopRequestSource
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AhumanLoopRequestSource%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var hs-var">humanLoopRequestSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource"><span class="hs-identifier hs-type">HumanLoopRequestSource</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | An array of key-value pairs that contain metadata to help you categorize</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- and organize a flow definition. Each tag consists of a key and a value,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- both of which you define.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3Atags%3ACreateFlowDefinition%27"><span class="annot"><span class="annottext">CreateFlowDefinition -&gt; Maybe [Tag]
-</span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3Atags%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | An object containing information about the events that trigger a human</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- workflow.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3AhumanLoopActivationConfig%3ACreateFlowDefinition%27"><span class="annot"><span class="annottext">CreateFlowDefinition -&gt; Maybe HumanLoopActivationConfig
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | An object containing information about the events that trigger a human</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- workflow.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AhumanLoopActivationConfig%3ACreateFlowDefinition%27"><span class="annot"><span class="annottext">CreateFlowDefinition -&gt; Maybe HumanLoopActivationConfig
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AhumanLoopActivationConfig%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var hs-var">humanLoopActivationConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConfig.html#HumanLoopActivationConfig"><span class="hs-identifier hs-type">HumanLoopActivationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | An array of key-value pairs that contain metadata to help you categorize</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- and organize a flow definition. Each tag consists of a key and a value,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- both of which you define.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Atags%3ACreateFlowDefinition%27"><span class="annot"><span class="annottext">CreateFlowDefinition -&gt; Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3Atags%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The name of your flow definition.</span><span>
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AflowDefinitionName%3ACreateFlowDefinition%27"><span class="annot"><span class="annottext">CreateFlowDefinition -&gt; Text
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AflowDefinitionName%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var hs-var">flowDefinitionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -85,7 +85,7 @@
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3AroleArn%3ACreateFlowDefinition%27"><span class="annot"><span class="annottext">CreateFlowDefinition -&gt; Text
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AroleArn%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680417931"><span id="local-6989586621680417933"><span class="annot"><span class="annottext">CreateFlowDefinition -&gt; CreateFlowDefinition -&gt; Bool
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680419581"><span id="local-6989586621680419583"><span class="annot"><span class="annottext">CreateFlowDefinition -&gt; CreateFlowDefinition -&gt; Bool
 (CreateFlowDefinition -&gt; CreateFlowDefinition -&gt; Bool)
 -&gt; (CreateFlowDefinition -&gt; CreateFlowDefinition -&gt; Bool)
 -&gt; Eq CreateFlowDefinition
@@ -94,7 +94,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateFlowDefinition -&gt; CreateFlowDefinition -&gt; Bool
 == :: CreateFlowDefinition -&gt; CreateFlowDefinition -&gt; Bool
 $c== :: CreateFlowDefinition -&gt; CreateFlowDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417922"><span id="local-6989586621680417924"><span id="local-6989586621680417926"><span id="local-6989586621680417928"><span class="annot"><span class="annottext">ReadPrec [CreateFlowDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680419572"><span id="local-6989586621680419574"><span id="local-6989586621680419576"><span id="local-6989586621680419578"><span class="annot"><span class="annottext">ReadPrec [CreateFlowDefinition]
 ReadPrec CreateFlowDefinition
 Int -&gt; ReadS CreateFlowDefinition
 ReadS [CreateFlowDefinition]
@@ -114,7 +114,7 @@ readList :: ReadS [CreateFlowDefinition]
 $creadList :: ReadS [CreateFlowDefinition]
 readsPrec :: Int -&gt; ReadS CreateFlowDefinition
 $creadsPrec :: Int -&gt; ReadS CreateFlowDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417915"><span id="local-6989586621680417917"><span id="local-6989586621680417919"><span class="annot"><span class="annottext">Int -&gt; CreateFlowDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680419565"><span id="local-6989586621680419567"><span id="local-6989586621680419569"><span class="annot"><span class="annottext">Int -&gt; CreateFlowDefinition -&gt; ShowS
 [CreateFlowDefinition] -&gt; ShowS
 CreateFlowDefinition -&gt; String
 (Int -&gt; CreateFlowDefinition -&gt; ShowS)
@@ -152,12 +152,12 @@ $cfrom :: forall x. CreateFlowDefinition -&gt; Rep CreateFlowDefinition x
 </span><span id="line-92"></span><span class="hs-comment">-- specify if Amazon Rekognition or Amazon Textract is used as an</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- integration source.</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'tags', 'createFlowDefinition_tags' - An array of key-value pairs that contain metadata to help you categorize</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- and organize a flow definition. Each tag consists of a key and a value,</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- both of which you define.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'humanLoopActivationConfig', 'createFlowDefinition_humanLoopActivationConfig' - An object containing information about the events that trigger a human</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- workflow.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'humanLoopActivationConfig', 'createFlowDefinition_humanLoopActivationConfig' - An object containing information about the events that trigger a human</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- workflow.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'tags', 'createFlowDefinition_tags' - An array of key-value pairs that contain metadata to help you categorize</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- and organize a flow definition. Each tag consists of a key and a value,</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- both of which you define.</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- 'flowDefinitionName', 'createFlowDefinition_flowDefinitionName' - The name of your flow definition.</span><span>
 </span><span id="line-103"></span><span class="hs-comment">--</span><span>
@@ -186,17 +186,17 @@ $cfrom :: forall x. CreateFlowDefinition -&gt; Rep CreateFlowDefinition x
 -&gt; Text
 -&gt; CreateFlowDefinition
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#newCreateFlowDefinition"><span class="hs-identifier hs-var hs-var">newCreateFlowDefinition</span></a></span></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621680417910"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417910"><span class="hs-identifier hs-var">pFlowDefinitionName_</span></a></span></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621680417909"><span class="annot"><span class="annottext">HumanLoopConfig
-</span><a href="#local-6989586621680417909"><span class="hs-identifier hs-var">pHumanLoopConfig_</span></a></span></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621680417908"><span class="annot"><span class="annottext">FlowDefinitionOutputConfig
-</span><a href="#local-6989586621680417908"><span class="hs-identifier hs-var">pOutputConfig_</span></a></span></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621680417907"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417907"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621680419560"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680419560"><span class="hs-identifier hs-var">pFlowDefinitionName_</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621680419559"><span class="annot"><span class="annottext">HumanLoopConfig
+</span><a href="#local-6989586621680419559"><span class="hs-identifier hs-var">pHumanLoopConfig_</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621680419558"><span class="annot"><span class="annottext">FlowDefinitionOutputConfig
+</span><a href="#local-6989586621680419558"><span class="hs-identifier hs-var">pOutputConfig_</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621680419557"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680419557"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">CreateFlowDefinition' :: Maybe HumanLoopRequestSource
--&gt; Maybe [Tag]
 -&gt; Maybe HumanLoopActivationConfig
+-&gt; Maybe [Tag]
 -&gt; Text
 -&gt; HumanLoopConfig
 -&gt; FlowDefinitionOutputConfig
@@ -208,26 +208,26 @@ $cfrom :: forall x. CreateFlowDefinition -&gt; Rep CreateFlowDefinition x
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe HumanLoopRequestSource
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateFlowDefinition' :: Maybe [Tag]
-</span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3Atags%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:humanLoopActivationConfig:CreateFlowDefinition' :: Maybe HumanLoopActivationConfig
+</span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AhumanLoopActivationConfig%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var">humanLoopActivationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HumanLoopActivationConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">$sel:humanLoopActivationConfig:CreateFlowDefinition' :: Maybe HumanLoopActivationConfig
-</span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AhumanLoopActivationConfig%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var">humanLoopActivationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HumanLoopActivationConfig
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateFlowDefinition' :: Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3Atags%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">$sel:flowDefinitionName:CreateFlowDefinition' :: Text
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AflowDefinitionName%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var">flowDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417910"><span class="hs-identifier hs-var">pFlowDefinitionName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680419560"><span class="hs-identifier hs-var">pFlowDefinitionName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">$sel:humanLoopConfig:CreateFlowDefinition' :: HumanLoopConfig
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AhumanLoopConfig%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var">humanLoopConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HumanLoopConfig
-</span><a href="#local-6989586621680417909"><span class="hs-identifier hs-var">pHumanLoopConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680419559"><span class="hs-identifier hs-var">pHumanLoopConfig_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputConfig:CreateFlowDefinition' :: FlowDefinitionOutputConfig
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AoutputConfig%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var">outputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FlowDefinitionOutputConfig
-</span><a href="#local-6989586621680417908"><span class="hs-identifier hs-var">pOutputConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680419558"><span class="hs-identifier hs-var">pOutputConfig_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:CreateFlowDefinition' :: Text
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AroleArn%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417907"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><a href="#local-6989586621680419557"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | Container for configuring the source of human task requests. Use to</span><span>
@@ -245,22 +245,48 @@ forall a. Maybe a
      (Maybe HumanLoopRequestSource)
      (Maybe HumanLoopRequestSource)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417904"><span class="annot"><span class="annottext">Maybe HumanLoopRequestSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419554"><span class="annot"><span class="annottext">Maybe HumanLoopRequestSource
 humanLoopRequestSource :: Maybe HumanLoopRequestSource
 $sel:humanLoopRequestSource:CreateFlowDefinition' :: CreateFlowDefinition -&gt; Maybe HumanLoopRequestSource
-</span><a href="#local-6989586621680417904"><span class="hs-identifier hs-var hs-var">humanLoopRequestSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HumanLoopRequestSource
-</span><a href="#local-6989586621680417904"><span class="hs-identifier hs-var">humanLoopRequestSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417903"><span class="annot"><span class="annottext">s :: CreateFlowDefinition
-</span><a href="#local-6989586621680417903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417902"><span class="annot"><span class="annottext">Maybe HumanLoopRequestSource
-</span><a href="#local-6989586621680417902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowDefinition
-</span><a href="#local-6989586621680417903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:humanLoopRequestSource:CreateFlowDefinition' :: Maybe HumanLoopRequestSource
+</span><a href="#local-6989586621680419554"><span class="hs-identifier hs-var hs-var">humanLoopRequestSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HumanLoopRequestSource
+</span><a href="#local-6989586621680419554"><span class="hs-identifier hs-var">humanLoopRequestSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419553"><span class="annot"><span class="annottext">s :: CreateFlowDefinition
+</span><a href="#local-6989586621680419553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419552"><span class="annot"><span class="annottext">Maybe HumanLoopRequestSource
+</span><a href="#local-6989586621680419552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowDefinition
+</span><a href="#local-6989586621680419553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:humanLoopRequestSource:CreateFlowDefinition' :: Maybe HumanLoopRequestSource
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AhumanLoopRequestSource%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var">humanLoopRequestSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HumanLoopRequestSource
-</span><a href="#local-6989586621680417902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680419552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- | An array of key-value pairs that contain metadata to help you categorize</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- and organize a flow definition. Each tag consists of a key and a value,</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- both of which you define.</span><span>
-</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#createFlowDefinition_tags"><span class="hs-identifier hs-type">createFlowDefinition_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span id="createFlowDefinition_tags"><span class="annot"><span class="annottext">createFlowDefinition_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><span id="line-145"></span><span class="hs-comment">-- | An object containing information about the events that trigger a human</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- workflow.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#createFlowDefinition_humanLoopActivationConfig"><span class="hs-identifier hs-type">createFlowDefinition_humanLoopActivationConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConfig.html#HumanLoopActivationConfig"><span class="hs-identifier hs-type">HumanLoopActivationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="createFlowDefinition_humanLoopActivationConfig"><span class="annot"><span class="annottext">createFlowDefinition_humanLoopActivationConfig :: (Maybe HumanLoopActivationConfig
+ -&gt; f (Maybe HumanLoopActivationConfig))
+-&gt; CreateFlowDefinition -&gt; f CreateFlowDefinition
+</span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#createFlowDefinition_humanLoopActivationConfig"><span class="hs-identifier hs-var hs-var">createFlowDefinition_humanLoopActivationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowDefinition -&gt; Maybe HumanLoopActivationConfig)
+-&gt; (CreateFlowDefinition
+    -&gt; Maybe HumanLoopActivationConfig -&gt; CreateFlowDefinition)
+-&gt; Lens
+     CreateFlowDefinition
+     CreateFlowDefinition
+     (Maybe HumanLoopActivationConfig)
+     (Maybe HumanLoopActivationConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419551"><span class="annot"><span class="annottext">Maybe HumanLoopActivationConfig
+humanLoopActivationConfig :: Maybe HumanLoopActivationConfig
+$sel:humanLoopActivationConfig:CreateFlowDefinition' :: CreateFlowDefinition -&gt; Maybe HumanLoopActivationConfig
+</span><a href="#local-6989586621680419551"><span class="hs-identifier hs-var hs-var">humanLoopActivationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HumanLoopActivationConfig
+</span><a href="#local-6989586621680419551"><span class="hs-identifier hs-var">humanLoopActivationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419550"><span class="annot"><span class="annottext">s :: CreateFlowDefinition
+</span><a href="#local-6989586621680419550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419549"><span class="annot"><span class="annottext">Maybe HumanLoopActivationConfig
+</span><a href="#local-6989586621680419549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowDefinition
+</span><a href="#local-6989586621680419550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:humanLoopActivationConfig:CreateFlowDefinition' :: Maybe HumanLoopActivationConfig
+</span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AhumanLoopActivationConfig%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var">humanLoopActivationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HumanLoopActivationConfig
+</span><a href="#local-6989586621680419549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | An array of key-value pairs that contain metadata to help you categorize</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- and organize a flow definition. Each tag consists of a key and a value,</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- both of which you define.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#createFlowDefinition_tags"><span class="hs-identifier hs-type">createFlowDefinition_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="createFlowDefinition_tags"><span class="annot"><span class="annottext">createFlowDefinition_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; CreateFlowDefinition -&gt; f CreateFlowDefinition
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#createFlowDefinition_tags"><span class="hs-identifier hs-var hs-var">createFlowDefinition_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowDefinition -&gt; Maybe [Tag])
 -&gt; (CreateFlowDefinition -&gt; Maybe [Tag] -&gt; CreateFlowDefinition)
@@ -270,16 +296,16 @@ $sel:humanLoopRequestSource:CreateFlowDefinition' :: CreateFlowDefinition -&gt; 
      (Maybe [Tag])
      (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417901"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419548"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateFlowDefinition' :: CreateFlowDefinition -&gt; Maybe [Tag]
-</span><a href="#local-6989586621680417901"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680417901"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417900"><span class="annot"><span class="annottext">s :: CreateFlowDefinition
-</span><a href="#local-6989586621680417900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417899"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680417899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowDefinition
-</span><a href="#local-6989586621680417900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateFlowDefinition' :: Maybe [Tag]
+</span><a href="#local-6989586621680419548"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680419548"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419547"><span class="annot"><span class="annottext">s :: CreateFlowDefinition
+</span><a href="#local-6989586621680419547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419546"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680419546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowDefinition
+</span><a href="#local-6989586621680419547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateFlowDefinition' :: Maybe [Tag]
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3Atags%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680417899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621680419546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateFlowDefinition -&gt; f CreateFlowDefinition)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -293,34 +319,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- | An object containing information about the events that trigger a human</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- workflow.</span><span>
-</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#createFlowDefinition_humanLoopActivationConfig"><span class="hs-identifier hs-type">createFlowDefinition_humanLoopActivationConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopActivationConfig.html#HumanLoopActivationConfig"><span class="hs-identifier hs-type">HumanLoopActivationConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span id="createFlowDefinition_humanLoopActivationConfig"><span class="annot"><span class="annottext">createFlowDefinition_humanLoopActivationConfig :: (Maybe HumanLoopActivationConfig
- -&gt; f (Maybe HumanLoopActivationConfig))
--&gt; CreateFlowDefinition -&gt; f CreateFlowDefinition
-</span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#createFlowDefinition_humanLoopActivationConfig"><span class="hs-identifier hs-var hs-var">createFlowDefinition_humanLoopActivationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateFlowDefinition -&gt; Maybe HumanLoopActivationConfig)
--&gt; (CreateFlowDefinition
-    -&gt; Maybe HumanLoopActivationConfig -&gt; CreateFlowDefinition)
--&gt; Lens
-     CreateFlowDefinition
-     CreateFlowDefinition
-     (Maybe HumanLoopActivationConfig)
-     (Maybe HumanLoopActivationConfig)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417895"><span class="annot"><span class="annottext">Maybe HumanLoopActivationConfig
-humanLoopActivationConfig :: Maybe HumanLoopActivationConfig
-$sel:humanLoopActivationConfig:CreateFlowDefinition' :: CreateFlowDefinition -&gt; Maybe HumanLoopActivationConfig
-</span><a href="#local-6989586621680417895"><span class="hs-identifier hs-var hs-var">humanLoopActivationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HumanLoopActivationConfig
-</span><a href="#local-6989586621680417895"><span class="hs-identifier hs-var">humanLoopActivationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417894"><span class="annot"><span class="annottext">s :: CreateFlowDefinition
-</span><a href="#local-6989586621680417894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417893"><span class="annot"><span class="annottext">Maybe HumanLoopActivationConfig
-</span><a href="#local-6989586621680417893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowDefinition
-</span><a href="#local-6989586621680417894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:humanLoopActivationConfig:CreateFlowDefinition' :: Maybe HumanLoopActivationConfig
-</span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AhumanLoopActivationConfig%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var">humanLoopActivationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HumanLoopActivationConfig
-</span><a href="#local-6989586621680417893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The name of your flow definition.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#createFlowDefinition_flowDefinitionName"><span class="hs-identifier hs-type">createFlowDefinition_flowDefinitionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -329,16 +329,16 @@ $sel:humanLoopActivationConfig:CreateFlowDefinition' :: CreateFlowDefinition -&g
 -&gt; (CreateFlowDefinition -&gt; Text -&gt; CreateFlowDefinition)
 -&gt; Lens CreateFlowDefinition CreateFlowDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417892"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419542"><span class="annot"><span class="annottext">Text
 flowDefinitionName :: Text
 $sel:flowDefinitionName:CreateFlowDefinition' :: CreateFlowDefinition -&gt; Text
-</span><a href="#local-6989586621680417892"><span class="hs-identifier hs-var hs-var">flowDefinitionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417892"><span class="hs-identifier hs-var">flowDefinitionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417891"><span class="annot"><span class="annottext">s :: CreateFlowDefinition
-</span><a href="#local-6989586621680417891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417890"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowDefinition
-</span><a href="#local-6989586621680417891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowDefinitionName:CreateFlowDefinition' :: Text
+</span><a href="#local-6989586621680419542"><span class="hs-identifier hs-var hs-var">flowDefinitionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680419542"><span class="hs-identifier hs-var">flowDefinitionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419541"><span class="annot"><span class="annottext">s :: CreateFlowDefinition
+</span><a href="#local-6989586621680419541"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419540"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680419540"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowDefinition
+</span><a href="#local-6989586621680419541"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowDefinitionName:CreateFlowDefinition' :: Text
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AflowDefinitionName%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var">flowDefinitionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680419540"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | An object containing information about the tasks the human reviewers</span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- will perform.</span><span>
@@ -354,16 +354,16 @@ $sel:flowDefinitionName:CreateFlowDefinition' :: CreateFlowDefinition -&gt; Text
      HumanLoopConfig
      HumanLoopConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417889"><span class="annot"><span class="annottext">HumanLoopConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419539"><span class="annot"><span class="annottext">HumanLoopConfig
 humanLoopConfig :: HumanLoopConfig
 $sel:humanLoopConfig:CreateFlowDefinition' :: CreateFlowDefinition -&gt; HumanLoopConfig
-</span><a href="#local-6989586621680417889"><span class="hs-identifier hs-var hs-var">humanLoopConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanLoopConfig
-</span><a href="#local-6989586621680417889"><span class="hs-identifier hs-var">humanLoopConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417888"><span class="annot"><span class="annottext">s :: CreateFlowDefinition
-</span><a href="#local-6989586621680417888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417887"><span class="annot"><span class="annottext">HumanLoopConfig
-</span><a href="#local-6989586621680417887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowDefinition
-</span><a href="#local-6989586621680417888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:humanLoopConfig:CreateFlowDefinition' :: HumanLoopConfig
+</span><a href="#local-6989586621680419539"><span class="hs-identifier hs-var hs-var">humanLoopConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanLoopConfig
+</span><a href="#local-6989586621680419539"><span class="hs-identifier hs-var">humanLoopConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419538"><span class="annot"><span class="annottext">s :: CreateFlowDefinition
+</span><a href="#local-6989586621680419538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419537"><span class="annot"><span class="annottext">HumanLoopConfig
+</span><a href="#local-6989586621680419537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowDefinition
+</span><a href="#local-6989586621680419538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:humanLoopConfig:CreateFlowDefinition' :: HumanLoopConfig
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AhumanLoopConfig%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var">humanLoopConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HumanLoopConfig
-</span><a href="#local-6989586621680417887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680419537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | An object containing information about where the human review results</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- will be uploaded.</span><span>
@@ -379,16 +379,16 @@ $sel:humanLoopConfig:CreateFlowDefinition' :: CreateFlowDefinition -&gt; HumanLo
      FlowDefinitionOutputConfig
      FlowDefinitionOutputConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417886"><span class="annot"><span class="annottext">FlowDefinitionOutputConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419536"><span class="annot"><span class="annottext">FlowDefinitionOutputConfig
 outputConfig :: FlowDefinitionOutputConfig
 $sel:outputConfig:CreateFlowDefinition' :: CreateFlowDefinition -&gt; FlowDefinitionOutputConfig
-</span><a href="#local-6989586621680417886"><span class="hs-identifier hs-var hs-var">outputConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlowDefinitionOutputConfig
-</span><a href="#local-6989586621680417886"><span class="hs-identifier hs-var">outputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417885"><span class="annot"><span class="annottext">s :: CreateFlowDefinition
-</span><a href="#local-6989586621680417885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417884"><span class="annot"><span class="annottext">FlowDefinitionOutputConfig
-</span><a href="#local-6989586621680417884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowDefinition
-</span><a href="#local-6989586621680417885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputConfig:CreateFlowDefinition' :: FlowDefinitionOutputConfig
+</span><a href="#local-6989586621680419536"><span class="hs-identifier hs-var hs-var">outputConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FlowDefinitionOutputConfig
+</span><a href="#local-6989586621680419536"><span class="hs-identifier hs-var">outputConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419535"><span class="annot"><span class="annottext">s :: CreateFlowDefinition
+</span><a href="#local-6989586621680419535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419534"><span class="annot"><span class="annottext">FlowDefinitionOutputConfig
+</span><a href="#local-6989586621680419534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowDefinition
+</span><a href="#local-6989586621680419535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputConfig:CreateFlowDefinition' :: FlowDefinitionOutputConfig
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AoutputConfig%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var">outputConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FlowDefinitionOutputConfig
-</span><a href="#local-6989586621680417884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680419534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the role needed to call other services</span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- on your behalf. For example,</span><span>
@@ -399,27 +399,27 @@ $sel:outputConfig:CreateFlowDefinition' :: CreateFlowDefinition -&gt; FlowDefini
 -&gt; (CreateFlowDefinition -&gt; Text -&gt; CreateFlowDefinition)
 -&gt; Lens CreateFlowDefinition CreateFlowDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417883"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419533"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:CreateFlowDefinition' :: CreateFlowDefinition -&gt; Text
-</span><a href="#local-6989586621680417883"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417883"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417882"><span class="annot"><span class="annottext">s :: CreateFlowDefinition
-</span><a href="#local-6989586621680417882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417881"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowDefinition
-</span><a href="#local-6989586621680417882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateFlowDefinition' :: Text
+</span><a href="#local-6989586621680419533"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680419533"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419532"><span class="annot"><span class="annottext">s :: CreateFlowDefinition
+</span><a href="#local-6989586621680419532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419531"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680419531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowDefinition
+</span><a href="#local-6989586621680419532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:CreateFlowDefinition' :: Text
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AroleArn%3ACreateFlowDefinition%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680419531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-178"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse"><span class="hs-identifier hs-type">CreateFlowDefinitionResponse</span></a></span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621680417877"><span class="annot"><span class="annottext">request :: CreateFlowDefinition -&gt; Request CreateFlowDefinition
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621680419527"><span class="annot"><span class="annottext">request :: CreateFlowDefinition -&gt; Request CreateFlowDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateFlowDefinition -&gt; Request CreateFlowDefinition
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621680417873"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621680419523"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateFlowDefinition
 -&gt; ClientResponse ClientBody
@@ -445,10 +445,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680417870"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680417870"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680417869"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680417869"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680417868"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680417868"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680419520"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680419520"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680419519"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680419519"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680419518"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680419518"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateFlowDefinitionResponse
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse%27"><span class="hs-identifier hs-var">CreateFlowDefinitionResponse'</span></a></span><span>
 </span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateFlowDefinitionResponse)
@@ -460,23 +460,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680417870"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680419520"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateFlowDefinitionResponse)
 -&gt; Either String Text -&gt; Either String CreateFlowDefinitionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680417868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621680419518"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FlowDefinitionArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680417860"><span id="local-6989586621680417862"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680419510"><span id="local-6989586621680419512"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span></span></span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680417857"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680419507"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span></span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621680417853"><span class="annot"><span class="annottext">toHeaders :: CreateFlowDefinition -&gt; ResponseHeaders
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621680419503"><span class="annot"><span class="annottext">toHeaders :: CreateFlowDefinition -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateFlowDefinition -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -503,9 +503,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-205"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-206"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680417843"><span id="local-6989586621680417845"><span id="local-6989586621680417847"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-209"></span><span>  </span><span id="local-6989586621680417841"><span class="annot"><span class="annottext">toJSON :: CreateFlowDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417833"><span id="local-6989586621680417834"><span id="local-6989586621680417835"><span id="local-6989586621680417836"><span id="local-6989586621680417837"><span id="local-6989586621680417838"><span id="local-6989586621680417839"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680419493"><span id="local-6989586621680419495"><span id="local-6989586621680419497"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621680419491"><span class="annot"><span class="annottext">toJSON :: CreateFlowDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition%27"><span class="hs-identifier hs-type">CreateFlowDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419483"><span id="local-6989586621680419484"><span id="local-6989586621680419485"><span id="local-6989586621680419486"><span id="local-6989586621680419487"><span id="local-6989586621680419488"><span id="local-6989586621680419489"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe HumanLoopActivationConfig
 Maybe HumanLoopRequestSource
 Text
@@ -515,17 +515,17 @@ roleArn :: Text
 outputConfig :: FlowDefinitionOutputConfig
 humanLoopConfig :: HumanLoopConfig
 flowDefinitionName :: Text
-humanLoopActivationConfig :: Maybe HumanLoopActivationConfig
 tags :: Maybe [Tag]
+humanLoopActivationConfig :: Maybe HumanLoopActivationConfig
 humanLoopRequestSource :: Maybe HumanLoopRequestSource
 $sel:roleArn:CreateFlowDefinition' :: CreateFlowDefinition -&gt; Text
 $sel:outputConfig:CreateFlowDefinition' :: CreateFlowDefinition -&gt; FlowDefinitionOutputConfig
 $sel:humanLoopConfig:CreateFlowDefinition' :: CreateFlowDefinition -&gt; HumanLoopConfig
 $sel:flowDefinitionName:CreateFlowDefinition' :: CreateFlowDefinition -&gt; Text
-$sel:humanLoopActivationConfig:CreateFlowDefinition' :: CreateFlowDefinition -&gt; Maybe HumanLoopActivationConfig
 $sel:tags:CreateFlowDefinition' :: CreateFlowDefinition -&gt; Maybe [Tag]
+$sel:humanLoopActivationConfig:CreateFlowDefinition' :: CreateFlowDefinition -&gt; Maybe HumanLoopActivationConfig
 $sel:humanLoopRequestSource:CreateFlowDefinition' :: CreateFlowDefinition -&gt; Maybe HumanLoopRequestSource
-</span><a href="#local-6989586621680417833"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680419483"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-211"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -539,23 +539,23 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe HumanLoopRequestSource -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HumanLoopRequestSource
-</span><a href="#local-6989586621680417839"><span class="hs-identifier hs-var">humanLoopRequestSource</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680419489"><span class="hs-identifier hs-var">humanLoopRequestSource</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-214"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HumanLoopActivationConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HumanLoopActivationConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>              </span><span class="annot"><span class="annottext">(HumanLoopActivationConfig -&gt; Pair)
+-&gt; Maybe HumanLoopActivationConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HumanLoopActivationConfig
+</span><a href="#local-6989586621680419488"><span class="hs-identifier hs-var">humanLoopActivationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680417838"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;HumanLoopActivationConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HumanLoopActivationConfig -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-216"></span><span>              </span><span class="annot"><span class="annottext">(HumanLoopActivationConfig -&gt; Pair)
--&gt; Maybe HumanLoopActivationConfig -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HumanLoopActivationConfig
-</span><a href="#local-6989586621680417837"><span class="hs-identifier hs-var">humanLoopActivationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680419487"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -563,7 +563,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;FlowDefinitionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417836"><span class="hs-identifier hs-var">flowDefinitionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680419486"><span class="hs-identifier hs-var">flowDefinitionName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -571,33 +571,33 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;HumanLoopConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HumanLoopConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HumanLoopConfig
-</span><a href="#local-6989586621680417835"><span class="hs-identifier hs-var">humanLoopConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680419485"><span class="hs-identifier hs-var">humanLoopConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OutputConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FlowDefinitionOutputConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">FlowDefinitionOutputConfig
-</span><a href="#local-6989586621680417834"><span class="hs-identifier hs-var">outputConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680419484"><span class="hs-identifier hs-var">outputConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417833"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680419483"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-224"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621680417827"><span class="annot"><span class="annottext">toPath :: CreateFlowDefinition -&gt; ByteString
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621680419477"><span class="annot"><span class="annottext">toPath :: CreateFlowDefinition -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateFlowDefinition -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinition"><span class="hs-identifier hs-type">CreateFlowDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-230"></span><span>  </span><span id="local-6989586621680417823"><span class="annot"><span class="annottext">toQuery :: CreateFlowDefinition -&gt; QueryString
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621680419473"><span class="annot"><span class="annottext">toQuery :: CreateFlowDefinition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateFlowDefinition -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -605,7 +605,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-231"></span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- | /See:/ 'newCreateFlowDefinitionResponse' smart constructor.</span><span>
-</span><span id="line-233"></span><span id="local-6989586621680417820"><span id="local-6989586621680417821"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateFlowDefinitionResponse"><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse"><span class="hs-identifier hs-var">CreateFlowDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateFlowDefinitionResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse%27"><span class="hs-identifier hs-var">CreateFlowDefinitionResponse'</span></a></span></span><span>
+</span><span id="line-233"></span><span id="local-6989586621680419470"><span id="local-6989586621680419471"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateFlowDefinitionResponse"><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse"><span class="hs-identifier hs-var">CreateFlowDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateFlowDefinitionResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse%27"><span class="hs-identifier hs-var">CreateFlowDefinitionResponse'</span></a></span></span><span>
 </span><span id="line-234"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-235"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateFlowDefinitionResponse%27"><span class="annot"><span class="annottext">CreateFlowDefinitionResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AhttpStatus%3ACreateFlowDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -613,7 +613,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-237"></span><span>    </span><span id="%24sel%3AflowDefinitionArn%3ACreateFlowDefinitionResponse%27"><span class="annot"><span class="annottext">CreateFlowDefinitionResponse -&gt; Text
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AflowDefinitionArn%3ACreateFlowDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">flowDefinitionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-238"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-239"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680417814"><span id="local-6989586621680417816"><span class="annot"><span class="annottext">CreateFlowDefinitionResponse
+</span><span id="line-239"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680419464"><span id="local-6989586621680419466"><span class="annot"><span class="annottext">CreateFlowDefinitionResponse
 -&gt; CreateFlowDefinitionResponse -&gt; Bool
 (CreateFlowDefinitionResponse
  -&gt; CreateFlowDefinitionResponse -&gt; Bool)
@@ -629,7 +629,7 @@ $c/= :: CreateFlowDefinitionResponse
 -&gt; CreateFlowDefinitionResponse -&gt; Bool
 $c== :: CreateFlowDefinitionResponse
 -&gt; CreateFlowDefinitionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417806"><span id="local-6989586621680417808"><span id="local-6989586621680417810"><span id="local-6989586621680417812"><span class="annot"><span class="annottext">ReadPrec [CreateFlowDefinitionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680419456"><span id="local-6989586621680419458"><span id="local-6989586621680419460"><span id="local-6989586621680419462"><span class="annot"><span class="annottext">ReadPrec [CreateFlowDefinitionResponse]
 ReadPrec CreateFlowDefinitionResponse
 Int -&gt; ReadS CreateFlowDefinitionResponse
 ReadS [CreateFlowDefinitionResponse]
@@ -649,7 +649,7 @@ readList :: ReadS [CreateFlowDefinitionResponse]
 $creadList :: ReadS [CreateFlowDefinitionResponse]
 readsPrec :: Int -&gt; ReadS CreateFlowDefinitionResponse
 $creadsPrec :: Int -&gt; ReadS CreateFlowDefinitionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680417800"><span id="local-6989586621680417802"><span id="local-6989586621680417804"><span class="annot"><span class="annottext">Int -&gt; CreateFlowDefinitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680419450"><span id="local-6989586621680419452"><span id="local-6989586621680419454"><span class="annot"><span class="annottext">Int -&gt; CreateFlowDefinitionResponse -&gt; ShowS
 [CreateFlowDefinitionResponse] -&gt; ShowS
 CreateFlowDefinitionResponse -&gt; String
 (Int -&gt; CreateFlowDefinitionResponse -&gt; ShowS)
@@ -700,19 +700,19 @@ CreateFlowDefinitionResponse -&gt; Rep CreateFlowDefinitionResponse x
 </span><span id="line-257"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse"><span class="hs-identifier hs-type">CreateFlowDefinitionResponse</span></a></span><span>
 </span><span id="line-258"></span><span id="newCreateFlowDefinitionResponse"><span class="annot"><span class="annottext">newCreateFlowDefinitionResponse :: Int -&gt; Text -&gt; CreateFlowDefinitionResponse
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#newCreateFlowDefinitionResponse"><span class="hs-identifier hs-var hs-var">newCreateFlowDefinitionResponse</span></a></span></span><span>
-</span><span id="line-259"></span><span>  </span><span id="local-6989586621680417797"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680417797"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-260"></span><span>  </span><span id="local-6989586621680417796"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417796"><span class="hs-identifier hs-var">pFlowDefinitionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-259"></span><span>  </span><span id="local-6989586621680419447"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680419447"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621680419446"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680419446"><span class="hs-identifier hs-var">pFlowDefinitionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-261"></span><span>    </span><span class="annot"><span class="annottext">CreateFlowDefinitionResponse' :: Int -&gt; Text -&gt; CreateFlowDefinitionResponse
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse%27"><span class="hs-identifier hs-type">CreateFlowDefinitionResponse'</span></a></span><span>
 </span><span id="line-262"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateFlowDefinitionResponse' :: Int
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AhttpStatus%3ACreateFlowDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-263"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680417797"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680419447"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">$sel:flowDefinitionArn:CreateFlowDefinitionResponse' :: Text
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AflowDefinitionArn%3ACreateFlowDefinitionResponse%27"><span class="hs-identifier hs-var">flowDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417796"><span class="hs-identifier hs-var">pFlowDefinitionArn_</span></a></span><span>
+</span><a href="#local-6989586621680419446"><span class="hs-identifier hs-var">pFlowDefinitionArn_</span></a></span><span>
 </span><span id="line-265"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -725,16 +725,16 @@ CreateFlowDefinitionResponse -&gt; Rep CreateFlowDefinitionResponse x
 -&gt; Lens
      CreateFlowDefinitionResponse CreateFlowDefinitionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse%27"><span class="hs-identifier hs-type">CreateFlowDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417795"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse%27"><span class="hs-identifier hs-type">CreateFlowDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419445"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateFlowDefinitionResponse' :: CreateFlowDefinitionResponse -&gt; Int
-</span><a href="#local-6989586621680417795"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680417795"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417794"><span class="annot"><span class="annottext">s :: CreateFlowDefinitionResponse
-</span><a href="#local-6989586621680417794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse%27"><span class="hs-identifier hs-type">CreateFlowDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417793"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680417793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowDefinitionResponse
-</span><a href="#local-6989586621680417794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateFlowDefinitionResponse' :: Int
+</span><a href="#local-6989586621680419445"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680419445"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419444"><span class="annot"><span class="annottext">s :: CreateFlowDefinitionResponse
+</span><a href="#local-6989586621680419444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse%27"><span class="hs-identifier hs-type">CreateFlowDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419443"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680419443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowDefinitionResponse
+</span><a href="#local-6989586621680419444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateFlowDefinitionResponse' :: Int
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AhttpStatus%3ACreateFlowDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680417793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse"><span class="hs-identifier hs-type">CreateFlowDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680419443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse"><span class="hs-identifier hs-type">CreateFlowDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>
 </span><span id="line-271"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the flow definition you create.</span><span>
 </span><span id="line-272"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#createFlowDefinitionResponse_flowDefinitionArn"><span class="hs-identifier hs-type">createFlowDefinitionResponse_flowDefinitionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse"><span class="hs-identifier hs-type">CreateFlowDefinitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -746,16 +746,16 @@ $sel:httpStatus:CreateFlowDefinitionResponse' :: CreateFlowDefinitionResponse -&
 -&gt; Lens
      CreateFlowDefinitionResponse CreateFlowDefinitionResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse%27"><span class="hs-identifier hs-type">CreateFlowDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680417792"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse%27"><span class="hs-identifier hs-type">CreateFlowDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680419442"><span class="annot"><span class="annottext">Text
 flowDefinitionArn :: Text
 $sel:flowDefinitionArn:CreateFlowDefinitionResponse' :: CreateFlowDefinitionResponse -&gt; Text
-</span><a href="#local-6989586621680417792"><span class="hs-identifier hs-var hs-var">flowDefinitionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417792"><span class="hs-identifier hs-var">flowDefinitionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680417791"><span class="annot"><span class="annottext">s :: CreateFlowDefinitionResponse
-</span><a href="#local-6989586621680417791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse%27"><span class="hs-identifier hs-type">CreateFlowDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680417790"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowDefinitionResponse
-</span><a href="#local-6989586621680417791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowDefinitionArn:CreateFlowDefinitionResponse' :: Text
+</span><a href="#local-6989586621680419442"><span class="hs-identifier hs-var hs-var">flowDefinitionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680419442"><span class="hs-identifier hs-var">flowDefinitionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680419441"><span class="annot"><span class="annottext">s :: CreateFlowDefinitionResponse
+</span><a href="#local-6989586621680419441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse%27"><span class="hs-identifier hs-type">CreateFlowDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680419440"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680419440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateFlowDefinitionResponse
+</span><a href="#local-6989586621680419441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowDefinitionArn:CreateFlowDefinitionResponse' :: Text
 </span><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#%24sel%3AflowDefinitionArn%3ACreateFlowDefinitionResponse%27"><span class="hs-identifier hs-var">flowDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680417790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse"><span class="hs-identifier hs-type">CreateFlowDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680419440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse"><span class="hs-identifier hs-type">CreateFlowDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-274"></span><span>
-</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680417788"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse"><span class="hs-identifier hs-type">CreateFlowDefinitionResponse</span></a></span></span><span>
+</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680419438"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateFlowDefinition.html#CreateFlowDefinitionResponse"><span class="hs-identifier hs-type">CreateFlowDefinitionResponse</span></a></span></span><span>
 </span><span id="line-276"></span></pre></body></html>

@@ -30,10 +30,10 @@
 </span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#newDescribeReplicationTasks"><span class="hs-identifier">newDescribeReplicationTasks</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_withoutSettings"><span class="hs-identifier">describeReplicationTasks_withoutSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_filters"><span class="hs-identifier">describeReplicationTasks_filters</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_maxRecords"><span class="hs-identifier">describeReplicationTasks_maxRecords</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_marker"><span class="hs-identifier">describeReplicationTasks_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_filters"><span class="hs-identifier">describeReplicationTasks_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_withoutSettings"><span class="hs-identifier">describeReplicationTasks_withoutSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_marker"><span class="hs-identifier">describeReplicationTasks_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_maxRecords"><span class="hs-identifier">describeReplicationTasks_maxRecords</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse"><span class="hs-identifier">DescribeReplicationTasksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -56,35 +56,35 @@
 </span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newDescribeReplicationTasks' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679447783"><span id="local-6989586621679447784"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeReplicationTasks"><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-var">DescribeReplicationTasks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeReplicationTasks%27"><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-var">DescribeReplicationTasks'</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An option to set to avoid returning information about settings. Use this</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- to reduce overhead when setting information is too large. To use this</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- option, choose @true@; otherwise, choose @false@ (the default).</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AwithoutSettings%3ADescribeReplicationTasks%27"><span class="annot"><span class="annottext">DescribeReplicationTasks -&gt; Maybe Bool
-</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3AwithoutSettings%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var hs-var">withoutSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | Filters applied to replication tasks.</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- Valid filter names: replication-task-arn | replication-task-id |</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- migration-type | endpoint-arn | replication-instance-arn</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeReplicationTasks%27"><span class="annot"><span class="annottext">DescribeReplicationTasks -&gt; Maybe [Filter]
+</span><span id="line-59"></span><span id="local-6989586621679448082"><span id="local-6989586621679448083"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeReplicationTasks"><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-var">DescribeReplicationTasks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeReplicationTasks%27"><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-var">DescribeReplicationTasks'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Filters applied to replication tasks.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Valid filter names: replication-task-arn | replication-task-id |</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- migration-type | endpoint-arn | replication-instance-arn</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeReplicationTasks%27"><span class="annot"><span class="annottext">DescribeReplicationTasks -&gt; Maybe [Filter]
 </span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3Afilters%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- results can be retrieved.</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- Default: 100</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
-</span><span id="line-77"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeReplicationTasks%27"><span class="annot"><span class="annottext">DescribeReplicationTasks -&gt; Maybe Int
-</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3AmaxRecords%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
-</span><span id="line-81"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeReplicationTasks%27"><span class="annot"><span class="annottext">DescribeReplicationTasks -&gt; Maybe Text
-</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3Amarker%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | An option to set to avoid returning information about settings. Use this</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- to reduce overhead when setting information is too large. To use this</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- option, choose @true@; otherwise, choose @false@ (the default).</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AwithoutSettings%3ADescribeReplicationTasks%27"><span class="annot"><span class="annottext">DescribeReplicationTasks -&gt; Maybe Bool
+</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3AwithoutSettings%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var hs-var">withoutSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeReplicationTasks%27"><span class="annot"><span class="annottext">DescribeReplicationTasks -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3Amarker%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- results can be retrieved.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeReplicationTasks%27"><span class="annot"><span class="annottext">DescribeReplicationTasks -&gt; Maybe Int
+</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3AmaxRecords%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447774"><span id="local-6989586621679447776"><span class="annot"><span class="annottext">DescribeReplicationTasks -&gt; DescribeReplicationTasks -&gt; Bool
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679448073"><span id="local-6989586621679448075"><span class="annot"><span class="annottext">DescribeReplicationTasks -&gt; DescribeReplicationTasks -&gt; Bool
 (DescribeReplicationTasks -&gt; DescribeReplicationTasks -&gt; Bool)
 -&gt; (DescribeReplicationTasks -&gt; DescribeReplicationTasks -&gt; Bool)
 -&gt; Eq DescribeReplicationTasks
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeReplicationTasks -&gt; DescribeReplicationTasks -&gt; Bool
 == :: DescribeReplicationTasks -&gt; DescribeReplicationTasks -&gt; Bool
 $c== :: DescribeReplicationTasks -&gt; DescribeReplicationTasks -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447765"><span id="local-6989586621679447767"><span id="local-6989586621679447769"><span id="local-6989586621679447771"><span class="annot"><span class="annottext">ReadPrec [DescribeReplicationTasks]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448064"><span id="local-6989586621679448066"><span id="local-6989586621679448068"><span id="local-6989586621679448070"><span class="annot"><span class="annottext">ReadPrec [DescribeReplicationTasks]
 ReadPrec DescribeReplicationTasks
 Int -&gt; ReadS DescribeReplicationTasks
 ReadS [DescribeReplicationTasks]
@@ -113,7 +113,7 @@ readList :: ReadS [DescribeReplicationTasks]
 $creadList :: ReadS [DescribeReplicationTasks]
 readsPrec :: Int -&gt; ReadS DescribeReplicationTasks
 $creadsPrec :: Int -&gt; ReadS DescribeReplicationTasks
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447758"><span id="local-6989586621679447760"><span id="local-6989586621679447762"><span class="annot"><span class="annottext">Int -&gt; DescribeReplicationTasks -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448057"><span id="local-6989586621679448059"><span id="local-6989586621679448061"><span class="annot"><span class="annottext">Int -&gt; DescribeReplicationTasks -&gt; ShowS
 [DescribeReplicationTasks] -&gt; ShowS
 DescribeReplicationTasks -&gt; String
 (Int -&gt; DescribeReplicationTasks -&gt; ShowS)
@@ -153,88 +153,62 @@ DescribeReplicationTasks -&gt; Rep DescribeReplicationTasks x
 </span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'withoutSettings', 'describeReplicationTasks_withoutSettings' - An option to set to avoid returning information about settings. Use this</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- to reduce overhead when setting information is too large. To use this</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- option, choose @true@; otherwise, choose @false@ (the default).</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'filters', 'describeReplicationTasks_filters' - Filters applied to replication tasks.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- Valid filter names: replication-task-arn | replication-task-id |</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- migration-type | endpoint-arn | replication-instance-arn</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'filters', 'describeReplicationTasks_filters' - Filters applied to replication tasks.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- Valid filter names: replication-task-arn | replication-task-id |</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- migration-type | endpoint-arn | replication-instance-arn</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'withoutSettings', 'describeReplicationTasks_withoutSettings' - An option to set to avoid returning information about settings. Use this</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- to reduce overhead when setting information is too large. To use this</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- option, choose @true@; otherwise, choose @false@ (the default).</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- 'maxRecords', 'describeReplicationTasks_maxRecords' - The maximum number of records to include in the response. If more</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- results can be retrieved.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- Default: 100</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'marker', 'describeReplicationTasks_marker' - An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'maxRecords', 'describeReplicationTasks_maxRecords' - The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- results can be retrieved.</span><span>
 </span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- 'marker', 'describeReplicationTasks_marker' - An optional pagination token provided by a previous request. If this</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#newDescribeReplicationTasks"><span class="hs-identifier hs-type">newDescribeReplicationTasks</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span>
 </span><span id="line-116"></span><span id="newDescribeReplicationTasks"><span class="annot"><span class="annottext">newDescribeReplicationTasks :: DescribeReplicationTasks
 </span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#newDescribeReplicationTasks"><span class="hs-identifier hs-var hs-var">newDescribeReplicationTasks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">DescribeReplicationTasks' :: Maybe Bool
--&gt; Maybe [Filter]
--&gt; Maybe Int
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">DescribeReplicationTasks' :: Maybe [Filter]
+-&gt; Maybe Bool
 -&gt; Maybe Text
+-&gt; Maybe Int
 -&gt; DescribeReplicationTasks
 </span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span>
-</span><span id="line-118"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:withoutSettings:DescribeReplicationTasks' :: Maybe Bool
-</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3AwithoutSettings%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var">withoutSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-118"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:DescribeReplicationTasks' :: Maybe [Filter]
+</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3Afilters%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Filter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeReplicationTasks' :: Maybe [Filter]
-</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3Afilters%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:withoutSettings:DescribeReplicationTasks' :: Maybe Bool
+</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3AwithoutSettings%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var">withoutSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeReplicationTasks' :: Maybe Int
-</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3AmaxRecords%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeReplicationTasks' :: Maybe Text
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeReplicationTasks' :: Maybe Text
 </span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3Amarker%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeReplicationTasks' :: Maybe Int
+</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3AmaxRecords%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-123"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | An option to set to avoid returning information about settings. Use this</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- to reduce overhead when setting information is too large. To use this</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- option, choose @true@; otherwise, choose @false@ (the default).</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_withoutSettings"><span class="hs-identifier hs-type">describeReplicationTasks_withoutSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span id="describeReplicationTasks_withoutSettings"><span class="annot"><span class="annottext">describeReplicationTasks_withoutSettings :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; DescribeReplicationTasks -&gt; f DescribeReplicationTasks
-</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_withoutSettings"><span class="hs-identifier hs-var hs-var">describeReplicationTasks_withoutSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeReplicationTasks -&gt; Maybe Bool)
--&gt; (DescribeReplicationTasks
-    -&gt; Maybe Bool -&gt; DescribeReplicationTasks)
--&gt; Lens
-     DescribeReplicationTasks
-     DescribeReplicationTasks
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447752"><span class="annot"><span class="annottext">Maybe Bool
-withoutSettings :: Maybe Bool
-$sel:withoutSettings:DescribeReplicationTasks' :: DescribeReplicationTasks -&gt; Maybe Bool
-</span><a href="#local-6989586621679447752"><span class="hs-identifier hs-var hs-var">withoutSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679447752"><span class="hs-identifier hs-var">withoutSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447751"><span class="annot"><span class="annottext">s :: DescribeReplicationTasks
-</span><a href="#local-6989586621679447751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447750"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679447750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTasks
-</span><a href="#local-6989586621679447751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:withoutSettings:DescribeReplicationTasks' :: Maybe Bool
-</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3AwithoutSettings%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var">withoutSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679447750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- | Filters applied to replication tasks.</span><span>
-</span><span id="line-132"></span><span class="hs-comment">--</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- Valid filter names: replication-task-arn | replication-task-id |</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- migration-type | endpoint-arn | replication-instance-arn</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_filters"><span class="hs-identifier hs-type">describeReplicationTasks_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="describeReplicationTasks_filters"><span class="annot"><span class="annottext">describeReplicationTasks_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><span id="line-125"></span><span class="hs-comment">-- | Filters applied to replication tasks.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Valid filter names: replication-task-arn | replication-task-id |</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- migration-type | endpoint-arn | replication-instance-arn</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_filters"><span class="hs-identifier hs-type">describeReplicationTasks_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DMS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="describeReplicationTasks_filters"><span class="annot"><span class="annottext">describeReplicationTasks_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
 -&gt; DescribeReplicationTasks -&gt; f DescribeReplicationTasks
 </span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_filters"><span class="hs-identifier hs-var hs-var">describeReplicationTasks_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeReplicationTasks -&gt; Maybe [Filter])
 -&gt; (DescribeReplicationTasks
@@ -245,16 +219,16 @@ $sel:withoutSettings:DescribeReplicationTasks' :: DescribeReplicationTasks -&gt;
      (Maybe [Filter])
      (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447749"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448051"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeReplicationTasks' :: DescribeReplicationTasks -&gt; Maybe [Filter]
-</span><a href="#local-6989586621679447749"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679447749"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447748"><span class="annot"><span class="annottext">s :: DescribeReplicationTasks
-</span><a href="#local-6989586621679447748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447747"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679447747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTasks
-</span><a href="#local-6989586621679447748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeReplicationTasks' :: Maybe [Filter]
+</span><a href="#local-6989586621679448051"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679448051"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448050"><span class="annot"><span class="annottext">s :: DescribeReplicationTasks
+</span><a href="#local-6989586621679448050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448049"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679448049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTasks
+</span><a href="#local-6989586621679448050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeReplicationTasks' :: Maybe [Filter]
 </span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3Afilters%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679447747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621679448049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeReplicationTasks -&gt; f DescribeReplicationTasks)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -269,45 +243,40 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- results can be retrieved.</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- Default: 100</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_maxRecords"><span class="hs-identifier hs-type">describeReplicationTasks_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="describeReplicationTasks_maxRecords"><span class="annot"><span class="annottext">describeReplicationTasks_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | An option to set to avoid returning information about settings. Use this</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- to reduce overhead when setting information is too large. To use this</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- option, choose @true@; otherwise, choose @false@ (the default).</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_withoutSettings"><span class="hs-identifier hs-type">describeReplicationTasks_withoutSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="describeReplicationTasks_withoutSettings"><span class="annot"><span class="annottext">describeReplicationTasks_withoutSettings :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; DescribeReplicationTasks -&gt; f DescribeReplicationTasks
-</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_maxRecords"><span class="hs-identifier hs-var hs-var">describeReplicationTasks_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeReplicationTasks -&gt; Maybe Int)
+</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_withoutSettings"><span class="hs-identifier hs-var hs-var">describeReplicationTasks_withoutSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeReplicationTasks -&gt; Maybe Bool)
 -&gt; (DescribeReplicationTasks
-    -&gt; Maybe Int -&gt; DescribeReplicationTasks)
+    -&gt; Maybe Bool -&gt; DescribeReplicationTasks)
 -&gt; Lens
      DescribeReplicationTasks
      DescribeReplicationTasks
-     (Maybe Int)
-     (Maybe Int)
+     (Maybe Bool)
+     (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447743"><span class="annot"><span class="annottext">Maybe Int
-maxRecords :: Maybe Int
-$sel:maxRecords:DescribeReplicationTasks' :: DescribeReplicationTasks -&gt; Maybe Int
-</span><a href="#local-6989586621679447743"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679447743"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447742"><span class="annot"><span class="annottext">s :: DescribeReplicationTasks
-</span><a href="#local-6989586621679447742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447741"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679447741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTasks
-</span><a href="#local-6989586621679447742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeReplicationTasks' :: Maybe Int
-</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3AmaxRecords%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679447741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
-</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_marker"><span class="hs-identifier hs-type">describeReplicationTasks_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span id="describeReplicationTasks_marker"><span class="annot"><span class="annottext">describeReplicationTasks_marker :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448045"><span class="annot"><span class="annottext">Maybe Bool
+withoutSettings :: Maybe Bool
+$sel:withoutSettings:DescribeReplicationTasks' :: DescribeReplicationTasks -&gt; Maybe Bool
+</span><a href="#local-6989586621679448045"><span class="hs-identifier hs-var hs-var">withoutSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679448045"><span class="hs-identifier hs-var">withoutSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448044"><span class="annot"><span class="annottext">s :: DescribeReplicationTasks
+</span><a href="#local-6989586621679448044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448043"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679448043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTasks
+</span><a href="#local-6989586621679448044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:withoutSettings:DescribeReplicationTasks' :: Maybe Bool
+</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3AwithoutSettings%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var">withoutSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679448043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- marker, up to the value specified by @MaxRecords@.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_marker"><span class="hs-identifier hs-type">describeReplicationTasks_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="describeReplicationTasks_marker"><span class="annot"><span class="annottext">describeReplicationTasks_marker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeReplicationTasks -&gt; f DescribeReplicationTasks
 </span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_marker"><span class="hs-identifier hs-var hs-var">describeReplicationTasks_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeReplicationTasks -&gt; Maybe Text)
 -&gt; (DescribeReplicationTasks
@@ -318,30 +287,61 @@ $sel:maxRecords:DescribeReplicationTasks' :: DescribeReplicationTasks -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447740"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448042"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeReplicationTasks' :: DescribeReplicationTasks -&gt; Maybe Text
-</span><a href="#local-6989586621679447740"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679447740"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447739"><span class="annot"><span class="annottext">s :: DescribeReplicationTasks
-</span><a href="#local-6989586621679447739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447738"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679447738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTasks
-</span><a href="#local-6989586621679447739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeReplicationTasks' :: Maybe Text
+</span><a href="#local-6989586621679448042"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679448042"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448041"><span class="annot"><span class="annottext">s :: DescribeReplicationTasks
+</span><a href="#local-6989586621679448041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448040"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679448040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTasks
+</span><a href="#local-6989586621679448041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeReplicationTasks' :: Maybe Text
 </span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3Amarker%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679447738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679448040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- records exist than the specified @MaxRecords@ value, a pagination token</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- called a marker is included in the response so that the remaining</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- results can be retrieved.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_maxRecords"><span class="hs-identifier hs-type">describeReplicationTasks_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="describeReplicationTasks_maxRecords"><span class="annot"><span class="annottext">describeReplicationTasks_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeReplicationTasks -&gt; f DescribeReplicationTasks
+</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasks_maxRecords"><span class="hs-identifier hs-var hs-var">describeReplicationTasks_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeReplicationTasks -&gt; Maybe Int)
+-&gt; (DescribeReplicationTasks
+    -&gt; Maybe Int -&gt; DescribeReplicationTasks)
+-&gt; Lens
+     DescribeReplicationTasks
+     DescribeReplicationTasks
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448039"><span class="annot"><span class="annottext">Maybe Int
+maxRecords :: Maybe Int
+$sel:maxRecords:DescribeReplicationTasks' :: DescribeReplicationTasks -&gt; Maybe Int
+</span><a href="#local-6989586621679448039"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679448039"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448038"><span class="annot"><span class="annottext">s :: DescribeReplicationTasks
+</span><a href="#local-6989586621679448038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448037"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679448037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTasks
+</span><a href="#local-6989586621679448038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeReplicationTasks' :: Maybe Int
+</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3AmaxRecords%3ADescribeReplicationTasks%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679448037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679447734"><span class="annot"><span class="annottext">page :: DescribeReplicationTasks
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679448033"><span class="annot"><span class="annottext">page :: DescribeReplicationTasks
 -&gt; AWSResponse DescribeReplicationTasks
 -&gt; Maybe DescribeReplicationTasks
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679447732"><span class="annot"><span class="annottext">DescribeReplicationTasks
-</span><a href="#local-6989586621679447732"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679447731"><span class="annot"><span class="annottext">AWSResponse DescribeReplicationTasks
-</span><a href="#local-6989586621679447731"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679448031"><span class="annot"><span class="annottext">DescribeReplicationTasks
+</span><a href="#local-6989586621679448031"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679448030"><span class="annot"><span class="annottext">AWSResponse DescribeReplicationTasks
+</span><a href="#local-6989586621679448030"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-158"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeReplicationTasks
 DescribeReplicationTasksResponse
-</span><a href="#local-6989586621679447731"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679448030"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">DescribeReplicationTasksResponse
 -&gt; Getting (First Text) DescribeReplicationTasksResponse Text
 -&gt; Maybe Text
@@ -371,7 +371,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-164"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeReplicationTasks
 DescribeReplicationTasksResponse
-</span><a href="#local-6989586621679447731"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679448030"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">DescribeReplicationTasksResponse
 -&gt; Getting
      (First [ReplicationTask])
@@ -418,7 +418,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">DescribeReplicationTasks
-</span><a href="#local-6989586621679447732"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679448031"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">DescribeReplicationTasks
 -&gt; (DescribeReplicationTasks -&gt; DescribeReplicationTasks)
 -&gt; DescribeReplicationTasks
@@ -439,7 +439,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeReplicationTasks
 DescribeReplicationTasksResponse
-</span><a href="#local-6989586621679447731"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679448030"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">DescribeReplicationTasksResponse
 -&gt; Getting (First Text) DescribeReplicationTasksResponse Text
 -&gt; Maybe Text
@@ -465,13 +465,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-178"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-179"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>      </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse</span></a></span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679447722"><span class="annot"><span class="annottext">request :: DescribeReplicationTasks -&gt; Request DescribeReplicationTasks
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679448021"><span class="annot"><span class="annottext">request :: DescribeReplicationTasks -&gt; Request DescribeReplicationTasks
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeReplicationTasks -&gt; Request DescribeReplicationTasks
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679447718"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679448017"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeReplicationTasks
 -&gt; ClientResponse ClientBody
@@ -497,10 +497,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679447715"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447715"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679447714"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679447714"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679447713"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679447713"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679448014"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679448014"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679448013"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679448013"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679448012"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679448012"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ReplicationTask]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeReplicationTasksResponse
 </span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse%27"><span class="hs-identifier hs-var">DescribeReplicationTasksResponse'</span></a></span><span>
@@ -511,7 +511,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; DescribeReplicationTasksResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679447713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ReplicationTask]))
+</span><a href="#local-6989586621679448012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ReplicationTask]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReplicationTasks&quot;</span></span><span>
@@ -529,7 +529,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; DescribeReplicationTasksResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679447713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679448012"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -542,15 +542,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447715"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679448014"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447704"><span id="local-6989586621679447706"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448003"><span id="local-6989586621679448005"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span></span></span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447701"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448000"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span></span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679447697"><span class="annot"><span class="annottext">toHeaders :: DescribeReplicationTasks -&gt; ResponseHeaders
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679447996"><span class="annot"><span class="annottext">toHeaders :: DescribeReplicationTasks -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-199"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeReplicationTasks -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -577,67 +577,67 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-209"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447687"><span id="local-6989586621679447689"><span id="local-6989586621679447691"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679447685"><span class="annot"><span class="annottext">toJSON :: DescribeReplicationTasks -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447680"><span id="local-6989586621679447681"><span id="local-6989586621679447682"><span id="local-6989586621679447683"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447986"><span id="local-6989586621679447988"><span id="local-6989586621679447990"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679447984"><span class="annot"><span class="annottext">toJSON :: DescribeReplicationTasks -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks%27"><span class="hs-identifier hs-type">DescribeReplicationTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447979"><span id="local-6989586621679447980"><span id="local-6989586621679447981"><span id="local-6989586621679447982"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe [Filter]
 Maybe Text
-marker :: Maybe Text
 maxRecords :: Maybe Int
-filters :: Maybe [Filter]
+marker :: Maybe Text
 withoutSettings :: Maybe Bool
-$sel:marker:DescribeReplicationTasks' :: DescribeReplicationTasks -&gt; Maybe Text
+filters :: Maybe [Filter]
 $sel:maxRecords:DescribeReplicationTasks' :: DescribeReplicationTasks -&gt; Maybe Int
-$sel:filters:DescribeReplicationTasks' :: DescribeReplicationTasks -&gt; Maybe [Filter]
+$sel:marker:DescribeReplicationTasks' :: DescribeReplicationTasks -&gt; Maybe Text
 $sel:withoutSettings:DescribeReplicationTasks' :: DescribeReplicationTasks -&gt; Maybe Bool
-</span><a href="#local-6989586621679447680"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:filters:DescribeReplicationTasks' :: DescribeReplicationTasks -&gt; Maybe [Filter]
+</span><a href="#local-6989586621679447979"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-215"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-216"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;WithoutSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679447683"><span class="hs-identifier hs-var">withoutSettings</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Filter] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; Pair) -&gt; Maybe [Filter] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621679447682"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+</span><a href="#local-6989586621679447982"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WithoutSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679447681"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679447981"><span class="hs-identifier hs-var">withoutSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679447680"><span class="hs-identifier hs-var">marker</span></a></span><span>
+</span><a href="#local-6989586621679447980"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679447979"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
 </span><span id="line-221"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-222"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-225"></span><span>  </span><span id="local-6989586621679447674"><span class="annot"><span class="annottext">toPath :: DescribeReplicationTasks -&gt; ByteString
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679447973"><span class="annot"><span class="annottext">toPath :: DescribeReplicationTasks -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeReplicationTasks -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasks"><span class="hs-identifier hs-type">DescribeReplicationTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621679447670"><span class="annot"><span class="annottext">toQuery :: DescribeReplicationTasks -&gt; QueryString
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679447969"><span class="annot"><span class="annottext">toQuery :: DescribeReplicationTasks -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeReplicationTasks -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -647,7 +647,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-230"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-231"></span><span class="hs-comment">--</span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- /See:/ 'newDescribeReplicationTasksResponse' smart constructor.</span><span>
-</span><span id="line-233"></span><span id="local-6989586621679447667"><span id="local-6989586621679447668"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeReplicationTasksResponse"><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse"><span class="hs-identifier hs-var">DescribeReplicationTasksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeReplicationTasksResponse%27"><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse%27"><span class="hs-identifier hs-var">DescribeReplicationTasksResponse'</span></a></span></span><span>
+</span><span id="line-233"></span><span id="local-6989586621679447966"><span id="local-6989586621679447967"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeReplicationTasksResponse"><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse"><span class="hs-identifier hs-var">DescribeReplicationTasksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeReplicationTasksResponse%27"><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse%27"><span class="hs-identifier hs-var">DescribeReplicationTasksResponse'</span></a></span></span><span>
 </span><span id="line-234"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description of the replication tasks.</span><span>
 </span><span id="line-235"></span><span>    </span><span id="%24sel%3AreplicationTasks%3ADescribeReplicationTasksResponse%27"><span class="annot"><span class="annottext">DescribeReplicationTasksResponse -&gt; Maybe [ReplicationTask]
 </span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3AreplicationTasks%3ADescribeReplicationTasksResponse%27"><span class="hs-identifier hs-var hs-var">replicationTasks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTask.html#ReplicationTask"><span class="hs-identifier hs-type">ReplicationTask</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -660,7 +660,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-241"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeReplicationTasksResponse%27"><span class="annot"><span class="annottext">DescribeReplicationTasksResponse -&gt; Int
 </span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3AhttpStatus%3ADescribeReplicationTasksResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-242"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-243"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447660"><span id="local-6989586621679447662"><span class="annot"><span class="annottext">DescribeReplicationTasksResponse
+</span><span id="line-243"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447959"><span id="local-6989586621679447961"><span class="annot"><span class="annottext">DescribeReplicationTasksResponse
 -&gt; DescribeReplicationTasksResponse -&gt; Bool
 (DescribeReplicationTasksResponse
  -&gt; DescribeReplicationTasksResponse -&gt; Bool)
@@ -676,7 +676,7 @@ $c/= :: DescribeReplicationTasksResponse
 -&gt; DescribeReplicationTasksResponse -&gt; Bool
 $c== :: DescribeReplicationTasksResponse
 -&gt; DescribeReplicationTasksResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447652"><span id="local-6989586621679447654"><span id="local-6989586621679447656"><span id="local-6989586621679447658"><span class="annot"><span class="annottext">ReadPrec [DescribeReplicationTasksResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447951"><span id="local-6989586621679447953"><span id="local-6989586621679447955"><span id="local-6989586621679447957"><span class="annot"><span class="annottext">ReadPrec [DescribeReplicationTasksResponse]
 ReadPrec DescribeReplicationTasksResponse
 Int -&gt; ReadS DescribeReplicationTasksResponse
 ReadS [DescribeReplicationTasksResponse]
@@ -696,7 +696,7 @@ readList :: ReadS [DescribeReplicationTasksResponse]
 $creadList :: ReadS [DescribeReplicationTasksResponse]
 readsPrec :: Int -&gt; ReadS DescribeReplicationTasksResponse
 $creadsPrec :: Int -&gt; ReadS DescribeReplicationTasksResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447646"><span id="local-6989586621679447648"><span id="local-6989586621679447650"><span class="annot"><span class="annottext">Int -&gt; DescribeReplicationTasksResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447945"><span id="local-6989586621679447947"><span id="local-6989586621679447949"><span class="annot"><span class="annottext">Int -&gt; DescribeReplicationTasksResponse -&gt; ShowS
 [DescribeReplicationTasksResponse] -&gt; ShowS
 DescribeReplicationTasksResponse -&gt; String
 (Int -&gt; DescribeReplicationTasksResponse -&gt; ShowS)
@@ -754,8 +754,8 @@ DescribeReplicationTasksResponse
 </span><span id="line-262"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-263"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse</span></a></span><span>
 </span><span id="line-264"></span><span id="newDescribeReplicationTasksResponse"><span class="annot"><span class="annottext">newDescribeReplicationTasksResponse :: Int -&gt; DescribeReplicationTasksResponse
-</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#newDescribeReplicationTasksResponse"><span class="hs-identifier hs-var hs-var">newDescribeReplicationTasksResponse</span></a></span></span><span> </span><span id="local-6989586621679447643"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447643"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#newDescribeReplicationTasksResponse"><span class="hs-identifier hs-var hs-var">newDescribeReplicationTasksResponse</span></a></span></span><span> </span><span id="local-6989586621679447942"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447942"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-265"></span><span>  </span><span class="annot"><span class="annottext">DescribeReplicationTasksResponse' :: Maybe [ReplicationTask]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeReplicationTasksResponse
 </span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse'</span></a></span><span>
@@ -770,7 +770,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeReplicationTasksResponse' :: Int
 </span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3AhttpStatus%3ADescribeReplicationTasksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447643"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679447942"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-270"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-271"></span><span>
 </span><span id="line-272"></span><span class="hs-comment">-- | A description of the replication tasks.</span><span>
@@ -783,16 +783,16 @@ forall a. Maybe a
     -&gt; Maybe [ReplicationTask] -&gt; DescribeReplicationTasksResponse)
 -&gt; Lens' DescribeReplicationTasksResponse (Maybe [ReplicationTask])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447642"><span class="annot"><span class="annottext">Maybe [ReplicationTask]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447941"><span class="annot"><span class="annottext">Maybe [ReplicationTask]
 replicationTasks :: Maybe [ReplicationTask]
 $sel:replicationTasks:DescribeReplicationTasksResponse' :: DescribeReplicationTasksResponse -&gt; Maybe [ReplicationTask]
-</span><a href="#local-6989586621679447642"><span class="hs-identifier hs-var hs-var">replicationTasks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicationTask]
-</span><a href="#local-6989586621679447642"><span class="hs-identifier hs-var">replicationTasks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447641"><span class="annot"><span class="annottext">s :: DescribeReplicationTasksResponse
-</span><a href="#local-6989586621679447641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447640"><span class="annot"><span class="annottext">Maybe [ReplicationTask]
-</span><a href="#local-6989586621679447640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTasksResponse
-</span><a href="#local-6989586621679447641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTasks:DescribeReplicationTasksResponse' :: Maybe [ReplicationTask]
+</span><a href="#local-6989586621679447941"><span class="hs-identifier hs-var hs-var">replicationTasks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicationTask]
+</span><a href="#local-6989586621679447941"><span class="hs-identifier hs-var">replicationTasks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447940"><span class="annot"><span class="annottext">s :: DescribeReplicationTasksResponse
+</span><a href="#local-6989586621679447940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447939"><span class="annot"><span class="annottext">Maybe [ReplicationTask]
+</span><a href="#local-6989586621679447939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTasksResponse
+</span><a href="#local-6989586621679447940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTasks:DescribeReplicationTasksResponse' :: Maybe [ReplicationTask]
 </span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3AreplicationTasks%3ADescribeReplicationTasksResponse%27"><span class="hs-identifier hs-var">replicationTasks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReplicationTask]
-</span><a href="#local-6989586621679447640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReplicationTask] -&gt; f (Maybe [ReplicationTask]))
+</span><a href="#local-6989586621679447939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReplicationTask] -&gt; f (Maybe [ReplicationTask]))
  -&gt; DescribeReplicationTasksResponse
  -&gt; f DescribeReplicationTasksResponse)
 -&gt; ((Maybe [ReplicationTask] -&gt; f (Maybe [ReplicationTask]))
@@ -819,8 +819,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ReplicationTask]
   [ReplicationTask]
   [ReplicationTask]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-275"></span><span>
 </span><span id="line-276"></span><span class="hs-comment">-- | An optional pagination token provided by a previous request. If this</span><span>
 </span><span id="line-277"></span><span class="hs-comment">-- parameter is specified, the response includes only records beyond the</span><span>
@@ -834,16 +834,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
     -&gt; Maybe Text -&gt; DescribeReplicationTasksResponse)
 -&gt; Lens' DescribeReplicationTasksResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447639"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447938"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeReplicationTasksResponse' :: DescribeReplicationTasksResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679447639"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679447639"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447638"><span class="annot"><span class="annottext">s :: DescribeReplicationTasksResponse
-</span><a href="#local-6989586621679447638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447637"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679447637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTasksResponse
-</span><a href="#local-6989586621679447638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeReplicationTasksResponse' :: Maybe Text
+</span><a href="#local-6989586621679447938"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679447938"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447937"><span class="annot"><span class="annottext">s :: DescribeReplicationTasksResponse
+</span><a href="#local-6989586621679447937"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447936"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679447936"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTasksResponse
+</span><a href="#local-6989586621679447937"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeReplicationTasksResponse' :: Maybe Text
 </span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3Amarker%3ADescribeReplicationTasksResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679447637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679447936"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-281"></span><span>
 </span><span id="line-282"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-283"></span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#describeReplicationTasksResponse_httpStatus"><span class="hs-identifier hs-type">describeReplicationTasksResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -859,18 +859,18 @@ $sel:marker:DescribeReplicationTasksResponse' :: DescribeReplicationTasksRespons
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447636"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447935"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeReplicationTasksResponse' :: DescribeReplicationTasksResponse -&gt; Int
-</span><a href="#local-6989586621679447636"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447636"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447635"><span class="annot"><span class="annottext">s :: DescribeReplicationTasksResponse
-</span><a href="#local-6989586621679447635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447634"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTasksResponse
-</span><a href="#local-6989586621679447635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeReplicationTasksResponse' :: Int
+</span><a href="#local-6989586621679447935"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447935"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447934"><span class="annot"><span class="annottext">s :: DescribeReplicationTasksResponse
+</span><a href="#local-6989586621679447934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse%27"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447933"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679447933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeReplicationTasksResponse
+</span><a href="#local-6989586621679447934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeReplicationTasksResponse' :: Int
 </span><a href="Network.AWS.DMS.DescribeReplicationTasks.html#%24sel%3AhttpStatus%3ADescribeReplicationTasksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679447634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679447933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-285"></span><span>
 </span><span id="line-286"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-287"></span><span>  </span><span id="local-6989586621679447632"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-287"></span><span>  </span><span id="local-6989586621679447931"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-288"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.DescribeReplicationTasks.html#DescribeReplicationTasksResponse"><span class="hs-identifier hs-type">DescribeReplicationTasksResponse</span></a></span></span><span>
 </span><span id="line-289"></span></pre></body></html>

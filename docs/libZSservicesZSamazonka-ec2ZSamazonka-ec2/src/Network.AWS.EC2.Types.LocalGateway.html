@@ -28,24 +28,24 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a local gateway.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLocalGateway' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681125362"><span id="local-6989586621681125363"></span></span><span class="hs-keyword">data</span><span> </span><span id="LocalGateway"><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-var">LocalGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocalGateway%27"><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-var">LocalGateway'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS account ID that owns the local gateway.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AownerId%3ALocalGateway%27"><span class="annot"><span class="annottext">LocalGateway -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3AownerId%3ALocalGateway%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Outpost.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AoutpostArn%3ALocalGateway%27"><span class="annot"><span class="annottext">LocalGateway -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3AoutpostArn%3ALocalGateway%27"><span class="hs-identifier hs-var hs-var">outpostArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ID of the local gateway.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlocalGatewayId%3ALocalGateway%27"><span class="annot"><span class="annottext">LocalGateway -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3AlocalGatewayId%3ALocalGateway%27"><span class="hs-identifier hs-var hs-var">localGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The state of the local gateway.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Astate%3ALocalGateway%27"><span class="annot"><span class="annottext">LocalGateway -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621681160240"><span id="local-6989586621681160241"></span></span><span class="hs-keyword">data</span><span> </span><span id="LocalGateway"><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-var">LocalGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocalGateway%27"><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-var">LocalGateway'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the local gateway.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astate%3ALocalGateway%27"><span class="annot"><span class="annottext">LocalGateway -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3Astate%3ALocalGateway%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the local gateway.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlocalGatewayId%3ALocalGateway%27"><span class="annot"><span class="annottext">LocalGateway -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3AlocalGatewayId%3ALocalGateway%27"><span class="hs-identifier hs-var hs-var">localGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Outpost.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AoutpostArn%3ALocalGateway%27"><span class="annot"><span class="annottext">LocalGateway -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3AoutpostArn%3ALocalGateway%27"><span class="hs-identifier hs-var hs-var">outpostArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the local gateway.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AownerId%3ALocalGateway%27"><span class="annot"><span class="annottext">LocalGateway -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3AownerId%3ALocalGateway%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The tags assigned to the local gateway.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3Atags%3ALocalGateway%27"><span class="annot"><span class="annottext">LocalGateway -&gt; Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3Atags%3ALocalGateway%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681125352"><span id="local-6989586621681125354"><span class="annot"><span class="annottext">LocalGateway -&gt; LocalGateway -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681160230"><span id="local-6989586621681160232"><span class="annot"><span class="annottext">LocalGateway -&gt; LocalGateway -&gt; Bool
 (LocalGateway -&gt; LocalGateway -&gt; Bool)
 -&gt; (LocalGateway -&gt; LocalGateway -&gt; Bool) -&gt; Eq LocalGateway
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LocalGateway -&gt; LocalGateway -&gt; Bool
 == :: LocalGateway -&gt; LocalGateway -&gt; Bool
 $c== :: LocalGateway -&gt; LocalGateway -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681125343"><span id="local-6989586621681125345"><span id="local-6989586621681125347"><span id="local-6989586621681125349"><span class="annot"><span class="annottext">ReadPrec [LocalGateway]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681160221"><span id="local-6989586621681160223"><span id="local-6989586621681160225"><span id="local-6989586621681160227"><span class="annot"><span class="annottext">ReadPrec [LocalGateway]
 ReadPrec LocalGateway
 Int -&gt; ReadS LocalGateway
 ReadS [LocalGateway]
@@ -73,7 +73,7 @@ readList :: ReadS [LocalGateway]
 $creadList :: ReadS [LocalGateway]
 readsPrec :: Int -&gt; ReadS LocalGateway
 $creadsPrec :: Int -&gt; ReadS LocalGateway
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681125336"><span id="local-6989586621681125338"><span id="local-6989586621681125340"><span class="annot"><span class="annottext">Int -&gt; LocalGateway -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681160214"><span id="local-6989586621681160216"><span id="local-6989586621681160218"><span class="annot"><span class="annottext">Int -&gt; LocalGateway -&gt; ShowS
 [LocalGateway] -&gt; ShowS
 LocalGateway -&gt; String
 (Int -&gt; LocalGateway -&gt; ShowS)
@@ -107,13 +107,13 @@ $cfrom :: forall x. LocalGateway -&gt; Rep LocalGateway x
 </span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'ownerId', 'localGateway_ownerId' - The AWS account ID that owns the local gateway.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'state', 'localGateway_state' - The state of the local gateway.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'outpostArn', 'localGateway_outpostArn' - The Amazon Resource Name (ARN) of the Outpost.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'localGatewayId', 'localGateway_localGatewayId' - The ID of the local gateway.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'localGatewayId', 'localGateway_localGatewayId' - The ID of the local gateway.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'outpostArn', 'localGateway_outpostArn' - The Amazon Resource Name (ARN) of the Outpost.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'state', 'localGateway_state' - The state of the local gateway.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'ownerId', 'localGateway_ownerId' - The ID of the Amazon Web Services account that owns the local gateway.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- 'tags', 'localGateway_tags' - The tags assigned to the local gateway.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#newLocalGateway"><span class="hs-identifier hs-type">newLocalGateway</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -127,20 +127,20 @@ $cfrom :: forall x. LocalGateway -&gt; Rep LocalGateway x
 -&gt; Maybe [Tag]
 -&gt; LocalGateway
 </span><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ownerId:LocalGateway' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3AownerId%3ALocalGateway%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:LocalGateway' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3Astate%3ALocalGateway%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:outpostArn:LocalGateway' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3AoutpostArn%3ALocalGateway%27"><span class="hs-identifier hs-var">outpostArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:localGatewayId:LocalGateway' :: Maybe Text
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:localGatewayId:LocalGateway' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3AlocalGatewayId%3ALocalGateway%27"><span class="hs-identifier hs-var">localGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:LocalGateway' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3Astate%3ALocalGateway%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:outpostArn:LocalGateway' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3AoutpostArn%3ALocalGateway%27"><span class="hs-identifier hs-var">outpostArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerId:LocalGateway' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3AownerId%3ALocalGateway%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:LocalGateway' :: Maybe [Tag]
@@ -149,77 +149,77 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | The AWS account ID that owns the local gateway.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#localGateway_ownerId"><span class="hs-identifier hs-type">localGateway_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="localGateway_ownerId"><span class="annot"><span class="annottext">localGateway_ownerId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LocalGateway -&gt; f LocalGateway
-</span><a href="Network.AWS.EC2.Types.LocalGateway.html#localGateway_ownerId"><span class="hs-identifier hs-var hs-var">localGateway_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGateway -&gt; Maybe Text)
--&gt; (LocalGateway -&gt; Maybe Text -&gt; LocalGateway)
--&gt; Lens LocalGateway LocalGateway (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125327"><span class="annot"><span class="annottext">Maybe Text
-ownerId :: Maybe Text
-$sel:ownerId:LocalGateway' :: LocalGateway -&gt; Maybe Text
-</span><a href="#local-6989586621681125327"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125327"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125326"><span class="annot"><span class="annottext">s :: LocalGateway
-</span><a href="#local-6989586621681125326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125325"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGateway
-</span><a href="#local-6989586621681125326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:LocalGateway' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3AownerId%3ALocalGateway%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Outpost.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#localGateway_outpostArn"><span class="hs-identifier hs-type">localGateway_outpostArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="localGateway_outpostArn"><span class="annot"><span class="annottext">localGateway_outpostArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LocalGateway -&gt; f LocalGateway
-</span><a href="Network.AWS.EC2.Types.LocalGateway.html#localGateway_outpostArn"><span class="hs-identifier hs-var hs-var">localGateway_outpostArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGateway -&gt; Maybe Text)
--&gt; (LocalGateway -&gt; Maybe Text -&gt; LocalGateway)
--&gt; Lens LocalGateway LocalGateway (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125323"><span class="annot"><span class="annottext">Maybe Text
-outpostArn :: Maybe Text
-$sel:outpostArn:LocalGateway' :: LocalGateway -&gt; Maybe Text
-</span><a href="#local-6989586621681125323"><span class="hs-identifier hs-var hs-var">outpostArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125323"><span class="hs-identifier hs-var">outpostArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125322"><span class="annot"><span class="annottext">s :: LocalGateway
-</span><a href="#local-6989586621681125322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125321"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGateway
-</span><a href="#local-6989586621681125322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outpostArn:LocalGateway' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3AoutpostArn%3ALocalGateway%27"><span class="hs-identifier hs-var">outpostArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The ID of the local gateway.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#localGateway_localGatewayId"><span class="hs-identifier hs-type">localGateway_localGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="localGateway_localGatewayId"><span class="annot"><span class="annottext">localGateway_localGatewayId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LocalGateway -&gt; f LocalGateway
-</span><a href="Network.AWS.EC2.Types.LocalGateway.html#localGateway_localGatewayId"><span class="hs-identifier hs-var hs-var">localGateway_localGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGateway -&gt; Maybe Text)
--&gt; (LocalGateway -&gt; Maybe Text -&gt; LocalGateway)
--&gt; Lens LocalGateway LocalGateway (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125319"><span class="annot"><span class="annottext">Maybe Text
-localGatewayId :: Maybe Text
-$sel:localGatewayId:LocalGateway' :: LocalGateway -&gt; Maybe Text
-</span><a href="#local-6989586621681125319"><span class="hs-identifier hs-var hs-var">localGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125319"><span class="hs-identifier hs-var">localGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125318"><span class="annot"><span class="annottext">s :: LocalGateway
-</span><a href="#local-6989586621681125318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125317"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGateway
-</span><a href="#local-6989586621681125318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localGatewayId:LocalGateway' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3AlocalGatewayId%3ALocalGateway%27"><span class="hs-identifier hs-var">localGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The state of the local gateway.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#localGateway_state"><span class="hs-identifier hs-type">localGateway_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="localGateway_state"><span class="annot"><span class="annottext">localGateway_state :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LocalGateway -&gt; f LocalGateway
+</span><span id="line-73"></span><span class="hs-comment">-- | The state of the local gateway.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#localGateway_state"><span class="hs-identifier hs-type">localGateway_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="localGateway_state"><span class="annot"><span class="annottext">localGateway_state :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LocalGateway -&gt; f LocalGateway
 </span><a href="Network.AWS.EC2.Types.LocalGateway.html#localGateway_state"><span class="hs-identifier hs-var hs-var">localGateway_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGateway -&gt; Maybe Text)
 -&gt; (LocalGateway -&gt; Maybe Text -&gt; LocalGateway)
 -&gt; Lens LocalGateway LocalGateway (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125315"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160205"><span class="annot"><span class="annottext">Maybe Text
 state :: Maybe Text
 $sel:state:LocalGateway' :: LocalGateway -&gt; Maybe Text
-</span><a href="#local-6989586621681125315"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125315"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125314"><span class="annot"><span class="annottext">s :: LocalGateway
-</span><a href="#local-6989586621681125314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125313"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGateway
-</span><a href="#local-6989586621681125314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:LocalGateway' :: Maybe Text
+</span><a href="#local-6989586621681160205"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160205"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160204"><span class="annot"><span class="annottext">s :: LocalGateway
+</span><a href="#local-6989586621681160204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160203"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGateway
+</span><a href="#local-6989586621681160204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:LocalGateway' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3Astate%3ALocalGateway%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681160203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The ID of the local gateway.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#localGateway_localGatewayId"><span class="hs-identifier hs-type">localGateway_localGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="localGateway_localGatewayId"><span class="annot"><span class="annottext">localGateway_localGatewayId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LocalGateway -&gt; f LocalGateway
+</span><a href="Network.AWS.EC2.Types.LocalGateway.html#localGateway_localGatewayId"><span class="hs-identifier hs-var hs-var">localGateway_localGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGateway -&gt; Maybe Text)
+-&gt; (LocalGateway -&gt; Maybe Text -&gt; LocalGateway)
+-&gt; Lens LocalGateway LocalGateway (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160201"><span class="annot"><span class="annottext">Maybe Text
+localGatewayId :: Maybe Text
+$sel:localGatewayId:LocalGateway' :: LocalGateway -&gt; Maybe Text
+</span><a href="#local-6989586621681160201"><span class="hs-identifier hs-var hs-var">localGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160201"><span class="hs-identifier hs-var">localGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160200"><span class="annot"><span class="annottext">s :: LocalGateway
+</span><a href="#local-6989586621681160200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160199"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGateway
+</span><a href="#local-6989586621681160200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localGatewayId:LocalGateway' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3AlocalGatewayId%3ALocalGateway%27"><span class="hs-identifier hs-var">localGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Outpost.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#localGateway_outpostArn"><span class="hs-identifier hs-type">localGateway_outpostArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="localGateway_outpostArn"><span class="annot"><span class="annottext">localGateway_outpostArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LocalGateway -&gt; f LocalGateway
+</span><a href="Network.AWS.EC2.Types.LocalGateway.html#localGateway_outpostArn"><span class="hs-identifier hs-var hs-var">localGateway_outpostArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGateway -&gt; Maybe Text)
+-&gt; (LocalGateway -&gt; Maybe Text -&gt; LocalGateway)
+-&gt; Lens LocalGateway LocalGateway (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160197"><span class="annot"><span class="annottext">Maybe Text
+outpostArn :: Maybe Text
+$sel:outpostArn:LocalGateway' :: LocalGateway -&gt; Maybe Text
+</span><a href="#local-6989586621681160197"><span class="hs-identifier hs-var hs-var">outpostArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160197"><span class="hs-identifier hs-var">outpostArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160196"><span class="annot"><span class="annottext">s :: LocalGateway
+</span><a href="#local-6989586621681160196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160195"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGateway
+</span><a href="#local-6989586621681160196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outpostArn:LocalGateway' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3AoutpostArn%3ALocalGateway%27"><span class="hs-identifier hs-var">outpostArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the local gateway.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#localGateway_ownerId"><span class="hs-identifier hs-type">localGateway_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="localGateway_ownerId"><span class="annot"><span class="annottext">localGateway_ownerId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LocalGateway -&gt; f LocalGateway
+</span><a href="Network.AWS.EC2.Types.LocalGateway.html#localGateway_ownerId"><span class="hs-identifier hs-var hs-var">localGateway_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LocalGateway -&gt; Maybe Text)
+-&gt; (LocalGateway -&gt; Maybe Text -&gt; LocalGateway)
+-&gt; Lens LocalGateway LocalGateway (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160193"><span class="annot"><span class="annottext">Maybe Text
+ownerId :: Maybe Text
+$sel:ownerId:LocalGateway' :: LocalGateway -&gt; Maybe Text
+</span><a href="#local-6989586621681160193"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160193"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160192"><span class="annot"><span class="annottext">s :: LocalGateway
+</span><a href="#local-6989586621681160192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160191"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGateway
+</span><a href="#local-6989586621681160192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:LocalGateway' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3AownerId%3ALocalGateway%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The tags assigned to the local gateway.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#localGateway_tags"><span class="hs-identifier hs-type">localGateway_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -228,16 +228,16 @@ $sel:state:LocalGateway' :: LocalGateway -&gt; Maybe Text
 -&gt; (LocalGateway -&gt; Maybe [Tag] -&gt; LocalGateway)
 -&gt; Lens LocalGateway LocalGateway (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125311"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160189"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:LocalGateway' :: LocalGateway -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681125311"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681125311"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125310"><span class="annot"><span class="annottext">s :: LocalGateway
-</span><a href="#local-6989586621681125310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125309"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681125309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGateway
-</span><a href="#local-6989586621681125310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:LocalGateway' :: Maybe [Tag]
+</span><a href="#local-6989586621681160189"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681160189"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160188"><span class="annot"><span class="annottext">s :: LocalGateway
+</span><a href="#local-6989586621681160188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway%27"><span class="hs-identifier hs-type">LocalGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160187"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681160187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LocalGateway
+</span><a href="#local-6989586621681160188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:LocalGateway' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.LocalGateway.html#%24sel%3Atags%3ALocalGateway%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681125309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621681160187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; LocalGateway -&gt; f LocalGateway)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -251,13 +251,13 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621681125303"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LocalGateway
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681125301"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681125301"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621681160181"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LocalGateway
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681160179"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681160179"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -278,10 +278,10 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; LocalGateway)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681125301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681160179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ownerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
@@ -291,34 +291,34 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; LocalGateway)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681125301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681160179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;outpostArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;localGatewayId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">Either
   String (Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; LocalGateway)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; Maybe [Tag] -&gt; LocalGateway)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681125301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681160179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;localGatewayId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;outpostArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe [Tag] -&gt; LocalGateway)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe [Tag] -&gt; LocalGateway)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681125301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681160179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ownerId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; LocalGateway)
 -&gt; Either String (Maybe [Tag]) -&gt; Either String LocalGateway
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681125301"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681160179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -341,7 +341,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681125292"><span id="local-6989586621681125294"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681160170"><span id="local-6989586621681160172"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span></span></span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681125289"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681160167"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LocalGateway.html#LocalGateway"><span class="hs-identifier hs-type">LocalGateway</span></a></span></span><span>
 </span><span id="line-107"></span></pre></body></html>

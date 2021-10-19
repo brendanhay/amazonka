@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newCreateClusterSnapshot' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679526319"><span id="local-6989586621679526320"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateClusterSnapshot"><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-var">CreateClusterSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateClusterSnapshot%27"><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-var">CreateClusterSnapshot'</span></a></span></span><span>
+</span><span id="line-60"></span><span id="local-6989586621679527064"><span id="local-6989586621679527065"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateClusterSnapshot"><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-var">CreateClusterSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateClusterSnapshot%27"><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-var">CreateClusterSnapshot'</span></a></span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of days that a manual snapshot is retained. If the value is</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -1, the manual snapshot is retained indefinitely.</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -90,7 +90,7 @@
 </span><span id="line-87"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3ACreateClusterSnapshot%27"><span class="annot"><span class="annottext">CreateClusterSnapshot -&gt; Text
 </span><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#%24sel%3AclusterIdentifier%3ACreateClusterSnapshot%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679526310"><span id="local-6989586621679526312"><span class="annot"><span class="annottext">CreateClusterSnapshot -&gt; CreateClusterSnapshot -&gt; Bool
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679527055"><span id="local-6989586621679527057"><span class="annot"><span class="annottext">CreateClusterSnapshot -&gt; CreateClusterSnapshot -&gt; Bool
 (CreateClusterSnapshot -&gt; CreateClusterSnapshot -&gt; Bool)
 -&gt; (CreateClusterSnapshot -&gt; CreateClusterSnapshot -&gt; Bool)
 -&gt; Eq CreateClusterSnapshot
@@ -99,7 +99,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateClusterSnapshot -&gt; CreateClusterSnapshot -&gt; Bool
 == :: CreateClusterSnapshot -&gt; CreateClusterSnapshot -&gt; Bool
 $c== :: CreateClusterSnapshot -&gt; CreateClusterSnapshot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679526301"><span id="local-6989586621679526303"><span id="local-6989586621679526305"><span id="local-6989586621679526307"><span class="annot"><span class="annottext">ReadPrec [CreateClusterSnapshot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679527046"><span id="local-6989586621679527048"><span id="local-6989586621679527050"><span id="local-6989586621679527052"><span class="annot"><span class="annottext">ReadPrec [CreateClusterSnapshot]
 ReadPrec CreateClusterSnapshot
 Int -&gt; ReadS CreateClusterSnapshot
 ReadS [CreateClusterSnapshot]
@@ -119,7 +119,7 @@ readList :: ReadS [CreateClusterSnapshot]
 $creadList :: ReadS [CreateClusterSnapshot]
 readsPrec :: Int -&gt; ReadS CreateClusterSnapshot
 $creadsPrec :: Int -&gt; ReadS CreateClusterSnapshot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679526294"><span id="local-6989586621679526296"><span id="local-6989586621679526298"><span class="annot"><span class="annottext">Int -&gt; CreateClusterSnapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679527039"><span id="local-6989586621679527041"><span id="local-6989586621679527043"><span class="annot"><span class="annottext">Int -&gt; CreateClusterSnapshot -&gt; ShowS
 [CreateClusterSnapshot] -&gt; ShowS
 CreateClusterSnapshot -&gt; String
 (Int -&gt; CreateClusterSnapshot -&gt; ShowS)
@@ -187,10 +187,10 @@ $cfrom :: forall x. CreateClusterSnapshot -&gt; Rep CreateClusterSnapshot x
 </span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span><span>
 </span><span id="line-131"></span><span id="newCreateClusterSnapshot"><span class="annot"><span class="annottext">newCreateClusterSnapshot :: Text -&gt; Text -&gt; CreateClusterSnapshot
 </span><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#newCreateClusterSnapshot"><span class="hs-identifier hs-var hs-var">newCreateClusterSnapshot</span></a></span></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679526289"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679526289"><span class="hs-identifier hs-var">pSnapshotIdentifier_</span></a></span></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679526288"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679526288"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679527034"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527034"><span class="hs-identifier hs-var">pSnapshotIdentifier_</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679527033"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527033"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">CreateClusterSnapshot' :: Maybe Int -&gt; Maybe [Tag] -&gt; Text -&gt; Text -&gt; CreateClusterSnapshot
 </span><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:manualSnapshotRetentionPeriod:CreateClusterSnapshot' :: Maybe Int
@@ -204,10 +204,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:snapshotIdentifier:CreateClusterSnapshot' :: Text
 </span><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#%24sel%3AsnapshotIdentifier%3ACreateClusterSnapshot%27"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679526289"><span class="hs-identifier hs-var">pSnapshotIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679527034"><span class="hs-identifier hs-var">pSnapshotIdentifier_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:CreateClusterSnapshot' :: Text
 </span><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#%24sel%3AclusterIdentifier%3ACreateClusterSnapshot%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679526288"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679527033"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The number of days that a manual snapshot is retained. If the value is</span><span>
@@ -224,16 +224,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateClusterSnapshot CreateClusterSnapshot (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526285"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527030"><span class="annot"><span class="annottext">Maybe Int
 manualSnapshotRetentionPeriod :: Maybe Int
 $sel:manualSnapshotRetentionPeriod:CreateClusterSnapshot' :: CreateClusterSnapshot -&gt; Maybe Int
-</span><a href="#local-6989586621679526285"><span class="hs-identifier hs-var hs-var">manualSnapshotRetentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679526285"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526284"><span class="annot"><span class="annottext">s :: CreateClusterSnapshot
-</span><a href="#local-6989586621679526284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526283"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679526283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateClusterSnapshot
-</span><a href="#local-6989586621679526284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manualSnapshotRetentionPeriod:CreateClusterSnapshot' :: Maybe Int
+</span><a href="#local-6989586621679527030"><span class="hs-identifier hs-var hs-var">manualSnapshotRetentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679527030"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527029"><span class="annot"><span class="annottext">s :: CreateClusterSnapshot
+</span><a href="#local-6989586621679527029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527028"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679527028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateClusterSnapshot
+</span><a href="#local-6989586621679527029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manualSnapshotRetentionPeriod:CreateClusterSnapshot' :: Maybe Int
 </span><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#%24sel%3AmanualSnapshotRetentionPeriod%3ACreateClusterSnapshot%27"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679526283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679527028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- | A list of tag instances.</span><span>
 </span><span id="line-152"></span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#createClusterSnapshot_tags"><span class="hs-identifier hs-type">createClusterSnapshot_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -247,16 +247,16 @@ $sel:manualSnapshotRetentionPeriod:CreateClusterSnapshot' :: CreateClusterSnapsh
      (Maybe [Tag])
      (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526282"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527027"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateClusterSnapshot' :: CreateClusterSnapshot -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679526282"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679526282"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526281"><span class="annot"><span class="annottext">s :: CreateClusterSnapshot
-</span><a href="#local-6989586621679526281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526280"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679526280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateClusterSnapshot
-</span><a href="#local-6989586621679526281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateClusterSnapshot' :: Maybe [Tag]
+</span><a href="#local-6989586621679527027"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679527027"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527026"><span class="annot"><span class="annottext">s :: CreateClusterSnapshot
+</span><a href="#local-6989586621679527026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527025"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679527025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateClusterSnapshot
+</span><a href="#local-6989586621679527026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateClusterSnapshot' :: Maybe [Tag]
 </span><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#%24sel%3Atags%3ACreateClusterSnapshot%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679526280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679527025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; CreateClusterSnapshot -&gt; f CreateClusterSnapshot)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -270,8 +270,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | A unique identifier for the snapshot that you are requesting. This</span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- identifier must be unique for all snapshots within the Amazon Web</span><span>
@@ -295,16 +295,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateClusterSnapshot -&gt; Text -&gt; CreateClusterSnapshot)
 -&gt; Lens CreateClusterSnapshot CreateClusterSnapshot Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526276"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527021"><span class="annot"><span class="annottext">Text
 snapshotIdentifier :: Text
 $sel:snapshotIdentifier:CreateClusterSnapshot' :: CreateClusterSnapshot -&gt; Text
-</span><a href="#local-6989586621679526276"><span class="hs-identifier hs-var hs-var">snapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679526276"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526275"><span class="annot"><span class="annottext">s :: CreateClusterSnapshot
-</span><a href="#local-6989586621679526275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526274"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679526274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateClusterSnapshot
-</span><a href="#local-6989586621679526275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotIdentifier:CreateClusterSnapshot' :: Text
+</span><a href="#local-6989586621679527021"><span class="hs-identifier hs-var hs-var">snapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527021"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527020"><span class="annot"><span class="annottext">s :: CreateClusterSnapshot
+</span><a href="#local-6989586621679527020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527019"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateClusterSnapshot
+</span><a href="#local-6989586621679527020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotIdentifier:CreateClusterSnapshot' :: Text
 </span><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#%24sel%3AsnapshotIdentifier%3ACreateClusterSnapshot%27"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679526274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679527019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | The cluster identifier for which you want a snapshot.</span><span>
 </span><span id="line-174"></span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#createClusterSnapshot_clusterIdentifier"><span class="hs-identifier hs-type">createClusterSnapshot_clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -314,27 +314,27 @@ $sel:snapshotIdentifier:CreateClusterSnapshot' :: CreateClusterSnapshot -&gt; Te
 -&gt; (CreateClusterSnapshot -&gt; Text -&gt; CreateClusterSnapshot)
 -&gt; Lens CreateClusterSnapshot CreateClusterSnapshot Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526273"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527018"><span class="annot"><span class="annottext">Text
 clusterIdentifier :: Text
 $sel:clusterIdentifier:CreateClusterSnapshot' :: CreateClusterSnapshot -&gt; Text
-</span><a href="#local-6989586621679526273"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679526273"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526272"><span class="annot"><span class="annottext">s :: CreateClusterSnapshot
-</span><a href="#local-6989586621679526272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526271"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679526271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateClusterSnapshot
-</span><a href="#local-6989586621679526272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:CreateClusterSnapshot' :: Text
+</span><a href="#local-6989586621679527018"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527018"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527017"><span class="annot"><span class="annottext">s :: CreateClusterSnapshot
+</span><a href="#local-6989586621679527017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527016"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679527016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateClusterSnapshot
+</span><a href="#local-6989586621679527017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:CreateClusterSnapshot' :: Text
 </span><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#%24sel%3AclusterIdentifier%3ACreateClusterSnapshot%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679526271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679527016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-178"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-179"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-180"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse"><span class="hs-identifier hs-type">CreateClusterSnapshotResponse</span></a></span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679526267"><span class="annot"><span class="annottext">request :: CreateClusterSnapshot -&gt; Request CreateClusterSnapshot
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679527012"><span class="annot"><span class="annottext">request :: CreateClusterSnapshot -&gt; Request CreateClusterSnapshot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateClusterSnapshot -&gt; Request CreateClusterSnapshot
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679526263"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679527008"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateClusterSnapshot
 -&gt; ClientResponse ClientBody
@@ -365,10 +365,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateClusterSnapshotResult&quot;</span></span><span>
-</span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679526260"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679526260"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679526259"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679526259"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679526258"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679526258"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679527005"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679527005"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679527004"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679527004"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679527003"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679527003"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-186"></span><span>          </span><span class="annot"><span class="annottext">Maybe Snapshot -&gt; Int -&gt; CreateClusterSnapshotResponse
 </span><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse%27"><span class="hs-identifier hs-var">CreateClusterSnapshotResponse'</span></a></span><span>
 </span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Snapshot -&gt; Int -&gt; CreateClusterSnapshotResponse)
@@ -376,7 +376,7 @@ Text
 -&gt; Either String (Int -&gt; CreateClusterSnapshotResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679526258"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Snapshot)
+</span><a href="#local-6989586621679527003"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Snapshot)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Snapshot&quot;</span></span><span class="hs-special">)</span><span>
@@ -388,15 +388,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679526260"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679527005"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679526250"><span id="local-6989586621679526252"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679526995"><span id="local-6989586621679526997"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span></span></span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679526247"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679526992"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span></span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679526243"><span class="annot"><span class="annottext">toHeaders :: CreateClusterSnapshot -&gt; ResponseHeaders
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679526988"><span class="annot"><span class="annottext">toHeaders :: CreateClusterSnapshot -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateClusterSnapshot -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -404,15 +404,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679526238"><span class="annot"><span class="annottext">toPath :: CreateClusterSnapshot -&gt; ByteString
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679526983"><span class="annot"><span class="annottext">toPath :: CreateClusterSnapshot -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateClusterSnapshot -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-200"></span><span>
 </span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot"><span class="hs-identifier hs-type">CreateClusterSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-202"></span><span>  </span><span id="local-6989586621679526234"><span class="annot"><span class="annottext">toQuery :: CreateClusterSnapshot -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526229"><span id="local-6989586621679526230"><span id="local-6989586621679526231"><span id="local-6989586621679526232"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679526979"><span class="annot"><span class="annottext">toQuery :: CreateClusterSnapshot -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshot%27"><span class="hs-identifier hs-type">CreateClusterSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526974"><span id="local-6989586621679526975"><span id="local-6989586621679526976"><span id="local-6989586621679526977"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Tag]
 Text
 clusterIdentifier :: Text
@@ -423,7 +423,7 @@ $sel:clusterIdentifier:CreateClusterSnapshot' :: CreateClusterSnapshot -&gt; Tex
 $sel:snapshotIdentifier:CreateClusterSnapshot' :: CreateClusterSnapshot -&gt; Text
 $sel:tags:CreateClusterSnapshot' :: CreateClusterSnapshot -&gt; Maybe [Tag]
 $sel:manualSnapshotRetentionPeriod:CreateClusterSnapshot' :: CreateClusterSnapshot -&gt; Maybe Int
-</span><a href="#local-6989586621679526229"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679526974"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -444,7 +444,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-209"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679526232"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679526977"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span>
 </span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
@@ -460,28 +460,28 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679526231"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679526976"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SnapshotIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679526230"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679526975"><span class="hs-identifier hs-var">snapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679526229"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679526974"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span>
 </span><span id="line-215"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | /See:/ 'newCreateClusterSnapshotResponse' smart constructor.</span><span>
-</span><span id="line-218"></span><span id="local-6989586621679526225"><span id="local-6989586621679526226"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateClusterSnapshotResponse"><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse"><span class="hs-identifier hs-var">CreateClusterSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateClusterSnapshotResponse%27"><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse%27"><span class="hs-identifier hs-var">CreateClusterSnapshotResponse'</span></a></span></span><span>
+</span><span id="line-218"></span><span id="local-6989586621679526970"><span id="local-6989586621679526971"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateClusterSnapshotResponse"><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse"><span class="hs-identifier hs-var">CreateClusterSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateClusterSnapshotResponse%27"><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse%27"><span class="hs-identifier hs-var">CreateClusterSnapshotResponse'</span></a></span></span><span>
 </span><span id="line-219"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Asnapshot%3ACreateClusterSnapshotResponse%27"><span class="annot"><span class="annottext">CreateClusterSnapshotResponse -&gt; Maybe Snapshot
 </span><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#%24sel%3Asnapshot%3ACreateClusterSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">snapshot</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.Snapshot.html#Snapshot"><span class="hs-identifier hs-type">Snapshot</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-221"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateClusterSnapshotResponse%27"><span class="annot"><span class="annottext">CreateClusterSnapshotResponse -&gt; Int
 </span><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#%24sel%3AhttpStatus%3ACreateClusterSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-222"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679526219"><span id="local-6989586621679526221"><span class="annot"><span class="annottext">CreateClusterSnapshotResponse
+</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679526964"><span id="local-6989586621679526966"><span class="annot"><span class="annottext">CreateClusterSnapshotResponse
 -&gt; CreateClusterSnapshotResponse -&gt; Bool
 (CreateClusterSnapshotResponse
  -&gt; CreateClusterSnapshotResponse -&gt; Bool)
@@ -497,7 +497,7 @@ $c/= :: CreateClusterSnapshotResponse
 -&gt; CreateClusterSnapshotResponse -&gt; Bool
 $c== :: CreateClusterSnapshotResponse
 -&gt; CreateClusterSnapshotResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679526211"><span id="local-6989586621679526213"><span id="local-6989586621679526215"><span id="local-6989586621679526217"><span class="annot"><span class="annottext">ReadPrec [CreateClusterSnapshotResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679526956"><span id="local-6989586621679526958"><span id="local-6989586621679526960"><span id="local-6989586621679526962"><span class="annot"><span class="annottext">ReadPrec [CreateClusterSnapshotResponse]
 ReadPrec CreateClusterSnapshotResponse
 Int -&gt; ReadS CreateClusterSnapshotResponse
 ReadS [CreateClusterSnapshotResponse]
@@ -517,7 +517,7 @@ readList :: ReadS [CreateClusterSnapshotResponse]
 $creadList :: ReadS [CreateClusterSnapshotResponse]
 readsPrec :: Int -&gt; ReadS CreateClusterSnapshotResponse
 $creadsPrec :: Int -&gt; ReadS CreateClusterSnapshotResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679526205"><span id="local-6989586621679526207"><span id="local-6989586621679526209"><span class="annot"><span class="annottext">Int -&gt; CreateClusterSnapshotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679526950"><span id="local-6989586621679526952"><span id="local-6989586621679526954"><span class="annot"><span class="annottext">Int -&gt; CreateClusterSnapshotResponse -&gt; ShowS
 [CreateClusterSnapshotResponse] -&gt; ShowS
 CreateClusterSnapshotResponse -&gt; String
 (Int -&gt; CreateClusterSnapshotResponse -&gt; ShowS)
@@ -571,8 +571,8 @@ CreateClusterSnapshotResponse
 </span><span id="line-238"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-239"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse"><span class="hs-identifier hs-type">CreateClusterSnapshotResponse</span></a></span><span>
 </span><span id="line-240"></span><span id="newCreateClusterSnapshotResponse"><span class="annot"><span class="annottext">newCreateClusterSnapshotResponse :: Int -&gt; CreateClusterSnapshotResponse
-</span><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#newCreateClusterSnapshotResponse"><span class="hs-identifier hs-var hs-var">newCreateClusterSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679526202"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679526202"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#newCreateClusterSnapshotResponse"><span class="hs-identifier hs-var hs-var">newCreateClusterSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679526947"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679526947"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-241"></span><span>  </span><span class="annot"><span class="annottext">CreateClusterSnapshotResponse' :: Maybe Snapshot -&gt; Int -&gt; CreateClusterSnapshotResponse
 </span><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse%27"><span class="hs-identifier hs-type">CreateClusterSnapshotResponse'</span></a></span><span>
 </span><span id="line-242"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:snapshot:CreateClusterSnapshotResponse' :: Maybe Snapshot
@@ -582,7 +582,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateClusterSnapshotResponse' :: Int
 </span><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#%24sel%3AhttpStatus%3ACreateClusterSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679526202"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679526947"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-245"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-246"></span><span>
 </span><span id="line-247"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -598,16 +598,16 @@ forall a. Maybe a
      (Maybe Snapshot)
      (Maybe Snapshot)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse%27"><span class="hs-identifier hs-type">CreateClusterSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526201"><span class="annot"><span class="annottext">Maybe Snapshot
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse%27"><span class="hs-identifier hs-type">CreateClusterSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526946"><span class="annot"><span class="annottext">Maybe Snapshot
 snapshot :: Maybe Snapshot
 $sel:snapshot:CreateClusterSnapshotResponse' :: CreateClusterSnapshotResponse -&gt; Maybe Snapshot
-</span><a href="#local-6989586621679526201"><span class="hs-identifier hs-var hs-var">snapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Snapshot
-</span><a href="#local-6989586621679526201"><span class="hs-identifier hs-var">snapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526200"><span class="annot"><span class="annottext">s :: CreateClusterSnapshotResponse
-</span><a href="#local-6989586621679526200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse%27"><span class="hs-identifier hs-type">CreateClusterSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526199"><span class="annot"><span class="annottext">Maybe Snapshot
-</span><a href="#local-6989586621679526199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateClusterSnapshotResponse
-</span><a href="#local-6989586621679526200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshot:CreateClusterSnapshotResponse' :: Maybe Snapshot
+</span><a href="#local-6989586621679526946"><span class="hs-identifier hs-var hs-var">snapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Snapshot
+</span><a href="#local-6989586621679526946"><span class="hs-identifier hs-var">snapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526945"><span class="annot"><span class="annottext">s :: CreateClusterSnapshotResponse
+</span><a href="#local-6989586621679526945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse%27"><span class="hs-identifier hs-type">CreateClusterSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526944"><span class="annot"><span class="annottext">Maybe Snapshot
+</span><a href="#local-6989586621679526944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateClusterSnapshotResponse
+</span><a href="#local-6989586621679526945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshot:CreateClusterSnapshotResponse' :: Maybe Snapshot
 </span><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#%24sel%3Asnapshot%3ACreateClusterSnapshotResponse%27"><span class="hs-identifier hs-var">snapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Snapshot
-</span><a href="#local-6989586621679526199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse"><span class="hs-identifier hs-type">CreateClusterSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679526944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse"><span class="hs-identifier hs-type">CreateClusterSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-250"></span><span>
 </span><span id="line-251"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-252"></span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#createClusterSnapshotResponse_httpStatus"><span class="hs-identifier hs-type">createClusterSnapshotResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse"><span class="hs-identifier hs-type">CreateClusterSnapshotResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -619,16 +619,16 @@ $sel:snapshot:CreateClusterSnapshotResponse' :: CreateClusterSnapshotResponse -&
 -&gt; Lens
      CreateClusterSnapshotResponse CreateClusterSnapshotResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse%27"><span class="hs-identifier hs-type">CreateClusterSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526198"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse%27"><span class="hs-identifier hs-type">CreateClusterSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679526943"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateClusterSnapshotResponse' :: CreateClusterSnapshotResponse -&gt; Int
-</span><a href="#local-6989586621679526198"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679526198"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526197"><span class="annot"><span class="annottext">s :: CreateClusterSnapshotResponse
-</span><a href="#local-6989586621679526197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse%27"><span class="hs-identifier hs-type">CreateClusterSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526196"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679526196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateClusterSnapshotResponse
-</span><a href="#local-6989586621679526197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateClusterSnapshotResponse' :: Int
+</span><a href="#local-6989586621679526943"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679526943"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679526942"><span class="annot"><span class="annottext">s :: CreateClusterSnapshotResponse
+</span><a href="#local-6989586621679526942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse%27"><span class="hs-identifier hs-type">CreateClusterSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679526941"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679526941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateClusterSnapshotResponse
+</span><a href="#local-6989586621679526942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateClusterSnapshotResponse' :: Int
 </span><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#%24sel%3AhttpStatus%3ACreateClusterSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679526196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse"><span class="hs-identifier hs-type">CreateClusterSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679526941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse"><span class="hs-identifier hs-type">CreateClusterSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>
-</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679526194"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse"><span class="hs-identifier hs-type">CreateClusterSnapshotResponse</span></a></span></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679526939"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.CreateClusterSnapshot.html#CreateClusterSnapshotResponse"><span class="hs-identifier hs-type">CreateClusterSnapshotResponse</span></a></span></span><span>
 </span><span id="line-256"></span></pre></body></html>

@@ -34,10 +34,10 @@
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#newGetDetectorResponse"><span class="hs-identifier">newGetDetectorResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_dataSources"><span class="hs-identifier">getDetectorResponse_dataSources</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_updatedAt"><span class="hs-identifier">getDetectorResponse_updatedAt</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_findingPublishingFrequency"><span class="hs-identifier">getDetectorResponse_findingPublishingFrequency</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_createdAt"><span class="hs-identifier">getDetectorResponse_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_createdAt"><span class="hs-identifier">getDetectorResponse_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_findingPublishingFrequency"><span class="hs-identifier">getDetectorResponse_findingPublishingFrequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_dataSources"><span class="hs-identifier">getDetectorResponse_dataSources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_updatedAt"><span class="hs-identifier">getDetectorResponse_updatedAt</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_tags"><span class="hs-identifier">getDetectorResponse_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_httpStatus"><span class="hs-identifier">getDetectorResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_serviceRole"><span class="hs-identifier">getDetectorResponse_serviceRole</span></a></span><span class="hs-special">,</span><span>
@@ -53,12 +53,12 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newGetDetector' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679309796"><span id="local-6989586621679309797"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDetector"><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector"><span class="hs-identifier hs-var">GetDetector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDetector%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector%27"><span class="hs-identifier hs-var">GetDetector'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679310126"><span id="local-6989586621679310127"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDetector"><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector"><span class="hs-identifier hs-var">GetDetector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDetector%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector%27"><span class="hs-identifier hs-var">GetDetector'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the detector that you want to get.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AdetectorId%3AGetDetector%27"><span class="annot"><span class="annottext">GetDetector -&gt; Text
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AdetectorId%3AGetDetector%27"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309790"><span id="local-6989586621679309792"><span class="annot"><span class="annottext">GetDetector -&gt; GetDetector -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310120"><span id="local-6989586621679310122"><span class="annot"><span class="annottext">GetDetector -&gt; GetDetector -&gt; Bool
 (GetDetector -&gt; GetDetector -&gt; Bool)
 -&gt; (GetDetector -&gt; GetDetector -&gt; Bool) -&gt; Eq GetDetector
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDetector -&gt; GetDetector -&gt; Bool
 == :: GetDetector -&gt; GetDetector -&gt; Bool
 $c== :: GetDetector -&gt; GetDetector -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309781"><span id="local-6989586621679309783"><span id="local-6989586621679309785"><span id="local-6989586621679309787"><span class="annot"><span class="annottext">ReadPrec [GetDetector]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310111"><span id="local-6989586621679310113"><span id="local-6989586621679310115"><span id="local-6989586621679310117"><span class="annot"><span class="annottext">ReadPrec [GetDetector]
 ReadPrec GetDetector
 Int -&gt; ReadS GetDetector
 ReadS [GetDetector]
@@ -86,7 +86,7 @@ readList :: ReadS [GetDetector]
 $creadList :: ReadS [GetDetector]
 readsPrec :: Int -&gt; ReadS GetDetector
 $creadsPrec :: Int -&gt; ReadS GetDetector
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309774"><span id="local-6989586621679309776"><span id="local-6989586621679309778"><span class="annot"><span class="annottext">Int -&gt; GetDetector -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310104"><span id="local-6989586621679310106"><span id="local-6989586621679310108"><span class="annot"><span class="annottext">Int -&gt; GetDetector -&gt; ShowS
 [GetDetector] -&gt; ShowS
 GetDetector -&gt; String
 (Int -&gt; GetDetector -&gt; ShowS)
@@ -126,12 +126,12 @@ $cfrom :: forall x. GetDetector -&gt; Rep GetDetector x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector"><span class="hs-identifier hs-type">GetDetector</span></a></span><span>
 </span><span id="line-75"></span><span id="newGetDetector"><span class="annot"><span class="annottext">newGetDetector :: Text -&gt; GetDetector
-</span><a href="Network.AWS.GuardDuty.GetDetector.html#newGetDetector"><span class="hs-identifier hs-var hs-var">newGetDetector</span></a></span></span><span> </span><span id="local-6989586621679309769"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309769"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.GetDetector.html#newGetDetector"><span class="hs-identifier hs-var hs-var">newGetDetector</span></a></span></span><span> </span><span id="local-6989586621679310099"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310099"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">GetDetector' :: Text -&gt; GetDetector
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector%27"><span class="hs-identifier hs-type">GetDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:GetDetector' :: Text
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AdetectorId%3AGetDetector%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309769"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679310099"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The unique ID of the detector that you want to get.</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetector_detectorId"><span class="hs-identifier hs-type">getDetector_detectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector"><span class="hs-identifier hs-type">GetDetector</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -140,25 +140,25 @@ $cfrom :: forall x. GetDetector -&gt; Rep GetDetector x
 -&gt; (GetDetector -&gt; Text -&gt; GetDetector)
 -&gt; Lens GetDetector GetDetector Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector%27"><span class="hs-identifier hs-type">GetDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309766"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector%27"><span class="hs-identifier hs-type">GetDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310096"><span class="annot"><span class="annottext">Text
 detectorId :: Text
 $sel:detectorId:GetDetector' :: GetDetector -&gt; Text
-</span><a href="#local-6989586621679309766"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309766"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309765"><span class="annot"><span class="annottext">s :: GetDetector
-</span><a href="#local-6989586621679309765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector%27"><span class="hs-identifier hs-type">GetDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309764"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDetector
-</span><a href="#local-6989586621679309765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:GetDetector' :: Text
+</span><a href="#local-6989586621679310096"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310096"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310095"><span class="annot"><span class="annottext">s :: GetDetector
+</span><a href="#local-6989586621679310095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector%27"><span class="hs-identifier hs-type">GetDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310094"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDetector
+</span><a href="#local-6989586621679310095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:GetDetector' :: Text
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AdetectorId%3AGetDetector%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector"><span class="hs-identifier hs-type">GetDetector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector"><span class="hs-identifier hs-type">GetDetector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector"><span class="hs-identifier hs-type">GetDetector</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector"><span class="hs-identifier hs-type">GetDetector</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679309760"><span class="annot"><span class="annottext">request :: GetDetector -&gt; Request GetDetector
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679310090"><span class="annot"><span class="annottext">request :: GetDetector -&gt; Request GetDetector
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDetector -&gt; Request GetDetector
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679309756"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679310086"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetDetector
 -&gt; ClientResponse ClientBody
@@ -182,13 +182,13 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309753"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309753"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679309752"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679309752"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679309751"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309751"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe DataSourceConfigurationsResult
--&gt; Maybe Text
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310083"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310083"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679310082"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679310082"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679310081"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310081"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe FindingPublishingFrequency
+-&gt; Maybe DataSourceConfigurationsResult
 -&gt; Maybe Text
 -&gt; Maybe (HashMap Text Text)
 -&gt; Int
@@ -196,20 +196,20 @@ MonadResource m =&gt;
 -&gt; DetectorStatus
 -&gt; GetDetectorResponse
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-var">GetDetectorResponse'</span></a></span><span>
-</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DataSourceConfigurationsResult
- -&gt; Maybe Text
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe FindingPublishingFrequency
+ -&gt; Maybe DataSourceConfigurationsResult
  -&gt; Maybe Text
  -&gt; Maybe (HashMap Text Text)
  -&gt; Int
  -&gt; Text
  -&gt; DetectorStatus
  -&gt; GetDetectorResponse)
--&gt; Either String (Maybe DataSourceConfigurationsResult)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe FindingPublishingFrequency
+     (Maybe FindingPublishingFrequency
+      -&gt; Maybe DataSourceConfigurationsResult
       -&gt; Maybe Text
       -&gt; Maybe (HashMap Text Text)
       -&gt; Int
@@ -218,40 +218,14 @@ MonadResource m =&gt;
       -&gt; GetDetectorResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
--&gt; Text -&gt; Either String (Maybe DataSourceConfigurationsResult)
+</span><a href="#local-6989586621679310081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;dataSources&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
-   -&gt; Maybe FindingPublishingFrequency
-   -&gt; Maybe Text
-   -&gt; Maybe (HashMap Text Text)
-   -&gt; Int
-   -&gt; Text
-   -&gt; DetectorStatus
-   -&gt; GetDetectorResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe FindingPublishingFrequency
-      -&gt; Maybe Text
-      -&gt; Maybe (HashMap Text Text)
-      -&gt; Int
-      -&gt; Text
-      -&gt; DetectorStatus
-      -&gt; GetDetectorResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;updatedAt&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
   (Maybe FindingPublishingFrequency
+   -&gt; Maybe DataSourceConfigurationsResult
    -&gt; Maybe Text
    -&gt; Maybe (HashMap Text Text)
    -&gt; Int
@@ -261,6 +235,31 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe FindingPublishingFrequency)
 -&gt; Either
      String
+     (Maybe DataSourceConfigurationsResult
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; Text
+      -&gt; DetectorStatus
+      -&gt; GetDetectorResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe FindingPublishingFrequency)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;findingPublishingFrequency&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe DataSourceConfigurationsResult
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; Text
+   -&gt; DetectorStatus
+   -&gt; GetDetectorResponse)
+-&gt; Either String (Maybe DataSourceConfigurationsResult)
+-&gt; Either
+     String
      (Maybe Text
       -&gt; Maybe (HashMap Text Text)
       -&gt; Int
@@ -269,10 +268,11 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; GetDetectorResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe FindingPublishingFrequency)
+</span><a href="#local-6989586621679310081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe DataSourceConfigurationsResult)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;findingPublishingFrequency&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;dataSources&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
@@ -288,10 +288,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Int -&gt; Text -&gt; DetectorStatus -&gt; GetDetectorResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679310081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;updatedAt&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe (HashMap Text Text)
@@ -301,7 +301,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String (Int -&gt; Text -&gt; DetectorStatus -&gt; GetDetectorResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679310081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
@@ -321,13 +321,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309753"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310083"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; DetectorStatus -&gt; GetDetectorResponse)
 -&gt; Either String Text
 -&gt; Either String (DetectorStatus -&gt; GetDetectorResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679310081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serviceRole&quot;</span></span><span class="hs-special">)</span><span>
@@ -336,18 +336,18 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String GetDetectorResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String DetectorStatus
+</span><a href="#local-6989586621679310081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String DetectorStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309741"><span id="local-6989586621679309743"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector"><span class="hs-identifier hs-type">GetDetector</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310071"><span id="local-6989586621679310073"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector"><span class="hs-identifier hs-type">GetDetector</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309738"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector"><span class="hs-identifier hs-type">GetDetector</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310068"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector"><span class="hs-identifier hs-type">GetDetector</span></a></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector"><span class="hs-identifier hs-type">GetDetector</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679309734"><span class="annot"><span class="annottext">toHeaders :: GetDetector -&gt; ResponseHeaders
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679310064"><span class="annot"><span class="annottext">toHeaders :: GetDetector -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDetector -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -367,11 +367,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector"><span class="hs-identifier hs-type">GetDetector</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679309728"><span class="annot"><span class="annottext">toPath :: GetDetector -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector%27"><span class="hs-identifier hs-type">GetDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309726"><span class="annot"><span class="annottext">Text
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679310058"><span class="annot"><span class="annottext">toPath :: GetDetector -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector%27"><span class="hs-identifier hs-type">GetDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310056"><span class="annot"><span class="annottext">Text
 detectorId :: Text
 $sel:detectorId:GetDetector' :: GetDetector -&gt; Text
-</span><a href="#local-6989586621679309726"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679310056"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -379,10 +379,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/detector/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309726"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679310056"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetector"><span class="hs-identifier hs-type">GetDetector</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679309722"><span class="annot"><span class="annottext">toQuery :: GetDetector -&gt; QueryString
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679310052"><span class="annot"><span class="annottext">toQuery :: GetDetector -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDetector -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -390,19 +390,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newGetDetectorResponse' smart constructor.</span><span>
-</span><span id="line-123"></span><span id="local-6989586621679309719"><span id="local-6989586621679309720"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDetectorResponse"><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-var">GetDetectorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDetectorResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-var">GetDetectorResponse'</span></a></span></span><span>
-</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes which data sources are enabled for the detector.</span><span>
-</span><span id="line-125"></span><span>    </span><span id="%24sel%3AdataSources%3AGetDetectorResponse%27"><span class="annot"><span class="annottext">GetDetectorResponse -&gt; Maybe DataSourceConfigurationsResult
-</span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AdataSources%3AGetDetectorResponse%27"><span class="hs-identifier hs-var hs-var">dataSources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult"><span class="hs-identifier hs-type">DataSourceConfigurationsResult</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The last-updated timestamp for the detector.</span><span>
-</span><span id="line-127"></span><span>    </span><span id="%24sel%3AupdatedAt%3AGetDetectorResponse%27"><span class="annot"><span class="annottext">GetDetectorResponse -&gt; Maybe Text
-</span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AupdatedAt%3AGetDetectorResponse%27"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | The publishing frequency of the finding.</span><span>
-</span><span id="line-129"></span><span>    </span><span id="%24sel%3AfindingPublishingFrequency%3AGetDetectorResponse%27"><span class="annot"><span class="annottext">GetDetectorResponse -&gt; Maybe FindingPublishingFrequency
-</span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AfindingPublishingFrequency%3AGetDetectorResponse%27"><span class="hs-identifier hs-var hs-var">findingPublishingFrequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingPublishingFrequency.html#FindingPublishingFrequency"><span class="hs-identifier hs-type">FindingPublishingFrequency</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The timestamp of when the detector was created.</span><span>
-</span><span id="line-131"></span><span>    </span><span id="%24sel%3AcreatedAt%3AGetDetectorResponse%27"><span class="annot"><span class="annottext">GetDetectorResponse -&gt; Maybe Text
+</span><span id="line-123"></span><span id="local-6989586621679310049"><span id="local-6989586621679310050"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDetectorResponse"><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-var">GetDetectorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDetectorResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-var">GetDetectorResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timestamp of when the detector was created.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AcreatedAt%3AGetDetectorResponse%27"><span class="annot"><span class="annottext">GetDetectorResponse -&gt; Maybe Text
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AcreatedAt%3AGetDetectorResponse%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The publishing frequency of the finding.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AfindingPublishingFrequency%3AGetDetectorResponse%27"><span class="annot"><span class="annottext">GetDetectorResponse -&gt; Maybe FindingPublishingFrequency
+</span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AfindingPublishingFrequency%3AGetDetectorResponse%27"><span class="hs-identifier hs-var hs-var">findingPublishingFrequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingPublishingFrequency.html#FindingPublishingFrequency"><span class="hs-identifier hs-type">FindingPublishingFrequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | Describes which data sources are enabled for the detector.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AdataSources%3AGetDetectorResponse%27"><span class="annot"><span class="annottext">GetDetectorResponse -&gt; Maybe DataSourceConfigurationsResult
+</span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AdataSources%3AGetDetectorResponse%27"><span class="hs-identifier hs-var hs-var">dataSources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult"><span class="hs-identifier hs-type">DataSourceConfigurationsResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The last-updated timestamp for the detector.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AupdatedAt%3AGetDetectorResponse%27"><span class="annot"><span class="annottext">GetDetectorResponse -&gt; Maybe Text
+</span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AupdatedAt%3AGetDetectorResponse%27"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The tags of the detector resource.</span><span>
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3Atags%3AGetDetectorResponse%27"><span class="annot"><span class="annottext">GetDetectorResponse -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3Atags%3AGetDetectorResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -416,7 +416,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3Astatus%3AGetDetectorResponse%27"><span class="annot"><span class="annottext">GetDetectorResponse -&gt; DetectorStatus
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3Astatus%3AGetDetectorResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DetectorStatus.html#DetectorStatus"><span class="hs-identifier hs-type">DetectorStatus</span></a></span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309707"><span id="local-6989586621679309709"><span class="annot"><span class="annottext">GetDetectorResponse -&gt; GetDetectorResponse -&gt; Bool
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310037"><span id="local-6989586621679310039"><span class="annot"><span class="annottext">GetDetectorResponse -&gt; GetDetectorResponse -&gt; Bool
 (GetDetectorResponse -&gt; GetDetectorResponse -&gt; Bool)
 -&gt; (GetDetectorResponse -&gt; GetDetectorResponse -&gt; Bool)
 -&gt; Eq GetDetectorResponse
@@ -425,7 +425,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDetectorResponse -&gt; GetDetectorResponse -&gt; Bool
 == :: GetDetectorResponse -&gt; GetDetectorResponse -&gt; Bool
 $c== :: GetDetectorResponse -&gt; GetDetectorResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309699"><span id="local-6989586621679309701"><span id="local-6989586621679309703"><span id="local-6989586621679309705"><span class="annot"><span class="annottext">ReadPrec [GetDetectorResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310029"><span id="local-6989586621679310031"><span id="local-6989586621679310033"><span id="local-6989586621679310035"><span class="annot"><span class="annottext">ReadPrec [GetDetectorResponse]
 ReadPrec GetDetectorResponse
 Int -&gt; ReadS GetDetectorResponse
 ReadS [GetDetectorResponse]
@@ -445,7 +445,7 @@ readList :: ReadS [GetDetectorResponse]
 $creadList :: ReadS [GetDetectorResponse]
 readsPrec :: Int -&gt; ReadS GetDetectorResponse
 $creadsPrec :: Int -&gt; ReadS GetDetectorResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309693"><span id="local-6989586621679309695"><span id="local-6989586621679309697"><span class="annot"><span class="annottext">Int -&gt; GetDetectorResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310023"><span id="local-6989586621679310025"><span id="local-6989586621679310027"><span class="annot"><span class="annottext">Int -&gt; GetDetectorResponse -&gt; ShowS
 [GetDetectorResponse] -&gt; ShowS
 GetDetectorResponse -&gt; String
 (Int -&gt; GetDetectorResponse -&gt; ShowS)
@@ -479,13 +479,13 @@ $cfrom :: forall x. GetDetectorResponse -&gt; Rep GetDetectorResponse x
 </span><span id="line-148"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- 'dataSources', 'getDetectorResponse_dataSources' - Describes which data sources are enabled for the detector.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'createdAt', 'getDetectorResponse_createdAt' - The timestamp of when the detector was created.</span><span>
 </span><span id="line-152"></span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- 'updatedAt', 'getDetectorResponse_updatedAt' - The last-updated timestamp for the detector.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'findingPublishingFrequency', 'getDetectorResponse_findingPublishingFrequency' - The publishing frequency of the finding.</span><span>
 </span><span id="line-154"></span><span class="hs-comment">--</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- 'findingPublishingFrequency', 'getDetectorResponse_findingPublishingFrequency' - The publishing frequency of the finding.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'dataSources', 'getDetectorResponse_dataSources' - Describes which data sources are enabled for the detector.</span><span>
 </span><span id="line-156"></span><span class="hs-comment">--</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- 'createdAt', 'getDetectorResponse_createdAt' - The timestamp of when the detector was created.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'updatedAt', 'getDetectorResponse_updatedAt' - The last-updated timestamp for the detector.</span><span>
 </span><span id="line-158"></span><span class="hs-comment">--</span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- 'tags', 'getDetectorResponse_tags' - The tags of the detector resource.</span><span>
 </span><span id="line-160"></span><span class="hs-comment">--</span><span>
@@ -504,15 +504,15 @@ $cfrom :: forall x. GetDetectorResponse -&gt; Rep GetDetectorResponse x
 </span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span>
 </span><span id="line-174"></span><span id="newGetDetectorResponse"><span class="annot"><span class="annottext">newGetDetectorResponse :: Int -&gt; Text -&gt; DetectorStatus -&gt; GetDetectorResponse
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#newGetDetectorResponse"><span class="hs-identifier hs-var hs-var">newGetDetectorResponse</span></a></span></span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679309690"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309690"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679309689"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309689"><span class="hs-identifier hs-var">pServiceRole_</span></a></span></span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679309688"><span class="annot"><span class="annottext">DetectorStatus
-</span><a href="#local-6989586621679309688"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">GetDetectorResponse' :: Maybe DataSourceConfigurationsResult
--&gt; Maybe Text
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679310020"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310020"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679310019"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310019"><span class="hs-identifier hs-var">pServiceRole_</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679310018"><span class="annot"><span class="annottext">DetectorStatus
+</span><a href="#local-6989586621679310018"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">GetDetectorResponse' :: Maybe Text
 -&gt; Maybe FindingPublishingFrequency
+-&gt; Maybe DataSourceConfigurationsResult
 -&gt; Maybe Text
 -&gt; Maybe (HashMap Text Text)
 -&gt; Int
@@ -520,20 +520,20 @@ $cfrom :: forall x. GetDetectorResponse -&gt; Rep GetDetectorResponse x
 -&gt; DetectorStatus
 -&gt; GetDetectorResponse
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span>
-</span><span id="line-179"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataSources:GetDetectorResponse' :: Maybe DataSourceConfigurationsResult
-</span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AdataSources%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">dataSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataSourceConfigurationsResult
+</span><span id="line-179"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createdAt:GetDetectorResponse' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AcreatedAt%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">$sel:updatedAt:GetDetectorResponse' :: Maybe Text
-</span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AupdatedAt%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">$sel:findingPublishingFrequency:GetDetectorResponse' :: Maybe FindingPublishingFrequency
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">$sel:findingPublishingFrequency:GetDetectorResponse' :: Maybe FindingPublishingFrequency
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AfindingPublishingFrequency%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">findingPublishingFrequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FindingPublishingFrequency
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:GetDetectorResponse' :: Maybe Text
-</span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AcreatedAt%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSources:GetDetectorResponse' :: Maybe DataSourceConfigurationsResult
+</span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AdataSources%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">dataSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataSourceConfigurationsResult
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">$sel:updatedAt:GetDetectorResponse' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AupdatedAt%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:GetDetectorResponse' :: Maybe (HashMap Text Text)
@@ -542,63 +542,38 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDetectorResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AhttpStatus%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309690"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679310020"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceRole:GetDetectorResponse' :: Text
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AserviceRole%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">serviceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309689"><span class="hs-identifier hs-var">pServiceRole_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679310019"><span class="hs-identifier hs-var">pServiceRole_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:GetDetectorResponse' :: DetectorStatus
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3Astatus%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DetectorStatus
-</span><a href="#local-6989586621679309688"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621679310018"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- | Describes which data sources are enabled for the detector.</span><span>
-</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_dataSources"><span class="hs-identifier hs-type">getDetectorResponse_dataSources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult"><span class="hs-identifier hs-type">DataSourceConfigurationsResult</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span id="getDetectorResponse_dataSources"><span class="annot"><span class="annottext">getDetectorResponse_dataSources :: (Maybe DataSourceConfigurationsResult
- -&gt; f (Maybe DataSourceConfigurationsResult))
+</span><span id="line-189"></span><span class="hs-comment">-- | The timestamp of when the detector was created.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_createdAt"><span class="hs-identifier hs-type">getDetectorResponse_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="getDetectorResponse_createdAt"><span class="annot"><span class="annottext">getDetectorResponse_createdAt :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetDetectorResponse -&gt; f GetDetectorResponse
-</span><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_dataSources"><span class="hs-identifier hs-var hs-var">getDetectorResponse_dataSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDetectorResponse -&gt; Maybe DataSourceConfigurationsResult)
--&gt; (GetDetectorResponse
-    -&gt; Maybe DataSourceConfigurationsResult -&gt; GetDetectorResponse)
--&gt; Lens
-     GetDetectorResponse
-     GetDetectorResponse
-     (Maybe DataSourceConfigurationsResult)
-     (Maybe DataSourceConfigurationsResult)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309687"><span class="annot"><span class="annottext">Maybe DataSourceConfigurationsResult
-dataSources :: Maybe DataSourceConfigurationsResult
-$sel:dataSources:GetDetectorResponse' :: GetDetectorResponse -&gt; Maybe DataSourceConfigurationsResult
-</span><a href="#local-6989586621679309687"><span class="hs-identifier hs-var hs-var">dataSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataSourceConfigurationsResult
-</span><a href="#local-6989586621679309687"><span class="hs-identifier hs-var">dataSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309686"><span class="annot"><span class="annottext">s :: GetDetectorResponse
-</span><a href="#local-6989586621679309686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309685"><span class="annot"><span class="annottext">Maybe DataSourceConfigurationsResult
-</span><a href="#local-6989586621679309685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDetectorResponse
-</span><a href="#local-6989586621679309686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSources:GetDetectorResponse' :: Maybe DataSourceConfigurationsResult
-</span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AdataSources%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">dataSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataSourceConfigurationsResult
-</span><a href="#local-6989586621679309685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- | The last-updated timestamp for the detector.</span><span>
-</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_updatedAt"><span class="hs-identifier hs-type">getDetectorResponse_updatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-195"></span><span id="getDetectorResponse_updatedAt"><span class="annot"><span class="annottext">getDetectorResponse_updatedAt :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetDetectorResponse -&gt; f GetDetectorResponse
-</span><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_updatedAt"><span class="hs-identifier hs-var hs-var">getDetectorResponse_updatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDetectorResponse -&gt; Maybe Text)
+</span><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_createdAt"><span class="hs-identifier hs-var hs-var">getDetectorResponse_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDetectorResponse -&gt; Maybe Text)
 -&gt; (GetDetectorResponse -&gt; Maybe Text -&gt; GetDetectorResponse)
 -&gt; Lens
      GetDetectorResponse GetDetectorResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309684"><span class="annot"><span class="annottext">Maybe Text
-updatedAt :: Maybe Text
-$sel:updatedAt:GetDetectorResponse' :: GetDetectorResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679309684"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309684"><span class="hs-identifier hs-var">updatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309683"><span class="annot"><span class="annottext">s :: GetDetectorResponse
-</span><a href="#local-6989586621679309683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309682"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDetectorResponse
-</span><a href="#local-6989586621679309683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedAt:GetDetectorResponse' :: Maybe Text
-</span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AupdatedAt%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- | The publishing frequency of the finding.</span><span>
-</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_findingPublishingFrequency"><span class="hs-identifier hs-type">getDetectorResponse_findingPublishingFrequency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingPublishingFrequency.html#FindingPublishingFrequency"><span class="hs-identifier hs-type">FindingPublishingFrequency</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-199"></span><span id="getDetectorResponse_findingPublishingFrequency"><span class="annot"><span class="annottext">getDetectorResponse_findingPublishingFrequency :: (Maybe FindingPublishingFrequency
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310017"><span class="annot"><span class="annottext">Maybe Text
+createdAt :: Maybe Text
+$sel:createdAt:GetDetectorResponse' :: GetDetectorResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679310017"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310017"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310016"><span class="annot"><span class="annottext">s :: GetDetectorResponse
+</span><a href="#local-6989586621679310016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310015"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDetectorResponse
+</span><a href="#local-6989586621679310016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:GetDetectorResponse' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AcreatedAt%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The publishing frequency of the finding.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_findingPublishingFrequency"><span class="hs-identifier hs-type">getDetectorResponse_findingPublishingFrequency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.FindingPublishingFrequency.html#FindingPublishingFrequency"><span class="hs-identifier hs-type">FindingPublishingFrequency</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="getDetectorResponse_findingPublishingFrequency"><span class="annot"><span class="annottext">getDetectorResponse_findingPublishingFrequency :: (Maybe FindingPublishingFrequency
  -&gt; f (Maybe FindingPublishingFrequency))
 -&gt; GetDetectorResponse -&gt; f GetDetectorResponse
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_findingPublishingFrequency"><span class="hs-identifier hs-var hs-var">getDetectorResponse_findingPublishingFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDetectorResponse -&gt; Maybe FindingPublishingFrequency)
@@ -610,36 +585,61 @@ $sel:updatedAt:GetDetectorResponse' :: GetDetectorResponse -&gt; Maybe Text
      (Maybe FindingPublishingFrequency)
      (Maybe FindingPublishingFrequency)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309681"><span class="annot"><span class="annottext">Maybe FindingPublishingFrequency
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310014"><span class="annot"><span class="annottext">Maybe FindingPublishingFrequency
 findingPublishingFrequency :: Maybe FindingPublishingFrequency
 $sel:findingPublishingFrequency:GetDetectorResponse' :: GetDetectorResponse -&gt; Maybe FindingPublishingFrequency
-</span><a href="#local-6989586621679309681"><span class="hs-identifier hs-var hs-var">findingPublishingFrequency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FindingPublishingFrequency
-</span><a href="#local-6989586621679309681"><span class="hs-identifier hs-var">findingPublishingFrequency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309680"><span class="annot"><span class="annottext">s :: GetDetectorResponse
-</span><a href="#local-6989586621679309680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309679"><span class="annot"><span class="annottext">Maybe FindingPublishingFrequency
-</span><a href="#local-6989586621679309679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDetectorResponse
-</span><a href="#local-6989586621679309680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingPublishingFrequency:GetDetectorResponse' :: Maybe FindingPublishingFrequency
+</span><a href="#local-6989586621679310014"><span class="hs-identifier hs-var hs-var">findingPublishingFrequency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FindingPublishingFrequency
+</span><a href="#local-6989586621679310014"><span class="hs-identifier hs-var">findingPublishingFrequency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310013"><span class="annot"><span class="annottext">s :: GetDetectorResponse
+</span><a href="#local-6989586621679310013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310012"><span class="annot"><span class="annottext">Maybe FindingPublishingFrequency
+</span><a href="#local-6989586621679310012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDetectorResponse
+</span><a href="#local-6989586621679310013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:findingPublishingFrequency:GetDetectorResponse' :: Maybe FindingPublishingFrequency
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AfindingPublishingFrequency%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">findingPublishingFrequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FindingPublishingFrequency
-</span><a href="#local-6989586621679309679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-200"></span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- | The timestamp of when the detector was created.</span><span>
-</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_createdAt"><span class="hs-identifier hs-type">getDetectorResponse_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-203"></span><span id="getDetectorResponse_createdAt"><span class="annot"><span class="annottext">getDetectorResponse_createdAt :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679310012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | Describes which data sources are enabled for the detector.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_dataSources"><span class="hs-identifier hs-type">getDetectorResponse_dataSources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult.html#DataSourceConfigurationsResult"><span class="hs-identifier hs-type">DataSourceConfigurationsResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="getDetectorResponse_dataSources"><span class="annot"><span class="annottext">getDetectorResponse_dataSources :: (Maybe DataSourceConfigurationsResult
+ -&gt; f (Maybe DataSourceConfigurationsResult))
 -&gt; GetDetectorResponse -&gt; f GetDetectorResponse
-</span><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_createdAt"><span class="hs-identifier hs-var hs-var">getDetectorResponse_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDetectorResponse -&gt; Maybe Text)
+</span><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_dataSources"><span class="hs-identifier hs-var hs-var">getDetectorResponse_dataSources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDetectorResponse -&gt; Maybe DataSourceConfigurationsResult)
+-&gt; (GetDetectorResponse
+    -&gt; Maybe DataSourceConfigurationsResult -&gt; GetDetectorResponse)
+-&gt; Lens
+     GetDetectorResponse
+     GetDetectorResponse
+     (Maybe DataSourceConfigurationsResult)
+     (Maybe DataSourceConfigurationsResult)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310011"><span class="annot"><span class="annottext">Maybe DataSourceConfigurationsResult
+dataSources :: Maybe DataSourceConfigurationsResult
+$sel:dataSources:GetDetectorResponse' :: GetDetectorResponse -&gt; Maybe DataSourceConfigurationsResult
+</span><a href="#local-6989586621679310011"><span class="hs-identifier hs-var hs-var">dataSources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataSourceConfigurationsResult
+</span><a href="#local-6989586621679310011"><span class="hs-identifier hs-var">dataSources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310010"><span class="annot"><span class="annottext">s :: GetDetectorResponse
+</span><a href="#local-6989586621679310010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310009"><span class="annot"><span class="annottext">Maybe DataSourceConfigurationsResult
+</span><a href="#local-6989586621679310009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDetectorResponse
+</span><a href="#local-6989586621679310010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSources:GetDetectorResponse' :: Maybe DataSourceConfigurationsResult
+</span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AdataSources%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">dataSources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataSourceConfigurationsResult
+</span><a href="#local-6989586621679310009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The last-updated timestamp for the detector.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_updatedAt"><span class="hs-identifier hs-type">getDetectorResponse_updatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="getDetectorResponse_updatedAt"><span class="annot"><span class="annottext">getDetectorResponse_updatedAt :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDetectorResponse -&gt; f GetDetectorResponse
+</span><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_updatedAt"><span class="hs-identifier hs-var hs-var">getDetectorResponse_updatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDetectorResponse -&gt; Maybe Text)
 -&gt; (GetDetectorResponse -&gt; Maybe Text -&gt; GetDetectorResponse)
 -&gt; Lens
      GetDetectorResponse GetDetectorResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309678"><span class="annot"><span class="annottext">Maybe Text
-createdAt :: Maybe Text
-$sel:createdAt:GetDetectorResponse' :: GetDetectorResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679309678"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309678"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309677"><span class="annot"><span class="annottext">s :: GetDetectorResponse
-</span><a href="#local-6989586621679309677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309676"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDetectorResponse
-</span><a href="#local-6989586621679309677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:GetDetectorResponse' :: Maybe Text
-</span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AcreatedAt%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679309676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310008"><span class="annot"><span class="annottext">Maybe Text
+updatedAt :: Maybe Text
+$sel:updatedAt:GetDetectorResponse' :: GetDetectorResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679310008"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310008"><span class="hs-identifier hs-var">updatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310007"><span class="annot"><span class="annottext">s :: GetDetectorResponse
+</span><a href="#local-6989586621679310007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310006"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDetectorResponse
+</span><a href="#local-6989586621679310007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedAt:GetDetectorResponse' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AupdatedAt%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | The tags of the detector resource.</span><span>
 </span><span id="line-206"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_tags"><span class="hs-identifier hs-type">getDetectorResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
@@ -654,16 +654,16 @@ $sel:createdAt:GetDetectorResponse' :: GetDetectorResponse -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309675"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310005"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tags :: Maybe (HashMap Text Text)
 $sel:tags:GetDetectorResponse' :: GetDetectorResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679309675"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679309675"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309674"><span class="annot"><span class="annottext">s :: GetDetectorResponse
-</span><a href="#local-6989586621679309674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309673"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679309673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDetectorResponse
-</span><a href="#local-6989586621679309674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetDetectorResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679310005"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679310005"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310004"><span class="annot"><span class="annottext">s :: GetDetectorResponse
+</span><a href="#local-6989586621679310004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310003"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679310003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDetectorResponse
+</span><a href="#local-6989586621679310004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetDetectorResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3Atags%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679309673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679310003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; GetDetectorResponse -&gt; f GetDetectorResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -689,8 +689,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-210"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_httpStatus"><span class="hs-identifier hs-type">getDetectorResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -699,16 +699,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetDetectorResponse -&gt; Int -&gt; GetDetectorResponse)
 -&gt; Lens GetDetectorResponse GetDetectorResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309669"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309999"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetDetectorResponse' :: GetDetectorResponse -&gt; Int
-</span><a href="#local-6989586621679309669"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309669"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309668"><span class="annot"><span class="annottext">s :: GetDetectorResponse
-</span><a href="#local-6989586621679309668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309667"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDetectorResponse
-</span><a href="#local-6989586621679309668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDetectorResponse' :: Int
+</span><a href="#local-6989586621679309999"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309999"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309998"><span class="annot"><span class="annottext">s :: GetDetectorResponse
+</span><a href="#local-6989586621679309998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309997"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679309997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDetectorResponse
+</span><a href="#local-6989586621679309998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDetectorResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AhttpStatus%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679309667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | The GuardDuty service role.</span><span>
 </span><span id="line-214"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_serviceRole"><span class="hs-identifier hs-type">getDetectorResponse_serviceRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -717,16 +717,16 @@ $sel:httpStatus:GetDetectorResponse' :: GetDetectorResponse -&gt; Int
 -&gt; (GetDetectorResponse -&gt; Text -&gt; GetDetectorResponse)
 -&gt; Lens GetDetectorResponse GetDetectorResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309666"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309996"><span class="annot"><span class="annottext">Text
 serviceRole :: Text
 $sel:serviceRole:GetDetectorResponse' :: GetDetectorResponse -&gt; Text
-</span><a href="#local-6989586621679309666"><span class="hs-identifier hs-var hs-var">serviceRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309666"><span class="hs-identifier hs-var">serviceRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309665"><span class="annot"><span class="annottext">s :: GetDetectorResponse
-</span><a href="#local-6989586621679309665"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309664"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309664"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDetectorResponse
-</span><a href="#local-6989586621679309665"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceRole:GetDetectorResponse' :: Text
+</span><a href="#local-6989586621679309996"><span class="hs-identifier hs-var hs-var">serviceRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309996"><span class="hs-identifier hs-var">serviceRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309995"><span class="annot"><span class="annottext">s :: GetDetectorResponse
+</span><a href="#local-6989586621679309995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309994"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDetectorResponse
+</span><a href="#local-6989586621679309995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceRole:GetDetectorResponse' :: Text
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3AserviceRole%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">serviceRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679309664"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-comment">-- | The detector status.</span><span>
 </span><span id="line-218"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#getDetectorResponse_status"><span class="hs-identifier hs-type">getDetectorResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.DetectorStatus.html#DetectorStatus"><span class="hs-identifier hs-type">DetectorStatus</span></a></span><span>
@@ -740,16 +740,16 @@ $sel:serviceRole:GetDetectorResponse' :: GetDetectorResponse -&gt; Text
      DetectorStatus
      DetectorStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309663"><span class="annot"><span class="annottext">DetectorStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309993"><span class="annot"><span class="annottext">DetectorStatus
 status :: DetectorStatus
 $sel:status:GetDetectorResponse' :: GetDetectorResponse -&gt; DetectorStatus
-</span><a href="#local-6989586621679309663"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectorStatus
-</span><a href="#local-6989586621679309663"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309662"><span class="annot"><span class="annottext">s :: GetDetectorResponse
-</span><a href="#local-6989586621679309662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309661"><span class="annot"><span class="annottext">DetectorStatus
-</span><a href="#local-6989586621679309661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDetectorResponse
-</span><a href="#local-6989586621679309662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetDetectorResponse' :: DetectorStatus
+</span><a href="#local-6989586621679309993"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectorStatus
+</span><a href="#local-6989586621679309993"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309992"><span class="annot"><span class="annottext">s :: GetDetectorResponse
+</span><a href="#local-6989586621679309992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse%27"><span class="hs-identifier hs-type">GetDetectorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309991"><span class="annot"><span class="annottext">DetectorStatus
+</span><a href="#local-6989586621679309991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDetectorResponse
+</span><a href="#local-6989586621679309992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetDetectorResponse' :: DetectorStatus
 </span><a href="Network.AWS.GuardDuty.GetDetector.html#%24sel%3Astatus%3AGetDetectorResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DetectorStatus
-</span><a href="#local-6989586621679309661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309659"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309989"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetDetector.html#GetDetectorResponse"><span class="hs-identifier hs-type">GetDetectorResponse</span></a></span></span><span>
 </span><span id="line-222"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Amazon Lex hasn\'t determined a value for a slot.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSlotDefaultValueSpec' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679315158"><span id="local-6989586621679315159"></span></span><span class="hs-keyword">data</span><span> </span><span id="SlotDefaultValueSpec"><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec"><span class="hs-identifier hs-var">SlotDefaultValueSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SlotDefaultValueSpec%27"><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec%27"><span class="hs-identifier hs-var">SlotDefaultValueSpec'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679315448"><span id="local-6989586621679315449"></span></span><span class="hs-keyword">data</span><span> </span><span id="SlotDefaultValueSpec"><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec"><span class="hs-identifier hs-var">SlotDefaultValueSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SlotDefaultValueSpec%27"><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec%27"><span class="hs-identifier hs-var">SlotDefaultValueSpec'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The default values for a slot. You can specify more than one default.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- For example, you can specify a default value to use from a matching</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- context variable, a session attribute, or a fixed value.</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AdefaultValueList%3ASlotDefaultValueSpec%27"><span class="annot"><span class="annottext">SlotDefaultValueSpec -&gt; [SlotDefaultValue]
 </span><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#%24sel%3AdefaultValueList%3ASlotDefaultValueSpec%27"><span class="hs-identifier hs-var hs-var">defaultValueList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValue.html#SlotDefaultValue"><span class="hs-identifier hs-type">SlotDefaultValue</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315152"><span id="local-6989586621679315154"><span class="annot"><span class="annottext">SlotDefaultValueSpec -&gt; SlotDefaultValueSpec -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315442"><span id="local-6989586621679315444"><span class="annot"><span class="annottext">SlotDefaultValueSpec -&gt; SlotDefaultValueSpec -&gt; Bool
 (SlotDefaultValueSpec -&gt; SlotDefaultValueSpec -&gt; Bool)
 -&gt; (SlotDefaultValueSpec -&gt; SlotDefaultValueSpec -&gt; Bool)
 -&gt; Eq SlotDefaultValueSpec
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SlotDefaultValueSpec -&gt; SlotDefaultValueSpec -&gt; Bool
 == :: SlotDefaultValueSpec -&gt; SlotDefaultValueSpec -&gt; Bool
 $c== :: SlotDefaultValueSpec -&gt; SlotDefaultValueSpec -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315143"><span id="local-6989586621679315145"><span id="local-6989586621679315147"><span id="local-6989586621679315149"><span class="annot"><span class="annottext">ReadPrec [SlotDefaultValueSpec]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315433"><span id="local-6989586621679315435"><span id="local-6989586621679315437"><span id="local-6989586621679315439"><span class="annot"><span class="annottext">ReadPrec [SlotDefaultValueSpec]
 ReadPrec SlotDefaultValueSpec
 Int -&gt; ReadS SlotDefaultValueSpec
 ReadS [SlotDefaultValueSpec]
@@ -69,7 +69,7 @@ readList :: ReadS [SlotDefaultValueSpec]
 $creadList :: ReadS [SlotDefaultValueSpec]
 readsPrec :: Int -&gt; ReadS SlotDefaultValueSpec
 $creadsPrec :: Int -&gt; ReadS SlotDefaultValueSpec
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315136"><span id="local-6989586621679315138"><span id="local-6989586621679315140"><span class="annot"><span class="annottext">Int -&gt; SlotDefaultValueSpec -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315426"><span id="local-6989586621679315428"><span id="local-6989586621679315430"><span class="annot"><span class="annottext">Int -&gt; SlotDefaultValueSpec -&gt; ShowS
 [SlotDefaultValueSpec] -&gt; ShowS
 SlotDefaultValueSpec -&gt; String
 (Int -&gt; SlotDefaultValueSpec -&gt; ShowS)
@@ -144,16 +144,16 @@ forall a. Monoid a =&gt; a
      [SlotDefaultValue]
      [SlotDefaultValue]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec%27"><span class="hs-identifier hs-type">SlotDefaultValueSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315127"><span class="annot"><span class="annottext">[SlotDefaultValue]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec%27"><span class="hs-identifier hs-type">SlotDefaultValueSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315417"><span class="annot"><span class="annottext">[SlotDefaultValue]
 defaultValueList :: [SlotDefaultValue]
 $sel:defaultValueList:SlotDefaultValueSpec' :: SlotDefaultValueSpec -&gt; [SlotDefaultValue]
-</span><a href="#local-6989586621679315127"><span class="hs-identifier hs-var hs-var">defaultValueList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[SlotDefaultValue]
-</span><a href="#local-6989586621679315127"><span class="hs-identifier hs-var">defaultValueList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315126"><span class="annot"><span class="annottext">s :: SlotDefaultValueSpec
-</span><a href="#local-6989586621679315126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec%27"><span class="hs-identifier hs-type">SlotDefaultValueSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315125"><span class="annot"><span class="annottext">[SlotDefaultValue]
-</span><a href="#local-6989586621679315125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SlotDefaultValueSpec
-</span><a href="#local-6989586621679315126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultValueList:SlotDefaultValueSpec' :: [SlotDefaultValue]
+</span><a href="#local-6989586621679315417"><span class="hs-identifier hs-var hs-var">defaultValueList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[SlotDefaultValue]
+</span><a href="#local-6989586621679315417"><span class="hs-identifier hs-var">defaultValueList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315416"><span class="annot"><span class="annottext">s :: SlotDefaultValueSpec
+</span><a href="#local-6989586621679315416"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec%27"><span class="hs-identifier hs-type">SlotDefaultValueSpec'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315415"><span class="annot"><span class="annottext">[SlotDefaultValue]
+</span><a href="#local-6989586621679315415"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SlotDefaultValueSpec
+</span><a href="#local-6989586621679315416"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultValueList:SlotDefaultValueSpec' :: [SlotDefaultValue]
 </span><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#%24sel%3AdefaultValueList%3ASlotDefaultValueSpec%27"><span class="hs-identifier hs-var">defaultValueList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SlotDefaultValue]
-</span><a href="#local-6989586621679315125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec"><span class="hs-identifier hs-type">SlotDefaultValueSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([SlotDefaultValue] -&gt; f [SlotDefaultValue])
+</span><a href="#local-6989586621679315415"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec"><span class="hs-identifier hs-type">SlotDefaultValueSpec</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([SlotDefaultValue] -&gt; f [SlotDefaultValue])
  -&gt; SlotDefaultValueSpec -&gt; f SlotDefaultValueSpec)
 -&gt; (([SlotDefaultValue] -&gt; f [SlotDefaultValue])
     -&gt; [SlotDefaultValue] -&gt; f [SlotDefaultValue])
@@ -163,11 +163,11 @@ $sel:defaultValueList:SlotDefaultValueSpec' :: SlotDefaultValueSpec -&gt; [SlotD
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([SlotDefaultValue] -&gt; f [SlotDefaultValue])
 -&gt; [SlotDefaultValue] -&gt; f [SlotDefaultValue]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315120"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec"><span class="hs-identifier hs-type">SlotDefaultValueSpec</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679315118"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SlotDefaultValueSpec
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315410"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec"><span class="hs-identifier hs-type">SlotDefaultValueSpec</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679315408"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SlotDefaultValueSpec
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SlotDefaultValueSpec)
@@ -177,15 +177,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SlotDefaultValueSpec&quot;</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315115"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315115"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315405"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679315405"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">[SlotDefaultValue] -&gt; SlotDefaultValueSpec
 </span><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec%27"><span class="hs-identifier hs-var">SlotDefaultValueSpec'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">([SlotDefaultValue] -&gt; SlotDefaultValueSpec)
 -&gt; Parser [SlotDefaultValue] -&gt; Parser SlotDefaultValueSpec
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315115"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [SlotDefaultValue])
+</span><a href="#local-6989586621679315405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [SlotDefaultValue])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;defaultValueList&quot;</span></span><span>
@@ -198,16 +198,16 @@ forall a. Monoid a =&gt; a
 </span><span id="line-87"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315108"><span id="local-6989586621679315110"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec"><span class="hs-identifier hs-type">SlotDefaultValueSpec</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315398"><span id="local-6989586621679315400"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec"><span class="hs-identifier hs-type">SlotDefaultValueSpec</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315105"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec"><span class="hs-identifier hs-type">SlotDefaultValueSpec</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315395"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec"><span class="hs-identifier hs-type">SlotDefaultValueSpec</span></a></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315097"><span id="local-6989586621679315099"><span id="local-6989586621679315101"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec"><span class="hs-identifier hs-type">SlotDefaultValueSpec</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679315095"><span class="annot"><span class="annottext">toJSON :: SlotDefaultValueSpec -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec%27"><span class="hs-identifier hs-type">SlotDefaultValueSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315093"><span class="annot"><span class="annottext">[SlotDefaultValue]
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315387"><span id="local-6989586621679315389"><span id="local-6989586621679315391"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec"><span class="hs-identifier hs-type">SlotDefaultValueSpec</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679315385"><span class="annot"><span class="annottext">toJSON :: SlotDefaultValueSpec -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.SlotDefaultValueSpec.html#SlotDefaultValueSpec%27"><span class="hs-identifier hs-type">SlotDefaultValueSpec'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315383"><span class="annot"><span class="annottext">[SlotDefaultValue]
 defaultValueList :: [SlotDefaultValue]
 $sel:defaultValueList:SlotDefaultValueSpec' :: SlotDefaultValueSpec -&gt; [SlotDefaultValue]
-</span><a href="#local-6989586621679315093"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679315383"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -220,7 +220,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;defaultValueList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [SlotDefaultValue] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[SlotDefaultValue]
-</span><a href="#local-6989586621679315093"><span class="hs-identifier hs-var">defaultValueList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315383"><span class="hs-identifier hs-var">defaultValueList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span></pre></body></html>

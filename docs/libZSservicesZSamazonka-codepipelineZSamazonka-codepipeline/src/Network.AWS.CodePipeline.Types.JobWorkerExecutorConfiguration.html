@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- engine, or executor.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newJobWorkerExecutorConfiguration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679278463"><span id="local-6989586621679278464"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobWorkerExecutorConfiguration"><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration"><span class="hs-identifier hs-var">JobWorkerExecutorConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobWorkerExecutorConfiguration%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration%27"><span class="hs-identifier hs-var">JobWorkerExecutorConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679278663"><span id="local-6989586621679278664"></span></span><span class="hs-keyword">data</span><span> </span><span id="JobWorkerExecutorConfiguration"><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration"><span class="hs-identifier hs-var">JobWorkerExecutorConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JobWorkerExecutorConfiguration%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration%27"><span class="hs-identifier hs-var">JobWorkerExecutorConfiguration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The accounts in which the job worker is configured and might poll for</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- jobs as part of the action execution.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3ApollingAccounts%3AJobWorkerExecutorConfiguration%27"><span class="annot"><span class="annottext">JobWorkerExecutorConfiguration -&gt; Maybe (NonEmpty Text)
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3ApollingServicePrincipals%3AJobWorkerExecutorConfiguration%27"><span class="annot"><span class="annottext">JobWorkerExecutorConfiguration -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#%24sel%3ApollingServicePrincipals%3AJobWorkerExecutorConfiguration%27"><span class="hs-identifier hs-var hs-var">pollingServicePrincipals</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278456"><span id="local-6989586621679278458"><span class="annot"><span class="annottext">JobWorkerExecutorConfiguration
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679278656"><span id="local-6989586621679278658"><span class="annot"><span class="annottext">JobWorkerExecutorConfiguration
 -&gt; JobWorkerExecutorConfiguration -&gt; Bool
 (JobWorkerExecutorConfiguration
  -&gt; JobWorkerExecutorConfiguration -&gt; Bool)
@@ -53,7 +53,7 @@ $c/= :: JobWorkerExecutorConfiguration
 -&gt; JobWorkerExecutorConfiguration -&gt; Bool
 $c== :: JobWorkerExecutorConfiguration
 -&gt; JobWorkerExecutorConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278447"><span id="local-6989586621679278449"><span id="local-6989586621679278451"><span id="local-6989586621679278453"><span class="annot"><span class="annottext">ReadPrec [JobWorkerExecutorConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278647"><span id="local-6989586621679278649"><span id="local-6989586621679278651"><span id="local-6989586621679278653"><span class="annot"><span class="annottext">ReadPrec [JobWorkerExecutorConfiguration]
 ReadPrec JobWorkerExecutorConfiguration
 Int -&gt; ReadS JobWorkerExecutorConfiguration
 ReadS [JobWorkerExecutorConfiguration]
@@ -73,7 +73,7 @@ readList :: ReadS [JobWorkerExecutorConfiguration]
 $creadList :: ReadS [JobWorkerExecutorConfiguration]
 readsPrec :: Int -&gt; ReadS JobWorkerExecutorConfiguration
 $creadsPrec :: Int -&gt; ReadS JobWorkerExecutorConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278440"><span id="local-6989586621679278442"><span id="local-6989586621679278444"><span class="annot"><span class="annottext">Int -&gt; JobWorkerExecutorConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679278640"><span id="local-6989586621679278642"><span id="local-6989586621679278644"><span class="annot"><span class="annottext">Int -&gt; JobWorkerExecutorConfiguration -&gt; ShowS
 [JobWorkerExecutorConfiguration] -&gt; ShowS
 JobWorkerExecutorConfiguration -&gt; String
 (Int -&gt; JobWorkerExecutorConfiguration -&gt; ShowS)
@@ -157,16 +157,16 @@ forall a. Maybe a
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration%27"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278431"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration%27"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278631"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 pollingAccounts :: Maybe (NonEmpty Text)
 $sel:pollingAccounts:JobWorkerExecutorConfiguration' :: JobWorkerExecutorConfiguration -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679278431"><span class="hs-identifier hs-var hs-var">pollingAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679278431"><span class="hs-identifier hs-var">pollingAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278430"><span class="annot"><span class="annottext">s :: JobWorkerExecutorConfiguration
-</span><a href="#local-6989586621679278430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration%27"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278429"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679278429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobWorkerExecutorConfiguration
-</span><a href="#local-6989586621679278430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pollingAccounts:JobWorkerExecutorConfiguration' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679278631"><span class="hs-identifier hs-var hs-var">pollingAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679278631"><span class="hs-identifier hs-var">pollingAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278630"><span class="annot"><span class="annottext">s :: JobWorkerExecutorConfiguration
+</span><a href="#local-6989586621679278630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration%27"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278629"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679278629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobWorkerExecutorConfiguration
+</span><a href="#local-6989586621679278630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pollingAccounts:JobWorkerExecutorConfiguration' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#%24sel%3ApollingAccounts%3AJobWorkerExecutorConfiguration%27"><span class="hs-identifier hs-var">pollingAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679278429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679278629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; JobWorkerExecutorConfiguration
  -&gt; f JobWorkerExecutorConfiguration)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -187,8 +187,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The service Principals in which the job worker is configured and might</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- poll for jobs as part of the action execution.</span><span>
@@ -205,16 +205,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration%27"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278424"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration%27"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278624"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 pollingServicePrincipals :: Maybe (NonEmpty Text)
 $sel:pollingServicePrincipals:JobWorkerExecutorConfiguration' :: JobWorkerExecutorConfiguration -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679278424"><span class="hs-identifier hs-var hs-var">pollingServicePrincipals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679278424"><span class="hs-identifier hs-var">pollingServicePrincipals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278423"><span class="annot"><span class="annottext">s :: JobWorkerExecutorConfiguration
-</span><a href="#local-6989586621679278423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration%27"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278422"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679278422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobWorkerExecutorConfiguration
-</span><a href="#local-6989586621679278423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pollingServicePrincipals:JobWorkerExecutorConfiguration' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679278624"><span class="hs-identifier hs-var hs-var">pollingServicePrincipals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679278624"><span class="hs-identifier hs-var">pollingServicePrincipals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679278623"><span class="annot"><span class="annottext">s :: JobWorkerExecutorConfiguration
+</span><a href="#local-6989586621679278623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration%27"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679278622"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679278622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobWorkerExecutorConfiguration
+</span><a href="#local-6989586621679278623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pollingServicePrincipals:JobWorkerExecutorConfiguration' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#%24sel%3ApollingServicePrincipals%3AJobWorkerExecutorConfiguration%27"><span class="hs-identifier hs-var">pollingServicePrincipals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679278422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679278622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; JobWorkerExecutorConfiguration
  -&gt; f JobWorkerExecutorConfiguration)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -235,11 +235,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278419"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679278417"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobWorkerExecutorConfiguration
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278619"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679278617"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JobWorkerExecutorConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JobWorkerExecutorConfiguration)
@@ -249,8 +249,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JobWorkerExecutorConfiguration&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278414"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278414"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679278614"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679278614"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 -&gt; Maybe (NonEmpty Text) -&gt; JobWorkerExecutorConfiguration
 </span><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration%27"><span class="hs-identifier hs-var">JobWorkerExecutorConfiguration'</span></a></span><span>
@@ -260,7 +260,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe (NonEmpty Text) -&gt; JobWorkerExecutorConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679278614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pollingAccounts&quot;</span></span><span class="hs-special">)</span><span>
@@ -269,28 +269,28 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser JobWorkerExecutorConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679278414"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679278614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pollingServicePrincipals&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679278408"><span id="local-6989586621679278410"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679278608"><span id="local-6989586621679278610"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679278405"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679278605"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration</span></a></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278397"><span id="local-6989586621679278399"><span id="local-6989586621679278401"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679278395"><span class="annot"><span class="annottext">toJSON :: JobWorkerExecutorConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration%27"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278392"><span id="local-6989586621679278393"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679278597"><span id="local-6989586621679278599"><span id="local-6989586621679278601"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679278595"><span class="annot"><span class="annottext">toJSON :: JobWorkerExecutorConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.JobWorkerExecutorConfiguration.html#JobWorkerExecutorConfiguration%27"><span class="hs-identifier hs-type">JobWorkerExecutorConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679278592"><span id="local-6989586621679278593"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 pollingServicePrincipals :: Maybe (NonEmpty Text)
 pollingAccounts :: Maybe (NonEmpty Text)
 $sel:pollingServicePrincipals:JobWorkerExecutorConfiguration' :: JobWorkerExecutorConfiguration -&gt; Maybe (NonEmpty Text)
 $sel:pollingAccounts:JobWorkerExecutorConfiguration' :: JobWorkerExecutorConfiguration -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679278392"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679278592"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -303,7 +303,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679278393"><span class="hs-identifier hs-var">pollingAccounts</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679278593"><span class="hs-identifier hs-var">pollingAccounts</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;pollingServicePrincipals&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -311,7 +311,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-97"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679278392"><span class="hs-identifier hs-var">pollingServicePrincipals</span></a></span><span>
+</span><a href="#local-6989586621679278592"><span class="hs-identifier hs-var">pollingServicePrincipals</span></a></span><span>
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span></pre></body></html>

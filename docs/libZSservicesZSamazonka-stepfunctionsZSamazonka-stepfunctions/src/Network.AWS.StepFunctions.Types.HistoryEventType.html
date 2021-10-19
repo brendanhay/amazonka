@@ -82,13 +82,13 @@
 </span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span id="local-6989586621679224854"><span id="local-6989586621679224855"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HistoryEventType"><span class="annot"><a href="Network.AWS.StepFunctions.Types.HistoryEventType.html#HistoryEventType"><span class="hs-identifier hs-var">HistoryEventType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HistoryEventType%27"><span class="annot"><a href="Network.AWS.StepFunctions.Types.HistoryEventType.html#HistoryEventType%27"><span class="hs-identifier hs-var">HistoryEventType'</span></a></span></span><span>
+</span><span id="line-85"></span><span id="local-6989586621679224898"><span id="local-6989586621679224899"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HistoryEventType"><span class="annot"><a href="Network.AWS.StepFunctions.Types.HistoryEventType.html#HistoryEventType"><span class="hs-identifier hs-var">HistoryEventType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HistoryEventType%27"><span class="annot"><a href="Network.AWS.StepFunctions.Types.HistoryEventType.html#HistoryEventType%27"><span class="hs-identifier hs-var">HistoryEventType'</span></a></span></span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHistoryEventType"><span class="annot"><span class="annottext">HistoryEventType -&gt; Text
 </span><a href="Network.AWS.StepFunctions.Types.HistoryEventType.html#fromHistoryEventType"><span class="hs-identifier hs-var hs-var">fromHistoryEventType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679224846"><span id="local-6989586621679224848"><span id="local-6989586621679224850"><span class="annot"><span class="annottext">Int -&gt; HistoryEventType -&gt; ShowS
+</span><span id="line-90"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679224890"><span id="local-6989586621679224892"><span id="local-6989586621679224894"><span class="annot"><span class="annottext">Int -&gt; HistoryEventType -&gt; ShowS
 [HistoryEventType] -&gt; ShowS
 HistoryEventType -&gt; String
 (Int -&gt; HistoryEventType -&gt; ShowS)
@@ -104,7 +104,7 @@ $cshow :: HistoryEventType -&gt; String
 showsPrec :: Int -&gt; HistoryEventType -&gt; ShowS
 $cshowsPrec :: Int -&gt; HistoryEventType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span id="local-6989586621679224837"><span id="local-6989586621679224839"><span id="local-6989586621679224841"><span id="local-6989586621679224843"><span class="annot"><span class="annottext">ReadPrec [HistoryEventType]
+</span><span id="line-91"></span><span>      </span><span id="local-6989586621679224881"><span id="local-6989586621679224883"><span id="local-6989586621679224885"><span id="local-6989586621679224887"><span class="annot"><span class="annottext">ReadPrec [HistoryEventType]
 ReadPrec HistoryEventType
 Int -&gt; ReadS HistoryEventType
 ReadS [HistoryEventType]
@@ -125,7 +125,7 @@ $creadList :: ReadS [HistoryEventType]
 readsPrec :: Int -&gt; ReadS HistoryEventType
 $creadsPrec :: Int -&gt; ReadS HistoryEventType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span id="local-6989586621679224832"><span id="local-6989586621679224834"><span class="annot"><span class="annottext">HistoryEventType -&gt; HistoryEventType -&gt; Bool
+</span><span id="line-92"></span><span>      </span><span id="local-6989586621679224876"><span id="local-6989586621679224878"><span class="annot"><span class="annottext">HistoryEventType -&gt; HistoryEventType -&gt; Bool
 (HistoryEventType -&gt; HistoryEventType -&gt; Bool)
 -&gt; (HistoryEventType -&gt; HistoryEventType -&gt; Bool)
 -&gt; Eq HistoryEventType
@@ -135,7 +135,7 @@ $c/= :: HistoryEventType -&gt; HistoryEventType -&gt; Bool
 == :: HistoryEventType -&gt; HistoryEventType -&gt; Bool
 $c== :: HistoryEventType -&gt; HistoryEventType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span id="local-6989586621679224816"><span id="local-6989586621679224818"><span id="local-6989586621679224820"><span id="local-6989586621679224822"><span id="local-6989586621679224824"><span id="local-6989586621679224826"><span id="local-6989586621679224828"><span class="annot"><span class="annottext">Eq HistoryEventType
+</span><span id="line-93"></span><span>      </span><span id="local-6989586621679224860"><span id="local-6989586621679224862"><span id="local-6989586621679224864"><span id="local-6989586621679224866"><span id="local-6989586621679224868"><span id="local-6989586621679224870"><span id="local-6989586621679224872"><span class="annot"><span class="annottext">Eq HistoryEventType
 Eq HistoryEventType
 -&gt; (HistoryEventType -&gt; HistoryEventType -&gt; Ordering)
 -&gt; (HistoryEventType -&gt; HistoryEventType -&gt; Bool)
@@ -186,7 +186,7 @@ $cfrom :: forall x. HistoryEventType -&gt; Rep HistoryEventType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679224808"><span id="local-6989586621679224810"><span class="annot"><span class="annottext">Int -&gt; HistoryEventType -&gt; Int
+</span><span id="line-97"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679224852"><span id="local-6989586621679224854"><span class="annot"><span class="annottext">Int -&gt; HistoryEventType -&gt; Int
 HistoryEventType -&gt; Int
 (Int -&gt; HistoryEventType -&gt; Int)
 -&gt; (HistoryEventType -&gt; Int) -&gt; Hashable HistoryEventType
@@ -196,51 +196,51 @@ $chash :: HistoryEventType -&gt; Int
 hashWithSalt :: Int -&gt; HistoryEventType -&gt; Int
 $chashWithSalt :: Int -&gt; HistoryEventType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span id="local-6989586621679224805"><span class="annot"><span class="annottext">HistoryEventType -&gt; ()
+</span><span id="line-98"></span><span>      </span><span id="local-6989586621679224849"><span class="annot"><span class="annottext">HistoryEventType -&gt; ()
 (HistoryEventType -&gt; ()) -&gt; NFData HistoryEventType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HistoryEventType -&gt; ()
 $crnf :: HistoryEventType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span id="local-6989586621679224802"><span class="annot"><span class="annottext">Text -&gt; Either String HistoryEventType
+</span><span id="line-99"></span><span>      </span><span id="local-6989586621679224846"><span class="annot"><span class="annottext">Text -&gt; Either String HistoryEventType
 (Text -&gt; Either String HistoryEventType)
 -&gt; FromText HistoryEventType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HistoryEventType
 $cfromText :: Text -&gt; Either String HistoryEventType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span id="local-6989586621679224799"><span class="annot"><span class="annottext">HistoryEventType -&gt; Text
+</span><span id="line-100"></span><span>      </span><span id="local-6989586621679224843"><span class="annot"><span class="annottext">HistoryEventType -&gt; Text
 (HistoryEventType -&gt; Text) -&gt; ToText HistoryEventType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HistoryEventType -&gt; Text
 $ctoText :: HistoryEventType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span id="local-6989586621679224796"><span class="annot"><span class="annottext">HistoryEventType -&gt; ByteString
+</span><span id="line-101"></span><span>      </span><span id="local-6989586621679224840"><span class="annot"><span class="annottext">HistoryEventType -&gt; ByteString
 (HistoryEventType -&gt; ByteString) -&gt; ToByteString HistoryEventType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HistoryEventType -&gt; ByteString
 $ctoBS :: HistoryEventType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span id="local-6989586621679224793"><span class="annot"><span class="annottext">HistoryEventType -&gt; ByteStringBuilder
+</span><span id="line-102"></span><span>      </span><span id="local-6989586621679224837"><span class="annot"><span class="annottext">HistoryEventType -&gt; ByteStringBuilder
 (HistoryEventType -&gt; ByteStringBuilder) -&gt; ToLog HistoryEventType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HistoryEventType -&gt; ByteStringBuilder
 $cbuild :: HistoryEventType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span id="local-6989586621679224790"><span class="annot"><span class="annottext">HeaderName -&gt; HistoryEventType -&gt; [Header]
+</span><span id="line-103"></span><span>      </span><span id="local-6989586621679224834"><span class="annot"><span class="annottext">HeaderName -&gt; HistoryEventType -&gt; [Header]
 (HeaderName -&gt; HistoryEventType -&gt; [Header])
 -&gt; ToHeader HistoryEventType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HistoryEventType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HistoryEventType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span id="local-6989586621679224787"><span class="annot"><span class="annottext">HistoryEventType -&gt; QueryString
+</span><span id="line-104"></span><span>      </span><span id="local-6989586621679224831"><span class="annot"><span class="annottext">HistoryEventType -&gt; QueryString
 (HistoryEventType -&gt; QueryString) -&gt; ToQuery HistoryEventType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HistoryEventType -&gt; QueryString
 $ctoQuery :: HistoryEventType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span id="local-6989586621679224782"><span id="local-6989586621679224784"><span class="annot"><span class="annottext">Value -&gt; Parser [HistoryEventType]
+</span><span id="line-105"></span><span>      </span><span id="local-6989586621679224826"><span id="local-6989586621679224828"><span class="annot"><span class="annottext">Value -&gt; Parser [HistoryEventType]
 Value -&gt; Parser HistoryEventType
 (Value -&gt; Parser HistoryEventType)
 -&gt; (Value -&gt; Parser [HistoryEventType])
@@ -252,7 +252,7 @@ $cparseJSONList :: Value -&gt; Parser [HistoryEventType]
 parseJSON :: Value -&gt; Parser HistoryEventType
 $cparseJSON :: Value -&gt; Parser HistoryEventType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span id="local-6989586621679224777"><span id="local-6989586621679224779"><span class="annot"><span class="annottext">FromJSONKeyFunction [HistoryEventType]
+</span><span id="line-106"></span><span>      </span><span id="local-6989586621679224821"><span id="local-6989586621679224823"><span class="annot"><span class="annottext">FromJSONKeyFunction [HistoryEventType]
 FromJSONKeyFunction HistoryEventType
 FromJSONKeyFunction HistoryEventType
 -&gt; FromJSONKeyFunction [HistoryEventType]
@@ -264,7 +264,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HistoryEventType]
 fromJSONKey :: FromJSONKeyFunction HistoryEventType
 $cfromJSONKey :: FromJSONKeyFunction HistoryEventType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span id="local-6989586621679224768"><span id="local-6989586621679224770"><span id="local-6989586621679224772"><span id="local-6989586621679224774"><span class="annot"><span class="annottext">[HistoryEventType] -&gt; Encoding
+</span><span id="line-107"></span><span>      </span><span id="local-6989586621679224812"><span id="local-6989586621679224814"><span id="local-6989586621679224816"><span id="local-6989586621679224818"><span class="annot"><span class="annottext">[HistoryEventType] -&gt; Encoding
 [HistoryEventType] -&gt; Value
 HistoryEventType -&gt; Encoding
 HistoryEventType -&gt; Value
@@ -288,7 +288,7 @@ $ctoEncoding :: HistoryEventType -&gt; Encoding
 toJSON :: HistoryEventType -&gt; Value
 $ctoJSON :: HistoryEventType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span id="local-6989586621679224763"><span id="local-6989586621679224765"><span class="annot"><span class="annottext">ToJSONKeyFunction [HistoryEventType]
+</span><span id="line-108"></span><span>      </span><span id="local-6989586621679224807"><span id="local-6989586621679224809"><span class="annot"><span class="annottext">ToJSONKeyFunction [HistoryEventType]
 ToJSONKeyFunction HistoryEventType
 ToJSONKeyFunction HistoryEventType
 -&gt; ToJSONKeyFunction [HistoryEventType]
@@ -300,14 +300,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HistoryEventType]
 toJSONKey :: ToJSONKeyFunction HistoryEventType
 $ctoJSONKey :: ToJSONKeyFunction HistoryEventType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span id="local-6989586621679224760"><span class="annot"><span class="annottext">[Node] -&gt; Either String HistoryEventType
+</span><span id="line-109"></span><span>      </span><span id="local-6989586621679224804"><span class="annot"><span class="annottext">[Node] -&gt; Either String HistoryEventType
 ([Node] -&gt; Either String HistoryEventType)
 -&gt; FromXML HistoryEventType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HistoryEventType
 $cparseXML :: [Node] -&gt; Either String HistoryEventType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span id="local-6989586621679224757"><span class="annot"><span class="annottext">HistoryEventType -&gt; XML
+</span><span id="line-110"></span><span>      </span><span id="local-6989586621679224801"><span class="annot"><span class="annottext">HistoryEventType -&gt; XML
 (HistoryEventType -&gt; XML) -&gt; ToXML HistoryEventType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HistoryEventType -&gt; XML

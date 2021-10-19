@@ -35,12 +35,12 @@
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#newGetCoreDefinitionVersionResponse"><span class="hs-identifier">newGetCoreDefinitionVersionResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_creationTimestamp"><span class="hs-identifier">getCoreDefinitionVersionResponse_creationTimestamp</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_nextToken"><span class="hs-identifier">getCoreDefinitionVersionResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_arn"><span class="hs-identifier">getCoreDefinitionVersionResponse_arn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_id"><span class="hs-identifier">getCoreDefinitionVersionResponse_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_definition"><span class="hs-identifier">getCoreDefinitionVersionResponse_definition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_arn"><span class="hs-identifier">getCoreDefinitionVersionResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_nextToken"><span class="hs-identifier">getCoreDefinitionVersionResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_creationTimestamp"><span class="hs-identifier">getCoreDefinitionVersionResponse_creationTimestamp</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_version"><span class="hs-identifier">getCoreDefinitionVersionResponse_version</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_definition"><span class="hs-identifier">getCoreDefinitionVersionResponse_definition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_id"><span class="hs-identifier">getCoreDefinitionVersionResponse_id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_httpStatus"><span class="hs-identifier">getCoreDefinitionVersionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span class="hs-keyword">where</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newGetCoreDefinitionVersion' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679359149"><span id="local-6989586621679359150"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCoreDefinitionVersion"><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion"><span class="hs-identifier hs-var">GetCoreDefinitionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCoreDefinitionVersion%27"><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion%27"><span class="hs-identifier hs-var">GetCoreDefinitionVersion'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679359440"><span id="local-6989586621679359441"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCoreDefinitionVersion"><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion"><span class="hs-identifier hs-var">GetCoreDefinitionVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCoreDefinitionVersion%27"><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion%27"><span class="hs-identifier hs-var">GetCoreDefinitionVersion'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the core definition.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AcoreDefinitionId%3AGetCoreDefinitionVersion%27"><span class="annot"><span class="annottext">GetCoreDefinitionVersion -&gt; Text
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AcoreDefinitionId%3AGetCoreDefinitionVersion%27"><span class="hs-identifier hs-var hs-var">coreDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AcoreDefinitionVersionId%3AGetCoreDefinitionVersion%27"><span class="annot"><span class="annottext">GetCoreDefinitionVersion -&gt; Text
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AcoreDefinitionVersionId%3AGetCoreDefinitionVersion%27"><span class="hs-identifier hs-var hs-var">coreDefinitionVersionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679359142"><span id="local-6989586621679359144"><span class="annot"><span class="annottext">GetCoreDefinitionVersion -&gt; GetCoreDefinitionVersion -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679359433"><span id="local-6989586621679359435"><span class="annot"><span class="annottext">GetCoreDefinitionVersion -&gt; GetCoreDefinitionVersion -&gt; Bool
 (GetCoreDefinitionVersion -&gt; GetCoreDefinitionVersion -&gt; Bool)
 -&gt; (GetCoreDefinitionVersion -&gt; GetCoreDefinitionVersion -&gt; Bool)
 -&gt; Eq GetCoreDefinitionVersion
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetCoreDefinitionVersion -&gt; GetCoreDefinitionVersion -&gt; Bool
 == :: GetCoreDefinitionVersion -&gt; GetCoreDefinitionVersion -&gt; Bool
 $c== :: GetCoreDefinitionVersion -&gt; GetCoreDefinitionVersion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359133"><span id="local-6989586621679359135"><span id="local-6989586621679359137"><span id="local-6989586621679359139"><span class="annot"><span class="annottext">ReadPrec [GetCoreDefinitionVersion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359424"><span id="local-6989586621679359426"><span id="local-6989586621679359428"><span id="local-6989586621679359430"><span class="annot"><span class="annottext">ReadPrec [GetCoreDefinitionVersion]
 ReadPrec GetCoreDefinitionVersion
 Int -&gt; ReadS GetCoreDefinitionVersion
 ReadS [GetCoreDefinitionVersion]
@@ -95,7 +95,7 @@ readList :: ReadS [GetCoreDefinitionVersion]
 $creadList :: ReadS [GetCoreDefinitionVersion]
 readsPrec :: Int -&gt; ReadS GetCoreDefinitionVersion
 $creadsPrec :: Int -&gt; ReadS GetCoreDefinitionVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359126"><span id="local-6989586621679359128"><span id="local-6989586621679359130"><span class="annot"><span class="annottext">Int -&gt; GetCoreDefinitionVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359417"><span id="local-6989586621679359419"><span id="local-6989586621679359421"><span class="annot"><span class="annottext">Int -&gt; GetCoreDefinitionVersion -&gt; ShowS
 [GetCoreDefinitionVersion] -&gt; ShowS
 GetCoreDefinitionVersion -&gt; String
 (Int -&gt; GetCoreDefinitionVersion -&gt; ShowS)
@@ -151,20 +151,20 @@ GetCoreDefinitionVersion -&gt; Rep GetCoreDefinitionVersion x
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion"><span class="hs-identifier hs-type">GetCoreDefinitionVersion</span></a></span><span>
 </span><span id="line-91"></span><span id="newGetCoreDefinitionVersion"><span class="annot"><span class="annottext">newGetCoreDefinitionVersion :: Text -&gt; Text -&gt; GetCoreDefinitionVersion
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#newGetCoreDefinitionVersion"><span class="hs-identifier hs-var hs-var">newGetCoreDefinitionVersion</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679359121"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359121"><span class="hs-identifier hs-var">pCoreDefinitionId_</span></a></span></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679359120"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359120"><span class="hs-identifier hs-var">pCoreDefinitionVersionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679359412"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359412"><span class="hs-identifier hs-var">pCoreDefinitionId_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679359411"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359411"><span class="hs-identifier hs-var">pCoreDefinitionVersionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">GetCoreDefinitionVersion' :: Text -&gt; Text -&gt; GetCoreDefinitionVersion
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersion'</span></a></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:coreDefinitionId:GetCoreDefinitionVersion' :: Text
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AcoreDefinitionId%3AGetCoreDefinitionVersion%27"><span class="hs-identifier hs-var">coreDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359121"><span class="hs-identifier hs-var">pCoreDefinitionId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679359412"><span class="hs-identifier hs-var">pCoreDefinitionId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:coreDefinitionVersionId:GetCoreDefinitionVersion' :: Text
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AcoreDefinitionVersionId%3AGetCoreDefinitionVersion%27"><span class="hs-identifier hs-var">coreDefinitionVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359120"><span class="hs-identifier hs-var">pCoreDefinitionVersionId_</span></a></span><span>
+</span><a href="#local-6989586621679359411"><span class="hs-identifier hs-var">pCoreDefinitionVersionId_</span></a></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The ID of the core definition.</span><span>
@@ -175,16 +175,16 @@ GetCoreDefinitionVersion -&gt; Rep GetCoreDefinitionVersion x
 -&gt; (GetCoreDefinitionVersion -&gt; Text -&gt; GetCoreDefinitionVersion)
 -&gt; Lens GetCoreDefinitionVersion GetCoreDefinitionVersion Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359117"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359408"><span class="annot"><span class="annottext">Text
 coreDefinitionId :: Text
 $sel:coreDefinitionId:GetCoreDefinitionVersion' :: GetCoreDefinitionVersion -&gt; Text
-</span><a href="#local-6989586621679359117"><span class="hs-identifier hs-var hs-var">coreDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359117"><span class="hs-identifier hs-var">coreDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359116"><span class="annot"><span class="annottext">s :: GetCoreDefinitionVersion
-</span><a href="#local-6989586621679359116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359115"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCoreDefinitionVersion
-</span><a href="#local-6989586621679359116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coreDefinitionId:GetCoreDefinitionVersion' :: Text
+</span><a href="#local-6989586621679359408"><span class="hs-identifier hs-var hs-var">coreDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359408"><span class="hs-identifier hs-var">coreDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359407"><span class="annot"><span class="annottext">s :: GetCoreDefinitionVersion
+</span><a href="#local-6989586621679359407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359406"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCoreDefinitionVersion
+</span><a href="#local-6989586621679359407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coreDefinitionId:GetCoreDefinitionVersion' :: Text
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AcoreDefinitionId%3AGetCoreDefinitionVersion%27"><span class="hs-identifier hs-var">coreDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion"><span class="hs-identifier hs-type">GetCoreDefinitionVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679359406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion"><span class="hs-identifier hs-type">GetCoreDefinitionVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The ID of the core definition version. This value maps to the</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- \'\'Version\'\' property of the corresponding \'\'VersionInformation\'\'</span><span>
@@ -199,28 +199,28 @@ $sel:coreDefinitionId:GetCoreDefinitionVersion' :: GetCoreDefinitionVersion -&gt
 -&gt; (GetCoreDefinitionVersion -&gt; Text -&gt; GetCoreDefinitionVersion)
 -&gt; Lens GetCoreDefinitionVersion GetCoreDefinitionVersion Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359114"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359405"><span class="annot"><span class="annottext">Text
 coreDefinitionVersionId :: Text
 $sel:coreDefinitionVersionId:GetCoreDefinitionVersion' :: GetCoreDefinitionVersion -&gt; Text
-</span><a href="#local-6989586621679359114"><span class="hs-identifier hs-var hs-var">coreDefinitionVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359114"><span class="hs-identifier hs-var">coreDefinitionVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359113"><span class="annot"><span class="annottext">s :: GetCoreDefinitionVersion
-</span><a href="#local-6989586621679359113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359112"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCoreDefinitionVersion
-</span><a href="#local-6989586621679359113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coreDefinitionVersionId:GetCoreDefinitionVersion' :: Text
+</span><a href="#local-6989586621679359405"><span class="hs-identifier hs-var hs-var">coreDefinitionVersionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359405"><span class="hs-identifier hs-var">coreDefinitionVersionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359404"><span class="annot"><span class="annottext">s :: GetCoreDefinitionVersion
+</span><a href="#local-6989586621679359404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359403"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679359403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCoreDefinitionVersion
+</span><a href="#local-6989586621679359404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:coreDefinitionVersionId:GetCoreDefinitionVersion' :: Text
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AcoreDefinitionVersionId%3AGetCoreDefinitionVersion%27"><span class="hs-identifier hs-var">coreDefinitionVersionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion"><span class="hs-identifier hs-type">GetCoreDefinitionVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679359403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion"><span class="hs-identifier hs-type">GetCoreDefinitionVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion"><span class="hs-identifier hs-type">GetCoreDefinitionVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-116"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion"><span class="hs-identifier hs-type">GetCoreDefinitionVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679359108"><span class="annot"><span class="annottext">request :: GetCoreDefinitionVersion -&gt; Request GetCoreDefinitionVersion
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679359399"><span class="annot"><span class="annottext">request :: GetCoreDefinitionVersion -&gt; Request GetCoreDefinitionVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetCoreDefinitionVersion -&gt; Request GetCoreDefinitionVersion
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679359104"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679359395"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetCoreDefinitionVersion
 -&gt; ClientResponse ClientBody
@@ -246,50 +246,50 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679359101"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679359101"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679359100"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679359100"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679359099"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679359099"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679359392"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679359392"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679359391"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679359391"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679359390"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679359390"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe CoreDefinitionVersion
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe CoreDefinitionVersion
+-&gt; Maybe Text
 -&gt; Int
 -&gt; GetCoreDefinitionVersionResponse
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">GetCoreDefinitionVersionResponse'</span></a></span><span>
-</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CoreDefinitionVersion
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe CoreDefinitionVersion
+ -&gt; Maybe Text
  -&gt; Int
  -&gt; GetCoreDefinitionVersionResponse)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe CoreDefinitionVersion)
 -&gt; Either
      String
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe CoreDefinitionVersion
+      -&gt; Maybe Text
       -&gt; Int
       -&gt; GetCoreDefinitionVersionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679359099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679359390"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CoreDefinitionVersion)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Definition&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe CoreDefinitionVersion
+   -&gt; Maybe Text
    -&gt; Int
    -&gt; GetCoreDefinitionVersionResponse)
 -&gt; Either String (Maybe Text)
@@ -298,21 +298,21 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe CoreDefinitionVersion
+      -&gt; Maybe Text
       -&gt; Int
       -&gt; GetCoreDefinitionVersionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679359099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679359390"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe CoreDefinitionVersion
+   -&gt; Maybe Text
    -&gt; Int
    -&gt; GetCoreDefinitionVersionResponse)
 -&gt; Either String (Maybe Text)
@@ -320,64 +320,56 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe CoreDefinitionVersion
+      -&gt; Maybe Text
       -&gt; Int
       -&gt; GetCoreDefinitionVersionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679359099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679359390"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe CoreDefinitionVersion
+   -&gt; Maybe Text
    -&gt; Int
    -&gt; GetCoreDefinitionVersionResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe CoreDefinitionVersion
-      -&gt; Int
-      -&gt; GetCoreDefinitionVersionResponse)
+      -&gt; Maybe Text -&gt; Int -&gt; GetCoreDefinitionVersionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679359099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679359390"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;CreationTimestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
-   -&gt; Maybe CoreDefinitionVersion
-   -&gt; Int
-   -&gt; GetCoreDefinitionVersionResponse)
+   -&gt; Maybe Text -&gt; Int -&gt; GetCoreDefinitionVersionResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either
-     String
-     (Maybe CoreDefinitionVersion
-      -&gt; Int -&gt; GetCoreDefinitionVersionResponse)
+     String (Maybe Text -&gt; Int -&gt; GetCoreDefinitionVersionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679359099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679359390"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe CoreDefinitionVersion
-   -&gt; Int -&gt; GetCoreDefinitionVersionResponse)
--&gt; Either String (Maybe CoreDefinitionVersion)
+  String (Maybe Text -&gt; Int -&gt; GetCoreDefinitionVersionResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; GetCoreDefinitionVersionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679359099"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CoreDefinitionVersion)
+</span><a href="#local-6989586621679359390"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Definition&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetCoreDefinitionVersionResponse)
 -&gt; Either String Int
 -&gt; Either String GetCoreDefinitionVersionResponse
@@ -387,15 +379,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679359101"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679359392"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679359091"><span id="local-6989586621679359093"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion"><span class="hs-identifier hs-type">GetCoreDefinitionVersion</span></a></span></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679359382"><span id="local-6989586621679359384"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion"><span class="hs-identifier hs-type">GetCoreDefinitionVersion</span></a></span></span></span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679359088"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion"><span class="hs-identifier hs-type">GetCoreDefinitionVersion</span></a></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679359379"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion"><span class="hs-identifier hs-type">GetCoreDefinitionVersion</span></a></span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion"><span class="hs-identifier hs-type">GetCoreDefinitionVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679359084"><span class="annot"><span class="annottext">toHeaders :: GetCoreDefinitionVersion -&gt; ResponseHeaders
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679359375"><span class="annot"><span class="annottext">toHeaders :: GetCoreDefinitionVersion -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCoreDefinitionVersion -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -415,13 +407,13 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion"><span class="hs-identifier hs-type">GetCoreDefinitionVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679359078"><span class="annot"><span class="annottext">toPath :: GetCoreDefinitionVersion -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359075"><span id="local-6989586621679359076"><span class="annot"><span class="annottext">Text
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679359369"><span class="annot"><span class="annottext">toPath :: GetCoreDefinitionVersion -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359366"><span id="local-6989586621679359367"><span class="annot"><span class="annottext">Text
 coreDefinitionVersionId :: Text
 coreDefinitionId :: Text
 $sel:coreDefinitionVersionId:GetCoreDefinitionVersion' :: GetCoreDefinitionVersion -&gt; Text
 $sel:coreDefinitionId:GetCoreDefinitionVersion' :: GetCoreDefinitionVersion -&gt; Text
-</span><a href="#local-6989586621679359075"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679359366"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -430,17 +422,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359076"><span class="hs-identifier hs-var">coreDefinitionId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679359367"><span class="hs-identifier hs-var">coreDefinitionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/versions/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679359075"><span class="hs-identifier hs-var">coreDefinitionVersionId</span></a></span><span>
+</span><a href="#local-6989586621679359366"><span class="hs-identifier hs-var">coreDefinitionVersionId</span></a></span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersion"><span class="hs-identifier hs-type">GetCoreDefinitionVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679359071"><span class="annot"><span class="annottext">toQuery :: GetCoreDefinitionVersion -&gt; QueryString
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679359362"><span class="annot"><span class="annottext">toQuery :: GetCoreDefinitionVersion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetCoreDefinitionVersion -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -448,32 +440,32 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newGetCoreDefinitionVersionResponse' smart constructor.</span><span>
-</span><span id="line-160"></span><span id="local-6989586621679359068"><span id="local-6989586621679359069"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCoreDefinitionVersionResponse"><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-var">GetCoreDefinitionVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCoreDefinitionVersionResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">GetCoreDefinitionVersionResponse'</span></a></span></span><span>
-</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the core definition</span><span>
-</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- version was created.</span><span>
-</span><span id="line-163"></span><span>    </span><span id="%24sel%3AcreationTimestamp%3AGetCoreDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AcreationTimestamp%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
-</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
-</span><span id="line-166"></span><span>    </span><span id="%24sel%3AnextToken%3AGetCoreDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AnextToken%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | The ARN of the core definition version.</span><span>
-</span><span id="line-168"></span><span>    </span><span id="%24sel%3Aarn%3AGetCoreDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse -&gt; Maybe Text
+</span><span id="line-160"></span><span id="local-6989586621679359359"><span id="local-6989586621679359360"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCoreDefinitionVersionResponse"><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-var">GetCoreDefinitionVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCoreDefinitionVersionResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">GetCoreDefinitionVersionResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the core definition version.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3Adefinition%3AGetCoreDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse -&gt; Maybe CoreDefinitionVersion
+</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3Adefinition%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion"><span class="hs-identifier hs-type">CoreDefinitionVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The ARN of the core definition version.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3Aarn%3AGetCoreDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3Aarn%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The ID of the core definition version.</span><span>
-</span><span id="line-170"></span><span>    </span><span id="%24sel%3Aid%3AGetCoreDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3Aid%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AnextToken%3AGetCoreDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AnextToken%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the core definition</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- version was created.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AcreationTimestamp%3AGetCoreDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AcreationTimestamp%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The version of the core definition version.</span><span>
 </span><span id="line-172"></span><span>    </span><span id="%24sel%3Aversion%3AGetCoreDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3Aversion%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | Information about the core definition version.</span><span>
-</span><span id="line-174"></span><span>    </span><span id="%24sel%3Adefinition%3AGetCoreDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse -&gt; Maybe CoreDefinitionVersion
-</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3Adefinition%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion"><span class="hs-identifier hs-type">CoreDefinitionVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The ID of the core definition version.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3Aid%3AGetCoreDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3Aid%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-176"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCoreDefinitionVersionResponse%27"><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse -&gt; Int
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AhttpStatus%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679359057"><span id="local-6989586621679359059"><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679359348"><span id="local-6989586621679359350"><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse
 -&gt; GetCoreDefinitionVersionResponse -&gt; Bool
 (GetCoreDefinitionVersionResponse
  -&gt; GetCoreDefinitionVersionResponse -&gt; Bool)
@@ -489,7 +481,7 @@ $c/= :: GetCoreDefinitionVersionResponse
 -&gt; GetCoreDefinitionVersionResponse -&gt; Bool
 $c== :: GetCoreDefinitionVersionResponse
 -&gt; GetCoreDefinitionVersionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359049"><span id="local-6989586621679359051"><span id="local-6989586621679359053"><span id="local-6989586621679359055"><span class="annot"><span class="annottext">ReadPrec [GetCoreDefinitionVersionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359340"><span id="local-6989586621679359342"><span id="local-6989586621679359344"><span id="local-6989586621679359346"><span class="annot"><span class="annottext">ReadPrec [GetCoreDefinitionVersionResponse]
 ReadPrec GetCoreDefinitionVersionResponse
 Int -&gt; ReadS GetCoreDefinitionVersionResponse
 ReadS [GetCoreDefinitionVersionResponse]
@@ -509,7 +501,7 @@ readList :: ReadS [GetCoreDefinitionVersionResponse]
 $creadList :: ReadS [GetCoreDefinitionVersionResponse]
 readsPrec :: Int -&gt; ReadS GetCoreDefinitionVersionResponse
 $creadsPrec :: Int -&gt; ReadS GetCoreDefinitionVersionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359043"><span id="local-6989586621679359045"><span id="local-6989586621679359047"><span class="annot"><span class="annottext">Int -&gt; GetCoreDefinitionVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359334"><span id="local-6989586621679359336"><span id="local-6989586621679359338"><span class="annot"><span class="annottext">Int -&gt; GetCoreDefinitionVersionResponse -&gt; ShowS
 [GetCoreDefinitionVersionResponse] -&gt; ShowS
 GetCoreDefinitionVersionResponse -&gt; String
 (Int -&gt; GetCoreDefinitionVersionResponse -&gt; ShowS)
@@ -555,19 +547,19 @@ GetCoreDefinitionVersionResponse
 </span><span id="line-185"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-187"></span><span class="hs-comment">--</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- 'creationTimestamp', 'getCoreDefinitionVersionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the core definition</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- version was created.</span><span>
-</span><span id="line-190"></span><span class="hs-comment">--</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- 'nextToken', 'getCoreDefinitionVersionResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- additional results.</span><span>
-</span><span id="line-193"></span><span class="hs-comment">--</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- 'arn', 'getCoreDefinitionVersionResponse_arn' - The ARN of the core definition version.</span><span>
-</span><span id="line-195"></span><span class="hs-comment">--</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- 'id', 'getCoreDefinitionVersionResponse_id' - The ID of the core definition version.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'definition', 'getCoreDefinitionVersionResponse_definition' - Information about the core definition version.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'arn', 'getCoreDefinitionVersionResponse_arn' - The ARN of the core definition version.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'nextToken', 'getCoreDefinitionVersionResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'creationTimestamp', 'getCoreDefinitionVersionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the core definition</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- version was created.</span><span>
 </span><span id="line-197"></span><span class="hs-comment">--</span><span>
 </span><span id="line-198"></span><span class="hs-comment">-- 'version', 'getCoreDefinitionVersionResponse_version' - The version of the core definition version.</span><span>
 </span><span id="line-199"></span><span class="hs-comment">--</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- 'definition', 'getCoreDefinitionVersionResponse_definition' - Information about the core definition version.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'id', 'getCoreDefinitionVersionResponse_id' - The ID of the core definition version.</span><span>
 </span><span id="line-201"></span><span class="hs-comment">--</span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- 'httpStatus', 'getCoreDefinitionVersionResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-203"></span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#newGetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">newGetCoreDefinitionVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -575,102 +567,75 @@ GetCoreDefinitionVersionResponse
 </span><span id="line-205"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-206"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span>
 </span><span id="line-207"></span><span id="newGetCoreDefinitionVersionResponse"><span class="annot"><span class="annottext">newGetCoreDefinitionVersionResponse :: Int -&gt; GetCoreDefinitionVersionResponse
-</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#newGetCoreDefinitionVersionResponse"><span class="hs-identifier hs-var hs-var">newGetCoreDefinitionVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679359040"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679359040"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-208"></span><span>  </span><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#newGetCoreDefinitionVersionResponse"><span class="hs-identifier hs-var hs-var">newGetCoreDefinitionVersionResponse</span></a></span></span><span> </span><span id="local-6989586621679359331"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679359331"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse' :: Maybe CoreDefinitionVersion
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe CoreDefinitionVersion
+-&gt; Maybe Text
 -&gt; Int
 -&gt; GetCoreDefinitionVersionResponse
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span>
-</span><span id="line-209"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTimestamp:GetCoreDefinitionVersionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AcreationTimestamp%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-209"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:definition:GetCoreDefinitionVersionResponse' :: Maybe CoreDefinitionVersion
+</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3Adefinition%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">Maybe CoreDefinitionVersion
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetCoreDefinitionVersionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AnextToken%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:GetCoreDefinitionVersionResponse' :: Maybe Text
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:GetCoreDefinitionVersionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3Aarn%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:GetCoreDefinitionVersionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3Aid%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetCoreDefinitionVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AnextToken%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTimestamp:GetCoreDefinitionVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AcreationTimestamp%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:GetCoreDefinitionVersionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3Aversion%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:definition:GetCoreDefinitionVersionResponse' :: Maybe CoreDefinitionVersion
-</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3Adefinition%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CoreDefinitionVersion
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:GetCoreDefinitionVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3Aid%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCoreDefinitionVersionResponse' :: Int
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AhttpStatus%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679359040"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679359331"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-217"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the core definition</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- version was created.</span><span>
-</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_creationTimestamp"><span class="hs-identifier hs-type">getCoreDefinitionVersionResponse_creationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-222"></span><span id="getCoreDefinitionVersionResponse_creationTimestamp"><span class="annot"><span class="annottext">getCoreDefinitionVersionResponse_creationTimestamp :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-219"></span><span class="hs-comment">-- | Information about the core definition version.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_definition"><span class="hs-identifier hs-type">getCoreDefinitionVersionResponse_definition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion"><span class="hs-identifier hs-type">CoreDefinitionVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span id="getCoreDefinitionVersionResponse_definition"><span class="annot"><span class="annottext">getCoreDefinitionVersionResponse_definition :: (Maybe CoreDefinitionVersion -&gt; f (Maybe CoreDefinitionVersion))
 -&gt; GetCoreDefinitionVersionResponse
 -&gt; f GetCoreDefinitionVersionResponse
-</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_creationTimestamp"><span class="hs-identifier hs-var hs-var">getCoreDefinitionVersionResponse_creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCoreDefinitionVersionResponse -&gt; Maybe Text)
+</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_definition"><span class="hs-identifier hs-var hs-var">getCoreDefinitionVersionResponse_definition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCoreDefinitionVersionResponse -&gt; Maybe CoreDefinitionVersion)
 -&gt; (GetCoreDefinitionVersionResponse
-    -&gt; Maybe Text -&gt; GetCoreDefinitionVersionResponse)
+    -&gt; Maybe CoreDefinitionVersion -&gt; GetCoreDefinitionVersionResponse)
 -&gt; Lens
      GetCoreDefinitionVersionResponse
      GetCoreDefinitionVersionResponse
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe CoreDefinitionVersion)
+     (Maybe CoreDefinitionVersion)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359039"><span class="annot"><span class="annottext">Maybe Text
-creationTimestamp :: Maybe Text
-$sel:creationTimestamp:GetCoreDefinitionVersionResponse' :: GetCoreDefinitionVersionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679359039"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679359039"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359038"><span class="annot"><span class="annottext">s :: GetCoreDefinitionVersionResponse
-</span><a href="#local-6989586621679359038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359037"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679359037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse
-</span><a href="#local-6989586621679359038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimestamp:GetCoreDefinitionVersionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AcreationTimestamp%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679359037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- additional results.</span><span>
-</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_nextToken"><span class="hs-identifier hs-type">getCoreDefinitionVersionResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-227"></span><span id="getCoreDefinitionVersionResponse_nextToken"><span class="annot"><span class="annottext">getCoreDefinitionVersionResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetCoreDefinitionVersionResponse
--&gt; f GetCoreDefinitionVersionResponse
-</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_nextToken"><span class="hs-identifier hs-var hs-var">getCoreDefinitionVersionResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCoreDefinitionVersionResponse -&gt; Maybe Text)
--&gt; (GetCoreDefinitionVersionResponse
-    -&gt; Maybe Text -&gt; GetCoreDefinitionVersionResponse)
--&gt; Lens
-     GetCoreDefinitionVersionResponse
-     GetCoreDefinitionVersionResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359036"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:GetCoreDefinitionVersionResponse' :: GetCoreDefinitionVersionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679359036"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679359036"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359035"><span class="annot"><span class="annottext">s :: GetCoreDefinitionVersionResponse
-</span><a href="#local-6989586621679359035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359034"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679359034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse
-</span><a href="#local-6989586621679359035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetCoreDefinitionVersionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AnextToken%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679359034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- | The ARN of the core definition version.</span><span>
-</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_arn"><span class="hs-identifier hs-type">getCoreDefinitionVersionResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-231"></span><span id="getCoreDefinitionVersionResponse_arn"><span class="annot"><span class="annottext">getCoreDefinitionVersionResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359330"><span class="annot"><span class="annottext">Maybe CoreDefinitionVersion
+definition :: Maybe CoreDefinitionVersion
+$sel:definition:GetCoreDefinitionVersionResponse' :: GetCoreDefinitionVersionResponse -&gt; Maybe CoreDefinitionVersion
+</span><a href="#local-6989586621679359330"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CoreDefinitionVersion
+</span><a href="#local-6989586621679359330"><span class="hs-identifier hs-var">definition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359329"><span class="annot"><span class="annottext">s :: GetCoreDefinitionVersionResponse
+</span><a href="#local-6989586621679359329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359328"><span class="annot"><span class="annottext">Maybe CoreDefinitionVersion
+</span><a href="#local-6989586621679359328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse
+</span><a href="#local-6989586621679359329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:definition:GetCoreDefinitionVersionResponse' :: Maybe CoreDefinitionVersion
+</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3Adefinition%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CoreDefinitionVersion
+</span><a href="#local-6989586621679359328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- | The ARN of the core definition version.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_arn"><span class="hs-identifier hs-type">getCoreDefinitionVersionResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="getCoreDefinitionVersionResponse_arn"><span class="annot"><span class="annottext">getCoreDefinitionVersionResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetCoreDefinitionVersionResponse
 -&gt; f GetCoreDefinitionVersionResponse
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_arn"><span class="hs-identifier hs-var hs-var">getCoreDefinitionVersionResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCoreDefinitionVersionResponse -&gt; Maybe Text)
@@ -682,23 +647,24 @@ $sel:nextToken:GetCoreDefinitionVersionResponse' :: GetCoreDefinitionVersionResp
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359033"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359327"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:GetCoreDefinitionVersionResponse' :: GetCoreDefinitionVersionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679359033"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679359033"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359032"><span class="annot"><span class="annottext">s :: GetCoreDefinitionVersionResponse
-</span><a href="#local-6989586621679359032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359031"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679359031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse
-</span><a href="#local-6989586621679359032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetCoreDefinitionVersionResponse' :: Maybe Text
+</span><a href="#local-6989586621679359327"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359327"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359326"><span class="annot"><span class="annottext">s :: GetCoreDefinitionVersionResponse
+</span><a href="#local-6989586621679359326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359325"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse
+</span><a href="#local-6989586621679359326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetCoreDefinitionVersionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3Aarn%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679359031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- | The ID of the core definition version.</span><span>
-</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_id"><span class="hs-identifier hs-type">getCoreDefinitionVersionResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-235"></span><span id="getCoreDefinitionVersionResponse_id"><span class="annot"><span class="annottext">getCoreDefinitionVersionResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679359325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_nextToken"><span class="hs-identifier hs-type">getCoreDefinitionVersionResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="getCoreDefinitionVersionResponse_nextToken"><span class="annot"><span class="annottext">getCoreDefinitionVersionResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetCoreDefinitionVersionResponse
 -&gt; f GetCoreDefinitionVersionResponse
-</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_id"><span class="hs-identifier hs-var hs-var">getCoreDefinitionVersionResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCoreDefinitionVersionResponse -&gt; Maybe Text)
+</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_nextToken"><span class="hs-identifier hs-var hs-var">getCoreDefinitionVersionResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCoreDefinitionVersionResponse -&gt; Maybe Text)
 -&gt; (GetCoreDefinitionVersionResponse
     -&gt; Maybe Text -&gt; GetCoreDefinitionVersionResponse)
 -&gt; Lens
@@ -707,16 +673,42 @@ $sel:arn:GetCoreDefinitionVersionResponse' :: GetCoreDefinitionVersionResponse -
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359030"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:GetCoreDefinitionVersionResponse' :: GetCoreDefinitionVersionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679359030"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679359030"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359029"><span class="annot"><span class="annottext">s :: GetCoreDefinitionVersionResponse
-</span><a href="#local-6989586621679359029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359028"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679359028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse
-</span><a href="#local-6989586621679359029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetCoreDefinitionVersionResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3Aid%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679359028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359324"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetCoreDefinitionVersionResponse' :: GetCoreDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679359324"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359324"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359323"><span class="annot"><span class="annottext">s :: GetCoreDefinitionVersionResponse
+</span><a href="#local-6989586621679359323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359322"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse
+</span><a href="#local-6989586621679359323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetCoreDefinitionVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AnextToken%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The time, in milliseconds since the epoch, when the core definition</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- version was created.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_creationTimestamp"><span class="hs-identifier hs-type">getCoreDefinitionVersionResponse_creationTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="getCoreDefinitionVersionResponse_creationTimestamp"><span class="annot"><span class="annottext">getCoreDefinitionVersionResponse_creationTimestamp :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetCoreDefinitionVersionResponse
+-&gt; f GetCoreDefinitionVersionResponse
+</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_creationTimestamp"><span class="hs-identifier hs-var hs-var">getCoreDefinitionVersionResponse_creationTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCoreDefinitionVersionResponse -&gt; Maybe Text)
+-&gt; (GetCoreDefinitionVersionResponse
+    -&gt; Maybe Text -&gt; GetCoreDefinitionVersionResponse)
+-&gt; Lens
+     GetCoreDefinitionVersionResponse
+     GetCoreDefinitionVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359321"><span class="annot"><span class="annottext">Maybe Text
+creationTimestamp :: Maybe Text
+$sel:creationTimestamp:GetCoreDefinitionVersionResponse' :: GetCoreDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679359321"><span class="hs-identifier hs-var hs-var">creationTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359321"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359320"><span class="annot"><span class="annottext">s :: GetCoreDefinitionVersionResponse
+</span><a href="#local-6989586621679359320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359319"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse
+</span><a href="#local-6989586621679359320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimestamp:GetCoreDefinitionVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AcreationTimestamp%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">creationTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- | The version of the core definition version.</span><span>
 </span><span id="line-238"></span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_version"><span class="hs-identifier hs-type">getCoreDefinitionVersionResponse_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -732,41 +724,41 @@ $sel:id:GetCoreDefinitionVersionResponse' :: GetCoreDefinitionVersionResponse -&
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359027"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359318"><span class="annot"><span class="annottext">Maybe Text
 version :: Maybe Text
 $sel:version:GetCoreDefinitionVersionResponse' :: GetCoreDefinitionVersionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679359027"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679359027"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359026"><span class="annot"><span class="annottext">s :: GetCoreDefinitionVersionResponse
-</span><a href="#local-6989586621679359026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359025"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679359025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse
-</span><a href="#local-6989586621679359026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:GetCoreDefinitionVersionResponse' :: Maybe Text
+</span><a href="#local-6989586621679359318"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359318"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359317"><span class="annot"><span class="annottext">s :: GetCoreDefinitionVersionResponse
+</span><a href="#local-6989586621679359317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359316"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse
+</span><a href="#local-6989586621679359317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:GetCoreDefinitionVersionResponse' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3Aversion%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679359025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679359316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- | Information about the core definition version.</span><span>
-</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_definition"><span class="hs-identifier hs-type">getCoreDefinitionVersionResponse_definition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.Types.CoreDefinitionVersion.html#CoreDefinitionVersion"><span class="hs-identifier hs-type">CoreDefinitionVersion</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-243"></span><span id="getCoreDefinitionVersionResponse_definition"><span class="annot"><span class="annottext">getCoreDefinitionVersionResponse_definition :: (Maybe CoreDefinitionVersion -&gt; f (Maybe CoreDefinitionVersion))
+</span><span id="line-241"></span><span class="hs-comment">-- | The ID of the core definition version.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_id"><span class="hs-identifier hs-type">getCoreDefinitionVersionResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="getCoreDefinitionVersionResponse_id"><span class="annot"><span class="annottext">getCoreDefinitionVersionResponse_id :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetCoreDefinitionVersionResponse
 -&gt; f GetCoreDefinitionVersionResponse
-</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_definition"><span class="hs-identifier hs-var hs-var">getCoreDefinitionVersionResponse_definition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCoreDefinitionVersionResponse -&gt; Maybe CoreDefinitionVersion)
+</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_id"><span class="hs-identifier hs-var hs-var">getCoreDefinitionVersionResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCoreDefinitionVersionResponse -&gt; Maybe Text)
 -&gt; (GetCoreDefinitionVersionResponse
-    -&gt; Maybe CoreDefinitionVersion -&gt; GetCoreDefinitionVersionResponse)
+    -&gt; Maybe Text -&gt; GetCoreDefinitionVersionResponse)
 -&gt; Lens
      GetCoreDefinitionVersionResponse
      GetCoreDefinitionVersionResponse
-     (Maybe CoreDefinitionVersion)
-     (Maybe CoreDefinitionVersion)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359024"><span class="annot"><span class="annottext">Maybe CoreDefinitionVersion
-definition :: Maybe CoreDefinitionVersion
-$sel:definition:GetCoreDefinitionVersionResponse' :: GetCoreDefinitionVersionResponse -&gt; Maybe CoreDefinitionVersion
-</span><a href="#local-6989586621679359024"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CoreDefinitionVersion
-</span><a href="#local-6989586621679359024"><span class="hs-identifier hs-var">definition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359023"><span class="annot"><span class="annottext">s :: GetCoreDefinitionVersionResponse
-</span><a href="#local-6989586621679359023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359022"><span class="annot"><span class="annottext">Maybe CoreDefinitionVersion
-</span><a href="#local-6989586621679359022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse
-</span><a href="#local-6989586621679359023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:definition:GetCoreDefinitionVersionResponse' :: Maybe CoreDefinitionVersion
-</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3Adefinition%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CoreDefinitionVersion
-</span><a href="#local-6989586621679359022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359315"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:GetCoreDefinitionVersionResponse' :: GetCoreDefinitionVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679359315"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359315"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359314"><span class="annot"><span class="annottext">s :: GetCoreDefinitionVersionResponse
+</span><a href="#local-6989586621679359314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359313"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse
+</span><a href="#local-6989586621679359314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:GetCoreDefinitionVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3Aid%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679359313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-246"></span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#getCoreDefinitionVersionResponse_httpStatus"><span class="hs-identifier hs-type">getCoreDefinitionVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -782,18 +774,18 @@ $sel:definition:GetCoreDefinitionVersionResponse' :: GetCoreDefinitionVersionRes
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359021"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359312"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetCoreDefinitionVersionResponse' :: GetCoreDefinitionVersionResponse -&gt; Int
-</span><a href="#local-6989586621679359021"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679359021"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359020"><span class="annot"><span class="annottext">s :: GetCoreDefinitionVersionResponse
-</span><a href="#local-6989586621679359020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359019"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679359019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse
-</span><a href="#local-6989586621679359020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCoreDefinitionVersionResponse' :: Int
+</span><a href="#local-6989586621679359312"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679359312"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359311"><span class="annot"><span class="annottext">s :: GetCoreDefinitionVersionResponse
+</span><a href="#local-6989586621679359311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359310"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679359310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCoreDefinitionVersionResponse
+</span><a href="#local-6989586621679359311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCoreDefinitionVersionResponse' :: Int
 </span><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#%24sel%3AhttpStatus%3AGetCoreDefinitionVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679359019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679359310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-250"></span><span>  </span><span id="local-6989586621679359017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679359308"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-251"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.GetCoreDefinitionVersion.html#GetCoreDefinitionVersionResponse"><span class="hs-identifier hs-type">GetCoreDefinitionVersionResponse</span></a></span></span><span>
 </span><span id="line-252"></span></pre></body></html>

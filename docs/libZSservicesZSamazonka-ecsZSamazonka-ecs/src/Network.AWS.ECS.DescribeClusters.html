@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDescribeClusters' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679476390"><span id="local-6989586621679476391"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeClusters"><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters"><span class="hs-identifier hs-var">DescribeClusters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeClusters%27"><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters%27"><span class="hs-identifier hs-var">DescribeClusters'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679477160"><span id="local-6989586621679477161"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeClusters"><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters"><span class="hs-identifier hs-var">DescribeClusters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeClusters%27"><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters%27"><span class="hs-identifier hs-var">DescribeClusters'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether to include additional information about the clusters in the</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- response. If this field is omitted, this information isn\'t included.</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3Aclusters%3ADescribeClusters%27"><span class="annot"><span class="annottext">DescribeClusters -&gt; Maybe [Text]
 </span><a href="Network.AWS.ECS.DescribeClusters.html#%24sel%3Aclusters%3ADescribeClusters%27"><span class="hs-identifier hs-var hs-var">clusters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679476383"><span id="local-6989586621679476385"><span class="annot"><span class="annottext">DescribeClusters -&gt; DescribeClusters -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679477153"><span id="local-6989586621679477155"><span class="annot"><span class="annottext">DescribeClusters -&gt; DescribeClusters -&gt; Bool
 (DescribeClusters -&gt; DescribeClusters -&gt; Bool)
 -&gt; (DescribeClusters -&gt; DescribeClusters -&gt; Bool)
 -&gt; Eq DescribeClusters
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeClusters -&gt; DescribeClusters -&gt; Bool
 == :: DescribeClusters -&gt; DescribeClusters -&gt; Bool
 $c== :: DescribeClusters -&gt; DescribeClusters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679476374"><span id="local-6989586621679476376"><span id="local-6989586621679476378"><span id="local-6989586621679476380"><span class="annot"><span class="annottext">ReadPrec [DescribeClusters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477144"><span id="local-6989586621679477146"><span id="local-6989586621679477148"><span id="local-6989586621679477150"><span class="annot"><span class="annottext">ReadPrec [DescribeClusters]
 ReadPrec DescribeClusters
 Int -&gt; ReadS DescribeClusters
 ReadS [DescribeClusters]
@@ -103,7 +103,7 @@ readList :: ReadS [DescribeClusters]
 $creadList :: ReadS [DescribeClusters]
 readsPrec :: Int -&gt; ReadS DescribeClusters
 $creadsPrec :: Int -&gt; ReadS DescribeClusters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679476367"><span id="local-6989586621679476369"><span id="local-6989586621679476371"><span class="annot"><span class="annottext">Int -&gt; DescribeClusters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477137"><span id="local-6989586621679477139"><span id="local-6989586621679477141"><span class="annot"><span class="annottext">Int -&gt; DescribeClusters -&gt; ShowS
 [DescribeClusters] -&gt; ShowS
 DescribeClusters -&gt; String
 (Int -&gt; DescribeClusters -&gt; ShowS)
@@ -200,16 +200,16 @@ forall a. Maybe a
      (Maybe [ClusterField])
      (Maybe [ClusterField])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters%27"><span class="hs-identifier hs-type">DescribeClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679476360"><span class="annot"><span class="annottext">Maybe [ClusterField]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters%27"><span class="hs-identifier hs-type">DescribeClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477130"><span class="annot"><span class="annottext">Maybe [ClusterField]
 include :: Maybe [ClusterField]
 $sel:include:DescribeClusters' :: DescribeClusters -&gt; Maybe [ClusterField]
-</span><a href="#local-6989586621679476360"><span class="hs-identifier hs-var hs-var">include</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterField]
-</span><a href="#local-6989586621679476360"><span class="hs-identifier hs-var">include</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679476359"><span class="annot"><span class="annottext">s :: DescribeClusters
-</span><a href="#local-6989586621679476359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters%27"><span class="hs-identifier hs-type">DescribeClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679476358"><span class="annot"><span class="annottext">Maybe [ClusterField]
-</span><a href="#local-6989586621679476358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusters
-</span><a href="#local-6989586621679476359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:include:DescribeClusters' :: Maybe [ClusterField]
+</span><a href="#local-6989586621679477130"><span class="hs-identifier hs-var hs-var">include</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterField]
+</span><a href="#local-6989586621679477130"><span class="hs-identifier hs-var">include</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477129"><span class="annot"><span class="annottext">s :: DescribeClusters
+</span><a href="#local-6989586621679477129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters%27"><span class="hs-identifier hs-type">DescribeClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477128"><span class="annot"><span class="annottext">Maybe [ClusterField]
+</span><a href="#local-6989586621679477128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusters
+</span><a href="#local-6989586621679477129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:include:DescribeClusters' :: Maybe [ClusterField]
 </span><a href="Network.AWS.ECS.DescribeClusters.html#%24sel%3Ainclude%3ADescribeClusters%27"><span class="hs-identifier hs-var">include</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterField]
-</span><a href="#local-6989586621679476358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters"><span class="hs-identifier hs-type">DescribeClusters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ClusterField] -&gt; f (Maybe [ClusterField]))
+</span><a href="#local-6989586621679477128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters"><span class="hs-identifier hs-type">DescribeClusters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ClusterField] -&gt; f (Maybe [ClusterField]))
  -&gt; DescribeClusters -&gt; f DescribeClusters)
 -&gt; ((Maybe [ClusterField] -&gt; f (Maybe [ClusterField]))
     -&gt; Maybe [ClusterField] -&gt; f (Maybe [ClusterField]))
@@ -227,8 +227,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ClusterField] [ClusterField] [ClusterField] [ClusterField]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | A list of up to 100 cluster names or full cluster Amazon Resource Name</span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- (ARN) entries. If you do not specify a cluster, the default cluster is</span><span>
@@ -241,16 +241,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      DescribeClusters DescribeClusters (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters%27"><span class="hs-identifier hs-type">DescribeClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679476354"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters%27"><span class="hs-identifier hs-type">DescribeClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477124"><span class="annot"><span class="annottext">Maybe [Text]
 clusters :: Maybe [Text]
 $sel:clusters:DescribeClusters' :: DescribeClusters -&gt; Maybe [Text]
-</span><a href="#local-6989586621679476354"><span class="hs-identifier hs-var hs-var">clusters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679476354"><span class="hs-identifier hs-var">clusters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679476353"><span class="annot"><span class="annottext">s :: DescribeClusters
-</span><a href="#local-6989586621679476353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters%27"><span class="hs-identifier hs-type">DescribeClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679476352"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679476352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusters
-</span><a href="#local-6989586621679476353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusters:DescribeClusters' :: Maybe [Text]
+</span><a href="#local-6989586621679477124"><span class="hs-identifier hs-var hs-var">clusters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679477124"><span class="hs-identifier hs-var">clusters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477123"><span class="annot"><span class="annottext">s :: DescribeClusters
+</span><a href="#local-6989586621679477123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters%27"><span class="hs-identifier hs-type">DescribeClusters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477122"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679477122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClusters
+</span><a href="#local-6989586621679477123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusters:DescribeClusters' :: Maybe [Text]
 </span><a href="Network.AWS.ECS.DescribeClusters.html#%24sel%3Aclusters%3ADescribeClusters%27"><span class="hs-identifier hs-var">clusters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679476352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters"><span class="hs-identifier hs-type">DescribeClusters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679477122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters"><span class="hs-identifier hs-type">DescribeClusters</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeClusters -&gt; f DescribeClusters)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -264,19 +264,19 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters"><span class="hs-identifier hs-type">DescribeClusters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-140"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters"><span class="hs-identifier hs-type">DescribeClusters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse"><span class="hs-identifier hs-type">DescribeClustersResponse</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679476348"><span class="annot"><span class="annottext">request :: DescribeClusters -&gt; Request DescribeClusters
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679477118"><span class="annot"><span class="annottext">request :: DescribeClusters -&gt; Request DescribeClusters
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeClusters -&gt; Request DescribeClusters
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ECS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679476344"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679477114"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeClusters
 -&gt; ClientResponse ClientBody
@@ -300,10 +300,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679476341"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679476341"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679476340"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679476340"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679476339"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679476339"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679477111"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477111"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679477110"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679477110"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679477109"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679477109"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Failure]
 -&gt; Maybe [Cluster] -&gt; Int -&gt; DescribeClustersResponse
 </span><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse%27"><span class="hs-identifier hs-var">DescribeClustersResponse'</span></a></span><span>
@@ -314,7 +314,7 @@ MonadResource m =&gt;
      String (Maybe [Cluster] -&gt; Int -&gt; DescribeClustersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679476339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Failure]))
+</span><a href="#local-6989586621679477109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Failure]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;failures&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Failure]))
@@ -328,7 +328,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; DescribeClustersResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679476339"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Cluster]))
+</span><a href="#local-6989586621679477109"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Cluster]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;clusters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Cluster]))
@@ -345,15 +345,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679476341"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679477111"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679476330"><span id="local-6989586621679476332"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters"><span class="hs-identifier hs-type">DescribeClusters</span></a></span></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679477100"><span id="local-6989586621679477102"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters"><span class="hs-identifier hs-type">DescribeClusters</span></a></span></span></span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679476327"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters"><span class="hs-identifier hs-type">DescribeClusters</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679477097"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters"><span class="hs-identifier hs-type">DescribeClusters</span></a></span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters"><span class="hs-identifier hs-type">DescribeClusters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679476323"><span class="annot"><span class="annottext">toHeaders :: DescribeClusters -&gt; ResponseHeaders
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679477093"><span class="annot"><span class="annottext">toHeaders :: DescribeClusters -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeClusters -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -380,15 +380,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679476313"><span id="local-6989586621679476315"><span id="local-6989586621679476317"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters"><span class="hs-identifier hs-type">DescribeClusters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679476311"><span class="annot"><span class="annottext">toJSON :: DescribeClusters -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters%27"><span class="hs-identifier hs-type">DescribeClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679476308"><span id="local-6989586621679476309"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679477083"><span id="local-6989586621679477085"><span id="local-6989586621679477087"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters"><span class="hs-identifier hs-type">DescribeClusters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679477081"><span class="annot"><span class="annottext">toJSON :: DescribeClusters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters%27"><span class="hs-identifier hs-type">DescribeClusters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477078"><span id="local-6989586621679477079"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe [ClusterField]
 clusters :: Maybe [Text]
 include :: Maybe [ClusterField]
 $sel:clusters:DescribeClusters' :: DescribeClusters -&gt; Maybe [Text]
 $sel:include:DescribeClusters' :: DescribeClusters -&gt; Maybe [ClusterField]
-</span><a href="#local-6989586621679476308"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679477078"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -400,26 +400,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ClusterField] -&gt; Pair) -&gt; Maybe [ClusterField] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ClusterField]
-</span><a href="#local-6989586621679476309"><span class="hs-identifier hs-var">include</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679477079"><span class="hs-identifier hs-var">include</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;clusters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679476308"><span class="hs-identifier hs-var">clusters</span></a></span><span>
+</span><a href="#local-6989586621679477078"><span class="hs-identifier hs-var">clusters</span></a></span><span>
 </span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters"><span class="hs-identifier hs-type">DescribeClusters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679476302"><span class="annot"><span class="annottext">toPath :: DescribeClusters -&gt; ByteString
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679477072"><span class="annot"><span class="annottext">toPath :: DescribeClusters -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeClusters -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClusters"><span class="hs-identifier hs-type">DescribeClusters</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679476298"><span class="annot"><span class="annottext">toQuery :: DescribeClusters -&gt; QueryString
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679477068"><span class="annot"><span class="annottext">toQuery :: DescribeClusters -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeClusters -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -427,7 +427,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | /See:/ 'newDescribeClustersResponse' smart constructor.</span><span>
-</span><span id="line-187"></span><span id="local-6989586621679476295"><span id="local-6989586621679476296"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeClustersResponse"><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse"><span class="hs-identifier hs-var">DescribeClustersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeClustersResponse%27"><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse%27"><span class="hs-identifier hs-var">DescribeClustersResponse'</span></a></span></span><span>
+</span><span id="line-187"></span><span id="local-6989586621679477065"><span id="local-6989586621679477066"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeClustersResponse"><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse"><span class="hs-identifier hs-var">DescribeClustersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeClustersResponse%27"><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse%27"><span class="hs-identifier hs-var">DescribeClustersResponse'</span></a></span></span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Any failures associated with the call.</span><span>
 </span><span id="line-189"></span><span>    </span><span id="%24sel%3Afailures%3ADescribeClustersResponse%27"><span class="annot"><span class="annottext">DescribeClustersResponse -&gt; Maybe [Failure]
 </span><a href="Network.AWS.ECS.DescribeClusters.html#%24sel%3Afailures%3ADescribeClustersResponse%27"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.Failure.html#Failure"><span class="hs-identifier hs-type">Failure</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -438,7 +438,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-193"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeClustersResponse%27"><span class="annot"><span class="annottext">DescribeClustersResponse -&gt; Int
 </span><a href="Network.AWS.ECS.DescribeClusters.html#%24sel%3AhttpStatus%3ADescribeClustersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679476288"><span id="local-6989586621679476290"><span class="annot"><span class="annottext">DescribeClustersResponse -&gt; DescribeClustersResponse -&gt; Bool
+</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679477058"><span id="local-6989586621679477060"><span class="annot"><span class="annottext">DescribeClustersResponse -&gt; DescribeClustersResponse -&gt; Bool
 (DescribeClustersResponse -&gt; DescribeClustersResponse -&gt; Bool)
 -&gt; (DescribeClustersResponse -&gt; DescribeClustersResponse -&gt; Bool)
 -&gt; Eq DescribeClustersResponse
@@ -447,7 +447,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeClustersResponse -&gt; DescribeClustersResponse -&gt; Bool
 == :: DescribeClustersResponse -&gt; DescribeClustersResponse -&gt; Bool
 $c== :: DescribeClustersResponse -&gt; DescribeClustersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679476280"><span id="local-6989586621679476282"><span id="local-6989586621679476284"><span id="local-6989586621679476286"><span class="annot"><span class="annottext">ReadPrec [DescribeClustersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477050"><span id="local-6989586621679477052"><span id="local-6989586621679477054"><span id="local-6989586621679477056"><span class="annot"><span class="annottext">ReadPrec [DescribeClustersResponse]
 ReadPrec DescribeClustersResponse
 Int -&gt; ReadS DescribeClustersResponse
 ReadS [DescribeClustersResponse]
@@ -467,7 +467,7 @@ readList :: ReadS [DescribeClustersResponse]
 $creadList :: ReadS [DescribeClustersResponse]
 readsPrec :: Int -&gt; ReadS DescribeClustersResponse
 $creadsPrec :: Int -&gt; ReadS DescribeClustersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679476274"><span id="local-6989586621679476276"><span id="local-6989586621679476278"><span class="annot"><span class="annottext">Int -&gt; DescribeClustersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679477044"><span id="local-6989586621679477046"><span id="local-6989586621679477048"><span class="annot"><span class="annottext">Int -&gt; DescribeClustersResponse -&gt; ShowS
 [DescribeClustersResponse] -&gt; ShowS
 DescribeClustersResponse -&gt; String
 (Int -&gt; DescribeClustersResponse -&gt; ShowS)
@@ -517,8 +517,8 @@ DescribeClustersResponse -&gt; Rep DescribeClustersResponse x
 </span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse"><span class="hs-identifier hs-type">DescribeClustersResponse</span></a></span><span>
 </span><span id="line-214"></span><span id="newDescribeClustersResponse"><span class="annot"><span class="annottext">newDescribeClustersResponse :: Int -&gt; DescribeClustersResponse
-</span><a href="Network.AWS.ECS.DescribeClusters.html#newDescribeClustersResponse"><span class="hs-identifier hs-var hs-var">newDescribeClustersResponse</span></a></span></span><span> </span><span id="local-6989586621679476271"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679476271"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.DescribeClusters.html#newDescribeClustersResponse"><span class="hs-identifier hs-var hs-var">newDescribeClustersResponse</span></a></span></span><span> </span><span id="local-6989586621679477041"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477041"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">DescribeClustersResponse' :: Maybe [Failure]
 -&gt; Maybe [Cluster] -&gt; Int -&gt; DescribeClustersResponse
 </span><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse%27"><span class="hs-identifier hs-type">DescribeClustersResponse'</span></a></span><span>
@@ -533,7 +533,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeClustersResponse' :: Int
 </span><a href="Network.AWS.ECS.DescribeClusters.html#%24sel%3AhttpStatus%3ADescribeClustersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679476271"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679477041"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- | Any failures associated with the call.</span><span>
@@ -549,16 +549,16 @@ forall a. Maybe a
      (Maybe [Failure])
      (Maybe [Failure])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse%27"><span class="hs-identifier hs-type">DescribeClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679476270"><span class="annot"><span class="annottext">Maybe [Failure]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse%27"><span class="hs-identifier hs-type">DescribeClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477040"><span class="annot"><span class="annottext">Maybe [Failure]
 failures :: Maybe [Failure]
 $sel:failures:DescribeClustersResponse' :: DescribeClustersResponse -&gt; Maybe [Failure]
-</span><a href="#local-6989586621679476270"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Failure]
-</span><a href="#local-6989586621679476270"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679476269"><span class="annot"><span class="annottext">s :: DescribeClustersResponse
-</span><a href="#local-6989586621679476269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse%27"><span class="hs-identifier hs-type">DescribeClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679476268"><span class="annot"><span class="annottext">Maybe [Failure]
-</span><a href="#local-6989586621679476268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClustersResponse
-</span><a href="#local-6989586621679476269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:DescribeClustersResponse' :: Maybe [Failure]
+</span><a href="#local-6989586621679477040"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Failure]
+</span><a href="#local-6989586621679477040"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477039"><span class="annot"><span class="annottext">s :: DescribeClustersResponse
+</span><a href="#local-6989586621679477039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse%27"><span class="hs-identifier hs-type">DescribeClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477038"><span class="annot"><span class="annottext">Maybe [Failure]
+</span><a href="#local-6989586621679477038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClustersResponse
+</span><a href="#local-6989586621679477039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:DescribeClustersResponse' :: Maybe [Failure]
 </span><a href="Network.AWS.ECS.DescribeClusters.html#%24sel%3Afailures%3ADescribeClustersResponse%27"><span class="hs-identifier hs-var">failures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Failure]
-</span><a href="#local-6989586621679476268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse"><span class="hs-identifier hs-type">DescribeClustersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Failure] -&gt; f (Maybe [Failure]))
+</span><a href="#local-6989586621679477038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse"><span class="hs-identifier hs-type">DescribeClustersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Failure] -&gt; f (Maybe [Failure]))
  -&gt; DescribeClustersResponse -&gt; f DescribeClustersResponse)
 -&gt; ((Maybe [Failure] -&gt; f (Maybe [Failure]))
     -&gt; Maybe [Failure] -&gt; f (Maybe [Failure]))
@@ -576,8 +576,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Failure] [Failure] [Failure] [Failure]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | The list of clusters.</span><span>
 </span><span id="line-227"></span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#describeClustersResponse_clusters"><span class="hs-identifier hs-type">describeClustersResponse_clusters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse"><span class="hs-identifier hs-type">DescribeClustersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ECS.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -592,16 +592,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [Cluster])
      (Maybe [Cluster])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse%27"><span class="hs-identifier hs-type">DescribeClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679476267"><span class="annot"><span class="annottext">Maybe [Cluster]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse%27"><span class="hs-identifier hs-type">DescribeClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477037"><span class="annot"><span class="annottext">Maybe [Cluster]
 clusters :: Maybe [Cluster]
 $sel:clusters:DescribeClustersResponse' :: DescribeClustersResponse -&gt; Maybe [Cluster]
-</span><a href="#local-6989586621679476267"><span class="hs-identifier hs-var hs-var">clusters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Cluster]
-</span><a href="#local-6989586621679476267"><span class="hs-identifier hs-var">clusters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679476266"><span class="annot"><span class="annottext">s :: DescribeClustersResponse
-</span><a href="#local-6989586621679476266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse%27"><span class="hs-identifier hs-type">DescribeClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679476265"><span class="annot"><span class="annottext">Maybe [Cluster]
-</span><a href="#local-6989586621679476265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClustersResponse
-</span><a href="#local-6989586621679476266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusters:DescribeClustersResponse' :: Maybe [Cluster]
+</span><a href="#local-6989586621679477037"><span class="hs-identifier hs-var hs-var">clusters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Cluster]
+</span><a href="#local-6989586621679477037"><span class="hs-identifier hs-var">clusters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477036"><span class="annot"><span class="annottext">s :: DescribeClustersResponse
+</span><a href="#local-6989586621679477036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse%27"><span class="hs-identifier hs-type">DescribeClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477035"><span class="annot"><span class="annottext">Maybe [Cluster]
+</span><a href="#local-6989586621679477035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClustersResponse
+</span><a href="#local-6989586621679477036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusters:DescribeClustersResponse' :: Maybe [Cluster]
 </span><a href="Network.AWS.ECS.DescribeClusters.html#%24sel%3Aclusters%3ADescribeClustersResponse%27"><span class="hs-identifier hs-var">clusters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Cluster]
-</span><a href="#local-6989586621679476265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse"><span class="hs-identifier hs-type">DescribeClustersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Cluster] -&gt; f (Maybe [Cluster]))
+</span><a href="#local-6989586621679477035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse"><span class="hs-identifier hs-type">DescribeClustersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Cluster] -&gt; f (Maybe [Cluster]))
  -&gt; DescribeClustersResponse -&gt; f DescribeClustersResponse)
 -&gt; ((Maybe [Cluster] -&gt; f (Maybe [Cluster]))
     -&gt; Maybe [Cluster] -&gt; f (Maybe [Cluster]))
@@ -619,8 +619,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Cluster] [Cluster] [Cluster] [Cluster]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-231"></span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#describeClustersResponse_httpStatus"><span class="hs-identifier hs-type">describeClustersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse"><span class="hs-identifier hs-type">DescribeClustersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -630,16 +630,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (DescribeClustersResponse -&gt; Int -&gt; DescribeClustersResponse)
 -&gt; Lens DescribeClustersResponse DescribeClustersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse%27"><span class="hs-identifier hs-type">DescribeClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679476264"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse%27"><span class="hs-identifier hs-type">DescribeClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679477034"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeClustersResponse' :: DescribeClustersResponse -&gt; Int
-</span><a href="#local-6989586621679476264"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679476264"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679476263"><span class="annot"><span class="annottext">s :: DescribeClustersResponse
-</span><a href="#local-6989586621679476263"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse%27"><span class="hs-identifier hs-type">DescribeClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679476262"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679476262"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClustersResponse
-</span><a href="#local-6989586621679476263"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeClustersResponse' :: Int
+</span><a href="#local-6989586621679477034"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477034"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679477033"><span class="annot"><span class="annottext">s :: DescribeClustersResponse
+</span><a href="#local-6989586621679477033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse%27"><span class="hs-identifier hs-type">DescribeClustersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679477032"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679477032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClustersResponse
+</span><a href="#local-6989586621679477033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeClustersResponse' :: Int
 </span><a href="Network.AWS.ECS.DescribeClusters.html#%24sel%3AhttpStatus%3ADescribeClustersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679476262"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse"><span class="hs-identifier hs-type">DescribeClustersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679477032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse"><span class="hs-identifier hs-type">DescribeClustersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679476260"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse"><span class="hs-identifier hs-type">DescribeClustersResponse</span></a></span></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679477030"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.DescribeClusters.html#DescribeClustersResponse"><span class="hs-identifier hs-type">DescribeClustersResponse</span></a></span></span><span>
 </span><span id="line-235"></span></pre></body></html>

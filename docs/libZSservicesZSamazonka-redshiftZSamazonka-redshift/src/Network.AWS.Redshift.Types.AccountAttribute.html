@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | A name value pair that describes an aspect of an account.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAccountAttribute' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679489452"><span id="local-6989586621679489453"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountAttribute"><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier hs-var">AccountAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountAttribute%27"><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute%27"><span class="hs-identifier hs-var">AccountAttribute'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the attribute.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AattributeName%3AAccountAttribute%27"><span class="annot"><span class="annottext">AccountAttribute -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.Types.AccountAttribute.html#%24sel%3AattributeName%3AAccountAttribute%27"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A list of attribute values.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AattributeValues%3AAccountAttribute%27"><span class="annot"><span class="annottext">AccountAttribute -&gt; Maybe [AttributeValueTarget]
-</span><a href="Network.AWS.Redshift.Types.AccountAttribute.html#%24sel%3AattributeValues%3AAccountAttribute%27"><span class="hs-identifier hs-var hs-var">attributeValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.AttributeValueTarget.html#AttributeValueTarget"><span class="hs-identifier hs-type">AttributeValueTarget</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679490089"><span id="local-6989586621679490090"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountAttribute"><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier hs-var">AccountAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountAttribute%27"><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute%27"><span class="hs-identifier hs-var">AccountAttribute'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of attribute values.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AattributeValues%3AAccountAttribute%27"><span class="annot"><span class="annottext">AccountAttribute -&gt; Maybe [AttributeValueTarget]
+</span><a href="Network.AWS.Redshift.Types.AccountAttribute.html#%24sel%3AattributeValues%3AAccountAttribute%27"><span class="hs-identifier hs-var hs-var">attributeValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.AttributeValueTarget.html#AttributeValueTarget"><span class="hs-identifier hs-type">AttributeValueTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the attribute.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AattributeName%3AAccountAttribute%27"><span class="annot"><span class="annottext">AccountAttribute -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.AccountAttribute.html#%24sel%3AattributeName%3AAccountAttribute%27"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679489445"><span id="local-6989586621679489447"><span class="annot"><span class="annottext">AccountAttribute -&gt; AccountAttribute -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679490082"><span id="local-6989586621679490084"><span class="annot"><span class="annottext">AccountAttribute -&gt; AccountAttribute -&gt; Bool
 (AccountAttribute -&gt; AccountAttribute -&gt; Bool)
 -&gt; (AccountAttribute -&gt; AccountAttribute -&gt; Bool)
 -&gt; Eq AccountAttribute
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccountAttribute -&gt; AccountAttribute -&gt; Bool
 == :: AccountAttribute -&gt; AccountAttribute -&gt; Bool
 $c== :: AccountAttribute -&gt; AccountAttribute -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679489436"><span id="local-6989586621679489438"><span id="local-6989586621679489440"><span id="local-6989586621679489442"><span class="annot"><span class="annottext">ReadPrec [AccountAttribute]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679490073"><span id="local-6989586621679490075"><span id="local-6989586621679490077"><span id="local-6989586621679490079"><span class="annot"><span class="annottext">ReadPrec [AccountAttribute]
 ReadPrec AccountAttribute
 Int -&gt; ReadS AccountAttribute
 ReadS [AccountAttribute]
@@ -65,7 +65,7 @@ readList :: ReadS [AccountAttribute]
 $creadList :: ReadS [AccountAttribute]
 readsPrec :: Int -&gt; ReadS AccountAttribute
 $creadsPrec :: Int -&gt; ReadS AccountAttribute
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679489429"><span id="local-6989586621679489431"><span id="local-6989586621679489433"><span class="annot"><span class="annottext">Int -&gt; AccountAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679490066"><span id="local-6989586621679490068"><span id="local-6989586621679490070"><span class="annot"><span class="annottext">Int -&gt; AccountAttribute -&gt; ShowS
 [AccountAttribute] -&gt; ShowS
 AccountAttribute -&gt; String
 (Int -&gt; AccountAttribute -&gt; ShowS)
@@ -99,47 +99,29 @@ $cfrom :: forall x. AccountAttribute -&gt; Rep AccountAttribute x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'attributeName', 'accountAttribute_attributeName' - The name of the attribute.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'attributeValues', 'accountAttribute_attributeValues' - A list of attribute values.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'attributeValues', 'accountAttribute_attributeValues' - A list of attribute values.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'attributeName', 'accountAttribute_attributeName' - The name of the attribute.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#newAccountAttribute"><span class="hs-identifier hs-type">newAccountAttribute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier hs-type">AccountAttribute</span></a></span><span>
 </span><span id="line-52"></span><span id="newAccountAttribute"><span class="annot"><span class="annottext">newAccountAttribute :: AccountAttribute
 </span><a href="Network.AWS.Redshift.Types.AccountAttribute.html#newAccountAttribute"><span class="hs-identifier hs-var hs-var">newAccountAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">AccountAttribute' :: Maybe Text -&gt; Maybe [AttributeValueTarget] -&gt; AccountAttribute
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">AccountAttribute' :: Maybe [AttributeValueTarget] -&gt; Maybe Text -&gt; AccountAttribute
 </span><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute%27"><span class="hs-identifier hs-type">AccountAttribute'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributeName:AccountAttribute' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.AccountAttribute.html#%24sel%3AattributeName%3AAccountAttribute%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributeValues:AccountAttribute' :: Maybe [AttributeValueTarget]
+</span><a href="Network.AWS.Redshift.Types.AccountAttribute.html#%24sel%3AattributeValues%3AAccountAttribute%27"><span class="hs-identifier hs-var">attributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">Maybe [AttributeValueTarget]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeValues:AccountAttribute' :: Maybe [AttributeValueTarget]
-</span><a href="Network.AWS.Redshift.Types.AccountAttribute.html#%24sel%3AattributeValues%3AAccountAttribute%27"><span class="hs-identifier hs-var">attributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValueTarget]
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeName:AccountAttribute' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.AccountAttribute.html#%24sel%3AattributeName%3AAccountAttribute%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | The name of the attribute.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#accountAttribute_attributeName"><span class="hs-identifier hs-type">accountAttribute_attributeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier hs-type">AccountAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="accountAttribute_attributeName"><span class="annot"><span class="annottext">accountAttribute_attributeName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AccountAttribute -&gt; f AccountAttribute
-</span><a href="Network.AWS.Redshift.Types.AccountAttribute.html#accountAttribute_attributeName"><span class="hs-identifier hs-var hs-var">accountAttribute_attributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountAttribute -&gt; Maybe Text)
--&gt; (AccountAttribute -&gt; Maybe Text -&gt; AccountAttribute)
--&gt; Lens AccountAttribute AccountAttribute (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute%27"><span class="hs-identifier hs-type">AccountAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679489420"><span class="annot"><span class="annottext">Maybe Text
-attributeName :: Maybe Text
-$sel:attributeName:AccountAttribute' :: AccountAttribute -&gt; Maybe Text
-</span><a href="#local-6989586621679489420"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679489420"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679489419"><span class="annot"><span class="annottext">s :: AccountAttribute
-</span><a href="#local-6989586621679489419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute%27"><span class="hs-identifier hs-type">AccountAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679489418"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679489418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAttribute
-</span><a href="#local-6989586621679489419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeName:AccountAttribute' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.AccountAttribute.html#%24sel%3AattributeName%3AAccountAttribute%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679489418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier hs-type">AccountAttribute</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | A list of attribute values.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#accountAttribute_attributeValues"><span class="hs-identifier hs-type">accountAttribute_attributeValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier hs-type">AccountAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.AttributeValueTarget.html#AttributeValueTarget"><span class="hs-identifier hs-type">AttributeValueTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="accountAttribute_attributeValues"><span class="annot"><span class="annottext">accountAttribute_attributeValues :: (Maybe [AttributeValueTarget] -&gt; f (Maybe [AttributeValueTarget]))
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | A list of attribute values.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#accountAttribute_attributeValues"><span class="hs-identifier hs-type">accountAttribute_attributeValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier hs-type">AccountAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.AttributeValueTarget.html#AttributeValueTarget"><span class="hs-identifier hs-type">AttributeValueTarget</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="accountAttribute_attributeValues"><span class="annot"><span class="annottext">accountAttribute_attributeValues :: (Maybe [AttributeValueTarget] -&gt; f (Maybe [AttributeValueTarget]))
 -&gt; AccountAttribute -&gt; f AccountAttribute
 </span><a href="Network.AWS.Redshift.Types.AccountAttribute.html#accountAttribute_attributeValues"><span class="hs-identifier hs-var hs-var">accountAttribute_attributeValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountAttribute -&gt; Maybe [AttributeValueTarget])
 -&gt; (AccountAttribute
@@ -150,16 +132,16 @@ $sel:attributeName:AccountAttribute' :: AccountAttribute -&gt; Maybe Text
      (Maybe [AttributeValueTarget])
      (Maybe [AttributeValueTarget])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute%27"><span class="hs-identifier hs-type">AccountAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679489416"><span class="annot"><span class="annottext">Maybe [AttributeValueTarget]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute%27"><span class="hs-identifier hs-type">AccountAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679490057"><span class="annot"><span class="annottext">Maybe [AttributeValueTarget]
 attributeValues :: Maybe [AttributeValueTarget]
 $sel:attributeValues:AccountAttribute' :: AccountAttribute -&gt; Maybe [AttributeValueTarget]
-</span><a href="#local-6989586621679489416"><span class="hs-identifier hs-var hs-var">attributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValueTarget]
-</span><a href="#local-6989586621679489416"><span class="hs-identifier hs-var">attributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679489415"><span class="annot"><span class="annottext">s :: AccountAttribute
-</span><a href="#local-6989586621679489415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute%27"><span class="hs-identifier hs-type">AccountAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679489414"><span class="annot"><span class="annottext">Maybe [AttributeValueTarget]
-</span><a href="#local-6989586621679489414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAttribute
-</span><a href="#local-6989586621679489415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeValues:AccountAttribute' :: Maybe [AttributeValueTarget]
+</span><a href="#local-6989586621679490057"><span class="hs-identifier hs-var hs-var">attributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValueTarget]
+</span><a href="#local-6989586621679490057"><span class="hs-identifier hs-var">attributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679490056"><span class="annot"><span class="annottext">s :: AccountAttribute
+</span><a href="#local-6989586621679490056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute%27"><span class="hs-identifier hs-type">AccountAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679490055"><span class="annot"><span class="annottext">Maybe [AttributeValueTarget]
+</span><a href="#local-6989586621679490055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAttribute
+</span><a href="#local-6989586621679490056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeValues:AccountAttribute' :: Maybe [AttributeValueTarget]
 </span><a href="Network.AWS.Redshift.Types.AccountAttribute.html#%24sel%3AattributeValues%3AAccountAttribute%27"><span class="hs-identifier hs-var">attributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeValueTarget]
-</span><a href="#local-6989586621679489414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier hs-type">AccountAttribute</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeValueTarget] -&gt; f (Maybe [AttributeValueTarget]))
+</span><a href="#local-6989586621679490055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier hs-type">AccountAttribute</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeValueTarget] -&gt; f (Maybe [AttributeValueTarget]))
  -&gt; AccountAttribute -&gt; f AccountAttribute)
 -&gt; ((Maybe [AttributeValueTarget]
      -&gt; f (Maybe [AttributeValueTarget]))
@@ -188,30 +170,40 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AttributeValueTarget]
   [AttributeValueTarget]
   [AttributeValueTarget]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier hs-type">AccountAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679489408"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AccountAttribute
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679489406"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679489406"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [AttributeValueTarget] -&gt; AccountAttribute
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The name of the attribute.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#accountAttribute_attributeName"><span class="hs-identifier hs-type">accountAttribute_attributeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier hs-type">AccountAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="accountAttribute_attributeName"><span class="annot"><span class="annottext">accountAttribute_attributeName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AccountAttribute -&gt; f AccountAttribute
+</span><a href="Network.AWS.Redshift.Types.AccountAttribute.html#accountAttribute_attributeName"><span class="hs-identifier hs-var hs-var">accountAttribute_attributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountAttribute -&gt; Maybe Text)
+-&gt; (AccountAttribute -&gt; Maybe Text -&gt; AccountAttribute)
+-&gt; Lens AccountAttribute AccountAttribute (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute%27"><span class="hs-identifier hs-type">AccountAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679490050"><span class="annot"><span class="annottext">Maybe Text
+attributeName :: Maybe Text
+$sel:attributeName:AccountAttribute' :: AccountAttribute -&gt; Maybe Text
+</span><a href="#local-6989586621679490050"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679490050"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679490049"><span class="annot"><span class="annottext">s :: AccountAttribute
+</span><a href="#local-6989586621679490049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute%27"><span class="hs-identifier hs-type">AccountAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679490048"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679490048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAttribute
+</span><a href="#local-6989586621679490049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeName:AccountAttribute' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.AccountAttribute.html#%24sel%3AattributeName%3AAccountAttribute%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679490048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier hs-type">AccountAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier hs-type">AccountAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679490045"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AccountAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679490043"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679490043"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">Maybe [AttributeValueTarget] -&gt; Maybe Text -&gt; AccountAttribute
 </span><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute%27"><span class="hs-identifier hs-var">AccountAttribute'</span></a></span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [AttributeValueTarget] -&gt; AccountAttribute)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe [AttributeValueTarget] -&gt; AccountAttribute)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679489406"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AttributeName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [AttributeValueTarget] -&gt; AccountAttribute)
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [AttributeValueTarget] -&gt; Maybe Text -&gt; AccountAttribute)
 -&gt; Either String (Maybe [AttributeValueTarget])
--&gt; Either String AccountAttribute
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679489406"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+-&gt; Either String (Maybe Text -&gt; AccountAttribute)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679490043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttributeValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -233,8 +225,16 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AttributeValueTarget&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679489397"><span id="local-6989586621679489399"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier hs-type">AccountAttribute</span></a></span></span></span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679489394"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier hs-type">AccountAttribute</span></a></span></span><span>
-</span><span id="line-77"></span></pre></body></html>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; AccountAttribute)
+-&gt; Either String (Maybe Text) -&gt; Either String AccountAttribute
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679490043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AttributeName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679490034"><span id="local-6989586621679490036"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier hs-type">AccountAttribute</span></a></span></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679490031"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AccountAttribute.html#AccountAttribute"><span class="hs-identifier hs-type">AccountAttribute</span></a></span></span><span>
+</span><span id="line-78"></span></pre></body></html>

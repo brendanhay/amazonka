@@ -28,14 +28,14 @@
 </span><span id="line-28"></span><span class="hs-comment">-- image builders to Microsoft Active Directory domains.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDirectoryConfig' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679288310"><span id="local-6989586621679288311"></span></span><span class="hs-keyword">data</span><span> </span><span id="DirectoryConfig"><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-var">DirectoryConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectoryConfig%27"><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-var">DirectoryConfig'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The credentials for the service account used by the fleet or image</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- builder to connect to the directory.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AserviceAccountCredentials%3ADirectoryConfig%27"><span class="annot"><span class="annottext">DirectoryConfig -&gt; Maybe ServiceAccountCredentials
-</span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#%24sel%3AserviceAccountCredentials%3ADirectoryConfig%27"><span class="hs-identifier hs-var hs-var">serviceAccountCredentials</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ServiceAccountCredentials.html#ServiceAccountCredentials"><span class="hs-identifier hs-type">ServiceAccountCredentials</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time the directory configuration was created.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcreatedTime%3ADirectoryConfig%27"><span class="annot"><span class="annottext">DirectoryConfig -&gt; Maybe POSIX
+</span><span id="line-31"></span><span id="local-6989586621679288558"><span id="local-6989586621679288559"></span></span><span class="hs-keyword">data</span><span> </span><span id="DirectoryConfig"><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-var">DirectoryConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DirectoryConfig%27"><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-var">DirectoryConfig'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time the directory configuration was created.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcreatedTime%3ADirectoryConfig%27"><span class="annot"><span class="annottext">DirectoryConfig -&gt; Maybe POSIX
 </span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#%24sel%3AcreatedTime%3ADirectoryConfig%27"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The credentials for the service account used by the fleet or image</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- builder to connect to the directory.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AserviceAccountCredentials%3ADirectoryConfig%27"><span class="annot"><span class="annottext">DirectoryConfig -&gt; Maybe ServiceAccountCredentials
+</span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#%24sel%3AserviceAccountCredentials%3ADirectoryConfig%27"><span class="hs-identifier hs-var hs-var">serviceAccountCredentials</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ServiceAccountCredentials.html#ServiceAccountCredentials"><span class="hs-identifier hs-type">ServiceAccountCredentials</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The distinguished names of the organizational units for computer</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- accounts.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AorganizationalUnitDistinguishedNames%3ADirectoryConfig%27"><span class="annot"><span class="annottext">DirectoryConfig -&gt; Maybe [Text]
@@ -45,7 +45,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AdirectoryName%3ADirectoryConfig%27"><span class="annot"><span class="annottext">DirectoryConfig -&gt; Text
 </span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#%24sel%3AdirectoryName%3ADirectoryConfig%27"><span class="hs-identifier hs-var hs-var">directoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288301"><span id="local-6989586621679288303"><span class="annot"><span class="annottext">DirectoryConfig -&gt; DirectoryConfig -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288549"><span id="local-6989586621679288551"><span class="annot"><span class="annottext">DirectoryConfig -&gt; DirectoryConfig -&gt; Bool
 (DirectoryConfig -&gt; DirectoryConfig -&gt; Bool)
 -&gt; (DirectoryConfig -&gt; DirectoryConfig -&gt; Bool)
 -&gt; Eq DirectoryConfig
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DirectoryConfig -&gt; DirectoryConfig -&gt; Bool
 == :: DirectoryConfig -&gt; DirectoryConfig -&gt; Bool
 $c== :: DirectoryConfig -&gt; DirectoryConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288294"><span id="local-6989586621679288296"><span id="local-6989586621679288298"><span class="annot"><span class="annottext">Int -&gt; DirectoryConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288542"><span id="local-6989586621679288544"><span id="local-6989586621679288546"><span class="annot"><span class="annottext">Int -&gt; DirectoryConfig -&gt; ShowS
 [DirectoryConfig] -&gt; ShowS
 DirectoryConfig -&gt; String
 (Int -&gt; DirectoryConfig -&gt; ShowS)
@@ -88,10 +88,10 @@ $cfrom :: forall x. DirectoryConfig -&gt; Rep DirectoryConfig x
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'serviceAccountCredentials', 'directoryConfig_serviceAccountCredentials' - The credentials for the service account used by the fleet or image</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- builder to connect to the directory.</span><span>
-</span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'createdTime', 'directoryConfig_createdTime' - The time the directory configuration was created.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'createdTime', 'directoryConfig_createdTime' - The time the directory configuration was created.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'serviceAccountCredentials', 'directoryConfig_serviceAccountCredentials' - The credentials for the service account used by the fleet or image</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- builder to connect to the directory.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- 'organizationalUnitDistinguishedNames', 'directoryConfig_organizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- accounts.</span><span>
@@ -103,74 +103,50 @@ $cfrom :: forall x. DirectoryConfig -&gt; Rep DirectoryConfig x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span><span>
 </span><span id="line-68"></span><span id="newDirectoryConfig"><span class="annot"><span class="annottext">newDirectoryConfig :: Text -&gt; DirectoryConfig
-</span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#newDirectoryConfig"><span class="hs-identifier hs-var hs-var">newDirectoryConfig</span></a></span></span><span> </span><span id="local-6989586621679288288"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679288288"><span class="hs-identifier hs-var">pDirectoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DirectoryConfig' :: Maybe ServiceAccountCredentials
--&gt; Maybe POSIX -&gt; Maybe [Text] -&gt; Text -&gt; DirectoryConfig
+</span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#newDirectoryConfig"><span class="hs-identifier hs-var hs-var">newDirectoryConfig</span></a></span></span><span> </span><span id="local-6989586621679288536"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288536"><span class="hs-identifier hs-var">pDirectoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DirectoryConfig' :: Maybe POSIX
+-&gt; Maybe ServiceAccountCredentials
+-&gt; Maybe [Text]
+-&gt; Text
+-&gt; DirectoryConfig
 </span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-type">DirectoryConfig'</span></a></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceAccountCredentials:DirectoryConfig' :: Maybe ServiceAccountCredentials
-</span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#%24sel%3AserviceAccountCredentials%3ADirectoryConfig%27"><span class="hs-identifier hs-var">serviceAccountCredentials</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTime:DirectoryConfig' :: Maybe POSIX
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createdTime:DirectoryConfig' :: Maybe POSIX
 </span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#%24sel%3AcreatedTime%3ADirectoryConfig%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationalUnitDistinguishedNames:DirectoryConfig' :: Maybe [Text]
-</span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#%24sel%3AorganizationalUnitDistinguishedNames%3ADirectoryConfig%27"><span class="hs-identifier hs-var">organizationalUnitDistinguishedNames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceAccountCredentials:DirectoryConfig' :: Maybe ServiceAccountCredentials
+</span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#%24sel%3AserviceAccountCredentials%3ADirectoryConfig%27"><span class="hs-identifier hs-var">serviceAccountCredentials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:directoryName:DirectoryConfig' :: Text
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationalUnitDistinguishedNames:DirectoryConfig' :: Maybe [Text]
+</span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#%24sel%3AorganizationalUnitDistinguishedNames%3ADirectoryConfig%27"><span class="hs-identifier hs-var">organizationalUnitDistinguishedNames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:directoryName:DirectoryConfig' :: Text
 </span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#%24sel%3AdirectoryName%3ADirectoryConfig%27"><span class="hs-identifier hs-var">directoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679288288"><span class="hs-identifier hs-var">pDirectoryName_</span></a></span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The credentials for the service account used by the fleet or image</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- builder to connect to the directory.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#directoryConfig_serviceAccountCredentials"><span class="hs-identifier hs-type">directoryConfig_serviceAccountCredentials</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ServiceAccountCredentials.html#ServiceAccountCredentials"><span class="hs-identifier hs-type">ServiceAccountCredentials</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="directoryConfig_serviceAccountCredentials"><span class="annot"><span class="annottext">directoryConfig_serviceAccountCredentials :: (Maybe ServiceAccountCredentials
- -&gt; f (Maybe ServiceAccountCredentials))
--&gt; DirectoryConfig -&gt; f DirectoryConfig
-</span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#directoryConfig_serviceAccountCredentials"><span class="hs-identifier hs-var hs-var">directoryConfig_serviceAccountCredentials</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectoryConfig -&gt; Maybe ServiceAccountCredentials)
--&gt; (DirectoryConfig
-    -&gt; Maybe ServiceAccountCredentials -&gt; DirectoryConfig)
--&gt; Lens
-     DirectoryConfig
-     DirectoryConfig
-     (Maybe ServiceAccountCredentials)
-     (Maybe ServiceAccountCredentials)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-type">DirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288284"><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
-serviceAccountCredentials :: Maybe ServiceAccountCredentials
-$sel:serviceAccountCredentials:DirectoryConfig' :: DirectoryConfig -&gt; Maybe ServiceAccountCredentials
-</span><a href="#local-6989586621679288284"><span class="hs-identifier hs-var hs-var">serviceAccountCredentials</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
-</span><a href="#local-6989586621679288284"><span class="hs-identifier hs-var">serviceAccountCredentials</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288283"><span class="annot"><span class="annottext">s :: DirectoryConfig
-</span><a href="#local-6989586621679288283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-type">DirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288282"><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
-</span><a href="#local-6989586621679288282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryConfig
-</span><a href="#local-6989586621679288283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccountCredentials:DirectoryConfig' :: Maybe ServiceAccountCredentials
-</span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#%24sel%3AserviceAccountCredentials%3ADirectoryConfig%27"><span class="hs-identifier hs-var">serviceAccountCredentials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
-</span><a href="#local-6989586621679288282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | The time the directory configuration was created.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#directoryConfig_createdTime"><span class="hs-identifier hs-type">directoryConfig_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="directoryConfig_createdTime"><span class="annot"><span class="annottext">directoryConfig_createdTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><a href="#local-6989586621679288536"><span class="hs-identifier hs-var">pDirectoryName_</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The time the directory configuration was created.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#directoryConfig_createdTime"><span class="hs-identifier hs-type">directoryConfig_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="directoryConfig_createdTime"><span class="annot"><span class="annottext">directoryConfig_createdTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; DirectoryConfig -&gt; f DirectoryConfig
 </span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#directoryConfig_createdTime"><span class="hs-identifier hs-var hs-var">directoryConfig_createdTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectoryConfig -&gt; Maybe POSIX)
 -&gt; (DirectoryConfig -&gt; Maybe POSIX -&gt; DirectoryConfig)
 -&gt; Lens DirectoryConfig DirectoryConfig (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-type">DirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288280"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-type">DirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288532"><span class="annot"><span class="annottext">Maybe POSIX
 createdTime :: Maybe POSIX
 $sel:createdTime:DirectoryConfig' :: DirectoryConfig -&gt; Maybe POSIX
-</span><a href="#local-6989586621679288280"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679288280"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288279"><span class="annot"><span class="annottext">s :: DirectoryConfig
-</span><a href="#local-6989586621679288279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-type">DirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288278"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679288278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryConfig
-</span><a href="#local-6989586621679288279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:DirectoryConfig' :: Maybe POSIX
+</span><a href="#local-6989586621679288532"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679288532"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288531"><span class="annot"><span class="annottext">s :: DirectoryConfig
+</span><a href="#local-6989586621679288531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-type">DirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288530"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679288530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryConfig
+</span><a href="#local-6989586621679288531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:DirectoryConfig' :: Maybe POSIX
 </span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#%24sel%3AcreatedTime%3ADirectoryConfig%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679288278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679288530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DirectoryConfig -&gt; f DirectoryConfig)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -186,27 +162,53 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The distinguished names of the organizational units for computer</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- accounts.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#directoryConfig_organizationalUnitDistinguishedNames"><span class="hs-identifier hs-type">directoryConfig_organizationalUnitDistinguishedNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="directoryConfig_organizationalUnitDistinguishedNames"><span class="annot"><span class="annottext">directoryConfig_organizationalUnitDistinguishedNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The credentials for the service account used by the fleet or image</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- builder to connect to the directory.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#directoryConfig_serviceAccountCredentials"><span class="hs-identifier hs-type">directoryConfig_serviceAccountCredentials</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ServiceAccountCredentials.html#ServiceAccountCredentials"><span class="hs-identifier hs-type">ServiceAccountCredentials</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="directoryConfig_serviceAccountCredentials"><span class="annot"><span class="annottext">directoryConfig_serviceAccountCredentials :: (Maybe ServiceAccountCredentials
+ -&gt; f (Maybe ServiceAccountCredentials))
+-&gt; DirectoryConfig -&gt; f DirectoryConfig
+</span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#directoryConfig_serviceAccountCredentials"><span class="hs-identifier hs-var hs-var">directoryConfig_serviceAccountCredentials</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectoryConfig -&gt; Maybe ServiceAccountCredentials)
+-&gt; (DirectoryConfig
+    -&gt; Maybe ServiceAccountCredentials -&gt; DirectoryConfig)
+-&gt; Lens
+     DirectoryConfig
+     DirectoryConfig
+     (Maybe ServiceAccountCredentials)
+     (Maybe ServiceAccountCredentials)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-type">DirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288525"><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
+serviceAccountCredentials :: Maybe ServiceAccountCredentials
+$sel:serviceAccountCredentials:DirectoryConfig' :: DirectoryConfig -&gt; Maybe ServiceAccountCredentials
+</span><a href="#local-6989586621679288525"><span class="hs-identifier hs-var hs-var">serviceAccountCredentials</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
+</span><a href="#local-6989586621679288525"><span class="hs-identifier hs-var">serviceAccountCredentials</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288524"><span class="annot"><span class="annottext">s :: DirectoryConfig
+</span><a href="#local-6989586621679288524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-type">DirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288523"><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
+</span><a href="#local-6989586621679288523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryConfig
+</span><a href="#local-6989586621679288524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccountCredentials:DirectoryConfig' :: Maybe ServiceAccountCredentials
+</span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#%24sel%3AserviceAccountCredentials%3ADirectoryConfig%27"><span class="hs-identifier hs-var">serviceAccountCredentials</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
+</span><a href="#local-6989586621679288523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The distinguished names of the organizational units for computer</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- accounts.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#directoryConfig_organizationalUnitDistinguishedNames"><span class="hs-identifier hs-type">directoryConfig_organizationalUnitDistinguishedNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="directoryConfig_organizationalUnitDistinguishedNames"><span class="annot"><span class="annottext">directoryConfig_organizationalUnitDistinguishedNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; DirectoryConfig -&gt; f DirectoryConfig
 </span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#directoryConfig_organizationalUnitDistinguishedNames"><span class="hs-identifier hs-var hs-var">directoryConfig_organizationalUnitDistinguishedNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectoryConfig -&gt; Maybe [Text])
 -&gt; (DirectoryConfig -&gt; Maybe [Text] -&gt; DirectoryConfig)
 -&gt; Lens
      DirectoryConfig DirectoryConfig (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-type">DirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288273"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-type">DirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288521"><span class="annot"><span class="annottext">Maybe [Text]
 organizationalUnitDistinguishedNames :: Maybe [Text]
 $sel:organizationalUnitDistinguishedNames:DirectoryConfig' :: DirectoryConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679288273"><span class="hs-identifier hs-var hs-var">organizationalUnitDistinguishedNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679288273"><span class="hs-identifier hs-var">organizationalUnitDistinguishedNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288272"><span class="annot"><span class="annottext">s :: DirectoryConfig
-</span><a href="#local-6989586621679288272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-type">DirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288271"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679288271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryConfig
-</span><a href="#local-6989586621679288272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationalUnitDistinguishedNames:DirectoryConfig' :: Maybe [Text]
+</span><a href="#local-6989586621679288521"><span class="hs-identifier hs-var hs-var">organizationalUnitDistinguishedNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679288521"><span class="hs-identifier hs-var">organizationalUnitDistinguishedNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288520"><span class="annot"><span class="annottext">s :: DirectoryConfig
+</span><a href="#local-6989586621679288520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-type">DirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288519"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679288519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryConfig
+</span><a href="#local-6989586621679288520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationalUnitDistinguishedNames:DirectoryConfig' :: Maybe [Text]
 </span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#%24sel%3AorganizationalUnitDistinguishedNames%3ADirectoryConfig%27"><span class="hs-identifier hs-var">organizationalUnitDistinguishedNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679288271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679288519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DirectoryConfig -&gt; f DirectoryConfig)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -220,89 +222,99 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | The fully qualified name of the directory (for example,</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- corp.example.com).</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#directoryConfig_directoryName"><span class="hs-identifier hs-type">directoryConfig_directoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-95"></span><span id="directoryConfig_directoryName"><span class="annot"><span class="annottext">directoryConfig_directoryName :: (Text -&gt; f Text) -&gt; DirectoryConfig -&gt; f DirectoryConfig
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The fully qualified name of the directory (for example,</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- corp.example.com).</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#directoryConfig_directoryName"><span class="hs-identifier hs-type">directoryConfig_directoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-94"></span><span id="directoryConfig_directoryName"><span class="annot"><span class="annottext">directoryConfig_directoryName :: (Text -&gt; f Text) -&gt; DirectoryConfig -&gt; f DirectoryConfig
 </span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#directoryConfig_directoryName"><span class="hs-identifier hs-var hs-var">directoryConfig_directoryName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DirectoryConfig -&gt; Text)
 -&gt; (DirectoryConfig -&gt; Text -&gt; DirectoryConfig)
 -&gt; Lens DirectoryConfig DirectoryConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-type">DirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288268"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-type">DirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288516"><span class="annot"><span class="annottext">Text
 directoryName :: Text
 $sel:directoryName:DirectoryConfig' :: DirectoryConfig -&gt; Text
-</span><a href="#local-6989586621679288268"><span class="hs-identifier hs-var hs-var">directoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679288268"><span class="hs-identifier hs-var">directoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288267"><span class="annot"><span class="annottext">s :: DirectoryConfig
-</span><a href="#local-6989586621679288267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-type">DirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288266"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679288266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryConfig
-</span><a href="#local-6989586621679288267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryName:DirectoryConfig' :: Text
+</span><a href="#local-6989586621679288516"><span class="hs-identifier hs-var hs-var">directoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288516"><span class="hs-identifier hs-var">directoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288515"><span class="annot"><span class="annottext">s :: DirectoryConfig
+</span><a href="#local-6989586621679288515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-type">DirectoryConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288514"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DirectoryConfig
+</span><a href="#local-6989586621679288515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryName:DirectoryConfig' :: Text
 </span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#%24sel%3AdirectoryName%3ADirectoryConfig%27"><span class="hs-identifier hs-var">directoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679288266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288263"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679288261"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DirectoryConfig
+</span><a href="#local-6989586621679288514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288511"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679288509"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DirectoryConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DirectoryConfig)
 -&gt; Value
 -&gt; Parser DirectoryConfig
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DirectoryConfig&quot;</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679288258"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288258"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServiceAccountCredentials
--&gt; Maybe POSIX -&gt; Maybe [Text] -&gt; Text -&gt; DirectoryConfig
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679288506"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679288506"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe ServiceAccountCredentials
+-&gt; Maybe [Text]
+-&gt; Text
+-&gt; DirectoryConfig
 </span><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig%27"><span class="hs-identifier hs-var">DirectoryConfig'</span></a></span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ServiceAccountCredentials
- -&gt; Maybe POSIX -&gt; Maybe [Text] -&gt; Text -&gt; DirectoryConfig)
--&gt; Parser (Maybe ServiceAccountCredentials)
--&gt; Parser (Maybe POSIX -&gt; Maybe [Text] -&gt; Text -&gt; DirectoryConfig)
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe ServiceAccountCredentials
+ -&gt; Maybe [Text]
+ -&gt; Text
+ -&gt; DirectoryConfig)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe ServiceAccountCredentials
+      -&gt; Maybe [Text] -&gt; Text -&gt; DirectoryConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288258"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceAccountCredentials)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ServiceAccountCredentials&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe [Text] -&gt; Text -&gt; DirectoryConfig)
--&gt; Parser (Maybe POSIX)
--&gt; Parser (Maybe [Text] -&gt; Text -&gt; DirectoryConfig)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288258"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679288506"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Text -&gt; DirectoryConfig)
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ServiceAccountCredentials
+   -&gt; Maybe [Text] -&gt; Text -&gt; DirectoryConfig)
+-&gt; Parser (Maybe ServiceAccountCredentials)
+-&gt; Parser (Maybe [Text] -&gt; Text -&gt; DirectoryConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679288506"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceAccountCredentials)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceAccountCredentials&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Text -&gt; DirectoryConfig)
 -&gt; Parser (Maybe [Text]) -&gt; Parser (Text -&gt; DirectoryConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288258"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679288506"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OrganizationalUnitDistinguishedNames&quot;</span></span><span>
-</span><span id="line-106"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+</span><span id="line-105"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
 -&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-107"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; DirectoryConfig)
+</span><span id="line-106"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; DirectoryConfig)
 -&gt; Parser Text -&gt; Parser DirectoryConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288258"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679288506"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DirectoryName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288250"><span id="local-6989586621679288252"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span></span></span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288247"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span></span><span>
-</span><span id="line-114"></span></pre></body></html>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288498"><span id="local-6989586621679288500"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.DirectoryConfig.html#DirectoryConfig"><span class="hs-identifier hs-type">DirectoryConfig</span></a></span></span><span>
+</span><span id="line-113"></span></pre></body></html>

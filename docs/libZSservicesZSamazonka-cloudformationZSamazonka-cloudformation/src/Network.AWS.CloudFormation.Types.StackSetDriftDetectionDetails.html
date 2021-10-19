@@ -39,79 +39,79 @@
 </span><span id="line-39"></span><span class="hs-comment">-- in the /CloudFormation User Guide/.</span><span>
 </span><span id="line-40"></span><span class="hs-comment">--</span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newStackSetDriftDetectionDetails' smart constructor.</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679424233"><span id="local-6989586621679424234"></span></span><span class="hs-keyword">data</span><span> </span><span id="StackSetDriftDetectionDetails"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-var">StackSetDriftDetectionDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackSetDriftDetectionDetails%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">StackSetDriftDetectionDetails'</span></a></span></span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of stack instances which match the expected template and</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- parameter configuration of the stack set.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AinSyncStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="annot"><span class="annottext">StackSetDriftDetectionDetails -&gt; Maybe Natural
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AinSyncStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var hs-var">inSyncStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The number of stack instances for which the drift detection operation</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- failed.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AfailedStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="annot"><span class="annottext">StackSetDriftDetectionDetails -&gt; Maybe Natural
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AfailedStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var hs-var">failedStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The number of stack instances that have drifted from the expected</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- template and parameter configuration of the stack set. A stack instance</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- is considered to have drifted if one or more of the resources in the</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- associated stack do not match their expected configuration.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdriftedStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="annot"><span class="annottext">StackSetDriftDetectionDetails -&gt; Maybe Natural
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AdriftedStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var hs-var">driftedStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The number of stack instances that are currently being checked for</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- drift.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AinProgressStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="annot"><span class="annottext">StackSetDriftDetectionDetails -&gt; Maybe Natural
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AinProgressStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var hs-var">inProgressStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Most recent time when CloudFormation performed a drift detection</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- operation on the stack set. This value will be @NULL@ for any stack set</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- on which drift detection has not yet been performed.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AlastDriftCheckTimestamp%3AStackSetDriftDetectionDetails%27"><span class="annot"><span class="annottext">StackSetDriftDetectionDetails -&gt; Maybe ISO8601
+</span><span id="line-42"></span><span id="local-6989586621679424644"><span id="local-6989586621679424645"></span></span><span class="hs-keyword">data</span><span> </span><span id="StackSetDriftDetectionDetails"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-var">StackSetDriftDetectionDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackSetDriftDetectionDetails%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">StackSetDriftDetectionDetails'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Most recent time when CloudFormation performed a drift detection</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- operation on the stack set. This value will be @NULL@ for any stack set</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- on which drift detection has not yet been performed.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AlastDriftCheckTimestamp%3AStackSetDriftDetectionDetails%27"><span class="annot"><span class="annottext">StackSetDriftDetectionDetails -&gt; Maybe ISO8601
 </span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AlastDriftCheckTimestamp%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var hs-var">lastDriftCheckTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Status of the stack set\'s actual configuration compared to its expected</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- template and parameter configuration. A stack set is considered to have</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- drifted if one or more of its stack instances have drifted from their</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- expected template and parameter configuration.</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   @DRIFTED@: One or more of the stack instances belonging to the stack</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     set stack differs from the expected template and parameter</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     configuration. A stack instance is considered to have drifted if one</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     or more of the resources in the associated stack have drifted.</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   @NOT_CHECKED@: CloudFormation has not checked the stack set for</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     drift.</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   @IN_SYNC@: All of the stack instances belonging to the stack set</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     stack match from the expected template and parameter configuration.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3AdriftStatus%3AStackSetDriftDetectionDetails%27"><span class="annot"><span class="annottext">StackSetDriftDetectionDetails -&gt; Maybe StackSetDriftStatus
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AdriftStatus%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var hs-var">driftStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftStatus.html#StackSetDriftStatus"><span class="hs-identifier hs-type">StackSetDriftStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The status of the stack set drift detection operation.</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   @COMPLETED@: The drift detection operation completed without failing</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     on any stack instances.</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- -   @FAILED@: The drift detection operation exceeded the specified</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     failure tolerance.</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- -   @PARTIAL_SUCCESS@: The drift detection operation completed without</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     exceeding the failure tolerance for the operation.</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- -   @IN_PROGRESS@: The drift detection operation is currently being</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">--     performed.</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   @STOPPED@: The user has cancelled the drift detection operation.</span><span>
-</span><span id="line-92"></span><span>    </span><span id="%24sel%3AdriftDetectionStatus%3AStackSetDriftDetectionDetails%27"><span class="annot"><span class="annottext">StackSetDriftDetectionDetails -&gt; Maybe StackSetDriftDetectionStatus
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The total number of stack instances belonging to this stack set.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- The total number of stack instances is equal to the total of:</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   Stack instances that match the stack set configuration.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   Stack instances that have drifted from the stack set configuration.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   Stack instances where the drift detection operation has failed.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- -   Stack instances currently being checked for drift.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AtotalStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="annot"><span class="annottext">StackSetDriftDetectionDetails -&gt; Maybe Natural
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AtotalStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var hs-var">totalStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The number of stack instances that are currently being checked for</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- drift.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AinProgressStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="annot"><span class="annottext">StackSetDriftDetectionDetails -&gt; Maybe Natural
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AinProgressStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var hs-var">inProgressStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The number of stack instances that have drifted from the expected</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- template and parameter configuration of the stack set. A stack instance</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- is considered to have drifted if one or more of the resources in the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- associated stack do not match their expected configuration.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AdriftedStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="annot"><span class="annottext">StackSetDriftDetectionDetails -&gt; Maybe Natural
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AdriftedStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var hs-var">driftedStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The status of the stack set drift detection operation.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   @COMPLETED@: The drift detection operation completed without failing</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     on any stack instances.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   @FAILED@: The drift detection operation exceeded the specified</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--     failure tolerance.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   @PARTIAL_SUCCESS@: The drift detection operation completed without</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     exceeding the failure tolerance for the operation.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- -   @IN_PROGRESS@: The drift detection operation is currently being</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     performed.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   @STOPPED@: The user has cancelled the drift detection operation.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AdriftDetectionStatus%3AStackSetDriftDetectionDetails%27"><span class="annot"><span class="annottext">StackSetDriftDetectionDetails -&gt; Maybe StackSetDriftDetectionStatus
 </span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AdriftDetectionStatus%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var hs-var">driftDetectionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionStatus.html#StackSetDriftDetectionStatus"><span class="hs-identifier hs-type">StackSetDriftDetectionStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The total number of stack instances belonging to this stack set.</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- The total number of stack instances is equal to the total of:</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- -   Stack instances that match the stack set configuration.</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- -   Stack instances that have drifted from the stack set configuration.</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- -   Stack instances where the drift detection operation has failed.</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- -   Stack instances currently being checked for drift.</span><span>
-</span><span id="line-104"></span><span>    </span><span id="%24sel%3AtotalStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="annot"><span class="annottext">StackSetDriftDetectionDetails -&gt; Maybe Natural
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AtotalStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var hs-var">totalStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | Status of the stack set\'s actual configuration compared to its expected</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- template and parameter configuration. A stack set is considered to have</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- drifted if one or more of its stack instances have drifted from their</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- expected template and parameter configuration.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- -   @DRIFTED@: One or more of the stack instances belonging to the stack</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--     set stack differs from the expected template and parameter</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     configuration. A stack instance is considered to have drifted if one</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--     or more of the resources in the associated stack have drifted.</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   @NOT_CHECKED@: CloudFormation has not checked the stack set for</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     drift.</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- -   @IN_SYNC@: All of the stack instances belonging to the stack set</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     stack match from the expected template and parameter configuration.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AdriftStatus%3AStackSetDriftDetectionDetails%27"><span class="annot"><span class="annottext">StackSetDriftDetectionDetails -&gt; Maybe StackSetDriftStatus
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AdriftStatus%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var hs-var">driftStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftStatus.html#StackSetDriftStatus"><span class="hs-identifier hs-type">StackSetDriftStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The number of stack instances for which the drift detection operation</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- failed.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AfailedStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="annot"><span class="annottext">StackSetDriftDetectionDetails -&gt; Maybe Natural
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AfailedStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var hs-var">failedStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | The number of stack instances which match the expected template and</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- parameter configuration of the stack set.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AinSyncStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="annot"><span class="annottext">StackSetDriftDetectionDetails -&gt; Maybe Natural
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AinSyncStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var hs-var">inSyncStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679424220"><span id="local-6989586621679424222"><span class="annot"><span class="annottext">StackSetDriftDetectionDetails
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679424631"><span id="local-6989586621679424633"><span class="annot"><span class="annottext">StackSetDriftDetectionDetails
 -&gt; StackSetDriftDetectionDetails -&gt; Bool
 (StackSetDriftDetectionDetails
  -&gt; StackSetDriftDetectionDetails -&gt; Bool)
@@ -127,7 +127,7 @@ $c/= :: StackSetDriftDetectionDetails
 -&gt; StackSetDriftDetectionDetails -&gt; Bool
 $c== :: StackSetDriftDetectionDetails
 -&gt; StackSetDriftDetectionDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424211"><span id="local-6989586621679424213"><span id="local-6989586621679424215"><span id="local-6989586621679424217"><span class="annot"><span class="annottext">ReadPrec [StackSetDriftDetectionDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424622"><span id="local-6989586621679424624"><span id="local-6989586621679424626"><span id="local-6989586621679424628"><span class="annot"><span class="annottext">ReadPrec [StackSetDriftDetectionDetails]
 ReadPrec StackSetDriftDetectionDetails
 Int -&gt; ReadS StackSetDriftDetectionDetails
 ReadS [StackSetDriftDetectionDetails]
@@ -147,7 +147,7 @@ readList :: ReadS [StackSetDriftDetectionDetails]
 $creadList :: ReadS [StackSetDriftDetectionDetails]
 readsPrec :: Int -&gt; ReadS StackSetDriftDetectionDetails
 $creadsPrec :: Int -&gt; ReadS StackSetDriftDetectionDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424204"><span id="local-6989586621679424206"><span id="local-6989586621679424208"><span class="annot"><span class="annottext">Int -&gt; StackSetDriftDetectionDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424615"><span id="local-6989586621679424617"><span id="local-6989586621679424619"><span class="annot"><span class="annottext">Int -&gt; StackSetDriftDetectionDetails -&gt; ShowS
 [StackSetDriftDetectionDetails] -&gt; ShowS
 StackSetDriftDetectionDetails -&gt; String
 (Int -&gt; StackSetDriftDetectionDetails -&gt; ShowS)
@@ -193,224 +193,122 @@ StackSetDriftDetectionDetails
 </span><span id="line-113"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-115"></span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- 'inSyncStackInstancesCount', 'stackSetDriftDetectionDetails_inSyncStackInstancesCount' - The number of stack instances which match the expected template and</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- parameter configuration of the stack set.</span><span>
-</span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- 'failedStackInstancesCount', 'stackSetDriftDetectionDetails_failedStackInstancesCount' - The number of stack instances for which the drift detection operation</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- failed.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'lastDriftCheckTimestamp', 'stackSetDriftDetectionDetails_lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- operation on the stack set. This value will be @NULL@ for any stack set</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- on which drift detection has not yet been performed.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'totalStackInstancesCount', 'stackSetDriftDetectionDetails_totalStackInstancesCount' - The total number of stack instances belonging to this stack set.</span><span>
 </span><span id="line-121"></span><span class="hs-comment">--</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- 'driftedStackInstancesCount', 'stackSetDriftDetectionDetails_driftedStackInstancesCount' - The number of stack instances that have drifted from the expected</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- template and parameter configuration of the stack set. A stack instance</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- is considered to have drifted if one or more of the resources in the</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- associated stack do not match their expected configuration.</span><span>
-</span><span id="line-126"></span><span class="hs-comment">--</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- 'inProgressStackInstancesCount', 'stackSetDriftDetectionDetails_inProgressStackInstancesCount' - The number of stack instances that are currently being checked for</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- drift.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- The total number of stack instances is equal to the total of:</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -   Stack instances that match the stack set configuration.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   Stack instances that have drifted from the stack set configuration.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   Stack instances where the drift detection operation has failed.</span><span>
 </span><span id="line-129"></span><span class="hs-comment">--</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- 'lastDriftCheckTimestamp', 'stackSetDriftDetectionDetails_lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- operation on the stack set. This value will be @NULL@ for any stack set</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- on which drift detection has not yet been performed.</span><span>
-</span><span id="line-133"></span><span class="hs-comment">--</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- 'driftStatus', 'stackSetDriftDetectionDetails_driftStatus' - Status of the stack set\'s actual configuration compared to its expected</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- template and parameter configuration. A stack set is considered to have</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- drifted if one or more of its stack instances have drifted from their</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- expected template and parameter configuration.</span><span>
-</span><span id="line-138"></span><span class="hs-comment">--</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- -   @DRIFTED@: One or more of the stack instances belonging to the stack</span><span>
-</span><span id="line-140"></span><span class="hs-comment">--     set stack differs from the expected template and parameter</span><span>
-</span><span id="line-141"></span><span class="hs-comment">--     configuration. A stack instance is considered to have drifted if one</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--     or more of the resources in the associated stack have drifted.</span><span>
-</span><span id="line-143"></span><span class="hs-comment">--</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- -   @NOT_CHECKED@: CloudFormation has not checked the stack set for</span><span>
-</span><span id="line-145"></span><span class="hs-comment">--     drift.</span><span>
-</span><span id="line-146"></span><span class="hs-comment">--</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- -   @IN_SYNC@: All of the stack instances belonging to the stack set</span><span>
-</span><span id="line-148"></span><span class="hs-comment">--     stack match from the expected template and parameter configuration.</span><span>
-</span><span id="line-149"></span><span class="hs-comment">--</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- 'driftDetectionStatus', 'stackSetDriftDetectionDetails_driftDetectionStatus' - The status of the stack set drift detection operation.</span><span>
-</span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- -   @COMPLETED@: The drift detection operation completed without failing</span><span>
-</span><span id="line-153"></span><span class="hs-comment">--     on any stack instances.</span><span>
-</span><span id="line-154"></span><span class="hs-comment">--</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- -   @FAILED@: The drift detection operation exceeded the specified</span><span>
-</span><span id="line-156"></span><span class="hs-comment">--     failure tolerance.</span><span>
-</span><span id="line-157"></span><span class="hs-comment">--</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- -   @PARTIAL_SUCCESS@: The drift detection operation completed without</span><span>
-</span><span id="line-159"></span><span class="hs-comment">--     exceeding the failure tolerance for the operation.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- -   Stack instances currently being checked for drift.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'inProgressStackInstancesCount', 'stackSetDriftDetectionDetails_inProgressStackInstancesCount' - The number of stack instances that are currently being checked for</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- drift.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'driftedStackInstancesCount', 'stackSetDriftDetectionDetails_driftedStackInstancesCount' - The number of stack instances that have drifted from the expected</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- template and parameter configuration of the stack set. A stack instance</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- is considered to have drifted if one or more of the resources in the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- associated stack do not match their expected configuration.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'driftDetectionStatus', 'stackSetDriftDetectionDetails_driftDetectionStatus' - The status of the stack set drift detection operation.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- -   @COMPLETED@: The drift detection operation completed without failing</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--     on any stack instances.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- -   @FAILED@: The drift detection operation exceeded the specified</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--     failure tolerance.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- -   @PARTIAL_SUCCESS@: The drift detection operation completed without</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--     exceeding the failure tolerance for the operation.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   @IN_PROGRESS@: The drift detection operation is currently being</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--     performed.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- -   @STOPPED@: The user has cancelled the drift detection operation.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'driftStatus', 'stackSetDriftDetectionDetails_driftStatus' - Status of the stack set\'s actual configuration compared to its expected</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- template and parameter configuration. A stack set is considered to have</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- drifted if one or more of its stack instances have drifted from their</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- expected template and parameter configuration.</span><span>
 </span><span id="line-160"></span><span class="hs-comment">--</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- -   @IN_PROGRESS@: The drift detection operation is currently being</span><span>
-</span><span id="line-162"></span><span class="hs-comment">--     performed.</span><span>
-</span><span id="line-163"></span><span class="hs-comment">--</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- -   @STOPPED@: The user has cancelled the drift detection operation.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- -   @DRIFTED@: One or more of the stack instances belonging to the stack</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--     set stack differs from the expected template and parameter</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--     configuration. A stack instance is considered to have drifted if one</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--     or more of the resources in the associated stack have drifted.</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- 'totalStackInstancesCount', 'stackSetDriftDetectionDetails_totalStackInstancesCount' - The total number of stack instances belonging to this stack set.</span><span>
-</span><span id="line-167"></span><span class="hs-comment">--</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- The total number of stack instances is equal to the total of:</span><span>
-</span><span id="line-169"></span><span class="hs-comment">--</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- -   Stack instances that match the stack set configuration.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- -   @NOT_CHECKED@: CloudFormation has not checked the stack set for</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--     drift.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- -   @IN_SYNC@: All of the stack instances belonging to the stack set</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--     stack match from the expected template and parameter configuration.</span><span>
 </span><span id="line-171"></span><span class="hs-comment">--</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- -   Stack instances that have drifted from the stack set configuration.</span><span>
-</span><span id="line-173"></span><span class="hs-comment">--</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- -   Stack instances where the drift detection operation has failed.</span><span>
-</span><span id="line-175"></span><span class="hs-comment">--</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- -   Stack instances currently being checked for drift.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'failedStackInstancesCount', 'stackSetDriftDetectionDetails_failedStackInstancesCount' - The number of stack instances for which the drift detection operation</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- failed.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'inSyncStackInstancesCount', 'stackSetDriftDetectionDetails_inSyncStackInstancesCount' - The number of stack instances which match the expected template and</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- parameter configuration of the stack set.</span><span>
 </span><span id="line-177"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#newStackSetDriftDetectionDetails"><span class="hs-identifier hs-type">newStackSetDriftDetectionDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-178"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span>
 </span><span id="line-179"></span><span id="newStackSetDriftDetectionDetails"><span class="annot"><span class="annottext">newStackSetDriftDetectionDetails :: StackSetDriftDetectionDetails
 </span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#newStackSetDriftDetectionDetails"><span class="hs-identifier hs-var hs-var">newStackSetDriftDetectionDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">StackSetDriftDetectionDetails' :: Maybe Natural
+</span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">StackSetDriftDetectionDetails' :: Maybe ISO8601
 -&gt; Maybe Natural
 -&gt; Maybe Natural
 -&gt; Maybe Natural
--&gt; Maybe ISO8601
--&gt; Maybe StackSetDriftStatus
 -&gt; Maybe StackSetDriftDetectionStatus
+-&gt; Maybe StackSetDriftStatus
+-&gt; Maybe Natural
 -&gt; Maybe Natural
 -&gt; StackSetDriftDetectionDetails
 </span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span>
-</span><span id="line-181"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:inSyncStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AinSyncStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">inSyncStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-181"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastDriftCheckTimestamp:StackSetDriftDetectionDetails' :: Maybe ISO8601
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AlastDriftCheckTimestamp%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">lastDriftCheckTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:failedStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AfailedStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">failedStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AtotalStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">totalStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:driftedStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:inProgressStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AinProgressStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">inProgressStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:driftedStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
 </span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AdriftedStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">driftedStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:inProgressStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AinProgressStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">inProgressStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastDriftCheckTimestamp:StackSetDriftDetectionDetails' :: Maybe ISO8601
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AlastDriftCheckTimestamp%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">lastDriftCheckTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:driftDetectionStatus:StackSetDriftDetectionDetails' :: Maybe StackSetDriftDetectionStatus
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AdriftDetectionStatus%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">driftDetectionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackSetDriftDetectionStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:driftStatus:StackSetDriftDetectionDetails' :: Maybe StackSetDriftStatus
 </span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AdriftStatus%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">driftStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackSetDriftStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:driftDetectionStatus:StackSetDriftDetectionDetails' :: Maybe StackSetDriftDetectionStatus
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AdriftDetectionStatus%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">driftDetectionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackSetDriftDetectionStatus
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:failedStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AfailedStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">failedStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AtotalStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">totalStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:inSyncStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AinSyncStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">inSyncStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- | The number of stack instances which match the expected template and</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- parameter configuration of the stack set.</span><span>
-</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_inSyncStackInstancesCount"><span class="hs-identifier hs-type">stackSetDriftDetectionDetails_inSyncStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span id="stackSetDriftDetectionDetails_inSyncStackInstancesCount"><span class="annot"><span class="annottext">stackSetDriftDetectionDetails_inSyncStackInstancesCount :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; StackSetDriftDetectionDetails -&gt; f StackSetDriftDetectionDetails
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_inSyncStackInstancesCount"><span class="hs-identifier hs-var hs-var">stackSetDriftDetectionDetails_inSyncStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetDriftDetectionDetails -&gt; Maybe Natural)
--&gt; (StackSetDriftDetectionDetails
-    -&gt; Maybe Natural -&gt; StackSetDriftDetectionDetails)
--&gt; Lens
-     StackSetDriftDetectionDetails
-     StackSetDriftDetectionDetails
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424195"><span class="annot"><span class="annottext">Maybe Natural
-inSyncStackInstancesCount :: Maybe Natural
-$sel:inSyncStackInstancesCount:StackSetDriftDetectionDetails' :: StackSetDriftDetectionDetails -&gt; Maybe Natural
-</span><a href="#local-6989586621679424195"><span class="hs-identifier hs-var hs-var">inSyncStackInstancesCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679424195"><span class="hs-identifier hs-var">inSyncStackInstancesCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424194"><span class="annot"><span class="annottext">s :: StackSetDriftDetectionDetails
-</span><a href="#local-6989586621679424194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424193"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679424193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetDriftDetectionDetails
-</span><a href="#local-6989586621679424194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inSyncStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AinSyncStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">inSyncStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679424193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- | The number of stack instances for which the drift detection operation</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- failed.</span><span>
-</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_failedStackInstancesCount"><span class="hs-identifier hs-type">stackSetDriftDetectionDetails_failedStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-201"></span><span id="stackSetDriftDetectionDetails_failedStackInstancesCount"><span class="annot"><span class="annottext">stackSetDriftDetectionDetails_failedStackInstancesCount :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; StackSetDriftDetectionDetails -&gt; f StackSetDriftDetectionDetails
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_failedStackInstancesCount"><span class="hs-identifier hs-var hs-var">stackSetDriftDetectionDetails_failedStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetDriftDetectionDetails -&gt; Maybe Natural)
--&gt; (StackSetDriftDetectionDetails
-    -&gt; Maybe Natural -&gt; StackSetDriftDetectionDetails)
--&gt; Lens
-     StackSetDriftDetectionDetails
-     StackSetDriftDetectionDetails
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424191"><span class="annot"><span class="annottext">Maybe Natural
-failedStackInstancesCount :: Maybe Natural
-$sel:failedStackInstancesCount:StackSetDriftDetectionDetails' :: StackSetDriftDetectionDetails -&gt; Maybe Natural
-</span><a href="#local-6989586621679424191"><span class="hs-identifier hs-var hs-var">failedStackInstancesCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679424191"><span class="hs-identifier hs-var">failedStackInstancesCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424190"><span class="annot"><span class="annottext">s :: StackSetDriftDetectionDetails
-</span><a href="#local-6989586621679424190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424189"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679424189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetDriftDetectionDetails
-</span><a href="#local-6989586621679424190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AfailedStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">failedStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679424189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- | The number of stack instances that have drifted from the expected</span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- template and parameter configuration of the stack set. A stack instance</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- is considered to have drifted if one or more of the resources in the</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- associated stack do not match their expected configuration.</span><span>
-</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_driftedStackInstancesCount"><span class="hs-identifier hs-type">stackSetDriftDetectionDetails_driftedStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-208"></span><span id="stackSetDriftDetectionDetails_driftedStackInstancesCount"><span class="annot"><span class="annottext">stackSetDriftDetectionDetails_driftedStackInstancesCount :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; StackSetDriftDetectionDetails -&gt; f StackSetDriftDetectionDetails
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_driftedStackInstancesCount"><span class="hs-identifier hs-var hs-var">stackSetDriftDetectionDetails_driftedStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetDriftDetectionDetails -&gt; Maybe Natural)
--&gt; (StackSetDriftDetectionDetails
-    -&gt; Maybe Natural -&gt; StackSetDriftDetectionDetails)
--&gt; Lens
-     StackSetDriftDetectionDetails
-     StackSetDriftDetectionDetails
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424187"><span class="annot"><span class="annottext">Maybe Natural
-driftedStackInstancesCount :: Maybe Natural
-$sel:driftedStackInstancesCount:StackSetDriftDetectionDetails' :: StackSetDriftDetectionDetails -&gt; Maybe Natural
-</span><a href="#local-6989586621679424187"><span class="hs-identifier hs-var hs-var">driftedStackInstancesCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679424187"><span class="hs-identifier hs-var">driftedStackInstancesCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424186"><span class="annot"><span class="annottext">s :: StackSetDriftDetectionDetails
-</span><a href="#local-6989586621679424186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424185"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679424185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetDriftDetectionDetails
-</span><a href="#local-6989586621679424186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:driftedStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AdriftedStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">driftedStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679424185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- | The number of stack instances that are currently being checked for</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- drift.</span><span>
-</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_inProgressStackInstancesCount"><span class="hs-identifier hs-type">stackSetDriftDetectionDetails_inProgressStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-213"></span><span id="stackSetDriftDetectionDetails_inProgressStackInstancesCount"><span class="annot"><span class="annottext">stackSetDriftDetectionDetails_inProgressStackInstancesCount :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; StackSetDriftDetectionDetails -&gt; f StackSetDriftDetectionDetails
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_inProgressStackInstancesCount"><span class="hs-identifier hs-var hs-var">stackSetDriftDetectionDetails_inProgressStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetDriftDetectionDetails -&gt; Maybe Natural)
--&gt; (StackSetDriftDetectionDetails
-    -&gt; Maybe Natural -&gt; StackSetDriftDetectionDetails)
--&gt; Lens
-     StackSetDriftDetectionDetails
-     StackSetDriftDetectionDetails
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424183"><span class="annot"><span class="annottext">Maybe Natural
-inProgressStackInstancesCount :: Maybe Natural
-$sel:inProgressStackInstancesCount:StackSetDriftDetectionDetails' :: StackSetDriftDetectionDetails -&gt; Maybe Natural
-</span><a href="#local-6989586621679424183"><span class="hs-identifier hs-var hs-var">inProgressStackInstancesCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679424183"><span class="hs-identifier hs-var">inProgressStackInstancesCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424182"><span class="annot"><span class="annottext">s :: StackSetDriftDetectionDetails
-</span><a href="#local-6989586621679424182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424181"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679424181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetDriftDetectionDetails
-</span><a href="#local-6989586621679424182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inProgressStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AinProgressStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">inProgressStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679424181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- | Most recent time when CloudFormation performed a drift detection</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- operation on the stack set. This value will be @NULL@ for any stack set</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- on which drift detection has not yet been performed.</span><span>
-</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_lastDriftCheckTimestamp"><span class="hs-identifier hs-type">stackSetDriftDetectionDetails_lastDriftCheckTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-219"></span><span id="stackSetDriftDetectionDetails_lastDriftCheckTimestamp"><span class="annot"><span class="annottext">stackSetDriftDetectionDetails_lastDriftCheckTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-193"></span><span class="hs-comment">-- | Most recent time when CloudFormation performed a drift detection</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- operation on the stack set. This value will be @NULL@ for any stack set</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- on which drift detection has not yet been performed.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_lastDriftCheckTimestamp"><span class="hs-identifier hs-type">stackSetDriftDetectionDetails_lastDriftCheckTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="stackSetDriftDetectionDetails_lastDriftCheckTimestamp"><span class="annot"><span class="annottext">stackSetDriftDetectionDetails_lastDriftCheckTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; StackSetDriftDetectionDetails -&gt; f StackSetDriftDetectionDetails
 </span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_lastDriftCheckTimestamp"><span class="hs-identifier hs-var hs-var">stackSetDriftDetectionDetails_lastDriftCheckTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetDriftDetectionDetails -&gt; Maybe ISO8601)
 -&gt; (StackSetDriftDetectionDetails
@@ -421,16 +319,16 @@ $sel:inProgressStackInstancesCount:StackSetDriftDetectionDetails' :: StackSetDri
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424179"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424606"><span class="annot"><span class="annottext">Maybe ISO8601
 lastDriftCheckTimestamp :: Maybe ISO8601
 $sel:lastDriftCheckTimestamp:StackSetDriftDetectionDetails' :: StackSetDriftDetectionDetails -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679424179"><span class="hs-identifier hs-var hs-var">lastDriftCheckTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679424179"><span class="hs-identifier hs-var">lastDriftCheckTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424178"><span class="annot"><span class="annottext">s :: StackSetDriftDetectionDetails
-</span><a href="#local-6989586621679424178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424177"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679424177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetDriftDetectionDetails
-</span><a href="#local-6989586621679424178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastDriftCheckTimestamp:StackSetDriftDetectionDetails' :: Maybe ISO8601
+</span><a href="#local-6989586621679424606"><span class="hs-identifier hs-var hs-var">lastDriftCheckTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679424606"><span class="hs-identifier hs-var">lastDriftCheckTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424605"><span class="annot"><span class="annottext">s :: StackSetDriftDetectionDetails
+</span><a href="#local-6989586621679424605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424604"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679424604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetDriftDetectionDetails
+</span><a href="#local-6989586621679424605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastDriftCheckTimestamp:StackSetDriftDetectionDetails' :: Maybe ISO8601
 </span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AlastDriftCheckTimestamp%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">lastDriftCheckTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679424177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679424604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; StackSetDriftDetectionDetails
  -&gt; f StackSetDriftDetectionDetails)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -448,62 +346,110 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- | Status of the stack set\'s actual configuration compared to its expected</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- template and parameter configuration. A stack set is considered to have</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- drifted if one or more of its stack instances have drifted from their</span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- expected template and parameter configuration.</span><span>
-</span><span id="line-225"></span><span class="hs-comment">--</span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- -   @DRIFTED@: One or more of the stack instances belonging to the stack</span><span>
-</span><span id="line-227"></span><span class="hs-comment">--     set stack differs from the expected template and parameter</span><span>
-</span><span id="line-228"></span><span class="hs-comment">--     configuration. A stack instance is considered to have drifted if one</span><span>
-</span><span id="line-229"></span><span class="hs-comment">--     or more of the resources in the associated stack have drifted.</span><span>
-</span><span id="line-230"></span><span class="hs-comment">--</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- -   @NOT_CHECKED@: CloudFormation has not checked the stack set for</span><span>
-</span><span id="line-232"></span><span class="hs-comment">--     drift.</span><span>
-</span><span id="line-233"></span><span class="hs-comment">--</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- -   @IN_SYNC@: All of the stack instances belonging to the stack set</span><span>
-</span><span id="line-235"></span><span class="hs-comment">--     stack match from the expected template and parameter configuration.</span><span>
-</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_driftStatus"><span class="hs-identifier hs-type">stackSetDriftDetectionDetails_driftStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftStatus.html#StackSetDriftStatus"><span class="hs-identifier hs-type">StackSetDriftStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-237"></span><span id="stackSetDriftDetectionDetails_driftStatus"><span class="annot"><span class="annottext">stackSetDriftDetectionDetails_driftStatus :: (Maybe StackSetDriftStatus -&gt; f (Maybe StackSetDriftStatus))
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The total number of stack instances belonging to this stack set.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- The total number of stack instances is equal to the total of:</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- -   Stack instances that match the stack set configuration.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- -   Stack instances that have drifted from the stack set configuration.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- -   Stack instances where the drift detection operation has failed.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- -   Stack instances currently being checked for drift.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_totalStackInstancesCount"><span class="hs-identifier hs-type">stackSetDriftDetectionDetails_totalStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="stackSetDriftDetectionDetails_totalStackInstancesCount"><span class="annot"><span class="annottext">stackSetDriftDetectionDetails_totalStackInstancesCount :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; StackSetDriftDetectionDetails -&gt; f StackSetDriftDetectionDetails
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_driftStatus"><span class="hs-identifier hs-var hs-var">stackSetDriftDetectionDetails_driftStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetDriftDetectionDetails -&gt; Maybe StackSetDriftStatus)
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_totalStackInstancesCount"><span class="hs-identifier hs-var hs-var">stackSetDriftDetectionDetails_totalStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetDriftDetectionDetails -&gt; Maybe Natural)
 -&gt; (StackSetDriftDetectionDetails
-    -&gt; Maybe StackSetDriftStatus -&gt; StackSetDriftDetectionDetails)
+    -&gt; Maybe Natural -&gt; StackSetDriftDetectionDetails)
 -&gt; Lens
      StackSetDriftDetectionDetails
      StackSetDriftDetectionDetails
-     (Maybe StackSetDriftStatus)
-     (Maybe StackSetDriftStatus)
+     (Maybe Natural)
+     (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424172"><span class="annot"><span class="annottext">Maybe StackSetDriftStatus
-driftStatus :: Maybe StackSetDriftStatus
-$sel:driftStatus:StackSetDriftDetectionDetails' :: StackSetDriftDetectionDetails -&gt; Maybe StackSetDriftStatus
-</span><a href="#local-6989586621679424172"><span class="hs-identifier hs-var hs-var">driftStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackSetDriftStatus
-</span><a href="#local-6989586621679424172"><span class="hs-identifier hs-var">driftStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424171"><span class="annot"><span class="annottext">s :: StackSetDriftDetectionDetails
-</span><a href="#local-6989586621679424171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424170"><span class="annot"><span class="annottext">Maybe StackSetDriftStatus
-</span><a href="#local-6989586621679424170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetDriftDetectionDetails
-</span><a href="#local-6989586621679424171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:driftStatus:StackSetDriftDetectionDetails' :: Maybe StackSetDriftStatus
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AdriftStatus%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">driftStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackSetDriftStatus
-</span><a href="#local-6989586621679424170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-238"></span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- | The status of the stack set drift detection operation.</span><span>
-</span><span id="line-240"></span><span class="hs-comment">--</span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- -   @COMPLETED@: The drift detection operation completed without failing</span><span>
-</span><span id="line-242"></span><span class="hs-comment">--     on any stack instances.</span><span>
-</span><span id="line-243"></span><span class="hs-comment">--</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- -   @FAILED@: The drift detection operation exceeded the specified</span><span>
-</span><span id="line-245"></span><span class="hs-comment">--     failure tolerance.</span><span>
-</span><span id="line-246"></span><span class="hs-comment">--</span><span>
-</span><span id="line-247"></span><span class="hs-comment">-- -   @PARTIAL_SUCCESS@: The drift detection operation completed without</span><span>
-</span><span id="line-248"></span><span class="hs-comment">--     exceeding the failure tolerance for the operation.</span><span>
-</span><span id="line-249"></span><span class="hs-comment">--</span><span>
-</span><span id="line-250"></span><span class="hs-comment">-- -   @IN_PROGRESS@: The drift detection operation is currently being</span><span>
-</span><span id="line-251"></span><span class="hs-comment">--     performed.</span><span>
-</span><span id="line-252"></span><span class="hs-comment">--</span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- -   @STOPPED@: The user has cancelled the drift detection operation.</span><span>
-</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_driftDetectionStatus"><span class="hs-identifier hs-type">stackSetDriftDetectionDetails_driftDetectionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionStatus.html#StackSetDriftDetectionStatus"><span class="hs-identifier hs-type">StackSetDriftDetectionStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-255"></span><span id="stackSetDriftDetectionDetails_driftDetectionStatus"><span class="annot"><span class="annottext">stackSetDriftDetectionDetails_driftDetectionStatus :: (Maybe StackSetDriftDetectionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424599"><span class="annot"><span class="annottext">Maybe Natural
+totalStackInstancesCount :: Maybe Natural
+$sel:totalStackInstancesCount:StackSetDriftDetectionDetails' :: StackSetDriftDetectionDetails -&gt; Maybe Natural
+</span><a href="#local-6989586621679424599"><span class="hs-identifier hs-var hs-var">totalStackInstancesCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679424599"><span class="hs-identifier hs-var">totalStackInstancesCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424598"><span class="annot"><span class="annottext">s :: StackSetDriftDetectionDetails
+</span><a href="#local-6989586621679424598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424597"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679424597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetDriftDetectionDetails
+</span><a href="#local-6989586621679424598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AtotalStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">totalStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679424597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The number of stack instances that are currently being checked for</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- drift.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_inProgressStackInstancesCount"><span class="hs-identifier hs-type">stackSetDriftDetectionDetails_inProgressStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="stackSetDriftDetectionDetails_inProgressStackInstancesCount"><span class="annot"><span class="annottext">stackSetDriftDetectionDetails_inProgressStackInstancesCount :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; StackSetDriftDetectionDetails -&gt; f StackSetDriftDetectionDetails
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_inProgressStackInstancesCount"><span class="hs-identifier hs-var hs-var">stackSetDriftDetectionDetails_inProgressStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetDriftDetectionDetails -&gt; Maybe Natural)
+-&gt; (StackSetDriftDetectionDetails
+    -&gt; Maybe Natural -&gt; StackSetDriftDetectionDetails)
+-&gt; Lens
+     StackSetDriftDetectionDetails
+     StackSetDriftDetectionDetails
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424595"><span class="annot"><span class="annottext">Maybe Natural
+inProgressStackInstancesCount :: Maybe Natural
+$sel:inProgressStackInstancesCount:StackSetDriftDetectionDetails' :: StackSetDriftDetectionDetails -&gt; Maybe Natural
+</span><a href="#local-6989586621679424595"><span class="hs-identifier hs-var hs-var">inProgressStackInstancesCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679424595"><span class="hs-identifier hs-var">inProgressStackInstancesCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424594"><span class="annot"><span class="annottext">s :: StackSetDriftDetectionDetails
+</span><a href="#local-6989586621679424594"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424593"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679424593"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetDriftDetectionDetails
+</span><a href="#local-6989586621679424594"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inProgressStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AinProgressStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">inProgressStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679424593"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The number of stack instances that have drifted from the expected</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- template and parameter configuration of the stack set. A stack instance</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- is considered to have drifted if one or more of the resources in the</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- associated stack do not match their expected configuration.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_driftedStackInstancesCount"><span class="hs-identifier hs-type">stackSetDriftDetectionDetails_driftedStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="stackSetDriftDetectionDetails_driftedStackInstancesCount"><span class="annot"><span class="annottext">stackSetDriftDetectionDetails_driftedStackInstancesCount :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; StackSetDriftDetectionDetails -&gt; f StackSetDriftDetectionDetails
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_driftedStackInstancesCount"><span class="hs-identifier hs-var hs-var">stackSetDriftDetectionDetails_driftedStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetDriftDetectionDetails -&gt; Maybe Natural)
+-&gt; (StackSetDriftDetectionDetails
+    -&gt; Maybe Natural -&gt; StackSetDriftDetectionDetails)
+-&gt; Lens
+     StackSetDriftDetectionDetails
+     StackSetDriftDetectionDetails
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424591"><span class="annot"><span class="annottext">Maybe Natural
+driftedStackInstancesCount :: Maybe Natural
+$sel:driftedStackInstancesCount:StackSetDriftDetectionDetails' :: StackSetDriftDetectionDetails -&gt; Maybe Natural
+</span><a href="#local-6989586621679424591"><span class="hs-identifier hs-var hs-var">driftedStackInstancesCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679424591"><span class="hs-identifier hs-var">driftedStackInstancesCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424590"><span class="annot"><span class="annottext">s :: StackSetDriftDetectionDetails
+</span><a href="#local-6989586621679424590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424589"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679424589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetDriftDetectionDetails
+</span><a href="#local-6989586621679424590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:driftedStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AdriftedStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">driftedStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679424589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The status of the stack set drift detection operation.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- -   @COMPLETED@: The drift detection operation completed without failing</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--     on any stack instances.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- -   @FAILED@: The drift detection operation exceeded the specified</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--     failure tolerance.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- -   @PARTIAL_SUCCESS@: The drift detection operation completed without</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--     exceeding the failure tolerance for the operation.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- -   @IN_PROGRESS@: The drift detection operation is currently being</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--     performed.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- -   @STOPPED@: The user has cancelled the drift detection operation.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_driftDetectionStatus"><span class="hs-identifier hs-type">stackSetDriftDetectionDetails_driftDetectionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionStatus.html#StackSetDriftDetectionStatus"><span class="hs-identifier hs-type">StackSetDriftDetectionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="stackSetDriftDetectionDetails_driftDetectionStatus"><span class="annot"><span class="annottext">stackSetDriftDetectionDetails_driftDetectionStatus :: (Maybe StackSetDriftDetectionStatus
  -&gt; f (Maybe StackSetDriftDetectionStatus))
 -&gt; StackSetDriftDetectionDetails -&gt; f StackSetDriftDetectionDetails
 </span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_driftDetectionStatus"><span class="hs-identifier hs-var hs-var">stackSetDriftDetectionDetails_driftDetectionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetDriftDetectionDetails
@@ -517,32 +463,61 @@ $sel:driftStatus:StackSetDriftDetectionDetails' :: StackSetDriftDetectionDetails
      (Maybe StackSetDriftDetectionStatus)
      (Maybe StackSetDriftDetectionStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424168"><span class="annot"><span class="annottext">Maybe StackSetDriftDetectionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424587"><span class="annot"><span class="annottext">Maybe StackSetDriftDetectionStatus
 driftDetectionStatus :: Maybe StackSetDriftDetectionStatus
 $sel:driftDetectionStatus:StackSetDriftDetectionDetails' :: StackSetDriftDetectionDetails -&gt; Maybe StackSetDriftDetectionStatus
-</span><a href="#local-6989586621679424168"><span class="hs-identifier hs-var hs-var">driftDetectionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackSetDriftDetectionStatus
-</span><a href="#local-6989586621679424168"><span class="hs-identifier hs-var">driftDetectionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424167"><span class="annot"><span class="annottext">s :: StackSetDriftDetectionDetails
-</span><a href="#local-6989586621679424167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424166"><span class="annot"><span class="annottext">Maybe StackSetDriftDetectionStatus
-</span><a href="#local-6989586621679424166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetDriftDetectionDetails
-</span><a href="#local-6989586621679424167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:driftDetectionStatus:StackSetDriftDetectionDetails' :: Maybe StackSetDriftDetectionStatus
+</span><a href="#local-6989586621679424587"><span class="hs-identifier hs-var hs-var">driftDetectionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackSetDriftDetectionStatus
+</span><a href="#local-6989586621679424587"><span class="hs-identifier hs-var">driftDetectionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424586"><span class="annot"><span class="annottext">s :: StackSetDriftDetectionDetails
+</span><a href="#local-6989586621679424586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424585"><span class="annot"><span class="annottext">Maybe StackSetDriftDetectionStatus
+</span><a href="#local-6989586621679424585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetDriftDetectionDetails
+</span><a href="#local-6989586621679424586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:driftDetectionStatus:StackSetDriftDetectionDetails' :: Maybe StackSetDriftDetectionStatus
 </span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AdriftDetectionStatus%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">driftDetectionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackSetDriftDetectionStatus
-</span><a href="#local-6989586621679424166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-256"></span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- | The total number of stack instances belonging to this stack set.</span><span>
-</span><span id="line-258"></span><span class="hs-comment">--</span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- The total number of stack instances is equal to the total of:</span><span>
-</span><span id="line-260"></span><span class="hs-comment">--</span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- -   Stack instances that match the stack set configuration.</span><span>
-</span><span id="line-262"></span><span class="hs-comment">--</span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- -   Stack instances that have drifted from the stack set configuration.</span><span>
-</span><span id="line-264"></span><span class="hs-comment">--</span><span>
-</span><span id="line-265"></span><span class="hs-comment">-- -   Stack instances where the drift detection operation has failed.</span><span>
-</span><span id="line-266"></span><span class="hs-comment">--</span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- -   Stack instances currently being checked for drift.</span><span>
-</span><span id="line-268"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_totalStackInstancesCount"><span class="hs-identifier hs-type">stackSetDriftDetectionDetails_totalStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-269"></span><span id="stackSetDriftDetectionDetails_totalStackInstancesCount"><span class="annot"><span class="annottext">stackSetDriftDetectionDetails_totalStackInstancesCount :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><a href="#local-6989586621679424585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | Status of the stack set\'s actual configuration compared to its expected</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- template and parameter configuration. A stack set is considered to have</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- drifted if one or more of its stack instances have drifted from their</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- expected template and parameter configuration.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- -   @DRIFTED@: One or more of the stack instances belonging to the stack</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--     set stack differs from the expected template and parameter</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--     configuration. A stack instance is considered to have drifted if one</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--     or more of the resources in the associated stack have drifted.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- -   @NOT_CHECKED@: CloudFormation has not checked the stack set for</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--     drift.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- -   @IN_SYNC@: All of the stack instances belonging to the stack set</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--     stack match from the expected template and parameter configuration.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_driftStatus"><span class="hs-identifier hs-type">stackSetDriftDetectionDetails_driftStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftStatus.html#StackSetDriftStatus"><span class="hs-identifier hs-type">StackSetDriftStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span id="stackSetDriftDetectionDetails_driftStatus"><span class="annot"><span class="annottext">stackSetDriftDetectionDetails_driftStatus :: (Maybe StackSetDriftStatus -&gt; f (Maybe StackSetDriftStatus))
 -&gt; StackSetDriftDetectionDetails -&gt; f StackSetDriftDetectionDetails
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_totalStackInstancesCount"><span class="hs-identifier hs-var hs-var">stackSetDriftDetectionDetails_totalStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetDriftDetectionDetails -&gt; Maybe Natural)
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_driftStatus"><span class="hs-identifier hs-var hs-var">stackSetDriftDetectionDetails_driftStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetDriftDetectionDetails -&gt; Maybe StackSetDriftStatus)
+-&gt; (StackSetDriftDetectionDetails
+    -&gt; Maybe StackSetDriftStatus -&gt; StackSetDriftDetectionDetails)
+-&gt; Lens
+     StackSetDriftDetectionDetails
+     StackSetDriftDetectionDetails
+     (Maybe StackSetDriftStatus)
+     (Maybe StackSetDriftStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424583"><span class="annot"><span class="annottext">Maybe StackSetDriftStatus
+driftStatus :: Maybe StackSetDriftStatus
+$sel:driftStatus:StackSetDriftDetectionDetails' :: StackSetDriftDetectionDetails -&gt; Maybe StackSetDriftStatus
+</span><a href="#local-6989586621679424583"><span class="hs-identifier hs-var hs-var">driftStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackSetDriftStatus
+</span><a href="#local-6989586621679424583"><span class="hs-identifier hs-var">driftStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424582"><span class="annot"><span class="annottext">s :: StackSetDriftDetectionDetails
+</span><a href="#local-6989586621679424582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424581"><span class="annot"><span class="annottext">Maybe StackSetDriftStatus
+</span><a href="#local-6989586621679424581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetDriftDetectionDetails
+</span><a href="#local-6989586621679424582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:driftStatus:StackSetDriftDetectionDetails' :: Maybe StackSetDriftStatus
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AdriftStatus%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">driftStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackSetDriftStatus
+</span><a href="#local-6989586621679424581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | The number of stack instances for which the drift detection operation</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- failed.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_failedStackInstancesCount"><span class="hs-identifier hs-type">stackSetDriftDetectionDetails_failedStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span id="stackSetDriftDetectionDetails_failedStackInstancesCount"><span class="annot"><span class="annottext">stackSetDriftDetectionDetails_failedStackInstancesCount :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; StackSetDriftDetectionDetails -&gt; f StackSetDriftDetectionDetails
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_failedStackInstancesCount"><span class="hs-identifier hs-var hs-var">stackSetDriftDetectionDetails_failedStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetDriftDetectionDetails -&gt; Maybe Natural)
 -&gt; (StackSetDriftDetectionDetails
     -&gt; Maybe Natural -&gt; StackSetDriftDetectionDetails)
 -&gt; Lens
@@ -551,65 +526,90 @@ $sel:driftDetectionStatus:StackSetDriftDetectionDetails' :: StackSetDriftDetecti
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424164"><span class="annot"><span class="annottext">Maybe Natural
-totalStackInstancesCount :: Maybe Natural
-$sel:totalStackInstancesCount:StackSetDriftDetectionDetails' :: StackSetDriftDetectionDetails -&gt; Maybe Natural
-</span><a href="#local-6989586621679424164"><span class="hs-identifier hs-var hs-var">totalStackInstancesCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679424164"><span class="hs-identifier hs-var">totalStackInstancesCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424163"><span class="annot"><span class="annottext">s :: StackSetDriftDetectionDetails
-</span><a href="#local-6989586621679424163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424162"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679424162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetDriftDetectionDetails
-</span><a href="#local-6989586621679424163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
-</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AtotalStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">totalStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679424162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424579"><span class="annot"><span class="annottext">Maybe Natural
+failedStackInstancesCount :: Maybe Natural
+$sel:failedStackInstancesCount:StackSetDriftDetectionDetails' :: StackSetDriftDetectionDetails -&gt; Maybe Natural
+</span><a href="#local-6989586621679424579"><span class="hs-identifier hs-var hs-var">failedStackInstancesCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679424579"><span class="hs-identifier hs-var">failedStackInstancesCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424578"><span class="annot"><span class="annottext">s :: StackSetDriftDetectionDetails
+</span><a href="#local-6989586621679424578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424577"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679424577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetDriftDetectionDetails
+</span><a href="#local-6989586621679424578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AfailedStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">failedStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679424577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | The number of stack instances which match the expected template and</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- parameter configuration of the stack set.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_inSyncStackInstancesCount"><span class="hs-identifier hs-type">stackSetDriftDetectionDetails_inSyncStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span id="stackSetDriftDetectionDetails_inSyncStackInstancesCount"><span class="annot"><span class="annottext">stackSetDriftDetectionDetails_inSyncStackInstancesCount :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; StackSetDriftDetectionDetails -&gt; f StackSetDriftDetectionDetails
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#stackSetDriftDetectionDetails_inSyncStackInstancesCount"><span class="hs-identifier hs-var hs-var">stackSetDriftDetectionDetails_inSyncStackInstancesCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetDriftDetectionDetails -&gt; Maybe Natural)
+-&gt; (StackSetDriftDetectionDetails
+    -&gt; Maybe Natural -&gt; StackSetDriftDetectionDetails)
+-&gt; Lens
+     StackSetDriftDetectionDetails
+     StackSetDriftDetectionDetails
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424575"><span class="annot"><span class="annottext">Maybe Natural
+inSyncStackInstancesCount :: Maybe Natural
+$sel:inSyncStackInstancesCount:StackSetDriftDetectionDetails' :: StackSetDriftDetectionDetails -&gt; Maybe Natural
+</span><a href="#local-6989586621679424575"><span class="hs-identifier hs-var hs-var">inSyncStackInstancesCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679424575"><span class="hs-identifier hs-var">inSyncStackInstancesCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424574"><span class="annot"><span class="annottext">s :: StackSetDriftDetectionDetails
+</span><a href="#local-6989586621679424574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424573"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679424573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetDriftDetectionDetails
+</span><a href="#local-6989586621679424574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inSyncStackInstancesCount:StackSetDriftDetectionDetails' :: Maybe Natural
+</span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#%24sel%3AinSyncStackInstancesCount%3AStackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">inSyncStackInstancesCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679424573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>
 </span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-272"></span><span>  </span><span id="local-6989586621679424159"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StackSetDriftDetectionDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679424157"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424157"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-273"></span><span>    </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-272"></span><span>  </span><span id="local-6989586621679424570"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StackSetDriftDetectionDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679424568"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679424568"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
 -&gt; Maybe Natural
 -&gt; Maybe Natural
 -&gt; Maybe Natural
--&gt; Maybe ISO8601
--&gt; Maybe StackSetDriftStatus
 -&gt; Maybe StackSetDriftDetectionStatus
+-&gt; Maybe StackSetDriftStatus
+-&gt; Maybe Natural
 -&gt; Maybe Natural
 -&gt; StackSetDriftDetectionDetails
 </span><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails%27"><span class="hs-identifier hs-var">StackSetDriftDetectionDetails'</span></a></span><span>
-</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Natural
+</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601
  -&gt; Maybe Natural
  -&gt; Maybe Natural
  -&gt; Maybe Natural
- -&gt; Maybe ISO8601
- -&gt; Maybe StackSetDriftStatus
  -&gt; Maybe StackSetDriftDetectionStatus
+ -&gt; Maybe StackSetDriftStatus
+ -&gt; Maybe Natural
  -&gt; Maybe Natural
  -&gt; StackSetDriftDetectionDetails)
--&gt; Either String (Maybe Natural)
+-&gt; Either String (Maybe ISO8601)
 -&gt; Either
      String
      (Maybe Natural
       -&gt; Maybe Natural
       -&gt; Maybe Natural
-      -&gt; Maybe ISO8601
-      -&gt; Maybe StackSetDriftStatus
       -&gt; Maybe StackSetDriftDetectionStatus
+      -&gt; Maybe StackSetDriftStatus
+      -&gt; Maybe Natural
       -&gt; Maybe Natural
       -&gt; StackSetDriftDetectionDetails)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679424568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InSyncStackInstancesCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LastDriftCheckTimestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Natural
    -&gt; Maybe Natural
    -&gt; Maybe Natural
-   -&gt; Maybe ISO8601
-   -&gt; Maybe StackSetDriftStatus
    -&gt; Maybe StackSetDriftDetectionStatus
+   -&gt; Maybe StackSetDriftStatus
+   -&gt; Maybe Natural
    -&gt; Maybe Natural
    -&gt; StackSetDriftDetectionDetails)
 -&gt; Either String (Maybe Natural)
@@ -617,126 +617,120 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String
      (Maybe Natural
       -&gt; Maybe Natural
-      -&gt; Maybe ISO8601
-      -&gt; Maybe StackSetDriftStatus
       -&gt; Maybe StackSetDriftDetectionStatus
+      -&gt; Maybe StackSetDriftStatus
+      -&gt; Maybe Natural
       -&gt; Maybe Natural
       -&gt; StackSetDriftDetectionDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679424568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FailedStackInstancesCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TotalStackInstancesCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-276"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Natural
    -&gt; Maybe Natural
-   -&gt; Maybe ISO8601
-   -&gt; Maybe StackSetDriftStatus
    -&gt; Maybe StackSetDriftDetectionStatus
+   -&gt; Maybe StackSetDriftStatus
+   -&gt; Maybe Natural
    -&gt; Maybe Natural
    -&gt; StackSetDriftDetectionDetails)
 -&gt; Either String (Maybe Natural)
 -&gt; Either
      String
      (Maybe Natural
-      -&gt; Maybe ISO8601
-      -&gt; Maybe StackSetDriftStatus
       -&gt; Maybe StackSetDriftDetectionStatus
+      -&gt; Maybe StackSetDriftStatus
+      -&gt; Maybe Natural
       -&gt; Maybe Natural
       -&gt; StackSetDriftDetectionDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679424568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DriftedStackInstancesCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;InProgressStackInstancesCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-277"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Natural
-   -&gt; Maybe ISO8601
-   -&gt; Maybe StackSetDriftStatus
    -&gt; Maybe StackSetDriftDetectionStatus
+   -&gt; Maybe StackSetDriftStatus
+   -&gt; Maybe Natural
    -&gt; Maybe Natural
    -&gt; StackSetDriftDetectionDetails)
 -&gt; Either String (Maybe Natural)
 -&gt; Either
      String
-     (Maybe ISO8601
+     (Maybe StackSetDriftDetectionStatus
       -&gt; Maybe StackSetDriftStatus
-      -&gt; Maybe StackSetDriftDetectionStatus
+      -&gt; Maybe Natural
       -&gt; Maybe Natural
       -&gt; StackSetDriftDetectionDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679424568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InProgressStackInstancesCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;DriftedStackInstancesCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-278"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe ISO8601
+  (Maybe StackSetDriftDetectionStatus
    -&gt; Maybe StackSetDriftStatus
-   -&gt; Maybe StackSetDriftDetectionStatus
+   -&gt; Maybe Natural
    -&gt; Maybe Natural
    -&gt; StackSetDriftDetectionDetails)
--&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe StackSetDriftDetectionStatus)
 -&gt; Either
      String
      (Maybe StackSetDriftStatus
-      -&gt; Maybe StackSetDriftDetectionStatus
-      -&gt; Maybe Natural
-      -&gt; StackSetDriftDetectionDetails)
+      -&gt; Maybe Natural -&gt; Maybe Natural -&gt; StackSetDriftDetectionDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679424568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe StackSetDriftDetectionStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastDriftCheckTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;DriftDetectionStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-279"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe StackSetDriftStatus
-   -&gt; Maybe StackSetDriftDetectionStatus
-   -&gt; Maybe Natural
-   -&gt; StackSetDriftDetectionDetails)
+   -&gt; Maybe Natural -&gt; Maybe Natural -&gt; StackSetDriftDetectionDetails)
 -&gt; Either String (Maybe StackSetDriftStatus)
 -&gt; Either
      String
-     (Maybe StackSetDriftDetectionStatus
-      -&gt; Maybe Natural -&gt; StackSetDriftDetectionDetails)
+     (Maybe Natural -&gt; Maybe Natural -&gt; StackSetDriftDetectionDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StackSetDriftStatus)
+</span><a href="#local-6989586621679424568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StackSetDriftStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DriftStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe StackSetDriftDetectionStatus
-   -&gt; Maybe Natural -&gt; StackSetDriftDetectionDetails)
--&gt; Either String (Maybe StackSetDriftDetectionStatus)
+  (Maybe Natural -&gt; Maybe Natural -&gt; StackSetDriftDetectionDetails)
+-&gt; Either String (Maybe Natural)
 -&gt; Either String (Maybe Natural -&gt; StackSetDriftDetectionDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
--&gt; Text -&gt; Either String (Maybe StackSetDriftDetectionStatus)
+</span><a href="#local-6989586621679424568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DriftDetectionStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;FailedStackInstancesCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-281"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Natural -&gt; StackSetDriftDetectionDetails)
 -&gt; Either String (Maybe Natural)
 -&gt; Either String StackSetDriftDetectionDetails
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621679424568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TotalStackInstancesCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;InSyncStackInstancesCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-282"></span><span>
 </span><span id="line-283"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-284"></span><span>  </span><span id="local-6989586621679424151"><span id="local-6989586621679424153"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621679424562"><span id="local-6989586621679424564"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-285"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span></span></span><span>
 </span><span id="line-286"></span><span>
-</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679424559"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetDriftDetectionDetails.html#StackSetDriftDetectionDetails"><span class="hs-identifier hs-type">StackSetDriftDetectionDetails</span></a></span></span><span>
 </span><span id="line-288"></span></pre></body></html>

@@ -43,12 +43,12 @@
 </span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- | /See:/ 'newDeleteChannel' smart constructor.</span><span>
-</span><span id="line-46"></span><span id="local-6989586621679268223"><span id="local-6989586621679268224"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteChannel"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-var">DeleteChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteChannel%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel%27"><span class="hs-identifier hs-var">DeleteChannel'</span></a></span></span><span>
+</span><span id="line-46"></span><span id="local-6989586621679268455"><span id="local-6989586621679268456"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteChannel"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-var">DeleteChannel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteChannel%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel%27"><span class="hs-identifier hs-var">DeleteChannel'</span></a></span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the channel to delete.</span><span>
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AchannelName%3ADeleteChannel%27"><span class="annot"><span class="annottext">DeleteChannel -&gt; Text
 </span><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#%24sel%3AchannelName%3ADeleteChannel%27"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268217"><span id="local-6989586621679268219"><span class="annot"><span class="annottext">DeleteChannel -&gt; DeleteChannel -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268449"><span id="local-6989586621679268451"><span class="annot"><span class="annottext">DeleteChannel -&gt; DeleteChannel -&gt; Bool
 (DeleteChannel -&gt; DeleteChannel -&gt; Bool)
 -&gt; (DeleteChannel -&gt; DeleteChannel -&gt; Bool) -&gt; Eq DeleteChannel
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteChannel -&gt; DeleteChannel -&gt; Bool
 == :: DeleteChannel -&gt; DeleteChannel -&gt; Bool
 $c== :: DeleteChannel -&gt; DeleteChannel -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268208"><span id="local-6989586621679268210"><span id="local-6989586621679268212"><span id="local-6989586621679268214"><span class="annot"><span class="annottext">ReadPrec [DeleteChannel]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268440"><span id="local-6989586621679268442"><span id="local-6989586621679268444"><span id="local-6989586621679268446"><span class="annot"><span class="annottext">ReadPrec [DeleteChannel]
 ReadPrec DeleteChannel
 Int -&gt; ReadS DeleteChannel
 ReadS [DeleteChannel]
@@ -76,7 +76,7 @@ readList :: ReadS [DeleteChannel]
 $creadList :: ReadS [DeleteChannel]
 readsPrec :: Int -&gt; ReadS DeleteChannel
 $creadsPrec :: Int -&gt; ReadS DeleteChannel
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268201"><span id="local-6989586621679268203"><span id="local-6989586621679268205"><span class="annot"><span class="annottext">Int -&gt; DeleteChannel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268433"><span id="local-6989586621679268435"><span id="local-6989586621679268437"><span class="annot"><span class="annottext">Int -&gt; DeleteChannel -&gt; ShowS
 [DeleteChannel] -&gt; ShowS
 DeleteChannel -&gt; String
 (Int -&gt; DeleteChannel -&gt; ShowS)
@@ -116,12 +116,12 @@ $cfrom :: forall x. DeleteChannel -&gt; Rep DeleteChannel x
 </span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span><span>
 </span><span id="line-65"></span><span id="newDeleteChannel"><span class="annot"><span class="annottext">newDeleteChannel :: Text -&gt; DeleteChannel
-</span><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#newDeleteChannel"><span class="hs-identifier hs-var hs-var">newDeleteChannel</span></a></span></span><span> </span><span id="local-6989586621679268196"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679268196"><span class="hs-identifier hs-var">pChannelName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#newDeleteChannel"><span class="hs-identifier hs-var hs-var">newDeleteChannel</span></a></span></span><span> </span><span id="local-6989586621679268428"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268428"><span class="hs-identifier hs-var">pChannelName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">DeleteChannel' :: Text -&gt; DeleteChannel
 </span><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel%27"><span class="hs-identifier hs-type">DeleteChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelName:DeleteChannel' :: Text
 </span><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#%24sel%3AchannelName%3ADeleteChannel%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679268196"><span class="hs-identifier hs-var">pChannelName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679268428"><span class="hs-identifier hs-var">pChannelName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | The name of the channel to delete.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#deleteChannel_channelName"><span class="hs-identifier hs-type">deleteChannel_channelName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -130,27 +130,27 @@ $cfrom :: forall x. DeleteChannel -&gt; Rep DeleteChannel x
 -&gt; (DeleteChannel -&gt; Text -&gt; DeleteChannel)
 -&gt; Lens DeleteChannel DeleteChannel Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel%27"><span class="hs-identifier hs-type">DeleteChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268193"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel%27"><span class="hs-identifier hs-type">DeleteChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268425"><span class="annot"><span class="annottext">Text
 channelName :: Text
 $sel:channelName:DeleteChannel' :: DeleteChannel -&gt; Text
-</span><a href="#local-6989586621679268193"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679268193"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268192"><span class="annot"><span class="annottext">s :: DeleteChannel
-</span><a href="#local-6989586621679268192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel%27"><span class="hs-identifier hs-type">DeleteChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268191"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679268191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteChannel
-</span><a href="#local-6989586621679268192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelName:DeleteChannel' :: Text
+</span><a href="#local-6989586621679268425"><span class="hs-identifier hs-var hs-var">channelName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268425"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268424"><span class="annot"><span class="annottext">s :: DeleteChannel
+</span><a href="#local-6989586621679268424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel%27"><span class="hs-identifier hs-type">DeleteChannel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268423"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679268423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteChannel
+</span><a href="#local-6989586621679268424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelName:DeleteChannel' :: Text
 </span><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#%24sel%3AchannelName%3ADeleteChannel%27"><span class="hs-identifier hs-var">channelName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679268191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679268423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-74"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannelResponse"><span class="hs-identifier hs-type">DeleteChannelResponse</span></a></span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679268187"><span class="annot"><span class="annottext">request :: DeleteChannel -&gt; Request DeleteChannel
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679268419"><span class="annot"><span class="annottext">request :: DeleteChannel -&gt; Request DeleteChannel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteChannel -&gt; Request DeleteChannel
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679268183"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679268415"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteChannel
 -&gt; ClientResponse ClientBody
@@ -174,12 +174,12 @@ AWSResponse a
 DeleteChannelResponse
 </span><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannelResponse%27"><span class="hs-identifier hs-var">DeleteChannelResponse'</span></a></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268176"><span id="local-6989586621679268178"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268408"><span id="local-6989586621679268410"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268173"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268405"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679268169"><span class="annot"><span class="annottext">toHeaders :: DeleteChannel -&gt; [Header]
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679268401"><span class="annot"><span class="annottext">toHeaders :: DeleteChannel -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteChannel -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -187,11 +187,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679268164"><span class="annot"><span class="annottext">toPath :: DeleteChannel -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel%27"><span class="hs-identifier hs-type">DeleteChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268162"><span class="annot"><span class="annottext">Text
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679268396"><span class="annot"><span class="annottext">toPath :: DeleteChannel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel%27"><span class="hs-identifier hs-type">DeleteChannel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268394"><span class="annot"><span class="annottext">Text
 channelName :: Text
 $sel:channelName:DeleteChannel' :: DeleteChannel -&gt; Text
-</span><a href="#local-6989586621679268162"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679268394"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -199,10 +199,10 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/channels/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679268162"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679268394"><span class="hs-identifier hs-var">channelName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannel"><span class="hs-identifier hs-type">DeleteChannel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679268158"><span class="annot"><span class="annottext">toQuery :: DeleteChannel -&gt; QueryString
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679268390"><span class="annot"><span class="annottext">toQuery :: DeleteChannel -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteChannel -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -210,10 +210,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | /See:/ 'newDeleteChannelResponse' smart constructor.</span><span>
-</span><span id="line-96"></span><span id="local-6989586621679268155"><span id="local-6989586621679268156"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteChannelResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannelResponse"><span class="hs-identifier hs-var">DeleteChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteChannelResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannelResponse%27"><span class="hs-identifier hs-var">DeleteChannelResponse'</span></a></span></span><span>
+</span><span id="line-96"></span><span id="local-6989586621679268387"><span id="local-6989586621679268388"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteChannelResponse"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannelResponse"><span class="hs-identifier hs-var">DeleteChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteChannelResponse%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannelResponse%27"><span class="hs-identifier hs-var">DeleteChannelResponse'</span></a></span></span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268151"><span id="local-6989586621679268153"><span class="annot"><span class="annottext">DeleteChannelResponse -&gt; DeleteChannelResponse -&gt; Bool
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268383"><span id="local-6989586621679268385"><span class="annot"><span class="annottext">DeleteChannelResponse -&gt; DeleteChannelResponse -&gt; Bool
 (DeleteChannelResponse -&gt; DeleteChannelResponse -&gt; Bool)
 -&gt; (DeleteChannelResponse -&gt; DeleteChannelResponse -&gt; Bool)
 -&gt; Eq DeleteChannelResponse
@@ -222,7 +222,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteChannelResponse -&gt; DeleteChannelResponse -&gt; Bool
 == :: DeleteChannelResponse -&gt; DeleteChannelResponse -&gt; Bool
 $c== :: DeleteChannelResponse -&gt; DeleteChannelResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268143"><span id="local-6989586621679268145"><span id="local-6989586621679268147"><span id="local-6989586621679268149"><span class="annot"><span class="annottext">ReadPrec [DeleteChannelResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268375"><span id="local-6989586621679268377"><span id="local-6989586621679268379"><span id="local-6989586621679268381"><span class="annot"><span class="annottext">ReadPrec [DeleteChannelResponse]
 ReadPrec DeleteChannelResponse
 Int -&gt; ReadS DeleteChannelResponse
 ReadS [DeleteChannelResponse]
@@ -242,7 +242,7 @@ readList :: ReadS [DeleteChannelResponse]
 $creadList :: ReadS [DeleteChannelResponse]
 readsPrec :: Int -&gt; ReadS DeleteChannelResponse
 $creadsPrec :: Int -&gt; ReadS DeleteChannelResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268137"><span id="local-6989586621679268139"><span id="local-6989586621679268141"><span class="annot"><span class="annottext">Int -&gt; DeleteChannelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268369"><span id="local-6989586621679268371"><span id="local-6989586621679268373"><span class="annot"><span class="annottext">Int -&gt; DeleteChannelResponse -&gt; ShowS
 [DeleteChannelResponse] -&gt; ShowS
 DeleteChannelResponse -&gt; String
 (Int -&gt; DeleteChannelResponse -&gt; ShowS)
@@ -278,5 +278,5 @@ $cfrom :: forall x. DeleteChannelResponse -&gt; Rep DeleteChannelResponse x
 </span><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#newDeleteChannelResponse"><span class="hs-identifier hs-var hs-var">newDeleteChannelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteChannelResponse
 </span><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannelResponse%27"><span class="hs-identifier hs-var">DeleteChannelResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268133"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannelResponse"><span class="hs-identifier hs-type">DeleteChannelResponse</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268365"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.DeleteChannel.html#DeleteChannelResponse"><span class="hs-identifier hs-type">DeleteChannelResponse</span></a></span></span><span>
 </span><span id="line-110"></span></pre></body></html>

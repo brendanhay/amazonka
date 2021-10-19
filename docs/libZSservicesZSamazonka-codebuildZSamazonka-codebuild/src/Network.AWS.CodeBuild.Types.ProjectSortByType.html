@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679372135"><span id="local-6989586621679372136"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProjectSortByType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSortByType.html#ProjectSortByType"><span class="hs-identifier hs-var">ProjectSortByType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectSortByType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSortByType.html#ProjectSortByType%27"><span class="hs-identifier hs-var">ProjectSortByType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679374017"><span id="local-6989586621679374018"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProjectSortByType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSortByType.html#ProjectSortByType"><span class="hs-identifier hs-var">ProjectSortByType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectSortByType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSortByType.html#ProjectSortByType%27"><span class="hs-identifier hs-var">ProjectSortByType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProjectSortByType"><span class="annot"><span class="annottext">ProjectSortByType -&gt; Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSortByType.html#fromProjectSortByType"><span class="hs-identifier hs-var hs-var">fromProjectSortByType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372127"><span id="local-6989586621679372129"><span id="local-6989586621679372131"><span class="annot"><span class="annottext">Int -&gt; ProjectSortByType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679374009"><span id="local-6989586621679374011"><span id="local-6989586621679374013"><span class="annot"><span class="annottext">Int -&gt; ProjectSortByType -&gt; ShowS
 [ProjectSortByType] -&gt; ShowS
 ProjectSortByType -&gt; String
 (Int -&gt; ProjectSortByType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ProjectSortByType -&gt; String
 showsPrec :: Int -&gt; ProjectSortByType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ProjectSortByType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679372118"><span id="local-6989586621679372120"><span id="local-6989586621679372122"><span id="local-6989586621679372124"><span class="annot"><span class="annottext">ReadPrec [ProjectSortByType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679374000"><span id="local-6989586621679374002"><span id="local-6989586621679374004"><span id="local-6989586621679374006"><span class="annot"><span class="annottext">ReadPrec [ProjectSortByType]
 ReadPrec ProjectSortByType
 Int -&gt; ReadS ProjectSortByType
 ReadS [ProjectSortByType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ProjectSortByType]
 readsPrec :: Int -&gt; ReadS ProjectSortByType
 $creadsPrec :: Int -&gt; ReadS ProjectSortByType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679372113"><span id="local-6989586621679372115"><span class="annot"><span class="annottext">ProjectSortByType -&gt; ProjectSortByType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679373995"><span id="local-6989586621679373997"><span class="annot"><span class="annottext">ProjectSortByType -&gt; ProjectSortByType -&gt; Bool
 (ProjectSortByType -&gt; ProjectSortByType -&gt; Bool)
 -&gt; (ProjectSortByType -&gt; ProjectSortByType -&gt; Bool)
 -&gt; Eq ProjectSortByType
@@ -83,7 +83,7 @@ $c/= :: ProjectSortByType -&gt; ProjectSortByType -&gt; Bool
 == :: ProjectSortByType -&gt; ProjectSortByType -&gt; Bool
 $c== :: ProjectSortByType -&gt; ProjectSortByType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679372097"><span id="local-6989586621679372099"><span id="local-6989586621679372101"><span id="local-6989586621679372103"><span id="local-6989586621679372105"><span id="local-6989586621679372107"><span id="local-6989586621679372109"><span class="annot"><span class="annottext">Eq ProjectSortByType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679373979"><span id="local-6989586621679373981"><span id="local-6989586621679373983"><span id="local-6989586621679373985"><span id="local-6989586621679373987"><span id="local-6989586621679373989"><span id="local-6989586621679373991"><span class="annot"><span class="annottext">Eq ProjectSortByType
 Eq ProjectSortByType
 -&gt; (ProjectSortByType -&gt; ProjectSortByType -&gt; Ordering)
 -&gt; (ProjectSortByType -&gt; ProjectSortByType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ProjectSortByType -&gt; Rep ProjectSortByType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372089"><span id="local-6989586621679372091"><span class="annot"><span class="annottext">Int -&gt; ProjectSortByType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679373971"><span id="local-6989586621679373973"><span class="annot"><span class="annottext">Int -&gt; ProjectSortByType -&gt; Int
 ProjectSortByType -&gt; Int
 (Int -&gt; ProjectSortByType -&gt; Int)
 -&gt; (ProjectSortByType -&gt; Int) -&gt; Hashable ProjectSortByType
@@ -144,51 +144,51 @@ $chash :: ProjectSortByType -&gt; Int
 hashWithSalt :: Int -&gt; ProjectSortByType -&gt; Int
 $chashWithSalt :: Int -&gt; ProjectSortByType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679372086"><span class="annot"><span class="annottext">ProjectSortByType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679373968"><span class="annot"><span class="annottext">ProjectSortByType -&gt; ()
 (ProjectSortByType -&gt; ()) -&gt; NFData ProjectSortByType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ProjectSortByType -&gt; ()
 $crnf :: ProjectSortByType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679372083"><span class="annot"><span class="annottext">Text -&gt; Either String ProjectSortByType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679373965"><span class="annot"><span class="annottext">Text -&gt; Either String ProjectSortByType
 (Text -&gt; Either String ProjectSortByType)
 -&gt; FromText ProjectSortByType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ProjectSortByType
 $cfromText :: Text -&gt; Either String ProjectSortByType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679372080"><span class="annot"><span class="annottext">ProjectSortByType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679373962"><span class="annot"><span class="annottext">ProjectSortByType -&gt; Text
 (ProjectSortByType -&gt; Text) -&gt; ToText ProjectSortByType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ProjectSortByType -&gt; Text
 $ctoText :: ProjectSortByType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679372077"><span class="annot"><span class="annottext">ProjectSortByType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679373959"><span class="annot"><span class="annottext">ProjectSortByType -&gt; ByteString
 (ProjectSortByType -&gt; ByteString) -&gt; ToByteString ProjectSortByType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ProjectSortByType -&gt; ByteString
 $ctoBS :: ProjectSortByType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679372074"><span class="annot"><span class="annottext">ProjectSortByType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679373956"><span class="annot"><span class="annottext">ProjectSortByType -&gt; ByteStringBuilder
 (ProjectSortByType -&gt; ByteStringBuilder) -&gt; ToLog ProjectSortByType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ProjectSortByType -&gt; ByteStringBuilder
 $cbuild :: ProjectSortByType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679372071"><span class="annot"><span class="annottext">HeaderName -&gt; ProjectSortByType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679373953"><span class="annot"><span class="annottext">HeaderName -&gt; ProjectSortByType -&gt; [Header]
 (HeaderName -&gt; ProjectSortByType -&gt; [Header])
 -&gt; ToHeader ProjectSortByType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ProjectSortByType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ProjectSortByType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679372068"><span class="annot"><span class="annottext">ProjectSortByType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679373950"><span class="annot"><span class="annottext">ProjectSortByType -&gt; QueryString
 (ProjectSortByType -&gt; QueryString) -&gt; ToQuery ProjectSortByType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ProjectSortByType -&gt; QueryString
 $ctoQuery :: ProjectSortByType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679372063"><span id="local-6989586621679372065"><span class="annot"><span class="annottext">Value -&gt; Parser [ProjectSortByType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679373945"><span id="local-6989586621679373947"><span class="annot"><span class="annottext">Value -&gt; Parser [ProjectSortByType]
 Value -&gt; Parser ProjectSortByType
 (Value -&gt; Parser ProjectSortByType)
 -&gt; (Value -&gt; Parser [ProjectSortByType])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [ProjectSortByType]
 parseJSON :: Value -&gt; Parser ProjectSortByType
 $cparseJSON :: Value -&gt; Parser ProjectSortByType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679372058"><span id="local-6989586621679372060"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProjectSortByType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679373940"><span id="local-6989586621679373942"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProjectSortByType]
 FromJSONKeyFunction ProjectSortByType
 FromJSONKeyFunction ProjectSortByType
 -&gt; FromJSONKeyFunction [ProjectSortByType]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ProjectSortByType]
 fromJSONKey :: FromJSONKeyFunction ProjectSortByType
 $cfromJSONKey :: FromJSONKeyFunction ProjectSortByType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679372049"><span id="local-6989586621679372051"><span id="local-6989586621679372053"><span id="local-6989586621679372055"><span class="annot"><span class="annottext">[ProjectSortByType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679373931"><span id="local-6989586621679373933"><span id="local-6989586621679373935"><span id="local-6989586621679373937"><span class="annot"><span class="annottext">[ProjectSortByType] -&gt; Encoding
 [ProjectSortByType] -&gt; Value
 ProjectSortByType -&gt; Encoding
 ProjectSortByType -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: ProjectSortByType -&gt; Encoding
 toJSON :: ProjectSortByType -&gt; Value
 $ctoJSON :: ProjectSortByType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679372044"><span id="local-6989586621679372046"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProjectSortByType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679373926"><span id="local-6989586621679373928"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProjectSortByType]
 ToJSONKeyFunction ProjectSortByType
 ToJSONKeyFunction ProjectSortByType
 -&gt; ToJSONKeyFunction [ProjectSortByType]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ProjectSortByType]
 toJSONKey :: ToJSONKeyFunction ProjectSortByType
 $ctoJSONKey :: ToJSONKeyFunction ProjectSortByType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679372041"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProjectSortByType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679373923"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProjectSortByType
 ([Node] -&gt; Either String ProjectSortByType)
 -&gt; FromXML ProjectSortByType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ProjectSortByType
 $cparseXML :: [Node] -&gt; Either String ProjectSortByType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679372038"><span class="annot"><span class="annottext">ProjectSortByType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679373920"><span class="annot"><span class="annottext">ProjectSortByType -&gt; XML
 (ProjectSortByType -&gt; XML) -&gt; ToXML ProjectSortByType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ProjectSortByType -&gt; XML

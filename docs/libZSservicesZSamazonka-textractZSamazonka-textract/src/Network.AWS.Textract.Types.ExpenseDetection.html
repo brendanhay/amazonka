@@ -28,17 +28,17 @@
 </span><span id="line-28"></span><span class="hs-comment">-- Amazon Textract.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newExpenseDetection' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679176382"><span id="local-6989586621679176383"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExpenseDetection"><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-var">ExpenseDetection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExpenseDetection%27"><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection%27"><span class="hs-identifier hs-var">ExpenseDetection'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The confidence in detection, as a percentage</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aconfidence%3AExpenseDetection%27"><span class="annot"><span class="annottext">ExpenseDetection -&gt; Maybe Double
-</span><a href="Network.AWS.Textract.Types.ExpenseDetection.html#%24sel%3Aconfidence%3AExpenseDetection%27"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The word or line of text recognized by Amazon Textract</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Atext%3AExpenseDetection%27"><span class="annot"><span class="annottext">ExpenseDetection -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621679176466"><span id="local-6989586621679176467"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExpenseDetection"><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-var">ExpenseDetection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExpenseDetection%27"><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection%27"><span class="hs-identifier hs-var">ExpenseDetection'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The word or line of text recognized by Amazon Textract</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Atext%3AExpenseDetection%27"><span class="annot"><span class="annottext">ExpenseDetection -&gt; Maybe Text
 </span><a href="Network.AWS.Textract.Types.ExpenseDetection.html#%24sel%3Atext%3AExpenseDetection%27"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The confidence in detection, as a percentage</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aconfidence%3AExpenseDetection%27"><span class="annot"><span class="annottext">ExpenseDetection -&gt; Maybe Double
+</span><a href="Network.AWS.Textract.Types.ExpenseDetection.html#%24sel%3Aconfidence%3AExpenseDetection%27"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Ageometry%3AExpenseDetection%27"><span class="annot"><span class="annottext">ExpenseDetection -&gt; Maybe Geometry
 </span><a href="Network.AWS.Textract.Types.ExpenseDetection.html#%24sel%3Ageometry%3AExpenseDetection%27"><span class="hs-identifier hs-var hs-var">geometry</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#Geometry"><span class="hs-identifier hs-type">Geometry</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176374"><span id="local-6989586621679176376"><span class="annot"><span class="annottext">ExpenseDetection -&gt; ExpenseDetection -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679176458"><span id="local-6989586621679176460"><span class="annot"><span class="annottext">ExpenseDetection -&gt; ExpenseDetection -&gt; Bool
 (ExpenseDetection -&gt; ExpenseDetection -&gt; Bool)
 -&gt; (ExpenseDetection -&gt; ExpenseDetection -&gt; Bool)
 -&gt; Eq ExpenseDetection
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExpenseDetection -&gt; ExpenseDetection -&gt; Bool
 == :: ExpenseDetection -&gt; ExpenseDetection -&gt; Bool
 $c== :: ExpenseDetection -&gt; ExpenseDetection -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176365"><span id="local-6989586621679176367"><span id="local-6989586621679176369"><span id="local-6989586621679176371"><span class="annot"><span class="annottext">ReadPrec [ExpenseDetection]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176449"><span id="local-6989586621679176451"><span id="local-6989586621679176453"><span id="local-6989586621679176455"><span class="annot"><span class="annottext">ReadPrec [ExpenseDetection]
 ReadPrec ExpenseDetection
 Int -&gt; ReadS ExpenseDetection
 ReadS [ExpenseDetection]
@@ -67,7 +67,7 @@ readList :: ReadS [ExpenseDetection]
 $creadList :: ReadS [ExpenseDetection]
 readsPrec :: Int -&gt; ReadS ExpenseDetection
 $creadsPrec :: Int -&gt; ReadS ExpenseDetection
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176358"><span id="local-6989586621679176360"><span id="local-6989586621679176362"><span class="annot"><span class="annottext">Int -&gt; ExpenseDetection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679176442"><span id="local-6989586621679176444"><span id="local-6989586621679176446"><span class="annot"><span class="annottext">Int -&gt; ExpenseDetection -&gt; ShowS
 [ExpenseDetection] -&gt; ShowS
 ExpenseDetection -&gt; String
 (Int -&gt; ExpenseDetection -&gt; ShowS)
@@ -101,23 +101,23 @@ $cfrom :: forall x. ExpenseDetection -&gt; Rep ExpenseDetection x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'confidence', 'expenseDetection_confidence' - The confidence in detection, as a percentage</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'text', 'expenseDetection_text' - The word or line of text recognized by Amazon Textract</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'text', 'expenseDetection_text' - The word or line of text recognized by Amazon Textract</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'confidence', 'expenseDetection_confidence' - The confidence in detection, as a percentage</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- 'geometry', 'expenseDetection_geometry' - Undocumented member.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#newExpenseDetection"><span class="hs-identifier hs-type">newExpenseDetection</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-type">ExpenseDetection</span></a></span><span>
 </span><span id="line-55"></span><span id="newExpenseDetection"><span class="annot"><span class="annottext">newExpenseDetection :: ExpenseDetection
 </span><a href="Network.AWS.Textract.Types.ExpenseDetection.html#newExpenseDetection"><span class="hs-identifier hs-var hs-var">newExpenseDetection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">ExpenseDetection' :: Maybe Double -&gt; Maybe Text -&gt; Maybe Geometry -&gt; ExpenseDetection
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">ExpenseDetection' :: Maybe Text -&gt; Maybe Double -&gt; Maybe Geometry -&gt; ExpenseDetection
 </span><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection%27"><span class="hs-identifier hs-type">ExpenseDetection'</span></a></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:confidence:ExpenseDetection' :: Maybe Double
-</span><a href="Network.AWS.Textract.Types.ExpenseDetection.html#%24sel%3Aconfidence%3AExpenseDetection%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:text:ExpenseDetection' :: Maybe Text
+</span><a href="Network.AWS.Textract.Types.ExpenseDetection.html#%24sel%3Atext%3AExpenseDetection%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:text:ExpenseDetection' :: Maybe Text
-</span><a href="Network.AWS.Textract.Types.ExpenseDetection.html#%24sel%3Atext%3AExpenseDetection%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:confidence:ExpenseDetection' :: Maybe Double
+</span><a href="Network.AWS.Textract.Types.ExpenseDetection.html#%24sel%3Aconfidence%3AExpenseDetection%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:geometry:ExpenseDetection' :: Maybe Geometry
@@ -126,44 +126,44 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The confidence in detection, as a percentage</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#expenseDetection_confidence"><span class="hs-identifier hs-type">expenseDetection_confidence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-type">ExpenseDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="expenseDetection_confidence"><span class="annot"><span class="annottext">expenseDetection_confidence :: (Maybe Double -&gt; f (Maybe Double))
+</span><span id="line-62"></span><span class="hs-comment">-- | The word or line of text recognized by Amazon Textract</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#expenseDetection_text"><span class="hs-identifier hs-type">expenseDetection_text</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-type">ExpenseDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="expenseDetection_text"><span class="annot"><span class="annottext">expenseDetection_text :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExpenseDetection -&gt; f ExpenseDetection
+</span><a href="Network.AWS.Textract.Types.ExpenseDetection.html#expenseDetection_text"><span class="hs-identifier hs-var hs-var">expenseDetection_text</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExpenseDetection -&gt; Maybe Text)
+-&gt; (ExpenseDetection -&gt; Maybe Text -&gt; ExpenseDetection)
+-&gt; Lens ExpenseDetection ExpenseDetection (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection%27"><span class="hs-identifier hs-type">ExpenseDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176433"><span class="annot"><span class="annottext">Maybe Text
+text :: Maybe Text
+$sel:text:ExpenseDetection' :: ExpenseDetection -&gt; Maybe Text
+</span><a href="#local-6989586621679176433"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176433"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176432"><span class="annot"><span class="annottext">s :: ExpenseDetection
+</span><a href="#local-6989586621679176432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection%27"><span class="hs-identifier hs-type">ExpenseDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176431"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpenseDetection
+</span><a href="#local-6989586621679176432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:ExpenseDetection' :: Maybe Text
+</span><a href="Network.AWS.Textract.Types.ExpenseDetection.html#%24sel%3Atext%3AExpenseDetection%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679176431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-type">ExpenseDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The confidence in detection, as a percentage</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#expenseDetection_confidence"><span class="hs-identifier hs-type">expenseDetection_confidence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-type">ExpenseDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="expenseDetection_confidence"><span class="annot"><span class="annottext">expenseDetection_confidence :: (Maybe Double -&gt; f (Maybe Double))
 -&gt; ExpenseDetection -&gt; f ExpenseDetection
 </span><a href="Network.AWS.Textract.Types.ExpenseDetection.html#expenseDetection_confidence"><span class="hs-identifier hs-var hs-var">expenseDetection_confidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExpenseDetection -&gt; Maybe Double)
 -&gt; (ExpenseDetection -&gt; Maybe Double -&gt; ExpenseDetection)
 -&gt; Lens
      ExpenseDetection ExpenseDetection (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection%27"><span class="hs-identifier hs-type">ExpenseDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176349"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection%27"><span class="hs-identifier hs-type">ExpenseDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176429"><span class="annot"><span class="annottext">Maybe Double
 confidence :: Maybe Double
 $sel:confidence:ExpenseDetection' :: ExpenseDetection -&gt; Maybe Double
-</span><a href="#local-6989586621679176349"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679176349"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176348"><span class="annot"><span class="annottext">s :: ExpenseDetection
-</span><a href="#local-6989586621679176348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection%27"><span class="hs-identifier hs-type">ExpenseDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176347"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679176347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpenseDetection
-</span><a href="#local-6989586621679176348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidence:ExpenseDetection' :: Maybe Double
+</span><a href="#local-6989586621679176429"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679176429"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176428"><span class="annot"><span class="annottext">s :: ExpenseDetection
+</span><a href="#local-6989586621679176428"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection%27"><span class="hs-identifier hs-type">ExpenseDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176427"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679176427"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpenseDetection
+</span><a href="#local-6989586621679176428"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidence:ExpenseDetection' :: Maybe Double
 </span><a href="Network.AWS.Textract.Types.ExpenseDetection.html#%24sel%3Aconfidence%3AExpenseDetection%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679176347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-type">ExpenseDetection</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | The word or line of text recognized by Amazon Textract</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#expenseDetection_text"><span class="hs-identifier hs-type">expenseDetection_text</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-type">ExpenseDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="expenseDetection_text"><span class="annot"><span class="annottext">expenseDetection_text :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ExpenseDetection -&gt; f ExpenseDetection
-</span><a href="Network.AWS.Textract.Types.ExpenseDetection.html#expenseDetection_text"><span class="hs-identifier hs-var hs-var">expenseDetection_text</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExpenseDetection -&gt; Maybe Text)
--&gt; (ExpenseDetection -&gt; Maybe Text -&gt; ExpenseDetection)
--&gt; Lens ExpenseDetection ExpenseDetection (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection%27"><span class="hs-identifier hs-type">ExpenseDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176345"><span class="annot"><span class="annottext">Maybe Text
-text :: Maybe Text
-$sel:text:ExpenseDetection' :: ExpenseDetection -&gt; Maybe Text
-</span><a href="#local-6989586621679176345"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176345"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176344"><span class="annot"><span class="annottext">s :: ExpenseDetection
-</span><a href="#local-6989586621679176344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection%27"><span class="hs-identifier hs-type">ExpenseDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176343"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpenseDetection
-</span><a href="#local-6989586621679176344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:ExpenseDetection' :: Maybe Text
-</span><a href="Network.AWS.Textract.Types.ExpenseDetection.html#%24sel%3Atext%3AExpenseDetection%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679176343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-type">ExpenseDetection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176427"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-type">ExpenseDetection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#expenseDetection_geometry"><span class="hs-identifier hs-type">expenseDetection_geometry</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-type">ExpenseDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Geometry.html#Geometry"><span class="hs-identifier hs-type">Geometry</span></a></span><span class="hs-special">)</span><span>
@@ -174,19 +174,19 @@ $sel:text:ExpenseDetection' :: ExpenseDetection -&gt; Maybe Text
 -&gt; Lens
      ExpenseDetection ExpenseDetection (Maybe Geometry) (Maybe Geometry)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection%27"><span class="hs-identifier hs-type">ExpenseDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176341"><span class="annot"><span class="annottext">Maybe Geometry
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection%27"><span class="hs-identifier hs-type">ExpenseDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679176425"><span class="annot"><span class="annottext">Maybe Geometry
 geometry :: Maybe Geometry
 $sel:geometry:ExpenseDetection' :: ExpenseDetection -&gt; Maybe Geometry
-</span><a href="#local-6989586621679176341"><span class="hs-identifier hs-var hs-var">geometry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Geometry
-</span><a href="#local-6989586621679176341"><span class="hs-identifier hs-var">geometry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176340"><span class="annot"><span class="annottext">s :: ExpenseDetection
-</span><a href="#local-6989586621679176340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection%27"><span class="hs-identifier hs-type">ExpenseDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176339"><span class="annot"><span class="annottext">Maybe Geometry
-</span><a href="#local-6989586621679176339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpenseDetection
-</span><a href="#local-6989586621679176340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:geometry:ExpenseDetection' :: Maybe Geometry
+</span><a href="#local-6989586621679176425"><span class="hs-identifier hs-var hs-var">geometry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Geometry
+</span><a href="#local-6989586621679176425"><span class="hs-identifier hs-var">geometry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679176424"><span class="annot"><span class="annottext">s :: ExpenseDetection
+</span><a href="#local-6989586621679176424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection%27"><span class="hs-identifier hs-type">ExpenseDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679176423"><span class="annot"><span class="annottext">Maybe Geometry
+</span><a href="#local-6989586621679176423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpenseDetection
+</span><a href="#local-6989586621679176424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:geometry:ExpenseDetection' :: Maybe Geometry
 </span><a href="Network.AWS.Textract.Types.ExpenseDetection.html#%24sel%3Ageometry%3AExpenseDetection%27"><span class="hs-identifier hs-var">geometry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Geometry
-</span><a href="#local-6989586621679176339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-type">ExpenseDetection</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679176423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-type">ExpenseDetection</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176336"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-type">ExpenseDetection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679176334"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExpenseDetection
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176420"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-type">ExpenseDetection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679176418"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExpenseDetection
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ExpenseDetection)
@@ -196,39 +196,39 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ExpenseDetection&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176331"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679176331"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe Text -&gt; Maybe Geometry -&gt; ExpenseDetection
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679176415"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176415"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Double -&gt; Maybe Geometry -&gt; ExpenseDetection
 </span><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection%27"><span class="hs-identifier hs-var">ExpenseDetection'</span></a></span><span>
-</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe Text -&gt; Maybe Geometry -&gt; ExpenseDetection)
--&gt; Parser (Maybe Double)
--&gt; Parser (Maybe Text -&gt; Maybe Geometry -&gt; ExpenseDetection)
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Double -&gt; Maybe Geometry -&gt; ExpenseDetection)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Double -&gt; Maybe Geometry -&gt; ExpenseDetection)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679176331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Confidence&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Geometry -&gt; ExpenseDetection)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Geometry -&gt; ExpenseDetection)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679176331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679176415"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Text&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Maybe Geometry -&gt; ExpenseDetection)
+-&gt; Parser (Maybe Double)
+-&gt; Parser (Maybe Geometry -&gt; ExpenseDetection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679176415"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Confidence&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Geometry -&gt; ExpenseDetection)
 -&gt; Parser (Maybe Geometry) -&gt; Parser ExpenseDetection
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679176331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Geometry)
+</span><a href="#local-6989586621679176415"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Geometry)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Geometry&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176325"><span id="local-6989586621679176327"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-type">ExpenseDetection</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176409"><span id="local-6989586621679176411"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-type">ExpenseDetection</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176322"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-type">ExpenseDetection</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679176406"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.ExpenseDetection.html#ExpenseDetection"><span class="hs-identifier hs-type">ExpenseDetection</span></a></span></span><span>
 </span><span id="line-88"></span></pre></body></html>

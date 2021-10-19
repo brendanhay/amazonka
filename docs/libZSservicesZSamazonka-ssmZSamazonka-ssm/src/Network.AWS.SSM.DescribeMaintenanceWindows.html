@@ -29,17 +29,17 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#newDescribeMaintenanceWindows"><span class="hs-identifier">newDescribeMaintenanceWindows</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindows_nextToken"><span class="hs-identifier">describeMaintenanceWindows_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindows_maxResults"><span class="hs-identifier">describeMaintenanceWindows_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindows_filters"><span class="hs-identifier">describeMaintenanceWindows_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindows_filters"><span class="hs-identifier">describeMaintenanceWindows_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindows_nextToken"><span class="hs-identifier">describeMaintenanceWindows_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindows_maxResults"><span class="hs-identifier">describeMaintenanceWindows_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse"><span class="hs-identifier">DescribeMaintenanceWindowsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#newDescribeMaintenanceWindowsResponse"><span class="hs-identifier">newDescribeMaintenanceWindowsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindowsResponse_nextToken"><span class="hs-identifier">describeMaintenanceWindowsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindowsResponse_windowIdentities"><span class="hs-identifier">describeMaintenanceWindowsResponse_windowIdentities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindowsResponse_windowIdentities"><span class="hs-identifier">describeMaintenanceWindowsResponse_windowIdentities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindowsResponse_nextToken"><span class="hs-identifier">describeMaintenanceWindowsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindowsResponse_httpStatus"><span class="hs-identifier">describeMaintenanceWindowsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span class="hs-keyword">where</span><span>
@@ -52,23 +52,23 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newDescribeMaintenanceWindows' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679841088"><span id="local-6989586621679841089"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeMaintenanceWindows"><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-var">DescribeMaintenanceWindows</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeMaintenanceWindows%27"><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows%27"><span class="hs-identifier hs-var">DescribeMaintenanceWindows'</span></a></span></span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- from a previous call.)</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeMaintenanceWindows%27"><span class="annot"><span class="annottext">DescribeMaintenanceWindows -&gt; Maybe Text
+</span><span id="line-55"></span><span id="local-6989586621679842888"><span id="local-6989586621679842889"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeMaintenanceWindows"><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-var">DescribeMaintenanceWindows</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeMaintenanceWindows%27"><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows%27"><span class="hs-identifier hs-var">DescribeMaintenanceWindows'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional filters used to narrow down the scope of the returned</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- maintenance windows. Supported filter keys are @Name@ and @Enabled@. For</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- example, @Name=MyMaintenanceWindow@ and @Enabled=True@.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeMaintenanceWindows%27"><span class="annot"><span class="annottext">DescribeMaintenanceWindows -&gt; Maybe [MaintenanceWindowFilter]
+</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3Afilters%3ADescribeMaintenanceWindows%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter"><span class="hs-identifier hs-type">MaintenanceWindowFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeMaintenanceWindows%27"><span class="annot"><span class="annottext">DescribeMaintenanceWindows -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AnextToken%3ADescribeMaintenanceWindows%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeMaintenanceWindows%27"><span class="annot"><span class="annottext">DescribeMaintenanceWindows -&gt; Maybe Natural
-</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AmaxResults%3ADescribeMaintenanceWindows%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Optional filters used to narrow down the scope of the returned</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- maintenance windows. Supported filter keys are @Name@ and @Enabled@. For</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- example, @Name=MyMaintenanceWindow@ and @Enabled=True@.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeMaintenanceWindows%27"><span class="annot"><span class="annottext">DescribeMaintenanceWindows -&gt; Maybe [MaintenanceWindowFilter]
-</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3Afilters%3ADescribeMaintenanceWindows%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter"><span class="hs-identifier hs-type">MaintenanceWindowFilter</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeMaintenanceWindows%27"><span class="annot"><span class="annottext">DescribeMaintenanceWindows -&gt; Maybe Natural
+</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AmaxResults%3ADescribeMaintenanceWindows%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679841080"><span id="local-6989586621679841082"><span class="annot"><span class="annottext">DescribeMaintenanceWindows -&gt; DescribeMaintenanceWindows -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679842880"><span id="local-6989586621679842882"><span class="annot"><span class="annottext">DescribeMaintenanceWindows -&gt; DescribeMaintenanceWindows -&gt; Bool
 (DescribeMaintenanceWindows -&gt; DescribeMaintenanceWindows -&gt; Bool)
 -&gt; (DescribeMaintenanceWindows
     -&gt; DescribeMaintenanceWindows -&gt; Bool)
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeMaintenanceWindows -&gt; DescribeMaintenanceWindows -&gt; Bool
 == :: DescribeMaintenanceWindows -&gt; DescribeMaintenanceWindows -&gt; Bool
 $c== :: DescribeMaintenanceWindows -&gt; DescribeMaintenanceWindows -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679841071"><span id="local-6989586621679841073"><span id="local-6989586621679841075"><span id="local-6989586621679841077"><span class="annot"><span class="annottext">ReadPrec [DescribeMaintenanceWindows]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842871"><span id="local-6989586621679842873"><span id="local-6989586621679842875"><span id="local-6989586621679842877"><span class="annot"><span class="annottext">ReadPrec [DescribeMaintenanceWindows]
 ReadPrec DescribeMaintenanceWindows
 Int -&gt; ReadS DescribeMaintenanceWindows
 ReadS [DescribeMaintenanceWindows]
@@ -98,7 +98,7 @@ readList :: ReadS [DescribeMaintenanceWindows]
 $creadList :: ReadS [DescribeMaintenanceWindows]
 readsPrec :: Int -&gt; ReadS DescribeMaintenanceWindows
 $creadsPrec :: Int -&gt; ReadS DescribeMaintenanceWindows
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679841064"><span id="local-6989586621679841066"><span id="local-6989586621679841068"><span class="annot"><span class="annottext">Int -&gt; DescribeMaintenanceWindows -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842864"><span id="local-6989586621679842866"><span id="local-6989586621679842868"><span class="annot"><span class="annottext">Int -&gt; DescribeMaintenanceWindows -&gt; ShowS
 [DescribeMaintenanceWindows] -&gt; ShowS
 DescribeMaintenanceWindows -&gt; String
 (Int -&gt; DescribeMaintenanceWindows -&gt; ShowS)
@@ -138,96 +138,43 @@ DescribeMaintenanceWindows -&gt; Rep DescribeMaintenanceWindows x
 </span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'nextToken', 'describeMaintenanceWindows_nextToken' - The token for the next set of items to return. (You received this token</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- from a previous call.)</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'maxResults', 'describeMaintenanceWindows_maxResults' - The maximum number of items to return for this call. The call also</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'filters', 'describeMaintenanceWindows_filters' - Optional filters used to narrow down the scope of the returned</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- maintenance windows. Supported filter keys are @Name@ and @Enabled@. For</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- example, @Name=MyMaintenanceWindow@ and @Enabled=True@.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'nextToken', 'describeMaintenanceWindows_nextToken' - The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- from a previous call.)</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'filters', 'describeMaintenanceWindows_filters' - Optional filters used to narrow down the scope of the returned</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- maintenance windows. Supported filter keys are @Name@ and @Enabled@. For</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- example, @Name=MyMaintenanceWindow@ and @Enabled=True@.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'maxResults', 'describeMaintenanceWindows_maxResults' - The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- next set of results.</span><span>
 </span><span id="line-88"></span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#newDescribeMaintenanceWindows"><span class="hs-identifier hs-type">newDescribeMaintenanceWindows</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span><span>
 </span><span id="line-90"></span><span id="newDescribeMaintenanceWindows"><span class="annot"><span class="annottext">newDescribeMaintenanceWindows :: DescribeMaintenanceWindows
 </span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#newDescribeMaintenanceWindows"><span class="hs-identifier hs-var hs-var">newDescribeMaintenanceWindows</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">DescribeMaintenanceWindows' :: Maybe Text
--&gt; Maybe Natural
--&gt; Maybe [MaintenanceWindowFilter]
--&gt; DescribeMaintenanceWindows
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">DescribeMaintenanceWindows' :: Maybe [MaintenanceWindowFilter]
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; DescribeMaintenanceWindows
 </span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindows'</span></a></span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeMaintenanceWindows' :: Maybe Text
-</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AnextToken%3ADescribeMaintenanceWindows%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:DescribeMaintenanceWindows' :: Maybe [MaintenanceWindowFilter]
+</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3Afilters%3ADescribeMaintenanceWindows%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">Maybe [MaintenanceWindowFilter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeMaintenanceWindows' :: Maybe Natural
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeMaintenanceWindows' :: Maybe Text
+</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AnextToken%3ADescribeMaintenanceWindows%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeMaintenanceWindows' :: Maybe Natural
 </span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AmaxResults%3ADescribeMaintenanceWindows%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeMaintenanceWindows' :: Maybe [MaintenanceWindowFilter]
-</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3Afilters%3ADescribeMaintenanceWindows%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MaintenanceWindowFilter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- from a previous call.)</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindows_nextToken"><span class="hs-identifier hs-type">describeMaintenanceWindows_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="describeMaintenanceWindows_nextToken"><span class="annot"><span class="annottext">describeMaintenanceWindows_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeMaintenanceWindows -&gt; f DescribeMaintenanceWindows
-</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindows_nextToken"><span class="hs-identifier hs-var hs-var">describeMaintenanceWindows_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMaintenanceWindows -&gt; Maybe Text)
--&gt; (DescribeMaintenanceWindows
-    -&gt; Maybe Text -&gt; DescribeMaintenanceWindows)
--&gt; Lens
-     DescribeMaintenanceWindows
-     DescribeMaintenanceWindows
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679841058"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeMaintenanceWindows' :: DescribeMaintenanceWindows -&gt; Maybe Text
-</span><a href="#local-6989586621679841058"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679841058"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679841057"><span class="annot"><span class="annottext">s :: DescribeMaintenanceWindows
-</span><a href="#local-6989586621679841057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679841056"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679841056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMaintenanceWindows
-</span><a href="#local-6989586621679841057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeMaintenanceWindows' :: Maybe Text
-</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AnextToken%3ADescribeMaintenanceWindows%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679841056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindows_maxResults"><span class="hs-identifier hs-type">describeMaintenanceWindows_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="describeMaintenanceWindows_maxResults"><span class="annot"><span class="annottext">describeMaintenanceWindows_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; DescribeMaintenanceWindows -&gt; f DescribeMaintenanceWindows
-</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindows_maxResults"><span class="hs-identifier hs-var hs-var">describeMaintenanceWindows_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMaintenanceWindows -&gt; Maybe Natural)
--&gt; (DescribeMaintenanceWindows
-    -&gt; Maybe Natural -&gt; DescribeMaintenanceWindows)
--&gt; Lens
-     DescribeMaintenanceWindows
-     DescribeMaintenanceWindows
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679841055"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:DescribeMaintenanceWindows' :: DescribeMaintenanceWindows -&gt; Maybe Natural
-</span><a href="#local-6989586621679841055"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679841055"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679841054"><span class="annot"><span class="annottext">s :: DescribeMaintenanceWindows
-</span><a href="#local-6989586621679841054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679841053"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679841053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMaintenanceWindows
-</span><a href="#local-6989586621679841054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeMaintenanceWindows' :: Maybe Natural
-</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AmaxResults%3ADescribeMaintenanceWindows%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679841053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | Optional filters used to narrow down the scope of the returned</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- maintenance windows. Supported filter keys are @Name@ and @Enabled@. For</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- example, @Name=MyMaintenanceWindow@ and @Enabled=True@.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindows_filters"><span class="hs-identifier hs-type">describeMaintenanceWindows_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter"><span class="hs-identifier hs-type">MaintenanceWindowFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="describeMaintenanceWindows_filters"><span class="annot"><span class="annottext">describeMaintenanceWindows_filters :: (Maybe [MaintenanceWindowFilter]
+</span><span id="line-98"></span><span class="hs-comment">-- | Optional filters used to narrow down the scope of the returned</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- maintenance windows. Supported filter keys are @Name@ and @Enabled@. For</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- example, @Name=MyMaintenanceWindow@ and @Enabled=True@.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindows_filters"><span class="hs-identifier hs-type">describeMaintenanceWindows_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowFilter.html#MaintenanceWindowFilter"><span class="hs-identifier hs-type">MaintenanceWindowFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="describeMaintenanceWindows_filters"><span class="annot"><span class="annottext">describeMaintenanceWindows_filters :: (Maybe [MaintenanceWindowFilter]
  -&gt; f (Maybe [MaintenanceWindowFilter]))
 -&gt; DescribeMaintenanceWindows -&gt; f DescribeMaintenanceWindows
 </span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindows_filters"><span class="hs-identifier hs-var hs-var">describeMaintenanceWindows_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMaintenanceWindows -&gt; Maybe [MaintenanceWindowFilter])
@@ -239,16 +186,16 @@ $sel:maxResults:DescribeMaintenanceWindows' :: DescribeMaintenanceWindows -&gt; 
      (Maybe [MaintenanceWindowFilter])
      (Maybe [MaintenanceWindowFilter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679841052"><span class="annot"><span class="annottext">Maybe [MaintenanceWindowFilter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842858"><span class="annot"><span class="annottext">Maybe [MaintenanceWindowFilter]
 filters :: Maybe [MaintenanceWindowFilter]
 $sel:filters:DescribeMaintenanceWindows' :: DescribeMaintenanceWindows -&gt; Maybe [MaintenanceWindowFilter]
-</span><a href="#local-6989586621679841052"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MaintenanceWindowFilter]
-</span><a href="#local-6989586621679841052"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679841051"><span class="annot"><span class="annottext">s :: DescribeMaintenanceWindows
-</span><a href="#local-6989586621679841051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679841050"><span class="annot"><span class="annottext">Maybe [MaintenanceWindowFilter]
-</span><a href="#local-6989586621679841050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMaintenanceWindows
-</span><a href="#local-6989586621679841051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeMaintenanceWindows' :: Maybe [MaintenanceWindowFilter]
+</span><a href="#local-6989586621679842858"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MaintenanceWindowFilter]
+</span><a href="#local-6989586621679842858"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842857"><span class="annot"><span class="annottext">s :: DescribeMaintenanceWindows
+</span><a href="#local-6989586621679842857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842856"><span class="annot"><span class="annottext">Maybe [MaintenanceWindowFilter]
+</span><a href="#local-6989586621679842856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMaintenanceWindows
+</span><a href="#local-6989586621679842857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeMaintenanceWindows' :: Maybe [MaintenanceWindowFilter]
 </span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3Afilters%3ADescribeMaintenanceWindows%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MaintenanceWindowFilter]
-</span><a href="#local-6989586621679841050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MaintenanceWindowFilter]
+</span><a href="#local-6989586621679842856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MaintenanceWindowFilter]
   -&gt; f (Maybe [MaintenanceWindowFilter]))
  -&gt; DescribeMaintenanceWindows -&gt; f DescribeMaintenanceWindows)
 -&gt; ((Maybe [MaintenanceWindowFilter]
@@ -278,22 +225,73 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [MaintenanceWindowFilter]
   [MaintenanceWindowFilter]
   [MaintenanceWindowFilter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- from a previous call.)</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindows_nextToken"><span class="hs-identifier hs-type">describeMaintenanceWindows_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="describeMaintenanceWindows_nextToken"><span class="annot"><span class="annottext">describeMaintenanceWindows_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeMaintenanceWindows -&gt; f DescribeMaintenanceWindows
+</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindows_nextToken"><span class="hs-identifier hs-var hs-var">describeMaintenanceWindows_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMaintenanceWindows -&gt; Maybe Text)
+-&gt; (DescribeMaintenanceWindows
+    -&gt; Maybe Text -&gt; DescribeMaintenanceWindows)
+-&gt; Lens
+     DescribeMaintenanceWindows
+     DescribeMaintenanceWindows
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842852"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeMaintenanceWindows' :: DescribeMaintenanceWindows -&gt; Maybe Text
+</span><a href="#local-6989586621679842852"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679842852"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842851"><span class="annot"><span class="annottext">s :: DescribeMaintenanceWindows
+</span><a href="#local-6989586621679842851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842850"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679842850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMaintenanceWindows
+</span><a href="#local-6989586621679842851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeMaintenanceWindows' :: Maybe Text
+</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AnextToken%3ADescribeMaintenanceWindows%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679842850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindows_maxResults"><span class="hs-identifier hs-type">describeMaintenanceWindows_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="describeMaintenanceWindows_maxResults"><span class="annot"><span class="annottext">describeMaintenanceWindows_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeMaintenanceWindows -&gt; f DescribeMaintenanceWindows
+</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindows_maxResults"><span class="hs-identifier hs-var hs-var">describeMaintenanceWindows_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMaintenanceWindows -&gt; Maybe Natural)
+-&gt; (DescribeMaintenanceWindows
+    -&gt; Maybe Natural -&gt; DescribeMaintenanceWindows)
+-&gt; Lens
+     DescribeMaintenanceWindows
+     DescribeMaintenanceWindows
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842849"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeMaintenanceWindows' :: DescribeMaintenanceWindows -&gt; Maybe Natural
+</span><a href="#local-6989586621679842849"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679842849"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842848"><span class="annot"><span class="annottext">s :: DescribeMaintenanceWindows
+</span><a href="#local-6989586621679842848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842847"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679842847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMaintenanceWindows
+</span><a href="#local-6989586621679842848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeMaintenanceWindows' :: Maybe Natural
+</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AmaxResults%3ADescribeMaintenanceWindows%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679842847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679841043"><span class="annot"><span class="annottext">page :: DescribeMaintenanceWindows
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679842843"><span class="annot"><span class="annottext">page :: DescribeMaintenanceWindows
 -&gt; AWSResponse DescribeMaintenanceWindows
 -&gt; Maybe DescribeMaintenanceWindows
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679841041"><span class="annot"><span class="annottext">DescribeMaintenanceWindows
-</span><a href="#local-6989586621679841041"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679841040"><span class="annot"><span class="annottext">AWSResponse DescribeMaintenanceWindows
-</span><a href="#local-6989586621679841040"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679842841"><span class="annot"><span class="annottext">DescribeMaintenanceWindows
+</span><a href="#local-6989586621679842841"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679842840"><span class="annot"><span class="annottext">AWSResponse DescribeMaintenanceWindows
+</span><a href="#local-6989586621679842840"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeMaintenanceWindows
 DescribeMaintenanceWindowsResponse
-</span><a href="#local-6989586621679841040"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679842840"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">DescribeMaintenanceWindowsResponse
 -&gt; Getting (First Text) DescribeMaintenanceWindowsResponse Text
 -&gt; Maybe Text
@@ -323,7 +321,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-124"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeMaintenanceWindows
 DescribeMaintenanceWindowsResponse
-</span><a href="#local-6989586621679841040"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679842840"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">DescribeMaintenanceWindowsResponse
 -&gt; Getting
      (First [MaintenanceWindowIdentity])
@@ -385,7 +383,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">DescribeMaintenanceWindows
-</span><a href="#local-6989586621679841041"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679842841"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">DescribeMaintenanceWindows
 -&gt; (DescribeMaintenanceWindows -&gt; DescribeMaintenanceWindows)
 -&gt; DescribeMaintenanceWindows
@@ -408,7 +406,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeMaintenanceWindows
 DescribeMaintenanceWindowsResponse
-</span><a href="#local-6989586621679841040"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679842840"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">DescribeMaintenanceWindowsResponse
 -&gt; Getting (First Text) DescribeMaintenanceWindowsResponse Text
 -&gt; Maybe Text
@@ -434,13 +432,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-139"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse</span></a></span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679841031"><span class="annot"><span class="annottext">request :: DescribeMaintenanceWindows -&gt; Request DescribeMaintenanceWindows
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679842831"><span class="annot"><span class="annottext">request :: DescribeMaintenanceWindows -&gt; Request DescribeMaintenanceWindows
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeMaintenanceWindows -&gt; Request DescribeMaintenanceWindows
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679841027"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679842827"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeMaintenanceWindows
 -&gt; ClientResponse ClientBody
@@ -466,52 +464,44 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679841024"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679841024"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679841023"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679841023"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679841022"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679841022"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [MaintenanceWindowIdentity]
--&gt; Int
--&gt; DescribeMaintenanceWindowsResponse
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679842824"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679842824"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679842823"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679842823"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679842822"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679842822"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe [MaintenanceWindowIdentity]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeMaintenanceWindowsResponse
 </span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-var">DescribeMaintenanceWindowsResponse'</span></a></span><span>
-</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [MaintenanceWindowIdentity]
- -&gt; Int
- -&gt; DescribeMaintenanceWindowsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [MaintenanceWindowIdentity]
-      -&gt; Int -&gt; DescribeMaintenanceWindowsResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679841022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [MaintenanceWindowIdentity]
-   -&gt; Int -&gt; DescribeMaintenanceWindowsResponse)
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [MaintenanceWindowIdentity]
+ -&gt; Maybe Text -&gt; Int -&gt; DescribeMaintenanceWindowsResponse)
 -&gt; Either String (Maybe [MaintenanceWindowIdentity])
--&gt; Either String (Int -&gt; DescribeMaintenanceWindowsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679841022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DescribeMaintenanceWindowsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679842822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [MaintenanceWindowIdentity]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WindowIdentities&quot;</span></span><span>
-</span><span id="line-148"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [MaintenanceWindowIdentity]))
+</span><span id="line-147"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [MaintenanceWindowIdentity]))
 -&gt; Maybe [MaintenanceWindowIdentity]
 -&gt; Either String (Maybe [MaintenanceWindowIdentity])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MaintenanceWindowIdentity]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-149"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; DescribeMaintenanceWindowsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeMaintenanceWindowsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679842822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeMaintenanceWindowsResponse)
 -&gt; Either String Int
 -&gt; Either String DescribeMaintenanceWindowsResponse
@@ -521,15 +511,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679841024"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679842824"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679841013"><span id="local-6989586621679841015"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842813"><span id="local-6989586621679842815"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679841010"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842810"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679841006"><span class="annot"><span class="annottext">toHeaders :: DescribeMaintenanceWindows -&gt; ResponseHeaders
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679842806"><span class="annot"><span class="annottext">toHeaders :: DescribeMaintenanceWindows -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeMaintenanceWindows -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -556,57 +546,57 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679840996"><span id="local-6989586621679840998"><span id="local-6989586621679841000"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679840994"><span class="annot"><span class="annottext">toJSON :: DescribeMaintenanceWindows -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840990"><span id="local-6989586621679840991"><span id="local-6989586621679840992"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679842796"><span id="local-6989586621679842798"><span id="local-6989586621679842800"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679842794"><span class="annot"><span class="annottext">toJSON :: DescribeMaintenanceWindows -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842790"><span id="local-6989586621679842791"><span id="local-6989586621679842792"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [MaintenanceWindowFilter]
 Maybe Text
-filters :: Maybe [MaintenanceWindowFilter]
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
-$sel:filters:DescribeMaintenanceWindows' :: DescribeMaintenanceWindows -&gt; Maybe [MaintenanceWindowFilter]
+filters :: Maybe [MaintenanceWindowFilter]
 $sel:maxResults:DescribeMaintenanceWindows' :: DescribeMaintenanceWindows -&gt; Maybe Natural
 $sel:nextToken:DescribeMaintenanceWindows' :: DescribeMaintenanceWindows -&gt; Maybe Text
-</span><a href="#local-6989586621679840990"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:filters:DescribeMaintenanceWindows' :: DescribeMaintenanceWindows -&gt; Maybe [MaintenanceWindowFilter]
+</span><a href="#local-6989586621679842790"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-176"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679840992"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679840991"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MaintenanceWindowFilter] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([MaintenanceWindowFilter] -&gt; Pair)
 -&gt; Maybe [MaintenanceWindowFilter] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MaintenanceWindowFilter]
-</span><a href="#local-6989586621679840990"><span class="hs-identifier hs-var">filters</span></a></span><span>
+</span><a href="#local-6989586621679842792"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679842791"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679842790"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-179"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679840984"><span class="annot"><span class="annottext">toPath :: DescribeMaintenanceWindows -&gt; ByteString
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679842784"><span class="annot"><span class="annottext">toPath :: DescribeMaintenanceWindows -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeMaintenanceWindows -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindows"><span class="hs-identifier hs-type">DescribeMaintenanceWindows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679840980"><span class="annot"><span class="annottext">toQuery :: DescribeMaintenanceWindows -&gt; QueryString
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679842780"><span class="annot"><span class="annottext">toQuery :: DescribeMaintenanceWindows -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeMaintenanceWindows -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -614,20 +604,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | /See:/ 'newDescribeMaintenanceWindowsResponse' smart constructor.</span><span>
-</span><span id="line-189"></span><span id="local-6989586621679840977"><span id="local-6989586621679840978"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeMaintenanceWindowsResponse"><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-var">DescribeMaintenanceWindowsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeMaintenanceWindowsResponse%27"><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-var">DescribeMaintenanceWindowsResponse'</span></a></span></span><span>
-</span><span id="line-190"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use when requesting the next set of items. If there are no</span><span>
-</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
-</span><span id="line-192"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeMaintenanceWindowsResponse%27"><span class="annot"><span class="annottext">DescribeMaintenanceWindowsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AnextToken%3ADescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | Information about the maintenance windows.</span><span>
-</span><span id="line-194"></span><span>    </span><span id="%24sel%3AwindowIdentities%3ADescribeMaintenanceWindowsResponse%27"><span class="annot"><span class="annottext">DescribeMaintenanceWindowsResponse
+</span><span id="line-189"></span><span id="local-6989586621679842777"><span id="local-6989586621679842778"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeMaintenanceWindowsResponse"><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-var">DescribeMaintenanceWindowsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeMaintenanceWindowsResponse%27"><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-var">DescribeMaintenanceWindowsResponse'</span></a></span></span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the maintenance windows.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AwindowIdentities%3ADescribeMaintenanceWindowsResponse%27"><span class="annot"><span class="annottext">DescribeMaintenanceWindowsResponse
 -&gt; Maybe [MaintenanceWindowIdentity]
 </span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AwindowIdentities%3ADescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-var hs-var">windowIdentities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | The token to use when requesting the next set of items. If there are no</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeMaintenanceWindowsResponse%27"><span class="annot"><span class="annottext">DescribeMaintenanceWindowsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AnextToken%3ADescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-196"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeMaintenanceWindowsResponse%27"><span class="annot"><span class="annottext">DescribeMaintenanceWindowsResponse -&gt; Int
 </span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AhttpStatus%3ADescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-197"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679840970"><span id="local-6989586621679840972"><span class="annot"><span class="annottext">DescribeMaintenanceWindowsResponse
+</span><span id="line-198"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679842770"><span id="local-6989586621679842772"><span class="annot"><span class="annottext">DescribeMaintenanceWindowsResponse
 -&gt; DescribeMaintenanceWindowsResponse -&gt; Bool
 (DescribeMaintenanceWindowsResponse
  -&gt; DescribeMaintenanceWindowsResponse -&gt; Bool)
@@ -643,7 +633,7 @@ $c/= :: DescribeMaintenanceWindowsResponse
 -&gt; DescribeMaintenanceWindowsResponse -&gt; Bool
 $c== :: DescribeMaintenanceWindowsResponse
 -&gt; DescribeMaintenanceWindowsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679840964"><span id="local-6989586621679840966"><span id="local-6989586621679840968"><span class="annot"><span class="annottext">Int -&gt; DescribeMaintenanceWindowsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679842764"><span id="local-6989586621679842766"><span id="local-6989586621679842768"><span class="annot"><span class="annottext">Int -&gt; DescribeMaintenanceWindowsResponse -&gt; ShowS
 [DescribeMaintenanceWindowsResponse] -&gt; ShowS
 DescribeMaintenanceWindowsResponse -&gt; String
 (Int -&gt; DescribeMaintenanceWindowsResponse -&gt; ShowS)
@@ -689,10 +679,10 @@ DescribeMaintenanceWindowsResponse
 </span><span id="line-205"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-207"></span><span class="hs-comment">--</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- 'nextToken', 'describeMaintenanceWindowsResponse_nextToken' - The token to use when requesting the next set of items. If there are no</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
-</span><span id="line-210"></span><span class="hs-comment">--</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- 'windowIdentities', 'describeMaintenanceWindowsResponse_windowIdentities' - Information about the maintenance windows.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'windowIdentities', 'describeMaintenanceWindowsResponse_windowIdentities' - Information about the maintenance windows.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'nextToken', 'describeMaintenanceWindowsResponse_nextToken' - The token to use when requesting the next set of items. If there are no</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
 </span><span id="line-212"></span><span class="hs-comment">--</span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- 'httpStatus', 'describeMaintenanceWindowsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-214"></span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#newDescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-type">newDescribeMaintenanceWindowsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -700,52 +690,28 @@ DescribeMaintenanceWindowsResponse
 </span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-217"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse</span></a></span><span>
 </span><span id="line-218"></span><span id="newDescribeMaintenanceWindowsResponse"><span class="annot"><span class="annottext">newDescribeMaintenanceWindowsResponse :: Int -&gt; DescribeMaintenanceWindowsResponse
-</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#newDescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-var hs-var">newDescribeMaintenanceWindowsResponse</span></a></span></span><span> </span><span id="local-6989586621679840961"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840961"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-219"></span><span>  </span><span class="annot"><span class="annottext">DescribeMaintenanceWindowsResponse' :: Maybe Text
--&gt; Maybe [MaintenanceWindowIdentity]
--&gt; Int
--&gt; DescribeMaintenanceWindowsResponse
+</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#newDescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-var hs-var">newDescribeMaintenanceWindowsResponse</span></a></span></span><span> </span><span id="local-6989586621679842761"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679842761"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><span class="annottext">DescribeMaintenanceWindowsResponse' :: Maybe [MaintenanceWindowIdentity]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeMaintenanceWindowsResponse
 </span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse'</span></a></span><span>
-</span><span id="line-220"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeMaintenanceWindowsResponse' :: Maybe Text
-</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AnextToken%3ADescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-220"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:windowIdentities:DescribeMaintenanceWindowsResponse' :: Maybe [MaintenanceWindowIdentity]
+</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AwindowIdentities%3ADescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-var">windowIdentities</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">Maybe [MaintenanceWindowIdentity]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:windowIdentities:DescribeMaintenanceWindowsResponse' :: Maybe [MaintenanceWindowIdentity]
-</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AwindowIdentities%3ADescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-var">windowIdentities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MaintenanceWindowIdentity]
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeMaintenanceWindowsResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AnextToken%3ADescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeMaintenanceWindowsResponse' :: Int
 </span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AhttpStatus%3ADescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840961"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679842761"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-224"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-225"></span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- | The token to use when requesting the next set of items. If there are no</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
-</span><span id="line-228"></span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindowsResponse_nextToken"><span class="hs-identifier hs-type">describeMaintenanceWindowsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-229"></span><span id="describeMaintenanceWindowsResponse_nextToken"><span class="annot"><span class="annottext">describeMaintenanceWindowsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeMaintenanceWindowsResponse
--&gt; f DescribeMaintenanceWindowsResponse
-</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindowsResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeMaintenanceWindowsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMaintenanceWindowsResponse -&gt; Maybe Text)
--&gt; (DescribeMaintenanceWindowsResponse
-    -&gt; Maybe Text -&gt; DescribeMaintenanceWindowsResponse)
--&gt; Lens' DescribeMaintenanceWindowsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840960"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeMaintenanceWindowsResponse' :: DescribeMaintenanceWindowsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679840960"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679840960"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840959"><span class="annot"><span class="annottext">s :: DescribeMaintenanceWindowsResponse
-</span><a href="#local-6989586621679840959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840958"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679840958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMaintenanceWindowsResponse
-</span><a href="#local-6989586621679840959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeMaintenanceWindowsResponse' :: Maybe Text
-</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AnextToken%3ADescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679840958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-230"></span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- | Information about the maintenance windows.</span><span>
-</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindowsResponse_windowIdentities"><span class="hs-identifier hs-type">describeMaintenanceWindowsResponse_windowIdentities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-233"></span><span id="describeMaintenanceWindowsResponse_windowIdentities"><span class="annot"><span class="annottext">describeMaintenanceWindowsResponse_windowIdentities :: (Maybe [MaintenanceWindowIdentity]
+</span><span id="line-226"></span><span class="hs-comment">-- | Information about the maintenance windows.</span><span>
+</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindowsResponse_windowIdentities"><span class="hs-identifier hs-type">describeMaintenanceWindowsResponse_windowIdentities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowIdentity.html#MaintenanceWindowIdentity"><span class="hs-identifier hs-type">MaintenanceWindowIdentity</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span id="describeMaintenanceWindowsResponse_windowIdentities"><span class="annot"><span class="annottext">describeMaintenanceWindowsResponse_windowIdentities :: (Maybe [MaintenanceWindowIdentity]
  -&gt; f (Maybe [MaintenanceWindowIdentity]))
 -&gt; DescribeMaintenanceWindowsResponse
 -&gt; f DescribeMaintenanceWindowsResponse
@@ -758,17 +724,17 @@ $sel:nextToken:DescribeMaintenanceWindowsResponse' :: DescribeMaintenanceWindows
      DescribeMaintenanceWindowsResponse
      (Maybe [MaintenanceWindowIdentity])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840957"><span class="annot"><span class="annottext">Maybe [MaintenanceWindowIdentity]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842760"><span class="annot"><span class="annottext">Maybe [MaintenanceWindowIdentity]
 windowIdentities :: Maybe [MaintenanceWindowIdentity]
 $sel:windowIdentities:DescribeMaintenanceWindowsResponse' :: DescribeMaintenanceWindowsResponse
 -&gt; Maybe [MaintenanceWindowIdentity]
-</span><a href="#local-6989586621679840957"><span class="hs-identifier hs-var hs-var">windowIdentities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MaintenanceWindowIdentity]
-</span><a href="#local-6989586621679840957"><span class="hs-identifier hs-var">windowIdentities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840956"><span class="annot"><span class="annottext">s :: DescribeMaintenanceWindowsResponse
-</span><a href="#local-6989586621679840956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840955"><span class="annot"><span class="annottext">Maybe [MaintenanceWindowIdentity]
-</span><a href="#local-6989586621679840955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMaintenanceWindowsResponse
-</span><a href="#local-6989586621679840956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:windowIdentities:DescribeMaintenanceWindowsResponse' :: Maybe [MaintenanceWindowIdentity]
+</span><a href="#local-6989586621679842760"><span class="hs-identifier hs-var hs-var">windowIdentities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MaintenanceWindowIdentity]
+</span><a href="#local-6989586621679842760"><span class="hs-identifier hs-var">windowIdentities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842759"><span class="annot"><span class="annottext">s :: DescribeMaintenanceWindowsResponse
+</span><a href="#local-6989586621679842759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842758"><span class="annot"><span class="annottext">Maybe [MaintenanceWindowIdentity]
+</span><a href="#local-6989586621679842758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMaintenanceWindowsResponse
+</span><a href="#local-6989586621679842759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:windowIdentities:DescribeMaintenanceWindowsResponse' :: Maybe [MaintenanceWindowIdentity]
 </span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AwindowIdentities%3ADescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-var">windowIdentities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MaintenanceWindowIdentity]
-</span><a href="#local-6989586621679840955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MaintenanceWindowIdentity]
+</span><a href="#local-6989586621679842758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MaintenanceWindowIdentity]
   -&gt; f (Maybe [MaintenanceWindowIdentity]))
  -&gt; DescribeMaintenanceWindowsResponse
  -&gt; f DescribeMaintenanceWindowsResponse)
@@ -799,8 +765,30 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [MaintenanceWindowIdentity]
   [MaintenanceWindowIdentity]
   [MaintenanceWindowIdentity]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- | The token to use when requesting the next set of items. If there are no</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- additional items to return, the string is empty.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindowsResponse_nextToken"><span class="hs-identifier hs-type">describeMaintenanceWindowsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="describeMaintenanceWindowsResponse_nextToken"><span class="annot"><span class="annottext">describeMaintenanceWindowsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeMaintenanceWindowsResponse
+-&gt; f DescribeMaintenanceWindowsResponse
+</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindowsResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeMaintenanceWindowsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeMaintenanceWindowsResponse -&gt; Maybe Text)
+-&gt; (DescribeMaintenanceWindowsResponse
+    -&gt; Maybe Text -&gt; DescribeMaintenanceWindowsResponse)
+-&gt; Lens' DescribeMaintenanceWindowsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842757"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeMaintenanceWindowsResponse' :: DescribeMaintenanceWindowsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679842757"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679842757"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842756"><span class="annot"><span class="annottext">s :: DescribeMaintenanceWindowsResponse
+</span><a href="#local-6989586621679842756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842755"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679842755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMaintenanceWindowsResponse
+</span><a href="#local-6989586621679842756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeMaintenanceWindowsResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AnextToken%3ADescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679842755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-236"></span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#describeMaintenanceWindowsResponse_httpStatus"><span class="hs-identifier hs-type">describeMaintenanceWindowsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -816,18 +804,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679840954"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679842754"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeMaintenanceWindowsResponse' :: DescribeMaintenanceWindowsResponse -&gt; Int
-</span><a href="#local-6989586621679840954"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840954"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679840953"><span class="annot"><span class="annottext">s :: DescribeMaintenanceWindowsResponse
-</span><a href="#local-6989586621679840953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679840952"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMaintenanceWindowsResponse
-</span><a href="#local-6989586621679840953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeMaintenanceWindowsResponse' :: Int
+</span><a href="#local-6989586621679842754"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679842754"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679842753"><span class="annot"><span class="annottext">s :: DescribeMaintenanceWindowsResponse
+</span><a href="#local-6989586621679842753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679842752"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679842752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeMaintenanceWindowsResponse
+</span><a href="#local-6989586621679842753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeMaintenanceWindowsResponse' :: Int
 </span><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#%24sel%3AhttpStatus%3ADescribeMaintenanceWindowsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679840952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679842752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>
 </span><span id="line-239"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-240"></span><span>  </span><span id="local-6989586621679840950"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679842750"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-241"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.DescribeMaintenanceWindows.html#DescribeMaintenanceWindowsResponse"><span class="hs-identifier hs-type">DescribeMaintenanceWindowsResponse</span></a></span></span><span>
 </span><span id="line-242"></span></pre></body></html>

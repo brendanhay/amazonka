@@ -49,9 +49,9 @@
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#newUpdateDomainContactPrivacy"><span class="hs-identifier">newUpdateDomainContactPrivacy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#updateDomainContactPrivacy_adminPrivacy"><span class="hs-identifier">updateDomainContactPrivacy_adminPrivacy</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#updateDomainContactPrivacy_techPrivacy"><span class="hs-identifier">updateDomainContactPrivacy_techPrivacy</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#updateDomainContactPrivacy_registrantPrivacy"><span class="hs-identifier">updateDomainContactPrivacy_registrantPrivacy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#updateDomainContactPrivacy_techPrivacy"><span class="hs-identifier">updateDomainContactPrivacy_techPrivacy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#updateDomainContactPrivacy_registrantPrivacy"><span class="hs-identifier">updateDomainContactPrivacy_registrantPrivacy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#updateDomainContactPrivacy_adminPrivacy"><span class="hs-identifier">updateDomainContactPrivacy_adminPrivacy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#updateDomainContactPrivacy_domainName"><span class="hs-identifier">updateDomainContactPrivacy_domainName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -74,36 +74,36 @@
 </span><span id="line-74"></span><span class="hs-comment">-- | The UpdateDomainContactPrivacy request includes the following elements.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- /See:/ 'newUpdateDomainContactPrivacy' smart constructor.</span><span>
-</span><span id="line-77"></span><span id="local-6989586621679217188"><span id="local-6989586621679217189"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainContactPrivacy"><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-var">UpdateDomainContactPrivacy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainContactPrivacy%27"><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var">UpdateDomainContactPrivacy'</span></a></span></span><span>
+</span><span id="line-77"></span><span id="local-6989586621679217255"><span id="local-6989586621679217256"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainContactPrivacy"><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-var">UpdateDomainContactPrivacy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainContactPrivacy%27"><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var">UpdateDomainContactPrivacy'</span></a></span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether you want to conceal contact information from WHOIS queries. If</span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-comment">-- you specify @true@, WHOIS (\&quot;who is\&quot;) queries return contact</span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-comment">-- information either for Amazon Registrar (for .com, .net, and .org</span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-comment">-- domains) or for our registrar associate, Gandi (for all other TLDs). If</span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-comment">-- you specify @false@, WHOIS queries return the information that you</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- entered for the admin contact.</span><span>
-</span><span id="line-84"></span><span>    </span><span id="%24sel%3AadminPrivacy%3AUpdateDomainContactPrivacy%27"><span class="annot"><span class="annottext">UpdateDomainContactPrivacy -&gt; Maybe Bool
-</span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AadminPrivacy%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var hs-var">adminPrivacy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- entered for the technical contact.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AtechPrivacy%3AUpdateDomainContactPrivacy%27"><span class="annot"><span class="annottext">UpdateDomainContactPrivacy -&gt; Maybe Bool
+</span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AtechPrivacy%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var hs-var">techPrivacy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | Whether you want to conceal contact information from WHOIS queries. If</span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-comment">-- you specify @true@, WHOIS (\&quot;who is\&quot;) queries return contact</span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-comment">-- information either for Amazon Registrar (for .com, .net, and .org</span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-comment">-- domains) or for our registrar associate, Gandi (for all other TLDs). If</span><span>
 </span><span id="line-89"></span><span>    </span><span class="hs-comment">-- you specify @false@, WHOIS queries return the information that you</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- entered for the technical contact.</span><span>
-</span><span id="line-91"></span><span>    </span><span id="%24sel%3AtechPrivacy%3AUpdateDomainContactPrivacy%27"><span class="annot"><span class="annottext">UpdateDomainContactPrivacy -&gt; Maybe Bool
-</span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AtechPrivacy%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var hs-var">techPrivacy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- entered for the registrant contact (domain owner).</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AregistrantPrivacy%3AUpdateDomainContactPrivacy%27"><span class="annot"><span class="annottext">UpdateDomainContactPrivacy -&gt; Maybe Bool
+</span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AregistrantPrivacy%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var hs-var">registrantPrivacy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | Whether you want to conceal contact information from WHOIS queries. If</span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-comment">-- you specify @true@, WHOIS (\&quot;who is\&quot;) queries return contact</span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-comment">-- information either for Amazon Registrar (for .com, .net, and .org</span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-comment">-- domains) or for our registrar associate, Gandi (for all other TLDs). If</span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-comment">-- you specify @false@, WHOIS queries return the information that you</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- entered for the registrant contact (domain owner).</span><span>
-</span><span id="line-98"></span><span>    </span><span id="%24sel%3AregistrantPrivacy%3AUpdateDomainContactPrivacy%27"><span class="annot"><span class="annottext">UpdateDomainContactPrivacy -&gt; Maybe Bool
-</span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AregistrantPrivacy%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var hs-var">registrantPrivacy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- entered for the admin contact.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AadminPrivacy%3AUpdateDomainContactPrivacy%27"><span class="annot"><span class="annottext">UpdateDomainContactPrivacy -&gt; Maybe Bool
+</span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AadminPrivacy%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var hs-var">adminPrivacy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The name of the domain that you want to update the privacy setting for.</span><span>
 </span><span id="line-100"></span><span>    </span><span id="%24sel%3AdomainName%3AUpdateDomainContactPrivacy%27"><span class="annot"><span class="annottext">UpdateDomainContactPrivacy -&gt; Text
 </span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AdomainName%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217179"><span id="local-6989586621679217181"><span class="annot"><span class="annottext">UpdateDomainContactPrivacy -&gt; UpdateDomainContactPrivacy -&gt; Bool
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217246"><span id="local-6989586621679217248"><span class="annot"><span class="annottext">UpdateDomainContactPrivacy -&gt; UpdateDomainContactPrivacy -&gt; Bool
 (UpdateDomainContactPrivacy -&gt; UpdateDomainContactPrivacy -&gt; Bool)
 -&gt; (UpdateDomainContactPrivacy
     -&gt; UpdateDomainContactPrivacy -&gt; Bool)
@@ -113,7 +113,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateDomainContactPrivacy -&gt; UpdateDomainContactPrivacy -&gt; Bool
 == :: UpdateDomainContactPrivacy -&gt; UpdateDomainContactPrivacy -&gt; Bool
 $c== :: UpdateDomainContactPrivacy -&gt; UpdateDomainContactPrivacy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217170"><span id="local-6989586621679217172"><span id="local-6989586621679217174"><span id="local-6989586621679217176"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainContactPrivacy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217237"><span id="local-6989586621679217239"><span id="local-6989586621679217241"><span id="local-6989586621679217243"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainContactPrivacy]
 ReadPrec UpdateDomainContactPrivacy
 Int -&gt; ReadS UpdateDomainContactPrivacy
 ReadS [UpdateDomainContactPrivacy]
@@ -133,7 +133,7 @@ readList :: ReadS [UpdateDomainContactPrivacy]
 $creadList :: ReadS [UpdateDomainContactPrivacy]
 readsPrec :: Int -&gt; ReadS UpdateDomainContactPrivacy
 $creadsPrec :: Int -&gt; ReadS UpdateDomainContactPrivacy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217163"><span id="local-6989586621679217165"><span id="local-6989586621679217167"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainContactPrivacy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217230"><span id="local-6989586621679217232"><span id="local-6989586621679217234"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainContactPrivacy -&gt; ShowS
 [UpdateDomainContactPrivacy] -&gt; ShowS
 UpdateDomainContactPrivacy -&gt; String
 (Int -&gt; UpdateDomainContactPrivacy -&gt; ShowS)
@@ -173,26 +173,26 @@ UpdateDomainContactPrivacy -&gt; Rep UpdateDomainContactPrivacy x
 </span><span id="line-109"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-111"></span><span class="hs-comment">--</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- 'adminPrivacy', 'updateDomainContactPrivacy_adminPrivacy' - Whether you want to conceal contact information from WHOIS queries. If</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'techPrivacy', 'updateDomainContactPrivacy_techPrivacy' - Whether you want to conceal contact information from WHOIS queries. If</span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- you specify @true@, WHOIS (\&quot;who is\&quot;) queries return contact</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- information either for Amazon Registrar (for .com, .net, and .org</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- domains) or for our registrar associate, Gandi (for all other TLDs). If</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- you specify @false@, WHOIS queries return the information that you</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- entered for the admin contact.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- entered for the technical contact.</span><span>
 </span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- 'techPrivacy', 'updateDomainContactPrivacy_techPrivacy' - Whether you want to conceal contact information from WHOIS queries. If</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'registrantPrivacy', 'updateDomainContactPrivacy_registrantPrivacy' - Whether you want to conceal contact information from WHOIS queries. If</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- you specify @true@, WHOIS (\&quot;who is\&quot;) queries return contact</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- information either for Amazon Registrar (for .com, .net, and .org</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- domains) or for our registrar associate, Gandi (for all other TLDs). If</span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- you specify @false@, WHOIS queries return the information that you</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- entered for the technical contact.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- entered for the registrant contact (domain owner).</span><span>
 </span><span id="line-125"></span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- 'registrantPrivacy', 'updateDomainContactPrivacy_registrantPrivacy' - Whether you want to conceal contact information from WHOIS queries. If</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'adminPrivacy', 'updateDomainContactPrivacy_adminPrivacy' - Whether you want to conceal contact information from WHOIS queries. If</span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- you specify @true@, WHOIS (\&quot;who is\&quot;) queries return contact</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- information either for Amazon Registrar (for .com, .net, and .org</span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- domains) or for our registrar associate, Gandi (for all other TLDs). If</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- you specify @false@, WHOIS queries return the information that you</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- entered for the registrant contact (domain owner).</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- entered for the admin contact.</span><span>
 </span><span id="line-132"></span><span class="hs-comment">--</span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- 'domainName', 'updateDomainContactPrivacy_domainName' - The name of the domain that you want to update the privacy setting for.</span><span>
 </span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#newUpdateDomainContactPrivacy"><span class="hs-identifier hs-type">newUpdateDomainContactPrivacy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -200,27 +200,27 @@ UpdateDomainContactPrivacy -&gt; Rep UpdateDomainContactPrivacy x
 </span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span>
 </span><span id="line-138"></span><span id="newUpdateDomainContactPrivacy"><span class="annot"><span class="annottext">newUpdateDomainContactPrivacy :: Text -&gt; UpdateDomainContactPrivacy
-</span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#newUpdateDomainContactPrivacy"><span class="hs-identifier hs-var hs-var">newUpdateDomainContactPrivacy</span></a></span></span><span> </span><span id="local-6989586621679217158"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217158"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#newUpdateDomainContactPrivacy"><span class="hs-identifier hs-var hs-var">newUpdateDomainContactPrivacy</span></a></span></span><span> </span><span id="local-6989586621679217225"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217225"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>  </span><span class="annot"><span class="annottext">UpdateDomainContactPrivacy' :: Maybe Bool
 -&gt; Maybe Bool -&gt; Maybe Bool -&gt; Text -&gt; UpdateDomainContactPrivacy
 </span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span>
-</span><span id="line-140"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:adminPrivacy:UpdateDomainContactPrivacy' :: Maybe Bool
-</span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AadminPrivacy%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var">adminPrivacy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:techPrivacy:UpdateDomainContactPrivacy' :: Maybe Bool
+</span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AtechPrivacy%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var">techPrivacy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:techPrivacy:UpdateDomainContactPrivacy' :: Maybe Bool
-</span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AtechPrivacy%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var">techPrivacy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:registrantPrivacy:UpdateDomainContactPrivacy' :: Maybe Bool
+</span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AregistrantPrivacy%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var">registrantPrivacy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:registrantPrivacy:UpdateDomainContactPrivacy' :: Maybe Bool
-</span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AregistrantPrivacy%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var">registrantPrivacy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:adminPrivacy:UpdateDomainContactPrivacy' :: Maybe Bool
+</span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AadminPrivacy%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var">adminPrivacy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainName:UpdateDomainContactPrivacy' :: Text
 </span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AdomainName%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217158"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span>
+</span><a href="#local-6989586621679217225"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | Whether you want to conceal contact information from WHOIS queries. If</span><span>
@@ -228,38 +228,9 @@ forall a. Maybe a
 </span><span id="line-149"></span><span class="hs-comment">-- information either for Amazon Registrar (for .com, .net, and .org</span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- domains) or for our registrar associate, Gandi (for all other TLDs). If</span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- you specify @false@, WHOIS queries return the information that you</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- entered for the admin contact.</span><span>
-</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#updateDomainContactPrivacy_adminPrivacy"><span class="hs-identifier hs-type">updateDomainContactPrivacy_adminPrivacy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span id="updateDomainContactPrivacy_adminPrivacy"><span class="annot"><span class="annottext">updateDomainContactPrivacy_adminPrivacy :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; UpdateDomainContactPrivacy -&gt; f UpdateDomainContactPrivacy
-</span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#updateDomainContactPrivacy_adminPrivacy"><span class="hs-identifier hs-var hs-var">updateDomainContactPrivacy_adminPrivacy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomainContactPrivacy -&gt; Maybe Bool)
--&gt; (UpdateDomainContactPrivacy
-    -&gt; Maybe Bool -&gt; UpdateDomainContactPrivacy)
--&gt; Lens
-     UpdateDomainContactPrivacy
-     UpdateDomainContactPrivacy
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217155"><span class="annot"><span class="annottext">Maybe Bool
-adminPrivacy :: Maybe Bool
-$sel:adminPrivacy:UpdateDomainContactPrivacy' :: UpdateDomainContactPrivacy -&gt; Maybe Bool
-</span><a href="#local-6989586621679217155"><span class="hs-identifier hs-var hs-var">adminPrivacy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679217155"><span class="hs-identifier hs-var">adminPrivacy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217154"><span class="annot"><span class="annottext">s :: UpdateDomainContactPrivacy
-</span><a href="#local-6989586621679217154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217153"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679217153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainContactPrivacy
-</span><a href="#local-6989586621679217154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adminPrivacy:UpdateDomainContactPrivacy' :: Maybe Bool
-</span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AadminPrivacy%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var">adminPrivacy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679217153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- | Whether you want to conceal contact information from WHOIS queries. If</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- you specify @true@, WHOIS (\&quot;who is\&quot;) queries return contact</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- information either for Amazon Registrar (for .com, .net, and .org</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- domains) or for our registrar associate, Gandi (for all other TLDs). If</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- you specify @false@, WHOIS queries return the information that you</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- entered for the technical contact.</span><span>
-</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#updateDomainContactPrivacy_techPrivacy"><span class="hs-identifier hs-type">updateDomainContactPrivacy_techPrivacy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span id="updateDomainContactPrivacy_techPrivacy"><span class="annot"><span class="annottext">updateDomainContactPrivacy_techPrivacy :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-152"></span><span class="hs-comment">-- entered for the technical contact.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#updateDomainContactPrivacy_techPrivacy"><span class="hs-identifier hs-type">updateDomainContactPrivacy_techPrivacy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="updateDomainContactPrivacy_techPrivacy"><span class="annot"><span class="annottext">updateDomainContactPrivacy_techPrivacy :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; UpdateDomainContactPrivacy -&gt; f UpdateDomainContactPrivacy
 </span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#updateDomainContactPrivacy_techPrivacy"><span class="hs-identifier hs-var hs-var">updateDomainContactPrivacy_techPrivacy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomainContactPrivacy -&gt; Maybe Bool)
 -&gt; (UpdateDomainContactPrivacy
@@ -270,25 +241,25 @@ $sel:adminPrivacy:UpdateDomainContactPrivacy' :: UpdateDomainContactPrivacy -&gt
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217152"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217222"><span class="annot"><span class="annottext">Maybe Bool
 techPrivacy :: Maybe Bool
 $sel:techPrivacy:UpdateDomainContactPrivacy' :: UpdateDomainContactPrivacy -&gt; Maybe Bool
-</span><a href="#local-6989586621679217152"><span class="hs-identifier hs-var hs-var">techPrivacy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679217152"><span class="hs-identifier hs-var">techPrivacy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217151"><span class="annot"><span class="annottext">s :: UpdateDomainContactPrivacy
-</span><a href="#local-6989586621679217151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217150"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679217150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainContactPrivacy
-</span><a href="#local-6989586621679217151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:techPrivacy:UpdateDomainContactPrivacy' :: Maybe Bool
+</span><a href="#local-6989586621679217222"><span class="hs-identifier hs-var hs-var">techPrivacy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679217222"><span class="hs-identifier hs-var">techPrivacy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217221"><span class="annot"><span class="annottext">s :: UpdateDomainContactPrivacy
+</span><a href="#local-6989586621679217221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217220"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679217220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainContactPrivacy
+</span><a href="#local-6989586621679217221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:techPrivacy:UpdateDomainContactPrivacy' :: Maybe Bool
 </span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AtechPrivacy%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var">techPrivacy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679217150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- | Whether you want to conceal contact information from WHOIS queries. If</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- you specify @true@, WHOIS (\&quot;who is\&quot;) queries return contact</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- information either for Amazon Registrar (for .com, .net, and .org</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- domains) or for our registrar associate, Gandi (for all other TLDs). If</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- you specify @false@, WHOIS queries return the information that you</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- entered for the registrant contact (domain owner).</span><span>
-</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#updateDomainContactPrivacy_registrantPrivacy"><span class="hs-identifier hs-type">updateDomainContactPrivacy_registrantPrivacy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span id="updateDomainContactPrivacy_registrantPrivacy"><span class="annot"><span class="annottext">updateDomainContactPrivacy_registrantPrivacy :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><a href="#local-6989586621679217220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | Whether you want to conceal contact information from WHOIS queries. If</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- you specify @true@, WHOIS (\&quot;who is\&quot;) queries return contact</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- information either for Amazon Registrar (for .com, .net, and .org</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- domains) or for our registrar associate, Gandi (for all other TLDs). If</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- you specify @false@, WHOIS queries return the information that you</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- entered for the registrant contact (domain owner).</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#updateDomainContactPrivacy_registrantPrivacy"><span class="hs-identifier hs-type">updateDomainContactPrivacy_registrantPrivacy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="updateDomainContactPrivacy_registrantPrivacy"><span class="annot"><span class="annottext">updateDomainContactPrivacy_registrantPrivacy :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; UpdateDomainContactPrivacy -&gt; f UpdateDomainContactPrivacy
 </span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#updateDomainContactPrivacy_registrantPrivacy"><span class="hs-identifier hs-var hs-var">updateDomainContactPrivacy_registrantPrivacy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomainContactPrivacy -&gt; Maybe Bool)
 -&gt; (UpdateDomainContactPrivacy
@@ -299,16 +270,45 @@ $sel:techPrivacy:UpdateDomainContactPrivacy' :: UpdateDomainContactPrivacy -&gt;
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217149"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217219"><span class="annot"><span class="annottext">Maybe Bool
 registrantPrivacy :: Maybe Bool
 $sel:registrantPrivacy:UpdateDomainContactPrivacy' :: UpdateDomainContactPrivacy -&gt; Maybe Bool
-</span><a href="#local-6989586621679217149"><span class="hs-identifier hs-var hs-var">registrantPrivacy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679217149"><span class="hs-identifier hs-var">registrantPrivacy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217148"><span class="annot"><span class="annottext">s :: UpdateDomainContactPrivacy
-</span><a href="#local-6989586621679217148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217147"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679217147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainContactPrivacy
-</span><a href="#local-6989586621679217148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registrantPrivacy:UpdateDomainContactPrivacy' :: Maybe Bool
+</span><a href="#local-6989586621679217219"><span class="hs-identifier hs-var hs-var">registrantPrivacy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679217219"><span class="hs-identifier hs-var">registrantPrivacy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217218"><span class="annot"><span class="annottext">s :: UpdateDomainContactPrivacy
+</span><a href="#local-6989586621679217218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217217"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679217217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainContactPrivacy
+</span><a href="#local-6989586621679217218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registrantPrivacy:UpdateDomainContactPrivacy' :: Maybe Bool
 </span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AregistrantPrivacy%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var">registrantPrivacy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679217147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | Whether you want to conceal contact information from WHOIS queries. If</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- you specify @true@, WHOIS (\&quot;who is\&quot;) queries return contact</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- information either for Amazon Registrar (for .com, .net, and .org</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- domains) or for our registrar associate, Gandi (for all other TLDs). If</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- you specify @false@, WHOIS queries return the information that you</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- entered for the admin contact.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#updateDomainContactPrivacy_adminPrivacy"><span class="hs-identifier hs-type">updateDomainContactPrivacy_adminPrivacy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span id="updateDomainContactPrivacy_adminPrivacy"><span class="annot"><span class="annottext">updateDomainContactPrivacy_adminPrivacy :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateDomainContactPrivacy -&gt; f UpdateDomainContactPrivacy
+</span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#updateDomainContactPrivacy_adminPrivacy"><span class="hs-identifier hs-var hs-var">updateDomainContactPrivacy_adminPrivacy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateDomainContactPrivacy -&gt; Maybe Bool)
+-&gt; (UpdateDomainContactPrivacy
+    -&gt; Maybe Bool -&gt; UpdateDomainContactPrivacy)
+-&gt; Lens
+     UpdateDomainContactPrivacy
+     UpdateDomainContactPrivacy
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217216"><span class="annot"><span class="annottext">Maybe Bool
+adminPrivacy :: Maybe Bool
+$sel:adminPrivacy:UpdateDomainContactPrivacy' :: UpdateDomainContactPrivacy -&gt; Maybe Bool
+</span><a href="#local-6989586621679217216"><span class="hs-identifier hs-var hs-var">adminPrivacy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679217216"><span class="hs-identifier hs-var">adminPrivacy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217215"><span class="annot"><span class="annottext">s :: UpdateDomainContactPrivacy
+</span><a href="#local-6989586621679217215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217214"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679217214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainContactPrivacy
+</span><a href="#local-6989586621679217215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adminPrivacy:UpdateDomainContactPrivacy' :: Maybe Bool
+</span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AadminPrivacy%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var">adminPrivacy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679217214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The name of the domain that you want to update the privacy setting for.</span><span>
 </span><span id="line-175"></span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#updateDomainContactPrivacy_domainName"><span class="hs-identifier hs-type">updateDomainContactPrivacy_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -320,28 +320,28 @@ $sel:registrantPrivacy:UpdateDomainContactPrivacy' :: UpdateDomainContactPrivacy
 -&gt; Lens
      UpdateDomainContactPrivacy UpdateDomainContactPrivacy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217146"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217213"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:UpdateDomainContactPrivacy' :: UpdateDomainContactPrivacy -&gt; Text
-</span><a href="#local-6989586621679217146"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217146"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217145"><span class="annot"><span class="annottext">s :: UpdateDomainContactPrivacy
-</span><a href="#local-6989586621679217145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217144"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainContactPrivacy
-</span><a href="#local-6989586621679217145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:UpdateDomainContactPrivacy' :: Text
+</span><a href="#local-6989586621679217213"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217213"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217212"><span class="annot"><span class="annottext">s :: UpdateDomainContactPrivacy
+</span><a href="#local-6989586621679217212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217211"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainContactPrivacy
+</span><a href="#local-6989586621679217212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:UpdateDomainContactPrivacy' :: Text
 </span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AdomainName%3AUpdateDomainContactPrivacy%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-179"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-180"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse"><span class="hs-identifier hs-type">UpdateDomainContactPrivacyResponse</span></a></span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679217140"><span class="annot"><span class="annottext">request :: UpdateDomainContactPrivacy -&gt; Request UpdateDomainContactPrivacy
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679217207"><span class="annot"><span class="annottext">request :: UpdateDomainContactPrivacy -&gt; Request UpdateDomainContactPrivacy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; UpdateDomainContactPrivacy -&gt; Request UpdateDomainContactPrivacy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53Domains.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679217136"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679217203"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateDomainContactPrivacy
 -&gt; ClientResponse ClientBody
@@ -367,10 +367,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679217133"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217133"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679217132"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679217132"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679217131"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679217131"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679217200"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217200"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679217199"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679217199"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679217198"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217198"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-186"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; UpdateDomainContactPrivacyResponse
 </span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse%27"><span class="hs-identifier hs-var">UpdateDomainContactPrivacyResponse'</span></a></span><span>
 </span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; UpdateDomainContactPrivacyResponse)
@@ -382,24 +382,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217133"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217200"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; UpdateDomainContactPrivacyResponse)
 -&gt; Either String Text
 -&gt; Either String UpdateDomainContactPrivacyResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679217131"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679217198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OperationId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217123"><span id="local-6989586621679217125"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217190"><span id="local-6989586621679217192"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span></span></span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217120"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217187"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span></span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679217116"><span class="annot"><span class="annottext">toHeaders :: UpdateDomainContactPrivacy -&gt; ResponseHeaders
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679217183"><span class="annot"><span class="annottext">toHeaders :: UpdateDomainContactPrivacy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateDomainContactPrivacy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -426,65 +426,65 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-207"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-208"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217106"><span id="local-6989586621679217108"><span id="local-6989586621679217110"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679217104"><span class="annot"><span class="annottext">toJSON :: UpdateDomainContactPrivacy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217099"><span id="local-6989586621679217100"><span id="local-6989586621679217101"><span id="local-6989586621679217102"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217173"><span id="local-6989586621679217175"><span id="local-6989586621679217177"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679217171"><span class="annot"><span class="annottext">toJSON :: UpdateDomainContactPrivacy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217166"><span id="local-6989586621679217167"><span id="local-6989586621679217168"><span id="local-6989586621679217169"><span class="annot"><span class="annottext">Maybe Bool
 Text
 domainName :: Text
+adminPrivacy :: Maybe Bool
 registrantPrivacy :: Maybe Bool
 techPrivacy :: Maybe Bool
-adminPrivacy :: Maybe Bool
 $sel:domainName:UpdateDomainContactPrivacy' :: UpdateDomainContactPrivacy -&gt; Text
+$sel:adminPrivacy:UpdateDomainContactPrivacy' :: UpdateDomainContactPrivacy -&gt; Maybe Bool
 $sel:registrantPrivacy:UpdateDomainContactPrivacy' :: UpdateDomainContactPrivacy -&gt; Maybe Bool
 $sel:techPrivacy:UpdateDomainContactPrivacy' :: UpdateDomainContactPrivacy -&gt; Maybe Bool
-$sel:adminPrivacy:UpdateDomainContactPrivacy' :: UpdateDomainContactPrivacy -&gt; Maybe Bool
-</span><a href="#local-6989586621679217099"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679217166"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-213"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-214"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AdminPrivacy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679217102"><span class="hs-identifier hs-var">adminPrivacy</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TechPrivacy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679217101"><span class="hs-identifier hs-var">techPrivacy</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-216"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217169"><span class="hs-identifier hs-var">techPrivacy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegistrantPrivacy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-217"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+</span><span id="line-216"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679217100"><span class="hs-identifier hs-var">registrantPrivacy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679217168"><span class="hs-identifier hs-var">registrantPrivacy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AdminPrivacy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679217167"><span class="hs-identifier hs-var">adminPrivacy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217099"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217166"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-220"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-223"></span><span>  </span><span id="local-6989586621679217093"><span class="annot"><span class="annottext">toPath :: UpdateDomainContactPrivacy -&gt; ByteString
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679217160"><span class="annot"><span class="annottext">toPath :: UpdateDomainContactPrivacy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateDomainContactPrivacy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacy"><span class="hs-identifier hs-type">UpdateDomainContactPrivacy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-226"></span><span>  </span><span id="local-6989586621679217089"><span class="annot"><span class="annottext">toQuery :: UpdateDomainContactPrivacy -&gt; QueryString
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679217156"><span class="annot"><span class="annottext">toQuery :: UpdateDomainContactPrivacy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateDomainContactPrivacy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -494,7 +494,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-228"></span><span class="hs-comment">-- | The UpdateDomainContactPrivacy response includes the following element.</span><span>
 </span><span id="line-229"></span><span class="hs-comment">--</span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- /See:/ 'newUpdateDomainContactPrivacyResponse' smart constructor.</span><span>
-</span><span id="line-231"></span><span id="local-6989586621679217086"><span id="local-6989586621679217087"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainContactPrivacyResponse"><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse"><span class="hs-identifier hs-var">UpdateDomainContactPrivacyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainContactPrivacyResponse%27"><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse%27"><span class="hs-identifier hs-var">UpdateDomainContactPrivacyResponse'</span></a></span></span><span>
+</span><span id="line-231"></span><span id="local-6989586621679217153"><span id="local-6989586621679217154"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateDomainContactPrivacyResponse"><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse"><span class="hs-identifier hs-var">UpdateDomainContactPrivacyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateDomainContactPrivacyResponse%27"><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse%27"><span class="hs-identifier hs-var">UpdateDomainContactPrivacyResponse'</span></a></span></span><span>
 </span><span id="line-232"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-233"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateDomainContactPrivacyResponse%27"><span class="annot"><span class="annottext">UpdateDomainContactPrivacyResponse -&gt; Int
 </span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AhttpStatus%3AUpdateDomainContactPrivacyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -503,7 +503,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-236"></span><span>    </span><span id="%24sel%3AoperationId%3AUpdateDomainContactPrivacyResponse%27"><span class="annot"><span class="annottext">UpdateDomainContactPrivacyResponse -&gt; Text
 </span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AoperationId%3AUpdateDomainContactPrivacyResponse%27"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-237"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-238"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217080"><span id="local-6989586621679217082"><span class="annot"><span class="annottext">UpdateDomainContactPrivacyResponse
+</span><span id="line-238"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217147"><span id="local-6989586621679217149"><span class="annot"><span class="annottext">UpdateDomainContactPrivacyResponse
 -&gt; UpdateDomainContactPrivacyResponse -&gt; Bool
 (UpdateDomainContactPrivacyResponse
  -&gt; UpdateDomainContactPrivacyResponse -&gt; Bool)
@@ -519,7 +519,7 @@ $c/= :: UpdateDomainContactPrivacyResponse
 -&gt; UpdateDomainContactPrivacyResponse -&gt; Bool
 $c== :: UpdateDomainContactPrivacyResponse
 -&gt; UpdateDomainContactPrivacyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217072"><span id="local-6989586621679217074"><span id="local-6989586621679217076"><span id="local-6989586621679217078"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainContactPrivacyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217139"><span id="local-6989586621679217141"><span id="local-6989586621679217143"><span id="local-6989586621679217145"><span class="annot"><span class="annottext">ReadPrec [UpdateDomainContactPrivacyResponse]
 ReadPrec UpdateDomainContactPrivacyResponse
 Int -&gt; ReadS UpdateDomainContactPrivacyResponse
 ReadS [UpdateDomainContactPrivacyResponse]
@@ -539,7 +539,7 @@ readList :: ReadS [UpdateDomainContactPrivacyResponse]
 $creadList :: ReadS [UpdateDomainContactPrivacyResponse]
 readsPrec :: Int -&gt; ReadS UpdateDomainContactPrivacyResponse
 $creadsPrec :: Int -&gt; ReadS UpdateDomainContactPrivacyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217066"><span id="local-6989586621679217068"><span id="local-6989586621679217070"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainContactPrivacyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217133"><span id="local-6989586621679217135"><span id="local-6989586621679217137"><span class="annot"><span class="annottext">Int -&gt; UpdateDomainContactPrivacyResponse -&gt; ShowS
 [UpdateDomainContactPrivacyResponse] -&gt; ShowS
 UpdateDomainContactPrivacyResponse -&gt; String
 (Int -&gt; UpdateDomainContactPrivacyResponse -&gt; ShowS)
@@ -597,19 +597,19 @@ UpdateDomainContactPrivacyResponse
 </span><span id="line-257"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse"><span class="hs-identifier hs-type">UpdateDomainContactPrivacyResponse</span></a></span><span>
 </span><span id="line-258"></span><span id="newUpdateDomainContactPrivacyResponse"><span class="annot"><span class="annottext">newUpdateDomainContactPrivacyResponse :: Int -&gt; Text -&gt; UpdateDomainContactPrivacyResponse
 </span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#newUpdateDomainContactPrivacyResponse"><span class="hs-identifier hs-var hs-var">newUpdateDomainContactPrivacyResponse</span></a></span></span><span>
-</span><span id="line-259"></span><span>  </span><span id="local-6989586621679217063"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217063"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-260"></span><span>  </span><span id="local-6989586621679217062"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217062"><span class="hs-identifier hs-var">pOperationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-259"></span><span>  </span><span id="local-6989586621679217130"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217130"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679217129"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217129"><span class="hs-identifier hs-var">pOperationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-261"></span><span>    </span><span class="annot"><span class="annottext">UpdateDomainContactPrivacyResponse' :: Int -&gt; Text -&gt; UpdateDomainContactPrivacyResponse
 </span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacyResponse'</span></a></span><span>
 </span><span id="line-262"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDomainContactPrivacyResponse' :: Int
 </span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AhttpStatus%3AUpdateDomainContactPrivacyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-263"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217063"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679217130"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">$sel:operationId:UpdateDomainContactPrivacyResponse' :: Text
 </span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AoperationId%3AUpdateDomainContactPrivacyResponse%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217062"><span class="hs-identifier hs-var">pOperationId_</span></a></span><span>
+</span><a href="#local-6989586621679217129"><span class="hs-identifier hs-var">pOperationId_</span></a></span><span>
 </span><span id="line-265"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -626,16 +626,16 @@ UpdateDomainContactPrivacyResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217061"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217128"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateDomainContactPrivacyResponse' :: UpdateDomainContactPrivacyResponse -&gt; Int
-</span><a href="#local-6989586621679217061"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217061"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217060"><span class="annot"><span class="annottext">s :: UpdateDomainContactPrivacyResponse
-</span><a href="#local-6989586621679217060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217059"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainContactPrivacyResponse
-</span><a href="#local-6989586621679217060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDomainContactPrivacyResponse' :: Int
+</span><a href="#local-6989586621679217128"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217128"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217127"><span class="annot"><span class="annottext">s :: UpdateDomainContactPrivacyResponse
+</span><a href="#local-6989586621679217127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217126"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainContactPrivacyResponse
+</span><a href="#local-6989586621679217127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateDomainContactPrivacyResponse' :: Int
 </span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AhttpStatus%3AUpdateDomainContactPrivacyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679217059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse"><span class="hs-identifier hs-type">UpdateDomainContactPrivacyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse"><span class="hs-identifier hs-type">UpdateDomainContactPrivacyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>
 </span><span id="line-271"></span><span class="hs-comment">-- | Identifier for tracking the progress of the request. To use this ID to</span><span>
 </span><span id="line-272"></span><span class="hs-comment">-- query the operation status, use GetOperationDetail.</span><span>
@@ -652,18 +652,18 @@ $sel:httpStatus:UpdateDomainContactPrivacyResponse' :: UpdateDomainContactPrivac
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217058"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217125"><span class="annot"><span class="annottext">Text
 operationId :: Text
 $sel:operationId:UpdateDomainContactPrivacyResponse' :: UpdateDomainContactPrivacyResponse -&gt; Text
-</span><a href="#local-6989586621679217058"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217058"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217057"><span class="annot"><span class="annottext">s :: UpdateDomainContactPrivacyResponse
-</span><a href="#local-6989586621679217057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217056"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainContactPrivacyResponse
-</span><a href="#local-6989586621679217057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:UpdateDomainContactPrivacyResponse' :: Text
+</span><a href="#local-6989586621679217125"><span class="hs-identifier hs-var hs-var">operationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217125"><span class="hs-identifier hs-var">operationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217124"><span class="annot"><span class="annottext">s :: UpdateDomainContactPrivacyResponse
+</span><a href="#local-6989586621679217124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse%27"><span class="hs-identifier hs-type">UpdateDomainContactPrivacyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217123"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateDomainContactPrivacyResponse
+</span><a href="#local-6989586621679217124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operationId:UpdateDomainContactPrivacyResponse' :: Text
 </span><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#%24sel%3AoperationId%3AUpdateDomainContactPrivacyResponse%27"><span class="hs-identifier hs-var">operationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse"><span class="hs-identifier hs-type">UpdateDomainContactPrivacyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse"><span class="hs-identifier hs-type">UpdateDomainContactPrivacyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-275"></span><span>
 </span><span id="line-276"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-277"></span><span>  </span><span id="local-6989586621679217054"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-277"></span><span>  </span><span id="local-6989586621679217121"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-278"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53Domains.UpdateDomainContactPrivacy.html#UpdateDomainContactPrivacyResponse"><span class="hs-identifier hs-type">UpdateDomainContactPrivacyResponse</span></a></span></span><span>
 </span><span id="line-279"></span></pre></body></html>

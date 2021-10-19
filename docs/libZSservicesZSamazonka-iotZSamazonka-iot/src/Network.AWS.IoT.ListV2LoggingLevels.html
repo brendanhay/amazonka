@@ -33,8 +33,8 @@
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#newListV2LoggingLevels"><span class="hs-identifier">newListV2LoggingLevels</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevels_nextToken"><span class="hs-identifier">listV2LoggingLevels_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevels_targetType"><span class="hs-identifier">listV2LoggingLevels_targetType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevels_targetType"><span class="hs-identifier">listV2LoggingLevels_targetType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevels_nextToken"><span class="hs-identifier">listV2LoggingLevels_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevels_maxResults"><span class="hs-identifier">listV2LoggingLevels_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -42,8 +42,8 @@
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#newListV2LoggingLevelsResponse"><span class="hs-identifier">newListV2LoggingLevelsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevelsResponse_nextToken"><span class="hs-identifier">listV2LoggingLevelsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevelsResponse_logTargetConfigurations"><span class="hs-identifier">listV2LoggingLevelsResponse_logTargetConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevelsResponse_logTargetConfigurations"><span class="hs-identifier">listV2LoggingLevelsResponse_logTargetConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevelsResponse_nextToken"><span class="hs-identifier">listV2LoggingLevelsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevelsResponse_httpStatus"><span class="hs-identifier">listV2LoggingLevelsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span class="hs-keyword">where</span><span>
@@ -56,21 +56,21 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListV2LoggingLevels' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679815598"><span id="local-6989586621679815599"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListV2LoggingLevels"><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-var">ListV2LoggingLevels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListV2LoggingLevels%27"><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels%27"><span class="hs-identifier hs-var">ListV2LoggingLevels'</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | To retrieve the next set of results, the @nextToken@ value from a</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- previous response; otherwise __null__ to receive the first set of</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3AListV2LoggingLevels%27"><span class="annot"><span class="annottext">ListV2LoggingLevels -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AnextToken%3AListV2LoggingLevels%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The type of resource for which you are configuring logging. Must be</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @THING_Group@.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AtargetType%3AListV2LoggingLevels%27"><span class="annot"><span class="annottext">ListV2LoggingLevels -&gt; Maybe LogTargetType
+</span><span id="line-59"></span><span id="local-6989586621679816511"><span id="local-6989586621679816512"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListV2LoggingLevels"><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-var">ListV2LoggingLevels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListV2LoggingLevels%27"><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels%27"><span class="hs-identifier hs-var">ListV2LoggingLevels'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of resource for which you are configuring logging. Must be</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- @THING_Group@.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AtargetType%3AListV2LoggingLevels%27"><span class="annot"><span class="annottext">ListV2LoggingLevels -&gt; Maybe LogTargetType
 </span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AtargetType%3AListV2LoggingLevels%27"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTargetType.html#LogTargetType"><span class="hs-identifier hs-type">LogTargetType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | To retrieve the next set of results, the @nextToken@ value from a</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- previous response; otherwise __null__ to receive the first set of</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AnextToken%3AListV2LoggingLevels%27"><span class="annot"><span class="annottext">ListV2LoggingLevels -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AnextToken%3AListV2LoggingLevels%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return at one time.</span><span>
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AmaxResults%3AListV2LoggingLevels%27"><span class="annot"><span class="annottext">ListV2LoggingLevels -&gt; Maybe Natural
 </span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AmaxResults%3AListV2LoggingLevels%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679815590"><span id="local-6989586621679815592"><span class="annot"><span class="annottext">ListV2LoggingLevels -&gt; ListV2LoggingLevels -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679816503"><span id="local-6989586621679816505"><span class="annot"><span class="annottext">ListV2LoggingLevels -&gt; ListV2LoggingLevels -&gt; Bool
 (ListV2LoggingLevels -&gt; ListV2LoggingLevels -&gt; Bool)
 -&gt; (ListV2LoggingLevels -&gt; ListV2LoggingLevels -&gt; Bool)
 -&gt; Eq ListV2LoggingLevels
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListV2LoggingLevels -&gt; ListV2LoggingLevels -&gt; Bool
 == :: ListV2LoggingLevels -&gt; ListV2LoggingLevels -&gt; Bool
 $c== :: ListV2LoggingLevels -&gt; ListV2LoggingLevels -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815581"><span id="local-6989586621679815583"><span id="local-6989586621679815585"><span id="local-6989586621679815587"><span class="annot"><span class="annottext">ReadPrec [ListV2LoggingLevels]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816494"><span id="local-6989586621679816496"><span id="local-6989586621679816498"><span id="local-6989586621679816500"><span class="annot"><span class="annottext">ReadPrec [ListV2LoggingLevels]
 ReadPrec ListV2LoggingLevels
 Int -&gt; ReadS ListV2LoggingLevels
 ReadS [ListV2LoggingLevels]
@@ -99,7 +99,7 @@ readList :: ReadS [ListV2LoggingLevels]
 $creadList :: ReadS [ListV2LoggingLevels]
 readsPrec :: Int -&gt; ReadS ListV2LoggingLevels
 $creadsPrec :: Int -&gt; ReadS ListV2LoggingLevels
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815574"><span id="local-6989586621679815576"><span id="local-6989586621679815578"><span class="annot"><span class="annottext">Int -&gt; ListV2LoggingLevels -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816487"><span id="local-6989586621679816489"><span id="local-6989586621679816491"><span class="annot"><span class="annottext">Int -&gt; ListV2LoggingLevels -&gt; ShowS
 [ListV2LoggingLevels] -&gt; ShowS
 ListV2LoggingLevels -&gt; String
 (Int -&gt; ListV2LoggingLevels -&gt; ShowS)
@@ -133,27 +133,27 @@ $cfrom :: forall x. ListV2LoggingLevels -&gt; Rep ListV2LoggingLevels x
 </span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'nextToken', 'listV2LoggingLevels_nextToken' - To retrieve the next set of results, the @nextToken@ value from a</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- previous response; otherwise __null__ to receive the first set of</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'targetType', 'listV2LoggingLevels_targetType' - The type of resource for which you are configuring logging. Must be</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- @THING_Group@.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'targetType', 'listV2LoggingLevels_targetType' - The type of resource for which you are configuring logging. Must be</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- @THING_Group@.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'nextToken', 'listV2LoggingLevels_nextToken' - To retrieve the next set of results, the @nextToken@ value from a</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- previous response; otherwise __null__ to receive the first set of</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- results.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- 'maxResults', 'listV2LoggingLevels_maxResults' - The maximum number of results to return at one time.</span><span>
 </span><span id="line-88"></span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#newListV2LoggingLevels"><span class="hs-identifier hs-type">newListV2LoggingLevels</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span><span>
 </span><span id="line-90"></span><span id="newListV2LoggingLevels"><span class="annot"><span class="annottext">newListV2LoggingLevels :: ListV2LoggingLevels
 </span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#newListV2LoggingLevels"><span class="hs-identifier hs-var hs-var">newListV2LoggingLevels</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">ListV2LoggingLevels' :: Maybe Text
--&gt; Maybe LogTargetType -&gt; Maybe Natural -&gt; ListV2LoggingLevels
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">ListV2LoggingLevels' :: Maybe LogTargetType
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; ListV2LoggingLevels
 </span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels%27"><span class="hs-identifier hs-type">ListV2LoggingLevels'</span></a></span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListV2LoggingLevels' :: Maybe Text
-</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AnextToken%3AListV2LoggingLevels%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetType:ListV2LoggingLevels' :: Maybe LogTargetType
+</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AtargetType%3AListV2LoggingLevels%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogTargetType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetType:ListV2LoggingLevels' :: Maybe LogTargetType
-</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AtargetType%3AListV2LoggingLevels%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogTargetType
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListV2LoggingLevels' :: Maybe Text
+</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AnextToken%3AListV2LoggingLevels%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListV2LoggingLevels' :: Maybe Natural
@@ -162,32 +162,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | To retrieve the next set of results, the @nextToken@ value from a</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- previous response; otherwise __null__ to receive the first set of</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevels_nextToken"><span class="hs-identifier hs-type">listV2LoggingLevels_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="listV2LoggingLevels_nextToken"><span class="annot"><span class="annottext">listV2LoggingLevels_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListV2LoggingLevels -&gt; f ListV2LoggingLevels
-</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevels_nextToken"><span class="hs-identifier hs-var hs-var">listV2LoggingLevels_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListV2LoggingLevels -&gt; Maybe Text)
--&gt; (ListV2LoggingLevels -&gt; Maybe Text -&gt; ListV2LoggingLevels)
--&gt; Lens
-     ListV2LoggingLevels ListV2LoggingLevels (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels%27"><span class="hs-identifier hs-type">ListV2LoggingLevels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815568"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListV2LoggingLevels' :: ListV2LoggingLevels -&gt; Maybe Text
-</span><a href="#local-6989586621679815568"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679815568"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815567"><span class="annot"><span class="annottext">s :: ListV2LoggingLevels
-</span><a href="#local-6989586621679815567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels%27"><span class="hs-identifier hs-type">ListV2LoggingLevels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815566"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679815566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListV2LoggingLevels
-</span><a href="#local-6989586621679815567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListV2LoggingLevels' :: Maybe Text
-</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AnextToken%3AListV2LoggingLevels%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679815566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | The type of resource for which you are configuring logging. Must be</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- @THING_Group@.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevels_targetType"><span class="hs-identifier hs-type">listV2LoggingLevels_targetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTargetType.html#LogTargetType"><span class="hs-identifier hs-type">LogTargetType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="listV2LoggingLevels_targetType"><span class="annot"><span class="annottext">listV2LoggingLevels_targetType :: (Maybe LogTargetType -&gt; f (Maybe LogTargetType))
+</span><span id="line-97"></span><span class="hs-comment">-- | The type of resource for which you are configuring logging. Must be</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- @THING_Group@.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevels_targetType"><span class="hs-identifier hs-type">listV2LoggingLevels_targetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTargetType.html#LogTargetType"><span class="hs-identifier hs-type">LogTargetType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="listV2LoggingLevels_targetType"><span class="annot"><span class="annottext">listV2LoggingLevels_targetType :: (Maybe LogTargetType -&gt; f (Maybe LogTargetType))
 -&gt; ListV2LoggingLevels -&gt; f ListV2LoggingLevels
 </span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevels_targetType"><span class="hs-identifier hs-var hs-var">listV2LoggingLevels_targetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListV2LoggingLevels -&gt; Maybe LogTargetType)
 -&gt; (ListV2LoggingLevels
@@ -198,16 +176,38 @@ $sel:nextToken:ListV2LoggingLevels' :: ListV2LoggingLevels -&gt; Maybe Text
      (Maybe LogTargetType)
      (Maybe LogTargetType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels%27"><span class="hs-identifier hs-type">ListV2LoggingLevels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815565"><span class="annot"><span class="annottext">Maybe LogTargetType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels%27"><span class="hs-identifier hs-type">ListV2LoggingLevels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816481"><span class="annot"><span class="annottext">Maybe LogTargetType
 targetType :: Maybe LogTargetType
 $sel:targetType:ListV2LoggingLevels' :: ListV2LoggingLevels -&gt; Maybe LogTargetType
-</span><a href="#local-6989586621679815565"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogTargetType
-</span><a href="#local-6989586621679815565"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815564"><span class="annot"><span class="annottext">s :: ListV2LoggingLevels
-</span><a href="#local-6989586621679815564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels%27"><span class="hs-identifier hs-type">ListV2LoggingLevels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815563"><span class="annot"><span class="annottext">Maybe LogTargetType
-</span><a href="#local-6989586621679815563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListV2LoggingLevels
-</span><a href="#local-6989586621679815564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetType:ListV2LoggingLevels' :: Maybe LogTargetType
+</span><a href="#local-6989586621679816481"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogTargetType
+</span><a href="#local-6989586621679816481"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816480"><span class="annot"><span class="annottext">s :: ListV2LoggingLevels
+</span><a href="#local-6989586621679816480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels%27"><span class="hs-identifier hs-type">ListV2LoggingLevels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816479"><span class="annot"><span class="annottext">Maybe LogTargetType
+</span><a href="#local-6989586621679816479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListV2LoggingLevels
+</span><a href="#local-6989586621679816480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetType:ListV2LoggingLevels' :: Maybe LogTargetType
 </span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AtargetType%3AListV2LoggingLevels%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogTargetType
-</span><a href="#local-6989586621679815563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679816479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | To retrieve the next set of results, the @nextToken@ value from a</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- previous response; otherwise __null__ to receive the first set of</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevels_nextToken"><span class="hs-identifier hs-type">listV2LoggingLevels_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="listV2LoggingLevels_nextToken"><span class="annot"><span class="annottext">listV2LoggingLevels_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListV2LoggingLevels -&gt; f ListV2LoggingLevels
+</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevels_nextToken"><span class="hs-identifier hs-var hs-var">listV2LoggingLevels_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListV2LoggingLevels -&gt; Maybe Text)
+-&gt; (ListV2LoggingLevels -&gt; Maybe Text -&gt; ListV2LoggingLevels)
+-&gt; Lens
+     ListV2LoggingLevels ListV2LoggingLevels (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels%27"><span class="hs-identifier hs-type">ListV2LoggingLevels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816478"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListV2LoggingLevels' :: ListV2LoggingLevels -&gt; Maybe Text
+</span><a href="#local-6989586621679816478"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679816478"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816477"><span class="annot"><span class="annottext">s :: ListV2LoggingLevels
+</span><a href="#local-6989586621679816477"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels%27"><span class="hs-identifier hs-type">ListV2LoggingLevels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816476"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679816476"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListV2LoggingLevels
+</span><a href="#local-6989586621679816477"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListV2LoggingLevels' :: Maybe Text
+</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AnextToken%3AListV2LoggingLevels%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679816476"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The maximum number of results to return at one time.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevels_maxResults"><span class="hs-identifier hs-type">listV2LoggingLevels_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -221,29 +221,29 @@ $sel:targetType:ListV2LoggingLevels' :: ListV2LoggingLevels -&gt; Maybe LogTarge
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels%27"><span class="hs-identifier hs-type">ListV2LoggingLevels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815562"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels%27"><span class="hs-identifier hs-type">ListV2LoggingLevels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816475"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListV2LoggingLevels' :: ListV2LoggingLevels -&gt; Maybe Natural
-</span><a href="#local-6989586621679815562"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679815562"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815561"><span class="annot"><span class="annottext">s :: ListV2LoggingLevels
-</span><a href="#local-6989586621679815561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels%27"><span class="hs-identifier hs-type">ListV2LoggingLevels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815560"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679815560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListV2LoggingLevels
-</span><a href="#local-6989586621679815561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListV2LoggingLevels' :: Maybe Natural
+</span><a href="#local-6989586621679816475"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679816475"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816474"><span class="annot"><span class="annottext">s :: ListV2LoggingLevels
+</span><a href="#local-6989586621679816474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels%27"><span class="hs-identifier hs-type">ListV2LoggingLevels'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816473"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679816473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListV2LoggingLevels
+</span><a href="#local-6989586621679816474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListV2LoggingLevels' :: Maybe Natural
 </span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AmaxResults%3AListV2LoggingLevels%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679815560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679816473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679815556"><span class="annot"><span class="annottext">page :: ListV2LoggingLevels
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679816469"><span class="annot"><span class="annottext">page :: ListV2LoggingLevels
 -&gt; AWSResponse ListV2LoggingLevels -&gt; Maybe ListV2LoggingLevels
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679815554"><span class="annot"><span class="annottext">ListV2LoggingLevels
-</span><a href="#local-6989586621679815554"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679815553"><span class="annot"><span class="annottext">AWSResponse ListV2LoggingLevels
-</span><a href="#local-6989586621679815553"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679816467"><span class="annot"><span class="annottext">ListV2LoggingLevels
+</span><a href="#local-6989586621679816467"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679816466"><span class="annot"><span class="annottext">AWSResponse ListV2LoggingLevels
+</span><a href="#local-6989586621679816466"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-114"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-115"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListV2LoggingLevels
 ListV2LoggingLevelsResponse
-</span><a href="#local-6989586621679815553"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679816466"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">ListV2LoggingLevelsResponse
 -&gt; Getting (First Text) ListV2LoggingLevelsResponse Text
 -&gt; Maybe Text
@@ -273,7 +273,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-121"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListV2LoggingLevels
 ListV2LoggingLevelsResponse
-</span><a href="#local-6989586621679815553"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679816466"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">ListV2LoggingLevelsResponse
 -&gt; Getting
      (First [LogTargetConfiguration])
@@ -325,7 +325,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">ListV2LoggingLevels
-</span><a href="#local-6989586621679815554"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679816467"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">ListV2LoggingLevels
 -&gt; (ListV2LoggingLevels -&gt; ListV2LoggingLevels)
 -&gt; ListV2LoggingLevels
@@ -341,7 +341,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListV2LoggingLevels
 ListV2LoggingLevelsResponse
-</span><a href="#local-6989586621679815553"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679816466"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">ListV2LoggingLevelsResponse
 -&gt; Getting (First Text) ListV2LoggingLevelsResponse Text
 -&gt; Maybe Text
@@ -367,12 +367,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-135"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-136"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679815543"><span class="annot"><span class="annottext">request :: ListV2LoggingLevels -&gt; Request ListV2LoggingLevels
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679816456"><span class="annot"><span class="annottext">request :: ListV2LoggingLevels -&gt; Request ListV2LoggingLevels
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListV2LoggingLevels -&gt; Request ListV2LoggingLevels
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679815539"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679816452"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListV2LoggingLevels
 -&gt; ClientResponse ClientBody
@@ -398,51 +398,41 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679815536"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679815536"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679815535"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679815535"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679815534"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679815534"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [LogTargetConfiguration]
--&gt; Int
--&gt; ListV2LoggingLevelsResponse
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679816449"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679816449"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679816448"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679816448"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679816447"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679816447"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">Maybe [LogTargetConfiguration]
+-&gt; Maybe Text -&gt; Int -&gt; ListV2LoggingLevelsResponse
 </span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-var">ListV2LoggingLevelsResponse'</span></a></span><span>
-</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [LogTargetConfiguration]
- -&gt; Int
- -&gt; ListV2LoggingLevelsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [LogTargetConfiguration]
-      -&gt; Int -&gt; ListV2LoggingLevelsResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679815534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [LogTargetConfiguration]
-   -&gt; Int -&gt; ListV2LoggingLevelsResponse)
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [LogTargetConfiguration]
+ -&gt; Maybe Text -&gt; Int -&gt; ListV2LoggingLevelsResponse)
 -&gt; Either String (Maybe [LogTargetConfiguration])
--&gt; Either String (Int -&gt; ListV2LoggingLevelsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679815534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListV2LoggingLevelsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679816447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [LogTargetConfiguration]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logTargetConfigurations&quot;</span></span><span>
-</span><span id="line-145"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [LogTargetConfiguration]))
+</span><span id="line-144"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [LogTargetConfiguration]))
 -&gt; Maybe [LogTargetConfiguration]
 -&gt; Either String (Maybe [LogTargetConfiguration])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LogTargetConfiguration]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-146"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListV2LoggingLevelsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListV2LoggingLevelsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679816447"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListV2LoggingLevelsResponse)
 -&gt; Either String Int -&gt; Either String ListV2LoggingLevelsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -451,15 +441,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679815536"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679816449"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815525"><span id="local-6989586621679815527"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816438"><span id="local-6989586621679816440"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span></span></span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815522"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816435"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679815518"><span class="annot"><span class="annottext">toHeaders :: ListV2LoggingLevels -&gt; ResponseHeaders
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679816431"><span class="annot"><span class="annottext">toHeaders :: ListV2LoggingLevels -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListV2LoggingLevels -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -467,58 +457,58 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679815513"><span class="annot"><span class="annottext">toPath :: ListV2LoggingLevels -&gt; ByteString
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679816426"><span class="annot"><span class="annottext">toPath :: ListV2LoggingLevels -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListV2LoggingLevels -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/v2LoggingLevel&quot;</span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels"><span class="hs-identifier hs-type">ListV2LoggingLevels</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679815509"><span class="annot"><span class="annottext">toQuery :: ListV2LoggingLevels -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels%27"><span class="hs-identifier hs-type">ListV2LoggingLevels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815505"><span id="local-6989586621679815506"><span id="local-6989586621679815507"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679816422"><span class="annot"><span class="annottext">toQuery :: ListV2LoggingLevels -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevels%27"><span class="hs-identifier hs-type">ListV2LoggingLevels'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816418"><span id="local-6989586621679816419"><span id="local-6989586621679816420"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe LogTargetType
 maxResults :: Maybe Natural
-targetType :: Maybe LogTargetType
 nextToken :: Maybe Text
+targetType :: Maybe LogTargetType
 $sel:maxResults:ListV2LoggingLevels' :: ListV2LoggingLevels -&gt; Maybe Natural
-$sel:targetType:ListV2LoggingLevels' :: ListV2LoggingLevels -&gt; Maybe LogTargetType
 $sel:nextToken:ListV2LoggingLevels' :: ListV2LoggingLevels -&gt; Maybe Text
-</span><a href="#local-6989586621679815505"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:targetType:ListV2LoggingLevels' :: ListV2LoggingLevels -&gt; Maybe LogTargetType
+</span><a href="#local-6989586621679816418"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679815507"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;targetType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe LogTargetType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe LogTargetType
-</span><a href="#local-6989586621679815506"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679816420"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679816419"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679815505"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679816418"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | /See:/ 'newListV2LoggingLevelsResponse' smart constructor.</span><span>
-</span><span id="line-169"></span><span id="local-6989586621679815502"><span id="local-6989586621679815503"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListV2LoggingLevelsResponse"><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse"><span class="hs-identifier hs-var">ListV2LoggingLevelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListV2LoggingLevelsResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-var">ListV2LoggingLevelsResponse'</span></a></span></span><span>
-</span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to get the next set of results, or __null__ if there</span><span>
-</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- are no additional results.</span><span>
-</span><span id="line-172"></span><span>    </span><span id="%24sel%3AnextToken%3AListV2LoggingLevelsResponse%27"><span class="annot"><span class="annottext">ListV2LoggingLevelsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AnextToken%3AListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The logging configuration for a target.</span><span>
-</span><span id="line-174"></span><span>    </span><span id="%24sel%3AlogTargetConfigurations%3AListV2LoggingLevelsResponse%27"><span class="annot"><span class="annottext">ListV2LoggingLevelsResponse -&gt; Maybe [LogTargetConfiguration]
+</span><span id="line-169"></span><span id="local-6989586621679816415"><span id="local-6989586621679816416"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListV2LoggingLevelsResponse"><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse"><span class="hs-identifier hs-var">ListV2LoggingLevelsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListV2LoggingLevelsResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-var">ListV2LoggingLevelsResponse'</span></a></span></span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The logging configuration for a target.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AlogTargetConfigurations%3AListV2LoggingLevelsResponse%27"><span class="annot"><span class="annottext">ListV2LoggingLevelsResponse -&gt; Maybe [LogTargetConfiguration]
 </span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AlogTargetConfigurations%3AListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-var hs-var">logTargetConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration"><span class="hs-identifier hs-type">LogTargetConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The token to use to get the next set of results, or __null__ if there</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- are no additional results.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AnextToken%3AListV2LoggingLevelsResponse%27"><span class="annot"><span class="annottext">ListV2LoggingLevelsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AnextToken%3AListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-176"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListV2LoggingLevelsResponse%27"><span class="annot"><span class="annottext">ListV2LoggingLevelsResponse -&gt; Int
 </span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AhttpStatus%3AListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679815495"><span id="local-6989586621679815497"><span class="annot"><span class="annottext">ListV2LoggingLevelsResponse -&gt; ListV2LoggingLevelsResponse -&gt; Bool
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679816408"><span id="local-6989586621679816410"><span class="annot"><span class="annottext">ListV2LoggingLevelsResponse -&gt; ListV2LoggingLevelsResponse -&gt; Bool
 (ListV2LoggingLevelsResponse
  -&gt; ListV2LoggingLevelsResponse -&gt; Bool)
 -&gt; (ListV2LoggingLevelsResponse
@@ -529,7 +519,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListV2LoggingLevelsResponse -&gt; ListV2LoggingLevelsResponse -&gt; Bool
 == :: ListV2LoggingLevelsResponse -&gt; ListV2LoggingLevelsResponse -&gt; Bool
 $c== :: ListV2LoggingLevelsResponse -&gt; ListV2LoggingLevelsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815487"><span id="local-6989586621679815489"><span id="local-6989586621679815491"><span id="local-6989586621679815493"><span class="annot"><span class="annottext">ReadPrec [ListV2LoggingLevelsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816400"><span id="local-6989586621679816402"><span id="local-6989586621679816404"><span id="local-6989586621679816406"><span class="annot"><span class="annottext">ReadPrec [ListV2LoggingLevelsResponse]
 ReadPrec ListV2LoggingLevelsResponse
 Int -&gt; ReadS ListV2LoggingLevelsResponse
 ReadS [ListV2LoggingLevelsResponse]
@@ -549,7 +539,7 @@ readList :: ReadS [ListV2LoggingLevelsResponse]
 $creadList :: ReadS [ListV2LoggingLevelsResponse]
 readsPrec :: Int -&gt; ReadS ListV2LoggingLevelsResponse
 $creadsPrec :: Int -&gt; ReadS ListV2LoggingLevelsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815481"><span id="local-6989586621679815483"><span id="local-6989586621679815485"><span class="annot"><span class="annottext">Int -&gt; ListV2LoggingLevelsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816394"><span id="local-6989586621679816396"><span id="local-6989586621679816398"><span class="annot"><span class="annottext">Int -&gt; ListV2LoggingLevelsResponse -&gt; ShowS
 [ListV2LoggingLevelsResponse] -&gt; ShowS
 ListV2LoggingLevelsResponse -&gt; String
 (Int -&gt; ListV2LoggingLevelsResponse -&gt; ShowS)
@@ -589,10 +579,10 @@ ListV2LoggingLevelsResponse -&gt; Rep ListV2LoggingLevelsResponse x
 </span><span id="line-185"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-187"></span><span class="hs-comment">--</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- 'nextToken', 'listV2LoggingLevelsResponse_nextToken' - The token to use to get the next set of results, or __null__ if there</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- are no additional results.</span><span>
-</span><span id="line-190"></span><span class="hs-comment">--</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- 'logTargetConfigurations', 'listV2LoggingLevelsResponse_logTargetConfigurations' - The logging configuration for a target.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'logTargetConfigurations', 'listV2LoggingLevelsResponse_logTargetConfigurations' - The logging configuration for a target.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'nextToken', 'listV2LoggingLevelsResponse_nextToken' - The token to use to get the next set of results, or __null__ if there</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- are no additional results.</span><span>
 </span><span id="line-192"></span><span class="hs-comment">--</span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- 'httpStatus', 'listV2LoggingLevelsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-194"></span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#newListV2LoggingLevelsResponse"><span class="hs-identifier hs-type">newListV2LoggingLevelsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -600,51 +590,28 @@ ListV2LoggingLevelsResponse -&gt; Rep ListV2LoggingLevelsResponse x
 </span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse</span></a></span><span>
 </span><span id="line-198"></span><span id="newListV2LoggingLevelsResponse"><span class="annot"><span class="annottext">newListV2LoggingLevelsResponse :: Int -&gt; ListV2LoggingLevelsResponse
-</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#newListV2LoggingLevelsResponse"><span class="hs-identifier hs-var hs-var">newListV2LoggingLevelsResponse</span></a></span></span><span> </span><span id="local-6989586621679815478"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679815478"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">ListV2LoggingLevelsResponse' :: Maybe Text
--&gt; Maybe [LogTargetConfiguration]
--&gt; Int
--&gt; ListV2LoggingLevelsResponse
+</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#newListV2LoggingLevelsResponse"><span class="hs-identifier hs-var hs-var">newListV2LoggingLevelsResponse</span></a></span></span><span> </span><span id="local-6989586621679816391"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679816391"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">ListV2LoggingLevelsResponse' :: Maybe [LogTargetConfiguration]
+-&gt; Maybe Text -&gt; Int -&gt; ListV2LoggingLevelsResponse
 </span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse'</span></a></span><span>
-</span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListV2LoggingLevelsResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AnextToken%3AListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logTargetConfigurations:ListV2LoggingLevelsResponse' :: Maybe [LogTargetConfiguration]
+</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AlogTargetConfigurations%3AListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-var">logTargetConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">Maybe [LogTargetConfiguration]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:logTargetConfigurations:ListV2LoggingLevelsResponse' :: Maybe [LogTargetConfiguration]
-</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AlogTargetConfigurations%3AListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-var">logTargetConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LogTargetConfiguration]
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListV2LoggingLevelsResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AnextToken%3AListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListV2LoggingLevelsResponse' :: Int
 </span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AhttpStatus%3AListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679815478"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679816391"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-204"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- | The token to use to get the next set of results, or __null__ if there</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- are no additional results.</span><span>
-</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevelsResponse_nextToken"><span class="hs-identifier hs-type">listV2LoggingLevelsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span id="listV2LoggingLevelsResponse_nextToken"><span class="annot"><span class="annottext">listV2LoggingLevelsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListV2LoggingLevelsResponse -&gt; f ListV2LoggingLevelsResponse
-</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevelsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listV2LoggingLevelsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListV2LoggingLevelsResponse -&gt; Maybe Text)
--&gt; (ListV2LoggingLevelsResponse
-    -&gt; Maybe Text -&gt; ListV2LoggingLevelsResponse)
--&gt; Lens' ListV2LoggingLevelsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815477"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListV2LoggingLevelsResponse' :: ListV2LoggingLevelsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679815477"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679815477"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815476"><span class="annot"><span class="annottext">s :: ListV2LoggingLevelsResponse
-</span><a href="#local-6989586621679815476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815475"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679815475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListV2LoggingLevelsResponse
-</span><a href="#local-6989586621679815476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListV2LoggingLevelsResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AnextToken%3AListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679815475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- | The logging configuration for a target.</span><span>
-</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevelsResponse_logTargetConfigurations"><span class="hs-identifier hs-type">listV2LoggingLevelsResponse_logTargetConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration"><span class="hs-identifier hs-type">LogTargetConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-213"></span><span id="listV2LoggingLevelsResponse_logTargetConfigurations"><span class="annot"><span class="annottext">listV2LoggingLevelsResponse_logTargetConfigurations :: (Maybe [LogTargetConfiguration]
+</span><span id="line-206"></span><span class="hs-comment">-- | The logging configuration for a target.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevelsResponse_logTargetConfigurations"><span class="hs-identifier hs-type">listV2LoggingLevelsResponse_logTargetConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.LogTargetConfiguration.html#LogTargetConfiguration"><span class="hs-identifier hs-type">LogTargetConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="listV2LoggingLevelsResponse_logTargetConfigurations"><span class="annot"><span class="annottext">listV2LoggingLevelsResponse_logTargetConfigurations :: (Maybe [LogTargetConfiguration]
  -&gt; f (Maybe [LogTargetConfiguration]))
 -&gt; ListV2LoggingLevelsResponse -&gt; f ListV2LoggingLevelsResponse
 </span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevelsResponse_logTargetConfigurations"><span class="hs-identifier hs-var hs-var">listV2LoggingLevelsResponse_logTargetConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListV2LoggingLevelsResponse -&gt; Maybe [LogTargetConfiguration])
@@ -653,16 +620,16 @@ $sel:nextToken:ListV2LoggingLevelsResponse' :: ListV2LoggingLevelsResponse -&gt;
 -&gt; Lens'
      ListV2LoggingLevelsResponse (Maybe [LogTargetConfiguration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815474"><span class="annot"><span class="annottext">Maybe [LogTargetConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816390"><span class="annot"><span class="annottext">Maybe [LogTargetConfiguration]
 logTargetConfigurations :: Maybe [LogTargetConfiguration]
 $sel:logTargetConfigurations:ListV2LoggingLevelsResponse' :: ListV2LoggingLevelsResponse -&gt; Maybe [LogTargetConfiguration]
-</span><a href="#local-6989586621679815474"><span class="hs-identifier hs-var hs-var">logTargetConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LogTargetConfiguration]
-</span><a href="#local-6989586621679815474"><span class="hs-identifier hs-var">logTargetConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815473"><span class="annot"><span class="annottext">s :: ListV2LoggingLevelsResponse
-</span><a href="#local-6989586621679815473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815472"><span class="annot"><span class="annottext">Maybe [LogTargetConfiguration]
-</span><a href="#local-6989586621679815472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListV2LoggingLevelsResponse
-</span><a href="#local-6989586621679815473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logTargetConfigurations:ListV2LoggingLevelsResponse' :: Maybe [LogTargetConfiguration]
+</span><a href="#local-6989586621679816390"><span class="hs-identifier hs-var hs-var">logTargetConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LogTargetConfiguration]
+</span><a href="#local-6989586621679816390"><span class="hs-identifier hs-var">logTargetConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816389"><span class="annot"><span class="annottext">s :: ListV2LoggingLevelsResponse
+</span><a href="#local-6989586621679816389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816388"><span class="annot"><span class="annottext">Maybe [LogTargetConfiguration]
+</span><a href="#local-6989586621679816388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListV2LoggingLevelsResponse
+</span><a href="#local-6989586621679816389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logTargetConfigurations:ListV2LoggingLevelsResponse' :: Maybe [LogTargetConfiguration]
 </span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AlogTargetConfigurations%3AListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-var">logTargetConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LogTargetConfiguration]
-</span><a href="#local-6989586621679815472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LogTargetConfiguration]
+</span><a href="#local-6989586621679816388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LogTargetConfiguration]
   -&gt; f (Maybe [LogTargetConfiguration]))
  -&gt; ListV2LoggingLevelsResponse -&gt; f ListV2LoggingLevelsResponse)
 -&gt; ((Maybe [LogTargetConfiguration]
@@ -692,8 +659,29 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [LogTargetConfiguration]
   [LogTargetConfiguration]
   [LogTargetConfiguration]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The token to use to get the next set of results, or __null__ if there</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- are no additional results.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevelsResponse_nextToken"><span class="hs-identifier hs-type">listV2LoggingLevelsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="listV2LoggingLevelsResponse_nextToken"><span class="annot"><span class="annottext">listV2LoggingLevelsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListV2LoggingLevelsResponse -&gt; f ListV2LoggingLevelsResponse
+</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevelsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listV2LoggingLevelsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListV2LoggingLevelsResponse -&gt; Maybe Text)
+-&gt; (ListV2LoggingLevelsResponse
+    -&gt; Maybe Text -&gt; ListV2LoggingLevelsResponse)
+-&gt; Lens' ListV2LoggingLevelsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816385"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListV2LoggingLevelsResponse' :: ListV2LoggingLevelsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679816385"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679816385"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816384"><span class="annot"><span class="annottext">s :: ListV2LoggingLevelsResponse
+</span><a href="#local-6989586621679816384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816383"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679816383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListV2LoggingLevelsResponse
+</span><a href="#local-6989586621679816384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListV2LoggingLevelsResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AnextToken%3AListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679816383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-216"></span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#listV2LoggingLevelsResponse_httpStatus"><span class="hs-identifier hs-type">listV2LoggingLevelsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -705,16 +693,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      ListV2LoggingLevelsResponse ListV2LoggingLevelsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815469"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816382"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListV2LoggingLevelsResponse' :: ListV2LoggingLevelsResponse -&gt; Int
-</span><a href="#local-6989586621679815469"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679815469"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815468"><span class="annot"><span class="annottext">s :: ListV2LoggingLevelsResponse
-</span><a href="#local-6989586621679815468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815467"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679815467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListV2LoggingLevelsResponse
-</span><a href="#local-6989586621679815468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListV2LoggingLevelsResponse' :: Int
+</span><a href="#local-6989586621679816382"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679816382"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816381"><span class="annot"><span class="annottext">s :: ListV2LoggingLevelsResponse
+</span><a href="#local-6989586621679816381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816380"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679816380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListV2LoggingLevelsResponse
+</span><a href="#local-6989586621679816381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListV2LoggingLevelsResponse' :: Int
 </span><a href="Network.AWS.IoT.ListV2LoggingLevels.html#%24sel%3AhttpStatus%3AListV2LoggingLevelsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679815467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679816380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse</span></a></span></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816378"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListV2LoggingLevels.html#ListV2LoggingLevelsResponse"><span class="hs-identifier hs-type">ListV2LoggingLevelsResponse</span></a></span></span><span>
 </span><span id="line-220"></span></pre></body></html>

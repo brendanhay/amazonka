@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Information about a product view.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newProductViewDetail' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679405065"><span id="local-6989586621679405066"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProductViewDetail"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-var">ProductViewDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProductViewDetail%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-var">ProductViewDetail'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679405519"><span id="local-6989586621679405520"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProductViewDetail"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-var">ProductViewDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProductViewDetail%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-var">ProductViewDetail'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the product.</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- -   @AVAILABLE@ - The product is ready for use.</span><span>
@@ -39,17 +39,17 @@
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   @FAILED@ - An action failed.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Astatus%3AProductViewDetail%27"><span class="annot"><span class="annottext">ProductViewDetail -&gt; Maybe RequestStatus
 </span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#%24sel%3Astatus%3AProductViewDetail%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.RequestStatus.html#RequestStatus"><span class="hs-identifier hs-type">RequestStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The ARN of the product.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AproductARN%3AProductViewDetail%27"><span class="annot"><span class="annottext">ProductViewDetail -&gt; Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#%24sel%3AproductARN%3AProductViewDetail%27"><span class="hs-identifier hs-var hs-var">productARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Summary information about the product view.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AproductViewSummary%3AProductViewDetail%27"><span class="annot"><span class="annottext">ProductViewDetail -&gt; Maybe ProductViewSummary
+</span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#%24sel%3AproductViewSummary%3AProductViewDetail%27"><span class="hs-identifier hs-var hs-var">productViewSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewSummary.html#ProductViewSummary"><span class="hs-identifier hs-type">ProductViewSummary</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The UTC time stamp of the creation time.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AcreatedTime%3AProductViewDetail%27"><span class="annot"><span class="annottext">ProductViewDetail -&gt; Maybe POSIX
 </span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#%24sel%3AcreatedTime%3AProductViewDetail%27"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | Summary information about the product view.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AproductViewSummary%3AProductViewDetail%27"><span class="annot"><span class="annottext">ProductViewDetail -&gt; Maybe ProductViewSummary
-</span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#%24sel%3AproductViewSummary%3AProductViewDetail%27"><span class="hs-identifier hs-var hs-var">productViewSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewSummary.html#ProductViewSummary"><span class="hs-identifier hs-type">ProductViewSummary</span></a></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The ARN of the product.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AproductARN%3AProductViewDetail%27"><span class="annot"><span class="annottext">ProductViewDetail -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#%24sel%3AproductARN%3AProductViewDetail%27"><span class="hs-identifier hs-var hs-var">productARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679405056"><span id="local-6989586621679405058"><span class="annot"><span class="annottext">ProductViewDetail -&gt; ProductViewDetail -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679405510"><span id="local-6989586621679405512"><span class="annot"><span class="annottext">ProductViewDetail -&gt; ProductViewDetail -&gt; Bool
 (ProductViewDetail -&gt; ProductViewDetail -&gt; Bool)
 -&gt; (ProductViewDetail -&gt; ProductViewDetail -&gt; Bool)
 -&gt; Eq ProductViewDetail
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProductViewDetail -&gt; ProductViewDetail -&gt; Bool
 == :: ProductViewDetail -&gt; ProductViewDetail -&gt; Bool
 $c== :: ProductViewDetail -&gt; ProductViewDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405047"><span id="local-6989586621679405049"><span id="local-6989586621679405051"><span id="local-6989586621679405053"><span class="annot"><span class="annottext">ReadPrec [ProductViewDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405501"><span id="local-6989586621679405503"><span id="local-6989586621679405505"><span id="local-6989586621679405507"><span class="annot"><span class="annottext">ReadPrec [ProductViewDetail]
 ReadPrec ProductViewDetail
 Int -&gt; ReadS ProductViewDetail
 ReadS [ProductViewDetail]
@@ -78,7 +78,7 @@ readList :: ReadS [ProductViewDetail]
 $creadList :: ReadS [ProductViewDetail]
 readsPrec :: Int -&gt; ReadS ProductViewDetail
 $creadsPrec :: Int -&gt; ReadS ProductViewDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405040"><span id="local-6989586621679405042"><span id="local-6989586621679405044"><span class="annot"><span class="annottext">Int -&gt; ProductViewDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405494"><span id="local-6989586621679405496"><span id="local-6989586621679405498"><span class="annot"><span class="annottext">Int -&gt; ProductViewDetail -&gt; ShowS
 [ProductViewDetail] -&gt; ShowS
 ProductViewDetail -&gt; String
 (Int -&gt; ProductViewDetail -&gt; ShowS)
@@ -121,35 +121,35 @@ $cfrom :: forall x. ProductViewDetail -&gt; Rep ProductViewDetail x
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- -   @FAILED@ - An action failed.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'productARN', 'productViewDetail_productARN' - The ARN of the product.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'productViewSummary', 'productViewDetail_productViewSummary' - Summary information about the product view.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- 'createdTime', 'productViewDetail_createdTime' - The UTC time stamp of the creation time.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'productViewSummary', 'productViewDetail_productViewSummary' - Summary information about the product view.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'productARN', 'productViewDetail_productARN' - The ARN of the product.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#newProductViewDetail"><span class="hs-identifier hs-type">newProductViewDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span><span>
 </span><span id="line-74"></span><span id="newProductViewDetail"><span class="annot"><span class="annottext">newProductViewDetail :: ProductViewDetail
 </span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#newProductViewDetail"><span class="hs-identifier hs-var hs-var">newProductViewDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">ProductViewDetail' :: Maybe RequestStatus
--&gt; Maybe Text
--&gt; Maybe POSIX
 -&gt; Maybe ProductViewSummary
+-&gt; Maybe POSIX
+-&gt; Maybe Text
 -&gt; ProductViewDetail
 </span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-type">ProductViewDetail'</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ProductViewDetail' :: Maybe RequestStatus
 </span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#%24sel%3Astatus%3AProductViewDetail%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:productARN:ProductViewDetail' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#%24sel%3AproductARN%3AProductViewDetail%27"><span class="hs-identifier hs-var">productARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:productViewSummary:ProductViewDetail' :: Maybe ProductViewSummary
+</span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#%24sel%3AproductViewSummary%3AProductViewDetail%27"><span class="hs-identifier hs-var">productViewSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProductViewSummary
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTime:ProductViewDetail' :: Maybe POSIX
 </span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#%24sel%3AcreatedTime%3AProductViewDetail%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:productViewSummary:ProductViewDetail' :: Maybe ProductViewSummary
-</span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#%24sel%3AproductViewSummary%3AProductViewDetail%27"><span class="hs-identifier hs-var">productViewSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProductViewSummary
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:productARN:ProductViewDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#%24sel%3AproductARN%3AProductViewDetail%27"><span class="hs-identifier hs-var">productARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
@@ -173,36 +173,40 @@ forall a. Maybe a
      (Maybe RequestStatus)
      (Maybe RequestStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-type">ProductViewDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405031"><span class="annot"><span class="annottext">Maybe RequestStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-type">ProductViewDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405485"><span class="annot"><span class="annottext">Maybe RequestStatus
 status :: Maybe RequestStatus
 $sel:status:ProductViewDetail' :: ProductViewDetail -&gt; Maybe RequestStatus
-</span><a href="#local-6989586621679405031"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestStatus
-</span><a href="#local-6989586621679405031"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405030"><span class="annot"><span class="annottext">s :: ProductViewDetail
-</span><a href="#local-6989586621679405030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-type">ProductViewDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405029"><span class="annot"><span class="annottext">Maybe RequestStatus
-</span><a href="#local-6989586621679405029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductViewDetail
-</span><a href="#local-6989586621679405030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ProductViewDetail' :: Maybe RequestStatus
+</span><a href="#local-6989586621679405485"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RequestStatus
+</span><a href="#local-6989586621679405485"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405484"><span class="annot"><span class="annottext">s :: ProductViewDetail
+</span><a href="#local-6989586621679405484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-type">ProductViewDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405483"><span class="annot"><span class="annottext">Maybe RequestStatus
+</span><a href="#local-6989586621679405483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductViewDetail
+</span><a href="#local-6989586621679405484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ProductViewDetail' :: Maybe RequestStatus
 </span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#%24sel%3Astatus%3AProductViewDetail%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RequestStatus
-</span><a href="#local-6989586621679405029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679405483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The ARN of the product.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#productViewDetail_productARN"><span class="hs-identifier hs-type">productViewDetail_productARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="productViewDetail_productARN"><span class="annot"><span class="annottext">productViewDetail_productARN :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-93"></span><span class="hs-comment">-- | Summary information about the product view.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#productViewDetail_productViewSummary"><span class="hs-identifier hs-type">productViewDetail_productViewSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewSummary.html#ProductViewSummary"><span class="hs-identifier hs-type">ProductViewSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="productViewDetail_productViewSummary"><span class="annot"><span class="annottext">productViewDetail_productViewSummary :: (Maybe ProductViewSummary -&gt; f (Maybe ProductViewSummary))
 -&gt; ProductViewDetail -&gt; f ProductViewDetail
-</span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#productViewDetail_productARN"><span class="hs-identifier hs-var hs-var">productViewDetail_productARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProductViewDetail -&gt; Maybe Text)
--&gt; (ProductViewDetail -&gt; Maybe Text -&gt; ProductViewDetail)
+</span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#productViewDetail_productViewSummary"><span class="hs-identifier hs-var hs-var">productViewDetail_productViewSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProductViewDetail -&gt; Maybe ProductViewSummary)
+-&gt; (ProductViewDetail
+    -&gt; Maybe ProductViewSummary -&gt; ProductViewDetail)
 -&gt; Lens
-     ProductViewDetail ProductViewDetail (Maybe Text) (Maybe Text)
+     ProductViewDetail
+     ProductViewDetail
+     (Maybe ProductViewSummary)
+     (Maybe ProductViewSummary)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-type">ProductViewDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405027"><span class="annot"><span class="annottext">Maybe Text
-productARN :: Maybe Text
-$sel:productARN:ProductViewDetail' :: ProductViewDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679405027"><span class="hs-identifier hs-var hs-var">productARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405027"><span class="hs-identifier hs-var">productARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405026"><span class="annot"><span class="annottext">s :: ProductViewDetail
-</span><a href="#local-6989586621679405026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-type">ProductViewDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405025"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductViewDetail
-</span><a href="#local-6989586621679405026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productARN:ProductViewDetail' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#%24sel%3AproductARN%3AProductViewDetail%27"><span class="hs-identifier hs-var">productARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-type">ProductViewDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405481"><span class="annot"><span class="annottext">Maybe ProductViewSummary
+productViewSummary :: Maybe ProductViewSummary
+$sel:productViewSummary:ProductViewDetail' :: ProductViewDetail -&gt; Maybe ProductViewSummary
+</span><a href="#local-6989586621679405481"><span class="hs-identifier hs-var hs-var">productViewSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProductViewSummary
+</span><a href="#local-6989586621679405481"><span class="hs-identifier hs-var">productViewSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405480"><span class="annot"><span class="annottext">s :: ProductViewDetail
+</span><a href="#local-6989586621679405480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-type">ProductViewDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405479"><span class="annot"><span class="annottext">Maybe ProductViewSummary
+</span><a href="#local-6989586621679405479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductViewDetail
+</span><a href="#local-6989586621679405480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productViewSummary:ProductViewDetail' :: Maybe ProductViewSummary
+</span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#%24sel%3AproductViewSummary%3AProductViewDetail%27"><span class="hs-identifier hs-var">productViewSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProductViewSummary
+</span><a href="#local-6989586621679405479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The UTC time stamp of the creation time.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#productViewDetail_createdTime"><span class="hs-identifier hs-type">productViewDetail_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
@@ -213,16 +217,16 @@ $sel:productARN:ProductViewDetail' :: ProductViewDetail -&gt; Maybe Text
 -&gt; Lens
      ProductViewDetail ProductViewDetail (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-type">ProductViewDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405023"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-type">ProductViewDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405477"><span class="annot"><span class="annottext">Maybe POSIX
 createdTime :: Maybe POSIX
 $sel:createdTime:ProductViewDetail' :: ProductViewDetail -&gt; Maybe POSIX
-</span><a href="#local-6989586621679405023"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679405023"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405022"><span class="annot"><span class="annottext">s :: ProductViewDetail
-</span><a href="#local-6989586621679405022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-type">ProductViewDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405021"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679405021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductViewDetail
-</span><a href="#local-6989586621679405022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:ProductViewDetail' :: Maybe POSIX
+</span><a href="#local-6989586621679405477"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679405477"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405476"><span class="annot"><span class="annottext">s :: ProductViewDetail
+</span><a href="#local-6989586621679405476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-type">ProductViewDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405475"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679405475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductViewDetail
+</span><a href="#local-6989586621679405476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:ProductViewDetail' :: Maybe POSIX
 </span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#%24sel%3AcreatedTime%3AProductViewDetail%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679405021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679405475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ProductViewDetail -&gt; f ProductViewDetail)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -239,32 +243,28 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | Summary information about the product view.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#productViewDetail_productViewSummary"><span class="hs-identifier hs-type">productViewDetail_productViewSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewSummary.html#ProductViewSummary"><span class="hs-identifier hs-type">ProductViewSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="productViewDetail_productViewSummary"><span class="annot"><span class="annottext">productViewDetail_productViewSummary :: (Maybe ProductViewSummary -&gt; f (Maybe ProductViewSummary))
+</span><span id="line-101"></span><span class="hs-comment">-- | The ARN of the product.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#productViewDetail_productARN"><span class="hs-identifier hs-type">productViewDetail_productARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="productViewDetail_productARN"><span class="annot"><span class="annottext">productViewDetail_productARN :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ProductViewDetail -&gt; f ProductViewDetail
-</span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#productViewDetail_productViewSummary"><span class="hs-identifier hs-var hs-var">productViewDetail_productViewSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProductViewDetail -&gt; Maybe ProductViewSummary)
--&gt; (ProductViewDetail
-    -&gt; Maybe ProductViewSummary -&gt; ProductViewDetail)
+</span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#productViewDetail_productARN"><span class="hs-identifier hs-var hs-var">productViewDetail_productARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProductViewDetail -&gt; Maybe Text)
+-&gt; (ProductViewDetail -&gt; Maybe Text -&gt; ProductViewDetail)
 -&gt; Lens
-     ProductViewDetail
-     ProductViewDetail
-     (Maybe ProductViewSummary)
-     (Maybe ProductViewSummary)
+     ProductViewDetail ProductViewDetail (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-type">ProductViewDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405016"><span class="annot"><span class="annottext">Maybe ProductViewSummary
-productViewSummary :: Maybe ProductViewSummary
-$sel:productViewSummary:ProductViewDetail' :: ProductViewDetail -&gt; Maybe ProductViewSummary
-</span><a href="#local-6989586621679405016"><span class="hs-identifier hs-var hs-var">productViewSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProductViewSummary
-</span><a href="#local-6989586621679405016"><span class="hs-identifier hs-var">productViewSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405015"><span class="annot"><span class="annottext">s :: ProductViewDetail
-</span><a href="#local-6989586621679405015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-type">ProductViewDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405014"><span class="annot"><span class="annottext">Maybe ProductViewSummary
-</span><a href="#local-6989586621679405014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductViewDetail
-</span><a href="#local-6989586621679405015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productViewSummary:ProductViewDetail' :: Maybe ProductViewSummary
-</span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#%24sel%3AproductViewSummary%3AProductViewDetail%27"><span class="hs-identifier hs-var">productViewSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProductViewSummary
-</span><a href="#local-6989586621679405014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-type">ProductViewDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405470"><span class="annot"><span class="annottext">Maybe Text
+productARN :: Maybe Text
+$sel:productARN:ProductViewDetail' :: ProductViewDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679405470"><span class="hs-identifier hs-var hs-var">productARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405470"><span class="hs-identifier hs-var">productARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405469"><span class="annot"><span class="annottext">s :: ProductViewDetail
+</span><a href="#local-6989586621679405469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-type">ProductViewDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405468"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProductViewDetail
+</span><a href="#local-6989586621679405469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productARN:ProductViewDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#%24sel%3AproductARN%3AProductViewDetail%27"><span class="hs-identifier hs-var">productARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679405468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405011"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679405009"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProductViewDetail
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405465"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679405463"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProductViewDetail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProductViewDetail)
@@ -274,62 +274,59 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProductViewDetail&quot;</span></span><span>
-</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679405006"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679405006"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679405460"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679405460"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe RequestStatus
--&gt; Maybe Text
--&gt; Maybe POSIX
 -&gt; Maybe ProductViewSummary
+-&gt; Maybe POSIX
+-&gt; Maybe Text
 -&gt; ProductViewDetail
 </span><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail%27"><span class="hs-identifier hs-var">ProductViewDetail'</span></a></span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RequestStatus
- -&gt; Maybe Text
- -&gt; Maybe POSIX
  -&gt; Maybe ProductViewSummary
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
  -&gt; ProductViewDetail)
 -&gt; Parser (Maybe RequestStatus)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe POSIX -&gt; Maybe ProductViewSummary -&gt; ProductViewDetail)
+     (Maybe ProductViewSummary
+      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ProductViewDetail)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679405006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RequestStatus)
+</span><a href="#local-6989586621679405460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RequestStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe POSIX -&gt; Maybe ProductViewSummary -&gt; ProductViewDetail)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe POSIX -&gt; Maybe ProductViewSummary -&gt; ProductViewDetail)
+  (Maybe ProductViewSummary
+   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; ProductViewDetail)
+-&gt; Parser (Maybe ProductViewSummary)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; ProductViewDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679405006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProductARN&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX -&gt; Maybe ProductViewSummary -&gt; ProductViewDetail)
--&gt; Parser (Maybe POSIX)
--&gt; Parser (Maybe ProductViewSummary -&gt; ProductViewDetail)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679405006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ProductViewSummary -&gt; ProductViewDetail)
--&gt; Parser (Maybe ProductViewSummary) -&gt; Parser ProductViewDetail
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679405006"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProductViewSummary)
+</span><a href="#local-6989586621679405460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProductViewSummary)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProductViewSummary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; ProductViewDetail)
+-&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Text -&gt; ProductViewDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679405460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ProductViewDetail)
+-&gt; Parser (Maybe Text) -&gt; Parser ProductViewDetail
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679405460"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProductARN&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405000"><span id="local-6989586621679405002"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span></span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405454"><span id="local-6989586621679405456"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679404997"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405451"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductViewDetail.html#ProductViewDetail"><span class="hs-identifier hs-type">ProductViewDetail</span></a></span></span><span>
 </span><span id="line-120"></span></pre></body></html>

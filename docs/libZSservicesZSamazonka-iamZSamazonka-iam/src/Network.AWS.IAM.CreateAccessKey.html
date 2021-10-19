@@ -66,7 +66,7 @@
 </span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- | /See:/ 'newCreateAccessKey' smart constructor.</span><span>
-</span><span id="line-69"></span><span id="local-6989586621679459935"><span id="local-6989586621679459936"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAccessKey"><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey"><span class="hs-identifier hs-var">CreateAccessKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAccessKey%27"><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey%27"><span class="hs-identifier hs-var">CreateAccessKey'</span></a></span></span><span>
+</span><span id="line-69"></span><span id="local-6989586621679460569"><span id="local-6989586621679460570"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAccessKey"><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey"><span class="hs-identifier hs-var">CreateAccessKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAccessKey%27"><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey%27"><span class="hs-identifier hs-var">CreateAccessKey'</span></a></span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the IAM user that the new key will belong to.</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-76"></span><span>    </span><span id="%24sel%3AuserName%3ACreateAccessKey%27"><span class="annot"><span class="annottext">CreateAccessKey -&gt; Maybe Text
 </span><a href="Network.AWS.IAM.CreateAccessKey.html#%24sel%3AuserName%3ACreateAccessKey%27"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459929"><span id="local-6989586621679459931"><span class="annot"><span class="annottext">CreateAccessKey -&gt; CreateAccessKey -&gt; Bool
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679460563"><span id="local-6989586621679460565"><span class="annot"><span class="annottext">CreateAccessKey -&gt; CreateAccessKey -&gt; Bool
 (CreateAccessKey -&gt; CreateAccessKey -&gt; Bool)
 -&gt; (CreateAccessKey -&gt; CreateAccessKey -&gt; Bool)
 -&gt; Eq CreateAccessKey
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateAccessKey -&gt; CreateAccessKey -&gt; Bool
 == :: CreateAccessKey -&gt; CreateAccessKey -&gt; Bool
 $c== :: CreateAccessKey -&gt; CreateAccessKey -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459920"><span id="local-6989586621679459922"><span id="local-6989586621679459924"><span id="local-6989586621679459926"><span class="annot"><span class="annottext">ReadPrec [CreateAccessKey]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460554"><span id="local-6989586621679460556"><span id="local-6989586621679460558"><span id="local-6989586621679460560"><span class="annot"><span class="annottext">ReadPrec [CreateAccessKey]
 ReadPrec CreateAccessKey
 Int -&gt; ReadS CreateAccessKey
 ReadS [CreateAccessKey]
@@ -105,7 +105,7 @@ readList :: ReadS [CreateAccessKey]
 $creadList :: ReadS [CreateAccessKey]
 readsPrec :: Int -&gt; ReadS CreateAccessKey
 $creadsPrec :: Int -&gt; ReadS CreateAccessKey
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459913"><span id="local-6989586621679459915"><span id="local-6989586621679459917"><span class="annot"><span class="annottext">Int -&gt; CreateAccessKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460547"><span id="local-6989586621679460549"><span id="local-6989586621679460551"><span class="annot"><span class="annottext">Int -&gt; CreateAccessKey -&gt; ShowS
 [CreateAccessKey] -&gt; ShowS
 CreateAccessKey -&gt; String
 (Int -&gt; CreateAccessKey -&gt; ShowS)
@@ -168,27 +168,27 @@ forall a. Maybe a
 -&gt; (CreateAccessKey -&gt; Maybe Text -&gt; CreateAccessKey)
 -&gt; Lens CreateAccessKey CreateAccessKey (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey%27"><span class="hs-identifier hs-type">CreateAccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459906"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey%27"><span class="hs-identifier hs-type">CreateAccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460540"><span class="annot"><span class="annottext">Maybe Text
 userName :: Maybe Text
 $sel:userName:CreateAccessKey' :: CreateAccessKey -&gt; Maybe Text
-</span><a href="#local-6989586621679459906"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679459906"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459905"><span class="annot"><span class="annottext">s :: CreateAccessKey
-</span><a href="#local-6989586621679459905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey%27"><span class="hs-identifier hs-type">CreateAccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459904"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679459904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccessKey
-</span><a href="#local-6989586621679459905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:CreateAccessKey' :: Maybe Text
+</span><a href="#local-6989586621679460540"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679460540"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460539"><span class="annot"><span class="annottext">s :: CreateAccessKey
+</span><a href="#local-6989586621679460539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey%27"><span class="hs-identifier hs-type">CreateAccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460538"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679460538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccessKey
+</span><a href="#local-6989586621679460539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:CreateAccessKey' :: Maybe Text
 </span><a href="Network.AWS.IAM.CreateAccessKey.html#%24sel%3AuserName%3ACreateAccessKey%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679459904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey"><span class="hs-identifier hs-type">CreateAccessKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey"><span class="hs-identifier hs-type">CreateAccessKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey"><span class="hs-identifier hs-type">CreateAccessKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-110"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey"><span class="hs-identifier hs-type">CreateAccessKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse"><span class="hs-identifier hs-type">CreateAccessKeyResponse</span></a></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679459900"><span class="annot"><span class="annottext">request :: CreateAccessKey -&gt; Request CreateAccessKey
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679460534"><span class="annot"><span class="annottext">request :: CreateAccessKey -&gt; Request CreateAccessKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateAccessKey -&gt; Request CreateAccessKey
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679459896"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679460530"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateAccessKey
 -&gt; ClientResponse ClientBody
@@ -217,10 +217,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateAccessKeyResult&quot;</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679459893"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459893"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679459892"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679459892"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679459891"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679459891"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679460527"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679460527"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679460526"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679460526"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679460525"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679460525"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AccessKeyInfo -&gt; CreateAccessKeyResponse
 </span><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse%27"><span class="hs-identifier hs-var">CreateAccessKeyResponse'</span></a></span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AccessKeyInfo -&gt; CreateAccessKeyResponse)
@@ -232,24 +232,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459893"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460527"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either String (AccessKeyInfo -&gt; CreateAccessKeyResponse)
 -&gt; Either String AccessKeyInfo
 -&gt; Either String CreateAccessKeyResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679459891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String AccessKeyInfo
+</span><a href="#local-6989586621679460525"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String AccessKeyInfo
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccessKey&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459883"><span id="local-6989586621679459885"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey"><span class="hs-identifier hs-type">CreateAccessKey</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460517"><span id="local-6989586621679460519"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey"><span class="hs-identifier hs-type">CreateAccessKey</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459880"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey"><span class="hs-identifier hs-type">CreateAccessKey</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460514"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey"><span class="hs-identifier hs-type">CreateAccessKey</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey"><span class="hs-identifier hs-type">CreateAccessKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679459876"><span class="annot"><span class="annottext">toHeaders :: CreateAccessKey -&gt; ResponseHeaders
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679460510"><span class="annot"><span class="annottext">toHeaders :: CreateAccessKey -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateAccessKey -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -257,18 +257,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey"><span class="hs-identifier hs-type">CreateAccessKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679459871"><span class="annot"><span class="annottext">toPath :: CreateAccessKey -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679460505"><span class="annot"><span class="annottext">toPath :: CreateAccessKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateAccessKey -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey"><span class="hs-identifier hs-type">CreateAccessKey</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679459867"><span class="annot"><span class="annottext">toQuery :: CreateAccessKey -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey%27"><span class="hs-identifier hs-type">CreateAccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459865"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679460501"><span class="annot"><span class="annottext">toQuery :: CreateAccessKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKey%27"><span class="hs-identifier hs-type">CreateAccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460499"><span class="annot"><span class="annottext">Maybe Text
 userName :: Maybe Text
 $sel:userName:CreateAccessKey' :: CreateAccessKey -&gt; Maybe Text
-</span><a href="#local-6989586621679459865"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679460499"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -288,13 +288,13 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679459865"><span class="hs-identifier hs-var">userName</span></a></span><span>
+</span><a href="#local-6989586621679460499"><span class="hs-identifier hs-var">userName</span></a></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | Contains the response to a successful CreateAccessKey request.</span><span>
 </span><span id="line-143"></span><span class="hs-comment">--</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- /See:/ 'newCreateAccessKeyResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679459862"><span id="local-6989586621679459863"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAccessKeyResponse"><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse"><span class="hs-identifier hs-var">CreateAccessKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAccessKeyResponse%27"><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse%27"><span class="hs-identifier hs-var">CreateAccessKeyResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span id="local-6989586621679460496"><span id="local-6989586621679460497"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAccessKeyResponse"><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse"><span class="hs-identifier hs-var">CreateAccessKeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAccessKeyResponse%27"><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse%27"><span class="hs-identifier hs-var">CreateAccessKeyResponse'</span></a></span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateAccessKeyResponse%27"><span class="annot"><span class="annottext">CreateAccessKeyResponse -&gt; Int
 </span><a href="Network.AWS.IAM.CreateAccessKey.html#%24sel%3AhttpStatus%3ACreateAccessKeyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -302,7 +302,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AaccessKey%3ACreateAccessKeyResponse%27"><span class="annot"><span class="annottext">CreateAccessKeyResponse -&gt; AccessKeyInfo
 </span><a href="Network.AWS.IAM.CreateAccessKey.html#%24sel%3AaccessKey%3ACreateAccessKeyResponse%27"><span class="hs-identifier hs-var hs-var">accessKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessKeyInfo.html#AccessKeyInfo"><span class="hs-identifier hs-type">AccessKeyInfo</span></a></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459856"><span id="local-6989586621679459858"><span class="annot"><span class="annottext">CreateAccessKeyResponse -&gt; CreateAccessKeyResponse -&gt; Bool
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679460490"><span id="local-6989586621679460492"><span class="annot"><span class="annottext">CreateAccessKeyResponse -&gt; CreateAccessKeyResponse -&gt; Bool
 (CreateAccessKeyResponse -&gt; CreateAccessKeyResponse -&gt; Bool)
 -&gt; (CreateAccessKeyResponse -&gt; CreateAccessKeyResponse -&gt; Bool)
 -&gt; Eq CreateAccessKeyResponse
@@ -311,7 +311,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateAccessKeyResponse -&gt; CreateAccessKeyResponse -&gt; Bool
 == :: CreateAccessKeyResponse -&gt; CreateAccessKeyResponse -&gt; Bool
 $c== :: CreateAccessKeyResponse -&gt; CreateAccessKeyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459850"><span id="local-6989586621679459852"><span id="local-6989586621679459854"><span class="annot"><span class="annottext">Int -&gt; CreateAccessKeyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460484"><span id="local-6989586621679460486"><span id="local-6989586621679460488"><span class="annot"><span class="annottext">Int -&gt; CreateAccessKeyResponse -&gt; ShowS
 [CreateAccessKeyResponse] -&gt; ShowS
 CreateAccessKeyResponse -&gt; String
 (Int -&gt; CreateAccessKeyResponse -&gt; ShowS)
@@ -357,17 +357,17 @@ $cfrom :: forall x. CreateAccessKeyResponse -&gt; Rep CreateAccessKeyResponse x
 </span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessKeyInfo.html#AccessKeyInfo"><span class="hs-identifier hs-type">AccessKeyInfo</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse"><span class="hs-identifier hs-type">CreateAccessKeyResponse</span></a></span><span>
 </span><span id="line-170"></span><span id="newCreateAccessKeyResponse"><span class="annot"><span class="annottext">newCreateAccessKeyResponse :: Int -&gt; AccessKeyInfo -&gt; CreateAccessKeyResponse
-</span><a href="Network.AWS.IAM.CreateAccessKey.html#newCreateAccessKeyResponse"><span class="hs-identifier hs-var hs-var">newCreateAccessKeyResponse</span></a></span></span><span> </span><span id="local-6989586621679459847"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459847"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679459846"><span class="annot"><span class="annottext">AccessKeyInfo
-</span><a href="#local-6989586621679459846"><span class="hs-identifier hs-var">pAccessKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.CreateAccessKey.html#newCreateAccessKeyResponse"><span class="hs-identifier hs-var hs-var">newCreateAccessKeyResponse</span></a></span></span><span> </span><span id="local-6989586621679460481"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679460481"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679460480"><span class="annot"><span class="annottext">AccessKeyInfo
+</span><a href="#local-6989586621679460480"><span class="hs-identifier hs-var">pAccessKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">CreateAccessKeyResponse' :: Int -&gt; AccessKeyInfo -&gt; CreateAccessKeyResponse
 </span><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse%27"><span class="hs-identifier hs-type">CreateAccessKeyResponse'</span></a></span><span>
 </span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAccessKeyResponse' :: Int
 </span><a href="Network.AWS.IAM.CreateAccessKey.html#%24sel%3AhttpStatus%3ACreateAccessKeyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459847"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679460481"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessKey:CreateAccessKeyResponse' :: AccessKeyInfo
 </span><a href="Network.AWS.IAM.CreateAccessKey.html#%24sel%3AaccessKey%3ACreateAccessKeyResponse%27"><span class="hs-identifier hs-var">accessKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AccessKeyInfo
-</span><a href="#local-6989586621679459846"><span class="hs-identifier hs-var">pAccessKey_</span></a></span><span>
+</span><a href="#local-6989586621679460480"><span class="hs-identifier hs-var">pAccessKey_</span></a></span><span>
 </span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -378,16 +378,16 @@ $cfrom :: forall x. CreateAccessKeyResponse -&gt; Rep CreateAccessKeyResponse x
 -&gt; (CreateAccessKeyResponse -&gt; Int -&gt; CreateAccessKeyResponse)
 -&gt; Lens CreateAccessKeyResponse CreateAccessKeyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse%27"><span class="hs-identifier hs-type">CreateAccessKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459845"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse%27"><span class="hs-identifier hs-type">CreateAccessKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460479"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateAccessKeyResponse' :: CreateAccessKeyResponse -&gt; Int
-</span><a href="#local-6989586621679459845"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459845"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459844"><span class="annot"><span class="annottext">s :: CreateAccessKeyResponse
-</span><a href="#local-6989586621679459844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse%27"><span class="hs-identifier hs-type">CreateAccessKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459843"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccessKeyResponse
-</span><a href="#local-6989586621679459844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAccessKeyResponse' :: Int
+</span><a href="#local-6989586621679460479"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679460479"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460478"><span class="annot"><span class="annottext">s :: CreateAccessKeyResponse
+</span><a href="#local-6989586621679460478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse%27"><span class="hs-identifier hs-type">CreateAccessKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460477"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679460477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccessKeyResponse
+</span><a href="#local-6989586621679460478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAccessKeyResponse' :: Int
 </span><a href="Network.AWS.IAM.CreateAccessKey.html#%24sel%3AhttpStatus%3ACreateAccessKeyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse"><span class="hs-identifier hs-type">CreateAccessKeyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse"><span class="hs-identifier hs-type">CreateAccessKeyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | A structure with details about the access key.</span><span>
 </span><span id="line-181"></span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#createAccessKeyResponse_accessKey"><span class="hs-identifier hs-type">createAccessKeyResponse_accessKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse"><span class="hs-identifier hs-type">CreateAccessKeyResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.AccessKeyInfo.html#AccessKeyInfo"><span class="hs-identifier hs-type">AccessKeyInfo</span></a></span><span>
@@ -402,16 +402,16 @@ $sel:httpStatus:CreateAccessKeyResponse' :: CreateAccessKeyResponse -&gt; Int
      AccessKeyInfo
      AccessKeyInfo
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse%27"><span class="hs-identifier hs-type">CreateAccessKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459842"><span class="annot"><span class="annottext">AccessKeyInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse%27"><span class="hs-identifier hs-type">CreateAccessKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460476"><span class="annot"><span class="annottext">AccessKeyInfo
 accessKey :: AccessKeyInfo
 $sel:accessKey:CreateAccessKeyResponse' :: CreateAccessKeyResponse -&gt; AccessKeyInfo
-</span><a href="#local-6989586621679459842"><span class="hs-identifier hs-var hs-var">accessKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKeyInfo
-</span><a href="#local-6989586621679459842"><span class="hs-identifier hs-var">accessKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459841"><span class="annot"><span class="annottext">s :: CreateAccessKeyResponse
-</span><a href="#local-6989586621679459841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse%27"><span class="hs-identifier hs-type">CreateAccessKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459840"><span class="annot"><span class="annottext">AccessKeyInfo
-</span><a href="#local-6989586621679459840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccessKeyResponse
-</span><a href="#local-6989586621679459841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessKey:CreateAccessKeyResponse' :: AccessKeyInfo
+</span><a href="#local-6989586621679460476"><span class="hs-identifier hs-var hs-var">accessKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKeyInfo
+</span><a href="#local-6989586621679460476"><span class="hs-identifier hs-var">accessKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460475"><span class="annot"><span class="annottext">s :: CreateAccessKeyResponse
+</span><a href="#local-6989586621679460475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse%27"><span class="hs-identifier hs-type">CreateAccessKeyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460474"><span class="annot"><span class="annottext">AccessKeyInfo
+</span><a href="#local-6989586621679460474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAccessKeyResponse
+</span><a href="#local-6989586621679460475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessKey:CreateAccessKeyResponse' :: AccessKeyInfo
 </span><a href="Network.AWS.IAM.CreateAccessKey.html#%24sel%3AaccessKey%3ACreateAccessKeyResponse%27"><span class="hs-identifier hs-var">accessKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AccessKeyInfo
-</span><a href="#local-6989586621679459840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse"><span class="hs-identifier hs-type">CreateAccessKeyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse"><span class="hs-identifier hs-type">CreateAccessKeyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459838"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse"><span class="hs-identifier hs-type">CreateAccessKeyResponse</span></a></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460472"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.CreateAccessKey.html#CreateAccessKeyResponse"><span class="hs-identifier hs-type">CreateAccessKeyResponse</span></a></span></span><span>
 </span><span id="line-185"></span></pre></body></html>

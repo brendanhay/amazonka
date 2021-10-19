@@ -54,12 +54,12 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | Represents the input of a delete repository operation.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newDeleteRepository' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679368355"><span id="local-6989586621679368356"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRepository"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository"><span class="hs-identifier hs-var">DeleteRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRepository%27"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository%27"><span class="hs-identifier hs-var">DeleteRepository'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679368664"><span id="local-6989586621679368665"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRepository"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository"><span class="hs-identifier hs-var">DeleteRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRepository%27"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository%27"><span class="hs-identifier hs-var">DeleteRepository'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the repository to delete.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3ArepositoryName%3ADeleteRepository%27"><span class="annot"><span class="annottext">DeleteRepository -&gt; Text
 </span><a href="Network.AWS.CodeCommit.DeleteRepository.html#%24sel%3ArepositoryName%3ADeleteRepository%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368349"><span id="local-6989586621679368351"><span class="annot"><span class="annottext">DeleteRepository -&gt; DeleteRepository -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368658"><span id="local-6989586621679368660"><span class="annot"><span class="annottext">DeleteRepository -&gt; DeleteRepository -&gt; Bool
 (DeleteRepository -&gt; DeleteRepository -&gt; Bool)
 -&gt; (DeleteRepository -&gt; DeleteRepository -&gt; Bool)
 -&gt; Eq DeleteRepository
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteRepository -&gt; DeleteRepository -&gt; Bool
 == :: DeleteRepository -&gt; DeleteRepository -&gt; Bool
 $c== :: DeleteRepository -&gt; DeleteRepository -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368340"><span id="local-6989586621679368342"><span id="local-6989586621679368344"><span id="local-6989586621679368346"><span class="annot"><span class="annottext">ReadPrec [DeleteRepository]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368649"><span id="local-6989586621679368651"><span id="local-6989586621679368653"><span id="local-6989586621679368655"><span class="annot"><span class="annottext">ReadPrec [DeleteRepository]
 ReadPrec DeleteRepository
 Int -&gt; ReadS DeleteRepository
 ReadS [DeleteRepository]
@@ -88,7 +88,7 @@ readList :: ReadS [DeleteRepository]
 $creadList :: ReadS [DeleteRepository]
 readsPrec :: Int -&gt; ReadS DeleteRepository
 $creadsPrec :: Int -&gt; ReadS DeleteRepository
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368333"><span id="local-6989586621679368335"><span id="local-6989586621679368337"><span class="annot"><span class="annottext">Int -&gt; DeleteRepository -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368642"><span id="local-6989586621679368644"><span id="local-6989586621679368646"><span class="annot"><span class="annottext">Int -&gt; DeleteRepository -&gt; ShowS
 [DeleteRepository] -&gt; ShowS
 DeleteRepository -&gt; String
 (Int -&gt; DeleteRepository -&gt; ShowS)
@@ -128,14 +128,14 @@ $cfrom :: forall x. DeleteRepository -&gt; Rep DeleteRepository x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository"><span class="hs-identifier hs-type">DeleteRepository</span></a></span><span>
 </span><span id="line-76"></span><span id="newDeleteRepository"><span class="annot"><span class="annottext">newDeleteRepository :: Text -&gt; DeleteRepository
-</span><a href="Network.AWS.CodeCommit.DeleteRepository.html#newDeleteRepository"><span class="hs-identifier hs-var hs-var">newDeleteRepository</span></a></span></span><span> </span><span id="local-6989586621679368328"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368328"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.DeleteRepository.html#newDeleteRepository"><span class="hs-identifier hs-var hs-var">newDeleteRepository</span></a></span></span><span> </span><span id="local-6989586621679368637"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368637"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">DeleteRepository' :: Text -&gt; DeleteRepository
 </span><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository%27"><span class="hs-identifier hs-type">DeleteRepository'</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:repositoryName:DeleteRepository' :: Text
 </span><a href="Network.AWS.CodeCommit.DeleteRepository.html#%24sel%3ArepositoryName%3ADeleteRepository%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368328"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span>
+</span><a href="#local-6989586621679368637"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The name of the repository to delete.</span><span>
@@ -145,27 +145,27 @@ $cfrom :: forall x. DeleteRepository -&gt; Rep DeleteRepository x
 -&gt; (DeleteRepository -&gt; Text -&gt; DeleteRepository)
 -&gt; Lens DeleteRepository DeleteRepository Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository%27"><span class="hs-identifier hs-type">DeleteRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368325"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository%27"><span class="hs-identifier hs-type">DeleteRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368634"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:DeleteRepository' :: DeleteRepository -&gt; Text
-</span><a href="#local-6989586621679368325"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368325"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368324"><span class="annot"><span class="annottext">s :: DeleteRepository
-</span><a href="#local-6989586621679368324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository%27"><span class="hs-identifier hs-type">DeleteRepository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368323"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRepository
-</span><a href="#local-6989586621679368324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:DeleteRepository' :: Text
+</span><a href="#local-6989586621679368634"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368634"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368633"><span class="annot"><span class="annottext">s :: DeleteRepository
+</span><a href="#local-6989586621679368633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository%27"><span class="hs-identifier hs-type">DeleteRepository'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368632"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679368632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRepository
+</span><a href="#local-6989586621679368633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:DeleteRepository' :: Text
 </span><a href="Network.AWS.CodeCommit.DeleteRepository.html#%24sel%3ArepositoryName%3ADeleteRepository%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository"><span class="hs-identifier hs-type">DeleteRepository</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository"><span class="hs-identifier hs-type">DeleteRepository</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository"><span class="hs-identifier hs-type">DeleteRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-87"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-88"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository"><span class="hs-identifier hs-type">DeleteRepository</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse"><span class="hs-identifier hs-type">DeleteRepositoryResponse</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679368319"><span class="annot"><span class="annottext">request :: DeleteRepository -&gt; Request DeleteRepository
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679368628"><span class="annot"><span class="annottext">request :: DeleteRepository -&gt; Request DeleteRepository
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteRepository -&gt; Request DeleteRepository
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679368315"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679368624"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteRepository
 -&gt; ClientResponse ClientBody
@@ -189,10 +189,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368312"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368312"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679368311"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679368311"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679368310"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368310"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679368621"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679368621"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679368620"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679368620"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679368619"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679368619"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DeleteRepositoryResponse
 </span><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse%27"><span class="hs-identifier hs-var">DeleteRepositoryResponse'</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DeleteRepositoryResponse)
@@ -200,7 +200,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteRepositoryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679368310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679368619"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;repositoryId&quot;</span></span><span class="hs-special">)</span><span>
@@ -212,15 +212,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368312"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368621"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368302"><span id="local-6989586621679368304"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository"><span class="hs-identifier hs-type">DeleteRepository</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368611"><span id="local-6989586621679368613"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository"><span class="hs-identifier hs-type">DeleteRepository</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368299"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository"><span class="hs-identifier hs-type">DeleteRepository</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368608"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository"><span class="hs-identifier hs-type">DeleteRepository</span></a></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository"><span class="hs-identifier hs-type">DeleteRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679368295"><span class="annot"><span class="annottext">toHeaders :: DeleteRepository -&gt; ResponseHeaders
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679368604"><span class="annot"><span class="annottext">toHeaders :: DeleteRepository -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteRepository -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -247,12 +247,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368285"><span id="local-6989586621679368287"><span id="local-6989586621679368289"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository"><span class="hs-identifier hs-type">DeleteRepository</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679368283"><span class="annot"><span class="annottext">toJSON :: DeleteRepository -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository%27"><span class="hs-identifier hs-type">DeleteRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368281"><span class="annot"><span class="annottext">Text
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368594"><span id="local-6989586621679368596"><span id="local-6989586621679368598"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository"><span class="hs-identifier hs-type">DeleteRepository</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679368592"><span class="annot"><span class="annottext">toJSON :: DeleteRepository -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository%27"><span class="hs-identifier hs-type">DeleteRepository'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368590"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:DeleteRepository' :: DeleteRepository -&gt; Text
-</span><a href="#local-6989586621679368281"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679368590"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -265,19 +265,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679368281"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368590"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository"><span class="hs-identifier hs-type">DeleteRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679368275"><span class="annot"><span class="annottext">toPath :: DeleteRepository -&gt; ByteString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679368584"><span class="annot"><span class="annottext">toPath :: DeleteRepository -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteRepository -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepository"><span class="hs-identifier hs-type">DeleteRepository</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679368271"><span class="annot"><span class="annottext">toQuery :: DeleteRepository -&gt; QueryString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679368580"><span class="annot"><span class="annottext">toQuery :: DeleteRepository -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteRepository -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -287,7 +287,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-133"></span><span class="hs-comment">-- | Represents the output of a delete repository operation.</span><span>
 </span><span id="line-134"></span><span class="hs-comment">--</span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- /See:/ 'newDeleteRepositoryResponse' smart constructor.</span><span>
-</span><span id="line-136"></span><span id="local-6989586621679368268"><span id="local-6989586621679368269"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRepositoryResponse"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse"><span class="hs-identifier hs-var">DeleteRepositoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRepositoryResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse%27"><span class="hs-identifier hs-var">DeleteRepositoryResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span id="local-6989586621679368577"><span id="local-6989586621679368578"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRepositoryResponse"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse"><span class="hs-identifier hs-var">DeleteRepositoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRepositoryResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse%27"><span class="hs-identifier hs-var">DeleteRepositoryResponse'</span></a></span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the repository that was deleted.</span><span>
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3ArepositoryId%3ADeleteRepositoryResponse%27"><span class="annot"><span class="annottext">DeleteRepositoryResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CodeCommit.DeleteRepository.html#%24sel%3ArepositoryId%3ADeleteRepositoryResponse%27"><span class="hs-identifier hs-var hs-var">repositoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -295,7 +295,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteRepositoryResponse%27"><span class="annot"><span class="annottext">DeleteRepositoryResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.DeleteRepository.html#%24sel%3AhttpStatus%3ADeleteRepositoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368262"><span id="local-6989586621679368264"><span class="annot"><span class="annottext">DeleteRepositoryResponse -&gt; DeleteRepositoryResponse -&gt; Bool
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368571"><span id="local-6989586621679368573"><span class="annot"><span class="annottext">DeleteRepositoryResponse -&gt; DeleteRepositoryResponse -&gt; Bool
 (DeleteRepositoryResponse -&gt; DeleteRepositoryResponse -&gt; Bool)
 -&gt; (DeleteRepositoryResponse -&gt; DeleteRepositoryResponse -&gt; Bool)
 -&gt; Eq DeleteRepositoryResponse
@@ -304,7 +304,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteRepositoryResponse -&gt; DeleteRepositoryResponse -&gt; Bool
 == :: DeleteRepositoryResponse -&gt; DeleteRepositoryResponse -&gt; Bool
 $c== :: DeleteRepositoryResponse -&gt; DeleteRepositoryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368254"><span id="local-6989586621679368256"><span id="local-6989586621679368258"><span id="local-6989586621679368260"><span class="annot"><span class="annottext">ReadPrec [DeleteRepositoryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368563"><span id="local-6989586621679368565"><span id="local-6989586621679368567"><span id="local-6989586621679368569"><span class="annot"><span class="annottext">ReadPrec [DeleteRepositoryResponse]
 ReadPrec DeleteRepositoryResponse
 Int -&gt; ReadS DeleteRepositoryResponse
 ReadS [DeleteRepositoryResponse]
@@ -324,7 +324,7 @@ readList :: ReadS [DeleteRepositoryResponse]
 $creadList :: ReadS [DeleteRepositoryResponse]
 readsPrec :: Int -&gt; ReadS DeleteRepositoryResponse
 $creadsPrec :: Int -&gt; ReadS DeleteRepositoryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368248"><span id="local-6989586621679368250"><span id="local-6989586621679368252"><span class="annot"><span class="annottext">Int -&gt; DeleteRepositoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679368557"><span id="local-6989586621679368559"><span id="local-6989586621679368561"><span class="annot"><span class="annottext">Int -&gt; DeleteRepositoryResponse -&gt; ShowS
 [DeleteRepositoryResponse] -&gt; ShowS
 DeleteRepositoryResponse -&gt; String
 (Int -&gt; DeleteRepositoryResponse -&gt; ShowS)
@@ -372,8 +372,8 @@ DeleteRepositoryResponse -&gt; Rep DeleteRepositoryResponse x
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-158"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse"><span class="hs-identifier hs-type">DeleteRepositoryResponse</span></a></span><span>
 </span><span id="line-159"></span><span id="newDeleteRepositoryResponse"><span class="annot"><span class="annottext">newDeleteRepositoryResponse :: Int -&gt; DeleteRepositoryResponse
-</span><a href="Network.AWS.CodeCommit.DeleteRepository.html#newDeleteRepositoryResponse"><span class="hs-identifier hs-var hs-var">newDeleteRepositoryResponse</span></a></span></span><span> </span><span id="local-6989586621679368245"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368245"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.DeleteRepository.html#newDeleteRepositoryResponse"><span class="hs-identifier hs-var hs-var">newDeleteRepositoryResponse</span></a></span></span><span> </span><span id="local-6989586621679368554"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679368554"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">DeleteRepositoryResponse' :: Maybe Text -&gt; Int -&gt; DeleteRepositoryResponse
 </span><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse%27"><span class="hs-identifier hs-type">DeleteRepositoryResponse'</span></a></span><span>
 </span><span id="line-161"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:repositoryId:DeleteRepositoryResponse' :: Maybe Text
@@ -383,7 +383,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRepositoryResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.DeleteRepository.html#%24sel%3AhttpStatus%3ADeleteRepositoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368245"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679368554"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-164"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The ID of the repository that was deleted.</span><span>
@@ -399,16 +399,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse%27"><span class="hs-identifier hs-type">DeleteRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368244"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse%27"><span class="hs-identifier hs-type">DeleteRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368553"><span class="annot"><span class="annottext">Maybe Text
 repositoryId :: Maybe Text
 $sel:repositoryId:DeleteRepositoryResponse' :: DeleteRepositoryResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679368244"><span class="hs-identifier hs-var hs-var">repositoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368244"><span class="hs-identifier hs-var">repositoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368243"><span class="annot"><span class="annottext">s :: DeleteRepositoryResponse
-</span><a href="#local-6989586621679368243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse%27"><span class="hs-identifier hs-type">DeleteRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368242"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRepositoryResponse
-</span><a href="#local-6989586621679368243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryId:DeleteRepositoryResponse' :: Maybe Text
+</span><a href="#local-6989586621679368553"><span class="hs-identifier hs-var hs-var">repositoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368553"><span class="hs-identifier hs-var">repositoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368552"><span class="annot"><span class="annottext">s :: DeleteRepositoryResponse
+</span><a href="#local-6989586621679368552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse%27"><span class="hs-identifier hs-type">DeleteRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368551"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679368551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRepositoryResponse
+</span><a href="#local-6989586621679368552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryId:DeleteRepositoryResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.DeleteRepository.html#%24sel%3ArepositoryId%3ADeleteRepositoryResponse%27"><span class="hs-identifier hs-var">repositoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679368242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse"><span class="hs-identifier hs-type">DeleteRepositoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse"><span class="hs-identifier hs-type">DeleteRepositoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-171"></span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#deleteRepositoryResponse_httpStatus"><span class="hs-identifier hs-type">deleteRepositoryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse"><span class="hs-identifier hs-type">DeleteRepositoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -418,16 +418,16 @@ $sel:repositoryId:DeleteRepositoryResponse' :: DeleteRepositoryResponse -&gt; Ma
 -&gt; (DeleteRepositoryResponse -&gt; Int -&gt; DeleteRepositoryResponse)
 -&gt; Lens DeleteRepositoryResponse DeleteRepositoryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse%27"><span class="hs-identifier hs-type">DeleteRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368241"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse%27"><span class="hs-identifier hs-type">DeleteRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679368550"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteRepositoryResponse' :: DeleteRepositoryResponse -&gt; Int
-</span><a href="#local-6989586621679368241"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368241"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368240"><span class="annot"><span class="annottext">s :: DeleteRepositoryResponse
-</span><a href="#local-6989586621679368240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse%27"><span class="hs-identifier hs-type">DeleteRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368239"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRepositoryResponse
-</span><a href="#local-6989586621679368240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRepositoryResponse' :: Int
+</span><a href="#local-6989586621679368550"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679368550"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679368549"><span class="annot"><span class="annottext">s :: DeleteRepositoryResponse
+</span><a href="#local-6989586621679368549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse%27"><span class="hs-identifier hs-type">DeleteRepositoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679368548"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679368548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRepositoryResponse
+</span><a href="#local-6989586621679368549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRepositoryResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.DeleteRepository.html#%24sel%3AhttpStatus%3ADeleteRepositoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679368239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse"><span class="hs-identifier hs-type">DeleteRepositoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679368548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse"><span class="hs-identifier hs-type">DeleteRepositoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368237"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse"><span class="hs-identifier hs-type">DeleteRepositoryResponse</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679368546"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.DeleteRepository.html#DeleteRepositoryResponse"><span class="hs-identifier hs-type">DeleteRepositoryResponse</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

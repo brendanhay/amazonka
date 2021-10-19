@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDeleteVolume' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621681239614"><span id="local-6989586621681239615"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVolume"><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-var">DeleteVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVolume%27"><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-var">DeleteVolume'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621681275690"><span id="local-6989586621681275691"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVolume"><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-var">DeleteVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVolume%27"><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-var">DeleteVolume'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AvolumeId%3ADeleteVolume%27"><span class="annot"><span class="annottext">DeleteVolume -&gt; Text
 </span><a href="Network.AWS.EC2.DeleteVolume.html#%24sel%3AvolumeId%3ADeleteVolume%27"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681239607"><span id="local-6989586621681239609"><span class="annot"><span class="annottext">DeleteVolume -&gt; DeleteVolume -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681275683"><span id="local-6989586621681275685"><span class="annot"><span class="annottext">DeleteVolume -&gt; DeleteVolume -&gt; Bool
 (DeleteVolume -&gt; DeleteVolume -&gt; Bool)
 -&gt; (DeleteVolume -&gt; DeleteVolume -&gt; Bool) -&gt; Eq DeleteVolume
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteVolume -&gt; DeleteVolume -&gt; Bool
 == :: DeleteVolume -&gt; DeleteVolume -&gt; Bool
 $c== :: DeleteVolume -&gt; DeleteVolume -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681239598"><span id="local-6989586621681239600"><span id="local-6989586621681239602"><span id="local-6989586621681239604"><span class="annot"><span class="annottext">ReadPrec [DeleteVolume]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681275674"><span id="local-6989586621681275676"><span id="local-6989586621681275678"><span id="local-6989586621681275680"><span class="annot"><span class="annottext">ReadPrec [DeleteVolume]
 ReadPrec DeleteVolume
 Int -&gt; ReadS DeleteVolume
 ReadS [DeleteVolume]
@@ -90,7 +90,7 @@ readList :: ReadS [DeleteVolume]
 $creadList :: ReadS [DeleteVolume]
 readsPrec :: Int -&gt; ReadS DeleteVolume
 $creadsPrec :: Int -&gt; ReadS DeleteVolume
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681239591"><span id="local-6989586621681239593"><span id="local-6989586621681239595"><span class="annot"><span class="annottext">Int -&gt; DeleteVolume -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681275667"><span id="local-6989586621681275669"><span id="local-6989586621681275671"><span class="annot"><span class="annottext">Int -&gt; DeleteVolume -&gt; ShowS
 [DeleteVolume] -&gt; ShowS
 DeleteVolume -&gt; String
 (Int -&gt; DeleteVolume -&gt; ShowS)
@@ -135,8 +135,8 @@ $cfrom :: forall x. DeleteVolume -&gt; Rep DeleteVolume x
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span>
 </span><span id="line-83"></span><span id="newDeleteVolume"><span class="annot"><span class="annottext">newDeleteVolume :: Text -&gt; DeleteVolume
-</span><a href="Network.AWS.EC2.DeleteVolume.html#newDeleteVolume"><span class="hs-identifier hs-var hs-var">newDeleteVolume</span></a></span></span><span> </span><span id="local-6989586621681239586"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681239586"><span class="hs-identifier hs-var">pVolumeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DeleteVolume.html#newDeleteVolume"><span class="hs-identifier hs-var hs-var">newDeleteVolume</span></a></span></span><span> </span><span id="local-6989586621681275662"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681275662"><span class="hs-identifier hs-var">pVolumeId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">DeleteVolume' :: Maybe Bool -&gt; Text -&gt; DeleteVolume
 </span><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-type">DeleteVolume'</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:DeleteVolume' :: Maybe Bool
@@ -145,7 +145,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumeId:DeleteVolume' :: Text
 </span><a href="Network.AWS.EC2.DeleteVolume.html#%24sel%3AvolumeId%3ADeleteVolume%27"><span class="hs-identifier hs-var">volumeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681239586"><span class="hs-identifier hs-var">pVolumeId_</span></a></span><span>
+</span><a href="#local-6989586621681275662"><span class="hs-identifier hs-var">pVolumeId_</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
@@ -158,16 +158,16 @@ forall a. Maybe a
 -&gt; (DeleteVolume -&gt; Maybe Bool -&gt; DeleteVolume)
 -&gt; Lens DeleteVolume DeleteVolume (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-type">DeleteVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681239583"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-type">DeleteVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681275659"><span class="annot"><span class="annottext">Maybe Bool
 dryRun :: Maybe Bool
 $sel:dryRun:DeleteVolume' :: DeleteVolume -&gt; Maybe Bool
-</span><a href="#local-6989586621681239583"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681239583"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681239582"><span class="annot"><span class="annottext">s :: DeleteVolume
-</span><a href="#local-6989586621681239582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-type">DeleteVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681239581"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681239581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVolume
-</span><a href="#local-6989586621681239582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DeleteVolume' :: Maybe Bool
+</span><a href="#local-6989586621681275659"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681275659"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681275658"><span class="annot"><span class="annottext">s :: DeleteVolume
+</span><a href="#local-6989586621681275658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-type">DeleteVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681275657"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681275657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVolume
+</span><a href="#local-6989586621681275658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DeleteVolume' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DeleteVolume.html#%24sel%3AdryRun%3ADeleteVolume%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681239581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681275657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The ID of the volume.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#deleteVolume_volumeId"><span class="hs-identifier hs-type">deleteVolume_volumeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -176,25 +176,25 @@ $sel:dryRun:DeleteVolume' :: DeleteVolume -&gt; Maybe Bool
 -&gt; (DeleteVolume -&gt; Text -&gt; DeleteVolume)
 -&gt; Lens DeleteVolume DeleteVolume Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-type">DeleteVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681239580"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-type">DeleteVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681275656"><span class="annot"><span class="annottext">Text
 volumeId :: Text
 $sel:volumeId:DeleteVolume' :: DeleteVolume -&gt; Text
-</span><a href="#local-6989586621681239580"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681239580"><span class="hs-identifier hs-var">volumeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681239579"><span class="annot"><span class="annottext">s :: DeleteVolume
-</span><a href="#local-6989586621681239579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-type">DeleteVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681239578"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681239578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVolume
-</span><a href="#local-6989586621681239579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeId:DeleteVolume' :: Text
+</span><a href="#local-6989586621681275656"><span class="hs-identifier hs-var hs-var">volumeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681275656"><span class="hs-identifier hs-var">volumeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681275655"><span class="annot"><span class="annottext">s :: DeleteVolume
+</span><a href="#local-6989586621681275655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-type">DeleteVolume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681275654"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681275654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVolume
+</span><a href="#local-6989586621681275655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeId:DeleteVolume' :: Text
 </span><a href="Network.AWS.EC2.DeleteVolume.html#%24sel%3AvolumeId%3ADeleteVolume%27"><span class="hs-identifier hs-var">volumeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681239578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681275654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolumeResponse"><span class="hs-identifier hs-type">DeleteVolumeResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621681239574"><span class="annot"><span class="annottext">request :: DeleteVolume -&gt; Request DeleteVolume
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621681275650"><span class="annot"><span class="annottext">request :: DeleteVolume -&gt; Request DeleteVolume
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteVolume -&gt; Request DeleteVolume
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621681239570"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621681275646"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteVolume
 -&gt; ClientResponse ClientBody
@@ -217,12 +217,12 @@ AWSResponse a
 DeleteVolumeResponse
 </span><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolumeResponse%27"><span class="hs-identifier hs-var">DeleteVolumeResponse'</span></a></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681239563"><span id="local-6989586621681239565"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681275639"><span id="local-6989586621681275641"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span></span></span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681239560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681275636"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621681239556"><span class="annot"><span class="annottext">toHeaders :: DeleteVolume -&gt; [Header]
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621681275632"><span class="annot"><span class="annottext">toHeaders :: DeleteVolume -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteVolume -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -230,21 +230,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621681239551"><span class="annot"><span class="annottext">toPath :: DeleteVolume -&gt; ByteString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621681275627"><span class="annot"><span class="annottext">toPath :: DeleteVolume -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteVolume -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume"><span class="hs-identifier hs-type">DeleteVolume</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621681239547"><span class="annot"><span class="annottext">toQuery :: DeleteVolume -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-type">DeleteVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681239544"><span id="local-6989586621681239545"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621681275623"><span class="annot"><span class="annottext">toQuery :: DeleteVolume -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolume%27"><span class="hs-identifier hs-type">DeleteVolume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681275620"><span id="local-6989586621681275621"><span class="annot"><span class="annottext">Maybe Bool
 Text
 volumeId :: Text
 dryRun :: Maybe Bool
 $sel:volumeId:DeleteVolume' :: DeleteVolume -&gt; Text
 $sel:dryRun:DeleteVolume' :: DeleteVolume -&gt; Maybe Bool
-</span><a href="#local-6989586621681239544"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681275620"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -264,19 +264,19 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681239545"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681275621"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;VolumeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681239544"><span class="hs-identifier hs-var">volumeId</span></a></span><span>
+</span><a href="#local-6989586621681275620"><span class="hs-identifier hs-var">volumeId</span></a></span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newDeleteVolumeResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621681239541"><span id="local-6989586621681239542"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVolumeResponse"><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolumeResponse"><span class="hs-identifier hs-var">DeleteVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVolumeResponse%27"><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolumeResponse%27"><span class="hs-identifier hs-var">DeleteVolumeResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621681275617"><span id="local-6989586621681275618"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVolumeResponse"><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolumeResponse"><span class="hs-identifier hs-var">DeleteVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVolumeResponse%27"><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolumeResponse%27"><span class="hs-identifier hs-var">DeleteVolumeResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681239537"><span id="local-6989586621681239539"><span class="annot"><span class="annottext">DeleteVolumeResponse -&gt; DeleteVolumeResponse -&gt; Bool
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681275613"><span id="local-6989586621681275615"><span class="annot"><span class="annottext">DeleteVolumeResponse -&gt; DeleteVolumeResponse -&gt; Bool
 (DeleteVolumeResponse -&gt; DeleteVolumeResponse -&gt; Bool)
 -&gt; (DeleteVolumeResponse -&gt; DeleteVolumeResponse -&gt; Bool)
 -&gt; Eq DeleteVolumeResponse
@@ -285,7 +285,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteVolumeResponse -&gt; DeleteVolumeResponse -&gt; Bool
 == :: DeleteVolumeResponse -&gt; DeleteVolumeResponse -&gt; Bool
 $c== :: DeleteVolumeResponse -&gt; DeleteVolumeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681239529"><span id="local-6989586621681239531"><span id="local-6989586621681239533"><span id="local-6989586621681239535"><span class="annot"><span class="annottext">ReadPrec [DeleteVolumeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681275605"><span id="local-6989586621681275607"><span id="local-6989586621681275609"><span id="local-6989586621681275611"><span class="annot"><span class="annottext">ReadPrec [DeleteVolumeResponse]
 ReadPrec DeleteVolumeResponse
 Int -&gt; ReadS DeleteVolumeResponse
 ReadS [DeleteVolumeResponse]
@@ -305,7 +305,7 @@ readList :: ReadS [DeleteVolumeResponse]
 $creadList :: ReadS [DeleteVolumeResponse]
 readsPrec :: Int -&gt; ReadS DeleteVolumeResponse
 $creadsPrec :: Int -&gt; ReadS DeleteVolumeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681239523"><span id="local-6989586621681239525"><span id="local-6989586621681239527"><span class="annot"><span class="annottext">Int -&gt; DeleteVolumeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681275599"><span id="local-6989586621681275601"><span id="local-6989586621681275603"><span class="annot"><span class="annottext">Int -&gt; DeleteVolumeResponse -&gt; ShowS
 [DeleteVolumeResponse] -&gt; ShowS
 DeleteVolumeResponse -&gt; String
 (Int -&gt; DeleteVolumeResponse -&gt; ShowS)
@@ -341,5 +341,5 @@ $cfrom :: forall x. DeleteVolumeResponse -&gt; Rep DeleteVolumeResponse x
 </span><a href="Network.AWS.EC2.DeleteVolume.html#newDeleteVolumeResponse"><span class="hs-identifier hs-var hs-var">newDeleteVolumeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteVolumeResponse
 </span><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolumeResponse%27"><span class="hs-identifier hs-var">DeleteVolumeResponse'</span></a></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681239519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolumeResponse"><span class="hs-identifier hs-type">DeleteVolumeResponse</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681275595"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DeleteVolume.html#DeleteVolumeResponse"><span class="hs-identifier hs-type">DeleteVolumeResponse</span></a></span></span><span>
 </span><span id="line-141"></span></pre></body></html>

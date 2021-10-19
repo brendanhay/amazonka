@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- this type over an HTTP\/2 connection to your consumer.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSubscribeToShardEvent' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679199335"><span id="local-6989586621679199336"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubscribeToShardEvent"><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent"><span class="hs-identifier hs-var">SubscribeToShardEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscribeToShardEvent%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-var">SubscribeToShardEvent'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679199436"><span id="local-6989586621679199437"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubscribeToShardEvent"><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent"><span class="hs-identifier hs-var">SubscribeToShardEvent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscribeToShardEvent%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-var">SubscribeToShardEvent'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AchildShards%3ASubscribeToShardEvent%27"><span class="annot"><span class="annottext">SubscribeToShardEvent -&gt; Maybe [ChildShard]
 </span><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#%24sel%3AchildShards%3ASubscribeToShardEvent%27"><span class="hs-identifier hs-var hs-var">childShards</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Kinesis.Types.ChildShard.html#ChildShard"><span class="hs-identifier hs-type">ChildShard</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Arecords%3ASubscribeToShardEvent%27"><span class="annot"><span class="annottext">SubscribeToShardEvent -&gt; [Record]
@@ -48,7 +48,7 @@
 </span><span id="line-45"></span><span>    </span><span id="%24sel%3AmillisBehindLatest%3ASubscribeToShardEvent%27"><span class="annot"><span class="annottext">SubscribeToShardEvent -&gt; Natural
 </span><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#%24sel%3AmillisBehindLatest%3ASubscribeToShardEvent%27"><span class="hs-identifier hs-var hs-var">millisBehindLatest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199326"><span id="local-6989586621679199328"><span class="annot"><span class="annottext">SubscribeToShardEvent -&gt; SubscribeToShardEvent -&gt; Bool
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679199427"><span id="local-6989586621679199429"><span class="annot"><span class="annottext">SubscribeToShardEvent -&gt; SubscribeToShardEvent -&gt; Bool
 (SubscribeToShardEvent -&gt; SubscribeToShardEvent -&gt; Bool)
 -&gt; (SubscribeToShardEvent -&gt; SubscribeToShardEvent -&gt; Bool)
 -&gt; Eq SubscribeToShardEvent
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SubscribeToShardEvent -&gt; SubscribeToShardEvent -&gt; Bool
 == :: SubscribeToShardEvent -&gt; SubscribeToShardEvent -&gt; Bool
 $c== :: SubscribeToShardEvent -&gt; SubscribeToShardEvent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199317"><span id="local-6989586621679199319"><span id="local-6989586621679199321"><span id="local-6989586621679199323"><span class="annot"><span class="annottext">ReadPrec [SubscribeToShardEvent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199418"><span id="local-6989586621679199420"><span id="local-6989586621679199422"><span id="local-6989586621679199424"><span class="annot"><span class="annottext">ReadPrec [SubscribeToShardEvent]
 ReadPrec SubscribeToShardEvent
 Int -&gt; ReadS SubscribeToShardEvent
 ReadS [SubscribeToShardEvent]
@@ -77,7 +77,7 @@ readList :: ReadS [SubscribeToShardEvent]
 $creadList :: ReadS [SubscribeToShardEvent]
 readsPrec :: Int -&gt; ReadS SubscribeToShardEvent
 $creadsPrec :: Int -&gt; ReadS SubscribeToShardEvent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199310"><span id="local-6989586621679199312"><span id="local-6989586621679199314"><span class="annot"><span class="annottext">Int -&gt; SubscribeToShardEvent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679199411"><span id="local-6989586621679199413"><span id="local-6989586621679199415"><span class="annot"><span class="annottext">Int -&gt; SubscribeToShardEvent -&gt; ShowS
 [SubscribeToShardEvent] -&gt; ShowS
 SubscribeToShardEvent -&gt; String
 (Int -&gt; SubscribeToShardEvent -&gt; ShowS)
@@ -133,10 +133,10 @@ $cfrom :: forall x. SubscribeToShardEvent -&gt; Rep SubscribeToShardEvent x
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent"><span class="hs-identifier hs-type">SubscribeToShardEvent</span></a></span><span>
 </span><span id="line-77"></span><span id="newSubscribeToShardEvent"><span class="annot"><span class="annottext">newSubscribeToShardEvent :: Text -&gt; Natural -&gt; SubscribeToShardEvent
 </span><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#newSubscribeToShardEvent"><span class="hs-identifier hs-var hs-var">newSubscribeToShardEvent</span></a></span></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679199304"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199304"><span class="hs-identifier hs-var">pContinuationSequenceNumber_</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679199303"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679199303"><span class="hs-identifier hs-var">pMillisBehindLatest_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679199405"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199405"><span class="hs-identifier hs-var">pContinuationSequenceNumber_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679199404"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679199404"><span class="hs-identifier hs-var">pMillisBehindLatest_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">SubscribeToShardEvent' :: Maybe [ChildShard]
 -&gt; [Record] -&gt; Text -&gt; Natural -&gt; SubscribeToShardEvent
 </span><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-type">SubscribeToShardEvent'</span></a></span><span>
@@ -152,10 +152,10 @@ forall a. Monoid a =&gt; a
 </span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:continuationSequenceNumber:SubscribeToShardEvent' :: Text
 </span><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#%24sel%3AcontinuationSequenceNumber%3ASubscribeToShardEvent%27"><span class="hs-identifier hs-var">continuationSequenceNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199304"><span class="hs-identifier hs-var">pContinuationSequenceNumber_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679199405"><span class="hs-identifier hs-var">pContinuationSequenceNumber_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:millisBehindLatest:SubscribeToShardEvent' :: Natural
 </span><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#%24sel%3AmillisBehindLatest%3ASubscribeToShardEvent%27"><span class="hs-identifier hs-var">millisBehindLatest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679199303"><span class="hs-identifier hs-var">pMillisBehindLatest_</span></a></span><span>
+</span><a href="#local-6989586621679199404"><span class="hs-identifier hs-var">pMillisBehindLatest_</span></a></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -171,16 +171,16 @@ forall a. Monoid a =&gt; a
      (Maybe [ChildShard])
      (Maybe [ChildShard])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-type">SubscribeToShardEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199299"><span class="annot"><span class="annottext">Maybe [ChildShard]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-type">SubscribeToShardEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199400"><span class="annot"><span class="annottext">Maybe [ChildShard]
 childShards :: Maybe [ChildShard]
 $sel:childShards:SubscribeToShardEvent' :: SubscribeToShardEvent -&gt; Maybe [ChildShard]
-</span><a href="#local-6989586621679199299"><span class="hs-identifier hs-var hs-var">childShards</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ChildShard]
-</span><a href="#local-6989586621679199299"><span class="hs-identifier hs-var">childShards</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199298"><span class="annot"><span class="annottext">s :: SubscribeToShardEvent
-</span><a href="#local-6989586621679199298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-type">SubscribeToShardEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199297"><span class="annot"><span class="annottext">Maybe [ChildShard]
-</span><a href="#local-6989586621679199297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToShardEvent
-</span><a href="#local-6989586621679199298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:childShards:SubscribeToShardEvent' :: Maybe [ChildShard]
+</span><a href="#local-6989586621679199400"><span class="hs-identifier hs-var hs-var">childShards</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ChildShard]
+</span><a href="#local-6989586621679199400"><span class="hs-identifier hs-var">childShards</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199399"><span class="annot"><span class="annottext">s :: SubscribeToShardEvent
+</span><a href="#local-6989586621679199399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-type">SubscribeToShardEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199398"><span class="annot"><span class="annottext">Maybe [ChildShard]
+</span><a href="#local-6989586621679199398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToShardEvent
+</span><a href="#local-6989586621679199399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:childShards:SubscribeToShardEvent' :: Maybe [ChildShard]
 </span><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#%24sel%3AchildShards%3ASubscribeToShardEvent%27"><span class="hs-identifier hs-var">childShards</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ChildShard]
-</span><a href="#local-6989586621679199297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent"><span class="hs-identifier hs-type">SubscribeToShardEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ChildShard] -&gt; f (Maybe [ChildShard]))
+</span><a href="#local-6989586621679199398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent"><span class="hs-identifier hs-type">SubscribeToShardEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ChildShard] -&gt; f (Maybe [ChildShard]))
  -&gt; SubscribeToShardEvent -&gt; f SubscribeToShardEvent)
 -&gt; ((Maybe [ChildShard] -&gt; f (Maybe [ChildShard]))
     -&gt; Maybe [ChildShard] -&gt; f (Maybe [ChildShard]))
@@ -198,8 +198,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ChildShard] [ChildShard] [ChildShard] [ChildShard]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#subscribeToShardEvent_records"><span class="hs-identifier hs-type">subscribeToShardEvent_records</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent"><span class="hs-identifier hs-type">SubscribeToShardEvent</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Kinesis.Types.Record.html#Record"><span class="hs-identifier hs-type">Record</span></a></span><span class="hs-special">]</span><span>
@@ -210,16 +210,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      SubscribeToShardEvent SubscribeToShardEvent [Record] [Record]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-type">SubscribeToShardEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199292"><span class="annot"><span class="annottext">[Record]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-type">SubscribeToShardEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199393"><span class="annot"><span class="annottext">[Record]
 records :: [Record]
 $sel:records:SubscribeToShardEvent' :: SubscribeToShardEvent -&gt; [Record]
-</span><a href="#local-6989586621679199292"><span class="hs-identifier hs-var hs-var">records</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Record]
-</span><a href="#local-6989586621679199292"><span class="hs-identifier hs-var">records</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199291"><span class="annot"><span class="annottext">s :: SubscribeToShardEvent
-</span><a href="#local-6989586621679199291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-type">SubscribeToShardEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199290"><span class="annot"><span class="annottext">[Record]
-</span><a href="#local-6989586621679199290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToShardEvent
-</span><a href="#local-6989586621679199291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:records:SubscribeToShardEvent' :: [Record]
+</span><a href="#local-6989586621679199393"><span class="hs-identifier hs-var hs-var">records</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Record]
+</span><a href="#local-6989586621679199393"><span class="hs-identifier hs-var">records</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199392"><span class="annot"><span class="annottext">s :: SubscribeToShardEvent
+</span><a href="#local-6989586621679199392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-type">SubscribeToShardEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199391"><span class="annot"><span class="annottext">[Record]
+</span><a href="#local-6989586621679199391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToShardEvent
+</span><a href="#local-6989586621679199392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:records:SubscribeToShardEvent' :: [Record]
 </span><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#%24sel%3Arecords%3ASubscribeToShardEvent%27"><span class="hs-identifier hs-var">records</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Record]
-</span><a href="#local-6989586621679199290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent"><span class="hs-identifier hs-type">SubscribeToShardEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Record] -&gt; f [Record])
+</span><a href="#local-6989586621679199391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent"><span class="hs-identifier hs-type">SubscribeToShardEvent</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Record] -&gt; f [Record])
  -&gt; SubscribeToShardEvent -&gt; f SubscribeToShardEvent)
 -&gt; (([Record] -&gt; f [Record]) -&gt; [Record] -&gt; f [Record])
 -&gt; ([Record] -&gt; f [Record])
@@ -227,8 +227,8 @@ $sel:records:SubscribeToShardEvent' :: SubscribeToShardEvent -&gt; [Record]
 -&gt; f SubscribeToShardEvent
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Record] -&gt; f [Record]) -&gt; [Record] -&gt; f [Record]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | Use this as @SequenceNumber@ in the next call to SubscribeToShard, with</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- @StartingPosition@ set to @AT_SEQUENCE_NUMBER@ or</span><span>
@@ -242,16 +242,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (SubscribeToShardEvent -&gt; Text -&gt; SubscribeToShardEvent)
 -&gt; Lens SubscribeToShardEvent SubscribeToShardEvent Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-type">SubscribeToShardEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199288"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-type">SubscribeToShardEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199389"><span class="annot"><span class="annottext">Text
 continuationSequenceNumber :: Text
 $sel:continuationSequenceNumber:SubscribeToShardEvent' :: SubscribeToShardEvent -&gt; Text
-</span><a href="#local-6989586621679199288"><span class="hs-identifier hs-var hs-var">continuationSequenceNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199288"><span class="hs-identifier hs-var">continuationSequenceNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199287"><span class="annot"><span class="annottext">s :: SubscribeToShardEvent
-</span><a href="#local-6989586621679199287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-type">SubscribeToShardEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199286"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToShardEvent
-</span><a href="#local-6989586621679199287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continuationSequenceNumber:SubscribeToShardEvent' :: Text
+</span><a href="#local-6989586621679199389"><span class="hs-identifier hs-var hs-var">continuationSequenceNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199389"><span class="hs-identifier hs-var">continuationSequenceNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199388"><span class="annot"><span class="annottext">s :: SubscribeToShardEvent
+</span><a href="#local-6989586621679199388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-type">SubscribeToShardEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199387"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679199387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToShardEvent
+</span><a href="#local-6989586621679199388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continuationSequenceNumber:SubscribeToShardEvent' :: Text
 </span><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#%24sel%3AcontinuationSequenceNumber%3ASubscribeToShardEvent%27"><span class="hs-identifier hs-var">continuationSequenceNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679199286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent"><span class="hs-identifier hs-type">SubscribeToShardEvent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent"><span class="hs-identifier hs-type">SubscribeToShardEvent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The number of milliseconds the read records are from the tip of the</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- stream, indicating how far behind current time the consumer is. A value</span><span>
@@ -264,19 +264,19 @@ $sel:continuationSequenceNumber:SubscribeToShardEvent' :: SubscribeToShardEvent 
 -&gt; (SubscribeToShardEvent -&gt; Natural -&gt; SubscribeToShardEvent)
 -&gt; Lens SubscribeToShardEvent SubscribeToShardEvent Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-type">SubscribeToShardEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199284"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-type">SubscribeToShardEvent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679199385"><span class="annot"><span class="annottext">Natural
 millisBehindLatest :: Natural
 $sel:millisBehindLatest:SubscribeToShardEvent' :: SubscribeToShardEvent -&gt; Natural
-</span><a href="#local-6989586621679199284"><span class="hs-identifier hs-var hs-var">millisBehindLatest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679199284"><span class="hs-identifier hs-var">millisBehindLatest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199283"><span class="annot"><span class="annottext">s :: SubscribeToShardEvent
-</span><a href="#local-6989586621679199283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-type">SubscribeToShardEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199282"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679199282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToShardEvent
-</span><a href="#local-6989586621679199283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:millisBehindLatest:SubscribeToShardEvent' :: Natural
+</span><a href="#local-6989586621679199385"><span class="hs-identifier hs-var hs-var">millisBehindLatest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679199385"><span class="hs-identifier hs-var">millisBehindLatest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679199384"><span class="annot"><span class="annottext">s :: SubscribeToShardEvent
+</span><a href="#local-6989586621679199384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-type">SubscribeToShardEvent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679199383"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679199383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubscribeToShardEvent
+</span><a href="#local-6989586621679199384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:millisBehindLatest:SubscribeToShardEvent' :: Natural
 </span><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#%24sel%3AmillisBehindLatest%3ASubscribeToShardEvent%27"><span class="hs-identifier hs-var">millisBehindLatest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679199282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent"><span class="hs-identifier hs-type">SubscribeToShardEvent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679199383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent"><span class="hs-identifier hs-type">SubscribeToShardEvent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199279"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent"><span class="hs-identifier hs-type">SubscribeToShardEvent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679199277"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SubscribeToShardEvent
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199380"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent"><span class="hs-identifier hs-type">SubscribeToShardEvent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679199378"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SubscribeToShardEvent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SubscribeToShardEvent)
@@ -286,8 +286,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SubscribeToShardEvent&quot;</span></span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679199274"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199274"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679199375"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679199375"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ChildShard]
 -&gt; [Record] -&gt; Text -&gt; Natural -&gt; SubscribeToShardEvent
 </span><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent%27"><span class="hs-identifier hs-var">SubscribeToShardEvent'</span></a></span><span>
@@ -297,7 +297,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser ([Record] -&gt; Text -&gt; Natural -&gt; SubscribeToShardEvent)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199274"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ChildShard]))
+</span><a href="#local-6989586621679199375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ChildShard]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ChildShards&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [ChildShard]))
@@ -311,7 +311,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Text -&gt; Natural -&gt; SubscribeToShardEvent)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199274"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Record])
+</span><a href="#local-6989586621679199375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Record])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Records&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Record]) -&gt; [Record] -&gt; Parser [Record]
@@ -323,7 +323,7 @@ forall a. Monoid a =&gt; a
 -&gt; Parser Text -&gt; Parser (Natural -&gt; SubscribeToShardEvent)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199274"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679199375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContinuationSequenceNumber&quot;</span></span><span class="hs-special">)</span><span>
@@ -331,13 +331,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser SubscribeToShardEvent
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679199274"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679199375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MillisBehindLatest&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199266"><span id="local-6989586621679199268"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent"><span class="hs-identifier hs-type">SubscribeToShardEvent</span></a></span></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199367"><span id="local-6989586621679199369"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent"><span class="hs-identifier hs-type">SubscribeToShardEvent</span></a></span></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199263"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent"><span class="hs-identifier hs-type">SubscribeToShardEvent</span></a></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679199364"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.SubscribeToShardEvent.html#SubscribeToShardEvent"><span class="hs-identifier hs-type">SubscribeToShardEvent</span></a></span></span><span>
 </span><span id="line-127"></span></pre></body></html>

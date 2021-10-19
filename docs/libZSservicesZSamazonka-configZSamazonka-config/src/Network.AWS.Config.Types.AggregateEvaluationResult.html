@@ -31,36 +31,36 @@
 </span><span id="line-31"></span><span class="hs-comment">-- supplementary information.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newAggregateEvaluationResult' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679399855"><span id="local-6989586621679399856"></span></span><span class="hs-keyword">data</span><span> </span><span id="AggregateEvaluationResult"><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-var">AggregateEvaluationResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregateEvaluationResult%27"><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-var">AggregateEvaluationResult'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Supplementary information about how the agrregate evaluation determined</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the compliance.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aannotation%3AAggregateEvaluationResult%27"><span class="annot"><span class="annottext">AggregateEvaluationResult -&gt; Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3Aannotation%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var hs-var">annotation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Uniquely identifies the evaluation result.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AevaluationResultIdentifier%3AAggregateEvaluationResult%27"><span class="annot"><span class="annottext">AggregateEvaluationResult -&gt; Maybe EvaluationResultIdentifier
+</span><span id="line-34"></span><span id="local-6989586621679400438"><span id="local-6989586621679400439"></span></span><span class="hs-keyword">data</span><span> </span><span id="AggregateEvaluationResult"><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-var">AggregateEvaluationResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AggregateEvaluationResult%27"><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-var">AggregateEvaluationResult'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Uniquely identifies the evaluation result.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AevaluationResultIdentifier%3AAggregateEvaluationResult%27"><span class="annot"><span class="annottext">AggregateEvaluationResult -&gt; Maybe EvaluationResultIdentifier
 </span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AevaluationResultIdentifier%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var hs-var">evaluationResultIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.EvaluationResultIdentifier.html#EvaluationResultIdentifier"><span class="hs-identifier hs-type">EvaluationResultIdentifier</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The 12-digit account ID of the source account.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AaccountId%3AAggregateEvaluationResult%27"><span class="annot"><span class="annottext">AggregateEvaluationResult -&gt; Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AaccountId%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The time when Config recorded the aggregate evaluation result.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AresultRecordedTime%3AAggregateEvaluationResult%27"><span class="annot"><span class="annottext">AggregateEvaluationResult -&gt; Maybe POSIX
-</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AresultRecordedTime%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var hs-var">resultRecordedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The resource compliance status.</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- For the @AggregationEvaluationResult@ data type, Config supports only</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- the @COMPLIANT@ and @NON_COMPLIANT@. Config does not support the</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AcomplianceType%3AAggregateEvaluationResult%27"><span class="annot"><span class="annottext">AggregateEvaluationResult -&gt; Maybe ComplianceType
-</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AcomplianceType%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ComplianceType.html#ComplianceType"><span class="hs-identifier hs-type">ComplianceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The time when the Config rule evaluated the Amazon Web Services</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- resource.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AconfigRuleInvokedTime%3AAggregateEvaluationResult%27"><span class="annot"><span class="annottext">AggregateEvaluationResult -&gt; Maybe POSIX
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Supplementary information about how the agrregate evaluation determined</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- the compliance.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aannotation%3AAggregateEvaluationResult%27"><span class="annot"><span class="annottext">AggregateEvaluationResult -&gt; Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3Aannotation%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var hs-var">annotation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The time when the Config rule evaluated the Amazon Web Services</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AconfigRuleInvokedTime%3AAggregateEvaluationResult%27"><span class="annot"><span class="annottext">AggregateEvaluationResult -&gt; Maybe POSIX
 </span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AconfigRuleInvokedTime%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var hs-var">configRuleInvokedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The time when Config recorded the aggregate evaluation result.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AresultRecordedTime%3AAggregateEvaluationResult%27"><span class="annot"><span class="annottext">AggregateEvaluationResult -&gt; Maybe POSIX
+</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AresultRecordedTime%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var hs-var">resultRecordedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The 12-digit account ID of the source account.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AaccountId%3AAggregateEvaluationResult%27"><span class="annot"><span class="annottext">AggregateEvaluationResult -&gt; Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AaccountId%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The resource compliance status.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- For the @AggregationEvaluationResult@ data type, Config supports only</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- the @COMPLIANT@ and @NON_COMPLIANT@. Config does not support the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AcomplianceType%3AAggregateEvaluationResult%27"><span class="annot"><span class="annottext">AggregateEvaluationResult -&gt; Maybe ComplianceType
+</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AcomplianceType%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ComplianceType.html#ComplianceType"><span class="hs-identifier hs-type">ComplianceType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The source region from where the data is aggregated.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AawsRegion%3AAggregateEvaluationResult%27"><span class="annot"><span class="annottext">AggregateEvaluationResult -&gt; Maybe Text
 </span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AawsRegion%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399843"><span id="local-6989586621679399845"><span class="annot"><span class="annottext">AggregateEvaluationResult -&gt; AggregateEvaluationResult -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679400426"><span id="local-6989586621679400428"><span class="annot"><span class="annottext">AggregateEvaluationResult -&gt; AggregateEvaluationResult -&gt; Bool
 (AggregateEvaluationResult -&gt; AggregateEvaluationResult -&gt; Bool)
 -&gt; (AggregateEvaluationResult -&gt; AggregateEvaluationResult -&gt; Bool)
 -&gt; Eq AggregateEvaluationResult
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AggregateEvaluationResult -&gt; AggregateEvaluationResult -&gt; Bool
 == :: AggregateEvaluationResult -&gt; AggregateEvaluationResult -&gt; Bool
 $c== :: AggregateEvaluationResult -&gt; AggregateEvaluationResult -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399834"><span id="local-6989586621679399836"><span id="local-6989586621679399838"><span id="local-6989586621679399840"><span class="annot"><span class="annottext">ReadPrec [AggregateEvaluationResult]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400417"><span id="local-6989586621679400419"><span id="local-6989586621679400421"><span id="local-6989586621679400423"><span class="annot"><span class="annottext">ReadPrec [AggregateEvaluationResult]
 ReadPrec AggregateEvaluationResult
 Int -&gt; ReadS AggregateEvaluationResult
 ReadS [AggregateEvaluationResult]
@@ -89,7 +89,7 @@ readList :: ReadS [AggregateEvaluationResult]
 $creadList :: ReadS [AggregateEvaluationResult]
 readsPrec :: Int -&gt; ReadS AggregateEvaluationResult
 $creadsPrec :: Int -&gt; ReadS AggregateEvaluationResult
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399827"><span id="local-6989586621679399829"><span id="local-6989586621679399831"><span class="annot"><span class="annottext">Int -&gt; AggregateEvaluationResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400410"><span id="local-6989586621679400412"><span id="local-6989586621679400414"><span class="annot"><span class="annottext">Int -&gt; AggregateEvaluationResult -&gt; ShowS
 [AggregateEvaluationResult] -&gt; ShowS
 AggregateEvaluationResult -&gt; String
 (Int -&gt; AggregateEvaluationResult -&gt; ShowS)
@@ -129,61 +129,61 @@ AggregateEvaluationResult -&gt; Rep AggregateEvaluationResult x
 </span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'annotation', 'aggregateEvaluationResult_annotation' - Supplementary information about how the agrregate evaluation determined</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- the compliance.</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'evaluationResultIdentifier', 'aggregateEvaluationResult_evaluationResultIdentifier' - Uniquely identifies the evaluation result.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'evaluationResultIdentifier', 'aggregateEvaluationResult_evaluationResultIdentifier' - Uniquely identifies the evaluation result.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'annotation', 'aggregateEvaluationResult_annotation' - Supplementary information about how the agrregate evaluation determined</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- the compliance.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'accountId', 'aggregateEvaluationResult_accountId' - The 12-digit account ID of the source account.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'resultRecordedTime', 'aggregateEvaluationResult_resultRecordedTime' - The time when Config recorded the aggregate evaluation result.</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'complianceType', 'aggregateEvaluationResult_complianceType' - The resource compliance status.</span><span>
-</span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- For the @AggregationEvaluationResult@ data type, Config supports only</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- the @COMPLIANT@ and @NON_COMPLIANT@. Config does not support the</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'configRuleInvokedTime', 'aggregateEvaluationResult_configRuleInvokedTime' - The time when the Config rule evaluated the Amazon Web Services</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'configRuleInvokedTime', 'aggregateEvaluationResult_configRuleInvokedTime' - The time when the Config rule evaluated the Amazon Web Services</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'resultRecordedTime', 'aggregateEvaluationResult_resultRecordedTime' - The time when Config recorded the aggregate evaluation result.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'accountId', 'aggregateEvaluationResult_accountId' - The 12-digit account ID of the source account.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'complianceType', 'aggregateEvaluationResult_complianceType' - The resource compliance status.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- For the @AggregationEvaluationResult@ data type, Config supports only</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- the @COMPLIANT@ and @NON_COMPLIANT@. Config does not support the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- 'awsRegion', 'aggregateEvaluationResult_awsRegion' - The source region from where the data is aggregated.</span><span>
 </span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#newAggregateEvaluationResult"><span class="hs-identifier hs-type">newAggregateEvaluationResult</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span>
 </span><span id="line-87"></span><span id="newAggregateEvaluationResult"><span class="annot"><span class="annottext">newAggregateEvaluationResult :: AggregateEvaluationResult
 </span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#newAggregateEvaluationResult"><span class="hs-identifier hs-var hs-var">newAggregateEvaluationResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">AggregateEvaluationResult' :: Maybe Text
--&gt; Maybe EvaluationResultIdentifier
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">AggregateEvaluationResult' :: Maybe EvaluationResultIdentifier
 -&gt; Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe ComplianceType
 -&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe ComplianceType
 -&gt; Maybe Text
 -&gt; AggregateEvaluationResult
 </span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:annotation:AggregateEvaluationResult' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3Aannotation%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">annotation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:evaluationResultIdentifier:AggregateEvaluationResult' :: Maybe EvaluationResultIdentifier
+</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AevaluationResultIdentifier%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">evaluationResultIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe EvaluationResultIdentifier
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:evaluationResultIdentifier:AggregateEvaluationResult' :: Maybe EvaluationResultIdentifier
-</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AevaluationResultIdentifier%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">evaluationResultIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EvaluationResultIdentifier
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:annotation:AggregateEvaluationResult' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3Aannotation%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">annotation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:AggregateEvaluationResult' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AaccountId%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:configRuleInvokedTime:AggregateEvaluationResult' :: Maybe POSIX
+</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AconfigRuleInvokedTime%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">configRuleInvokedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:resultRecordedTime:AggregateEvaluationResult' :: Maybe POSIX
 </span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AresultRecordedTime%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">resultRecordedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:complianceType:AggregateEvaluationResult' :: Maybe ComplianceType
-</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AcomplianceType%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceType
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:AggregateEvaluationResult' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AaccountId%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:configRuleInvokedTime:AggregateEvaluationResult' :: Maybe POSIX
-</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AconfigRuleInvokedTime%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">configRuleInvokedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:complianceType:AggregateEvaluationResult' :: Maybe ComplianceType
+</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AcomplianceType%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsRegion:AggregateEvaluationResult' :: Maybe Text
@@ -192,34 +192,9 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | Supplementary information about how the agrregate evaluation determined</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- the compliance.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_annotation"><span class="hs-identifier hs-type">aggregateEvaluationResult_annotation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="aggregateEvaluationResult_annotation"><span class="annot"><span class="annottext">aggregateEvaluationResult_annotation :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AggregateEvaluationResult -&gt; f AggregateEvaluationResult
-</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_annotation"><span class="hs-identifier hs-var hs-var">aggregateEvaluationResult_annotation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregateEvaluationResult -&gt; Maybe Text)
--&gt; (AggregateEvaluationResult
-    -&gt; Maybe Text -&gt; AggregateEvaluationResult)
--&gt; Lens
-     AggregateEvaluationResult
-     AggregateEvaluationResult
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399818"><span class="annot"><span class="annottext">Maybe Text
-annotation :: Maybe Text
-$sel:annotation:AggregateEvaluationResult' :: AggregateEvaluationResult -&gt; Maybe Text
-</span><a href="#local-6989586621679399818"><span class="hs-identifier hs-var hs-var">annotation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399818"><span class="hs-identifier hs-var">annotation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399817"><span class="annot"><span class="annottext">s :: AggregateEvaluationResult
-</span><a href="#local-6989586621679399817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399816"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateEvaluationResult
-</span><a href="#local-6989586621679399817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:annotation:AggregateEvaluationResult' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3Aannotation%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">annotation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | Uniquely identifies the evaluation result.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_evaluationResultIdentifier"><span class="hs-identifier hs-type">aggregateEvaluationResult_evaluationResultIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.EvaluationResultIdentifier.html#EvaluationResultIdentifier"><span class="hs-identifier hs-type">EvaluationResultIdentifier</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="aggregateEvaluationResult_evaluationResultIdentifier"><span class="annot"><span class="annottext">aggregateEvaluationResult_evaluationResultIdentifier :: (Maybe EvaluationResultIdentifier
+</span><span id="line-99"></span><span class="hs-comment">-- | Uniquely identifies the evaluation result.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_evaluationResultIdentifier"><span class="hs-identifier hs-type">aggregateEvaluationResult_evaluationResultIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.EvaluationResultIdentifier.html#EvaluationResultIdentifier"><span class="hs-identifier hs-type">EvaluationResultIdentifier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="aggregateEvaluationResult_evaluationResultIdentifier"><span class="annot"><span class="annottext">aggregateEvaluationResult_evaluationResultIdentifier :: (Maybe EvaluationResultIdentifier
  -&gt; f (Maybe EvaluationResultIdentifier))
 -&gt; AggregateEvaluationResult -&gt; f AggregateEvaluationResult
 </span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_evaluationResultIdentifier"><span class="hs-identifier hs-var hs-var">aggregateEvaluationResult_evaluationResultIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregateEvaluationResult -&gt; Maybe EvaluationResultIdentifier)
@@ -231,22 +206,23 @@ $sel:annotation:AggregateEvaluationResult' :: AggregateEvaluationResult -&gt; Ma
      (Maybe EvaluationResultIdentifier)
      (Maybe EvaluationResultIdentifier)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399814"><span class="annot"><span class="annottext">Maybe EvaluationResultIdentifier
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400401"><span class="annot"><span class="annottext">Maybe EvaluationResultIdentifier
 evaluationResultIdentifier :: Maybe EvaluationResultIdentifier
 $sel:evaluationResultIdentifier:AggregateEvaluationResult' :: AggregateEvaluationResult -&gt; Maybe EvaluationResultIdentifier
-</span><a href="#local-6989586621679399814"><span class="hs-identifier hs-var hs-var">evaluationResultIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EvaluationResultIdentifier
-</span><a href="#local-6989586621679399814"><span class="hs-identifier hs-var">evaluationResultIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399813"><span class="annot"><span class="annottext">s :: AggregateEvaluationResult
-</span><a href="#local-6989586621679399813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399812"><span class="annot"><span class="annottext">Maybe EvaluationResultIdentifier
-</span><a href="#local-6989586621679399812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateEvaluationResult
-</span><a href="#local-6989586621679399813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationResultIdentifier:AggregateEvaluationResult' :: Maybe EvaluationResultIdentifier
+</span><a href="#local-6989586621679400401"><span class="hs-identifier hs-var hs-var">evaluationResultIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EvaluationResultIdentifier
+</span><a href="#local-6989586621679400401"><span class="hs-identifier hs-var">evaluationResultIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400400"><span class="annot"><span class="annottext">s :: AggregateEvaluationResult
+</span><a href="#local-6989586621679400400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400399"><span class="annot"><span class="annottext">Maybe EvaluationResultIdentifier
+</span><a href="#local-6989586621679400399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateEvaluationResult
+</span><a href="#local-6989586621679400400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluationResultIdentifier:AggregateEvaluationResult' :: Maybe EvaluationResultIdentifier
 </span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AevaluationResultIdentifier%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">evaluationResultIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EvaluationResultIdentifier
-</span><a href="#local-6989586621679399812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The 12-digit account ID of the source account.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_accountId"><span class="hs-identifier hs-type">aggregateEvaluationResult_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="aggregateEvaluationResult_accountId"><span class="annot"><span class="annottext">aggregateEvaluationResult_accountId :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679400399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | Supplementary information about how the agrregate evaluation determined</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- the compliance.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_annotation"><span class="hs-identifier hs-type">aggregateEvaluationResult_annotation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="aggregateEvaluationResult_annotation"><span class="annot"><span class="annottext">aggregateEvaluationResult_annotation :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AggregateEvaluationResult -&gt; f AggregateEvaluationResult
-</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_accountId"><span class="hs-identifier hs-var hs-var">aggregateEvaluationResult_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregateEvaluationResult -&gt; Maybe Text)
+</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_annotation"><span class="hs-identifier hs-var hs-var">aggregateEvaluationResult_annotation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregateEvaluationResult -&gt; Maybe Text)
 -&gt; (AggregateEvaluationResult
     -&gt; Maybe Text -&gt; AggregateEvaluationResult)
 -&gt; Lens
@@ -255,88 +231,21 @@ $sel:evaluationResultIdentifier:AggregateEvaluationResult' :: AggregateEvaluatio
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399810"><span class="annot"><span class="annottext">Maybe Text
-accountId :: Maybe Text
-$sel:accountId:AggregateEvaluationResult' :: AggregateEvaluationResult -&gt; Maybe Text
-</span><a href="#local-6989586621679399810"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399810"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399809"><span class="annot"><span class="annottext">s :: AggregateEvaluationResult
-</span><a href="#local-6989586621679399809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399808"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateEvaluationResult
-</span><a href="#local-6989586621679399809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:AggregateEvaluationResult' :: Maybe Text
-</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AaccountId%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | The time when Config recorded the aggregate evaluation result.</span><span>
-</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_resultRecordedTime"><span class="hs-identifier hs-type">aggregateEvaluationResult_resultRecordedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span id="aggregateEvaluationResult_resultRecordedTime"><span class="annot"><span class="annottext">aggregateEvaluationResult_resultRecordedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; AggregateEvaluationResult -&gt; f AggregateEvaluationResult
-</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_resultRecordedTime"><span class="hs-identifier hs-var hs-var">aggregateEvaluationResult_resultRecordedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregateEvaluationResult -&gt; Maybe POSIX)
--&gt; (AggregateEvaluationResult
-    -&gt; Maybe POSIX -&gt; AggregateEvaluationResult)
--&gt; Lens
-     AggregateEvaluationResult
-     AggregateEvaluationResult
-     (Maybe POSIX)
-     (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399806"><span class="annot"><span class="annottext">Maybe POSIX
-resultRecordedTime :: Maybe POSIX
-$sel:resultRecordedTime:AggregateEvaluationResult' :: AggregateEvaluationResult -&gt; Maybe POSIX
-</span><a href="#local-6989586621679399806"><span class="hs-identifier hs-var hs-var">resultRecordedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679399806"><span class="hs-identifier hs-var">resultRecordedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399805"><span class="annot"><span class="annottext">s :: AggregateEvaluationResult
-</span><a href="#local-6989586621679399805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399804"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679399804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateEvaluationResult
-</span><a href="#local-6989586621679399805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultRecordedTime:AggregateEvaluationResult' :: Maybe POSIX
-</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AresultRecordedTime%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">resultRecordedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679399804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; AggregateEvaluationResult -&gt; f AggregateEvaluationResult)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; AggregateEvaluationResult
--&gt; f AggregateEvaluationResult
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | The resource compliance status.</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- For the @AggregationEvaluationResult@ data type, Config supports only</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- the @COMPLIANT@ and @NON_COMPLIANT@. Config does not support the</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_complianceType"><span class="hs-identifier hs-type">aggregateEvaluationResult_complianceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ComplianceType.html#ComplianceType"><span class="hs-identifier hs-type">ComplianceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="aggregateEvaluationResult_complianceType"><span class="annot"><span class="annottext">aggregateEvaluationResult_complianceType :: (Maybe ComplianceType -&gt; f (Maybe ComplianceType))
--&gt; AggregateEvaluationResult -&gt; f AggregateEvaluationResult
-</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_complianceType"><span class="hs-identifier hs-var hs-var">aggregateEvaluationResult_complianceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregateEvaluationResult -&gt; Maybe ComplianceType)
--&gt; (AggregateEvaluationResult
-    -&gt; Maybe ComplianceType -&gt; AggregateEvaluationResult)
--&gt; Lens
-     AggregateEvaluationResult
-     AggregateEvaluationResult
-     (Maybe ComplianceType)
-     (Maybe ComplianceType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399799"><span class="annot"><span class="annottext">Maybe ComplianceType
-complianceType :: Maybe ComplianceType
-$sel:complianceType:AggregateEvaluationResult' :: AggregateEvaluationResult -&gt; Maybe ComplianceType
-</span><a href="#local-6989586621679399799"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceType
-</span><a href="#local-6989586621679399799"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399798"><span class="annot"><span class="annottext">s :: AggregateEvaluationResult
-</span><a href="#local-6989586621679399798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399797"><span class="annot"><span class="annottext">Maybe ComplianceType
-</span><a href="#local-6989586621679399797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateEvaluationResult
-</span><a href="#local-6989586621679399798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceType:AggregateEvaluationResult' :: Maybe ComplianceType
-</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AcomplianceType%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceType
-</span><a href="#local-6989586621679399797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | The time when the Config rule evaluated the Amazon Web Services</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- resource.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_configRuleInvokedTime"><span class="hs-identifier hs-type">aggregateEvaluationResult_configRuleInvokedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="aggregateEvaluationResult_configRuleInvokedTime"><span class="annot"><span class="annottext">aggregateEvaluationResult_configRuleInvokedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400397"><span class="annot"><span class="annottext">Maybe Text
+annotation :: Maybe Text
+$sel:annotation:AggregateEvaluationResult' :: AggregateEvaluationResult -&gt; Maybe Text
+</span><a href="#local-6989586621679400397"><span class="hs-identifier hs-var hs-var">annotation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400397"><span class="hs-identifier hs-var">annotation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400396"><span class="annot"><span class="annottext">s :: AggregateEvaluationResult
+</span><a href="#local-6989586621679400396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400395"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateEvaluationResult
+</span><a href="#local-6989586621679400396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:annotation:AggregateEvaluationResult' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3Aannotation%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">annotation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The time when the Config rule evaluated the Amazon Web Services</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- resource.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_configRuleInvokedTime"><span class="hs-identifier hs-type">aggregateEvaluationResult_configRuleInvokedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="aggregateEvaluationResult_configRuleInvokedTime"><span class="annot"><span class="annottext">aggregateEvaluationResult_configRuleInvokedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; AggregateEvaluationResult -&gt; f AggregateEvaluationResult
 </span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_configRuleInvokedTime"><span class="hs-identifier hs-var hs-var">aggregateEvaluationResult_configRuleInvokedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregateEvaluationResult -&gt; Maybe POSIX)
 -&gt; (AggregateEvaluationResult
@@ -347,16 +256,16 @@ $sel:complianceType:AggregateEvaluationResult' :: AggregateEvaluationResult -&gt
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399795"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400393"><span class="annot"><span class="annottext">Maybe POSIX
 configRuleInvokedTime :: Maybe POSIX
 $sel:configRuleInvokedTime:AggregateEvaluationResult' :: AggregateEvaluationResult -&gt; Maybe POSIX
-</span><a href="#local-6989586621679399795"><span class="hs-identifier hs-var hs-var">configRuleInvokedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679399795"><span class="hs-identifier hs-var">configRuleInvokedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399794"><span class="annot"><span class="annottext">s :: AggregateEvaluationResult
-</span><a href="#local-6989586621679399794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399793"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679399793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateEvaluationResult
-</span><a href="#local-6989586621679399794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRuleInvokedTime:AggregateEvaluationResult' :: Maybe POSIX
+</span><a href="#local-6989586621679400393"><span class="hs-identifier hs-var hs-var">configRuleInvokedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679400393"><span class="hs-identifier hs-var">configRuleInvokedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400392"><span class="annot"><span class="annottext">s :: AggregateEvaluationResult
+</span><a href="#local-6989586621679400392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400391"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679400391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateEvaluationResult
+</span><a href="#local-6989586621679400392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRuleInvokedTime:AggregateEvaluationResult' :: Maybe POSIX
 </span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AconfigRuleInvokedTime%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">configRuleInvokedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679399793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679400391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; AggregateEvaluationResult -&gt; f AggregateEvaluationResult)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -372,6 +281,97 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The time when Config recorded the aggregate evaluation result.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_resultRecordedTime"><span class="hs-identifier hs-type">aggregateEvaluationResult_resultRecordedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="aggregateEvaluationResult_resultRecordedTime"><span class="annot"><span class="annottext">aggregateEvaluationResult_resultRecordedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AggregateEvaluationResult -&gt; f AggregateEvaluationResult
+</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_resultRecordedTime"><span class="hs-identifier hs-var hs-var">aggregateEvaluationResult_resultRecordedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregateEvaluationResult -&gt; Maybe POSIX)
+-&gt; (AggregateEvaluationResult
+    -&gt; Maybe POSIX -&gt; AggregateEvaluationResult)
+-&gt; Lens
+     AggregateEvaluationResult
+     AggregateEvaluationResult
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400386"><span class="annot"><span class="annottext">Maybe POSIX
+resultRecordedTime :: Maybe POSIX
+$sel:resultRecordedTime:AggregateEvaluationResult' :: AggregateEvaluationResult -&gt; Maybe POSIX
+</span><a href="#local-6989586621679400386"><span class="hs-identifier hs-var hs-var">resultRecordedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679400386"><span class="hs-identifier hs-var">resultRecordedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400385"><span class="annot"><span class="annottext">s :: AggregateEvaluationResult
+</span><a href="#local-6989586621679400385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400384"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679400384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateEvaluationResult
+</span><a href="#local-6989586621679400385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resultRecordedTime:AggregateEvaluationResult' :: Maybe POSIX
+</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AresultRecordedTime%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">resultRecordedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679400384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AggregateEvaluationResult -&gt; f AggregateEvaluationResult)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AggregateEvaluationResult
+-&gt; f AggregateEvaluationResult
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The 12-digit account ID of the source account.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_accountId"><span class="hs-identifier hs-type">aggregateEvaluationResult_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="aggregateEvaluationResult_accountId"><span class="annot"><span class="annottext">aggregateEvaluationResult_accountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AggregateEvaluationResult -&gt; f AggregateEvaluationResult
+</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_accountId"><span class="hs-identifier hs-var hs-var">aggregateEvaluationResult_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregateEvaluationResult -&gt; Maybe Text)
+-&gt; (AggregateEvaluationResult
+    -&gt; Maybe Text -&gt; AggregateEvaluationResult)
+-&gt; Lens
+     AggregateEvaluationResult
+     AggregateEvaluationResult
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400382"><span class="annot"><span class="annottext">Maybe Text
+accountId :: Maybe Text
+$sel:accountId:AggregateEvaluationResult' :: AggregateEvaluationResult -&gt; Maybe Text
+</span><a href="#local-6989586621679400382"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400382"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400381"><span class="annot"><span class="annottext">s :: AggregateEvaluationResult
+</span><a href="#local-6989586621679400381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400380"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateEvaluationResult
+</span><a href="#local-6989586621679400381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:AggregateEvaluationResult' :: Maybe Text
+</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AaccountId%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The resource compliance status.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- For the @AggregationEvaluationResult@ data type, Config supports only</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- the @COMPLIANT@ and @NON_COMPLIANT@. Config does not support the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_complianceType"><span class="hs-identifier hs-type">aggregateEvaluationResult_complianceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ComplianceType.html#ComplianceType"><span class="hs-identifier hs-type">ComplianceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="aggregateEvaluationResult_complianceType"><span class="annot"><span class="annottext">aggregateEvaluationResult_complianceType :: (Maybe ComplianceType -&gt; f (Maybe ComplianceType))
+-&gt; AggregateEvaluationResult -&gt; f AggregateEvaluationResult
+</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_complianceType"><span class="hs-identifier hs-var hs-var">aggregateEvaluationResult_complianceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AggregateEvaluationResult -&gt; Maybe ComplianceType)
+-&gt; (AggregateEvaluationResult
+    -&gt; Maybe ComplianceType -&gt; AggregateEvaluationResult)
+-&gt; Lens
+     AggregateEvaluationResult
+     AggregateEvaluationResult
+     (Maybe ComplianceType)
+     (Maybe ComplianceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400378"><span class="annot"><span class="annottext">Maybe ComplianceType
+complianceType :: Maybe ComplianceType
+$sel:complianceType:AggregateEvaluationResult' :: AggregateEvaluationResult -&gt; Maybe ComplianceType
+</span><a href="#local-6989586621679400378"><span class="hs-identifier hs-var hs-var">complianceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceType
+</span><a href="#local-6989586621679400378"><span class="hs-identifier hs-var">complianceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400377"><span class="annot"><span class="annottext">s :: AggregateEvaluationResult
+</span><a href="#local-6989586621679400377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400376"><span class="annot"><span class="annottext">Maybe ComplianceType
+</span><a href="#local-6989586621679400376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateEvaluationResult
+</span><a href="#local-6989586621679400377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceType:AggregateEvaluationResult' :: Maybe ComplianceType
+</span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AcomplianceType%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">complianceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComplianceType
+</span><a href="#local-6989586621679400376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The source region from where the data is aggregated.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#aggregateEvaluationResult_awsRegion"><span class="hs-identifier hs-type">aggregateEvaluationResult_awsRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -386,19 +386,19 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399791"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400374"><span class="annot"><span class="annottext">Maybe Text
 awsRegion :: Maybe Text
 $sel:awsRegion:AggregateEvaluationResult' :: AggregateEvaluationResult -&gt; Maybe Text
-</span><a href="#local-6989586621679399791"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399791"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399790"><span class="annot"><span class="annottext">s :: AggregateEvaluationResult
-</span><a href="#local-6989586621679399790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399789"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateEvaluationResult
-</span><a href="#local-6989586621679399790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegion:AggregateEvaluationResult' :: Maybe Text
+</span><a href="#local-6989586621679400374"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400374"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400373"><span class="annot"><span class="annottext">s :: AggregateEvaluationResult
+</span><a href="#local-6989586621679400373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-type">AggregateEvaluationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400372"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679400372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AggregateEvaluationResult
+</span><a href="#local-6989586621679400373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegion:AggregateEvaluationResult' :: Maybe Text
 </span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#%24sel%3AawsRegion%3AAggregateEvaluationResult%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679399789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679400372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399786"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679399784"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AggregateEvaluationResult
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400369"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679400367"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AggregateEvaluationResult
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AggregateEvaluationResult)
@@ -408,129 +408,131 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AggregateEvaluationResult&quot;</span></span><span>
-</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399781"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399781"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe EvaluationResultIdentifier
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679400364"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679400364"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe EvaluationResultIdentifier
 -&gt; Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe ComplianceType
 -&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe ComplianceType
 -&gt; Maybe Text
 -&gt; AggregateEvaluationResult
 </span><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult%27"><span class="hs-identifier hs-var">AggregateEvaluationResult'</span></a></span><span>
-</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe EvaluationResultIdentifier
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EvaluationResultIdentifier
  -&gt; Maybe Text
  -&gt; Maybe POSIX
- -&gt; Maybe ComplianceType
  -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe ComplianceType
  -&gt; Maybe Text
  -&gt; AggregateEvaluationResult)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe EvaluationResultIdentifier
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe ComplianceType
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; AggregateEvaluationResult)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Annotation&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe EvaluationResultIdentifier
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe ComplianceType
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; AggregateEvaluationResult)
 -&gt; Parser (Maybe EvaluationResultIdentifier)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe POSIX
-      -&gt; Maybe ComplianceType
       -&gt; Maybe POSIX
       -&gt; Maybe Text
+      -&gt; Maybe ComplianceType
+      -&gt; Maybe Text
       -&gt; AggregateEvaluationResult)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EvaluationResultIdentifier)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679400364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EvaluationResultIdentifier)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EvaluationResultIdentifier&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe POSIX
-   -&gt; Maybe ComplianceType
    -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ComplianceType
    -&gt; Maybe Text
    -&gt; AggregateEvaluationResult)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe POSIX
-      -&gt; Maybe ComplianceType
       -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ComplianceType
       -&gt; Maybe Text
       -&gt; AggregateEvaluationResult)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679400364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;Annotation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
-   -&gt; Maybe ComplianceType
    -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ComplianceType
    -&gt; Maybe Text
    -&gt; AggregateEvaluationResult)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe ComplianceType
-      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; AggregateEvaluationResult)
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe ComplianceType
+      -&gt; Maybe Text
+      -&gt; AggregateEvaluationResult)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679400364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConfigRuleInvokedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe ComplianceType
+   -&gt; Maybe Text
+   -&gt; AggregateEvaluationResult)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ComplianceType -&gt; Maybe Text -&gt; AggregateEvaluationResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679400364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResultRecordedTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ComplianceType
-   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; AggregateEvaluationResult)
--&gt; Parser (Maybe ComplianceType)
--&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; AggregateEvaluationResult)
+  (Maybe Text
+   -&gt; Maybe ComplianceType -&gt; Maybe Text -&gt; AggregateEvaluationResult)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ComplianceType -&gt; Maybe Text -&gt; AggregateEvaluationResult)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComplianceType)
+</span><a href="#local-6989586621679400364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ComplianceType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; AggregateEvaluationResult)
--&gt; Parser (Maybe POSIX)
+</span><span class="hs-string">&quot;AccountId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ComplianceType -&gt; Maybe Text -&gt; AggregateEvaluationResult)
+-&gt; Parser (Maybe ComplianceType)
 -&gt; Parser (Maybe Text -&gt; AggregateEvaluationResult)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679400364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ComplianceType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ConfigRuleInvokedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ComplianceType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AggregateEvaluationResult)
 -&gt; Parser (Maybe Text) -&gt; Parser AggregateEvaluationResult
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399781"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679400364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AwsRegion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399775"><span id="local-6989586621679399777"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400358"><span id="local-6989586621679400360"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span></span></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399772"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400355"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AggregateEvaluationResult.html#AggregateEvaluationResult"><span class="hs-identifier hs-type">AggregateEvaluationResult</span></a></span></span><span>
 </span><span id="line-151"></span></pre></body></html>

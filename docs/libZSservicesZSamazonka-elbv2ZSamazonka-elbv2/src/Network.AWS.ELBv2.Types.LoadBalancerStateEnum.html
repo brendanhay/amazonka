@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679248260"><span id="local-6989586621679248261"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LoadBalancerStateEnum"><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerStateEnum.html#LoadBalancerStateEnum"><span class="hs-identifier hs-var">LoadBalancerStateEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoadBalancerStateEnum%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerStateEnum.html#LoadBalancerStateEnum%27"><span class="hs-identifier hs-var">LoadBalancerStateEnum'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679250961"><span id="local-6989586621679250962"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LoadBalancerStateEnum"><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerStateEnum.html#LoadBalancerStateEnum"><span class="hs-identifier hs-var">LoadBalancerStateEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoadBalancerStateEnum%27"><span class="annot"><a href="Network.AWS.ELBv2.Types.LoadBalancerStateEnum.html#LoadBalancerStateEnum%27"><span class="hs-identifier hs-var">LoadBalancerStateEnum'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLoadBalancerStateEnum"><span class="annot"><span class="annottext">LoadBalancerStateEnum -&gt; Text
 </span><a href="Network.AWS.ELBv2.Types.LoadBalancerStateEnum.html#fromLoadBalancerStateEnum"><span class="hs-identifier hs-var hs-var">fromLoadBalancerStateEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248252"><span id="local-6989586621679248254"><span id="local-6989586621679248256"><span class="annot"><span class="annottext">Int -&gt; LoadBalancerStateEnum -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250953"><span id="local-6989586621679250955"><span id="local-6989586621679250957"><span class="annot"><span class="annottext">Int -&gt; LoadBalancerStateEnum -&gt; ShowS
 [LoadBalancerStateEnum] -&gt; ShowS
 LoadBalancerStateEnum -&gt; String
 (Int -&gt; LoadBalancerStateEnum -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: LoadBalancerStateEnum -&gt; String
 showsPrec :: Int -&gt; LoadBalancerStateEnum -&gt; ShowS
 $cshowsPrec :: Int -&gt; LoadBalancerStateEnum -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679248243"><span id="local-6989586621679248245"><span id="local-6989586621679248247"><span id="local-6989586621679248249"><span class="annot"><span class="annottext">ReadPrec [LoadBalancerStateEnum]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679250944"><span id="local-6989586621679250946"><span id="local-6989586621679250948"><span id="local-6989586621679250950"><span class="annot"><span class="annottext">ReadPrec [LoadBalancerStateEnum]
 ReadPrec LoadBalancerStateEnum
 Int -&gt; ReadS LoadBalancerStateEnum
 ReadS [LoadBalancerStateEnum]
@@ -74,7 +74,7 @@ $creadList :: ReadS [LoadBalancerStateEnum]
 readsPrec :: Int -&gt; ReadS LoadBalancerStateEnum
 $creadsPrec :: Int -&gt; ReadS LoadBalancerStateEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679248238"><span id="local-6989586621679248240"><span class="annot"><span class="annottext">LoadBalancerStateEnum -&gt; LoadBalancerStateEnum -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679250939"><span id="local-6989586621679250941"><span class="annot"><span class="annottext">LoadBalancerStateEnum -&gt; LoadBalancerStateEnum -&gt; Bool
 (LoadBalancerStateEnum -&gt; LoadBalancerStateEnum -&gt; Bool)
 -&gt; (LoadBalancerStateEnum -&gt; LoadBalancerStateEnum -&gt; Bool)
 -&gt; Eq LoadBalancerStateEnum
@@ -84,7 +84,7 @@ $c/= :: LoadBalancerStateEnum -&gt; LoadBalancerStateEnum -&gt; Bool
 == :: LoadBalancerStateEnum -&gt; LoadBalancerStateEnum -&gt; Bool
 $c== :: LoadBalancerStateEnum -&gt; LoadBalancerStateEnum -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679248222"><span id="local-6989586621679248224"><span id="local-6989586621679248226"><span id="local-6989586621679248228"><span id="local-6989586621679248230"><span id="local-6989586621679248232"><span id="local-6989586621679248234"><span class="annot"><span class="annottext">Eq LoadBalancerStateEnum
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679250923"><span id="local-6989586621679250925"><span id="local-6989586621679250927"><span id="local-6989586621679250929"><span id="local-6989586621679250931"><span id="local-6989586621679250933"><span id="local-6989586621679250935"><span class="annot"><span class="annottext">Eq LoadBalancerStateEnum
 Eq LoadBalancerStateEnum
 -&gt; (LoadBalancerStateEnum -&gt; LoadBalancerStateEnum -&gt; Ordering)
 -&gt; (LoadBalancerStateEnum -&gt; LoadBalancerStateEnum -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. LoadBalancerStateEnum -&gt; Rep LoadBalancerStateEnum x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248214"><span id="local-6989586621679248216"><span class="annot"><span class="annottext">Int -&gt; LoadBalancerStateEnum -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250915"><span id="local-6989586621679250917"><span class="annot"><span class="annottext">Int -&gt; LoadBalancerStateEnum -&gt; Int
 LoadBalancerStateEnum -&gt; Int
 (Int -&gt; LoadBalancerStateEnum -&gt; Int)
 -&gt; (LoadBalancerStateEnum -&gt; Int) -&gt; Hashable LoadBalancerStateEnum
@@ -152,54 +152,54 @@ $chash :: LoadBalancerStateEnum -&gt; Int
 hashWithSalt :: Int -&gt; LoadBalancerStateEnum -&gt; Int
 $chashWithSalt :: Int -&gt; LoadBalancerStateEnum -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679248211"><span class="annot"><span class="annottext">LoadBalancerStateEnum -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679250912"><span class="annot"><span class="annottext">LoadBalancerStateEnum -&gt; ()
 (LoadBalancerStateEnum -&gt; ()) -&gt; NFData LoadBalancerStateEnum
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LoadBalancerStateEnum -&gt; ()
 $crnf :: LoadBalancerStateEnum -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679248208"><span class="annot"><span class="annottext">Text -&gt; Either String LoadBalancerStateEnum
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679250909"><span class="annot"><span class="annottext">Text -&gt; Either String LoadBalancerStateEnum
 (Text -&gt; Either String LoadBalancerStateEnum)
 -&gt; FromText LoadBalancerStateEnum
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LoadBalancerStateEnum
 $cfromText :: Text -&gt; Either String LoadBalancerStateEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679248205"><span class="annot"><span class="annottext">LoadBalancerStateEnum -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679250906"><span class="annot"><span class="annottext">LoadBalancerStateEnum -&gt; Text
 (LoadBalancerStateEnum -&gt; Text) -&gt; ToText LoadBalancerStateEnum
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LoadBalancerStateEnum -&gt; Text
 $ctoText :: LoadBalancerStateEnum -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679248202"><span class="annot"><span class="annottext">LoadBalancerStateEnum -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679250903"><span class="annot"><span class="annottext">LoadBalancerStateEnum -&gt; ByteString
 (LoadBalancerStateEnum -&gt; ByteString)
 -&gt; ToByteString LoadBalancerStateEnum
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LoadBalancerStateEnum -&gt; ByteString
 $ctoBS :: LoadBalancerStateEnum -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679248199"><span class="annot"><span class="annottext">LoadBalancerStateEnum -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679250900"><span class="annot"><span class="annottext">LoadBalancerStateEnum -&gt; ByteStringBuilder
 (LoadBalancerStateEnum -&gt; ByteStringBuilder)
 -&gt; ToLog LoadBalancerStateEnum
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LoadBalancerStateEnum -&gt; ByteStringBuilder
 $cbuild :: LoadBalancerStateEnum -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679248196"><span class="annot"><span class="annottext">HeaderName -&gt; LoadBalancerStateEnum -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679250897"><span class="annot"><span class="annottext">HeaderName -&gt; LoadBalancerStateEnum -&gt; [Header]
 (HeaderName -&gt; LoadBalancerStateEnum -&gt; [Header])
 -&gt; ToHeader LoadBalancerStateEnum
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LoadBalancerStateEnum -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LoadBalancerStateEnum -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679248193"><span class="annot"><span class="annottext">LoadBalancerStateEnum -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679250894"><span class="annot"><span class="annottext">LoadBalancerStateEnum -&gt; QueryString
 (LoadBalancerStateEnum -&gt; QueryString)
 -&gt; ToQuery LoadBalancerStateEnum
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LoadBalancerStateEnum -&gt; QueryString
 $ctoQuery :: LoadBalancerStateEnum -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679248188"><span id="local-6989586621679248190"><span class="annot"><span class="annottext">Value -&gt; Parser [LoadBalancerStateEnum]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679250889"><span id="local-6989586621679250891"><span class="annot"><span class="annottext">Value -&gt; Parser [LoadBalancerStateEnum]
 Value -&gt; Parser LoadBalancerStateEnum
 (Value -&gt; Parser LoadBalancerStateEnum)
 -&gt; (Value -&gt; Parser [LoadBalancerStateEnum])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [LoadBalancerStateEnum]
 parseJSON :: Value -&gt; Parser LoadBalancerStateEnum
 $cparseJSON :: Value -&gt; Parser LoadBalancerStateEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679248183"><span id="local-6989586621679248185"><span class="annot"><span class="annottext">FromJSONKeyFunction [LoadBalancerStateEnum]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679250884"><span id="local-6989586621679250886"><span class="annot"><span class="annottext">FromJSONKeyFunction [LoadBalancerStateEnum]
 FromJSONKeyFunction LoadBalancerStateEnum
 FromJSONKeyFunction LoadBalancerStateEnum
 -&gt; FromJSONKeyFunction [LoadBalancerStateEnum]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LoadBalancerStateEnum]
 fromJSONKey :: FromJSONKeyFunction LoadBalancerStateEnum
 $cfromJSONKey :: FromJSONKeyFunction LoadBalancerStateEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679248174"><span id="local-6989586621679248176"><span id="local-6989586621679248178"><span id="local-6989586621679248180"><span class="annot"><span class="annottext">[LoadBalancerStateEnum] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679250875"><span id="local-6989586621679250877"><span id="local-6989586621679250879"><span id="local-6989586621679250881"><span class="annot"><span class="annottext">[LoadBalancerStateEnum] -&gt; Encoding
 [LoadBalancerStateEnum] -&gt; Value
 LoadBalancerStateEnum -&gt; Encoding
 LoadBalancerStateEnum -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: LoadBalancerStateEnum -&gt; Encoding
 toJSON :: LoadBalancerStateEnum -&gt; Value
 $ctoJSON :: LoadBalancerStateEnum -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679248169"><span id="local-6989586621679248171"><span class="annot"><span class="annottext">ToJSONKeyFunction [LoadBalancerStateEnum]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679250870"><span id="local-6989586621679250872"><span class="annot"><span class="annottext">ToJSONKeyFunction [LoadBalancerStateEnum]
 ToJSONKeyFunction LoadBalancerStateEnum
 ToJSONKeyFunction LoadBalancerStateEnum
 -&gt; ToJSONKeyFunction [LoadBalancerStateEnum]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LoadBalancerStateEnum]
 toJSONKey :: ToJSONKeyFunction LoadBalancerStateEnum
 $ctoJSONKey :: ToJSONKeyFunction LoadBalancerStateEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679248166"><span class="annot"><span class="annottext">[Node] -&gt; Either String LoadBalancerStateEnum
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679250867"><span class="annot"><span class="annottext">[Node] -&gt; Either String LoadBalancerStateEnum
 ([Node] -&gt; Either String LoadBalancerStateEnum)
 -&gt; FromXML LoadBalancerStateEnum
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LoadBalancerStateEnum
 $cparseXML :: [Node] -&gt; Either String LoadBalancerStateEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679248163"><span class="annot"><span class="annottext">LoadBalancerStateEnum -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679250864"><span class="annot"><span class="annottext">LoadBalancerStateEnum -&gt; XML
 (LoadBalancerStateEnum -&gt; XML) -&gt; ToXML LoadBalancerStateEnum
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LoadBalancerStateEnum -&gt; XML

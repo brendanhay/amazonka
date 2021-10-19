@@ -28,20 +28,20 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Information about a change to a resource attribute.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newResourceChangeDetail' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679405769"><span id="local-6989586621679405770"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceChangeDetail"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-var">ResourceChangeDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceChangeDetail%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail%27"><span class="hs-identifier hs-var">ResourceChangeDetail'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For static evaluations, the value of the resource attribute will change</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- and the new value is known. For dynamic evaluations, the value might</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- change, and any new value will be determined when the plan is updated.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aevaluation%3AResourceChangeDetail%27"><span class="annot"><span class="annottext">ResourceChangeDetail -&gt; Maybe EvaluationType
-</span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#%24sel%3Aevaluation%3AResourceChangeDetail%27"><span class="hs-identifier hs-var hs-var">evaluation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.EvaluationType.html#EvaluationType"><span class="hs-identifier hs-type">EvaluationType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ID of the entity that caused the change.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcausingEntity%3AResourceChangeDetail%27"><span class="annot"><span class="annottext">ResourceChangeDetail -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621679406223"><span id="local-6989586621679406224"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceChangeDetail"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-var">ResourceChangeDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceChangeDetail%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail%27"><span class="hs-identifier hs-var">ResourceChangeDetail'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the entity that caused the change.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcausingEntity%3AResourceChangeDetail%27"><span class="annot"><span class="annottext">ResourceChangeDetail -&gt; Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#%24sel%3AcausingEntity%3AResourceChangeDetail%27"><span class="hs-identifier hs-var hs-var">causingEntity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | For static evaluations, the value of the resource attribute will change</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- and the new value is known. For dynamic evaluations, the value might</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- change, and any new value will be determined when the plan is updated.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aevaluation%3AResourceChangeDetail%27"><span class="annot"><span class="annottext">ResourceChangeDetail -&gt; Maybe EvaluationType
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#%24sel%3Aevaluation%3AResourceChangeDetail%27"><span class="hs-identifier hs-var hs-var">evaluation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.EvaluationType.html#EvaluationType"><span class="hs-identifier hs-type">EvaluationType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Information about the resource attribute to be modified.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Atarget%3AResourceChangeDetail%27"><span class="annot"><span class="annottext">ResourceChangeDetail -&gt; Maybe ResourceTargetDefinition
 </span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#%24sel%3Atarget%3AResourceChangeDetail%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679405761"><span id="local-6989586621679405763"><span class="annot"><span class="annottext">ResourceChangeDetail -&gt; ResourceChangeDetail -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406215"><span id="local-6989586621679406217"><span class="annot"><span class="annottext">ResourceChangeDetail -&gt; ResourceChangeDetail -&gt; Bool
 (ResourceChangeDetail -&gt; ResourceChangeDetail -&gt; Bool)
 -&gt; (ResourceChangeDetail -&gt; ResourceChangeDetail -&gt; Bool)
 -&gt; Eq ResourceChangeDetail
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceChangeDetail -&gt; ResourceChangeDetail -&gt; Bool
 == :: ResourceChangeDetail -&gt; ResourceChangeDetail -&gt; Bool
 $c== :: ResourceChangeDetail -&gt; ResourceChangeDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405752"><span id="local-6989586621679405754"><span id="local-6989586621679405756"><span id="local-6989586621679405758"><span class="annot"><span class="annottext">ReadPrec [ResourceChangeDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406206"><span id="local-6989586621679406208"><span id="local-6989586621679406210"><span id="local-6989586621679406212"><span class="annot"><span class="annottext">ReadPrec [ResourceChangeDetail]
 ReadPrec ResourceChangeDetail
 Int -&gt; ReadS ResourceChangeDetail
 ReadS [ResourceChangeDetail]
@@ -70,7 +70,7 @@ readList :: ReadS [ResourceChangeDetail]
 $creadList :: ReadS [ResourceChangeDetail]
 readsPrec :: Int -&gt; ReadS ResourceChangeDetail
 $creadsPrec :: Int -&gt; ReadS ResourceChangeDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679405745"><span id="local-6989586621679405747"><span id="local-6989586621679405749"><span class="annot"><span class="annottext">Int -&gt; ResourceChangeDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406199"><span id="local-6989586621679406201"><span id="local-6989586621679406203"><span class="annot"><span class="annottext">Int -&gt; ResourceChangeDetail -&gt; ShowS
 [ResourceChangeDetail] -&gt; ShowS
 ResourceChangeDetail -&gt; String
 (Int -&gt; ResourceChangeDetail -&gt; ShowS)
@@ -104,41 +104,62 @@ $cfrom :: forall x. ResourceChangeDetail -&gt; Rep ResourceChangeDetail x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'evaluation', 'resourceChangeDetail_evaluation' - For static evaluations, the value of the resource attribute will change</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- and the new value is known. For dynamic evaluations, the value might</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- change, and any new value will be determined when the plan is updated.</span><span>
-</span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'causingEntity', 'resourceChangeDetail_causingEntity' - The ID of the entity that caused the change.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'causingEntity', 'resourceChangeDetail_causingEntity' - The ID of the entity that caused the change.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'evaluation', 'resourceChangeDetail_evaluation' - For static evaluations, the value of the resource attribute will change</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- and the new value is known. For dynamic evaluations, the value might</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- change, and any new value will be determined when the plan is updated.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- 'target', 'resourceChangeDetail_target' - Information about the resource attribute to be modified.</span><span>
 </span><span id="line-58"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#newResourceChangeDetail"><span class="hs-identifier hs-type">newResourceChangeDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span><span>
 </span><span id="line-60"></span><span id="newResourceChangeDetail"><span class="annot"><span class="annottext">newResourceChangeDetail :: ResourceChangeDetail
 </span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#newResourceChangeDetail"><span class="hs-identifier hs-var hs-var">newResourceChangeDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">ResourceChangeDetail' :: Maybe EvaluationType
--&gt; Maybe Text
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">ResourceChangeDetail' :: Maybe Text
+-&gt; Maybe EvaluationType
 -&gt; Maybe ResourceTargetDefinition
 -&gt; ResourceChangeDetail
 </span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail%27"><span class="hs-identifier hs-type">ResourceChangeDetail'</span></a></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:evaluation:ResourceChangeDetail' :: Maybe EvaluationType
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:causingEntity:ResourceChangeDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#%24sel%3AcausingEntity%3AResourceChangeDetail%27"><span class="hs-identifier hs-var">causingEntity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:evaluation:ResourceChangeDetail' :: Maybe EvaluationType
 </span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#%24sel%3Aevaluation%3AResourceChangeDetail%27"><span class="hs-identifier hs-var">evaluation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EvaluationType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:causingEntity:ResourceChangeDetail' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#%24sel%3AcausingEntity%3AResourceChangeDetail%27"><span class="hs-identifier hs-var">causingEntity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:target:ResourceChangeDetail' :: Maybe ResourceTargetDefinition
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:target:ResourceChangeDetail' :: Maybe ResourceTargetDefinition
 </span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#%24sel%3Atarget%3AResourceChangeDetail%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceTargetDefinition
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | For static evaluations, the value of the resource attribute will change</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- and the new value is known. For dynamic evaluations, the value might</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- change, and any new value will be determined when the plan is updated.</span><span>
-</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#resourceChangeDetail_evaluation"><span class="hs-identifier hs-type">resourceChangeDetail_evaluation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.EvaluationType.html#EvaluationType"><span class="hs-identifier hs-type">EvaluationType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span id="resourceChangeDetail_evaluation"><span class="annot"><span class="annottext">resourceChangeDetail_evaluation :: (Maybe EvaluationType -&gt; f (Maybe EvaluationType))
+</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The ID of the entity that caused the change.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#resourceChangeDetail_causingEntity"><span class="hs-identifier hs-type">resourceChangeDetail_causingEntity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="resourceChangeDetail_causingEntity"><span class="annot"><span class="annottext">resourceChangeDetail_causingEntity :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ResourceChangeDetail -&gt; f ResourceChangeDetail
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#resourceChangeDetail_causingEntity"><span class="hs-identifier hs-var hs-var">resourceChangeDetail_causingEntity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceChangeDetail -&gt; Maybe Text)
+-&gt; (ResourceChangeDetail -&gt; Maybe Text -&gt; ResourceChangeDetail)
+-&gt; Lens
+     ResourceChangeDetail ResourceChangeDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail%27"><span class="hs-identifier hs-type">ResourceChangeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406190"><span class="annot"><span class="annottext">Maybe Text
+causingEntity :: Maybe Text
+$sel:causingEntity:ResourceChangeDetail' :: ResourceChangeDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679406190"><span class="hs-identifier hs-var hs-var">causingEntity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406190"><span class="hs-identifier hs-var">causingEntity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406189"><span class="annot"><span class="annottext">s :: ResourceChangeDetail
+</span><a href="#local-6989586621679406189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail%27"><span class="hs-identifier hs-type">ResourceChangeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406188"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceChangeDetail
+</span><a href="#local-6989586621679406189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:causingEntity:ResourceChangeDetail' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#%24sel%3AcausingEntity%3AResourceChangeDetail%27"><span class="hs-identifier hs-var">causingEntity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679406188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | For static evaluations, the value of the resource attribute will change</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- and the new value is known. For dynamic evaluations, the value might</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- change, and any new value will be determined when the plan is updated.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#resourceChangeDetail_evaluation"><span class="hs-identifier hs-type">resourceChangeDetail_evaluation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.EvaluationType.html#EvaluationType"><span class="hs-identifier hs-type">EvaluationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="resourceChangeDetail_evaluation"><span class="annot"><span class="annottext">resourceChangeDetail_evaluation :: (Maybe EvaluationType -&gt; f (Maybe EvaluationType))
 -&gt; ResourceChangeDetail -&gt; f ResourceChangeDetail
 </span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#resourceChangeDetail_evaluation"><span class="hs-identifier hs-var hs-var">resourceChangeDetail_evaluation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceChangeDetail -&gt; Maybe EvaluationType)
 -&gt; (ResourceChangeDetail
@@ -149,40 +170,20 @@ forall a. Maybe a
      (Maybe EvaluationType)
      (Maybe EvaluationType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail%27"><span class="hs-identifier hs-type">ResourceChangeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405736"><span class="annot"><span class="annottext">Maybe EvaluationType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail%27"><span class="hs-identifier hs-type">ResourceChangeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406186"><span class="annot"><span class="annottext">Maybe EvaluationType
 evaluation :: Maybe EvaluationType
 $sel:evaluation:ResourceChangeDetail' :: ResourceChangeDetail -&gt; Maybe EvaluationType
-</span><a href="#local-6989586621679405736"><span class="hs-identifier hs-var hs-var">evaluation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EvaluationType
-</span><a href="#local-6989586621679405736"><span class="hs-identifier hs-var">evaluation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405735"><span class="annot"><span class="annottext">s :: ResourceChangeDetail
-</span><a href="#local-6989586621679405735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail%27"><span class="hs-identifier hs-type">ResourceChangeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405734"><span class="annot"><span class="annottext">Maybe EvaluationType
-</span><a href="#local-6989586621679405734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceChangeDetail
-</span><a href="#local-6989586621679405735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluation:ResourceChangeDetail' :: Maybe EvaluationType
+</span><a href="#local-6989586621679406186"><span class="hs-identifier hs-var hs-var">evaluation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EvaluationType
+</span><a href="#local-6989586621679406186"><span class="hs-identifier hs-var">evaluation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406185"><span class="annot"><span class="annottext">s :: ResourceChangeDetail
+</span><a href="#local-6989586621679406185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail%27"><span class="hs-identifier hs-type">ResourceChangeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406184"><span class="annot"><span class="annottext">Maybe EvaluationType
+</span><a href="#local-6989586621679406184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceChangeDetail
+</span><a href="#local-6989586621679406185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:evaluation:ResourceChangeDetail' :: Maybe EvaluationType
 </span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#%24sel%3Aevaluation%3AResourceChangeDetail%27"><span class="hs-identifier hs-var">evaluation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EvaluationType
-</span><a href="#local-6989586621679405734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | The ID of the entity that caused the change.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#resourceChangeDetail_causingEntity"><span class="hs-identifier hs-type">resourceChangeDetail_causingEntity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="resourceChangeDetail_causingEntity"><span class="annot"><span class="annottext">resourceChangeDetail_causingEntity :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ResourceChangeDetail -&gt; f ResourceChangeDetail
-</span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#resourceChangeDetail_causingEntity"><span class="hs-identifier hs-var hs-var">resourceChangeDetail_causingEntity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceChangeDetail -&gt; Maybe Text)
--&gt; (ResourceChangeDetail -&gt; Maybe Text -&gt; ResourceChangeDetail)
--&gt; Lens
-     ResourceChangeDetail ResourceChangeDetail (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail%27"><span class="hs-identifier hs-type">ResourceChangeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405732"><span class="annot"><span class="annottext">Maybe Text
-causingEntity :: Maybe Text
-$sel:causingEntity:ResourceChangeDetail' :: ResourceChangeDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679405732"><span class="hs-identifier hs-var hs-var">causingEntity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405732"><span class="hs-identifier hs-var">causingEntity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405731"><span class="annot"><span class="annottext">s :: ResourceChangeDetail
-</span><a href="#local-6989586621679405731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail%27"><span class="hs-identifier hs-type">ResourceChangeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405730"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceChangeDetail
-</span><a href="#local-6989586621679405731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:causingEntity:ResourceChangeDetail' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#%24sel%3AcausingEntity%3AResourceChangeDetail%27"><span class="hs-identifier hs-var">causingEntity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679405730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | Information about the resource attribute to be modified.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#resourceChangeDetail_target"><span class="hs-identifier hs-type">resourceChangeDetail_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="resourceChangeDetail_target"><span class="annot"><span class="annottext">resourceChangeDetail_target :: (Maybe ResourceTargetDefinition
+</span><a href="#local-6989586621679406184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | Information about the resource attribute to be modified.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#resourceChangeDetail_target"><span class="hs-identifier hs-type">resourceChangeDetail_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition.html#ResourceTargetDefinition"><span class="hs-identifier hs-type">ResourceTargetDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="resourceChangeDetail_target"><span class="annot"><span class="annottext">resourceChangeDetail_target :: (Maybe ResourceTargetDefinition
  -&gt; f (Maybe ResourceTargetDefinition))
 -&gt; ResourceChangeDetail -&gt; f ResourceChangeDetail
 </span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#resourceChangeDetail_target"><span class="hs-identifier hs-var hs-var">resourceChangeDetail_target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResourceChangeDetail -&gt; Maybe ResourceTargetDefinition)
@@ -194,72 +195,72 @@ $sel:causingEntity:ResourceChangeDetail' :: ResourceChangeDetail -&gt; Maybe Tex
      (Maybe ResourceTargetDefinition)
      (Maybe ResourceTargetDefinition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail%27"><span class="hs-identifier hs-type">ResourceChangeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679405728"><span class="annot"><span class="annottext">Maybe ResourceTargetDefinition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail%27"><span class="hs-identifier hs-type">ResourceChangeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406182"><span class="annot"><span class="annottext">Maybe ResourceTargetDefinition
 target :: Maybe ResourceTargetDefinition
 $sel:target:ResourceChangeDetail' :: ResourceChangeDetail -&gt; Maybe ResourceTargetDefinition
-</span><a href="#local-6989586621679405728"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceTargetDefinition
-</span><a href="#local-6989586621679405728"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679405727"><span class="annot"><span class="annottext">s :: ResourceChangeDetail
-</span><a href="#local-6989586621679405727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail%27"><span class="hs-identifier hs-type">ResourceChangeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679405726"><span class="annot"><span class="annottext">Maybe ResourceTargetDefinition
-</span><a href="#local-6989586621679405726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceChangeDetail
-</span><a href="#local-6989586621679405727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:ResourceChangeDetail' :: Maybe ResourceTargetDefinition
+</span><a href="#local-6989586621679406182"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceTargetDefinition
+</span><a href="#local-6989586621679406182"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406181"><span class="annot"><span class="annottext">s :: ResourceChangeDetail
+</span><a href="#local-6989586621679406181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail%27"><span class="hs-identifier hs-type">ResourceChangeDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406180"><span class="annot"><span class="annottext">Maybe ResourceTargetDefinition
+</span><a href="#local-6989586621679406180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceChangeDetail
+</span><a href="#local-6989586621679406181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:ResourceChangeDetail' :: Maybe ResourceTargetDefinition
 </span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#%24sel%3Atarget%3AResourceChangeDetail%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceTargetDefinition
-</span><a href="#local-6989586621679405726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405723"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679405721"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceChangeDetail
+</span><a href="#local-6989586621679406180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406177"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679406175"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceChangeDetail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceChangeDetail)
 -&gt; Value
 -&gt; Parser ResourceChangeDetail
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceChangeDetail&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679405718"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679405718"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe EvaluationType
--&gt; Maybe Text
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679406172"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679406172"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe EvaluationType
 -&gt; Maybe ResourceTargetDefinition
 -&gt; ResourceChangeDetail
 </span><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail%27"><span class="hs-identifier hs-var">ResourceChangeDetail'</span></a></span><span>
-</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EvaluationType
- -&gt; Maybe Text
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe EvaluationType
  -&gt; Maybe ResourceTargetDefinition
  -&gt; ResourceChangeDetail)
--&gt; Parser (Maybe EvaluationType)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
+     (Maybe EvaluationType
       -&gt; Maybe ResourceTargetDefinition -&gt; ResourceChangeDetail)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679405718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EvaluationType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Evaluation&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe ResourceTargetDefinition -&gt; ResourceChangeDetail)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe ResourceTargetDefinition -&gt; ResourceChangeDetail)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679405718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679406172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CausingEntity&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ResourceTargetDefinition -&gt; ResourceChangeDetail)
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EvaluationType
+   -&gt; Maybe ResourceTargetDefinition -&gt; ResourceChangeDetail)
+-&gt; Parser (Maybe EvaluationType)
+-&gt; Parser (Maybe ResourceTargetDefinition -&gt; ResourceChangeDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679406172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EvaluationType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Evaluation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ResourceTargetDefinition -&gt; ResourceChangeDetail)
 -&gt; Parser (Maybe ResourceTargetDefinition)
 -&gt; Parser ResourceChangeDetail
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679405718"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceTargetDefinition)
+</span><a href="#local-6989586621679406172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceTargetDefinition)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Target&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405712"><span id="local-6989586621679405714"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span></span></span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679405709"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span></span><span>
-</span><span id="line-95"></span></pre></body></html>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406166"><span id="local-6989586621679406168"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406163"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ResourceChangeDetail.html#ResourceChangeDetail"><span class="hs-identifier hs-type">ResourceChangeDetail</span></a></span></span><span>
+</span><span id="line-96"></span></pre></body></html>

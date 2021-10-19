@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newUpdateGatewayGroup' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679395878"><span id="local-6989586621679395879"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGatewayGroup"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-var">UpdateGatewayGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGatewayGroup%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup%27"><span class="hs-identifier hs-var">UpdateGatewayGroup'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679396253"><span id="local-6989586621679396254"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGatewayGroup"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-var">UpdateGatewayGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGatewayGroup%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup%27"><span class="hs-identifier hs-var">UpdateGatewayGroup'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated name of the gateway group.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Aname%3AUpdateGatewayGroup%27"><span class="annot"><span class="annottext">UpdateGatewayGroup -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#%24sel%3Aname%3AUpdateGatewayGroup%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AgatewayGroupArn%3AUpdateGatewayGroup%27"><span class="annot"><span class="annottext">UpdateGatewayGroup -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#%24sel%3AgatewayGroupArn%3AUpdateGatewayGroup%27"><span class="hs-identifier hs-var hs-var">gatewayGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395870"><span id="local-6989586621679395872"><span class="annot"><span class="annottext">UpdateGatewayGroup -&gt; UpdateGatewayGroup -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396245"><span id="local-6989586621679396247"><span class="annot"><span class="annottext">UpdateGatewayGroup -&gt; UpdateGatewayGroup -&gt; Bool
 (UpdateGatewayGroup -&gt; UpdateGatewayGroup -&gt; Bool)
 -&gt; (UpdateGatewayGroup -&gt; UpdateGatewayGroup -&gt; Bool)
 -&gt; Eq UpdateGatewayGroup
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateGatewayGroup -&gt; UpdateGatewayGroup -&gt; Bool
 == :: UpdateGatewayGroup -&gt; UpdateGatewayGroup -&gt; Bool
 $c== :: UpdateGatewayGroup -&gt; UpdateGatewayGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395861"><span id="local-6989586621679395863"><span id="local-6989586621679395865"><span id="local-6989586621679395867"><span class="annot"><span class="annottext">ReadPrec [UpdateGatewayGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396236"><span id="local-6989586621679396238"><span id="local-6989586621679396240"><span id="local-6989586621679396242"><span class="annot"><span class="annottext">ReadPrec [UpdateGatewayGroup]
 ReadPrec UpdateGatewayGroup
 Int -&gt; ReadS UpdateGatewayGroup
 ReadS [UpdateGatewayGroup]
@@ -89,7 +89,7 @@ readList :: ReadS [UpdateGatewayGroup]
 $creadList :: ReadS [UpdateGatewayGroup]
 readsPrec :: Int -&gt; ReadS UpdateGatewayGroup
 $creadsPrec :: Int -&gt; ReadS UpdateGatewayGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395854"><span id="local-6989586621679395856"><span id="local-6989586621679395858"><span class="annot"><span class="annottext">Int -&gt; UpdateGatewayGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396229"><span id="local-6989586621679396231"><span id="local-6989586621679396233"><span class="annot"><span class="annottext">Int -&gt; UpdateGatewayGroup -&gt; ShowS
 [UpdateGatewayGroup] -&gt; ShowS
 UpdateGatewayGroup -&gt; String
 (Int -&gt; UpdateGatewayGroup -&gt; ShowS)
@@ -133,8 +133,8 @@ $cfrom :: forall x. UpdateGatewayGroup -&gt; Rep UpdateGatewayGroup x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span><span>
 </span><span id="line-79"></span><span id="newUpdateGatewayGroup"><span class="annot"><span class="annottext">newUpdateGatewayGroup :: Text -&gt; UpdateGatewayGroup
-</span><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#newUpdateGatewayGroup"><span class="hs-identifier hs-var hs-var">newUpdateGatewayGroup</span></a></span></span><span> </span><span id="local-6989586621679395849"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395849"><span class="hs-identifier hs-var">pGatewayGroupArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#newUpdateGatewayGroup"><span class="hs-identifier hs-var hs-var">newUpdateGatewayGroup</span></a></span></span><span> </span><span id="local-6989586621679396224"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396224"><span class="hs-identifier hs-var">pGatewayGroupArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">UpdateGatewayGroup' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; UpdateGatewayGroup
 </span><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup%27"><span class="hs-identifier hs-type">UpdateGatewayGroup'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:UpdateGatewayGroup' :: Maybe Text
@@ -147,7 +147,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:gatewayGroupArn:UpdateGatewayGroup' :: Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#%24sel%3AgatewayGroupArn%3AUpdateGatewayGroup%27"><span class="hs-identifier hs-var">gatewayGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395849"><span class="hs-identifier hs-var">pGatewayGroupArn_</span></a></span><span>
+</span><a href="#local-6989586621679396224"><span class="hs-identifier hs-var">pGatewayGroupArn_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The updated name of the gateway group.</span><span>
@@ -159,16 +159,16 @@ forall a. Maybe a
 -&gt; Lens
      UpdateGatewayGroup UpdateGatewayGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup%27"><span class="hs-identifier hs-type">UpdateGatewayGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395846"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup%27"><span class="hs-identifier hs-type">UpdateGatewayGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396221"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:UpdateGatewayGroup' :: UpdateGatewayGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679395846"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395846"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395845"><span class="annot"><span class="annottext">s :: UpdateGatewayGroup
-</span><a href="#local-6989586621679395845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup%27"><span class="hs-identifier hs-type">UpdateGatewayGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395844"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewayGroup
-</span><a href="#local-6989586621679395845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateGatewayGroup' :: Maybe Text
+</span><a href="#local-6989586621679396221"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396221"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396220"><span class="annot"><span class="annottext">s :: UpdateGatewayGroup
+</span><a href="#local-6989586621679396220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup%27"><span class="hs-identifier hs-type">UpdateGatewayGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396219"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewayGroup
+</span><a href="#local-6989586621679396220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateGatewayGroup' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#%24sel%3Aname%3AUpdateGatewayGroup%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The updated description of the gateway group.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#updateGatewayGroup_description"><span class="hs-identifier hs-type">updateGatewayGroup_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -179,16 +179,16 @@ $sel:name:UpdateGatewayGroup' :: UpdateGatewayGroup -&gt; Maybe Text
 -&gt; Lens
      UpdateGatewayGroup UpdateGatewayGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup%27"><span class="hs-identifier hs-type">UpdateGatewayGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395843"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup%27"><span class="hs-identifier hs-type">UpdateGatewayGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396218"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:UpdateGatewayGroup' :: UpdateGatewayGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679395843"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395843"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395842"><span class="annot"><span class="annottext">s :: UpdateGatewayGroup
-</span><a href="#local-6989586621679395842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup%27"><span class="hs-identifier hs-type">UpdateGatewayGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395841"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewayGroup
-</span><a href="#local-6989586621679395842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateGatewayGroup' :: Maybe Text
+</span><a href="#local-6989586621679396218"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396218"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396217"><span class="annot"><span class="annottext">s :: UpdateGatewayGroup
+</span><a href="#local-6989586621679396217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup%27"><span class="hs-identifier hs-type">UpdateGatewayGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396216"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewayGroup
+</span><a href="#local-6989586621679396217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateGatewayGroup' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#%24sel%3Adescription%3AUpdateGatewayGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | The ARN of the gateway group to update.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#updateGatewayGroup_gatewayGroupArn"><span class="hs-identifier hs-type">updateGatewayGroup_gatewayGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -197,27 +197,27 @@ $sel:description:UpdateGatewayGroup' :: UpdateGatewayGroup -&gt; Maybe Text
 -&gt; (UpdateGatewayGroup -&gt; Text -&gt; UpdateGatewayGroup)
 -&gt; Lens UpdateGatewayGroup UpdateGatewayGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup%27"><span class="hs-identifier hs-type">UpdateGatewayGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395840"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup%27"><span class="hs-identifier hs-type">UpdateGatewayGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396215"><span class="annot"><span class="annottext">Text
 gatewayGroupArn :: Text
 $sel:gatewayGroupArn:UpdateGatewayGroup' :: UpdateGatewayGroup -&gt; Text
-</span><a href="#local-6989586621679395840"><span class="hs-identifier hs-var hs-var">gatewayGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395840"><span class="hs-identifier hs-var">gatewayGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395839"><span class="annot"><span class="annottext">s :: UpdateGatewayGroup
-</span><a href="#local-6989586621679395839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup%27"><span class="hs-identifier hs-type">UpdateGatewayGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395838"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewayGroup
-</span><a href="#local-6989586621679395839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayGroupArn:UpdateGatewayGroup' :: Text
+</span><a href="#local-6989586621679396215"><span class="hs-identifier hs-var hs-var">gatewayGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396215"><span class="hs-identifier hs-var">gatewayGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396214"><span class="annot"><span class="annottext">s :: UpdateGatewayGroup
+</span><a href="#local-6989586621679396214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup%27"><span class="hs-identifier hs-type">UpdateGatewayGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396213"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewayGroup
+</span><a href="#local-6989586621679396214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayGroupArn:UpdateGatewayGroup' :: Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#%24sel%3AgatewayGroupArn%3AUpdateGatewayGroup%27"><span class="hs-identifier hs-var">gatewayGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroupResponse"><span class="hs-identifier hs-type">UpdateGatewayGroupResponse</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679395834"><span class="annot"><span class="annottext">request :: UpdateGatewayGroup -&gt; Request UpdateGatewayGroup
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679396209"><span class="annot"><span class="annottext">request :: UpdateGatewayGroup -&gt; Request UpdateGatewayGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateGatewayGroup -&gt; Request UpdateGatewayGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679395830"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679396205"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateGatewayGroup
 -&gt; ClientResponse ClientBody
@@ -243,10 +243,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679395827"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395827"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679395826"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679395826"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679395825"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679395825"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679396202"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396202"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679396201"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679396201"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679396200"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679396200"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateGatewayGroupResponse
 </span><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroupResponse%27"><span class="hs-identifier hs-var">UpdateGatewayGroupResponse'</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateGatewayGroupResponse)
@@ -257,15 +257,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395827"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396202"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395818"><span id="local-6989586621679395820"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396193"><span id="local-6989586621679396195"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395815"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396190"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679395811"><span class="annot"><span class="annottext">toHeaders :: UpdateGatewayGroup -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679396186"><span class="annot"><span class="annottext">toHeaders :: UpdateGatewayGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateGatewayGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -292,9 +292,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395801"><span id="local-6989586621679395803"><span id="local-6989586621679395805"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679395799"><span class="annot"><span class="annottext">toJSON :: UpdateGatewayGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup%27"><span class="hs-identifier hs-type">UpdateGatewayGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395795"><span id="local-6989586621679395796"><span id="local-6989586621679395797"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396176"><span id="local-6989586621679396178"><span id="local-6989586621679396180"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679396174"><span class="annot"><span class="annottext">toJSON :: UpdateGatewayGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup%27"><span class="hs-identifier hs-type">UpdateGatewayGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396170"><span id="local-6989586621679396171"><span id="local-6989586621679396172"><span class="annot"><span class="annottext">Maybe Text
 Text
 gatewayGroupArn :: Text
 description :: Maybe Text
@@ -302,7 +302,7 @@ name :: Maybe Text
 $sel:gatewayGroupArn:UpdateGatewayGroup' :: UpdateGatewayGroup -&gt; Text
 $sel:description:UpdateGatewayGroup' :: UpdateGatewayGroup -&gt; Maybe Text
 $sel:name:UpdateGatewayGroup' :: UpdateGatewayGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679395795"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679396170"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -314,14 +314,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395797"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396172"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395796"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679396171"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -329,19 +329,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;GatewayGroupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395795"><span class="hs-identifier hs-var">gatewayGroupArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396170"><span class="hs-identifier hs-var">gatewayGroupArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679395789"><span class="annot"><span class="annottext">toPath :: UpdateGatewayGroup -&gt; ByteString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679396164"><span class="annot"><span class="annottext">toPath :: UpdateGatewayGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateGatewayGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroup"><span class="hs-identifier hs-type">UpdateGatewayGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679395785"><span class="annot"><span class="annottext">toQuery :: UpdateGatewayGroup -&gt; QueryString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679396160"><span class="annot"><span class="annottext">toQuery :: UpdateGatewayGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateGatewayGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -349,12 +349,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | /See:/ 'newUpdateGatewayGroupResponse' smart constructor.</span><span>
-</span><span id="line-147"></span><span id="local-6989586621679395782"><span id="local-6989586621679395783"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGatewayGroupResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroupResponse"><span class="hs-identifier hs-var">UpdateGatewayGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGatewayGroupResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroupResponse%27"><span class="hs-identifier hs-var">UpdateGatewayGroupResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span id="local-6989586621679396157"><span id="local-6989586621679396158"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGatewayGroupResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroupResponse"><span class="hs-identifier hs-var">UpdateGatewayGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGatewayGroupResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroupResponse%27"><span class="hs-identifier hs-var">UpdateGatewayGroupResponse'</span></a></span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateGatewayGroupResponse%27"><span class="annot"><span class="annottext">UpdateGatewayGroupResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#%24sel%3AhttpStatus%3AUpdateGatewayGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395777"><span id="local-6989586621679395779"><span class="annot"><span class="annottext">UpdateGatewayGroupResponse -&gt; UpdateGatewayGroupResponse -&gt; Bool
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396152"><span id="local-6989586621679396154"><span class="annot"><span class="annottext">UpdateGatewayGroupResponse -&gt; UpdateGatewayGroupResponse -&gt; Bool
 (UpdateGatewayGroupResponse -&gt; UpdateGatewayGroupResponse -&gt; Bool)
 -&gt; (UpdateGatewayGroupResponse
     -&gt; UpdateGatewayGroupResponse -&gt; Bool)
@@ -364,7 +364,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateGatewayGroupResponse -&gt; UpdateGatewayGroupResponse -&gt; Bool
 == :: UpdateGatewayGroupResponse -&gt; UpdateGatewayGroupResponse -&gt; Bool
 $c== :: UpdateGatewayGroupResponse -&gt; UpdateGatewayGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395769"><span id="local-6989586621679395771"><span id="local-6989586621679395773"><span id="local-6989586621679395775"><span class="annot"><span class="annottext">ReadPrec [UpdateGatewayGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396144"><span id="local-6989586621679396146"><span id="local-6989586621679396148"><span id="local-6989586621679396150"><span class="annot"><span class="annottext">ReadPrec [UpdateGatewayGroupResponse]
 ReadPrec UpdateGatewayGroupResponse
 Int -&gt; ReadS UpdateGatewayGroupResponse
 ReadS [UpdateGatewayGroupResponse]
@@ -384,7 +384,7 @@ readList :: ReadS [UpdateGatewayGroupResponse]
 $creadList :: ReadS [UpdateGatewayGroupResponse]
 readsPrec :: Int -&gt; ReadS UpdateGatewayGroupResponse
 $creadsPrec :: Int -&gt; ReadS UpdateGatewayGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395763"><span id="local-6989586621679395765"><span id="local-6989586621679395767"><span class="annot"><span class="annottext">Int -&gt; UpdateGatewayGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396138"><span id="local-6989586621679396140"><span id="local-6989586621679396142"><span class="annot"><span class="annottext">Int -&gt; UpdateGatewayGroupResponse -&gt; ShowS
 [UpdateGatewayGroupResponse] -&gt; ShowS
 UpdateGatewayGroupResponse -&gt; String
 (Int -&gt; UpdateGatewayGroupResponse -&gt; ShowS)
@@ -430,14 +430,14 @@ UpdateGatewayGroupResponse -&gt; Rep UpdateGatewayGroupResponse x
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroupResponse"><span class="hs-identifier hs-type">UpdateGatewayGroupResponse</span></a></span><span>
 </span><span id="line-166"></span><span id="newUpdateGatewayGroupResponse"><span class="annot"><span class="annottext">newUpdateGatewayGroupResponse :: Int -&gt; UpdateGatewayGroupResponse
-</span><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#newUpdateGatewayGroupResponse"><span class="hs-identifier hs-var hs-var">newUpdateGatewayGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679395760"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395760"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#newUpdateGatewayGroupResponse"><span class="hs-identifier hs-var hs-var">newUpdateGatewayGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679396135"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396135"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">UpdateGatewayGroupResponse' :: Int -&gt; UpdateGatewayGroupResponse
 </span><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroupResponse%27"><span class="hs-identifier hs-type">UpdateGatewayGroupResponse'</span></a></span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGatewayGroupResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#%24sel%3AhttpStatus%3AUpdateGatewayGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395760"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679396135"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-170"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -450,16 +450,16 @@ UpdateGatewayGroupResponse -&gt; Rep UpdateGatewayGroupResponse x
 -&gt; Lens
      UpdateGatewayGroupResponse UpdateGatewayGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroupResponse%27"><span class="hs-identifier hs-type">UpdateGatewayGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395759"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroupResponse%27"><span class="hs-identifier hs-type">UpdateGatewayGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396134"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateGatewayGroupResponse' :: UpdateGatewayGroupResponse -&gt; Int
-</span><a href="#local-6989586621679395759"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395759"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395758"><span class="annot"><span class="annottext">s :: UpdateGatewayGroupResponse
-</span><a href="#local-6989586621679395758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroupResponse%27"><span class="hs-identifier hs-type">UpdateGatewayGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395757"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewayGroupResponse
-</span><a href="#local-6989586621679395758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGatewayGroupResponse' :: Int
+</span><a href="#local-6989586621679396134"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396134"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396133"><span class="annot"><span class="annottext">s :: UpdateGatewayGroupResponse
+</span><a href="#local-6989586621679396133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroupResponse%27"><span class="hs-identifier hs-type">UpdateGatewayGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396132"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679396132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGatewayGroupResponse
+</span><a href="#local-6989586621679396133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGatewayGroupResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#%24sel%3AhttpStatus%3AUpdateGatewayGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroupResponse"><span class="hs-identifier hs-type">UpdateGatewayGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679396132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroupResponse"><span class="hs-identifier hs-type">UpdateGatewayGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroupResponse"><span class="hs-identifier hs-type">UpdateGatewayGroupResponse</span></a></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396130"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateGatewayGroup.html#UpdateGatewayGroupResponse"><span class="hs-identifier hs-type">UpdateGatewayGroupResponse</span></a></span></span><span>
 </span><span id="line-177"></span></pre></body></html>

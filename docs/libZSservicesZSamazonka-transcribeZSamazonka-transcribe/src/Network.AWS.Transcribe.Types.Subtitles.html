@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Generate subtitles for your batch transcription job.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSubtitles' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679275240"><span id="local-6989586621679275241"></span></span><span class="hs-keyword">data</span><span> </span><span id="Subtitles"><span class="annot"><a href="Network.AWS.Transcribe.Types.Subtitles.html#Subtitles"><span class="hs-identifier hs-var">Subtitles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Subtitles%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.Subtitles.html#Subtitles%27"><span class="hs-identifier hs-var">Subtitles'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679275405"><span id="local-6989586621679275406"></span></span><span class="hs-keyword">data</span><span> </span><span id="Subtitles"><span class="annot"><a href="Network.AWS.Transcribe.Types.Subtitles.html#Subtitles"><span class="hs-identifier hs-var">Subtitles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Subtitles%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.Subtitles.html#Subtitles%27"><span class="hs-identifier hs-var">Subtitles'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the output format for your subtitle file.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aformats%3ASubtitles%27"><span class="annot"><span class="annottext">Subtitles -&gt; Maybe [SubtitleFormat]
 </span><a href="Network.AWS.Transcribe.Types.Subtitles.html#%24sel%3Aformats%3ASubtitles%27"><span class="hs-identifier hs-var hs-var">formats</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Transcribe.Types.SubtitleFormat.html#SubtitleFormat"><span class="hs-identifier hs-type">SubtitleFormat</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275234"><span id="local-6989586621679275236"><span class="annot"><span class="annottext">Subtitles -&gt; Subtitles -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275399"><span id="local-6989586621679275401"><span class="annot"><span class="annottext">Subtitles -&gt; Subtitles -&gt; Bool
 (Subtitles -&gt; Subtitles -&gt; Bool)
 -&gt; (Subtitles -&gt; Subtitles -&gt; Bool) -&gt; Eq Subtitles
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Subtitles -&gt; Subtitles -&gt; Bool
 == :: Subtitles -&gt; Subtitles -&gt; Bool
 $c== :: Subtitles -&gt; Subtitles -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275225"><span id="local-6989586621679275227"><span id="local-6989586621679275229"><span id="local-6989586621679275231"><span class="annot"><span class="annottext">ReadPrec [Subtitles]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275390"><span id="local-6989586621679275392"><span id="local-6989586621679275394"><span id="local-6989586621679275396"><span class="annot"><span class="annottext">ReadPrec [Subtitles]
 ReadPrec Subtitles
 Int -&gt; ReadS Subtitles
 ReadS [Subtitles]
@@ -60,7 +60,7 @@ readList :: ReadS [Subtitles]
 $creadList :: ReadS [Subtitles]
 readsPrec :: Int -&gt; ReadS Subtitles
 $creadsPrec :: Int -&gt; ReadS Subtitles
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275218"><span id="local-6989586621679275220"><span id="local-6989586621679275222"><span class="annot"><span class="annottext">Int -&gt; Subtitles -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275383"><span id="local-6989586621679275385"><span id="local-6989586621679275387"><span class="annot"><span class="annottext">Int -&gt; Subtitles -&gt; ShowS
 [Subtitles] -&gt; ShowS
 Subtitles -&gt; String
 (Int -&gt; Subtitles -&gt; ShowS)
@@ -115,16 +115,16 @@ forall a. Maybe a
      (Maybe [SubtitleFormat])
      (Maybe [SubtitleFormat])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Subtitles.html#Subtitles%27"><span class="hs-identifier hs-type">Subtitles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275209"><span class="annot"><span class="annottext">Maybe [SubtitleFormat]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Subtitles.html#Subtitles%27"><span class="hs-identifier hs-type">Subtitles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275374"><span class="annot"><span class="annottext">Maybe [SubtitleFormat]
 formats :: Maybe [SubtitleFormat]
 $sel:formats:Subtitles' :: Subtitles -&gt; Maybe [SubtitleFormat]
-</span><a href="#local-6989586621679275209"><span class="hs-identifier hs-var hs-var">formats</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SubtitleFormat]
-</span><a href="#local-6989586621679275209"><span class="hs-identifier hs-var">formats</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275208"><span class="annot"><span class="annottext">s :: Subtitles
-</span><a href="#local-6989586621679275208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Subtitles.html#Subtitles%27"><span class="hs-identifier hs-type">Subtitles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275207"><span class="annot"><span class="annottext">Maybe [SubtitleFormat]
-</span><a href="#local-6989586621679275207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subtitles
-</span><a href="#local-6989586621679275208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:formats:Subtitles' :: Maybe [SubtitleFormat]
+</span><a href="#local-6989586621679275374"><span class="hs-identifier hs-var hs-var">formats</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SubtitleFormat]
+</span><a href="#local-6989586621679275374"><span class="hs-identifier hs-var">formats</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275373"><span class="annot"><span class="annottext">s :: Subtitles
+</span><a href="#local-6989586621679275373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Subtitles.html#Subtitles%27"><span class="hs-identifier hs-type">Subtitles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275372"><span class="annot"><span class="annottext">Maybe [SubtitleFormat]
+</span><a href="#local-6989586621679275372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subtitles
+</span><a href="#local-6989586621679275373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:formats:Subtitles' :: Maybe [SubtitleFormat]
 </span><a href="Network.AWS.Transcribe.Types.Subtitles.html#%24sel%3Aformats%3ASubtitles%27"><span class="hs-identifier hs-var">formats</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SubtitleFormat]
-</span><a href="#local-6989586621679275207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Subtitles.html#Subtitles"><span class="hs-identifier hs-type">Subtitles</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SubtitleFormat] -&gt; f (Maybe [SubtitleFormat]))
+</span><a href="#local-6989586621679275372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Subtitles.html#Subtitles"><span class="hs-identifier hs-type">Subtitles</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SubtitleFormat] -&gt; f (Maybe [SubtitleFormat]))
  -&gt; Subtitles -&gt; f Subtitles)
 -&gt; ((Maybe [SubtitleFormat] -&gt; f (Maybe [SubtitleFormat]))
     -&gt; Maybe [SubtitleFormat] -&gt; f (Maybe [SubtitleFormat]))
@@ -144,19 +144,19 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [SubtitleFormat] [SubtitleFormat] [SubtitleFormat] [SubtitleFormat]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275200"><span id="local-6989586621679275202"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Subtitles.html#Subtitles"><span class="hs-identifier hs-type">Subtitles</span></a></span></span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275365"><span id="local-6989586621679275367"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Subtitles.html#Subtitles"><span class="hs-identifier hs-type">Subtitles</span></a></span></span></span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275197"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Subtitles.html#Subtitles"><span class="hs-identifier hs-type">Subtitles</span></a></span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Subtitles.html#Subtitles"><span class="hs-identifier hs-type">Subtitles</span></a></span></span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275189"><span id="local-6989586621679275191"><span id="local-6989586621679275193"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Subtitles.html#Subtitles"><span class="hs-identifier hs-type">Subtitles</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679275187"><span class="annot"><span class="annottext">toJSON :: Subtitles -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Subtitles.html#Subtitles%27"><span class="hs-identifier hs-type">Subtitles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275185"><span class="annot"><span class="annottext">Maybe [SubtitleFormat]
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275354"><span id="local-6989586621679275356"><span id="local-6989586621679275358"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Subtitles.html#Subtitles"><span class="hs-identifier hs-type">Subtitles</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679275352"><span class="annot"><span class="annottext">toJSON :: Subtitles -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Subtitles.html#Subtitles%27"><span class="hs-identifier hs-type">Subtitles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275350"><span class="annot"><span class="annottext">Maybe [SubtitleFormat]
 formats :: Maybe [SubtitleFormat]
 $sel:formats:Subtitles' :: Subtitles -&gt; Maybe [SubtitleFormat]
-</span><a href="#local-6989586621679275185"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679275350"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -168,6 +168,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([SubtitleFormat] -&gt; Pair) -&gt; Maybe [SubtitleFormat] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SubtitleFormat]
-</span><a href="#local-6989586621679275185"><span class="hs-identifier hs-var">formats</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679275350"><span class="hs-identifier hs-var">formats</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-62"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span></pre></body></html>

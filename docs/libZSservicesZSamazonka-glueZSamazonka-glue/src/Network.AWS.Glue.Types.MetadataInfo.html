@@ -27,18 +27,18 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A structure containing metadata information for a schema version.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMetadataInfo' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679690558"><span id="local-6989586621679690559"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetadataInfo"><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-var">MetadataInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetadataInfo%27"><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo%27"><span class="hs-identifier hs-var">MetadataInfo'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Other metadata belonging to the same metadata key.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AotherMetadataValueList%3AMetadataInfo%27"><span class="annot"><span class="annottext">MetadataInfo -&gt; Maybe [OtherMetadataValueListItem]
-</span><a href="Network.AWS.Glue.Types.MetadataInfo.html#%24sel%3AotherMetadataValueList%3AMetadataInfo%27"><span class="hs-identifier hs-var hs-var">otherMetadataValueList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.OtherMetadataValueListItem.html#OtherMetadataValueListItem"><span class="hs-identifier hs-type">OtherMetadataValueListItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The time at which the entry was created.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcreatedTime%3AMetadataInfo%27"><span class="annot"><span class="annottext">MetadataInfo -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679692214"><span id="local-6989586621679692215"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetadataInfo"><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-var">MetadataInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetadataInfo%27"><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo%27"><span class="hs-identifier hs-var">MetadataInfo'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time at which the entry was created.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcreatedTime%3AMetadataInfo%27"><span class="annot"><span class="annottext">MetadataInfo -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.MetadataInfo.html#%24sel%3AcreatedTime%3AMetadataInfo%27"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Other metadata belonging to the same metadata key.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AotherMetadataValueList%3AMetadataInfo%27"><span class="annot"><span class="annottext">MetadataInfo -&gt; Maybe [OtherMetadataValueListItem]
+</span><a href="Network.AWS.Glue.Types.MetadataInfo.html#%24sel%3AotherMetadataValueList%3AMetadataInfo%27"><span class="hs-identifier hs-var hs-var">otherMetadataValueList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.OtherMetadataValueListItem.html#OtherMetadataValueListItem"><span class="hs-identifier hs-type">OtherMetadataValueListItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The metadata key&#8217;s corresponding value.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AmetadataValue%3AMetadataInfo%27"><span class="annot"><span class="annottext">MetadataInfo -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.MetadataInfo.html#%24sel%3AmetadataValue%3AMetadataInfo%27"><span class="hs-identifier hs-var hs-var">metadataValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679690550"><span id="local-6989586621679690552"><span class="annot"><span class="annottext">MetadataInfo -&gt; MetadataInfo -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679692206"><span id="local-6989586621679692208"><span class="annot"><span class="annottext">MetadataInfo -&gt; MetadataInfo -&gt; Bool
 (MetadataInfo -&gt; MetadataInfo -&gt; Bool)
 -&gt; (MetadataInfo -&gt; MetadataInfo -&gt; Bool) -&gt; Eq MetadataInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MetadataInfo -&gt; MetadataInfo -&gt; Bool
 == :: MetadataInfo -&gt; MetadataInfo -&gt; Bool
 $c== :: MetadataInfo -&gt; MetadataInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679690541"><span id="local-6989586621679690543"><span id="local-6989586621679690545"><span id="local-6989586621679690547"><span class="annot"><span class="annottext">ReadPrec [MetadataInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692197"><span id="local-6989586621679692199"><span id="local-6989586621679692201"><span id="local-6989586621679692203"><span class="annot"><span class="annottext">ReadPrec [MetadataInfo]
 ReadPrec MetadataInfo
 Int -&gt; ReadS MetadataInfo
 ReadS [MetadataInfo]
@@ -66,7 +66,7 @@ readList :: ReadS [MetadataInfo]
 $creadList :: ReadS [MetadataInfo]
 readsPrec :: Int -&gt; ReadS MetadataInfo
 $creadsPrec :: Int -&gt; ReadS MetadataInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679690534"><span id="local-6989586621679690536"><span id="local-6989586621679690538"><span class="annot"><span class="annottext">Int -&gt; MetadataInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692190"><span id="local-6989586621679692192"><span id="local-6989586621679692194"><span class="annot"><span class="annottext">Int -&gt; MetadataInfo -&gt; ShowS
 [MetadataInfo] -&gt; ShowS
 MetadataInfo -&gt; String
 (Int -&gt; MetadataInfo -&gt; ShowS)
@@ -100,36 +100,53 @@ $cfrom :: forall x. MetadataInfo -&gt; Rep MetadataInfo x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'otherMetadataValueList', 'metadataInfo_otherMetadataValueList' - Other metadata belonging to the same metadata key.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'createdTime', 'metadataInfo_createdTime' - The time at which the entry was created.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'createdTime', 'metadataInfo_createdTime' - The time at which the entry was created.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'otherMetadataValueList', 'metadataInfo_otherMetadataValueList' - Other metadata belonging to the same metadata key.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- 'metadataValue', 'metadataInfo_metadataValue' - The metadata key&#8217;s corresponding value.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#newMetadataInfo"><span class="hs-identifier hs-type">newMetadataInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span><span>
 </span><span id="line-55"></span><span id="newMetadataInfo"><span class="annot"><span class="annottext">newMetadataInfo :: MetadataInfo
 </span><a href="Network.AWS.Glue.Types.MetadataInfo.html#newMetadataInfo"><span class="hs-identifier hs-var hs-var">newMetadataInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">MetadataInfo' :: Maybe [OtherMetadataValueListItem]
--&gt; Maybe Text -&gt; Maybe Text -&gt; MetadataInfo
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">MetadataInfo' :: Maybe Text
+-&gt; Maybe [OtherMetadataValueListItem] -&gt; Maybe Text -&gt; MetadataInfo
 </span><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo%27"><span class="hs-identifier hs-type">MetadataInfo'</span></a></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:otherMetadataValueList:MetadataInfo' :: Maybe [OtherMetadataValueListItem]
-</span><a href="Network.AWS.Glue.Types.MetadataInfo.html#%24sel%3AotherMetadataValueList%3AMetadataInfo%27"><span class="hs-identifier hs-var">otherMetadataValueList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe [OtherMetadataValueListItem]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTime:MetadataInfo' :: Maybe Text
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createdTime:MetadataInfo' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.MetadataInfo.html#%24sel%3AcreatedTime%3AMetadataInfo%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:metadataValue:MetadataInfo' :: Maybe Text
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:otherMetadataValueList:MetadataInfo' :: Maybe [OtherMetadataValueListItem]
+</span><a href="Network.AWS.Glue.Types.MetadataInfo.html#%24sel%3AotherMetadataValueList%3AMetadataInfo%27"><span class="hs-identifier hs-var">otherMetadataValueList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OtherMetadataValueListItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:metadataValue:MetadataInfo' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.MetadataInfo.html#%24sel%3AmetadataValue%3AMetadataInfo%27"><span class="hs-identifier hs-var">metadataValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | Other metadata belonging to the same metadata key.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#metadataInfo_otherMetadataValueList"><span class="hs-identifier hs-type">metadataInfo_otherMetadataValueList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.OtherMetadataValueListItem.html#OtherMetadataValueListItem"><span class="hs-identifier hs-type">OtherMetadataValueListItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="metadataInfo_otherMetadataValueList"><span class="annot"><span class="annottext">metadataInfo_otherMetadataValueList :: (Maybe [OtherMetadataValueListItem]
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The time at which the entry was created.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#metadataInfo_createdTime"><span class="hs-identifier hs-type">metadataInfo_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="metadataInfo_createdTime"><span class="annot"><span class="annottext">metadataInfo_createdTime :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MetadataInfo -&gt; f MetadataInfo
+</span><a href="Network.AWS.Glue.Types.MetadataInfo.html#metadataInfo_createdTime"><span class="hs-identifier hs-var hs-var">metadataInfo_createdTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetadataInfo -&gt; Maybe Text)
+-&gt; (MetadataInfo -&gt; Maybe Text -&gt; MetadataInfo)
+-&gt; Lens MetadataInfo MetadataInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo%27"><span class="hs-identifier hs-type">MetadataInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692181"><span class="annot"><span class="annottext">Maybe Text
+createdTime :: Maybe Text
+$sel:createdTime:MetadataInfo' :: MetadataInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679692181"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679692181"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692180"><span class="annot"><span class="annottext">s :: MetadataInfo
+</span><a href="#local-6989586621679692180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo%27"><span class="hs-identifier hs-type">MetadataInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692179"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679692179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetadataInfo
+</span><a href="#local-6989586621679692180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:MetadataInfo' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.MetadataInfo.html#%24sel%3AcreatedTime%3AMetadataInfo%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679692179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | Other metadata belonging to the same metadata key.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#metadataInfo_otherMetadataValueList"><span class="hs-identifier hs-type">metadataInfo_otherMetadataValueList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.OtherMetadataValueListItem.html#OtherMetadataValueListItem"><span class="hs-identifier hs-type">OtherMetadataValueListItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="metadataInfo_otherMetadataValueList"><span class="annot"><span class="annottext">metadataInfo_otherMetadataValueList :: (Maybe [OtherMetadataValueListItem]
  -&gt; f (Maybe [OtherMetadataValueListItem]))
 -&gt; MetadataInfo -&gt; f MetadataInfo
 </span><a href="Network.AWS.Glue.Types.MetadataInfo.html#metadataInfo_otherMetadataValueList"><span class="hs-identifier hs-var hs-var">metadataInfo_otherMetadataValueList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetadataInfo -&gt; Maybe [OtherMetadataValueListItem])
@@ -141,16 +158,16 @@ forall a. Maybe a
      (Maybe [OtherMetadataValueListItem])
      (Maybe [OtherMetadataValueListItem])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo%27"><span class="hs-identifier hs-type">MetadataInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690525"><span class="annot"><span class="annottext">Maybe [OtherMetadataValueListItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo%27"><span class="hs-identifier hs-type">MetadataInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692177"><span class="annot"><span class="annottext">Maybe [OtherMetadataValueListItem]
 otherMetadataValueList :: Maybe [OtherMetadataValueListItem]
 $sel:otherMetadataValueList:MetadataInfo' :: MetadataInfo -&gt; Maybe [OtherMetadataValueListItem]
-</span><a href="#local-6989586621679690525"><span class="hs-identifier hs-var hs-var">otherMetadataValueList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OtherMetadataValueListItem]
-</span><a href="#local-6989586621679690525"><span class="hs-identifier hs-var">otherMetadataValueList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679690524"><span class="annot"><span class="annottext">s :: MetadataInfo
-</span><a href="#local-6989586621679690524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo%27"><span class="hs-identifier hs-type">MetadataInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679690523"><span class="annot"><span class="annottext">Maybe [OtherMetadataValueListItem]
-</span><a href="#local-6989586621679690523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetadataInfo
-</span><a href="#local-6989586621679690524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otherMetadataValueList:MetadataInfo' :: Maybe [OtherMetadataValueListItem]
+</span><a href="#local-6989586621679692177"><span class="hs-identifier hs-var hs-var">otherMetadataValueList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OtherMetadataValueListItem]
+</span><a href="#local-6989586621679692177"><span class="hs-identifier hs-var">otherMetadataValueList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692176"><span class="annot"><span class="annottext">s :: MetadataInfo
+</span><a href="#local-6989586621679692176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo%27"><span class="hs-identifier hs-type">MetadataInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692175"><span class="annot"><span class="annottext">Maybe [OtherMetadataValueListItem]
+</span><a href="#local-6989586621679692175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetadataInfo
+</span><a href="#local-6989586621679692176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:otherMetadataValueList:MetadataInfo' :: Maybe [OtherMetadataValueListItem]
 </span><a href="Network.AWS.Glue.Types.MetadataInfo.html#%24sel%3AotherMetadataValueList%3AMetadataInfo%27"><span class="hs-identifier hs-var">otherMetadataValueList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OtherMetadataValueListItem]
-</span><a href="#local-6989586621679690523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OtherMetadataValueListItem]
+</span><a href="#local-6989586621679692175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OtherMetadataValueListItem]
   -&gt; f (Maybe [OtherMetadataValueListItem]))
  -&gt; MetadataInfo -&gt; f MetadataInfo)
 -&gt; ((Maybe [OtherMetadataValueListItem]
@@ -180,66 +197,61 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [OtherMetadataValueListItem]
   [OtherMetadataValueListItem]
   [OtherMetadataValueListItem]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The time at which the entry was created.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#metadataInfo_createdTime"><span class="hs-identifier hs-type">metadataInfo_createdTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="metadataInfo_createdTime"><span class="annot"><span class="annottext">metadataInfo_createdTime :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MetadataInfo -&gt; f MetadataInfo
-</span><a href="Network.AWS.Glue.Types.MetadataInfo.html#metadataInfo_createdTime"><span class="hs-identifier hs-var hs-var">metadataInfo_createdTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetadataInfo -&gt; Maybe Text)
--&gt; (MetadataInfo -&gt; Maybe Text -&gt; MetadataInfo)
--&gt; Lens MetadataInfo MetadataInfo (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo%27"><span class="hs-identifier hs-type">MetadataInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690518"><span class="annot"><span class="annottext">Maybe Text
-createdTime :: Maybe Text
-$sel:createdTime:MetadataInfo' :: MetadataInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679690518"><span class="hs-identifier hs-var hs-var">createdTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679690518"><span class="hs-identifier hs-var">createdTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679690517"><span class="annot"><span class="annottext">s :: MetadataInfo
-</span><a href="#local-6989586621679690517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo%27"><span class="hs-identifier hs-type">MetadataInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679690516"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679690516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetadataInfo
-</span><a href="#local-6989586621679690517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTime:MetadataInfo' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.MetadataInfo.html#%24sel%3AcreatedTime%3AMetadataInfo%27"><span class="hs-identifier hs-var">createdTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679690516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | The metadata key&#8217;s corresponding value.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#metadataInfo_metadataValue"><span class="hs-identifier hs-type">metadataInfo_metadataValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="metadataInfo_metadataValue"><span class="annot"><span class="annottext">metadataInfo_metadataValue :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MetadataInfo -&gt; f MetadataInfo
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The metadata key&#8217;s corresponding value.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#metadataInfo_metadataValue"><span class="hs-identifier hs-type">metadataInfo_metadataValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="metadataInfo_metadataValue"><span class="annot"><span class="annottext">metadataInfo_metadataValue :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MetadataInfo -&gt; f MetadataInfo
 </span><a href="Network.AWS.Glue.Types.MetadataInfo.html#metadataInfo_metadataValue"><span class="hs-identifier hs-var hs-var">metadataInfo_metadataValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MetadataInfo -&gt; Maybe Text)
 -&gt; (MetadataInfo -&gt; Maybe Text -&gt; MetadataInfo)
 -&gt; Lens MetadataInfo MetadataInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo%27"><span class="hs-identifier hs-type">MetadataInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679690514"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo%27"><span class="hs-identifier hs-type">MetadataInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692170"><span class="annot"><span class="annottext">Maybe Text
 metadataValue :: Maybe Text
 $sel:metadataValue:MetadataInfo' :: MetadataInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679690514"><span class="hs-identifier hs-var hs-var">metadataValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679690514"><span class="hs-identifier hs-var">metadataValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679690513"><span class="annot"><span class="annottext">s :: MetadataInfo
-</span><a href="#local-6989586621679690513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo%27"><span class="hs-identifier hs-type">MetadataInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679690512"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679690512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetadataInfo
-</span><a href="#local-6989586621679690513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadataValue:MetadataInfo' :: Maybe Text
+</span><a href="#local-6989586621679692170"><span class="hs-identifier hs-var hs-var">metadataValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679692170"><span class="hs-identifier hs-var">metadataValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692169"><span class="annot"><span class="annottext">s :: MetadataInfo
+</span><a href="#local-6989586621679692169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo%27"><span class="hs-identifier hs-type">MetadataInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692168"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679692168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetadataInfo
+</span><a href="#local-6989586621679692169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadataValue:MetadataInfo' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.MetadataInfo.html#%24sel%3AmetadataValue%3AMetadataInfo%27"><span class="hs-identifier hs-var">metadataValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679690512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679690509"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679690507"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetadataInfo
+</span><a href="#local-6989586621679692168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692165"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679692163"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetadataInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MetadataInfo) -&gt; Value -&gt; Parser MetadataInfo
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MetadataInfo&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679690504"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679690504"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe [OtherMetadataValueListItem]
--&gt; Maybe Text -&gt; Maybe Text -&gt; MetadataInfo
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679692160"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679692160"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [OtherMetadataValueListItem] -&gt; Maybe Text -&gt; MetadataInfo
 </span><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo%27"><span class="hs-identifier hs-var">MetadataInfo'</span></a></span><span>
-</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [OtherMetadataValueListItem]
- -&gt; Maybe Text -&gt; Maybe Text -&gt; MetadataInfo)
--&gt; Parser (Maybe [OtherMetadataValueListItem])
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; MetadataInfo)
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [OtherMetadataValueListItem]
+ -&gt; Maybe Text
+ -&gt; MetadataInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [OtherMetadataValueListItem] -&gt; Maybe Text -&gt; MetadataInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679690504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679692160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [OtherMetadataValueListItem] -&gt; Maybe Text -&gt; MetadataInfo)
+-&gt; Parser (Maybe [OtherMetadataValueListItem])
+-&gt; Parser (Maybe Text -&gt; MetadataInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679692160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [OtherMetadataValueListItem]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -252,25 +264,17 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-83"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; MetadataInfo)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; MetadataInfo)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679690504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreatedTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MetadataInfo)
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MetadataInfo)
 -&gt; Parser (Maybe Text) -&gt; Parser MetadataInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679690504"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679692160"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MetadataValue&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679690497"><span id="local-6989586621679690499"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span></span></span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679690494"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span></span><span>
-</span><span id="line-91"></span></pre></body></html>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692153"><span id="local-6989586621679692155"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.MetadataInfo.html#MetadataInfo"><span class="hs-identifier hs-type">MetadataInfo</span></a></span></span><span>
+</span><span id="line-90"></span></pre></body></html>

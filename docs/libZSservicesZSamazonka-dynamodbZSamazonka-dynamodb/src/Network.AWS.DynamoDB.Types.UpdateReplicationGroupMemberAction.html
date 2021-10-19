@@ -28,28 +28,28 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Represents a replica to be modified.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newUpdateReplicationGroupMemberAction' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679383483"><span id="local-6989586621679383484"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateReplicationGroupMemberAction"><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-var">UpdateReplicationGroupMemberAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateReplicationGroupMemberAction%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var">UpdateReplicationGroupMemberAction'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Replica-specific global secondary index settings.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AglobalSecondaryIndexes%3AUpdateReplicationGroupMemberAction%27"><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction
--&gt; Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
-</span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#%24sel%3AglobalSecondaryIndexes%3AUpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var hs-var">globalSecondaryIndexes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndex.html#ReplicaGlobalSecondaryIndex"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndex</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Replica-specific provisioned throughput. If not specified, uses the</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- source table\'s provisioned throughput settings.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AprovisionedThroughputOverride%3AUpdateReplicationGroupMemberAction%27"><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction
+</span><span id="line-31"></span><span id="local-6989586621679384188"><span id="local-6989586621679384189"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateReplicationGroupMemberAction"><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-var">UpdateReplicationGroupMemberAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateReplicationGroupMemberAction%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var">UpdateReplicationGroupMemberAction'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS KMS customer master key (CMK) of the replica that should be used</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- for AWS KMS encryption. To specify a CMK, use its key ID, Amazon</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Resource Name (ARN), alias name, or alias ARN. Note that you should only</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- provide this parameter if the key is different from the default DynamoDB</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- KMS master key alias\/aws\/dynamodb.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AkmsMasterKeyId%3AUpdateReplicationGroupMemberAction%27"><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#%24sel%3AkmsMasterKeyId%3AUpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var hs-var">kmsMasterKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Replica-specific provisioned throughput. If not specified, uses the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- source table\'s provisioned throughput settings.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AprovisionedThroughputOverride%3AUpdateReplicationGroupMemberAction%27"><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction
 -&gt; Maybe ProvisionedThroughputOverride
 </span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#%24sel%3AprovisionedThroughputOverride%3AUpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var hs-var">provisionedThroughputOverride</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride.html#ProvisionedThroughputOverride"><span class="hs-identifier hs-type">ProvisionedThroughputOverride</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The AWS KMS customer master key (CMK) of the replica that should be used</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- for AWS KMS encryption. To specify a CMK, use its key ID, Amazon</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Resource Name (ARN), alias name, or alias ARN. Note that you should only</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- provide this parameter if the key is different from the default DynamoDB</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- KMS master key alias\/aws\/dynamodb.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AkmsMasterKeyId%3AUpdateReplicationGroupMemberAction%27"><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction -&gt; Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#%24sel%3AkmsMasterKeyId%3AUpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var hs-var">kmsMasterKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Replica-specific global secondary index settings.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AglobalSecondaryIndexes%3AUpdateReplicationGroupMemberAction%27"><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction
+-&gt; Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
+</span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#%24sel%3AglobalSecondaryIndexes%3AUpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var hs-var">globalSecondaryIndexes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndex.html#ReplicaGlobalSecondaryIndex"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndex</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The Region where the replica exists.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AregionName%3AUpdateReplicationGroupMemberAction%27"><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction -&gt; Text
 </span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#%24sel%3AregionName%3AUpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383474"><span id="local-6989586621679383476"><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384179"><span id="local-6989586621679384181"><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction
 -&gt; UpdateReplicationGroupMemberAction -&gt; Bool
 (UpdateReplicationGroupMemberAction
  -&gt; UpdateReplicationGroupMemberAction -&gt; Bool)
@@ -65,7 +65,7 @@ $c/= :: UpdateReplicationGroupMemberAction
 -&gt; UpdateReplicationGroupMemberAction -&gt; Bool
 $c== :: UpdateReplicationGroupMemberAction
 -&gt; UpdateReplicationGroupMemberAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383465"><span id="local-6989586621679383467"><span id="local-6989586621679383469"><span id="local-6989586621679383471"><span class="annot"><span class="annottext">ReadPrec [UpdateReplicationGroupMemberAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384170"><span id="local-6989586621679384172"><span id="local-6989586621679384174"><span id="local-6989586621679384176"><span class="annot"><span class="annottext">ReadPrec [UpdateReplicationGroupMemberAction]
 ReadPrec UpdateReplicationGroupMemberAction
 Int -&gt; ReadS UpdateReplicationGroupMemberAction
 ReadS [UpdateReplicationGroupMemberAction]
@@ -85,7 +85,7 @@ readList :: ReadS [UpdateReplicationGroupMemberAction]
 $creadList :: ReadS [UpdateReplicationGroupMemberAction]
 readsPrec :: Int -&gt; ReadS UpdateReplicationGroupMemberAction
 $creadsPrec :: Int -&gt; ReadS UpdateReplicationGroupMemberAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383458"><span id="local-6989586621679383460"><span id="local-6989586621679383462"><span class="annot"><span class="annottext">Int -&gt; UpdateReplicationGroupMemberAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384163"><span id="local-6989586621679384165"><span id="local-6989586621679384167"><span class="annot"><span class="annottext">Int -&gt; UpdateReplicationGroupMemberAction -&gt; ShowS
 [UpdateReplicationGroupMemberAction] -&gt; ShowS
 UpdateReplicationGroupMemberAction -&gt; String
 (Int -&gt; UpdateReplicationGroupMemberAction -&gt; ShowS)
@@ -131,16 +131,16 @@ UpdateReplicationGroupMemberAction
 </span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'globalSecondaryIndexes', 'updateReplicationGroupMemberAction_globalSecondaryIndexes' - Replica-specific global secondary index settings.</span><span>
-</span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'provisionedThroughputOverride', 'updateReplicationGroupMemberAction_provisionedThroughputOverride' - Replica-specific provisioned throughput. If not specified, uses the</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- source table\'s provisioned throughput settings.</span><span>
-</span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'kmsMasterKeyId', 'updateReplicationGroupMemberAction_kmsMasterKeyId' - The AWS KMS customer master key (CMK) of the replica that should be used</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- for AWS KMS encryption. To specify a CMK, use its key ID, Amazon</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- Resource Name (ARN), alias name, or alias ARN. Note that you should only</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- provide this parameter if the key is different from the default DynamoDB</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- KMS master key alias\/aws\/dynamodb.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'kmsMasterKeyId', 'updateReplicationGroupMemberAction_kmsMasterKeyId' - The AWS KMS customer master key (CMK) of the replica that should be used</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for AWS KMS encryption. To specify a CMK, use its key ID, Amazon</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Resource Name (ARN), alias name, or alias ARN. Note that you should only</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- provide this parameter if the key is different from the default DynamoDB</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- KMS master key alias\/aws\/dynamodb.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'provisionedThroughputOverride', 'updateReplicationGroupMemberAction_provisionedThroughputOverride' - Replica-specific provisioned throughput. If not specified, uses the</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- source table\'s provisioned throughput settings.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'globalSecondaryIndexes', 'updateReplicationGroupMemberAction_globalSecondaryIndexes' - Replica-specific global secondary index settings.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- 'regionName', 'updateReplicationGroupMemberAction_regionName' - The Region where the replica exists.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#newUpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">newUpdateReplicationGroupMemberAction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -148,17 +148,17 @@ UpdateReplicationGroupMemberAction
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span><span>
 </span><span id="line-72"></span><span id="newUpdateReplicationGroupMemberAction"><span class="annot"><span class="annottext">newUpdateReplicationGroupMemberAction :: Text -&gt; UpdateReplicationGroupMemberAction
-</span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#newUpdateReplicationGroupMemberAction"><span class="hs-identifier hs-var hs-var">newUpdateReplicationGroupMemberAction</span></a></span></span><span> </span><span id="local-6989586621679383452"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383452"><span class="hs-identifier hs-var">pRegionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction' :: Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
+</span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#newUpdateReplicationGroupMemberAction"><span class="hs-identifier hs-var hs-var">newUpdateReplicationGroupMemberAction</span></a></span></span><span> </span><span id="local-6989586621679384157"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384157"><span class="hs-identifier hs-var">pRegionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction' :: Maybe Text
 -&gt; Maybe ProvisionedThroughputOverride
--&gt; Maybe Text
+-&gt; Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
 -&gt; Text
 -&gt; UpdateReplicationGroupMemberAction
 </span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:globalSecondaryIndexes:UpdateReplicationGroupMemberAction' :: Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
-</span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#%24sel%3AglobalSecondaryIndexes%3AUpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var">globalSecondaryIndexes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:kmsMasterKeyId:UpdateReplicationGroupMemberAction' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#%24sel%3AkmsMasterKeyId%3AUpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var">kmsMasterKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:provisionedThroughputOverride:UpdateReplicationGroupMemberAction' :: Maybe ProvisionedThroughputOverride
@@ -166,18 +166,78 @@ forall a. Maybe a
 </span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsMasterKeyId:UpdateReplicationGroupMemberAction' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#%24sel%3AkmsMasterKeyId%3AUpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var">kmsMasterKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:globalSecondaryIndexes:UpdateReplicationGroupMemberAction' :: Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
+</span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#%24sel%3AglobalSecondaryIndexes%3AUpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var">globalSecondaryIndexes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:regionName:UpdateReplicationGroupMemberAction' :: Text
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:regionName:UpdateReplicationGroupMemberAction' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#%24sel%3AregionName%3AUpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var">regionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383452"><span class="hs-identifier hs-var">pRegionName_</span></a></span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | Replica-specific global secondary index settings.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#updateReplicationGroupMemberAction_globalSecondaryIndexes"><span class="hs-identifier hs-type">updateReplicationGroupMemberAction_globalSecondaryIndexes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndex.html#ReplicaGlobalSecondaryIndex"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndex</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="updateReplicationGroupMemberAction_globalSecondaryIndexes"><span class="annot"><span class="annottext">updateReplicationGroupMemberAction_globalSecondaryIndexes :: (Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
+</span><a href="#local-6989586621679384157"><span class="hs-identifier hs-var">pRegionName_</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The AWS KMS customer master key (CMK) of the replica that should be used</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for AWS KMS encryption. To specify a CMK, use its key ID, Amazon</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Resource Name (ARN), alias name, or alias ARN. Note that you should only</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- provide this parameter if the key is different from the default DynamoDB</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- KMS master key alias\/aws\/dynamodb.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#updateReplicationGroupMemberAction_kmsMasterKeyId"><span class="hs-identifier hs-type">updateReplicationGroupMemberAction_kmsMasterKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="updateReplicationGroupMemberAction_kmsMasterKeyId"><span class="annot"><span class="annottext">updateReplicationGroupMemberAction_kmsMasterKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateReplicationGroupMemberAction
+-&gt; f UpdateReplicationGroupMemberAction
+</span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#updateReplicationGroupMemberAction_kmsMasterKeyId"><span class="hs-identifier hs-var hs-var">updateReplicationGroupMemberAction_kmsMasterKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationGroupMemberAction -&gt; Maybe Text)
+-&gt; (UpdateReplicationGroupMemberAction
+    -&gt; Maybe Text -&gt; UpdateReplicationGroupMemberAction)
+-&gt; Lens
+     UpdateReplicationGroupMemberAction
+     UpdateReplicationGroupMemberAction
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384153"><span class="annot"><span class="annottext">Maybe Text
+kmsMasterKeyId :: Maybe Text
+$sel:kmsMasterKeyId:UpdateReplicationGroupMemberAction' :: UpdateReplicationGroupMemberAction -&gt; Maybe Text
+</span><a href="#local-6989586621679384153"><span class="hs-identifier hs-var hs-var">kmsMasterKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384153"><span class="hs-identifier hs-var">kmsMasterKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384152"><span class="annot"><span class="annottext">s :: UpdateReplicationGroupMemberAction
+</span><a href="#local-6989586621679384152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384151"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction
+</span><a href="#local-6989586621679384152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsMasterKeyId:UpdateReplicationGroupMemberAction' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#%24sel%3AkmsMasterKeyId%3AUpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var">kmsMasterKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679384151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Replica-specific provisioned throughput. If not specified, uses the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- source table\'s provisioned throughput settings.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#updateReplicationGroupMemberAction_provisionedThroughputOverride"><span class="hs-identifier hs-type">updateReplicationGroupMemberAction_provisionedThroughputOverride</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride.html#ProvisionedThroughputOverride"><span class="hs-identifier hs-type">ProvisionedThroughputOverride</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="updateReplicationGroupMemberAction_provisionedThroughputOverride"><span class="annot"><span class="annottext">updateReplicationGroupMemberAction_provisionedThroughputOverride :: (Maybe ProvisionedThroughputOverride
+ -&gt; f (Maybe ProvisionedThroughputOverride))
+-&gt; UpdateReplicationGroupMemberAction
+-&gt; f UpdateReplicationGroupMemberAction
+</span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#updateReplicationGroupMemberAction_provisionedThroughputOverride"><span class="hs-identifier hs-var hs-var">updateReplicationGroupMemberAction_provisionedThroughputOverride</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationGroupMemberAction
+ -&gt; Maybe ProvisionedThroughputOverride)
+-&gt; (UpdateReplicationGroupMemberAction
+    -&gt; Maybe ProvisionedThroughputOverride
+    -&gt; UpdateReplicationGroupMemberAction)
+-&gt; Lens
+     UpdateReplicationGroupMemberAction
+     UpdateReplicationGroupMemberAction
+     (Maybe ProvisionedThroughputOverride)
+     (Maybe ProvisionedThroughputOverride)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384149"><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
+provisionedThroughputOverride :: Maybe ProvisionedThroughputOverride
+$sel:provisionedThroughputOverride:UpdateReplicationGroupMemberAction' :: UpdateReplicationGroupMemberAction
+-&gt; Maybe ProvisionedThroughputOverride
+</span><a href="#local-6989586621679384149"><span class="hs-identifier hs-var hs-var">provisionedThroughputOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
+</span><a href="#local-6989586621679384149"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384148"><span class="annot"><span class="annottext">s :: UpdateReplicationGroupMemberAction
+</span><a href="#local-6989586621679384148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384147"><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
+</span><a href="#local-6989586621679384147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction
+</span><a href="#local-6989586621679384148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedThroughputOverride:UpdateReplicationGroupMemberAction' :: Maybe ProvisionedThroughputOverride
+</span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#%24sel%3AprovisionedThroughputOverride%3AUpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
+</span><a href="#local-6989586621679384147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | Replica-specific global secondary index settings.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#updateReplicationGroupMemberAction_globalSecondaryIndexes"><span class="hs-identifier hs-type">updateReplicationGroupMemberAction_globalSecondaryIndexes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndex.html#ReplicaGlobalSecondaryIndex"><span class="hs-identifier hs-type">ReplicaGlobalSecondaryIndex</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="updateReplicationGroupMemberAction_globalSecondaryIndexes"><span class="annot"><span class="annottext">updateReplicationGroupMemberAction_globalSecondaryIndexes :: (Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
  -&gt; f (Maybe (NonEmpty ReplicaGlobalSecondaryIndex)))
 -&gt; UpdateReplicationGroupMemberAction
 -&gt; f UpdateReplicationGroupMemberAction
@@ -192,17 +252,17 @@ forall a. Maybe a
      (Maybe (NonEmpty ReplicaGlobalSecondaryIndex))
      (Maybe (NonEmpty ReplicaGlobalSecondaryIndex))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383448"><span class="annot"><span class="annottext">Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384145"><span class="annot"><span class="annottext">Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
 globalSecondaryIndexes :: Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
 $sel:globalSecondaryIndexes:UpdateReplicationGroupMemberAction' :: UpdateReplicationGroupMemberAction
 -&gt; Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
-</span><a href="#local-6989586621679383448"><span class="hs-identifier hs-var hs-var">globalSecondaryIndexes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
-</span><a href="#local-6989586621679383448"><span class="hs-identifier hs-var">globalSecondaryIndexes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383447"><span class="annot"><span class="annottext">s :: UpdateReplicationGroupMemberAction
-</span><a href="#local-6989586621679383447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383446"><span class="annot"><span class="annottext">Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
-</span><a href="#local-6989586621679383446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction
-</span><a href="#local-6989586621679383447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalSecondaryIndexes:UpdateReplicationGroupMemberAction' :: Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
+</span><a href="#local-6989586621679384145"><span class="hs-identifier hs-var hs-var">globalSecondaryIndexes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
+</span><a href="#local-6989586621679384145"><span class="hs-identifier hs-var">globalSecondaryIndexes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384144"><span class="annot"><span class="annottext">s :: UpdateReplicationGroupMemberAction
+</span><a href="#local-6989586621679384144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384143"><span class="annot"><span class="annottext">Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
+</span><a href="#local-6989586621679384143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction
+</span><a href="#local-6989586621679384144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:globalSecondaryIndexes:UpdateReplicationGroupMemberAction' :: Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
 </span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#%24sel%3AglobalSecondaryIndexes%3AUpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var">globalSecondaryIndexes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
-</span><a href="#local-6989586621679383446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
+</span><a href="#local-6989586621679384143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
   -&gt; f (Maybe (NonEmpty ReplicaGlobalSecondaryIndex)))
  -&gt; UpdateReplicationGroupMemberAction
  -&gt; f UpdateReplicationGroupMemberAction)
@@ -233,71 +293,12 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty ReplicaGlobalSecondaryIndex)
   (NonEmpty ReplicaGlobalSecondaryIndex)
   (NonEmpty ReplicaGlobalSecondaryIndex)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | Replica-specific provisioned throughput. If not specified, uses the</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- source table\'s provisioned throughput settings.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#updateReplicationGroupMemberAction_provisionedThroughputOverride"><span class="hs-identifier hs-type">updateReplicationGroupMemberAction_provisionedThroughputOverride</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputOverride.html#ProvisionedThroughputOverride"><span class="hs-identifier hs-type">ProvisionedThroughputOverride</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="updateReplicationGroupMemberAction_provisionedThroughputOverride"><span class="annot"><span class="annottext">updateReplicationGroupMemberAction_provisionedThroughputOverride :: (Maybe ProvisionedThroughputOverride
- -&gt; f (Maybe ProvisionedThroughputOverride))
--&gt; UpdateReplicationGroupMemberAction
--&gt; f UpdateReplicationGroupMemberAction
-</span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#updateReplicationGroupMemberAction_provisionedThroughputOverride"><span class="hs-identifier hs-var hs-var">updateReplicationGroupMemberAction_provisionedThroughputOverride</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationGroupMemberAction
- -&gt; Maybe ProvisionedThroughputOverride)
--&gt; (UpdateReplicationGroupMemberAction
-    -&gt; Maybe ProvisionedThroughputOverride
-    -&gt; UpdateReplicationGroupMemberAction)
--&gt; Lens
-     UpdateReplicationGroupMemberAction
-     UpdateReplicationGroupMemberAction
-     (Maybe ProvisionedThroughputOverride)
-     (Maybe ProvisionedThroughputOverride)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383441"><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
-provisionedThroughputOverride :: Maybe ProvisionedThroughputOverride
-$sel:provisionedThroughputOverride:UpdateReplicationGroupMemberAction' :: UpdateReplicationGroupMemberAction
--&gt; Maybe ProvisionedThroughputOverride
-</span><a href="#local-6989586621679383441"><span class="hs-identifier hs-var hs-var">provisionedThroughputOverride</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
-</span><a href="#local-6989586621679383441"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383440"><span class="annot"><span class="annottext">s :: UpdateReplicationGroupMemberAction
-</span><a href="#local-6989586621679383440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383439"><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
-</span><a href="#local-6989586621679383439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction
-</span><a href="#local-6989586621679383440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedThroughputOverride:UpdateReplicationGroupMemberAction' :: Maybe ProvisionedThroughputOverride
-</span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#%24sel%3AprovisionedThroughputOverride%3AUpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
-</span><a href="#local-6989586621679383439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The AWS KMS customer master key (CMK) of the replica that should be used</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- for AWS KMS encryption. To specify a CMK, use its key ID, Amazon</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- Resource Name (ARN), alias name, or alias ARN. Note that you should only</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- provide this parameter if the key is different from the default DynamoDB</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- KMS master key alias\/aws\/dynamodb.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#updateReplicationGroupMemberAction_kmsMasterKeyId"><span class="hs-identifier hs-type">updateReplicationGroupMemberAction_kmsMasterKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="updateReplicationGroupMemberAction_kmsMasterKeyId"><span class="annot"><span class="annottext">updateReplicationGroupMemberAction_kmsMasterKeyId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UpdateReplicationGroupMemberAction
--&gt; f UpdateReplicationGroupMemberAction
-</span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#updateReplicationGroupMemberAction_kmsMasterKeyId"><span class="hs-identifier hs-var hs-var">updateReplicationGroupMemberAction_kmsMasterKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationGroupMemberAction -&gt; Maybe Text)
--&gt; (UpdateReplicationGroupMemberAction
-    -&gt; Maybe Text -&gt; UpdateReplicationGroupMemberAction)
--&gt; Lens
-     UpdateReplicationGroupMemberAction
-     UpdateReplicationGroupMemberAction
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383437"><span class="annot"><span class="annottext">Maybe Text
-kmsMasterKeyId :: Maybe Text
-$sel:kmsMasterKeyId:UpdateReplicationGroupMemberAction' :: UpdateReplicationGroupMemberAction -&gt; Maybe Text
-</span><a href="#local-6989586621679383437"><span class="hs-identifier hs-var hs-var">kmsMasterKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679383437"><span class="hs-identifier hs-var">kmsMasterKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383436"><span class="annot"><span class="annottext">s :: UpdateReplicationGroupMemberAction
-</span><a href="#local-6989586621679383436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383435"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679383435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction
-</span><a href="#local-6989586621679383436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsMasterKeyId:UpdateReplicationGroupMemberAction' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#%24sel%3AkmsMasterKeyId%3AUpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var">kmsMasterKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679383435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | The Region where the replica exists.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#updateReplicationGroupMemberAction_regionName"><span class="hs-identifier hs-type">updateReplicationGroupMemberAction_regionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-101"></span><span id="updateReplicationGroupMemberAction_regionName"><span class="annot"><span class="annottext">updateReplicationGroupMemberAction_regionName :: (Text -&gt; f Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The Region where the replica exists.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#updateReplicationGroupMemberAction_regionName"><span class="hs-identifier hs-type">updateReplicationGroupMemberAction_regionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-102"></span><span id="updateReplicationGroupMemberAction_regionName"><span class="annot"><span class="annottext">updateReplicationGroupMemberAction_regionName :: (Text -&gt; f Text)
 -&gt; UpdateReplicationGroupMemberAction
 -&gt; f UpdateReplicationGroupMemberAction
 </span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#updateReplicationGroupMemberAction_regionName"><span class="hs-identifier hs-var hs-var">updateReplicationGroupMemberAction_regionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateReplicationGroupMemberAction -&gt; Text)
@@ -309,83 +310,83 @@ $sel:kmsMasterKeyId:UpdateReplicationGroupMemberAction' :: UpdateReplicationGrou
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383433"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384138"><span class="annot"><span class="annottext">Text
 regionName :: Text
 $sel:regionName:UpdateReplicationGroupMemberAction' :: UpdateReplicationGroupMemberAction -&gt; Text
-</span><a href="#local-6989586621679383433"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383433"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383432"><span class="annot"><span class="annottext">s :: UpdateReplicationGroupMemberAction
-</span><a href="#local-6989586621679383432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383431"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction
-</span><a href="#local-6989586621679383432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionName:UpdateReplicationGroupMemberAction' :: Text
+</span><a href="#local-6989586621679384138"><span class="hs-identifier hs-var hs-var">regionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384138"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384137"><span class="annot"><span class="annottext">s :: UpdateReplicationGroupMemberAction
+</span><a href="#local-6989586621679384137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384136"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateReplicationGroupMemberAction
+</span><a href="#local-6989586621679384137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regionName:UpdateReplicationGroupMemberAction' :: Text
 </span><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#%24sel%3AregionName%3AUpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-var">regionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679383427"><span id="local-6989586621679383429"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
-</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span></span></span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679383424"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span></span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679383416"><span id="local-6989586621679383418"><span id="local-6989586621679383420"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
-</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span></span></span></span><span>
-</span><span id="line-114"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679383414"><span class="annot"><span class="annottext">toJSON :: UpdateReplicationGroupMemberAction -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383409"><span id="local-6989586621679383410"><span id="local-6989586621679383411"><span id="local-6989586621679383412"><span class="annot"><span class="annottext">Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
+</span><a href="#local-6989586621679384136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679384132"><span id="local-6989586621679384134"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679384129"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679384121"><span id="local-6989586621679384123"><span id="local-6989586621679384125"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction</span></a></span></span></span></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679384119"><span class="annot"><span class="annottext">toJSON :: UpdateReplicationGroupMemberAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.UpdateReplicationGroupMemberAction.html#UpdateReplicationGroupMemberAction%27"><span class="hs-identifier hs-type">UpdateReplicationGroupMemberAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384114"><span id="local-6989586621679384115"><span id="local-6989586621679384116"><span id="local-6989586621679384117"><span class="annot"><span class="annottext">Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
 Maybe Text
 Maybe ProvisionedThroughputOverride
 Text
 regionName :: Text
-kmsMasterKeyId :: Maybe Text
-provisionedThroughputOverride :: Maybe ProvisionedThroughputOverride
 globalSecondaryIndexes :: Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
+provisionedThroughputOverride :: Maybe ProvisionedThroughputOverride
+kmsMasterKeyId :: Maybe Text
 $sel:regionName:UpdateReplicationGroupMemberAction' :: UpdateReplicationGroupMemberAction -&gt; Text
-$sel:kmsMasterKeyId:UpdateReplicationGroupMemberAction' :: UpdateReplicationGroupMemberAction -&gt; Maybe Text
-$sel:provisionedThroughputOverride:UpdateReplicationGroupMemberAction' :: UpdateReplicationGroupMemberAction
--&gt; Maybe ProvisionedThroughputOverride
 $sel:globalSecondaryIndexes:UpdateReplicationGroupMemberAction' :: UpdateReplicationGroupMemberAction
 -&gt; Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
-</span><a href="#local-6989586621679383409"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:provisionedThroughputOverride:UpdateReplicationGroupMemberAction' :: UpdateReplicationGroupMemberAction
+-&gt; Maybe ProvisionedThroughputOverride
+$sel:kmsMasterKeyId:UpdateReplicationGroupMemberAction' :: UpdateReplicationGroupMemberAction -&gt; Maybe Text
+</span><a href="#local-6989586621679384114"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-118"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;GlobalSecondaryIndexes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ReplicaGlobalSecondaryIndex -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty ReplicaGlobalSecondaryIndex -&gt; Pair)
--&gt; Maybe (NonEmpty ReplicaGlobalSecondaryIndex) -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
-</span><a href="#local-6989586621679383412"><span class="hs-identifier hs-var">globalSecondaryIndexes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProvisionedThroughputOverride&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProvisionedThroughputOverride -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">(ProvisionedThroughputOverride -&gt; Pair)
--&gt; Maybe ProvisionedThroughputOverride -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
-</span><a href="#local-6989586621679383411"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KMSMasterKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679383410"><span class="hs-identifier hs-var">kmsMasterKeyId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679384117"><span class="hs-identifier hs-var">kmsMasterKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProvisionedThroughputOverride&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProvisionedThroughputOverride -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">(ProvisionedThroughputOverride -&gt; Pair)
+-&gt; Maybe ProvisionedThroughputOverride -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProvisionedThroughputOverride
+</span><a href="#local-6989586621679384116"><span class="hs-identifier hs-var">provisionedThroughputOverride</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GlobalSecondaryIndexes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty ReplicaGlobalSecondaryIndex -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty ReplicaGlobalSecondaryIndex -&gt; Pair)
+-&gt; Maybe (NonEmpty ReplicaGlobalSecondaryIndex) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ReplicaGlobalSecondaryIndex)
+</span><a href="#local-6989586621679384115"><span class="hs-identifier hs-var">globalSecondaryIndexes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383409"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span></pre></body></html>
+</span><a href="#local-6989586621679384114"><span class="hs-identifier hs-var">regionName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span></pre></body></html>

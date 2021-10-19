@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- | The operating system of the cores which are the targets of an update.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679348074"><span id="local-6989586621679348075"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UpdateTargetsOperatingSystem"><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem"><span class="hs-identifier hs-var">UpdateTargetsOperatingSystem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTargetsOperatingSystem%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem%27"><span class="hs-identifier hs-var">UpdateTargetsOperatingSystem'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679348335"><span id="local-6989586621679348336"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="UpdateTargetsOperatingSystem"><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem"><span class="hs-identifier hs-var">UpdateTargetsOperatingSystem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTargetsOperatingSystem%27"><span class="annot"><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#UpdateTargetsOperatingSystem%27"><span class="hs-identifier hs-var">UpdateTargetsOperatingSystem'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromUpdateTargetsOperatingSystem"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; Text
 </span><a href="Network.AWS.Greengrass.Types.UpdateTargetsOperatingSystem.html#fromUpdateTargetsOperatingSystem"><span class="hs-identifier hs-var hs-var">fromUpdateTargetsOperatingSystem</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348066"><span id="local-6989586621679348068"><span id="local-6989586621679348070"><span class="annot"><span class="annottext">Int -&gt; UpdateTargetsOperatingSystem -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348327"><span id="local-6989586621679348329"><span id="local-6989586621679348331"><span class="annot"><span class="annottext">Int -&gt; UpdateTargetsOperatingSystem -&gt; ShowS
 [UpdateTargetsOperatingSystem] -&gt; ShowS
 UpdateTargetsOperatingSystem -&gt; String
 (Int -&gt; UpdateTargetsOperatingSystem -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: UpdateTargetsOperatingSystem -&gt; String
 showsPrec :: Int -&gt; UpdateTargetsOperatingSystem -&gt; ShowS
 $cshowsPrec :: Int -&gt; UpdateTargetsOperatingSystem -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679348057"><span id="local-6989586621679348059"><span id="local-6989586621679348061"><span id="local-6989586621679348063"><span class="annot"><span class="annottext">ReadPrec [UpdateTargetsOperatingSystem]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679348318"><span id="local-6989586621679348320"><span id="local-6989586621679348322"><span id="local-6989586621679348324"><span class="annot"><span class="annottext">ReadPrec [UpdateTargetsOperatingSystem]
 ReadPrec UpdateTargetsOperatingSystem
 Int -&gt; ReadS UpdateTargetsOperatingSystem
 ReadS [UpdateTargetsOperatingSystem]
@@ -75,7 +75,7 @@ $creadList :: ReadS [UpdateTargetsOperatingSystem]
 readsPrec :: Int -&gt; ReadS UpdateTargetsOperatingSystem
 $creadsPrec :: Int -&gt; ReadS UpdateTargetsOperatingSystem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679348052"><span id="local-6989586621679348054"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679348313"><span id="local-6989586621679348315"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem
 -&gt; UpdateTargetsOperatingSystem -&gt; Bool
 (UpdateTargetsOperatingSystem
  -&gt; UpdateTargetsOperatingSystem -&gt; Bool)
@@ -92,7 +92,7 @@ $c/= :: UpdateTargetsOperatingSystem
 $c== :: UpdateTargetsOperatingSystem
 -&gt; UpdateTargetsOperatingSystem -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679348036"><span id="local-6989586621679348038"><span id="local-6989586621679348040"><span id="local-6989586621679348042"><span id="local-6989586621679348044"><span id="local-6989586621679348046"><span id="local-6989586621679348048"><span class="annot"><span class="annottext">Eq UpdateTargetsOperatingSystem
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679348297"><span id="local-6989586621679348299"><span id="local-6989586621679348301"><span id="local-6989586621679348303"><span id="local-6989586621679348305"><span id="local-6989586621679348307"><span id="local-6989586621679348309"><span class="annot"><span class="annottext">Eq UpdateTargetsOperatingSystem
 Eq UpdateTargetsOperatingSystem
 -&gt; (UpdateTargetsOperatingSystem
     -&gt; UpdateTargetsOperatingSystem -&gt; Ordering)
@@ -173,7 +173,7 @@ UpdateTargetsOperatingSystem -&gt; Rep UpdateTargetsOperatingSystem x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348028"><span id="local-6989586621679348030"><span class="annot"><span class="annottext">Int -&gt; UpdateTargetsOperatingSystem -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348289"><span id="local-6989586621679348291"><span class="annot"><span class="annottext">Int -&gt; UpdateTargetsOperatingSystem -&gt; Int
 UpdateTargetsOperatingSystem -&gt; Int
 (Int -&gt; UpdateTargetsOperatingSystem -&gt; Int)
 -&gt; (UpdateTargetsOperatingSystem -&gt; Int)
@@ -184,56 +184,56 @@ $chash :: UpdateTargetsOperatingSystem -&gt; Int
 hashWithSalt :: Int -&gt; UpdateTargetsOperatingSystem -&gt; Int
 $chashWithSalt :: Int -&gt; UpdateTargetsOperatingSystem -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679348025"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679348286"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; ()
 (UpdateTargetsOperatingSystem -&gt; ())
 -&gt; NFData UpdateTargetsOperatingSystem
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: UpdateTargetsOperatingSystem -&gt; ()
 $crnf :: UpdateTargetsOperatingSystem -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679348022"><span class="annot"><span class="annottext">Text -&gt; Either String UpdateTargetsOperatingSystem
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679348283"><span class="annot"><span class="annottext">Text -&gt; Either String UpdateTargetsOperatingSystem
 (Text -&gt; Either String UpdateTargetsOperatingSystem)
 -&gt; FromText UpdateTargetsOperatingSystem
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String UpdateTargetsOperatingSystem
 $cfromText :: Text -&gt; Either String UpdateTargetsOperatingSystem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679348019"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679348280"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; Text
 (UpdateTargetsOperatingSystem -&gt; Text)
 -&gt; ToText UpdateTargetsOperatingSystem
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: UpdateTargetsOperatingSystem -&gt; Text
 $ctoText :: UpdateTargetsOperatingSystem -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679348016"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679348277"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; ByteString
 (UpdateTargetsOperatingSystem -&gt; ByteString)
 -&gt; ToByteString UpdateTargetsOperatingSystem
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: UpdateTargetsOperatingSystem -&gt; ByteString
 $ctoBS :: UpdateTargetsOperatingSystem -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679348013"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679348274"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; ByteStringBuilder
 (UpdateTargetsOperatingSystem -&gt; ByteStringBuilder)
 -&gt; ToLog UpdateTargetsOperatingSystem
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: UpdateTargetsOperatingSystem -&gt; ByteStringBuilder
 $cbuild :: UpdateTargetsOperatingSystem -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679348010"><span class="annot"><span class="annottext">HeaderName -&gt; UpdateTargetsOperatingSystem -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679348271"><span class="annot"><span class="annottext">HeaderName -&gt; UpdateTargetsOperatingSystem -&gt; [Header]
 (HeaderName -&gt; UpdateTargetsOperatingSystem -&gt; [Header])
 -&gt; ToHeader UpdateTargetsOperatingSystem
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; UpdateTargetsOperatingSystem -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; UpdateTargetsOperatingSystem -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679348007"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679348268"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; QueryString
 (UpdateTargetsOperatingSystem -&gt; QueryString)
 -&gt; ToQuery UpdateTargetsOperatingSystem
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: UpdateTargetsOperatingSystem -&gt; QueryString
 $ctoQuery :: UpdateTargetsOperatingSystem -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679348002"><span id="local-6989586621679348004"><span class="annot"><span class="annottext">Value -&gt; Parser [UpdateTargetsOperatingSystem]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679348263"><span id="local-6989586621679348265"><span class="annot"><span class="annottext">Value -&gt; Parser [UpdateTargetsOperatingSystem]
 Value -&gt; Parser UpdateTargetsOperatingSystem
 (Value -&gt; Parser UpdateTargetsOperatingSystem)
 -&gt; (Value -&gt; Parser [UpdateTargetsOperatingSystem])
@@ -245,7 +245,7 @@ $cparseJSONList :: Value -&gt; Parser [UpdateTargetsOperatingSystem]
 parseJSON :: Value -&gt; Parser UpdateTargetsOperatingSystem
 $cparseJSON :: Value -&gt; Parser UpdateTargetsOperatingSystem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679347997"><span id="local-6989586621679347999"><span class="annot"><span class="annottext">FromJSONKeyFunction [UpdateTargetsOperatingSystem]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679348258"><span id="local-6989586621679348260"><span class="annot"><span class="annottext">FromJSONKeyFunction [UpdateTargetsOperatingSystem]
 FromJSONKeyFunction UpdateTargetsOperatingSystem
 FromJSONKeyFunction UpdateTargetsOperatingSystem
 -&gt; FromJSONKeyFunction [UpdateTargetsOperatingSystem]
@@ -257,7 +257,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [UpdateTargetsOperatingSystem]
 fromJSONKey :: FromJSONKeyFunction UpdateTargetsOperatingSystem
 $cfromJSONKey :: FromJSONKeyFunction UpdateTargetsOperatingSystem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679347988"><span id="local-6989586621679347990"><span id="local-6989586621679347992"><span id="local-6989586621679347994"><span class="annot"><span class="annottext">[UpdateTargetsOperatingSystem] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679348249"><span id="local-6989586621679348251"><span id="local-6989586621679348253"><span id="local-6989586621679348255"><span class="annot"><span class="annottext">[UpdateTargetsOperatingSystem] -&gt; Encoding
 [UpdateTargetsOperatingSystem] -&gt; Value
 UpdateTargetsOperatingSystem -&gt; Encoding
 UpdateTargetsOperatingSystem -&gt; Value
@@ -281,7 +281,7 @@ $ctoEncoding :: UpdateTargetsOperatingSystem -&gt; Encoding
 toJSON :: UpdateTargetsOperatingSystem -&gt; Value
 $ctoJSON :: UpdateTargetsOperatingSystem -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679347983"><span id="local-6989586621679347985"><span class="annot"><span class="annottext">ToJSONKeyFunction [UpdateTargetsOperatingSystem]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679348244"><span id="local-6989586621679348246"><span class="annot"><span class="annottext">ToJSONKeyFunction [UpdateTargetsOperatingSystem]
 ToJSONKeyFunction UpdateTargetsOperatingSystem
 ToJSONKeyFunction UpdateTargetsOperatingSystem
 -&gt; ToJSONKeyFunction [UpdateTargetsOperatingSystem]
@@ -293,14 +293,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [UpdateTargetsOperatingSystem]
 toJSONKey :: ToJSONKeyFunction UpdateTargetsOperatingSystem
 $ctoJSONKey :: ToJSONKeyFunction UpdateTargetsOperatingSystem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679347980"><span class="annot"><span class="annottext">[Node] -&gt; Either String UpdateTargetsOperatingSystem
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679348241"><span class="annot"><span class="annottext">[Node] -&gt; Either String UpdateTargetsOperatingSystem
 ([Node] -&gt; Either String UpdateTargetsOperatingSystem)
 -&gt; FromXML UpdateTargetsOperatingSystem
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String UpdateTargetsOperatingSystem
 $cparseXML :: [Node] -&gt; Either String UpdateTargetsOperatingSystem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679347977"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679348238"><span class="annot"><span class="annottext">UpdateTargetsOperatingSystem -&gt; XML
 (UpdateTargetsOperatingSystem -&gt; XML)
 -&gt; ToXML UpdateTargetsOperatingSystem
 forall a. (a -&gt; XML) -&gt; ToXML a

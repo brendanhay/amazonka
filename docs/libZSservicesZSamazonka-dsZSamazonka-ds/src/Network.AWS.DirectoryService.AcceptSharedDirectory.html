@@ -48,13 +48,13 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newAcceptSharedDirectory' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679315930"><span id="local-6989586621679315931"></span></span><span class="hs-keyword">data</span><span> </span><span id="AcceptSharedDirectory"><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory"><span class="hs-identifier hs-var">AcceptSharedDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptSharedDirectory%27"><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory%27"><span class="hs-identifier hs-var">AcceptSharedDirectory'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679316165"><span id="local-6989586621679316166"></span></span><span class="hs-keyword">data</span><span> </span><span id="AcceptSharedDirectory"><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory"><span class="hs-identifier hs-var">AcceptSharedDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptSharedDirectory%27"><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory%27"><span class="hs-identifier hs-var">AcceptSharedDirectory'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifier of the shared directory in the directory consumer account.</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- This identifier is different for each directory owner account.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AsharedDirectoryId%3AAcceptSharedDirectory%27"><span class="annot"><span class="annottext">AcceptSharedDirectory -&gt; Text
 </span><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#%24sel%3AsharedDirectoryId%3AAcceptSharedDirectory%27"><span class="hs-identifier hs-var hs-var">sharedDirectoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315924"><span id="local-6989586621679315926"><span class="annot"><span class="annottext">AcceptSharedDirectory -&gt; AcceptSharedDirectory -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316159"><span id="local-6989586621679316161"><span class="annot"><span class="annottext">AcceptSharedDirectory -&gt; AcceptSharedDirectory -&gt; Bool
 (AcceptSharedDirectory -&gt; AcceptSharedDirectory -&gt; Bool)
 -&gt; (AcceptSharedDirectory -&gt; AcceptSharedDirectory -&gt; Bool)
 -&gt; Eq AcceptSharedDirectory
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AcceptSharedDirectory -&gt; AcceptSharedDirectory -&gt; Bool
 == :: AcceptSharedDirectory -&gt; AcceptSharedDirectory -&gt; Bool
 $c== :: AcceptSharedDirectory -&gt; AcceptSharedDirectory -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315915"><span id="local-6989586621679315917"><span id="local-6989586621679315919"><span id="local-6989586621679315921"><span class="annot"><span class="annottext">ReadPrec [AcceptSharedDirectory]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316150"><span id="local-6989586621679316152"><span id="local-6989586621679316154"><span id="local-6989586621679316156"><span class="annot"><span class="annottext">ReadPrec [AcceptSharedDirectory]
 ReadPrec AcceptSharedDirectory
 Int -&gt; ReadS AcceptSharedDirectory
 ReadS [AcceptSharedDirectory]
@@ -83,7 +83,7 @@ readList :: ReadS [AcceptSharedDirectory]
 $creadList :: ReadS [AcceptSharedDirectory]
 readsPrec :: Int -&gt; ReadS AcceptSharedDirectory
 $creadsPrec :: Int -&gt; ReadS AcceptSharedDirectory
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315908"><span id="local-6989586621679315910"><span id="local-6989586621679315912"><span class="annot"><span class="annottext">Int -&gt; AcceptSharedDirectory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316143"><span id="local-6989586621679316145"><span id="local-6989586621679316147"><span class="annot"><span class="annottext">Int -&gt; AcceptSharedDirectory -&gt; ShowS
 [AcceptSharedDirectory] -&gt; ShowS
 AcceptSharedDirectory -&gt; String
 (Int -&gt; AcceptSharedDirectory -&gt; ShowS)
@@ -124,14 +124,14 @@ $cfrom :: forall x. AcceptSharedDirectory -&gt; Rep AcceptSharedDirectory x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory"><span class="hs-identifier hs-type">AcceptSharedDirectory</span></a></span><span>
 </span><span id="line-72"></span><span id="newAcceptSharedDirectory"><span class="annot"><span class="annottext">newAcceptSharedDirectory :: Text -&gt; AcceptSharedDirectory
-</span><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#newAcceptSharedDirectory"><span class="hs-identifier hs-var hs-var">newAcceptSharedDirectory</span></a></span></span><span> </span><span id="local-6989586621679315903"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679315903"><span class="hs-identifier hs-var">pSharedDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#newAcceptSharedDirectory"><span class="hs-identifier hs-var hs-var">newAcceptSharedDirectory</span></a></span></span><span> </span><span id="local-6989586621679316138"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316138"><span class="hs-identifier hs-var">pSharedDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">AcceptSharedDirectory' :: Text -&gt; AcceptSharedDirectory
 </span><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory%27"><span class="hs-identifier hs-type">AcceptSharedDirectory'</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sharedDirectoryId:AcceptSharedDirectory' :: Text
 </span><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#%24sel%3AsharedDirectoryId%3AAcceptSharedDirectory%27"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679315903"><span class="hs-identifier hs-var">pSharedDirectoryId_</span></a></span><span>
+</span><a href="#local-6989586621679316138"><span class="hs-identifier hs-var">pSharedDirectoryId_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | Identifier of the shared directory in the directory consumer account.</span><span>
@@ -143,27 +143,27 @@ $cfrom :: forall x. AcceptSharedDirectory -&gt; Rep AcceptSharedDirectory x
 -&gt; (AcceptSharedDirectory -&gt; Text -&gt; AcceptSharedDirectory)
 -&gt; Lens AcceptSharedDirectory AcceptSharedDirectory Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory%27"><span class="hs-identifier hs-type">AcceptSharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315900"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory%27"><span class="hs-identifier hs-type">AcceptSharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316135"><span class="annot"><span class="annottext">Text
 sharedDirectoryId :: Text
 $sel:sharedDirectoryId:AcceptSharedDirectory' :: AcceptSharedDirectory -&gt; Text
-</span><a href="#local-6989586621679315900"><span class="hs-identifier hs-var hs-var">sharedDirectoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679315900"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315899"><span class="annot"><span class="annottext">s :: AcceptSharedDirectory
-</span><a href="#local-6989586621679315899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory%27"><span class="hs-identifier hs-type">AcceptSharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315898"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679315898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptSharedDirectory
-</span><a href="#local-6989586621679315899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedDirectoryId:AcceptSharedDirectory' :: Text
+</span><a href="#local-6989586621679316135"><span class="hs-identifier hs-var hs-var">sharedDirectoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316135"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316134"><span class="annot"><span class="annottext">s :: AcceptSharedDirectory
+</span><a href="#local-6989586621679316134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory%27"><span class="hs-identifier hs-type">AcceptSharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316133"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679316133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptSharedDirectory
+</span><a href="#local-6989586621679316134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedDirectoryId:AcceptSharedDirectory' :: Text
 </span><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#%24sel%3AsharedDirectoryId%3AAcceptSharedDirectory%27"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679315898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory"><span class="hs-identifier hs-type">AcceptSharedDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory"><span class="hs-identifier hs-type">AcceptSharedDirectory</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory"><span class="hs-identifier hs-type">AcceptSharedDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory"><span class="hs-identifier hs-type">AcceptSharedDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse"><span class="hs-identifier hs-type">AcceptSharedDirectoryResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679315894"><span class="annot"><span class="annottext">request :: AcceptSharedDirectory -&gt; Request AcceptSharedDirectory
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679316129"><span class="annot"><span class="annottext">request :: AcceptSharedDirectory -&gt; Request AcceptSharedDirectory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AcceptSharedDirectory -&gt; Request AcceptSharedDirectory
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679315890"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679316125"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AcceptSharedDirectory
 -&gt; ClientResponse ClientBody
@@ -189,10 +189,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315887"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315887"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679315886"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679315886"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679315885"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315885"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316122"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316122"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679316121"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679316121"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679316120"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679316120"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe SharedDirectory -&gt; Int -&gt; AcceptSharedDirectoryResponse
 </span><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse%27"><span class="hs-identifier hs-var">AcceptSharedDirectoryResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SharedDirectory -&gt; Int -&gt; AcceptSharedDirectoryResponse)
@@ -200,7 +200,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; AcceptSharedDirectoryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679315885"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SharedDirectory)
+</span><a href="#local-6989586621679316120"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SharedDirectory)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SharedDirectory&quot;</span></span><span class="hs-special">)</span><span>
@@ -212,15 +212,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315887"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316122"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315877"><span id="local-6989586621679315879"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory"><span class="hs-identifier hs-type">AcceptSharedDirectory</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316112"><span id="local-6989586621679316114"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory"><span class="hs-identifier hs-type">AcceptSharedDirectory</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315874"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory"><span class="hs-identifier hs-type">AcceptSharedDirectory</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316109"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory"><span class="hs-identifier hs-type">AcceptSharedDirectory</span></a></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory"><span class="hs-identifier hs-type">AcceptSharedDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679315870"><span class="annot"><span class="annottext">toHeaders :: AcceptSharedDirectory -&gt; ResponseHeaders
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679316105"><span class="annot"><span class="annottext">toHeaders :: AcceptSharedDirectory -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AcceptSharedDirectory -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -247,12 +247,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315860"><span id="local-6989586621679315862"><span id="local-6989586621679315864"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory"><span class="hs-identifier hs-type">AcceptSharedDirectory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679315858"><span class="annot"><span class="annottext">toJSON :: AcceptSharedDirectory -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory%27"><span class="hs-identifier hs-type">AcceptSharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315856"><span class="annot"><span class="annottext">Text
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316095"><span id="local-6989586621679316097"><span id="local-6989586621679316099"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory"><span class="hs-identifier hs-type">AcceptSharedDirectory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679316093"><span class="annot"><span class="annottext">toJSON :: AcceptSharedDirectory -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory%27"><span class="hs-identifier hs-type">AcceptSharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316091"><span class="annot"><span class="annottext">Text
 sharedDirectoryId :: Text
 $sel:sharedDirectoryId:AcceptSharedDirectory' :: AcceptSharedDirectory -&gt; Text
-</span><a href="#local-6989586621679315856"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679316091"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -265,19 +265,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SharedDirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679315856"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316091"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory"><span class="hs-identifier hs-type">AcceptSharedDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679315850"><span class="annot"><span class="annottext">toPath :: AcceptSharedDirectory -&gt; ByteString
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679316085"><span class="annot"><span class="annottext">toPath :: AcceptSharedDirectory -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AcceptSharedDirectory -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectory"><span class="hs-identifier hs-type">AcceptSharedDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679315846"><span class="annot"><span class="annottext">toQuery :: AcceptSharedDirectory -&gt; QueryString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679316081"><span class="annot"><span class="annottext">toQuery :: AcceptSharedDirectory -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AcceptSharedDirectory -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -285,7 +285,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | /See:/ 'newAcceptSharedDirectoryResponse' smart constructor.</span><span>
-</span><span id="line-131"></span><span id="local-6989586621679315843"><span id="local-6989586621679315844"></span></span><span class="hs-keyword">data</span><span> </span><span id="AcceptSharedDirectoryResponse"><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse"><span class="hs-identifier hs-var">AcceptSharedDirectoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptSharedDirectoryResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse%27"><span class="hs-identifier hs-var">AcceptSharedDirectoryResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span id="local-6989586621679316078"><span id="local-6989586621679316079"></span></span><span class="hs-keyword">data</span><span> </span><span id="AcceptSharedDirectoryResponse"><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse"><span class="hs-identifier hs-var">AcceptSharedDirectoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptSharedDirectoryResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse%27"><span class="hs-identifier hs-var">AcceptSharedDirectoryResponse'</span></a></span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The shared directory in the directory consumer account.</span><span>
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3AsharedDirectory%3AAcceptSharedDirectoryResponse%27"><span class="annot"><span class="annottext">AcceptSharedDirectoryResponse -&gt; Maybe SharedDirectory
 </span><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#%24sel%3AsharedDirectory%3AAcceptSharedDirectoryResponse%27"><span class="hs-identifier hs-var hs-var">sharedDirectory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.SharedDirectory.html#SharedDirectory"><span class="hs-identifier hs-type">SharedDirectory</span></a></span><span class="hs-special">,</span><span>
@@ -293,7 +293,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAcceptSharedDirectoryResponse%27"><span class="annot"><span class="annottext">AcceptSharedDirectoryResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#%24sel%3AhttpStatus%3AAcceptSharedDirectoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315837"><span id="local-6989586621679315839"><span class="annot"><span class="annottext">AcceptSharedDirectoryResponse
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316072"><span id="local-6989586621679316074"><span class="annot"><span class="annottext">AcceptSharedDirectoryResponse
 -&gt; AcceptSharedDirectoryResponse -&gt; Bool
 (AcceptSharedDirectoryResponse
  -&gt; AcceptSharedDirectoryResponse -&gt; Bool)
@@ -309,7 +309,7 @@ $c/= :: AcceptSharedDirectoryResponse
 -&gt; AcceptSharedDirectoryResponse -&gt; Bool
 $c== :: AcceptSharedDirectoryResponse
 -&gt; AcceptSharedDirectoryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315831"><span id="local-6989586621679315833"><span id="local-6989586621679315835"><span class="annot"><span class="annottext">Int -&gt; AcceptSharedDirectoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316066"><span id="local-6989586621679316068"><span id="local-6989586621679316070"><span class="annot"><span class="annottext">Int -&gt; AcceptSharedDirectoryResponse -&gt; ShowS
 [AcceptSharedDirectoryResponse] -&gt; ShowS
 AcceptSharedDirectoryResponse -&gt; String
 (Int -&gt; AcceptSharedDirectoryResponse -&gt; ShowS)
@@ -363,8 +363,8 @@ AcceptSharedDirectoryResponse
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse"><span class="hs-identifier hs-type">AcceptSharedDirectoryResponse</span></a></span><span>
 </span><span id="line-154"></span><span id="newAcceptSharedDirectoryResponse"><span class="annot"><span class="annottext">newAcceptSharedDirectoryResponse :: Int -&gt; AcceptSharedDirectoryResponse
-</span><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#newAcceptSharedDirectoryResponse"><span class="hs-identifier hs-var hs-var">newAcceptSharedDirectoryResponse</span></a></span></span><span> </span><span id="local-6989586621679315828"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315828"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#newAcceptSharedDirectoryResponse"><span class="hs-identifier hs-var hs-var">newAcceptSharedDirectoryResponse</span></a></span></span><span> </span><span id="local-6989586621679316063"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316063"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">AcceptSharedDirectoryResponse' :: Maybe SharedDirectory -&gt; Int -&gt; AcceptSharedDirectoryResponse
 </span><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse%27"><span class="hs-identifier hs-type">AcceptSharedDirectoryResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sharedDirectory:AcceptSharedDirectoryResponse' :: Maybe SharedDirectory
@@ -374,7 +374,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AcceptSharedDirectoryResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#%24sel%3AhttpStatus%3AAcceptSharedDirectoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315828"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679316063"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The shared directory in the directory consumer account.</span><span>
@@ -390,16 +390,16 @@ forall a. Maybe a
      (Maybe SharedDirectory)
      (Maybe SharedDirectory)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse%27"><span class="hs-identifier hs-type">AcceptSharedDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315827"><span class="annot"><span class="annottext">Maybe SharedDirectory
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse%27"><span class="hs-identifier hs-type">AcceptSharedDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316062"><span class="annot"><span class="annottext">Maybe SharedDirectory
 sharedDirectory :: Maybe SharedDirectory
 $sel:sharedDirectory:AcceptSharedDirectoryResponse' :: AcceptSharedDirectoryResponse -&gt; Maybe SharedDirectory
-</span><a href="#local-6989586621679315827"><span class="hs-identifier hs-var hs-var">sharedDirectory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SharedDirectory
-</span><a href="#local-6989586621679315827"><span class="hs-identifier hs-var">sharedDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315826"><span class="annot"><span class="annottext">s :: AcceptSharedDirectoryResponse
-</span><a href="#local-6989586621679315826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse%27"><span class="hs-identifier hs-type">AcceptSharedDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315825"><span class="annot"><span class="annottext">Maybe SharedDirectory
-</span><a href="#local-6989586621679315825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptSharedDirectoryResponse
-</span><a href="#local-6989586621679315826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedDirectory:AcceptSharedDirectoryResponse' :: Maybe SharedDirectory
+</span><a href="#local-6989586621679316062"><span class="hs-identifier hs-var hs-var">sharedDirectory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SharedDirectory
+</span><a href="#local-6989586621679316062"><span class="hs-identifier hs-var">sharedDirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316061"><span class="annot"><span class="annottext">s :: AcceptSharedDirectoryResponse
+</span><a href="#local-6989586621679316061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse%27"><span class="hs-identifier hs-type">AcceptSharedDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316060"><span class="annot"><span class="annottext">Maybe SharedDirectory
+</span><a href="#local-6989586621679316060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptSharedDirectoryResponse
+</span><a href="#local-6989586621679316061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedDirectory:AcceptSharedDirectoryResponse' :: Maybe SharedDirectory
 </span><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#%24sel%3AsharedDirectory%3AAcceptSharedDirectoryResponse%27"><span class="hs-identifier hs-var">sharedDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SharedDirectory
-</span><a href="#local-6989586621679315825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse"><span class="hs-identifier hs-type">AcceptSharedDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse"><span class="hs-identifier hs-type">AcceptSharedDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-166"></span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#acceptSharedDirectoryResponse_httpStatus"><span class="hs-identifier hs-type">acceptSharedDirectoryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse"><span class="hs-identifier hs-type">AcceptSharedDirectoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -411,16 +411,16 @@ $sel:sharedDirectory:AcceptSharedDirectoryResponse' :: AcceptSharedDirectoryResp
 -&gt; Lens
      AcceptSharedDirectoryResponse AcceptSharedDirectoryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse%27"><span class="hs-identifier hs-type">AcceptSharedDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315824"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse%27"><span class="hs-identifier hs-type">AcceptSharedDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316059"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AcceptSharedDirectoryResponse' :: AcceptSharedDirectoryResponse -&gt; Int
-</span><a href="#local-6989586621679315824"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315824"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315823"><span class="annot"><span class="annottext">s :: AcceptSharedDirectoryResponse
-</span><a href="#local-6989586621679315823"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse%27"><span class="hs-identifier hs-type">AcceptSharedDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315822"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315822"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptSharedDirectoryResponse
-</span><a href="#local-6989586621679315823"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AcceptSharedDirectoryResponse' :: Int
+</span><a href="#local-6989586621679316059"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316059"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316058"><span class="annot"><span class="annottext">s :: AcceptSharedDirectoryResponse
+</span><a href="#local-6989586621679316058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse%27"><span class="hs-identifier hs-type">AcceptSharedDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316057"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679316057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AcceptSharedDirectoryResponse
+</span><a href="#local-6989586621679316058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AcceptSharedDirectoryResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#%24sel%3AhttpStatus%3AAcceptSharedDirectoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315822"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse"><span class="hs-identifier hs-type">AcceptSharedDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679316057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse"><span class="hs-identifier hs-type">AcceptSharedDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315820"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse"><span class="hs-identifier hs-type">AcceptSharedDirectoryResponse</span></a></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316055"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AcceptSharedDirectory.html#AcceptSharedDirectoryResponse"><span class="hs-identifier hs-type">AcceptSharedDirectoryResponse</span></a></span></span><span>
 </span><span id="line-170"></span></pre></body></html>

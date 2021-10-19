@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679372108"><span id="local-6989586621679372109"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SkillType"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.SkillType.html#SkillType"><span class="hs-identifier hs-var">SkillType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SkillType%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.SkillType.html#SkillType%27"><span class="hs-identifier hs-var">SkillType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679372433"><span id="local-6989586621679372434"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SkillType"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.SkillType.html#SkillType"><span class="hs-identifier hs-var">SkillType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SkillType%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.SkillType.html#SkillType%27"><span class="hs-identifier hs-var">SkillType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSkillType"><span class="annot"><span class="annottext">SkillType -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.Types.SkillType.html#fromSkillType"><span class="hs-identifier hs-var hs-var">fromSkillType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372100"><span id="local-6989586621679372102"><span id="local-6989586621679372104"><span class="annot"><span class="annottext">Int -&gt; SkillType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372425"><span id="local-6989586621679372427"><span id="local-6989586621679372429"><span class="annot"><span class="annottext">Int -&gt; SkillType -&gt; ShowS
 [SkillType] -&gt; ShowS
 SkillType -&gt; String
 (Int -&gt; SkillType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: SkillType -&gt; String
 showsPrec :: Int -&gt; SkillType -&gt; ShowS
 $cshowsPrec :: Int -&gt; SkillType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679372091"><span id="local-6989586621679372093"><span id="local-6989586621679372095"><span id="local-6989586621679372097"><span class="annot"><span class="annottext">ReadPrec [SkillType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679372416"><span id="local-6989586621679372418"><span id="local-6989586621679372420"><span id="local-6989586621679372422"><span class="annot"><span class="annottext">ReadPrec [SkillType]
 ReadPrec SkillType
 Int -&gt; ReadS SkillType
 ReadS [SkillType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [SkillType]
 readsPrec :: Int -&gt; ReadS SkillType
 $creadsPrec :: Int -&gt; ReadS SkillType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679372086"><span id="local-6989586621679372088"><span class="annot"><span class="annottext">SkillType -&gt; SkillType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679372411"><span id="local-6989586621679372413"><span class="annot"><span class="annottext">SkillType -&gt; SkillType -&gt; Bool
 (SkillType -&gt; SkillType -&gt; Bool)
 -&gt; (SkillType -&gt; SkillType -&gt; Bool) -&gt; Eq SkillType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: SkillType -&gt; SkillType -&gt; Bool
 == :: SkillType -&gt; SkillType -&gt; Bool
 $c== :: SkillType -&gt; SkillType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679372070"><span id="local-6989586621679372072"><span id="local-6989586621679372074"><span id="local-6989586621679372076"><span id="local-6989586621679372078"><span id="local-6989586621679372080"><span id="local-6989586621679372082"><span class="annot"><span class="annottext">Eq SkillType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679372395"><span id="local-6989586621679372397"><span id="local-6989586621679372399"><span id="local-6989586621679372401"><span id="local-6989586621679372403"><span id="local-6989586621679372405"><span id="local-6989586621679372407"><span class="annot"><span class="annottext">Eq SkillType
 Eq SkillType
 -&gt; (SkillType -&gt; SkillType -&gt; Ordering)
 -&gt; (SkillType -&gt; SkillType -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. SkillType -&gt; Rep SkillType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372062"><span id="local-6989586621679372064"><span class="annot"><span class="annottext">Int -&gt; SkillType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372387"><span id="local-6989586621679372389"><span class="annot"><span class="annottext">Int -&gt; SkillType -&gt; Int
 SkillType -&gt; Int
 (Int -&gt; SkillType -&gt; Int)
 -&gt; (SkillType -&gt; Int) -&gt; Hashable SkillType
@@ -141,49 +141,49 @@ $chash :: SkillType -&gt; Int
 hashWithSalt :: Int -&gt; SkillType -&gt; Int
 $chashWithSalt :: Int -&gt; SkillType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679372059"><span class="annot"><span class="annottext">SkillType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679372384"><span class="annot"><span class="annottext">SkillType -&gt; ()
 (SkillType -&gt; ()) -&gt; NFData SkillType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SkillType -&gt; ()
 $crnf :: SkillType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679372056"><span class="annot"><span class="annottext">Text -&gt; Either String SkillType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679372381"><span class="annot"><span class="annottext">Text -&gt; Either String SkillType
 (Text -&gt; Either String SkillType) -&gt; FromText SkillType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SkillType
 $cfromText :: Text -&gt; Either String SkillType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679372053"><span class="annot"><span class="annottext">SkillType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679372378"><span class="annot"><span class="annottext">SkillType -&gt; Text
 (SkillType -&gt; Text) -&gt; ToText SkillType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SkillType -&gt; Text
 $ctoText :: SkillType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679372050"><span class="annot"><span class="annottext">SkillType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679372375"><span class="annot"><span class="annottext">SkillType -&gt; ByteString
 (SkillType -&gt; ByteString) -&gt; ToByteString SkillType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SkillType -&gt; ByteString
 $ctoBS :: SkillType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679372047"><span class="annot"><span class="annottext">SkillType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679372372"><span class="annot"><span class="annottext">SkillType -&gt; ByteStringBuilder
 (SkillType -&gt; ByteStringBuilder) -&gt; ToLog SkillType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SkillType -&gt; ByteStringBuilder
 $cbuild :: SkillType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679372044"><span class="annot"><span class="annottext">HeaderName -&gt; SkillType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679372369"><span class="annot"><span class="annottext">HeaderName -&gt; SkillType -&gt; [Header]
 (HeaderName -&gt; SkillType -&gt; [Header]) -&gt; ToHeader SkillType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SkillType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SkillType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679372041"><span class="annot"><span class="annottext">SkillType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679372366"><span class="annot"><span class="annottext">SkillType -&gt; QueryString
 (SkillType -&gt; QueryString) -&gt; ToQuery SkillType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SkillType -&gt; QueryString
 $ctoQuery :: SkillType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679372036"><span id="local-6989586621679372038"><span class="annot"><span class="annottext">Value -&gt; Parser [SkillType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679372361"><span id="local-6989586621679372363"><span class="annot"><span class="annottext">Value -&gt; Parser [SkillType]
 Value -&gt; Parser SkillType
 (Value -&gt; Parser SkillType)
 -&gt; (Value -&gt; Parser [SkillType]) -&gt; FromJSON SkillType
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [SkillType]
 parseJSON :: Value -&gt; Parser SkillType
 $cparseJSON :: Value -&gt; Parser SkillType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679372031"><span id="local-6989586621679372033"><span class="annot"><span class="annottext">FromJSONKeyFunction [SkillType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679372356"><span id="local-6989586621679372358"><span class="annot"><span class="annottext">FromJSONKeyFunction [SkillType]
 FromJSONKeyFunction SkillType
 FromJSONKeyFunction SkillType
 -&gt; FromJSONKeyFunction [SkillType] -&gt; FromJSONKey SkillType
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SkillType]
 fromJSONKey :: FromJSONKeyFunction SkillType
 $cfromJSONKey :: FromJSONKeyFunction SkillType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679372022"><span id="local-6989586621679372024"><span id="local-6989586621679372026"><span id="local-6989586621679372028"><span class="annot"><span class="annottext">[SkillType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679372347"><span id="local-6989586621679372349"><span id="local-6989586621679372351"><span id="local-6989586621679372353"><span class="annot"><span class="annottext">[SkillType] -&gt; Encoding
 [SkillType] -&gt; Value
 SkillType -&gt; Encoding
 SkillType -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: SkillType -&gt; Encoding
 toJSON :: SkillType -&gt; Value
 $ctoJSON :: SkillType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679372017"><span id="local-6989586621679372019"><span class="annot"><span class="annottext">ToJSONKeyFunction [SkillType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679372342"><span id="local-6989586621679372344"><span class="annot"><span class="annottext">ToJSONKeyFunction [SkillType]
 ToJSONKeyFunction SkillType
 ToJSONKeyFunction SkillType
 -&gt; ToJSONKeyFunction [SkillType] -&gt; ToJSONKey SkillType
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SkillType]
 toJSONKey :: ToJSONKeyFunction SkillType
 $ctoJSONKey :: ToJSONKeyFunction SkillType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679372014"><span class="annot"><span class="annottext">[Node] -&gt; Either String SkillType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679372339"><span class="annot"><span class="annottext">[Node] -&gt; Either String SkillType
 ([Node] -&gt; Either String SkillType) -&gt; FromXML SkillType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SkillType
 $cparseXML :: [Node] -&gt; Either String SkillType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679372011"><span class="annot"><span class="annottext">SkillType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679372336"><span class="annot"><span class="annottext">SkillType -&gt; XML
 (SkillType -&gt; XML) -&gt; ToXML SkillType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SkillType -&gt; XML

@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newCancelCommand' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679853548"><span id="local-6989586621679853549"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelCommand"><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-var">CancelCommand</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelCommand%27"><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand%27"><span class="hs-identifier hs-var">CancelCommand'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679855382"><span id="local-6989586621679855383"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelCommand"><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-var">CancelCommand</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelCommand%27"><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand%27"><span class="hs-identifier hs-var">CancelCommand'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | (Optional) A list of instance IDs on which you want to cancel the</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- command. If not provided, the command is canceled on every instance on</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- which it was requested.</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AcommandId%3ACancelCommand%27"><span class="annot"><span class="annottext">CancelCommand -&gt; Text
 </span><a href="Network.AWS.SSM.CancelCommand.html#%24sel%3AcommandId%3ACancelCommand%27"><span class="hs-identifier hs-var hs-var">commandId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679853541"><span id="local-6989586621679853543"><span class="annot"><span class="annottext">CancelCommand -&gt; CancelCommand -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679855375"><span id="local-6989586621679855377"><span class="annot"><span class="annottext">CancelCommand -&gt; CancelCommand -&gt; Bool
 (CancelCommand -&gt; CancelCommand -&gt; Bool)
 -&gt; (CancelCommand -&gt; CancelCommand -&gt; Bool) -&gt; Eq CancelCommand
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CancelCommand -&gt; CancelCommand -&gt; Bool
 == :: CancelCommand -&gt; CancelCommand -&gt; Bool
 $c== :: CancelCommand -&gt; CancelCommand -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679853532"><span id="local-6989586621679853534"><span id="local-6989586621679853536"><span id="local-6989586621679853538"><span class="annot"><span class="annottext">ReadPrec [CancelCommand]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855366"><span id="local-6989586621679855368"><span id="local-6989586621679855370"><span id="local-6989586621679855372"><span class="annot"><span class="annottext">ReadPrec [CancelCommand]
 ReadPrec CancelCommand
 Int -&gt; ReadS CancelCommand
 ReadS [CancelCommand]
@@ -89,7 +89,7 @@ readList :: ReadS [CancelCommand]
 $creadList :: ReadS [CancelCommand]
 readsPrec :: Int -&gt; ReadS CancelCommand
 $creadsPrec :: Int -&gt; ReadS CancelCommand
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679853525"><span id="local-6989586621679853527"><span id="local-6989586621679853529"><span class="annot"><span class="annottext">Int -&gt; CancelCommand -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855359"><span id="local-6989586621679855361"><span id="local-6989586621679855363"><span class="annot"><span class="annottext">Int -&gt; CancelCommand -&gt; ShowS
 [CancelCommand] -&gt; ShowS
 CancelCommand -&gt; String
 (Int -&gt; CancelCommand -&gt; ShowS)
@@ -133,8 +133,8 @@ $cfrom :: forall x. CancelCommand -&gt; Rep CancelCommand x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-type">CancelCommand</span></a></span><span>
 </span><span id="line-81"></span><span id="newCancelCommand"><span class="annot"><span class="annottext">newCancelCommand :: Text -&gt; CancelCommand
-</span><a href="Network.AWS.SSM.CancelCommand.html#newCancelCommand"><span class="hs-identifier hs-var hs-var">newCancelCommand</span></a></span></span><span> </span><span id="local-6989586621679853520"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679853520"><span class="hs-identifier hs-var">pCommandId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.CancelCommand.html#newCancelCommand"><span class="hs-identifier hs-var hs-var">newCancelCommand</span></a></span></span><span> </span><span id="local-6989586621679855354"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679855354"><span class="hs-identifier hs-var">pCommandId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">CancelCommand' :: Maybe [Text] -&gt; Text -&gt; CancelCommand
 </span><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand%27"><span class="hs-identifier hs-type">CancelCommand'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceIds:CancelCommand' :: Maybe [Text]
@@ -143,7 +143,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:commandId:CancelCommand' :: Text
 </span><a href="Network.AWS.SSM.CancelCommand.html#%24sel%3AcommandId%3ACancelCommand%27"><span class="hs-identifier hs-var">commandId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679853520"><span class="hs-identifier hs-var">pCommandId_</span></a></span><span>
+</span><a href="#local-6989586621679855354"><span class="hs-identifier hs-var">pCommandId_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | (Optional) A list of instance IDs on which you want to cancel the</span><span>
@@ -156,16 +156,16 @@ forall a. Maybe a
 -&gt; (CancelCommand -&gt; Maybe [Text] -&gt; CancelCommand)
 -&gt; Lens CancelCommand CancelCommand (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand%27"><span class="hs-identifier hs-type">CancelCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679853517"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand%27"><span class="hs-identifier hs-type">CancelCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855351"><span class="annot"><span class="annottext">Maybe [Text]
 instanceIds :: Maybe [Text]
 $sel:instanceIds:CancelCommand' :: CancelCommand -&gt; Maybe [Text]
-</span><a href="#local-6989586621679853517"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679853517"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679853516"><span class="annot"><span class="annottext">s :: CancelCommand
-</span><a href="#local-6989586621679853516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand%27"><span class="hs-identifier hs-type">CancelCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679853515"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679853515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelCommand
-</span><a href="#local-6989586621679853516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIds:CancelCommand' :: Maybe [Text]
+</span><a href="#local-6989586621679855351"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679855351"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679855350"><span class="annot"><span class="annottext">s :: CancelCommand
+</span><a href="#local-6989586621679855350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand%27"><span class="hs-identifier hs-type">CancelCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679855349"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679855349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelCommand
+</span><a href="#local-6989586621679855350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIds:CancelCommand' :: Maybe [Text]
 </span><a href="Network.AWS.SSM.CancelCommand.html#%24sel%3AinstanceIds%3ACancelCommand%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679853515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-type">CancelCommand</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679855349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-type">CancelCommand</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; CancelCommand -&gt; f CancelCommand)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -179,8 +179,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The ID of the command you want to cancel.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#cancelCommand_commandId"><span class="hs-identifier hs-type">cancelCommand_commandId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-type">CancelCommand</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -189,27 +189,27 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CancelCommand -&gt; Text -&gt; CancelCommand)
 -&gt; Lens CancelCommand CancelCommand Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand%27"><span class="hs-identifier hs-type">CancelCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679853511"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand%27"><span class="hs-identifier hs-type">CancelCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855345"><span class="annot"><span class="annottext">Text
 commandId :: Text
 $sel:commandId:CancelCommand' :: CancelCommand -&gt; Text
-</span><a href="#local-6989586621679853511"><span class="hs-identifier hs-var hs-var">commandId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679853511"><span class="hs-identifier hs-var">commandId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679853510"><span class="annot"><span class="annottext">s :: CancelCommand
-</span><a href="#local-6989586621679853510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand%27"><span class="hs-identifier hs-type">CancelCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679853509"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679853509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelCommand
-</span><a href="#local-6989586621679853510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commandId:CancelCommand' :: Text
+</span><a href="#local-6989586621679855345"><span class="hs-identifier hs-var hs-var">commandId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679855345"><span class="hs-identifier hs-var">commandId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679855344"><span class="annot"><span class="annottext">s :: CancelCommand
+</span><a href="#local-6989586621679855344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand%27"><span class="hs-identifier hs-type">CancelCommand'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679855343"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679855343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelCommand
+</span><a href="#local-6989586621679855344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commandId:CancelCommand' :: Text
 </span><a href="Network.AWS.SSM.CancelCommand.html#%24sel%3AcommandId%3ACancelCommand%27"><span class="hs-identifier hs-var">commandId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679853509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-type">CancelCommand</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679855343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-type">CancelCommand</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-type">CancelCommand</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-type">CancelCommand</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommandResponse"><span class="hs-identifier hs-type">CancelCommandResponse</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679853505"><span class="annot"><span class="annottext">request :: CancelCommand -&gt; Request CancelCommand
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679855339"><span class="annot"><span class="annottext">request :: CancelCommand -&gt; Request CancelCommand
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CancelCommand -&gt; Request CancelCommand
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679853501"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679855335"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CancelCommand
 -&gt; ClientResponse ClientBody
@@ -233,10 +233,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679853498"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679853498"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679853497"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679853497"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679853496"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679853496"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679855332"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679855332"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679855331"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679855331"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679855330"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679855330"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CancelCommandResponse
 </span><a href="Network.AWS.SSM.CancelCommand.html#CancelCommandResponse%27"><span class="hs-identifier hs-var">CancelCommandResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CancelCommandResponse)
@@ -247,15 +247,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679853498"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679855332"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679853489"><span id="local-6989586621679853491"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-type">CancelCommand</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855323"><span id="local-6989586621679855325"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-type">CancelCommand</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679853486"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-type">CancelCommand</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855320"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-type">CancelCommand</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-type">CancelCommand</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679853482"><span class="annot"><span class="annottext">toHeaders :: CancelCommand -&gt; ResponseHeaders
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679855316"><span class="annot"><span class="annottext">toHeaders :: CancelCommand -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CancelCommand -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -280,15 +280,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679853472"><span id="local-6989586621679853474"><span id="local-6989586621679853476"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-type">CancelCommand</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679853470"><span class="annot"><span class="annottext">toJSON :: CancelCommand -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand%27"><span class="hs-identifier hs-type">CancelCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679853467"><span id="local-6989586621679853468"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855306"><span id="local-6989586621679855308"><span id="local-6989586621679855310"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-type">CancelCommand</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679855304"><span class="annot"><span class="annottext">toJSON :: CancelCommand -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand%27"><span class="hs-identifier hs-type">CancelCommand'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855301"><span id="local-6989586621679855302"><span class="annot"><span class="annottext">Maybe [Text]
 Text
 commandId :: Text
 instanceIds :: Maybe [Text]
 $sel:commandId:CancelCommand' :: CancelCommand -&gt; Text
 $sel:instanceIds:CancelCommand' :: CancelCommand -&gt; Maybe [Text]
-</span><a href="#local-6989586621679853467"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679855301"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -300,26 +300,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679853468"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679855302"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CommandId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679853467"><span class="hs-identifier hs-var">commandId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679855301"><span class="hs-identifier hs-var">commandId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-type">CancelCommand</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679853461"><span class="annot"><span class="annottext">toPath :: CancelCommand -&gt; ByteString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679855295"><span class="annot"><span class="annottext">toPath :: CancelCommand -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CancelCommand -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommand"><span class="hs-identifier hs-type">CancelCommand</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679853457"><span class="annot"><span class="annottext">toQuery :: CancelCommand -&gt; QueryString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679855291"><span class="annot"><span class="annottext">toQuery :: CancelCommand -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CancelCommand -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -330,12 +330,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-142"></span><span class="hs-comment">-- guarantee that a request can be canceled.</span><span>
 </span><span id="line-143"></span><span class="hs-comment">--</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- /See:/ 'newCancelCommandResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679853454"><span id="local-6989586621679853455"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelCommandResponse"><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommandResponse"><span class="hs-identifier hs-var">CancelCommandResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelCommandResponse%27"><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommandResponse%27"><span class="hs-identifier hs-var">CancelCommandResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span id="local-6989586621679855288"><span id="local-6989586621679855289"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelCommandResponse"><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommandResponse"><span class="hs-identifier hs-var">CancelCommandResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelCommandResponse%27"><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommandResponse%27"><span class="hs-identifier hs-var">CancelCommandResponse'</span></a></span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACancelCommandResponse%27"><span class="annot"><span class="annottext">CancelCommandResponse -&gt; Int
 </span><a href="Network.AWS.SSM.CancelCommand.html#%24sel%3AhttpStatus%3ACancelCommandResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679853449"><span id="local-6989586621679853451"><span class="annot"><span class="annottext">CancelCommandResponse -&gt; CancelCommandResponse -&gt; Bool
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679855283"><span id="local-6989586621679855285"><span class="annot"><span class="annottext">CancelCommandResponse -&gt; CancelCommandResponse -&gt; Bool
 (CancelCommandResponse -&gt; CancelCommandResponse -&gt; Bool)
 -&gt; (CancelCommandResponse -&gt; CancelCommandResponse -&gt; Bool)
 -&gt; Eq CancelCommandResponse
@@ -344,7 +344,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CancelCommandResponse -&gt; CancelCommandResponse -&gt; Bool
 == :: CancelCommandResponse -&gt; CancelCommandResponse -&gt; Bool
 $c== :: CancelCommandResponse -&gt; CancelCommandResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679853441"><span id="local-6989586621679853443"><span id="local-6989586621679853445"><span id="local-6989586621679853447"><span class="annot"><span class="annottext">ReadPrec [CancelCommandResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855275"><span id="local-6989586621679855277"><span id="local-6989586621679855279"><span id="local-6989586621679855281"><span class="annot"><span class="annottext">ReadPrec [CancelCommandResponse]
 ReadPrec CancelCommandResponse
 Int -&gt; ReadS CancelCommandResponse
 ReadS [CancelCommandResponse]
@@ -364,7 +364,7 @@ readList :: ReadS [CancelCommandResponse]
 $creadList :: ReadS [CancelCommandResponse]
 readsPrec :: Int -&gt; ReadS CancelCommandResponse
 $creadsPrec :: Int -&gt; ReadS CancelCommandResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679853435"><span id="local-6989586621679853437"><span id="local-6989586621679853439"><span class="annot"><span class="annottext">Int -&gt; CancelCommandResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855269"><span id="local-6989586621679855271"><span id="local-6989586621679855273"><span class="annot"><span class="annottext">Int -&gt; CancelCommandResponse -&gt; ShowS
 [CancelCommandResponse] -&gt; ShowS
 CancelCommandResponse -&gt; String
 (Int -&gt; CancelCommandResponse -&gt; ShowS)
@@ -404,12 +404,12 @@ $cfrom :: forall x. CancelCommandResponse -&gt; Rep CancelCommandResponse x
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommandResponse"><span class="hs-identifier hs-type">CancelCommandResponse</span></a></span><span>
 </span><span id="line-164"></span><span id="newCancelCommandResponse"><span class="annot"><span class="annottext">newCancelCommandResponse :: Int -&gt; CancelCommandResponse
-</span><a href="Network.AWS.SSM.CancelCommand.html#newCancelCommandResponse"><span class="hs-identifier hs-var hs-var">newCancelCommandResponse</span></a></span></span><span> </span><span id="local-6989586621679853432"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679853432"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.CancelCommand.html#newCancelCommandResponse"><span class="hs-identifier hs-var hs-var">newCancelCommandResponse</span></a></span></span><span> </span><span id="local-6989586621679855266"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679855266"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">CancelCommandResponse' :: Int -&gt; CancelCommandResponse
 </span><a href="Network.AWS.SSM.CancelCommand.html#CancelCommandResponse%27"><span class="hs-identifier hs-type">CancelCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelCommandResponse' :: Int
 </span><a href="Network.AWS.SSM.CancelCommand.html#%24sel%3AhttpStatus%3ACancelCommandResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679853432"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679855266"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-168"></span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#cancelCommandResponse_httpStatus"><span class="hs-identifier hs-type">cancelCommandResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommandResponse"><span class="hs-identifier hs-type">CancelCommandResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -418,16 +418,16 @@ $cfrom :: forall x. CancelCommandResponse -&gt; Rep CancelCommandResponse x
 -&gt; (CancelCommandResponse -&gt; Int -&gt; CancelCommandResponse)
 -&gt; Lens CancelCommandResponse CancelCommandResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommandResponse%27"><span class="hs-identifier hs-type">CancelCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679853431"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommandResponse%27"><span class="hs-identifier hs-type">CancelCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855265"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CancelCommandResponse' :: CancelCommandResponse -&gt; Int
-</span><a href="#local-6989586621679853431"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679853431"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679853430"><span class="annot"><span class="annottext">s :: CancelCommandResponse
-</span><a href="#local-6989586621679853430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommandResponse%27"><span class="hs-identifier hs-type">CancelCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679853429"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679853429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelCommandResponse
-</span><a href="#local-6989586621679853430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelCommandResponse' :: Int
+</span><a href="#local-6989586621679855265"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679855265"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679855264"><span class="annot"><span class="annottext">s :: CancelCommandResponse
+</span><a href="#local-6989586621679855264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommandResponse%27"><span class="hs-identifier hs-type">CancelCommandResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679855263"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679855263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelCommandResponse
+</span><a href="#local-6989586621679855264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelCommandResponse' :: Int
 </span><a href="Network.AWS.SSM.CancelCommand.html#%24sel%3AhttpStatus%3ACancelCommandResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679853429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommandResponse"><span class="hs-identifier hs-type">CancelCommandResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679855263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommandResponse"><span class="hs-identifier hs-type">CancelCommandResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679853427"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommandResponse"><span class="hs-identifier hs-type">CancelCommandResponse</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.CancelCommand.html#CancelCommandResponse"><span class="hs-identifier hs-type">CancelCommandResponse</span></a></span></span><span>
 </span><span id="line-172"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679257312"><span id="local-6989586621679257313"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ArrayJobDependency"><span class="annot"><a href="Network.AWS.Batch.Types.ArrayJobDependency.html#ArrayJobDependency"><span class="hs-identifier hs-var">ArrayJobDependency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArrayJobDependency%27"><span class="annot"><a href="Network.AWS.Batch.Types.ArrayJobDependency.html#ArrayJobDependency%27"><span class="hs-identifier hs-var">ArrayJobDependency'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679257590"><span id="local-6989586621679257591"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ArrayJobDependency"><span class="annot"><a href="Network.AWS.Batch.Types.ArrayJobDependency.html#ArrayJobDependency"><span class="hs-identifier hs-var">ArrayJobDependency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArrayJobDependency%27"><span class="annot"><a href="Network.AWS.Batch.Types.ArrayJobDependency.html#ArrayJobDependency%27"><span class="hs-identifier hs-var">ArrayJobDependency'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromArrayJobDependency"><span class="annot"><span class="annottext">ArrayJobDependency -&gt; Text
 </span><a href="Network.AWS.Batch.Types.ArrayJobDependency.html#fromArrayJobDependency"><span class="hs-identifier hs-var hs-var">fromArrayJobDependency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679257304"><span id="local-6989586621679257306"><span id="local-6989586621679257308"><span class="annot"><span class="annottext">Int -&gt; ArrayJobDependency -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679257582"><span id="local-6989586621679257584"><span id="local-6989586621679257586"><span class="annot"><span class="annottext">Int -&gt; ArrayJobDependency -&gt; ShowS
 [ArrayJobDependency] -&gt; ShowS
 ArrayJobDependency -&gt; String
 (Int -&gt; ArrayJobDependency -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ArrayJobDependency -&gt; String
 showsPrec :: Int -&gt; ArrayJobDependency -&gt; ShowS
 $cshowsPrec :: Int -&gt; ArrayJobDependency -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679257295"><span id="local-6989586621679257297"><span id="local-6989586621679257299"><span id="local-6989586621679257301"><span class="annot"><span class="annottext">ReadPrec [ArrayJobDependency]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679257573"><span id="local-6989586621679257575"><span id="local-6989586621679257577"><span id="local-6989586621679257579"><span class="annot"><span class="annottext">ReadPrec [ArrayJobDependency]
 ReadPrec ArrayJobDependency
 Int -&gt; ReadS ArrayJobDependency
 ReadS [ArrayJobDependency]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ArrayJobDependency]
 readsPrec :: Int -&gt; ReadS ArrayJobDependency
 $creadsPrec :: Int -&gt; ReadS ArrayJobDependency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679257290"><span id="local-6989586621679257292"><span class="annot"><span class="annottext">ArrayJobDependency -&gt; ArrayJobDependency -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679257568"><span id="local-6989586621679257570"><span class="annot"><span class="annottext">ArrayJobDependency -&gt; ArrayJobDependency -&gt; Bool
 (ArrayJobDependency -&gt; ArrayJobDependency -&gt; Bool)
 -&gt; (ArrayJobDependency -&gt; ArrayJobDependency -&gt; Bool)
 -&gt; Eq ArrayJobDependency
@@ -82,7 +82,7 @@ $c/= :: ArrayJobDependency -&gt; ArrayJobDependency -&gt; Bool
 == :: ArrayJobDependency -&gt; ArrayJobDependency -&gt; Bool
 $c== :: ArrayJobDependency -&gt; ArrayJobDependency -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679257274"><span id="local-6989586621679257276"><span id="local-6989586621679257278"><span id="local-6989586621679257280"><span id="local-6989586621679257282"><span id="local-6989586621679257284"><span id="local-6989586621679257286"><span class="annot"><span class="annottext">Eq ArrayJobDependency
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679257552"><span id="local-6989586621679257554"><span id="local-6989586621679257556"><span id="local-6989586621679257558"><span id="local-6989586621679257560"><span id="local-6989586621679257562"><span id="local-6989586621679257564"><span class="annot"><span class="annottext">Eq ArrayJobDependency
 Eq ArrayJobDependency
 -&gt; (ArrayJobDependency -&gt; ArrayJobDependency -&gt; Ordering)
 -&gt; (ArrayJobDependency -&gt; ArrayJobDependency -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ArrayJobDependency -&gt; Rep ArrayJobDependency x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679257266"><span id="local-6989586621679257268"><span class="annot"><span class="annottext">Int -&gt; ArrayJobDependency -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679257544"><span id="local-6989586621679257546"><span class="annot"><span class="annottext">Int -&gt; ArrayJobDependency -&gt; Int
 ArrayJobDependency -&gt; Int
 (Int -&gt; ArrayJobDependency -&gt; Int)
 -&gt; (ArrayJobDependency -&gt; Int) -&gt; Hashable ArrayJobDependency
@@ -143,53 +143,53 @@ $chash :: ArrayJobDependency -&gt; Int
 hashWithSalt :: Int -&gt; ArrayJobDependency -&gt; Int
 $chashWithSalt :: Int -&gt; ArrayJobDependency -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679257263"><span class="annot"><span class="annottext">ArrayJobDependency -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679257541"><span class="annot"><span class="annottext">ArrayJobDependency -&gt; ()
 (ArrayJobDependency -&gt; ()) -&gt; NFData ArrayJobDependency
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ArrayJobDependency -&gt; ()
 $crnf :: ArrayJobDependency -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679257260"><span class="annot"><span class="annottext">Text -&gt; Either String ArrayJobDependency
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679257538"><span class="annot"><span class="annottext">Text -&gt; Either String ArrayJobDependency
 (Text -&gt; Either String ArrayJobDependency)
 -&gt; FromText ArrayJobDependency
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ArrayJobDependency
 $cfromText :: Text -&gt; Either String ArrayJobDependency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679257257"><span class="annot"><span class="annottext">ArrayJobDependency -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679257535"><span class="annot"><span class="annottext">ArrayJobDependency -&gt; Text
 (ArrayJobDependency -&gt; Text) -&gt; ToText ArrayJobDependency
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ArrayJobDependency -&gt; Text
 $ctoText :: ArrayJobDependency -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679257254"><span class="annot"><span class="annottext">ArrayJobDependency -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679257532"><span class="annot"><span class="annottext">ArrayJobDependency -&gt; ByteString
 (ArrayJobDependency -&gt; ByteString)
 -&gt; ToByteString ArrayJobDependency
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ArrayJobDependency -&gt; ByteString
 $ctoBS :: ArrayJobDependency -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679257251"><span class="annot"><span class="annottext">ArrayJobDependency -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679257529"><span class="annot"><span class="annottext">ArrayJobDependency -&gt; ByteStringBuilder
 (ArrayJobDependency -&gt; ByteStringBuilder)
 -&gt; ToLog ArrayJobDependency
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ArrayJobDependency -&gt; ByteStringBuilder
 $cbuild :: ArrayJobDependency -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679257248"><span class="annot"><span class="annottext">HeaderName -&gt; ArrayJobDependency -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679257526"><span class="annot"><span class="annottext">HeaderName -&gt; ArrayJobDependency -&gt; [Header]
 (HeaderName -&gt; ArrayJobDependency -&gt; [Header])
 -&gt; ToHeader ArrayJobDependency
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ArrayJobDependency -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ArrayJobDependency -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679257245"><span class="annot"><span class="annottext">ArrayJobDependency -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679257523"><span class="annot"><span class="annottext">ArrayJobDependency -&gt; QueryString
 (ArrayJobDependency -&gt; QueryString) -&gt; ToQuery ArrayJobDependency
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ArrayJobDependency -&gt; QueryString
 $ctoQuery :: ArrayJobDependency -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679257240"><span id="local-6989586621679257242"><span class="annot"><span class="annottext">Value -&gt; Parser [ArrayJobDependency]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679257518"><span id="local-6989586621679257520"><span class="annot"><span class="annottext">Value -&gt; Parser [ArrayJobDependency]
 Value -&gt; Parser ArrayJobDependency
 (Value -&gt; Parser ArrayJobDependency)
 -&gt; (Value -&gt; Parser [ArrayJobDependency])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [ArrayJobDependency]
 parseJSON :: Value -&gt; Parser ArrayJobDependency
 $cparseJSON :: Value -&gt; Parser ArrayJobDependency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679257235"><span id="local-6989586621679257237"><span class="annot"><span class="annottext">FromJSONKeyFunction [ArrayJobDependency]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679257513"><span id="local-6989586621679257515"><span class="annot"><span class="annottext">FromJSONKeyFunction [ArrayJobDependency]
 FromJSONKeyFunction ArrayJobDependency
 FromJSONKeyFunction ArrayJobDependency
 -&gt; FromJSONKeyFunction [ArrayJobDependency]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ArrayJobDependency]
 fromJSONKey :: FromJSONKeyFunction ArrayJobDependency
 $cfromJSONKey :: FromJSONKeyFunction ArrayJobDependency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679257226"><span id="local-6989586621679257228"><span id="local-6989586621679257230"><span id="local-6989586621679257232"><span class="annot"><span class="annottext">[ArrayJobDependency] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679257504"><span id="local-6989586621679257506"><span id="local-6989586621679257508"><span id="local-6989586621679257510"><span class="annot"><span class="annottext">[ArrayJobDependency] -&gt; Encoding
 [ArrayJobDependency] -&gt; Value
 ArrayJobDependency -&gt; Encoding
 ArrayJobDependency -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: ArrayJobDependency -&gt; Encoding
 toJSON :: ArrayJobDependency -&gt; Value
 $ctoJSON :: ArrayJobDependency -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679257221"><span id="local-6989586621679257223"><span class="annot"><span class="annottext">ToJSONKeyFunction [ArrayJobDependency]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679257499"><span id="local-6989586621679257501"><span class="annot"><span class="annottext">ToJSONKeyFunction [ArrayJobDependency]
 ToJSONKeyFunction ArrayJobDependency
 ToJSONKeyFunction ArrayJobDependency
 -&gt; ToJSONKeyFunction [ArrayJobDependency]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ArrayJobDependency]
 toJSONKey :: ToJSONKeyFunction ArrayJobDependency
 $ctoJSONKey :: ToJSONKeyFunction ArrayJobDependency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679257218"><span class="annot"><span class="annottext">[Node] -&gt; Either String ArrayJobDependency
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679257496"><span class="annot"><span class="annottext">[Node] -&gt; Either String ArrayJobDependency
 ([Node] -&gt; Either String ArrayJobDependency)
 -&gt; FromXML ArrayJobDependency
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ArrayJobDependency
 $cparseXML :: [Node] -&gt; Either String ArrayJobDependency
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679257215"><span class="annot"><span class="annottext">ArrayJobDependency -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679257493"><span class="annot"><span class="annottext">ArrayJobDependency -&gt; XML
 (ArrayJobDependency -&gt; XML) -&gt; ToXML ArrayJobDependency
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ArrayJobDependency -&gt; XML

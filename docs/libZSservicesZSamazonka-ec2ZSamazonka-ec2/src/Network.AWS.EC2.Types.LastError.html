@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The last error that occurred for a VPC endpoint.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLastError' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681087855"><span id="local-6989586621681087856"></span></span><span class="hs-keyword">data</span><span> </span><span id="LastError"><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError"><span class="hs-identifier hs-var">LastError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LastError%27"><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError%27"><span class="hs-identifier hs-var">LastError'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error message for the VPC endpoint error.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Amessage%3ALastError%27"><span class="annot"><span class="annottext">LastError -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.LastError.html#%24sel%3Amessage%3ALastError%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The error code for the VPC endpoint error.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Acode%3ALastError%27"><span class="annot"><span class="annottext">LastError -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.LastError.html#%24sel%3Acode%3ALastError%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681122546"><span id="local-6989586621681122547"></span></span><span class="hs-keyword">data</span><span> </span><span id="LastError"><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError"><span class="hs-identifier hs-var">LastError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LastError%27"><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError%27"><span class="hs-identifier hs-var">LastError'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error code for the VPC endpoint error.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Acode%3ALastError%27"><span class="annot"><span class="annottext">LastError -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.LastError.html#%24sel%3Acode%3ALastError%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The error message for the VPC endpoint error.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Amessage%3ALastError%27"><span class="annot"><span class="annottext">LastError -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.LastError.html#%24sel%3Amessage%3ALastError%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681087848"><span id="local-6989586621681087850"><span class="annot"><span class="annottext">LastError -&gt; LastError -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681122539"><span id="local-6989586621681122541"><span class="annot"><span class="annottext">LastError -&gt; LastError -&gt; Bool
 (LastError -&gt; LastError -&gt; Bool)
 -&gt; (LastError -&gt; LastError -&gt; Bool) -&gt; Eq LastError
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LastError -&gt; LastError -&gt; Bool
 == :: LastError -&gt; LastError -&gt; Bool
 $c== :: LastError -&gt; LastError -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681087839"><span id="local-6989586621681087841"><span id="local-6989586621681087843"><span id="local-6989586621681087845"><span class="annot"><span class="annottext">ReadPrec [LastError]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681122530"><span id="local-6989586621681122532"><span id="local-6989586621681122534"><span id="local-6989586621681122536"><span class="annot"><span class="annottext">ReadPrec [LastError]
 ReadPrec LastError
 Int -&gt; ReadS LastError
 ReadS [LastError]
@@ -63,7 +63,7 @@ readList :: ReadS [LastError]
 $creadList :: ReadS [LastError]
 readsPrec :: Int -&gt; ReadS LastError
 $creadsPrec :: Int -&gt; ReadS LastError
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681087832"><span id="local-6989586621681087834"><span id="local-6989586621681087836"><span class="annot"><span class="annottext">Int -&gt; LastError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681122523"><span id="local-6989586621681122525"><span id="local-6989586621681122527"><span class="annot"><span class="annottext">Int -&gt; LastError -&gt; ShowS
 [LastError] -&gt; ShowS
 LastError -&gt; String
 (Int -&gt; LastError -&gt; ShowS)
@@ -96,65 +96,65 @@ $cfrom :: forall x. LastError -&gt; Rep LastError x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'message', 'lastError_message' - The error message for the VPC endpoint error.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'code', 'lastError_code' - The error code for the VPC endpoint error.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'code', 'lastError_code' - The error code for the VPC endpoint error.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'message', 'lastError_message' - The error message for the VPC endpoint error.</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#newLastError"><span class="hs-identifier hs-type">newLastError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError"><span class="hs-identifier hs-type">LastError</span></a></span><span>
 </span><span id="line-51"></span><span id="newLastError"><span class="annot"><span class="annottext">newLastError :: LastError
 </span><a href="Network.AWS.EC2.Types.LastError.html#newLastError"><span class="hs-identifier hs-var hs-var">newLastError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">LastError' :: Maybe Text -&gt; Maybe Text -&gt; LastError
 </span><a href="Network.AWS.EC2.Types.LastError.html#LastError%27"><span class="hs-identifier hs-type">LastError'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:LastError' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LastError.html#%24sel%3Amessage%3ALastError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:code:LastError' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LastError.html#%24sel%3Acode%3ALastError%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:LastError' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LastError.html#%24sel%3Acode%3ALastError%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:LastError' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LastError.html#%24sel%3Amessage%3ALastError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- | The error message for the VPC endpoint error.</span><span>
-</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#lastError_message"><span class="hs-identifier hs-type">lastError_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError"><span class="hs-identifier hs-type">LastError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-59"></span><span id="lastError_message"><span class="annot"><span class="annottext">lastError_message :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LastError -&gt; f LastError
-</span><a href="Network.AWS.EC2.Types.LastError.html#lastError_message"><span class="hs-identifier hs-var hs-var">lastError_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LastError -&gt; Maybe Text)
--&gt; (LastError -&gt; Maybe Text -&gt; LastError)
--&gt; Lens LastError LastError (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError%27"><span class="hs-identifier hs-type">LastError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681087823"><span class="annot"><span class="annottext">Maybe Text
-message :: Maybe Text
-$sel:message:LastError' :: LastError -&gt; Maybe Text
-</span><a href="#local-6989586621681087823"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681087823"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681087822"><span class="annot"><span class="annottext">s :: LastError
-</span><a href="#local-6989586621681087822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError%27"><span class="hs-identifier hs-type">LastError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681087821"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681087821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LastError
-</span><a href="#local-6989586621681087822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:LastError' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.LastError.html#%24sel%3Amessage%3ALastError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681087821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError"><span class="hs-identifier hs-type">LastError</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | The error code for the VPC endpoint error.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#lastError_code"><span class="hs-identifier hs-type">lastError_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError"><span class="hs-identifier hs-type">LastError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="lastError_code"><span class="annot"><span class="annottext">lastError_code :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LastError -&gt; f LastError
+</span><span id="line-57"></span><span class="hs-comment">-- | The error code for the VPC endpoint error.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#lastError_code"><span class="hs-identifier hs-type">lastError_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError"><span class="hs-identifier hs-type">LastError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="lastError_code"><span class="annot"><span class="annottext">lastError_code :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LastError -&gt; f LastError
 </span><a href="Network.AWS.EC2.Types.LastError.html#lastError_code"><span class="hs-identifier hs-var hs-var">lastError_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LastError -&gt; Maybe Text)
 -&gt; (LastError -&gt; Maybe Text -&gt; LastError)
 -&gt; Lens LastError LastError (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError%27"><span class="hs-identifier hs-type">LastError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681087819"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError%27"><span class="hs-identifier hs-type">LastError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681122514"><span class="annot"><span class="annottext">Maybe Text
 code :: Maybe Text
 $sel:code:LastError' :: LastError -&gt; Maybe Text
-</span><a href="#local-6989586621681087819"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681087819"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681087818"><span class="annot"><span class="annottext">s :: LastError
-</span><a href="#local-6989586621681087818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError%27"><span class="hs-identifier hs-type">LastError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681087817"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681087817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LastError
-</span><a href="#local-6989586621681087818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:LastError' :: Maybe Text
+</span><a href="#local-6989586621681122514"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681122514"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681122513"><span class="annot"><span class="annottext">s :: LastError
+</span><a href="#local-6989586621681122513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError%27"><span class="hs-identifier hs-type">LastError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681122512"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681122512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LastError
+</span><a href="#local-6989586621681122513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:LastError' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.LastError.html#%24sel%3Acode%3ALastError%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681087817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError"><span class="hs-identifier hs-type">LastError</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681122512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError"><span class="hs-identifier hs-type">LastError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The error message for the VPC endpoint error.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#lastError_message"><span class="hs-identifier hs-type">lastError_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError"><span class="hs-identifier hs-type">LastError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="lastError_message"><span class="annot"><span class="annottext">lastError_message :: (Maybe Text -&gt; f (Maybe Text)) -&gt; LastError -&gt; f LastError
+</span><a href="Network.AWS.EC2.Types.LastError.html#lastError_message"><span class="hs-identifier hs-var hs-var">lastError_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LastError -&gt; Maybe Text)
+-&gt; (LastError -&gt; Maybe Text -&gt; LastError)
+-&gt; Lens LastError LastError (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError%27"><span class="hs-identifier hs-type">LastError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681122510"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:LastError' :: LastError -&gt; Maybe Text
+</span><a href="#local-6989586621681122510"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681122510"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681122509"><span class="annot"><span class="annottext">s :: LastError
+</span><a href="#local-6989586621681122509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError%27"><span class="hs-identifier hs-type">LastError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681122508"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681122508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LastError
+</span><a href="#local-6989586621681122509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:LastError' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.LastError.html#%24sel%3Amessage%3ALastError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681122508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError"><span class="hs-identifier hs-type">LastError</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError"><span class="hs-identifier hs-type">LastError</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621681087814"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LastError
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681087812"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681087812"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621681122505"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LastError
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681122503"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681122503"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; LastError
 </span><a href="Network.AWS.EC2.Types.LastError.html#LastError%27"><span class="hs-identifier hs-var">LastError'</span></a></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; LastError)
@@ -162,20 +162,20 @@ $sel:code:LastError' :: LastError -&gt; Maybe Text
 -&gt; Either String (Maybe Text -&gt; LastError)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681087812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681122503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; LastError)
 -&gt; Either String (Maybe Text) -&gt; Either String LastError
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681087812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681122503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681087806"><span id="local-6989586621681087808"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError"><span class="hs-identifier hs-type">LastError</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681122497"><span id="local-6989586621681122499"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError"><span class="hs-identifier hs-type">LastError</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681087803"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError"><span class="hs-identifier hs-type">LastError</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681122494"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LastError.html#LastError"><span class="hs-identifier hs-type">LastError</span></a></span></span><span>
 </span><span id="line-74"></span></pre></body></html>

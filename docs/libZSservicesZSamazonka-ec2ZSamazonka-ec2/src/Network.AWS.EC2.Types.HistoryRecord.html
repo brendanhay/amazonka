@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes an event in the history of the Spot Fleet request.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newHistoryRecord' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681076890"><span id="local-6989586621681076891"></span></span><span class="hs-keyword">data</span><span> </span><span id="HistoryRecord"><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord"><span class="hs-identifier hs-var">HistoryRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HistoryRecord%27"><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord%27"><span class="hs-identifier hs-var">HistoryRecord'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681111240"><span id="local-6989586621681111241"></span></span><span class="hs-keyword">data</span><span> </span><span id="HistoryRecord"><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord"><span class="hs-identifier hs-var">HistoryRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HistoryRecord%27"><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord%27"><span class="hs-identifier hs-var">HistoryRecord'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The event type.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   @error@ - An error with the Spot Fleet request.</span><span>
@@ -42,15 +42,15 @@
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   @Information@ - An informational event.</span><span>
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AeventType%3AHistoryRecord%27"><span class="annot"><span class="annottext">HistoryRecord -&gt; Maybe EventType
 </span><a href="Network.AWS.EC2.Types.HistoryRecord.html#%24sel%3AeventType%3AHistoryRecord%27"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EventType.html#EventType"><span class="hs-identifier hs-type">EventType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The date and time of the event, in UTC format (for example,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3Atimestamp%3AHistoryRecord%27"><span class="annot"><span class="annottext">HistoryRecord -&gt; Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.HistoryRecord.html#%24sel%3Atimestamp%3AHistoryRecord%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Information about the event.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AeventInformation%3AHistoryRecord%27"><span class="annot"><span class="annottext">HistoryRecord -&gt; Maybe EventInformation
-</span><a href="Network.AWS.EC2.Types.HistoryRecord.html#%24sel%3AeventInformation%3AHistoryRecord%27"><span class="hs-identifier hs-var hs-var">eventInformation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EventInformation.html#EventInformation"><span class="hs-identifier hs-type">EventInformation</span></a></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Information about the event.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AeventInformation%3AHistoryRecord%27"><span class="annot"><span class="annottext">HistoryRecord -&gt; Maybe EventInformation
+</span><a href="Network.AWS.EC2.Types.HistoryRecord.html#%24sel%3AeventInformation%3AHistoryRecord%27"><span class="hs-identifier hs-var hs-var">eventInformation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EventInformation.html#EventInformation"><span class="hs-identifier hs-type">EventInformation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The date and time of the event, in UTC format (for example,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Atimestamp%3AHistoryRecord%27"><span class="annot"><span class="annottext">HistoryRecord -&gt; Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.HistoryRecord.html#%24sel%3Atimestamp%3AHistoryRecord%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681076882"><span id="local-6989586621681076884"><span class="annot"><span class="annottext">HistoryRecord -&gt; HistoryRecord -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681111232"><span id="local-6989586621681111234"><span class="annot"><span class="annottext">HistoryRecord -&gt; HistoryRecord -&gt; Bool
 (HistoryRecord -&gt; HistoryRecord -&gt; Bool)
 -&gt; (HistoryRecord -&gt; HistoryRecord -&gt; Bool) -&gt; Eq HistoryRecord
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HistoryRecord -&gt; HistoryRecord -&gt; Bool
 == :: HistoryRecord -&gt; HistoryRecord -&gt; Bool
 $c== :: HistoryRecord -&gt; HistoryRecord -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681076873"><span id="local-6989586621681076875"><span id="local-6989586621681076877"><span id="local-6989586621681076879"><span class="annot"><span class="annottext">ReadPrec [HistoryRecord]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681111223"><span id="local-6989586621681111225"><span id="local-6989586621681111227"><span id="local-6989586621681111229"><span class="annot"><span class="annottext">ReadPrec [HistoryRecord]
 ReadPrec HistoryRecord
 Int -&gt; ReadS HistoryRecord
 ReadS [HistoryRecord]
@@ -78,7 +78,7 @@ readList :: ReadS [HistoryRecord]
 $creadList :: ReadS [HistoryRecord]
 readsPrec :: Int -&gt; ReadS HistoryRecord
 $creadsPrec :: Int -&gt; ReadS HistoryRecord
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681076866"><span id="local-6989586621681076868"><span id="local-6989586621681076870"><span class="annot"><span class="annottext">Int -&gt; HistoryRecord -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681111216"><span id="local-6989586621681111218"><span id="local-6989586621681111220"><span class="annot"><span class="annottext">Int -&gt; HistoryRecord -&gt; ShowS
 [HistoryRecord] -&gt; ShowS
 HistoryRecord -&gt; String
 (Int -&gt; HistoryRecord -&gt; ShowS)
@@ -123,27 +123,27 @@ $cfrom :: forall x. HistoryRecord -&gt; Rep HistoryRecord x
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- -   @Information@ - An informational event.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'timestamp', 'historyRecord_timestamp' - The date and time of the event, in UTC format (for example,</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).</span><span>
-</span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'eventInformation', 'historyRecord_eventInformation' - Information about the event.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'eventInformation', 'historyRecord_eventInformation' - Information about the event.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'timestamp', 'historyRecord_timestamp' - The date and time of the event, in UTC format (for example,</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#newHistoryRecord"><span class="hs-identifier hs-type">newHistoryRecord</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord"><span class="hs-identifier hs-type">HistoryRecord</span></a></span><span>
 </span><span id="line-77"></span><span id="newHistoryRecord"><span class="annot"><span class="annottext">newHistoryRecord :: HistoryRecord
 </span><a href="Network.AWS.EC2.Types.HistoryRecord.html#newHistoryRecord"><span class="hs-identifier hs-var hs-var">newHistoryRecord</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">HistoryRecord' :: Maybe EventType
--&gt; Maybe ISO8601 -&gt; Maybe EventInformation -&gt; HistoryRecord
+-&gt; Maybe EventInformation -&gt; Maybe ISO8601 -&gt; HistoryRecord
 </span><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord%27"><span class="hs-identifier hs-type">HistoryRecord'</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventType:HistoryRecord' :: Maybe EventType
 </span><a href="Network.AWS.EC2.Types.HistoryRecord.html#%24sel%3AeventType%3AHistoryRecord%27"><span class="hs-identifier hs-var">eventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:timestamp:HistoryRecord' :: Maybe ISO8601
-</span><a href="Network.AWS.EC2.Types.HistoryRecord.html#%24sel%3Atimestamp%3AHistoryRecord%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventInformation:HistoryRecord' :: Maybe EventInformation
+</span><a href="Network.AWS.EC2.Types.HistoryRecord.html#%24sel%3AeventInformation%3AHistoryRecord%27"><span class="hs-identifier hs-var">eventInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventInformation
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventInformation:HistoryRecord' :: Maybe EventInformation
-</span><a href="Network.AWS.EC2.Types.HistoryRecord.html#%24sel%3AeventInformation%3AHistoryRecord%27"><span class="hs-identifier hs-var">eventInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventInformation
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:timestamp:HistoryRecord' :: Maybe ISO8601
+</span><a href="Network.AWS.EC2.Types.HistoryRecord.html#%24sel%3Atimestamp%3AHistoryRecord%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
@@ -166,36 +166,59 @@ forall a. Maybe a
 -&gt; Lens
      HistoryRecord HistoryRecord (Maybe EventType) (Maybe EventType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord%27"><span class="hs-identifier hs-type">HistoryRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681076857"><span class="annot"><span class="annottext">Maybe EventType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord%27"><span class="hs-identifier hs-type">HistoryRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681111207"><span class="annot"><span class="annottext">Maybe EventType
 eventType :: Maybe EventType
 $sel:eventType:HistoryRecord' :: HistoryRecord -&gt; Maybe EventType
-</span><a href="#local-6989586621681076857"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventType
-</span><a href="#local-6989586621681076857"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681076856"><span class="annot"><span class="annottext">s :: HistoryRecord
-</span><a href="#local-6989586621681076856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord%27"><span class="hs-identifier hs-type">HistoryRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681076855"><span class="annot"><span class="annottext">Maybe EventType
-</span><a href="#local-6989586621681076855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HistoryRecord
-</span><a href="#local-6989586621681076856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventType:HistoryRecord' :: Maybe EventType
+</span><a href="#local-6989586621681111207"><span class="hs-identifier hs-var hs-var">eventType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventType
+</span><a href="#local-6989586621681111207"><span class="hs-identifier hs-var">eventType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681111206"><span class="annot"><span class="annottext">s :: HistoryRecord
+</span><a href="#local-6989586621681111206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord%27"><span class="hs-identifier hs-type">HistoryRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681111205"><span class="annot"><span class="annottext">Maybe EventType
+</span><a href="#local-6989586621681111205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HistoryRecord
+</span><a href="#local-6989586621681111206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventType:HistoryRecord' :: Maybe EventType
 </span><a href="Network.AWS.EC2.Types.HistoryRecord.html#%24sel%3AeventType%3AHistoryRecord%27"><span class="hs-identifier hs-var">eventType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventType
-</span><a href="#local-6989586621681076855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord"><span class="hs-identifier hs-type">HistoryRecord</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681111205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord"><span class="hs-identifier hs-type">HistoryRecord</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The date and time of the event, in UTC format (for example,</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#historyRecord_timestamp"><span class="hs-identifier hs-type">historyRecord_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord"><span class="hs-identifier hs-type">HistoryRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="historyRecord_timestamp"><span class="annot"><span class="annottext">historyRecord_timestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-97"></span><span class="hs-comment">-- | Information about the event.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#historyRecord_eventInformation"><span class="hs-identifier hs-type">historyRecord_eventInformation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord"><span class="hs-identifier hs-type">HistoryRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EventInformation.html#EventInformation"><span class="hs-identifier hs-type">EventInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="historyRecord_eventInformation"><span class="annot"><span class="annottext">historyRecord_eventInformation :: (Maybe EventInformation -&gt; f (Maybe EventInformation))
+-&gt; HistoryRecord -&gt; f HistoryRecord
+</span><a href="Network.AWS.EC2.Types.HistoryRecord.html#historyRecord_eventInformation"><span class="hs-identifier hs-var hs-var">historyRecord_eventInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HistoryRecord -&gt; Maybe EventInformation)
+-&gt; (HistoryRecord -&gt; Maybe EventInformation -&gt; HistoryRecord)
+-&gt; Lens
+     HistoryRecord
+     HistoryRecord
+     (Maybe EventInformation)
+     (Maybe EventInformation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord%27"><span class="hs-identifier hs-type">HistoryRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681111203"><span class="annot"><span class="annottext">Maybe EventInformation
+eventInformation :: Maybe EventInformation
+$sel:eventInformation:HistoryRecord' :: HistoryRecord -&gt; Maybe EventInformation
+</span><a href="#local-6989586621681111203"><span class="hs-identifier hs-var hs-var">eventInformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventInformation
+</span><a href="#local-6989586621681111203"><span class="hs-identifier hs-var">eventInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681111202"><span class="annot"><span class="annottext">s :: HistoryRecord
+</span><a href="#local-6989586621681111202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord%27"><span class="hs-identifier hs-type">HistoryRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681111201"><span class="annot"><span class="annottext">Maybe EventInformation
+</span><a href="#local-6989586621681111201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HistoryRecord
+</span><a href="#local-6989586621681111202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventInformation:HistoryRecord' :: Maybe EventInformation
+</span><a href="Network.AWS.EC2.Types.HistoryRecord.html#%24sel%3AeventInformation%3AHistoryRecord%27"><span class="hs-identifier hs-var">eventInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventInformation
+</span><a href="#local-6989586621681111201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord"><span class="hs-identifier hs-type">HistoryRecord</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The date and time of the event, in UTC format (for example,</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#historyRecord_timestamp"><span class="hs-identifier hs-type">historyRecord_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord"><span class="hs-identifier hs-type">HistoryRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="historyRecord_timestamp"><span class="annot"><span class="annottext">historyRecord_timestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; HistoryRecord -&gt; f HistoryRecord
 </span><a href="Network.AWS.EC2.Types.HistoryRecord.html#historyRecord_timestamp"><span class="hs-identifier hs-var hs-var">historyRecord_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HistoryRecord -&gt; Maybe ISO8601)
 -&gt; (HistoryRecord -&gt; Maybe ISO8601 -&gt; HistoryRecord)
 -&gt; Lens HistoryRecord HistoryRecord (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord%27"><span class="hs-identifier hs-type">HistoryRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681076853"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord%27"><span class="hs-identifier hs-type">HistoryRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681111199"><span class="annot"><span class="annottext">Maybe ISO8601
 timestamp :: Maybe ISO8601
 $sel:timestamp:HistoryRecord' :: HistoryRecord -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681076853"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681076853"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681076852"><span class="annot"><span class="annottext">s :: HistoryRecord
-</span><a href="#local-6989586621681076852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord%27"><span class="hs-identifier hs-type">HistoryRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681076851"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681076851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HistoryRecord
-</span><a href="#local-6989586621681076852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:HistoryRecord' :: Maybe ISO8601
+</span><a href="#local-6989586621681111199"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681111199"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681111198"><span class="annot"><span class="annottext">s :: HistoryRecord
+</span><a href="#local-6989586621681111198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord%27"><span class="hs-identifier hs-type">HistoryRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681111197"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681111197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HistoryRecord
+</span><a href="#local-6989586621681111198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:HistoryRecord' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.HistoryRecord.html#%24sel%3Atimestamp%3AHistoryRecord%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681076851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord"><span class="hs-identifier hs-type">HistoryRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621681111197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord"><span class="hs-identifier hs-type">HistoryRecord</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; HistoryRecord -&gt; f HistoryRecord)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -212,69 +235,45 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | Information about the event.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#historyRecord_eventInformation"><span class="hs-identifier hs-type">historyRecord_eventInformation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord"><span class="hs-identifier hs-type">HistoryRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.EventInformation.html#EventInformation"><span class="hs-identifier hs-type">EventInformation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="historyRecord_eventInformation"><span class="annot"><span class="annottext">historyRecord_eventInformation :: (Maybe EventInformation -&gt; f (Maybe EventInformation))
--&gt; HistoryRecord -&gt; f HistoryRecord
-</span><a href="Network.AWS.EC2.Types.HistoryRecord.html#historyRecord_eventInformation"><span class="hs-identifier hs-var hs-var">historyRecord_eventInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HistoryRecord -&gt; Maybe EventInformation)
--&gt; (HistoryRecord -&gt; Maybe EventInformation -&gt; HistoryRecord)
--&gt; Lens
-     HistoryRecord
-     HistoryRecord
-     (Maybe EventInformation)
-     (Maybe EventInformation)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord%27"><span class="hs-identifier hs-type">HistoryRecord'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681076846"><span class="annot"><span class="annottext">Maybe EventInformation
-eventInformation :: Maybe EventInformation
-$sel:eventInformation:HistoryRecord' :: HistoryRecord -&gt; Maybe EventInformation
-</span><a href="#local-6989586621681076846"><span class="hs-identifier hs-var hs-var">eventInformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventInformation
-</span><a href="#local-6989586621681076846"><span class="hs-identifier hs-var">eventInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681076845"><span class="annot"><span class="annottext">s :: HistoryRecord
-</span><a href="#local-6989586621681076845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord%27"><span class="hs-identifier hs-type">HistoryRecord'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681076844"><span class="annot"><span class="annottext">Maybe EventInformation
-</span><a href="#local-6989586621681076844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HistoryRecord
-</span><a href="#local-6989586621681076845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventInformation:HistoryRecord' :: Maybe EventInformation
-</span><a href="Network.AWS.EC2.Types.HistoryRecord.html#%24sel%3AeventInformation%3AHistoryRecord%27"><span class="hs-identifier hs-var">eventInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventInformation
-</span><a href="#local-6989586621681076844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord"><span class="hs-identifier hs-type">HistoryRecord</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord"><span class="hs-identifier hs-type">HistoryRecord</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621681076841"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String HistoryRecord
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681076839"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681076839"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621681111191"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String HistoryRecord
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681111189"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681111189"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">Maybe EventType
--&gt; Maybe ISO8601 -&gt; Maybe EventInformation -&gt; HistoryRecord
+-&gt; Maybe EventInformation -&gt; Maybe ISO8601 -&gt; HistoryRecord
 </span><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord%27"><span class="hs-identifier hs-var">HistoryRecord'</span></a></span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">(Maybe EventType
- -&gt; Maybe ISO8601 -&gt; Maybe EventInformation -&gt; HistoryRecord)
+ -&gt; Maybe EventInformation -&gt; Maybe ISO8601 -&gt; HistoryRecord)
 -&gt; Either String (Maybe EventType)
 -&gt; Either
-     String (Maybe ISO8601 -&gt; Maybe EventInformation -&gt; HistoryRecord)
+     String (Maybe EventInformation -&gt; Maybe ISO8601 -&gt; HistoryRecord)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681076839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe EventType)
+</span><a href="#local-6989586621681111189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe EventType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;eventType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe ISO8601 -&gt; Maybe EventInformation -&gt; HistoryRecord)
--&gt; Either String (Maybe ISO8601)
--&gt; Either String (Maybe EventInformation -&gt; HistoryRecord)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681076839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;timestamp&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe EventInformation -&gt; HistoryRecord)
+  String (Maybe EventInformation -&gt; Maybe ISO8601 -&gt; HistoryRecord)
 -&gt; Either String (Maybe EventInformation)
--&gt; Either String HistoryRecord
+-&gt; Either String (Maybe ISO8601 -&gt; HistoryRecord)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681076839"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe EventInformation)
+</span><a href="#local-6989586621681111189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe EventInformation)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;eventInformation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; HistoryRecord)
+-&gt; Either String (Maybe ISO8601) -&gt; Either String HistoryRecord
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681111189"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681076833"><span id="local-6989586621681076835"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord"><span class="hs-identifier hs-type">HistoryRecord</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681111183"><span id="local-6989586621681111185"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord"><span class="hs-identifier hs-type">HistoryRecord</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681076830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord"><span class="hs-identifier hs-type">HistoryRecord</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681111180"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.HistoryRecord.html#HistoryRecord"><span class="hs-identifier hs-type">HistoryRecord</span></a></span></span><span>
 </span><span id="line-116"></span></pre></body></html>

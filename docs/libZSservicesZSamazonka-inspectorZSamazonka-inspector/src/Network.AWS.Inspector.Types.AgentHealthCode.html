@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679243633"><span id="local-6989586621679243634"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AgentHealthCode"><span class="annot"><a href="Network.AWS.Inspector.Types.AgentHealthCode.html#AgentHealthCode"><span class="hs-identifier hs-var">AgentHealthCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AgentHealthCode%27"><span class="annot"><a href="Network.AWS.Inspector.Types.AgentHealthCode.html#AgentHealthCode%27"><span class="hs-identifier hs-var">AgentHealthCode'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679243982"><span id="local-6989586621679243983"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AgentHealthCode"><span class="annot"><a href="Network.AWS.Inspector.Types.AgentHealthCode.html#AgentHealthCode"><span class="hs-identifier hs-var">AgentHealthCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AgentHealthCode%27"><span class="annot"><a href="Network.AWS.Inspector.Types.AgentHealthCode.html#AgentHealthCode%27"><span class="hs-identifier hs-var">AgentHealthCode'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAgentHealthCode"><span class="annot"><span class="annottext">AgentHealthCode -&gt; Text
 </span><a href="Network.AWS.Inspector.Types.AgentHealthCode.html#fromAgentHealthCode"><span class="hs-identifier hs-var hs-var">fromAgentHealthCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243625"><span id="local-6989586621679243627"><span id="local-6989586621679243629"><span class="annot"><span class="annottext">Int -&gt; AgentHealthCode -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243974"><span id="local-6989586621679243976"><span id="local-6989586621679243978"><span class="annot"><span class="annottext">Int -&gt; AgentHealthCode -&gt; ShowS
 [AgentHealthCode] -&gt; ShowS
 AgentHealthCode -&gt; String
 (Int -&gt; AgentHealthCode -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: AgentHealthCode -&gt; String
 showsPrec :: Int -&gt; AgentHealthCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; AgentHealthCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679243616"><span id="local-6989586621679243618"><span id="local-6989586621679243620"><span id="local-6989586621679243622"><span class="annot"><span class="annottext">ReadPrec [AgentHealthCode]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679243965"><span id="local-6989586621679243967"><span id="local-6989586621679243969"><span id="local-6989586621679243971"><span class="annot"><span class="annottext">ReadPrec [AgentHealthCode]
 ReadPrec AgentHealthCode
 Int -&gt; ReadS AgentHealthCode
 ReadS [AgentHealthCode]
@@ -76,7 +76,7 @@ $creadList :: ReadS [AgentHealthCode]
 readsPrec :: Int -&gt; ReadS AgentHealthCode
 $creadsPrec :: Int -&gt; ReadS AgentHealthCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679243611"><span id="local-6989586621679243613"><span class="annot"><span class="annottext">AgentHealthCode -&gt; AgentHealthCode -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679243960"><span id="local-6989586621679243962"><span class="annot"><span class="annottext">AgentHealthCode -&gt; AgentHealthCode -&gt; Bool
 (AgentHealthCode -&gt; AgentHealthCode -&gt; Bool)
 -&gt; (AgentHealthCode -&gt; AgentHealthCode -&gt; Bool)
 -&gt; Eq AgentHealthCode
@@ -86,7 +86,7 @@ $c/= :: AgentHealthCode -&gt; AgentHealthCode -&gt; Bool
 == :: AgentHealthCode -&gt; AgentHealthCode -&gt; Bool
 $c== :: AgentHealthCode -&gt; AgentHealthCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679243595"><span id="local-6989586621679243597"><span id="local-6989586621679243599"><span id="local-6989586621679243601"><span id="local-6989586621679243603"><span id="local-6989586621679243605"><span id="local-6989586621679243607"><span class="annot"><span class="annottext">Eq AgentHealthCode
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679243944"><span id="local-6989586621679243946"><span id="local-6989586621679243948"><span id="local-6989586621679243950"><span id="local-6989586621679243952"><span id="local-6989586621679243954"><span id="local-6989586621679243956"><span class="annot"><span class="annottext">Eq AgentHealthCode
 Eq AgentHealthCode
 -&gt; (AgentHealthCode -&gt; AgentHealthCode -&gt; Ordering)
 -&gt; (AgentHealthCode -&gt; AgentHealthCode -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. AgentHealthCode -&gt; Rep AgentHealthCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243587"><span id="local-6989586621679243589"><span class="annot"><span class="annottext">Int -&gt; AgentHealthCode -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243936"><span id="local-6989586621679243938"><span class="annot"><span class="annottext">Int -&gt; AgentHealthCode -&gt; Int
 AgentHealthCode -&gt; Int
 (Int -&gt; AgentHealthCode -&gt; Int)
 -&gt; (AgentHealthCode -&gt; Int) -&gt; Hashable AgentHealthCode
@@ -147,50 +147,50 @@ $chash :: AgentHealthCode -&gt; Int
 hashWithSalt :: Int -&gt; AgentHealthCode -&gt; Int
 $chashWithSalt :: Int -&gt; AgentHealthCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679243584"><span class="annot"><span class="annottext">AgentHealthCode -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679243933"><span class="annot"><span class="annottext">AgentHealthCode -&gt; ()
 (AgentHealthCode -&gt; ()) -&gt; NFData AgentHealthCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AgentHealthCode -&gt; ()
 $crnf :: AgentHealthCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679243581"><span class="annot"><span class="annottext">Text -&gt; Either String AgentHealthCode
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679243930"><span class="annot"><span class="annottext">Text -&gt; Either String AgentHealthCode
 (Text -&gt; Either String AgentHealthCode) -&gt; FromText AgentHealthCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AgentHealthCode
 $cfromText :: Text -&gt; Either String AgentHealthCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679243578"><span class="annot"><span class="annottext">AgentHealthCode -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679243927"><span class="annot"><span class="annottext">AgentHealthCode -&gt; Text
 (AgentHealthCode -&gt; Text) -&gt; ToText AgentHealthCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AgentHealthCode -&gt; Text
 $ctoText :: AgentHealthCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679243575"><span class="annot"><span class="annottext">AgentHealthCode -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679243924"><span class="annot"><span class="annottext">AgentHealthCode -&gt; ByteString
 (AgentHealthCode -&gt; ByteString) -&gt; ToByteString AgentHealthCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AgentHealthCode -&gt; ByteString
 $ctoBS :: AgentHealthCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679243572"><span class="annot"><span class="annottext">AgentHealthCode -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679243921"><span class="annot"><span class="annottext">AgentHealthCode -&gt; ByteStringBuilder
 (AgentHealthCode -&gt; ByteStringBuilder) -&gt; ToLog AgentHealthCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AgentHealthCode -&gt; ByteStringBuilder
 $cbuild :: AgentHealthCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679243569"><span class="annot"><span class="annottext">HeaderName -&gt; AgentHealthCode -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679243918"><span class="annot"><span class="annottext">HeaderName -&gt; AgentHealthCode -&gt; [Header]
 (HeaderName -&gt; AgentHealthCode -&gt; [Header])
 -&gt; ToHeader AgentHealthCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AgentHealthCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AgentHealthCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679243566"><span class="annot"><span class="annottext">AgentHealthCode -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679243915"><span class="annot"><span class="annottext">AgentHealthCode -&gt; QueryString
 (AgentHealthCode -&gt; QueryString) -&gt; ToQuery AgentHealthCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AgentHealthCode -&gt; QueryString
 $ctoQuery :: AgentHealthCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679243561"><span id="local-6989586621679243563"><span class="annot"><span class="annottext">Value -&gt; Parser [AgentHealthCode]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679243910"><span id="local-6989586621679243912"><span class="annot"><span class="annottext">Value -&gt; Parser [AgentHealthCode]
 Value -&gt; Parser AgentHealthCode
 (Value -&gt; Parser AgentHealthCode)
 -&gt; (Value -&gt; Parser [AgentHealthCode]) -&gt; FromJSON AgentHealthCode
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [AgentHealthCode]
 parseJSON :: Value -&gt; Parser AgentHealthCode
 $cparseJSON :: Value -&gt; Parser AgentHealthCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679243556"><span id="local-6989586621679243558"><span class="annot"><span class="annottext">FromJSONKeyFunction [AgentHealthCode]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679243905"><span id="local-6989586621679243907"><span class="annot"><span class="annottext">FromJSONKeyFunction [AgentHealthCode]
 FromJSONKeyFunction AgentHealthCode
 FromJSONKeyFunction AgentHealthCode
 -&gt; FromJSONKeyFunction [AgentHealthCode]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AgentHealthCode]
 fromJSONKey :: FromJSONKeyFunction AgentHealthCode
 $cfromJSONKey :: FromJSONKeyFunction AgentHealthCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679243547"><span id="local-6989586621679243549"><span id="local-6989586621679243551"><span id="local-6989586621679243553"><span class="annot"><span class="annottext">[AgentHealthCode] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679243896"><span id="local-6989586621679243898"><span id="local-6989586621679243900"><span id="local-6989586621679243902"><span class="annot"><span class="annottext">[AgentHealthCode] -&gt; Encoding
 [AgentHealthCode] -&gt; Value
 AgentHealthCode -&gt; Encoding
 AgentHealthCode -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: AgentHealthCode -&gt; Encoding
 toJSON :: AgentHealthCode -&gt; Value
 $ctoJSON :: AgentHealthCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679243542"><span id="local-6989586621679243544"><span class="annot"><span class="annottext">ToJSONKeyFunction [AgentHealthCode]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679243891"><span id="local-6989586621679243893"><span class="annot"><span class="annottext">ToJSONKeyFunction [AgentHealthCode]
 ToJSONKeyFunction AgentHealthCode
 ToJSONKeyFunction AgentHealthCode
 -&gt; ToJSONKeyFunction [AgentHealthCode] -&gt; ToJSONKey AgentHealthCode
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AgentHealthCode]
 toJSONKey :: ToJSONKeyFunction AgentHealthCode
 $ctoJSONKey :: ToJSONKeyFunction AgentHealthCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679243539"><span class="annot"><span class="annottext">[Node] -&gt; Either String AgentHealthCode
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679243888"><span class="annot"><span class="annottext">[Node] -&gt; Either String AgentHealthCode
 ([Node] -&gt; Either String AgentHealthCode)
 -&gt; FromXML AgentHealthCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AgentHealthCode
 $cparseXML :: [Node] -&gt; Either String AgentHealthCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679243536"><span class="annot"><span class="annottext">AgentHealthCode -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679243885"><span class="annot"><span class="annottext">AgentHealthCode -&gt; XML
 (AgentHealthCode -&gt; XML) -&gt; ToXML AgentHealthCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AgentHealthCode -&gt; XML

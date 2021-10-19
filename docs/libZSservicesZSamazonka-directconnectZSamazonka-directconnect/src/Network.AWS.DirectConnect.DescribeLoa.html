@@ -35,8 +35,8 @@
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#newDescribeLoa"><span class="hs-identifier">newDescribeLoa</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#describeLoa_providerName"><span class="hs-identifier">describeLoa_providerName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#describeLoa_loaContentType"><span class="hs-identifier">describeLoa_loaContentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#describeLoa_loaContentType"><span class="hs-identifier">describeLoa_loaContentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#describeLoa_providerName"><span class="hs-identifier">describeLoa_providerName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#describeLoa_connectionId"><span class="hs-identifier">describeLoa_connectionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -58,21 +58,21 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDescribeLoa' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679287077"><span id="local-6989586621679287078"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLoa"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-var">DescribeLoa</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLoa%27"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-var">DescribeLoa'</span></a></span></span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the service provider who establishes connectivity on your</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- behalf. If you specify this parameter, the LOA-CFA lists the provider</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- name alongside your company name as the requester of the cross connect.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AproviderName%3ADescribeLoa%27"><span class="annot"><span class="annottext">DescribeLoa -&gt; Maybe Text
-</span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AproviderName%3ADescribeLoa%27"><span class="hs-identifier hs-var hs-var">providerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The standard media type for the LOA-CFA document. The only supported</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- value is application\/pdf.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AloaContentType%3ADescribeLoa%27"><span class="annot"><span class="annottext">DescribeLoa -&gt; Maybe LoaContentType
+</span><span id="line-61"></span><span id="local-6989586621679287328"><span id="local-6989586621679287329"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLoa"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-var">DescribeLoa</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLoa%27"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-var">DescribeLoa'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The standard media type for the LOA-CFA document. The only supported</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- value is application\/pdf.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AloaContentType%3ADescribeLoa%27"><span class="annot"><span class="annottext">DescribeLoa -&gt; Maybe LoaContentType
 </span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AloaContentType%3ADescribeLoa%27"><span class="hs-identifier hs-var hs-var">loaContentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.LoaContentType.html#LoaContentType"><span class="hs-identifier hs-type">LoaContentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The name of the service provider who establishes connectivity on your</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- behalf. If you specify this parameter, the LOA-CFA lists the provider</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- name alongside your company name as the requester of the cross connect.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AproviderName%3ADescribeLoa%27"><span class="annot"><span class="annottext">DescribeLoa -&gt; Maybe Text
+</span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AproviderName%3ADescribeLoa%27"><span class="hs-identifier hs-var hs-var">providerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The ID of a connection, LAG, or interconnect.</span><span>
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AconnectionId%3ADescribeLoa%27"><span class="annot"><span class="annottext">DescribeLoa -&gt; Text
 </span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AconnectionId%3ADescribeLoa%27"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287069"><span id="local-6989586621679287071"><span class="annot"><span class="annottext">DescribeLoa -&gt; DescribeLoa -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287320"><span id="local-6989586621679287322"><span class="annot"><span class="annottext">DescribeLoa -&gt; DescribeLoa -&gt; Bool
 (DescribeLoa -&gt; DescribeLoa -&gt; Bool)
 -&gt; (DescribeLoa -&gt; DescribeLoa -&gt; Bool) -&gt; Eq DescribeLoa
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeLoa -&gt; DescribeLoa -&gt; Bool
 == :: DescribeLoa -&gt; DescribeLoa -&gt; Bool
 $c== :: DescribeLoa -&gt; DescribeLoa -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287060"><span id="local-6989586621679287062"><span id="local-6989586621679287064"><span id="local-6989586621679287066"><span class="annot"><span class="annottext">ReadPrec [DescribeLoa]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287311"><span id="local-6989586621679287313"><span id="local-6989586621679287315"><span id="local-6989586621679287317"><span class="annot"><span class="annottext">ReadPrec [DescribeLoa]
 ReadPrec DescribeLoa
 Int -&gt; ReadS DescribeLoa
 ReadS [DescribeLoa]
@@ -100,7 +100,7 @@ readList :: ReadS [DescribeLoa]
 $creadList :: ReadS [DescribeLoa]
 readsPrec :: Int -&gt; ReadS DescribeLoa
 $creadsPrec :: Int -&gt; ReadS DescribeLoa
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287053"><span id="local-6989586621679287055"><span id="local-6989586621679287057"><span class="annot"><span class="annottext">Int -&gt; DescribeLoa -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287304"><span id="local-6989586621679287306"><span id="local-6989586621679287308"><span class="annot"><span class="annottext">Int -&gt; DescribeLoa -&gt; ShowS
 [DescribeLoa] -&gt; ShowS
 DescribeLoa -&gt; String
 (Int -&gt; DescribeLoa -&gt; ShowS)
@@ -134,12 +134,12 @@ $cfrom :: forall x. DescribeLoa -&gt; Rep DescribeLoa x
 </span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'providerName', 'describeLoa_providerName' - The name of the service provider who establishes connectivity on your</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- behalf. If you specify this parameter, the LOA-CFA lists the provider</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- name alongside your company name as the requester of the cross connect.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'loaContentType', 'describeLoa_loaContentType' - The standard media type for the LOA-CFA document. The only supported</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- value is application\/pdf.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'loaContentType', 'describeLoa_loaContentType' - The standard media type for the LOA-CFA document. The only supported</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- value is application\/pdf.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'providerName', 'describeLoa_providerName' - The name of the service provider who establishes connectivity on your</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- behalf. If you specify this parameter, the LOA-CFA lists the provider</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- name alongside your company name as the requester of the cross connect.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- 'connectionId', 'describeLoa_connectionId' - The ID of a connection, LAG, or interconnect.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#newDescribeLoa"><span class="hs-identifier hs-type">newDescribeLoa</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -147,47 +147,27 @@ $cfrom :: forall x. DescribeLoa -&gt; Rep DescribeLoa x
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span>
 </span><span id="line-94"></span><span id="newDescribeLoa"><span class="annot"><span class="annottext">newDescribeLoa :: Text -&gt; DescribeLoa
-</span><a href="Network.AWS.DirectConnect.DescribeLoa.html#newDescribeLoa"><span class="hs-identifier hs-var hs-var">newDescribeLoa</span></a></span></span><span> </span><span id="local-6989586621679287048"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287048"><span class="hs-identifier hs-var">pConnectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">DescribeLoa' :: Maybe Text -&gt; Maybe LoaContentType -&gt; Text -&gt; DescribeLoa
+</span><a href="Network.AWS.DirectConnect.DescribeLoa.html#newDescribeLoa"><span class="hs-identifier hs-var hs-var">newDescribeLoa</span></a></span></span><span> </span><span id="local-6989586621679287299"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287299"><span class="hs-identifier hs-var">pConnectionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">DescribeLoa' :: Maybe LoaContentType -&gt; Maybe Text -&gt; Text -&gt; DescribeLoa
 </span><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:providerName:DescribeLoa' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AproviderName%3ADescribeLoa%27"><span class="hs-identifier hs-var">providerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loaContentType:DescribeLoa' :: Maybe LoaContentType
+</span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AloaContentType%3ADescribeLoa%27"><span class="hs-identifier hs-var">loaContentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoaContentType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:loaContentType:DescribeLoa' :: Maybe LoaContentType
-</span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AloaContentType%3ADescribeLoa%27"><span class="hs-identifier hs-var">loaContentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoaContentType
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:providerName:DescribeLoa' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AproviderName%3ADescribeLoa%27"><span class="hs-identifier hs-var">providerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionId:DescribeLoa' :: Text
 </span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AconnectionId%3ADescribeLoa%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287048"><span class="hs-identifier hs-var">pConnectionId_</span></a></span><span>
+</span><a href="#local-6989586621679287299"><span class="hs-identifier hs-var">pConnectionId_</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The name of the service provider who establishes connectivity on your</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- behalf. If you specify this parameter, the LOA-CFA lists the provider</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- name alongside your company name as the requester of the cross connect.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#describeLoa_providerName"><span class="hs-identifier hs-type">describeLoa_providerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="describeLoa_providerName"><span class="annot"><span class="annottext">describeLoa_providerName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DescribeLoa -&gt; f DescribeLoa
-</span><a href="Network.AWS.DirectConnect.DescribeLoa.html#describeLoa_providerName"><span class="hs-identifier hs-var hs-var">describeLoa_providerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLoa -&gt; Maybe Text)
--&gt; (DescribeLoa -&gt; Maybe Text -&gt; DescribeLoa)
--&gt; Lens DescribeLoa DescribeLoa (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287045"><span class="annot"><span class="annottext">Maybe Text
-providerName :: Maybe Text
-$sel:providerName:DescribeLoa' :: DescribeLoa -&gt; Maybe Text
-</span><a href="#local-6989586621679287045"><span class="hs-identifier hs-var hs-var">providerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679287045"><span class="hs-identifier hs-var">providerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287044"><span class="annot"><span class="annottext">s :: DescribeLoa
-</span><a href="#local-6989586621679287044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287043"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679287043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoa
-</span><a href="#local-6989586621679287044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerName:DescribeLoa' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AproviderName%3ADescribeLoa%27"><span class="hs-identifier hs-var">providerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679287043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | The standard media type for the LOA-CFA document. The only supported</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- value is application\/pdf.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#describeLoa_loaContentType"><span class="hs-identifier hs-type">describeLoa_loaContentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.LoaContentType.html#LoaContentType"><span class="hs-identifier hs-type">LoaContentType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="describeLoa_loaContentType"><span class="annot"><span class="annottext">describeLoa_loaContentType :: (Maybe LoaContentType -&gt; f (Maybe LoaContentType))
+</span><span id="line-101"></span><span class="hs-comment">-- | The standard media type for the LOA-CFA document. The only supported</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- value is application\/pdf.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#describeLoa_loaContentType"><span class="hs-identifier hs-type">describeLoa_loaContentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.LoaContentType.html#LoaContentType"><span class="hs-identifier hs-type">LoaContentType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="describeLoa_loaContentType"><span class="annot"><span class="annottext">describeLoa_loaContentType :: (Maybe LoaContentType -&gt; f (Maybe LoaContentType))
 -&gt; DescribeLoa -&gt; f DescribeLoa
 </span><a href="Network.AWS.DirectConnect.DescribeLoa.html#describeLoa_loaContentType"><span class="hs-identifier hs-var hs-var">describeLoa_loaContentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLoa -&gt; Maybe LoaContentType)
 -&gt; (DescribeLoa -&gt; Maybe LoaContentType -&gt; DescribeLoa)
@@ -197,16 +177,36 @@ $sel:providerName:DescribeLoa' :: DescribeLoa -&gt; Maybe Text
      (Maybe LoaContentType)
      (Maybe LoaContentType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287042"><span class="annot"><span class="annottext">Maybe LoaContentType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287296"><span class="annot"><span class="annottext">Maybe LoaContentType
 loaContentType :: Maybe LoaContentType
 $sel:loaContentType:DescribeLoa' :: DescribeLoa -&gt; Maybe LoaContentType
-</span><a href="#local-6989586621679287042"><span class="hs-identifier hs-var hs-var">loaContentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoaContentType
-</span><a href="#local-6989586621679287042"><span class="hs-identifier hs-var">loaContentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287041"><span class="annot"><span class="annottext">s :: DescribeLoa
-</span><a href="#local-6989586621679287041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287040"><span class="annot"><span class="annottext">Maybe LoaContentType
-</span><a href="#local-6989586621679287040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoa
-</span><a href="#local-6989586621679287041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loaContentType:DescribeLoa' :: Maybe LoaContentType
+</span><a href="#local-6989586621679287296"><span class="hs-identifier hs-var hs-var">loaContentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoaContentType
+</span><a href="#local-6989586621679287296"><span class="hs-identifier hs-var">loaContentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287295"><span class="annot"><span class="annottext">s :: DescribeLoa
+</span><a href="#local-6989586621679287295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287294"><span class="annot"><span class="annottext">Maybe LoaContentType
+</span><a href="#local-6989586621679287294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoa
+</span><a href="#local-6989586621679287295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loaContentType:DescribeLoa' :: Maybe LoaContentType
 </span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AloaContentType%3ADescribeLoa%27"><span class="hs-identifier hs-var">loaContentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoaContentType
-</span><a href="#local-6989586621679287040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The name of the service provider who establishes connectivity on your</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- behalf. If you specify this parameter, the LOA-CFA lists the provider</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- name alongside your company name as the requester of the cross connect.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#describeLoa_providerName"><span class="hs-identifier hs-type">describeLoa_providerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="describeLoa_providerName"><span class="annot"><span class="annottext">describeLoa_providerName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DescribeLoa -&gt; f DescribeLoa
+</span><a href="Network.AWS.DirectConnect.DescribeLoa.html#describeLoa_providerName"><span class="hs-identifier hs-var hs-var">describeLoa_providerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeLoa -&gt; Maybe Text)
+-&gt; (DescribeLoa -&gt; Maybe Text -&gt; DescribeLoa)
+-&gt; Lens DescribeLoa DescribeLoa (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287293"><span class="annot"><span class="annottext">Maybe Text
+providerName :: Maybe Text
+$sel:providerName:DescribeLoa' :: DescribeLoa -&gt; Maybe Text
+</span><a href="#local-6989586621679287293"><span class="hs-identifier hs-var hs-var">providerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287293"><span class="hs-identifier hs-var">providerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287292"><span class="annot"><span class="annottext">s :: DescribeLoa
+</span><a href="#local-6989586621679287292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287291"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoa
+</span><a href="#local-6989586621679287292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:providerName:DescribeLoa' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AproviderName%3ADescribeLoa%27"><span class="hs-identifier hs-var">providerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679287291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The ID of a connection, LAG, or interconnect.</span><span>
 </span><span id="line-113"></span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#describeLoa_connectionId"><span class="hs-identifier hs-type">describeLoa_connectionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -215,25 +215,25 @@ $sel:loaContentType:DescribeLoa' :: DescribeLoa -&gt; Maybe LoaContentType
 -&gt; (DescribeLoa -&gt; Text -&gt; DescribeLoa)
 -&gt; Lens DescribeLoa DescribeLoa Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287039"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287290"><span class="annot"><span class="annottext">Text
 connectionId :: Text
 $sel:connectionId:DescribeLoa' :: DescribeLoa -&gt; Text
-</span><a href="#local-6989586621679287039"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287039"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287038"><span class="annot"><span class="annottext">s :: DescribeLoa
-</span><a href="#local-6989586621679287038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287037"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoa
-</span><a href="#local-6989586621679287038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:DescribeLoa' :: Text
+</span><a href="#local-6989586621679287290"><span class="hs-identifier hs-var hs-var">connectionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287290"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287289"><span class="annot"><span class="annottext">s :: DescribeLoa
+</span><a href="#local-6989586621679287289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287288"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679287288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoa
+</span><a href="#local-6989586621679287289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionId:DescribeLoa' :: Text
 </span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AconnectionId%3ADescribeLoa%27"><span class="hs-identifier hs-var">connectionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679287037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679287033"><span class="annot"><span class="annottext">request :: DescribeLoa -&gt; Request DescribeLoa
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679287284"><span class="annot"><span class="annottext">request :: DescribeLoa -&gt; Request DescribeLoa
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeLoa -&gt; Request DescribeLoa
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679287029"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679287280"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeLoa
 -&gt; ClientResponse ClientBody
@@ -257,10 +257,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679287026"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679287026"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679287025"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679287025"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679287024"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679287024"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679287277"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287277"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679287276"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679287276"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679287275"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679287275"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe Base64 -&gt; Maybe LoaContentType -&gt; Int -&gt; DescribeLoaResponse
 </span><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-var">DescribeLoaResponse'</span></a></span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Base64
@@ -270,7 +270,7 @@ MonadResource m =&gt;
      String (Maybe LoaContentType -&gt; Int -&gt; DescribeLoaResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679287024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Base64)
+</span><a href="#local-6989586621679287275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Base64)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;loaContent&quot;</span></span><span class="hs-special">)</span><span>
@@ -279,7 +279,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeLoaResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679287024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LoaContentType)
+</span><a href="#local-6989586621679287275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LoaContentType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;loaContentType&quot;</span></span><span class="hs-special">)</span><span>
@@ -291,15 +291,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679287026"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287277"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287016"><span id="local-6989586621679287018"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287267"><span id="local-6989586621679287269"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287013"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287264"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679287009"><span class="annot"><span class="annottext">toHeaders :: DescribeLoa -&gt; ResponseHeaders
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679287260"><span class="annot"><span class="annottext">toHeaders :: DescribeLoa -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeLoa -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -326,57 +326,57 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-144"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286999"><span id="local-6989586621679287001"><span id="local-6989586621679287003"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679286997"><span class="annot"><span class="annottext">toJSON :: DescribeLoa -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286993"><span id="local-6989586621679286994"><span id="local-6989586621679286995"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287250"><span id="local-6989586621679287252"><span id="local-6989586621679287254"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679287248"><span class="annot"><span class="annottext">toJSON :: DescribeLoa -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa%27"><span class="hs-identifier hs-type">DescribeLoa'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287244"><span id="local-6989586621679287245"><span id="local-6989586621679287246"><span class="annot"><span class="annottext">Maybe Text
 Maybe LoaContentType
 Text
 connectionId :: Text
-loaContentType :: Maybe LoaContentType
 providerName :: Maybe Text
+loaContentType :: Maybe LoaContentType
 $sel:connectionId:DescribeLoa' :: DescribeLoa -&gt; Text
-$sel:loaContentType:DescribeLoa' :: DescribeLoa -&gt; Maybe LoaContentType
 $sel:providerName:DescribeLoa' :: DescribeLoa -&gt; Maybe Text
-</span><a href="#local-6989586621679286993"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:loaContentType:DescribeLoa' :: DescribeLoa -&gt; Maybe LoaContentType
+</span><a href="#local-6989586621679287244"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;loaContentType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LoaContentType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">(LoaContentType -&gt; Pair) -&gt; Maybe LoaContentType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LoaContentType
+</span><a href="#local-6989586621679287246"><span class="hs-identifier hs-var">loaContentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;providerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679286995"><span class="hs-identifier hs-var">providerName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;loaContentType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LoaContentType -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">(LoaContentType -&gt; Pair) -&gt; Maybe LoaContentType -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LoaContentType
-</span><a href="#local-6989586621679286994"><span class="hs-identifier hs-var">loaContentType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679287245"><span class="hs-identifier hs-var">providerName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;connectionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679286993"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287244"><span class="hs-identifier hs-var">connectionId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679286987"><span class="annot"><span class="annottext">toPath :: DescribeLoa -&gt; ByteString
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679287238"><span class="annot"><span class="annottext">toPath :: DescribeLoa -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeLoa -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoa"><span class="hs-identifier hs-type">DescribeLoa</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679286983"><span class="annot"><span class="annottext">toQuery :: DescribeLoa -&gt; QueryString
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679287234"><span class="annot"><span class="annottext">toQuery :: DescribeLoa -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeLoa -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -387,7 +387,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-165"></span><span class="hs-comment">-- Assignment (LOA-CFA) for a connection.</span><span>
 </span><span id="line-166"></span><span class="hs-comment">--</span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- /See:/ 'newDescribeLoaResponse' smart constructor.</span><span>
-</span><span id="line-168"></span><span id="local-6989586621679286980"><span id="local-6989586621679286981"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLoaResponse"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-var">DescribeLoaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLoaResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-var">DescribeLoaResponse'</span></a></span></span><span>
+</span><span id="line-168"></span><span id="local-6989586621679287231"><span id="local-6989586621679287232"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLoaResponse"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-var">DescribeLoaResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLoaResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-var">DescribeLoaResponse'</span></a></span></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The binary contents of the LOA-CFA document.</span><span>
 </span><span id="line-170"></span><span>    </span><span id="%24sel%3AloaContent%3ADescribeLoaResponse%27"><span class="annot"><span class="annottext">DescribeLoaResponse -&gt; Maybe Base64
 </span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AloaContent%3ADescribeLoaResponse%27"><span class="hs-identifier hs-var hs-var">loaContent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Base64</span></span><span class="hs-special">,</span><span>
@@ -399,7 +399,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-175"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeLoaResponse%27"><span class="annot"><span class="annottext">DescribeLoaResponse -&gt; Int
 </span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AhttpStatus%3ADescribeLoaResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-176"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286973"><span id="local-6989586621679286975"><span class="annot"><span class="annottext">DescribeLoaResponse -&gt; DescribeLoaResponse -&gt; Bool
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679287224"><span id="local-6989586621679287226"><span class="annot"><span class="annottext">DescribeLoaResponse -&gt; DescribeLoaResponse -&gt; Bool
 (DescribeLoaResponse -&gt; DescribeLoaResponse -&gt; Bool)
 -&gt; (DescribeLoaResponse -&gt; DescribeLoaResponse -&gt; Bool)
 -&gt; Eq DescribeLoaResponse
@@ -408,7 +408,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeLoaResponse -&gt; DescribeLoaResponse -&gt; Bool
 == :: DescribeLoaResponse -&gt; DescribeLoaResponse -&gt; Bool
 $c== :: DescribeLoaResponse -&gt; DescribeLoaResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286965"><span id="local-6989586621679286967"><span id="local-6989586621679286969"><span id="local-6989586621679286971"><span class="annot"><span class="annottext">ReadPrec [DescribeLoaResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287216"><span id="local-6989586621679287218"><span id="local-6989586621679287220"><span id="local-6989586621679287222"><span class="annot"><span class="annottext">ReadPrec [DescribeLoaResponse]
 ReadPrec DescribeLoaResponse
 Int -&gt; ReadS DescribeLoaResponse
 ReadS [DescribeLoaResponse]
@@ -428,7 +428,7 @@ readList :: ReadS [DescribeLoaResponse]
 $creadList :: ReadS [DescribeLoaResponse]
 readsPrec :: Int -&gt; ReadS DescribeLoaResponse
 $creadsPrec :: Int -&gt; ReadS DescribeLoaResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286959"><span id="local-6989586621679286961"><span id="local-6989586621679286963"><span class="annot"><span class="annottext">Int -&gt; DescribeLoaResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679287210"><span id="local-6989586621679287212"><span id="local-6989586621679287214"><span class="annot"><span class="annottext">Int -&gt; DescribeLoaResponse -&gt; ShowS
 [DescribeLoaResponse] -&gt; ShowS
 DescribeLoaResponse -&gt; String
 (Int -&gt; DescribeLoaResponse -&gt; ShowS)
@@ -477,8 +477,8 @@ $cfrom :: forall x. DescribeLoaResponse -&gt; Rep DescribeLoaResponse x
 </span><span id="line-199"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-200"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span><span>
 </span><span id="line-201"></span><span id="newDescribeLoaResponse"><span class="annot"><span class="annottext">newDescribeLoaResponse :: Int -&gt; DescribeLoaResponse
-</span><a href="Network.AWS.DirectConnect.DescribeLoa.html#newDescribeLoaResponse"><span class="hs-identifier hs-var hs-var">newDescribeLoaResponse</span></a></span></span><span> </span><span id="local-6989586621679286956"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286956"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectConnect.DescribeLoa.html#newDescribeLoaResponse"><span class="hs-identifier hs-var hs-var">newDescribeLoaResponse</span></a></span></span><span> </span><span id="local-6989586621679287207"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287207"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-202"></span><span>  </span><span class="annot"><span class="annottext">DescribeLoaResponse' :: Maybe Base64 -&gt; Maybe LoaContentType -&gt; Int -&gt; DescribeLoaResponse
 </span><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span>
 </span><span id="line-203"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loaContent:DescribeLoaResponse' :: Maybe Base64
@@ -491,7 +491,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLoaResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AhttpStatus%3ADescribeLoaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286956"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679287207"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-206"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-207"></span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- | The binary contents of the LOA-CFA document.--</span><span>
@@ -510,16 +510,16 @@ forall a. Maybe a
      (Maybe Base64)
      (Maybe Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286955"><span class="annot"><span class="annottext">Maybe Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287206"><span class="annot"><span class="annottext">Maybe Base64
 loaContent :: Maybe Base64
 $sel:loaContent:DescribeLoaResponse' :: DescribeLoaResponse -&gt; Maybe Base64
-</span><a href="#local-6989586621679286955"><span class="hs-identifier hs-var hs-var">loaContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679286955"><span class="hs-identifier hs-var">loaContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286954"><span class="annot"><span class="annottext">s :: DescribeLoaResponse
-</span><a href="#local-6989586621679286954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286953"><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679286953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoaResponse
-</span><a href="#local-6989586621679286954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loaContent:DescribeLoaResponse' :: Maybe Base64
+</span><a href="#local-6989586621679287206"><span class="hs-identifier hs-var hs-var">loaContent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679287206"><span class="hs-identifier hs-var">loaContent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287205"><span class="annot"><span class="annottext">s :: DescribeLoaResponse
+</span><a href="#local-6989586621679287205"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287204"><span class="annot"><span class="annottext">Maybe Base64
+</span><a href="#local-6989586621679287204"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoaResponse
+</span><a href="#local-6989586621679287205"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loaContent:DescribeLoaResponse' :: Maybe Base64
 </span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AloaContent%3ADescribeLoaResponse%27"><span class="hs-identifier hs-var">loaContent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Base64
-</span><a href="#local-6989586621679286953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
+</span><a href="#local-6989586621679287204"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe Base64 -&gt; f (Maybe Base64))
  -&gt; DescribeLoaResponse -&gt; f DescribeLoaResponse)
 -&gt; ((Maybe ByteString -&gt; f (Maybe ByteString))
     -&gt; Maybe Base64 -&gt; f (Maybe Base64))
@@ -551,16 +551,16 @@ Iso' Base64 ByteString
      (Maybe LoaContentType)
      (Maybe LoaContentType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286949"><span class="annot"><span class="annottext">Maybe LoaContentType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287200"><span class="annot"><span class="annottext">Maybe LoaContentType
 loaContentType :: Maybe LoaContentType
 $sel:loaContentType:DescribeLoaResponse' :: DescribeLoaResponse -&gt; Maybe LoaContentType
-</span><a href="#local-6989586621679286949"><span class="hs-identifier hs-var hs-var">loaContentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoaContentType
-</span><a href="#local-6989586621679286949"><span class="hs-identifier hs-var">loaContentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286948"><span class="annot"><span class="annottext">s :: DescribeLoaResponse
-</span><a href="#local-6989586621679286948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286947"><span class="annot"><span class="annottext">Maybe LoaContentType
-</span><a href="#local-6989586621679286947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoaResponse
-</span><a href="#local-6989586621679286948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loaContentType:DescribeLoaResponse' :: Maybe LoaContentType
+</span><a href="#local-6989586621679287200"><span class="hs-identifier hs-var hs-var">loaContentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LoaContentType
+</span><a href="#local-6989586621679287200"><span class="hs-identifier hs-var">loaContentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287199"><span class="annot"><span class="annottext">s :: DescribeLoaResponse
+</span><a href="#local-6989586621679287199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287198"><span class="annot"><span class="annottext">Maybe LoaContentType
+</span><a href="#local-6989586621679287198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoaResponse
+</span><a href="#local-6989586621679287199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loaContentType:DescribeLoaResponse' :: Maybe LoaContentType
 </span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AloaContentType%3ADescribeLoaResponse%27"><span class="hs-identifier hs-var">loaContentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LoaContentType
-</span><a href="#local-6989586621679286947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-222"></span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#describeLoaResponse_httpStatus"><span class="hs-identifier hs-type">describeLoaResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -569,16 +569,16 @@ $sel:loaContentType:DescribeLoaResponse' :: DescribeLoaResponse -&gt; Maybe LoaC
 -&gt; (DescribeLoaResponse -&gt; Int -&gt; DescribeLoaResponse)
 -&gt; Lens DescribeLoaResponse DescribeLoaResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286946"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679287197"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeLoaResponse' :: DescribeLoaResponse -&gt; Int
-</span><a href="#local-6989586621679286946"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286946"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286945"><span class="annot"><span class="annottext">s :: DescribeLoaResponse
-</span><a href="#local-6989586621679286945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286944"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoaResponse
-</span><a href="#local-6989586621679286945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLoaResponse' :: Int
+</span><a href="#local-6989586621679287197"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287197"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679287196"><span class="annot"><span class="annottext">s :: DescribeLoaResponse
+</span><a href="#local-6989586621679287196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse%27"><span class="hs-identifier hs-type">DescribeLoaResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679287195"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679287195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLoaResponse
+</span><a href="#local-6989586621679287196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLoaResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.DescribeLoa.html#%24sel%3AhttpStatus%3ADescribeLoaResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679287195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286942"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679287193"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeLoa.html#DescribeLoaResponse"><span class="hs-identifier hs-type">DescribeLoaResponse</span></a></span></span><span>
 </span><span id="line-226"></span></pre></body></html>

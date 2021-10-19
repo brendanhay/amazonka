@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span id="local-6989586621679299581"><span id="local-6989586621679299582"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ShareStatus"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ShareStatus.html#ShareStatus"><span class="hs-identifier hs-var">ShareStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShareStatus%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ShareStatus.html#ShareStatus%27"><span class="hs-identifier hs-var">ShareStatus'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679299779"><span id="local-6989586621679299780"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ShareStatus"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ShareStatus.html#ShareStatus"><span class="hs-identifier hs-var">ShareStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ShareStatus%27"><span class="annot"><a href="Network.AWS.DirectoryService.Types.ShareStatus.html#ShareStatus%27"><span class="hs-identifier hs-var">ShareStatus'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromShareStatus"><span class="annot"><span class="annottext">ShareStatus -&gt; Text
 </span><a href="Network.AWS.DirectoryService.Types.ShareStatus.html#fromShareStatus"><span class="hs-identifier hs-var hs-var">fromShareStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299573"><span id="local-6989586621679299575"><span id="local-6989586621679299577"><span class="annot"><span class="annottext">Int -&gt; ShareStatus -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299771"><span id="local-6989586621679299773"><span id="local-6989586621679299775"><span class="annot"><span class="annottext">Int -&gt; ShareStatus -&gt; ShowS
 [ShareStatus] -&gt; ShowS
 ShareStatus -&gt; String
 (Int -&gt; ShareStatus -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: ShareStatus -&gt; String
 showsPrec :: Int -&gt; ShareStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ShareStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679299564"><span id="local-6989586621679299566"><span id="local-6989586621679299568"><span id="local-6989586621679299570"><span class="annot"><span class="annottext">ReadPrec [ShareStatus]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679299762"><span id="local-6989586621679299764"><span id="local-6989586621679299766"><span id="local-6989586621679299768"><span class="annot"><span class="annottext">ReadPrec [ShareStatus]
 ReadPrec ShareStatus
 Int -&gt; ReadS ShareStatus
 ReadS [ShareStatus]
@@ -79,7 +79,7 @@ $creadList :: ReadS [ShareStatus]
 readsPrec :: Int -&gt; ReadS ShareStatus
 $creadsPrec :: Int -&gt; ReadS ShareStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679299559"><span id="local-6989586621679299561"><span class="annot"><span class="annottext">ShareStatus -&gt; ShareStatus -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679299757"><span id="local-6989586621679299759"><span class="annot"><span class="annottext">ShareStatus -&gt; ShareStatus -&gt; Bool
 (ShareStatus -&gt; ShareStatus -&gt; Bool)
 -&gt; (ShareStatus -&gt; ShareStatus -&gt; Bool) -&gt; Eq ShareStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -88,7 +88,7 @@ $c/= :: ShareStatus -&gt; ShareStatus -&gt; Bool
 == :: ShareStatus -&gt; ShareStatus -&gt; Bool
 $c== :: ShareStatus -&gt; ShareStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679299543"><span id="local-6989586621679299545"><span id="local-6989586621679299547"><span id="local-6989586621679299549"><span id="local-6989586621679299551"><span id="local-6989586621679299553"><span id="local-6989586621679299555"><span class="annot"><span class="annottext">Eq ShareStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679299741"><span id="local-6989586621679299743"><span id="local-6989586621679299745"><span id="local-6989586621679299747"><span id="local-6989586621679299749"><span id="local-6989586621679299751"><span id="local-6989586621679299753"><span class="annot"><span class="annottext">Eq ShareStatus
 Eq ShareStatus
 -&gt; (ShareStatus -&gt; ShareStatus -&gt; Ordering)
 -&gt; (ShareStatus -&gt; ShareStatus -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. ShareStatus -&gt; Rep ShareStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299535"><span id="local-6989586621679299537"><span class="annot"><span class="annottext">Int -&gt; ShareStatus -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679299733"><span id="local-6989586621679299735"><span class="annot"><span class="annottext">Int -&gt; ShareStatus -&gt; Int
 ShareStatus -&gt; Int
 (Int -&gt; ShareStatus -&gt; Int)
 -&gt; (ShareStatus -&gt; Int) -&gt; Hashable ShareStatus
@@ -149,49 +149,49 @@ $chash :: ShareStatus -&gt; Int
 hashWithSalt :: Int -&gt; ShareStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ShareStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679299532"><span class="annot"><span class="annottext">ShareStatus -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679299730"><span class="annot"><span class="annottext">ShareStatus -&gt; ()
 (ShareStatus -&gt; ()) -&gt; NFData ShareStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ShareStatus -&gt; ()
 $crnf :: ShareStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679299529"><span class="annot"><span class="annottext">Text -&gt; Either String ShareStatus
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679299727"><span class="annot"><span class="annottext">Text -&gt; Either String ShareStatus
 (Text -&gt; Either String ShareStatus) -&gt; FromText ShareStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ShareStatus
 $cfromText :: Text -&gt; Either String ShareStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679299526"><span class="annot"><span class="annottext">ShareStatus -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679299724"><span class="annot"><span class="annottext">ShareStatus -&gt; Text
 (ShareStatus -&gt; Text) -&gt; ToText ShareStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ShareStatus -&gt; Text
 $ctoText :: ShareStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679299523"><span class="annot"><span class="annottext">ShareStatus -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679299721"><span class="annot"><span class="annottext">ShareStatus -&gt; ByteString
 (ShareStatus -&gt; ByteString) -&gt; ToByteString ShareStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ShareStatus -&gt; ByteString
 $ctoBS :: ShareStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679299520"><span class="annot"><span class="annottext">ShareStatus -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679299718"><span class="annot"><span class="annottext">ShareStatus -&gt; ByteStringBuilder
 (ShareStatus -&gt; ByteStringBuilder) -&gt; ToLog ShareStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ShareStatus -&gt; ByteStringBuilder
 $cbuild :: ShareStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679299517"><span class="annot"><span class="annottext">HeaderName -&gt; ShareStatus -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679299715"><span class="annot"><span class="annottext">HeaderName -&gt; ShareStatus -&gt; [Header]
 (HeaderName -&gt; ShareStatus -&gt; [Header]) -&gt; ToHeader ShareStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ShareStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ShareStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679299514"><span class="annot"><span class="annottext">ShareStatus -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679299712"><span class="annot"><span class="annottext">ShareStatus -&gt; QueryString
 (ShareStatus -&gt; QueryString) -&gt; ToQuery ShareStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ShareStatus -&gt; QueryString
 $ctoQuery :: ShareStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679299509"><span id="local-6989586621679299511"><span class="annot"><span class="annottext">Value -&gt; Parser [ShareStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679299707"><span id="local-6989586621679299709"><span class="annot"><span class="annottext">Value -&gt; Parser [ShareStatus]
 Value -&gt; Parser ShareStatus
 (Value -&gt; Parser ShareStatus)
 -&gt; (Value -&gt; Parser [ShareStatus]) -&gt; FromJSON ShareStatus
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [ShareStatus]
 parseJSON :: Value -&gt; Parser ShareStatus
 $cparseJSON :: Value -&gt; Parser ShareStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679299504"><span id="local-6989586621679299506"><span class="annot"><span class="annottext">FromJSONKeyFunction [ShareStatus]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679299702"><span id="local-6989586621679299704"><span class="annot"><span class="annottext">FromJSONKeyFunction [ShareStatus]
 FromJSONKeyFunction ShareStatus
 FromJSONKeyFunction ShareStatus
 -&gt; FromJSONKeyFunction [ShareStatus] -&gt; FromJSONKey ShareStatus
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ShareStatus]
 fromJSONKey :: FromJSONKeyFunction ShareStatus
 $cfromJSONKey :: FromJSONKeyFunction ShareStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679299495"><span id="local-6989586621679299497"><span id="local-6989586621679299499"><span id="local-6989586621679299501"><span class="annot"><span class="annottext">[ShareStatus] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679299693"><span id="local-6989586621679299695"><span id="local-6989586621679299697"><span id="local-6989586621679299699"><span class="annot"><span class="annottext">[ShareStatus] -&gt; Encoding
 [ShareStatus] -&gt; Value
 ShareStatus -&gt; Encoding
 ShareStatus -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: ShareStatus -&gt; Encoding
 toJSON :: ShareStatus -&gt; Value
 $ctoJSON :: ShareStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679299490"><span id="local-6989586621679299492"><span class="annot"><span class="annottext">ToJSONKeyFunction [ShareStatus]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679299688"><span id="local-6989586621679299690"><span class="annot"><span class="annottext">ToJSONKeyFunction [ShareStatus]
 ToJSONKeyFunction ShareStatus
 ToJSONKeyFunction ShareStatus
 -&gt; ToJSONKeyFunction [ShareStatus] -&gt; ToJSONKey ShareStatus
@@ -248,13 +248,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ShareStatus]
 toJSONKey :: ToJSONKeyFunction ShareStatus
 $ctoJSONKey :: ToJSONKeyFunction ShareStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679299487"><span class="annot"><span class="annottext">[Node] -&gt; Either String ShareStatus
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679299685"><span class="annot"><span class="annottext">[Node] -&gt; Either String ShareStatus
 ([Node] -&gt; Either String ShareStatus) -&gt; FromXML ShareStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ShareStatus
 $cparseXML :: [Node] -&gt; Either String ShareStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679299484"><span class="annot"><span class="annottext">ShareStatus -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679299682"><span class="annot"><span class="annottext">ShareStatus -&gt; XML
 (ShareStatus -&gt; XML) -&gt; ToXML ShareStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ShareStatus -&gt; XML

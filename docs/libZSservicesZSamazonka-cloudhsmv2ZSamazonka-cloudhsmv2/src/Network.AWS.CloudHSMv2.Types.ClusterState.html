@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span id="local-6989586621679173759"><span id="local-6989586621679173760"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ClusterState"><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.ClusterState.html#ClusterState"><span class="hs-identifier hs-var">ClusterState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterState%27"><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.ClusterState.html#ClusterState%27"><span class="hs-identifier hs-var">ClusterState'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679173822"><span id="local-6989586621679173823"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ClusterState"><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.ClusterState.html#ClusterState"><span class="hs-identifier hs-var">ClusterState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterState%27"><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.ClusterState.html#ClusterState%27"><span class="hs-identifier hs-var">ClusterState'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromClusterState"><span class="annot"><span class="annottext">ClusterState -&gt; Text
 </span><a href="Network.AWS.CloudHSMv2.Types.ClusterState.html#fromClusterState"><span class="hs-identifier hs-var hs-var">fromClusterState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679173751"><span id="local-6989586621679173753"><span id="local-6989586621679173755"><span class="annot"><span class="annottext">Int -&gt; ClusterState -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679173814"><span id="local-6989586621679173816"><span id="local-6989586621679173818"><span class="annot"><span class="annottext">Int -&gt; ClusterState -&gt; ShowS
 [ClusterState] -&gt; ShowS
 ClusterState -&gt; String
 (Int -&gt; ClusterState -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: ClusterState -&gt; String
 showsPrec :: Int -&gt; ClusterState -&gt; ShowS
 $cshowsPrec :: Int -&gt; ClusterState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679173742"><span id="local-6989586621679173744"><span id="local-6989586621679173746"><span id="local-6989586621679173748"><span class="annot"><span class="annottext">ReadPrec [ClusterState]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679173805"><span id="local-6989586621679173807"><span id="local-6989586621679173809"><span id="local-6989586621679173811"><span class="annot"><span class="annottext">ReadPrec [ClusterState]
 ReadPrec ClusterState
 Int -&gt; ReadS ClusterState
 ReadS [ClusterState]
@@ -79,7 +79,7 @@ $creadList :: ReadS [ClusterState]
 readsPrec :: Int -&gt; ReadS ClusterState
 $creadsPrec :: Int -&gt; ReadS ClusterState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679173737"><span id="local-6989586621679173739"><span class="annot"><span class="annottext">ClusterState -&gt; ClusterState -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679173800"><span id="local-6989586621679173802"><span class="annot"><span class="annottext">ClusterState -&gt; ClusterState -&gt; Bool
 (ClusterState -&gt; ClusterState -&gt; Bool)
 -&gt; (ClusterState -&gt; ClusterState -&gt; Bool) -&gt; Eq ClusterState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -88,7 +88,7 @@ $c/= :: ClusterState -&gt; ClusterState -&gt; Bool
 == :: ClusterState -&gt; ClusterState -&gt; Bool
 $c== :: ClusterState -&gt; ClusterState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679173721"><span id="local-6989586621679173723"><span id="local-6989586621679173725"><span id="local-6989586621679173727"><span id="local-6989586621679173729"><span id="local-6989586621679173731"><span id="local-6989586621679173733"><span class="annot"><span class="annottext">Eq ClusterState
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679173784"><span id="local-6989586621679173786"><span id="local-6989586621679173788"><span id="local-6989586621679173790"><span id="local-6989586621679173792"><span id="local-6989586621679173794"><span id="local-6989586621679173796"><span class="annot"><span class="annottext">Eq ClusterState
 Eq ClusterState
 -&gt; (ClusterState -&gt; ClusterState -&gt; Ordering)
 -&gt; (ClusterState -&gt; ClusterState -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. ClusterState -&gt; Rep ClusterState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679173713"><span id="local-6989586621679173715"><span class="annot"><span class="annottext">Int -&gt; ClusterState -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679173776"><span id="local-6989586621679173778"><span class="annot"><span class="annottext">Int -&gt; ClusterState -&gt; Int
 ClusterState -&gt; Int
 (Int -&gt; ClusterState -&gt; Int)
 -&gt; (ClusterState -&gt; Int) -&gt; Hashable ClusterState
@@ -149,49 +149,49 @@ $chash :: ClusterState -&gt; Int
 hashWithSalt :: Int -&gt; ClusterState -&gt; Int
 $chashWithSalt :: Int -&gt; ClusterState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679173710"><span class="annot"><span class="annottext">ClusterState -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679173773"><span class="annot"><span class="annottext">ClusterState -&gt; ()
 (ClusterState -&gt; ()) -&gt; NFData ClusterState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ClusterState -&gt; ()
 $crnf :: ClusterState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679173707"><span class="annot"><span class="annottext">Text -&gt; Either String ClusterState
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679173770"><span class="annot"><span class="annottext">Text -&gt; Either String ClusterState
 (Text -&gt; Either String ClusterState) -&gt; FromText ClusterState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ClusterState
 $cfromText :: Text -&gt; Either String ClusterState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679173704"><span class="annot"><span class="annottext">ClusterState -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679173767"><span class="annot"><span class="annottext">ClusterState -&gt; Text
 (ClusterState -&gt; Text) -&gt; ToText ClusterState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ClusterState -&gt; Text
 $ctoText :: ClusterState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679173701"><span class="annot"><span class="annottext">ClusterState -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679173764"><span class="annot"><span class="annottext">ClusterState -&gt; ByteString
 (ClusterState -&gt; ByteString) -&gt; ToByteString ClusterState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ClusterState -&gt; ByteString
 $ctoBS :: ClusterState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679173698"><span class="annot"><span class="annottext">ClusterState -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679173761"><span class="annot"><span class="annottext">ClusterState -&gt; ByteStringBuilder
 (ClusterState -&gt; ByteStringBuilder) -&gt; ToLog ClusterState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ClusterState -&gt; ByteStringBuilder
 $cbuild :: ClusterState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679173695"><span class="annot"><span class="annottext">HeaderName -&gt; ClusterState -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679173758"><span class="annot"><span class="annottext">HeaderName -&gt; ClusterState -&gt; [Header]
 (HeaderName -&gt; ClusterState -&gt; [Header]) -&gt; ToHeader ClusterState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ClusterState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ClusterState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679173692"><span class="annot"><span class="annottext">ClusterState -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679173755"><span class="annot"><span class="annottext">ClusterState -&gt; QueryString
 (ClusterState -&gt; QueryString) -&gt; ToQuery ClusterState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ClusterState -&gt; QueryString
 $ctoQuery :: ClusterState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679173687"><span id="local-6989586621679173689"><span class="annot"><span class="annottext">Value -&gt; Parser [ClusterState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679173750"><span id="local-6989586621679173752"><span class="annot"><span class="annottext">Value -&gt; Parser [ClusterState]
 Value -&gt; Parser ClusterState
 (Value -&gt; Parser ClusterState)
 -&gt; (Value -&gt; Parser [ClusterState]) -&gt; FromJSON ClusterState
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [ClusterState]
 parseJSON :: Value -&gt; Parser ClusterState
 $cparseJSON :: Value -&gt; Parser ClusterState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679173682"><span id="local-6989586621679173684"><span class="annot"><span class="annottext">FromJSONKeyFunction [ClusterState]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679173745"><span id="local-6989586621679173747"><span class="annot"><span class="annottext">FromJSONKeyFunction [ClusterState]
 FromJSONKeyFunction ClusterState
 FromJSONKeyFunction ClusterState
 -&gt; FromJSONKeyFunction [ClusterState] -&gt; FromJSONKey ClusterState
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ClusterState]
 fromJSONKey :: FromJSONKeyFunction ClusterState
 $cfromJSONKey :: FromJSONKeyFunction ClusterState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679173673"><span id="local-6989586621679173675"><span id="local-6989586621679173677"><span id="local-6989586621679173679"><span class="annot"><span class="annottext">[ClusterState] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679173736"><span id="local-6989586621679173738"><span id="local-6989586621679173740"><span id="local-6989586621679173742"><span class="annot"><span class="annottext">[ClusterState] -&gt; Encoding
 [ClusterState] -&gt; Value
 ClusterState -&gt; Encoding
 ClusterState -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: ClusterState -&gt; Encoding
 toJSON :: ClusterState -&gt; Value
 $ctoJSON :: ClusterState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679173668"><span id="local-6989586621679173670"><span class="annot"><span class="annottext">ToJSONKeyFunction [ClusterState]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679173731"><span id="local-6989586621679173733"><span class="annot"><span class="annottext">ToJSONKeyFunction [ClusterState]
 ToJSONKeyFunction ClusterState
 ToJSONKeyFunction ClusterState
 -&gt; ToJSONKeyFunction [ClusterState] -&gt; ToJSONKey ClusterState
@@ -248,13 +248,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ClusterState]
 toJSONKey :: ToJSONKeyFunction ClusterState
 $ctoJSONKey :: ToJSONKeyFunction ClusterState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679173665"><span class="annot"><span class="annottext">[Node] -&gt; Either String ClusterState
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679173728"><span class="annot"><span class="annottext">[Node] -&gt; Either String ClusterState
 ([Node] -&gt; Either String ClusterState) -&gt; FromXML ClusterState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ClusterState
 $cparseXML :: [Node] -&gt; Either String ClusterState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679173662"><span class="annot"><span class="annottext">ClusterState -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679173725"><span class="annot"><span class="annottext">ClusterState -&gt; XML
 (ClusterState -&gt; XML) -&gt; ToXML ClusterState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ClusterState -&gt; XML

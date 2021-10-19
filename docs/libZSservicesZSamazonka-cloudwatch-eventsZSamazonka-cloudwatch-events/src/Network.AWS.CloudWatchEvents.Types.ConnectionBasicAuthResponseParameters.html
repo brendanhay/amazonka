@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- specified as the authorization type.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newConnectionBasicAuthResponseParameters' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679300073"><span id="local-6989586621679300074"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionBasicAuthResponseParameters"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters.html#ConnectionBasicAuthResponseParameters"><span class="hs-identifier hs-var">ConnectionBasicAuthResponseParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionBasicAuthResponseParameters%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters.html#ConnectionBasicAuthResponseParameters%27"><span class="hs-identifier hs-var">ConnectionBasicAuthResponseParameters'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679300252"><span id="local-6989586621679300253"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConnectionBasicAuthResponseParameters"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters.html#ConnectionBasicAuthResponseParameters"><span class="hs-identifier hs-var">ConnectionBasicAuthResponseParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionBasicAuthResponseParameters%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters.html#ConnectionBasicAuthResponseParameters%27"><span class="hs-identifier hs-var">ConnectionBasicAuthResponseParameters'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user name to use for Basic authorization.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Ausername%3AConnectionBasicAuthResponseParameters%27"><span class="annot"><span class="annottext">ConnectionBasicAuthResponseParameters -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters.html#%24sel%3Ausername%3AConnectionBasicAuthResponseParameters%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300067"><span id="local-6989586621679300069"><span class="annot"><span class="annottext">ConnectionBasicAuthResponseParameters
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300246"><span id="local-6989586621679300248"><span class="annot"><span class="annottext">ConnectionBasicAuthResponseParameters
 -&gt; ConnectionBasicAuthResponseParameters -&gt; Bool
 (ConnectionBasicAuthResponseParameters
  -&gt; ConnectionBasicAuthResponseParameters -&gt; Bool)
@@ -48,7 +48,7 @@ $c/= :: ConnectionBasicAuthResponseParameters
 -&gt; ConnectionBasicAuthResponseParameters -&gt; Bool
 $c== :: ConnectionBasicAuthResponseParameters
 -&gt; ConnectionBasicAuthResponseParameters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300058"><span id="local-6989586621679300060"><span id="local-6989586621679300062"><span id="local-6989586621679300064"><span class="annot"><span class="annottext">ReadPrec [ConnectionBasicAuthResponseParameters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300237"><span id="local-6989586621679300239"><span id="local-6989586621679300241"><span id="local-6989586621679300243"><span class="annot"><span class="annottext">ReadPrec [ConnectionBasicAuthResponseParameters]
 ReadPrec ConnectionBasicAuthResponseParameters
 Int -&gt; ReadS ConnectionBasicAuthResponseParameters
 ReadS [ConnectionBasicAuthResponseParameters]
@@ -68,7 +68,7 @@ readList :: ReadS [ConnectionBasicAuthResponseParameters]
 $creadList :: ReadS [ConnectionBasicAuthResponseParameters]
 readsPrec :: Int -&gt; ReadS ConnectionBasicAuthResponseParameters
 $creadsPrec :: Int -&gt; ReadS ConnectionBasicAuthResponseParameters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300051"><span id="local-6989586621679300053"><span id="local-6989586621679300055"><span class="annot"><span class="annottext">Int -&gt; ConnectionBasicAuthResponseParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300230"><span id="local-6989586621679300232"><span id="local-6989586621679300234"><span class="annot"><span class="annottext">Int -&gt; ConnectionBasicAuthResponseParameters -&gt; ShowS
 [ConnectionBasicAuthResponseParameters] -&gt; ShowS
 ConnectionBasicAuthResponseParameters -&gt; String
 (Int -&gt; ConnectionBasicAuthResponseParameters -&gt; ShowS)
@@ -142,22 +142,22 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters.html#ConnectionBasicAuthResponseParameters%27"><span class="hs-identifier hs-type">ConnectionBasicAuthResponseParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300042"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters.html#ConnectionBasicAuthResponseParameters%27"><span class="hs-identifier hs-type">ConnectionBasicAuthResponseParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300221"><span class="annot"><span class="annottext">Maybe Text
 username :: Maybe Text
 $sel:username:ConnectionBasicAuthResponseParameters' :: ConnectionBasicAuthResponseParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679300042"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300042"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300041"><span class="annot"><span class="annottext">s :: ConnectionBasicAuthResponseParameters
-</span><a href="#local-6989586621679300041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters.html#ConnectionBasicAuthResponseParameters%27"><span class="hs-identifier hs-type">ConnectionBasicAuthResponseParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300040"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionBasicAuthResponseParameters
-</span><a href="#local-6989586621679300041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:ConnectionBasicAuthResponseParameters' :: Maybe Text
+</span><a href="#local-6989586621679300221"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300221"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300220"><span class="annot"><span class="annottext">s :: ConnectionBasicAuthResponseParameters
+</span><a href="#local-6989586621679300220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters.html#ConnectionBasicAuthResponseParameters%27"><span class="hs-identifier hs-type">ConnectionBasicAuthResponseParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300219"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679300219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConnectionBasicAuthResponseParameters
+</span><a href="#local-6989586621679300220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:ConnectionBasicAuthResponseParameters' :: Maybe Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters.html#%24sel%3Ausername%3AConnectionBasicAuthResponseParameters%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679300040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters.html#ConnectionBasicAuthResponseParameters"><span class="hs-identifier hs-type">ConnectionBasicAuthResponseParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters.html#ConnectionBasicAuthResponseParameters"><span class="hs-identifier hs-type">ConnectionBasicAuthResponseParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679300037"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679300216"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters.html#ConnectionBasicAuthResponseParameters"><span class="hs-identifier hs-type">ConnectionBasicAuthResponseParameters</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679300035"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConnectionBasicAuthResponseParameters
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679300214"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConnectionBasicAuthResponseParameters
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ConnectionBasicAuthResponseParameters)
@@ -167,8 +167,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ConnectionBasicAuthResponseParameters&quot;</span></span><span>
-</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300032"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300032"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300211"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300211"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; ConnectionBasicAuthResponseParameters
 </span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters.html#ConnectionBasicAuthResponseParameters%27"><span class="hs-identifier hs-var">ConnectionBasicAuthResponseParameters'</span></a></span><span>
 </span><span id="line-66"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; ConnectionBasicAuthResponseParameters)
@@ -176,17 +176,17 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser ConnectionBasicAuthResponseParameters
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679300032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679300211"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Username&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679300026"><span id="local-6989586621679300028"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679300205"><span id="local-6989586621679300207"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters.html#ConnectionBasicAuthResponseParameters"><span class="hs-identifier hs-type">ConnectionBasicAuthResponseParameters</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679300023"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679300202"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionBasicAuthResponseParameters.html#ConnectionBasicAuthResponseParameters"><span class="hs-identifier hs-type">ConnectionBasicAuthResponseParameters</span></a></span></span><span>
 </span><span id="line-76"></span></pre></body></html>

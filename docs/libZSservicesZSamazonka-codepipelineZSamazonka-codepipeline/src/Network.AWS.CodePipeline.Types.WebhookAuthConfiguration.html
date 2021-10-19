@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The authentication applied to incoming webhook trigger requests.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newWebhookAuthConfiguration' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679283813"><span id="local-6989586621679283814"></span></span><span class="hs-keyword">data</span><span> </span><span id="WebhookAuthConfiguration"><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration"><span class="hs-identifier hs-var">WebhookAuthConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebhookAuthConfiguration%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration%27"><span class="hs-identifier hs-var">WebhookAuthConfiguration'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679284028"><span id="local-6989586621679284029"></span></span><span class="hs-keyword">data</span><span> </span><span id="WebhookAuthConfiguration"><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration"><span class="hs-identifier hs-var">WebhookAuthConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebhookAuthConfiguration%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration%27"><span class="hs-identifier hs-var">WebhookAuthConfiguration'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The property used to configure acceptance of webhooks in an IP address</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- range. For IP, only the @AllowedIPRange@ property must be set. This</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- property must be set to a valid CIDR range.</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AsecretToken%3AWebhookAuthConfiguration%27"><span class="annot"><span class="annottext">WebhookAuthConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#%24sel%3AsecretToken%3AWebhookAuthConfiguration%27"><span class="hs-identifier hs-var hs-var">secretToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283806"><span id="local-6989586621679283808"><span class="annot"><span class="annottext">WebhookAuthConfiguration -&gt; WebhookAuthConfiguration -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284021"><span id="local-6989586621679284023"><span class="annot"><span class="annottext">WebhookAuthConfiguration -&gt; WebhookAuthConfiguration -&gt; Bool
 (WebhookAuthConfiguration -&gt; WebhookAuthConfiguration -&gt; Bool)
 -&gt; (WebhookAuthConfiguration -&gt; WebhookAuthConfiguration -&gt; Bool)
 -&gt; Eq WebhookAuthConfiguration
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WebhookAuthConfiguration -&gt; WebhookAuthConfiguration -&gt; Bool
 == :: WebhookAuthConfiguration -&gt; WebhookAuthConfiguration -&gt; Bool
 $c== :: WebhookAuthConfiguration -&gt; WebhookAuthConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283797"><span id="local-6989586621679283799"><span id="local-6989586621679283801"><span id="local-6989586621679283803"><span class="annot"><span class="annottext">ReadPrec [WebhookAuthConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284012"><span id="local-6989586621679284014"><span id="local-6989586621679284016"><span id="local-6989586621679284018"><span class="annot"><span class="annottext">ReadPrec [WebhookAuthConfiguration]
 ReadPrec WebhookAuthConfiguration
 Int -&gt; ReadS WebhookAuthConfiguration
 ReadS [WebhookAuthConfiguration]
@@ -66,7 +66,7 @@ readList :: ReadS [WebhookAuthConfiguration]
 $creadList :: ReadS [WebhookAuthConfiguration]
 readsPrec :: Int -&gt; ReadS WebhookAuthConfiguration
 $creadsPrec :: Int -&gt; ReadS WebhookAuthConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283790"><span id="local-6989586621679283792"><span id="local-6989586621679283794"><span class="annot"><span class="annottext">Int -&gt; WebhookAuthConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284005"><span id="local-6989586621679284007"><span id="local-6989586621679284009"><span class="annot"><span class="annottext">Int -&gt; WebhookAuthConfiguration -&gt; ShowS
 [WebhookAuthConfiguration] -&gt; ShowS
 WebhookAuthConfiguration -&gt; String
 (Int -&gt; WebhookAuthConfiguration -&gt; ShowS)
@@ -144,16 +144,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration%27"><span class="hs-identifier hs-type">WebhookAuthConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283781"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration%27"><span class="hs-identifier hs-type">WebhookAuthConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283996"><span class="annot"><span class="annottext">Maybe Text
 allowedIPRange :: Maybe Text
 $sel:allowedIPRange:WebhookAuthConfiguration' :: WebhookAuthConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679283781"><span class="hs-identifier hs-var hs-var">allowedIPRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283781"><span class="hs-identifier hs-var">allowedIPRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283780"><span class="annot"><span class="annottext">s :: WebhookAuthConfiguration
-</span><a href="#local-6989586621679283780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration%27"><span class="hs-identifier hs-type">WebhookAuthConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283779"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookAuthConfiguration
-</span><a href="#local-6989586621679283780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedIPRange:WebhookAuthConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679283996"><span class="hs-identifier hs-var hs-var">allowedIPRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283996"><span class="hs-identifier hs-var">allowedIPRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283995"><span class="annot"><span class="annottext">s :: WebhookAuthConfiguration
+</span><a href="#local-6989586621679283995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration%27"><span class="hs-identifier hs-type">WebhookAuthConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283994"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookAuthConfiguration
+</span><a href="#local-6989586621679283995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowedIPRange:WebhookAuthConfiguration' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#%24sel%3AallowedIPRange%3AWebhookAuthConfiguration%27"><span class="hs-identifier hs-var">allowedIPRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration"><span class="hs-identifier hs-type">WebhookAuthConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration"><span class="hs-identifier hs-type">WebhookAuthConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The property used to configure GitHub authentication. For GITHUB_HMAC,</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- only the @SecretToken@ property must be set.</span><span>
@@ -169,19 +169,19 @@ $sel:allowedIPRange:WebhookAuthConfiguration' :: WebhookAuthConfiguration -&gt; 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration%27"><span class="hs-identifier hs-type">WebhookAuthConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283777"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration%27"><span class="hs-identifier hs-type">WebhookAuthConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283992"><span class="annot"><span class="annottext">Maybe Text
 secretToken :: Maybe Text
 $sel:secretToken:WebhookAuthConfiguration' :: WebhookAuthConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679283777"><span class="hs-identifier hs-var hs-var">secretToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283777"><span class="hs-identifier hs-var">secretToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283776"><span class="annot"><span class="annottext">s :: WebhookAuthConfiguration
-</span><a href="#local-6989586621679283776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration%27"><span class="hs-identifier hs-type">WebhookAuthConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283775"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookAuthConfiguration
-</span><a href="#local-6989586621679283776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretToken:WebhookAuthConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679283992"><span class="hs-identifier hs-var hs-var">secretToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283992"><span class="hs-identifier hs-var">secretToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283991"><span class="annot"><span class="annottext">s :: WebhookAuthConfiguration
+</span><a href="#local-6989586621679283991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration%27"><span class="hs-identifier hs-type">WebhookAuthConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283990"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WebhookAuthConfiguration
+</span><a href="#local-6989586621679283991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretToken:WebhookAuthConfiguration' :: Maybe Text
 </span><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#%24sel%3AsecretToken%3AWebhookAuthConfiguration%27"><span class="hs-identifier hs-var">secretToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration"><span class="hs-identifier hs-type">WebhookAuthConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration"><span class="hs-identifier hs-type">WebhookAuthConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283772"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration"><span class="hs-identifier hs-type">WebhookAuthConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679283770"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WebhookAuthConfiguration
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283987"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration"><span class="hs-identifier hs-type">WebhookAuthConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679283985"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser WebhookAuthConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser WebhookAuthConfiguration)
@@ -191,8 +191,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;WebhookAuthConfiguration&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283767"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283767"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283982"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283982"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; WebhookAuthConfiguration
 </span><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration%27"><span class="hs-identifier hs-var">WebhookAuthConfiguration'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; WebhookAuthConfiguration)
@@ -200,7 +200,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; WebhookAuthConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283767"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679283982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllowedIPRange&quot;</span></span><span class="hs-special">)</span><span>
@@ -208,24 +208,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser WebhookAuthConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283767"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679283982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecretToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283761"><span id="local-6989586621679283763"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration"><span class="hs-identifier hs-type">WebhookAuthConfiguration</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283976"><span id="local-6989586621679283978"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration"><span class="hs-identifier hs-type">WebhookAuthConfiguration</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration"><span class="hs-identifier hs-type">WebhookAuthConfiguration</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283973"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration"><span class="hs-identifier hs-type">WebhookAuthConfiguration</span></a></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283750"><span id="local-6989586621679283752"><span id="local-6989586621679283754"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration"><span class="hs-identifier hs-type">WebhookAuthConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679283748"><span class="annot"><span class="annottext">toJSON :: WebhookAuthConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration%27"><span class="hs-identifier hs-type">WebhookAuthConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283745"><span id="local-6989586621679283746"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283965"><span id="local-6989586621679283967"><span id="local-6989586621679283969"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration"><span class="hs-identifier hs-type">WebhookAuthConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679283963"><span class="annot"><span class="annottext">toJSON :: WebhookAuthConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodePipeline.Types.WebhookAuthConfiguration.html#WebhookAuthConfiguration%27"><span class="hs-identifier hs-type">WebhookAuthConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283960"><span id="local-6989586621679283961"><span class="annot"><span class="annottext">Maybe Text
 secretToken :: Maybe Text
 allowedIPRange :: Maybe Text
 $sel:secretToken:WebhookAuthConfiguration' :: WebhookAuthConfiguration -&gt; Maybe Text
 $sel:allowedIPRange:WebhookAuthConfiguration' :: WebhookAuthConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679283745"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679283960"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -238,14 +238,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-93"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283746"><span class="hs-identifier hs-var">allowedIPRange</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679283961"><span class="hs-identifier hs-var">allowedIPRange</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecretToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679283745"><span class="hs-identifier hs-var">secretToken</span></a></span><span>
+</span><a href="#local-6989586621679283960"><span class="hs-identifier hs-var">secretToken</span></a></span><span>
 </span><span id="line-95"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Replication configuration for a server group.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newServerGroupReplicationConfiguration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679250221"><span id="local-6989586621679250222"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServerGroupReplicationConfiguration"><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration"><span class="hs-identifier hs-var">ServerGroupReplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerGroupReplicationConfiguration%27"><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration%27"><span class="hs-identifier hs-var">ServerGroupReplicationConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679250353"><span id="local-6989586621679250354"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServerGroupReplicationConfiguration"><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration"><span class="hs-identifier hs-var">ServerGroupReplicationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerGroupReplicationConfiguration%27"><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration%27"><span class="hs-identifier hs-var">ServerGroupReplicationConfiguration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the server group with which this replication configuration is</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- associated.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AserverGroupId%3AServerGroupReplicationConfiguration%27"><span class="annot"><span class="annottext">ServerGroupReplicationConfiguration -&gt; Maybe Text
@@ -37,7 +37,7 @@
 -&gt; Maybe [ServerReplicationConfiguration]
 </span><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#%24sel%3AserverReplicationConfigurations%3AServerGroupReplicationConfiguration%27"><span class="hs-identifier hs-var hs-var">serverReplicationConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerReplicationConfiguration.html#ServerReplicationConfiguration"><span class="hs-identifier hs-type">ServerReplicationConfiguration</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250214"><span id="local-6989586621679250216"><span class="annot"><span class="annottext">ServerGroupReplicationConfiguration
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250346"><span id="local-6989586621679250348"><span class="annot"><span class="annottext">ServerGroupReplicationConfiguration
 -&gt; ServerGroupReplicationConfiguration -&gt; Bool
 (ServerGroupReplicationConfiguration
  -&gt; ServerGroupReplicationConfiguration -&gt; Bool)
@@ -53,7 +53,7 @@ $c/= :: ServerGroupReplicationConfiguration
 -&gt; ServerGroupReplicationConfiguration -&gt; Bool
 $c== :: ServerGroupReplicationConfiguration
 -&gt; ServerGroupReplicationConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250205"><span id="local-6989586621679250207"><span id="local-6989586621679250209"><span id="local-6989586621679250211"><span class="annot"><span class="annottext">ReadPrec [ServerGroupReplicationConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250337"><span id="local-6989586621679250339"><span id="local-6989586621679250341"><span id="local-6989586621679250343"><span class="annot"><span class="annottext">ReadPrec [ServerGroupReplicationConfiguration]
 ReadPrec ServerGroupReplicationConfiguration
 Int -&gt; ReadS ServerGroupReplicationConfiguration
 ReadS [ServerGroupReplicationConfiguration]
@@ -73,7 +73,7 @@ readList :: ReadS [ServerGroupReplicationConfiguration]
 $creadList :: ReadS [ServerGroupReplicationConfiguration]
 readsPrec :: Int -&gt; ReadS ServerGroupReplicationConfiguration
 $creadsPrec :: Int -&gt; ReadS ServerGroupReplicationConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250198"><span id="local-6989586621679250200"><span id="local-6989586621679250202"><span class="annot"><span class="annottext">Int -&gt; ServerGroupReplicationConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250330"><span id="local-6989586621679250332"><span id="local-6989586621679250334"><span class="annot"><span class="annottext">Int -&gt; ServerGroupReplicationConfiguration -&gt; ShowS
 [ServerGroupReplicationConfiguration] -&gt; ShowS
 ServerGroupReplicationConfiguration -&gt; String
 (Int -&gt; ServerGroupReplicationConfiguration -&gt; ShowS)
@@ -158,16 +158,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250189"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250321"><span class="annot"><span class="annottext">Maybe Text
 serverGroupId :: Maybe Text
 $sel:serverGroupId:ServerGroupReplicationConfiguration' :: ServerGroupReplicationConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679250189"><span class="hs-identifier hs-var hs-var">serverGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250189"><span class="hs-identifier hs-var">serverGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250188"><span class="annot"><span class="annottext">s :: ServerGroupReplicationConfiguration
-</span><a href="#local-6989586621679250188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250187"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerGroupReplicationConfiguration
-</span><a href="#local-6989586621679250188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverGroupId:ServerGroupReplicationConfiguration' :: Maybe Text
+</span><a href="#local-6989586621679250321"><span class="hs-identifier hs-var hs-var">serverGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250321"><span class="hs-identifier hs-var">serverGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250320"><span class="annot"><span class="annottext">s :: ServerGroupReplicationConfiguration
+</span><a href="#local-6989586621679250320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250319"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerGroupReplicationConfiguration
+</span><a href="#local-6989586621679250320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverGroupId:ServerGroupReplicationConfiguration' :: Maybe Text
 </span><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#%24sel%3AserverGroupId%3AServerGroupReplicationConfiguration%27"><span class="hs-identifier hs-var">serverGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679250319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The replication configuration for servers in the server group.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#serverGroupReplicationConfiguration_serverReplicationConfigurations"><span class="hs-identifier hs-type">serverGroupReplicationConfiguration_serverReplicationConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerReplicationConfiguration.html#ServerReplicationConfiguration"><span class="hs-identifier hs-type">ServerReplicationConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -186,17 +186,17 @@ $sel:serverGroupId:ServerGroupReplicationConfiguration' :: ServerGroupReplicatio
      (Maybe [ServerReplicationConfiguration])
      (Maybe [ServerReplicationConfiguration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250185"><span class="annot"><span class="annottext">Maybe [ServerReplicationConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250317"><span class="annot"><span class="annottext">Maybe [ServerReplicationConfiguration]
 serverReplicationConfigurations :: Maybe [ServerReplicationConfiguration]
 $sel:serverReplicationConfigurations:ServerGroupReplicationConfiguration' :: ServerGroupReplicationConfiguration
 -&gt; Maybe [ServerReplicationConfiguration]
-</span><a href="#local-6989586621679250185"><span class="hs-identifier hs-var hs-var">serverReplicationConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerReplicationConfiguration]
-</span><a href="#local-6989586621679250185"><span class="hs-identifier hs-var">serverReplicationConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250184"><span class="annot"><span class="annottext">s :: ServerGroupReplicationConfiguration
-</span><a href="#local-6989586621679250184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250183"><span class="annot"><span class="annottext">Maybe [ServerReplicationConfiguration]
-</span><a href="#local-6989586621679250183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerGroupReplicationConfiguration
-</span><a href="#local-6989586621679250184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverReplicationConfigurations:ServerGroupReplicationConfiguration' :: Maybe [ServerReplicationConfiguration]
+</span><a href="#local-6989586621679250317"><span class="hs-identifier hs-var hs-var">serverReplicationConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerReplicationConfiguration]
+</span><a href="#local-6989586621679250317"><span class="hs-identifier hs-var">serverReplicationConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250316"><span class="annot"><span class="annottext">s :: ServerGroupReplicationConfiguration
+</span><a href="#local-6989586621679250316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250315"><span class="annot"><span class="annottext">Maybe [ServerReplicationConfiguration]
+</span><a href="#local-6989586621679250315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerGroupReplicationConfiguration
+</span><a href="#local-6989586621679250316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverReplicationConfigurations:ServerGroupReplicationConfiguration' :: Maybe [ServerReplicationConfiguration]
 </span><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#%24sel%3AserverReplicationConfigurations%3AServerGroupReplicationConfiguration%27"><span class="hs-identifier hs-var">serverReplicationConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ServerReplicationConfiguration]
-</span><a href="#local-6989586621679250183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServerReplicationConfiguration]
+</span><a href="#local-6989586621679250315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ServerReplicationConfiguration]
   -&gt; f (Maybe [ServerReplicationConfiguration]))
  -&gt; ServerGroupReplicationConfiguration
  -&gt; f ServerGroupReplicationConfiguration)
@@ -227,14 +227,14 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ServerReplicationConfiguration]
   [ServerReplicationConfiguration]
   [ServerReplicationConfiguration]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679250177"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679250309"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration</span></a></span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679250175"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServerGroupReplicationConfiguration
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679250307"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServerGroupReplicationConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ServerGroupReplicationConfiguration)
@@ -244,8 +244,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ServerGroupReplicationConfiguration&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250172"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250172"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250304"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250304"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [ServerReplicationConfiguration]
 -&gt; ServerGroupReplicationConfiguration
@@ -259,7 +259,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ServerGroupReplicationConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679250304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serverGroupId&quot;</span></span><span class="hs-special">)</span><span>
@@ -270,7 +270,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser ServerGroupReplicationConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [ServerReplicationConfiguration]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -286,26 +286,26 @@ forall a. Monoid a =&gt; a
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679250165"><span id="local-6989586621679250167"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679250297"><span id="local-6989586621679250299"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679250162"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679250294"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679250154"><span id="local-6989586621679250156"><span id="local-6989586621679250158"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679250286"><span id="local-6989586621679250288"><span id="local-6989586621679250290"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration</span></a></span></span></span></span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679250152"><span class="annot"><span class="annottext">toJSON :: ServerGroupReplicationConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250149"><span id="local-6989586621679250150"><span class="annot"><span class="annottext">Maybe [ServerReplicationConfiguration]
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679250284"><span class="annot"><span class="annottext">toJSON :: ServerGroupReplicationConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.ServerGroupReplicationConfiguration.html#ServerGroupReplicationConfiguration%27"><span class="hs-identifier hs-type">ServerGroupReplicationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250281"><span id="local-6989586621679250282"><span class="annot"><span class="annottext">Maybe [ServerReplicationConfiguration]
 Maybe Text
 serverReplicationConfigurations :: Maybe [ServerReplicationConfiguration]
 serverGroupId :: Maybe Text
 $sel:serverReplicationConfigurations:ServerGroupReplicationConfiguration' :: ServerGroupReplicationConfiguration
 -&gt; Maybe [ServerReplicationConfiguration]
 $sel:serverGroupId:ServerGroupReplicationConfiguration' :: ServerGroupReplicationConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621679250149"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679250281"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -317,7 +317,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679250150"><span class="hs-identifier hs-var">serverGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250282"><span class="hs-identifier hs-var">serverGroupId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serverReplicationConfigurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ServerReplicationConfiguration] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -326,7 +326,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [ServerReplicationConfiguration] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ServerReplicationConfiguration]
-</span><a href="#local-6989586621679250149"><span class="hs-identifier hs-var">serverReplicationConfigurations</span></a></span><span>
+</span><a href="#local-6989586621679250281"><span class="hs-identifier hs-var">serverReplicationConfigurations</span></a></span><span>
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span></pre></body></html>

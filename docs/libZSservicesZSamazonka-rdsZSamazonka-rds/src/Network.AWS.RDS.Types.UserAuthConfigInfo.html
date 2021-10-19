@@ -29,29 +29,29 @@
 </span><span id="line-29"></span><span class="hs-comment">-- specific database user.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newUserAuthConfigInfo' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679767986"><span id="local-6989586621679767987"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserAuthConfigInfo"><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-var">UserAuthConfigInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserAuthConfigInfo%27"><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-var">UserAuthConfigInfo'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) representing the secret that the proxy</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- uses to authenticate to the RDS DB instance or Aurora DB cluster. These</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- secrets are stored within Amazon Secrets Manager.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AsecretArn%3AUserAuthConfigInfo%27"><span class="annot"><span class="annottext">UserAuthConfigInfo -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3AsecretArn%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var hs-var">secretArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The type of authentication that the proxy uses for connections from the</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- proxy to the underlying database.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AauthScheme%3AUserAuthConfigInfo%27"><span class="annot"><span class="annottext">UserAuthConfigInfo -&gt; Maybe AuthScheme
-</span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3AauthScheme%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var hs-var">authScheme</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AuthScheme.html#AuthScheme"><span class="hs-identifier hs-type">AuthScheme</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Whether to require or disallow Amazon Web Services Identity and Access</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Management (IAM) authentication for connections to the proxy.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AiAMAuth%3AUserAuthConfigInfo%27"><span class="annot"><span class="annottext">UserAuthConfigInfo -&gt; Maybe IAMAuthMode
+</span><span id="line-32"></span><span id="local-6989586621679769059"><span id="local-6989586621679769060"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserAuthConfigInfo"><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-var">UserAuthConfigInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserAuthConfigInfo%27"><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-var">UserAuthConfigInfo'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Whether to require or disallow Amazon Web Services Identity and Access</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Management (IAM) authentication for connections to the proxy.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AiAMAuth%3AUserAuthConfigInfo%27"><span class="annot"><span class="annottext">UserAuthConfigInfo -&gt; Maybe IAMAuthMode
 </span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3AiAMAuth%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var hs-var">iAMAuth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.IAMAuthMode.html#IAMAuthMode"><span class="hs-identifier hs-type">IAMAuthMode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The name of the database user to which the proxy connects.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AuserName%3AUserAuthConfigInfo%27"><span class="annot"><span class="annottext">UserAuthConfigInfo -&gt; Maybe Text
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the database user to which the proxy connects.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AuserName%3AUserAuthConfigInfo%27"><span class="annot"><span class="annottext">UserAuthConfigInfo -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3AuserName%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The type of authentication that the proxy uses for connections from the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- proxy to the underlying database.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AauthScheme%3AUserAuthConfigInfo%27"><span class="annot"><span class="annottext">UserAuthConfigInfo -&gt; Maybe AuthScheme
+</span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3AauthScheme%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var hs-var">authScheme</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AuthScheme.html#AuthScheme"><span class="hs-identifier hs-type">AuthScheme</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) representing the secret that the proxy</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- uses to authenticate to the RDS DB instance or Aurora DB cluster. These</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- secrets are stored within Amazon Secrets Manager.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AsecretArn%3AUserAuthConfigInfo%27"><span class="annot"><span class="annottext">UserAuthConfigInfo -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3AsecretArn%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var hs-var">secretArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | A user-specified description about the authentication used by a proxy to</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- log in as a specific database user.</span><span>
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3Adescription%3AUserAuthConfigInfo%27"><span class="annot"><span class="annottext">UserAuthConfigInfo -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3Adescription%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679767976"><span id="local-6989586621679767978"><span class="annot"><span class="annottext">UserAuthConfigInfo -&gt; UserAuthConfigInfo -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679769049"><span id="local-6989586621679769051"><span class="annot"><span class="annottext">UserAuthConfigInfo -&gt; UserAuthConfigInfo -&gt; Bool
 (UserAuthConfigInfo -&gt; UserAuthConfigInfo -&gt; Bool)
 -&gt; (UserAuthConfigInfo -&gt; UserAuthConfigInfo -&gt; Bool)
 -&gt; Eq UserAuthConfigInfo
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UserAuthConfigInfo -&gt; UserAuthConfigInfo -&gt; Bool
 == :: UserAuthConfigInfo -&gt; UserAuthConfigInfo -&gt; Bool
 $c== :: UserAuthConfigInfo -&gt; UserAuthConfigInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679767967"><span id="local-6989586621679767969"><span id="local-6989586621679767971"><span id="local-6989586621679767973"><span class="annot"><span class="annottext">ReadPrec [UserAuthConfigInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679769040"><span id="local-6989586621679769042"><span id="local-6989586621679769044"><span id="local-6989586621679769046"><span class="annot"><span class="annottext">ReadPrec [UserAuthConfigInfo]
 ReadPrec UserAuthConfigInfo
 Int -&gt; ReadS UserAuthConfigInfo
 ReadS [UserAuthConfigInfo]
@@ -80,7 +80,7 @@ readList :: ReadS [UserAuthConfigInfo]
 $creadList :: ReadS [UserAuthConfigInfo]
 readsPrec :: Int -&gt; ReadS UserAuthConfigInfo
 $creadsPrec :: Int -&gt; ReadS UserAuthConfigInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679767960"><span id="local-6989586621679767962"><span id="local-6989586621679767964"><span class="annot"><span class="annottext">Int -&gt; UserAuthConfigInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679769033"><span id="local-6989586621679769035"><span id="local-6989586621679769037"><span class="annot"><span class="annottext">Int -&gt; UserAuthConfigInfo -&gt; ShowS
 [UserAuthConfigInfo] -&gt; ShowS
 UserAuthConfigInfo -&gt; String
 (Int -&gt; UserAuthConfigInfo -&gt; ShowS)
@@ -114,17 +114,17 @@ $cfrom :: forall x. UserAuthConfigInfo -&gt; Rep UserAuthConfigInfo x
 </span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'secretArn', 'userAuthConfigInfo_secretArn' - The Amazon Resource Name (ARN) representing the secret that the proxy</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- uses to authenticate to the RDS DB instance or Aurora DB cluster. These</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- secrets are stored within Amazon Secrets Manager.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'authScheme', 'userAuthConfigInfo_authScheme' - The type of authentication that the proxy uses for connections from the</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- proxy to the underlying database.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'iAMAuth', 'userAuthConfigInfo_iAMAuth' - Whether to require or disallow Amazon Web Services Identity and Access</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- Management (IAM) authentication for connections to the proxy.</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'userName', 'userAuthConfigInfo_userName' - The name of the database user to which the proxy connects.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'iAMAuth', 'userAuthConfigInfo_iAMAuth' - Whether to require or disallow Amazon Web Services Identity and Access</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Management (IAM) authentication for connections to the proxy.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'userName', 'userAuthConfigInfo_userName' - The name of the database user to which the proxy connects.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'authScheme', 'userAuthConfigInfo_authScheme' - The type of authentication that the proxy uses for connections from the</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- proxy to the underlying database.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'secretArn', 'userAuthConfigInfo_secretArn' - The Amazon Resource Name (ARN) representing the secret that the proxy</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- uses to authenticate to the RDS DB instance or Aurora DB cluster. These</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- secrets are stored within Amazon Secrets Manager.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- 'description', 'userAuthConfigInfo_description' - A user-specified description about the authentication used by a proxy to</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- log in as a specific database user.</span><span>
@@ -132,27 +132,27 @@ $cfrom :: forall x. UserAuthConfigInfo -&gt; Rep UserAuthConfigInfo x
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span>
 </span><span id="line-75"></span><span id="newUserAuthConfigInfo"><span class="annot"><span class="annottext">newUserAuthConfigInfo :: UserAuthConfigInfo
 </span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#newUserAuthConfigInfo"><span class="hs-identifier hs-var hs-var">newUserAuthConfigInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">UserAuthConfigInfo' :: Maybe Text
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">UserAuthConfigInfo' :: Maybe IAMAuthMode
+-&gt; Maybe Text
 -&gt; Maybe AuthScheme
--&gt; Maybe IAMAuthMode
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; UserAuthConfigInfo
 </span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:secretArn:UserAuthConfigInfo' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3AsecretArn%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var">secretArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:authScheme:UserAuthConfigInfo' :: Maybe AuthScheme
-</span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3AauthScheme%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var">authScheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthScheme
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:iAMAuth:UserAuthConfigInfo' :: Maybe IAMAuthMode
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:iAMAuth:UserAuthConfigInfo' :: Maybe IAMAuthMode
 </span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3AiAMAuth%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var">iAMAuth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IAMAuthMode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:userName:UserAuthConfigInfo' :: Maybe Text
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:userName:UserAuthConfigInfo' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3AuserName%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:authScheme:UserAuthConfigInfo' :: Maybe AuthScheme
+</span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3AauthScheme%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var">authScheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthScheme
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:secretArn:UserAuthConfigInfo' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3AsecretArn%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var">secretArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UserAuthConfigInfo' :: Maybe Text
@@ -161,56 +161,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) representing the secret that the proxy</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- uses to authenticate to the RDS DB instance or Aurora DB cluster. These</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- secrets are stored within Amazon Secrets Manager.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#userAuthConfigInfo_secretArn"><span class="hs-identifier hs-type">userAuthConfigInfo_secretArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="userAuthConfigInfo_secretArn"><span class="annot"><span class="annottext">userAuthConfigInfo_secretArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UserAuthConfigInfo -&gt; f UserAuthConfigInfo
-</span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#userAuthConfigInfo_secretArn"><span class="hs-identifier hs-var hs-var">userAuthConfigInfo_secretArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserAuthConfigInfo -&gt; Maybe Text)
--&gt; (UserAuthConfigInfo -&gt; Maybe Text -&gt; UserAuthConfigInfo)
--&gt; Lens
-     UserAuthConfigInfo UserAuthConfigInfo (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679767951"><span class="annot"><span class="annottext">Maybe Text
-secretArn :: Maybe Text
-$sel:secretArn:UserAuthConfigInfo' :: UserAuthConfigInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679767951"><span class="hs-identifier hs-var hs-var">secretArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679767951"><span class="hs-identifier hs-var">secretArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679767950"><span class="annot"><span class="annottext">s :: UserAuthConfigInfo
-</span><a href="#local-6989586621679767950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679767949"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679767949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserAuthConfigInfo
-</span><a href="#local-6989586621679767950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretArn:UserAuthConfigInfo' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3AsecretArn%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var">secretArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679767949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The type of authentication that the proxy uses for connections from the</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- proxy to the underlying database.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#userAuthConfigInfo_authScheme"><span class="hs-identifier hs-type">userAuthConfigInfo_authScheme</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AuthScheme.html#AuthScheme"><span class="hs-identifier hs-type">AuthScheme</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="userAuthConfigInfo_authScheme"><span class="annot"><span class="annottext">userAuthConfigInfo_authScheme :: (Maybe AuthScheme -&gt; f (Maybe AuthScheme))
--&gt; UserAuthConfigInfo -&gt; f UserAuthConfigInfo
-</span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#userAuthConfigInfo_authScheme"><span class="hs-identifier hs-var hs-var">userAuthConfigInfo_authScheme</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserAuthConfigInfo -&gt; Maybe AuthScheme)
--&gt; (UserAuthConfigInfo -&gt; Maybe AuthScheme -&gt; UserAuthConfigInfo)
--&gt; Lens
-     UserAuthConfigInfo
-     UserAuthConfigInfo
-     (Maybe AuthScheme)
-     (Maybe AuthScheme)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679767947"><span class="annot"><span class="annottext">Maybe AuthScheme
-authScheme :: Maybe AuthScheme
-$sel:authScheme:UserAuthConfigInfo' :: UserAuthConfigInfo -&gt; Maybe AuthScheme
-</span><a href="#local-6989586621679767947"><span class="hs-identifier hs-var hs-var">authScheme</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthScheme
-</span><a href="#local-6989586621679767947"><span class="hs-identifier hs-var">authScheme</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679767946"><span class="annot"><span class="annottext">s :: UserAuthConfigInfo
-</span><a href="#local-6989586621679767946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679767945"><span class="annot"><span class="annottext">Maybe AuthScheme
-</span><a href="#local-6989586621679767945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserAuthConfigInfo
-</span><a href="#local-6989586621679767946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authScheme:UserAuthConfigInfo' :: Maybe AuthScheme
-</span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3AauthScheme%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var">authScheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthScheme
-</span><a href="#local-6989586621679767945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | Whether to require or disallow Amazon Web Services Identity and Access</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- Management (IAM) authentication for connections to the proxy.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#userAuthConfigInfo_iAMAuth"><span class="hs-identifier hs-type">userAuthConfigInfo_iAMAuth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.IAMAuthMode.html#IAMAuthMode"><span class="hs-identifier hs-type">IAMAuthMode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="userAuthConfigInfo_iAMAuth"><span class="annot"><span class="annottext">userAuthConfigInfo_iAMAuth :: (Maybe IAMAuthMode -&gt; f (Maybe IAMAuthMode))
+</span><span id="line-84"></span><span class="hs-comment">-- | Whether to require or disallow Amazon Web Services Identity and Access</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Management (IAM) authentication for connections to the proxy.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#userAuthConfigInfo_iAMAuth"><span class="hs-identifier hs-type">userAuthConfigInfo_iAMAuth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.IAMAuthMode.html#IAMAuthMode"><span class="hs-identifier hs-type">IAMAuthMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="userAuthConfigInfo_iAMAuth"><span class="annot"><span class="annottext">userAuthConfigInfo_iAMAuth :: (Maybe IAMAuthMode -&gt; f (Maybe IAMAuthMode))
 -&gt; UserAuthConfigInfo -&gt; f UserAuthConfigInfo
 </span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#userAuthConfigInfo_iAMAuth"><span class="hs-identifier hs-var hs-var">userAuthConfigInfo_iAMAuth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserAuthConfigInfo -&gt; Maybe IAMAuthMode)
 -&gt; (UserAuthConfigInfo -&gt; Maybe IAMAuthMode -&gt; UserAuthConfigInfo)
@@ -220,36 +174,82 @@ $sel:authScheme:UserAuthConfigInfo' :: UserAuthConfigInfo -&gt; Maybe AuthScheme
      (Maybe IAMAuthMode)
      (Maybe IAMAuthMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679767943"><span class="annot"><span class="annottext">Maybe IAMAuthMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679769024"><span class="annot"><span class="annottext">Maybe IAMAuthMode
 iAMAuth :: Maybe IAMAuthMode
 $sel:iAMAuth:UserAuthConfigInfo' :: UserAuthConfigInfo -&gt; Maybe IAMAuthMode
-</span><a href="#local-6989586621679767943"><span class="hs-identifier hs-var hs-var">iAMAuth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IAMAuthMode
-</span><a href="#local-6989586621679767943"><span class="hs-identifier hs-var">iAMAuth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679767942"><span class="annot"><span class="annottext">s :: UserAuthConfigInfo
-</span><a href="#local-6989586621679767942"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679767941"><span class="annot"><span class="annottext">Maybe IAMAuthMode
-</span><a href="#local-6989586621679767941"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserAuthConfigInfo
-</span><a href="#local-6989586621679767942"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iAMAuth:UserAuthConfigInfo' :: Maybe IAMAuthMode
+</span><a href="#local-6989586621679769024"><span class="hs-identifier hs-var hs-var">iAMAuth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IAMAuthMode
+</span><a href="#local-6989586621679769024"><span class="hs-identifier hs-var">iAMAuth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679769023"><span class="annot"><span class="annottext">s :: UserAuthConfigInfo
+</span><a href="#local-6989586621679769023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679769022"><span class="annot"><span class="annottext">Maybe IAMAuthMode
+</span><a href="#local-6989586621679769022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserAuthConfigInfo
+</span><a href="#local-6989586621679769023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iAMAuth:UserAuthConfigInfo' :: Maybe IAMAuthMode
 </span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3AiAMAuth%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var">iAMAuth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IAMAuthMode
-</span><a href="#local-6989586621679767941"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The name of the database user to which the proxy connects.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#userAuthConfigInfo_userName"><span class="hs-identifier hs-type">userAuthConfigInfo_userName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="userAuthConfigInfo_userName"><span class="annot"><span class="annottext">userAuthConfigInfo_userName :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679769022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The name of the database user to which the proxy connects.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#userAuthConfigInfo_userName"><span class="hs-identifier hs-type">userAuthConfigInfo_userName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="userAuthConfigInfo_userName"><span class="annot"><span class="annottext">userAuthConfigInfo_userName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UserAuthConfigInfo -&gt; f UserAuthConfigInfo
 </span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#userAuthConfigInfo_userName"><span class="hs-identifier hs-var hs-var">userAuthConfigInfo_userName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserAuthConfigInfo -&gt; Maybe Text)
 -&gt; (UserAuthConfigInfo -&gt; Maybe Text -&gt; UserAuthConfigInfo)
 -&gt; Lens
      UserAuthConfigInfo UserAuthConfigInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679767939"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679769020"><span class="annot"><span class="annottext">Maybe Text
 userName :: Maybe Text
 $sel:userName:UserAuthConfigInfo' :: UserAuthConfigInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679767939"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679767939"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679767938"><span class="annot"><span class="annottext">s :: UserAuthConfigInfo
-</span><a href="#local-6989586621679767938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679767937"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679767937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserAuthConfigInfo
-</span><a href="#local-6989586621679767938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:UserAuthConfigInfo' :: Maybe Text
+</span><a href="#local-6989586621679769020"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679769020"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679769019"><span class="annot"><span class="annottext">s :: UserAuthConfigInfo
+</span><a href="#local-6989586621679769019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679769018"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679769018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserAuthConfigInfo
+</span><a href="#local-6989586621679769019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:UserAuthConfigInfo' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3AuserName%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679767937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679769018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The type of authentication that the proxy uses for connections from the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- proxy to the underlying database.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#userAuthConfigInfo_authScheme"><span class="hs-identifier hs-type">userAuthConfigInfo_authScheme</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.AuthScheme.html#AuthScheme"><span class="hs-identifier hs-type">AuthScheme</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="userAuthConfigInfo_authScheme"><span class="annot"><span class="annottext">userAuthConfigInfo_authScheme :: (Maybe AuthScheme -&gt; f (Maybe AuthScheme))
+-&gt; UserAuthConfigInfo -&gt; f UserAuthConfigInfo
+</span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#userAuthConfigInfo_authScheme"><span class="hs-identifier hs-var hs-var">userAuthConfigInfo_authScheme</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserAuthConfigInfo -&gt; Maybe AuthScheme)
+-&gt; (UserAuthConfigInfo -&gt; Maybe AuthScheme -&gt; UserAuthConfigInfo)
+-&gt; Lens
+     UserAuthConfigInfo
+     UserAuthConfigInfo
+     (Maybe AuthScheme)
+     (Maybe AuthScheme)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679769016"><span class="annot"><span class="annottext">Maybe AuthScheme
+authScheme :: Maybe AuthScheme
+$sel:authScheme:UserAuthConfigInfo' :: UserAuthConfigInfo -&gt; Maybe AuthScheme
+</span><a href="#local-6989586621679769016"><span class="hs-identifier hs-var hs-var">authScheme</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthScheme
+</span><a href="#local-6989586621679769016"><span class="hs-identifier hs-var">authScheme</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679769015"><span class="annot"><span class="annottext">s :: UserAuthConfigInfo
+</span><a href="#local-6989586621679769015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679769014"><span class="annot"><span class="annottext">Maybe AuthScheme
+</span><a href="#local-6989586621679769014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserAuthConfigInfo
+</span><a href="#local-6989586621679769015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authScheme:UserAuthConfigInfo' :: Maybe AuthScheme
+</span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3AauthScheme%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var">authScheme</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthScheme
+</span><a href="#local-6989586621679769014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) representing the secret that the proxy</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- uses to authenticate to the RDS DB instance or Aurora DB cluster. These</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- secrets are stored within Amazon Secrets Manager.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#userAuthConfigInfo_secretArn"><span class="hs-identifier hs-type">userAuthConfigInfo_secretArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="userAuthConfigInfo_secretArn"><span class="annot"><span class="annottext">userAuthConfigInfo_secretArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UserAuthConfigInfo -&gt; f UserAuthConfigInfo
+</span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#userAuthConfigInfo_secretArn"><span class="hs-identifier hs-var hs-var">userAuthConfigInfo_secretArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserAuthConfigInfo -&gt; Maybe Text)
+-&gt; (UserAuthConfigInfo -&gt; Maybe Text -&gt; UserAuthConfigInfo)
+-&gt; Lens
+     UserAuthConfigInfo UserAuthConfigInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679769012"><span class="annot"><span class="annottext">Maybe Text
+secretArn :: Maybe Text
+$sel:secretArn:UserAuthConfigInfo' :: UserAuthConfigInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679769012"><span class="hs-identifier hs-var hs-var">secretArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679769012"><span class="hs-identifier hs-var">secretArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679769011"><span class="annot"><span class="annottext">s :: UserAuthConfigInfo
+</span><a href="#local-6989586621679769011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679769010"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679769010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserAuthConfigInfo
+</span><a href="#local-6989586621679769011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretArn:UserAuthConfigInfo' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3AsecretArn%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var">secretArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679769010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | A user-specified description about the authentication used by a proxy to</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- log in as a specific database user.</span><span>
@@ -261,97 +261,97 @@ $sel:userName:UserAuthConfigInfo' :: UserAuthConfigInfo -&gt; Maybe Text
 -&gt; Lens
      UserAuthConfigInfo UserAuthConfigInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679767935"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679769008"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:UserAuthConfigInfo' :: UserAuthConfigInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679767935"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679767935"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679767934"><span class="annot"><span class="annottext">s :: UserAuthConfigInfo
-</span><a href="#local-6989586621679767934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679767933"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679767933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserAuthConfigInfo
-</span><a href="#local-6989586621679767934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UserAuthConfigInfo' :: Maybe Text
+</span><a href="#local-6989586621679769008"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679769008"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679769007"><span class="annot"><span class="annottext">s :: UserAuthConfigInfo
+</span><a href="#local-6989586621679769007"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-type">UserAuthConfigInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679769006"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679769006"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserAuthConfigInfo
+</span><a href="#local-6989586621679769007"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UserAuthConfigInfo' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#%24sel%3Adescription%3AUserAuthConfigInfo%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679767933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679769006"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679767930"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String UserAuthConfigInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679767928"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679767928"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679769003"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String UserAuthConfigInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679769001"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679769001"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">Maybe IAMAuthMode
+-&gt; Maybe Text
 -&gt; Maybe AuthScheme
--&gt; Maybe IAMAuthMode
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; UserAuthConfigInfo
 </span><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo%27"><span class="hs-identifier hs-var">UserAuthConfigInfo'</span></a></span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">(Maybe IAMAuthMode
+ -&gt; Maybe Text
  -&gt; Maybe AuthScheme
- -&gt; Maybe IAMAuthMode
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; UserAuthConfigInfo)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe IAMAuthMode)
 -&gt; Either
      String
-     (Maybe AuthScheme
-      -&gt; Maybe IAMAuthMode
+     (Maybe Text
+      -&gt; Maybe AuthScheme
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; UserAuthConfigInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679767928"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SecretArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe AuthScheme
-   -&gt; Maybe IAMAuthMode
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; UserAuthConfigInfo)
--&gt; Either String (Maybe AuthScheme)
--&gt; Either
-     String
-     (Maybe IAMAuthMode
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; UserAuthConfigInfo)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679767928"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AuthScheme)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AuthScheme&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe IAMAuthMode
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; UserAuthConfigInfo)
--&gt; Either String (Maybe IAMAuthMode)
--&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; UserAuthConfigInfo)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679767928"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe IAMAuthMode)
+</span><a href="#local-6989586621679769001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe IAMAuthMode)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IAMAuth&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe AuthScheme
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; UserAuthConfigInfo)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe AuthScheme
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; UserAuthConfigInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679769001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe AuthScheme
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; UserAuthConfigInfo)
+-&gt; Either String (Maybe AuthScheme)
+-&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; UserAuthConfigInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679769001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AuthScheme)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuthScheme&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; UserAuthConfigInfo)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; UserAuthConfigInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679767928"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679769001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;UserName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SecretArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; UserAuthConfigInfo)
 -&gt; Either String (Maybe Text) -&gt; Either String UserAuthConfigInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679767928"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679769001"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679767922"><span id="local-6989586621679767924"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679768995"><span id="local-6989586621679768997"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span></span></span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679767919"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679768992"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.UserAuthConfigInfo.html#UserAuthConfigInfo"><span class="hs-identifier hs-type">UserAuthConfigInfo</span></a></span></span><span>
 </span><span id="line-121"></span></pre></body></html>

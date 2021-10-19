@@ -32,19 +32,19 @@
 </span><span id="line-32"></span><span class="hs-comment">-- Line Data Services, section 9.5.1.5 05h Content Advisory.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newExtendedDataServices' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621680006576"><span id="local-6989586621680006577"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExtendedDataServices"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-var">ExtendedDataServices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExtendedDataServices%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices%27"><span class="hs-identifier hs-var">ExtendedDataServices'</span></a></span></span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The action to take on copy and redistribution control XDS packets. If</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- you select PASSTHROUGH, packets will not be changed. If you select</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- STRIP, any packets will be removed in output captions.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcopyProtectionAction%3AExtendedDataServices%27"><span class="annot"><span class="annottext">ExtendedDataServices -&gt; Maybe CopyProtectionAction
-</span><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#%24sel%3AcopyProtectionAction%3AExtendedDataServices%27"><span class="hs-identifier hs-var hs-var">copyProtectionAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CopyProtectionAction.html#CopyProtectionAction"><span class="hs-identifier hs-type">CopyProtectionAction</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The action to take on content advisory XDS packets. If you select</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- PASSTHROUGH, packets will not be changed. If you select STRIP, any</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- packets will be removed in output captions.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AvchipAction%3AExtendedDataServices%27"><span class="annot"><span class="annottext">ExtendedDataServices -&gt; Maybe VchipAction
-</span><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#%24sel%3AvchipAction%3AExtendedDataServices%27"><span class="hs-identifier hs-var hs-var">vchipAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VchipAction.html#VchipAction"><span class="hs-identifier hs-type">VchipAction</span></a></span><span>
+</span><span id="line-35"></span><span id="local-6989586621680011509"><span id="local-6989586621680011510"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExtendedDataServices"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-var">ExtendedDataServices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExtendedDataServices%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices%27"><span class="hs-identifier hs-var">ExtendedDataServices'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The action to take on content advisory XDS packets. If you select</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- PASSTHROUGH, packets will not be changed. If you select STRIP, any</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- packets will be removed in output captions.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AvchipAction%3AExtendedDataServices%27"><span class="annot"><span class="annottext">ExtendedDataServices -&gt; Maybe VchipAction
+</span><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#%24sel%3AvchipAction%3AExtendedDataServices%27"><span class="hs-identifier hs-var hs-var">vchipAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VchipAction.html#VchipAction"><span class="hs-identifier hs-type">VchipAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The action to take on copy and redistribution control XDS packets. If</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- you select PASSTHROUGH, packets will not be changed. If you select</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- STRIP, any packets will be removed in output captions.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcopyProtectionAction%3AExtendedDataServices%27"><span class="annot"><span class="annottext">ExtendedDataServices -&gt; Maybe CopyProtectionAction
+</span><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#%24sel%3AcopyProtectionAction%3AExtendedDataServices%27"><span class="hs-identifier hs-var hs-var">copyProtectionAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CopyProtectionAction.html#CopyProtectionAction"><span class="hs-identifier hs-type">CopyProtectionAction</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680006569"><span id="local-6989586621680006571"><span class="annot"><span class="annottext">ExtendedDataServices -&gt; ExtendedDataServices -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680011502"><span id="local-6989586621680011504"><span class="annot"><span class="annottext">ExtendedDataServices -&gt; ExtendedDataServices -&gt; Bool
 (ExtendedDataServices -&gt; ExtendedDataServices -&gt; Bool)
 -&gt; (ExtendedDataServices -&gt; ExtendedDataServices -&gt; Bool)
 -&gt; Eq ExtendedDataServices
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExtendedDataServices -&gt; ExtendedDataServices -&gt; Bool
 == :: ExtendedDataServices -&gt; ExtendedDataServices -&gt; Bool
 $c== :: ExtendedDataServices -&gt; ExtendedDataServices -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680006560"><span id="local-6989586621680006562"><span id="local-6989586621680006564"><span id="local-6989586621680006566"><span class="annot"><span class="annottext">ReadPrec [ExtendedDataServices]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680011493"><span id="local-6989586621680011495"><span id="local-6989586621680011497"><span id="local-6989586621680011499"><span class="annot"><span class="annottext">ReadPrec [ExtendedDataServices]
 ReadPrec ExtendedDataServices
 Int -&gt; ReadS ExtendedDataServices
 ReadS [ExtendedDataServices]
@@ -73,7 +73,7 @@ readList :: ReadS [ExtendedDataServices]
 $creadList :: ReadS [ExtendedDataServices]
 readsPrec :: Int -&gt; ReadS ExtendedDataServices
 $creadsPrec :: Int -&gt; ReadS ExtendedDataServices
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680006553"><span id="local-6989586621680006555"><span id="local-6989586621680006557"><span class="annot"><span class="annottext">Int -&gt; ExtendedDataServices -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680011486"><span id="local-6989586621680011488"><span id="local-6989586621680011490"><span class="annot"><span class="annottext">Int -&gt; ExtendedDataServices -&gt; ShowS
 [ExtendedDataServices] -&gt; ShowS
 ExtendedDataServices -&gt; String
 (Int -&gt; ExtendedDataServices -&gt; ShowS)
@@ -107,62 +107,36 @@ $cfrom :: forall x. ExtendedDataServices -&gt; Rep ExtendedDataServices x
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'copyProtectionAction', 'extendedDataServices_copyProtectionAction' - The action to take on copy and redistribution control XDS packets. If</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- you select PASSTHROUGH, packets will not be changed. If you select</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- STRIP, any packets will be removed in output captions.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'vchipAction', 'extendedDataServices_vchipAction' - The action to take on content advisory XDS packets. If you select</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- PASSTHROUGH, packets will not be changed. If you select STRIP, any</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- packets will be removed in output captions.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'vchipAction', 'extendedDataServices_vchipAction' - The action to take on content advisory XDS packets. If you select</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- PASSTHROUGH, packets will not be changed. If you select STRIP, any</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- packets will be removed in output captions.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'copyProtectionAction', 'extendedDataServices_copyProtectionAction' - The action to take on copy and redistribution control XDS packets. If</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- you select PASSTHROUGH, packets will not be changed. If you select</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- STRIP, any packets will be removed in output captions.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#newExtendedDataServices"><span class="hs-identifier hs-type">newExtendedDataServices</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span><span>
 </span><span id="line-64"></span><span id="newExtendedDataServices"><span class="annot"><span class="annottext">newExtendedDataServices :: ExtendedDataServices
 </span><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#newExtendedDataServices"><span class="hs-identifier hs-var hs-var">newExtendedDataServices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">ExtendedDataServices' :: Maybe CopyProtectionAction
--&gt; Maybe VchipAction -&gt; ExtendedDataServices
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">ExtendedDataServices' :: Maybe VchipAction
+-&gt; Maybe CopyProtectionAction -&gt; ExtendedDataServices
 </span><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices%27"><span class="hs-identifier hs-type">ExtendedDataServices'</span></a></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:copyProtectionAction:ExtendedDataServices' :: Maybe CopyProtectionAction
-</span><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#%24sel%3AcopyProtectionAction%3AExtendedDataServices%27"><span class="hs-identifier hs-var">copyProtectionAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe CopyProtectionAction
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vchipAction:ExtendedDataServices' :: Maybe VchipAction
+</span><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#%24sel%3AvchipAction%3AExtendedDataServices%27"><span class="hs-identifier hs-var">vchipAction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe VchipAction
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:vchipAction:ExtendedDataServices' :: Maybe VchipAction
-</span><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#%24sel%3AvchipAction%3AExtendedDataServices%27"><span class="hs-identifier hs-var">vchipAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VchipAction
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:copyProtectionAction:ExtendedDataServices' :: Maybe CopyProtectionAction
+</span><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#%24sel%3AcopyProtectionAction%3AExtendedDataServices%27"><span class="hs-identifier hs-var">copyProtectionAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CopyProtectionAction
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | The action to take on copy and redistribution control XDS packets. If</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- you select PASSTHROUGH, packets will not be changed. If you select</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- STRIP, any packets will be removed in output captions.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#extendedDataServices_copyProtectionAction"><span class="hs-identifier hs-type">extendedDataServices_copyProtectionAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CopyProtectionAction.html#CopyProtectionAction"><span class="hs-identifier hs-type">CopyProtectionAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="extendedDataServices_copyProtectionAction"><span class="annot"><span class="annottext">extendedDataServices_copyProtectionAction :: (Maybe CopyProtectionAction -&gt; f (Maybe CopyProtectionAction))
--&gt; ExtendedDataServices -&gt; f ExtendedDataServices
-</span><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#extendedDataServices_copyProtectionAction"><span class="hs-identifier hs-var hs-var">extendedDataServices_copyProtectionAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExtendedDataServices -&gt; Maybe CopyProtectionAction)
--&gt; (ExtendedDataServices
-    -&gt; Maybe CopyProtectionAction -&gt; ExtendedDataServices)
--&gt; Lens
-     ExtendedDataServices
-     ExtendedDataServices
-     (Maybe CopyProtectionAction)
-     (Maybe CopyProtectionAction)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices%27"><span class="hs-identifier hs-type">ExtendedDataServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006544"><span class="annot"><span class="annottext">Maybe CopyProtectionAction
-copyProtectionAction :: Maybe CopyProtectionAction
-$sel:copyProtectionAction:ExtendedDataServices' :: ExtendedDataServices -&gt; Maybe CopyProtectionAction
-</span><a href="#local-6989586621680006544"><span class="hs-identifier hs-var hs-var">copyProtectionAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CopyProtectionAction
-</span><a href="#local-6989586621680006544"><span class="hs-identifier hs-var">copyProtectionAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680006543"><span class="annot"><span class="annottext">s :: ExtendedDataServices
-</span><a href="#local-6989586621680006543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices%27"><span class="hs-identifier hs-type">ExtendedDataServices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680006542"><span class="annot"><span class="annottext">Maybe CopyProtectionAction
-</span><a href="#local-6989586621680006542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtendedDataServices
-</span><a href="#local-6989586621680006543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:copyProtectionAction:ExtendedDataServices' :: Maybe CopyProtectionAction
-</span><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#%24sel%3AcopyProtectionAction%3AExtendedDataServices%27"><span class="hs-identifier hs-var">copyProtectionAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CopyProtectionAction
-</span><a href="#local-6989586621680006542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | The action to take on content advisory XDS packets. If you select</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- PASSTHROUGH, packets will not be changed. If you select STRIP, any</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- packets will be removed in output captions.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#extendedDataServices_vchipAction"><span class="hs-identifier hs-type">extendedDataServices_vchipAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VchipAction.html#VchipAction"><span class="hs-identifier hs-type">VchipAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="extendedDataServices_vchipAction"><span class="annot"><span class="annottext">extendedDataServices_vchipAction :: (Maybe VchipAction -&gt; f (Maybe VchipAction))
+</span><span id="line-71"></span><span class="hs-comment">-- | The action to take on content advisory XDS packets. If you select</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- PASSTHROUGH, packets will not be changed. If you select STRIP, any</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- packets will be removed in output captions.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#extendedDataServices_vchipAction"><span class="hs-identifier hs-type">extendedDataServices_vchipAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.VchipAction.html#VchipAction"><span class="hs-identifier hs-type">VchipAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="extendedDataServices_vchipAction"><span class="annot"><span class="annottext">extendedDataServices_vchipAction :: (Maybe VchipAction -&gt; f (Maybe VchipAction))
 -&gt; ExtendedDataServices -&gt; f ExtendedDataServices
 </span><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#extendedDataServices_vchipAction"><span class="hs-identifier hs-var hs-var">extendedDataServices_vchipAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExtendedDataServices -&gt; Maybe VchipAction)
 -&gt; (ExtendedDataServices
@@ -173,19 +147,45 @@ $sel:copyProtectionAction:ExtendedDataServices' :: ExtendedDataServices -&gt; Ma
      (Maybe VchipAction)
      (Maybe VchipAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices%27"><span class="hs-identifier hs-type">ExtendedDataServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006540"><span class="annot"><span class="annottext">Maybe VchipAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices%27"><span class="hs-identifier hs-type">ExtendedDataServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680011477"><span class="annot"><span class="annottext">Maybe VchipAction
 vchipAction :: Maybe VchipAction
 $sel:vchipAction:ExtendedDataServices' :: ExtendedDataServices -&gt; Maybe VchipAction
-</span><a href="#local-6989586621680006540"><span class="hs-identifier hs-var hs-var">vchipAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VchipAction
-</span><a href="#local-6989586621680006540"><span class="hs-identifier hs-var">vchipAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680006539"><span class="annot"><span class="annottext">s :: ExtendedDataServices
-</span><a href="#local-6989586621680006539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices%27"><span class="hs-identifier hs-type">ExtendedDataServices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680006538"><span class="annot"><span class="annottext">Maybe VchipAction
-</span><a href="#local-6989586621680006538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtendedDataServices
-</span><a href="#local-6989586621680006539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vchipAction:ExtendedDataServices' :: Maybe VchipAction
+</span><a href="#local-6989586621680011477"><span class="hs-identifier hs-var hs-var">vchipAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VchipAction
+</span><a href="#local-6989586621680011477"><span class="hs-identifier hs-var">vchipAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680011476"><span class="annot"><span class="annottext">s :: ExtendedDataServices
+</span><a href="#local-6989586621680011476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices%27"><span class="hs-identifier hs-type">ExtendedDataServices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680011475"><span class="annot"><span class="annottext">Maybe VchipAction
+</span><a href="#local-6989586621680011475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtendedDataServices
+</span><a href="#local-6989586621680011476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vchipAction:ExtendedDataServices' :: Maybe VchipAction
 </span><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#%24sel%3AvchipAction%3AExtendedDataServices%27"><span class="hs-identifier hs-var">vchipAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VchipAction
-</span><a href="#local-6989586621680006538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680011475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The action to take on copy and redistribution control XDS packets. If</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- you select PASSTHROUGH, packets will not be changed. If you select</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- STRIP, any packets will be removed in output captions.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#extendedDataServices_copyProtectionAction"><span class="hs-identifier hs-type">extendedDataServices_copyProtectionAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.CopyProtectionAction.html#CopyProtectionAction"><span class="hs-identifier hs-type">CopyProtectionAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="extendedDataServices_copyProtectionAction"><span class="annot"><span class="annottext">extendedDataServices_copyProtectionAction :: (Maybe CopyProtectionAction -&gt; f (Maybe CopyProtectionAction))
+-&gt; ExtendedDataServices -&gt; f ExtendedDataServices
+</span><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#extendedDataServices_copyProtectionAction"><span class="hs-identifier hs-var hs-var">extendedDataServices_copyProtectionAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExtendedDataServices -&gt; Maybe CopyProtectionAction)
+-&gt; (ExtendedDataServices
+    -&gt; Maybe CopyProtectionAction -&gt; ExtendedDataServices)
+-&gt; Lens
+     ExtendedDataServices
+     ExtendedDataServices
+     (Maybe CopyProtectionAction)
+     (Maybe CopyProtectionAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices%27"><span class="hs-identifier hs-type">ExtendedDataServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680011473"><span class="annot"><span class="annottext">Maybe CopyProtectionAction
+copyProtectionAction :: Maybe CopyProtectionAction
+$sel:copyProtectionAction:ExtendedDataServices' :: ExtendedDataServices -&gt; Maybe CopyProtectionAction
+</span><a href="#local-6989586621680011473"><span class="hs-identifier hs-var hs-var">copyProtectionAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CopyProtectionAction
+</span><a href="#local-6989586621680011473"><span class="hs-identifier hs-var">copyProtectionAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680011472"><span class="annot"><span class="annottext">s :: ExtendedDataServices
+</span><a href="#local-6989586621680011472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices%27"><span class="hs-identifier hs-type">ExtendedDataServices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680011471"><span class="annot"><span class="annottext">Maybe CopyProtectionAction
+</span><a href="#local-6989586621680011471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExtendedDataServices
+</span><a href="#local-6989586621680011472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:copyProtectionAction:ExtendedDataServices' :: Maybe CopyProtectionAction
+</span><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#%24sel%3AcopyProtectionAction%3AExtendedDataServices%27"><span class="hs-identifier hs-var">copyProtectionAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CopyProtectionAction
+</span><a href="#local-6989586621680011471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680006535"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621680006533"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExtendedDataServices
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680011468"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621680011466"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExtendedDataServices
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ExtendedDataServices)
@@ -195,65 +195,66 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ExtendedDataServices&quot;</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680006530"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680006530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe CopyProtectionAction
--&gt; Maybe VchipAction -&gt; ExtendedDataServices
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680011463"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680011463"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Maybe VchipAction
+-&gt; Maybe CopyProtectionAction -&gt; ExtendedDataServices
 </span><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices%27"><span class="hs-identifier hs-var">ExtendedDataServices'</span></a></span><span>
-</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CopyProtectionAction
- -&gt; Maybe VchipAction -&gt; ExtendedDataServices)
--&gt; Parser (Maybe CopyProtectionAction)
--&gt; Parser (Maybe VchipAction -&gt; ExtendedDataServices)
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VchipAction
+ -&gt; Maybe CopyProtectionAction -&gt; ExtendedDataServices)
+-&gt; Parser (Maybe VchipAction)
+-&gt; Parser (Maybe CopyProtectionAction -&gt; ExtendedDataServices)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680006530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CopyProtectionAction)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;copyProtectionAction&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe VchipAction -&gt; ExtendedDataServices)
--&gt; Parser (Maybe VchipAction) -&gt; Parser ExtendedDataServices
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680006530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VchipAction)
+</span><a href="#local-6989586621680011463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VchipAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vchipAction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe CopyProtectionAction -&gt; ExtendedDataServices)
+-&gt; Parser (Maybe CopyProtectionAction)
+-&gt; Parser ExtendedDataServices
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680011463"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CopyProtectionAction)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;copyProtectionAction&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680006524"><span id="local-6989586621680006526"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680011457"><span id="local-6989586621680011459"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680006521"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680011454"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680006513"><span id="local-6989586621680006515"><span id="local-6989586621680006517"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621680006511"><span class="annot"><span class="annottext">toJSON :: ExtendedDataServices -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices%27"><span class="hs-identifier hs-type">ExtendedDataServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680006508"><span id="local-6989586621680006509"><span class="annot"><span class="annottext">Maybe CopyProtectionAction
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680011446"><span id="local-6989586621680011448"><span id="local-6989586621680011450"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices"><span class="hs-identifier hs-type">ExtendedDataServices</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621680011444"><span class="annot"><span class="annottext">toJSON :: ExtendedDataServices -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaConvert.Types.ExtendedDataServices.html#ExtendedDataServices%27"><span class="hs-identifier hs-type">ExtendedDataServices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680011441"><span id="local-6989586621680011442"><span class="annot"><span class="annottext">Maybe CopyProtectionAction
 Maybe VchipAction
-vchipAction :: Maybe VchipAction
 copyProtectionAction :: Maybe CopyProtectionAction
-$sel:vchipAction:ExtendedDataServices' :: ExtendedDataServices -&gt; Maybe VchipAction
+vchipAction :: Maybe VchipAction
 $sel:copyProtectionAction:ExtendedDataServices' :: ExtendedDataServices -&gt; Maybe CopyProtectionAction
-</span><a href="#local-6989586621680006508"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:vchipAction:ExtendedDataServices' :: ExtendedDataServices -&gt; Maybe VchipAction
+</span><a href="#local-6989586621680011441"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-101"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;copyProtectionAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CopyProtectionAction -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">(CopyProtectionAction -&gt; Pair)
--&gt; Maybe CopyProtectionAction -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CopyProtectionAction
-</span><a href="#local-6989586621680006509"><span class="hs-identifier hs-var">copyProtectionAction</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vchipAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VchipAction -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VchipAction -&gt; Pair) -&gt; Maybe VchipAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VchipAction
-</span><a href="#local-6989586621680006508"><span class="hs-identifier hs-var">vchipAction</span></a></span><span>
+</span><a href="#local-6989586621680011442"><span class="hs-identifier hs-var">vchipAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;copyProtectionAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CopyProtectionAction -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">(CopyProtectionAction -&gt; Pair)
+-&gt; Maybe CopyProtectionAction -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CopyProtectionAction
+</span><a href="#local-6989586621680011441"><span class="hs-identifier hs-var">copyProtectionAction</span></a></span><span>
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span></pre></body></html>

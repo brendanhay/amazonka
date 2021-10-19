@@ -28,14 +28,14 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes an availability zone.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAvailabilityZone' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679498133"><span id="local-6989586621679498134"></span></span><span class="hs-keyword">data</span><span> </span><span id="AvailabilityZone"><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-var">AvailabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailabilityZone%27"><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-var">AvailabilityZone'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679498791"><span id="local-6989586621679498792"></span></span><span class="hs-keyword">data</span><span> </span><span id="AvailabilityZone"><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-var">AvailabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailabilityZone%27"><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-var">AvailabilityZone'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the availability zone.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3AAvailabilityZone%27"><span class="annot"><span class="annottext">AvailabilityZone -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#%24sel%3Aname%3AAvailabilityZone%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AsupportedPlatforms%3AAvailabilityZone%27"><span class="annot"><span class="annottext">AvailabilityZone -&gt; Maybe [SupportedPlatform]
 </span><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#%24sel%3AsupportedPlatforms%3AAvailabilityZone%27"><span class="hs-identifier hs-var hs-var">supportedPlatforms</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#SupportedPlatform"><span class="hs-identifier hs-type">SupportedPlatform</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679498126"><span id="local-6989586621679498128"><span class="annot"><span class="annottext">AvailabilityZone -&gt; AvailabilityZone -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679498784"><span id="local-6989586621679498786"><span class="annot"><span class="annottext">AvailabilityZone -&gt; AvailabilityZone -&gt; Bool
 (AvailabilityZone -&gt; AvailabilityZone -&gt; Bool)
 -&gt; (AvailabilityZone -&gt; AvailabilityZone -&gt; Bool)
 -&gt; Eq AvailabilityZone
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AvailabilityZone -&gt; AvailabilityZone -&gt; Bool
 == :: AvailabilityZone -&gt; AvailabilityZone -&gt; Bool
 $c== :: AvailabilityZone -&gt; AvailabilityZone -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679498117"><span id="local-6989586621679498119"><span id="local-6989586621679498121"><span id="local-6989586621679498123"><span class="annot"><span class="annottext">ReadPrec [AvailabilityZone]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679498775"><span id="local-6989586621679498777"><span id="local-6989586621679498779"><span id="local-6989586621679498781"><span class="annot"><span class="annottext">ReadPrec [AvailabilityZone]
 ReadPrec AvailabilityZone
 Int -&gt; ReadS AvailabilityZone
 ReadS [AvailabilityZone]
@@ -64,7 +64,7 @@ readList :: ReadS [AvailabilityZone]
 $creadList :: ReadS [AvailabilityZone]
 readsPrec :: Int -&gt; ReadS AvailabilityZone
 $creadsPrec :: Int -&gt; ReadS AvailabilityZone
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679498110"><span id="local-6989586621679498112"><span id="local-6989586621679498114"><span class="annot"><span class="annottext">Int -&gt; AvailabilityZone -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679498768"><span id="local-6989586621679498770"><span id="local-6989586621679498772"><span class="annot"><span class="annottext">Int -&gt; AvailabilityZone -&gt; ShowS
 [AvailabilityZone] -&gt; ShowS
 AvailabilityZone -&gt; String
 (Int -&gt; AvailabilityZone -&gt; ShowS)
@@ -125,16 +125,16 @@ forall a. Maybe a
 -&gt; (AvailabilityZone -&gt; Maybe Text -&gt; AvailabilityZone)
 -&gt; Lens AvailabilityZone AvailabilityZone (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679498101"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679498759"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:AvailabilityZone' :: AvailabilityZone -&gt; Maybe Text
-</span><a href="#local-6989586621679498101"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679498101"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679498100"><span class="annot"><span class="annottext">s :: AvailabilityZone
-</span><a href="#local-6989586621679498100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679498099"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679498099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailabilityZone
-</span><a href="#local-6989586621679498100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AvailabilityZone' :: Maybe Text
+</span><a href="#local-6989586621679498759"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679498759"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679498758"><span class="annot"><span class="annottext">s :: AvailabilityZone
+</span><a href="#local-6989586621679498758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679498757"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679498757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailabilityZone
+</span><a href="#local-6989586621679498758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AvailabilityZone' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#%24sel%3Aname%3AAvailabilityZone%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679498099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679498757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#availabilityZone_supportedPlatforms"><span class="hs-identifier hs-type">availabilityZone_supportedPlatforms</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.SupportedPlatform.html#SupportedPlatform"><span class="hs-identifier hs-type">SupportedPlatform</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -149,16 +149,16 @@ $sel:name:AvailabilityZone' :: AvailabilityZone -&gt; Maybe Text
      (Maybe [SupportedPlatform])
      (Maybe [SupportedPlatform])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679498097"><span class="annot"><span class="annottext">Maybe [SupportedPlatform]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679498755"><span class="annot"><span class="annottext">Maybe [SupportedPlatform]
 supportedPlatforms :: Maybe [SupportedPlatform]
 $sel:supportedPlatforms:AvailabilityZone' :: AvailabilityZone -&gt; Maybe [SupportedPlatform]
-</span><a href="#local-6989586621679498097"><span class="hs-identifier hs-var hs-var">supportedPlatforms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SupportedPlatform]
-</span><a href="#local-6989586621679498097"><span class="hs-identifier hs-var">supportedPlatforms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679498096"><span class="annot"><span class="annottext">s :: AvailabilityZone
-</span><a href="#local-6989586621679498096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679498095"><span class="annot"><span class="annottext">Maybe [SupportedPlatform]
-</span><a href="#local-6989586621679498095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailabilityZone
-</span><a href="#local-6989586621679498096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedPlatforms:AvailabilityZone' :: Maybe [SupportedPlatform]
+</span><a href="#local-6989586621679498755"><span class="hs-identifier hs-var hs-var">supportedPlatforms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SupportedPlatform]
+</span><a href="#local-6989586621679498755"><span class="hs-identifier hs-var">supportedPlatforms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679498754"><span class="annot"><span class="annottext">s :: AvailabilityZone
+</span><a href="#local-6989586621679498754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-type">AvailabilityZone'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679498753"><span class="annot"><span class="annottext">Maybe [SupportedPlatform]
+</span><a href="#local-6989586621679498753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailabilityZone
+</span><a href="#local-6989586621679498754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedPlatforms:AvailabilityZone' :: Maybe [SupportedPlatform]
 </span><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#%24sel%3AsupportedPlatforms%3AAvailabilityZone%27"><span class="hs-identifier hs-var">supportedPlatforms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SupportedPlatform]
-</span><a href="#local-6989586621679498095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SupportedPlatform] -&gt; f (Maybe [SupportedPlatform]))
+</span><a href="#local-6989586621679498753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SupportedPlatform] -&gt; f (Maybe [SupportedPlatform]))
  -&gt; AvailabilityZone -&gt; f AvailabilityZone)
 -&gt; ((Maybe [SupportedPlatform] -&gt; f (Maybe [SupportedPlatform]))
     -&gt; Maybe [SupportedPlatform] -&gt; f (Maybe [SupportedPlatform]))
@@ -184,13 +184,13 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [SupportedPlatform]
   [SupportedPlatform]
   [SupportedPlatform]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679498089"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AvailabilityZone
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679498087"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679498087"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679498747"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AvailabilityZone
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679498745"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679498745"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [SupportedPlatform] -&gt; AvailabilityZone
 </span><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone%27"><span class="hs-identifier hs-var">AvailabilityZone'</span></a></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [SupportedPlatform] -&gt; AvailabilityZone)
@@ -198,7 +198,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Either String (Maybe [SupportedPlatform] -&gt; AvailabilityZone)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679498087"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679498745"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -207,7 +207,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String AvailabilityZone
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679498087"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679498745"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SupportedPlatforms&quot;</span></span><span>
@@ -231,7 +231,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;SupportedPlatform&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679498078"><span id="local-6989586621679498080"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679498736"><span id="local-6989586621679498738"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679498075"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679498733"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.AvailabilityZone.html#AvailabilityZone"><span class="hs-identifier hs-type">AvailabilityZone</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-comment">-- setting CENC v1 (CENC_V1). If you choose Unencrypted SEI, for that</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- output, the service will exclude the access unit delimiter and will</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- leave the SEI NAL units unencrypted.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679949071"><span id="local-6989586621679949072"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DashIsoPlaybackDeviceCompatibility"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility.html#DashIsoPlaybackDeviceCompatibility"><span class="hs-identifier hs-var">DashIsoPlaybackDeviceCompatibility</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DashIsoPlaybackDeviceCompatibility%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility.html#DashIsoPlaybackDeviceCompatibility%27"><span class="hs-identifier hs-var">DashIsoPlaybackDeviceCompatibility'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679953695"><span id="local-6989586621679953696"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DashIsoPlaybackDeviceCompatibility"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility.html#DashIsoPlaybackDeviceCompatibility"><span class="hs-identifier hs-var">DashIsoPlaybackDeviceCompatibility</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DashIsoPlaybackDeviceCompatibility%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility.html#DashIsoPlaybackDeviceCompatibility%27"><span class="hs-identifier hs-var">DashIsoPlaybackDeviceCompatibility'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDashIsoPlaybackDeviceCompatibility"><span class="annot"><span class="annottext">DashIsoPlaybackDeviceCompatibility -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility.html#fromDashIsoPlaybackDeviceCompatibility"><span class="hs-identifier hs-var hs-var">fromDashIsoPlaybackDeviceCompatibility</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679949063"><span id="local-6989586621679949065"><span id="local-6989586621679949067"><span class="annot"><span class="annottext">Int -&gt; DashIsoPlaybackDeviceCompatibility -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679953687"><span id="local-6989586621679953689"><span id="local-6989586621679953691"><span class="annot"><span class="annottext">Int -&gt; DashIsoPlaybackDeviceCompatibility -&gt; ShowS
 [DashIsoPlaybackDeviceCompatibility] -&gt; ShowS
 DashIsoPlaybackDeviceCompatibility -&gt; String
 (Int -&gt; DashIsoPlaybackDeviceCompatibility -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: DashIsoPlaybackDeviceCompatibility -&gt; String
 showsPrec :: Int -&gt; DashIsoPlaybackDeviceCompatibility -&gt; ShowS
 $cshowsPrec :: Int -&gt; DashIsoPlaybackDeviceCompatibility -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679949054"><span id="local-6989586621679949056"><span id="local-6989586621679949058"><span id="local-6989586621679949060"><span class="annot"><span class="annottext">ReadPrec [DashIsoPlaybackDeviceCompatibility]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679953678"><span id="local-6989586621679953680"><span id="local-6989586621679953682"><span id="local-6989586621679953684"><span class="annot"><span class="annottext">ReadPrec [DashIsoPlaybackDeviceCompatibility]
 ReadPrec DashIsoPlaybackDeviceCompatibility
 Int -&gt; ReadS DashIsoPlaybackDeviceCompatibility
 ReadS [DashIsoPlaybackDeviceCompatibility]
@@ -79,7 +79,7 @@ $creadList :: ReadS [DashIsoPlaybackDeviceCompatibility]
 readsPrec :: Int -&gt; ReadS DashIsoPlaybackDeviceCompatibility
 $creadsPrec :: Int -&gt; ReadS DashIsoPlaybackDeviceCompatibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679949049"><span id="local-6989586621679949051"><span class="annot"><span class="annottext">DashIsoPlaybackDeviceCompatibility
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679953673"><span id="local-6989586621679953675"><span class="annot"><span class="annottext">DashIsoPlaybackDeviceCompatibility
 -&gt; DashIsoPlaybackDeviceCompatibility -&gt; Bool
 (DashIsoPlaybackDeviceCompatibility
  -&gt; DashIsoPlaybackDeviceCompatibility -&gt; Bool)
@@ -96,7 +96,7 @@ $c/= :: DashIsoPlaybackDeviceCompatibility
 $c== :: DashIsoPlaybackDeviceCompatibility
 -&gt; DashIsoPlaybackDeviceCompatibility -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679949033"><span id="local-6989586621679949035"><span id="local-6989586621679949037"><span id="local-6989586621679949039"><span id="local-6989586621679949041"><span id="local-6989586621679949043"><span id="local-6989586621679949045"><span class="annot"><span class="annottext">Eq DashIsoPlaybackDeviceCompatibility
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679953657"><span id="local-6989586621679953659"><span id="local-6989586621679953661"><span id="local-6989586621679953663"><span id="local-6989586621679953665"><span id="local-6989586621679953667"><span id="local-6989586621679953669"><span class="annot"><span class="annottext">Eq DashIsoPlaybackDeviceCompatibility
 Eq DashIsoPlaybackDeviceCompatibility
 -&gt; (DashIsoPlaybackDeviceCompatibility
     -&gt; DashIsoPlaybackDeviceCompatibility -&gt; Ordering)
@@ -190,7 +190,7 @@ DashIsoPlaybackDeviceCompatibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679949025"><span id="local-6989586621679949027"><span class="annot"><span class="annottext">Int -&gt; DashIsoPlaybackDeviceCompatibility -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679953649"><span id="local-6989586621679953651"><span class="annot"><span class="annottext">Int -&gt; DashIsoPlaybackDeviceCompatibility -&gt; Int
 DashIsoPlaybackDeviceCompatibility -&gt; Int
 (Int -&gt; DashIsoPlaybackDeviceCompatibility -&gt; Int)
 -&gt; (DashIsoPlaybackDeviceCompatibility -&gt; Int)
@@ -201,56 +201,56 @@ $chash :: DashIsoPlaybackDeviceCompatibility -&gt; Int
 hashWithSalt :: Int -&gt; DashIsoPlaybackDeviceCompatibility -&gt; Int
 $chashWithSalt :: Int -&gt; DashIsoPlaybackDeviceCompatibility -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679949022"><span class="annot"><span class="annottext">DashIsoPlaybackDeviceCompatibility -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679953646"><span class="annot"><span class="annottext">DashIsoPlaybackDeviceCompatibility -&gt; ()
 (DashIsoPlaybackDeviceCompatibility -&gt; ())
 -&gt; NFData DashIsoPlaybackDeviceCompatibility
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DashIsoPlaybackDeviceCompatibility -&gt; ()
 $crnf :: DashIsoPlaybackDeviceCompatibility -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679949019"><span class="annot"><span class="annottext">Text -&gt; Either String DashIsoPlaybackDeviceCompatibility
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679953643"><span class="annot"><span class="annottext">Text -&gt; Either String DashIsoPlaybackDeviceCompatibility
 (Text -&gt; Either String DashIsoPlaybackDeviceCompatibility)
 -&gt; FromText DashIsoPlaybackDeviceCompatibility
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DashIsoPlaybackDeviceCompatibility
 $cfromText :: Text -&gt; Either String DashIsoPlaybackDeviceCompatibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679949016"><span class="annot"><span class="annottext">DashIsoPlaybackDeviceCompatibility -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679953640"><span class="annot"><span class="annottext">DashIsoPlaybackDeviceCompatibility -&gt; Text
 (DashIsoPlaybackDeviceCompatibility -&gt; Text)
 -&gt; ToText DashIsoPlaybackDeviceCompatibility
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DashIsoPlaybackDeviceCompatibility -&gt; Text
 $ctoText :: DashIsoPlaybackDeviceCompatibility -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679949013"><span class="annot"><span class="annottext">DashIsoPlaybackDeviceCompatibility -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679953637"><span class="annot"><span class="annottext">DashIsoPlaybackDeviceCompatibility -&gt; ByteString
 (DashIsoPlaybackDeviceCompatibility -&gt; ByteString)
 -&gt; ToByteString DashIsoPlaybackDeviceCompatibility
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DashIsoPlaybackDeviceCompatibility -&gt; ByteString
 $ctoBS :: DashIsoPlaybackDeviceCompatibility -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679949010"><span class="annot"><span class="annottext">DashIsoPlaybackDeviceCompatibility -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679953634"><span class="annot"><span class="annottext">DashIsoPlaybackDeviceCompatibility -&gt; ByteStringBuilder
 (DashIsoPlaybackDeviceCompatibility -&gt; ByteStringBuilder)
 -&gt; ToLog DashIsoPlaybackDeviceCompatibility
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DashIsoPlaybackDeviceCompatibility -&gt; ByteStringBuilder
 $cbuild :: DashIsoPlaybackDeviceCompatibility -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679949007"><span class="annot"><span class="annottext">HeaderName -&gt; DashIsoPlaybackDeviceCompatibility -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679953631"><span class="annot"><span class="annottext">HeaderName -&gt; DashIsoPlaybackDeviceCompatibility -&gt; [Header]
 (HeaderName -&gt; DashIsoPlaybackDeviceCompatibility -&gt; [Header])
 -&gt; ToHeader DashIsoPlaybackDeviceCompatibility
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DashIsoPlaybackDeviceCompatibility -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DashIsoPlaybackDeviceCompatibility -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679949004"><span class="annot"><span class="annottext">DashIsoPlaybackDeviceCompatibility -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679953628"><span class="annot"><span class="annottext">DashIsoPlaybackDeviceCompatibility -&gt; QueryString
 (DashIsoPlaybackDeviceCompatibility -&gt; QueryString)
 -&gt; ToQuery DashIsoPlaybackDeviceCompatibility
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DashIsoPlaybackDeviceCompatibility -&gt; QueryString
 $ctoQuery :: DashIsoPlaybackDeviceCompatibility -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679948999"><span id="local-6989586621679949001"><span class="annot"><span class="annottext">Value -&gt; Parser [DashIsoPlaybackDeviceCompatibility]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679953623"><span id="local-6989586621679953625"><span class="annot"><span class="annottext">Value -&gt; Parser [DashIsoPlaybackDeviceCompatibility]
 Value -&gt; Parser DashIsoPlaybackDeviceCompatibility
 (Value -&gt; Parser DashIsoPlaybackDeviceCompatibility)
 -&gt; (Value -&gt; Parser [DashIsoPlaybackDeviceCompatibility])
@@ -262,7 +262,7 @@ $cparseJSONList :: Value -&gt; Parser [DashIsoPlaybackDeviceCompatibility]
 parseJSON :: Value -&gt; Parser DashIsoPlaybackDeviceCompatibility
 $cparseJSON :: Value -&gt; Parser DashIsoPlaybackDeviceCompatibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679948994"><span id="local-6989586621679948996"><span class="annot"><span class="annottext">FromJSONKeyFunction [DashIsoPlaybackDeviceCompatibility]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679953618"><span id="local-6989586621679953620"><span class="annot"><span class="annottext">FromJSONKeyFunction [DashIsoPlaybackDeviceCompatibility]
 FromJSONKeyFunction DashIsoPlaybackDeviceCompatibility
 FromJSONKeyFunction DashIsoPlaybackDeviceCompatibility
 -&gt; FromJSONKeyFunction [DashIsoPlaybackDeviceCompatibility]
@@ -274,7 +274,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DashIsoPlaybackDeviceCompatibility]
 fromJSONKey :: FromJSONKeyFunction DashIsoPlaybackDeviceCompatibility
 $cfromJSONKey :: FromJSONKeyFunction DashIsoPlaybackDeviceCompatibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679948985"><span id="local-6989586621679948987"><span id="local-6989586621679948989"><span id="local-6989586621679948991"><span class="annot"><span class="annottext">[DashIsoPlaybackDeviceCompatibility] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679953609"><span id="local-6989586621679953611"><span id="local-6989586621679953613"><span id="local-6989586621679953615"><span class="annot"><span class="annottext">[DashIsoPlaybackDeviceCompatibility] -&gt; Encoding
 [DashIsoPlaybackDeviceCompatibility] -&gt; Value
 DashIsoPlaybackDeviceCompatibility -&gt; Encoding
 DashIsoPlaybackDeviceCompatibility -&gt; Value
@@ -298,7 +298,7 @@ $ctoEncoding :: DashIsoPlaybackDeviceCompatibility -&gt; Encoding
 toJSON :: DashIsoPlaybackDeviceCompatibility -&gt; Value
 $ctoJSON :: DashIsoPlaybackDeviceCompatibility -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679948980"><span id="local-6989586621679948982"><span class="annot"><span class="annottext">ToJSONKeyFunction [DashIsoPlaybackDeviceCompatibility]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679953604"><span id="local-6989586621679953606"><span class="annot"><span class="annottext">ToJSONKeyFunction [DashIsoPlaybackDeviceCompatibility]
 ToJSONKeyFunction DashIsoPlaybackDeviceCompatibility
 ToJSONKeyFunction DashIsoPlaybackDeviceCompatibility
 -&gt; ToJSONKeyFunction [DashIsoPlaybackDeviceCompatibility]
@@ -310,14 +310,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DashIsoPlaybackDeviceCompatibility]
 toJSONKey :: ToJSONKeyFunction DashIsoPlaybackDeviceCompatibility
 $ctoJSONKey :: ToJSONKeyFunction DashIsoPlaybackDeviceCompatibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679948977"><span class="annot"><span class="annottext">[Node] -&gt; Either String DashIsoPlaybackDeviceCompatibility
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679953601"><span class="annot"><span class="annottext">[Node] -&gt; Either String DashIsoPlaybackDeviceCompatibility
 ([Node] -&gt; Either String DashIsoPlaybackDeviceCompatibility)
 -&gt; FromXML DashIsoPlaybackDeviceCompatibility
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DashIsoPlaybackDeviceCompatibility
 $cparseXML :: [Node] -&gt; Either String DashIsoPlaybackDeviceCompatibility
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679948974"><span class="annot"><span class="annottext">DashIsoPlaybackDeviceCompatibility -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679953598"><span class="annot"><span class="annottext">DashIsoPlaybackDeviceCompatibility -&gt; XML
 (DashIsoPlaybackDeviceCompatibility -&gt; XML)
 -&gt; ToXML DashIsoPlaybackDeviceCompatibility
 forall a. (a -&gt; XML) -&gt; ToXML a

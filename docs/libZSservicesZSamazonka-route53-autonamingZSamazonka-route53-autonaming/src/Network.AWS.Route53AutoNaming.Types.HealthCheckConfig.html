@@ -87,7 +87,7 @@
 </span><span id="line-87"></span><span class="hs-comment">--     &lt;http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing&gt;.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- /See:/ 'newHealthCheckConfig' smart constructor.</span><span>
-</span><span id="line-90"></span><span id="local-6989586621679219446"><span id="local-6989586621679219447"></span></span><span class="hs-keyword">data</span><span> </span><span id="HealthCheckConfig"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-var">HealthCheckConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthCheckConfig%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig%27"><span class="hs-identifier hs-var">HealthCheckConfig'</span></a></span></span><span>
+</span><span id="line-90"></span><span id="local-6989586621679219573"><span id="local-6989586621679219574"></span></span><span class="hs-keyword">data</span><span> </span><span id="HealthCheckConfig"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-var">HealthCheckConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthCheckConfig%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig%27"><span class="hs-identifier hs-var">HealthCheckConfig'</span></a></span></span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of consecutive health checks that an endpoint must pass or</span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-comment">-- fail for Route 53 to change the current status of the endpoint from</span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-comment">-- unhealthy to healthy or the other way around. For more information, see</span><span>
@@ -135,7 +135,7 @@
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3Atype%27%3AHealthCheckConfig%27"><span class="annot"><span class="annottext">HealthCheckConfig -&gt; HealthCheckType
 </span><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#%24sel%3Atype%27%3AHealthCheckConfig%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckType.html#HealthCheckType"><span class="hs-identifier hs-type">HealthCheckType</span></a></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679219438"><span id="local-6989586621679219440"><span class="annot"><span class="annottext">HealthCheckConfig -&gt; HealthCheckConfig -&gt; Bool
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679219565"><span id="local-6989586621679219567"><span class="annot"><span class="annottext">HealthCheckConfig -&gt; HealthCheckConfig -&gt; Bool
 (HealthCheckConfig -&gt; HealthCheckConfig -&gt; Bool)
 -&gt; (HealthCheckConfig -&gt; HealthCheckConfig -&gt; Bool)
 -&gt; Eq HealthCheckConfig
@@ -144,7 +144,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HealthCheckConfig -&gt; HealthCheckConfig -&gt; Bool
 == :: HealthCheckConfig -&gt; HealthCheckConfig -&gt; Bool
 $c== :: HealthCheckConfig -&gt; HealthCheckConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219429"><span id="local-6989586621679219431"><span id="local-6989586621679219433"><span id="local-6989586621679219435"><span class="annot"><span class="annottext">ReadPrec [HealthCheckConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219556"><span id="local-6989586621679219558"><span id="local-6989586621679219560"><span id="local-6989586621679219562"><span class="annot"><span class="annottext">ReadPrec [HealthCheckConfig]
 ReadPrec HealthCheckConfig
 Int -&gt; ReadS HealthCheckConfig
 ReadS [HealthCheckConfig]
@@ -164,7 +164,7 @@ readList :: ReadS [HealthCheckConfig]
 $creadList :: ReadS [HealthCheckConfig]
 readsPrec :: Int -&gt; ReadS HealthCheckConfig
 $creadsPrec :: Int -&gt; ReadS HealthCheckConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219422"><span id="local-6989586621679219424"><span id="local-6989586621679219426"><span class="annot"><span class="annottext">Int -&gt; HealthCheckConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219549"><span id="local-6989586621679219551"><span id="local-6989586621679219553"><span class="annot"><span class="annottext">Int -&gt; HealthCheckConfig -&gt; ShowS
 [HealthCheckConfig] -&gt; ShowS
 HealthCheckConfig -&gt; String
 (Int -&gt; HealthCheckConfig -&gt; ShowS)
@@ -245,8 +245,8 @@ $cfrom :: forall x. HealthCheckConfig -&gt; Rep HealthCheckConfig x
 </span><span id="line-189"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckType.html#HealthCheckType"><span class="hs-identifier hs-type">HealthCheckType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span><span>
 </span><span id="line-191"></span><span id="newHealthCheckConfig"><span class="annot"><span class="annottext">newHealthCheckConfig :: HealthCheckType -&gt; HealthCheckConfig
-</span><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#newHealthCheckConfig"><span class="hs-identifier hs-var hs-var">newHealthCheckConfig</span></a></span></span><span> </span><span id="local-6989586621679219416"><span class="annot"><span class="annottext">HealthCheckType
-</span><a href="#local-6989586621679219416"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#newHealthCheckConfig"><span class="hs-identifier hs-var hs-var">newHealthCheckConfig</span></a></span></span><span> </span><span id="local-6989586621679219543"><span class="annot"><span class="annottext">HealthCheckType
+</span><a href="#local-6989586621679219543"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>  </span><span class="annot"><span class="annottext">HealthCheckConfig' :: Maybe Natural -&gt; Maybe Text -&gt; HealthCheckType -&gt; HealthCheckConfig
 </span><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig%27"><span class="hs-identifier hs-type">HealthCheckConfig'</span></a></span><span>
 </span><span id="line-193"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failureThreshold:HealthCheckConfig' :: Maybe Natural
@@ -260,7 +260,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':HealthCheckConfig' :: HealthCheckType
 </span><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#%24sel%3Atype%27%3AHealthCheckConfig%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HealthCheckType
-</span><a href="#local-6989586621679219416"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679219543"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-197"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | The number of consecutive health checks that an endpoint must pass or</span><span>
@@ -276,16 +276,16 @@ forall a. Maybe a
 -&gt; Lens
      HealthCheckConfig HealthCheckConfig (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig%27"><span class="hs-identifier hs-type">HealthCheckConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219412"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig%27"><span class="hs-identifier hs-type">HealthCheckConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219539"><span class="annot"><span class="annottext">Maybe Natural
 failureThreshold :: Maybe Natural
 $sel:failureThreshold:HealthCheckConfig' :: HealthCheckConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621679219412"><span class="hs-identifier hs-var hs-var">failureThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679219412"><span class="hs-identifier hs-var">failureThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219411"><span class="annot"><span class="annottext">s :: HealthCheckConfig
-</span><a href="#local-6989586621679219411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig%27"><span class="hs-identifier hs-type">HealthCheckConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219410"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679219410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679219411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureThreshold:HealthCheckConfig' :: Maybe Natural
+</span><a href="#local-6989586621679219539"><span class="hs-identifier hs-var hs-var">failureThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679219539"><span class="hs-identifier hs-var">failureThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219538"><span class="annot"><span class="annottext">s :: HealthCheckConfig
+</span><a href="#local-6989586621679219538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig%27"><span class="hs-identifier hs-type">HealthCheckConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219537"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679219537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
+</span><a href="#local-6989586621679219538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureThreshold:HealthCheckConfig' :: Maybe Natural
 </span><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#%24sel%3AfailureThreshold%3AHealthCheckConfig%27"><span class="hs-identifier hs-var">failureThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679219410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679219537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | The path that you want Route 53 to request when performing health</span><span>
 </span><span id="line-208"></span><span class="hs-comment">-- checks. The path can be any value that your endpoint returns an HTTP</span><span>
@@ -304,16 +304,16 @@ $sel:failureThreshold:HealthCheckConfig' :: HealthCheckConfig -&gt; Maybe Natura
 -&gt; Lens
      HealthCheckConfig HealthCheckConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig%27"><span class="hs-identifier hs-type">HealthCheckConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219408"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig%27"><span class="hs-identifier hs-type">HealthCheckConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219535"><span class="annot"><span class="annottext">Maybe Text
 resourcePath :: Maybe Text
 $sel:resourcePath:HealthCheckConfig' :: HealthCheckConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679219408"><span class="hs-identifier hs-var hs-var">resourcePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219408"><span class="hs-identifier hs-var">resourcePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219407"><span class="annot"><span class="annottext">s :: HealthCheckConfig
-</span><a href="#local-6989586621679219407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig%27"><span class="hs-identifier hs-type">HealthCheckConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219406"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679219407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourcePath:HealthCheckConfig' :: Maybe Text
+</span><a href="#local-6989586621679219535"><span class="hs-identifier hs-var hs-var">resourcePath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219535"><span class="hs-identifier hs-var">resourcePath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219534"><span class="annot"><span class="annottext">s :: HealthCheckConfig
+</span><a href="#local-6989586621679219534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig%27"><span class="hs-identifier hs-type">HealthCheckConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219533"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
+</span><a href="#local-6989586621679219534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourcePath:HealthCheckConfig' :: Maybe Text
 </span><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#%24sel%3AresourcePath%3AHealthCheckConfig%27"><span class="hs-identifier hs-var">resourcePath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679219533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The type of health check that you want to create, which indicates how</span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- Route 53 determines whether an endpoint is healthy.</span><span>
@@ -349,19 +349,19 @@ $sel:resourcePath:HealthCheckConfig' :: HealthCheckConfig -&gt; Maybe Text
 -&gt; Lens
      HealthCheckConfig HealthCheckConfig HealthCheckType HealthCheckType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig%27"><span class="hs-identifier hs-type">HealthCheckConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219404"><span class="annot"><span class="annottext">HealthCheckType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig%27"><span class="hs-identifier hs-type">HealthCheckConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219531"><span class="annot"><span class="annottext">HealthCheckType
 type' :: HealthCheckType
 $sel:type':HealthCheckConfig' :: HealthCheckConfig -&gt; HealthCheckType
-</span><a href="#local-6989586621679219404"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckType
-</span><a href="#local-6989586621679219404"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219403"><span class="annot"><span class="annottext">s :: HealthCheckConfig
-</span><a href="#local-6989586621679219403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig%27"><span class="hs-identifier hs-type">HealthCheckConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219402"><span class="annot"><span class="annottext">HealthCheckType
-</span><a href="#local-6989586621679219402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679219403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':HealthCheckConfig' :: HealthCheckType
+</span><a href="#local-6989586621679219531"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckType
+</span><a href="#local-6989586621679219531"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219530"><span class="annot"><span class="annottext">s :: HealthCheckConfig
+</span><a href="#local-6989586621679219530"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig%27"><span class="hs-identifier hs-type">HealthCheckConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219529"><span class="annot"><span class="annottext">HealthCheckType
+</span><a href="#local-6989586621679219529"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
+</span><a href="#local-6989586621679219530"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':HealthCheckConfig' :: HealthCheckType
 </span><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#%24sel%3Atype%27%3AHealthCheckConfig%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HealthCheckType
-</span><a href="#local-6989586621679219402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679219529"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
-</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219399"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-249"></span><span>  </span><span id="local-6989586621679219397"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HealthCheckConfig
+</span><span id="line-248"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219526"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679219524"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HealthCheckConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-250"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HealthCheckConfig)
@@ -371,8 +371,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HealthCheckConfig&quot;</span></span><span>
-</span><span id="line-252"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679219394"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219394"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-252"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679219521"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219521"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-253"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Text -&gt; HealthCheckType -&gt; HealthCheckConfig
 </span><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig%27"><span class="hs-identifier hs-var">HealthCheckConfig'</span></a></span><span>
 </span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
@@ -381,7 +381,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; HealthCheckType -&gt; HealthCheckConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219394"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679219521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FailureThreshold&quot;</span></span><span class="hs-special">)</span><span>
@@ -390,7 +390,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (HealthCheckType -&gt; HealthCheckConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219394"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679219521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourcePath&quot;</span></span><span class="hs-special">)</span><span>
@@ -398,19 +398,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser HealthCheckType -&gt; Parser HealthCheckConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219394"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser HealthCheckType
+</span><a href="#local-6989586621679219521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser HealthCheckType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-257"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-258"></span><span>
-</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219387"><span id="local-6989586621679219389"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span></span></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219514"><span id="local-6989586621679219516"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span></span></span><span>
 </span><span id="line-260"></span><span>
-</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219384"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span></span><span>
+</span><span id="line-261"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219511"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span></span><span>
 </span><span id="line-262"></span><span>
-</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219376"><span id="local-6989586621679219378"><span id="local-6989586621679219380"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-264"></span><span>  </span><span id="local-6989586621679219374"><span class="annot"><span class="annottext">toJSON :: HealthCheckConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig%27"><span class="hs-identifier hs-type">HealthCheckConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219370"><span id="local-6989586621679219371"><span id="local-6989586621679219372"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219503"><span id="local-6989586621679219505"><span id="local-6989586621679219507"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679219501"><span class="annot"><span class="annottext">toJSON :: HealthCheckConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthCheckConfig.html#HealthCheckConfig%27"><span class="hs-identifier hs-type">HealthCheckConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219497"><span id="local-6989586621679219498"><span id="local-6989586621679219499"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 HealthCheckType
 type' :: HealthCheckType
@@ -419,7 +419,7 @@ failureThreshold :: Maybe Natural
 $sel:type':HealthCheckConfig' :: HealthCheckConfig -&gt; HealthCheckType
 $sel:resourcePath:HealthCheckConfig' :: HealthCheckConfig -&gt; Maybe Text
 $sel:failureThreshold:HealthCheckConfig' :: HealthCheckConfig -&gt; Maybe Natural
-</span><a href="#local-6989586621679219370"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679219497"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-265"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-266"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -432,21 +432,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-268"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679219372"><span class="hs-identifier hs-var">failureThreshold</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679219499"><span class="hs-identifier hs-var">failureThreshold</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-269"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourcePath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219371"><span class="hs-identifier hs-var">resourcePath</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679219498"><span class="hs-identifier hs-var">resourcePath</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-270"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HealthCheckType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HealthCheckType
-</span><a href="#local-6989586621679219370"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679219497"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-271"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-272"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span></pre></body></html>

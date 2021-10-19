@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621680296990"><span id="local-6989586621680296991"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CompilationJobStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.CompilationJobStatus.html#CompilationJobStatus"><span class="hs-identifier hs-var">CompilationJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CompilationJobStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CompilationJobStatus.html#CompilationJobStatus%27"><span class="hs-identifier hs-var">CompilationJobStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621680298358"><span id="local-6989586621680298359"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CompilationJobStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.CompilationJobStatus.html#CompilationJobStatus"><span class="hs-identifier hs-var">CompilationJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CompilationJobStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.CompilationJobStatus.html#CompilationJobStatus%27"><span class="hs-identifier hs-var">CompilationJobStatus'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCompilationJobStatus"><span class="annot"><span class="annottext">CompilationJobStatus -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.CompilationJobStatus.html#fromCompilationJobStatus"><span class="hs-identifier hs-var hs-var">fromCompilationJobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680296982"><span id="local-6989586621680296984"><span id="local-6989586621680296986"><span class="annot"><span class="annottext">Int -&gt; CompilationJobStatus -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680298350"><span id="local-6989586621680298352"><span id="local-6989586621680298354"><span class="annot"><span class="annottext">Int -&gt; CompilationJobStatus -&gt; ShowS
 [CompilationJobStatus] -&gt; ShowS
 CompilationJobStatus -&gt; String
 (Int -&gt; CompilationJobStatus -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: CompilationJobStatus -&gt; String
 showsPrec :: Int -&gt; CompilationJobStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; CompilationJobStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680296973"><span id="local-6989586621680296975"><span id="local-6989586621680296977"><span id="local-6989586621680296979"><span class="annot"><span class="annottext">ReadPrec [CompilationJobStatus]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680298341"><span id="local-6989586621680298343"><span id="local-6989586621680298345"><span id="local-6989586621680298347"><span class="annot"><span class="annottext">ReadPrec [CompilationJobStatus]
 ReadPrec CompilationJobStatus
 Int -&gt; ReadS CompilationJobStatus
 ReadS [CompilationJobStatus]
@@ -76,7 +76,7 @@ $creadList :: ReadS [CompilationJobStatus]
 readsPrec :: Int -&gt; ReadS CompilationJobStatus
 $creadsPrec :: Int -&gt; ReadS CompilationJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680296968"><span id="local-6989586621680296970"><span class="annot"><span class="annottext">CompilationJobStatus -&gt; CompilationJobStatus -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680298336"><span id="local-6989586621680298338"><span class="annot"><span class="annottext">CompilationJobStatus -&gt; CompilationJobStatus -&gt; Bool
 (CompilationJobStatus -&gt; CompilationJobStatus -&gt; Bool)
 -&gt; (CompilationJobStatus -&gt; CompilationJobStatus -&gt; Bool)
 -&gt; Eq CompilationJobStatus
@@ -86,7 +86,7 @@ $c/= :: CompilationJobStatus -&gt; CompilationJobStatus -&gt; Bool
 == :: CompilationJobStatus -&gt; CompilationJobStatus -&gt; Bool
 $c== :: CompilationJobStatus -&gt; CompilationJobStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621680296952"><span id="local-6989586621680296954"><span id="local-6989586621680296956"><span id="local-6989586621680296958"><span id="local-6989586621680296960"><span id="local-6989586621680296962"><span id="local-6989586621680296964"><span class="annot"><span class="annottext">Eq CompilationJobStatus
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621680298320"><span id="local-6989586621680298322"><span id="local-6989586621680298324"><span id="local-6989586621680298326"><span id="local-6989586621680298328"><span id="local-6989586621680298330"><span id="local-6989586621680298332"><span class="annot"><span class="annottext">Eq CompilationJobStatus
 Eq CompilationJobStatus
 -&gt; (CompilationJobStatus -&gt; CompilationJobStatus -&gt; Ordering)
 -&gt; (CompilationJobStatus -&gt; CompilationJobStatus -&gt; Bool)
@@ -144,7 +144,7 @@ $cfrom :: forall x. CompilationJobStatus -&gt; Rep CompilationJobStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680296944"><span id="local-6989586621680296946"><span class="annot"><span class="annottext">Int -&gt; CompilationJobStatus -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680298312"><span id="local-6989586621680298314"><span class="annot"><span class="annottext">Int -&gt; CompilationJobStatus -&gt; Int
 CompilationJobStatus -&gt; Int
 (Int -&gt; CompilationJobStatus -&gt; Int)
 -&gt; (CompilationJobStatus -&gt; Int) -&gt; Hashable CompilationJobStatus
@@ -154,54 +154,54 @@ $chash :: CompilationJobStatus -&gt; Int
 hashWithSalt :: Int -&gt; CompilationJobStatus -&gt; Int
 $chashWithSalt :: Int -&gt; CompilationJobStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680296941"><span class="annot"><span class="annottext">CompilationJobStatus -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680298309"><span class="annot"><span class="annottext">CompilationJobStatus -&gt; ()
 (CompilationJobStatus -&gt; ()) -&gt; NFData CompilationJobStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CompilationJobStatus -&gt; ()
 $crnf :: CompilationJobStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680296938"><span class="annot"><span class="annottext">Text -&gt; Either String CompilationJobStatus
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680298306"><span class="annot"><span class="annottext">Text -&gt; Either String CompilationJobStatus
 (Text -&gt; Either String CompilationJobStatus)
 -&gt; FromText CompilationJobStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CompilationJobStatus
 $cfromText :: Text -&gt; Either String CompilationJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680296935"><span class="annot"><span class="annottext">CompilationJobStatus -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680298303"><span class="annot"><span class="annottext">CompilationJobStatus -&gt; Text
 (CompilationJobStatus -&gt; Text) -&gt; ToText CompilationJobStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CompilationJobStatus -&gt; Text
 $ctoText :: CompilationJobStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680296932"><span class="annot"><span class="annottext">CompilationJobStatus -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680298300"><span class="annot"><span class="annottext">CompilationJobStatus -&gt; ByteString
 (CompilationJobStatus -&gt; ByteString)
 -&gt; ToByteString CompilationJobStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CompilationJobStatus -&gt; ByteString
 $ctoBS :: CompilationJobStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680296929"><span class="annot"><span class="annottext">CompilationJobStatus -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680298297"><span class="annot"><span class="annottext">CompilationJobStatus -&gt; ByteStringBuilder
 (CompilationJobStatus -&gt; ByteStringBuilder)
 -&gt; ToLog CompilationJobStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CompilationJobStatus -&gt; ByteStringBuilder
 $cbuild :: CompilationJobStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680296926"><span class="annot"><span class="annottext">HeaderName -&gt; CompilationJobStatus -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680298294"><span class="annot"><span class="annottext">HeaderName -&gt; CompilationJobStatus -&gt; [Header]
 (HeaderName -&gt; CompilationJobStatus -&gt; [Header])
 -&gt; ToHeader CompilationJobStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CompilationJobStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CompilationJobStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680296923"><span class="annot"><span class="annottext">CompilationJobStatus -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680298291"><span class="annot"><span class="annottext">CompilationJobStatus -&gt; QueryString
 (CompilationJobStatus -&gt; QueryString)
 -&gt; ToQuery CompilationJobStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CompilationJobStatus -&gt; QueryString
 $ctoQuery :: CompilationJobStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680296918"><span id="local-6989586621680296920"><span class="annot"><span class="annottext">Value -&gt; Parser [CompilationJobStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680298286"><span id="local-6989586621680298288"><span class="annot"><span class="annottext">Value -&gt; Parser [CompilationJobStatus]
 Value -&gt; Parser CompilationJobStatus
 (Value -&gt; Parser CompilationJobStatus)
 -&gt; (Value -&gt; Parser [CompilationJobStatus])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [CompilationJobStatus]
 parseJSON :: Value -&gt; Parser CompilationJobStatus
 $cparseJSON :: Value -&gt; Parser CompilationJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680296913"><span id="local-6989586621680296915"><span class="annot"><span class="annottext">FromJSONKeyFunction [CompilationJobStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680298281"><span id="local-6989586621680298283"><span class="annot"><span class="annottext">FromJSONKeyFunction [CompilationJobStatus]
 FromJSONKeyFunction CompilationJobStatus
 FromJSONKeyFunction CompilationJobStatus
 -&gt; FromJSONKeyFunction [CompilationJobStatus]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CompilationJobStatus]
 fromJSONKey :: FromJSONKeyFunction CompilationJobStatus
 $cfromJSONKey :: FromJSONKeyFunction CompilationJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680296904"><span id="local-6989586621680296906"><span id="local-6989586621680296908"><span id="local-6989586621680296910"><span class="annot"><span class="annottext">[CompilationJobStatus] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680298272"><span id="local-6989586621680298274"><span id="local-6989586621680298276"><span id="local-6989586621680298278"><span class="annot"><span class="annottext">[CompilationJobStatus] -&gt; Encoding
 [CompilationJobStatus] -&gt; Value
 CompilationJobStatus -&gt; Encoding
 CompilationJobStatus -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: CompilationJobStatus -&gt; Encoding
 toJSON :: CompilationJobStatus -&gt; Value
 $ctoJSON :: CompilationJobStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680296899"><span id="local-6989586621680296901"><span class="annot"><span class="annottext">ToJSONKeyFunction [CompilationJobStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680298267"><span id="local-6989586621680298269"><span class="annot"><span class="annottext">ToJSONKeyFunction [CompilationJobStatus]
 ToJSONKeyFunction CompilationJobStatus
 ToJSONKeyFunction CompilationJobStatus
 -&gt; ToJSONKeyFunction [CompilationJobStatus]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CompilationJobStatus]
 toJSONKey :: ToJSONKeyFunction CompilationJobStatus
 $ctoJSONKey :: ToJSONKeyFunction CompilationJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680296896"><span class="annot"><span class="annottext">[Node] -&gt; Either String CompilationJobStatus
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680298264"><span class="annot"><span class="annottext">[Node] -&gt; Either String CompilationJobStatus
 ([Node] -&gt; Either String CompilationJobStatus)
 -&gt; FromXML CompilationJobStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CompilationJobStatus
 $cparseXML :: [Node] -&gt; Either String CompilationJobStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621680296893"><span class="annot"><span class="annottext">CompilationJobStatus -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680298261"><span class="annot"><span class="annottext">CompilationJobStatus -&gt; XML
 (CompilationJobStatus -&gt; XML) -&gt; ToXML CompilationJobStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CompilationJobStatus -&gt; XML

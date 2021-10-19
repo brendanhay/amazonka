@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteFilter' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679312284"><span id="local-6989586621679312285"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFilter"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-var">DeleteFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFilter%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-var">DeleteFilter'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679312621"><span id="local-6989586621679312622"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFilter"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-var">DeleteFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFilter%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-var">DeleteFilter'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the detector that the filter is associated with.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AdetectorId%3ADeleteFilter%27"><span class="annot"><span class="annottext">DeleteFilter -&gt; Text
 </span><a href="Network.AWS.GuardDuty.DeleteFilter.html#%24sel%3AdetectorId%3ADeleteFilter%27"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AfilterName%3ADeleteFilter%27"><span class="annot"><span class="annottext">DeleteFilter -&gt; Text
 </span><a href="Network.AWS.GuardDuty.DeleteFilter.html#%24sel%3AfilterName%3ADeleteFilter%27"><span class="hs-identifier hs-var hs-var">filterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312277"><span id="local-6989586621679312279"><span class="annot"><span class="annottext">DeleteFilter -&gt; DeleteFilter -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312614"><span id="local-6989586621679312616"><span class="annot"><span class="annottext">DeleteFilter -&gt; DeleteFilter -&gt; Bool
 (DeleteFilter -&gt; DeleteFilter -&gt; Bool)
 -&gt; (DeleteFilter -&gt; DeleteFilter -&gt; Bool) -&gt; Eq DeleteFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteFilter -&gt; DeleteFilter -&gt; Bool
 == :: DeleteFilter -&gt; DeleteFilter -&gt; Bool
 $c== :: DeleteFilter -&gt; DeleteFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312268"><span id="local-6989586621679312270"><span id="local-6989586621679312272"><span id="local-6989586621679312274"><span class="annot"><span class="annottext">ReadPrec [DeleteFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312605"><span id="local-6989586621679312607"><span id="local-6989586621679312609"><span id="local-6989586621679312611"><span class="annot"><span class="annottext">ReadPrec [DeleteFilter]
 ReadPrec DeleteFilter
 Int -&gt; ReadS DeleteFilter
 ReadS [DeleteFilter]
@@ -83,7 +83,7 @@ readList :: ReadS [DeleteFilter]
 $creadList :: ReadS [DeleteFilter]
 readsPrec :: Int -&gt; ReadS DeleteFilter
 $creadsPrec :: Int -&gt; ReadS DeleteFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312261"><span id="local-6989586621679312263"><span id="local-6989586621679312265"><span class="annot"><span class="annottext">Int -&gt; DeleteFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312598"><span id="local-6989586621679312600"><span id="local-6989586621679312602"><span class="annot"><span class="annottext">Int -&gt; DeleteFilter -&gt; ShowS
 [DeleteFilter] -&gt; ShowS
 DeleteFilter -&gt; String
 (Int -&gt; DeleteFilter -&gt; ShowS)
@@ -127,17 +127,17 @@ $cfrom :: forall x. DeleteFilter -&gt; Rep DeleteFilter x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span>
 </span><span id="line-75"></span><span id="newDeleteFilter"><span class="annot"><span class="annottext">newDeleteFilter :: Text -&gt; Text -&gt; DeleteFilter
-</span><a href="Network.AWS.GuardDuty.DeleteFilter.html#newDeleteFilter"><span class="hs-identifier hs-var hs-var">newDeleteFilter</span></a></span></span><span> </span><span id="local-6989586621679312256"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312256"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span id="local-6989586621679312255"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312255"><span class="hs-identifier hs-var">pFilterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.DeleteFilter.html#newDeleteFilter"><span class="hs-identifier hs-var hs-var">newDeleteFilter</span></a></span></span><span> </span><span id="local-6989586621679312593"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312593"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span id="local-6989586621679312592"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312592"><span class="hs-identifier hs-var">pFilterName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DeleteFilter' :: Text -&gt; Text -&gt; DeleteFilter
 </span><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-type">DeleteFilter'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detectorId:DeleteFilter' :: Text
 </span><a href="Network.AWS.GuardDuty.DeleteFilter.html#%24sel%3AdetectorId%3ADeleteFilter%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312256"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312593"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterName:DeleteFilter' :: Text
 </span><a href="Network.AWS.GuardDuty.DeleteFilter.html#%24sel%3AfilterName%3ADeleteFilter%27"><span class="hs-identifier hs-var">filterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312255"><span class="hs-identifier hs-var">pFilterName_</span></a></span><span>
+</span><a href="#local-6989586621679312592"><span class="hs-identifier hs-var">pFilterName_</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The unique ID of the detector that the filter is associated with.</span><span>
@@ -147,16 +147,16 @@ $cfrom :: forall x. DeleteFilter -&gt; Rep DeleteFilter x
 -&gt; (DeleteFilter -&gt; Text -&gt; DeleteFilter)
 -&gt; Lens DeleteFilter DeleteFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-type">DeleteFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312252"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-type">DeleteFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312589"><span class="annot"><span class="annottext">Text
 detectorId :: Text
 $sel:detectorId:DeleteFilter' :: DeleteFilter -&gt; Text
-</span><a href="#local-6989586621679312252"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312252"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312251"><span class="annot"><span class="annottext">s :: DeleteFilter
-</span><a href="#local-6989586621679312251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-type">DeleteFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312250"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFilter
-</span><a href="#local-6989586621679312251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:DeleteFilter' :: Text
+</span><a href="#local-6989586621679312589"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312589"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312588"><span class="annot"><span class="annottext">s :: DeleteFilter
+</span><a href="#local-6989586621679312588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-type">DeleteFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312587"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFilter
+</span><a href="#local-6989586621679312588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:DeleteFilter' :: Text
 </span><a href="Network.AWS.GuardDuty.DeleteFilter.html#%24sel%3AdetectorId%3ADeleteFilter%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The name of the filter that you want to delete.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#deleteFilter_filterName"><span class="hs-identifier hs-type">deleteFilter_filterName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -165,25 +165,25 @@ $sel:detectorId:DeleteFilter' :: DeleteFilter -&gt; Text
 -&gt; (DeleteFilter -&gt; Text -&gt; DeleteFilter)
 -&gt; Lens DeleteFilter DeleteFilter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-type">DeleteFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312249"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-type">DeleteFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312586"><span class="annot"><span class="annottext">Text
 filterName :: Text
 $sel:filterName:DeleteFilter' :: DeleteFilter -&gt; Text
-</span><a href="#local-6989586621679312249"><span class="hs-identifier hs-var hs-var">filterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312249"><span class="hs-identifier hs-var">filterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312248"><span class="annot"><span class="annottext">s :: DeleteFilter
-</span><a href="#local-6989586621679312248"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-type">DeleteFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312247"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312247"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFilter
-</span><a href="#local-6989586621679312248"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterName:DeleteFilter' :: Text
+</span><a href="#local-6989586621679312586"><span class="hs-identifier hs-var hs-var">filterName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312586"><span class="hs-identifier hs-var">filterName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312585"><span class="annot"><span class="annottext">s :: DeleteFilter
+</span><a href="#local-6989586621679312585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-type">DeleteFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312584"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFilter
+</span><a href="#local-6989586621679312585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterName:DeleteFilter' :: Text
 </span><a href="Network.AWS.GuardDuty.DeleteFilter.html#%24sel%3AfilterName%3ADeleteFilter%27"><span class="hs-identifier hs-var">filterName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312247"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilterResponse"><span class="hs-identifier hs-type">DeleteFilterResponse</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679312243"><span class="annot"><span class="annottext">request :: DeleteFilter -&gt; Request DeleteFilter
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679312580"><span class="annot"><span class="annottext">request :: DeleteFilter -&gt; Request DeleteFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteFilter -&gt; Request DeleteFilter
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679312239"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679312576"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteFilter
 -&gt; ClientResponse ClientBody
@@ -207,10 +207,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312236"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312236"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312235"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679312235"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312234"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679312234"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312573"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312573"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312572"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312572"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312571"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679312571"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteFilterResponse
 </span><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilterResponse%27"><span class="hs-identifier hs-var">DeleteFilterResponse'</span></a></span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteFilterResponse)
@@ -221,15 +221,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312236"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312573"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312227"><span id="local-6989586621679312229"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312564"><span id="local-6989586621679312566"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312224"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312561"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679312220"><span class="annot"><span class="annottext">toHeaders :: DeleteFilter -&gt; ResponseHeaders
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679312557"><span class="annot"><span class="annottext">toHeaders :: DeleteFilter -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteFilter -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -249,13 +249,13 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679312214"><span class="annot"><span class="annottext">toPath :: DeleteFilter -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-type">DeleteFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312211"><span id="local-6989586621679312212"><span class="annot"><span class="annottext">Text
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679312551"><span class="annot"><span class="annottext">toPath :: DeleteFilter -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter%27"><span class="hs-identifier hs-type">DeleteFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312548"><span id="local-6989586621679312549"><span class="annot"><span class="annottext">Text
 filterName :: Text
 detectorId :: Text
 $sel:filterName:DeleteFilter' :: DeleteFilter -&gt; Text
 $sel:detectorId:DeleteFilter' :: DeleteFilter -&gt; Text
-</span><a href="#local-6989586621679312211"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679312548"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -264,17 +264,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312212"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312549"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/filter/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679312211"><span class="hs-identifier hs-var">filterName</span></a></span><span>
+</span><a href="#local-6989586621679312548"><span class="hs-identifier hs-var">filterName</span></a></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilter"><span class="hs-identifier hs-type">DeleteFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679312207"><span class="annot"><span class="annottext">toQuery :: DeleteFilter -&gt; QueryString
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679312544"><span class="annot"><span class="annottext">toQuery :: DeleteFilter -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteFilter -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -282,12 +282,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- | /See:/ 'newDeleteFilterResponse' smart constructor.</span><span>
-</span><span id="line-127"></span><span id="local-6989586621679312204"><span id="local-6989586621679312205"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFilterResponse"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilterResponse"><span class="hs-identifier hs-var">DeleteFilterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFilterResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilterResponse%27"><span class="hs-identifier hs-var">DeleteFilterResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span id="local-6989586621679312541"><span id="local-6989586621679312542"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFilterResponse"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilterResponse"><span class="hs-identifier hs-var">DeleteFilterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFilterResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilterResponse%27"><span class="hs-identifier hs-var">DeleteFilterResponse'</span></a></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteFilterResponse%27"><span class="annot"><span class="annottext">DeleteFilterResponse -&gt; Int
 </span><a href="Network.AWS.GuardDuty.DeleteFilter.html#%24sel%3AhttpStatus%3ADeleteFilterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312199"><span id="local-6989586621679312201"><span class="annot"><span class="annottext">DeleteFilterResponse -&gt; DeleteFilterResponse -&gt; Bool
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312536"><span id="local-6989586621679312538"><span class="annot"><span class="annottext">DeleteFilterResponse -&gt; DeleteFilterResponse -&gt; Bool
 (DeleteFilterResponse -&gt; DeleteFilterResponse -&gt; Bool)
 -&gt; (DeleteFilterResponse -&gt; DeleteFilterResponse -&gt; Bool)
 -&gt; Eq DeleteFilterResponse
@@ -296,7 +296,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteFilterResponse -&gt; DeleteFilterResponse -&gt; Bool
 == :: DeleteFilterResponse -&gt; DeleteFilterResponse -&gt; Bool
 $c== :: DeleteFilterResponse -&gt; DeleteFilterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312191"><span id="local-6989586621679312193"><span id="local-6989586621679312195"><span id="local-6989586621679312197"><span class="annot"><span class="annottext">ReadPrec [DeleteFilterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312528"><span id="local-6989586621679312530"><span id="local-6989586621679312532"><span id="local-6989586621679312534"><span class="annot"><span class="annottext">ReadPrec [DeleteFilterResponse]
 ReadPrec DeleteFilterResponse
 Int -&gt; ReadS DeleteFilterResponse
 ReadS [DeleteFilterResponse]
@@ -316,7 +316,7 @@ readList :: ReadS [DeleteFilterResponse]
 $creadList :: ReadS [DeleteFilterResponse]
 readsPrec :: Int -&gt; ReadS DeleteFilterResponse
 $creadsPrec :: Int -&gt; ReadS DeleteFilterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312185"><span id="local-6989586621679312187"><span id="local-6989586621679312189"><span class="annot"><span class="annottext">Int -&gt; DeleteFilterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312522"><span id="local-6989586621679312524"><span id="local-6989586621679312526"><span class="annot"><span class="annottext">Int -&gt; DeleteFilterResponse -&gt; ShowS
 [DeleteFilterResponse] -&gt; ShowS
 DeleteFilterResponse -&gt; String
 (Int -&gt; DeleteFilterResponse -&gt; ShowS)
@@ -356,12 +356,12 @@ $cfrom :: forall x. DeleteFilterResponse -&gt; Rep DeleteFilterResponse x
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilterResponse"><span class="hs-identifier hs-type">DeleteFilterResponse</span></a></span><span>
 </span><span id="line-146"></span><span id="newDeleteFilterResponse"><span class="annot"><span class="annottext">newDeleteFilterResponse :: Int -&gt; DeleteFilterResponse
-</span><a href="Network.AWS.GuardDuty.DeleteFilter.html#newDeleteFilterResponse"><span class="hs-identifier hs-var hs-var">newDeleteFilterResponse</span></a></span></span><span> </span><span id="local-6989586621679312182"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312182"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.DeleteFilter.html#newDeleteFilterResponse"><span class="hs-identifier hs-var hs-var">newDeleteFilterResponse</span></a></span></span><span> </span><span id="local-6989586621679312519"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312519"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">DeleteFilterResponse' :: Int -&gt; DeleteFilterResponse
 </span><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilterResponse%27"><span class="hs-identifier hs-type">DeleteFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteFilterResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.DeleteFilter.html#%24sel%3AhttpStatus%3ADeleteFilterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312182"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679312519"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-150"></span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#deleteFilterResponse_httpStatus"><span class="hs-identifier hs-type">deleteFilterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilterResponse"><span class="hs-identifier hs-type">DeleteFilterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -370,16 +370,16 @@ $cfrom :: forall x. DeleteFilterResponse -&gt; Rep DeleteFilterResponse x
 -&gt; (DeleteFilterResponse -&gt; Int -&gt; DeleteFilterResponse)
 -&gt; Lens DeleteFilterResponse DeleteFilterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilterResponse%27"><span class="hs-identifier hs-type">DeleteFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312181"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilterResponse%27"><span class="hs-identifier hs-type">DeleteFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312518"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteFilterResponse' :: DeleteFilterResponse -&gt; Int
-</span><a href="#local-6989586621679312181"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312181"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312180"><span class="annot"><span class="annottext">s :: DeleteFilterResponse
-</span><a href="#local-6989586621679312180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilterResponse%27"><span class="hs-identifier hs-type">DeleteFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312179"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFilterResponse
-</span><a href="#local-6989586621679312180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteFilterResponse' :: Int
+</span><a href="#local-6989586621679312518"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312518"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312517"><span class="annot"><span class="annottext">s :: DeleteFilterResponse
+</span><a href="#local-6989586621679312517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilterResponse%27"><span class="hs-identifier hs-type">DeleteFilterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312516"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFilterResponse
+</span><a href="#local-6989586621679312517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteFilterResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.DeleteFilter.html#%24sel%3AhttpStatus%3ADeleteFilterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilterResponse"><span class="hs-identifier hs-type">DeleteFilterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilterResponse"><span class="hs-identifier hs-type">DeleteFilterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312177"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilterResponse"><span class="hs-identifier hs-type">DeleteFilterResponse</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312514"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteFilter.html#DeleteFilterResponse"><span class="hs-identifier hs-type">DeleteFilterResponse</span></a></span></span><span>
 </span><span id="line-154"></span></pre></body></html>

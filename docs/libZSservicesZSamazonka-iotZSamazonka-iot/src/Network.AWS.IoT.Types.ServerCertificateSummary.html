@@ -27,18 +27,18 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An object that contains information about a server certificate.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newServerCertificateSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679796676"><span id="local-6989586621679796677"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServerCertificateSummary"><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-var">ServerCertificateSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerCertificateSummary%27"><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary%27"><span class="hs-identifier hs-var">ServerCertificateSummary'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the server certificate.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AserverCertificateStatus%3AServerCertificateSummary%27"><span class="annot"><span class="annottext">ServerCertificateSummary -&gt; Maybe ServerCertificateStatus
-</span><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#%24sel%3AserverCertificateStatus%3AServerCertificateSummary%27"><span class="hs-identifier hs-var hs-var">serverCertificateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateStatus.html#ServerCertificateStatus"><span class="hs-identifier hs-type">ServerCertificateStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Details that explain the status of the server certificate.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AserverCertificateStatusDetail%3AServerCertificateSummary%27"><span class="annot"><span class="annottext">ServerCertificateSummary -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679797547"><span id="local-6989586621679797548"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServerCertificateSummary"><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-var">ServerCertificateSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServerCertificateSummary%27"><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary%27"><span class="hs-identifier hs-var">ServerCertificateSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details that explain the status of the server certificate.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AserverCertificateStatusDetail%3AServerCertificateSummary%27"><span class="annot"><span class="annottext">ServerCertificateSummary -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#%24sel%3AserverCertificateStatusDetail%3AServerCertificateSummary%27"><span class="hs-identifier hs-var hs-var">serverCertificateStatusDetail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The status of the server certificate.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AserverCertificateStatus%3AServerCertificateSummary%27"><span class="annot"><span class="annottext">ServerCertificateSummary -&gt; Maybe ServerCertificateStatus
+</span><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#%24sel%3AserverCertificateStatus%3AServerCertificateSummary%27"><span class="hs-identifier hs-var hs-var">serverCertificateStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateStatus.html#ServerCertificateStatus"><span class="hs-identifier hs-type">ServerCertificateStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ARN of the server certificate.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AserverCertificateArn%3AServerCertificateSummary%27"><span class="annot"><span class="annottext">ServerCertificateSummary -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#%24sel%3AserverCertificateArn%3AServerCertificateSummary%27"><span class="hs-identifier hs-var hs-var">serverCertificateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679796668"><span id="local-6989586621679796670"><span class="annot"><span class="annottext">ServerCertificateSummary -&gt; ServerCertificateSummary -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797539"><span id="local-6989586621679797541"><span class="annot"><span class="annottext">ServerCertificateSummary -&gt; ServerCertificateSummary -&gt; Bool
 (ServerCertificateSummary -&gt; ServerCertificateSummary -&gt; Bool)
 -&gt; (ServerCertificateSummary -&gt; ServerCertificateSummary -&gt; Bool)
 -&gt; Eq ServerCertificateSummary
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ServerCertificateSummary -&gt; ServerCertificateSummary -&gt; Bool
 == :: ServerCertificateSummary -&gt; ServerCertificateSummary -&gt; Bool
 $c== :: ServerCertificateSummary -&gt; ServerCertificateSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796659"><span id="local-6989586621679796661"><span id="local-6989586621679796663"><span id="local-6989586621679796665"><span class="annot"><span class="annottext">ReadPrec [ServerCertificateSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797530"><span id="local-6989586621679797532"><span id="local-6989586621679797534"><span id="local-6989586621679797536"><span class="annot"><span class="annottext">ReadPrec [ServerCertificateSummary]
 ReadPrec ServerCertificateSummary
 Int -&gt; ReadS ServerCertificateSummary
 ReadS [ServerCertificateSummary]
@@ -67,7 +67,7 @@ readList :: ReadS [ServerCertificateSummary]
 $creadList :: ReadS [ServerCertificateSummary]
 readsPrec :: Int -&gt; ReadS ServerCertificateSummary
 $creadsPrec :: Int -&gt; ReadS ServerCertificateSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796652"><span id="local-6989586621679796654"><span id="local-6989586621679796656"><span class="annot"><span class="annottext">Int -&gt; ServerCertificateSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797523"><span id="local-6989586621679797525"><span id="local-6989586621679797527"><span class="annot"><span class="annottext">Int -&gt; ServerCertificateSummary -&gt; ShowS
 [ServerCertificateSummary] -&gt; ShowS
 ServerCertificateSummary -&gt; String
 (Int -&gt; ServerCertificateSummary -&gt; ShowS)
@@ -107,25 +107,27 @@ ServerCertificateSummary -&gt; Rep ServerCertificateSummary x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'serverCertificateStatus', 'serverCertificateSummary_serverCertificateStatus' - The status of the server certificate.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'serverCertificateStatusDetail', 'serverCertificateSummary_serverCertificateStatusDetail' - Details that explain the status of the server certificate.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'serverCertificateStatusDetail', 'serverCertificateSummary_serverCertificateStatusDetail' - Details that explain the status of the server certificate.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'serverCertificateStatus', 'serverCertificateSummary_serverCertificateStatus' - The status of the server certificate.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- 'serverCertificateArn', 'serverCertificateSummary_serverCertificateArn' - The ARN of the server certificate.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#newServerCertificateSummary"><span class="hs-identifier hs-type">newServerCertificateSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-type">ServerCertificateSummary</span></a></span><span>
 </span><span id="line-55"></span><span id="newServerCertificateSummary"><span class="annot"><span class="annottext">newServerCertificateSummary :: ServerCertificateSummary
 </span><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#newServerCertificateSummary"><span class="hs-identifier hs-var hs-var">newServerCertificateSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">ServerCertificateSummary' :: Maybe ServerCertificateStatus
--&gt; Maybe Text -&gt; Maybe Text -&gt; ServerCertificateSummary
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">ServerCertificateSummary' :: Maybe Text
+-&gt; Maybe ServerCertificateStatus
+-&gt; Maybe Text
+-&gt; ServerCertificateSummary
 </span><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary%27"><span class="hs-identifier hs-type">ServerCertificateSummary'</span></a></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serverCertificateStatus:ServerCertificateSummary' :: Maybe ServerCertificateStatus
-</span><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#%24sel%3AserverCertificateStatus%3AServerCertificateSummary%27"><span class="hs-identifier hs-var">serverCertificateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe ServerCertificateStatus
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serverCertificateStatusDetail:ServerCertificateSummary' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#%24sel%3AserverCertificateStatusDetail%3AServerCertificateSummary%27"><span class="hs-identifier hs-var">serverCertificateStatusDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverCertificateStatusDetail:ServerCertificateSummary' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#%24sel%3AserverCertificateStatusDetail%3AServerCertificateSummary%27"><span class="hs-identifier hs-var">serverCertificateStatusDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverCertificateStatus:ServerCertificateSummary' :: Maybe ServerCertificateStatus
+</span><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#%24sel%3AserverCertificateStatus%3AServerCertificateSummary%27"><span class="hs-identifier hs-var">serverCertificateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServerCertificateStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverCertificateArn:ServerCertificateSummary' :: Maybe Text
@@ -134,9 +136,33 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The status of the server certificate.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#serverCertificateSummary_serverCertificateStatus"><span class="hs-identifier hs-type">serverCertificateSummary_serverCertificateStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-type">ServerCertificateSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateStatus.html#ServerCertificateStatus"><span class="hs-identifier hs-type">ServerCertificateStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="serverCertificateSummary_serverCertificateStatus"><span class="annot"><span class="annottext">serverCertificateSummary_serverCertificateStatus :: (Maybe ServerCertificateStatus
+</span><span id="line-63"></span><span class="hs-comment">-- | Details that explain the status of the server certificate.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#serverCertificateSummary_serverCertificateStatusDetail"><span class="hs-identifier hs-type">serverCertificateSummary_serverCertificateStatusDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-type">ServerCertificateSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="serverCertificateSummary_serverCertificateStatusDetail"><span class="annot"><span class="annottext">serverCertificateSummary_serverCertificateStatusDetail :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ServerCertificateSummary -&gt; f ServerCertificateSummary
+</span><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#serverCertificateSummary_serverCertificateStatusDetail"><span class="hs-identifier hs-var hs-var">serverCertificateSummary_serverCertificateStatusDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServerCertificateSummary -&gt; Maybe Text)
+-&gt; (ServerCertificateSummary
+    -&gt; Maybe Text -&gt; ServerCertificateSummary)
+-&gt; Lens
+     ServerCertificateSummary
+     ServerCertificateSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary%27"><span class="hs-identifier hs-type">ServerCertificateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797514"><span class="annot"><span class="annottext">Maybe Text
+serverCertificateStatusDetail :: Maybe Text
+$sel:serverCertificateStatusDetail:ServerCertificateSummary' :: ServerCertificateSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679797514"><span class="hs-identifier hs-var hs-var">serverCertificateStatusDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679797514"><span class="hs-identifier hs-var">serverCertificateStatusDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797513"><span class="annot"><span class="annottext">s :: ServerCertificateSummary
+</span><a href="#local-6989586621679797513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary%27"><span class="hs-identifier hs-type">ServerCertificateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797512"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679797512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerCertificateSummary
+</span><a href="#local-6989586621679797513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverCertificateStatusDetail:ServerCertificateSummary' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#%24sel%3AserverCertificateStatusDetail%3AServerCertificateSummary%27"><span class="hs-identifier hs-var">serverCertificateStatusDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679797512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-type">ServerCertificateSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The status of the server certificate.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#serverCertificateSummary_serverCertificateStatus"><span class="hs-identifier hs-type">serverCertificateSummary_serverCertificateStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-type">ServerCertificateSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateStatus.html#ServerCertificateStatus"><span class="hs-identifier hs-type">ServerCertificateStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="serverCertificateSummary_serverCertificateStatus"><span class="annot"><span class="annottext">serverCertificateSummary_serverCertificateStatus :: (Maybe ServerCertificateStatus
  -&gt; f (Maybe ServerCertificateStatus))
 -&gt; ServerCertificateSummary -&gt; f ServerCertificateSummary
 </span><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#serverCertificateSummary_serverCertificateStatus"><span class="hs-identifier hs-var hs-var">serverCertificateSummary_serverCertificateStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServerCertificateSummary -&gt; Maybe ServerCertificateStatus)
@@ -148,40 +174,16 @@ forall a. Maybe a
      (Maybe ServerCertificateStatus)
      (Maybe ServerCertificateStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary%27"><span class="hs-identifier hs-type">ServerCertificateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796643"><span class="annot"><span class="annottext">Maybe ServerCertificateStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary%27"><span class="hs-identifier hs-type">ServerCertificateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797510"><span class="annot"><span class="annottext">Maybe ServerCertificateStatus
 serverCertificateStatus :: Maybe ServerCertificateStatus
 $sel:serverCertificateStatus:ServerCertificateSummary' :: ServerCertificateSummary -&gt; Maybe ServerCertificateStatus
-</span><a href="#local-6989586621679796643"><span class="hs-identifier hs-var hs-var">serverCertificateStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServerCertificateStatus
-</span><a href="#local-6989586621679796643"><span class="hs-identifier hs-var">serverCertificateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796642"><span class="annot"><span class="annottext">s :: ServerCertificateSummary
-</span><a href="#local-6989586621679796642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary%27"><span class="hs-identifier hs-type">ServerCertificateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796641"><span class="annot"><span class="annottext">Maybe ServerCertificateStatus
-</span><a href="#local-6989586621679796641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerCertificateSummary
-</span><a href="#local-6989586621679796642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverCertificateStatus:ServerCertificateSummary' :: Maybe ServerCertificateStatus
+</span><a href="#local-6989586621679797510"><span class="hs-identifier hs-var hs-var">serverCertificateStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServerCertificateStatus
+</span><a href="#local-6989586621679797510"><span class="hs-identifier hs-var">serverCertificateStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797509"><span class="annot"><span class="annottext">s :: ServerCertificateSummary
+</span><a href="#local-6989586621679797509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary%27"><span class="hs-identifier hs-type">ServerCertificateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797508"><span class="annot"><span class="annottext">Maybe ServerCertificateStatus
+</span><a href="#local-6989586621679797508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerCertificateSummary
+</span><a href="#local-6989586621679797509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverCertificateStatus:ServerCertificateSummary' :: Maybe ServerCertificateStatus
 </span><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#%24sel%3AserverCertificateStatus%3AServerCertificateSummary%27"><span class="hs-identifier hs-var">serverCertificateStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServerCertificateStatus
-</span><a href="#local-6989586621679796641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-type">ServerCertificateSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | Details that explain the status of the server certificate.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#serverCertificateSummary_serverCertificateStatusDetail"><span class="hs-identifier hs-type">serverCertificateSummary_serverCertificateStatusDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-type">ServerCertificateSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="serverCertificateSummary_serverCertificateStatusDetail"><span class="annot"><span class="annottext">serverCertificateSummary_serverCertificateStatusDetail :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ServerCertificateSummary -&gt; f ServerCertificateSummary
-</span><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#serverCertificateSummary_serverCertificateStatusDetail"><span class="hs-identifier hs-var hs-var">serverCertificateSummary_serverCertificateStatusDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServerCertificateSummary -&gt; Maybe Text)
--&gt; (ServerCertificateSummary
-    -&gt; Maybe Text -&gt; ServerCertificateSummary)
--&gt; Lens
-     ServerCertificateSummary
-     ServerCertificateSummary
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary%27"><span class="hs-identifier hs-type">ServerCertificateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796639"><span class="annot"><span class="annottext">Maybe Text
-serverCertificateStatusDetail :: Maybe Text
-$sel:serverCertificateStatusDetail:ServerCertificateSummary' :: ServerCertificateSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679796639"><span class="hs-identifier hs-var hs-var">serverCertificateStatusDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679796639"><span class="hs-identifier hs-var">serverCertificateStatusDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796638"><span class="annot"><span class="annottext">s :: ServerCertificateSummary
-</span><a href="#local-6989586621679796638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary%27"><span class="hs-identifier hs-type">ServerCertificateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796637"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679796637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerCertificateSummary
-</span><a href="#local-6989586621679796638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverCertificateStatusDetail:ServerCertificateSummary' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#%24sel%3AserverCertificateStatusDetail%3AServerCertificateSummary%27"><span class="hs-identifier hs-var">serverCertificateStatusDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679796637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-type">ServerCertificateSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-type">ServerCertificateSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The ARN of the server certificate.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#serverCertificateSummary_serverCertificateArn"><span class="hs-identifier hs-type">serverCertificateSummary_serverCertificateArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-type">ServerCertificateSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -196,19 +198,19 @@ $sel:serverCertificateStatusDetail:ServerCertificateSummary' :: ServerCertificat
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary%27"><span class="hs-identifier hs-type">ServerCertificateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796635"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary%27"><span class="hs-identifier hs-type">ServerCertificateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797506"><span class="annot"><span class="annottext">Maybe Text
 serverCertificateArn :: Maybe Text
 $sel:serverCertificateArn:ServerCertificateSummary' :: ServerCertificateSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679796635"><span class="hs-identifier hs-var hs-var">serverCertificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679796635"><span class="hs-identifier hs-var">serverCertificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796634"><span class="annot"><span class="annottext">s :: ServerCertificateSummary
-</span><a href="#local-6989586621679796634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary%27"><span class="hs-identifier hs-type">ServerCertificateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796633"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679796633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerCertificateSummary
-</span><a href="#local-6989586621679796634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverCertificateArn:ServerCertificateSummary' :: Maybe Text
+</span><a href="#local-6989586621679797506"><span class="hs-identifier hs-var hs-var">serverCertificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679797506"><span class="hs-identifier hs-var">serverCertificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797505"><span class="annot"><span class="annottext">s :: ServerCertificateSummary
+</span><a href="#local-6989586621679797505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary%27"><span class="hs-identifier hs-type">ServerCertificateSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797504"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679797504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServerCertificateSummary
+</span><a href="#local-6989586621679797505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverCertificateArn:ServerCertificateSummary' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#%24sel%3AserverCertificateArn%3AServerCertificateSummary%27"><span class="hs-identifier hs-var">serverCertificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679796633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-type">ServerCertificateSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-type">ServerCertificateSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796630"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-type">ServerCertificateSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679796628"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServerCertificateSummary
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797501"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-type">ServerCertificateSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679797499"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ServerCertificateSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ServerCertificateSummary)
@@ -218,41 +220,49 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ServerCertificateSummary&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679796625"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679796625"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServerCertificateStatus
--&gt; Maybe Text -&gt; Maybe Text -&gt; ServerCertificateSummary
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679797496"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679797496"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe ServerCertificateStatus
+-&gt; Maybe Text
+-&gt; ServerCertificateSummary
 </span><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary%27"><span class="hs-identifier hs-var">ServerCertificateSummary'</span></a></span><span>
-</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ServerCertificateStatus
- -&gt; Maybe Text -&gt; Maybe Text -&gt; ServerCertificateSummary)
--&gt; Parser (Maybe ServerCertificateStatus)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ServerCertificateSummary)
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe ServerCertificateStatus
+ -&gt; Maybe Text
+ -&gt; ServerCertificateSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ServerCertificateStatus
+      -&gt; Maybe Text -&gt; ServerCertificateSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679796625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServerCertificateStatus)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;serverCertificateStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ServerCertificateSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; ServerCertificateSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679796625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679797496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serverCertificateStatusDetail&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ServerCertificateStatus
+   -&gt; Maybe Text -&gt; ServerCertificateSummary)
+-&gt; Parser (Maybe ServerCertificateStatus)
+-&gt; Parser (Maybe Text -&gt; ServerCertificateSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679797496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServerCertificateStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serverCertificateStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ServerCertificateSummary)
 -&gt; Parser (Maybe Text) -&gt; Parser ServerCertificateSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679796625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679797496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serverCertificateArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796619"><span id="local-6989586621679796621"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-type">ServerCertificateSummary</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797490"><span id="local-6989586621679797492"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-type">ServerCertificateSummary</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-type">ServerCertificateSummary</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797487"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.ServerCertificateSummary.html#ServerCertificateSummary"><span class="hs-identifier hs-type">ServerCertificateSummary</span></a></span></span><span>
 </span><span id="line-89"></span></pre></body></html>

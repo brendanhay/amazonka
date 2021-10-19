@@ -28,11 +28,11 @@
 </span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#newListSuppressedDestinations"><span class="hs-identifier">newListSuppressedDestinations</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-29"></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_nextToken"><span class="hs-identifier">listSuppressedDestinations_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_startDate"><span class="hs-identifier">listSuppressedDestinations_startDate</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_pageSize"><span class="hs-identifier">listSuppressedDestinations_pageSize</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_reasons"><span class="hs-identifier">listSuppressedDestinations_reasons</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_endDate"><span class="hs-identifier">listSuppressedDestinations_endDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_reasons"><span class="hs-identifier">listSuppressedDestinations_reasons</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_endDate"><span class="hs-identifier">listSuppressedDestinations_endDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_startDate"><span class="hs-identifier">listSuppressedDestinations_startDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_nextToken"><span class="hs-identifier">listSuppressedDestinations_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_pageSize"><span class="hs-identifier">listSuppressedDestinations_pageSize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse"><span class="hs-identifier">ListSuppressedDestinationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -56,32 +56,32 @@
 </span><span id="line-56"></span><span class="hs-comment">-- suppression list for your account.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newListSuppressedDestinations' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679339470"><span id="local-6989586621679339471"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSuppressedDestinations"><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-var">ListSuppressedDestinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSuppressedDestinations%27"><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-var">ListSuppressedDestinations'</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token returned from a previous call to @ListSuppressedDestinations@ to</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- indicate the position in the list of suppressed email addresses.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3AListSuppressedDestinations%27"><span class="annot"><span class="annottext">ListSuppressedDestinations -&gt; Maybe Text
-</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AnextToken%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Used to filter the list of suppressed email destinations so that it only</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- includes addresses that were added to the list after a specific date.</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- The date that you specify should be in Unix time format.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AstartDate%3AListSuppressedDestinations%27"><span class="annot"><span class="annottext">ListSuppressedDestinations -&gt; Maybe POSIX
-</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AstartDate%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The number of results to show in a single call to</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @ListSuppressedDestinations@. If the number of results is larger than</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- the number you specified in this parameter, then the response includes a</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @NextToken@ element, which you can use to obtain additional results.</span><span>
-</span><span id="line-71"></span><span>    </span><span id="%24sel%3ApageSize%3AListSuppressedDestinations%27"><span class="annot"><span class="annottext">ListSuppressedDestinations -&gt; Maybe Int
-</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3ApageSize%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The factors that caused the email address to be added to .</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3Areasons%3AListSuppressedDestinations%27"><span class="annot"><span class="annottext">ListSuppressedDestinations -&gt; Maybe [SuppressionListReason]
+</span><span id="line-59"></span><span id="local-6989586621679342016"><span id="local-6989586621679342017"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSuppressedDestinations"><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-var">ListSuppressedDestinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSuppressedDestinations%27"><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-var">ListSuppressedDestinations'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The factors that caused the email address to be added to .</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Areasons%3AListSuppressedDestinations%27"><span class="annot"><span class="annottext">ListSuppressedDestinations -&gt; Maybe [SuppressionListReason]
 </span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3Areasons%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var hs-var">reasons</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason"><span class="hs-identifier hs-type">SuppressionListReason</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Used to filter the list of suppressed email destinations so that it only</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- includes addresses that were added to the list before a specific date.</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- The date that you specify should be in Unix time format.</span><span>
-</span><span id="line-77"></span><span>    </span><span id="%24sel%3AendDate%3AListSuppressedDestinations%27"><span class="annot"><span class="annottext">ListSuppressedDestinations -&gt; Maybe POSIX
-</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AendDate%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Used to filter the list of suppressed email destinations so that it only</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- includes addresses that were added to the list before a specific date.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- The date that you specify should be in Unix time format.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AendDate%3AListSuppressedDestinations%27"><span class="annot"><span class="annottext">ListSuppressedDestinations -&gt; Maybe POSIX
+</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AendDate%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Used to filter the list of suppressed email destinations so that it only</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- includes addresses that were added to the list after a specific date.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- The date that you specify should be in Unix time format.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AstartDate%3AListSuppressedDestinations%27"><span class="annot"><span class="annottext">ListSuppressedDestinations -&gt; Maybe POSIX
+</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AstartDate%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | A token returned from a previous call to @ListSuppressedDestinations@ to</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- indicate the position in the list of suppressed email addresses.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AnextToken%3AListSuppressedDestinations%27"><span class="annot"><span class="annottext">ListSuppressedDestinations -&gt; Maybe Text
+</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AnextToken%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The number of results to show in a single call to</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @ListSuppressedDestinations@. If the number of results is larger than</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- the number you specified in this parameter, then the response includes a</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- @NextToken@ element, which you can use to obtain additional results.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3ApageSize%3AListSuppressedDestinations%27"><span class="annot"><span class="annottext">ListSuppressedDestinations -&gt; Maybe Int
+</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3ApageSize%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339460"><span id="local-6989586621679339462"><span class="annot"><span class="annottext">ListSuppressedDestinations -&gt; ListSuppressedDestinations -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342006"><span id="local-6989586621679342008"><span class="annot"><span class="annottext">ListSuppressedDestinations -&gt; ListSuppressedDestinations -&gt; Bool
 (ListSuppressedDestinations -&gt; ListSuppressedDestinations -&gt; Bool)
 -&gt; (ListSuppressedDestinations
     -&gt; ListSuppressedDestinations -&gt; Bool)
@@ -91,7 +91,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListSuppressedDestinations -&gt; ListSuppressedDestinations -&gt; Bool
 == :: ListSuppressedDestinations -&gt; ListSuppressedDestinations -&gt; Bool
 $c== :: ListSuppressedDestinations -&gt; ListSuppressedDestinations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339451"><span id="local-6989586621679339453"><span id="local-6989586621679339455"><span id="local-6989586621679339457"><span class="annot"><span class="annottext">ReadPrec [ListSuppressedDestinations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341997"><span id="local-6989586621679341999"><span id="local-6989586621679342001"><span id="local-6989586621679342003"><span class="annot"><span class="annottext">ReadPrec [ListSuppressedDestinations]
 ReadPrec ListSuppressedDestinations
 Int -&gt; ReadS ListSuppressedDestinations
 ReadS [ListSuppressedDestinations]
@@ -111,7 +111,7 @@ readList :: ReadS [ListSuppressedDestinations]
 $creadList :: ReadS [ListSuppressedDestinations]
 readsPrec :: Int -&gt; ReadS ListSuppressedDestinations
 $creadsPrec :: Int -&gt; ReadS ListSuppressedDestinations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339444"><span id="local-6989586621679339446"><span id="local-6989586621679339448"><span class="annot"><span class="annottext">Int -&gt; ListSuppressedDestinations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341990"><span id="local-6989586621679341992"><span id="local-6989586621679341994"><span class="annot"><span class="annottext">Int -&gt; ListSuppressedDestinations -&gt; ShowS
 [ListSuppressedDestinations] -&gt; ShowS
 ListSuppressedDestinations -&gt; String
 (Int -&gt; ListSuppressedDestinations -&gt; ShowS)
@@ -151,153 +151,60 @@ ListSuppressedDestinations -&gt; Rep ListSuppressedDestinations x
 </span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'nextToken', 'listSuppressedDestinations_nextToken' - A token returned from a previous call to @ListSuppressedDestinations@ to</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- indicate the position in the list of suppressed email addresses.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'startDate', 'listSuppressedDestinations_startDate' - Used to filter the list of suppressed email destinations so that it only</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- includes addresses that were added to the list after a specific date.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- The date that you specify should be in Unix time format.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'pageSize', 'listSuppressedDestinations_pageSize' - The number of results to show in a single call to</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- @ListSuppressedDestinations@. If the number of results is larger than</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- the number you specified in this parameter, then the response includes a</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- @NextToken@ element, which you can use to obtain additional results.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'reasons', 'listSuppressedDestinations_reasons' - The factors that caused the email address to be added to .</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'endDate', 'listSuppressedDestinations_endDate' - Used to filter the list of suppressed email destinations so that it only</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- includes addresses that were added to the list before a specific date.</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- The date that you specify should be in Unix time format.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'reasons', 'listSuppressedDestinations_reasons' - The factors that caused the email address to be added to .</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'endDate', 'listSuppressedDestinations_endDate' - Used to filter the list of suppressed email destinations so that it only</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- includes addresses that were added to the list before a specific date.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- The date that you specify should be in Unix time format.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'startDate', 'listSuppressedDestinations_startDate' - Used to filter the list of suppressed email destinations so that it only</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- includes addresses that were added to the list after a specific date.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- The date that you specify should be in Unix time format.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'nextToken', 'listSuppressedDestinations_nextToken' - A token returned from a previous call to @ListSuppressedDestinations@ to</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- indicate the position in the list of suppressed email addresses.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'pageSize', 'listSuppressedDestinations_pageSize' - The number of results to show in a single call to</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- @ListSuppressedDestinations@. If the number of results is larger than</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- the number you specified in this parameter, then the response includes a</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- @NextToken@ element, which you can use to obtain additional results.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#newListSuppressedDestinations"><span class="hs-identifier hs-type">newListSuppressedDestinations</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span>
 </span><span id="line-108"></span><span id="newListSuppressedDestinations"><span class="annot"><span class="annottext">newListSuppressedDestinations :: ListSuppressedDestinations
 </span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#newListSuppressedDestinations"><span class="hs-identifier hs-var hs-var">newListSuppressedDestinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">ListSuppressedDestinations' :: Maybe Text
+</span><span id="line-109"></span><span>  </span><span class="annot"><span class="annottext">ListSuppressedDestinations' :: Maybe [SuppressionListReason]
 -&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
 -&gt; Maybe Int
--&gt; Maybe [SuppressionListReason]
--&gt; Maybe POSIX
 -&gt; ListSuppressedDestinations
 </span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListSuppressedDestinations' :: Maybe Text
-</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AnextToken%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-110"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reasons:ListSuppressedDestinations' :: Maybe [SuppressionListReason]
+</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3Areasons%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var">reasons</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:startDate:ListSuppressedDestinations' :: Maybe POSIX
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:endDate:ListSuppressedDestinations' :: Maybe POSIX
+</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AendDate%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:startDate:ListSuppressedDestinations' :: Maybe POSIX
 </span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AstartDate%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageSize:ListSuppressedDestinations' :: Maybe Int
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListSuppressedDestinations' :: Maybe Text
+</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AnextToken%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageSize:ListSuppressedDestinations' :: Maybe Int
 </span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3ApageSize%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:reasons:ListSuppressedDestinations' :: Maybe [SuppressionListReason]
-</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3Areasons%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var">reasons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:endDate:ListSuppressedDestinations' :: Maybe POSIX
-</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AendDate%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | A token returned from a previous call to @ListSuppressedDestinations@ to</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- indicate the position in the list of suppressed email addresses.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_nextToken"><span class="hs-identifier hs-type">listSuppressedDestinations_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="listSuppressedDestinations_nextToken"><span class="annot"><span class="annottext">listSuppressedDestinations_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListSuppressedDestinations -&gt; f ListSuppressedDestinations
-</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_nextToken"><span class="hs-identifier hs-var hs-var">listSuppressedDestinations_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSuppressedDestinations -&gt; Maybe Text)
--&gt; (ListSuppressedDestinations
-    -&gt; Maybe Text -&gt; ListSuppressedDestinations)
--&gt; Lens
-     ListSuppressedDestinations
-     ListSuppressedDestinations
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339437"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListSuppressedDestinations' :: ListSuppressedDestinations -&gt; Maybe Text
-</span><a href="#local-6989586621679339437"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339437"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339436"><span class="annot"><span class="annottext">s :: ListSuppressedDestinations
-</span><a href="#local-6989586621679339436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339435"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSuppressedDestinations
-</span><a href="#local-6989586621679339436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSuppressedDestinations' :: Maybe Text
-</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AnextToken%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | Used to filter the list of suppressed email destinations so that it only</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- includes addresses that were added to the list after a specific date.</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- The date that you specify should be in Unix time format.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_startDate"><span class="hs-identifier hs-type">listSuppressedDestinations_startDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="listSuppressedDestinations_startDate"><span class="annot"><span class="annottext">listSuppressedDestinations_startDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ListSuppressedDestinations -&gt; f ListSuppressedDestinations
-</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_startDate"><span class="hs-identifier hs-var hs-var">listSuppressedDestinations_startDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSuppressedDestinations -&gt; Maybe POSIX)
--&gt; (ListSuppressedDestinations
-    -&gt; Maybe POSIX -&gt; ListSuppressedDestinations)
--&gt; Lens
-     ListSuppressedDestinations
-     ListSuppressedDestinations
-     (Maybe POSIX)
-     (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339434"><span class="annot"><span class="annottext">Maybe POSIX
-startDate :: Maybe POSIX
-$sel:startDate:ListSuppressedDestinations' :: ListSuppressedDestinations -&gt; Maybe POSIX
-</span><a href="#local-6989586621679339434"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679339434"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339433"><span class="annot"><span class="annottext">s :: ListSuppressedDestinations
-</span><a href="#local-6989586621679339433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339432"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679339432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSuppressedDestinations
-</span><a href="#local-6989586621679339433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startDate:ListSuppressedDestinations' :: Maybe POSIX
-</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AstartDate%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679339432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; ListSuppressedDestinations -&gt; f ListSuppressedDestinations)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ListSuppressedDestinations
--&gt; f ListSuppressedDestinations
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The number of results to show in a single call to</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- @ListSuppressedDestinations@. If the number of results is larger than</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- the number you specified in this parameter, then the response includes a</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- @NextToken@ element, which you can use to obtain additional results.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_pageSize"><span class="hs-identifier hs-type">listSuppressedDestinations_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="listSuppressedDestinations_pageSize"><span class="annot"><span class="annottext">listSuppressedDestinations_pageSize :: (Maybe Int -&gt; f (Maybe Int))
--&gt; ListSuppressedDestinations -&gt; f ListSuppressedDestinations
-</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_pageSize"><span class="hs-identifier hs-var hs-var">listSuppressedDestinations_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSuppressedDestinations -&gt; Maybe Int)
--&gt; (ListSuppressedDestinations
-    -&gt; Maybe Int -&gt; ListSuppressedDestinations)
--&gt; Lens
-     ListSuppressedDestinations
-     ListSuppressedDestinations
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339428"><span class="annot"><span class="annottext">Maybe Int
-pageSize :: Maybe Int
-$sel:pageSize:ListSuppressedDestinations' :: ListSuppressedDestinations -&gt; Maybe Int
-</span><a href="#local-6989586621679339428"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679339428"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339427"><span class="annot"><span class="annottext">s :: ListSuppressedDestinations
-</span><a href="#local-6989586621679339427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339426"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679339426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSuppressedDestinations
-</span><a href="#local-6989586621679339427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListSuppressedDestinations' :: Maybe Int
-</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3ApageSize%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679339426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | The factors that caused the email address to be added to .</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_reasons"><span class="hs-identifier hs-type">listSuppressedDestinations_reasons</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason"><span class="hs-identifier hs-type">SuppressionListReason</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="listSuppressedDestinations_reasons"><span class="annot"><span class="annottext">listSuppressedDestinations_reasons :: (Maybe [SuppressionListReason]
+</span><span id="line-118"></span><span class="hs-comment">-- | The factors that caused the email address to be added to .</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_reasons"><span class="hs-identifier hs-type">listSuppressedDestinations_reasons</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.SuppressionListReason.html#SuppressionListReason"><span class="hs-identifier hs-type">SuppressionListReason</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="listSuppressedDestinations_reasons"><span class="annot"><span class="annottext">listSuppressedDestinations_reasons :: (Maybe [SuppressionListReason]
  -&gt; f (Maybe [SuppressionListReason]))
 -&gt; ListSuppressedDestinations -&gt; f ListSuppressedDestinations
 </span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_reasons"><span class="hs-identifier hs-var hs-var">listSuppressedDestinations_reasons</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSuppressedDestinations -&gt; Maybe [SuppressionListReason])
@@ -309,16 +216,16 @@ $sel:pageSize:ListSuppressedDestinations' :: ListSuppressedDestinations -&gt; Ma
      (Maybe [SuppressionListReason])
      (Maybe [SuppressionListReason])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339425"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341983"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
 reasons :: Maybe [SuppressionListReason]
 $sel:reasons:ListSuppressedDestinations' :: ListSuppressedDestinations -&gt; Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679339425"><span class="hs-identifier hs-var hs-var">reasons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679339425"><span class="hs-identifier hs-var">reasons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339424"><span class="annot"><span class="annottext">s :: ListSuppressedDestinations
-</span><a href="#local-6989586621679339424"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339423"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679339423"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSuppressedDestinations
-</span><a href="#local-6989586621679339424"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reasons:ListSuppressedDestinations' :: Maybe [SuppressionListReason]
+</span><a href="#local-6989586621679341983"><span class="hs-identifier hs-var hs-var">reasons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
+</span><a href="#local-6989586621679341983"><span class="hs-identifier hs-var">reasons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341982"><span class="annot"><span class="annottext">s :: ListSuppressedDestinations
+</span><a href="#local-6989586621679341982"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341981"><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
+</span><a href="#local-6989586621679341981"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSuppressedDestinations
+</span><a href="#local-6989586621679341982"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reasons:ListSuppressedDestinations' :: Maybe [SuppressionListReason]
 </span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3Areasons%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var">reasons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679339423"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SuppressionListReason]
+</span><a href="#local-6989586621679341981"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SuppressionListReason]
   -&gt; f (Maybe [SuppressionListReason]))
  -&gt; ListSuppressedDestinations -&gt; f ListSuppressedDestinations)
 -&gt; ((Maybe [SuppressionListReason]
@@ -348,14 +255,14 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [SuppressionListReason]
   [SuppressionListReason]
   [SuppressionListReason]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | Used to filter the list of suppressed email destinations so that it only</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- includes addresses that were added to the list before a specific date.</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- The date that you specify should be in Unix time format.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_endDate"><span class="hs-identifier hs-type">listSuppressedDestinations_endDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="listSuppressedDestinations_endDate"><span class="annot"><span class="annottext">listSuppressedDestinations_endDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | Used to filter the list of suppressed email destinations so that it only</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- includes addresses that were added to the list before a specific date.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- The date that you specify should be in Unix time format.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_endDate"><span class="hs-identifier hs-type">listSuppressedDestinations_endDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="listSuppressedDestinations_endDate"><span class="annot"><span class="annottext">listSuppressedDestinations_endDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ListSuppressedDestinations -&gt; f ListSuppressedDestinations
 </span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_endDate"><span class="hs-identifier hs-var hs-var">listSuppressedDestinations_endDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSuppressedDestinations -&gt; Maybe POSIX)
 -&gt; (ListSuppressedDestinations
@@ -366,16 +273,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339421"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341977"><span class="annot"><span class="annottext">Maybe POSIX
 endDate :: Maybe POSIX
 $sel:endDate:ListSuppressedDestinations' :: ListSuppressedDestinations -&gt; Maybe POSIX
-</span><a href="#local-6989586621679339421"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679339421"><span class="hs-identifier hs-var">endDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339420"><span class="annot"><span class="annottext">s :: ListSuppressedDestinations
-</span><a href="#local-6989586621679339420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339419"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679339419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSuppressedDestinations
-</span><a href="#local-6989586621679339420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDate:ListSuppressedDestinations' :: Maybe POSIX
+</span><a href="#local-6989586621679341977"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679341977"><span class="hs-identifier hs-var">endDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341976"><span class="annot"><span class="annottext">s :: ListSuppressedDestinations
+</span><a href="#local-6989586621679341976"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341975"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679341975"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSuppressedDestinations
+</span><a href="#local-6989586621679341976"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDate:ListSuppressedDestinations' :: Maybe POSIX
 </span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AendDate%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679339419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679341975"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ListSuppressedDestinations -&gt; f ListSuppressedDestinations)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -391,18 +298,111 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | Used to filter the list of suppressed email destinations so that it only</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- includes addresses that were added to the list after a specific date.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- The date that you specify should be in Unix time format.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_startDate"><span class="hs-identifier hs-type">listSuppressedDestinations_startDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="listSuppressedDestinations_startDate"><span class="annot"><span class="annottext">listSuppressedDestinations_startDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListSuppressedDestinations -&gt; f ListSuppressedDestinations
+</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_startDate"><span class="hs-identifier hs-var hs-var">listSuppressedDestinations_startDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSuppressedDestinations -&gt; Maybe POSIX)
+-&gt; (ListSuppressedDestinations
+    -&gt; Maybe POSIX -&gt; ListSuppressedDestinations)
+-&gt; Lens
+     ListSuppressedDestinations
+     ListSuppressedDestinations
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341973"><span class="annot"><span class="annottext">Maybe POSIX
+startDate :: Maybe POSIX
+$sel:startDate:ListSuppressedDestinations' :: ListSuppressedDestinations -&gt; Maybe POSIX
+</span><a href="#local-6989586621679341973"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679341973"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341972"><span class="annot"><span class="annottext">s :: ListSuppressedDestinations
+</span><a href="#local-6989586621679341972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341971"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679341971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSuppressedDestinations
+</span><a href="#local-6989586621679341972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startDate:ListSuppressedDestinations' :: Maybe POSIX
+</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AstartDate%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679341971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ListSuppressedDestinations -&gt; f ListSuppressedDestinations)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ListSuppressedDestinations
+-&gt; f ListSuppressedDestinations
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | A token returned from a previous call to @ListSuppressedDestinations@ to</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- indicate the position in the list of suppressed email addresses.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_nextToken"><span class="hs-identifier hs-type">listSuppressedDestinations_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="listSuppressedDestinations_nextToken"><span class="annot"><span class="annottext">listSuppressedDestinations_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListSuppressedDestinations -&gt; f ListSuppressedDestinations
+</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_nextToken"><span class="hs-identifier hs-var hs-var">listSuppressedDestinations_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSuppressedDestinations -&gt; Maybe Text)
+-&gt; (ListSuppressedDestinations
+    -&gt; Maybe Text -&gt; ListSuppressedDestinations)
+-&gt; Lens
+     ListSuppressedDestinations
+     ListSuppressedDestinations
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341970"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListSuppressedDestinations' :: ListSuppressedDestinations -&gt; Maybe Text
+</span><a href="#local-6989586621679341970"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341970"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341969"><span class="annot"><span class="annottext">s :: ListSuppressedDestinations
+</span><a href="#local-6989586621679341969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341968"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSuppressedDestinations
+</span><a href="#local-6989586621679341969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSuppressedDestinations' :: Maybe Text
+</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AnextToken%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The number of results to show in a single call to</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- @ListSuppressedDestinations@. If the number of results is larger than</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- the number you specified in this parameter, then the response includes a</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- @NextToken@ element, which you can use to obtain additional results.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_pageSize"><span class="hs-identifier hs-type">listSuppressedDestinations_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="listSuppressedDestinations_pageSize"><span class="annot"><span class="annottext">listSuppressedDestinations_pageSize :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ListSuppressedDestinations -&gt; f ListSuppressedDestinations
+</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinations_pageSize"><span class="hs-identifier hs-var hs-var">listSuppressedDestinations_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListSuppressedDestinations -&gt; Maybe Int)
+-&gt; (ListSuppressedDestinations
+    -&gt; Maybe Int -&gt; ListSuppressedDestinations)
+-&gt; Lens
+     ListSuppressedDestinations
+     ListSuppressedDestinations
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341967"><span class="annot"><span class="annottext">Maybe Int
+pageSize :: Maybe Int
+$sel:pageSize:ListSuppressedDestinations' :: ListSuppressedDestinations -&gt; Maybe Int
+</span><a href="#local-6989586621679341967"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679341967"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341966"><span class="annot"><span class="annottext">s :: ListSuppressedDestinations
+</span><a href="#local-6989586621679341966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341965"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679341965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSuppressedDestinations
+</span><a href="#local-6989586621679341966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListSuppressedDestinations' :: Maybe Int
+</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3ApageSize%3AListSuppressedDestinations%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679341965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-148"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679339415"><span class="annot"><span class="annottext">request :: ListSuppressedDestinations -&gt; Request ListSuppressedDestinations
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679341961"><span class="annot"><span class="annottext">request :: ListSuppressedDestinations -&gt; Request ListSuppressedDestinations
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListSuppressedDestinations -&gt; Request ListSuppressedDestinations
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679339411"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679341957"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListSuppressedDestinations
 -&gt; ClientResponse ClientBody
@@ -428,10 +428,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679339408"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679339408"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679339407"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679339407"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679339406"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679339406"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679341954"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341954"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679341953"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679341953"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679341952"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341952"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [SuppressedDestinationSummary]
 -&gt; Int
@@ -448,7 +448,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; ListSuppressedDestinationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679339406"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679341952"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -460,7 +460,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListSuppressedDestinationsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679339406"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679341952"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [SuppressedDestinationSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -483,15 +483,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679339408"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341954"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339397"><span id="local-6989586621679339399"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span></span></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341943"><span id="local-6989586621679341945"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span></span></span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339394"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679341940"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679339390"><span class="annot"><span class="annottext">toHeaders :: ListSuppressedDestinations -&gt; ResponseHeaders
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679341936"><span class="annot"><span class="annottext">toHeaders :: ListSuppressedDestinations -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListSuppressedDestinations -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -511,7 +511,7 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679339384"><span class="annot"><span class="annottext">toPath :: ListSuppressedDestinations -&gt; ByteString
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679341930"><span class="annot"><span class="annottext">toPath :: ListSuppressedDestinations -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ListSuppressedDestinations -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -519,48 +519,33 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/v2/email/suppression/addresses&quot;</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations"><span class="hs-identifier hs-type">ListSuppressedDestinations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679339380"><span class="annot"><span class="annottext">toQuery :: ListSuppressedDestinations -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339374"><span id="local-6989586621679339375"><span id="local-6989586621679339376"><span id="local-6989586621679339377"><span id="local-6989586621679339378"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679341926"><span class="annot"><span class="annottext">toQuery :: ListSuppressedDestinations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinations%27"><span class="hs-identifier hs-type">ListSuppressedDestinations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341920"><span id="local-6989586621679341921"><span id="local-6989586621679341922"><span id="local-6989586621679341923"><span id="local-6989586621679341924"><span class="annot"><span class="annottext">Maybe Int
 Maybe [SuppressionListReason]
 Maybe Text
 Maybe POSIX
+pageSize :: Maybe Int
+nextToken :: Maybe Text
+startDate :: Maybe POSIX
 endDate :: Maybe POSIX
 reasons :: Maybe [SuppressionListReason]
-pageSize :: Maybe Int
-startDate :: Maybe POSIX
-nextToken :: Maybe Text
+$sel:pageSize:ListSuppressedDestinations' :: ListSuppressedDestinations -&gt; Maybe Int
+$sel:nextToken:ListSuppressedDestinations' :: ListSuppressedDestinations -&gt; Maybe Text
+$sel:startDate:ListSuppressedDestinations' :: ListSuppressedDestinations -&gt; Maybe POSIX
 $sel:endDate:ListSuppressedDestinations' :: ListSuppressedDestinations -&gt; Maybe POSIX
 $sel:reasons:ListSuppressedDestinations' :: ListSuppressedDestinations -&gt; Maybe [SuppressionListReason]
-$sel:pageSize:ListSuppressedDestinations' :: ListSuppressedDestinations -&gt; Maybe Int
-$sel:startDate:ListSuppressedDestinations' :: ListSuppressedDestinations -&gt; Maybe POSIX
-$sel:nextToken:ListSuppressedDestinations' :: ListSuppressedDestinations -&gt; Maybe Text
-</span><a href="#local-6989586621679339374"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679341920"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339378"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;StartDate&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe POSIX -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679339377"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;PageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679339376"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Reason&quot;</span></span><span>
-</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+</span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [SuppressionListReason] -&gt; QueryString
+</span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [SuppressionListReason] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
@@ -569,18 +554,33 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe [SuppressionListReason] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressionListReason]
-</span><a href="#local-6989586621679339375"><span class="hs-identifier hs-var">reasons</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679341924"><span class="hs-identifier hs-var">reasons</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;EndDate&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe POSIX -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679339374"><span class="hs-identifier hs-var">endDate</span></a></span><span>
+</span><a href="#local-6989586621679341923"><span class="hs-identifier hs-var">endDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StartDate&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe POSIX -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679341922"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341921"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679341920"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
 </span><span id="line-191"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- | A list of suppressed email addresses.</span><span>
 </span><span id="line-194"></span><span class="hs-comment">--</span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- /See:/ 'newListSuppressedDestinationsResponse' smart constructor.</span><span>
-</span><span id="line-196"></span><span id="local-6989586621679339370"><span id="local-6989586621679339371"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSuppressedDestinationsResponse"><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse"><span class="hs-identifier hs-var">ListSuppressedDestinationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSuppressedDestinationsResponse%27"><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-var">ListSuppressedDestinationsResponse'</span></a></span></span><span>
+</span><span id="line-196"></span><span id="local-6989586621679341916"><span id="local-6989586621679341917"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListSuppressedDestinationsResponse"><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse"><span class="hs-identifier hs-var">ListSuppressedDestinationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListSuppressedDestinationsResponse%27"><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-var">ListSuppressedDestinationsResponse'</span></a></span></span><span>
 </span><span id="line-197"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token that indicates that there are additional email addresses on the</span><span>
 </span><span id="line-198"></span><span>    </span><span class="hs-comment">-- suppression list for your account. To view additional suppressed</span><span>
 </span><span id="line-199"></span><span>    </span><span class="hs-comment">-- addresses, issue another request to @ListSuppressedDestinations@, and</span><span>
@@ -596,7 +596,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-206"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListSuppressedDestinationsResponse%27"><span class="annot"><span class="annottext">ListSuppressedDestinationsResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AhttpStatus%3AListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-207"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-208"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339363"><span id="local-6989586621679339365"><span class="annot"><span class="annottext">ListSuppressedDestinationsResponse
+</span><span id="line-208"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679341909"><span id="local-6989586621679341911"><span class="annot"><span class="annottext">ListSuppressedDestinationsResponse
 -&gt; ListSuppressedDestinationsResponse -&gt; Bool
 (ListSuppressedDestinationsResponse
  -&gt; ListSuppressedDestinationsResponse -&gt; Bool)
@@ -612,7 +612,7 @@ $c/= :: ListSuppressedDestinationsResponse
 -&gt; ListSuppressedDestinationsResponse -&gt; Bool
 $c== :: ListSuppressedDestinationsResponse
 -&gt; ListSuppressedDestinationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339355"><span id="local-6989586621679339357"><span id="local-6989586621679339359"><span id="local-6989586621679339361"><span class="annot"><span class="annottext">ReadPrec [ListSuppressedDestinationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341901"><span id="local-6989586621679341903"><span id="local-6989586621679341905"><span id="local-6989586621679341907"><span class="annot"><span class="annottext">ReadPrec [ListSuppressedDestinationsResponse]
 ReadPrec ListSuppressedDestinationsResponse
 Int -&gt; ReadS ListSuppressedDestinationsResponse
 ReadS [ListSuppressedDestinationsResponse]
@@ -632,7 +632,7 @@ readList :: ReadS [ListSuppressedDestinationsResponse]
 $creadList :: ReadS [ListSuppressedDestinationsResponse]
 readsPrec :: Int -&gt; ReadS ListSuppressedDestinationsResponse
 $creadsPrec :: Int -&gt; ReadS ListSuppressedDestinationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339349"><span id="local-6989586621679339351"><span id="local-6989586621679339353"><span class="annot"><span class="annottext">Int -&gt; ListSuppressedDestinationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679341895"><span id="local-6989586621679341897"><span id="local-6989586621679341899"><span class="annot"><span class="annottext">Int -&gt; ListSuppressedDestinationsResponse -&gt; ShowS
 [ListSuppressedDestinationsResponse] -&gt; ShowS
 ListSuppressedDestinationsResponse -&gt; String
 (Int -&gt; ListSuppressedDestinationsResponse -&gt; ShowS)
@@ -692,8 +692,8 @@ ListSuppressedDestinationsResponse
 </span><span id="line-229"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-230"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse</span></a></span><span>
 </span><span id="line-231"></span><span id="newListSuppressedDestinationsResponse"><span class="annot"><span class="annottext">newListSuppressedDestinationsResponse :: Int -&gt; ListSuppressedDestinationsResponse
-</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#newListSuppressedDestinationsResponse"><span class="hs-identifier hs-var hs-var">newListSuppressedDestinationsResponse</span></a></span></span><span> </span><span id="local-6989586621679339346"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679339346"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#newListSuppressedDestinationsResponse"><span class="hs-identifier hs-var hs-var">newListSuppressedDestinationsResponse</span></a></span></span><span> </span><span id="local-6989586621679341892"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341892"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-232"></span><span>  </span><span class="annot"><span class="annottext">ListSuppressedDestinationsResponse' :: Maybe Text
 -&gt; Maybe [SuppressedDestinationSummary]
 -&gt; Int
@@ -711,7 +711,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListSuppressedDestinationsResponse' :: Int
 </span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AhttpStatus%3AListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679339346"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679341892"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-238"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- | A token that indicates that there are additional email addresses on the</span><span>
@@ -731,16 +731,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339345"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341891"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListSuppressedDestinationsResponse' :: ListSuppressedDestinationsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679339345"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339345"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339344"><span class="annot"><span class="annottext">s :: ListSuppressedDestinationsResponse
-</span><a href="#local-6989586621679339344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339343"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSuppressedDestinationsResponse
-</span><a href="#local-6989586621679339344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSuppressedDestinationsResponse' :: Maybe Text
+</span><a href="#local-6989586621679341891"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341891"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341890"><span class="annot"><span class="annottext">s :: ListSuppressedDestinationsResponse
+</span><a href="#local-6989586621679341890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341889"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679341889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSuppressedDestinationsResponse
+</span><a href="#local-6989586621679341890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListSuppressedDestinationsResponse' :: Maybe Text
 </span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AnextToken%3AListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span><span>
 </span><span id="line-247"></span><span class="hs-comment">-- | A list of summaries, each containing a summary for a suppressed email</span><span>
 </span><span id="line-248"></span><span class="hs-comment">-- destination.</span><span>
@@ -760,17 +760,17 @@ $sel:nextToken:ListSuppressedDestinationsResponse' :: ListSuppressedDestinations
      (Maybe [SuppressedDestinationSummary])
      (Maybe [SuppressedDestinationSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339342"><span class="annot"><span class="annottext">Maybe [SuppressedDestinationSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341888"><span class="annot"><span class="annottext">Maybe [SuppressedDestinationSummary]
 suppressedDestinationSummaries :: Maybe [SuppressedDestinationSummary]
 $sel:suppressedDestinationSummaries:ListSuppressedDestinationsResponse' :: ListSuppressedDestinationsResponse
 -&gt; Maybe [SuppressedDestinationSummary]
-</span><a href="#local-6989586621679339342"><span class="hs-identifier hs-var hs-var">suppressedDestinationSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressedDestinationSummary]
-</span><a href="#local-6989586621679339342"><span class="hs-identifier hs-var">suppressedDestinationSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339341"><span class="annot"><span class="annottext">s :: ListSuppressedDestinationsResponse
-</span><a href="#local-6989586621679339341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339340"><span class="annot"><span class="annottext">Maybe [SuppressedDestinationSummary]
-</span><a href="#local-6989586621679339340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSuppressedDestinationsResponse
-</span><a href="#local-6989586621679339341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suppressedDestinationSummaries:ListSuppressedDestinationsResponse' :: Maybe [SuppressedDestinationSummary]
+</span><a href="#local-6989586621679341888"><span class="hs-identifier hs-var hs-var">suppressedDestinationSummaries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressedDestinationSummary]
+</span><a href="#local-6989586621679341888"><span class="hs-identifier hs-var">suppressedDestinationSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341887"><span class="annot"><span class="annottext">s :: ListSuppressedDestinationsResponse
+</span><a href="#local-6989586621679341887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341886"><span class="annot"><span class="annottext">Maybe [SuppressedDestinationSummary]
+</span><a href="#local-6989586621679341886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSuppressedDestinationsResponse
+</span><a href="#local-6989586621679341887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suppressedDestinationSummaries:ListSuppressedDestinationsResponse' :: Maybe [SuppressedDestinationSummary]
 </span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AsuppressedDestinationSummaries%3AListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-var">suppressedDestinationSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SuppressedDestinationSummary]
-</span><a href="#local-6989586621679339340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SuppressedDestinationSummary]
+</span><a href="#local-6989586621679341886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SuppressedDestinationSummary]
   -&gt; f (Maybe [SuppressedDestinationSummary]))
  -&gt; ListSuppressedDestinationsResponse
  -&gt; f ListSuppressedDestinationsResponse)
@@ -801,8 +801,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [SuppressedDestinationSummary]
   [SuppressedDestinationSummary]
   [SuppressedDestinationSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-253"></span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#listSuppressedDestinationsResponse_httpStatus"><span class="hs-identifier hs-type">listSuppressedDestinationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -818,18 +818,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339339"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679341885"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListSuppressedDestinationsResponse' :: ListSuppressedDestinationsResponse -&gt; Int
-</span><a href="#local-6989586621679339339"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679339339"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339338"><span class="annot"><span class="annottext">s :: ListSuppressedDestinationsResponse
-</span><a href="#local-6989586621679339338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339337"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679339337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSuppressedDestinationsResponse
-</span><a href="#local-6989586621679339338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSuppressedDestinationsResponse' :: Int
+</span><a href="#local-6989586621679341885"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341885"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679341884"><span class="annot"><span class="annottext">s :: ListSuppressedDestinationsResponse
+</span><a href="#local-6989586621679341884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679341883"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679341883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListSuppressedDestinationsResponse
+</span><a href="#local-6989586621679341884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListSuppressedDestinationsResponse' :: Int
 </span><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#%24sel%3AhttpStatus%3AListSuppressedDestinationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679339337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679341883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-257"></span><span>  </span><span id="local-6989586621679339335"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621679341881"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-258"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListSuppressedDestinations.html#ListSuppressedDestinationsResponse"><span class="hs-identifier hs-type">ListSuppressedDestinationsResponse</span></a></span></span><span>
 </span><span id="line-259"></span></pre></body></html>

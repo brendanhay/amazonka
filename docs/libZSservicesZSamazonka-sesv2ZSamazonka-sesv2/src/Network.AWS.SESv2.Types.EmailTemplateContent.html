@@ -27,19 +27,19 @@
 </span><span id="line-27"></span><span class="hs-comment">-- a text-only part.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEmailTemplateContent' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679325476"><span id="local-6989586621679325477"></span></span><span class="hs-keyword">data</span><span> </span><span id="EmailTemplateContent"><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-var">EmailTemplateContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmailTemplateContent%27"><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent%27"><span class="hs-identifier hs-var">EmailTemplateContent'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The HTML body of the email.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Ahtml%3AEmailTemplateContent%27"><span class="annot"><span class="annottext">EmailTemplateContent -&gt; Maybe Text
-</span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#%24sel%3Ahtml%3AEmailTemplateContent%27"><span class="hs-identifier hs-var hs-var">html</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The subject line of the email.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Asubject%3AEmailTemplateContent%27"><span class="annot"><span class="annottext">EmailTemplateContent -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679327983"><span id="local-6989586621679327984"></span></span><span class="hs-keyword">data</span><span> </span><span id="EmailTemplateContent"><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-var">EmailTemplateContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EmailTemplateContent%27"><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent%27"><span class="hs-identifier hs-var">EmailTemplateContent'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The subject line of the email.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Asubject%3AEmailTemplateContent%27"><span class="annot"><span class="annottext">EmailTemplateContent -&gt; Maybe Text
 </span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#%24sel%3Asubject%3AEmailTemplateContent%27"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The email body that will be visible to recipients whose email clients do</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- not display HTML.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Atext%3AEmailTemplateContent%27"><span class="annot"><span class="annottext">EmailTemplateContent -&gt; Maybe Text
-</span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#%24sel%3Atext%3AEmailTemplateContent%27"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The email body that will be visible to recipients whose email clients do</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- not display HTML.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Atext%3AEmailTemplateContent%27"><span class="annot"><span class="annottext">EmailTemplateContent -&gt; Maybe Text
+</span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#%24sel%3Atext%3AEmailTemplateContent%27"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The HTML body of the email.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Ahtml%3AEmailTemplateContent%27"><span class="annot"><span class="annottext">EmailTemplateContent -&gt; Maybe Text
+</span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#%24sel%3Ahtml%3AEmailTemplateContent%27"><span class="hs-identifier hs-var hs-var">html</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679325468"><span id="local-6989586621679325470"><span class="annot"><span class="annottext">EmailTemplateContent -&gt; EmailTemplateContent -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327975"><span id="local-6989586621679327977"><span class="annot"><span class="annottext">EmailTemplateContent -&gt; EmailTemplateContent -&gt; Bool
 (EmailTemplateContent -&gt; EmailTemplateContent -&gt; Bool)
 -&gt; (EmailTemplateContent -&gt; EmailTemplateContent -&gt; Bool)
 -&gt; Eq EmailTemplateContent
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EmailTemplateContent -&gt; EmailTemplateContent -&gt; Bool
 == :: EmailTemplateContent -&gt; EmailTemplateContent -&gt; Bool
 $c== :: EmailTemplateContent -&gt; EmailTemplateContent -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325459"><span id="local-6989586621679325461"><span id="local-6989586621679325463"><span id="local-6989586621679325465"><span class="annot"><span class="annottext">ReadPrec [EmailTemplateContent]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327966"><span id="local-6989586621679327968"><span id="local-6989586621679327970"><span id="local-6989586621679327972"><span class="annot"><span class="annottext">ReadPrec [EmailTemplateContent]
 ReadPrec EmailTemplateContent
 Int -&gt; ReadS EmailTemplateContent
 ReadS [EmailTemplateContent]
@@ -68,7 +68,7 @@ readList :: ReadS [EmailTemplateContent]
 $creadList :: ReadS [EmailTemplateContent]
 readsPrec :: Int -&gt; ReadS EmailTemplateContent
 $creadsPrec :: Int -&gt; ReadS EmailTemplateContent
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679325452"><span id="local-6989586621679325454"><span id="local-6989586621679325456"><span class="annot"><span class="annottext">Int -&gt; EmailTemplateContent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327959"><span id="local-6989586621679327961"><span id="local-6989586621679327963"><span class="annot"><span class="annottext">Int -&gt; EmailTemplateContent -&gt; ShowS
 [EmailTemplateContent] -&gt; ShowS
 EmailTemplateContent -&gt; String
 (Int -&gt; EmailTemplateContent -&gt; ShowS)
@@ -102,95 +102,95 @@ $cfrom :: forall x. EmailTemplateContent -&gt; Rep EmailTemplateContent x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'html', 'emailTemplateContent_html' - The HTML body of the email.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'subject', 'emailTemplateContent_subject' - The subject line of the email.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'subject', 'emailTemplateContent_subject' - The subject line of the email.</span><span>
-</span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'text', 'emailTemplateContent_text' - The email body that will be visible to recipients whose email clients do</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- not display HTML.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'text', 'emailTemplateContent_text' - The email body that will be visible to recipients whose email clients do</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- not display HTML.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'html', 'emailTemplateContent_html' - The HTML body of the email.</span><span>
 </span><span id="line-55"></span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#newEmailTemplateContent"><span class="hs-identifier hs-type">newEmailTemplateContent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span><span>
 </span><span id="line-57"></span><span id="newEmailTemplateContent"><span class="annot"><span class="annottext">newEmailTemplateContent :: EmailTemplateContent
 </span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#newEmailTemplateContent"><span class="hs-identifier hs-var hs-var">newEmailTemplateContent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">EmailTemplateContent' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; EmailTemplateContent
 </span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent%27"><span class="hs-identifier hs-type">EmailTemplateContent'</span></a></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:html:EmailTemplateContent' :: Maybe Text
-</span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#%24sel%3Ahtml%3AEmailTemplateContent%27"><span class="hs-identifier hs-var">html</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:subject:EmailTemplateContent' :: Maybe Text
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subject:EmailTemplateContent' :: Maybe Text
 </span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#%24sel%3Asubject%3AEmailTemplateContent%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:text:EmailTemplateContent' :: Maybe Text
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:text:EmailTemplateContent' :: Maybe Text
 </span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#%24sel%3Atext%3AEmailTemplateContent%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:html:EmailTemplateContent' :: Maybe Text
+</span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#%24sel%3Ahtml%3AEmailTemplateContent%27"><span class="hs-identifier hs-var">html</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | The HTML body of the email.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#emailTemplateContent_html"><span class="hs-identifier hs-type">emailTemplateContent_html</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="emailTemplateContent_html"><span class="annot"><span class="annottext">emailTemplateContent_html :: (Maybe Text -&gt; f (Maybe Text))
--&gt; EmailTemplateContent -&gt; f EmailTemplateContent
-</span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#emailTemplateContent_html"><span class="hs-identifier hs-var hs-var">emailTemplateContent_html</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateContent -&gt; Maybe Text)
--&gt; (EmailTemplateContent -&gt; Maybe Text -&gt; EmailTemplateContent)
--&gt; Lens
-     EmailTemplateContent EmailTemplateContent (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent%27"><span class="hs-identifier hs-type">EmailTemplateContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325443"><span class="annot"><span class="annottext">Maybe Text
-html :: Maybe Text
-$sel:html:EmailTemplateContent' :: EmailTemplateContent -&gt; Maybe Text
-</span><a href="#local-6989586621679325443"><span class="hs-identifier hs-var hs-var">html</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325443"><span class="hs-identifier hs-var">html</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325442"><span class="annot"><span class="annottext">s :: EmailTemplateContent
-</span><a href="#local-6989586621679325442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent%27"><span class="hs-identifier hs-type">EmailTemplateContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325441"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateContent
-</span><a href="#local-6989586621679325442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:html:EmailTemplateContent' :: Maybe Text
-</span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#%24sel%3Ahtml%3AEmailTemplateContent%27"><span class="hs-identifier hs-var">html</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | The subject line of the email.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#emailTemplateContent_subject"><span class="hs-identifier hs-type">emailTemplateContent_subject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="emailTemplateContent_subject"><span class="annot"><span class="annottext">emailTemplateContent_subject :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-64"></span><span class="hs-comment">-- | The subject line of the email.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#emailTemplateContent_subject"><span class="hs-identifier hs-type">emailTemplateContent_subject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="emailTemplateContent_subject"><span class="annot"><span class="annottext">emailTemplateContent_subject :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; EmailTemplateContent -&gt; f EmailTemplateContent
 </span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#emailTemplateContent_subject"><span class="hs-identifier hs-var hs-var">emailTemplateContent_subject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateContent -&gt; Maybe Text)
 -&gt; (EmailTemplateContent -&gt; Maybe Text -&gt; EmailTemplateContent)
 -&gt; Lens
      EmailTemplateContent EmailTemplateContent (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent%27"><span class="hs-identifier hs-type">EmailTemplateContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325439"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent%27"><span class="hs-identifier hs-type">EmailTemplateContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327950"><span class="annot"><span class="annottext">Maybe Text
 subject :: Maybe Text
 $sel:subject:EmailTemplateContent' :: EmailTemplateContent -&gt; Maybe Text
-</span><a href="#local-6989586621679325439"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325439"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325438"><span class="annot"><span class="annottext">s :: EmailTemplateContent
-</span><a href="#local-6989586621679325438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent%27"><span class="hs-identifier hs-type">EmailTemplateContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325437"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateContent
-</span><a href="#local-6989586621679325438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:EmailTemplateContent' :: Maybe Text
+</span><a href="#local-6989586621679327950"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327950"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327949"><span class="annot"><span class="annottext">s :: EmailTemplateContent
+</span><a href="#local-6989586621679327949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent%27"><span class="hs-identifier hs-type">EmailTemplateContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327948"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateContent
+</span><a href="#local-6989586621679327949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:EmailTemplateContent' :: Maybe Text
 </span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#%24sel%3Asubject%3AEmailTemplateContent%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The email body that will be visible to recipients whose email clients do</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- not display HTML.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#emailTemplateContent_text"><span class="hs-identifier hs-type">emailTemplateContent_text</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="emailTemplateContent_text"><span class="annot"><span class="annottext">emailTemplateContent_text :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679327948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The email body that will be visible to recipients whose email clients do</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- not display HTML.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#emailTemplateContent_text"><span class="hs-identifier hs-type">emailTemplateContent_text</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="emailTemplateContent_text"><span class="annot"><span class="annottext">emailTemplateContent_text :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; EmailTemplateContent -&gt; f EmailTemplateContent
 </span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#emailTemplateContent_text"><span class="hs-identifier hs-var hs-var">emailTemplateContent_text</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateContent -&gt; Maybe Text)
 -&gt; (EmailTemplateContent -&gt; Maybe Text -&gt; EmailTemplateContent)
 -&gt; Lens
      EmailTemplateContent EmailTemplateContent (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent%27"><span class="hs-identifier hs-type">EmailTemplateContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325435"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent%27"><span class="hs-identifier hs-type">EmailTemplateContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327946"><span class="annot"><span class="annottext">Maybe Text
 text :: Maybe Text
 $sel:text:EmailTemplateContent' :: EmailTemplateContent -&gt; Maybe Text
-</span><a href="#local-6989586621679325435"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325435"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679325434"><span class="annot"><span class="annottext">s :: EmailTemplateContent
-</span><a href="#local-6989586621679325434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent%27"><span class="hs-identifier hs-type">EmailTemplateContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679325433"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateContent
-</span><a href="#local-6989586621679325434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:EmailTemplateContent' :: Maybe Text
+</span><a href="#local-6989586621679327946"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327946"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327945"><span class="annot"><span class="annottext">s :: EmailTemplateContent
+</span><a href="#local-6989586621679327945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent%27"><span class="hs-identifier hs-type">EmailTemplateContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327944"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateContent
+</span><a href="#local-6989586621679327945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:text:EmailTemplateContent' :: Maybe Text
 </span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#%24sel%3Atext%3AEmailTemplateContent%27"><span class="hs-identifier hs-var">text</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679327944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The HTML body of the email.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#emailTemplateContent_html"><span class="hs-identifier hs-type">emailTemplateContent_html</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="emailTemplateContent_html"><span class="annot"><span class="annottext">emailTemplateContent_html :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EmailTemplateContent -&gt; f EmailTemplateContent
+</span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#emailTemplateContent_html"><span class="hs-identifier hs-var hs-var">emailTemplateContent_html</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EmailTemplateContent -&gt; Maybe Text)
+-&gt; (EmailTemplateContent -&gt; Maybe Text -&gt; EmailTemplateContent)
+-&gt; Lens
+     EmailTemplateContent EmailTemplateContent (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent%27"><span class="hs-identifier hs-type">EmailTemplateContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327942"><span class="annot"><span class="annottext">Maybe Text
+html :: Maybe Text
+$sel:html:EmailTemplateContent' :: EmailTemplateContent -&gt; Maybe Text
+</span><a href="#local-6989586621679327942"><span class="hs-identifier hs-var hs-var">html</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327942"><span class="hs-identifier hs-var">html</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327941"><span class="annot"><span class="annottext">s :: EmailTemplateContent
+</span><a href="#local-6989586621679327941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent%27"><span class="hs-identifier hs-type">EmailTemplateContent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327940"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EmailTemplateContent
+</span><a href="#local-6989586621679327941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:html:EmailTemplateContent' :: Maybe Text
+</span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#%24sel%3Ahtml%3AEmailTemplateContent%27"><span class="hs-identifier hs-var">html</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325430"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679325428"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EmailTemplateContent
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327937"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679327935"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EmailTemplateContent
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EmailTemplateContent)
@@ -200,8 +200,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EmailTemplateContent&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679325425"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325425"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679327932"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327932"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; EmailTemplateContent
 </span><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent%27"><span class="hs-identifier hs-var">EmailTemplateContent'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; EmailTemplateContent)
@@ -209,69 +209,69 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; EmailTemplateContent)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679327932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Html&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Subject&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; EmailTemplateContent)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; EmailTemplateContent)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679327932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Subject&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Text&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; EmailTemplateContent)
 -&gt; Parser (Maybe Text) -&gt; Parser EmailTemplateContent
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679325425"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679327932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Text&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Html&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325419"><span id="local-6989586621679325421"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327926"><span id="local-6989586621679327928"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325416"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679325408"><span id="local-6989586621679325410"><span id="local-6989586621679325412"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679325406"><span class="annot"><span class="annottext">toJSON :: EmailTemplateContent -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent%27"><span class="hs-identifier hs-type">EmailTemplateContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679325402"><span id="local-6989586621679325403"><span id="local-6989586621679325404"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327915"><span id="local-6989586621679327917"><span id="local-6989586621679327919"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent"><span class="hs-identifier hs-type">EmailTemplateContent</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679327913"><span class="annot"><span class="annottext">toJSON :: EmailTemplateContent -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.EmailTemplateContent.html#EmailTemplateContent%27"><span class="hs-identifier hs-type">EmailTemplateContent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327909"><span id="local-6989586621679327910"><span id="local-6989586621679327911"><span class="annot"><span class="annottext">Maybe Text
+html :: Maybe Text
 text :: Maybe Text
 subject :: Maybe Text
-html :: Maybe Text
+$sel:html:EmailTemplateContent' :: EmailTemplateContent -&gt; Maybe Text
 $sel:text:EmailTemplateContent' :: EmailTemplateContent -&gt; Maybe Text
 $sel:subject:EmailTemplateContent' :: EmailTemplateContent -&gt; Maybe Text
-$sel:html:EmailTemplateContent' :: EmailTemplateContent -&gt; Maybe Text
-</span><a href="#local-6989586621679325402"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679327909"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-96"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Html&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325404"><span class="hs-identifier hs-var">html</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Subject&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325403"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327911"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Text&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679325402"><span class="hs-identifier hs-var">text</span></a></span><span>
+</span><a href="#local-6989586621679327910"><span class="hs-identifier hs-var">text</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Html&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327909"><span class="hs-identifier hs-var">html</span></a></span><span>
 </span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span></pre></body></html>

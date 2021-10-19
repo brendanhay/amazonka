@@ -35,7 +35,7 @@
 </span><span id="line-35"></span><span class="hs-comment">-- MaintenanceWindowTaskInvocationParameters.</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newLoggingInfo' smart constructor.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679796921"><span id="local-6989586621679796922"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoggingInfo"><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-var">LoggingInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoggingInfo%27"><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo%27"><span class="hs-identifier hs-var">LoggingInfo'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679798568"><span id="local-6989586621679798569"></span></span><span class="hs-keyword">data</span><span> </span><span id="LoggingInfo"><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-var">LoggingInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LoggingInfo%27"><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo%27"><span class="hs-identifier hs-var">LoggingInfo'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | (Optional) The S3 bucket subfolder.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3As3KeyPrefix%3ALoggingInfo%27"><span class="annot"><span class="annottext">LoggingInfo -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.LoggingInfo.html#%24sel%3As3KeyPrefix%3ALoggingInfo%27"><span class="hs-identifier hs-var hs-var">s3KeyPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3As3Region%3ALoggingInfo%27"><span class="annot"><span class="annottext">LoggingInfo -&gt; Text
 </span><a href="Network.AWS.SSM.Types.LoggingInfo.html#%24sel%3As3Region%3ALoggingInfo%27"><span class="hs-identifier hs-var hs-var">s3Region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679796913"><span id="local-6989586621679796915"><span class="annot"><span class="annottext">LoggingInfo -&gt; LoggingInfo -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679798560"><span id="local-6989586621679798562"><span class="annot"><span class="annottext">LoggingInfo -&gt; LoggingInfo -&gt; Bool
 (LoggingInfo -&gt; LoggingInfo -&gt; Bool)
 -&gt; (LoggingInfo -&gt; LoggingInfo -&gt; Bool) -&gt; Eq LoggingInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LoggingInfo -&gt; LoggingInfo -&gt; Bool
 == :: LoggingInfo -&gt; LoggingInfo -&gt; Bool
 $c== :: LoggingInfo -&gt; LoggingInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796904"><span id="local-6989586621679796906"><span id="local-6989586621679796908"><span id="local-6989586621679796910"><span class="annot"><span class="annottext">ReadPrec [LoggingInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798551"><span id="local-6989586621679798553"><span id="local-6989586621679798555"><span id="local-6989586621679798557"><span class="annot"><span class="annottext">ReadPrec [LoggingInfo]
 ReadPrec LoggingInfo
 Int -&gt; ReadS LoggingInfo
 ReadS [LoggingInfo]
@@ -74,7 +74,7 @@ readList :: ReadS [LoggingInfo]
 $creadList :: ReadS [LoggingInfo]
 readsPrec :: Int -&gt; ReadS LoggingInfo
 $creadsPrec :: Int -&gt; ReadS LoggingInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796897"><span id="local-6989586621679796899"><span id="local-6989586621679796901"><span class="annot"><span class="annottext">Int -&gt; LoggingInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679798544"><span id="local-6989586621679798546"><span id="local-6989586621679798548"><span class="annot"><span class="annottext">Int -&gt; LoggingInfo -&gt; ShowS
 [LoggingInfo] -&gt; ShowS
 LoggingInfo -&gt; String
 (Int -&gt; LoggingInfo -&gt; ShowS)
@@ -120,9 +120,9 @@ $cfrom :: forall x. LoggingInfo -&gt; Rep LoggingInfo x
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span><span>
 </span><span id="line-67"></span><span id="newLoggingInfo"><span class="annot"><span class="annottext">newLoggingInfo :: Text -&gt; Text -&gt; LoggingInfo
-</span><a href="Network.AWS.SSM.Types.LoggingInfo.html#newLoggingInfo"><span class="hs-identifier hs-var hs-var">newLoggingInfo</span></a></span></span><span> </span><span id="local-6989586621679796891"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796891"><span class="hs-identifier hs-var">pS3BucketName_</span></a></span></span><span> </span><span id="local-6989586621679796890"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796890"><span class="hs-identifier hs-var">pS3Region_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.Types.LoggingInfo.html#newLoggingInfo"><span class="hs-identifier hs-var hs-var">newLoggingInfo</span></a></span></span><span> </span><span id="local-6989586621679798538"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798538"><span class="hs-identifier hs-var">pS3BucketName_</span></a></span></span><span> </span><span id="local-6989586621679798537"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798537"><span class="hs-identifier hs-var">pS3Region_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">LoggingInfo' :: Maybe Text -&gt; Text -&gt; Text -&gt; LoggingInfo
 </span><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo%27"><span class="hs-identifier hs-type">LoggingInfo'</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3KeyPrefix:LoggingInfo' :: Maybe Text
@@ -131,10 +131,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3BucketName:LoggingInfo' :: Text
 </span><a href="Network.AWS.SSM.Types.LoggingInfo.html#%24sel%3As3BucketName%3ALoggingInfo%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796891"><span class="hs-identifier hs-var">pS3BucketName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679798538"><span class="hs-identifier hs-var">pS3BucketName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Region:LoggingInfo' :: Text
 </span><a href="Network.AWS.SSM.Types.LoggingInfo.html#%24sel%3As3Region%3ALoggingInfo%27"><span class="hs-identifier hs-var">s3Region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796890"><span class="hs-identifier hs-var">pS3Region_</span></a></span><span>
+</span><a href="#local-6989586621679798537"><span class="hs-identifier hs-var">pS3Region_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | (Optional) The S3 bucket subfolder.</span><span>
@@ -144,16 +144,16 @@ forall a. Maybe a
 -&gt; (LoggingInfo -&gt; Maybe Text -&gt; LoggingInfo)
 -&gt; Lens LoggingInfo LoggingInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo%27"><span class="hs-identifier hs-type">LoggingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796886"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo%27"><span class="hs-identifier hs-type">LoggingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798533"><span class="annot"><span class="annottext">Maybe Text
 s3KeyPrefix :: Maybe Text
 $sel:s3KeyPrefix:LoggingInfo' :: LoggingInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679796886"><span class="hs-identifier hs-var hs-var">s3KeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679796886"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796885"><span class="annot"><span class="annottext">s :: LoggingInfo
-</span><a href="#local-6989586621679796885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo%27"><span class="hs-identifier hs-type">LoggingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796884"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679796884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingInfo
-</span><a href="#local-6989586621679796885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3KeyPrefix:LoggingInfo' :: Maybe Text
+</span><a href="#local-6989586621679798533"><span class="hs-identifier hs-var hs-var">s3KeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679798533"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798532"><span class="annot"><span class="annottext">s :: LoggingInfo
+</span><a href="#local-6989586621679798532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo%27"><span class="hs-identifier hs-type">LoggingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798531"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679798531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingInfo
+</span><a href="#local-6989586621679798532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3KeyPrefix:LoggingInfo' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.LoggingInfo.html#%24sel%3As3KeyPrefix%3ALoggingInfo%27"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679796884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679798531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The name of an S3 bucket where execution logs are stored .</span><span>
 </span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#loggingInfo_s3BucketName"><span class="hs-identifier hs-type">loggingInfo_s3BucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -162,16 +162,16 @@ $sel:s3KeyPrefix:LoggingInfo' :: LoggingInfo -&gt; Maybe Text
 -&gt; (LoggingInfo -&gt; Text -&gt; LoggingInfo)
 -&gt; Lens LoggingInfo LoggingInfo Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo%27"><span class="hs-identifier hs-type">LoggingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796882"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo%27"><span class="hs-identifier hs-type">LoggingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798529"><span class="annot"><span class="annottext">Text
 s3BucketName :: Text
 $sel:s3BucketName:LoggingInfo' :: LoggingInfo -&gt; Text
-</span><a href="#local-6989586621679796882"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796882"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796881"><span class="annot"><span class="annottext">s :: LoggingInfo
-</span><a href="#local-6989586621679796881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo%27"><span class="hs-identifier hs-type">LoggingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796880"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingInfo
-</span><a href="#local-6989586621679796881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:LoggingInfo' :: Text
+</span><a href="#local-6989586621679798529"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798529"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798528"><span class="annot"><span class="annottext">s :: LoggingInfo
+</span><a href="#local-6989586621679798528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo%27"><span class="hs-identifier hs-type">LoggingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798527"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingInfo
+</span><a href="#local-6989586621679798528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:LoggingInfo' :: Text
 </span><a href="Network.AWS.SSM.Types.LoggingInfo.html#%24sel%3As3BucketName%3ALoggingInfo%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679798527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The Amazon Web Services Region where the S3 bucket is located.</span><span>
 </span><span id="line-83"></span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#loggingInfo_s3Region"><span class="hs-identifier hs-type">loggingInfo_s3Region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -180,19 +180,19 @@ $sel:s3BucketName:LoggingInfo' :: LoggingInfo -&gt; Text
 -&gt; (LoggingInfo -&gt; Text -&gt; LoggingInfo)
 -&gt; Lens LoggingInfo LoggingInfo Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo%27"><span class="hs-identifier hs-type">LoggingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796878"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo%27"><span class="hs-identifier hs-type">LoggingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798525"><span class="annot"><span class="annottext">Text
 s3Region :: Text
 $sel:s3Region:LoggingInfo' :: LoggingInfo -&gt; Text
-</span><a href="#local-6989586621679796878"><span class="hs-identifier hs-var hs-var">s3Region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796878"><span class="hs-identifier hs-var">s3Region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796877"><span class="annot"><span class="annottext">s :: LoggingInfo
-</span><a href="#local-6989586621679796877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo%27"><span class="hs-identifier hs-type">LoggingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796876"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingInfo
-</span><a href="#local-6989586621679796877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Region:LoggingInfo' :: Text
+</span><a href="#local-6989586621679798525"><span class="hs-identifier hs-var hs-var">s3Region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798525"><span class="hs-identifier hs-var">s3Region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679798524"><span class="annot"><span class="annottext">s :: LoggingInfo
+</span><a href="#local-6989586621679798524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo%27"><span class="hs-identifier hs-type">LoggingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679798523"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679798523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LoggingInfo
+</span><a href="#local-6989586621679798524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Region:LoggingInfo' :: Text
 </span><a href="Network.AWS.SSM.Types.LoggingInfo.html#%24sel%3As3Region%3ALoggingInfo%27"><span class="hs-identifier hs-var">s3Region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679798523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796873"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679796871"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LoggingInfo
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798520"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679798518"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LoggingInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser LoggingInfo) -&gt; Value -&gt; Parser LoggingInfo
@@ -200,15 +200,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LoggingInfo&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679796868"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679796868"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679798515"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679798515"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Text -&gt; LoggingInfo
 </span><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo%27"><span class="hs-identifier hs-var">LoggingInfo'</span></a></span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Text -&gt; LoggingInfo)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Text -&gt; LoggingInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679796868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679798515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3KeyPrefix&quot;</span></span><span class="hs-special">)</span><span>
@@ -216,26 +216,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; LoggingInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679796868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679798515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3BucketName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; LoggingInfo) -&gt; Parser Text -&gt; Parser LoggingInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679796868"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679798515"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Region&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796861"><span id="local-6989586621679796863"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798508"><span id="local-6989586621679798510"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796858"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798505"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796850"><span id="local-6989586621679796852"><span id="local-6989586621679796854"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679796848"><span class="annot"><span class="annottext">toJSON :: LoggingInfo -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo%27"><span class="hs-identifier hs-type">LoggingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796844"><span id="local-6989586621679796845"><span id="local-6989586621679796846"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679798497"><span id="local-6989586621679798499"><span id="local-6989586621679798501"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo"><span class="hs-identifier hs-type">LoggingInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679798495"><span class="annot"><span class="annottext">toJSON :: LoggingInfo -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.LoggingInfo.html#LoggingInfo%27"><span class="hs-identifier hs-type">LoggingInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679798491"><span id="local-6989586621679798492"><span id="local-6989586621679798493"><span class="annot"><span class="annottext">Maybe Text
 Text
 s3Region :: Text
 s3BucketName :: Text
@@ -243,7 +243,7 @@ s3KeyPrefix :: Maybe Text
 $sel:s3Region:LoggingInfo' :: LoggingInfo -&gt; Text
 $sel:s3BucketName:LoggingInfo' :: LoggingInfo -&gt; Text
 $sel:s3KeyPrefix:LoggingInfo' :: LoggingInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679796844"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679798491"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -255,21 +255,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679796846"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679798493"><span class="hs-identifier hs-var">s3KeyPrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3BucketName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796845"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679798492"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Region&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796844"><span class="hs-identifier hs-var">s3Region</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679798491"><span class="hs-identifier hs-var">s3Region</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span></pre></body></html>

@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621679271888"><span id="local-6989586621679271889"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DsnAction"><span class="annot"><a href="Network.AWS.SES.Types.DsnAction.html#DsnAction"><span class="hs-identifier hs-var">DsnAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DsnAction%27"><span class="annot"><a href="Network.AWS.SES.Types.DsnAction.html#DsnAction%27"><span class="hs-identifier hs-var">DsnAction'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679272080"><span id="local-6989586621679272081"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DsnAction"><span class="annot"><a href="Network.AWS.SES.Types.DsnAction.html#DsnAction"><span class="hs-identifier hs-var">DsnAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DsnAction%27"><span class="annot"><a href="Network.AWS.SES.Types.DsnAction.html#DsnAction%27"><span class="hs-identifier hs-var">DsnAction'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDsnAction"><span class="annot"><span class="annottext">DsnAction -&gt; Text
 </span><a href="Network.AWS.SES.Types.DsnAction.html#fromDsnAction"><span class="hs-identifier hs-var hs-var">fromDsnAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271880"><span id="local-6989586621679271882"><span id="local-6989586621679271884"><span class="annot"><span class="annottext">Int -&gt; DsnAction -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272072"><span id="local-6989586621679272074"><span id="local-6989586621679272076"><span class="annot"><span class="annottext">Int -&gt; DsnAction -&gt; ShowS
 [DsnAction] -&gt; ShowS
 DsnAction -&gt; String
 (Int -&gt; DsnAction -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: DsnAction -&gt; String
 showsPrec :: Int -&gt; DsnAction -&gt; ShowS
 $cshowsPrec :: Int -&gt; DsnAction -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679271871"><span id="local-6989586621679271873"><span id="local-6989586621679271875"><span id="local-6989586621679271877"><span class="annot"><span class="annottext">ReadPrec [DsnAction]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679272063"><span id="local-6989586621679272065"><span id="local-6989586621679272067"><span id="local-6989586621679272069"><span class="annot"><span class="annottext">ReadPrec [DsnAction]
 ReadPrec DsnAction
 Int -&gt; ReadS DsnAction
 ReadS [DsnAction]
@@ -75,7 +75,7 @@ $creadList :: ReadS [DsnAction]
 readsPrec :: Int -&gt; ReadS DsnAction
 $creadsPrec :: Int -&gt; ReadS DsnAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679271866"><span id="local-6989586621679271868"><span class="annot"><span class="annottext">DsnAction -&gt; DsnAction -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679272058"><span id="local-6989586621679272060"><span class="annot"><span class="annottext">DsnAction -&gt; DsnAction -&gt; Bool
 (DsnAction -&gt; DsnAction -&gt; Bool)
 -&gt; (DsnAction -&gt; DsnAction -&gt; Bool) -&gt; Eq DsnAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: DsnAction -&gt; DsnAction -&gt; Bool
 == :: DsnAction -&gt; DsnAction -&gt; Bool
 $c== :: DsnAction -&gt; DsnAction -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679271850"><span id="local-6989586621679271852"><span id="local-6989586621679271854"><span id="local-6989586621679271856"><span id="local-6989586621679271858"><span id="local-6989586621679271860"><span id="local-6989586621679271862"><span class="annot"><span class="annottext">Eq DsnAction
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679272042"><span id="local-6989586621679272044"><span id="local-6989586621679272046"><span id="local-6989586621679272048"><span id="local-6989586621679272050"><span id="local-6989586621679272052"><span id="local-6989586621679272054"><span class="annot"><span class="annottext">Eq DsnAction
 Eq DsnAction
 -&gt; (DsnAction -&gt; DsnAction -&gt; Ordering)
 -&gt; (DsnAction -&gt; DsnAction -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. DsnAction -&gt; Rep DsnAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679271842"><span id="local-6989586621679271844"><span class="annot"><span class="annottext">Int -&gt; DsnAction -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679272034"><span id="local-6989586621679272036"><span class="annot"><span class="annottext">Int -&gt; DsnAction -&gt; Int
 DsnAction -&gt; Int
 (Int -&gt; DsnAction -&gt; Int)
 -&gt; (DsnAction -&gt; Int) -&gt; Hashable DsnAction
@@ -144,49 +144,49 @@ $chash :: DsnAction -&gt; Int
 hashWithSalt :: Int -&gt; DsnAction -&gt; Int
 $chashWithSalt :: Int -&gt; DsnAction -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679271839"><span class="annot"><span class="annottext">DsnAction -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679272031"><span class="annot"><span class="annottext">DsnAction -&gt; ()
 (DsnAction -&gt; ()) -&gt; NFData DsnAction
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DsnAction -&gt; ()
 $crnf :: DsnAction -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679271836"><span class="annot"><span class="annottext">Text -&gt; Either String DsnAction
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679272028"><span class="annot"><span class="annottext">Text -&gt; Either String DsnAction
 (Text -&gt; Either String DsnAction) -&gt; FromText DsnAction
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DsnAction
 $cfromText :: Text -&gt; Either String DsnAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679271833"><span class="annot"><span class="annottext">DsnAction -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679272025"><span class="annot"><span class="annottext">DsnAction -&gt; Text
 (DsnAction -&gt; Text) -&gt; ToText DsnAction
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DsnAction -&gt; Text
 $ctoText :: DsnAction -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679271830"><span class="annot"><span class="annottext">DsnAction -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679272022"><span class="annot"><span class="annottext">DsnAction -&gt; ByteString
 (DsnAction -&gt; ByteString) -&gt; ToByteString DsnAction
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DsnAction -&gt; ByteString
 $ctoBS :: DsnAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679271827"><span class="annot"><span class="annottext">DsnAction -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679272019"><span class="annot"><span class="annottext">DsnAction -&gt; ByteStringBuilder
 (DsnAction -&gt; ByteStringBuilder) -&gt; ToLog DsnAction
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DsnAction -&gt; ByteStringBuilder
 $cbuild :: DsnAction -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679271824"><span class="annot"><span class="annottext">HeaderName -&gt; DsnAction -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679272016"><span class="annot"><span class="annottext">HeaderName -&gt; DsnAction -&gt; [Header]
 (HeaderName -&gt; DsnAction -&gt; [Header]) -&gt; ToHeader DsnAction
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DsnAction -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DsnAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679271821"><span class="annot"><span class="annottext">DsnAction -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679272013"><span class="annot"><span class="annottext">DsnAction -&gt; QueryString
 (DsnAction -&gt; QueryString) -&gt; ToQuery DsnAction
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DsnAction -&gt; QueryString
 $ctoQuery :: DsnAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679271816"><span id="local-6989586621679271818"><span class="annot"><span class="annottext">Value -&gt; Parser [DsnAction]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679272008"><span id="local-6989586621679272010"><span class="annot"><span class="annottext">Value -&gt; Parser [DsnAction]
 Value -&gt; Parser DsnAction
 (Value -&gt; Parser DsnAction)
 -&gt; (Value -&gt; Parser [DsnAction]) -&gt; FromJSON DsnAction
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [DsnAction]
 parseJSON :: Value -&gt; Parser DsnAction
 $cparseJSON :: Value -&gt; Parser DsnAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679271811"><span id="local-6989586621679271813"><span class="annot"><span class="annottext">FromJSONKeyFunction [DsnAction]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679272003"><span id="local-6989586621679272005"><span class="annot"><span class="annottext">FromJSONKeyFunction [DsnAction]
 FromJSONKeyFunction DsnAction
 FromJSONKeyFunction DsnAction
 -&gt; FromJSONKeyFunction [DsnAction] -&gt; FromJSONKey DsnAction
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DsnAction]
 fromJSONKey :: FromJSONKeyFunction DsnAction
 $cfromJSONKey :: FromJSONKeyFunction DsnAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679271802"><span id="local-6989586621679271804"><span id="local-6989586621679271806"><span id="local-6989586621679271808"><span class="annot"><span class="annottext">[DsnAction] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679271994"><span id="local-6989586621679271996"><span id="local-6989586621679271998"><span id="local-6989586621679272000"><span class="annot"><span class="annottext">[DsnAction] -&gt; Encoding
 [DsnAction] -&gt; Value
 DsnAction -&gt; Encoding
 DsnAction -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: DsnAction -&gt; Encoding
 toJSON :: DsnAction -&gt; Value
 $ctoJSON :: DsnAction -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679271797"><span id="local-6989586621679271799"><span class="annot"><span class="annottext">ToJSONKeyFunction [DsnAction]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679271989"><span id="local-6989586621679271991"><span class="annot"><span class="annottext">ToJSONKeyFunction [DsnAction]
 ToJSONKeyFunction DsnAction
 ToJSONKeyFunction DsnAction
 -&gt; ToJSONKeyFunction [DsnAction] -&gt; ToJSONKey DsnAction
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DsnAction]
 toJSONKey :: ToJSONKeyFunction DsnAction
 $ctoJSONKey :: ToJSONKeyFunction DsnAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679271794"><span class="annot"><span class="annottext">[Node] -&gt; Either String DsnAction
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679271986"><span class="annot"><span class="annottext">[Node] -&gt; Either String DsnAction
 ([Node] -&gt; Either String DsnAction) -&gt; FromXML DsnAction
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DsnAction
 $cparseXML :: [Node] -&gt; Either String DsnAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679271791"><span class="annot"><span class="annottext">DsnAction -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679271983"><span class="annot"><span class="annottext">DsnAction -&gt; XML
 (DsnAction -&gt; XML) -&gt; ToXML DsnAction
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DsnAction -&gt; XML

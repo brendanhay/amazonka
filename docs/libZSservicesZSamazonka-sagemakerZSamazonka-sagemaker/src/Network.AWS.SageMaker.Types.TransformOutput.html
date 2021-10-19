@@ -27,17 +27,17 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the results of a transform job.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTransformOutput' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680350385"><span id="local-6989586621680350386"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransformOutput"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-var">TransformOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformOutput%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-var">TransformOutput'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The MIME type used to specify the output data. Amazon SageMaker uses the</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- MIME type with each http call to transfer data from the transform job.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aaccept%3ATransformOutput%27"><span class="annot"><span class="annottext">TransformOutput -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#%24sel%3Aaccept%3ATransformOutput%27"><span class="hs-identifier hs-var hs-var">accept</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Defines how to assemble the results of the transform job as a single S3</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- object. Choose a format that is most convenient to you. To concatenate</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the results in binary format, specify @None@. To add a newline character</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- at the end of every transformed record, specify @Line@.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AassembleWith%3ATransformOutput%27"><span class="annot"><span class="annottext">TransformOutput -&gt; Maybe AssemblyType
+</span><span id="line-30"></span><span id="local-6989586621680351816"><span id="local-6989586621680351817"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransformOutput"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-var">TransformOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformOutput%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-var">TransformOutput'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Defines how to assemble the results of the transform job as a single S3</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- object. Choose a format that is most convenient to you. To concatenate</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the results in binary format, specify @None@. To add a newline character</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- at the end of every transformed record, specify @Line@.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AassembleWith%3ATransformOutput%27"><span class="annot"><span class="annottext">TransformOutput -&gt; Maybe AssemblyType
 </span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#%24sel%3AassembleWith%3ATransformOutput%27"><span class="hs-identifier hs-var hs-var">assembleWith</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssemblyType.html#AssemblyType"><span class="hs-identifier hs-type">AssemblyType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The MIME type used to specify the output data. Amazon SageMaker uses the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- MIME type with each http call to transfer data from the transform job.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aaccept%3ATransformOutput%27"><span class="annot"><span class="annottext">TransformOutput -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#%24sel%3Aaccept%3ATransformOutput%27"><span class="hs-identifier hs-var hs-var">accept</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- key that Amazon SageMaker uses to encrypt the model artifacts at rest</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- using Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the</span><span>
@@ -86,7 +86,7 @@
 </span><span id="line-83"></span><span>    </span><span id="%24sel%3As3OutputPath%3ATransformOutput%27"><span class="annot"><span class="annottext">TransformOutput -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#%24sel%3As3OutputPath%3ATransformOutput%27"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680350376"><span id="local-6989586621680350378"><span class="annot"><span class="annottext">TransformOutput -&gt; TransformOutput -&gt; Bool
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680351807"><span id="local-6989586621680351809"><span class="annot"><span class="annottext">TransformOutput -&gt; TransformOutput -&gt; Bool
 (TransformOutput -&gt; TransformOutput -&gt; Bool)
 -&gt; (TransformOutput -&gt; TransformOutput -&gt; Bool)
 -&gt; Eq TransformOutput
@@ -95,7 +95,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TransformOutput -&gt; TransformOutput -&gt; Bool
 == :: TransformOutput -&gt; TransformOutput -&gt; Bool
 $c== :: TransformOutput -&gt; TransformOutput -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680350367"><span id="local-6989586621680350369"><span id="local-6989586621680350371"><span id="local-6989586621680350373"><span class="annot"><span class="annottext">ReadPrec [TransformOutput]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680351798"><span id="local-6989586621680351800"><span id="local-6989586621680351802"><span id="local-6989586621680351804"><span class="annot"><span class="annottext">ReadPrec [TransformOutput]
 ReadPrec TransformOutput
 Int -&gt; ReadS TransformOutput
 ReadS [TransformOutput]
@@ -115,7 +115,7 @@ readList :: ReadS [TransformOutput]
 $creadList :: ReadS [TransformOutput]
 readsPrec :: Int -&gt; ReadS TransformOutput
 $creadsPrec :: Int -&gt; ReadS TransformOutput
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680350360"><span id="local-6989586621680350362"><span id="local-6989586621680350364"><span class="annot"><span class="annottext">Int -&gt; TransformOutput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680351791"><span id="local-6989586621680351793"><span id="local-6989586621680351795"><span class="annot"><span class="annottext">Int -&gt; TransformOutput -&gt; ShowS
 [TransformOutput] -&gt; ShowS
 TransformOutput -&gt; String
 (Int -&gt; TransformOutput -&gt; ShowS)
@@ -149,13 +149,13 @@ $cfrom :: forall x. TransformOutput -&gt; Rep TransformOutput x
 </span><span id="line-92"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'accept', 'transformOutput_accept' - The MIME type used to specify the output data. Amazon SageMaker uses the</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- MIME type with each http call to transfer data from the transform job.</span><span>
-</span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'assembleWith', 'transformOutput_assembleWith' - Defines how to assemble the results of the transform job as a single S3</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- object. Choose a format that is most convenient to you. To concatenate</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- the results in binary format, specify @None@. To add a newline character</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- at the end of every transformed record, specify @Line@.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'assembleWith', 'transformOutput_assembleWith' - Defines how to assemble the results of the transform job as a single S3</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- object. Choose a format that is most convenient to you. To concatenate</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- the results in binary format, specify @None@. To add a newline character</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- at the end of every transformed record, specify @Line@.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'accept', 'transformOutput_accept' - The MIME type used to specify the output data. Amazon SageMaker uses the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- MIME type with each http call to transfer data from the transform job.</span><span>
 </span><span id="line-102"></span><span class="hs-comment">--</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- 'kmsKeyId', 'transformOutput_kmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- key that Amazon SageMaker uses to encrypt the model artifacts at rest</span><span>
@@ -206,17 +206,17 @@ $cfrom :: forall x. TransformOutput -&gt; Rep TransformOutput x
 </span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span>
 </span><span id="line-151"></span><span id="newTransformOutput"><span class="annot"><span class="annottext">newTransformOutput :: Text -&gt; TransformOutput
-</span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#newTransformOutput"><span class="hs-identifier hs-var hs-var">newTransformOutput</span></a></span></span><span> </span><span id="local-6989586621680350354"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680350354"><span class="hs-identifier hs-var">pS3OutputPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">TransformOutput' :: Maybe Text
--&gt; Maybe AssemblyType -&gt; Maybe Text -&gt; Text -&gt; TransformOutput
+</span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#newTransformOutput"><span class="hs-identifier hs-var hs-var">newTransformOutput</span></a></span></span><span> </span><span id="local-6989586621680351785"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680351785"><span class="hs-identifier hs-var">pS3OutputPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">TransformOutput' :: Maybe AssemblyType
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; TransformOutput
 </span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span>
-</span><span id="line-153"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accept:TransformOutput' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#%24sel%3Aaccept%3ATransformOutput%27"><span class="hs-identifier hs-var">accept</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-153"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:assembleWith:TransformOutput' :: Maybe AssemblyType
+</span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#%24sel%3AassembleWith%3ATransformOutput%27"><span class="hs-identifier hs-var">assembleWith</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssemblyType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:assembleWith:TransformOutput' :: Maybe AssemblyType
-</span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#%24sel%3AassembleWith%3ATransformOutput%27"><span class="hs-identifier hs-var">assembleWith</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssemblyType
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:accept:TransformOutput' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#%24sel%3Aaccept%3ATransformOutput%27"><span class="hs-identifier hs-var">accept</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyId:TransformOutput' :: Maybe Text
@@ -225,35 +225,15 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3OutputPath:TransformOutput' :: Text
 </span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#%24sel%3As3OutputPath%3ATransformOutput%27"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680350354"><span class="hs-identifier hs-var">pS3OutputPath_</span></a></span><span>
+</span><a href="#local-6989586621680351785"><span class="hs-identifier hs-var">pS3OutputPath_</span></a></span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- | The MIME type used to specify the output data. Amazon SageMaker uses the</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- MIME type with each http call to transfer data from the transform job.</span><span>
-</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#transformOutput_accept"><span class="hs-identifier hs-type">transformOutput_accept</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span id="transformOutput_accept"><span class="annot"><span class="annottext">transformOutput_accept :: (Maybe Text -&gt; f (Maybe Text))
--&gt; TransformOutput -&gt; f TransformOutput
-</span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#transformOutput_accept"><span class="hs-identifier hs-var hs-var">transformOutput_accept</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformOutput -&gt; Maybe Text)
--&gt; (TransformOutput -&gt; Maybe Text -&gt; TransformOutput)
--&gt; Lens TransformOutput TransformOutput (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680350350"><span class="annot"><span class="annottext">Maybe Text
-accept :: Maybe Text
-$sel:accept:TransformOutput' :: TransformOutput -&gt; Maybe Text
-</span><a href="#local-6989586621680350350"><span class="hs-identifier hs-var hs-var">accept</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680350350"><span class="hs-identifier hs-var">accept</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680350349"><span class="annot"><span class="annottext">s :: TransformOutput
-</span><a href="#local-6989586621680350349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680350348"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680350348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOutput
-</span><a href="#local-6989586621680350349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accept:TransformOutput' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#%24sel%3Aaccept%3ATransformOutput%27"><span class="hs-identifier hs-var">accept</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680350348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- | Defines how to assemble the results of the transform job as a single S3</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- object. Choose a format that is most convenient to you. To concatenate</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- the results in binary format, specify @None@. To add a newline character</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- at the end of every transformed record, specify @Line@.</span><span>
-</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#transformOutput_assembleWith"><span class="hs-identifier hs-type">transformOutput_assembleWith</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssemblyType.html#AssemblyType"><span class="hs-identifier hs-type">AssemblyType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span id="transformOutput_assembleWith"><span class="annot"><span class="annottext">transformOutput_assembleWith :: (Maybe AssemblyType -&gt; f (Maybe AssemblyType))
+</span><span id="line-159"></span><span class="hs-comment">-- | Defines how to assemble the results of the transform job as a single S3</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- object. Choose a format that is most convenient to you. To concatenate</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- the results in binary format, specify @None@. To add a newline character</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- at the end of every transformed record, specify @Line@.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#transformOutput_assembleWith"><span class="hs-identifier hs-type">transformOutput_assembleWith</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AssemblyType.html#AssemblyType"><span class="hs-identifier hs-type">AssemblyType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="transformOutput_assembleWith"><span class="annot"><span class="annottext">transformOutput_assembleWith :: (Maybe AssemblyType -&gt; f (Maybe AssemblyType))
 -&gt; TransformOutput -&gt; f TransformOutput
 </span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#transformOutput_assembleWith"><span class="hs-identifier hs-var hs-var">transformOutput_assembleWith</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformOutput -&gt; Maybe AssemblyType)
 -&gt; (TransformOutput -&gt; Maybe AssemblyType -&gt; TransformOutput)
@@ -263,16 +243,36 @@ $sel:accept:TransformOutput' :: TransformOutput -&gt; Maybe Text
      (Maybe AssemblyType)
      (Maybe AssemblyType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680350346"><span class="annot"><span class="annottext">Maybe AssemblyType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351781"><span class="annot"><span class="annottext">Maybe AssemblyType
 assembleWith :: Maybe AssemblyType
 $sel:assembleWith:TransformOutput' :: TransformOutput -&gt; Maybe AssemblyType
-</span><a href="#local-6989586621680350346"><span class="hs-identifier hs-var hs-var">assembleWith</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssemblyType
-</span><a href="#local-6989586621680350346"><span class="hs-identifier hs-var">assembleWith</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680350345"><span class="annot"><span class="annottext">s :: TransformOutput
-</span><a href="#local-6989586621680350345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680350344"><span class="annot"><span class="annottext">Maybe AssemblyType
-</span><a href="#local-6989586621680350344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOutput
-</span><a href="#local-6989586621680350345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assembleWith:TransformOutput' :: Maybe AssemblyType
+</span><a href="#local-6989586621680351781"><span class="hs-identifier hs-var hs-var">assembleWith</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssemblyType
+</span><a href="#local-6989586621680351781"><span class="hs-identifier hs-var">assembleWith</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351780"><span class="annot"><span class="annottext">s :: TransformOutput
+</span><a href="#local-6989586621680351780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351779"><span class="annot"><span class="annottext">Maybe AssemblyType
+</span><a href="#local-6989586621680351779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOutput
+</span><a href="#local-6989586621680351780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assembleWith:TransformOutput' :: Maybe AssemblyType
 </span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#%24sel%3AassembleWith%3ATransformOutput%27"><span class="hs-identifier hs-var">assembleWith</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssemblyType
-</span><a href="#local-6989586621680350344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680351779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The MIME type used to specify the output data. Amazon SageMaker uses the</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- MIME type with each http call to transfer data from the transform job.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#transformOutput_accept"><span class="hs-identifier hs-type">transformOutput_accept</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="transformOutput_accept"><span class="annot"><span class="annottext">transformOutput_accept :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TransformOutput -&gt; f TransformOutput
+</span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#transformOutput_accept"><span class="hs-identifier hs-var hs-var">transformOutput_accept</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformOutput -&gt; Maybe Text)
+-&gt; (TransformOutput -&gt; Maybe Text -&gt; TransformOutput)
+-&gt; Lens TransformOutput TransformOutput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351777"><span class="annot"><span class="annottext">Maybe Text
+accept :: Maybe Text
+$sel:accept:TransformOutput' :: TransformOutput -&gt; Maybe Text
+</span><a href="#local-6989586621680351777"><span class="hs-identifier hs-var hs-var">accept</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680351777"><span class="hs-identifier hs-var">accept</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351776"><span class="annot"><span class="annottext">s :: TransformOutput
+</span><a href="#local-6989586621680351776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351775"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680351775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOutput
+</span><a href="#local-6989586621680351776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accept:TransformOutput' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#%24sel%3Aaccept%3ATransformOutput%27"><span class="hs-identifier hs-var">accept</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680351775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)</span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- key that Amazon SageMaker uses to encrypt the model artifacts at rest</span><span>
@@ -306,16 +306,16 @@ $sel:assembleWith:TransformOutput' :: TransformOutput -&gt; Maybe AssemblyType
 -&gt; (TransformOutput -&gt; Maybe Text -&gt; TransformOutput)
 -&gt; Lens TransformOutput TransformOutput (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680350342"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351773"><span class="annot"><span class="annottext">Maybe Text
 kmsKeyId :: Maybe Text
 $sel:kmsKeyId:TransformOutput' :: TransformOutput -&gt; Maybe Text
-</span><a href="#local-6989586621680350342"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680350342"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680350341"><span class="annot"><span class="annottext">s :: TransformOutput
-</span><a href="#local-6989586621680350341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680350340"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680350340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOutput
-</span><a href="#local-6989586621680350341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:TransformOutput' :: Maybe Text
+</span><a href="#local-6989586621680351773"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680351773"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351772"><span class="annot"><span class="annottext">s :: TransformOutput
+</span><a href="#local-6989586621680351772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351771"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680351771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOutput
+</span><a href="#local-6989586621680351772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:TransformOutput' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#%24sel%3AkmsKeyId%3ATransformOutput%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680350340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680351771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | The Amazon S3 path where you want Amazon SageMaker to store the results</span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- of the transform job. For example,</span><span>
@@ -341,19 +341,19 @@ $sel:kmsKeyId:TransformOutput' :: TransformOutput -&gt; Maybe Text
 -&gt; (TransformOutput -&gt; Text -&gt; TransformOutput)
 -&gt; Lens TransformOutput TransformOutput Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680350338"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351769"><span class="annot"><span class="annottext">Text
 s3OutputPath :: Text
 $sel:s3OutputPath:TransformOutput' :: TransformOutput -&gt; Text
-</span><a href="#local-6989586621680350338"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680350338"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680350337"><span class="annot"><span class="annottext">s :: TransformOutput
-</span><a href="#local-6989586621680350337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680350336"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680350336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOutput
-</span><a href="#local-6989586621680350337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputPath:TransformOutput' :: Text
+</span><a href="#local-6989586621680351769"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680351769"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351768"><span class="annot"><span class="annottext">s :: TransformOutput
+</span><a href="#local-6989586621680351768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351767"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680351767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOutput
+</span><a href="#local-6989586621680351768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputPath:TransformOutput' :: Text
 </span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#%24sel%3As3OutputPath%3ATransformOutput%27"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680350336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680351767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680350333"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-221"></span><span>  </span><span id="local-6989586621680350331"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TransformOutput
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351764"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621680351762"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TransformOutput
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-222"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TransformOutput)
@@ -363,37 +363,35 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TransformOutput&quot;</span></span><span>
-</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680350328"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680350328"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe AssemblyType -&gt; Maybe Text -&gt; Text -&gt; TransformOutput
+</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680351759"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680351759"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">Maybe AssemblyType
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; TransformOutput
 </span><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-var">TransformOutput'</span></a></span><span>
-</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe AssemblyType -&gt; Maybe Text -&gt; Text -&gt; TransformOutput)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe AssemblyType -&gt; Maybe Text -&gt; Text -&gt; TransformOutput)
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AssemblyType
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; TransformOutput)
+-&gt; Parser (Maybe AssemblyType)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; TransformOutput)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680350328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Accept&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe AssemblyType -&gt; Maybe Text -&gt; Text -&gt; TransformOutput)
--&gt; Parser (Maybe AssemblyType)
--&gt; Parser (Maybe Text -&gt; Text -&gt; TransformOutput)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680350328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AssemblyType)
+</span><a href="#local-6989586621680351759"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AssemblyType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AssembleWith&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; TransformOutput)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Text -&gt; TransformOutput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680351759"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Accept&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; TransformOutput)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; TransformOutput)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680350328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680351759"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -401,63 +399,63 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser TransformOutput
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680350328"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680351759"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3OutputPath&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>
-</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680350321"><span id="local-6989586621680350323"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span></span></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351752"><span id="local-6989586621680351754"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span></span></span><span>
 </span><span id="line-233"></span><span>
-</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680350318"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351749"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span></span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680350310"><span id="local-6989586621680350312"><span id="local-6989586621680350314"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-237"></span><span>  </span><span id="local-6989586621680350308"><span class="annot"><span class="annottext">toJSON :: TransformOutput -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680350303"><span id="local-6989586621680350304"><span id="local-6989586621680350305"><span id="local-6989586621680350306"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351741"><span id="local-6989586621680351743"><span id="local-6989586621680351745"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621680351739"><span class="annot"><span class="annottext">toJSON :: TransformOutput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351734"><span id="local-6989586621680351735"><span id="local-6989586621680351736"><span id="local-6989586621680351737"><span class="annot"><span class="annottext">Maybe Text
 Maybe AssemblyType
 Text
 s3OutputPath :: Text
 kmsKeyId :: Maybe Text
-assembleWith :: Maybe AssemblyType
 accept :: Maybe Text
+assembleWith :: Maybe AssemblyType
 $sel:s3OutputPath:TransformOutput' :: TransformOutput -&gt; Text
 $sel:kmsKeyId:TransformOutput' :: TransformOutput -&gt; Maybe Text
-$sel:assembleWith:TransformOutput' :: TransformOutput -&gt; Maybe AssemblyType
 $sel:accept:TransformOutput' :: TransformOutput -&gt; Maybe Text
-</span><a href="#local-6989586621680350303"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:assembleWith:TransformOutput' :: TransformOutput -&gt; Maybe AssemblyType
+</span><a href="#local-6989586621680351734"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-238"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-239"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-240"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Accept&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680350306"><span class="hs-identifier hs-var">accept</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-241"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AssembleWith&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AssemblyType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AssemblyType -&gt; Pair) -&gt; Maybe AssemblyType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AssemblyType
-</span><a href="#local-6989586621680350305"><span class="hs-identifier hs-var">assembleWith</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680351737"><span class="hs-identifier hs-var">assembleWith</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Accept&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680351736"><span class="hs-identifier hs-var">accept</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-242"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680350304"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680351735"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3OutputPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680350303"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680351734"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-245"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span></pre></body></html>

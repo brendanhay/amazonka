@@ -35,10 +35,10 @@
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#newDescribeAlgorithmResponse"><span class="hs-identifier">newDescribeAlgorithmResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_algorithmDescription"><span class="hs-identifier">describeAlgorithmResponse_algorithmDescription</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_validationSpecification"><span class="hs-identifier">describeAlgorithmResponse_validationSpecification</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_certifyForMarketplace"><span class="hs-identifier">describeAlgorithmResponse_certifyForMarketplace</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_inferenceSpecification"><span class="hs-identifier">describeAlgorithmResponse_inferenceSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_validationSpecification"><span class="hs-identifier">describeAlgorithmResponse_validationSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_inferenceSpecification"><span class="hs-identifier">describeAlgorithmResponse_inferenceSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_algorithmDescription"><span class="hs-identifier">describeAlgorithmResponse_algorithmDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_certifyForMarketplace"><span class="hs-identifier">describeAlgorithmResponse_certifyForMarketplace</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_productId"><span class="hs-identifier">describeAlgorithmResponse_productId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_httpStatus"><span class="hs-identifier">describeAlgorithmResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_algorithmName"><span class="hs-identifier">describeAlgorithmResponse_algorithmName</span></a></span><span class="hs-special">,</span><span>
@@ -58,12 +58,12 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newDescribeAlgorithm' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621680402552"><span id="local-6989586621680402553"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAlgorithm"><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm"><span class="hs-identifier hs-var">DescribeAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAlgorithm%27"><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm%27"><span class="hs-identifier hs-var">DescribeAlgorithm'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621680404171"><span id="local-6989586621680404172"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAlgorithm"><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm"><span class="hs-identifier hs-var">DescribeAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAlgorithm%27"><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm%27"><span class="hs-identifier hs-var">DescribeAlgorithm'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the algorithm to describe.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AalgorithmName%3ADescribeAlgorithm%27"><span class="annot"><span class="annottext">DescribeAlgorithm -&gt; Text
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AalgorithmName%3ADescribeAlgorithm%27"><span class="hs-identifier hs-var hs-var">algorithmName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680402546"><span id="local-6989586621680402548"><span class="annot"><span class="annottext">DescribeAlgorithm -&gt; DescribeAlgorithm -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680404165"><span id="local-6989586621680404167"><span class="annot"><span class="annottext">DescribeAlgorithm -&gt; DescribeAlgorithm -&gt; Bool
 (DescribeAlgorithm -&gt; DescribeAlgorithm -&gt; Bool)
 -&gt; (DescribeAlgorithm -&gt; DescribeAlgorithm -&gt; Bool)
 -&gt; Eq DescribeAlgorithm
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeAlgorithm -&gt; DescribeAlgorithm -&gt; Bool
 == :: DescribeAlgorithm -&gt; DescribeAlgorithm -&gt; Bool
 $c== :: DescribeAlgorithm -&gt; DescribeAlgorithm -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680402537"><span id="local-6989586621680402539"><span id="local-6989586621680402541"><span id="local-6989586621680402543"><span class="annot"><span class="annottext">ReadPrec [DescribeAlgorithm]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680404156"><span id="local-6989586621680404158"><span id="local-6989586621680404160"><span id="local-6989586621680404162"><span class="annot"><span class="annottext">ReadPrec [DescribeAlgorithm]
 ReadPrec DescribeAlgorithm
 Int -&gt; ReadS DescribeAlgorithm
 ReadS [DescribeAlgorithm]
@@ -92,7 +92,7 @@ readList :: ReadS [DescribeAlgorithm]
 $creadList :: ReadS [DescribeAlgorithm]
 readsPrec :: Int -&gt; ReadS DescribeAlgorithm
 $creadsPrec :: Int -&gt; ReadS DescribeAlgorithm
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680402530"><span id="local-6989586621680402532"><span id="local-6989586621680402534"><span class="annot"><span class="annottext">Int -&gt; DescribeAlgorithm -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680404149"><span id="local-6989586621680404151"><span id="local-6989586621680404153"><span class="annot"><span class="annottext">Int -&gt; DescribeAlgorithm -&gt; ShowS
 [DescribeAlgorithm] -&gt; ShowS
 DescribeAlgorithm -&gt; String
 (Int -&gt; DescribeAlgorithm -&gt; ShowS)
@@ -132,12 +132,12 @@ $cfrom :: forall x. DescribeAlgorithm -&gt; Rep DescribeAlgorithm x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm"><span class="hs-identifier hs-type">DescribeAlgorithm</span></a></span><span>
 </span><span id="line-80"></span><span id="newDescribeAlgorithm"><span class="annot"><span class="annottext">newDescribeAlgorithm :: Text -&gt; DescribeAlgorithm
-</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#newDescribeAlgorithm"><span class="hs-identifier hs-var hs-var">newDescribeAlgorithm</span></a></span></span><span> </span><span id="local-6989586621680402525"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680402525"><span class="hs-identifier hs-var">pAlgorithmName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#newDescribeAlgorithm"><span class="hs-identifier hs-var hs-var">newDescribeAlgorithm</span></a></span></span><span> </span><span id="local-6989586621680404144"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404144"><span class="hs-identifier hs-var">pAlgorithmName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">DescribeAlgorithm' :: Text -&gt; DescribeAlgorithm
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm%27"><span class="hs-identifier hs-type">DescribeAlgorithm'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmName:DescribeAlgorithm' :: Text
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AalgorithmName%3ADescribeAlgorithm%27"><span class="hs-identifier hs-var">algorithmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680402525"><span class="hs-identifier hs-var">pAlgorithmName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680404144"><span class="hs-identifier hs-var">pAlgorithmName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The name of the algorithm to describe.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithm_algorithmName"><span class="hs-identifier hs-type">describeAlgorithm_algorithmName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm"><span class="hs-identifier hs-type">DescribeAlgorithm</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -146,27 +146,27 @@ $cfrom :: forall x. DescribeAlgorithm -&gt; Rep DescribeAlgorithm x
 -&gt; (DescribeAlgorithm -&gt; Text -&gt; DescribeAlgorithm)
 -&gt; Lens DescribeAlgorithm DescribeAlgorithm Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm%27"><span class="hs-identifier hs-type">DescribeAlgorithm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680402522"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm%27"><span class="hs-identifier hs-type">DescribeAlgorithm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404141"><span class="annot"><span class="annottext">Text
 algorithmName :: Text
 $sel:algorithmName:DescribeAlgorithm' :: DescribeAlgorithm -&gt; Text
-</span><a href="#local-6989586621680402522"><span class="hs-identifier hs-var hs-var">algorithmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680402522"><span class="hs-identifier hs-var">algorithmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680402521"><span class="annot"><span class="annottext">s :: DescribeAlgorithm
-</span><a href="#local-6989586621680402521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm%27"><span class="hs-identifier hs-type">DescribeAlgorithm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680402520"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680402520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithm
-</span><a href="#local-6989586621680402521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmName:DescribeAlgorithm' :: Text
+</span><a href="#local-6989586621680404141"><span class="hs-identifier hs-var hs-var">algorithmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404141"><span class="hs-identifier hs-var">algorithmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680404140"><span class="annot"><span class="annottext">s :: DescribeAlgorithm
+</span><a href="#local-6989586621680404140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm%27"><span class="hs-identifier hs-type">DescribeAlgorithm'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680404139"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithm
+</span><a href="#local-6989586621680404140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmName:DescribeAlgorithm' :: Text
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AalgorithmName%3ADescribeAlgorithm%27"><span class="hs-identifier hs-var">algorithmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680402520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm"><span class="hs-identifier hs-type">DescribeAlgorithm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680404139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm"><span class="hs-identifier hs-type">DescribeAlgorithm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm"><span class="hs-identifier hs-type">DescribeAlgorithm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-89"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm"><span class="hs-identifier hs-type">DescribeAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621680402516"><span class="annot"><span class="annottext">request :: DescribeAlgorithm -&gt; Request DescribeAlgorithm
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621680404135"><span class="annot"><span class="annottext">request :: DescribeAlgorithm -&gt; Request DescribeAlgorithm
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeAlgorithm -&gt; Request DescribeAlgorithm
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621680402512"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621680404131"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeAlgorithm
 -&gt; ClientResponse ClientBody
@@ -192,14 +192,14 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680402509"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680402509"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680402508"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680402508"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680402507"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680402507"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe AlgorithmValidationSpecification
--&gt; Maybe Bool
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680404128"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680404128"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680404127"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680404127"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680404126"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680404126"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe AlgorithmValidationSpecification
 -&gt; Maybe InferenceSpecification
+-&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; Maybe Text
 -&gt; Int
 -&gt; Text
@@ -210,10 +210,10 @@ MonadResource m =&gt;
 -&gt; AlgorithmStatusDetails
 -&gt; DescribeAlgorithmResponse
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">DescribeAlgorithmResponse'</span></a></span><span>
-</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe AlgorithmValidationSpecification
- -&gt; Maybe Bool
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AlgorithmValidationSpecification
  -&gt; Maybe InferenceSpecification
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
  -&gt; Maybe Text
  -&gt; Int
  -&gt; Text
@@ -223,12 +223,12 @@ MonadResource m =&gt;
  -&gt; AlgorithmStatus
  -&gt; AlgorithmStatusDetails
  -&gt; DescribeAlgorithmResponse)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe AlgorithmValidationSpecification)
 -&gt; Either
      String
-     (Maybe AlgorithmValidationSpecification
+     (Maybe InferenceSpecification
+      -&gt; Maybe Text
       -&gt; Maybe Bool
-      -&gt; Maybe InferenceSpecification
       -&gt; Maybe Text
       -&gt; Int
       -&gt; Text
@@ -240,80 +240,16 @@ MonadResource m =&gt;
       -&gt; DescribeAlgorithmResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680402507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AlgorithmDescription&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe AlgorithmValidationSpecification
-   -&gt; Maybe Bool
-   -&gt; Maybe InferenceSpecification
-   -&gt; Maybe Text
-   -&gt; Int
-   -&gt; Text
-   -&gt; Text
-   -&gt; POSIX
-   -&gt; TrainingSpecification
-   -&gt; AlgorithmStatus
-   -&gt; AlgorithmStatusDetails
-   -&gt; DescribeAlgorithmResponse)
--&gt; Either String (Maybe AlgorithmValidationSpecification)
--&gt; Either
-     String
-     (Maybe Bool
-      -&gt; Maybe InferenceSpecification
-      -&gt; Maybe Text
-      -&gt; Int
-      -&gt; Text
-      -&gt; Text
-      -&gt; POSIX
-      -&gt; TrainingSpecification
-      -&gt; AlgorithmStatus
-      -&gt; AlgorithmStatusDetails
-      -&gt; DescribeAlgorithmResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680402507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680404126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe AlgorithmValidationSpecification)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ValidationSpecification&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Bool
-   -&gt; Maybe InferenceSpecification
-   -&gt; Maybe Text
-   -&gt; Int
-   -&gt; Text
-   -&gt; Text
-   -&gt; POSIX
-   -&gt; TrainingSpecification
-   -&gt; AlgorithmStatus
-   -&gt; AlgorithmStatusDetails
-   -&gt; DescribeAlgorithmResponse)
--&gt; Either String (Maybe Bool)
--&gt; Either
-     String
-     (Maybe InferenceSpecification
-      -&gt; Maybe Text
-      -&gt; Int
-      -&gt; Text
-      -&gt; Text
-      -&gt; POSIX
-      -&gt; TrainingSpecification
-      -&gt; AlgorithmStatus
-      -&gt; AlgorithmStatusDetails
-      -&gt; DescribeAlgorithmResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680402507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CertifyForMarketplace&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe InferenceSpecification
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
    -&gt; Maybe Text
    -&gt; Int
    -&gt; Text
@@ -327,6 +263,8 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either
      String
      (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
       -&gt; Int
       -&gt; Text
       -&gt; Text
@@ -337,10 +275,72 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; DescribeAlgorithmResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680402507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InferenceSpecification)
+</span><a href="#local-6989586621680404126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe InferenceSpecification)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InferenceSpecification&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; TrainingSpecification
+   -&gt; AlgorithmStatus
+   -&gt; AlgorithmStatusDetails
+   -&gt; DescribeAlgorithmResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; TrainingSpecification
+      -&gt; AlgorithmStatus
+      -&gt; AlgorithmStatusDetails
+      -&gt; DescribeAlgorithmResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680404126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AlgorithmDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; Text
+   -&gt; Text
+   -&gt; POSIX
+   -&gt; TrainingSpecification
+   -&gt; AlgorithmStatus
+   -&gt; AlgorithmStatusDetails
+   -&gt; DescribeAlgorithmResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Int
+      -&gt; Text
+      -&gt; Text
+      -&gt; POSIX
+      -&gt; TrainingSpecification
+      -&gt; AlgorithmStatus
+      -&gt; AlgorithmStatusDetails
+      -&gt; DescribeAlgorithmResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680404126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CertifyForMarketplace&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
@@ -365,7 +365,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; DescribeAlgorithmResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680402507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680404126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProductId&quot;</span></span><span class="hs-special">)</span><span>
@@ -395,7 +395,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680402509"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680404128"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Text
@@ -416,7 +416,7 @@ forall a. Enum a =&gt; a -&gt; Int
       -&gt; DescribeAlgorithmResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680402507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621680404126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlgorithmName&quot;</span></span><span class="hs-special">)</span><span>
@@ -438,7 +438,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
       -&gt; DescribeAlgorithmResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680402507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621680404126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlgorithmArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -458,7 +458,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
       -&gt; DescribeAlgorithmResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680402507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
+</span><a href="#local-6989586621680404126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -475,7 +475,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
       -&gt; AlgorithmStatusDetails -&gt; DescribeAlgorithmResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680402507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String TrainingSpecification
+</span><a href="#local-6989586621680404126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String TrainingSpecification
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrainingSpecification&quot;</span></span><span class="hs-special">)</span><span>
@@ -488,7 +488,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
      String (AlgorithmStatusDetails -&gt; DescribeAlgorithmResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680402507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String AlgorithmStatus
+</span><a href="#local-6989586621680404126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String AlgorithmStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlgorithmStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -497,18 +497,18 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String DescribeAlgorithmResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680402507"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String AlgorithmStatusDetails
+</span><a href="#local-6989586621680404126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String AlgorithmStatusDetails
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AlgorithmStatusDetails&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680402498"><span id="local-6989586621680402500"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm"><span class="hs-identifier hs-type">DescribeAlgorithm</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680404117"><span id="local-6989586621680404119"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm"><span class="hs-identifier hs-type">DescribeAlgorithm</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680402495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm"><span class="hs-identifier hs-type">DescribeAlgorithm</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680404114"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm"><span class="hs-identifier hs-type">DescribeAlgorithm</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm"><span class="hs-identifier hs-type">DescribeAlgorithm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621680402491"><span class="annot"><span class="annottext">toHeaders :: DescribeAlgorithm -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621680404110"><span class="annot"><span class="annottext">toHeaders :: DescribeAlgorithm -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAlgorithm -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -535,12 +535,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680402481"><span id="local-6989586621680402483"><span id="local-6989586621680402485"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm"><span class="hs-identifier hs-type">DescribeAlgorithm</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621680402479"><span class="annot"><span class="annottext">toJSON :: DescribeAlgorithm -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm%27"><span class="hs-identifier hs-type">DescribeAlgorithm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680402477"><span class="annot"><span class="annottext">Text
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680404100"><span id="local-6989586621680404102"><span id="local-6989586621680404104"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm"><span class="hs-identifier hs-type">DescribeAlgorithm</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621680404098"><span class="annot"><span class="annottext">toJSON :: DescribeAlgorithm -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm%27"><span class="hs-identifier hs-type">DescribeAlgorithm'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404096"><span class="annot"><span class="annottext">Text
 algorithmName :: Text
 $sel:algorithmName:DescribeAlgorithm' :: DescribeAlgorithm -&gt; Text
-</span><a href="#local-6989586621680402477"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680404096"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -553,19 +553,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AlgorithmName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680402477"><span class="hs-identifier hs-var">algorithmName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680404096"><span class="hs-identifier hs-var">algorithmName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm"><span class="hs-identifier hs-type">DescribeAlgorithm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621680402471"><span class="annot"><span class="annottext">toPath :: DescribeAlgorithm -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621680404090"><span class="annot"><span class="annottext">toPath :: DescribeAlgorithm -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeAlgorithm -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithm"><span class="hs-identifier hs-type">DescribeAlgorithm</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621680402467"><span class="annot"><span class="annottext">toQuery :: DescribeAlgorithm -&gt; QueryString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621680404086"><span class="annot"><span class="annottext">toQuery :: DescribeAlgorithm -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeAlgorithm -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -573,21 +573,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newDescribeAlgorithmResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621680402464"><span id="local-6989586621680402465"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAlgorithmResponse"><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-var">DescribeAlgorithmResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAlgorithmResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">DescribeAlgorithmResponse'</span></a></span></span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A brief summary about the algorithm.</span><span>
-</span><span id="line-147"></span><span>    </span><span id="%24sel%3AalgorithmDescription%3ADescribeAlgorithmResponse%27"><span class="annot"><span class="annottext">DescribeAlgorithmResponse -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AalgorithmDescription%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var hs-var">algorithmDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | Details about configurations for one or more training jobs that Amazon</span><span>
-</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- SageMaker runs to test the algorithm.</span><span>
-</span><span id="line-150"></span><span>    </span><span id="%24sel%3AvalidationSpecification%3ADescribeAlgorithmResponse%27"><span class="annot"><span class="annottext">DescribeAlgorithmResponse -&gt; Maybe AlgorithmValidationSpecification
+</span><span id="line-145"></span><span id="local-6989586621680404083"><span id="local-6989586621680404084"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAlgorithmResponse"><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-var">DescribeAlgorithmResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAlgorithmResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">DescribeAlgorithmResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Details about configurations for one or more training jobs that Amazon</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- SageMaker runs to test the algorithm.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AvalidationSpecification%3ADescribeAlgorithmResponse%27"><span class="annot"><span class="annottext">DescribeAlgorithmResponse -&gt; Maybe AlgorithmValidationSpecification
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AvalidationSpecification%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var hs-var">validationSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification"><span class="hs-identifier hs-type">AlgorithmValidationSpecification</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | Whether the algorithm is certified to be listed in Amazon Web Services</span><span>
-</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- Marketplace.</span><span>
-</span><span id="line-153"></span><span>    </span><span id="%24sel%3AcertifyForMarketplace%3ADescribeAlgorithmResponse%27"><span class="annot"><span class="annottext">DescribeAlgorithmResponse -&gt; Maybe Bool
-</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AcertifyForMarketplace%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var hs-var">certifyForMarketplace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | Details about inference jobs that the algorithm runs.</span><span>
-</span><span id="line-155"></span><span>    </span><span id="%24sel%3AinferenceSpecification%3ADescribeAlgorithmResponse%27"><span class="annot"><span class="annottext">DescribeAlgorithmResponse -&gt; Maybe InferenceSpecification
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | Details about inference jobs that the algorithm runs.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AinferenceSpecification%3ADescribeAlgorithmResponse%27"><span class="annot"><span class="annottext">DescribeAlgorithmResponse -&gt; Maybe InferenceSpecification
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AinferenceSpecification%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var hs-var">inferenceSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | A brief summary about the algorithm.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AalgorithmDescription%3ADescribeAlgorithmResponse%27"><span class="annot"><span class="annottext">DescribeAlgorithmResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AalgorithmDescription%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var hs-var">algorithmDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | Whether the algorithm is certified to be listed in Amazon Web Services</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- Marketplace.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AcertifyForMarketplace%3ADescribeAlgorithmResponse%27"><span class="annot"><span class="annottext">DescribeAlgorithmResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AcertifyForMarketplace%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var hs-var">certifyForMarketplace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-comment">-- | The product identifier of the algorithm.</span><span>
 </span><span id="line-157"></span><span>    </span><span id="%24sel%3AproductId%3ADescribeAlgorithmResponse%27"><span class="annot"><span class="annottext">DescribeAlgorithmResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AproductId%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -613,7 +613,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-171"></span><span>    </span><span id="%24sel%3AalgorithmStatusDetails%3ADescribeAlgorithmResponse%27"><span class="annot"><span class="annottext">DescribeAlgorithmResponse -&gt; AlgorithmStatusDetails
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AalgorithmStatusDetails%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var hs-var">algorithmStatusDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmStatusDetails.html#AlgorithmStatusDetails"><span class="hs-identifier hs-type">AlgorithmStatusDetails</span></a></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680402448"><span id="local-6989586621680402450"><span class="annot"><span class="annottext">DescribeAlgorithmResponse -&gt; DescribeAlgorithmResponse -&gt; Bool
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680404067"><span id="local-6989586621680404069"><span class="annot"><span class="annottext">DescribeAlgorithmResponse -&gt; DescribeAlgorithmResponse -&gt; Bool
 (DescribeAlgorithmResponse -&gt; DescribeAlgorithmResponse -&gt; Bool)
 -&gt; (DescribeAlgorithmResponse -&gt; DescribeAlgorithmResponse -&gt; Bool)
 -&gt; Eq DescribeAlgorithmResponse
@@ -622,7 +622,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeAlgorithmResponse -&gt; DescribeAlgorithmResponse -&gt; Bool
 == :: DescribeAlgorithmResponse -&gt; DescribeAlgorithmResponse -&gt; Bool
 $c== :: DescribeAlgorithmResponse -&gt; DescribeAlgorithmResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680402440"><span id="local-6989586621680402442"><span id="local-6989586621680402444"><span id="local-6989586621680402446"><span class="annot"><span class="annottext">ReadPrec [DescribeAlgorithmResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680404059"><span id="local-6989586621680404061"><span id="local-6989586621680404063"><span id="local-6989586621680404065"><span class="annot"><span class="annottext">ReadPrec [DescribeAlgorithmResponse]
 ReadPrec DescribeAlgorithmResponse
 Int -&gt; ReadS DescribeAlgorithmResponse
 ReadS [DescribeAlgorithmResponse]
@@ -642,7 +642,7 @@ readList :: ReadS [DescribeAlgorithmResponse]
 $creadList :: ReadS [DescribeAlgorithmResponse]
 readsPrec :: Int -&gt; ReadS DescribeAlgorithmResponse
 $creadsPrec :: Int -&gt; ReadS DescribeAlgorithmResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680402434"><span id="local-6989586621680402436"><span id="local-6989586621680402438"><span class="annot"><span class="annottext">Int -&gt; DescribeAlgorithmResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680404053"><span id="local-6989586621680404055"><span id="local-6989586621680404057"><span class="annot"><span class="annottext">Int -&gt; DescribeAlgorithmResponse -&gt; ShowS
 [DescribeAlgorithmResponse] -&gt; ShowS
 DescribeAlgorithmResponse -&gt; String
 (Int -&gt; DescribeAlgorithmResponse -&gt; ShowS)
@@ -682,15 +682,15 @@ DescribeAlgorithmResponse -&gt; Rep DescribeAlgorithmResponse x
 </span><span id="line-180"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-182"></span><span class="hs-comment">--</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- 'algorithmDescription', 'describeAlgorithmResponse_algorithmDescription' - A brief summary about the algorithm.</span><span>
-</span><span id="line-184"></span><span class="hs-comment">--</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- 'validationSpecification', 'describeAlgorithmResponse_validationSpecification' - Details about configurations for one or more training jobs that Amazon</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- SageMaker runs to test the algorithm.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'validationSpecification', 'describeAlgorithmResponse_validationSpecification' - Details about configurations for one or more training jobs that Amazon</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- SageMaker runs to test the algorithm.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'inferenceSpecification', 'describeAlgorithmResponse_inferenceSpecification' - Details about inference jobs that the algorithm runs.</span><span>
 </span><span id="line-187"></span><span class="hs-comment">--</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- 'certifyForMarketplace', 'describeAlgorithmResponse_certifyForMarketplace' - Whether the algorithm is certified to be listed in Amazon Web Services</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- Marketplace.</span><span>
-</span><span id="line-190"></span><span class="hs-comment">--</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- 'inferenceSpecification', 'describeAlgorithmResponse_inferenceSpecification' - Details about inference jobs that the algorithm runs.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'algorithmDescription', 'describeAlgorithmResponse_algorithmDescription' - A brief summary about the algorithm.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'certifyForMarketplace', 'describeAlgorithmResponse_certifyForMarketplace' - Whether the algorithm is certified to be listed in Amazon Web Services</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Marketplace.</span><span>
 </span><span id="line-192"></span><span class="hs-comment">--</span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- 'productId', 'describeAlgorithmResponse_productId' - The product identifier of the algorithm.</span><span>
 </span><span id="line-194"></span><span class="hs-comment">--</span><span>
@@ -732,24 +732,24 @@ DescribeAlgorithmResponse -&gt; Rep DescribeAlgorithmResponse x
 -&gt; AlgorithmStatusDetails
 -&gt; DescribeAlgorithmResponse
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#newDescribeAlgorithmResponse"><span class="hs-identifier hs-var hs-var">newDescribeAlgorithmResponse</span></a></span></span><span>
-</span><span id="line-225"></span><span>  </span><span id="local-6989586621680402431"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680402431"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-226"></span><span>  </span><span id="local-6989586621680402430"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680402430"><span class="hs-identifier hs-var">pAlgorithmName_</span></a></span></span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621680402429"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680402429"><span class="hs-identifier hs-var">pAlgorithmArn_</span></a></span></span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621680402428"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680402428"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621680402427"><span class="annot"><span class="annottext">TrainingSpecification
-</span><a href="#local-6989586621680402427"><span class="hs-identifier hs-var">pTrainingSpecification_</span></a></span></span><span>
-</span><span id="line-230"></span><span>  </span><span id="local-6989586621680402426"><span class="annot"><span class="annottext">AlgorithmStatus
-</span><a href="#local-6989586621680402426"><span class="hs-identifier hs-var">pAlgorithmStatus_</span></a></span></span><span>
-</span><span id="line-231"></span><span>  </span><span id="local-6989586621680402425"><span class="annot"><span class="annottext">AlgorithmStatusDetails
-</span><a href="#local-6989586621680402425"><span class="hs-identifier hs-var">pAlgorithmStatusDetails_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse' :: Maybe Text
--&gt; Maybe AlgorithmValidationSpecification
--&gt; Maybe Bool
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621680404050"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680404050"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621680404049"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404049"><span class="hs-identifier hs-var">pAlgorithmName_</span></a></span></span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621680404048"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404048"><span class="hs-identifier hs-var">pAlgorithmArn_</span></a></span></span><span>
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621680404047"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621680404047"><span class="hs-identifier hs-var">pCreationTime_</span></a></span></span><span>
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621680404046"><span class="annot"><span class="annottext">TrainingSpecification
+</span><a href="#local-6989586621680404046"><span class="hs-identifier hs-var">pTrainingSpecification_</span></a></span></span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621680404045"><span class="annot"><span class="annottext">AlgorithmStatus
+</span><a href="#local-6989586621680404045"><span class="hs-identifier hs-var">pAlgorithmStatus_</span></a></span></span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621680404044"><span class="annot"><span class="annottext">AlgorithmStatusDetails
+</span><a href="#local-6989586621680404044"><span class="hs-identifier hs-var">pAlgorithmStatusDetails_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse' :: Maybe AlgorithmValidationSpecification
 -&gt; Maybe InferenceSpecification
+-&gt; Maybe Text
+-&gt; Maybe Bool
 -&gt; Maybe Text
 -&gt; Int
 -&gt; Text
@@ -760,21 +760,21 @@ DescribeAlgorithmResponse -&gt; Rep DescribeAlgorithmResponse x
 -&gt; AlgorithmStatusDetails
 -&gt; DescribeAlgorithmResponse
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span>
-</span><span id="line-233"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:algorithmDescription:DescribeAlgorithmResponse' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AalgorithmDescription%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">algorithmDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-234"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-233"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:validationSpecification:DescribeAlgorithmResponse' :: Maybe AlgorithmValidationSpecification
+</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AvalidationSpecification%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">validationSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>          </span><span class="annot"><span class="annottext">Maybe AlgorithmValidationSpecification
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">$sel:validationSpecification:DescribeAlgorithmResponse' :: Maybe AlgorithmValidationSpecification
-</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AvalidationSpecification%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">validationSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AlgorithmValidationSpecification
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">$sel:certifyForMarketplace:DescribeAlgorithmResponse' :: Maybe Bool
-</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AcertifyForMarketplace%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">certifyForMarketplace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">$sel:inferenceSpecification:DescribeAlgorithmResponse' :: Maybe InferenceSpecification
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">$sel:inferenceSpecification:DescribeAlgorithmResponse' :: Maybe InferenceSpecification
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AinferenceSpecification%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">inferenceSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InferenceSpecification
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">$sel:algorithmDescription:DescribeAlgorithmResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AalgorithmDescription%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">algorithmDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">$sel:certifyForMarketplace:DescribeAlgorithmResponse' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AcertifyForMarketplace%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">certifyForMarketplace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">$sel:productId:DescribeAlgorithmResponse' :: Maybe Text
@@ -783,13 +783,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-239"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAlgorithmResponse' :: Int
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AhttpStatus%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680402431"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680404050"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">$sel:algorithmName:DescribeAlgorithmResponse' :: Text
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AalgorithmName%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">algorithmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680402430"><span class="hs-identifier hs-var">pAlgorithmName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680404049"><span class="hs-identifier hs-var">pAlgorithmName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-241"></span><span>        </span><span class="annot"><span class="annottext">$sel:algorithmArn:DescribeAlgorithmResponse' :: Text
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AalgorithmArn%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">algorithmArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680402429"><span class="hs-identifier hs-var">pAlgorithmArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680404048"><span class="hs-identifier hs-var">pAlgorithmArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationTime:DescribeAlgorithmResponse' :: POSIX
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AcreationTime%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -798,47 +798,23 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621680402428"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680404047"><span class="hs-identifier hs-var">pCreationTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-243"></span><span>        </span><span class="annot"><span class="annottext">$sel:trainingSpecification:DescribeAlgorithmResponse' :: TrainingSpecification
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AtrainingSpecification%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">trainingSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrainingSpecification
-</span><a href="#local-6989586621680402427"><span class="hs-identifier hs-var">pTrainingSpecification_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680404046"><span class="hs-identifier hs-var">pTrainingSpecification_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">$sel:algorithmStatus:DescribeAlgorithmResponse' :: AlgorithmStatus
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AalgorithmStatus%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">algorithmStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AlgorithmStatus
-</span><a href="#local-6989586621680402426"><span class="hs-identifier hs-var">pAlgorithmStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680404045"><span class="hs-identifier hs-var">pAlgorithmStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">$sel:algorithmStatusDetails:DescribeAlgorithmResponse' :: AlgorithmStatusDetails
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AalgorithmStatusDetails%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">algorithmStatusDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-246"></span><span>          </span><span class="annot"><span class="annottext">AlgorithmStatusDetails
-</span><a href="#local-6989586621680402425"><span class="hs-identifier hs-var">pAlgorithmStatusDetails_</span></a></span><span>
+</span><a href="#local-6989586621680404044"><span class="hs-identifier hs-var">pAlgorithmStatusDetails_</span></a></span><span>
 </span><span id="line-247"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-248"></span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- | A brief summary about the algorithm.</span><span>
-</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_algorithmDescription"><span class="hs-identifier hs-type">describeAlgorithmResponse_algorithmDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-251"></span><span id="describeAlgorithmResponse_algorithmDescription"><span class="annot"><span class="annottext">describeAlgorithmResponse_algorithmDescription :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeAlgorithmResponse -&gt; f DescribeAlgorithmResponse
-</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_algorithmDescription"><span class="hs-identifier hs-var hs-var">describeAlgorithmResponse_algorithmDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAlgorithmResponse -&gt; Maybe Text)
--&gt; (DescribeAlgorithmResponse
-    -&gt; Maybe Text -&gt; DescribeAlgorithmResponse)
--&gt; Lens
-     DescribeAlgorithmResponse
-     DescribeAlgorithmResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680402422"><span class="annot"><span class="annottext">Maybe Text
-algorithmDescription :: Maybe Text
-$sel:algorithmDescription:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680402422"><span class="hs-identifier hs-var hs-var">algorithmDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680402422"><span class="hs-identifier hs-var">algorithmDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680402421"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680402420"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680402420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmDescription:DescribeAlgorithmResponse' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AalgorithmDescription%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">algorithmDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680402420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- | Details about configurations for one or more training jobs that Amazon</span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- SageMaker runs to test the algorithm.</span><span>
-</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_validationSpecification"><span class="hs-identifier hs-type">describeAlgorithmResponse_validationSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification"><span class="hs-identifier hs-type">AlgorithmValidationSpecification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-256"></span><span id="describeAlgorithmResponse_validationSpecification"><span class="annot"><span class="annottext">describeAlgorithmResponse_validationSpecification :: (Maybe AlgorithmValidationSpecification
+</span><span id="line-249"></span><span class="hs-comment">-- | Details about configurations for one or more training jobs that Amazon</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- SageMaker runs to test the algorithm.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_validationSpecification"><span class="hs-identifier hs-type">describeAlgorithmResponse_validationSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmValidationSpecification.html#AlgorithmValidationSpecification"><span class="hs-identifier hs-type">AlgorithmValidationSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="describeAlgorithmResponse_validationSpecification"><span class="annot"><span class="annottext">describeAlgorithmResponse_validationSpecification :: (Maybe AlgorithmValidationSpecification
  -&gt; f (Maybe AlgorithmValidationSpecification))
 -&gt; DescribeAlgorithmResponse -&gt; f DescribeAlgorithmResponse
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_validationSpecification"><span class="hs-identifier hs-var hs-var">describeAlgorithmResponse_validationSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAlgorithmResponse
@@ -852,45 +828,20 @@ $sel:algorithmDescription:DescribeAlgorithmResponse' :: DescribeAlgorithmRespons
      (Maybe AlgorithmValidationSpecification)
      (Maybe AlgorithmValidationSpecification)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680402419"><span class="annot"><span class="annottext">Maybe AlgorithmValidationSpecification
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404041"><span class="annot"><span class="annottext">Maybe AlgorithmValidationSpecification
 validationSpecification :: Maybe AlgorithmValidationSpecification
 $sel:validationSpecification:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&gt; Maybe AlgorithmValidationSpecification
-</span><a href="#local-6989586621680402419"><span class="hs-identifier hs-var hs-var">validationSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AlgorithmValidationSpecification
-</span><a href="#local-6989586621680402419"><span class="hs-identifier hs-var">validationSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680402418"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680402417"><span class="annot"><span class="annottext">Maybe AlgorithmValidationSpecification
-</span><a href="#local-6989586621680402417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validationSpecification:DescribeAlgorithmResponse' :: Maybe AlgorithmValidationSpecification
+</span><a href="#local-6989586621680404041"><span class="hs-identifier hs-var hs-var">validationSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AlgorithmValidationSpecification
+</span><a href="#local-6989586621680404041"><span class="hs-identifier hs-var">validationSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680404040"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404040"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680404039"><span class="annot"><span class="annottext">Maybe AlgorithmValidationSpecification
+</span><a href="#local-6989586621680404039"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404040"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validationSpecification:DescribeAlgorithmResponse' :: Maybe AlgorithmValidationSpecification
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AvalidationSpecification%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">validationSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AlgorithmValidationSpecification
-</span><a href="#local-6989586621680402417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-257"></span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- | Whether the algorithm is certified to be listed in Amazon Web Services</span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- Marketplace.</span><span>
-</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_certifyForMarketplace"><span class="hs-identifier hs-type">describeAlgorithmResponse_certifyForMarketplace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-261"></span><span id="describeAlgorithmResponse_certifyForMarketplace"><span class="annot"><span class="annottext">describeAlgorithmResponse_certifyForMarketplace :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; DescribeAlgorithmResponse -&gt; f DescribeAlgorithmResponse
-</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_certifyForMarketplace"><span class="hs-identifier hs-var hs-var">describeAlgorithmResponse_certifyForMarketplace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAlgorithmResponse -&gt; Maybe Bool)
--&gt; (DescribeAlgorithmResponse
-    -&gt; Maybe Bool -&gt; DescribeAlgorithmResponse)
--&gt; Lens
-     DescribeAlgorithmResponse
-     DescribeAlgorithmResponse
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680402416"><span class="annot"><span class="annottext">Maybe Bool
-certifyForMarketplace :: Maybe Bool
-$sel:certifyForMarketplace:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621680402416"><span class="hs-identifier hs-var hs-var">certifyForMarketplace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680402416"><span class="hs-identifier hs-var">certifyForMarketplace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680402415"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680402414"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680402414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certifyForMarketplace:DescribeAlgorithmResponse' :: Maybe Bool
-</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AcertifyForMarketplace%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">certifyForMarketplace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621680402414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-262"></span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- | Details about inference jobs that the algorithm runs.</span><span>
-</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_inferenceSpecification"><span class="hs-identifier hs-type">describeAlgorithmResponse_inferenceSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-265"></span><span id="describeAlgorithmResponse_inferenceSpecification"><span class="annot"><span class="annottext">describeAlgorithmResponse_inferenceSpecification :: (Maybe InferenceSpecification -&gt; f (Maybe InferenceSpecification))
+</span><a href="#local-6989586621680404039"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | Details about inference jobs that the algorithm runs.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_inferenceSpecification"><span class="hs-identifier hs-type">describeAlgorithmResponse_inferenceSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.InferenceSpecification.html#InferenceSpecification"><span class="hs-identifier hs-type">InferenceSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="describeAlgorithmResponse_inferenceSpecification"><span class="annot"><span class="annottext">describeAlgorithmResponse_inferenceSpecification :: (Maybe InferenceSpecification -&gt; f (Maybe InferenceSpecification))
 -&gt; DescribeAlgorithmResponse -&gt; f DescribeAlgorithmResponse
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_inferenceSpecification"><span class="hs-identifier hs-var hs-var">describeAlgorithmResponse_inferenceSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAlgorithmResponse -&gt; Maybe InferenceSpecification)
 -&gt; (DescribeAlgorithmResponse
@@ -901,16 +852,65 @@ $sel:certifyForMarketplace:DescribeAlgorithmResponse' :: DescribeAlgorithmRespon
      (Maybe InferenceSpecification)
      (Maybe InferenceSpecification)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680402413"><span class="annot"><span class="annottext">Maybe InferenceSpecification
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404038"><span class="annot"><span class="annottext">Maybe InferenceSpecification
 inferenceSpecification :: Maybe InferenceSpecification
 $sel:inferenceSpecification:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&gt; Maybe InferenceSpecification
-</span><a href="#local-6989586621680402413"><span class="hs-identifier hs-var hs-var">inferenceSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InferenceSpecification
-</span><a href="#local-6989586621680402413"><span class="hs-identifier hs-var">inferenceSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680402412"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680402411"><span class="annot"><span class="annottext">Maybe InferenceSpecification
-</span><a href="#local-6989586621680402411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inferenceSpecification:DescribeAlgorithmResponse' :: Maybe InferenceSpecification
+</span><a href="#local-6989586621680404038"><span class="hs-identifier hs-var hs-var">inferenceSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InferenceSpecification
+</span><a href="#local-6989586621680404038"><span class="hs-identifier hs-var">inferenceSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680404037"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680404036"><span class="annot"><span class="annottext">Maybe InferenceSpecification
+</span><a href="#local-6989586621680404036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inferenceSpecification:DescribeAlgorithmResponse' :: Maybe InferenceSpecification
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AinferenceSpecification%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">inferenceSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InferenceSpecification
-</span><a href="#local-6989586621680402411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680404036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | A brief summary about the algorithm.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_algorithmDescription"><span class="hs-identifier hs-type">describeAlgorithmResponse_algorithmDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="describeAlgorithmResponse_algorithmDescription"><span class="annot"><span class="annottext">describeAlgorithmResponse_algorithmDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeAlgorithmResponse -&gt; f DescribeAlgorithmResponse
+</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_algorithmDescription"><span class="hs-identifier hs-var hs-var">describeAlgorithmResponse_algorithmDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAlgorithmResponse -&gt; Maybe Text)
+-&gt; (DescribeAlgorithmResponse
+    -&gt; Maybe Text -&gt; DescribeAlgorithmResponse)
+-&gt; Lens
+     DescribeAlgorithmResponse
+     DescribeAlgorithmResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404035"><span class="annot"><span class="annottext">Maybe Text
+algorithmDescription :: Maybe Text
+$sel:algorithmDescription:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680404035"><span class="hs-identifier hs-var hs-var">algorithmDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680404035"><span class="hs-identifier hs-var">algorithmDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680404034"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680404033"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680404033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmDescription:DescribeAlgorithmResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AalgorithmDescription%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">algorithmDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680404033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- | Whether the algorithm is certified to be listed in Amazon Web Services</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- Marketplace.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_certifyForMarketplace"><span class="hs-identifier hs-type">describeAlgorithmResponse_certifyForMarketplace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span id="describeAlgorithmResponse_certifyForMarketplace"><span class="annot"><span class="annottext">describeAlgorithmResponse_certifyForMarketplace :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeAlgorithmResponse -&gt; f DescribeAlgorithmResponse
+</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_certifyForMarketplace"><span class="hs-identifier hs-var hs-var">describeAlgorithmResponse_certifyForMarketplace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAlgorithmResponse -&gt; Maybe Bool)
+-&gt; (DescribeAlgorithmResponse
+    -&gt; Maybe Bool -&gt; DescribeAlgorithmResponse)
+-&gt; Lens
+     DescribeAlgorithmResponse
+     DescribeAlgorithmResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404032"><span class="annot"><span class="annottext">Maybe Bool
+certifyForMarketplace :: Maybe Bool
+$sel:certifyForMarketplace:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621680404032"><span class="hs-identifier hs-var hs-var">certifyForMarketplace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680404032"><span class="hs-identifier hs-var">certifyForMarketplace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680404031"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680404030"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680404030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certifyForMarketplace:DescribeAlgorithmResponse' :: Maybe Bool
+</span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AcertifyForMarketplace%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">certifyForMarketplace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621680404030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- | The product identifier of the algorithm.</span><span>
 </span><span id="line-268"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_productId"><span class="hs-identifier hs-type">describeAlgorithmResponse_productId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -925,16 +925,16 @@ $sel:inferenceSpecification:DescribeAlgorithmResponse' :: DescribeAlgorithmRespo
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680402410"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404029"><span class="annot"><span class="annottext">Maybe Text
 productId :: Maybe Text
 $sel:productId:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680402410"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680402410"><span class="hs-identifier hs-var">productId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680402409"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680402408"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680402408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productId:DescribeAlgorithmResponse' :: Maybe Text
+</span><a href="#local-6989586621680404029"><span class="hs-identifier hs-var hs-var">productId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680404029"><span class="hs-identifier hs-var">productId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680404028"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680404027"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680404027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productId:DescribeAlgorithmResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AproductId%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">productId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680402408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680404027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>
 </span><span id="line-271"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-272"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_httpStatus"><span class="hs-identifier hs-type">describeAlgorithmResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -944,16 +944,16 @@ $sel:productId:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&gt; May
 -&gt; (DescribeAlgorithmResponse -&gt; Int -&gt; DescribeAlgorithmResponse)
 -&gt; Lens DescribeAlgorithmResponse DescribeAlgorithmResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680402407"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404026"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&gt; Int
-</span><a href="#local-6989586621680402407"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680402407"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680402406"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680402405"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680402405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAlgorithmResponse' :: Int
+</span><a href="#local-6989586621680404026"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680404026"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680404025"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680404024"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680404024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeAlgorithmResponse' :: Int
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AhttpStatus%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680402405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680404024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-274"></span><span>
 </span><span id="line-275"></span><span class="hs-comment">-- | The name of the algorithm being described.</span><span>
 </span><span id="line-276"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_algorithmName"><span class="hs-identifier hs-type">describeAlgorithmResponse_algorithmName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -964,16 +964,16 @@ $sel:httpStatus:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&gt; In
 -&gt; Lens
      DescribeAlgorithmResponse DescribeAlgorithmResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680402404"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404023"><span class="annot"><span class="annottext">Text
 algorithmName :: Text
 $sel:algorithmName:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&gt; Text
-</span><a href="#local-6989586621680402404"><span class="hs-identifier hs-var hs-var">algorithmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680402404"><span class="hs-identifier hs-var">algorithmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680402403"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680402402"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680402402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmName:DescribeAlgorithmResponse' :: Text
+</span><a href="#local-6989586621680404023"><span class="hs-identifier hs-var hs-var">algorithmName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404023"><span class="hs-identifier hs-var">algorithmName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680404022"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680404021"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmName:DescribeAlgorithmResponse' :: Text
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AalgorithmName%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">algorithmName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680402402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680404021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-278"></span><span>
 </span><span id="line-279"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the algorithm.</span><span>
 </span><span id="line-280"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_algorithmArn"><span class="hs-identifier hs-type">describeAlgorithmResponse_algorithmArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -984,16 +984,16 @@ $sel:algorithmName:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&gt;
 -&gt; Lens
      DescribeAlgorithmResponse DescribeAlgorithmResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680402401"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404020"><span class="annot"><span class="annottext">Text
 algorithmArn :: Text
 $sel:algorithmArn:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&gt; Text
-</span><a href="#local-6989586621680402401"><span class="hs-identifier hs-var hs-var">algorithmArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680402401"><span class="hs-identifier hs-var">algorithmArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680402400"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680402399"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680402399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmArn:DescribeAlgorithmResponse' :: Text
+</span><a href="#local-6989586621680404020"><span class="hs-identifier hs-var hs-var">algorithmArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404020"><span class="hs-identifier hs-var">algorithmArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680404019"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680404018"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680404018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmArn:DescribeAlgorithmResponse' :: Text
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AalgorithmArn%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">algorithmArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680402399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680404018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-282"></span><span>
 </span><span id="line-283"></span><span class="hs-comment">-- | A timestamp specifying when the algorithm was created.</span><span>
 </span><span id="line-284"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_creationTime"><span class="hs-identifier hs-type">describeAlgorithmResponse_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -1005,16 +1005,16 @@ $sel:algorithmArn:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&gt; 
 -&gt; Lens
      DescribeAlgorithmResponse DescribeAlgorithmResponse POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680402398"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404017"><span class="annot"><span class="annottext">POSIX
 creationTime :: POSIX
 $sel:creationTime:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&gt; POSIX
-</span><a href="#local-6989586621680402398"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680402398"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680402397"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680402396"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680402396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:DescribeAlgorithmResponse' :: POSIX
+</span><a href="#local-6989586621680404017"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680404017"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680404016"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680404015"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621680404015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:DescribeAlgorithmResponse' :: POSIX
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AcreationTime%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621680402396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+</span><a href="#local-6989586621680404015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
  -&gt; DescribeAlgorithmResponse -&gt; f DescribeAlgorithmResponse)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -1038,16 +1038,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      TrainingSpecification
      TrainingSpecification
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680402394"><span class="annot"><span class="annottext">TrainingSpecification
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404013"><span class="annot"><span class="annottext">TrainingSpecification
 trainingSpecification :: TrainingSpecification
 $sel:trainingSpecification:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&gt; TrainingSpecification
-</span><a href="#local-6989586621680402394"><span class="hs-identifier hs-var hs-var">trainingSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingSpecification
-</span><a href="#local-6989586621680402394"><span class="hs-identifier hs-var">trainingSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680402393"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680402392"><span class="annot"><span class="annottext">TrainingSpecification
-</span><a href="#local-6989586621680402392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingSpecification:DescribeAlgorithmResponse' :: TrainingSpecification
+</span><a href="#local-6989586621680404013"><span class="hs-identifier hs-var hs-var">trainingSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrainingSpecification
+</span><a href="#local-6989586621680404013"><span class="hs-identifier hs-var">trainingSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680404012"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680404011"><span class="annot"><span class="annottext">TrainingSpecification
+</span><a href="#local-6989586621680404011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingSpecification:DescribeAlgorithmResponse' :: TrainingSpecification
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AtrainingSpecification%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">trainingSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrainingSpecification
-</span><a href="#local-6989586621680402392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680404011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-290"></span><span>
 </span><span id="line-291"></span><span class="hs-comment">-- | The current status of the algorithm.</span><span>
 </span><span id="line-292"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_algorithmStatus"><span class="hs-identifier hs-type">describeAlgorithmResponse_algorithmStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmStatus.html#AlgorithmStatus"><span class="hs-identifier hs-type">AlgorithmStatus</span></a></span><span>
@@ -1062,16 +1062,16 @@ $sel:trainingSpecification:DescribeAlgorithmResponse' :: DescribeAlgorithmRespon
      AlgorithmStatus
      AlgorithmStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680402391"><span class="annot"><span class="annottext">AlgorithmStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404010"><span class="annot"><span class="annottext">AlgorithmStatus
 algorithmStatus :: AlgorithmStatus
 $sel:algorithmStatus:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&gt; AlgorithmStatus
-</span><a href="#local-6989586621680402391"><span class="hs-identifier hs-var hs-var">algorithmStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmStatus
-</span><a href="#local-6989586621680402391"><span class="hs-identifier hs-var">algorithmStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680402390"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402390"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680402389"><span class="annot"><span class="annottext">AlgorithmStatus
-</span><a href="#local-6989586621680402389"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402390"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmStatus:DescribeAlgorithmResponse' :: AlgorithmStatus
+</span><a href="#local-6989586621680404010"><span class="hs-identifier hs-var hs-var">algorithmStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmStatus
+</span><a href="#local-6989586621680404010"><span class="hs-identifier hs-var">algorithmStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680404009"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680404008"><span class="annot"><span class="annottext">AlgorithmStatus
+</span><a href="#local-6989586621680404008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmStatus:DescribeAlgorithmResponse' :: AlgorithmStatus
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AalgorithmStatus%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">algorithmStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AlgorithmStatus
-</span><a href="#local-6989586621680402389"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680404008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-294"></span><span>
 </span><span id="line-295"></span><span class="hs-comment">-- | Details about the current status of the algorithm.</span><span>
 </span><span id="line-296"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#describeAlgorithmResponse_algorithmStatusDetails"><span class="hs-identifier hs-type">describeAlgorithmResponse_algorithmStatusDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AlgorithmStatusDetails.html#AlgorithmStatusDetails"><span class="hs-identifier hs-type">AlgorithmStatusDetails</span></a></span><span>
@@ -1086,16 +1086,16 @@ $sel:algorithmStatus:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&g
      AlgorithmStatusDetails
      AlgorithmStatusDetails
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680402388"><span class="annot"><span class="annottext">AlgorithmStatusDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680404007"><span class="annot"><span class="annottext">AlgorithmStatusDetails
 algorithmStatusDetails :: AlgorithmStatusDetails
 $sel:algorithmStatusDetails:DescribeAlgorithmResponse' :: DescribeAlgorithmResponse -&gt; AlgorithmStatusDetails
-</span><a href="#local-6989586621680402388"><span class="hs-identifier hs-var hs-var">algorithmStatusDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmStatusDetails
-</span><a href="#local-6989586621680402388"><span class="hs-identifier hs-var">algorithmStatusDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680402387"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680402386"><span class="annot"><span class="annottext">AlgorithmStatusDetails
-</span><a href="#local-6989586621680402386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
-</span><a href="#local-6989586621680402387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmStatusDetails:DescribeAlgorithmResponse' :: AlgorithmStatusDetails
+</span><a href="#local-6989586621680404007"><span class="hs-identifier hs-var hs-var">algorithmStatusDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AlgorithmStatusDetails
+</span><a href="#local-6989586621680404007"><span class="hs-identifier hs-var">algorithmStatusDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680404006"><span class="annot"><span class="annottext">s :: DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse%27"><span class="hs-identifier hs-type">DescribeAlgorithmResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680404005"><span class="annot"><span class="annottext">AlgorithmStatusDetails
+</span><a href="#local-6989586621680404005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAlgorithmResponse
+</span><a href="#local-6989586621680404006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:algorithmStatusDetails:DescribeAlgorithmResponse' :: AlgorithmStatusDetails
 </span><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#%24sel%3AalgorithmStatusDetails%3ADescribeAlgorithmResponse%27"><span class="hs-identifier hs-var">algorithmStatusDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AlgorithmStatusDetails
-</span><a href="#local-6989586621680402386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680404005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-298"></span><span>
-</span><span id="line-299"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680402384"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span></span><span>
+</span><span id="line-299"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680404003"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeAlgorithm.html#DescribeAlgorithmResponse"><span class="hs-identifier hs-type">DescribeAlgorithmResponse</span></a></span></span><span>
 </span><span id="line-300"></span></pre></body></html>

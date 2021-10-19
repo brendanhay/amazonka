@@ -28,27 +28,27 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Provides details about a labeling work team.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newWorkteam' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621680360366"><span id="local-6989586621680360367"></span></span><span class="hs-keyword">data</span><span> </span><span id="Workteam"><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-var">Workteam</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Workteam%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-var">Workteam'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the workforce.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AworkforceArn%3AWorkteam%27"><span class="annot"><span class="annottext">Workteam -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AworkforceArn%3AWorkteam%27"><span class="hs-identifier hs-var hs-var">workforceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The date and time that the work team was last updated (timestamp).</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlastUpdatedDate%3AWorkteam%27"><span class="annot"><span class="annottext">Workteam -&gt; Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AlastUpdatedDate%3AWorkteam%27"><span class="hs-identifier hs-var hs-var">lastUpdatedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The date and time that the work team was created (timestamp).</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcreateDate%3AWorkteam%27"><span class="annot"><span class="annottext">Workteam -&gt; Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AcreateDate%3AWorkteam%27"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Configures SNS notifications of available or expiring work items for</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- work teams.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AnotificationConfiguration%3AWorkteam%27"><span class="annot"><span class="annottext">Workteam -&gt; Maybe NotificationConfiguration
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AnotificationConfiguration%3AWorkteam%27"><span class="hs-identifier hs-var hs-var">notificationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NotificationConfiguration.html#NotificationConfiguration"><span class="hs-identifier hs-type">NotificationConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Amazon Marketplace identifier for a vendor\'s work team.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AproductListingIds%3AWorkteam%27"><span class="annot"><span class="annottext">Workteam -&gt; Maybe [Text]
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AproductListingIds%3AWorkteam%27"><span class="hs-identifier hs-var hs-var">productListingIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The URI of the labeling job\'s user interface. Workers open this URI to</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- start labeling your data objects.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AsubDomain%3AWorkteam%27"><span class="annot"><span class="annottext">Workteam -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621680361835"><span id="local-6989586621680361836"></span></span><span class="hs-keyword">data</span><span> </span><span id="Workteam"><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-var">Workteam</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Workteam%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-var">Workteam'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The URI of the labeling job\'s user interface. Workers open this URI to</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- start labeling your data objects.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsubDomain%3AWorkteam%27"><span class="annot"><span class="annottext">Workteam -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AsubDomain%3AWorkteam%27"><span class="hs-identifier hs-var hs-var">subDomain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Amazon Marketplace identifier for a vendor\'s work team.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AproductListingIds%3AWorkteam%27"><span class="annot"><span class="annottext">Workteam -&gt; Maybe [Text]
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AproductListingIds%3AWorkteam%27"><span class="hs-identifier hs-var hs-var">productListingIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Configures SNS notifications of available or expiring work items for</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- work teams.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AnotificationConfiguration%3AWorkteam%27"><span class="annot"><span class="annottext">Workteam -&gt; Maybe NotificationConfiguration
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AnotificationConfiguration%3AWorkteam%27"><span class="hs-identifier hs-var hs-var">notificationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NotificationConfiguration.html#NotificationConfiguration"><span class="hs-identifier hs-type">NotificationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The date and time that the work team was created (timestamp).</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcreateDate%3AWorkteam%27"><span class="annot"><span class="annottext">Workteam -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AcreateDate%3AWorkteam%27"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the workforce.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AworkforceArn%3AWorkteam%27"><span class="annot"><span class="annottext">Workteam -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AworkforceArn%3AWorkteam%27"><span class="hs-identifier hs-var hs-var">workforceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The date and time that the work team was last updated (timestamp).</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AlastUpdatedDate%3AWorkteam%27"><span class="annot"><span class="annottext">Workteam -&gt; Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AlastUpdatedDate%3AWorkteam%27"><span class="hs-identifier hs-var hs-var">lastUpdatedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The name of the work team.</span><span>
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3AworkteamName%3AWorkteam%27"><span class="annot"><span class="annottext">Workteam -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AworkteamName%3AWorkteam%27"><span class="hs-identifier hs-var hs-var">workteamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -68,7 +68,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3Adescription%3AWorkteam%27"><span class="annot"><span class="annottext">Workteam -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3Adescription%3AWorkteam%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680360351"><span id="local-6989586621680360353"><span class="annot"><span class="annottext">Workteam -&gt; Workteam -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680361820"><span id="local-6989586621680361822"><span class="annot"><span class="annottext">Workteam -&gt; Workteam -&gt; Bool
 (Workteam -&gt; Workteam -&gt; Bool)
 -&gt; (Workteam -&gt; Workteam -&gt; Bool) -&gt; Eq Workteam
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Workteam -&gt; Workteam -&gt; Bool
 == :: Workteam -&gt; Workteam -&gt; Bool
 $c== :: Workteam -&gt; Workteam -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680360342"><span id="local-6989586621680360344"><span id="local-6989586621680360346"><span id="local-6989586621680360348"><span class="annot"><span class="annottext">ReadPrec [Workteam]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680361811"><span id="local-6989586621680361813"><span id="local-6989586621680361815"><span id="local-6989586621680361817"><span class="annot"><span class="annottext">ReadPrec [Workteam]
 ReadPrec Workteam
 Int -&gt; ReadS Workteam
 ReadS [Workteam]
@@ -96,7 +96,7 @@ readList :: ReadS [Workteam]
 $creadList :: ReadS [Workteam]
 readsPrec :: Int -&gt; ReadS Workteam
 $creadsPrec :: Int -&gt; ReadS Workteam
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680360335"><span id="local-6989586621680360337"><span id="local-6989586621680360339"><span class="annot"><span class="annottext">Int -&gt; Workteam -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680361804"><span id="local-6989586621680361806"><span id="local-6989586621680361808"><span class="annot"><span class="annottext">Int -&gt; Workteam -&gt; ShowS
 [Workteam] -&gt; ShowS
 Workteam -&gt; String
 (Int -&gt; Workteam -&gt; ShowS)
@@ -127,19 +127,19 @@ $cfrom :: forall x. Workteam -&gt; Rep Workteam x
 </span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'workforceArn', 'workteam_workforceArn' - The Amazon Resource Name (ARN) of the workforce.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'lastUpdatedDate', 'workteam_lastUpdatedDate' - The date and time that the work team was last updated (timestamp).</span><span>
-</span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'createDate', 'workteam_createDate' - The date and time that the work team was created (timestamp).</span><span>
-</span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'notificationConfiguration', 'workteam_notificationConfiguration' - Configures SNS notifications of available or expiring work items for</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- work teams.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'productListingIds', 'workteam_productListingIds' - The Amazon Marketplace identifier for a vendor\'s work team.</span><span>
-</span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'subDomain', 'workteam_subDomain' - The URI of the labeling job\'s user interface. Workers open this URI to</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- start labeling your data objects.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'subDomain', 'workteam_subDomain' - The URI of the labeling job\'s user interface. Workers open this URI to</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- start labeling your data objects.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'productListingIds', 'workteam_productListingIds' - The Amazon Marketplace identifier for a vendor\'s work team.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'notificationConfiguration', 'workteam_notificationConfiguration' - Configures SNS notifications of available or expiring work items for</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- work teams.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'createDate', 'workteam_createDate' - The date and time that the work team was created (timestamp).</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'workforceArn', 'workteam_workforceArn' - The Amazon Resource Name (ARN) of the workforce.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'lastUpdatedDate', 'workteam_lastUpdatedDate' - The date and time that the work team was last updated (timestamp).</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- 'workteamName', 'workteam_workteamName' - The name of the work team.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
@@ -166,200 +166,112 @@ $cfrom :: forall x. Workteam -&gt; Rep Workteam x
 </span><span id="line-107"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span>
 </span><span id="line-108"></span><span id="newWorkteam"><span class="annot"><span class="annottext">newWorkteam :: Text -&gt; NonEmpty MemberDefinition -&gt; Text -&gt; Text -&gt; Workteam
 </span><a href="Network.AWS.SageMaker.Types.Workteam.html#newWorkteam"><span class="hs-identifier hs-var hs-var">newWorkteam</span></a></span></span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621680360329"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680360329"><span class="hs-identifier hs-var">pWorkteamName_</span></a></span></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621680360328"><span class="annot"><span class="annottext">NonEmpty MemberDefinition
-</span><a href="#local-6989586621680360328"><span class="hs-identifier hs-var">pMemberDefinitions_</span></a></span></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621680360327"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680360327"><span class="hs-identifier hs-var">pWorkteamArn_</span></a></span></span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621680360326"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680360326"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621680361798"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680361798"><span class="hs-identifier hs-var">pWorkteamName_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621680361797"><span class="annot"><span class="annottext">NonEmpty MemberDefinition
+</span><a href="#local-6989586621680361797"><span class="hs-identifier hs-var">pMemberDefinitions_</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621680361796"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680361796"><span class="hs-identifier hs-var">pWorkteamArn_</span></a></span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621680361795"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680361795"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">Workteam' :: Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe POSIX
--&gt; Maybe NotificationConfiguration
 -&gt; Maybe [Text]
+-&gt; Maybe NotificationConfiguration
+-&gt; Maybe POSIX
 -&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Text
 -&gt; NonEmpty MemberDefinition
 -&gt; Text
 -&gt; Text
 -&gt; Workteam
 </span><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:workforceArn:Workteam' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AworkforceArn%3AWorkteam%27"><span class="hs-identifier hs-var">workforceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-114"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subDomain:Workteam' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AsubDomain%3AWorkteam%27"><span class="hs-identifier hs-var">subDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastUpdatedDate:Workteam' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AlastUpdatedDate%3AWorkteam%27"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:createDate:Workteam' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AcreateDate%3AWorkteam%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:notificationConfiguration:Workteam' :: Maybe NotificationConfiguration
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AnotificationConfiguration%3AWorkteam%27"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:productListingIds:Workteam' :: Maybe [Text]
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:productListingIds:Workteam' :: Maybe [Text]
 </span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AproductListingIds%3AWorkteam%27"><span class="hs-identifier hs-var">productListingIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:subDomain:Workteam' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AsubDomain%3AWorkteam%27"><span class="hs-identifier hs-var">subDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:notificationConfiguration:Workteam' :: Maybe NotificationConfiguration
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AnotificationConfiguration%3AWorkteam%27"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:createDate:Workteam' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AcreateDate%3AWorkteam%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:workforceArn:Workteam' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AworkforceArn%3AWorkteam%27"><span class="hs-identifier hs-var">workforceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastUpdatedDate:Workteam' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AlastUpdatedDate%3AWorkteam%27"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:workteamName:Workteam' :: Text
 </span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AworkteamName%3AWorkteam%27"><span class="hs-identifier hs-var">workteamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680360329"><span class="hs-identifier hs-var">pWorkteamName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680361798"><span class="hs-identifier hs-var">pWorkteamName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:memberDefinitions:Workteam' :: NonEmpty MemberDefinition
 </span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AmemberDefinitions%3AWorkteam%27"><span class="hs-identifier hs-var">memberDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Tagged
   (NonEmpty MemberDefinition) (Identity (NonEmpty MemberDefinition))
 -&gt; Tagged
      (NonEmpty MemberDefinition) (Identity (NonEmpty MemberDefinition))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
    (NonEmpty MemberDefinition) (Identity (NonEmpty MemberDefinition))
  -&gt; Tagged
       (NonEmpty MemberDefinition) (Identity (NonEmpty MemberDefinition)))
 -&gt; NonEmpty MemberDefinition -&gt; NonEmpty MemberDefinition
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty MemberDefinition
-</span><a href="#local-6989586621680360328"><span class="hs-identifier hs-var">pMemberDefinitions_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680361797"><span class="hs-identifier hs-var">pMemberDefinitions_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:workteamArn:Workteam' :: Text
 </span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AworkteamArn%3AWorkteam%27"><span class="hs-identifier hs-var">workteamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680360327"><span class="hs-identifier hs-var">pWorkteamArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680361796"><span class="hs-identifier hs-var">pWorkteamArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:Workteam' :: Text
 </span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3Adescription%3AWorkteam%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680360326"><span class="hs-identifier hs-var">pDescription_</span></a></span><span>
+</span><a href="#local-6989586621680361795"><span class="hs-identifier hs-var">pDescription_</span></a></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the workforce.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_workforceArn"><span class="hs-identifier hs-type">workteam_workforceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span id="workteam_workforceArn"><span class="annot"><span class="annottext">workteam_workforceArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Workteam -&gt; f Workteam
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_workforceArn"><span class="hs-identifier hs-var hs-var">workteam_workforceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workteam -&gt; Maybe Text)
+</span><span id="line-127"></span><span class="hs-comment">-- | The URI of the labeling job\'s user interface. Workers open this URI to</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- start labeling your data objects.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_subDomain"><span class="hs-identifier hs-type">workteam_subDomain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="workteam_subDomain"><span class="annot"><span class="annottext">workteam_subDomain :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Workteam -&gt; f Workteam
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_subDomain"><span class="hs-identifier hs-var hs-var">workteam_subDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workteam -&gt; Maybe Text)
 -&gt; (Workteam -&gt; Maybe Text -&gt; Workteam)
 -&gt; Lens Workteam Workteam (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360320"><span class="annot"><span class="annottext">Maybe Text
-workforceArn :: Maybe Text
-$sel:workforceArn:Workteam' :: Workteam -&gt; Maybe Text
-</span><a href="#local-6989586621680360320"><span class="hs-identifier hs-var hs-var">workforceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680360320"><span class="hs-identifier hs-var">workforceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360319"><span class="annot"><span class="annottext">s :: Workteam
-</span><a href="#local-6989586621680360319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360318"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680360318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
-</span><a href="#local-6989586621680360319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workforceArn:Workteam' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AworkforceArn%3AWorkteam%27"><span class="hs-identifier hs-var">workforceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680360318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- | The date and time that the work team was last updated (timestamp).</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_lastUpdatedDate"><span class="hs-identifier hs-type">workteam_lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="workteam_lastUpdatedDate"><span class="annot"><span class="annottext">workteam_lastUpdatedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Workteam -&gt; f Workteam
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_lastUpdatedDate"><span class="hs-identifier hs-var hs-var">workteam_lastUpdatedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workteam -&gt; Maybe POSIX)
--&gt; (Workteam -&gt; Maybe POSIX -&gt; Workteam)
--&gt; Lens Workteam Workteam (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360316"><span class="annot"><span class="annottext">Maybe POSIX
-lastUpdatedDate :: Maybe POSIX
-$sel:lastUpdatedDate:Workteam' :: Workteam -&gt; Maybe POSIX
-</span><a href="#local-6989586621680360316"><span class="hs-identifier hs-var hs-var">lastUpdatedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680360316"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360315"><span class="annot"><span class="annottext">s :: Workteam
-</span><a href="#local-6989586621680360315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360314"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680360314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
-</span><a href="#local-6989586621680360315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedDate:Workteam' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AlastUpdatedDate%3AWorkteam%27"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680360314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Workteam -&gt; f Workteam)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; Workteam
--&gt; f Workteam
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | The date and time that the work team was created (timestamp).</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_createDate"><span class="hs-identifier hs-type">workteam_createDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="workteam_createDate"><span class="annot"><span class="annottext">workteam_createDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Workteam -&gt; f Workteam
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_createDate"><span class="hs-identifier hs-var hs-var">workteam_createDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workteam -&gt; Maybe POSIX)
--&gt; (Workteam -&gt; Maybe POSIX -&gt; Workteam)
--&gt; Lens Workteam Workteam (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360309"><span class="annot"><span class="annottext">Maybe POSIX
-createDate :: Maybe POSIX
-$sel:createDate:Workteam' :: Workteam -&gt; Maybe POSIX
-</span><a href="#local-6989586621680360309"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680360309"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360308"><span class="annot"><span class="annottext">s :: Workteam
-</span><a href="#local-6989586621680360308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360307"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680360307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
-</span><a href="#local-6989586621680360308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:Workteam' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AcreateDate%3AWorkteam%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680360307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Workteam -&gt; f Workteam)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; Workteam
--&gt; f Workteam
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | Configures SNS notifications of available or expiring work items for</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- work teams.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_notificationConfiguration"><span class="hs-identifier hs-type">workteam_notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NotificationConfiguration.html#NotificationConfiguration"><span class="hs-identifier hs-type">NotificationConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="workteam_notificationConfiguration"><span class="annot"><span class="annottext">workteam_notificationConfiguration :: (Maybe NotificationConfiguration
- -&gt; f (Maybe NotificationConfiguration))
--&gt; Workteam -&gt; f Workteam
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_notificationConfiguration"><span class="hs-identifier hs-var hs-var">workteam_notificationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workteam -&gt; Maybe NotificationConfiguration)
--&gt; (Workteam -&gt; Maybe NotificationConfiguration -&gt; Workteam)
--&gt; Lens
-     Workteam
-     Workteam
-     (Maybe NotificationConfiguration)
-     (Maybe NotificationConfiguration)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360305"><span class="annot"><span class="annottext">Maybe NotificationConfiguration
-notificationConfiguration :: Maybe NotificationConfiguration
-$sel:notificationConfiguration:Workteam' :: Workteam -&gt; Maybe NotificationConfiguration
-</span><a href="#local-6989586621680360305"><span class="hs-identifier hs-var hs-var">notificationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
-</span><a href="#local-6989586621680360305"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360304"><span class="annot"><span class="annottext">s :: Workteam
-</span><a href="#local-6989586621680360304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360303"><span class="annot"><span class="annottext">Maybe NotificationConfiguration
-</span><a href="#local-6989586621680360303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
-</span><a href="#local-6989586621680360304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationConfiguration:Workteam' :: Maybe NotificationConfiguration
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AnotificationConfiguration%3AWorkteam%27"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
-</span><a href="#local-6989586621680360303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | The Amazon Marketplace identifier for a vendor\'s work team.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_productListingIds"><span class="hs-identifier hs-type">workteam_productListingIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="workteam_productListingIds"><span class="annot"><span class="annottext">workteam_productListingIds :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Workteam -&gt; f Workteam
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680361789"><span class="annot"><span class="annottext">Maybe Text
+subDomain :: Maybe Text
+$sel:subDomain:Workteam' :: Workteam -&gt; Maybe Text
+</span><a href="#local-6989586621680361789"><span class="hs-identifier hs-var hs-var">subDomain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680361789"><span class="hs-identifier hs-var">subDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680361788"><span class="annot"><span class="annottext">s :: Workteam
+</span><a href="#local-6989586621680361788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680361787"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680361787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
+</span><a href="#local-6989586621680361788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subDomain:Workteam' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AsubDomain%3AWorkteam%27"><span class="hs-identifier hs-var">subDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680361787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The Amazon Marketplace identifier for a vendor\'s work team.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_productListingIds"><span class="hs-identifier hs-type">workteam_productListingIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="workteam_productListingIds"><span class="annot"><span class="annottext">workteam_productListingIds :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Workteam -&gt; f Workteam
 </span><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_productListingIds"><span class="hs-identifier hs-var hs-var">workteam_productListingIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workteam -&gt; Maybe [Text])
 -&gt; (Workteam -&gt; Maybe [Text] -&gt; Workteam)
 -&gt; Lens Workteam Workteam (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360301"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680361785"><span class="annot"><span class="annottext">Maybe [Text]
 productListingIds :: Maybe [Text]
 $sel:productListingIds:Workteam' :: Workteam -&gt; Maybe [Text]
-</span><a href="#local-6989586621680360301"><span class="hs-identifier hs-var hs-var">productListingIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621680360301"><span class="hs-identifier hs-var">productListingIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360300"><span class="annot"><span class="annottext">s :: Workteam
-</span><a href="#local-6989586621680360300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360299"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621680360299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
-</span><a href="#local-6989586621680360300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productListingIds:Workteam' :: Maybe [Text]
+</span><a href="#local-6989586621680361785"><span class="hs-identifier hs-var hs-var">productListingIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680361785"><span class="hs-identifier hs-var">productListingIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680361784"><span class="annot"><span class="annottext">s :: Workteam
+</span><a href="#local-6989586621680361784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680361783"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621680361783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
+</span><a href="#local-6989586621680361784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productListingIds:Workteam' :: Maybe [Text]
 </span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AproductListingIds%3AWorkteam%27"><span class="hs-identifier hs-var">productListingIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621680360299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Workteam -&gt; f Workteam)
+</span><a href="#local-6989586621680361783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Workteam -&gt; f Workteam)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -372,27 +284,115 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- | The URI of the labeling job\'s user interface. Workers open this URI to</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- start labeling your data objects.</span><span>
-</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_subDomain"><span class="hs-identifier hs-type">workteam_subDomain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span id="workteam_subDomain"><span class="annot"><span class="annottext">workteam_subDomain :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Workteam -&gt; f Workteam
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_subDomain"><span class="hs-identifier hs-var hs-var">workteam_subDomain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workteam -&gt; Maybe Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | Configures SNS notifications of available or expiring work items for</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- work teams.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_notificationConfiguration"><span class="hs-identifier hs-type">workteam_notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NotificationConfiguration.html#NotificationConfiguration"><span class="hs-identifier hs-type">NotificationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="workteam_notificationConfiguration"><span class="annot"><span class="annottext">workteam_notificationConfiguration :: (Maybe NotificationConfiguration
+ -&gt; f (Maybe NotificationConfiguration))
+-&gt; Workteam -&gt; f Workteam
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_notificationConfiguration"><span class="hs-identifier hs-var hs-var">workteam_notificationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workteam -&gt; Maybe NotificationConfiguration)
+-&gt; (Workteam -&gt; Maybe NotificationConfiguration -&gt; Workteam)
+-&gt; Lens
+     Workteam
+     Workteam
+     (Maybe NotificationConfiguration)
+     (Maybe NotificationConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680361779"><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+notificationConfiguration :: Maybe NotificationConfiguration
+$sel:notificationConfiguration:Workteam' :: Workteam -&gt; Maybe NotificationConfiguration
+</span><a href="#local-6989586621680361779"><span class="hs-identifier hs-var hs-var">notificationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+</span><a href="#local-6989586621680361779"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680361778"><span class="annot"><span class="annottext">s :: Workteam
+</span><a href="#local-6989586621680361778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680361777"><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+</span><a href="#local-6989586621680361777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
+</span><a href="#local-6989586621680361778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationConfiguration:Workteam' :: Maybe NotificationConfiguration
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AnotificationConfiguration%3AWorkteam%27"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+</span><a href="#local-6989586621680361777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The date and time that the work team was created (timestamp).</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_createDate"><span class="hs-identifier hs-type">workteam_createDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="workteam_createDate"><span class="annot"><span class="annottext">workteam_createDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Workteam -&gt; f Workteam
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_createDate"><span class="hs-identifier hs-var hs-var">workteam_createDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workteam -&gt; Maybe POSIX)
+-&gt; (Workteam -&gt; Maybe POSIX -&gt; Workteam)
+-&gt; Lens Workteam Workteam (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680361775"><span class="annot"><span class="annottext">Maybe POSIX
+createDate :: Maybe POSIX
+$sel:createDate:Workteam' :: Workteam -&gt; Maybe POSIX
+</span><a href="#local-6989586621680361775"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680361775"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680361774"><span class="annot"><span class="annottext">s :: Workteam
+</span><a href="#local-6989586621680361774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680361773"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680361773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
+</span><a href="#local-6989586621680361774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:Workteam' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AcreateDate%3AWorkteam%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680361773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Workteam -&gt; f Workteam)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Workteam
+-&gt; f Workteam
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the workforce.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_workforceArn"><span class="hs-identifier hs-type">workteam_workforceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="workteam_workforceArn"><span class="annot"><span class="annottext">workteam_workforceArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Workteam -&gt; f Workteam
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_workforceArn"><span class="hs-identifier hs-var hs-var">workteam_workforceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workteam -&gt; Maybe Text)
 -&gt; (Workteam -&gt; Maybe Text -&gt; Workteam)
 -&gt; Lens Workteam Workteam (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360297"><span class="annot"><span class="annottext">Maybe Text
-subDomain :: Maybe Text
-$sel:subDomain:Workteam' :: Workteam -&gt; Maybe Text
-</span><a href="#local-6989586621680360297"><span class="hs-identifier hs-var hs-var">subDomain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680360297"><span class="hs-identifier hs-var">subDomain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360296"><span class="annot"><span class="annottext">s :: Workteam
-</span><a href="#local-6989586621680360296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360295"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680360295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
-</span><a href="#local-6989586621680360296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subDomain:Workteam' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AsubDomain%3AWorkteam%27"><span class="hs-identifier hs-var">subDomain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680360295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680361770"><span class="annot"><span class="annottext">Maybe Text
+workforceArn :: Maybe Text
+$sel:workforceArn:Workteam' :: Workteam -&gt; Maybe Text
+</span><a href="#local-6989586621680361770"><span class="hs-identifier hs-var hs-var">workforceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680361770"><span class="hs-identifier hs-var">workforceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680361769"><span class="annot"><span class="annottext">s :: Workteam
+</span><a href="#local-6989586621680361769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680361768"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680361768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
+</span><a href="#local-6989586621680361769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workforceArn:Workteam' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AworkforceArn%3AWorkteam%27"><span class="hs-identifier hs-var">workforceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680361768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The date and time that the work team was last updated (timestamp).</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_lastUpdatedDate"><span class="hs-identifier hs-type">workteam_lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="workteam_lastUpdatedDate"><span class="annot"><span class="annottext">workteam_lastUpdatedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Workteam -&gt; f Workteam
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_lastUpdatedDate"><span class="hs-identifier hs-var hs-var">workteam_lastUpdatedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Workteam -&gt; Maybe POSIX)
+-&gt; (Workteam -&gt; Maybe POSIX -&gt; Workteam)
+-&gt; Lens Workteam Workteam (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680361766"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedDate :: Maybe POSIX
+$sel:lastUpdatedDate:Workteam' :: Workteam -&gt; Maybe POSIX
+</span><a href="#local-6989586621680361766"><span class="hs-identifier hs-var hs-var">lastUpdatedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680361766"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680361765"><span class="annot"><span class="annottext">s :: Workteam
+</span><a href="#local-6989586621680361765"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680361764"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680361764"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
+</span><a href="#local-6989586621680361765"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedDate:Workteam' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AlastUpdatedDate%3AWorkteam%27"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680361764"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Workteam -&gt; f Workteam)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Workteam
+-&gt; f Workteam
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The name of the work team.</span><span>
 </span><span id="line-154"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_workteamName"><span class="hs-identifier hs-type">workteam_workteamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -401,16 +401,16 @@ $sel:subDomain:Workteam' :: Workteam -&gt; Maybe Text
 -&gt; (Workteam -&gt; Text -&gt; Workteam)
 -&gt; Lens Workteam Workteam Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360293"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680361762"><span class="annot"><span class="annottext">Text
 workteamName :: Text
 $sel:workteamName:Workteam' :: Workteam -&gt; Text
-</span><a href="#local-6989586621680360293"><span class="hs-identifier hs-var hs-var">workteamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680360293"><span class="hs-identifier hs-var">workteamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360292"><span class="annot"><span class="annottext">s :: Workteam
-</span><a href="#local-6989586621680360292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360291"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680360291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
-</span><a href="#local-6989586621680360292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workteamName:Workteam' :: Text
+</span><a href="#local-6989586621680361762"><span class="hs-identifier hs-var hs-var">workteamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680361762"><span class="hs-identifier hs-var">workteamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680361761"><span class="annot"><span class="annottext">s :: Workteam
+</span><a href="#local-6989586621680361761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680361760"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680361760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
+</span><a href="#local-6989586621680361761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workteamName:Workteam' :: Text
 </span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AworkteamName%3AWorkteam%27"><span class="hs-identifier hs-var">workteamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680360291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680361760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- | A list of @MemberDefinition@ objects that contains objects that identify</span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- the workers that make up the work team.</span><span>
@@ -430,16 +430,16 @@ $sel:workteamName:Workteam' :: Workteam -&gt; Text
      (NonEmpty MemberDefinition)
      (NonEmpty MemberDefinition)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360289"><span class="annot"><span class="annottext">NonEmpty MemberDefinition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680361758"><span class="annot"><span class="annottext">NonEmpty MemberDefinition
 memberDefinitions :: NonEmpty MemberDefinition
 $sel:memberDefinitions:Workteam' :: Workteam -&gt; NonEmpty MemberDefinition
-</span><a href="#local-6989586621680360289"><span class="hs-identifier hs-var hs-var">memberDefinitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty MemberDefinition
-</span><a href="#local-6989586621680360289"><span class="hs-identifier hs-var">memberDefinitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360288"><span class="annot"><span class="annottext">s :: Workteam
-</span><a href="#local-6989586621680360288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360287"><span class="annot"><span class="annottext">NonEmpty MemberDefinition
-</span><a href="#local-6989586621680360287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
-</span><a href="#local-6989586621680360288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberDefinitions:Workteam' :: NonEmpty MemberDefinition
+</span><a href="#local-6989586621680361758"><span class="hs-identifier hs-var hs-var">memberDefinitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty MemberDefinition
+</span><a href="#local-6989586621680361758"><span class="hs-identifier hs-var">memberDefinitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680361757"><span class="annot"><span class="annottext">s :: Workteam
+</span><a href="#local-6989586621680361757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680361756"><span class="annot"><span class="annottext">NonEmpty MemberDefinition
+</span><a href="#local-6989586621680361756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
+</span><a href="#local-6989586621680361757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberDefinitions:Workteam' :: NonEmpty MemberDefinition
 </span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AmemberDefinitions%3AWorkteam%27"><span class="hs-identifier hs-var">memberDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty MemberDefinition
-</span><a href="#local-6989586621680360287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty MemberDefinition -&gt; f (NonEmpty MemberDefinition))
+</span><a href="#local-6989586621680361756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty MemberDefinition -&gt; f (NonEmpty MemberDefinition))
  -&gt; Workteam -&gt; f Workteam)
 -&gt; ((NonEmpty MemberDefinition -&gt; f (NonEmpty MemberDefinition))
     -&gt; NonEmpty MemberDefinition -&gt; f (NonEmpty MemberDefinition))
@@ -449,8 +449,8 @@ $sel:memberDefinitions:Workteam' :: Workteam -&gt; NonEmpty MemberDefinition
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty MemberDefinition -&gt; f (NonEmpty MemberDefinition))
 -&gt; NonEmpty MemberDefinition -&gt; f (NonEmpty MemberDefinition)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that identifies the work team.</span><span>
 </span><span id="line-168"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_workteamArn"><span class="hs-identifier hs-type">workteam_workteamArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -459,16 +459,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (Workteam -&gt; Text -&gt; Workteam)
 -&gt; Lens Workteam Workteam Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360285"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680361754"><span class="annot"><span class="annottext">Text
 workteamArn :: Text
 $sel:workteamArn:Workteam' :: Workteam -&gt; Text
-</span><a href="#local-6989586621680360285"><span class="hs-identifier hs-var hs-var">workteamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680360285"><span class="hs-identifier hs-var">workteamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360284"><span class="annot"><span class="annottext">s :: Workteam
-</span><a href="#local-6989586621680360284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360283"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680360283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
-</span><a href="#local-6989586621680360284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workteamArn:Workteam' :: Text
+</span><a href="#local-6989586621680361754"><span class="hs-identifier hs-var hs-var">workteamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680361754"><span class="hs-identifier hs-var">workteamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680361753"><span class="annot"><span class="annottext">s :: Workteam
+</span><a href="#local-6989586621680361753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680361752"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680361752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
+</span><a href="#local-6989586621680361753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workteamArn:Workteam' :: Text
 </span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3AworkteamArn%3AWorkteam%27"><span class="hs-identifier hs-var">workteamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680360283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680361752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | A description of the work team.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#workteam_description"><span class="hs-identifier hs-type">workteam_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -477,33 +477,33 @@ $sel:workteamArn:Workteam' :: Workteam -&gt; Text
 -&gt; (Workteam -&gt; Text -&gt; Workteam)
 -&gt; Lens Workteam Workteam Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680360281"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680361750"><span class="annot"><span class="annottext">Text
 description :: Text
 $sel:description:Workteam' :: Workteam -&gt; Text
-</span><a href="#local-6989586621680360281"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680360281"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680360280"><span class="annot"><span class="annottext">s :: Workteam
-</span><a href="#local-6989586621680360280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680360279"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680360279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
-</span><a href="#local-6989586621680360280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Workteam' :: Text
+</span><a href="#local-6989586621680361750"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680361750"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680361749"><span class="annot"><span class="annottext">s :: Workteam
+</span><a href="#local-6989586621680361749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-type">Workteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680361748"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680361748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Workteam
+</span><a href="#local-6989586621680361749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Workteam' :: Text
 </span><a href="Network.AWS.SageMaker.Types.Workteam.html#%24sel%3Adescription%3AWorkteam%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680360279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680361748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680360276"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621680360274"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Workteam
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680361745"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621680361743"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Workteam
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Workteam) -&gt; Value -&gt; Parser Workteam
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Workteam&quot;</span></span><span>
-</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680360271"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680360271"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680361740"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680361740"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-180"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe POSIX
--&gt; Maybe POSIX
--&gt; Maybe NotificationConfiguration
 -&gt; Maybe [Text]
+-&gt; Maybe NotificationConfiguration
+-&gt; Maybe POSIX
 -&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Text
 -&gt; NonEmpty MemberDefinition
 -&gt; Text
@@ -511,11 +511,11 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Workteam
 </span><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam%27"><span class="hs-identifier hs-var">Workteam'</span></a></span><span>
 </span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe POSIX
- -&gt; Maybe POSIX
- -&gt; Maybe NotificationConfiguration
  -&gt; Maybe [Text]
+ -&gt; Maybe NotificationConfiguration
+ -&gt; Maybe POSIX
  -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; Text
  -&gt; NonEmpty MemberDefinition
  -&gt; Text
@@ -523,11 +523,11 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
  -&gt; Workteam)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe POSIX
+     (Maybe [Text]
       -&gt; Maybe NotificationConfiguration
-      -&gt; Maybe [Text]
+      -&gt; Maybe POSIX
       -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Text
       -&gt; NonEmpty MemberDefinition
       -&gt; Text
@@ -535,91 +535,16 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Workteam)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680360271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680361740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;WorkforceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SubDomain&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe POSIX
-   -&gt; Maybe NotificationConfiguration
-   -&gt; Maybe [Text]
-   -&gt; Maybe Text
-   -&gt; Text
-   -&gt; NonEmpty MemberDefinition
-   -&gt; Text
-   -&gt; Text
-   -&gt; Workteam)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe NotificationConfiguration
-      -&gt; Maybe [Text]
-      -&gt; Maybe Text
-      -&gt; Text
-      -&gt; NonEmpty MemberDefinition
-      -&gt; Text
-      -&gt; Text
-      -&gt; Workteam)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680360271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastUpdatedDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe NotificationConfiguration
-   -&gt; Maybe [Text]
-   -&gt; Maybe Text
-   -&gt; Text
-   -&gt; NonEmpty MemberDefinition
-   -&gt; Text
-   -&gt; Text
-   -&gt; Workteam)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe NotificationConfiguration
-      -&gt; Maybe [Text]
-      -&gt; Maybe Text
-      -&gt; Text
-      -&gt; NonEmpty MemberDefinition
-      -&gt; Text
-      -&gt; Text
-      -&gt; Workteam)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680360271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CreateDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe NotificationConfiguration
-   -&gt; Maybe [Text]
-   -&gt; Maybe Text
-   -&gt; Text
-   -&gt; NonEmpty MemberDefinition
-   -&gt; Text
-   -&gt; Text
-   -&gt; Workteam)
--&gt; Parser (Maybe NotificationConfiguration)
--&gt; Parser
-     (Maybe [Text]
-      -&gt; Maybe Text
-      -&gt; Text
-      -&gt; NonEmpty MemberDefinition
-      -&gt; Text
-      -&gt; Text
-      -&gt; Workteam)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680360271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NotificationConfiguration)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NotificationConfiguration&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe [Text]
+   -&gt; Maybe NotificationConfiguration
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; Text
    -&gt; NonEmpty MemberDefinition
    -&gt; Text
@@ -627,40 +552,115 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
    -&gt; Workteam)
 -&gt; Parser (Maybe [Text])
 -&gt; Parser
-     (Maybe Text
-      -&gt; Text -&gt; NonEmpty MemberDefinition -&gt; Text -&gt; Text -&gt; Workteam)
+     (Maybe NotificationConfiguration
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Text
+      -&gt; NonEmpty MemberDefinition
+      -&gt; Text
+      -&gt; Text
+      -&gt; Workteam)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680360271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621680361740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ProductListingIds&quot;</span></span><span>
-</span><span id="line-186"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+</span><span id="line-183"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
 -&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-187"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-184"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe NotificationConfiguration
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Text
+   -&gt; NonEmpty MemberDefinition
+   -&gt; Text
+   -&gt; Text
+   -&gt; Workteam)
+-&gt; Parser (Maybe NotificationConfiguration)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Text
+      -&gt; NonEmpty MemberDefinition
+      -&gt; Text
+      -&gt; Text
+      -&gt; Workteam)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680361740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NotificationConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotificationConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Text
+   -&gt; NonEmpty MemberDefinition
+   -&gt; Text
+   -&gt; Text
+   -&gt; Workteam)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Text
+      -&gt; NonEmpty MemberDefinition
+      -&gt; Text
+      -&gt; Text
+      -&gt; Workteam)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680361740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreateDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Text -&gt; NonEmpty MemberDefinition -&gt; Text -&gt; Text -&gt; Workteam)
+   -&gt; Maybe POSIX
+   -&gt; Text
+   -&gt; NonEmpty MemberDefinition
+   -&gt; Text
+   -&gt; Text
+   -&gt; Workteam)
 -&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Text -&gt; NonEmpty MemberDefinition -&gt; Text -&gt; Text -&gt; Workteam)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680361740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkforceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Text -&gt; NonEmpty MemberDefinition -&gt; Text -&gt; Text -&gt; Workteam)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Text -&gt; NonEmpty MemberDefinition -&gt; Text -&gt; Text -&gt; Workteam)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680360271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680361740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SubDomain&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LastUpdatedDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Text -&gt; NonEmpty MemberDefinition -&gt; Text -&gt; Text -&gt; Workteam)
 -&gt; Parser Text
 -&gt; Parser (NonEmpty MemberDefinition -&gt; Text -&gt; Text -&gt; Workteam)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680360271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680361740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WorkteamName&quot;</span></span><span class="hs-special">)</span><span>
@@ -669,7 +669,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; Workteam)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680360271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty MemberDefinition)
+</span><a href="#local-6989586621680361740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty MemberDefinition)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MemberDefinitions&quot;</span></span><span class="hs-special">)</span><span>
@@ -677,20 +677,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; Workteam)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680360271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680361740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WorkteamArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Workteam) -&gt; Parser Text -&gt; Parser Workteam
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680360271"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680361740"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680360263"><span id="local-6989586621680360265"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span></span></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680361732"><span id="local-6989586621680361734"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span></span></span><span>
 </span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680360260"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680361729"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workteam.html#Workteam"><span class="hs-identifier hs-type">Workteam</span></a></span></span><span>
 </span><span id="line-198"></span></pre></body></html>

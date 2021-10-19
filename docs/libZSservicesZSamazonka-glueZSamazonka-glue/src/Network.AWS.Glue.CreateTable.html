@@ -27,8 +27,8 @@
 </span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#newCreateTable"><span class="hs-identifier">newCreateTable</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#createTable_catalogId"><span class="hs-identifier">createTable_catalogId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#createTable_partitionIndexes"><span class="hs-identifier">createTable_partitionIndexes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#createTable_partitionIndexes"><span class="hs-identifier">createTable_partitionIndexes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#createTable_catalogId"><span class="hs-identifier">createTable_catalogId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#createTable_databaseName"><span class="hs-identifier">createTable_databaseName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#createTable_tableInput"><span class="hs-identifier">createTable_tableInput</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
@@ -49,15 +49,15 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newCreateTable' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679736592"><span id="local-6989586621679736593"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTable"><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-var">CreateTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTable%27"><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-var">CreateTable'</span></a></span></span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Data Catalog in which to create the @Table@. If none is</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- supplied, the Amazon Web Services account ID is used by default.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AcatalogId%3ACreateTable%27"><span class="annot"><span class="annottext">CreateTable -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.CreateTable.html#%24sel%3AcatalogId%3ACreateTable%27"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | A list of partition indexes, @PartitionIndex@ structures, to create in</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- the table.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3ApartitionIndexes%3ACreateTable%27"><span class="annot"><span class="annottext">CreateTable -&gt; Maybe [PartitionIndex]
+</span><span id="line-52"></span><span id="local-6989586621679738386"><span id="local-6989586621679738387"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTable"><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-var">CreateTable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTable%27"><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-var">CreateTable'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of partition indexes, @PartitionIndex@ structures, to create in</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- the table.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3ApartitionIndexes%3ACreateTable%27"><span class="annot"><span class="annottext">CreateTable -&gt; Maybe [PartitionIndex]
 </span><a href="Network.AWS.Glue.CreateTable.html#%24sel%3ApartitionIndexes%3ACreateTable%27"><span class="hs-identifier hs-var hs-var">partitionIndexes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndex.html#PartitionIndex"><span class="hs-identifier hs-type">PartitionIndex</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The ID of the Data Catalog in which to create the @Table@. If none is</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- supplied, the Amazon Web Services account ID is used by default.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AcatalogId%3ACreateTable%27"><span class="annot"><span class="annottext">CreateTable -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.CreateTable.html#%24sel%3AcatalogId%3ACreateTable%27"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The catalog database in which to create the new table. For Hive</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- compatibility, this name is entirely lowercase.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AdatabaseName%3ACreateTable%27"><span class="annot"><span class="annottext">CreateTable -&gt; Text
@@ -67,7 +67,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AtableInput%3ACreateTable%27"><span class="annot"><span class="annottext">CreateTable -&gt; TableInput
 </span><a href="Network.AWS.Glue.CreateTable.html#%24sel%3AtableInput%3ACreateTable%27"><span class="hs-identifier hs-var hs-var">tableInput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.TableInput.html#TableInput"><span class="hs-identifier hs-type">TableInput</span></a></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679736583"><span id="local-6989586621679736585"><span class="annot"><span class="annottext">CreateTable -&gt; CreateTable -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679738377"><span id="local-6989586621679738379"><span class="annot"><span class="annottext">CreateTable -&gt; CreateTable -&gt; Bool
 (CreateTable -&gt; CreateTable -&gt; Bool)
 -&gt; (CreateTable -&gt; CreateTable -&gt; Bool) -&gt; Eq CreateTable
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateTable -&gt; CreateTable -&gt; Bool
 == :: CreateTable -&gt; CreateTable -&gt; Bool
 $c== :: CreateTable -&gt; CreateTable -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679736574"><span id="local-6989586621679736576"><span id="local-6989586621679736578"><span id="local-6989586621679736580"><span class="annot"><span class="annottext">ReadPrec [CreateTable]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679738368"><span id="local-6989586621679738370"><span id="local-6989586621679738372"><span id="local-6989586621679738374"><span class="annot"><span class="annottext">ReadPrec [CreateTable]
 ReadPrec CreateTable
 Int -&gt; ReadS CreateTable
 ReadS [CreateTable]
@@ -95,7 +95,7 @@ readList :: ReadS [CreateTable]
 $creadList :: ReadS [CreateTable]
 readsPrec :: Int -&gt; ReadS CreateTable
 $creadsPrec :: Int -&gt; ReadS CreateTable
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679736567"><span id="local-6989586621679736569"><span id="local-6989586621679736571"><span class="annot"><span class="annottext">Int -&gt; CreateTable -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679738361"><span id="local-6989586621679738363"><span id="local-6989586621679738365"><span class="annot"><span class="annottext">Int -&gt; CreateTable -&gt; ShowS
 [CreateTable] -&gt; ShowS
 CreateTable -&gt; String
 (Int -&gt; CreateTable -&gt; ShowS)
@@ -129,11 +129,11 @@ $cfrom :: forall x. CreateTable -&gt; Rep CreateTable x
 </span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'catalogId', 'createTable_catalogId' - The ID of the Data Catalog in which to create the @Table@. If none is</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- supplied, the Amazon Web Services account ID is used by default.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'partitionIndexes', 'createTable_partitionIndexes' - A list of partition indexes, @PartitionIndex@ structures, to create in</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- the table.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'partitionIndexes', 'createTable_partitionIndexes' - A list of partition indexes, @PartitionIndex@ structures, to create in</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- the table.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'catalogId', 'createTable_catalogId' - The ID of the Data Catalog in which to create the @Table@. If none is</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- supplied, the Amazon Web Services account ID is used by default.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- 'databaseName', 'createTable_databaseName' - The catalog database in which to create the new table. For Hive</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- compatibility, this name is entirely lowercase.</span><span>
@@ -147,51 +147,32 @@ $cfrom :: forall x. CreateTable -&gt; Rep CreateTable x
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.TableInput.html#TableInput"><span class="hs-identifier hs-type">TableInput</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span><span>
 </span><span id="line-93"></span><span id="newCreateTable"><span class="annot"><span class="annottext">newCreateTable :: Text -&gt; TableInput -&gt; CreateTable
-</span><a href="Network.AWS.Glue.CreateTable.html#newCreateTable"><span class="hs-identifier hs-var hs-var">newCreateTable</span></a></span></span><span> </span><span id="local-6989586621679736562"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679736562"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span id="local-6989586621679736561"><span class="annot"><span class="annottext">TableInput
-</span><a href="#local-6989586621679736561"><span class="hs-identifier hs-var">pTableInput_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">CreateTable' :: Maybe Text
--&gt; Maybe [PartitionIndex] -&gt; Text -&gt; TableInput -&gt; CreateTable
+</span><a href="Network.AWS.Glue.CreateTable.html#newCreateTable"><span class="hs-identifier hs-var hs-var">newCreateTable</span></a></span></span><span> </span><span id="local-6989586621679738356"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679738356"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span></span><span> </span><span id="local-6989586621679738355"><span class="annot"><span class="annottext">TableInput
+</span><a href="#local-6989586621679738355"><span class="hs-identifier hs-var">pTableInput_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">CreateTable' :: Maybe [PartitionIndex]
+-&gt; Maybe Text -&gt; Text -&gt; TableInput -&gt; CreateTable
 </span><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:catalogId:CreateTable' :: Maybe Text
-</span><a href="Network.AWS.Glue.CreateTable.html#%24sel%3AcatalogId%3ACreateTable%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:partitionIndexes:CreateTable' :: Maybe [PartitionIndex]
+</span><a href="Network.AWS.Glue.CreateTable.html#%24sel%3ApartitionIndexes%3ACreateTable%27"><span class="hs-identifier hs-var">partitionIndexes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PartitionIndex]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:partitionIndexes:CreateTable' :: Maybe [PartitionIndex]
-</span><a href="Network.AWS.Glue.CreateTable.html#%24sel%3ApartitionIndexes%3ACreateTable%27"><span class="hs-identifier hs-var">partitionIndexes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PartitionIndex]
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:catalogId:CreateTable' :: Maybe Text
+</span><a href="Network.AWS.Glue.CreateTable.html#%24sel%3AcatalogId%3ACreateTable%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:databaseName:CreateTable' :: Text
 </span><a href="Network.AWS.Glue.CreateTable.html#%24sel%3AdatabaseName%3ACreateTable%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679736562"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679738356"><span class="hs-identifier hs-var">pDatabaseName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableInput:CreateTable' :: TableInput
 </span><a href="Network.AWS.Glue.CreateTable.html#%24sel%3AtableInput%3ACreateTable%27"><span class="hs-identifier hs-var">tableInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TableInput
-</span><a href="#local-6989586621679736561"><span class="hs-identifier hs-var">pTableInput_</span></a></span><span>
+</span><a href="#local-6989586621679738355"><span class="hs-identifier hs-var">pTableInput_</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The ID of the Data Catalog in which to create the @Table@. If none is</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- supplied, the Amazon Web Services account ID is used by default.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#createTable_catalogId"><span class="hs-identifier hs-type">createTable_catalogId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="createTable_catalogId"><span class="annot"><span class="annottext">createTable_catalogId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateTable -&gt; f CreateTable
-</span><a href="Network.AWS.Glue.CreateTable.html#createTable_catalogId"><span class="hs-identifier hs-var hs-var">createTable_catalogId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTable -&gt; Maybe Text)
--&gt; (CreateTable -&gt; Maybe Text -&gt; CreateTable)
--&gt; Lens CreateTable CreateTable (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679736558"><span class="annot"><span class="annottext">Maybe Text
-catalogId :: Maybe Text
-$sel:catalogId:CreateTable' :: CreateTable -&gt; Maybe Text
-</span><a href="#local-6989586621679736558"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679736558"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679736557"><span class="annot"><span class="annottext">s :: CreateTable
-</span><a href="#local-6989586621679736557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679736556"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679736556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTable
-</span><a href="#local-6989586621679736557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:CreateTable' :: Maybe Text
-</span><a href="Network.AWS.Glue.CreateTable.html#%24sel%3AcatalogId%3ACreateTable%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679736556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | A list of partition indexes, @PartitionIndex@ structures, to create in</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- the table.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#createTable_partitionIndexes"><span class="hs-identifier hs-type">createTable_partitionIndexes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndex.html#PartitionIndex"><span class="hs-identifier hs-type">PartitionIndex</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="createTable_partitionIndexes"><span class="annot"><span class="annottext">createTable_partitionIndexes :: (Maybe [PartitionIndex] -&gt; f (Maybe [PartitionIndex]))
+</span><span id="line-101"></span><span class="hs-comment">-- | A list of partition indexes, @PartitionIndex@ structures, to create in</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- the table.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#createTable_partitionIndexes"><span class="hs-identifier hs-type">createTable_partitionIndexes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Glue.Types.PartitionIndex.html#PartitionIndex"><span class="hs-identifier hs-type">PartitionIndex</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="createTable_partitionIndexes"><span class="annot"><span class="annottext">createTable_partitionIndexes :: (Maybe [PartitionIndex] -&gt; f (Maybe [PartitionIndex]))
 -&gt; CreateTable -&gt; f CreateTable
 </span><a href="Network.AWS.Glue.CreateTable.html#createTable_partitionIndexes"><span class="hs-identifier hs-var hs-var">createTable_partitionIndexes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTable -&gt; Maybe [PartitionIndex])
 -&gt; (CreateTable -&gt; Maybe [PartitionIndex] -&gt; CreateTable)
@@ -201,16 +182,16 @@ $sel:catalogId:CreateTable' :: CreateTable -&gt; Maybe Text
      (Maybe [PartitionIndex])
      (Maybe [PartitionIndex])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679736555"><span class="annot"><span class="annottext">Maybe [PartitionIndex]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679738352"><span class="annot"><span class="annottext">Maybe [PartitionIndex]
 partitionIndexes :: Maybe [PartitionIndex]
 $sel:partitionIndexes:CreateTable' :: CreateTable -&gt; Maybe [PartitionIndex]
-</span><a href="#local-6989586621679736555"><span class="hs-identifier hs-var hs-var">partitionIndexes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PartitionIndex]
-</span><a href="#local-6989586621679736555"><span class="hs-identifier hs-var">partitionIndexes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679736554"><span class="annot"><span class="annottext">s :: CreateTable
-</span><a href="#local-6989586621679736554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679736553"><span class="annot"><span class="annottext">Maybe [PartitionIndex]
-</span><a href="#local-6989586621679736553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTable
-</span><a href="#local-6989586621679736554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionIndexes:CreateTable' :: Maybe [PartitionIndex]
+</span><a href="#local-6989586621679738352"><span class="hs-identifier hs-var hs-var">partitionIndexes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PartitionIndex]
+</span><a href="#local-6989586621679738352"><span class="hs-identifier hs-var">partitionIndexes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679738351"><span class="annot"><span class="annottext">s :: CreateTable
+</span><a href="#local-6989586621679738351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679738350"><span class="annot"><span class="annottext">Maybe [PartitionIndex]
+</span><a href="#local-6989586621679738350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTable
+</span><a href="#local-6989586621679738351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partitionIndexes:CreateTable' :: Maybe [PartitionIndex]
 </span><a href="Network.AWS.Glue.CreateTable.html#%24sel%3ApartitionIndexes%3ACreateTable%27"><span class="hs-identifier hs-var">partitionIndexes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PartitionIndex]
-</span><a href="#local-6989586621679736553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PartitionIndex] -&gt; f (Maybe [PartitionIndex]))
+</span><a href="#local-6989586621679738350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PartitionIndex] -&gt; f (Maybe [PartitionIndex]))
  -&gt; CreateTable -&gt; f CreateTable)
 -&gt; ((Maybe [PartitionIndex] -&gt; f (Maybe [PartitionIndex]))
     -&gt; Maybe [PartitionIndex] -&gt; f (Maybe [PartitionIndex]))
@@ -230,8 +211,27 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [PartitionIndex] [PartitionIndex] [PartitionIndex] [PartitionIndex]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The ID of the Data Catalog in which to create the @Table@. If none is</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- supplied, the Amazon Web Services account ID is used by default.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#createTable_catalogId"><span class="hs-identifier hs-type">createTable_catalogId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="createTable_catalogId"><span class="annot"><span class="annottext">createTable_catalogId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateTable -&gt; f CreateTable
+</span><a href="Network.AWS.Glue.CreateTable.html#createTable_catalogId"><span class="hs-identifier hs-var hs-var">createTable_catalogId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTable -&gt; Maybe Text)
+-&gt; (CreateTable -&gt; Maybe Text -&gt; CreateTable)
+-&gt; Lens CreateTable CreateTable (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679738346"><span class="annot"><span class="annottext">Maybe Text
+catalogId :: Maybe Text
+$sel:catalogId:CreateTable' :: CreateTable -&gt; Maybe Text
+</span><a href="#local-6989586621679738346"><span class="hs-identifier hs-var hs-var">catalogId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679738346"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679738345"><span class="annot"><span class="annottext">s :: CreateTable
+</span><a href="#local-6989586621679738345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679738344"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679738344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTable
+</span><a href="#local-6989586621679738345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:catalogId:CreateTable' :: Maybe Text
+</span><a href="Network.AWS.Glue.CreateTable.html#%24sel%3AcatalogId%3ACreateTable%27"><span class="hs-identifier hs-var">catalogId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679738344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The catalog database in which to create the new table. For Hive</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- compatibility, this name is entirely lowercase.</span><span>
@@ -241,16 +241,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateTable -&gt; Text -&gt; CreateTable)
 -&gt; Lens CreateTable CreateTable Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679736549"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679738343"><span class="annot"><span class="annottext">Text
 databaseName :: Text
 $sel:databaseName:CreateTable' :: CreateTable -&gt; Text
-</span><a href="#local-6989586621679736549"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679736549"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679736548"><span class="annot"><span class="annottext">s :: CreateTable
-</span><a href="#local-6989586621679736548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679736547"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679736547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTable
-</span><a href="#local-6989586621679736548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:CreateTable' :: Text
+</span><a href="#local-6989586621679738343"><span class="hs-identifier hs-var hs-var">databaseName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679738343"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679738342"><span class="annot"><span class="annottext">s :: CreateTable
+</span><a href="#local-6989586621679738342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679738341"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679738341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTable
+</span><a href="#local-6989586621679738342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:databaseName:CreateTable' :: Text
 </span><a href="Network.AWS.Glue.CreateTable.html#%24sel%3AdatabaseName%3ACreateTable%27"><span class="hs-identifier hs-var">databaseName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679736547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679738341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The @TableInput@ object that defines the metadata table to create in the</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- catalog.</span><span>
@@ -260,25 +260,25 @@ $sel:databaseName:CreateTable' :: CreateTable -&gt; Text
 -&gt; (CreateTable -&gt; TableInput -&gt; CreateTable)
 -&gt; Lens CreateTable CreateTable TableInput TableInput
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679736546"><span class="annot"><span class="annottext">TableInput
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679738340"><span class="annot"><span class="annottext">TableInput
 tableInput :: TableInput
 $sel:tableInput:CreateTable' :: CreateTable -&gt; TableInput
-</span><a href="#local-6989586621679736546"><span class="hs-identifier hs-var hs-var">tableInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableInput
-</span><a href="#local-6989586621679736546"><span class="hs-identifier hs-var">tableInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679736545"><span class="annot"><span class="annottext">s :: CreateTable
-</span><a href="#local-6989586621679736545"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679736544"><span class="annot"><span class="annottext">TableInput
-</span><a href="#local-6989586621679736544"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTable
-</span><a href="#local-6989586621679736545"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableInput:CreateTable' :: TableInput
+</span><a href="#local-6989586621679738340"><span class="hs-identifier hs-var hs-var">tableInput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TableInput
+</span><a href="#local-6989586621679738340"><span class="hs-identifier hs-var">tableInput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679738339"><span class="annot"><span class="annottext">s :: CreateTable
+</span><a href="#local-6989586621679738339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679738338"><span class="annot"><span class="annottext">TableInput
+</span><a href="#local-6989586621679738338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTable
+</span><a href="#local-6989586621679738339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableInput:CreateTable' :: TableInput
 </span><a href="Network.AWS.Glue.CreateTable.html#%24sel%3AtableInput%3ACreateTable%27"><span class="hs-identifier hs-var">tableInput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TableInput
-</span><a href="#local-6989586621679736544"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679738338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTableResponse"><span class="hs-identifier hs-type">CreateTableResponse</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679736540"><span class="annot"><span class="annottext">request :: CreateTable -&gt; Request CreateTable
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679738334"><span class="annot"><span class="annottext">request :: CreateTable -&gt; Request CreateTable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateTable -&gt; Request CreateTable
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679736536"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679738330"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateTable
 -&gt; ClientResponse ClientBody
@@ -302,10 +302,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679736533"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679736533"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679736532"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679736532"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679736531"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679736531"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679738327"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679738327"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679738326"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679738326"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679738325"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679738325"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreateTableResponse
 </span><a href="Network.AWS.Glue.CreateTable.html#CreateTableResponse%27"><span class="hs-identifier hs-var">CreateTableResponse'</span></a></span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreateTableResponse)
@@ -316,15 +316,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679736533"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679738327"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679736524"><span id="local-6989586621679736526"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679738318"><span id="local-6989586621679738320"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679736521"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679738315"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679736517"><span class="annot"><span class="annottext">toHeaders :: CreateTable -&gt; ResponseHeaders
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679738311"><span class="annot"><span class="annottext">toHeaders :: CreateTable -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateTable -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -349,67 +349,67 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679736507"><span id="local-6989586621679736509"><span id="local-6989586621679736511"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679736505"><span class="annot"><span class="annottext">toJSON :: CreateTable -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679736500"><span id="local-6989586621679736501"><span id="local-6989586621679736502"><span id="local-6989586621679736503"><span class="annot"><span class="annottext">Maybe [PartitionIndex]
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679738301"><span id="local-6989586621679738303"><span id="local-6989586621679738305"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679738299"><span class="annot"><span class="annottext">toJSON :: CreateTable -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable%27"><span class="hs-identifier hs-type">CreateTable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679738294"><span id="local-6989586621679738295"><span id="local-6989586621679738296"><span id="local-6989586621679738297"><span class="annot"><span class="annottext">Maybe [PartitionIndex]
 Maybe Text
 Text
 TableInput
 tableInput :: TableInput
 databaseName :: Text
-partitionIndexes :: Maybe [PartitionIndex]
 catalogId :: Maybe Text
+partitionIndexes :: Maybe [PartitionIndex]
 $sel:tableInput:CreateTable' :: CreateTable -&gt; TableInput
 $sel:databaseName:CreateTable' :: CreateTable -&gt; Text
-$sel:partitionIndexes:CreateTable' :: CreateTable -&gt; Maybe [PartitionIndex]
 $sel:catalogId:CreateTable' :: CreateTable -&gt; Maybe Text
-</span><a href="#local-6989586621679736500"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:partitionIndexes:CreateTable' :: CreateTable -&gt; Maybe [PartitionIndex]
+</span><a href="#local-6989586621679738294"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PartitionIndexes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PartitionIndex] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">([PartitionIndex] -&gt; Pair) -&gt; Maybe [PartitionIndex] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PartitionIndex]
+</span><a href="#local-6989586621679738297"><span class="hs-identifier hs-var">partitionIndexes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CatalogId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679736503"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-153"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PartitionIndexes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PartitionIndex] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>              </span><span class="annot"><span class="annottext">([PartitionIndex] -&gt; Pair) -&gt; Maybe [PartitionIndex] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PartitionIndex]
-</span><a href="#local-6989586621679736502"><span class="hs-identifier hs-var">partitionIndexes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679738296"><span class="hs-identifier hs-var">catalogId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DatabaseName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679736501"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679738295"><span class="hs-identifier hs-var">databaseName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableInput&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TableInput -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">TableInput
-</span><a href="#local-6989586621679736500"><span class="hs-identifier hs-var">tableInput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679738294"><span class="hs-identifier hs-var">tableInput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679736494"><span class="annot"><span class="annottext">toPath :: CreateTable -&gt; ByteString
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679738288"><span class="annot"><span class="annottext">toPath :: CreateTable -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateTable -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTable"><span class="hs-identifier hs-type">CreateTable</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679736490"><span class="annot"><span class="annottext">toQuery :: CreateTable -&gt; QueryString
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679738284"><span class="annot"><span class="annottext">toQuery :: CreateTable -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateTable -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -417,12 +417,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | /See:/ 'newCreateTableResponse' smart constructor.</span><span>
-</span><span id="line-167"></span><span id="local-6989586621679736487"><span id="local-6989586621679736488"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTableResponse"><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTableResponse"><span class="hs-identifier hs-var">CreateTableResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTableResponse%27"><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTableResponse%27"><span class="hs-identifier hs-var">CreateTableResponse'</span></a></span></span><span>
+</span><span id="line-167"></span><span id="local-6989586621679738281"><span id="local-6989586621679738282"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTableResponse"><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTableResponse"><span class="hs-identifier hs-var">CreateTableResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTableResponse%27"><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTableResponse%27"><span class="hs-identifier hs-var">CreateTableResponse'</span></a></span></span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-169"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateTableResponse%27"><span class="annot"><span class="annottext">CreateTableResponse -&gt; Int
 </span><a href="Network.AWS.Glue.CreateTable.html#%24sel%3AhttpStatus%3ACreateTableResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-170"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679736482"><span id="local-6989586621679736484"><span class="annot"><span class="annottext">CreateTableResponse -&gt; CreateTableResponse -&gt; Bool
+</span><span id="line-171"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679738276"><span id="local-6989586621679738278"><span class="annot"><span class="annottext">CreateTableResponse -&gt; CreateTableResponse -&gt; Bool
 (CreateTableResponse -&gt; CreateTableResponse -&gt; Bool)
 -&gt; (CreateTableResponse -&gt; CreateTableResponse -&gt; Bool)
 -&gt; Eq CreateTableResponse
@@ -431,7 +431,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateTableResponse -&gt; CreateTableResponse -&gt; Bool
 == :: CreateTableResponse -&gt; CreateTableResponse -&gt; Bool
 $c== :: CreateTableResponse -&gt; CreateTableResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679736474"><span id="local-6989586621679736476"><span id="local-6989586621679736478"><span id="local-6989586621679736480"><span class="annot"><span class="annottext">ReadPrec [CreateTableResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679738268"><span id="local-6989586621679738270"><span id="local-6989586621679738272"><span id="local-6989586621679738274"><span class="annot"><span class="annottext">ReadPrec [CreateTableResponse]
 ReadPrec CreateTableResponse
 Int -&gt; ReadS CreateTableResponse
 ReadS [CreateTableResponse]
@@ -451,7 +451,7 @@ readList :: ReadS [CreateTableResponse]
 $creadList :: ReadS [CreateTableResponse]
 readsPrec :: Int -&gt; ReadS CreateTableResponse
 $creadsPrec :: Int -&gt; ReadS CreateTableResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679736468"><span id="local-6989586621679736470"><span id="local-6989586621679736472"><span class="annot"><span class="annottext">Int -&gt; CreateTableResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679738262"><span id="local-6989586621679738264"><span id="local-6989586621679738266"><span class="annot"><span class="annottext">Int -&gt; CreateTableResponse -&gt; ShowS
 [CreateTableResponse] -&gt; ShowS
 CreateTableResponse -&gt; String
 (Int -&gt; CreateTableResponse -&gt; ShowS)
@@ -491,12 +491,12 @@ $cfrom :: forall x. CreateTableResponse -&gt; Rep CreateTableResponse x
 </span><span id="line-184"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-185"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTableResponse"><span class="hs-identifier hs-type">CreateTableResponse</span></a></span><span>
 </span><span id="line-186"></span><span id="newCreateTableResponse"><span class="annot"><span class="annottext">newCreateTableResponse :: Int -&gt; CreateTableResponse
-</span><a href="Network.AWS.Glue.CreateTable.html#newCreateTableResponse"><span class="hs-identifier hs-var hs-var">newCreateTableResponse</span></a></span></span><span> </span><span id="local-6989586621679736465"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679736465"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.CreateTable.html#newCreateTableResponse"><span class="hs-identifier hs-var hs-var">newCreateTableResponse</span></a></span></span><span> </span><span id="local-6989586621679738259"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679738259"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-187"></span><span>  </span><span class="annot"><span class="annottext">CreateTableResponse' :: Int -&gt; CreateTableResponse
 </span><a href="Network.AWS.Glue.CreateTable.html#CreateTableResponse%27"><span class="hs-identifier hs-type">CreateTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTableResponse' :: Int
 </span><a href="Network.AWS.Glue.CreateTable.html#%24sel%3AhttpStatus%3ACreateTableResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679736465"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679738259"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-190"></span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#createTableResponse_httpStatus"><span class="hs-identifier hs-type">createTableResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTableResponse"><span class="hs-identifier hs-type">CreateTableResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -505,16 +505,16 @@ $cfrom :: forall x. CreateTableResponse -&gt; Rep CreateTableResponse x
 -&gt; (CreateTableResponse -&gt; Int -&gt; CreateTableResponse)
 -&gt; Lens CreateTableResponse CreateTableResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTableResponse%27"><span class="hs-identifier hs-type">CreateTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679736464"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTableResponse%27"><span class="hs-identifier hs-type">CreateTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679738258"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateTableResponse' :: CreateTableResponse -&gt; Int
-</span><a href="#local-6989586621679736464"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679736464"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679736463"><span class="annot"><span class="annottext">s :: CreateTableResponse
-</span><a href="#local-6989586621679736463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTableResponse%27"><span class="hs-identifier hs-type">CreateTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679736462"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679736462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTableResponse
-</span><a href="#local-6989586621679736463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTableResponse' :: Int
+</span><a href="#local-6989586621679738258"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679738258"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679738257"><span class="annot"><span class="annottext">s :: CreateTableResponse
+</span><a href="#local-6989586621679738257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTableResponse%27"><span class="hs-identifier hs-type">CreateTableResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679738256"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679738256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTableResponse
+</span><a href="#local-6989586621679738257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTableResponse' :: Int
 </span><a href="Network.AWS.Glue.CreateTable.html#%24sel%3AhttpStatus%3ACreateTableResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679736462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTableResponse"><span class="hs-identifier hs-type">CreateTableResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679738256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTableResponse"><span class="hs-identifier hs-type">CreateTableResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679736460"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTableResponse"><span class="hs-identifier hs-type">CreateTableResponse</span></a></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679738254"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.CreateTable.html#CreateTableResponse"><span class="hs-identifier hs-type">CreateTableResponse</span></a></span></span><span>
 </span><span id="line-194"></span></pre></body></html>

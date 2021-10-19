@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- before review.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newHumanLoopConfig' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679324582"><span id="local-6989586621679324583"></span></span><span class="hs-keyword">data</span><span> </span><span id="HumanLoopConfig"><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig"><span class="hs-identifier hs-var">HumanLoopConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HumanLoopConfig%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig%27"><span class="hs-identifier hs-var">HumanLoopConfig'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679324861"><span id="local-6989586621679324862"></span></span><span class="hs-keyword">data</span><span> </span><span id="HumanLoopConfig"><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig"><span class="hs-identifier hs-var">HumanLoopConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HumanLoopConfig%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig%27"><span class="hs-identifier hs-var">HumanLoopConfig'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Sets attributes of the input data.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AdataAttributes%3AHumanLoopConfig%27"><span class="annot"><span class="annottext">HumanLoopConfig -&gt; Maybe HumanLoopDataAttributes
 </span><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#%24sel%3AdataAttributes%3AHumanLoopConfig%27"><span class="hs-identifier hs-var hs-var">dataAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopDataAttributes.html#HumanLoopDataAttributes"><span class="hs-identifier hs-type">HumanLoopDataAttributes</span></a></span><span class="hs-special">,</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AflowDefinitionArn%3AHumanLoopConfig%27"><span class="annot"><span class="annottext">HumanLoopConfig -&gt; Text
 </span><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#%24sel%3AflowDefinitionArn%3AHumanLoopConfig%27"><span class="hs-identifier hs-var hs-var">flowDefinitionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324574"><span id="local-6989586621679324576"><span class="annot"><span class="annottext">HumanLoopConfig -&gt; HumanLoopConfig -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324853"><span id="local-6989586621679324855"><span class="annot"><span class="annottext">HumanLoopConfig -&gt; HumanLoopConfig -&gt; Bool
 (HumanLoopConfig -&gt; HumanLoopConfig -&gt; Bool)
 -&gt; (HumanLoopConfig -&gt; HumanLoopConfig -&gt; Bool)
 -&gt; Eq HumanLoopConfig
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HumanLoopConfig -&gt; HumanLoopConfig -&gt; Bool
 == :: HumanLoopConfig -&gt; HumanLoopConfig -&gt; Bool
 $c== :: HumanLoopConfig -&gt; HumanLoopConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324565"><span id="local-6989586621679324567"><span id="local-6989586621679324569"><span id="local-6989586621679324571"><span class="annot"><span class="annottext">ReadPrec [HumanLoopConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324844"><span id="local-6989586621679324846"><span id="local-6989586621679324848"><span id="local-6989586621679324850"><span class="annot"><span class="annottext">ReadPrec [HumanLoopConfig]
 ReadPrec HumanLoopConfig
 Int -&gt; ReadS HumanLoopConfig
 ReadS [HumanLoopConfig]
@@ -73,7 +73,7 @@ readList :: ReadS [HumanLoopConfig]
 $creadList :: ReadS [HumanLoopConfig]
 readsPrec :: Int -&gt; ReadS HumanLoopConfig
 $creadsPrec :: Int -&gt; ReadS HumanLoopConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324558"><span id="local-6989586621679324560"><span id="local-6989586621679324562"><span class="annot"><span class="annottext">Int -&gt; HumanLoopConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324837"><span id="local-6989586621679324839"><span id="local-6989586621679324841"><span class="annot"><span class="annottext">Int -&gt; HumanLoopConfig -&gt; ShowS
 [HumanLoopConfig] -&gt; ShowS
 HumanLoopConfig -&gt; String
 (Int -&gt; HumanLoopConfig -&gt; ShowS)
@@ -124,10 +124,10 @@ $cfrom :: forall x. HumanLoopConfig -&gt; Rep HumanLoopConfig x
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig"><span class="hs-identifier hs-type">HumanLoopConfig</span></a></span><span>
 </span><span id="line-69"></span><span id="newHumanLoopConfig"><span class="annot"><span class="annottext">newHumanLoopConfig :: Text -&gt; Text -&gt; HumanLoopConfig
 </span><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#newHumanLoopConfig"><span class="hs-identifier hs-var hs-var">newHumanLoopConfig</span></a></span></span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679324552"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324552"><span class="hs-identifier hs-var">pHumanLoopName_</span></a></span></span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679324551"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324551"><span class="hs-identifier hs-var">pFlowDefinitionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679324831"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324831"><span class="hs-identifier hs-var">pHumanLoopName_</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679324830"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324830"><span class="hs-identifier hs-var">pFlowDefinitionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">HumanLoopConfig' :: Maybe HumanLoopDataAttributes -&gt; Text -&gt; Text -&gt; HumanLoopConfig
 </span><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig%27"><span class="hs-identifier hs-type">HumanLoopConfig'</span></a></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataAttributes:HumanLoopConfig' :: Maybe HumanLoopDataAttributes
@@ -136,10 +136,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">$sel:humanLoopName:HumanLoopConfig' :: Text
 </span><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#%24sel%3AhumanLoopName%3AHumanLoopConfig%27"><span class="hs-identifier hs-var">humanLoopName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324552"><span class="hs-identifier hs-var">pHumanLoopName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679324831"><span class="hs-identifier hs-var">pHumanLoopName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">$sel:flowDefinitionArn:HumanLoopConfig' :: Text
 </span><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#%24sel%3AflowDefinitionArn%3AHumanLoopConfig%27"><span class="hs-identifier hs-var">flowDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324551"><span class="hs-identifier hs-var">pFlowDefinitionArn_</span></a></span><span>
+</span><a href="#local-6989586621679324830"><span class="hs-identifier hs-var">pFlowDefinitionArn_</span></a></span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | Sets attributes of the input data.</span><span>
@@ -156,16 +156,16 @@ forall a. Maybe a
      (Maybe HumanLoopDataAttributes)
      (Maybe HumanLoopDataAttributes)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig%27"><span class="hs-identifier hs-type">HumanLoopConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324547"><span class="annot"><span class="annottext">Maybe HumanLoopDataAttributes
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig%27"><span class="hs-identifier hs-type">HumanLoopConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324826"><span class="annot"><span class="annottext">Maybe HumanLoopDataAttributes
 dataAttributes :: Maybe HumanLoopDataAttributes
 $sel:dataAttributes:HumanLoopConfig' :: HumanLoopConfig -&gt; Maybe HumanLoopDataAttributes
-</span><a href="#local-6989586621679324547"><span class="hs-identifier hs-var hs-var">dataAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HumanLoopDataAttributes
-</span><a href="#local-6989586621679324547"><span class="hs-identifier hs-var">dataAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324546"><span class="annot"><span class="annottext">s :: HumanLoopConfig
-</span><a href="#local-6989586621679324546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig%27"><span class="hs-identifier hs-type">HumanLoopConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324545"><span class="annot"><span class="annottext">Maybe HumanLoopDataAttributes
-</span><a href="#local-6989586621679324545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanLoopConfig
-</span><a href="#local-6989586621679324546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataAttributes:HumanLoopConfig' :: Maybe HumanLoopDataAttributes
+</span><a href="#local-6989586621679324826"><span class="hs-identifier hs-var hs-var">dataAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HumanLoopDataAttributes
+</span><a href="#local-6989586621679324826"><span class="hs-identifier hs-var">dataAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324825"><span class="annot"><span class="annottext">s :: HumanLoopConfig
+</span><a href="#local-6989586621679324825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig%27"><span class="hs-identifier hs-type">HumanLoopConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324824"><span class="annot"><span class="annottext">Maybe HumanLoopDataAttributes
+</span><a href="#local-6989586621679324824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanLoopConfig
+</span><a href="#local-6989586621679324825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataAttributes:HumanLoopConfig' :: Maybe HumanLoopDataAttributes
 </span><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#%24sel%3AdataAttributes%3AHumanLoopConfig%27"><span class="hs-identifier hs-var">dataAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HumanLoopDataAttributes
-</span><a href="#local-6989586621679324545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig"><span class="hs-identifier hs-type">HumanLoopConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679324824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig"><span class="hs-identifier hs-type">HumanLoopConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The name of the human review used for this image. This should be kept</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- unique within a region.</span><span>
@@ -175,16 +175,16 @@ $sel:dataAttributes:HumanLoopConfig' :: HumanLoopConfig -&gt; Maybe HumanLoopDat
 -&gt; (HumanLoopConfig -&gt; Text -&gt; HumanLoopConfig)
 -&gt; Lens HumanLoopConfig HumanLoopConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig%27"><span class="hs-identifier hs-type">HumanLoopConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324543"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig%27"><span class="hs-identifier hs-type">HumanLoopConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324822"><span class="annot"><span class="annottext">Text
 humanLoopName :: Text
 $sel:humanLoopName:HumanLoopConfig' :: HumanLoopConfig -&gt; Text
-</span><a href="#local-6989586621679324543"><span class="hs-identifier hs-var hs-var">humanLoopName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324543"><span class="hs-identifier hs-var">humanLoopName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324542"><span class="annot"><span class="annottext">s :: HumanLoopConfig
-</span><a href="#local-6989586621679324542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig%27"><span class="hs-identifier hs-type">HumanLoopConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324541"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanLoopConfig
-</span><a href="#local-6989586621679324542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:humanLoopName:HumanLoopConfig' :: Text
+</span><a href="#local-6989586621679324822"><span class="hs-identifier hs-var hs-var">humanLoopName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324822"><span class="hs-identifier hs-var">humanLoopName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324821"><span class="annot"><span class="annottext">s :: HumanLoopConfig
+</span><a href="#local-6989586621679324821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig%27"><span class="hs-identifier hs-type">HumanLoopConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324820"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanLoopConfig
+</span><a href="#local-6989586621679324821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:humanLoopName:HumanLoopConfig' :: Text
 </span><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#%24sel%3AhumanLoopName%3AHumanLoopConfig%27"><span class="hs-identifier hs-var">humanLoopName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig"><span class="hs-identifier hs-type">HumanLoopConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679324820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig"><span class="hs-identifier hs-type">HumanLoopConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the flow definition. You can create a</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- flow definition by using the Amazon Sagemaker</span><span>
@@ -196,24 +196,24 @@ $sel:humanLoopName:HumanLoopConfig' :: HumanLoopConfig -&gt; Text
 -&gt; (HumanLoopConfig -&gt; Text -&gt; HumanLoopConfig)
 -&gt; Lens HumanLoopConfig HumanLoopConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig%27"><span class="hs-identifier hs-type">HumanLoopConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324539"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig%27"><span class="hs-identifier hs-type">HumanLoopConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324818"><span class="annot"><span class="annottext">Text
 flowDefinitionArn :: Text
 $sel:flowDefinitionArn:HumanLoopConfig' :: HumanLoopConfig -&gt; Text
-</span><a href="#local-6989586621679324539"><span class="hs-identifier hs-var hs-var">flowDefinitionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324539"><span class="hs-identifier hs-var">flowDefinitionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324538"><span class="annot"><span class="annottext">s :: HumanLoopConfig
-</span><a href="#local-6989586621679324538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig%27"><span class="hs-identifier hs-type">HumanLoopConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324537"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanLoopConfig
-</span><a href="#local-6989586621679324538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowDefinitionArn:HumanLoopConfig' :: Text
+</span><a href="#local-6989586621679324818"><span class="hs-identifier hs-var hs-var">flowDefinitionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324818"><span class="hs-identifier hs-var">flowDefinitionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324817"><span class="annot"><span class="annottext">s :: HumanLoopConfig
+</span><a href="#local-6989586621679324817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig%27"><span class="hs-identifier hs-type">HumanLoopConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324816"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanLoopConfig
+</span><a href="#local-6989586621679324817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowDefinitionArn:HumanLoopConfig' :: Text
 </span><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#%24sel%3AflowDefinitionArn%3AHumanLoopConfig%27"><span class="hs-identifier hs-var">flowDefinitionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig"><span class="hs-identifier hs-type">HumanLoopConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679324816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig"><span class="hs-identifier hs-type">HumanLoopConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324533"><span id="local-6989586621679324535"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig"><span class="hs-identifier hs-type">HumanLoopConfig</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324812"><span id="local-6989586621679324814"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig"><span class="hs-identifier hs-type">HumanLoopConfig</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324530"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig"><span class="hs-identifier hs-type">HumanLoopConfig</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig"><span class="hs-identifier hs-type">HumanLoopConfig</span></a></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324522"><span id="local-6989586621679324524"><span id="local-6989586621679324526"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig"><span class="hs-identifier hs-type">HumanLoopConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679324520"><span class="annot"><span class="annottext">toJSON :: HumanLoopConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig%27"><span class="hs-identifier hs-type">HumanLoopConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324516"><span id="local-6989586621679324517"><span id="local-6989586621679324518"><span class="annot"><span class="annottext">Maybe HumanLoopDataAttributes
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324801"><span id="local-6989586621679324803"><span id="local-6989586621679324805"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig"><span class="hs-identifier hs-type">HumanLoopConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679324799"><span class="annot"><span class="annottext">toJSON :: HumanLoopConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.HumanLoopConfig.html#HumanLoopConfig%27"><span class="hs-identifier hs-type">HumanLoopConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324795"><span id="local-6989586621679324796"><span id="local-6989586621679324797"><span class="annot"><span class="annottext">Maybe HumanLoopDataAttributes
 Text
 flowDefinitionArn :: Text
 humanLoopName :: Text
@@ -221,7 +221,7 @@ dataAttributes :: Maybe HumanLoopDataAttributes
 $sel:flowDefinitionArn:HumanLoopConfig' :: HumanLoopConfig -&gt; Text
 $sel:humanLoopName:HumanLoopConfig' :: HumanLoopConfig -&gt; Text
 $sel:dataAttributes:HumanLoopConfig' :: HumanLoopConfig -&gt; Maybe HumanLoopDataAttributes
-</span><a href="#local-6989586621679324516"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679324795"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -235,14 +235,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe HumanLoopDataAttributes -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HumanLoopDataAttributes
-</span><a href="#local-6989586621679324518"><span class="hs-identifier hs-var">dataAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679324797"><span class="hs-identifier hs-var">dataAttributes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HumanLoopName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324517"><span class="hs-identifier hs-var">humanLoopName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679324796"><span class="hs-identifier hs-var">humanLoopName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -250,7 +250,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;FlowDefinitionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679324516"><span class="hs-identifier hs-var">flowDefinitionArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679324795"><span class="hs-identifier hs-var">flowDefinitionArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span></pre></body></html>

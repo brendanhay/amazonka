@@ -26,13 +26,13 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Provides the details of the @ActivityTaskFailed@ event.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newActivityTaskFailedEventAttributes' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679342137"><span id="local-6989586621679342138"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivityTaskFailedEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes"><span class="hs-identifier hs-var">ActivityTaskFailedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityTaskFailedEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-var">ActivityTaskFailedEventAttributes'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The details of the failure.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3Adetails%3AActivityTaskFailedEventAttributes%27"><span class="annot"><span class="annottext">ActivityTaskFailedEventAttributes -&gt; Maybe Text
-</span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#%24sel%3Adetails%3AActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The reason provided for the failure.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Areason%3AActivityTaskFailedEventAttributes%27"><span class="annot"><span class="annottext">ActivityTaskFailedEventAttributes -&gt; Maybe Text
+</span><span id="line-29"></span><span id="local-6989586621679342214"><span id="local-6989586621679342215"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivityTaskFailedEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes"><span class="hs-identifier hs-var">ActivityTaskFailedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityTaskFailedEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-var">ActivityTaskFailedEventAttributes'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The reason provided for the failure.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Areason%3AActivityTaskFailedEventAttributes%27"><span class="annot"><span class="annottext">ActivityTaskFailedEventAttributes -&gt; Maybe Text
 </span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#%24sel%3Areason%3AActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The details of the failure.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Adetails%3AActivityTaskFailedEventAttributes%27"><span class="annot"><span class="annottext">ActivityTaskFailedEventAttributes -&gt; Maybe Text
+</span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#%24sel%3Adetails%3AActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- activity task was scheduled. This information can be useful for</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- diagnosing problems by tracing back the chain of events leading up to</span><span>
@@ -45,7 +45,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AstartedEventId%3AActivityTaskFailedEventAttributes%27"><span class="annot"><span class="annottext">ActivityTaskFailedEventAttributes -&gt; Integer
 </span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#%24sel%3AstartedEventId%3AActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342128"><span id="local-6989586621679342130"><span class="annot"><span class="annottext">ActivityTaskFailedEventAttributes
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342205"><span id="local-6989586621679342207"><span class="annot"><span class="annottext">ActivityTaskFailedEventAttributes
 -&gt; ActivityTaskFailedEventAttributes -&gt; Bool
 (ActivityTaskFailedEventAttributes
  -&gt; ActivityTaskFailedEventAttributes -&gt; Bool)
@@ -61,7 +61,7 @@ $c/= :: ActivityTaskFailedEventAttributes
 -&gt; ActivityTaskFailedEventAttributes -&gt; Bool
 $c== :: ActivityTaskFailedEventAttributes
 -&gt; ActivityTaskFailedEventAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342119"><span id="local-6989586621679342121"><span id="local-6989586621679342123"><span id="local-6989586621679342125"><span class="annot"><span class="annottext">ReadPrec [ActivityTaskFailedEventAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342196"><span id="local-6989586621679342198"><span id="local-6989586621679342200"><span id="local-6989586621679342202"><span class="annot"><span class="annottext">ReadPrec [ActivityTaskFailedEventAttributes]
 ReadPrec ActivityTaskFailedEventAttributes
 Int -&gt; ReadS ActivityTaskFailedEventAttributes
 ReadS [ActivityTaskFailedEventAttributes]
@@ -81,7 +81,7 @@ readList :: ReadS [ActivityTaskFailedEventAttributes]
 $creadList :: ReadS [ActivityTaskFailedEventAttributes]
 readsPrec :: Int -&gt; ReadS ActivityTaskFailedEventAttributes
 $creadsPrec :: Int -&gt; ReadS ActivityTaskFailedEventAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342112"><span id="local-6989586621679342114"><span id="local-6989586621679342116"><span class="annot"><span class="annottext">Int -&gt; ActivityTaskFailedEventAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342189"><span id="local-6989586621679342191"><span id="local-6989586621679342193"><span class="annot"><span class="annottext">Int -&gt; ActivityTaskFailedEventAttributes -&gt; ShowS
 [ActivityTaskFailedEventAttributes] -&gt; ShowS
 ActivityTaskFailedEventAttributes -&gt; String
 (Int -&gt; ActivityTaskFailedEventAttributes -&gt; ShowS)
@@ -127,9 +127,9 @@ ActivityTaskFailedEventAttributes
 </span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'details', 'activityTaskFailedEventAttributes_details' - The details of the failure.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'reason', 'activityTaskFailedEventAttributes_reason' - The reason provided for the failure.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'reason', 'activityTaskFailedEventAttributes_reason' - The reason provided for the failure.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'details', 'activityTaskFailedEventAttributes_details' - The details of the failure.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- 'scheduledEventId', 'activityTaskFailedEventAttributes_scheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- activity task was scheduled. This information can be useful for</span><span>
@@ -147,61 +147,36 @@ ActivityTaskFailedEventAttributes
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes</span></a></span><span>
 </span><span id="line-72"></span><span id="newActivityTaskFailedEventAttributes"><span class="annot"><span class="annottext">newActivityTaskFailedEventAttributes :: Integer -&gt; Integer -&gt; ActivityTaskFailedEventAttributes
 </span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#newActivityTaskFailedEventAttributes"><span class="hs-identifier hs-var hs-var">newActivityTaskFailedEventAttributes</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679342106"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342106"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679342105"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342105"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679342183"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679342183"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679342182"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679342182"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">ActivityTaskFailedEventAttributes' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Integer
 -&gt; Integer
 -&gt; ActivityTaskFailedEventAttributes
 </span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes'</span></a></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:details:ActivityTaskFailedEventAttributes' :: Maybe Text
-</span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#%24sel%3Adetails%3AActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reason:ActivityTaskFailedEventAttributes' :: Maybe Text
+</span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#%24sel%3Areason%3AActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">$sel:reason:ActivityTaskFailedEventAttributes' :: Maybe Text
-</span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#%24sel%3Areason%3AActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">$sel:details:ActivityTaskFailedEventAttributes' :: Maybe Text
+</span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#%24sel%3Adetails%3AActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">$sel:scheduledEventId:ActivityTaskFailedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#%24sel%3AscheduledEventId%3AActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342106"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679342183"><span class="hs-identifier hs-var">pScheduledEventId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:startedEventId:ActivityTaskFailedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#%24sel%3AstartedEventId%3AActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-var">startedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342105"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span><span>
+</span><a href="#local-6989586621679342182"><span class="hs-identifier hs-var">pStartedEventId_</span></a></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | The details of the failure.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#activityTaskFailedEventAttributes_details"><span class="hs-identifier hs-type">activityTaskFailedEventAttributes_details</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="activityTaskFailedEventAttributes_details"><span class="annot"><span class="annottext">activityTaskFailedEventAttributes_details :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ActivityTaskFailedEventAttributes
--&gt; f ActivityTaskFailedEventAttributes
-</span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#activityTaskFailedEventAttributes_details"><span class="hs-identifier hs-var hs-var">activityTaskFailedEventAttributes_details</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivityTaskFailedEventAttributes -&gt; Maybe Text)
--&gt; (ActivityTaskFailedEventAttributes
-    -&gt; Maybe Text -&gt; ActivityTaskFailedEventAttributes)
--&gt; Lens
-     ActivityTaskFailedEventAttributes
-     ActivityTaskFailedEventAttributes
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342101"><span class="annot"><span class="annottext">Maybe Text
-details :: Maybe Text
-$sel:details:ActivityTaskFailedEventAttributes' :: ActivityTaskFailedEventAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679342101"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342101"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342100"><span class="annot"><span class="annottext">s :: ActivityTaskFailedEventAttributes
-</span><a href="#local-6989586621679342100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342099"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskFailedEventAttributes
-</span><a href="#local-6989586621679342100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:ActivityTaskFailedEventAttributes' :: Maybe Text
-</span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#%24sel%3Adetails%3AActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The reason provided for the failure.</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#activityTaskFailedEventAttributes_reason"><span class="hs-identifier hs-type">activityTaskFailedEventAttributes_reason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span id="activityTaskFailedEventAttributes_reason"><span class="annot"><span class="annottext">activityTaskFailedEventAttributes_reason :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-83"></span><span class="hs-comment">-- | The reason provided for the failure.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#activityTaskFailedEventAttributes_reason"><span class="hs-identifier hs-type">activityTaskFailedEventAttributes_reason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="activityTaskFailedEventAttributes_reason"><span class="annot"><span class="annottext">activityTaskFailedEventAttributes_reason :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ActivityTaskFailedEventAttributes
 -&gt; f ActivityTaskFailedEventAttributes
 </span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#activityTaskFailedEventAttributes_reason"><span class="hs-identifier hs-var hs-var">activityTaskFailedEventAttributes_reason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivityTaskFailedEventAttributes -&gt; Maybe Text)
@@ -213,16 +188,41 @@ $sel:details:ActivityTaskFailedEventAttributes' :: ActivityTaskFailedEventAttrib
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342097"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342178"><span class="annot"><span class="annottext">Maybe Text
 reason :: Maybe Text
 $sel:reason:ActivityTaskFailedEventAttributes' :: ActivityTaskFailedEventAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679342097"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342097"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342096"><span class="annot"><span class="annottext">s :: ActivityTaskFailedEventAttributes
-</span><a href="#local-6989586621679342096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342095"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskFailedEventAttributes
-</span><a href="#local-6989586621679342096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:ActivityTaskFailedEventAttributes' :: Maybe Text
+</span><a href="#local-6989586621679342178"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342178"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342177"><span class="annot"><span class="annottext">s :: ActivityTaskFailedEventAttributes
+</span><a href="#local-6989586621679342177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342176"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskFailedEventAttributes
+</span><a href="#local-6989586621679342177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:ActivityTaskFailedEventAttributes' :: Maybe Text
 </span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#%24sel%3Areason%3AActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The details of the failure.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#activityTaskFailedEventAttributes_details"><span class="hs-identifier hs-type">activityTaskFailedEventAttributes_details</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="activityTaskFailedEventAttributes_details"><span class="annot"><span class="annottext">activityTaskFailedEventAttributes_details :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ActivityTaskFailedEventAttributes
+-&gt; f ActivityTaskFailedEventAttributes
+</span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#activityTaskFailedEventAttributes_details"><span class="hs-identifier hs-var hs-var">activityTaskFailedEventAttributes_details</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivityTaskFailedEventAttributes -&gt; Maybe Text)
+-&gt; (ActivityTaskFailedEventAttributes
+    -&gt; Maybe Text -&gt; ActivityTaskFailedEventAttributes)
+-&gt; Lens
+     ActivityTaskFailedEventAttributes
+     ActivityTaskFailedEventAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342174"><span class="annot"><span class="annottext">Maybe Text
+details :: Maybe Text
+$sel:details:ActivityTaskFailedEventAttributes' :: ActivityTaskFailedEventAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679342174"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342174"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342173"><span class="annot"><span class="annottext">s :: ActivityTaskFailedEventAttributes
+</span><a href="#local-6989586621679342173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342172"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskFailedEventAttributes
+</span><a href="#local-6989586621679342173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:ActivityTaskFailedEventAttributes' :: Maybe Text
+</span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#%24sel%3Adetails%3AActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- activity task was scheduled. This information can be useful for</span><span>
@@ -241,16 +241,16 @@ $sel:reason:ActivityTaskFailedEventAttributes' :: ActivityTaskFailedEventAttribu
      Integer
      Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342093"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342170"><span class="annot"><span class="annottext">Integer
 scheduledEventId :: Integer
 $sel:scheduledEventId:ActivityTaskFailedEventAttributes' :: ActivityTaskFailedEventAttributes -&gt; Integer
-</span><a href="#local-6989586621679342093"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342093"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342092"><span class="annot"><span class="annottext">s :: ActivityTaskFailedEventAttributes
-</span><a href="#local-6989586621679342092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342091"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskFailedEventAttributes
-</span><a href="#local-6989586621679342092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledEventId:ActivityTaskFailedEventAttributes' :: Integer
+</span><a href="#local-6989586621679342170"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679342170"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342169"><span class="annot"><span class="annottext">s :: ActivityTaskFailedEventAttributes
+</span><a href="#local-6989586621679342169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342168"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679342168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskFailedEventAttributes
+</span><a href="#local-6989586621679342169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledEventId:ActivityTaskFailedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#%24sel%3AscheduledEventId%3AActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The ID of the @ActivityTaskStarted@ event recorded when this activity</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- task was started. This information can be useful for diagnosing problems</span><span>
@@ -268,22 +268,22 @@ $sel:scheduledEventId:ActivityTaskFailedEventAttributes' :: ActivityTaskFailedEv
      Integer
      Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342089"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342166"><span class="annot"><span class="annottext">Integer
 startedEventId :: Integer
 $sel:startedEventId:ActivityTaskFailedEventAttributes' :: ActivityTaskFailedEventAttributes -&gt; Integer
-</span><a href="#local-6989586621679342089"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342089"><span class="hs-identifier hs-var">startedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342088"><span class="annot"><span class="annottext">s :: ActivityTaskFailedEventAttributes
-</span><a href="#local-6989586621679342088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342087"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskFailedEventAttributes
-</span><a href="#local-6989586621679342088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedEventId:ActivityTaskFailedEventAttributes' :: Integer
+</span><a href="#local-6989586621679342166"><span class="hs-identifier hs-var hs-var">startedEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679342166"><span class="hs-identifier hs-var">startedEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342165"><span class="annot"><span class="annottext">s :: ActivityTaskFailedEventAttributes
+</span><a href="#local-6989586621679342165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342164"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679342164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityTaskFailedEventAttributes
+</span><a href="#local-6989586621679342165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startedEventId:ActivityTaskFailedEventAttributes' :: Integer
 </span><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#%24sel%3AstartedEventId%3AActivityTaskFailedEventAttributes%27"><span class="hs-identifier hs-var">startedEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679342087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679342084"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679342161"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes</span></a></span></span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679342082"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActivityTaskFailedEventAttributes
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679342159"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActivityTaskFailedEventAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ActivityTaskFailedEventAttributes)
@@ -293,8 +293,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ActivityTaskFailedEventAttributes&quot;</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342079"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342079"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342156"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342156"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Integer
@@ -312,10 +312,10 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Integer -&gt; Integer -&gt; ActivityTaskFailedEventAttributes)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679342156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;details&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;reason&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Integer -&gt; Integer -&gt; ActivityTaskFailedEventAttributes)
@@ -323,16 +323,16 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Integer -&gt; Integer -&gt; ActivityTaskFailedEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679342156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;reason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;details&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser (Integer -&gt; Integer -&gt; ActivityTaskFailedEventAttributes)
 -&gt; Parser Integer
 -&gt; Parser (Integer -&gt; ActivityTaskFailedEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679342156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scheduledEventId&quot;</span></span><span class="hs-special">)</span><span>
@@ -340,17 +340,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Integer -&gt; Parser ActivityTaskFailedEventAttributes
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
+</span><a href="#local-6989586621679342156"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Integer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;startedEventId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679342072"><span id="local-6989586621679342074"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679342149"><span id="local-6989586621679342151"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679342069"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679342146"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.ActivityTaskFailedEventAttributes.html#ActivityTaskFailedEventAttributes"><span class="hs-identifier hs-type">ActivityTaskFailedEventAttributes</span></a></span></span><span>
 </span><span id="line-126"></span></pre></body></html>

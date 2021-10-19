@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- instance.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newInstanceNetworking' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679617346"><span id="local-6989586621679617347"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceNetworking"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking"><span class="hs-identifier hs-var">InstanceNetworking</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceNetworking%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking%27"><span class="hs-identifier hs-var">InstanceNetworking'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679618246"><span id="local-6989586621679618247"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceNetworking"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking"><span class="hs-identifier hs-var">InstanceNetworking</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceNetworking%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking%27"><span class="hs-identifier hs-var">InstanceNetworking'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount of data in GB allocated for monthly data transfers.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AmonthlyTransfer%3AInstanceNetworking%27"><span class="annot"><span class="annottext">InstanceNetworking -&gt; Maybe MonthlyTransfer
 </span><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#%24sel%3AmonthlyTransfer%3AInstanceNetworking%27"><span class="hs-identifier hs-var hs-var">monthlyTransfer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.MonthlyTransfer.html#MonthlyTransfer"><span class="hs-identifier hs-type">MonthlyTransfer</span></a></span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Aports%3AInstanceNetworking%27"><span class="annot"><span class="annottext">InstanceNetworking -&gt; Maybe [InstancePortInfo]
 </span><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#%24sel%3Aports%3AInstanceNetworking%27"><span class="hs-identifier hs-var hs-var">ports</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstancePortInfo.html#InstancePortInfo"><span class="hs-identifier hs-type">InstancePortInfo</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679617339"><span id="local-6989586621679617341"><span class="annot"><span class="annottext">InstanceNetworking -&gt; InstanceNetworking -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679618239"><span id="local-6989586621679618241"><span class="annot"><span class="annottext">InstanceNetworking -&gt; InstanceNetworking -&gt; Bool
 (InstanceNetworking -&gt; InstanceNetworking -&gt; Bool)
 -&gt; (InstanceNetworking -&gt; InstanceNetworking -&gt; Bool)
 -&gt; Eq InstanceNetworking
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceNetworking -&gt; InstanceNetworking -&gt; Bool
 == :: InstanceNetworking -&gt; InstanceNetworking -&gt; Bool
 $c== :: InstanceNetworking -&gt; InstanceNetworking -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679617330"><span id="local-6989586621679617332"><span id="local-6989586621679617334"><span id="local-6989586621679617336"><span class="annot"><span class="annottext">ReadPrec [InstanceNetworking]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679618230"><span id="local-6989586621679618232"><span id="local-6989586621679618234"><span id="local-6989586621679618236"><span class="annot"><span class="annottext">ReadPrec [InstanceNetworking]
 ReadPrec InstanceNetworking
 Int -&gt; ReadS InstanceNetworking
 ReadS [InstanceNetworking]
@@ -67,7 +67,7 @@ readList :: ReadS [InstanceNetworking]
 $creadList :: ReadS [InstanceNetworking]
 readsPrec :: Int -&gt; ReadS InstanceNetworking
 $creadsPrec :: Int -&gt; ReadS InstanceNetworking
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679617323"><span id="local-6989586621679617325"><span id="local-6989586621679617327"><span class="annot"><span class="annottext">Int -&gt; InstanceNetworking -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679618223"><span id="local-6989586621679618225"><span id="local-6989586621679618227"><span class="annot"><span class="annottext">Int -&gt; InstanceNetworking -&gt; ShowS
 [InstanceNetworking] -&gt; ShowS
 InstanceNetworking -&gt; String
 (Int -&gt; InstanceNetworking -&gt; ShowS)
@@ -136,16 +136,16 @@ forall a. Maybe a
      (Maybe MonthlyTransfer)
      (Maybe MonthlyTransfer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking%27"><span class="hs-identifier hs-type">InstanceNetworking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617314"><span class="annot"><span class="annottext">Maybe MonthlyTransfer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking%27"><span class="hs-identifier hs-type">InstanceNetworking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618214"><span class="annot"><span class="annottext">Maybe MonthlyTransfer
 monthlyTransfer :: Maybe MonthlyTransfer
 $sel:monthlyTransfer:InstanceNetworking' :: InstanceNetworking -&gt; Maybe MonthlyTransfer
-</span><a href="#local-6989586621679617314"><span class="hs-identifier hs-var hs-var">monthlyTransfer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonthlyTransfer
-</span><a href="#local-6989586621679617314"><span class="hs-identifier hs-var">monthlyTransfer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617313"><span class="annot"><span class="annottext">s :: InstanceNetworking
-</span><a href="#local-6989586621679617313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking%27"><span class="hs-identifier hs-type">InstanceNetworking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617312"><span class="annot"><span class="annottext">Maybe MonthlyTransfer
-</span><a href="#local-6989586621679617312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceNetworking
-</span><a href="#local-6989586621679617313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monthlyTransfer:InstanceNetworking' :: Maybe MonthlyTransfer
+</span><a href="#local-6989586621679618214"><span class="hs-identifier hs-var hs-var">monthlyTransfer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonthlyTransfer
+</span><a href="#local-6989586621679618214"><span class="hs-identifier hs-var">monthlyTransfer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618213"><span class="annot"><span class="annottext">s :: InstanceNetworking
+</span><a href="#local-6989586621679618213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking%27"><span class="hs-identifier hs-type">InstanceNetworking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618212"><span class="annot"><span class="annottext">Maybe MonthlyTransfer
+</span><a href="#local-6989586621679618212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceNetworking
+</span><a href="#local-6989586621679618213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monthlyTransfer:InstanceNetworking' :: Maybe MonthlyTransfer
 </span><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#%24sel%3AmonthlyTransfer%3AInstanceNetworking%27"><span class="hs-identifier hs-var">monthlyTransfer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonthlyTransfer
-</span><a href="#local-6989586621679617312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking"><span class="hs-identifier hs-type">InstanceNetworking</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679618212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking"><span class="hs-identifier hs-type">InstanceNetworking</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | An array of key-value pairs containing information about the ports on</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- the instance.</span><span>
@@ -161,16 +161,16 @@ $sel:monthlyTransfer:InstanceNetworking' :: InstanceNetworking -&gt; Maybe Month
      (Maybe [InstancePortInfo])
      (Maybe [InstancePortInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking%27"><span class="hs-identifier hs-type">InstanceNetworking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617310"><span class="annot"><span class="annottext">Maybe [InstancePortInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking%27"><span class="hs-identifier hs-type">InstanceNetworking'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679618210"><span class="annot"><span class="annottext">Maybe [InstancePortInfo]
 ports :: Maybe [InstancePortInfo]
 $sel:ports:InstanceNetworking' :: InstanceNetworking -&gt; Maybe [InstancePortInfo]
-</span><a href="#local-6989586621679617310"><span class="hs-identifier hs-var hs-var">ports</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePortInfo]
-</span><a href="#local-6989586621679617310"><span class="hs-identifier hs-var">ports</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617309"><span class="annot"><span class="annottext">s :: InstanceNetworking
-</span><a href="#local-6989586621679617309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking%27"><span class="hs-identifier hs-type">InstanceNetworking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617308"><span class="annot"><span class="annottext">Maybe [InstancePortInfo]
-</span><a href="#local-6989586621679617308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceNetworking
-</span><a href="#local-6989586621679617309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ports:InstanceNetworking' :: Maybe [InstancePortInfo]
+</span><a href="#local-6989586621679618210"><span class="hs-identifier hs-var hs-var">ports</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePortInfo]
+</span><a href="#local-6989586621679618210"><span class="hs-identifier hs-var">ports</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679618209"><span class="annot"><span class="annottext">s :: InstanceNetworking
+</span><a href="#local-6989586621679618209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking%27"><span class="hs-identifier hs-type">InstanceNetworking'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679618208"><span class="annot"><span class="annottext">Maybe [InstancePortInfo]
+</span><a href="#local-6989586621679618208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceNetworking
+</span><a href="#local-6989586621679618209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ports:InstanceNetworking' :: Maybe [InstancePortInfo]
 </span><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#%24sel%3Aports%3AInstanceNetworking%27"><span class="hs-identifier hs-var">ports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstancePortInfo]
-</span><a href="#local-6989586621679617308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking"><span class="hs-identifier hs-type">InstanceNetworking</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstancePortInfo] -&gt; f (Maybe [InstancePortInfo]))
+</span><a href="#local-6989586621679618208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking"><span class="hs-identifier hs-type">InstanceNetworking</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstancePortInfo] -&gt; f (Maybe [InstancePortInfo]))
  -&gt; InstanceNetworking -&gt; f InstanceNetworking)
 -&gt; ((Maybe [InstancePortInfo] -&gt; f (Maybe [InstancePortInfo]))
     -&gt; Maybe [InstancePortInfo] -&gt; f (Maybe [InstancePortInfo]))
@@ -196,11 +196,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [InstancePortInfo]
   [InstancePortInfo]
   [InstancePortInfo]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679617302"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking"><span class="hs-identifier hs-type">InstanceNetworking</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679617300"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceNetworking
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618202"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking"><span class="hs-identifier hs-type">InstanceNetworking</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679618200"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceNetworking
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InstanceNetworking)
@@ -210,8 +210,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InstanceNetworking&quot;</span></span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679617297"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679617297"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679618197"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679618197"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe MonthlyTransfer
 -&gt; Maybe [InstancePortInfo] -&gt; InstanceNetworking
 </span><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking%27"><span class="hs-identifier hs-var">InstanceNetworking'</span></a></span><span>
@@ -221,7 +221,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [InstancePortInfo] -&gt; InstanceNetworking)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679617297"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MonthlyTransfer)
+</span><a href="#local-6989586621679618197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MonthlyTransfer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;monthlyTransfer&quot;</span></span><span class="hs-special">)</span><span>
@@ -229,7 +229,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [InstancePortInfo]) -&gt; Parser InstanceNetworking
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679617297"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InstancePortInfo]))
+</span><a href="#local-6989586621679618197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [InstancePortInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ports&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [InstancePortInfo]))
@@ -240,7 +240,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679617290"><span id="local-6989586621679617292"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking"><span class="hs-identifier hs-type">InstanceNetworking</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618190"><span id="local-6989586621679618192"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking"><span class="hs-identifier hs-type">InstanceNetworking</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679617287"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking"><span class="hs-identifier hs-type">InstanceNetworking</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679618187"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.InstanceNetworking.html#InstanceNetworking"><span class="hs-identifier hs-type">InstanceNetworking</span></a></span></span><span>
 </span><span id="line-84"></span></pre></body></html>

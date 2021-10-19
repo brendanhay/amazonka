@@ -58,8 +58,8 @@
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#describeInstanceRefreshes_nextToken"><span class="hs-identifier">describeInstanceRefreshes_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#describeInstanceRefreshes_instanceRefreshIds"><span class="hs-identifier">describeInstanceRefreshes_instanceRefreshIds</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#describeInstanceRefreshes_maxRecords"><span class="hs-identifier">describeInstanceRefreshes_maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#describeInstanceRefreshes_maxRecords"><span class="hs-identifier">describeInstanceRefreshes_maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#describeInstanceRefreshes_instanceRefreshIds"><span class="hs-identifier">describeInstanceRefreshes_instanceRefreshIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#describeInstanceRefreshes_autoScalingGroupName"><span class="hs-identifier">describeInstanceRefreshes_autoScalingGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -81,23 +81,23 @@
 </span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | /See:/ 'newDescribeInstanceRefreshes' smart constructor.</span><span>
-</span><span id="line-84"></span><span id="local-6989586621679342871"><span id="local-6989586621679342872"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstanceRefreshes"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-var">DescribeInstanceRefreshes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstanceRefreshes%27"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-var">DescribeInstanceRefreshes'</span></a></span></span><span>
+</span><span id="line-84"></span><span id="local-6989586621679343571"><span id="local-6989586621679343572"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstanceRefreshes"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-var">DescribeInstanceRefreshes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstanceRefreshes%27"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-var">DescribeInstanceRefreshes'</span></a></span></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-comment">-- from a previous call.)</span><span>
 </span><span id="line-87"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeInstanceRefreshes%27"><span class="annot"><span class="annottext">DescribeInstanceRefreshes -&gt; Maybe Text
 </span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AnextToken%3ADescribeInstanceRefreshes%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | One or more instance refresh IDs.</span><span>
-</span><span id="line-89"></span><span>    </span><span id="%24sel%3AinstanceRefreshIds%3ADescribeInstanceRefreshes%27"><span class="annot"><span class="annottext">DescribeInstanceRefreshes -&gt; Maybe [Text]
-</span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AinstanceRefreshIds%3ADescribeInstanceRefreshes%27"><span class="hs-identifier hs-var hs-var">instanceRefreshIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return with this call. The default value</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- is @50@ and the maximum value is @100@.</span><span>
-</span><span id="line-92"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeInstanceRefreshes%27"><span class="annot"><span class="annottext">DescribeInstanceRefreshes -&gt; Maybe Int
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return with this call. The default value</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- is @50@ and the maximum value is @100@.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeInstanceRefreshes%27"><span class="annot"><span class="annottext">DescribeInstanceRefreshes -&gt; Maybe Int
 </span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AmaxRecords%3ADescribeInstanceRefreshes%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | One or more instance refresh IDs.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AinstanceRefreshIds%3ADescribeInstanceRefreshes%27"><span class="annot"><span class="annottext">DescribeInstanceRefreshes -&gt; Maybe [Text]
+</span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AinstanceRefreshIds%3ADescribeInstanceRefreshes%27"><span class="hs-identifier hs-var hs-var">instanceRefreshIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
 </span><span id="line-94"></span><span>    </span><span id="%24sel%3AautoScalingGroupName%3ADescribeInstanceRefreshes%27"><span class="annot"><span class="annottext">DescribeInstanceRefreshes -&gt; Text
 </span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AautoScalingGroupName%3ADescribeInstanceRefreshes%27"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342862"><span id="local-6989586621679342864"><span class="annot"><span class="annottext">DescribeInstanceRefreshes -&gt; DescribeInstanceRefreshes -&gt; Bool
+</span><span id="line-96"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343562"><span id="local-6989586621679343564"><span class="annot"><span class="annottext">DescribeInstanceRefreshes -&gt; DescribeInstanceRefreshes -&gt; Bool
 (DescribeInstanceRefreshes -&gt; DescribeInstanceRefreshes -&gt; Bool)
 -&gt; (DescribeInstanceRefreshes -&gt; DescribeInstanceRefreshes -&gt; Bool)
 -&gt; Eq DescribeInstanceRefreshes
@@ -106,7 +106,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeInstanceRefreshes -&gt; DescribeInstanceRefreshes -&gt; Bool
 == :: DescribeInstanceRefreshes -&gt; DescribeInstanceRefreshes -&gt; Bool
 $c== :: DescribeInstanceRefreshes -&gt; DescribeInstanceRefreshes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342853"><span id="local-6989586621679342855"><span id="local-6989586621679342857"><span id="local-6989586621679342859"><span class="annot"><span class="annottext">ReadPrec [DescribeInstanceRefreshes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343553"><span id="local-6989586621679343555"><span id="local-6989586621679343557"><span id="local-6989586621679343559"><span class="annot"><span class="annottext">ReadPrec [DescribeInstanceRefreshes]
 ReadPrec DescribeInstanceRefreshes
 Int -&gt; ReadS DescribeInstanceRefreshes
 ReadS [DescribeInstanceRefreshes]
@@ -126,7 +126,7 @@ readList :: ReadS [DescribeInstanceRefreshes]
 $creadList :: ReadS [DescribeInstanceRefreshes]
 readsPrec :: Int -&gt; ReadS DescribeInstanceRefreshes
 $creadsPrec :: Int -&gt; ReadS DescribeInstanceRefreshes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342846"><span id="local-6989586621679342848"><span id="local-6989586621679342850"><span class="annot"><span class="annottext">Int -&gt; DescribeInstanceRefreshes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343546"><span id="local-6989586621679343548"><span id="local-6989586621679343550"><span class="annot"><span class="annottext">Int -&gt; DescribeInstanceRefreshes -&gt; ShowS
 [DescribeInstanceRefreshes] -&gt; ShowS
 DescribeInstanceRefreshes -&gt; String
 (Int -&gt; DescribeInstanceRefreshes -&gt; ShowS)
@@ -169,10 +169,10 @@ DescribeInstanceRefreshes -&gt; Rep DescribeInstanceRefreshes x
 </span><span id="line-106"></span><span class="hs-comment">-- 'nextToken', 'describeInstanceRefreshes_nextToken' - The token for the next set of items to return. (You received this token</span><span>
 </span><span id="line-107"></span><span class="hs-comment">-- from a previous call.)</span><span>
 </span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- 'instanceRefreshIds', 'describeInstanceRefreshes_instanceRefreshIds' - One or more instance refresh IDs.</span><span>
-</span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- 'maxRecords', 'describeInstanceRefreshes_maxRecords' - The maximum number of items to return with this call. The default value</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- is @50@ and the maximum value is @100@.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'maxRecords', 'describeInstanceRefreshes_maxRecords' - The maximum number of items to return with this call. The default value</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- is @50@ and the maximum value is @100@.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'instanceRefreshIds', 'describeInstanceRefreshes_instanceRefreshIds' - One or more instance refresh IDs.</span><span>
 </span><span id="line-113"></span><span class="hs-comment">--</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- 'autoScalingGroupName', 'describeInstanceRefreshes_autoScalingGroupName' - The name of the Auto Scaling group.</span><span>
 </span><span id="line-115"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#newDescribeInstanceRefreshes"><span class="hs-identifier hs-type">newDescribeInstanceRefreshes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -180,27 +180,27 @@ DescribeInstanceRefreshes -&gt; Rep DescribeInstanceRefreshes x
 </span><span id="line-117"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span>
 </span><span id="line-119"></span><span id="newDescribeInstanceRefreshes"><span class="annot"><span class="annottext">newDescribeInstanceRefreshes :: Text -&gt; DescribeInstanceRefreshes
-</span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#newDescribeInstanceRefreshes"><span class="hs-identifier hs-var hs-var">newDescribeInstanceRefreshes</span></a></span></span><span> </span><span id="local-6989586621679342841"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342841"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#newDescribeInstanceRefreshes"><span class="hs-identifier hs-var hs-var">newDescribeInstanceRefreshes</span></a></span></span><span> </span><span id="local-6989586621679343541"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343541"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>  </span><span class="annot"><span class="annottext">DescribeInstanceRefreshes' :: Maybe Text
--&gt; Maybe [Text] -&gt; Maybe Int -&gt; Text -&gt; DescribeInstanceRefreshes
+-&gt; Maybe Int -&gt; Maybe [Text] -&gt; Text -&gt; DescribeInstanceRefreshes
 </span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span>
 </span><span id="line-121"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceRefreshes' :: Maybe Text
 </span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AnextToken%3ADescribeInstanceRefreshes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceRefreshIds:DescribeInstanceRefreshes' :: Maybe [Text]
-</span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AinstanceRefreshIds%3ADescribeInstanceRefreshes%27"><span class="hs-identifier hs-var">instanceRefreshIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeInstanceRefreshes' :: Maybe Int
+</span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AmaxRecords%3ADescribeInstanceRefreshes%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeInstanceRefreshes' :: Maybe Int
-</span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AmaxRecords%3ADescribeInstanceRefreshes%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceRefreshIds:DescribeInstanceRefreshes' :: Maybe [Text]
+</span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AinstanceRefreshIds%3ADescribeInstanceRefreshes%27"><span class="hs-identifier hs-var">instanceRefreshIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:DescribeInstanceRefreshes' :: Text
 </span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AautoScalingGroupName%3ADescribeInstanceRefreshes%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342841"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679343541"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span>
 </span><span id="line-126"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The token for the next set of items to return. (You received this token</span><span>
@@ -217,20 +217,45 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342838"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343538"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeInstanceRefreshes' :: DescribeInstanceRefreshes -&gt; Maybe Text
-</span><a href="#local-6989586621679342838"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342838"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342837"><span class="annot"><span class="annottext">s :: DescribeInstanceRefreshes
-</span><a href="#local-6989586621679342837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342836"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceRefreshes
-</span><a href="#local-6989586621679342837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceRefreshes' :: Maybe Text
+</span><a href="#local-6989586621679343538"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343538"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343537"><span class="annot"><span class="annottext">s :: DescribeInstanceRefreshes
+</span><a href="#local-6989586621679343537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343536"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceRefreshes
+</span><a href="#local-6989586621679343537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceRefreshes' :: Maybe Text
 </span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AnextToken%3ADescribeInstanceRefreshes%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679343536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | One or more instance refresh IDs.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#describeInstanceRefreshes_instanceRefreshIds"><span class="hs-identifier hs-type">describeInstanceRefreshes_instanceRefreshIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="describeInstanceRefreshes_instanceRefreshIds"><span class="annot"><span class="annottext">describeInstanceRefreshes_instanceRefreshIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-133"></span><span class="hs-comment">-- | The maximum number of items to return with this call. The default value</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- is @50@ and the maximum value is @100@.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#describeInstanceRefreshes_maxRecords"><span class="hs-identifier hs-type">describeInstanceRefreshes_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="describeInstanceRefreshes_maxRecords"><span class="annot"><span class="annottext">describeInstanceRefreshes_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeInstanceRefreshes -&gt; f DescribeInstanceRefreshes
+</span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#describeInstanceRefreshes_maxRecords"><span class="hs-identifier hs-var hs-var">describeInstanceRefreshes_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceRefreshes -&gt; Maybe Int)
+-&gt; (DescribeInstanceRefreshes
+    -&gt; Maybe Int -&gt; DescribeInstanceRefreshes)
+-&gt; Lens
+     DescribeInstanceRefreshes
+     DescribeInstanceRefreshes
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343535"><span class="annot"><span class="annottext">Maybe Int
+maxRecords :: Maybe Int
+$sel:maxRecords:DescribeInstanceRefreshes' :: DescribeInstanceRefreshes -&gt; Maybe Int
+</span><a href="#local-6989586621679343535"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343535"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343534"><span class="annot"><span class="annottext">s :: DescribeInstanceRefreshes
+</span><a href="#local-6989586621679343534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343533"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceRefreshes
+</span><a href="#local-6989586621679343534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeInstanceRefreshes' :: Maybe Int
+</span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AmaxRecords%3ADescribeInstanceRefreshes%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | One or more instance refresh IDs.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#describeInstanceRefreshes_instanceRefreshIds"><span class="hs-identifier hs-type">describeInstanceRefreshes_instanceRefreshIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="describeInstanceRefreshes_instanceRefreshIds"><span class="annot"><span class="annottext">describeInstanceRefreshes_instanceRefreshIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; DescribeInstanceRefreshes -&gt; f DescribeInstanceRefreshes
 </span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#describeInstanceRefreshes_instanceRefreshIds"><span class="hs-identifier hs-var hs-var">describeInstanceRefreshes_instanceRefreshIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceRefreshes -&gt; Maybe [Text])
 -&gt; (DescribeInstanceRefreshes
@@ -241,16 +266,16 @@ $sel:nextToken:DescribeInstanceRefreshes' :: DescribeInstanceRefreshes -&gt; May
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342835"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343532"><span class="annot"><span class="annottext">Maybe [Text]
 instanceRefreshIds :: Maybe [Text]
 $sel:instanceRefreshIds:DescribeInstanceRefreshes' :: DescribeInstanceRefreshes -&gt; Maybe [Text]
-</span><a href="#local-6989586621679342835"><span class="hs-identifier hs-var hs-var">instanceRefreshIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679342835"><span class="hs-identifier hs-var">instanceRefreshIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342834"><span class="annot"><span class="annottext">s :: DescribeInstanceRefreshes
-</span><a href="#local-6989586621679342834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342833"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679342833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceRefreshes
-</span><a href="#local-6989586621679342834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceRefreshIds:DescribeInstanceRefreshes' :: Maybe [Text]
+</span><a href="#local-6989586621679343532"><span class="hs-identifier hs-var hs-var">instanceRefreshIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679343532"><span class="hs-identifier hs-var">instanceRefreshIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343531"><span class="annot"><span class="annottext">s :: DescribeInstanceRefreshes
+</span><a href="#local-6989586621679343531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343530"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679343530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceRefreshes
+</span><a href="#local-6989586621679343531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceRefreshIds:DescribeInstanceRefreshes' :: Maybe [Text]
 </span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AinstanceRefreshIds%3ADescribeInstanceRefreshes%27"><span class="hs-identifier hs-var">instanceRefreshIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679342833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679343530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeInstanceRefreshes -&gt; f DescribeInstanceRefreshes)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -264,33 +289,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | The maximum number of items to return with this call. The default value</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- is @50@ and the maximum value is @100@.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#describeInstanceRefreshes_maxRecords"><span class="hs-identifier hs-type">describeInstanceRefreshes_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="describeInstanceRefreshes_maxRecords"><span class="annot"><span class="annottext">describeInstanceRefreshes_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
--&gt; DescribeInstanceRefreshes -&gt; f DescribeInstanceRefreshes
-</span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#describeInstanceRefreshes_maxRecords"><span class="hs-identifier hs-var hs-var">describeInstanceRefreshes_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeInstanceRefreshes -&gt; Maybe Int)
--&gt; (DescribeInstanceRefreshes
-    -&gt; Maybe Int -&gt; DescribeInstanceRefreshes)
--&gt; Lens
-     DescribeInstanceRefreshes
-     DescribeInstanceRefreshes
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342829"><span class="annot"><span class="annottext">Maybe Int
-maxRecords :: Maybe Int
-$sel:maxRecords:DescribeInstanceRefreshes' :: DescribeInstanceRefreshes -&gt; Maybe Int
-</span><a href="#local-6989586621679342829"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679342829"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342828"><span class="annot"><span class="annottext">s :: DescribeInstanceRefreshes
-</span><a href="#local-6989586621679342828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342827"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679342827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceRefreshes
-</span><a href="#local-6989586621679342828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeInstanceRefreshes' :: Maybe Int
-</span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AmaxRecords%3ADescribeInstanceRefreshes%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679342827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
 </span><span id="line-143"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#describeInstanceRefreshes_autoScalingGroupName"><span class="hs-identifier hs-type">describeInstanceRefreshes_autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -301,28 +301,28 @@ $sel:maxRecords:DescribeInstanceRefreshes' :: DescribeInstanceRefreshes -&gt; Ma
 -&gt; Lens
      DescribeInstanceRefreshes DescribeInstanceRefreshes Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342826"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343526"><span class="annot"><span class="annottext">Text
 autoScalingGroupName :: Text
 $sel:autoScalingGroupName:DescribeInstanceRefreshes' :: DescribeInstanceRefreshes -&gt; Text
-</span><a href="#local-6989586621679342826"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342826"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342825"><span class="annot"><span class="annottext">s :: DescribeInstanceRefreshes
-</span><a href="#local-6989586621679342825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342824"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceRefreshes
-</span><a href="#local-6989586621679342825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:DescribeInstanceRefreshes' :: Text
+</span><a href="#local-6989586621679343526"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343526"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343525"><span class="annot"><span class="annottext">s :: DescribeInstanceRefreshes
+</span><a href="#local-6989586621679343525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343524"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679343524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceRefreshes
+</span><a href="#local-6989586621679343525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:DescribeInstanceRefreshes' :: Text
 </span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AautoScalingGroupName%3ADescribeInstanceRefreshes%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679343524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-148"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679342820"><span class="annot"><span class="annottext">request :: DescribeInstanceRefreshes -&gt; Request DescribeInstanceRefreshes
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679343520"><span class="annot"><span class="annottext">request :: DescribeInstanceRefreshes -&gt; Request DescribeInstanceRefreshes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeInstanceRefreshes -&gt; Request DescribeInstanceRefreshes
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679342816"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679343516"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeInstanceRefreshes
 -&gt; ClientResponse ClientBody
@@ -353,10 +353,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeInstanceRefreshesResult&quot;</span></span><span>
-</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342813"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342813"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679342812"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679342812"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679342811"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679342811"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679343513"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343513"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679343512"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679343512"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679343511"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679343511"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [InstanceRefresh]
 -&gt; Int
@@ -373,7 +373,7 @@ Text
       -&gt; Int -&gt; DescribeInstanceRefreshesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679342811"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679343511"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -385,7 +385,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeInstanceRefreshesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679342811"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679343511"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceRefreshes&quot;</span></span><span>
@@ -417,15 +417,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342813"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679343513"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342800"><span id="local-6989586621679342802"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343500"><span id="local-6989586621679343502"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span></span></span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342797"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343497"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span></span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679342793"><span class="annot"><span class="annottext">toHeaders :: DescribeInstanceRefreshes -&gt; ResponseHeaders
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679343493"><span class="annot"><span class="annottext">toHeaders :: DescribeInstanceRefreshes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeInstanceRefreshes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -433,27 +433,27 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679342788"><span class="annot"><span class="annottext">toPath :: DescribeInstanceRefreshes -&gt; ByteString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679343488"><span class="annot"><span class="annottext">toPath :: DescribeInstanceRefreshes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeInstanceRefreshes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes"><span class="hs-identifier hs-type">DescribeInstanceRefreshes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679342784"><span class="annot"><span class="annottext">toQuery :: DescribeInstanceRefreshes -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342779"><span id="local-6989586621679342780"><span id="local-6989586621679342781"><span id="local-6989586621679342782"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679343484"><span class="annot"><span class="annottext">toQuery :: DescribeInstanceRefreshes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshes%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343479"><span id="local-6989586621679343480"><span id="local-6989586621679343481"><span id="local-6989586621679343482"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Text]
 Maybe Text
 Text
 autoScalingGroupName :: Text
-maxRecords :: Maybe Int
 instanceRefreshIds :: Maybe [Text]
+maxRecords :: Maybe Int
 nextToken :: Maybe Text
 $sel:autoScalingGroupName:DescribeInstanceRefreshes' :: DescribeInstanceRefreshes -&gt; Text
-$sel:maxRecords:DescribeInstanceRefreshes' :: DescribeInstanceRefreshes -&gt; Maybe Int
 $sel:instanceRefreshIds:DescribeInstanceRefreshes' :: DescribeInstanceRefreshes -&gt; Maybe [Text]
+$sel:maxRecords:DescribeInstanceRefreshes' :: DescribeInstanceRefreshes -&gt; Maybe Int
 $sel:nextToken:DescribeInstanceRefreshes' :: DescribeInstanceRefreshes -&gt; Maybe Text
-</span><a href="#local-6989586621679342779"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679343479"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -473,39 +473,39 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342782"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679343482"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343481"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;InstanceRefreshIds&quot;</span></span><span>
-</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+</span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;member&quot;</span></span><span>
-</span><span id="line-185"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+</span><span id="line-186"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679342781"><span class="hs-identifier hs-var">instanceRefreshIds</span></a></span><span>
-</span><span id="line-186"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679342780"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679343480"><span class="hs-identifier hs-var">instanceRefreshIds</span></a></span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AutoScalingGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342779"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span>
+</span><a href="#local-6989586621679343479"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | /See:/ 'newDescribeInstanceRefreshesResponse' smart constructor.</span><span>
-</span><span id="line-192"></span><span id="local-6989586621679342775"><span id="local-6989586621679342776"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstanceRefreshesResponse"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse"><span class="hs-identifier hs-var">DescribeInstanceRefreshesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstanceRefreshesResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-var">DescribeInstanceRefreshesResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span id="local-6989586621679343475"><span id="local-6989586621679343476"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeInstanceRefreshesResponse"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse"><span class="hs-identifier hs-var">DescribeInstanceRefreshesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeInstanceRefreshesResponse%27"><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-var">DescribeInstanceRefreshesResponse'</span></a></span></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string that indicates that the response contains more items than can</span><span>
 </span><span id="line-194"></span><span>    </span><span class="hs-comment">-- be returned in a single response. To receive additional items, specify</span><span>
 </span><span id="line-195"></span><span>    </span><span class="hs-comment">-- this string for the @NextToken@ value when requesting the next set of</span><span>
@@ -519,7 +519,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-201"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeInstanceRefreshesResponse%27"><span class="annot"><span class="annottext">DescribeInstanceRefreshesResponse -&gt; Int
 </span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AhttpStatus%3ADescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-202"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342768"><span id="local-6989586621679342770"><span class="annot"><span class="annottext">DescribeInstanceRefreshesResponse
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343468"><span id="local-6989586621679343470"><span class="annot"><span class="annottext">DescribeInstanceRefreshesResponse
 -&gt; DescribeInstanceRefreshesResponse -&gt; Bool
 (DescribeInstanceRefreshesResponse
  -&gt; DescribeInstanceRefreshesResponse -&gt; Bool)
@@ -535,7 +535,7 @@ $c/= :: DescribeInstanceRefreshesResponse
 -&gt; DescribeInstanceRefreshesResponse -&gt; Bool
 $c== :: DescribeInstanceRefreshesResponse
 -&gt; DescribeInstanceRefreshesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342760"><span id="local-6989586621679342762"><span id="local-6989586621679342764"><span id="local-6989586621679342766"><span class="annot"><span class="annottext">ReadPrec [DescribeInstanceRefreshesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343460"><span id="local-6989586621679343462"><span id="local-6989586621679343464"><span id="local-6989586621679343466"><span class="annot"><span class="annottext">ReadPrec [DescribeInstanceRefreshesResponse]
 ReadPrec DescribeInstanceRefreshesResponse
 Int -&gt; ReadS DescribeInstanceRefreshesResponse
 ReadS [DescribeInstanceRefreshesResponse]
@@ -555,7 +555,7 @@ readList :: ReadS [DescribeInstanceRefreshesResponse]
 $creadList :: ReadS [DescribeInstanceRefreshesResponse]
 readsPrec :: Int -&gt; ReadS DescribeInstanceRefreshesResponse
 $creadsPrec :: Int -&gt; ReadS DescribeInstanceRefreshesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342754"><span id="local-6989586621679342756"><span id="local-6989586621679342758"><span class="annot"><span class="annottext">Int -&gt; DescribeInstanceRefreshesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343454"><span id="local-6989586621679343456"><span id="local-6989586621679343458"><span class="annot"><span class="annottext">Int -&gt; DescribeInstanceRefreshesResponse -&gt; ShowS
 [DescribeInstanceRefreshesResponse] -&gt; ShowS
 DescribeInstanceRefreshesResponse -&gt; String
 (Int -&gt; DescribeInstanceRefreshesResponse -&gt; ShowS)
@@ -614,8 +614,8 @@ DescribeInstanceRefreshesResponse
 </span><span id="line-223"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-224"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse</span></a></span><span>
 </span><span id="line-225"></span><span id="newDescribeInstanceRefreshesResponse"><span class="annot"><span class="annottext">newDescribeInstanceRefreshesResponse :: Int -&gt; DescribeInstanceRefreshesResponse
-</span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#newDescribeInstanceRefreshesResponse"><span class="hs-identifier hs-var hs-var">newDescribeInstanceRefreshesResponse</span></a></span></span><span> </span><span id="local-6989586621679342751"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342751"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#newDescribeInstanceRefreshesResponse"><span class="hs-identifier hs-var hs-var">newDescribeInstanceRefreshesResponse</span></a></span></span><span> </span><span id="local-6989586621679343451"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343451"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-226"></span><span>  </span><span class="annot"><span class="annottext">DescribeInstanceRefreshesResponse' :: Maybe Text
 -&gt; Maybe [InstanceRefresh]
 -&gt; Int
@@ -632,7 +632,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstanceRefreshesResponse' :: Int
 </span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AhttpStatus%3ADescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342751"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679343451"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-231"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | A string that indicates that the response contains more items than can</span><span>
@@ -652,16 +652,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342750"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343450"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeInstanceRefreshesResponse' :: DescribeInstanceRefreshesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679342750"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342750"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342749"><span class="annot"><span class="annottext">s :: DescribeInstanceRefreshesResponse
-</span><a href="#local-6989586621679342749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342748"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceRefreshesResponse
-</span><a href="#local-6989586621679342749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceRefreshesResponse' :: Maybe Text
+</span><a href="#local-6989586621679343450"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343450"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343449"><span class="annot"><span class="annottext">s :: DescribeInstanceRefreshesResponse
+</span><a href="#local-6989586621679343449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343448"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceRefreshesResponse
+</span><a href="#local-6989586621679343449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeInstanceRefreshesResponse' :: Maybe Text
 </span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AnextToken%3ADescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679343448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- | The instance refreshes for the specified group.</span><span>
 </span><span id="line-241"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#describeInstanceRefreshesResponse_instanceRefreshes"><span class="hs-identifier hs-type">describeInstanceRefreshesResponse_instanceRefreshes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.InstanceRefresh.html#InstanceRefresh"><span class="hs-identifier hs-type">InstanceRefresh</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -677,16 +677,16 @@ $sel:nextToken:DescribeInstanceRefreshesResponse' :: DescribeInstanceRefreshesRe
      (Maybe [InstanceRefresh])
      (Maybe [InstanceRefresh])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342747"><span class="annot"><span class="annottext">Maybe [InstanceRefresh]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343447"><span class="annot"><span class="annottext">Maybe [InstanceRefresh]
 instanceRefreshes :: Maybe [InstanceRefresh]
 $sel:instanceRefreshes:DescribeInstanceRefreshesResponse' :: DescribeInstanceRefreshesResponse -&gt; Maybe [InstanceRefresh]
-</span><a href="#local-6989586621679342747"><span class="hs-identifier hs-var hs-var">instanceRefreshes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceRefresh]
-</span><a href="#local-6989586621679342747"><span class="hs-identifier hs-var">instanceRefreshes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342746"><span class="annot"><span class="annottext">s :: DescribeInstanceRefreshesResponse
-</span><a href="#local-6989586621679342746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342745"><span class="annot"><span class="annottext">Maybe [InstanceRefresh]
-</span><a href="#local-6989586621679342745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceRefreshesResponse
-</span><a href="#local-6989586621679342746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceRefreshes:DescribeInstanceRefreshesResponse' :: Maybe [InstanceRefresh]
+</span><a href="#local-6989586621679343447"><span class="hs-identifier hs-var hs-var">instanceRefreshes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceRefresh]
+</span><a href="#local-6989586621679343447"><span class="hs-identifier hs-var">instanceRefreshes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343446"><span class="annot"><span class="annottext">s :: DescribeInstanceRefreshesResponse
+</span><a href="#local-6989586621679343446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343445"><span class="annot"><span class="annottext">Maybe [InstanceRefresh]
+</span><a href="#local-6989586621679343445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceRefreshesResponse
+</span><a href="#local-6989586621679343446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceRefreshes:DescribeInstanceRefreshesResponse' :: Maybe [InstanceRefresh]
 </span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AinstanceRefreshes%3ADescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-var">instanceRefreshes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceRefresh]
-</span><a href="#local-6989586621679342745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceRefresh] -&gt; f (Maybe [InstanceRefresh]))
+</span><a href="#local-6989586621679343445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceRefresh] -&gt; f (Maybe [InstanceRefresh]))
  -&gt; DescribeInstanceRefreshesResponse
  -&gt; f DescribeInstanceRefreshesResponse)
 -&gt; ((Maybe [InstanceRefresh] -&gt; f (Maybe [InstanceRefresh]))
@@ -713,8 +713,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [InstanceRefresh]
   [InstanceRefresh]
   [InstanceRefresh]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-243"></span><span>
 </span><span id="line-244"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-245"></span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#describeInstanceRefreshesResponse_httpStatus"><span class="hs-identifier hs-type">describeInstanceRefreshesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -730,18 +730,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342744"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343444"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeInstanceRefreshesResponse' :: DescribeInstanceRefreshesResponse -&gt; Int
-</span><a href="#local-6989586621679342744"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342744"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342743"><span class="annot"><span class="annottext">s :: DescribeInstanceRefreshesResponse
-</span><a href="#local-6989586621679342743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342742"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceRefreshesResponse
-</span><a href="#local-6989586621679342743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstanceRefreshesResponse' :: Int
+</span><a href="#local-6989586621679343444"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343444"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343443"><span class="annot"><span class="annottext">s :: DescribeInstanceRefreshesResponse
+</span><a href="#local-6989586621679343443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343442"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeInstanceRefreshesResponse
+</span><a href="#local-6989586621679343443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeInstanceRefreshesResponse' :: Int
 </span><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#%24sel%3AhttpStatus%3ADescribeInstanceRefreshesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679343442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>
 </span><span id="line-248"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-249"></span><span>  </span><span id="local-6989586621679342740"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-249"></span><span>  </span><span id="local-6989586621679343440"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-250"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.DescribeInstanceRefreshes.html#DescribeInstanceRefreshesResponse"><span class="hs-identifier hs-type">DescribeInstanceRefreshesResponse</span></a></span></span><span>
 </span><span id="line-251"></span></pre></body></html>

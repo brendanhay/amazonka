@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the reference data source configured for an application.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newReferenceDataSourceDescription' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679210212"><span id="local-6989586621679210213"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReferenceDataSourceDescription"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription"><span class="hs-identifier hs-var">ReferenceDataSourceDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReferenceDataSourceDescription%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription%27"><span class="hs-identifier hs-var">ReferenceDataSourceDescription'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679210315"><span id="local-6989586621679210316"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReferenceDataSourceDescription"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription"><span class="hs-identifier hs-var">ReferenceDataSourceDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReferenceDataSourceDescription%27"><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription%27"><span class="hs-identifier hs-var">ReferenceDataSourceDescription'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the format of the data in the streaming source, and how each</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- data element maps to corresponding columns created in the in-application</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- stream.</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3As3ReferenceDataSourceDescription%3AReferenceDataSourceDescription%27"><span class="annot"><span class="annottext">ReferenceDataSourceDescription -&gt; S3ReferenceDataSourceDescription
 </span><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#%24sel%3As3ReferenceDataSourceDescription%3AReferenceDataSourceDescription%27"><span class="hs-identifier hs-var hs-var">s3ReferenceDataSourceDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription.html#S3ReferenceDataSourceDescription"><span class="hs-identifier hs-type">S3ReferenceDataSourceDescription</span></a></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210203"><span id="local-6989586621679210205"><span class="annot"><span class="annottext">ReferenceDataSourceDescription
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210306"><span id="local-6989586621679210308"><span class="annot"><span class="annottext">ReferenceDataSourceDescription
 -&gt; ReferenceDataSourceDescription -&gt; Bool
 (ReferenceDataSourceDescription
  -&gt; ReferenceDataSourceDescription -&gt; Bool)
@@ -68,7 +68,7 @@ $c/= :: ReferenceDataSourceDescription
 -&gt; ReferenceDataSourceDescription -&gt; Bool
 $c== :: ReferenceDataSourceDescription
 -&gt; ReferenceDataSourceDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210194"><span id="local-6989586621679210196"><span id="local-6989586621679210198"><span id="local-6989586621679210200"><span class="annot"><span class="annottext">ReadPrec [ReferenceDataSourceDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210297"><span id="local-6989586621679210299"><span id="local-6989586621679210301"><span id="local-6989586621679210303"><span class="annot"><span class="annottext">ReadPrec [ReferenceDataSourceDescription]
 ReadPrec ReferenceDataSourceDescription
 Int -&gt; ReadS ReferenceDataSourceDescription
 ReadS [ReferenceDataSourceDescription]
@@ -88,7 +88,7 @@ readList :: ReadS [ReferenceDataSourceDescription]
 $creadList :: ReadS [ReferenceDataSourceDescription]
 readsPrec :: Int -&gt; ReadS ReferenceDataSourceDescription
 $creadsPrec :: Int -&gt; ReadS ReferenceDataSourceDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210187"><span id="local-6989586621679210189"><span id="local-6989586621679210191"><span class="annot"><span class="annottext">Int -&gt; ReferenceDataSourceDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210290"><span id="local-6989586621679210292"><span id="local-6989586621679210294"><span class="annot"><span class="annottext">Int -&gt; ReferenceDataSourceDescription -&gt; ShowS
 [ReferenceDataSourceDescription] -&gt; ShowS
 ReferenceDataSourceDescription -&gt; String
 (Int -&gt; ReferenceDataSourceDescription -&gt; ShowS)
@@ -164,12 +164,12 @@ ReferenceDataSourceDescription
 -&gt; S3ReferenceDataSourceDescription
 -&gt; ReferenceDataSourceDescription
 </span><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#newReferenceDataSourceDescription"><span class="hs-identifier hs-var hs-var">newReferenceDataSourceDescription</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679210181"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210181"><span class="hs-identifier hs-var">pReferenceId_</span></a></span></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679210180"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210180"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679210179"><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription
-</span><a href="#local-6989586621679210179"><span class="hs-identifier hs-var">pS3ReferenceDataSourceDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679210284"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210284"><span class="hs-identifier hs-var">pReferenceId_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679210283"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210283"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679210282"><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription
+</span><a href="#local-6989586621679210282"><span class="hs-identifier hs-var">pS3ReferenceDataSourceDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">ReferenceDataSourceDescription' :: Maybe SourceSchema
 -&gt; Text
 -&gt; Text
@@ -183,14 +183,14 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:referenceId:ReferenceDataSourceDescription' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#%24sel%3AreferenceId%3AReferenceDataSourceDescription%27"><span class="hs-identifier hs-var">referenceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210181"><span class="hs-identifier hs-var">pReferenceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210284"><span class="hs-identifier hs-var">pReferenceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:tableName:ReferenceDataSourceDescription' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#%24sel%3AtableName%3AReferenceDataSourceDescription%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210180"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679210283"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3ReferenceDataSourceDescription:ReferenceDataSourceDescription' :: S3ReferenceDataSourceDescription
 </span><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#%24sel%3As3ReferenceDataSourceDescription%3AReferenceDataSourceDescription%27"><span class="hs-identifier hs-var">s3ReferenceDataSourceDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription
-</span><a href="#local-6989586621679210179"><span class="hs-identifier hs-var">pS3ReferenceDataSourceDescription_</span></a></span><span>
+</span><a href="#local-6989586621679210282"><span class="hs-identifier hs-var">pS3ReferenceDataSourceDescription_</span></a></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | Describes the format of the data in the streaming source, and how each</span><span>
@@ -209,16 +209,16 @@ forall a. Maybe a
      (Maybe SourceSchema)
      (Maybe SourceSchema)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210175"><span class="annot"><span class="annottext">Maybe SourceSchema
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210278"><span class="annot"><span class="annottext">Maybe SourceSchema
 referenceSchema :: Maybe SourceSchema
 $sel:referenceSchema:ReferenceDataSourceDescription' :: ReferenceDataSourceDescription -&gt; Maybe SourceSchema
-</span><a href="#local-6989586621679210175"><span class="hs-identifier hs-var hs-var">referenceSchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceSchema
-</span><a href="#local-6989586621679210175"><span class="hs-identifier hs-var">referenceSchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210174"><span class="annot"><span class="annottext">s :: ReferenceDataSourceDescription
-</span><a href="#local-6989586621679210174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210173"><span class="annot"><span class="annottext">Maybe SourceSchema
-</span><a href="#local-6989586621679210173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferenceDataSourceDescription
-</span><a href="#local-6989586621679210174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceSchema:ReferenceDataSourceDescription' :: Maybe SourceSchema
+</span><a href="#local-6989586621679210278"><span class="hs-identifier hs-var hs-var">referenceSchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceSchema
+</span><a href="#local-6989586621679210278"><span class="hs-identifier hs-var">referenceSchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210277"><span class="annot"><span class="annottext">s :: ReferenceDataSourceDescription
+</span><a href="#local-6989586621679210277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210276"><span class="annot"><span class="annottext">Maybe SourceSchema
+</span><a href="#local-6989586621679210276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferenceDataSourceDescription
+</span><a href="#local-6989586621679210277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceSchema:ReferenceDataSourceDescription' :: Maybe SourceSchema
 </span><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#%24sel%3AreferenceSchema%3AReferenceDataSourceDescription%27"><span class="hs-identifier hs-var">referenceSchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceSchema
-</span><a href="#local-6989586621679210173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription"><span class="hs-identifier hs-type">ReferenceDataSourceDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription"><span class="hs-identifier hs-type">ReferenceDataSourceDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | ID of the reference data source. This is the ID that Amazon Kinesis</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- Analytics assigns when you add the reference data source to your</span><span>
@@ -238,16 +238,16 @@ $sel:referenceSchema:ReferenceDataSourceDescription' :: ReferenceDataSourceDescr
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210171"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210274"><span class="annot"><span class="annottext">Text
 referenceId :: Text
 $sel:referenceId:ReferenceDataSourceDescription' :: ReferenceDataSourceDescription -&gt; Text
-</span><a href="#local-6989586621679210171"><span class="hs-identifier hs-var hs-var">referenceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210171"><span class="hs-identifier hs-var">referenceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210170"><span class="annot"><span class="annottext">s :: ReferenceDataSourceDescription
-</span><a href="#local-6989586621679210170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210169"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferenceDataSourceDescription
-</span><a href="#local-6989586621679210170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceId:ReferenceDataSourceDescription' :: Text
+</span><a href="#local-6989586621679210274"><span class="hs-identifier hs-var hs-var">referenceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210274"><span class="hs-identifier hs-var">referenceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210273"><span class="annot"><span class="annottext">s :: ReferenceDataSourceDescription
+</span><a href="#local-6989586621679210273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210272"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferenceDataSourceDescription
+</span><a href="#local-6989586621679210273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceId:ReferenceDataSourceDescription' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#%24sel%3AreferenceId%3AReferenceDataSourceDescription%27"><span class="hs-identifier hs-var">referenceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription"><span class="hs-identifier hs-type">ReferenceDataSourceDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription"><span class="hs-identifier hs-type">ReferenceDataSourceDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The in-application table name created by the specific reference data</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- source configuration.</span><span>
@@ -264,16 +264,16 @@ $sel:referenceId:ReferenceDataSourceDescription' :: ReferenceDataSourceDescripti
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210167"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210270"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:ReferenceDataSourceDescription' :: ReferenceDataSourceDescription -&gt; Text
-</span><a href="#local-6989586621679210167"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210167"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210166"><span class="annot"><span class="annottext">s :: ReferenceDataSourceDescription
-</span><a href="#local-6989586621679210166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210165"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferenceDataSourceDescription
-</span><a href="#local-6989586621679210166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:ReferenceDataSourceDescription' :: Text
+</span><a href="#local-6989586621679210270"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210270"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210269"><span class="annot"><span class="annottext">s :: ReferenceDataSourceDescription
+</span><a href="#local-6989586621679210269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210268"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferenceDataSourceDescription
+</span><a href="#local-6989586621679210269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:ReferenceDataSourceDescription' :: Text
 </span><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#%24sel%3AtableName%3AReferenceDataSourceDescription%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679210165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription"><span class="hs-identifier hs-type">ReferenceDataSourceDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription"><span class="hs-identifier hs-type">ReferenceDataSourceDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | Provides the S3 bucket name, the object key name that contains the</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- reference data. It also provides the Amazon Resource Name (ARN) of the</span><span>
@@ -295,19 +295,19 @@ $sel:tableName:ReferenceDataSourceDescription' :: ReferenceDataSourceDescription
      S3ReferenceDataSourceDescription
      S3ReferenceDataSourceDescription
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210163"><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210266"><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription
 s3ReferenceDataSourceDescription :: S3ReferenceDataSourceDescription
 $sel:s3ReferenceDataSourceDescription:ReferenceDataSourceDescription' :: ReferenceDataSourceDescription -&gt; S3ReferenceDataSourceDescription
-</span><a href="#local-6989586621679210163"><span class="hs-identifier hs-var hs-var">s3ReferenceDataSourceDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription
-</span><a href="#local-6989586621679210163"><span class="hs-identifier hs-var">s3ReferenceDataSourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210162"><span class="annot"><span class="annottext">s :: ReferenceDataSourceDescription
-</span><a href="#local-6989586621679210162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210161"><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription
-</span><a href="#local-6989586621679210161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferenceDataSourceDescription
-</span><a href="#local-6989586621679210162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3ReferenceDataSourceDescription:ReferenceDataSourceDescription' :: S3ReferenceDataSourceDescription
+</span><a href="#local-6989586621679210266"><span class="hs-identifier hs-var hs-var">s3ReferenceDataSourceDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription
+</span><a href="#local-6989586621679210266"><span class="hs-identifier hs-var">s3ReferenceDataSourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210265"><span class="annot"><span class="annottext">s :: ReferenceDataSourceDescription
+</span><a href="#local-6989586621679210265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription%27"><span class="hs-identifier hs-type">ReferenceDataSourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210264"><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription
+</span><a href="#local-6989586621679210264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferenceDataSourceDescription
+</span><a href="#local-6989586621679210265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3ReferenceDataSourceDescription:ReferenceDataSourceDescription' :: S3ReferenceDataSourceDescription
 </span><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#%24sel%3As3ReferenceDataSourceDescription%3AReferenceDataSourceDescription%27"><span class="hs-identifier hs-var">s3ReferenceDataSourceDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">S3ReferenceDataSourceDescription
-</span><a href="#local-6989586621679210161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription"><span class="hs-identifier hs-type">ReferenceDataSourceDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679210264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription"><span class="hs-identifier hs-type">ReferenceDataSourceDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210158"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription"><span class="hs-identifier hs-type">ReferenceDataSourceDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679210156"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReferenceDataSourceDescription
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210261"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription"><span class="hs-identifier hs-type">ReferenceDataSourceDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679210259"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReferenceDataSourceDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReferenceDataSourceDescription)
@@ -317,8 +317,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReferenceDataSourceDescription&quot;</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210153"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210153"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679210256"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679210256"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Maybe SourceSchema
 -&gt; Text
 -&gt; Text
@@ -338,7 +338,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ReferenceDataSourceDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SourceSchema)
+</span><a href="#local-6989586621679210256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SourceSchema)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReferenceSchema&quot;</span></span><span class="hs-special">)</span><span>
@@ -354,7 +354,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ReferenceDataSourceDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679210256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReferenceId&quot;</span></span><span class="hs-special">)</span><span>
@@ -368,7 +368,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
       -&gt; ReferenceDataSourceDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679210256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span class="hs-special">)</span><span>
@@ -379,17 +379,17 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ReferenceDataSourceDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679210153"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser S3ReferenceDataSourceDescription
+</span><a href="#local-6989586621679210256"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser S3ReferenceDataSourceDescription
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3ReferenceDataSourceDescription&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679210146"><span id="local-6989586621679210148"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679210249"><span id="local-6989586621679210251"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription"><span class="hs-identifier hs-type">ReferenceDataSourceDescription</span></a></span></span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679210143"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679210246"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription.html#ReferenceDataSourceDescription"><span class="hs-identifier hs-type">ReferenceDataSourceDescription</span></a></span></span><span>
 </span><span id="line-144"></span></pre></body></html>

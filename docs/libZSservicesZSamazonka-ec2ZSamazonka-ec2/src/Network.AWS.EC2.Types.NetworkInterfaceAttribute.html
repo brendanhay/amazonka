@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621681094680"><span id="local-6989586621681094681"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NetworkInterfaceAttribute"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceAttribute.html#NetworkInterfaceAttribute"><span class="hs-identifier hs-var">NetworkInterfaceAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkInterfaceAttribute%27"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceAttribute.html#NetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">NetworkInterfaceAttribute'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681129373"><span id="local-6989586621681129374"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NetworkInterfaceAttribute"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceAttribute.html#NetworkInterfaceAttribute"><span class="hs-identifier hs-var">NetworkInterfaceAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkInterfaceAttribute%27"><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceAttribute.html#NetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">NetworkInterfaceAttribute'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNetworkInterfaceAttribute"><span class="annot"><span class="annottext">NetworkInterfaceAttribute -&gt; Text
 </span><a href="Network.AWS.EC2.Types.NetworkInterfaceAttribute.html#fromNetworkInterfaceAttribute"><span class="hs-identifier hs-var hs-var">fromNetworkInterfaceAttribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681094672"><span id="local-6989586621681094674"><span id="local-6989586621681094676"><span class="annot"><span class="annottext">Int -&gt; NetworkInterfaceAttribute -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681129365"><span id="local-6989586621681129367"><span id="local-6989586621681129369"><span class="annot"><span class="annottext">Int -&gt; NetworkInterfaceAttribute -&gt; ShowS
 [NetworkInterfaceAttribute] -&gt; ShowS
 NetworkInterfaceAttribute -&gt; String
 (Int -&gt; NetworkInterfaceAttribute -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: NetworkInterfaceAttribute -&gt; String
 showsPrec :: Int -&gt; NetworkInterfaceAttribute -&gt; ShowS
 $cshowsPrec :: Int -&gt; NetworkInterfaceAttribute -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681094663"><span id="local-6989586621681094665"><span id="local-6989586621681094667"><span id="local-6989586621681094669"><span class="annot"><span class="annottext">ReadPrec [NetworkInterfaceAttribute]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681129356"><span id="local-6989586621681129358"><span id="local-6989586621681129360"><span id="local-6989586621681129362"><span class="annot"><span class="annottext">ReadPrec [NetworkInterfaceAttribute]
 ReadPrec NetworkInterfaceAttribute
 Int -&gt; ReadS NetworkInterfaceAttribute
 ReadS [NetworkInterfaceAttribute]
@@ -75,7 +75,7 @@ $creadList :: ReadS [NetworkInterfaceAttribute]
 readsPrec :: Int -&gt; ReadS NetworkInterfaceAttribute
 $creadsPrec :: Int -&gt; ReadS NetworkInterfaceAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681094658"><span id="local-6989586621681094660"><span class="annot"><span class="annottext">NetworkInterfaceAttribute -&gt; NetworkInterfaceAttribute -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681129351"><span id="local-6989586621681129353"><span class="annot"><span class="annottext">NetworkInterfaceAttribute -&gt; NetworkInterfaceAttribute -&gt; Bool
 (NetworkInterfaceAttribute -&gt; NetworkInterfaceAttribute -&gt; Bool)
 -&gt; (NetworkInterfaceAttribute -&gt; NetworkInterfaceAttribute -&gt; Bool)
 -&gt; Eq NetworkInterfaceAttribute
@@ -85,7 +85,7 @@ $c/= :: NetworkInterfaceAttribute -&gt; NetworkInterfaceAttribute -&gt; Bool
 == :: NetworkInterfaceAttribute -&gt; NetworkInterfaceAttribute -&gt; Bool
 $c== :: NetworkInterfaceAttribute -&gt; NetworkInterfaceAttribute -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681094642"><span id="local-6989586621681094644"><span id="local-6989586621681094646"><span id="local-6989586621681094648"><span id="local-6989586621681094650"><span id="local-6989586621681094652"><span id="local-6989586621681094654"><span class="annot"><span class="annottext">Eq NetworkInterfaceAttribute
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681129335"><span id="local-6989586621681129337"><span id="local-6989586621681129339"><span id="local-6989586621681129341"><span id="local-6989586621681129343"><span id="local-6989586621681129345"><span id="local-6989586621681129347"><span class="annot"><span class="annottext">Eq NetworkInterfaceAttribute
 Eq NetworkInterfaceAttribute
 -&gt; (NetworkInterfaceAttribute
     -&gt; NetworkInterfaceAttribute -&gt; Ordering)
@@ -150,7 +150,7 @@ NetworkInterfaceAttribute -&gt; Rep NetworkInterfaceAttribute x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681094634"><span id="local-6989586621681094636"><span class="annot"><span class="annottext">Int -&gt; NetworkInterfaceAttribute -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681129327"><span id="local-6989586621681129329"><span class="annot"><span class="annottext">Int -&gt; NetworkInterfaceAttribute -&gt; Int
 NetworkInterfaceAttribute -&gt; Int
 (Int -&gt; NetworkInterfaceAttribute -&gt; Int)
 -&gt; (NetworkInterfaceAttribute -&gt; Int)
@@ -161,56 +161,56 @@ $chash :: NetworkInterfaceAttribute -&gt; Int
 hashWithSalt :: Int -&gt; NetworkInterfaceAttribute -&gt; Int
 $chashWithSalt :: Int -&gt; NetworkInterfaceAttribute -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681094631"><span class="annot"><span class="annottext">NetworkInterfaceAttribute -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681129324"><span class="annot"><span class="annottext">NetworkInterfaceAttribute -&gt; ()
 (NetworkInterfaceAttribute -&gt; ())
 -&gt; NFData NetworkInterfaceAttribute
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NetworkInterfaceAttribute -&gt; ()
 $crnf :: NetworkInterfaceAttribute -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681094628"><span class="annot"><span class="annottext">Text -&gt; Either String NetworkInterfaceAttribute
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681129321"><span class="annot"><span class="annottext">Text -&gt; Either String NetworkInterfaceAttribute
 (Text -&gt; Either String NetworkInterfaceAttribute)
 -&gt; FromText NetworkInterfaceAttribute
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NetworkInterfaceAttribute
 $cfromText :: Text -&gt; Either String NetworkInterfaceAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681094625"><span class="annot"><span class="annottext">NetworkInterfaceAttribute -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681129318"><span class="annot"><span class="annottext">NetworkInterfaceAttribute -&gt; Text
 (NetworkInterfaceAttribute -&gt; Text)
 -&gt; ToText NetworkInterfaceAttribute
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NetworkInterfaceAttribute -&gt; Text
 $ctoText :: NetworkInterfaceAttribute -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681094622"><span class="annot"><span class="annottext">NetworkInterfaceAttribute -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681129315"><span class="annot"><span class="annottext">NetworkInterfaceAttribute -&gt; ByteString
 (NetworkInterfaceAttribute -&gt; ByteString)
 -&gt; ToByteString NetworkInterfaceAttribute
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NetworkInterfaceAttribute -&gt; ByteString
 $ctoBS :: NetworkInterfaceAttribute -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681094619"><span class="annot"><span class="annottext">NetworkInterfaceAttribute -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681129312"><span class="annot"><span class="annottext">NetworkInterfaceAttribute -&gt; ByteStringBuilder
 (NetworkInterfaceAttribute -&gt; ByteStringBuilder)
 -&gt; ToLog NetworkInterfaceAttribute
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NetworkInterfaceAttribute -&gt; ByteStringBuilder
 $cbuild :: NetworkInterfaceAttribute -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681094616"><span class="annot"><span class="annottext">HeaderName -&gt; NetworkInterfaceAttribute -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681129309"><span class="annot"><span class="annottext">HeaderName -&gt; NetworkInterfaceAttribute -&gt; [Header]
 (HeaderName -&gt; NetworkInterfaceAttribute -&gt; [Header])
 -&gt; ToHeader NetworkInterfaceAttribute
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NetworkInterfaceAttribute -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NetworkInterfaceAttribute -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681094613"><span class="annot"><span class="annottext">NetworkInterfaceAttribute -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681129306"><span class="annot"><span class="annottext">NetworkInterfaceAttribute -&gt; QueryString
 (NetworkInterfaceAttribute -&gt; QueryString)
 -&gt; ToQuery NetworkInterfaceAttribute
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NetworkInterfaceAttribute -&gt; QueryString
 $ctoQuery :: NetworkInterfaceAttribute -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681094608"><span id="local-6989586621681094610"><span class="annot"><span class="annottext">Value -&gt; Parser [NetworkInterfaceAttribute]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681129301"><span id="local-6989586621681129303"><span class="annot"><span class="annottext">Value -&gt; Parser [NetworkInterfaceAttribute]
 Value -&gt; Parser NetworkInterfaceAttribute
 (Value -&gt; Parser NetworkInterfaceAttribute)
 -&gt; (Value -&gt; Parser [NetworkInterfaceAttribute])
@@ -222,7 +222,7 @@ $cparseJSONList :: Value -&gt; Parser [NetworkInterfaceAttribute]
 parseJSON :: Value -&gt; Parser NetworkInterfaceAttribute
 $cparseJSON :: Value -&gt; Parser NetworkInterfaceAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681094603"><span id="local-6989586621681094605"><span class="annot"><span class="annottext">FromJSONKeyFunction [NetworkInterfaceAttribute]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681129296"><span id="local-6989586621681129298"><span class="annot"><span class="annottext">FromJSONKeyFunction [NetworkInterfaceAttribute]
 FromJSONKeyFunction NetworkInterfaceAttribute
 FromJSONKeyFunction NetworkInterfaceAttribute
 -&gt; FromJSONKeyFunction [NetworkInterfaceAttribute]
@@ -234,7 +234,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NetworkInterfaceAttribute]
 fromJSONKey :: FromJSONKeyFunction NetworkInterfaceAttribute
 $cfromJSONKey :: FromJSONKeyFunction NetworkInterfaceAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681094594"><span id="local-6989586621681094596"><span id="local-6989586621681094598"><span id="local-6989586621681094600"><span class="annot"><span class="annottext">[NetworkInterfaceAttribute] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681129287"><span id="local-6989586621681129289"><span id="local-6989586621681129291"><span id="local-6989586621681129293"><span class="annot"><span class="annottext">[NetworkInterfaceAttribute] -&gt; Encoding
 [NetworkInterfaceAttribute] -&gt; Value
 NetworkInterfaceAttribute -&gt; Encoding
 NetworkInterfaceAttribute -&gt; Value
@@ -258,7 +258,7 @@ $ctoEncoding :: NetworkInterfaceAttribute -&gt; Encoding
 toJSON :: NetworkInterfaceAttribute -&gt; Value
 $ctoJSON :: NetworkInterfaceAttribute -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681094589"><span id="local-6989586621681094591"><span class="annot"><span class="annottext">ToJSONKeyFunction [NetworkInterfaceAttribute]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681129282"><span id="local-6989586621681129284"><span class="annot"><span class="annottext">ToJSONKeyFunction [NetworkInterfaceAttribute]
 ToJSONKeyFunction NetworkInterfaceAttribute
 ToJSONKeyFunction NetworkInterfaceAttribute
 -&gt; ToJSONKeyFunction [NetworkInterfaceAttribute]
@@ -270,14 +270,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NetworkInterfaceAttribute]
 toJSONKey :: ToJSONKeyFunction NetworkInterfaceAttribute
 $ctoJSONKey :: ToJSONKeyFunction NetworkInterfaceAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681094586"><span class="annot"><span class="annottext">[Node] -&gt; Either String NetworkInterfaceAttribute
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681129279"><span class="annot"><span class="annottext">[Node] -&gt; Either String NetworkInterfaceAttribute
 ([Node] -&gt; Either String NetworkInterfaceAttribute)
 -&gt; FromXML NetworkInterfaceAttribute
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NetworkInterfaceAttribute
 $cparseXML :: [Node] -&gt; Either String NetworkInterfaceAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681094583"><span class="annot"><span class="annottext">NetworkInterfaceAttribute -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681129276"><span class="annot"><span class="annottext">NetworkInterfaceAttribute -&gt; XML
 (NetworkInterfaceAttribute -&gt; XML)
 -&gt; ToXML NetworkInterfaceAttribute
 forall a. (a -&gt; XML) -&gt; ToXML a

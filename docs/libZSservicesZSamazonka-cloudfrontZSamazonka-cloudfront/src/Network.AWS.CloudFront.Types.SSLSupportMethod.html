@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679401606"><span id="local-6989586621679401607"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SSLSupportMethod"><span class="annot"><a href="Network.AWS.CloudFront.Types.SSLSupportMethod.html#SSLSupportMethod"><span class="hs-identifier hs-var">SSLSupportMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SSLSupportMethod%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.SSLSupportMethod.html#SSLSupportMethod%27"><span class="hs-identifier hs-var">SSLSupportMethod'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679401868"><span id="local-6989586621679401869"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SSLSupportMethod"><span class="annot"><a href="Network.AWS.CloudFront.Types.SSLSupportMethod.html#SSLSupportMethod"><span class="hs-identifier hs-var">SSLSupportMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SSLSupportMethod%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.SSLSupportMethod.html#SSLSupportMethod%27"><span class="hs-identifier hs-var">SSLSupportMethod'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSSLSupportMethod"><span class="annot"><span class="annottext">SSLSupportMethod -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.SSLSupportMethod.html#fromSSLSupportMethod"><span class="hs-identifier hs-var hs-var">fromSSLSupportMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401598"><span id="local-6989586621679401600"><span id="local-6989586621679401602"><span class="annot"><span class="annottext">Int -&gt; SSLSupportMethod -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401860"><span id="local-6989586621679401862"><span id="local-6989586621679401864"><span class="annot"><span class="annottext">Int -&gt; SSLSupportMethod -&gt; ShowS
 [SSLSupportMethod] -&gt; ShowS
 SSLSupportMethod -&gt; String
 (Int -&gt; SSLSupportMethod -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: SSLSupportMethod -&gt; String
 showsPrec :: Int -&gt; SSLSupportMethod -&gt; ShowS
 $cshowsPrec :: Int -&gt; SSLSupportMethod -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679401589"><span id="local-6989586621679401591"><span id="local-6989586621679401593"><span id="local-6989586621679401595"><span class="annot"><span class="annottext">ReadPrec [SSLSupportMethod]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679401851"><span id="local-6989586621679401853"><span id="local-6989586621679401855"><span id="local-6989586621679401857"><span class="annot"><span class="annottext">ReadPrec [SSLSupportMethod]
 ReadPrec SSLSupportMethod
 Int -&gt; ReadS SSLSupportMethod
 ReadS [SSLSupportMethod]
@@ -73,7 +73,7 @@ $creadList :: ReadS [SSLSupportMethod]
 readsPrec :: Int -&gt; ReadS SSLSupportMethod
 $creadsPrec :: Int -&gt; ReadS SSLSupportMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679401584"><span id="local-6989586621679401586"><span class="annot"><span class="annottext">SSLSupportMethod -&gt; SSLSupportMethod -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679401846"><span id="local-6989586621679401848"><span class="annot"><span class="annottext">SSLSupportMethod -&gt; SSLSupportMethod -&gt; Bool
 (SSLSupportMethod -&gt; SSLSupportMethod -&gt; Bool)
 -&gt; (SSLSupportMethod -&gt; SSLSupportMethod -&gt; Bool)
 -&gt; Eq SSLSupportMethod
@@ -83,7 +83,7 @@ $c/= :: SSLSupportMethod -&gt; SSLSupportMethod -&gt; Bool
 == :: SSLSupportMethod -&gt; SSLSupportMethod -&gt; Bool
 $c== :: SSLSupportMethod -&gt; SSLSupportMethod -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679401568"><span id="local-6989586621679401570"><span id="local-6989586621679401572"><span id="local-6989586621679401574"><span id="local-6989586621679401576"><span id="local-6989586621679401578"><span id="local-6989586621679401580"><span class="annot"><span class="annottext">Eq SSLSupportMethod
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679401830"><span id="local-6989586621679401832"><span id="local-6989586621679401834"><span id="local-6989586621679401836"><span id="local-6989586621679401838"><span id="local-6989586621679401840"><span id="local-6989586621679401842"><span class="annot"><span class="annottext">Eq SSLSupportMethod
 Eq SSLSupportMethod
 -&gt; (SSLSupportMethod -&gt; SSLSupportMethod -&gt; Ordering)
 -&gt; (SSLSupportMethod -&gt; SSLSupportMethod -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. SSLSupportMethod -&gt; Rep SSLSupportMethod x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401560"><span id="local-6989586621679401562"><span class="annot"><span class="annottext">Int -&gt; SSLSupportMethod -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401822"><span id="local-6989586621679401824"><span class="annot"><span class="annottext">Int -&gt; SSLSupportMethod -&gt; Int
 SSLSupportMethod -&gt; Int
 (Int -&gt; SSLSupportMethod -&gt; Int)
 -&gt; (SSLSupportMethod -&gt; Int) -&gt; Hashable SSLSupportMethod
@@ -144,51 +144,51 @@ $chash :: SSLSupportMethod -&gt; Int
 hashWithSalt :: Int -&gt; SSLSupportMethod -&gt; Int
 $chashWithSalt :: Int -&gt; SSLSupportMethod -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679401557"><span class="annot"><span class="annottext">SSLSupportMethod -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679401819"><span class="annot"><span class="annottext">SSLSupportMethod -&gt; ()
 (SSLSupportMethod -&gt; ()) -&gt; NFData SSLSupportMethod
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SSLSupportMethod -&gt; ()
 $crnf :: SSLSupportMethod -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679401554"><span class="annot"><span class="annottext">Text -&gt; Either String SSLSupportMethod
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679401816"><span class="annot"><span class="annottext">Text -&gt; Either String SSLSupportMethod
 (Text -&gt; Either String SSLSupportMethod)
 -&gt; FromText SSLSupportMethod
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SSLSupportMethod
 $cfromText :: Text -&gt; Either String SSLSupportMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679401551"><span class="annot"><span class="annottext">SSLSupportMethod -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679401813"><span class="annot"><span class="annottext">SSLSupportMethod -&gt; Text
 (SSLSupportMethod -&gt; Text) -&gt; ToText SSLSupportMethod
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SSLSupportMethod -&gt; Text
 $ctoText :: SSLSupportMethod -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679401548"><span class="annot"><span class="annottext">SSLSupportMethod -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679401810"><span class="annot"><span class="annottext">SSLSupportMethod -&gt; ByteString
 (SSLSupportMethod -&gt; ByteString) -&gt; ToByteString SSLSupportMethod
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SSLSupportMethod -&gt; ByteString
 $ctoBS :: SSLSupportMethod -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679401545"><span class="annot"><span class="annottext">SSLSupportMethod -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679401807"><span class="annot"><span class="annottext">SSLSupportMethod -&gt; ByteStringBuilder
 (SSLSupportMethod -&gt; ByteStringBuilder) -&gt; ToLog SSLSupportMethod
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SSLSupportMethod -&gt; ByteStringBuilder
 $cbuild :: SSLSupportMethod -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679401542"><span class="annot"><span class="annottext">HeaderName -&gt; SSLSupportMethod -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679401804"><span class="annot"><span class="annottext">HeaderName -&gt; SSLSupportMethod -&gt; [Header]
 (HeaderName -&gt; SSLSupportMethod -&gt; [Header])
 -&gt; ToHeader SSLSupportMethod
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SSLSupportMethod -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SSLSupportMethod -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679401539"><span class="annot"><span class="annottext">SSLSupportMethod -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679401801"><span class="annot"><span class="annottext">SSLSupportMethod -&gt; QueryString
 (SSLSupportMethod -&gt; QueryString) -&gt; ToQuery SSLSupportMethod
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SSLSupportMethod -&gt; QueryString
 $ctoQuery :: SSLSupportMethod -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679401534"><span id="local-6989586621679401536"><span class="annot"><span class="annottext">Value -&gt; Parser [SSLSupportMethod]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679401796"><span id="local-6989586621679401798"><span class="annot"><span class="annottext">Value -&gt; Parser [SSLSupportMethod]
 Value -&gt; Parser SSLSupportMethod
 (Value -&gt; Parser SSLSupportMethod)
 -&gt; (Value -&gt; Parser [SSLSupportMethod])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [SSLSupportMethod]
 parseJSON :: Value -&gt; Parser SSLSupportMethod
 $cparseJSON :: Value -&gt; Parser SSLSupportMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679401529"><span id="local-6989586621679401531"><span class="annot"><span class="annottext">FromJSONKeyFunction [SSLSupportMethod]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679401791"><span id="local-6989586621679401793"><span class="annot"><span class="annottext">FromJSONKeyFunction [SSLSupportMethod]
 FromJSONKeyFunction SSLSupportMethod
 FromJSONKeyFunction SSLSupportMethod
 -&gt; FromJSONKeyFunction [SSLSupportMethod]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SSLSupportMethod]
 fromJSONKey :: FromJSONKeyFunction SSLSupportMethod
 $cfromJSONKey :: FromJSONKeyFunction SSLSupportMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679401520"><span id="local-6989586621679401522"><span id="local-6989586621679401524"><span id="local-6989586621679401526"><span class="annot"><span class="annottext">[SSLSupportMethod] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679401782"><span id="local-6989586621679401784"><span id="local-6989586621679401786"><span id="local-6989586621679401788"><span class="annot"><span class="annottext">[SSLSupportMethod] -&gt; Encoding
 [SSLSupportMethod] -&gt; Value
 SSLSupportMethod -&gt; Encoding
 SSLSupportMethod -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: SSLSupportMethod -&gt; Encoding
 toJSON :: SSLSupportMethod -&gt; Value
 $ctoJSON :: SSLSupportMethod -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679401515"><span id="local-6989586621679401517"><span class="annot"><span class="annottext">ToJSONKeyFunction [SSLSupportMethod]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679401777"><span id="local-6989586621679401779"><span class="annot"><span class="annottext">ToJSONKeyFunction [SSLSupportMethod]
 ToJSONKeyFunction SSLSupportMethod
 ToJSONKeyFunction SSLSupportMethod
 -&gt; ToJSONKeyFunction [SSLSupportMethod]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SSLSupportMethod]
 toJSONKey :: ToJSONKeyFunction SSLSupportMethod
 $ctoJSONKey :: ToJSONKeyFunction SSLSupportMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679401512"><span class="annot"><span class="annottext">[Node] -&gt; Either String SSLSupportMethod
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679401774"><span class="annot"><span class="annottext">[Node] -&gt; Either String SSLSupportMethod
 ([Node] -&gt; Either String SSLSupportMethod)
 -&gt; FromXML SSLSupportMethod
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SSLSupportMethod
 $cparseXML :: [Node] -&gt; Either String SSLSupportMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679401509"><span class="annot"><span class="annottext">SSLSupportMethod -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679401771"><span class="annot"><span class="annottext">SSLSupportMethod -&gt; XML
 (SSLSupportMethod -&gt; XML) -&gt; ToXML SSLSupportMethod
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SSLSupportMethod -&gt; XML

@@ -72,7 +72,7 @@
 </span><span id="line-72"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- /See:/ 'newCreatePlayerSession' smart constructor.</span><span>
-</span><span id="line-75"></span><span id="local-6989586621679459926"><span id="local-6989586621679459927"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePlayerSession"><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-var">CreatePlayerSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePlayerSession%27"><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession%27"><span class="hs-identifier hs-var">CreatePlayerSession'</span></a></span></span><span>
+</span><span id="line-75"></span><span id="local-6989586621679460436"><span id="local-6989586621679460437"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePlayerSession"><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-var">CreatePlayerSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePlayerSession%27"><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession%27"><span class="hs-identifier hs-var">CreatePlayerSession'</span></a></span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Developer-defined information related to a player. GameLift does not use</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- this data, so it can be formatted as needed for use in the game.</span><span>
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3AplayerData%3ACreatePlayerSession%27"><span class="annot"><span class="annottext">CreatePlayerSession -&gt; Maybe Text
@@ -84,7 +84,7 @@
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3AplayerId%3ACreatePlayerSession%27"><span class="annot"><span class="annottext">CreatePlayerSession -&gt; Text
 </span><a href="Network.AWS.GameLift.CreatePlayerSession.html#%24sel%3AplayerId%3ACreatePlayerSession%27"><span class="hs-identifier hs-var hs-var">playerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459918"><span id="local-6989586621679459920"><span class="annot"><span class="annottext">CreatePlayerSession -&gt; CreatePlayerSession -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679460428"><span id="local-6989586621679460430"><span class="annot"><span class="annottext">CreatePlayerSession -&gt; CreatePlayerSession -&gt; Bool
 (CreatePlayerSession -&gt; CreatePlayerSession -&gt; Bool)
 -&gt; (CreatePlayerSession -&gt; CreatePlayerSession -&gt; Bool)
 -&gt; Eq CreatePlayerSession
@@ -93,7 +93,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreatePlayerSession -&gt; CreatePlayerSession -&gt; Bool
 == :: CreatePlayerSession -&gt; CreatePlayerSession -&gt; Bool
 $c== :: CreatePlayerSession -&gt; CreatePlayerSession -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459909"><span id="local-6989586621679459911"><span id="local-6989586621679459913"><span id="local-6989586621679459915"><span class="annot"><span class="annottext">ReadPrec [CreatePlayerSession]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460419"><span id="local-6989586621679460421"><span id="local-6989586621679460423"><span id="local-6989586621679460425"><span class="annot"><span class="annottext">ReadPrec [CreatePlayerSession]
 ReadPrec CreatePlayerSession
 Int -&gt; ReadS CreatePlayerSession
 ReadS [CreatePlayerSession]
@@ -113,7 +113,7 @@ readList :: ReadS [CreatePlayerSession]
 $creadList :: ReadS [CreatePlayerSession]
 readsPrec :: Int -&gt; ReadS CreatePlayerSession
 $creadsPrec :: Int -&gt; ReadS CreatePlayerSession
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459902"><span id="local-6989586621679459904"><span id="local-6989586621679459906"><span class="annot"><span class="annottext">Int -&gt; CreatePlayerSession -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460412"><span id="local-6989586621679460414"><span id="local-6989586621679460416"><span class="annot"><span class="annottext">Int -&gt; CreatePlayerSession -&gt; ShowS
 [CreatePlayerSession] -&gt; ShowS
 CreatePlayerSession -&gt; String
 (Int -&gt; CreatePlayerSession -&gt; ShowS)
@@ -160,9 +160,9 @@ $cfrom :: forall x. CreatePlayerSession -&gt; Rep CreatePlayerSession x
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span><span>
 </span><span id="line-106"></span><span id="newCreatePlayerSession"><span class="annot"><span class="annottext">newCreatePlayerSession :: Text -&gt; Text -&gt; CreatePlayerSession
-</span><a href="Network.AWS.GameLift.CreatePlayerSession.html#newCreatePlayerSession"><span class="hs-identifier hs-var hs-var">newCreatePlayerSession</span></a></span></span><span> </span><span id="local-6989586621679459897"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459897"><span class="hs-identifier hs-var">pGameSessionId_</span></a></span></span><span> </span><span id="local-6989586621679459896"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459896"><span class="hs-identifier hs-var">pPlayerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.CreatePlayerSession.html#newCreatePlayerSession"><span class="hs-identifier hs-var hs-var">newCreatePlayerSession</span></a></span></span><span> </span><span id="local-6989586621679460407"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460407"><span class="hs-identifier hs-var">pGameSessionId_</span></a></span></span><span> </span><span id="local-6989586621679460406"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460406"><span class="hs-identifier hs-var">pPlayerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">CreatePlayerSession' :: Maybe Text -&gt; Text -&gt; Text -&gt; CreatePlayerSession
 </span><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession%27"><span class="hs-identifier hs-type">CreatePlayerSession'</span></a></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:playerData:CreatePlayerSession' :: Maybe Text
@@ -171,10 +171,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:gameSessionId:CreatePlayerSession' :: Text
 </span><a href="Network.AWS.GameLift.CreatePlayerSession.html#%24sel%3AgameSessionId%3ACreatePlayerSession%27"><span class="hs-identifier hs-var">gameSessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459897"><span class="hs-identifier hs-var">pGameSessionId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679460407"><span class="hs-identifier hs-var">pGameSessionId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:playerId:CreatePlayerSession' :: Text
 </span><a href="Network.AWS.GameLift.CreatePlayerSession.html#%24sel%3AplayerId%3ACreatePlayerSession%27"><span class="hs-identifier hs-var">playerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459896"><span class="hs-identifier hs-var">pPlayerId_</span></a></span><span>
+</span><a href="#local-6989586621679460406"><span class="hs-identifier hs-var">pPlayerId_</span></a></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | Developer-defined information related to a player. GameLift does not use</span><span>
@@ -187,16 +187,16 @@ forall a. Maybe a
 -&gt; Lens
      CreatePlayerSession CreatePlayerSession (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession%27"><span class="hs-identifier hs-type">CreatePlayerSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459893"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession%27"><span class="hs-identifier hs-type">CreatePlayerSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460403"><span class="annot"><span class="annottext">Maybe Text
 playerData :: Maybe Text
 $sel:playerData:CreatePlayerSession' :: CreatePlayerSession -&gt; Maybe Text
-</span><a href="#local-6989586621679459893"><span class="hs-identifier hs-var hs-var">playerData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679459893"><span class="hs-identifier hs-var">playerData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459892"><span class="annot"><span class="annottext">s :: CreatePlayerSession
-</span><a href="#local-6989586621679459892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession%27"><span class="hs-identifier hs-type">CreatePlayerSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459891"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679459891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlayerSession
-</span><a href="#local-6989586621679459892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerData:CreatePlayerSession' :: Maybe Text
+</span><a href="#local-6989586621679460403"><span class="hs-identifier hs-var hs-var">playerData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679460403"><span class="hs-identifier hs-var">playerData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460402"><span class="annot"><span class="annottext">s :: CreatePlayerSession
+</span><a href="#local-6989586621679460402"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession%27"><span class="hs-identifier hs-type">CreatePlayerSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460401"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679460401"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlayerSession
+</span><a href="#local-6989586621679460402"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerData:CreatePlayerSession' :: Maybe Text
 </span><a href="Network.AWS.GameLift.CreatePlayerSession.html#%24sel%3AplayerData%3ACreatePlayerSession%27"><span class="hs-identifier hs-var">playerData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679459891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460401"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | A unique identifier for the game session to add a player to.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#createPlayerSession_gameSessionId"><span class="hs-identifier hs-type">createPlayerSession_gameSessionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -205,16 +205,16 @@ $sel:playerData:CreatePlayerSession' :: CreatePlayerSession -&gt; Maybe Text
 -&gt; (CreatePlayerSession -&gt; Text -&gt; CreatePlayerSession)
 -&gt; Lens CreatePlayerSession CreatePlayerSession Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession%27"><span class="hs-identifier hs-type">CreatePlayerSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459890"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession%27"><span class="hs-identifier hs-type">CreatePlayerSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460400"><span class="annot"><span class="annottext">Text
 gameSessionId :: Text
 $sel:gameSessionId:CreatePlayerSession' :: CreatePlayerSession -&gt; Text
-</span><a href="#local-6989586621679459890"><span class="hs-identifier hs-var hs-var">gameSessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459890"><span class="hs-identifier hs-var">gameSessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459889"><span class="annot"><span class="annottext">s :: CreatePlayerSession
-</span><a href="#local-6989586621679459889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession%27"><span class="hs-identifier hs-type">CreatePlayerSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459888"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlayerSession
-</span><a href="#local-6989586621679459889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionId:CreatePlayerSession' :: Text
+</span><a href="#local-6989586621679460400"><span class="hs-identifier hs-var hs-var">gameSessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460400"><span class="hs-identifier hs-var">gameSessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460399"><span class="annot"><span class="annottext">s :: CreatePlayerSession
+</span><a href="#local-6989586621679460399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession%27"><span class="hs-identifier hs-type">CreatePlayerSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460398"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlayerSession
+</span><a href="#local-6989586621679460399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionId:CreatePlayerSession' :: Text
 </span><a href="Network.AWS.GameLift.CreatePlayerSession.html#%24sel%3AgameSessionId%3ACreatePlayerSession%27"><span class="hs-identifier hs-var">gameSessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | A unique identifier for a player. Player IDs are developer-defined.</span><span>
 </span><span id="line-123"></span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#createPlayerSession_playerId"><span class="hs-identifier hs-type">createPlayerSession_playerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -223,27 +223,27 @@ $sel:gameSessionId:CreatePlayerSession' :: CreatePlayerSession -&gt; Text
 -&gt; (CreatePlayerSession -&gt; Text -&gt; CreatePlayerSession)
 -&gt; Lens CreatePlayerSession CreatePlayerSession Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession%27"><span class="hs-identifier hs-type">CreatePlayerSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459887"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession%27"><span class="hs-identifier hs-type">CreatePlayerSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460397"><span class="annot"><span class="annottext">Text
 playerId :: Text
 $sel:playerId:CreatePlayerSession' :: CreatePlayerSession -&gt; Text
-</span><a href="#local-6989586621679459887"><span class="hs-identifier hs-var hs-var">playerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459887"><span class="hs-identifier hs-var">playerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459886"><span class="annot"><span class="annottext">s :: CreatePlayerSession
-</span><a href="#local-6989586621679459886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession%27"><span class="hs-identifier hs-type">CreatePlayerSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459885"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlayerSession
-</span><a href="#local-6989586621679459886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerId:CreatePlayerSession' :: Text
+</span><a href="#local-6989586621679460397"><span class="hs-identifier hs-var hs-var">playerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460397"><span class="hs-identifier hs-var">playerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460396"><span class="annot"><span class="annottext">s :: CreatePlayerSession
+</span><a href="#local-6989586621679460396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession%27"><span class="hs-identifier hs-type">CreatePlayerSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460395"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679460395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlayerSession
+</span><a href="#local-6989586621679460396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerId:CreatePlayerSession' :: Text
 </span><a href="Network.AWS.GameLift.CreatePlayerSession.html#%24sel%3AplayerId%3ACreatePlayerSession%27"><span class="hs-identifier hs-var">playerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse"><span class="hs-identifier hs-type">CreatePlayerSessionResponse</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679459881"><span class="annot"><span class="annottext">request :: CreatePlayerSession -&gt; Request CreatePlayerSession
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679460391"><span class="annot"><span class="annottext">request :: CreatePlayerSession -&gt; Request CreatePlayerSession
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreatePlayerSession -&gt; Request CreatePlayerSession
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679459877"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679460387"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreatePlayerSession
 -&gt; ClientResponse ClientBody
@@ -269,10 +269,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679459874"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459874"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679459873"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679459873"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679459872"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679459872"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679460384"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679460384"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679460383"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679460383"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679460382"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679460382"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe PlayerSession -&gt; Int -&gt; CreatePlayerSessionResponse
 </span><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse%27"><span class="hs-identifier hs-var">CreatePlayerSessionResponse'</span></a></span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PlayerSession -&gt; Int -&gt; CreatePlayerSessionResponse)
@@ -280,7 +280,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreatePlayerSessionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679459872"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe PlayerSession)
+</span><a href="#local-6989586621679460382"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe PlayerSession)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlayerSession&quot;</span></span><span class="hs-special">)</span><span>
@@ -292,15 +292,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459874"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460384"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459864"><span id="local-6989586621679459866"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460374"><span id="local-6989586621679460376"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span></span></span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459861"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460371"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679459857"><span class="annot"><span class="annottext">toHeaders :: CreatePlayerSession -&gt; ResponseHeaders
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679460367"><span class="annot"><span class="annottext">toHeaders :: CreatePlayerSession -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreatePlayerSession -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -327,9 +327,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459847"><span id="local-6989586621679459849"><span id="local-6989586621679459851"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679459845"><span class="annot"><span class="annottext">toJSON :: CreatePlayerSession -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession%27"><span class="hs-identifier hs-type">CreatePlayerSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459841"><span id="local-6989586621679459842"><span id="local-6989586621679459843"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460357"><span id="local-6989586621679460359"><span id="local-6989586621679460361"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679460355"><span class="annot"><span class="annottext">toJSON :: CreatePlayerSession -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession%27"><span class="hs-identifier hs-type">CreatePlayerSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460351"><span id="local-6989586621679460352"><span id="local-6989586621679460353"><span class="annot"><span class="annottext">Maybe Text
 Text
 playerId :: Text
 gameSessionId :: Text
@@ -337,7 +337,7 @@ playerData :: Maybe Text
 $sel:playerId:CreatePlayerSession' :: CreatePlayerSession -&gt; Text
 $sel:gameSessionId:CreatePlayerSession' :: CreatePlayerSession -&gt; Text
 $sel:playerData:CreatePlayerSession' :: CreatePlayerSession -&gt; Maybe Text
-</span><a href="#local-6989586621679459841"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679460351"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -349,33 +349,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679459843"><span class="hs-identifier hs-var">playerData</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679460353"><span class="hs-identifier hs-var">playerData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GameSessionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459842"><span class="hs-identifier hs-var">gameSessionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679460352"><span class="hs-identifier hs-var">gameSessionId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlayerId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679459841"><span class="hs-identifier hs-var">playerId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460351"><span class="hs-identifier hs-var">playerId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679459835"><span class="annot"><span class="annottext">toPath :: CreatePlayerSession -&gt; ByteString
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679460345"><span class="annot"><span class="annottext">toPath :: CreatePlayerSession -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreatePlayerSession -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSession"><span class="hs-identifier hs-type">CreatePlayerSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679459831"><span class="annot"><span class="annottext">toQuery :: CreatePlayerSession -&gt; QueryString
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679460341"><span class="annot"><span class="annottext">toQuery :: CreatePlayerSession -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreatePlayerSession -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -385,7 +385,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-174"></span><span class="hs-comment">-- | Represents the returned data in response to a request operation.</span><span>
 </span><span id="line-175"></span><span class="hs-comment">--</span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- /See:/ 'newCreatePlayerSessionResponse' smart constructor.</span><span>
-</span><span id="line-177"></span><span id="local-6989586621679459828"><span id="local-6989586621679459829"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePlayerSessionResponse"><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse"><span class="hs-identifier hs-var">CreatePlayerSessionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePlayerSessionResponse%27"><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse%27"><span class="hs-identifier hs-var">CreatePlayerSessionResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span id="local-6989586621679460338"><span id="local-6989586621679460339"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePlayerSessionResponse"><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse"><span class="hs-identifier hs-var">CreatePlayerSessionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePlayerSessionResponse%27"><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse%27"><span class="hs-identifier hs-var">CreatePlayerSessionResponse'</span></a></span></span><span>
 </span><span id="line-178"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Object that describes the newly created player session record.</span><span>
 </span><span id="line-179"></span><span>    </span><span id="%24sel%3AplayerSession%3ACreatePlayerSessionResponse%27"><span class="annot"><span class="annottext">CreatePlayerSessionResponse -&gt; Maybe PlayerSession
 </span><a href="Network.AWS.GameLift.CreatePlayerSession.html#%24sel%3AplayerSession%3ACreatePlayerSessionResponse%27"><span class="hs-identifier hs-var hs-var">playerSession</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerSession.html#PlayerSession"><span class="hs-identifier hs-type">PlayerSession</span></a></span><span class="hs-special">,</span><span>
@@ -393,7 +393,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreatePlayerSessionResponse%27"><span class="annot"><span class="annottext">CreatePlayerSessionResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.CreatePlayerSession.html#%24sel%3AhttpStatus%3ACreatePlayerSessionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679459822"><span id="local-6989586621679459824"><span class="annot"><span class="annottext">CreatePlayerSessionResponse -&gt; CreatePlayerSessionResponse -&gt; Bool
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679460332"><span id="local-6989586621679460334"><span class="annot"><span class="annottext">CreatePlayerSessionResponse -&gt; CreatePlayerSessionResponse -&gt; Bool
 (CreatePlayerSessionResponse
  -&gt; CreatePlayerSessionResponse -&gt; Bool)
 -&gt; (CreatePlayerSessionResponse
@@ -404,7 +404,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreatePlayerSessionResponse -&gt; CreatePlayerSessionResponse -&gt; Bool
 == :: CreatePlayerSessionResponse -&gt; CreatePlayerSessionResponse -&gt; Bool
 $c== :: CreatePlayerSessionResponse -&gt; CreatePlayerSessionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459814"><span id="local-6989586621679459816"><span id="local-6989586621679459818"><span id="local-6989586621679459820"><span class="annot"><span class="annottext">ReadPrec [CreatePlayerSessionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460324"><span id="local-6989586621679460326"><span id="local-6989586621679460328"><span id="local-6989586621679460330"><span class="annot"><span class="annottext">ReadPrec [CreatePlayerSessionResponse]
 ReadPrec CreatePlayerSessionResponse
 Int -&gt; ReadS CreatePlayerSessionResponse
 ReadS [CreatePlayerSessionResponse]
@@ -424,7 +424,7 @@ readList :: ReadS [CreatePlayerSessionResponse]
 $creadList :: ReadS [CreatePlayerSessionResponse]
 readsPrec :: Int -&gt; ReadS CreatePlayerSessionResponse
 $creadsPrec :: Int -&gt; ReadS CreatePlayerSessionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679459808"><span id="local-6989586621679459810"><span id="local-6989586621679459812"><span class="annot"><span class="annottext">Int -&gt; CreatePlayerSessionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679460318"><span id="local-6989586621679460320"><span id="local-6989586621679460322"><span class="annot"><span class="annottext">Int -&gt; CreatePlayerSessionResponse -&gt; ShowS
 [CreatePlayerSessionResponse] -&gt; ShowS
 CreatePlayerSessionResponse -&gt; String
 (Int -&gt; CreatePlayerSessionResponse -&gt; ShowS)
@@ -472,8 +472,8 @@ CreatePlayerSessionResponse -&gt; Rep CreatePlayerSessionResponse x
 </span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-199"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse"><span class="hs-identifier hs-type">CreatePlayerSessionResponse</span></a></span><span>
 </span><span id="line-200"></span><span id="newCreatePlayerSessionResponse"><span class="annot"><span class="annottext">newCreatePlayerSessionResponse :: Int -&gt; CreatePlayerSessionResponse
-</span><a href="Network.AWS.GameLift.CreatePlayerSession.html#newCreatePlayerSessionResponse"><span class="hs-identifier hs-var hs-var">newCreatePlayerSessionResponse</span></a></span></span><span> </span><span id="local-6989586621679459805"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459805"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.CreatePlayerSession.html#newCreatePlayerSessionResponse"><span class="hs-identifier hs-var hs-var">newCreatePlayerSessionResponse</span></a></span></span><span> </span><span id="local-6989586621679460315"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679460315"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">CreatePlayerSessionResponse' :: Maybe PlayerSession -&gt; Int -&gt; CreatePlayerSessionResponse
 </span><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse%27"><span class="hs-identifier hs-type">CreatePlayerSessionResponse'</span></a></span><span>
 </span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:playerSession:CreatePlayerSessionResponse' :: Maybe PlayerSession
@@ -483,7 +483,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePlayerSessionResponse' :: Int
 </span><a href="Network.AWS.GameLift.CreatePlayerSession.html#%24sel%3AhttpStatus%3ACreatePlayerSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459805"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679460315"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-205"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- | Object that describes the newly created player session record.</span><span>
@@ -499,16 +499,16 @@ forall a. Maybe a
      (Maybe PlayerSession)
      (Maybe PlayerSession)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse%27"><span class="hs-identifier hs-type">CreatePlayerSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459804"><span class="annot"><span class="annottext">Maybe PlayerSession
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse%27"><span class="hs-identifier hs-type">CreatePlayerSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460314"><span class="annot"><span class="annottext">Maybe PlayerSession
 playerSession :: Maybe PlayerSession
 $sel:playerSession:CreatePlayerSessionResponse' :: CreatePlayerSessionResponse -&gt; Maybe PlayerSession
-</span><a href="#local-6989586621679459804"><span class="hs-identifier hs-var hs-var">playerSession</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlayerSession
-</span><a href="#local-6989586621679459804"><span class="hs-identifier hs-var">playerSession</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459803"><span class="annot"><span class="annottext">s :: CreatePlayerSessionResponse
-</span><a href="#local-6989586621679459803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse%27"><span class="hs-identifier hs-type">CreatePlayerSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459802"><span class="annot"><span class="annottext">Maybe PlayerSession
-</span><a href="#local-6989586621679459802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlayerSessionResponse
-</span><a href="#local-6989586621679459803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerSession:CreatePlayerSessionResponse' :: Maybe PlayerSession
+</span><a href="#local-6989586621679460314"><span class="hs-identifier hs-var hs-var">playerSession</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PlayerSession
+</span><a href="#local-6989586621679460314"><span class="hs-identifier hs-var">playerSession</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460313"><span class="annot"><span class="annottext">s :: CreatePlayerSessionResponse
+</span><a href="#local-6989586621679460313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse%27"><span class="hs-identifier hs-type">CreatePlayerSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460312"><span class="annot"><span class="annottext">Maybe PlayerSession
+</span><a href="#local-6989586621679460312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlayerSessionResponse
+</span><a href="#local-6989586621679460313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerSession:CreatePlayerSessionResponse' :: Maybe PlayerSession
 </span><a href="Network.AWS.GameLift.CreatePlayerSession.html#%24sel%3AplayerSession%3ACreatePlayerSessionResponse%27"><span class="hs-identifier hs-var">playerSession</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PlayerSession
-</span><a href="#local-6989586621679459802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse"><span class="hs-identifier hs-type">CreatePlayerSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse"><span class="hs-identifier hs-type">CreatePlayerSessionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-210"></span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-212"></span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#createPlayerSessionResponse_httpStatus"><span class="hs-identifier hs-type">createPlayerSessionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse"><span class="hs-identifier hs-type">CreatePlayerSessionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -520,16 +520,16 @@ $sel:playerSession:CreatePlayerSessionResponse' :: CreatePlayerSessionResponse -
 -&gt; Lens
      CreatePlayerSessionResponse CreatePlayerSessionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse%27"><span class="hs-identifier hs-type">CreatePlayerSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679459801"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse%27"><span class="hs-identifier hs-type">CreatePlayerSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679460311"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreatePlayerSessionResponse' :: CreatePlayerSessionResponse -&gt; Int
-</span><a href="#local-6989586621679459801"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459801"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679459800"><span class="annot"><span class="annottext">s :: CreatePlayerSessionResponse
-</span><a href="#local-6989586621679459800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse%27"><span class="hs-identifier hs-type">CreatePlayerSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679459799"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlayerSessionResponse
-</span><a href="#local-6989586621679459800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePlayerSessionResponse' :: Int
+</span><a href="#local-6989586621679460311"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679460311"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679460310"><span class="annot"><span class="annottext">s :: CreatePlayerSessionResponse
+</span><a href="#local-6989586621679460310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse%27"><span class="hs-identifier hs-type">CreatePlayerSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679460309"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679460309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePlayerSessionResponse
+</span><a href="#local-6989586621679460310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePlayerSessionResponse' :: Int
 </span><a href="Network.AWS.GameLift.CreatePlayerSession.html#%24sel%3AhttpStatus%3ACreatePlayerSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679459799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse"><span class="hs-identifier hs-type">CreatePlayerSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679460309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse"><span class="hs-identifier hs-type">CreatePlayerSessionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679459797"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse"><span class="hs-identifier hs-type">CreatePlayerSessionResponse</span></a></span></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679460307"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.CreatePlayerSession.html#CreatePlayerSessionResponse"><span class="hs-identifier hs-type">CreatePlayerSessionResponse</span></a></span></span><span>
 </span><span id="line-216"></span></pre></body></html>

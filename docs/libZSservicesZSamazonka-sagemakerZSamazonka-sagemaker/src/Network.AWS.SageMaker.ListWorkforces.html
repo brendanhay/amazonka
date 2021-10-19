@@ -31,9 +31,9 @@
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#newListWorkforces"><span class="hs-identifier">newListWorkforces</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_nextToken"><span class="hs-identifier">listWorkforces_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_sortOrder"><span class="hs-identifier">listWorkforces_sortOrder</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_nameContains"><span class="hs-identifier">listWorkforces_nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_nameContains"><span class="hs-identifier">listWorkforces_nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_nextToken"><span class="hs-identifier">listWorkforces_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_sortOrder"><span class="hs-identifier">listWorkforces_sortOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_maxResults"><span class="hs-identifier">listWorkforces_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_sortBy"><span class="hs-identifier">listWorkforces_sortBy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
@@ -56,17 +56,17 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListWorkforces' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621680370310"><span id="local-6989586621680370311"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListWorkforces"><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-var">ListWorkforces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListWorkforces%27"><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-var">ListWorkforces'</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to resume pagination.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListWorkforces%27"><span class="annot"><span class="annottext">ListWorkforces -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AnextToken%3AListWorkforces%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Sort workforces in ascending or descending order.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AsortOrder%3AListWorkforces%27"><span class="annot"><span class="annottext">ListWorkforces -&gt; Maybe SortOrder
-</span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AsortOrder%3AListWorkforces%27"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A filter you can use to search for workforces using part of the</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- workforce name.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AnameContains%3AListWorkforces%27"><span class="annot"><span class="annottext">ListWorkforces -&gt; Maybe Text
+</span><span id="line-59"></span><span id="local-6989586621680371790"><span id="local-6989586621680371791"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListWorkforces"><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-var">ListWorkforces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListWorkforces%27"><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-var">ListWorkforces'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A filter you can use to search for workforces using part of the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- workforce name.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnameContains%3AListWorkforces%27"><span class="annot"><span class="annottext">ListWorkforces -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AnameContains%3AListWorkforces%27"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | A token to resume pagination.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AnextToken%3AListWorkforces%27"><span class="annot"><span class="annottext">ListWorkforces -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AnextToken%3AListWorkforces%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Sort workforces in ascending or descending order.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AsortOrder%3AListWorkforces%27"><span class="annot"><span class="annottext">ListWorkforces -&gt; Maybe SortOrder
+</span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AsortOrder%3AListWorkforces%27"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The maximum number of workforces returned in the response.</span><span>
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AmaxResults%3AListWorkforces%27"><span class="annot"><span class="annottext">ListWorkforces -&gt; Maybe Natural
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AmaxResults%3AListWorkforces%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AsortBy%3AListWorkforces%27"><span class="annot"><span class="annottext">ListWorkforces -&gt; Maybe ListWorkforcesSortByOptions
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AsortBy%3AListWorkforces%27"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ListWorkforcesSortByOptions.html#ListWorkforcesSortByOptions"><span class="hs-identifier hs-type">ListWorkforcesSortByOptions</span></a></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680370300"><span id="local-6989586621680370302"><span class="annot"><span class="annottext">ListWorkforces -&gt; ListWorkforces -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680371780"><span id="local-6989586621680371782"><span class="annot"><span class="annottext">ListWorkforces -&gt; ListWorkforces -&gt; Bool
 (ListWorkforces -&gt; ListWorkforces -&gt; Bool)
 -&gt; (ListWorkforces -&gt; ListWorkforces -&gt; Bool) -&gt; Eq ListWorkforces
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListWorkforces -&gt; ListWorkforces -&gt; Bool
 == :: ListWorkforces -&gt; ListWorkforces -&gt; Bool
 $c== :: ListWorkforces -&gt; ListWorkforces -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680370291"><span id="local-6989586621680370293"><span id="local-6989586621680370295"><span id="local-6989586621680370297"><span class="annot"><span class="annottext">ReadPrec [ListWorkforces]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680371771"><span id="local-6989586621680371773"><span id="local-6989586621680371775"><span id="local-6989586621680371777"><span class="annot"><span class="annottext">ReadPrec [ListWorkforces]
 ReadPrec ListWorkforces
 Int -&gt; ReadS ListWorkforces
 ReadS [ListWorkforces]
@@ -102,7 +102,7 @@ readList :: ReadS [ListWorkforces]
 $creadList :: ReadS [ListWorkforces]
 readsPrec :: Int -&gt; ReadS ListWorkforces
 $creadsPrec :: Int -&gt; ReadS ListWorkforces
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680370284"><span id="local-6989586621680370286"><span id="local-6989586621680370288"><span class="annot"><span class="annottext">Int -&gt; ListWorkforces -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680371764"><span id="local-6989586621680371766"><span id="local-6989586621680371768"><span class="annot"><span class="annottext">Int -&gt; ListWorkforces -&gt; ShowS
 [ListWorkforces] -&gt; ShowS
 ListWorkforces -&gt; String
 (Int -&gt; ListWorkforces -&gt; ShowS)
@@ -136,12 +136,12 @@ $cfrom :: forall x. ListWorkforces -&gt; Rep ListWorkforces x
 </span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'nextToken', 'listWorkforces_nextToken' - A token to resume pagination.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'sortOrder', 'listWorkforces_sortOrder' - Sort workforces in ascending or descending order.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'nameContains', 'listWorkforces_nameContains' - A filter you can use to search for workforces using part of the</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- workforce name.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'nameContains', 'listWorkforces_nameContains' - A filter you can use to search for workforces using part of the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- workforce name.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'nextToken', 'listWorkforces_nextToken' - A token to resume pagination.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'sortOrder', 'listWorkforces_sortOrder' - Sort workforces in ascending or descending order.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- 'maxResults', 'listWorkforces_maxResults' - The maximum number of workforces returned in the response.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
@@ -151,22 +151,22 @@ $cfrom :: forall x. ListWorkforces -&gt; Rep ListWorkforces x
 </span><span id="line-94"></span><span id="newListWorkforces"><span class="annot"><span class="annottext">newListWorkforces :: ListWorkforces
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#newListWorkforces"><span class="hs-identifier hs-var hs-var">newListWorkforces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">ListWorkforces' :: Maybe Text
--&gt; Maybe SortOrder
 -&gt; Maybe Text
+-&gt; Maybe SortOrder
 -&gt; Maybe Natural
 -&gt; Maybe ListWorkforcesSortByOptions
 -&gt; ListWorkforces
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListWorkforces' :: Maybe Text
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nameContains:ListWorkforces' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AnameContains%3AListWorkforces%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListWorkforces' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AnextToken%3AListWorkforces%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortOrder:ListWorkforces' :: Maybe SortOrder
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:sortOrder:ListWorkforces' :: Maybe SortOrder
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AsortOrder%3AListWorkforces%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:nameContains:ListWorkforces' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AnameContains%3AListWorkforces%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListWorkforces' :: Maybe Natural
@@ -179,64 +179,64 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | A token to resume pagination.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_nextToken"><span class="hs-identifier hs-type">listWorkforces_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="listWorkforces_nextToken"><span class="annot"><span class="annottext">listWorkforces_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-103"></span><span class="hs-comment">-- | A filter you can use to search for workforces using part of the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- workforce name.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_nameContains"><span class="hs-identifier hs-type">listWorkforces_nameContains</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="listWorkforces_nameContains"><span class="annot"><span class="annottext">listWorkforces_nameContains :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListWorkforces -&gt; f ListWorkforces
+</span><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_nameContains"><span class="hs-identifier hs-var hs-var">listWorkforces_nameContains</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListWorkforces -&gt; Maybe Text)
+-&gt; (ListWorkforces -&gt; Maybe Text -&gt; ListWorkforces)
+-&gt; Lens ListWorkforces ListWorkforces (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371758"><span class="annot"><span class="annottext">Maybe Text
+nameContains :: Maybe Text
+$sel:nameContains:ListWorkforces' :: ListWorkforces -&gt; Maybe Text
+</span><a href="#local-6989586621680371758"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371758"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371757"><span class="annot"><span class="annottext">s :: ListWorkforces
+</span><a href="#local-6989586621680371757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371756"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkforces
+</span><a href="#local-6989586621680371757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:ListWorkforces' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AnameContains%3AListWorkforces%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | A token to resume pagination.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_nextToken"><span class="hs-identifier hs-type">listWorkforces_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="listWorkforces_nextToken"><span class="annot"><span class="annottext">listWorkforces_nextToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListWorkforces -&gt; f ListWorkforces
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_nextToken"><span class="hs-identifier hs-var hs-var">listWorkforces_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListWorkforces -&gt; Maybe Text)
 -&gt; (ListWorkforces -&gt; Maybe Text -&gt; ListWorkforces)
 -&gt; Lens ListWorkforces ListWorkforces (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370278"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371755"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListWorkforces' :: ListWorkforces -&gt; Maybe Text
-</span><a href="#local-6989586621680370278"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370278"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370277"><span class="annot"><span class="annottext">s :: ListWorkforces
-</span><a href="#local-6989586621680370277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370276"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkforces
-</span><a href="#local-6989586621680370277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListWorkforces' :: Maybe Text
+</span><a href="#local-6989586621680371755"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371755"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371754"><span class="annot"><span class="annottext">s :: ListWorkforces
+</span><a href="#local-6989586621680371754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371753"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkforces
+</span><a href="#local-6989586621680371754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListWorkforces' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AnextToken%3AListWorkforces%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | Sort workforces in ascending or descending order.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_sortOrder"><span class="hs-identifier hs-type">listWorkforces_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="listWorkforces_sortOrder"><span class="annot"><span class="annottext">listWorkforces_sortOrder :: (Maybe SortOrder -&gt; f (Maybe SortOrder))
+</span><a href="#local-6989586621680371753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Sort workforces in ascending or descending order.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_sortOrder"><span class="hs-identifier hs-type">listWorkforces_sortOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SortOrder.html#SortOrder"><span class="hs-identifier hs-type">SortOrder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="listWorkforces_sortOrder"><span class="annot"><span class="annottext">listWorkforces_sortOrder :: (Maybe SortOrder -&gt; f (Maybe SortOrder))
 -&gt; ListWorkforces -&gt; f ListWorkforces
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_sortOrder"><span class="hs-identifier hs-var hs-var">listWorkforces_sortOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListWorkforces -&gt; Maybe SortOrder)
 -&gt; (ListWorkforces -&gt; Maybe SortOrder -&gt; ListWorkforces)
 -&gt; Lens
      ListWorkforces ListWorkforces (Maybe SortOrder) (Maybe SortOrder)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370275"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371752"><span class="annot"><span class="annottext">Maybe SortOrder
 sortOrder :: Maybe SortOrder
 $sel:sortOrder:ListWorkforces' :: ListWorkforces -&gt; Maybe SortOrder
-</span><a href="#local-6989586621680370275"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680370275"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370274"><span class="annot"><span class="annottext">s :: ListWorkforces
-</span><a href="#local-6989586621680370274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370273"><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680370273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkforces
-</span><a href="#local-6989586621680370274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListWorkforces' :: Maybe SortOrder
+</span><a href="#local-6989586621680371752"><span class="hs-identifier hs-var hs-var">sortOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680371752"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371751"><span class="annot"><span class="annottext">s :: ListWorkforces
+</span><a href="#local-6989586621680371751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371750"><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680371750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkforces
+</span><a href="#local-6989586621680371751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortOrder:ListWorkforces' :: Maybe SortOrder
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AsortOrder%3AListWorkforces%27"><span class="hs-identifier hs-var">sortOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680370273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | A filter you can use to search for workforces using part of the</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- workforce name.</span><span>
-</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_nameContains"><span class="hs-identifier hs-type">listWorkforces_nameContains</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span id="listWorkforces_nameContains"><span class="annot"><span class="annottext">listWorkforces_nameContains :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListWorkforces -&gt; f ListWorkforces
-</span><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_nameContains"><span class="hs-identifier hs-var hs-var">listWorkforces_nameContains</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListWorkforces -&gt; Maybe Text)
--&gt; (ListWorkforces -&gt; Maybe Text -&gt; ListWorkforces)
--&gt; Lens ListWorkforces ListWorkforces (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370272"><span class="annot"><span class="annottext">Maybe Text
-nameContains :: Maybe Text
-$sel:nameContains:ListWorkforces' :: ListWorkforces -&gt; Maybe Text
-</span><a href="#local-6989586621680370272"><span class="hs-identifier hs-var hs-var">nameContains</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370272"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370271"><span class="annot"><span class="annottext">s :: ListWorkforces
-</span><a href="#local-6989586621680370271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370270"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkforces
-</span><a href="#local-6989586621680370271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameContains:ListWorkforces' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AnameContains%3AListWorkforces%27"><span class="hs-identifier hs-var">nameContains</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680371750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The maximum number of workforces returned in the response.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_maxResults"><span class="hs-identifier hs-type">listWorkforces_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -247,16 +247,16 @@ $sel:nameContains:ListWorkforces' :: ListWorkforces -&gt; Maybe Text
 -&gt; Lens
      ListWorkforces ListWorkforces (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370269"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371749"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListWorkforces' :: ListWorkforces -&gt; Maybe Natural
-</span><a href="#local-6989586621680370269"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680370269"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370268"><span class="annot"><span class="annottext">s :: ListWorkforces
-</span><a href="#local-6989586621680370268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370267"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680370267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkforces
-</span><a href="#local-6989586621680370268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListWorkforces' :: Maybe Natural
+</span><a href="#local-6989586621680371749"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680371749"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371748"><span class="annot"><span class="annottext">s :: ListWorkforces
+</span><a href="#local-6989586621680371748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371747"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680371747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkforces
+</span><a href="#local-6989586621680371748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListWorkforces' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AmaxResults%3AListWorkforces%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680370267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680371747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | Sort workforces using the workforce name or creation date.</span><span>
 </span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforces_sortBy"><span class="hs-identifier hs-type">listWorkforces_sortBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ListWorkforcesSortByOptions.html#ListWorkforcesSortByOptions"><span class="hs-identifier hs-type">ListWorkforcesSortByOptions</span></a></span><span class="hs-special">)</span><span>
@@ -272,29 +272,29 @@ $sel:maxResults:ListWorkforces' :: ListWorkforces -&gt; Maybe Natural
      (Maybe ListWorkforcesSortByOptions)
      (Maybe ListWorkforcesSortByOptions)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370266"><span class="annot"><span class="annottext">Maybe ListWorkforcesSortByOptions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371746"><span class="annot"><span class="annottext">Maybe ListWorkforcesSortByOptions
 sortBy :: Maybe ListWorkforcesSortByOptions
 $sel:sortBy:ListWorkforces' :: ListWorkforces -&gt; Maybe ListWorkforcesSortByOptions
-</span><a href="#local-6989586621680370266"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ListWorkforcesSortByOptions
-</span><a href="#local-6989586621680370266"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370265"><span class="annot"><span class="annottext">s :: ListWorkforces
-</span><a href="#local-6989586621680370265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370264"><span class="annot"><span class="annottext">Maybe ListWorkforcesSortByOptions
-</span><a href="#local-6989586621680370264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkforces
-</span><a href="#local-6989586621680370265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListWorkforces' :: Maybe ListWorkforcesSortByOptions
+</span><a href="#local-6989586621680371746"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ListWorkforcesSortByOptions
+</span><a href="#local-6989586621680371746"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371745"><span class="annot"><span class="annottext">s :: ListWorkforces
+</span><a href="#local-6989586621680371745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371744"><span class="annot"><span class="annottext">Maybe ListWorkforcesSortByOptions
+</span><a href="#local-6989586621680371744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkforces
+</span><a href="#local-6989586621680371745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:ListWorkforces' :: Maybe ListWorkforcesSortByOptions
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AsortBy%3AListWorkforces%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ListWorkforcesSortByOptions
-</span><a href="#local-6989586621680370264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680371744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621680370260"><span class="annot"><span class="annottext">page :: ListWorkforces
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621680371740"><span class="annot"><span class="annottext">page :: ListWorkforces
 -&gt; AWSResponse ListWorkforces -&gt; Maybe ListWorkforces
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680370258"><span class="annot"><span class="annottext">ListWorkforces
-</span><a href="#local-6989586621680370258"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680370257"><span class="annot"><span class="annottext">AWSResponse ListWorkforces
-</span><a href="#local-6989586621680370257"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621680371738"><span class="annot"><span class="annottext">ListWorkforces
+</span><a href="#local-6989586621680371738"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621680371737"><span class="annot"><span class="annottext">AWSResponse ListWorkforces
+</span><a href="#local-6989586621680371737"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-126"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-127"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListWorkforces
 ListWorkforcesResponse
-</span><a href="#local-6989586621680370257"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680371737"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">ListWorkforcesResponse
 -&gt; Getting (First Text) ListWorkforcesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -323,7 +323,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-133"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse ListWorkforces
 ListWorkforcesResponse
-</span><a href="#local-6989586621680370257"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListWorkforcesResponse
+</span><a href="#local-6989586621680371737"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListWorkforcesResponse
 -&gt; Getting [Workforce] ListWorkforcesResponse [Workforce]
 -&gt; [Workforce]
 forall s a. s -&gt; Getting a s a -&gt; a
@@ -342,7 +342,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ListWorkforces
-</span><a href="#local-6989586621680370258"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621680371738"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">ListWorkforces
 -&gt; (ListWorkforces -&gt; ListWorkforces) -&gt; ListWorkforces
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -356,7 +356,7 @@ Lens ListWorkforces ListWorkforces (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListWorkforces
 ListWorkforcesResponse
-</span><a href="#local-6989586621680370257"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621680371737"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">ListWorkforcesResponse
 -&gt; Getting (First Text) ListWorkforcesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -380,12 +380,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-143"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-144"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse"><span class="hs-identifier hs-type">ListWorkforcesResponse</span></a></span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621680370246"><span class="annot"><span class="annottext">request :: ListWorkforces -&gt; Request ListWorkforces
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621680371726"><span class="annot"><span class="annottext">request :: ListWorkforces -&gt; Request ListWorkforces
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListWorkforces -&gt; Request ListWorkforces
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621680370242"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621680371722"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListWorkforces
 -&gt; ClientResponse ClientBody
@@ -409,10 +409,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680370239"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680370239"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680370238"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680370238"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680370237"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680370237"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680371719"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680371719"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680371718"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680371718"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680371717"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680371717"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [Workforce] -&gt; ListWorkforcesResponse
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse%27"><span class="hs-identifier hs-var">ListWorkforcesResponse'</span></a></span><span>
 </span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; [Workforce] -&gt; ListWorkforcesResponse)
@@ -420,7 +420,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; [Workforce] -&gt; ListWorkforcesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680370237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680371717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -433,13 +433,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680370239"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680371719"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Workforce] -&gt; ListWorkforcesResponse)
 -&gt; Either String [Workforce]
 -&gt; Either String ListWorkforcesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680370237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Workforce])
+</span><a href="#local-6989586621680371717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Workforce])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Workforces&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Workforce])
@@ -450,12 +450,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680370228"><span id="local-6989586621680370230"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680371708"><span id="local-6989586621680371710"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680370225"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680371705"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621680370221"><span class="annot"><span class="annottext">toHeaders :: ListWorkforces -&gt; ResponseHeaders
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621680371701"><span class="annot"><span class="annottext">toHeaders :: ListWorkforces -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListWorkforces -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -480,56 +480,56 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680370211"><span id="local-6989586621680370213"><span id="local-6989586621680370215"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621680370209"><span class="annot"><span class="annottext">toJSON :: ListWorkforces -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370203"><span id="local-6989586621680370204"><span id="local-6989586621680370205"><span id="local-6989586621680370206"><span id="local-6989586621680370207"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680371691"><span id="local-6989586621680371693"><span id="local-6989586621680371695"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621680371689"><span class="annot"><span class="annottext">toJSON :: ListWorkforces -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces%27"><span class="hs-identifier hs-type">ListWorkforces'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371683"><span id="local-6989586621680371684"><span id="local-6989586621680371685"><span id="local-6989586621680371686"><span id="local-6989586621680371687"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe ListWorkforcesSortByOptions
 Maybe SortOrder
 sortBy :: Maybe ListWorkforcesSortByOptions
 maxResults :: Maybe Natural
-nameContains :: Maybe Text
 sortOrder :: Maybe SortOrder
 nextToken :: Maybe Text
+nameContains :: Maybe Text
 $sel:sortBy:ListWorkforces' :: ListWorkforces -&gt; Maybe ListWorkforcesSortByOptions
 $sel:maxResults:ListWorkforces' :: ListWorkforces -&gt; Maybe Natural
-$sel:nameContains:ListWorkforces' :: ListWorkforces -&gt; Maybe Text
 $sel:sortOrder:ListWorkforces' :: ListWorkforces -&gt; Maybe SortOrder
 $sel:nextToken:ListWorkforces' :: ListWorkforces -&gt; Maybe Text
-</span><a href="#local-6989586621680370203"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:nameContains:ListWorkforces' :: ListWorkforces -&gt; Maybe Text
+</span><a href="#local-6989586621680371683"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-176"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-177"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370207"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortOrder -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrder -&gt; Pair) -&gt; Maybe SortOrder -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
-</span><a href="#local-6989586621680370206"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NameContains&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370205"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680371687"><span class="hs-identifier hs-var">nameContains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371686"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SortOrder&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SortOrder -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SortOrder -&gt; Pair) -&gt; Maybe SortOrder -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SortOrder
+</span><a href="#local-6989586621680371685"><span class="hs-identifier hs-var">sortOrder</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680370204"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680371684"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ListWorkforcesSortByOptions -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -537,19 +537,19 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ListWorkforcesSortByOptions -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ListWorkforcesSortByOptions
-</span><a href="#local-6989586621680370203"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
+</span><a href="#local-6989586621680371683"><span class="hs-identifier hs-var">sortBy</span></a></span><span>
 </span><span id="line-182"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621680370197"><span class="annot"><span class="annottext">toPath :: ListWorkforces -&gt; ByteString
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621680371677"><span class="annot"><span class="annottext">toPath :: ListWorkforces -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListWorkforces -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforces"><span class="hs-identifier hs-type">ListWorkforces</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621680370193"><span class="annot"><span class="annottext">toQuery :: ListWorkforces -&gt; QueryString
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621680371673"><span class="annot"><span class="annottext">toQuery :: ListWorkforces -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListWorkforces -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -557,7 +557,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | /See:/ 'newListWorkforcesResponse' smart constructor.</span><span>
-</span><span id="line-192"></span><span id="local-6989586621680370190"><span id="local-6989586621680370191"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListWorkforcesResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse"><span class="hs-identifier hs-var">ListWorkforcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListWorkforcesResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse%27"><span class="hs-identifier hs-var">ListWorkforcesResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span id="local-6989586621680371670"><span id="local-6989586621680371671"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListWorkforcesResponse"><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse"><span class="hs-identifier hs-var">ListWorkforcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListWorkforcesResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse%27"><span class="hs-identifier hs-var">ListWorkforcesResponse'</span></a></span></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token to resume pagination.</span><span>
 </span><span id="line-194"></span><span>    </span><span id="%24sel%3AnextToken%3AListWorkforcesResponse%27"><span class="annot"><span class="annottext">ListWorkforcesResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AnextToken%3AListWorkforcesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -568,7 +568,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-198"></span><span>    </span><span id="%24sel%3Aworkforces%3AListWorkforcesResponse%27"><span class="annot"><span class="annottext">ListWorkforcesResponse -&gt; [Workforce]
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3Aworkforces%3AListWorkforcesResponse%27"><span class="hs-identifier hs-var hs-var">workforces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680370183"><span id="local-6989586621680370185"><span class="annot"><span class="annottext">ListWorkforcesResponse -&gt; ListWorkforcesResponse -&gt; Bool
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680371663"><span id="local-6989586621680371665"><span class="annot"><span class="annottext">ListWorkforcesResponse -&gt; ListWorkforcesResponse -&gt; Bool
 (ListWorkforcesResponse -&gt; ListWorkforcesResponse -&gt; Bool)
 -&gt; (ListWorkforcesResponse -&gt; ListWorkforcesResponse -&gt; Bool)
 -&gt; Eq ListWorkforcesResponse
@@ -577,7 +577,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListWorkforcesResponse -&gt; ListWorkforcesResponse -&gt; Bool
 == :: ListWorkforcesResponse -&gt; ListWorkforcesResponse -&gt; Bool
 $c== :: ListWorkforcesResponse -&gt; ListWorkforcesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680370175"><span id="local-6989586621680370177"><span id="local-6989586621680370179"><span id="local-6989586621680370181"><span class="annot"><span class="annottext">ReadPrec [ListWorkforcesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680371655"><span id="local-6989586621680371657"><span id="local-6989586621680371659"><span id="local-6989586621680371661"><span class="annot"><span class="annottext">ReadPrec [ListWorkforcesResponse]
 ReadPrec ListWorkforcesResponse
 Int -&gt; ReadS ListWorkforcesResponse
 ReadS [ListWorkforcesResponse]
@@ -597,7 +597,7 @@ readList :: ReadS [ListWorkforcesResponse]
 $creadList :: ReadS [ListWorkforcesResponse]
 readsPrec :: Int -&gt; ReadS ListWorkforcesResponse
 $creadsPrec :: Int -&gt; ReadS ListWorkforcesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680370169"><span id="local-6989586621680370171"><span id="local-6989586621680370173"><span class="annot"><span class="annottext">Int -&gt; ListWorkforcesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680371649"><span id="local-6989586621680371651"><span id="local-6989586621680371653"><span class="annot"><span class="annottext">Int -&gt; ListWorkforcesResponse -&gt; ShowS
 [ListWorkforcesResponse] -&gt; ShowS
 ListWorkforcesResponse -&gt; String
 (Int -&gt; ListWorkforcesResponse -&gt; ShowS)
@@ -642,8 +642,8 @@ $cfrom :: forall x. ListWorkforcesResponse -&gt; Rep ListWorkforcesResponse x
 </span><span id="line-217"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-218"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse"><span class="hs-identifier hs-type">ListWorkforcesResponse</span></a></span><span>
 </span><span id="line-219"></span><span id="newListWorkforcesResponse"><span class="annot"><span class="annottext">newListWorkforcesResponse :: Int -&gt; ListWorkforcesResponse
-</span><a href="Network.AWS.SageMaker.ListWorkforces.html#newListWorkforcesResponse"><span class="hs-identifier hs-var hs-var">newListWorkforcesResponse</span></a></span></span><span> </span><span id="local-6989586621680370166"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680370166"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.ListWorkforces.html#newListWorkforcesResponse"><span class="hs-identifier hs-var hs-var">newListWorkforcesResponse</span></a></span></span><span> </span><span id="local-6989586621680371646"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680371646"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-220"></span><span>  </span><span class="annot"><span class="annottext">ListWorkforcesResponse' :: Maybe Text -&gt; Int -&gt; [Workforce] -&gt; ListWorkforcesResponse
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse%27"><span class="hs-identifier hs-type">ListWorkforcesResponse'</span></a></span><span>
 </span><span id="line-221"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListWorkforcesResponse' :: Maybe Text
@@ -653,7 +653,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListWorkforcesResponse' :: Int
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AhttpStatus%3AListWorkforcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680370166"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680371646"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:workforces:ListWorkforcesResponse' :: [Workforce]
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3Aworkforces%3AListWorkforcesResponse%27"><span class="hs-identifier hs-var">workforces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Workforce]
 forall a. Monoid a =&gt; a
@@ -668,16 +668,16 @@ forall a. Monoid a =&gt; a
 -&gt; (ListWorkforcesResponse -&gt; Maybe Text -&gt; ListWorkforcesResponse)
 -&gt; Lens' ListWorkforcesResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse%27"><span class="hs-identifier hs-type">ListWorkforcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370165"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse%27"><span class="hs-identifier hs-type">ListWorkforcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371645"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListWorkforcesResponse' :: ListWorkforcesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680370165"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370165"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370164"><span class="annot"><span class="annottext">s :: ListWorkforcesResponse
-</span><a href="#local-6989586621680370164"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse%27"><span class="hs-identifier hs-type">ListWorkforcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370163"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370163"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkforcesResponse
-</span><a href="#local-6989586621680370164"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListWorkforcesResponse' :: Maybe Text
+</span><a href="#local-6989586621680371645"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371645"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371644"><span class="annot"><span class="annottext">s :: ListWorkforcesResponse
+</span><a href="#local-6989586621680371644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse%27"><span class="hs-identifier hs-type">ListWorkforcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371643"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680371643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkforcesResponse
+</span><a href="#local-6989586621680371644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListWorkforcesResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AnextToken%3AListWorkforcesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680370163"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse"><span class="hs-identifier hs-type">ListWorkforcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680371643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse"><span class="hs-identifier hs-type">ListWorkforcesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-232"></span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforcesResponse_httpStatus"><span class="hs-identifier hs-type">listWorkforcesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse"><span class="hs-identifier hs-type">ListWorkforcesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -687,16 +687,16 @@ $sel:nextToken:ListWorkforcesResponse' :: ListWorkforcesResponse -&gt; Maybe Tex
 -&gt; (ListWorkforcesResponse -&gt; Int -&gt; ListWorkforcesResponse)
 -&gt; Lens ListWorkforcesResponse ListWorkforcesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse%27"><span class="hs-identifier hs-type">ListWorkforcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370162"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse%27"><span class="hs-identifier hs-type">ListWorkforcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371642"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListWorkforcesResponse' :: ListWorkforcesResponse -&gt; Int
-</span><a href="#local-6989586621680370162"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680370162"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370161"><span class="annot"><span class="annottext">s :: ListWorkforcesResponse
-</span><a href="#local-6989586621680370161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse%27"><span class="hs-identifier hs-type">ListWorkforcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370160"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680370160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkforcesResponse
-</span><a href="#local-6989586621680370161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListWorkforcesResponse' :: Int
+</span><a href="#local-6989586621680371642"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680371642"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371641"><span class="annot"><span class="annottext">s :: ListWorkforcesResponse
+</span><a href="#local-6989586621680371641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse%27"><span class="hs-identifier hs-type">ListWorkforcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371640"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680371640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkforcesResponse
+</span><a href="#local-6989586621680371641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListWorkforcesResponse' :: Int
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3AhttpStatus%3AListWorkforcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680370160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse"><span class="hs-identifier hs-type">ListWorkforcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680371640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse"><span class="hs-identifier hs-type">ListWorkforcesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | A list containing information about your workforce.</span><span>
 </span><span id="line-236"></span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#listWorkforcesResponse_workforces"><span class="hs-identifier hs-type">listWorkforcesResponse_workforces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse"><span class="hs-identifier hs-type">ListWorkforcesResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Workforce.html#Workforce"><span class="hs-identifier hs-type">Workforce</span></a></span><span class="hs-special">]</span><span>
@@ -707,16 +707,16 @@ $sel:httpStatus:ListWorkforcesResponse' :: ListWorkforcesResponse -&gt; Int
     -&gt; [Workforce] -&gt; ListWorkforcesResponse)
 -&gt; Lens' ListWorkforcesResponse [Workforce]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse%27"><span class="hs-identifier hs-type">ListWorkforcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370159"><span class="annot"><span class="annottext">[Workforce]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse%27"><span class="hs-identifier hs-type">ListWorkforcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680371639"><span class="annot"><span class="annottext">[Workforce]
 workforces :: [Workforce]
 $sel:workforces:ListWorkforcesResponse' :: ListWorkforcesResponse -&gt; [Workforce]
-</span><a href="#local-6989586621680370159"><span class="hs-identifier hs-var hs-var">workforces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Workforce]
-</span><a href="#local-6989586621680370159"><span class="hs-identifier hs-var">workforces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370158"><span class="annot"><span class="annottext">s :: ListWorkforcesResponse
-</span><a href="#local-6989586621680370158"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse%27"><span class="hs-identifier hs-type">ListWorkforcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370157"><span class="annot"><span class="annottext">[Workforce]
-</span><a href="#local-6989586621680370157"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkforcesResponse
-</span><a href="#local-6989586621680370158"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workforces:ListWorkforcesResponse' :: [Workforce]
+</span><a href="#local-6989586621680371639"><span class="hs-identifier hs-var hs-var">workforces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Workforce]
+</span><a href="#local-6989586621680371639"><span class="hs-identifier hs-var">workforces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680371638"><span class="annot"><span class="annottext">s :: ListWorkforcesResponse
+</span><a href="#local-6989586621680371638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse%27"><span class="hs-identifier hs-type">ListWorkforcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680371637"><span class="annot"><span class="annottext">[Workforce]
+</span><a href="#local-6989586621680371637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListWorkforcesResponse
+</span><a href="#local-6989586621680371638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workforces:ListWorkforcesResponse' :: [Workforce]
 </span><a href="Network.AWS.SageMaker.ListWorkforces.html#%24sel%3Aworkforces%3AListWorkforcesResponse%27"><span class="hs-identifier hs-var">workforces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Workforce]
-</span><a href="#local-6989586621680370157"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse"><span class="hs-identifier hs-type">ListWorkforcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Workforce] -&gt; f [Workforce])
+</span><a href="#local-6989586621680371637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse"><span class="hs-identifier hs-type">ListWorkforcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Workforce] -&gt; f [Workforce])
  -&gt; ListWorkforcesResponse -&gt; f ListWorkforcesResponse)
 -&gt; (([Workforce] -&gt; f [Workforce]) -&gt; [Workforce] -&gt; f [Workforce])
 -&gt; ([Workforce] -&gt; f [Workforce])
@@ -724,8 +724,8 @@ $sel:workforces:ListWorkforcesResponse' :: ListWorkforcesResponse -&gt; [Workfor
 -&gt; f ListWorkforcesResponse
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Workforce] -&gt; f [Workforce]) -&gt; [Workforce] -&gt; f [Workforce]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-238"></span><span>
-</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680370154"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse"><span class="hs-identifier hs-type">ListWorkforcesResponse</span></a></span></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680371634"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.ListWorkforces.html#ListWorkforcesResponse"><span class="hs-identifier hs-type">ListWorkforcesResponse</span></a></span></span><span>
 </span><span id="line-240"></span></pre></body></html>

@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- of your bot. The list contains a maximum of 100 utterances.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newUtteranceList' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679316849"><span id="local-6989586621679316850"></span></span><span class="hs-keyword">data</span><span> </span><span id="UtteranceList"><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList"><span class="hs-identifier hs-var">UtteranceList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UtteranceList%27"><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList%27"><span class="hs-identifier hs-var">UtteranceList'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679317144"><span id="local-6989586621679317145"></span></span><span class="hs-keyword">data</span><span> </span><span id="UtteranceList"><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList"><span class="hs-identifier hs-var">UtteranceList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UtteranceList%27"><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList%27"><span class="hs-identifier hs-var">UtteranceList'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the bot that processed the list.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AbotVersion%3AUtteranceList%27"><span class="annot"><span class="annottext">UtteranceList -&gt; Maybe Text
 </span><a href="Network.AWS.LexModels.Types.UtteranceList.html#%24sel%3AbotVersion%3AUtteranceList%27"><span class="hs-identifier hs-var hs-var">botVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Autterances%3AUtteranceList%27"><span class="annot"><span class="annottext">UtteranceList -&gt; Maybe [UtteranceData]
 </span><a href="Network.AWS.LexModels.Types.UtteranceList.html#%24sel%3Autterances%3AUtteranceList%27"><span class="hs-identifier hs-var hs-var">utterances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceData.html#UtteranceData"><span class="hs-identifier hs-type">UtteranceData</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679316842"><span id="local-6989586621679316844"><span class="annot"><span class="annottext">UtteranceList -&gt; UtteranceList -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679317137"><span id="local-6989586621679317139"><span class="annot"><span class="annottext">UtteranceList -&gt; UtteranceList -&gt; Bool
 (UtteranceList -&gt; UtteranceList -&gt; Bool)
 -&gt; (UtteranceList -&gt; UtteranceList -&gt; Bool) -&gt; Eq UtteranceList
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UtteranceList -&gt; UtteranceList -&gt; Bool
 == :: UtteranceList -&gt; UtteranceList -&gt; Bool
 $c== :: UtteranceList -&gt; UtteranceList -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316833"><span id="local-6989586621679316835"><span id="local-6989586621679316837"><span id="local-6989586621679316839"><span class="annot"><span class="annottext">ReadPrec [UtteranceList]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317128"><span id="local-6989586621679317130"><span id="local-6989586621679317132"><span id="local-6989586621679317134"><span class="annot"><span class="annottext">ReadPrec [UtteranceList]
 ReadPrec UtteranceList
 Int -&gt; ReadS UtteranceList
 ReadS [UtteranceList]
@@ -66,7 +66,7 @@ readList :: ReadS [UtteranceList]
 $creadList :: ReadS [UtteranceList]
 readsPrec :: Int -&gt; ReadS UtteranceList
 $creadsPrec :: Int -&gt; ReadS UtteranceList
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679316826"><span id="local-6989586621679316828"><span id="local-6989586621679316830"><span class="annot"><span class="annottext">Int -&gt; UtteranceList -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679317121"><span id="local-6989586621679317123"><span id="local-6989586621679317125"><span class="annot"><span class="annottext">Int -&gt; UtteranceList -&gt; ShowS
 [UtteranceList] -&gt; ShowS
 UtteranceList -&gt; String
 (Int -&gt; UtteranceList -&gt; ShowS)
@@ -128,16 +128,16 @@ forall a. Maybe a
 -&gt; (UtteranceList -&gt; Maybe Text -&gt; UtteranceList)
 -&gt; Lens UtteranceList UtteranceList (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList%27"><span class="hs-identifier hs-type">UtteranceList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316817"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList%27"><span class="hs-identifier hs-type">UtteranceList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317112"><span class="annot"><span class="annottext">Maybe Text
 botVersion :: Maybe Text
 $sel:botVersion:UtteranceList' :: UtteranceList -&gt; Maybe Text
-</span><a href="#local-6989586621679316817"><span class="hs-identifier hs-var hs-var">botVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316817"><span class="hs-identifier hs-var">botVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316816"><span class="annot"><span class="annottext">s :: UtteranceList
-</span><a href="#local-6989586621679316816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList%27"><span class="hs-identifier hs-type">UtteranceList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316815"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UtteranceList
-</span><a href="#local-6989586621679316816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:botVersion:UtteranceList' :: Maybe Text
+</span><a href="#local-6989586621679317112"><span class="hs-identifier hs-var hs-var">botVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317112"><span class="hs-identifier hs-var">botVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317111"><span class="annot"><span class="annottext">s :: UtteranceList
+</span><a href="#local-6989586621679317111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList%27"><span class="hs-identifier hs-type">UtteranceList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317110"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679317110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UtteranceList
+</span><a href="#local-6989586621679317111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:botVersion:UtteranceList' :: Maybe Text
 </span><a href="Network.AWS.LexModels.Types.UtteranceList.html#%24sel%3AbotVersion%3AUtteranceList%27"><span class="hs-identifier hs-var">botVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679316815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList"><span class="hs-identifier hs-type">UtteranceList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679317110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList"><span class="hs-identifier hs-type">UtteranceList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | One or more UtteranceData objects that contain information about the</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- utterances that have been made to a bot. The maximum number of object is</span><span>
@@ -153,16 +153,16 @@ $sel:botVersion:UtteranceList' :: UtteranceList -&gt; Maybe Text
      (Maybe [UtteranceData])
      (Maybe [UtteranceData])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList%27"><span class="hs-identifier hs-type">UtteranceList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679316813"><span class="annot"><span class="annottext">Maybe [UtteranceData]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList%27"><span class="hs-identifier hs-type">UtteranceList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679317108"><span class="annot"><span class="annottext">Maybe [UtteranceData]
 utterances :: Maybe [UtteranceData]
 $sel:utterances:UtteranceList' :: UtteranceList -&gt; Maybe [UtteranceData]
-</span><a href="#local-6989586621679316813"><span class="hs-identifier hs-var hs-var">utterances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UtteranceData]
-</span><a href="#local-6989586621679316813"><span class="hs-identifier hs-var">utterances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679316812"><span class="annot"><span class="annottext">s :: UtteranceList
-</span><a href="#local-6989586621679316812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList%27"><span class="hs-identifier hs-type">UtteranceList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679316811"><span class="annot"><span class="annottext">Maybe [UtteranceData]
-</span><a href="#local-6989586621679316811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UtteranceList
-</span><a href="#local-6989586621679316812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:utterances:UtteranceList' :: Maybe [UtteranceData]
+</span><a href="#local-6989586621679317108"><span class="hs-identifier hs-var hs-var">utterances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UtteranceData]
+</span><a href="#local-6989586621679317108"><span class="hs-identifier hs-var">utterances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679317107"><span class="annot"><span class="annottext">s :: UtteranceList
+</span><a href="#local-6989586621679317107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList%27"><span class="hs-identifier hs-type">UtteranceList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679317106"><span class="annot"><span class="annottext">Maybe [UtteranceData]
+</span><a href="#local-6989586621679317106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UtteranceList
+</span><a href="#local-6989586621679317107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:utterances:UtteranceList' :: Maybe [UtteranceData]
 </span><a href="Network.AWS.LexModels.Types.UtteranceList.html#%24sel%3Autterances%3AUtteranceList%27"><span class="hs-identifier hs-var">utterances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UtteranceData]
-</span><a href="#local-6989586621679316811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList"><span class="hs-identifier hs-type">UtteranceList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UtteranceData] -&gt; f (Maybe [UtteranceData]))
+</span><a href="#local-6989586621679317106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList"><span class="hs-identifier hs-type">UtteranceList</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UtteranceData] -&gt; f (Maybe [UtteranceData]))
  -&gt; UtteranceList -&gt; f UtteranceList)
 -&gt; ((Maybe [UtteranceData] -&gt; f (Maybe [UtteranceData]))
     -&gt; Maybe [UtteranceData] -&gt; f (Maybe [UtteranceData]))
@@ -182,11 +182,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [UtteranceData] [UtteranceData] [UtteranceData] [UtteranceData]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316805"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList"><span class="hs-identifier hs-type">UtteranceList</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679316803"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UtteranceList
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317100"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList"><span class="hs-identifier hs-type">UtteranceList</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679317098"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UtteranceList
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UtteranceList)
@@ -196,8 +196,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UtteranceList&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679316800"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316800"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679317095"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679317095"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [UtteranceData] -&gt; UtteranceList
 </span><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList%27"><span class="hs-identifier hs-var">UtteranceList'</span></a></span><span>
 </span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [UtteranceData] -&gt; UtteranceList)
@@ -205,7 +205,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [UtteranceData] -&gt; UtteranceList)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316800"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679317095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;botVersion&quot;</span></span><span class="hs-special">)</span><span>
@@ -213,7 +213,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [UtteranceData]) -&gt; Parser UtteranceList
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679316800"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UtteranceData]))
+</span><a href="#local-6989586621679317095"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [UtteranceData]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;utterances&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [UtteranceData]))
@@ -224,7 +224,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316793"><span id="local-6989586621679316795"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList"><span class="hs-identifier hs-type">UtteranceList</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317088"><span id="local-6989586621679317090"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList"><span class="hs-identifier hs-type">UtteranceList</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679316790"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList"><span class="hs-identifier hs-type">UtteranceList</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679317085"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.UtteranceList.html#UtteranceList"><span class="hs-identifier hs-type">UtteranceList</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

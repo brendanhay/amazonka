@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681067575"><span id="local-6989586621681067576"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DomainType"><span class="annot"><a href="Network.AWS.EC2.Types.DomainType.html#DomainType"><span class="hs-identifier hs-var">DomainType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainType%27"><span class="annot"><a href="Network.AWS.EC2.Types.DomainType.html#DomainType%27"><span class="hs-identifier hs-var">DomainType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681101509"><span id="local-6989586621681101510"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DomainType"><span class="annot"><a href="Network.AWS.EC2.Types.DomainType.html#DomainType"><span class="hs-identifier hs-var">DomainType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainType%27"><span class="annot"><a href="Network.AWS.EC2.Types.DomainType.html#DomainType%27"><span class="hs-identifier hs-var">DomainType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDomainType"><span class="annot"><span class="annottext">DomainType -&gt; Text
 </span><a href="Network.AWS.EC2.Types.DomainType.html#fromDomainType"><span class="hs-identifier hs-var hs-var">fromDomainType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681067567"><span id="local-6989586621681067569"><span id="local-6989586621681067571"><span class="annot"><span class="annottext">Int -&gt; DomainType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681101501"><span id="local-6989586621681101503"><span id="local-6989586621681101505"><span class="annot"><span class="annottext">Int -&gt; DomainType -&gt; ShowS
 [DomainType] -&gt; ShowS
 DomainType -&gt; String
 (Int -&gt; DomainType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: DomainType -&gt; String
 showsPrec :: Int -&gt; DomainType -&gt; ShowS
 $cshowsPrec :: Int -&gt; DomainType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681067558"><span id="local-6989586621681067560"><span id="local-6989586621681067562"><span id="local-6989586621681067564"><span class="annot"><span class="annottext">ReadPrec [DomainType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681101492"><span id="local-6989586621681101494"><span id="local-6989586621681101496"><span id="local-6989586621681101498"><span class="annot"><span class="annottext">ReadPrec [DomainType]
 ReadPrec DomainType
 Int -&gt; ReadS DomainType
 ReadS [DomainType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [DomainType]
 readsPrec :: Int -&gt; ReadS DomainType
 $creadsPrec :: Int -&gt; ReadS DomainType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681067553"><span id="local-6989586621681067555"><span class="annot"><span class="annottext">DomainType -&gt; DomainType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681101487"><span id="local-6989586621681101489"><span class="annot"><span class="annottext">DomainType -&gt; DomainType -&gt; Bool
 (DomainType -&gt; DomainType -&gt; Bool)
 -&gt; (DomainType -&gt; DomainType -&gt; Bool) -&gt; Eq DomainType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: DomainType -&gt; DomainType -&gt; Bool
 == :: DomainType -&gt; DomainType -&gt; Bool
 $c== :: DomainType -&gt; DomainType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681067537"><span id="local-6989586621681067539"><span id="local-6989586621681067541"><span id="local-6989586621681067543"><span id="local-6989586621681067545"><span id="local-6989586621681067547"><span id="local-6989586621681067549"><span class="annot"><span class="annottext">Eq DomainType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681101471"><span id="local-6989586621681101473"><span id="local-6989586621681101475"><span id="local-6989586621681101477"><span id="local-6989586621681101479"><span id="local-6989586621681101481"><span id="local-6989586621681101483"><span class="annot"><span class="annottext">Eq DomainType
 Eq DomainType
 -&gt; (DomainType -&gt; DomainType -&gt; Ordering)
 -&gt; (DomainType -&gt; DomainType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. DomainType -&gt; Rep DomainType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681067529"><span id="local-6989586621681067531"><span class="annot"><span class="annottext">Int -&gt; DomainType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681101463"><span id="local-6989586621681101465"><span class="annot"><span class="annottext">Int -&gt; DomainType -&gt; Int
 DomainType -&gt; Int
 (Int -&gt; DomainType -&gt; Int)
 -&gt; (DomainType -&gt; Int) -&gt; Hashable DomainType
@@ -142,49 +142,49 @@ $chash :: DomainType -&gt; Int
 hashWithSalt :: Int -&gt; DomainType -&gt; Int
 $chashWithSalt :: Int -&gt; DomainType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681067526"><span class="annot"><span class="annottext">DomainType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681101460"><span class="annot"><span class="annottext">DomainType -&gt; ()
 (DomainType -&gt; ()) -&gt; NFData DomainType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DomainType -&gt; ()
 $crnf :: DomainType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681067523"><span class="annot"><span class="annottext">Text -&gt; Either String DomainType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681101457"><span class="annot"><span class="annottext">Text -&gt; Either String DomainType
 (Text -&gt; Either String DomainType) -&gt; FromText DomainType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DomainType
 $cfromText :: Text -&gt; Either String DomainType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681067520"><span class="annot"><span class="annottext">DomainType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681101454"><span class="annot"><span class="annottext">DomainType -&gt; Text
 (DomainType -&gt; Text) -&gt; ToText DomainType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DomainType -&gt; Text
 $ctoText :: DomainType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681067517"><span class="annot"><span class="annottext">DomainType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681101451"><span class="annot"><span class="annottext">DomainType -&gt; ByteString
 (DomainType -&gt; ByteString) -&gt; ToByteString DomainType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DomainType -&gt; ByteString
 $ctoBS :: DomainType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681067514"><span class="annot"><span class="annottext">DomainType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681101448"><span class="annot"><span class="annottext">DomainType -&gt; ByteStringBuilder
 (DomainType -&gt; ByteStringBuilder) -&gt; ToLog DomainType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DomainType -&gt; ByteStringBuilder
 $cbuild :: DomainType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681067511"><span class="annot"><span class="annottext">HeaderName -&gt; DomainType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681101445"><span class="annot"><span class="annottext">HeaderName -&gt; DomainType -&gt; [Header]
 (HeaderName -&gt; DomainType -&gt; [Header]) -&gt; ToHeader DomainType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DomainType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DomainType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681067508"><span class="annot"><span class="annottext">DomainType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681101442"><span class="annot"><span class="annottext">DomainType -&gt; QueryString
 (DomainType -&gt; QueryString) -&gt; ToQuery DomainType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DomainType -&gt; QueryString
 $ctoQuery :: DomainType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681067503"><span id="local-6989586621681067505"><span class="annot"><span class="annottext">Value -&gt; Parser [DomainType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681101437"><span id="local-6989586621681101439"><span class="annot"><span class="annottext">Value -&gt; Parser [DomainType]
 Value -&gt; Parser DomainType
 (Value -&gt; Parser DomainType)
 -&gt; (Value -&gt; Parser [DomainType]) -&gt; FromJSON DomainType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [DomainType]
 parseJSON :: Value -&gt; Parser DomainType
 $cparseJSON :: Value -&gt; Parser DomainType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681067498"><span id="local-6989586621681067500"><span class="annot"><span class="annottext">FromJSONKeyFunction [DomainType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681101432"><span id="local-6989586621681101434"><span class="annot"><span class="annottext">FromJSONKeyFunction [DomainType]
 FromJSONKeyFunction DomainType
 FromJSONKeyFunction DomainType
 -&gt; FromJSONKeyFunction [DomainType] -&gt; FromJSONKey DomainType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DomainType]
 fromJSONKey :: FromJSONKeyFunction DomainType
 $cfromJSONKey :: FromJSONKeyFunction DomainType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681067489"><span id="local-6989586621681067491"><span id="local-6989586621681067493"><span id="local-6989586621681067495"><span class="annot"><span class="annottext">[DomainType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681101423"><span id="local-6989586621681101425"><span id="local-6989586621681101427"><span id="local-6989586621681101429"><span class="annot"><span class="annottext">[DomainType] -&gt; Encoding
 [DomainType] -&gt; Value
 DomainType -&gt; Encoding
 DomainType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: DomainType -&gt; Encoding
 toJSON :: DomainType -&gt; Value
 $ctoJSON :: DomainType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681067484"><span id="local-6989586621681067486"><span class="annot"><span class="annottext">ToJSONKeyFunction [DomainType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681101418"><span id="local-6989586621681101420"><span class="annot"><span class="annottext">ToJSONKeyFunction [DomainType]
 ToJSONKeyFunction DomainType
 ToJSONKeyFunction DomainType
 -&gt; ToJSONKeyFunction [DomainType] -&gt; ToJSONKey DomainType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DomainType]
 toJSONKey :: ToJSONKeyFunction DomainType
 $ctoJSONKey :: ToJSONKeyFunction DomainType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681067481"><span class="annot"><span class="annottext">[Node] -&gt; Either String DomainType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681101415"><span class="annot"><span class="annottext">[Node] -&gt; Either String DomainType
 ([Node] -&gt; Either String DomainType) -&gt; FromXML DomainType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DomainType
 $cparseXML :: [Node] -&gt; Either String DomainType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681067478"><span class="annot"><span class="annottext">DomainType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681101412"><span class="annot"><span class="annottext">DomainType -&gt; XML
 (DomainType -&gt; XML) -&gt; ToXML DomainType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DomainType -&gt; XML

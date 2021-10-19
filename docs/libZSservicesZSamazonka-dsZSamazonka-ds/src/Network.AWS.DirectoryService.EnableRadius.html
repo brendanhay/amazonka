@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-comment">-- | Contains the inputs for the EnableRadius operation.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newEnableRadius' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679307158"><span id="local-6989586621679307159"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableRadius"><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius"><span class="hs-identifier hs-var">EnableRadius</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableRadius%27"><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius%27"><span class="hs-identifier hs-var">EnableRadius'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679307367"><span id="local-6989586621679307368"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableRadius"><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius"><span class="hs-identifier hs-var">EnableRadius</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableRadius%27"><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius%27"><span class="hs-identifier hs-var">EnableRadius'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the directory for which to enable MFA.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AdirectoryId%3AEnableRadius%27"><span class="annot"><span class="annottext">EnableRadius -&gt; Text
 </span><a href="Network.AWS.DirectoryService.EnableRadius.html#%24sel%3AdirectoryId%3AEnableRadius%27"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AradiusSettings%3AEnableRadius%27"><span class="annot"><span class="annottext">EnableRadius -&gt; RadiusSettings
 </span><a href="Network.AWS.DirectoryService.EnableRadius.html#%24sel%3AradiusSettings%3AEnableRadius%27"><span class="hs-identifier hs-var hs-var">radiusSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.RadiusSettings.html#RadiusSettings"><span class="hs-identifier hs-type">RadiusSettings</span></a></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307151"><span id="local-6989586621679307153"><span class="annot"><span class="annottext">EnableRadius -&gt; EnableRadius -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307360"><span id="local-6989586621679307362"><span class="annot"><span class="annottext">EnableRadius -&gt; EnableRadius -&gt; Bool
 (EnableRadius -&gt; EnableRadius -&gt; Bool)
 -&gt; (EnableRadius -&gt; EnableRadius -&gt; Bool) -&gt; Eq EnableRadius
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnableRadius -&gt; EnableRadius -&gt; Bool
 == :: EnableRadius -&gt; EnableRadius -&gt; Bool
 $c== :: EnableRadius -&gt; EnableRadius -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307144"><span id="local-6989586621679307146"><span id="local-6989586621679307148"><span class="annot"><span class="annottext">Int -&gt; EnableRadius -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307353"><span id="local-6989586621679307355"><span id="local-6989586621679307357"><span class="annot"><span class="annottext">Int -&gt; EnableRadius -&gt; ShowS
 [EnableRadius] -&gt; ShowS
 EnableRadius -&gt; String
 (Int -&gt; EnableRadius -&gt; ShowS)
@@ -113,17 +113,17 @@ $cfrom :: forall x. EnableRadius -&gt; Rep EnableRadius x
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.Types.RadiusSettings.html#RadiusSettings"><span class="hs-identifier hs-type">RadiusSettings</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius"><span class="hs-identifier hs-type">EnableRadius</span></a></span><span>
 </span><span id="line-81"></span><span id="newEnableRadius"><span class="annot"><span class="annottext">newEnableRadius :: Text -&gt; RadiusSettings -&gt; EnableRadius
-</span><a href="Network.AWS.DirectoryService.EnableRadius.html#newEnableRadius"><span class="hs-identifier hs-var hs-var">newEnableRadius</span></a></span></span><span> </span><span id="local-6989586621679307139"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307139"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span id="local-6989586621679307138"><span class="annot"><span class="annottext">RadiusSettings
-</span><a href="#local-6989586621679307138"><span class="hs-identifier hs-var">pRadiusSettings_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.EnableRadius.html#newEnableRadius"><span class="hs-identifier hs-var hs-var">newEnableRadius</span></a></span></span><span> </span><span id="local-6989586621679307348"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307348"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span></span><span> </span><span id="local-6989586621679307347"><span class="annot"><span class="annottext">RadiusSettings
+</span><a href="#local-6989586621679307347"><span class="hs-identifier hs-var">pRadiusSettings_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">EnableRadius' :: Text -&gt; RadiusSettings -&gt; EnableRadius
 </span><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius%27"><span class="hs-identifier hs-type">EnableRadius'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryId:EnableRadius' :: Text
 </span><a href="Network.AWS.DirectoryService.EnableRadius.html#%24sel%3AdirectoryId%3AEnableRadius%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307139"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307348"><span class="hs-identifier hs-var">pDirectoryId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:radiusSettings:EnableRadius' :: RadiusSettings
 </span><a href="Network.AWS.DirectoryService.EnableRadius.html#%24sel%3AradiusSettings%3AEnableRadius%27"><span class="hs-identifier hs-var">radiusSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RadiusSettings
-</span><a href="#local-6989586621679307138"><span class="hs-identifier hs-var">pRadiusSettings_</span></a></span><span>
+</span><a href="#local-6989586621679307347"><span class="hs-identifier hs-var">pRadiusSettings_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The identifier of the directory for which to enable MFA.</span><span>
@@ -133,16 +133,16 @@ $cfrom :: forall x. EnableRadius -&gt; Rep EnableRadius x
 -&gt; (EnableRadius -&gt; Text -&gt; EnableRadius)
 -&gt; Lens EnableRadius EnableRadius Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius%27"><span class="hs-identifier hs-type">EnableRadius'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307135"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius%27"><span class="hs-identifier hs-type">EnableRadius'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307344"><span class="annot"><span class="annottext">Text
 directoryId :: Text
 $sel:directoryId:EnableRadius' :: EnableRadius -&gt; Text
-</span><a href="#local-6989586621679307135"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307135"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307134"><span class="annot"><span class="annottext">s :: EnableRadius
-</span><a href="#local-6989586621679307134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius%27"><span class="hs-identifier hs-type">EnableRadius'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307133"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableRadius
-</span><a href="#local-6989586621679307134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:EnableRadius' :: Text
+</span><a href="#local-6989586621679307344"><span class="hs-identifier hs-var hs-var">directoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307344"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307343"><span class="annot"><span class="annottext">s :: EnableRadius
+</span><a href="#local-6989586621679307343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius%27"><span class="hs-identifier hs-type">EnableRadius'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307342"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679307342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableRadius
+</span><a href="#local-6989586621679307343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryId:EnableRadius' :: Text
 </span><a href="Network.AWS.DirectoryService.EnableRadius.html#%24sel%3AdirectoryId%3AEnableRadius%27"><span class="hs-identifier hs-var">directoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius"><span class="hs-identifier hs-type">EnableRadius</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius"><span class="hs-identifier hs-type">EnableRadius</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | A RadiusSettings object that contains information about the RADIUS</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- server.</span><span>
@@ -153,25 +153,25 @@ $sel:directoryId:EnableRadius' :: EnableRadius -&gt; Text
 -&gt; (EnableRadius -&gt; RadiusSettings -&gt; EnableRadius)
 -&gt; Lens EnableRadius EnableRadius RadiusSettings RadiusSettings
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius%27"><span class="hs-identifier hs-type">EnableRadius'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307132"><span class="annot"><span class="annottext">RadiusSettings
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius%27"><span class="hs-identifier hs-type">EnableRadius'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307341"><span class="annot"><span class="annottext">RadiusSettings
 radiusSettings :: RadiusSettings
 $sel:radiusSettings:EnableRadius' :: EnableRadius -&gt; RadiusSettings
-</span><a href="#local-6989586621679307132"><span class="hs-identifier hs-var hs-var">radiusSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RadiusSettings
-</span><a href="#local-6989586621679307132"><span class="hs-identifier hs-var">radiusSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307131"><span class="annot"><span class="annottext">s :: EnableRadius
-</span><a href="#local-6989586621679307131"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius%27"><span class="hs-identifier hs-type">EnableRadius'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307130"><span class="annot"><span class="annottext">RadiusSettings
-</span><a href="#local-6989586621679307130"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableRadius
-</span><a href="#local-6989586621679307131"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:radiusSettings:EnableRadius' :: RadiusSettings
+</span><a href="#local-6989586621679307341"><span class="hs-identifier hs-var hs-var">radiusSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RadiusSettings
+</span><a href="#local-6989586621679307341"><span class="hs-identifier hs-var">radiusSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307340"><span class="annot"><span class="annottext">s :: EnableRadius
+</span><a href="#local-6989586621679307340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius%27"><span class="hs-identifier hs-type">EnableRadius'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307339"><span class="annot"><span class="annottext">RadiusSettings
+</span><a href="#local-6989586621679307339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableRadius
+</span><a href="#local-6989586621679307340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:radiusSettings:EnableRadius' :: RadiusSettings
 </span><a href="Network.AWS.DirectoryService.EnableRadius.html#%24sel%3AradiusSettings%3AEnableRadius%27"><span class="hs-identifier hs-var">radiusSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RadiusSettings
-</span><a href="#local-6989586621679307130"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius"><span class="hs-identifier hs-type">EnableRadius</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius"><span class="hs-identifier hs-type">EnableRadius</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius"><span class="hs-identifier hs-type">EnableRadius</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius"><span class="hs-identifier hs-type">EnableRadius</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadiusResponse"><span class="hs-identifier hs-type">EnableRadiusResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679307126"><span class="annot"><span class="annottext">request :: EnableRadius -&gt; Request EnableRadius
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679307335"><span class="annot"><span class="annottext">request :: EnableRadius -&gt; Request EnableRadius
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; EnableRadius -&gt; Request EnableRadius
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679307122"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679307331"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy EnableRadius
 -&gt; ClientResponse ClientBody
@@ -195,10 +195,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307119"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307119"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679307118"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679307118"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679307117"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679307117"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307328"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307328"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679307327"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679307327"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679307326"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679307326"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; EnableRadiusResponse
 </span><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadiusResponse%27"><span class="hs-identifier hs-var">EnableRadiusResponse'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; EnableRadiusResponse)
@@ -209,15 +209,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307119"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307328"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307110"><span id="local-6989586621679307112"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius"><span class="hs-identifier hs-type">EnableRadius</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307319"><span id="local-6989586621679307321"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius"><span class="hs-identifier hs-type">EnableRadius</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307107"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius"><span class="hs-identifier hs-type">EnableRadius</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307316"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius"><span class="hs-identifier hs-type">EnableRadius</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius"><span class="hs-identifier hs-type">EnableRadius</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679307103"><span class="annot"><span class="annottext">toHeaders :: EnableRadius -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679307312"><span class="annot"><span class="annottext">toHeaders :: EnableRadius -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; EnableRadius -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -244,15 +244,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307093"><span id="local-6989586621679307095"><span id="local-6989586621679307097"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius"><span class="hs-identifier hs-type">EnableRadius</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679307091"><span class="annot"><span class="annottext">toJSON :: EnableRadius -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius%27"><span class="hs-identifier hs-type">EnableRadius'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307088"><span id="local-6989586621679307089"><span class="annot"><span class="annottext">Text
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307302"><span id="local-6989586621679307304"><span id="local-6989586621679307306"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius"><span class="hs-identifier hs-type">EnableRadius</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679307300"><span class="annot"><span class="annottext">toJSON :: EnableRadius -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius%27"><span class="hs-identifier hs-type">EnableRadius'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307297"><span id="local-6989586621679307298"><span class="annot"><span class="annottext">Text
 RadiusSettings
 radiusSettings :: RadiusSettings
 directoryId :: Text
 $sel:radiusSettings:EnableRadius' :: EnableRadius -&gt; RadiusSettings
 $sel:directoryId:EnableRadius' :: EnableRadius -&gt; Text
-</span><a href="#local-6989586621679307088"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679307297"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -264,7 +264,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307089"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679307298"><span class="hs-identifier hs-var">directoryId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -272,19 +272,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RadiusSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RadiusSettings -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RadiusSettings
-</span><a href="#local-6989586621679307088"><span class="hs-identifier hs-var">radiusSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307297"><span class="hs-identifier hs-var">radiusSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius"><span class="hs-identifier hs-type">EnableRadius</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679307082"><span class="annot"><span class="annottext">toPath :: EnableRadius -&gt; ByteString
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679307291"><span class="annot"><span class="annottext">toPath :: EnableRadius -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; EnableRadius -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadius"><span class="hs-identifier hs-type">EnableRadius</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679307078"><span class="annot"><span class="annottext">toQuery :: EnableRadius -&gt; QueryString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679307287"><span class="annot"><span class="annottext">toQuery :: EnableRadius -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; EnableRadius -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -294,12 +294,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-141"></span><span class="hs-comment">-- | Contains the results of the EnableRadius operation.</span><span>
 </span><span id="line-142"></span><span class="hs-comment">--</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- /See:/ 'newEnableRadiusResponse' smart constructor.</span><span>
-</span><span id="line-144"></span><span id="local-6989586621679307075"><span id="local-6989586621679307076"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableRadiusResponse"><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadiusResponse"><span class="hs-identifier hs-var">EnableRadiusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableRadiusResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadiusResponse%27"><span class="hs-identifier hs-var">EnableRadiusResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679307284"><span id="local-6989586621679307285"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableRadiusResponse"><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadiusResponse"><span class="hs-identifier hs-var">EnableRadiusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableRadiusResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadiusResponse%27"><span class="hs-identifier hs-var">EnableRadiusResponse'</span></a></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3AhttpStatus%3AEnableRadiusResponse%27"><span class="annot"><span class="annottext">EnableRadiusResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.EnableRadius.html#%24sel%3AhttpStatus%3AEnableRadiusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307070"><span id="local-6989586621679307072"><span class="annot"><span class="annottext">EnableRadiusResponse -&gt; EnableRadiusResponse -&gt; Bool
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307279"><span id="local-6989586621679307281"><span class="annot"><span class="annottext">EnableRadiusResponse -&gt; EnableRadiusResponse -&gt; Bool
 (EnableRadiusResponse -&gt; EnableRadiusResponse -&gt; Bool)
 -&gt; (EnableRadiusResponse -&gt; EnableRadiusResponse -&gt; Bool)
 -&gt; Eq EnableRadiusResponse
@@ -308,7 +308,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnableRadiusResponse -&gt; EnableRadiusResponse -&gt; Bool
 == :: EnableRadiusResponse -&gt; EnableRadiusResponse -&gt; Bool
 $c== :: EnableRadiusResponse -&gt; EnableRadiusResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307062"><span id="local-6989586621679307064"><span id="local-6989586621679307066"><span id="local-6989586621679307068"><span class="annot"><span class="annottext">ReadPrec [EnableRadiusResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307271"><span id="local-6989586621679307273"><span id="local-6989586621679307275"><span id="local-6989586621679307277"><span class="annot"><span class="annottext">ReadPrec [EnableRadiusResponse]
 ReadPrec EnableRadiusResponse
 Int -&gt; ReadS EnableRadiusResponse
 ReadS [EnableRadiusResponse]
@@ -328,7 +328,7 @@ readList :: ReadS [EnableRadiusResponse]
 $creadList :: ReadS [EnableRadiusResponse]
 readsPrec :: Int -&gt; ReadS EnableRadiusResponse
 $creadsPrec :: Int -&gt; ReadS EnableRadiusResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307055"><span id="local-6989586621679307057"><span id="local-6989586621679307059"><span class="annot"><span class="annottext">Int -&gt; EnableRadiusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307264"><span id="local-6989586621679307266"><span id="local-6989586621679307268"><span class="annot"><span class="annottext">Int -&gt; EnableRadiusResponse -&gt; ShowS
 [EnableRadiusResponse] -&gt; ShowS
 EnableRadiusResponse -&gt; String
 (Int -&gt; EnableRadiusResponse -&gt; ShowS)
@@ -368,12 +368,12 @@ $cfrom :: forall x. EnableRadiusResponse -&gt; Rep EnableRadiusResponse x
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadiusResponse"><span class="hs-identifier hs-type">EnableRadiusResponse</span></a></span><span>
 </span><span id="line-163"></span><span id="newEnableRadiusResponse"><span class="annot"><span class="annottext">newEnableRadiusResponse :: Int -&gt; EnableRadiusResponse
-</span><a href="Network.AWS.DirectoryService.EnableRadius.html#newEnableRadiusResponse"><span class="hs-identifier hs-var hs-var">newEnableRadiusResponse</span></a></span></span><span> </span><span id="local-6989586621679307052"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307052"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.EnableRadius.html#newEnableRadiusResponse"><span class="hs-identifier hs-var hs-var">newEnableRadiusResponse</span></a></span></span><span> </span><span id="local-6989586621679307261"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307261"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">EnableRadiusResponse' :: Int -&gt; EnableRadiusResponse
 </span><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadiusResponse%27"><span class="hs-identifier hs-type">EnableRadiusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:EnableRadiusResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.EnableRadius.html#%24sel%3AhttpStatus%3AEnableRadiusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307052"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679307261"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-167"></span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#enableRadiusResponse_httpStatus"><span class="hs-identifier hs-type">enableRadiusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadiusResponse"><span class="hs-identifier hs-type">EnableRadiusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -382,16 +382,16 @@ $cfrom :: forall x. EnableRadiusResponse -&gt; Rep EnableRadiusResponse x
 -&gt; (EnableRadiusResponse -&gt; Int -&gt; EnableRadiusResponse)
 -&gt; Lens EnableRadiusResponse EnableRadiusResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadiusResponse%27"><span class="hs-identifier hs-type">EnableRadiusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307051"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadiusResponse%27"><span class="hs-identifier hs-type">EnableRadiusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307260"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:EnableRadiusResponse' :: EnableRadiusResponse -&gt; Int
-</span><a href="#local-6989586621679307051"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307051"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307050"><span class="annot"><span class="annottext">s :: EnableRadiusResponse
-</span><a href="#local-6989586621679307050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadiusResponse%27"><span class="hs-identifier hs-type">EnableRadiusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307049"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableRadiusResponse
-</span><a href="#local-6989586621679307050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:EnableRadiusResponse' :: Int
+</span><a href="#local-6989586621679307260"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307260"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307259"><span class="annot"><span class="annottext">s :: EnableRadiusResponse
+</span><a href="#local-6989586621679307259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadiusResponse%27"><span class="hs-identifier hs-type">EnableRadiusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307258"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableRadiusResponse
+</span><a href="#local-6989586621679307259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:EnableRadiusResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.EnableRadius.html#%24sel%3AhttpStatus%3AEnableRadiusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadiusResponse"><span class="hs-identifier hs-type">EnableRadiusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679307258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadiusResponse"><span class="hs-identifier hs-type">EnableRadiusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307047"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadiusResponse"><span class="hs-identifier hs-type">EnableRadiusResponse</span></a></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307256"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.EnableRadius.html#EnableRadiusResponse"><span class="hs-identifier hs-type">EnableRadiusResponse</span></a></span></span><span>
 </span><span id="line-171"></span></pre></body></html>

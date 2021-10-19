@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621681063112"><span id="local-6989586621681063113"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerFormat"><span class="annot"><a href="Network.AWS.EC2.Types.ContainerFormat.html#ContainerFormat"><span class="hs-identifier hs-var">ContainerFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerFormat%27"><span class="annot"><a href="Network.AWS.EC2.Types.ContainerFormat.html#ContainerFormat%27"><span class="hs-identifier hs-var">ContainerFormat'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681096687"><span id="local-6989586621681096688"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ContainerFormat"><span class="annot"><a href="Network.AWS.EC2.Types.ContainerFormat.html#ContainerFormat"><span class="hs-identifier hs-var">ContainerFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerFormat%27"><span class="annot"><a href="Network.AWS.EC2.Types.ContainerFormat.html#ContainerFormat%27"><span class="hs-identifier hs-var">ContainerFormat'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromContainerFormat"><span class="annot"><span class="annottext">ContainerFormat -&gt; Text
 </span><a href="Network.AWS.EC2.Types.ContainerFormat.html#fromContainerFormat"><span class="hs-identifier hs-var hs-var">fromContainerFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681063104"><span id="local-6989586621681063106"><span id="local-6989586621681063108"><span class="annot"><span class="annottext">Int -&gt; ContainerFormat -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681096679"><span id="local-6989586621681096681"><span id="local-6989586621681096683"><span class="annot"><span class="annottext">Int -&gt; ContainerFormat -&gt; ShowS
 [ContainerFormat] -&gt; ShowS
 ContainerFormat -&gt; String
 (Int -&gt; ContainerFormat -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ContainerFormat -&gt; String
 showsPrec :: Int -&gt; ContainerFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; ContainerFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621681063095"><span id="local-6989586621681063097"><span id="local-6989586621681063099"><span id="local-6989586621681063101"><span class="annot"><span class="annottext">ReadPrec [ContainerFormat]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621681096670"><span id="local-6989586621681096672"><span id="local-6989586621681096674"><span id="local-6989586621681096676"><span class="annot"><span class="annottext">ReadPrec [ContainerFormat]
 ReadPrec ContainerFormat
 Int -&gt; ReadS ContainerFormat
 ReadS [ContainerFormat]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ContainerFormat]
 readsPrec :: Int -&gt; ReadS ContainerFormat
 $creadsPrec :: Int -&gt; ReadS ContainerFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681063090"><span id="local-6989586621681063092"><span class="annot"><span class="annottext">ContainerFormat -&gt; ContainerFormat -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681096665"><span id="local-6989586621681096667"><span class="annot"><span class="annottext">ContainerFormat -&gt; ContainerFormat -&gt; Bool
 (ContainerFormat -&gt; ContainerFormat -&gt; Bool)
 -&gt; (ContainerFormat -&gt; ContainerFormat -&gt; Bool)
 -&gt; Eq ContainerFormat
@@ -82,7 +82,7 @@ $c/= :: ContainerFormat -&gt; ContainerFormat -&gt; Bool
 == :: ContainerFormat -&gt; ContainerFormat -&gt; Bool
 $c== :: ContainerFormat -&gt; ContainerFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681063074"><span id="local-6989586621681063076"><span id="local-6989586621681063078"><span id="local-6989586621681063080"><span id="local-6989586621681063082"><span id="local-6989586621681063084"><span id="local-6989586621681063086"><span class="annot"><span class="annottext">Eq ContainerFormat
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681096649"><span id="local-6989586621681096651"><span id="local-6989586621681096653"><span id="local-6989586621681096655"><span id="local-6989586621681096657"><span id="local-6989586621681096659"><span id="local-6989586621681096661"><span class="annot"><span class="annottext">Eq ContainerFormat
 Eq ContainerFormat
 -&gt; (ContainerFormat -&gt; ContainerFormat -&gt; Ordering)
 -&gt; (ContainerFormat -&gt; ContainerFormat -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ContainerFormat -&gt; Rep ContainerFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681063066"><span id="local-6989586621681063068"><span class="annot"><span class="annottext">Int -&gt; ContainerFormat -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681096641"><span id="local-6989586621681096643"><span class="annot"><span class="annottext">Int -&gt; ContainerFormat -&gt; Int
 ContainerFormat -&gt; Int
 (Int -&gt; ContainerFormat -&gt; Int)
 -&gt; (ContainerFormat -&gt; Int) -&gt; Hashable ContainerFormat
@@ -143,50 +143,50 @@ $chash :: ContainerFormat -&gt; Int
 hashWithSalt :: Int -&gt; ContainerFormat -&gt; Int
 $chashWithSalt :: Int -&gt; ContainerFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621681063063"><span class="annot"><span class="annottext">ContainerFormat -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681096638"><span class="annot"><span class="annottext">ContainerFormat -&gt; ()
 (ContainerFormat -&gt; ()) -&gt; NFData ContainerFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ContainerFormat -&gt; ()
 $crnf :: ContainerFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681063060"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerFormat
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681096635"><span class="annot"><span class="annottext">Text -&gt; Either String ContainerFormat
 (Text -&gt; Either String ContainerFormat) -&gt; FromText ContainerFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ContainerFormat
 $cfromText :: Text -&gt; Either String ContainerFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681063057"><span class="annot"><span class="annottext">ContainerFormat -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681096632"><span class="annot"><span class="annottext">ContainerFormat -&gt; Text
 (ContainerFormat -&gt; Text) -&gt; ToText ContainerFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ContainerFormat -&gt; Text
 $ctoText :: ContainerFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681063054"><span class="annot"><span class="annottext">ContainerFormat -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681096629"><span class="annot"><span class="annottext">ContainerFormat -&gt; ByteString
 (ContainerFormat -&gt; ByteString) -&gt; ToByteString ContainerFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ContainerFormat -&gt; ByteString
 $ctoBS :: ContainerFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681063051"><span class="annot"><span class="annottext">ContainerFormat -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681096626"><span class="annot"><span class="annottext">ContainerFormat -&gt; ByteStringBuilder
 (ContainerFormat -&gt; ByteStringBuilder) -&gt; ToLog ContainerFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ContainerFormat -&gt; ByteStringBuilder
 $cbuild :: ContainerFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681063048"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerFormat -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681096623"><span class="annot"><span class="annottext">HeaderName -&gt; ContainerFormat -&gt; [Header]
 (HeaderName -&gt; ContainerFormat -&gt; [Header])
 -&gt; ToHeader ContainerFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ContainerFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ContainerFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681063045"><span class="annot"><span class="annottext">ContainerFormat -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681096620"><span class="annot"><span class="annottext">ContainerFormat -&gt; QueryString
 (ContainerFormat -&gt; QueryString) -&gt; ToQuery ContainerFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ContainerFormat -&gt; QueryString
 $ctoQuery :: ContainerFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681063040"><span id="local-6989586621681063042"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerFormat]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681096615"><span id="local-6989586621681096617"><span class="annot"><span class="annottext">Value -&gt; Parser [ContainerFormat]
 Value -&gt; Parser ContainerFormat
 (Value -&gt; Parser ContainerFormat)
 -&gt; (Value -&gt; Parser [ContainerFormat]) -&gt; FromJSON ContainerFormat
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [ContainerFormat]
 parseJSON :: Value -&gt; Parser ContainerFormat
 $cparseJSON :: Value -&gt; Parser ContainerFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681063035"><span id="local-6989586621681063037"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerFormat]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681096610"><span id="local-6989586621681096612"><span class="annot"><span class="annottext">FromJSONKeyFunction [ContainerFormat]
 FromJSONKeyFunction ContainerFormat
 FromJSONKeyFunction ContainerFormat
 -&gt; FromJSONKeyFunction [ContainerFormat]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ContainerFormat]
 fromJSONKey :: FromJSONKeyFunction ContainerFormat
 $cfromJSONKey :: FromJSONKeyFunction ContainerFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681063026"><span id="local-6989586621681063028"><span id="local-6989586621681063030"><span id="local-6989586621681063032"><span class="annot"><span class="annottext">[ContainerFormat] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681096601"><span id="local-6989586621681096603"><span id="local-6989586621681096605"><span id="local-6989586621681096607"><span class="annot"><span class="annottext">[ContainerFormat] -&gt; Encoding
 [ContainerFormat] -&gt; Value
 ContainerFormat -&gt; Encoding
 ContainerFormat -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: ContainerFormat -&gt; Encoding
 toJSON :: ContainerFormat -&gt; Value
 $ctoJSON :: ContainerFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681063021"><span id="local-6989586621681063023"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerFormat]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681096596"><span id="local-6989586621681096598"><span class="annot"><span class="annottext">ToJSONKeyFunction [ContainerFormat]
 ToJSONKeyFunction ContainerFormat
 ToJSONKeyFunction ContainerFormat
 -&gt; ToJSONKeyFunction [ContainerFormat] -&gt; ToJSONKey ContainerFormat
@@ -244,14 +244,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ContainerFormat]
 toJSONKey :: ToJSONKeyFunction ContainerFormat
 $ctoJSONKey :: ToJSONKeyFunction ContainerFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681063018"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerFormat
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681096593"><span class="annot"><span class="annottext">[Node] -&gt; Either String ContainerFormat
 ([Node] -&gt; Either String ContainerFormat)
 -&gt; FromXML ContainerFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ContainerFormat
 $cparseXML :: [Node] -&gt; Either String ContainerFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681063015"><span class="annot"><span class="annottext">ContainerFormat -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681096590"><span class="annot"><span class="annottext">ContainerFormat -&gt; XML
 (ContainerFormat -&gt; XML) -&gt; ToXML ContainerFormat
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ContainerFormat -&gt; XML

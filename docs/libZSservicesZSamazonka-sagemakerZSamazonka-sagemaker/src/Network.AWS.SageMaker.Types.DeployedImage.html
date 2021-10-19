@@ -36,20 +36,20 @@
 </span><span id="line-36"></span><span class="hs-comment">-- in the /Amazon ECR User Guide/.</span><span>
 </span><span id="line-37"></span><span class="hs-comment">--</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- /See:/ 'newDeployedImage' smart constructor.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621680299433"><span id="local-6989586621680299434"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeployedImage"><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage"><span class="hs-identifier hs-var">DeployedImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeployedImage%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage%27"><span class="hs-identifier hs-var">DeployedImage'</span></a></span></span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The image path you specified when you created the model.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AspecifiedImage%3ADeployedImage%27"><span class="annot"><span class="annottext">DeployedImage -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DeployedImage.html#%24sel%3AspecifiedImage%3ADeployedImage%27"><span class="hs-identifier hs-var hs-var">specifiedImage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The specific digest path of the image hosted in this</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @ProductionVariant@.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AresolvedImage%3ADeployedImage%27"><span class="annot"><span class="annottext">DeployedImage -&gt; Maybe Text
+</span><span id="line-39"></span><span id="local-6989586621680300805"><span id="local-6989586621680300806"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeployedImage"><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage"><span class="hs-identifier hs-var">DeployedImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeployedImage%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage%27"><span class="hs-identifier hs-var">DeployedImage'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The specific digest path of the image hosted in this</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- @ProductionVariant@.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AresolvedImage%3ADeployedImage%27"><span class="annot"><span class="annottext">DeployedImage -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.DeployedImage.html#%24sel%3AresolvedImage%3ADeployedImage%27"><span class="hs-identifier hs-var hs-var">resolvedImage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The image path you specified when you created the model.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AspecifiedImage%3ADeployedImage%27"><span class="annot"><span class="annottext">DeployedImage -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DeployedImage.html#%24sel%3AspecifiedImage%3ADeployedImage%27"><span class="hs-identifier hs-var hs-var">specifiedImage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The date and time when the image path for the model resolved to the</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- @ResolvedImage@</span><span>
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3AresolutionTime%3ADeployedImage%27"><span class="annot"><span class="annottext">DeployedImage -&gt; Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.DeployedImage.html#%24sel%3AresolutionTime%3ADeployedImage%27"><span class="hs-identifier hs-var hs-var">resolutionTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680299425"><span id="local-6989586621680299427"><span class="annot"><span class="annottext">DeployedImage -&gt; DeployedImage -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680300797"><span id="local-6989586621680300799"><span class="annot"><span class="annottext">DeployedImage -&gt; DeployedImage -&gt; Bool
 (DeployedImage -&gt; DeployedImage -&gt; Bool)
 -&gt; (DeployedImage -&gt; DeployedImage -&gt; Bool) -&gt; Eq DeployedImage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeployedImage -&gt; DeployedImage -&gt; Bool
 == :: DeployedImage -&gt; DeployedImage -&gt; Bool
 $c== :: DeployedImage -&gt; DeployedImage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680299416"><span id="local-6989586621680299418"><span id="local-6989586621680299420"><span id="local-6989586621680299422"><span class="annot"><span class="annottext">ReadPrec [DeployedImage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680300788"><span id="local-6989586621680300790"><span id="local-6989586621680300792"><span id="local-6989586621680300794"><span class="annot"><span class="annottext">ReadPrec [DeployedImage]
 ReadPrec DeployedImage
 Int -&gt; ReadS DeployedImage
 ReadS [DeployedImage]
@@ -77,7 +77,7 @@ readList :: ReadS [DeployedImage]
 $creadList :: ReadS [DeployedImage]
 readsPrec :: Int -&gt; ReadS DeployedImage
 $creadsPrec :: Int -&gt; ReadS DeployedImage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680299409"><span id="local-6989586621680299411"><span id="local-6989586621680299413"><span class="annot"><span class="annottext">Int -&gt; DeployedImage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680300781"><span id="local-6989586621680300783"><span id="local-6989586621680300785"><span class="annot"><span class="annottext">Int -&gt; DeployedImage -&gt; ShowS
 [DeployedImage] -&gt; ShowS
 DeployedImage -&gt; String
 (Int -&gt; DeployedImage -&gt; ShowS)
@@ -111,10 +111,10 @@ $cfrom :: forall x. DeployedImage -&gt; Rep DeployedImage x
 </span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'specifiedImage', 'deployedImage_specifiedImage' - The image path you specified when you created the model.</span><span>
-</span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'resolvedImage', 'deployedImage_resolvedImage' - The specific digest path of the image hosted in this</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- @ProductionVariant@.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'resolvedImage', 'deployedImage_resolvedImage' - The specific digest path of the image hosted in this</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- @ProductionVariant@.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'specifiedImage', 'deployedImage_specifiedImage' - The image path you specified when you created the model.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- 'resolutionTime', 'deployedImage_resolutionTime' - The date and time when the image path for the model resolved to the</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- @ResolvedImage@</span><span>
@@ -124,12 +124,12 @@ $cfrom :: forall x. DeployedImage -&gt; Rep DeployedImage x
 </span><a href="Network.AWS.SageMaker.Types.DeployedImage.html#newDeployedImage"><span class="hs-identifier hs-var hs-var">newDeployedImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeployedImage' :: Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; DeployedImage
 </span><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage%27"><span class="hs-identifier hs-type">DeployedImage'</span></a></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:specifiedImage:DeployedImage' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DeployedImage.html#%24sel%3AspecifiedImage%3ADeployedImage%27"><span class="hs-identifier hs-var">specifiedImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resolvedImage:DeployedImage' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DeployedImage.html#%24sel%3AresolvedImage%3ADeployedImage%27"><span class="hs-identifier hs-var">resolvedImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:resolvedImage:DeployedImage' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DeployedImage.html#%24sel%3AresolvedImage%3ADeployedImage%27"><span class="hs-identifier hs-var">resolvedImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:specifiedImage:DeployedImage' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DeployedImage.html#%24sel%3AspecifiedImage%3ADeployedImage%27"><span class="hs-identifier hs-var">specifiedImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:resolutionTime:DeployedImage' :: Maybe POSIX
@@ -138,42 +138,42 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | The image path you specified when you created the model.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#deployedImage_specifiedImage"><span class="hs-identifier hs-type">deployedImage_specifiedImage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage"><span class="hs-identifier hs-type">DeployedImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="deployedImage_specifiedImage"><span class="annot"><span class="annottext">deployedImage_specifiedImage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeployedImage -&gt; f DeployedImage
-</span><a href="Network.AWS.SageMaker.Types.DeployedImage.html#deployedImage_specifiedImage"><span class="hs-identifier hs-var hs-var">deployedImage_specifiedImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeployedImage -&gt; Maybe Text)
--&gt; (DeployedImage -&gt; Maybe Text -&gt; DeployedImage)
--&gt; Lens DeployedImage DeployedImage (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage%27"><span class="hs-identifier hs-type">DeployedImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680299400"><span class="annot"><span class="annottext">Maybe Text
-specifiedImage :: Maybe Text
-$sel:specifiedImage:DeployedImage' :: DeployedImage -&gt; Maybe Text
-</span><a href="#local-6989586621680299400"><span class="hs-identifier hs-var hs-var">specifiedImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680299400"><span class="hs-identifier hs-var">specifiedImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680299399"><span class="annot"><span class="annottext">s :: DeployedImage
-</span><a href="#local-6989586621680299399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage%27"><span class="hs-identifier hs-type">DeployedImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680299398"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680299398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeployedImage
-</span><a href="#local-6989586621680299399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:specifiedImage:DeployedImage' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.DeployedImage.html#%24sel%3AspecifiedImage%3ADeployedImage%27"><span class="hs-identifier hs-var">specifiedImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680299398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage"><span class="hs-identifier hs-type">DeployedImage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | The specific digest path of the image hosted in this</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- @ProductionVariant@.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#deployedImage_resolvedImage"><span class="hs-identifier hs-type">deployedImage_resolvedImage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage"><span class="hs-identifier hs-type">DeployedImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="deployedImage_resolvedImage"><span class="annot"><span class="annottext">deployedImage_resolvedImage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeployedImage -&gt; f DeployedImage
+</span><span id="line-75"></span><span class="hs-comment">-- | The specific digest path of the image hosted in this</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- @ProductionVariant@.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#deployedImage_resolvedImage"><span class="hs-identifier hs-type">deployedImage_resolvedImage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage"><span class="hs-identifier hs-type">DeployedImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="deployedImage_resolvedImage"><span class="annot"><span class="annottext">deployedImage_resolvedImage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeployedImage -&gt; f DeployedImage
 </span><a href="Network.AWS.SageMaker.Types.DeployedImage.html#deployedImage_resolvedImage"><span class="hs-identifier hs-var hs-var">deployedImage_resolvedImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeployedImage -&gt; Maybe Text)
 -&gt; (DeployedImage -&gt; Maybe Text -&gt; DeployedImage)
 -&gt; Lens DeployedImage DeployedImage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage%27"><span class="hs-identifier hs-type">DeployedImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680299396"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage%27"><span class="hs-identifier hs-type">DeployedImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300772"><span class="annot"><span class="annottext">Maybe Text
 resolvedImage :: Maybe Text
 $sel:resolvedImage:DeployedImage' :: DeployedImage -&gt; Maybe Text
-</span><a href="#local-6989586621680299396"><span class="hs-identifier hs-var hs-var">resolvedImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680299396"><span class="hs-identifier hs-var">resolvedImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680299395"><span class="annot"><span class="annottext">s :: DeployedImage
-</span><a href="#local-6989586621680299395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage%27"><span class="hs-identifier hs-type">DeployedImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680299394"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680299394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeployedImage
-</span><a href="#local-6989586621680299395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolvedImage:DeployedImage' :: Maybe Text
+</span><a href="#local-6989586621680300772"><span class="hs-identifier hs-var hs-var">resolvedImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680300772"><span class="hs-identifier hs-var">resolvedImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300771"><span class="annot"><span class="annottext">s :: DeployedImage
+</span><a href="#local-6989586621680300771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage%27"><span class="hs-identifier hs-type">DeployedImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300770"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680300770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeployedImage
+</span><a href="#local-6989586621680300771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolvedImage:DeployedImage' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.DeployedImage.html#%24sel%3AresolvedImage%3ADeployedImage%27"><span class="hs-identifier hs-var">resolvedImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680299394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage"><span class="hs-identifier hs-type">DeployedImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680300770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage"><span class="hs-identifier hs-type">DeployedImage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The image path you specified when you created the model.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#deployedImage_specifiedImage"><span class="hs-identifier hs-type">deployedImage_specifiedImage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage"><span class="hs-identifier hs-type">DeployedImage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="deployedImage_specifiedImage"><span class="annot"><span class="annottext">deployedImage_specifiedImage :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DeployedImage -&gt; f DeployedImage
+</span><a href="Network.AWS.SageMaker.Types.DeployedImage.html#deployedImage_specifiedImage"><span class="hs-identifier hs-var hs-var">deployedImage_specifiedImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeployedImage -&gt; Maybe Text)
+-&gt; (DeployedImage -&gt; Maybe Text -&gt; DeployedImage)
+-&gt; Lens DeployedImage DeployedImage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage%27"><span class="hs-identifier hs-type">DeployedImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300768"><span class="annot"><span class="annottext">Maybe Text
+specifiedImage :: Maybe Text
+$sel:specifiedImage:DeployedImage' :: DeployedImage -&gt; Maybe Text
+</span><a href="#local-6989586621680300768"><span class="hs-identifier hs-var hs-var">specifiedImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680300768"><span class="hs-identifier hs-var">specifiedImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300767"><span class="annot"><span class="annottext">s :: DeployedImage
+</span><a href="#local-6989586621680300767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage%27"><span class="hs-identifier hs-type">DeployedImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300766"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680300766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeployedImage
+</span><a href="#local-6989586621680300767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:specifiedImage:DeployedImage' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.DeployedImage.html#%24sel%3AspecifiedImage%3ADeployedImage%27"><span class="hs-identifier hs-var">specifiedImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680300766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage"><span class="hs-identifier hs-type">DeployedImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The date and time when the image path for the model resolved to the</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- @ResolvedImage@</span><span>
@@ -184,16 +184,16 @@ $sel:resolvedImage:DeployedImage' :: DeployedImage -&gt; Maybe Text
 -&gt; (DeployedImage -&gt; Maybe POSIX -&gt; DeployedImage)
 -&gt; Lens DeployedImage DeployedImage (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage%27"><span class="hs-identifier hs-type">DeployedImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680299392"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage%27"><span class="hs-identifier hs-type">DeployedImage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680300764"><span class="annot"><span class="annottext">Maybe POSIX
 resolutionTime :: Maybe POSIX
 $sel:resolutionTime:DeployedImage' :: DeployedImage -&gt; Maybe POSIX
-</span><a href="#local-6989586621680299392"><span class="hs-identifier hs-var hs-var">resolutionTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680299392"><span class="hs-identifier hs-var">resolutionTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680299391"><span class="annot"><span class="annottext">s :: DeployedImage
-</span><a href="#local-6989586621680299391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage%27"><span class="hs-identifier hs-type">DeployedImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680299390"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680299390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeployedImage
-</span><a href="#local-6989586621680299391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolutionTime:DeployedImage' :: Maybe POSIX
+</span><a href="#local-6989586621680300764"><span class="hs-identifier hs-var hs-var">resolutionTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680300764"><span class="hs-identifier hs-var">resolutionTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680300763"><span class="annot"><span class="annottext">s :: DeployedImage
+</span><a href="#local-6989586621680300763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage%27"><span class="hs-identifier hs-type">DeployedImage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680300762"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680300762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeployedImage
+</span><a href="#local-6989586621680300763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resolutionTime:DeployedImage' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.Types.DeployedImage.html#%24sel%3AresolutionTime%3ADeployedImage%27"><span class="hs-identifier hs-var">resolutionTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680299390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage"><span class="hs-identifier hs-type">DeployedImage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680300762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage"><span class="hs-identifier hs-type">DeployedImage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DeployedImage -&gt; f DeployedImage)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -210,8 +210,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680299384"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage"><span class="hs-identifier hs-type">DeployedImage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621680299382"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeployedImage
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300756"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage"><span class="hs-identifier hs-type">DeployedImage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621680300754"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DeployedImage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DeployedImage)
@@ -221,8 +221,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DeployedImage&quot;</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680299379"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680299379"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680300751"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680300751"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; DeployedImage
 </span><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage%27"><span class="hs-identifier hs-var">DeployedImage'</span></a></span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; DeployedImage)
@@ -230,29 +230,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; DeployedImage)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680299379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680300751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SpecifiedImage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ResolvedImage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; DeployedImage)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; DeployedImage)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680299379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680300751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ResolvedImage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;SpecifiedImage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; DeployedImage)
 -&gt; Parser (Maybe POSIX) -&gt; Parser DeployedImage
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680299379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621680300751"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResolutionTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680299373"><span id="local-6989586621680299375"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage"><span class="hs-identifier hs-type">DeployedImage</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300745"><span id="local-6989586621680300747"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage"><span class="hs-identifier hs-type">DeployedImage</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680299370"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage"><span class="hs-identifier hs-type">DeployedImage</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680300742"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DeployedImage.html#DeployedImage"><span class="hs-identifier hs-type">DeployedImage</span></a></span></span><span>
 </span><span id="line-103"></span></pre></body></html>

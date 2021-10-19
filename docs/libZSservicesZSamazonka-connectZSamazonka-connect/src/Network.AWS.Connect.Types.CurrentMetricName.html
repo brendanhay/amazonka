@@ -41,13 +41,13 @@
 </span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- | The current metric names.</span><span>
-</span><span id="line-44"></span><span id="local-6989586621679395361"><span id="local-6989586621679395362"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CurrentMetricName"><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetricName.html#CurrentMetricName"><span class="hs-identifier hs-var">CurrentMetricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CurrentMetricName%27"><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetricName.html#CurrentMetricName%27"><span class="hs-identifier hs-var">CurrentMetricName'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679395641"><span id="local-6989586621679395642"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CurrentMetricName"><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetricName.html#CurrentMetricName"><span class="hs-identifier hs-var">CurrentMetricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CurrentMetricName%27"><span class="annot"><a href="Network.AWS.Connect.Types.CurrentMetricName.html#CurrentMetricName%27"><span class="hs-identifier hs-var">CurrentMetricName'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCurrentMetricName"><span class="annot"><span class="annottext">CurrentMetricName -&gt; Text
 </span><a href="Network.AWS.Connect.Types.CurrentMetricName.html#fromCurrentMetricName"><span class="hs-identifier hs-var hs-var">fromCurrentMetricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395353"><span id="local-6989586621679395355"><span id="local-6989586621679395357"><span class="annot"><span class="annottext">Int -&gt; CurrentMetricName -&gt; ShowS
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395633"><span id="local-6989586621679395635"><span id="local-6989586621679395637"><span class="annot"><span class="annottext">Int -&gt; CurrentMetricName -&gt; ShowS
 [CurrentMetricName] -&gt; ShowS
 CurrentMetricName -&gt; String
 (Int -&gt; CurrentMetricName -&gt; ShowS)
@@ -63,7 +63,7 @@ $cshow :: CurrentMetricName -&gt; String
 showsPrec :: Int -&gt; CurrentMetricName -&gt; ShowS
 $cshowsPrec :: Int -&gt; CurrentMetricName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679395344"><span id="local-6989586621679395346"><span id="local-6989586621679395348"><span id="local-6989586621679395350"><span class="annot"><span class="annottext">ReadPrec [CurrentMetricName]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679395624"><span id="local-6989586621679395626"><span id="local-6989586621679395628"><span id="local-6989586621679395630"><span class="annot"><span class="annottext">ReadPrec [CurrentMetricName]
 ReadPrec CurrentMetricName
 Int -&gt; ReadS CurrentMetricName
 ReadS [CurrentMetricName]
@@ -84,7 +84,7 @@ $creadList :: ReadS [CurrentMetricName]
 readsPrec :: Int -&gt; ReadS CurrentMetricName
 $creadsPrec :: Int -&gt; ReadS CurrentMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679395339"><span id="local-6989586621679395341"><span class="annot"><span class="annottext">CurrentMetricName -&gt; CurrentMetricName -&gt; Bool
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679395619"><span id="local-6989586621679395621"><span class="annot"><span class="annottext">CurrentMetricName -&gt; CurrentMetricName -&gt; Bool
 (CurrentMetricName -&gt; CurrentMetricName -&gt; Bool)
 -&gt; (CurrentMetricName -&gt; CurrentMetricName -&gt; Bool)
 -&gt; Eq CurrentMetricName
@@ -94,7 +94,7 @@ $c/= :: CurrentMetricName -&gt; CurrentMetricName -&gt; Bool
 == :: CurrentMetricName -&gt; CurrentMetricName -&gt; Bool
 $c== :: CurrentMetricName -&gt; CurrentMetricName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679395323"><span id="local-6989586621679395325"><span id="local-6989586621679395327"><span id="local-6989586621679395329"><span id="local-6989586621679395331"><span id="local-6989586621679395333"><span id="local-6989586621679395335"><span class="annot"><span class="annottext">Eq CurrentMetricName
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679395603"><span id="local-6989586621679395605"><span id="local-6989586621679395607"><span id="local-6989586621679395609"><span id="local-6989586621679395611"><span id="local-6989586621679395613"><span id="local-6989586621679395615"><span class="annot"><span class="annottext">Eq CurrentMetricName
 Eq CurrentMetricName
 -&gt; (CurrentMetricName -&gt; CurrentMetricName -&gt; Ordering)
 -&gt; (CurrentMetricName -&gt; CurrentMetricName -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. CurrentMetricName -&gt; Rep CurrentMetricName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395315"><span id="local-6989586621679395317"><span class="annot"><span class="annottext">Int -&gt; CurrentMetricName -&gt; Int
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679395595"><span id="local-6989586621679395597"><span class="annot"><span class="annottext">Int -&gt; CurrentMetricName -&gt; Int
 CurrentMetricName -&gt; Int
 (Int -&gt; CurrentMetricName -&gt; Int)
 -&gt; (CurrentMetricName -&gt; Int) -&gt; Hashable CurrentMetricName
@@ -155,51 +155,51 @@ $chash :: CurrentMetricName -&gt; Int
 hashWithSalt :: Int -&gt; CurrentMetricName -&gt; Int
 $chashWithSalt :: Int -&gt; CurrentMetricName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679395312"><span class="annot"><span class="annottext">CurrentMetricName -&gt; ()
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679395592"><span class="annot"><span class="annottext">CurrentMetricName -&gt; ()
 (CurrentMetricName -&gt; ()) -&gt; NFData CurrentMetricName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CurrentMetricName -&gt; ()
 $crnf :: CurrentMetricName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679395309"><span class="annot"><span class="annottext">Text -&gt; Either String CurrentMetricName
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679395589"><span class="annot"><span class="annottext">Text -&gt; Either String CurrentMetricName
 (Text -&gt; Either String CurrentMetricName)
 -&gt; FromText CurrentMetricName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CurrentMetricName
 $cfromText :: Text -&gt; Either String CurrentMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679395306"><span class="annot"><span class="annottext">CurrentMetricName -&gt; Text
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679395586"><span class="annot"><span class="annottext">CurrentMetricName -&gt; Text
 (CurrentMetricName -&gt; Text) -&gt; ToText CurrentMetricName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CurrentMetricName -&gt; Text
 $ctoText :: CurrentMetricName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679395303"><span class="annot"><span class="annottext">CurrentMetricName -&gt; ByteString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679395583"><span class="annot"><span class="annottext">CurrentMetricName -&gt; ByteString
 (CurrentMetricName -&gt; ByteString) -&gt; ToByteString CurrentMetricName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CurrentMetricName -&gt; ByteString
 $ctoBS :: CurrentMetricName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679395300"><span class="annot"><span class="annottext">CurrentMetricName -&gt; ByteStringBuilder
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679395580"><span class="annot"><span class="annottext">CurrentMetricName -&gt; ByteStringBuilder
 (CurrentMetricName -&gt; ByteStringBuilder) -&gt; ToLog CurrentMetricName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CurrentMetricName -&gt; ByteStringBuilder
 $cbuild :: CurrentMetricName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679395297"><span class="annot"><span class="annottext">HeaderName -&gt; CurrentMetricName -&gt; [Header]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679395577"><span class="annot"><span class="annottext">HeaderName -&gt; CurrentMetricName -&gt; [Header]
 (HeaderName -&gt; CurrentMetricName -&gt; [Header])
 -&gt; ToHeader CurrentMetricName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CurrentMetricName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CurrentMetricName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679395294"><span class="annot"><span class="annottext">CurrentMetricName -&gt; QueryString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679395574"><span class="annot"><span class="annottext">CurrentMetricName -&gt; QueryString
 (CurrentMetricName -&gt; QueryString) -&gt; ToQuery CurrentMetricName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CurrentMetricName -&gt; QueryString
 $ctoQuery :: CurrentMetricName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679395289"><span id="local-6989586621679395291"><span class="annot"><span class="annottext">Value -&gt; Parser [CurrentMetricName]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679395569"><span id="local-6989586621679395571"><span class="annot"><span class="annottext">Value -&gt; Parser [CurrentMetricName]
 Value -&gt; Parser CurrentMetricName
 (Value -&gt; Parser CurrentMetricName)
 -&gt; (Value -&gt; Parser [CurrentMetricName])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [CurrentMetricName]
 parseJSON :: Value -&gt; Parser CurrentMetricName
 $cparseJSON :: Value -&gt; Parser CurrentMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679395284"><span id="local-6989586621679395286"><span class="annot"><span class="annottext">FromJSONKeyFunction [CurrentMetricName]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679395564"><span id="local-6989586621679395566"><span class="annot"><span class="annottext">FromJSONKeyFunction [CurrentMetricName]
 FromJSONKeyFunction CurrentMetricName
 FromJSONKeyFunction CurrentMetricName
 -&gt; FromJSONKeyFunction [CurrentMetricName]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CurrentMetricName]
 fromJSONKey :: FromJSONKeyFunction CurrentMetricName
 $cfromJSONKey :: FromJSONKeyFunction CurrentMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679395275"><span id="local-6989586621679395277"><span id="local-6989586621679395279"><span id="local-6989586621679395281"><span class="annot"><span class="annottext">[CurrentMetricName] -&gt; Encoding
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679395555"><span id="local-6989586621679395557"><span id="local-6989586621679395559"><span id="local-6989586621679395561"><span class="annot"><span class="annottext">[CurrentMetricName] -&gt; Encoding
 [CurrentMetricName] -&gt; Value
 CurrentMetricName -&gt; Encoding
 CurrentMetricName -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: CurrentMetricName -&gt; Encoding
 toJSON :: CurrentMetricName -&gt; Value
 $ctoJSON :: CurrentMetricName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679395270"><span id="local-6989586621679395272"><span class="annot"><span class="annottext">ToJSONKeyFunction [CurrentMetricName]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679395550"><span id="local-6989586621679395552"><span class="annot"><span class="annottext">ToJSONKeyFunction [CurrentMetricName]
 ToJSONKeyFunction CurrentMetricName
 ToJSONKeyFunction CurrentMetricName
 -&gt; ToJSONKeyFunction [CurrentMetricName]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CurrentMetricName]
 toJSONKey :: ToJSONKeyFunction CurrentMetricName
 $ctoJSONKey :: ToJSONKeyFunction CurrentMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679395267"><span class="annot"><span class="annottext">[Node] -&gt; Either String CurrentMetricName
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679395547"><span class="annot"><span class="annottext">[Node] -&gt; Either String CurrentMetricName
 ([Node] -&gt; Either String CurrentMetricName)
 -&gt; FromXML CurrentMetricName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CurrentMetricName
 $cparseXML :: [Node] -&gt; Either String CurrentMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679395264"><span class="annot"><span class="annottext">CurrentMetricName -&gt; XML
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679395544"><span class="annot"><span class="annottext">CurrentMetricName -&gt; XML
 (CurrentMetricName -&gt; XML) -&gt; ToXML CurrentMetricName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CurrentMetricName -&gt; XML
